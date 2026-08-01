@@ -5,6 +5,7 @@ Status: draft working template. The dossier is a preservation and access package
 ## Dossier envelope
 
 - Dossier ID: `6529NM.<object-or-lot-id>-DOS01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Object/lot IDs: `[...]`
 - Dossier version / supersedes: `[...]`
 - Package type: `[SIP intake | AIP preservation | DIP access | documentation-only | other]`

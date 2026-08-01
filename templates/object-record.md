@@ -7,7 +7,9 @@ Status: draft working template. Complete one record per artwork/object even when
 - Record type: `OBJECT_RECORD`
 - Object ID: `6529NM.<year>.<sequence>.<item>`
 - Accession lot: `[...]`
-- Record status: `[draft | selected_pending_mint | acquired_pending_accession | accessioned | catalogued | technically_verified | preservation_complete | display_ready | amended | superseded]`
+- Record-control block: `[instantiate exactly from record-control.md]`
+- `record_control.record_status`: `[constructed | reviewed]`
+- Object lifecycle state: `[draft | selected_unminted | acquired_pending_accession | accessioned | catalogued | technically_verified | preservation_complete | display_ready | amended | superseded]`
 - Created at / effective at / revision: `[...]`
 - Supersedes / amendment: `[none | record ID]`
 - Constructor and reviewer refs: `[...]`
@@ -34,7 +36,7 @@ Describe the artwork as more than its token. State whether the token, contract, 
 
 ## Native identity and state
 
-- Subject state: `[native_token_verified | non_token_digital_object | hybrid | selected_pending_mint | not_yet_identified]`
+- Subject state: `[native_token_verified | non_token_digital_object | hybrid | selected_unminted | not_yet_identified]`
 - Blockchain/network and numeric chain ID: `[...]`
 - Token standard: `[...]`
 - Contract address: `[...]`
@@ -48,7 +50,7 @@ Describe the artwork as more than its token. State whether the token, contract, 
 - Last custody verification block/time: `[...]`
 - State qualifier/commitment (`@fin`, `@snap`, or `@chain` where used): `[...]`
 
-If `subject_state` is `selected_pending_mint`, set all unverified chain identity fields to `not_yet_assigned` or `not_applicable`; preserve the program selection evidence in the state-gate worksheet; do not fabricate a CAIP-19 citation.
+If `subject_state` is `selected_unminted`, set all unverified chain identity fields to `not_yet_assigned` or `not_applicable`; preserve the program selection evidence in the state-gate worksheet; do not fabricate a CAIP-19 citation.
 
 ## Title, custody, and provenance references
 

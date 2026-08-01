@@ -2,6 +2,8 @@
 
 Status: draft working template. An attestation records who constructed or reviewed a record, the scope of the review, and its evidence. It is not a substitute for a legal signature where law or an instrument requires one.
 
+The governed JSON record must use the exact [`record-control.md`](record-control.md) block. These attestations are the human-readable review narrative; `record_control.review.payload_sha256` is the authoritative machine-checkable binding.
+
 ## Attestation envelope
 
 - Attestation ID: `6529NM.<record-id>-AT01`
@@ -10,6 +12,21 @@ Status: draft working template. An attestation records who constructed or review
 - Supersedes: `[none | attestation ID]`
 - Attestation hash/signature reference: `[...]`
 - Signature scheme or verification method: `[...]`
+
+## Exact record-control binding
+
+- `record_status`: `[constructed | reviewed]`
+- `constructor.actor_id`: `[non-empty actor ID]`
+- `constructor.role`: `constructor`
+- `constructor.constructed_at`: `[RFC 3339 UTC timestamp]`
+- `review.actor_id`: `[non-empty actor ID, distinct from constructor; null while constructed]`
+- `review.role`: `reviewer` (when reviewed)
+- `review.reviewed_at`: `[RFC 3339 UTC timestamp; null while constructed]`
+- `review.reviewed_commit`: `[40 lowercase hexadecimal Git commit; null while constructed]`
+- `review.outcome`: `approved` (when reviewed)
+- `review.payload_sha256`: `sha256:[64 lowercase hexadecimal characters; null while constructed]`
+
+`review.payload_sha256` is computed over the full top-level JSON record after removing `record_control`, using UTF-8, `ensure_ascii=False`, `allow_nan=False`, sorted keys, and compact separators `(',', ':')`. Do not substitute a file hash, Markdown hash, signature hash, PR number, branch name, or filename.
 
 ## Constructor/preparer attestation
 
@@ -21,6 +38,8 @@ I attest that I constructed this record from the cited source material, preserve
 - Constructed at (UTC): `[...]`
 - Version: `[...]`
 - Signature/hash reference: `[...]`
+
+The constructor may calculate the payload hash for a handoff, but cannot populate an approved review or review outcome.
 
 ## Registrar/title/rights attestation
 
@@ -61,6 +80,9 @@ I attest that I reviewed the record independently of its constructor, tested the
 - Review scope: `[...]`
 - Reviewed at (UTC): `[...]`
 - Findings/open conditions: `[...]`
+- `record_control.review.actor_id`: `[same reviewer actor ID]`
+- `record_control.reviewed_commit`: `[40 lowercase hexadecimal Git commit]`
+- `record_control.review.payload_sha256`: `sha256:[64 lowercase hexadecimal characters]`
 - Signature/hash reference: `[...]`
 
 ## Approver/effective authority

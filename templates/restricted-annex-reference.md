@@ -5,6 +5,7 @@ Status: draft working template. This file is a public pointer and control record
 ## Public pointer
 
 - Reference ID: `6529NM.<lot-or-object-id>-RESTRICTED01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Related public record(s): `[...]`
 - Restricted annex content hash: `[...]`
 - Hash algorithm/canonicalization: `[...]`

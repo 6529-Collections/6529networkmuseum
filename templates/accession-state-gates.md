@@ -7,8 +7,14 @@ Status: draft working template. Complete one worksheet per lot and retain object
 - Lot ID: `[6529NM.<year>.<sequence>]`
 - Program or pathway: `[donation | preapproved donation | network-funded program | Meme Card benefit-work program | individual/group-funded program | purchase | other]`
 - Object or outcome IDs covered: `[...]`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Prepared by / date / version: `[...]`
 - Governing source or authorization reference: `[...]`
+
+Current status fields used by the canonical accession register:
+
+- `donation_status`: `[offered | received | not_applicable]`
+- `accession_status`: `[not_started | documentation_in_progress | accessioned]`
 
 ## State register
 
@@ -32,7 +38,7 @@ Complete this section for a selected work without a verified token identity.
 
 - Program ID: `[...]`
 - Selection evidence (Wave URL, serial, drop ID, live status, observation time): `[...]`
-- Selection state: `selected_pending_mint`
+- Selection state: `selected_unminted`
 - Mint status: `[not_minted | mint_pending_verification | minted_pending_purchase | minted_pending_transfer | verified]`
 - Purchase/acquisition status: `[not_started | agreed | paid_pending_delivery | acquired | not_applicable]`
 - Artist consent/rights status: `[pending | received | verified | failed | not_applicable]`

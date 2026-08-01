@@ -3,7 +3,7 @@
 Date: 2026-08-01 UTC
 Status: WIP research and design note; not adopted policy.
 Scope: born-digital/tokenized art accession and donation operating templates.
-Repository scope respected: this note does not edit any Casey Reas or Keys and Gates record.
+Repository scope respected: this note does not edit any Casey Reas or Keys and Gates record. It is a template-alignment addendum to the foundation crosswalk at [`notes/research/museum-standards-crosswalk.md`](museum-standards-crosswalk.md) and the current operational crosswalk at [`docs/standards-crosswalk.md`](../../docs/standards-crosswalk.md).
 
 ## Research question
 
@@ -54,6 +54,12 @@ The Smithsonian public practice pages reinforce the workflow: establish intellec
 
 Public museum practice distinguishes access goals from legal, privacy, intellectual-property, object-availability, and preservation constraints. The public inventory template therefore requires a rights/consent check, removal of restricted details, clear surrogate labeling, and a statement of uncertainty. It does not publish donor contact information, executed instruments, appraisals, security-sensitive custody details, or private storage locations.
 
+### 6. Record control is a machine-checkable review binding
+
+The merged foundation validator defines the exact record-control contract. A governed JSON record has `record_status: constructed` with `review: null` until independently reviewed. A reviewed record requires `review.actor_id`, `role: reviewer`, `reviewed_at`, a 40-character lowercase immutable `reviewed_commit`, `outcome: approved`, and `payload_sha256`. The constructor and reviewer actor IDs must differ.
+
+The payload hash is computed over the entire top-level JSON object after removing `record_control`, serialized as UTF-8 JSON with `ensure_ascii=False`, `allow_nan=False`, sorted keys, and compact `(',', ':')` separators. The hash is not a Markdown hash, file hash, signature hash, branch name, PR number, or hash of the review block. The new `templates/record-control.md` makes this exact algorithm reusable across the accession, object, rights, preservation, public, and review forms.
+
 ## Design decisions retained in the templates
 
 1. **Lot/object split.** One accession lot captures the institutional act and shared terms. Each object has its own identity, chain facts, technical/condition report, provenance, rights, preservation, and public-release decision.
@@ -66,16 +72,17 @@ Public museum practice distinguishes access goals from legal, privacy, intellect
 8. **Public/restricted separation.** Public records expose stable identity and approved public evidence; restricted material is referred to by a hash and non-sensitive custodian only.
 9. **Attestations.** Constructor, registrar/title, technical, curatorial, and independent reviewer attestations make accountability explicit and preserve disagreement/open conditions.
 10. **Append-only correction.** Amendments carry `supersedes`, preserve prior hashes, and explain the reason for change.
+11. **Record-control binding.** A reviewed payload is bound to an immutable commit and the canonical payload SHA-256 after removing `record_control`; prose attestations do not replace the machine-checkable review object.
 
 ## Scenario controls
 
 ### Completed Casey Reas donation
 
-The completed Casey Reas donation is the motivating multi-object scenario. The templates support one lot with one object row per donated work/token, one lot-level transfer/title schedule, and separate object-level technical/condition, rights, provenance, preservation, and public-inventory records. The actual Casey records remain outside this change; this note supplies only the operating pattern and the rule that verified values must be copied from the canonical record rather than inferred here.
+The completed Casey Reas donation is the motivating multi-object scenario. Its current canonical lot state is `donation_status: received` and `accession_status: documentation_in_progress` (accession-in-progress), while work-level accession gates remain evidence-based. The templates support one lot with one object row per donated work/token, one lot-level transfer/title schedule, and separate object-level technical/condition, rights, provenance, preservation, and public-inventory records. The actual Casey records remain outside this change; this note supplies only the operating pattern and the rule that verified values must be copied from the canonical record rather than inferred here.
 
 ### Keys and Gates unminted state
 
-The formal Keys and Gates program model distinguishes a program selection from later minting, purchase/acquisition, transfer, rights/consent verification, custody, and accession. The templates use `selected_pending_mint` for a selected submission that lacks verified native token identity. In that state:
+The formal Keys and Gates program model distinguishes a program selection from later minting, purchase/acquisition, transfer, rights/consent verification, custody, and accession. The templates use `selected_unminted` for a selected submission that lacks verified native token identity. In that state:
 
 - program selection evidence is recorded with Wave URL, serial, drop ID, live status, and observation time;
 - native contract/token/CAIP-19 fields remain `not_yet_assigned` or `not_applicable`;

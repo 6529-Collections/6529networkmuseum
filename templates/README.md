@@ -8,6 +8,7 @@ These templates are the operational layer below [`docs/accession-standard.md`](.
 
 | Template | Use | Record boundary |
 |---|---|---|
+| [`record-control.md`](record-control.md) | Instantiate the exact constructor/reviewer and canonical payload-hash contract | Top-level governed JSON `record_control` block |
 | [`accession-state-gates.md`](accession-state-gates.md) | Gate offered or selected material through authorization, acquisition, receipt, accession, cataloguing, technical verification, preservation, and display | Workflow state; not an accession record |
 | [`accession-lot.md`](accession-lot.md) | Establish one accession act for one donation, purchase, transfer, or program outcome | Lot-level institutional act and object schedule |
 | [`object-record.md`](object-record.md) | Describe one artwork/object in the lot | One object, one evidence trail, one status view |
@@ -29,6 +30,7 @@ These templates are the operational layer below [`docs/accession-standard.md`](.
 6. Corrections are append-only amendments with `supersedes`. Do not silently rewrite a historical assertion or reuse an object number for a different work.
 7. Public records contain only public-safe material. Donor contacts, executed instruments, appraisals, private signatures, custody-security details, private storage locations, and sensitive risk analysis remain in the restricted annex.
 8. A retained file, render, video, manifest, or wrapper is a preservation/documentation surrogate unless the artist or governing source says otherwise. It is not automatically the tokenized artwork.
+9. Instantiated governed JSON records use the exact [`record-control.md`](record-control.md) contract: `record_status` is `constructed` or `reviewed`; constructed records have `review: null`; reviewed records require a distinct non-empty reviewer, immutable 40-character lowercase commit, `outcome: approved`, and `payload_sha256` over the top-level payload with `record_control` removed.
 
 ## State model
 
@@ -36,17 +38,17 @@ Use the state model in [`accession-state-gates.md`](accession-state-gates.md). T
 
 `offered` → `authorized` → `acquired` → `received_onchain` → `accessioned` → `catalogued` → `technically_verified` → `preservation_complete` → `display_ready`
 
-For pre-mint program selections, use `selected_pending_mint` alongside the program outcome. Do not create a token citation, title binding, custody receipt, or accession claim until a specific on-chain asset and the corresponding legal/acquisition evidence exist.
+For pre-mint program selections, use `selected_unminted` alongside the program outcome. Do not create a token citation, title binding, custody receipt, or accession claim until a specific on-chain asset and the corresponding legal/acquisition evidence exist.
 
 ## Scenario controls
 
 ### Completed Casey Reas donation
 
-The completed Casey Reas donation is a multi-object donation scenario for this packet. Use one accession lot with one object record per donated work/token, a lot-level donor/transfer record, and object-level technical, condition, provenance, rights, preservation, and public-inventory entries. The templates intentionally contain no Casey object facts and do not replace or edit the actual Casey records. When filling them, copy verified values from the canonical records and bind the title evidence to the specific transfer for each object.
+The completed Casey Reas donation is a multi-object donation scenario for this packet. Its current lot state is `donation_status: received` and `accession_status: documentation_in_progress` (accession-in-progress), not accession-complete. Use one accession lot with one object record per donated work/token, a lot-level donor/transfer record, and object-level technical, condition, provenance, rights, preservation, and public-inventory entries. The templates intentionally contain no Casey object facts and do not replace or edit the actual Casey records. When filling them, copy verified values from the canonical records and bind the title evidence to the specific transfer for each object.
 
 ### Unminted Keys and Gates selections
 
-Keys and Gates is a program-selection pathway, not an automatic accession. A selected submission may be tracked as `selected_pending_mint` while mint, purchase/acquisition, title, rights/consent, custody transfer, and technical intake remain open. The Wave selection is retained as program evidence; it is never substituted for an ERC-721/1155 identity, a transaction, or a completed accession. If a selected work is unavailable or fails the formal terms, record the outcome and any rank-based roll-forward as a new, attributed program event.
+Keys and Gates is a program-selection pathway, not an automatic accession. A selected submission is tracked as `selected_unminted` while mint, purchase/acquisition, title, rights/consent, custody transfer, and technical intake remain open. The Wave selection is retained as program evidence; it is never substituted for an ERC-721/1155 identity, a transaction, or a completed accession. If a selected work is unavailable or fails the formal terms, record the outcome and any rank-based roll-forward as a new, attributed program event.
 
 ## Interoperability boundary
 

@@ -5,6 +5,7 @@ Status: draft working template. Keep the four lanes below distinct and attribute
 ## Record envelope
 
 - Schedule ID: `6529NM.<object-id>-PROV01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Object ID / lot ID: `[...]`
 - Prepared / reviewed by: `[...]`
 - Observation cutoff (UTC): `[...]`

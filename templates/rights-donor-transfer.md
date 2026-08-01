@@ -5,6 +5,7 @@ Status: draft working template. This form records rights and transfer evidence; 
 ## Record envelope
 
 - Record ID: `6529NM.<lot-or-object-id>-RIGHTS01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Lot/object IDs covered: `[...]`
 - Acquisition method/pathway: `[...]`
 - Instrument version/date: `[...]`

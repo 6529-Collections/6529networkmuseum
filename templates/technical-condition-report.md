@@ -5,6 +5,7 @@ Status: draft working template. Complete per object, or explicitly identify a sh
 ## Examination envelope
 
 - Report ID: `6529NM.<object-id>-TECH01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Object ID / lot ID: `[...]`
 - Examiner / independent reviewer: `[...]`
 - Examination date/time (UTC): `[...]`

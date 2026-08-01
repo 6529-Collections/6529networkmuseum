@@ -5,6 +5,7 @@ Status: draft working template. This is a public-safe projection of governed obj
 ## Publication envelope
 
 - Public record ID: `6529NM.<object-id>-PUBLIC01`
+- Record-control block: `[instantiate exactly from record-control.md]`
 - Object ID / lot ID: `[...]`
 - Publication status: `[draft | pending review | published | amended | withdrawn]`
 - Public URI: `[...]`

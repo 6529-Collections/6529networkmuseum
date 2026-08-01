@@ -6,8 +6,12 @@ Status: draft working template. This is the short institutional act plus an obje
 
 - Record type: `ACCESSION_LOT`
 - Lot ID: `6529NM.<year>.<sequence>`
+- Record-control block: `[instantiate exactly from record-control.md]`
+- `record_control.record_status`: `[constructed | reviewed]`
 - Schema/profile version: `[...]`
-- Record status: `[draft | proposed | approved | accessioned | amended | superseded]`
+- Lot lifecycle state: `[draft | proposed | approved | accessioned | amended | superseded]`
+- `donation_status`: `[offered | received | not_applicable]`
+- `accession_status`: `[not_started | documentation_in_progress | accessioned]`
 - Created at / effective at: `[...]`
 - Supersedes / amendment: `[none | record ID]`
 - Public record URI: `[...]`

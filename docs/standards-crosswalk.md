@@ -14,7 +14,7 @@ The Museum needs a durable packet for born-digital and tokenized art that can an
 4. What may the Museum preserve, display, publish, reproduce, migrate, or make available?
 5. Can another person reconstruct the record, verify its fixity, understand its limitations, and distinguish public facts from restricted registrar material?
 
-The packet therefore uses an accession lot for the institutional act and an individual object record for every artwork/object. It adds a state-gate worksheet, object-level technical/condition and provenance schedules, a rights/donor-transfer record, a preservation dossier, a public inventory, a restricted-annex pointer, and constructor/reviewer attestations.
+The packet therefore uses an accession lot for the institutional act and an individual object record for every artwork/object. It adds a state-gate worksheet, object-level technical/condition and provenance schedules, a rights/donor-transfer record, a preservation dossier, a public inventory, a restricted-annex pointer, and constructor/reviewer attestations. Instantiated governed JSON uses the exact [`templates/record-control.md`](../templates/record-control.md) contract: the reviewer payload hash is computed over the top-level record after removing `record_control`.
 
 ## Source register
 
@@ -51,7 +51,7 @@ The Spectrum web edition is licensed; this crosswalk paraphrases its requirement
 | Preservation package | `preservation-dossier.md` | Spectrum collections care, documentation planning, audit | Objects, events, agents, rights and environment relationships | PREMIS is the semantic preservation model; BagIt is package layout; OCFL is versioned storage | Preserve native metadata, code/media, dependencies, environment, captures, instructions, fixity, recovery lineage, and access derivatives. |
 | Public access and checklist | `public-inventory.md` | Spectrum cataloguing, use of collections, rights/reproduction | LIDO delivery record and resource/rights fields | IIIF Presentation manifest; C2PA/BagIt/OCFL references where safe | The public record is a projection after rights/privacy/technical review. It never exposes restricted donor, appraisal, security, or private storage data. |
 | Restricted registrar annex | `restricted-annex-reference.md` | Spectrum documentation planning and access controls; public museum practice supports restriction for legal, privacy, IP, and preservation reasons | Actor identities and sensitive events remain access-controlled in the application layer | Package/hash reference only; no private payload | Publish a non-sensitive custodian and hash, not the private annex. |
-| Constructor and reviewer accountability | `attestations.md` | Spectrum audit/accountability | PREMIS Agents and Events; CRM actors/times | Stream signature/hash references and effective times; OCFL preserves versions | A second person reviews the record. Attestations state scope and limitations; they do not turn an unverified claim into a fact. |
+| Constructor and reviewer accountability | `attestations.md`, `record-control.md` | Spectrum audit/accountability | PREMIS Agents and Events; CRM actors/times | Bootstrap `record_control` requires constructor/reviewer roles, distinct actor IDs, immutable reviewed commit, approved outcome, and payload SHA-256 | A second person reviews the record. `payload_sha256` hashes the entire top-level JSON payload after removing `record_control`; prose attestations do not replace this binding. |
 | Corrections and versions | All templates | Spectrum audit/documentation continuity | New event/record linked to prior state | PREMIS event; OCFL superseding version; BagIt new package; Stream append-only record/supersession | Corrections append `supersedes`, preserve prior hashes, and never silently rewrite a historical assertion. |
 
 ## CIDOC CRM and LIDO profile notes
@@ -88,9 +88,9 @@ Use the independent state sequence:
 
 `offered` → `authorized` → `acquired` → `received_onchain` → `accessioned` → `catalogued` → `technically_verified` → `preservation_complete` → `display_ready`
 
-For the completed Casey Reas donation, the packet is lot-first and object-specific: one accession act can cover multiple donated works, but every object has its own stable number, native identity, title binding, technical/condition evidence, rights, preservation status, public release, and review. This crosswalk intentionally does not copy or alter any Casey record.
+For the completed Casey Reas donation, the packet is lot-first and object-specific. The canonical lot is `donation_status: received` with `accession_status: documentation_in_progress` (accession-in-progress), not accession-complete: one accession act can cover multiple donated works, but every object has its own stable number, native identity, title binding, technical/condition evidence, rights, preservation status, public release, and review. This crosswalk intentionally does not copy or alter any Casey record.
 
-For Keys and Gates while selections remain unminted, the program outcome is recorded as `selected_pending_mint`. A Wave selection can support an authorization/program-evidence field, but it cannot populate native chain identity, mint/acquisition transaction, title binding, custody receipt, accession, or preservation completion. A later amendment or object record may be created only after the specific asset and required evidence are verified.
+For Keys and Gates while selections remain unminted, the program outcome is recorded as `selected_unminted`. A Wave selection can support an authorization/program-evidence field, but it cannot populate native chain identity, mint/acquisition transaction, title binding, custody receipt, accession, or preservation completion. A later amendment or object record may be created only after the specific asset and required evidence are verified.
 
 ## 6529Stream convergence and deliberate divergence
 
