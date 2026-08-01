@@ -10,8 +10,10 @@ artistically unimportant work, and a common trait may occur in an important
 work. Rarity must never substitute for artist, provenance, rights, condition,
 technical, historical, or curatorial review.
 
-OpenSea rarity, rankings, floor prices, sales, or any other OpenSea metric are
-prohibited as Museum evidence and are not accepted inputs to this tooling.
+OpenSea-sourced or computed rarity metric fields are prohibited as Museum
+evidence and rejected by this tooling. Provenance prose, citations, and URLs
+that mention OpenSea remain admissible; they are evidence of provenance or
+source context, not rarity inputs.
 
 ## Pinned sources
 
@@ -53,6 +55,12 @@ The output exposes the raw snapshot, deterministically normalized snapshot,
 quality observations, configuration, per-trait rows, per-token scores/ranks,
 and hashes. It retains `Mint Type` rows in the audit/per-trait output while
 excluding them from score aggregates, matching the backend.
+
+The OpenSea guard rejects structured fields such as `opensea_rarity_score`,
+or a generic rarity metric field whose provider is OpenSea. It does not reject
+free-text notes, provenance descriptions, citation labels, or citation URLs
+that happen to contain the word OpenSea. OpenSea values are never used to
+calculate a Museum score.
 
 ## Normalization and data quality
 
@@ -166,6 +174,20 @@ preserved array order. It emits:
 
 All are rendered as `sha256:<64 lowercase hex digits>`. Repeat runs over the
 same snapshot and duplicate policy must produce identical JSON and hashes.
+The output's `determinism` profile records the active Python implementation,
+version, JSON encoder settings, and float boundary. This implementation's
+byte/hash guarantee is intentionally limited to the same CPython
+implementation and version: CPython's shortest-round-trip float encoding is
+part of the commitment. A Python implementation/version change requires
+review and fixture regeneration; this compact encoder is not a claim of RFC
+8785 cross-runtime compatibility.
+
+## CLI exit semantics
+
+Argument-parser misuse (missing required arguments, unknown flags, or invalid
+choice values) exits with `2`, as required by `argparse`. A readable but
+invalid snapshot, rejected duplicate/orphan policy, prohibited metric field,
+or input file/JSON error exits with `1`. A successful analysis exits with `0`.
 
 ## Tests and review boundary
 
@@ -178,6 +200,9 @@ python -m unittest discover -s tests/rarity -p 'test_*.py' -v
 The fixture tests cover exact score values, explicit missing traits, `None`
 handling, `Mint Type` exclusion, duplicate error/preserve/deduplicate modes,
 per-trait dense ranks, token competition ranks, and repeatable hashes.
+They also cover OpenSea provenance prose/citations versus metric fields, the
+defensive empty-rank guard, preserve-mode products, the empty-token
+`Math.min(...[])` parity path, CLI exit codes, and the CPython float boundary.
 
 This analysis is an evidence aid only. It must remain separate from the
 Museum accession register, object identity, rights, provenance, preservation,

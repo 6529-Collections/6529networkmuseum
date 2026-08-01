@@ -19,9 +19,15 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
   corrected. Per-trait ranks are dense and descending; token ranks are stable
   competition ranks, with rarity descending and statistical/single-trait
   families ascending.
-- OpenSea metrics are explicitly outside the Museum analysis boundary.
+- OpenSea-sourced or computed rarity metric fields are outside the Museum
+  analysis boundary; provenance prose, citations, and URLs mentioning OpenSea
+  remain admissible and are not used as score inputs.
 - Trait rarity is descriptive prevalence, not quality or curatorial
   significance.
+- Hash determinism is explicitly bounded to the same CPython implementation
+  and version because canonical JSON uses CPython's shortest-round-trip float
+  encoding; fixture regeneration and review are required after a runtime
+  change.
 
 ## Implementation status
 
@@ -43,3 +49,6 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
    forensic comparisons or require `deduplicate`/manual review before
    publication. The default remains rejection of duplicate `(token_id, trait)`
    rows.
+4. The repository currently does not pin a Python runtime in a project-level
+   manifest. Until it does, the fixture's recorded CPython version is the
+   determinism boundary and must be checked by the focused tests.

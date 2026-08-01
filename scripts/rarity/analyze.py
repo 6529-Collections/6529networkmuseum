@@ -13,6 +13,9 @@ except ImportError:  # pragma: no cover - supports direct script execution
     from nextgen_compat import InputError, analyze_snapshot, load_snapshot
 
 
+DATA_ERROR_EXIT = 1
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
@@ -42,8 +45,9 @@ def main(argv: list[str] | None = None) -> int:
         result = analyze_snapshot(
             load_snapshot(args.snapshot), duplicate_policy=args.duplicates
         )
-    except (OSError, json.JSONDecodeError, InputError) as error:
-        parser.error(str(error))
+    except (OSError, UnicodeError, json.JSONDecodeError, InputError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return DATA_ERROR_EXIT
 
     encoded = json.dumps(
         result, ensure_ascii=False, indent=2, sort_keys=False

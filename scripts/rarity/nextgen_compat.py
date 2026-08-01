@@ -9,10 +9,12 @@ per-trait rows, per-token scores, and deterministic hashes.
 
 from __future__ import annotations
 
+from collections import Counter
 from copy import deepcopy
 import hashlib
 import json
 import math
+import platform
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -80,13 +82,35 @@ class InputError(ValueError):
     """Raised when a snapshot cannot be analyzed without an implicit repair."""
 
 
+def determinism_profile() -> dict[str, str]:
+    """Describe the runtime boundary for byte- and hash-stable output."""
+
+    return {
+        "implementation": platform.python_implementation(),
+        "python_version": platform.python_version(),
+        "json_encoder": (
+            "stdlib json.dumps(ensure_ascii=False, allow_nan=False, "
+            "sort_keys=True, separators=(',', ':'))"
+        ),
+        "float_encoding": (
+            "CPython json.encoder shortest-round-trip float representation"
+        ),
+        "boundary": (
+            "byte/hash reproducibility is guaranteed only for the same CPython "
+            "implementation and version; review and regenerate fixtures after "
+            "any implementation or version change"
+        ),
+    }
+
+
 def canonical_json(value: Any) -> bytes:
     """Return the repository's compact, stable JSON form for hashing.
 
-    This is deliberately smaller than a general JSON canonicalization
-    implementation: snapshots are constrained to JSON values, UTF-8 text,
-    finite IEEE-754 numbers, and sorted object keys.  Array order is data and
-    is therefore preserved.
+    This is deliberately smaller than RFC 8785 or a general JSON
+    canonicalization implementation: snapshots are constrained to JSON
+    values, UTF-8 text, finite IEEE-754 numbers, and sorted object keys.
+    Array order is data and is therefore preserved. Float bytes are bounded
+    by the CPython implementation/version reported by ``determinism_profile``.
     """
 
     return json.dumps(
@@ -132,22 +156,91 @@ def _is_none_value(value: str) -> bool:
     return value.lower().startswith("none")
 
 
-def _reject_opensea_references(value: Any, path: str = "snapshot") -> None:
+OPEN_SEA_METRIC_TERMS = (
+    "rarity",
+    "rank",
+    "score",
+    "metric",
+    "percentile",
+    "frequency",
+    "prevalence",
+    "trait",
+    "floor",
+    "price",
+    "sale",
+    "volume",
+)
+RARITY_METRIC_TERMS = (
+    "rarity",
+    "rank",
+    "score",
+    "metric",
+    "percentile",
+    "frequency",
+    "prevalence",
+)
+PROVIDER_KEYS = {"source", "provider", "marketplace", "origin", "issuer"}
+
+
+def _normalized_key(key: Any) -> str:
+    return "".join(character for character in str(key).lower() if character.isalnum())
+
+
+def _is_metric_key(key: Any) -> bool:
+    normalized = _normalized_key(key)
+    return any(term in normalized for term in OPEN_SEA_METRIC_TERMS)
+
+
+def _is_rarity_metric_key(key: Any) -> bool:
+    normalized = _normalized_key(key)
+    return any(term in normalized for term in RARITY_METRIC_TERMS)
+
+
+def _is_opensea_metric_key(key: Any) -> bool:
+    normalized = _normalized_key(key)
+    return "opensea" in normalized and _is_metric_key(normalized)
+
+
+def _contains_opensea_text(value: Any) -> bool:
+    if isinstance(value, str):
+        return "opensea" in value.lower()
     if isinstance(value, dict):
+        return any(_contains_opensea_text(child) for child in value.values())
+    if isinstance(value, list):
+        return any(_contains_opensea_text(child) for child in value)
+    return False
+
+
+def _reject_opensea_metric_fields(value: Any, path: str = "snapshot") -> None:
+    """Reject structured OpenSea metrics while allowing provenance text/citations."""
+
+    if isinstance(value, dict):
+        has_opensea_provider = any(
+            _normalized_key(key) in PROVIDER_KEYS and _contains_opensea_text(child)
+            for key, child in value.items()
+        )
+        has_metric_key = any(_is_rarity_metric_key(key) for key in value)
+        if has_opensea_provider and has_metric_key:
+            raise InputError(
+                "OpenSea-sourced rarity metric fields are prohibited in Museum "
+                f"snapshots: {path}"
+            )
         for key, child in value.items():
             key_text = str(key)
-            if "opensea" in key_text.lower():
+            if _is_opensea_metric_key(key):
                 raise InputError(
-                    f"OpenSea fields are prohibited in Museum rarity snapshots: {path}.{key_text}"
+                    "OpenSea-sourced or computed rarity metric fields are "
+                    f"prohibited in Museum rarity snapshots: {path}.{key_text}"
                 )
-            _reject_opensea_references(child, f"{path}.{key_text}")
+            if _is_rarity_metric_key(key) and _contains_opensea_text(child):
+                raise InputError(
+                    "OpenSea-sourced or computed rarity metric fields are "
+                    f"prohibited in Museum rarity snapshots: {path}.{key_text}"
+                )
+            _reject_opensea_metric_fields(child, f"{path}.{key_text}")
     elif isinstance(value, list):
         for index, child in enumerate(value):
-            _reject_opensea_references(child, f"{path}[{index}]")
-    elif isinstance(value, str) and "opensea" in value.lower():
-        raise InputError(
-            f"OpenSea references are prohibited in Museum rarity snapshots: {path}"
-        )
+            _reject_opensea_metric_fields(child, f"{path}[{index}]")
 
 
 def _validate_snapshot_shape(snapshot: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -227,11 +320,11 @@ def normalize_snapshot(
             "duplicate_policy must be one of: error, preserve, deduplicate"
         )
 
-    _reject_opensea_references(snapshot)
+    _reject_opensea_metric_fields(snapshot)
     tokens, raw_traits = _validate_snapshot_shape(snapshot)
     token_ids = [token["id"] for token in tokens]
     token_id_duplicates = sorted(
-        {token_id for token_id in token_ids if token_ids.count(token_id) > 1}
+        token_id for token_id, count in Counter(token_ids).items() if count > 1
     )
     trait_duplicates = _duplicate_groups(raw_traits)
     declared_token_ids = set(token_ids)
@@ -264,25 +357,27 @@ def normalize_snapshot(
         by_key: dict[tuple[int, str], list[dict[str, Any]]] = {}
         for row in raw_traits:
             by_key.setdefault((row["token_id"], row["trait"]), []).append(row)
-        effective_traits = [
-            sorted(rows, key=lambda row: (row["value"], row["collection_id"]))[0]
-            for _, rows in sorted(by_key.items())
-        ]
-        deduplicated_rows = [
-            {
-                "token_id": token_id,
-                "trait": trait,
-                "removed_values": sorted(
-                    row["value"]
-                    for row in rows
-                    if row is not sorted(
-                        rows, key=lambda item: (item["value"], item["collection_id"])
-                    )[0]
-                ),
-            }
-            for (token_id, trait), rows in sorted(by_key.items())
-            if len(rows) > 1
-        ]
+        effective_traits = []
+        for (token_id, trait), rows in sorted(by_key.items()):
+            kept_row = min(
+                rows, key=lambda row: (row["value"], row["collection_id"])
+            )
+            effective_traits.append(kept_row)
+            if len(rows) > 1:
+                kept = False
+                removed_values: list[str] = []
+                for row in rows:
+                    if row is kept_row and not kept:
+                        kept = True
+                    else:
+                        removed_values.append(row["value"])
+                deduplicated_rows.append(
+                    {
+                        "token_id": token_id,
+                        "trait": trait,
+                        "removed_values": sorted(removed_values),
+                    }
+                )
 
     normalized_tokens = sorted(tokens, key=lambda token: token["id"])
     normalized_traits = sorted(
@@ -376,6 +471,8 @@ def _dense_trait_ranks(rows: list[dict[str, Any]], key: str) -> None:
         by_trait.setdefault(row["trait"], []).append(row)
     for category_rows in by_trait.values():
         sorted_rows = sorted(category_rows, key=lambda row: row[key], reverse=True)
+        if not sorted_rows:
+            continue
         current_rank = 1
         previous_value = sorted_rows[0][key]
         for row in sorted_rows:
@@ -482,11 +579,7 @@ def analyze_snapshot(
             }
         )
 
-    trait_count_frequencies: dict[int, int] = {}
-    for trait_count in trait_count_per_token.values():
-        trait_count_frequencies[trait_count] = (
-            trait_count_frequencies.get(trait_count, 0) + 1
-        )
+    trait_count_frequencies = dict(Counter(trait_count_per_token.values()))
 
     per_token: list[dict[str, Any]] = []
     for token in tokens:
@@ -611,7 +704,12 @@ def analyze_snapshot(
             "none_value_policy": "values whose lowercase text starts with 'none' are excluded from trait_count but retained in score products",
             "trait_rank_tie_policy": "dense rank, descending, independently within each trait category",
             "token_rank_tie_policy": "competition rank, stable sort, direction depends on score family",
+            "opensea_policy": (
+                "reject structured OpenSea-sourced or computed metric fields; "
+                "allow provenance prose, citations, and URLs that mention OpenSea"
+            ),
         },
+        "determinism": determinism_profile(),
         "input": {
             "snapshot": deepcopy(snapshot),
             "snapshot_sha256": raw_snapshot_sha256,

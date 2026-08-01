@@ -1,10 +1,21 @@
 from __future__ import annotations
 
+import contextlib
+import io
 import json
+import math
+import platform
 from pathlib import Path
+import tempfile
 import unittest
 
-from scripts.rarity.nextgen_compat import InputError, analyze_snapshot
+from scripts.rarity.analyze import main
+from scripts.rarity.nextgen_compat import (
+    InputError,
+    _dense_trait_ranks,
+    analyze_snapshot,
+    canonical_json,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -54,6 +65,9 @@ class NextGenCompatibilityTests(unittest.TestCase):
         token_five = next(row for row in sparse_result["per_token"] if row["id"] == 5)
         self.assertEqual(token_five["trait_count"], 0)
         self.assertEqual(token_five["rarity_score"], 0)
+        self.assertEqual(
+            token_five["single_trait_rarity_score_trait_count_normalised"], 0.4
+        )
 
     def test_trait_and_token_ties_use_the_source_rank_rules(self) -> None:
         result = analyze_snapshot(self.snapshot)
@@ -86,6 +100,14 @@ class NextGenCompatibilityTests(unittest.TestCase):
             if row["token_id"] == 1 and row["trait"] == "Color"
         )
         self.assertEqual(red["value_count"], 3)
+        token_one = next(row for row in preserved["per_token"] if row["id"] == 1)
+        self.assertAlmostEqual(token_one["statistical_score"], 0.140625)
+        self.assertAlmostEqual(
+            token_one["statistical_score_normalised"], 0.75 * 0.5
+        )
+        self.assertAlmostEqual(
+            token_one["single_trait_rarity_score_trait_count_normalised"], 0.5
+        )
 
         deduplicated = analyze_snapshot(duplicate, duplicate_policy="deduplicate")
         self.assertEqual(
@@ -112,11 +134,53 @@ class NextGenCompatibilityTests(unittest.TestCase):
         self.assertIn(99, [row["token_id"] for row in preserved["per_trait"]])
         self.assertEqual([row["id"] for row in preserved["per_token"]], [1, 2, 3, 4])
 
-    def test_opensea_references_are_prohibited(self) -> None:
+    def test_opensea_metric_fields_are_prohibited_but_prose_is_allowed(self) -> None:
+        allowed = json.loads(json.dumps(self.snapshot))
+        allowed["source"]["note"] = "migrated off OpenSea in 2024"
+        allowed["source"]["citation"] = "https://opensea.io/assets/example"
+        analyze_snapshot(allowed)
+
         forbidden = json.loads(json.dumps(self.snapshot))
-        forbidden["source"]["opensea_metric"] = 1
+        forbidden["source"]["opensea_rarity_score"] = 1
         with self.assertRaisesRegex(InputError, "OpenSea"):
             analyze_snapshot(forbidden)
+
+        sourced = json.loads(json.dumps(self.snapshot))
+        sourced["source"]["provider"] = "OpenSea"
+        sourced["source"]["rarity_score"] = 1
+        with self.assertRaisesRegex(InputError, "OpenSea"):
+            analyze_snapshot(sourced)
+
+    def test_empty_trait_rank_group_is_defensive(self) -> None:
+        rows: list[dict[str, object]] = []
+        _dense_trait_ranks(rows, "rarity_score")
+        self.assertEqual(rows, [])
+
+    def test_cli_distinguishes_bad_data_from_bad_invocation(self) -> None:
+        bad = json.loads(json.dumps(self.snapshot))
+        bad["source"]["opensea_rarity_score"] = 1
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "bad.json"
+            path.write_text(json.dumps(bad), encoding="utf-8")
+            with contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(main([str(path)]), 1)
+
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as error:
+                main([])
+        self.assertEqual(error.exception.code, 2)
+
+    def test_canonical_float_boundary_is_explicit(self) -> None:
+        result = analyze_snapshot(self.snapshot)
+        profile = result["determinism"]
+        self.assertEqual(profile["implementation"], platform.python_implementation())
+        self.assertEqual(profile["python_version"], platform.python_version())
+        self.assertIn("same CPython implementation and version", profile["boundary"])
+        self.assertEqual(
+            canonical_json({"value": 0.1 + 0.2}),
+            b'{"value":0.30000000000000004}',
+        )
+        self.assertEqual(canonical_json({"value": 1.0}), b'{"value":1.0}')
 
     def test_hashes_are_stable_for_repeated_runs(self) -> None:
         first = analyze_snapshot(self.snapshot)
