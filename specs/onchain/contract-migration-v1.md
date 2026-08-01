@@ -10,9 +10,13 @@ release manifest is `ff1c5825e3b61bfb2df0a639e057297beb946e4d` (`origin/main`
 after the approved rarity-tooling merge). It is the source snapshot before
 this PR, not the PR head and not a self-referential manifest input. Its
 right-aligned
-`bytes32` encoding and the resulting `0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d`
-root are repeated in §13.6 and the independent transcript; no other source
-commit or root is normative for this draft.
+`bytes32` encoding and the resulting `0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`
+root are repeated in the one-record worked vector in §13.6; no other source
+commit or worked-vector root is normative for this draft. That §13.6 root is
+not the repository release-artifact root in
+`release-artifacts/latest/record-manifest.json`: the latter is generated from
+the complete governed inventory, including every `specs/onchain/` file, after
+the final commit and is independently checked by the manifest tool.
 
 This specification defines the first Museum registry that can carry governed
 GitHub records to an append-only on-chain record chain. It covers external
@@ -319,9 +323,10 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Family kind enum (`uint8`) | `MUSEUM_FAMILY_KIND_MUSEUM_V1` | `2` |
 | Registry version | `MUSEUM_REGISTRY_VERSION_V1` | `0xa4377bcc11c8c6cbfc23ffd4952add9dc8738fbcf125cb088673edda975f1748` |
 | Registry protocol version | `MUSEUM_PROTOCOL_VERSION_V1` | `0xea7ed1159fede00c63bf928f3b977361b7471b9bd72bb677289a42b8eec98713` |
+| Stream compatibility commit | `MUSEUM_STREAM_COMPATIBILITY_COMMIT_V1` | `0x0000000000000000000000005021c8060950c3fef995271e674ed4b2007fee6d` |
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
@@ -344,6 +349,15 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Payload schema | `MUSEUM_RESEARCH_NOTE_V1` | `0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0` |
 | Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
+| Target-release supersession domain | `6529networkmuseum.target-release-supersession.v1` | `0x20a50e6f2d146669898c56fa881235136a06035d97aeb8464c03275c938a611d` |
+| Target runtime immutability policy | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` | `0xfc13992d1a910c799d0a0783dd5b5951d980bec84550c404662098ce4bfa45a5` |
+| Target runtime policy document hash | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_DOCUMENT_V1` | `0xa2c5f9eba4e409a24f7f01472f715980b5f2e6026898d9012c4de73828579893` |
+| Target-release evidence schema | `MUSEUM_TARGET_RELEASE_EVIDENCE_V1` | `0xbb8a203a0f161e49f7f5fd9cdd4471c56e21263fa789bb50ec6198ff4b441f6c` |
+| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da` |
+| Batch benchmark schema | `MUSEUM_BATCH_GAS_BENCHMARK_V1` | `0xfd6cc699ac634ec33160703ce1c9a46a43fab11232511f2ef8ad220520d05d1c` |
+| Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021` |
+| Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4` |
+| URI vector bundle | `MUSEUM_URI_VECTOR_BUNDLE_V1` | `0xc5d4b5509668127362d486c057b5183a4cf2379d537401e0cf8b5e0cdedd9925` |
 | Museum-native stable family | `MUSEUM_FAMILY_MUSEUM_NATIVE_V1` | `0x3b1abe4d004439222a742d0cad0e6c8e179135c6fbcf1853b509976d51b77cd0` |
 | Authority target kind (`uint8`) | `MUSEUM_TARGET_KIND_AUTHORITY_V1` | `1` |
 | Successor target kind (`uint8`) | `MUSEUM_TARGET_KIND_SUCCESSOR_V1` | `2` |
@@ -630,6 +644,41 @@ enforced. A deployment gate MUST retain a measured benchmark report for all
 V1 batch paths, but the report is operational evidence rather than a protocol
 gas proof.
 
+The measured report is a JSON object with schema
+`MUSEUM_BATCH_GAS_BENCHMARK_V1` and MUST validate against the release-controlled
+corpus file `specs/onchain/batch-gas-benchmark-v1.json`. Its JCS corpus hash is
+`0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021`.
+The report MUST validate against
+`specs/onchain/batch-gas-benchmark-v1.schema.json`, whose JCS hash is
+`0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4`.
+It MUST contain `schema`, `version`, `chainId`, `evmRevision`,
+`registryCodeHash`, `deploymentAddress`, `deploymentBlock`, `rpcEndpointId`,
+`forgeVersion`, `solcVersion`, optimizer/via-IR/EVM settings, the corpus hash,
+one measured gas value for every corpus case, and two independent builder
+signatures over the JCS report without its signatures member. The report's
+chain ID MUST be 1 and its runtime code hash MUST equal the deployed registry.
+The corpus pins Foundry `1.7.1` commit
+`4072e48705af9d93e3c0f6e29e93b5e9a40caed8`, Solidity `0.8.19` commit
+`7dd6d404`, optimizer enabled with 200 runs, `viaIR=false`, and Cancun. The
+signed report additionally MUST bind the runner OS/architecture, immutable
+runner-image digest, CPU model, RPC endpoint identifier, deployment block
+hash, and registry runtime code hash; a missing or non-digest environment value
+fails the gate. There are no placeholder toolchain values in the corpus.
+
+The corpus is deliberately worst-case, not a representative average: 64
+`NONE` records; 64 maximum-URI `CONTENT_ADDRESSED` records; 64 records with
+16 maximum-size `INLINE` payloads consuming all 262,144 batch inline bytes;
+and the same maximum inline load with HTTPS assertion pointers and envelope
+supersession checks. Each case uses unique lanes, maximal schema/type/URI
+field lengths, event emission, and the exact authority revision checks. The
+deployment acceptance threshold is measured execution gas at most 9,000,000
+for every case and measured gas plus the 50,000 caller reserve at most
+`MAX_BATCH_GAS_UNITS` (10,000,000). Every case MUST complete atomically on a
+fork at the pinned deployment block; any out-of-gas, revert, missing case,
+placeholder toolchain value, or code-hash mismatch fails deployment. This is a
+release/deployment gate and does not convert `MUSEUM_BATCH_GAS_GATE_V1` into an
+execution upper-bound claim.
+
 * `INLINE` retains byte-identical canonical payload bytes, subject to a
   hard cap of `MAX_INLINE_PAYLOAD_BYTES`. V1 permits `INLINE` only when
   `contentHash.algorithm == HASH_KECCAK256` and
@@ -705,6 +754,17 @@ are uppercase hexadecimal and percent-encoding an unreserved byte rejects.
 `ipfs` and `ar` retain the existing CID/transaction-identifier rules above
 and use the same byte/control/query/fragment checks.
 
+The complete V1 conformance vectors are executable, not merely illustrative.
+The release-controlled harness at
+`specs/onchain/uri_safety_vectors_v1.py` executes this table, validates the
+941-byte profile-document hash, and hashes the RFC 8785 vector bundle with
+`MUSEUM_URI_VECTOR_BUNDLE_V1 =
+0xc5d4b5509668127362d486c057b5183a4cf2379d537401e0cf8b5e0cdedd9925`.
+The bundle contains 31 vectors and its exact Keccak-256 is
+`0xe21b70aa8619f17e81dcc5fe738db966372824bdbe68e20d0184eb2b88814aa9`.
+The command `python specs/onchain/uri_safety_vectors_v1.py` MUST pass before
+deployment and whenever this profile is changed.
+
 The complete V1 conformance vectors are:
 
 | URI | Result | Reason |
@@ -714,8 +774,8 @@ The complete V1 conformance vectors are:
 | `https://8.8.8.8/x` | ACCEPT | canonical globally routable IPv4 |
 | `https://[2001:4860:4860::8888]/x` | ACCEPT | canonical globally routable IPv6 |
 | `https://example.com` | ACCEPT | empty path is allowed |
-| `ipfs://bafybeigdyrzt5example/path` | ACCEPT | nonempty CID authority/path |
-| `ar://AbCdEf012_-` | ACCEPT | one nonempty base64url transaction identifier |
+| `ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq/path` | ACCEPT | CIDv1 base32, dag-pb, sha2-256 CID |
+| `ar://AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` | ACCEPT | 43-character base64url transaction identifier |
 | `https://example.com./x` | REJECT | DNS trailing dot |
 | `https://a..example.com/x` | REJECT | empty DNS label |
 | `https://-a.example.com/x` | REJECT | leading label hyphen |
@@ -740,14 +800,31 @@ The complete V1 conformance vectors are:
 | `https://example.com/x?y` | REJECT | query |
 | `https://example.com/x#frag` | REJECT | fragment |
 | `https://example.com/x` with a control byte | REJECT | control-byte rule |
+| `ipfs://bafybeigdyrzt5example/path` | REJECT | truncated CIDv1 multihash |
+| `ar://AbCdEf012_-` | REJECT | transaction identifier is not exactly 32 decoded bytes |
 
-The conformance table, profile-document bytes, and document hash are one
+The conformance table, executable harness, profile-document bytes, and document hash are one
 versioned predicate. A future EVM revision or URI parser MUST use a new
 profile ID/document hash and a new vector set; it MUST NOT reinterpret this
 profile in place. The URI parser treats the profile ID and document hash as
 immutable V1 constants and every HTTPS record path MUST execute that exact
 predicate; a generic asset-profile admission MUST NOT be able to replace or
 reinterpret it.
+
+The non-HTTPS grammar is closed in V1. An IPFS authority is either CIDv0:
+`Qm` followed by exactly 44 base58btc characters, decoding to the 34-byte
+multihash prefix `0x1220` plus a 32-byte digest; or CIDv1: lowercase multibase
+`b` followed by unpadded lowercase RFC 4648 base32, decoding to the exact
+varint sequence `version=1`, `codec in {0x55 (raw), 0x70 (dag-pb)}`,
+`multihashCode=0x12`, `digestLength=32`, and exactly 32 digest bytes. Uppercase
+base32, base32 padding, alternate multicodecs, alternate multihashes, invalid
+varints, truncated values, percent escapes in the authority, userinfo, ports,
+query, and fragment are rejected. The optional IPFS path uses the same pchar,
+uppercase-percent-triplet, and encoded-unreserved rules as the HTTPS path.
+An Arweave URI is exactly `ar://` followed by 43 unpadded base64url characters
+(`A-Z`, `a-z`, `0-9`, `_`, `-`) decoding to exactly 32 bytes; it has no path,
+userinfo, port, query, or fragment. No other IPFS or Arweave grammar is
+implicitly accepted by V1.
 
 The pinned Stream source documents only its shared UTF-8/2,048-byte URI
 validation and does not supply this public-network predicate. A bilateral
@@ -1060,34 +1137,205 @@ struct TargetRelease {
     bytes32 streamCompatibilityCommit;
     uint64 revision;
     uint64 authorityRevision;
+    uint8 status;                      // 1 active, 2 quarantined
+    bytes32 previousReleaseId;         // zero for the first revision
+    bytes32 supersessionReasonHash;    // zero for the first revision
 }
 ```
 
-`admitTargetRelease` is authority-admin controlled, append-only, and
-available only while writes are not frozen. It MUST reject a duplicate key,
+`admitTargetRelease` is authority-admin controlled and available only while
+writes are not frozen. The release history is append-only, while the current
+`(targetKind, codeHash)` pointer may advance to a new revision. It MUST reject
 zero release/artifact/conformance hashes, a nonzero authority module version,
 or a kind/interface/version tuple outside the V1 rules. For kind `1`, the
 interface MUST be `IMuseumAuthorityProviderV1`, module version MUST be zero,
 and protocol/Stream commits MUST be zero. For kind `2`, the interface MUST be
 `IMuseumSuccessorV1`, module version MUST be nonzero and different from
 `MUSEUM_REGISTRY_VERSION_V1`, and protocol/Stream commits MUST equal the
-current V1 constants. The admission process
-MUST require two independent rebuilds from `sourceCommit` and the pinned
-toolchain, byte-for-byte agreement on `artifactHash` and runtime
-`extcodehash`, and an independently signed conformance report whose hash is
-`conformanceDocumentHash`. The report is retained off-chain, but the release
-row, source, artifact, conformance, interface, version, and compatibility
-commitments are state and event facts. A caller-supplied `expectedCodeHash` or
-`evidenceHash` cannot create or bypass a release row. Removing or mutating a
-release is impossible in V1; a later EVM/toolchain revision needs a new
-release key and document.
+current V1 constants. `sourceCommit` MUST be a right-aligned 20-byte Git
+SHA-1: its high 12 bytes are zero and its low 20 bytes are nonzero. A first
+admission has `revision == 1`, `status == 1`, `previousReleaseId == 0`, and
+`supersessionReasonHash == 0`. A correction of an active or quarantined row
+MUST use `revision == current.revision + 1`, a new release ID, and the exact
+supersession commitment:
+
+```solidity
+releaseId = keccak256(abi.encode(
+    MUSEUM_TARGET_RELEASE_SUPERSESSION_DOMAIN,
+    current.releaseId,
+    targetKind,
+    codeHash,
+    sourceCommit,
+    artifactHash,
+    conformanceDocumentHash,
+    requiredInterfaceId,
+    expectedModuleVersion,
+    protocolVersion,
+    streamCompatibilityCommit
+));
+```
+
+The new row stores `previousReleaseId == current.releaseId` and the
+`supersessionReasonHash` committed by its canonical evidence document. The
+old row remains readable through `targetReleaseAtRevision`; it is never
+overwritten. A duplicate release ID or a same-revision row reverts.
+
+The canonical evidence document MUST validate against the release-controlled
+`specs/onchain/target-release-evidence-v1.schema.json`, whose JCS hash is
+`0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da`.
+The document's `schema` is `MUSEUM_TARGET_RELEASE_EVIDENCE_V1`, its `version`
+is `1`, and its `conformanceDocumentHash` is the Keccak-256 of the exact JCS
+document preimage defined below. It MUST contain, with lowercase exact encodings, the target
+kind/address/code hash, all TargetRelease fields, source repository and tree
+hash, source commit, runtime-policy hash, two-build evidence, probe/vector
+bundle hash, signer threshold and commitments, two independent availability
+observations, and supersession predecessor/reason fields. The fixed signer
+policy is exactly 2-of-3 distinct release-attestor addresses, sorted by
+numeric address; each signs the exact `signedDocumentHash` defined below, and
+the document records three signature
+commitments in the same address order. At least two availability observations
+MUST use distinct content-addressed `ipfs://` or `ar://` URIs, match the
+document hash, and be independently fetched and hash-checked. HTTPS evidence
+MUST additionally carry a current Museum HTTPS assertion; the contract never
+fetches a network URI.
+
+The canonical document has no `signatures` member. To avoid a self-referential
+hash, define `D0` as the schema-valid document with both
+`conformanceDocumentHash` and `signers.signedDocumentHash` replaced by
+`0x` followed by 64 zeroes. `conformanceDocumentHash` is exactly
+`keccak256(RFC8785_JCS(D0))`. Define `D1` as the same document with the real
+`conformanceDocumentHash` restored and `signers.signedDocumentHash` still all
+zero; `signedDocumentHash` is exactly `keccak256(RFC8785_JCS(D1))`. The signer
+preimage is therefore deterministic and non-circular. The detached signature bytes use
+`EIP-191-KECCAK256-DOCUMENT_V1`, namely
+`keccak256(0x19 || UTF8("Ethereum Signed Message:\\n32") ||
+signedDocumentHash)`. The three signer addresses are strictly increasing as
+`uint160`, distinct, and the three detached signatures recover to those
+addresses; the signature commitments are `keccak256` of the exact detached
+signature bytes. The release gate requires at least two valid recoveries, while
+retaining all three commitments in the evidence document. This is a release
+artifact check, not a claim that a Solidity contract can fetch or recover
+detached GitHub evidence from `bytes32` alone.
+
+Source validation is exact: `sourceCommit` is lower-case 40-hex SHA-1; the
+release gate runs `git cat-file -e <sourceCommit>^{commit}`, obtains
+`git rev-parse <sourceCommit>^{tree}`, compares that 32-byte tree object ID to
+`sourceTreeHash`, and hashes the required source paths from that tree. The
+source repository is exactly `6529-Collections/6529networkmuseum`; a detached
+or shallow object, a missing commit/tree/path, a case or encoding mismatch, or
+a source snapshot whose raw 20-byte commit does not right-align into the
+on-chain `bytes32` value rejects the evidence. The two build entries require
+distinct builders and toolchain identities, identical compiler-input and
+runtime/artifact hashes, and runtime hashes equal to the target's direct
+`extcodehash`. Availability uses the exact IPFS/Arweave grammar in §5.3; the
+two URIs and fetch observations are distinct, each fetches the exact JCS bytes,
+and each content hash equals `conformanceDocumentHash`. A missing, revoked,
+expired, unreachable, mismatched, or superseded evidence bundle cannot be used
+to admit a row.
+
+The release gate MUST validate `git cat-file -e
+<sourceCommit>^{commit}`, the exact source tree and compiler-input hashes,
+two independent builds, equality of both artifact hashes and runtime
+`extcodehash`, the required source paths, all three threshold signatures, and
+both availability observations before the authority-admin transaction is
+signed. The on-chain primitive additionally checks the right-aligned SHA-1
+encoding, `artifactHash == extcodehash(target)`, the fixed runtime policy,
+and all target probes. The contract intentionally does not pretend to verify
+GitHub, compiler, signature, or content-addressed storage semantics from a
+`bytes32`; those are an explicit release-gate trust boundary, and an
+implementation MUST reject the transaction when the canonical evidence gate
+has not produced a signed report. A caller-supplied `expectedCodeHash` or
+`evidenceHash` cannot create or bypass a release row.
+
+The terminal `quarantineTargetRelease(targetKind, codeHash, reasonHash)` action
+is authority-admin controlled, requires a nonzero reason hash, and changes the
+current row to status `2`. Quarantine is terminal for that revision: no
+authority or successor transition may reference it, and no second quarantine
+event is emitted. A later admitted row must supersede it with the exact
+predecessor/reason commitment above. This is the V1 revocation path; there is
+no unquarantine or silent metadata edit. `TargetReleaseQuarantined` persists
+the reason, prior release ID, revision, actor, and authority revision. The
+current pointer, historical view, and events therefore make a mistaken row
+recoverable by quarantine plus a new governed revision rather than permanently
+poisoning the codehash key.
+
+Quarantine is also a release-evidence revocation: the authority-admin release
+gate records the affected evidence hash, reason hash, and revocation time in
+its signed audit bundle, and the contract refuses that release ID at every
+subsequent target admission, queue, execution, constructor, and successor
+check. A replacement must use a new release ID, a new conformance-document
+hash, a new evidence bundle, and the exact `previousReleaseId` commitment; the
+old code hash may be reused only after that new row is independently admitted.
+
+The state view `targetRelease(targetKind, codeHash)` returns the current row;
+`targetReleaseAtRevision(targetKind, codeHash, revision)` returns an immutable
+historical row. A transition requires `status == 1`. A later EVM/toolchain
+revision uses a new runtime-policy hash and a new release revision; it MUST
+not reinterpret an existing row.
+
+The release row, source, artifact, conformance, interface, version,
+compatibility, status, predecessor, and reason commitments are state and event
+facts. `TargetRelease` is not an allowlist merely because an admin supplied a
+hash.
+
+Every authority and successor target is also subject to the fixed
+`MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` admission rule. This rule is stronger
+than a repeated `extcodehash` check and is the reason V1 admits no proxy or
+delegatecall target. At admission, queue, execution, constructor activation,
+and successor storage, the registry MUST:
+
+The policy document is exactly the following 776 UTF-8 bytes with no trailing
+LF; its Keccak-256 is
+`0xa2c5f9eba4e409a24f7f01472f715980b5f2e6026898d9012c4de73828579893`:
+
+```text
+{"id":"MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1","version":1,"evmRevision":"cancun","maxRuntimeBytes":24576,"metadata":"terminal-definite-cbor-solc-or-vyper-only","rejectState":["SLOAD","SSTORE","TLOAD","TSTORE"],"rejectExternal":["CALL","CALLCODE","DELEGATECALL","STATICCALL","EXTCODESIZE","EXTCODECOPY","EXTCODEHASH","BALANCE"],"rejectCreation":["CREATE","CREATE2","SELFDESTRUCT"],"rejectEnvironment":["ADDRESS","ORIGIN","CALLER","CALLVALUE","CODESIZE","CODECOPY","RETURNDATASIZE","RETURNDATACOPY","PC","BLOCKHASH","COINBASE","TIMESTAMP","NUMBER","PREVRANDAO","GASLIMIT","CHAINID","SELFBALANCE","BASEFEE","BLOBHASH","BLOBBASEFEE","GAS","GASPRICE"],"rejectLogs":["LOG0","LOG1","LOG2","LOG3","LOG4"],"reservedOpcodes":"reject","eof":"reject","jumpPolicy":"decoded-boundary-only"}
+```
+
+1. require a nonzero contract code size no larger than 24,576 bytes and copy
+   the complete runtime with `extcodecopy`; require the direct
+   `extcodehash(target)` to equal both `TargetRelease.codeHash` and the two
+   independently built `artifactHash` values;
+2. apply the exact Cancun instruction decoder used by the canonicalizer rule:
+   `PUSH0` consumes zero immediate bytes, `PUSH1`--`PUSH32` consume exactly
+   `opcode - 0x5f` bytes, and a byte inside a PUSH immediate is never decoded
+   as an opcode or JUMPDEST; reserved, invalid, truncated, and EOF-form
+   runtimes fail closed;
+3. exclude a suffix only when the final two bytes encode a big-endian length,
+   the preceding bytes are exactly one definite-length CBOR map, and the map
+   has a `solc` or `vyper` byte-string marker. The code hash still covers the
+   complete runtime including this metadata. An invalid or ambiguous suffix
+   is scanned as executable bytes and fails closed if undecodable;
+4. reject `SLOAD`, `SSTORE`, `TLOAD`, `TSTORE`, `CALL`, `CALLCODE`,
+   `DELEGATECALL`, `STATICCALL`, `CREATE`, `CREATE2`, `SELFDESTRUCT`,
+   `EXTCODESIZE`, `EXTCODECOPY`, `EXTCODEHASH`, `BALANCE`, `ADDRESS`,
+   `ORIGIN`, `CALLER`, `CALLVALUE`, `CODESIZE`, `CODECOPY`,
+   `RETURNDATASIZE`, `RETURNDATACOPY`, `PC`, `BLOCKHASH`, `COINBASE`,
+   `TIMESTAMP`, `NUMBER`, `PREVRANDAO`, `GASLIMIT`, `CHAINID`, `SELFBALANCE`,
+   `BASEFEE`, `BLOBHASH`, `BLOBBASEFEE`, `GAS`, `GASPRICE`, and `LOG0`--`LOG4`;
+5. scan every decoded instruction, including unreachable bytes, and require
+   all jump destinations used by the reviewed disassembly to be decoded
+   instruction boundaries. The scanner is conservative and is not a
+   reachability or purity proof; only the exact governed runtime allowlist and
+   two-build evidence admit a target. A target with any proxy pattern,
+   delegatecall path, mutable implementation/admin/storage path, external
+   dependency, environment dependency, or scanner ambiguity is rejected.
+
+The target probe calls are bounded to `TARGET_PROBE_GAS_LIMIT = 250_000` gas
+per call and `TARGET_PROBE_RETURN_BYTES_LIMIT = 4_096` returned bytes. A call
+that exceeds either bound, reverts, returns malformed length, or returns an
+unexpected value fails the same admission primitive. These limits are part of
+the runtime-policy document and the evidence schema; they are not supplied by
+the target. The queue and execution phases re-run the bytecode copy, hash,
+scanner, probe, and evidence-row status checks, so a same-code-hash proxy
+cannot change an implementation behind an admitted target.
 
 At queue and execution, the registry MUST set `releaseId` and
 `conformanceDocumentHash` from the loaded row, then load the admitted row for the
-target kind and `expectedCodeHash`, require the input interface, version, and
-`evidenceHash` to equal that row, and require the target's returned protocol
+target kind and `expectedCodeHash`, require `status == 1`, the input interface,
+version, and `evidenceHash` to equal that row, and require the target's returned protocol
 and Stream-compatibility values to equal the release row where those fields
-apply. It MUST also require `extcodehash(target) == expectedCodeHash`. It then performs bounded
+apply. It MUST also require `extcodehash(target) == expectedCodeHash` and the complete runtime immutability scanner above. It then performs bounded
 `staticcall`s to ERC-165 and every required probe method, checks exact return
 lengths and values, and recomputes the context-bound probe and capability
 commitments below. A failed call, malformed return, or changed code hash
@@ -1102,7 +1350,7 @@ nonzero `expectedModuleVersion`. It MUST require
 an admitted `TargetRelease` under kind `MUSEUM_TARGET_KIND_AUTHORITY_V1` with
 `codeHash == expectedCodeHash`, `requiredInterfaceId` equal to the input,
 `expectedModuleVersion == bytes32(0)`, and `evidenceHash` equal to its
-`conformanceDocumentHash`; it MUST also require
+`conformanceDocumentHash`, `status == 1`; it MUST also require
 `extcodehash(target) == expectedCodeHash`, `predecessorRegistry == address(this)`,
 `isMuseumAuthorityProvider() == true`, `registry() == predecessorRegistry`,
 and `authorityRevision() == authorityRevision + 1`. The exact interface probe
@@ -1127,11 +1375,11 @@ malformed or reverting call fails the gate. This handshake covers the actual
 required selector set and registry/role domain; it is not a marker-only probe
 and grants no arbitrary call capability. The selector set is the strictly increasing numeric
 `bytes4[]` `[0x05d53fba, 0x43dd6c37, 0x47655475, 0x81a86ff4, 0xab6627c3,
-0xc9dc7d0d, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
+0xc9dc7d0d, 0xf0edf065, 0xf2ebf174]`, ABI-encoded as `address`-independent `bytes4[]`
 and hashed to
-`0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7`. It
-binds freeze, successor, authority, target-release admission, global-role,
-execute, and cancel capabilities only. It queues one complete target
+`0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069`. It
+binds freeze, successor, authority, target-release admission/quarantine,
+global-role, execute, and cancel capabilities only. It queues one complete target
 and `eta = block.timestamp + AUTHORITY_TIMELOCK_SECONDS`; a second queue
 requires `cancelAuthority` first.
 
@@ -1162,16 +1410,16 @@ governance-executor role, requires `writesFrozen == true`, and MUST reject an
 EOA, zero code hash, wrong successor interface ID, missing ERC-165 support,
 failed probe, an absent successor `TargetRelease`, or an input whose
 `requiredInterfaceId`, `expectedModuleVersion`, or `evidenceHash` differs from
-that release row. It MUST require
+that release row or whose `status != 1`. It MUST require
 `predecessorRegistry == address(this)`, `moduleSupersedes() ==
-predecessorRegistry`, and `extcodehash(target) == expectedCodeHash`;
-`moduleSupersedes() != address(this)`,
+predecessorRegistry` (and therefore exactly `address(this)`), and
+`extcodehash(target) == expectedCodeHash`. It MUST reject
 `expectedModuleVersion == bytes32(0)`,
-`registryVersion() != expectedModuleVersion`,
 `expectedModuleVersion == MUSEUM_REGISTRY_VERSION_V1`,
+`registryVersion() != expectedModuleVersion`,
 `protocolVersion() != MUSEUM_PROTOCOL_VERSION_V1`,
-`streamCompatibilityCommit() != streamCompatibilityCommit`, or zero evidence
-hash. The release row's `protocolVersion` and
+`streamCompatibilityCommit() != MUSEUM_STREAM_COMPATIBILITY_COMMIT_V1`, or a
+zero evidence hash. The release row's `protocolVersion` and
 `streamCompatibilityCommit` MUST equal the current V1 constants. Its
 capability commitment is independently recomputed as
 `keccak256(abi.encode(MUSEUM_SUCCESSOR_CAPABILITY_DOMAIN, releaseId, target,
@@ -1500,6 +1748,9 @@ interface INetworkMuseumRegistryV1 {
         bytes32 streamCompatibilityCommit;
         uint64 revision;
         uint64 authorityRevision;
+        uint8 status;
+        bytes32 previousReleaseId;
+        bytes32 supersessionReasonHash;
     }
 
     struct TransitionTargetInput {
@@ -1626,6 +1877,10 @@ interface INetworkMuseumRegistryV1 {
         bytes32 protocolVersion, bytes32 streamCompatibilityCommit) external;
     function targetRelease(uint8 targetKind, bytes32 codeHash)
         external view returns (TargetRelease memory);
+    function targetReleaseAtRevision(uint8 targetKind, bytes32 codeHash, uint64 revision)
+        external view returns (TargetRelease memory);
+    function quarantineTargetRelease(uint8 targetKind, bytes32 codeHash, bytes32 reasonHash)
+        external;
     function setRecordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account, bool enabled)
         external;
     function recordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account)
@@ -1797,7 +2052,8 @@ implementation cannot accidentally authorize an overload:
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority | The role ID is closed-world, the selector allowlist is fixed, and each change increments the role revision and records the authority revision. |
-| `0x47655475` `admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The `(targetKind,codeHash)` key is append-only and the source/artifact/conformance/interface/version/compatibility commitments are independently reproduced before a transition can reference them. |
+| `0x47655475` `admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The release history is append-only; first admission is revision 1, and a new release ID may supersede or correct the current row only with the exact predecessor commitment, evidence gate, and immutable runtime policy. |
+| `0x89d9ae30` `targetReleaseAtRevision(uint8,bytes32,uint64)` / `0xf2ebf174` `quarantineTargetRelease(uint8,bytes32,bytes32)` | Historical read for any caller / enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The historical row is immutable; quarantine is a terminal revocation with a nonzero reason hash and blocks every transition until a new governed revision supersedes it. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global authority-admin grant and active authority | Queues a 48-hour contract-only authority transition with code hash, ERC-165/interface probe, capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
 | `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Enabled global governance-executor for execute; enabled global authority-admin for cancel | Execute requires the stored ETA; cancel clears only the pending transition. Both are blocked after freeze. |
 | `0x43dd6c37` `setSuccessor((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global governance-executor grant | Requires frozen writes, no prior successor, a strictly new expected module version, and immediate repeat validation of the complete successor target commitment; one-way. |
@@ -2067,7 +2323,11 @@ event TargetReleaseAdmitted(uint8 indexed targetKind, bytes32 indexed codeHash,
     bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
     bytes32 expectedModuleVersion, bytes32 protocolVersion,
     bytes32 streamCompatibilityCommit, uint64 revision,
-    uint64 authorityRevision, address authority);
+    uint64 authorityRevision, uint8 status, bytes32 previousReleaseId,
+    bytes32 supersessionReasonHash, address authority);
+event TargetReleaseQuarantined(uint8 indexed targetKind, bytes32 indexed codeHash,
+    bytes32 releaseId, uint64 revision, bytes32 reasonHash,
+    uint64 authorityRevision, address actor, address authority);
 event AuthorityChangeQueued(address indexed pendingAuthority, bytes32 expectedCodeHash,
     bytes32 releaseId, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
     bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
@@ -2119,7 +2379,7 @@ same value. A missing event never justifies omitting the state value.
 | HTTPS assertion nonce/revision lineage | `httpsAssertionByHash`/`currentHttpsAssertion` | `HttpsAssertion` stores nonce, deadline, monotone revision, predecessor, and signature commitment; duplicate/replay/reorg rules are readback-based | `HttpsAssertionRecorded` carries the same fields |
 | Batch atomicity/commitment | `batchIdUsed(batchId)`, `batchCommitment(batchId)` | Exact ordered `MUSEUM_BATCH_COMMITMENT_DOMAIN` preimage; stored before visibility; duplicate ID/record or stale lane reverts all writes | `MuseumRecordBatchRecorded` with commitment and authority revision |
 | Batch gas budget | batch entry gate and `MAX_BATCH_GAS_UNITS` | `MUSEUM_BATCH_GAS_GATE_V1` is a best-effort caller gas gate only; measured benchmark evidence is retained, while all writes remain atomic on out-of-gas | `MuseumRecordBatchRecorded` on success; no event on revert |
-| Target release reconstruction | `targetRelease(targetKind,codeHash)` | Append-only exact-codehash release row with independent source/artifact/conformance admission; no caller-supplied hash/evidence bypass | `TargetReleaseAdmitted` |
+| Target release reconstruction | `targetRelease(targetKind,codeHash)`, `targetReleaseAtRevision(targetKind,codeHash,revision)` | Append-only evidence-validated release history, active/quarantined status, exact predecessor supersession commitment, immutable runtime scanner, and no caller-supplied hash/evidence bypass | `TargetReleaseAdmitted`, `TargetReleaseQuarantined` |
 | Active authority reconstruction | `authorityRevision()`, `authorityState()`, `pendingAuthority()` | Recheck target release row, code hash, interface, context-bound capability, predecessor, version, and authority linkage at queue/execution/use | `AuthorityChangeQueued`, `RegistryAuthorityUpdated` with all commitments |
 | External asset authorization | `ExternalAsset.authorizationRoleId`, `authorityRevision` | `ExternalAssetRegistered.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
 | Stream mirror authorization | `StreamMirrorLink.authorizationRoleId`, `authorityRevision` | `StreamMirrorLinkSet.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
@@ -2146,9 +2406,9 @@ redundant audit event are all identified here.
 |---|---|---|---|
 | Canonicalizer is immutable and non-proxy | `admitAssetProfile`, `AssetProfile` | governed exact `(profileId, address, extcodehash)` allowlist; reviewed source/toolchain evidence; code size, defined executable-region scan, forbidden-opcode scan, mode `0`, zero implementation hash, static canonicalize equality at admission and registration | `AssetProfileAdmitted`, `ExternalAssetRegistered` |
 | Canonicalizer opcode policy is revision-pinned | `AssetProfile.documentHash`, `canonicalizerVersionId` | Cancun opcode table, exact executable region/CBOR treatment, PUSH/JUMPDEST boundary rules, reserved/unknown fail-closed, future revision requires new profile/version/allowlist | `AssetProfileAdmitted` and deployment manifest |
-| Authority target is accepted only after proof | `targetRelease`, `setAuthority(TransitionTargetInput)`, `pendingAuthority`, `authorityState()` | governed exact `(targetKind,codeHash)` release row, two independent source/artifact rebuilds, bounded ERC-165/probe calls, context-bound `IMuseumAuthorityProviderV1` capability handshake, probe/capability commitments, `predecessorRegistry==address(this)`, `registry()==predecessorRegistry`, target revision, evidence hash | `TargetReleaseAdmitted`, `AuthorityChangeQueued`, `AuthorityChangeCancelled`, `RegistryAuthorityUpdated` |
+| Authority target is accepted only after proof | `targetRelease`, `targetReleaseAtRevision`, `quarantineTargetRelease`, `setAuthority(TransitionTargetInput)`, `pendingAuthority`, `authorityState()` | canonical evidence schema/JCS hash, 2-of-3 signatures, two availability observations, source SHA-1/tree validation, two-build equality, fixed non-proxy runtime scanner, bounded ERC-165/probe calls, context-bound `IMuseumAuthorityProviderV1` capability handshake, probe/capability commitments, `predecessorRegistry==address(this)`, `registry()==predecessorRegistry`, target revision, active status, evidence hash | `TargetReleaseAdmitted`, `TargetReleaseQuarantined`, `AuthorityChangeQueued`, `AuthorityChangeCancelled`, `RegistryAuthorityUpdated` |
 | Authority execution is safe against target mutation | `executeAuthority` | ETA, repeat every stored target check, unchanged code/interface/linkage/probe | `RegistryAuthorityUpdated`; pending state remains on failed execution |
-| Successor is validated after freeze | `setSuccessor(TransitionTargetInput)`, `successorTarget`, `targetRelease` | freeze state, no prior successor, governed exact-codehash release row, independent conformance report, bounded `IMuseumSuccessorV1` calls, full capability/probe/predecessor binding, `moduleSupersedes()==address(this)`, expected new module version, current protocol/Stream compatibility | `SuccessorSet` |
+| Successor is validated after freeze | `setSuccessor(TransitionTargetInput)`, `successorTarget`, `targetRelease` | freeze state, no prior successor, active governed exact-codehash release row, canonical evidence gate, fixed non-proxy runtime scanner, bounded `IMuseumSuccessorV1` calls, full capability/probe/predecessor binding, `moduleSupersedes()==address(this)`, expected new module version, current protocol/Stream compatibility | `SuccessorSet` |
 | Family kind and class bitmap are governed | `admitRecordFamily`, `recordFamily` | closed-world kind; Stream subset `0x01fe`; Museum subset `0x1e00`; append-only revision | `RecordFamilyAdmitted` |
 | Record type has one class | `admitRecordType`, `recordTypePolicy` | nonzero one-bit class selected and present in family bitmap; stable six IDs additionally require the exact closed-world family/schema/class row; no write-time selection | `RecordTypeAdmitted` or revert with `StableRecordTypePairMismatch` |
 | Direct and relayed writers are identical | record selectors, `recordFamilyGrant`, by-signature fields | both call `requireRecordWriter`; full-call nonReentrant guard; every snapshotted dependency revalidated after ERC-1271 callback; by-signature class and family revision equal current mapping and are signed | `MuseumRecordRecorded`, `RecordFamilyGrantUpdated`, `RecordSummary`; no state/event on revert |
@@ -2265,18 +2525,51 @@ The constructor parameters include the initial authority-kind `TargetRelease`
 row and its fully probed authority-provider target, the immutable Stream
 compatibility commit (`bytes32`), `moduleSupersedes` (zero for the first
 deployment), and a zero successor. The constructor stores the release row
-before activating authority and MUST apply the same append-only release
-admission rules, including two independent source/artifact rebuilds and the
-conformance-document commitment; it MUST NOT accept an arbitrary caller hash
-or evidence value. Deployment MUST verify the provider's exact code hash,
-ERC-165/interface ID, probe commitment,
-context-bound capability handshake, role-domain and exact selector-set hash,
-`predecessorRegistry == address(this)`, `registry() == predecessorRegistry`,
-and authority-revision linkage; it MUST reject
-an EOA or an unprobed implementation. No successor target may be set at
-deployment. The registry is not a proxy. A later implementation is a new
-immutable contract with `streamCompatibilityCommit` and `moduleSupersedes`
-metadata.
+before activating authority by calling the one internal, non-reentrant
+`_admitAndValidateTargetReleaseV1` primitive. `admitTargetRelease`,
+`setAuthority`, `setSuccessor`, and constructor activation MUST call that same
+primitive with a transition-context enum; no path may copy only part of its
+checks or call a setter as a weaker substitute. The primitive's
+machine-checkable checklist is exactly:
+
+1. validate the closed target kind, nonzero/revision-1 first-row fields,
+   right-aligned source SHA-1, evidence-schema hash, 2-of-3 evidence
+   signatures, two availability observations, and the target runtime-policy
+   hash;
+2. require `artifactHash == extcodehash(target) ==` both independent build
+   runtime hashes, code size within 24,576 bytes, and the complete
+   `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` scanner result;
+3. require the exact required ERC-165 interface and exact return lengths for
+   every probe, with `TARGET_PROBE_GAS_LIMIT` and
+   `TARGET_PROBE_RETURN_BYTES_LIMIT` enforced per call;
+4. require the target's booleans, registry address, target revision,
+   protocol/Stream commitments, predecessor linkage, expected module version,
+   and `canAuthorize` to equal the initial-row formulas;
+5. recompute `interfaceProbeHash`, `capabilityCommitment`, and
+   `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` from the same stored fields;
+6. require `status == 1`, `predecessorRegistry == address(this)`,
+   `authorityRevision() == 1`, and no successor; then store the full row and
+   `AuthorityState` before granting the initial roles.
+
+The constructor MUST fail atomically if any checklist item fails, and the
+deployed bytecode MUST expose the same checklist through the ordinary
+admission primitive (an implementation may share an internal library but may
+not duplicate or weaken it). It MUST NOT accept an arbitrary caller hash or
+evidence value. No successor target may be set at deployment. The registry is
+not a proxy. A later implementation is a new immutable contract with
+`streamCompatibilityCommit` and `moduleSupersedes` metadata.
+
+Checklist items 1 and 2 have two explicit inputs: the signed release-evidence
+bundle is validated by the release gate before the transaction, and the
+contract-facing primitive validates the fixed schema/policy hashes, row fields,
+direct runtime hash, and all deterministic bytecode/probe invariants before it
+stores the row. The contract does not claim to fetch GitHub, IPFS, Arweave, or
+compiler output. A deployment controller MUST refuse to construct the
+transaction unless the external evidence result is present, signed by the
+fixed 2-of-3 policy, and bound to the exact `releaseId` and
+`conformanceDocumentHash`; the primitive then refuses any row whose committed
+evidence hash or policy/schema hash is not the admitted V1 value. This is the
+complete trust boundary, rather than an unreviewable imported rule.
 
 ### Phase 3 — register subjects and links
 
@@ -2467,8 +2760,8 @@ contentHash.algorithm = 1
 contentDigest = 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
 keccak256(contentHash.digest) = 0x648907ed3d936c0f74f8e05755c2ca9b06447e792208a269350464151c68fe36
 contentHash.canonicalizationId = 0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044
-uri = ipfs://bafybeigdyrzt5example
-uriHash = 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
+uri = ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq
+uriHash = 0x8ad820c94c531631741265f884f264fc8f3052c9f34c6590cdc7c59f7ebedffe
 schemaId = 0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0
 signatureScheme = 0x0000000000000000000000000000000000000000000000000000000000000000
 signatureHash.algorithm = 0
@@ -2480,11 +2773,11 @@ hashRefHash(signatureHash) = 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca
 chainId = 1
 registry = 0x0000000000000000000000000000000000000001
 effectiveAt = 1722470400
-recordHash = 0x96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9
+recordHash = 0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1
 ```
 
 For the first lane append, `revision = 1`, `previousRecordHash = 0x00...00`,
-and `chainHash = 0x7e68037dddf1c53e8b0ac5256d02893fd85d9ffee59207f1e1eca6881588bf7c`.
+and `chainHash = 0xd4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49`.
 
 ### 13.3 EIP-712 relayed write
 
@@ -2498,7 +2791,7 @@ EIP712Domain type string = EIP712Domain(string name,string version,uint256 chain
 EIP712 name = 6529 Network Museum Registry
 EIP712 version = 1
 MuseumRecordWrite type string = MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint8 authorizationClass,uint64 familyRevision,uint256 nonce,uint64 deadline)
-signedRecordHash = 0x96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9
+signedRecordHash = 0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1
 signedPreviousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 previousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 nonce = 7
@@ -2509,10 +2802,10 @@ record.signatureScheme = 0x00000000000000000000000000000000000000000000000000000
 record.signatureHash = (algorithm=0,digest=0x,canonicalizationId=0x0000000000000000000000000000000000000000000000000000000000000000)
 domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 MuseumRecordWrite typeHash = 0x9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba
-structHash = 0x60c2187bc87f2fe0a6f4f22d4ce61d050ae3ce7a4ce82a5607a772f356bc5cf4
+structHash = 0x146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa
 preimage = 0x1901 || domainSeparator || structHash
-preimage = 0x1901fffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70d60c2187bc87f2fe0a6f4f22d4ce61d050ae3ce7a4ce82a5607a772f356bc5cf4
-digest = 0xb97f2572a6bd9f4b0075771cd3d0fb2de1c0ffa41345ac05ae4f30e6879a91ae
+preimage = 0x1901fffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70d146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa
+digest = 0x797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca
 ```
 
 The raw EIP-712 preimage is exactly 2 bytes followed by two 32-byte words;
@@ -2604,8 +2897,8 @@ mode `INLINE`, payload bytes from §13.2, source commit
 ```text
 pathHash = 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
 payloadBytesHash = 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
-entryHash = 0xb4e92c4245949474f8dacf09e36c2ae4a5a82ae6bd2ccc46654ce311630f8919
-root = 0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d
+entryHash = 0xfa531a4233206547049d1b83c4b4e3e4d9763effb47227b2fd761ea1846ddfc8
+root = 0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280
 ```
 
 ### 13.7 HTTPS assertion vector
@@ -2651,12 +2944,12 @@ predecessor, payload hash, or authority revision from a production batch:
 
 ```text
 batchCommitmentDomain = 0x6743de485825345432a60824968ffa9c8b3ef54adb2f4ad2d1cb219ec56e4400
-batchId = 0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b
+batchId = 0x0a4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70
 authorityRevision = 1
-recordHashes = [0x96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9]
+recordHashes = [0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1]
 previousRecordHashes = [0x0000000000000000000000000000000000000000000000000000000000000000]
 payloadHashes = [0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7]
-batchCommitment = 0xad748c99c6edc245f77ae5a46660e3c0706696e9f9c4117308a7dd773a312314
+batchCommitment = 0x045fef922ae594deb4df63a10095f153076ddb5a8e0adfb37f43c762911b2339
 ```
 
 ### 13.9 Target-release capability/probe vector

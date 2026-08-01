@@ -1,0 +1,123 @@
+{
+  "$id": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "targetKind",
+    "releaseId",
+    "target",
+    "codeHash",
+    "runtimePolicyHash",
+    "sourceCommit",
+    "sourceRepository",
+    "sourceTreeHash",
+    "artifactHash",
+    "requiredInterfaceId",
+    "expectedModuleVersion",
+    "protocolVersion",
+    "streamCompatibilityCommit",
+    "conformanceDocumentHash",
+    "revision",
+    "authorityRevision",
+    "status",
+    "builds",
+    "conformance",
+    "signers",
+    "availability",
+    "previousReleaseId",
+    "supersessionReasonHash"
+  ],
+  "properties": {
+    "schema": { "const": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1" },
+    "version": { "const": 1 },
+    "targetKind": { "type": "integer", "enum": [1, 2] },
+    "releaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "target": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "sourceRepository": { "const": "6529-Collections/6529networkmuseum" },
+    "sourceTreeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "artifactHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "requiredInterfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+    "expectedModuleVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "protocolVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "streamCompatibilityCommit": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "conformanceDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "authorityRevision": { "type": "integer", "minimum": 1 },
+    "status": { "type": "integer", "enum": [1, 2] },
+    "builds": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["builderId", "toolchainId", "compilerInputHash", "artifactHash", "runtimeCodeHash"],
+        "properties": {
+          "builderId": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "toolchainId": { "type": "string", "minLength": 1 },
+          "compilerInputHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "artifactHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "runtimeCodeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reportHash", "vectorBundleHash", "runtimePolicyHash", "probeGasLimit", "returnDataBytesLimit"],
+      "properties": {
+        "reportHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "vectorBundleHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "probeGasLimit": { "type": "integer", "minimum": 1, "maximum": 1000000 },
+        "returnDataBytesLimit": { "type": "integer", "minimum": 32, "maximum": 4096 }
+      }
+    },
+    "signers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["threshold", "signatureScheme", "signedDocumentHash", "addresses", "signatureCommitments"],
+      "properties": {
+        "threshold": { "const": 2 },
+        "signatureScheme": { "const": "EIP-191-KECCAK256-DOCUMENT_V1" },
+        "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "addresses": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" }
+        },
+        "signatureCommitments": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "availability": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["uri", "contentHash", "fetchObservationHash"],
+        "properties": {
+          "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+          "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "fetchObservationHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "previousReleaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "supersessionReasonHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+  }
+}

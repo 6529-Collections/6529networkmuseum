@@ -581,9 +581,44 @@
       "size": 1255
     },
     {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021"
+      },
+      "path": "specs/onchain/batch-gas-benchmark-v1.json",
+      "sha256": "sha256:c735dce8cfb741a6dfc3ee5551adcd8b03a45f8eced9395d08de2b66a4333e3f",
+      "size": 2057
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4"
+      },
+      "path": "specs/onchain/batch-gas-benchmark-v1.schema.json",
+      "sha256": "sha256:5c15fe0b2daca2824905a326083f7cfde6b0ea95198ac29c53bcc0d07c928831",
+      "size": 3973
+    },
+    {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:b31eaf83fde208e501d8ba0cad3e58246baa36f6be5e73bf35b1bef00f143d8c",
-      "size": 162286
+      "sha256": "sha256:88f2271058b4bd7e2a57e9a551a3eac74979aea431d0944b53df4a95412c2454",
+      "size": 182902
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da"
+      },
+      "path": "specs/onchain/target-release-evidence-v1.schema.json",
+      "sha256": "sha256:f61fad3ef8631faad518a27ddff7679538fc5127a890d251f2d909cfe49c3796",
+      "size": 4857
+    },
+    {
+      "path": "specs/onchain/uri_safety_vectors_v1.py",
+      "sha256": "sha256:e38770164edde947ba2d6397aa77c7bf7442fa71e0281a81be297f5507ce6df2",
+      "size": 9359
     },
     {
       "path": "templates/README.md",
@@ -818,9 +853,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x0cb9b2a321e8917e40b393e409d84a043cb38c561c70bcb2ddf70454c8a9bc51"
+    "digest": "0x01cae35ec9315631e7e011bf9704bbefbc5159067545a4392e46f52f946ad955"
   },
-  "manifest_sha256": "sha256:ca8cfc2a829c73d4eecd95416a640135445feab1468112681fe90baf400a2a31",
+  "manifest_sha256": "sha256:a4adcc66139508eff939cf3cbe83f33910bf440fefec3b7a4d7663785144fb3f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

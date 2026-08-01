@@ -1,0 +1,93 @@
+{
+  "$id": "MUSEUM_BATCH_GAS_BENCHMARK_REPORT_V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "chainId",
+    "evmRevision",
+    "registryCodeHash",
+    "deploymentAddress",
+    "deploymentBlock",
+    "forkBlockHash",
+    "rpcEndpointId",
+    "toolchain",
+    "environment",
+    "corpusHash",
+    "measurements",
+    "signatures"
+  ],
+  "properties": {
+    "schema": { "const": "MUSEUM_BATCH_GAS_BENCHMARK_V1" },
+    "version": { "const": "1.0.0" },
+    "chainId": { "const": 1 },
+    "evmRevision": { "const": "cancun" },
+    "registryCodeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "deploymentAddress": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "deploymentBlock": { "type": "integer", "minimum": 1 },
+    "forkBlockHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "rpcEndpointId": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,128}$" },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forgeVersion", "forgeCommit", "solcVersion", "solcCommit", "optimizer", "optimizerRuns", "viaIR", "evmVersion"],
+      "properties": {
+        "forgeVersion": { "const": "1.7.1" },
+        "forgeCommit": { "const": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8" },
+        "solcVersion": { "const": "0.8.19" },
+        "solcCommit": { "const": "7dd6d404" },
+        "optimizer": { "const": true },
+        "optimizerRuns": { "const": 200 },
+        "viaIR": { "const": false },
+        "evmVersion": { "const": "cancun" }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["osFamily", "architecture", "runnerImageDigest", "cpuModel"],
+      "properties": {
+        "osFamily": { "type": "string", "minLength": 1 },
+        "architecture": { "enum": ["amd64", "arm64"] },
+        "runnerImageDigest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "cpuModel": { "type": "string", "minLength": 1 }
+      }
+    },
+    "corpusHash": { "const": "0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021" },
+    "measurements": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["caseId", "gasUsed", "succeeded", "outOfGasRevertedAtomically"],
+        "properties": {
+          "caseId": { "type": "string", "enum": ["none-64", "content-addressed-64", "inline-mixed-max", "https-supersession-max"] },
+          "gasUsed": { "type": "integer", "minimum": 0, "maximum": 9000000 },
+          "succeeded": { "const": true },
+          "outOfGasRevertedAtomically": { "const": true }
+        }
+      },
+      "allOf": [
+        { "contains": { "type": "object", "required": ["caseId"], "properties": { "caseId": { "const": "none-64" } } } },
+        { "contains": { "type": "object", "required": ["caseId"], "properties": { "caseId": { "const": "content-addressed-64" } } } },
+        { "contains": { "type": "object", "required": ["caseId"], "properties": { "caseId": { "const": "inline-mixed-max" } } } },
+        { "contains": { "type": "object", "required": ["caseId"], "properties": { "caseId": { "const": "https-supersession-max" } } } }
+      ]
+    },
+    "signatures": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["threshold", "signedReportHash", "builderIds", "signatureCommitments"],
+      "properties": {
+        "threshold": { "const": 2 },
+        "signedReportHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "builderIds": { "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "signatureCommitments": { "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" } }
+      }
+    }
+  }
+}
