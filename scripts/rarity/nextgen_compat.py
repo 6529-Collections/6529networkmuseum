@@ -225,57 +225,6 @@ METRIC_TERMS = (
     "sale",
     "volume",
 )
-RARITY_METRIC_TERMS = (
-    "rank",
-    "score",
-    "metric",
-    "percentile",
-    "frequency",
-    "prevalence",
-)
-EXTERNAL_SERVICE_KEY_TERMS = (
-    "opensea",
-    "looksrare",
-    "blur",
-    "rarible",
-    "magiceden",
-    "x2y2",
-    "nftgo",
-    "icytools",
-    "traitsniper",
-    "raritysniper",
-    "raritytools",
-    "reservoir",
-    "tensor",
-    "nftscan",
-    "gem",
-    "marketplace",
-    "service",
-    "provider",
-)
-PROVIDER_IDENTITY_KEYS = {
-    "provider",
-    "marketplace",
-    "service",
-    "source",
-    "origin",
-    "issuer",
-}
-PROVIDER_VALUE_KEYS = {"id", "name", "slug", "label", "value"}
-INTERNAL_PROVIDER_IDENTITIES = frozenset(
-    {
-        "6529",
-        "museum",
-        "6529museum",
-        "6529networkmuseum",
-        "nextgen",
-        "6529nextgen",
-        "6529nextgenmuseum",
-        "seize",
-        "6529seize",
-        "6529seizebackend",
-    }
-)
 PROVENANCE_KEY_TERMS = (
     "provenance",
     "citation",
@@ -299,152 +248,44 @@ def _is_metric_key(key: Any) -> bool:
     )
 
 
-def _is_rarity_metric_key(key: Any) -> bool:
-    normalized = _normalized_key(key)
-    return (
-        normalized == "rarity"
-        or normalized.endswith("rarity")
-        or any(term in normalized for term in RARITY_METRIC_TERMS)
-    )
-
-
-def _is_external_service_metric_key(key: Any) -> bool:
-    normalized = _normalized_key(key)
-    return _is_metric_key(normalized) and any(
-        term in normalized for term in EXTERNAL_SERVICE_KEY_TERMS
-    )
-
-
-def _contains_external_service_reference(value: Any) -> bool:
-    if isinstance(value, str):
-        normalized = _normalized_key(value)
-        return (
-            "http" in value.lower()
-            or any(term in normalized for term in EXTERNAL_SERVICE_KEY_TERMS)
-        )
-    if isinstance(value, dict):
-        return any(
-            _contains_external_service_reference(child) for child in value.values()
-        )
-    if isinstance(value, list):
-        return any(_contains_external_service_reference(child) for child in value)
-    return False
-
-
 def _is_provenance_key(key: Any) -> bool:
     normalized = _normalized_key(key)
     return any(term in normalized for term in PROVENANCE_KEY_TERMS)
 
 
-def _is_internal_provider(value: Any) -> bool:
-    if not isinstance(value, str):
-        return False
-    normalized = _normalized_key(value)
-    return normalized in INTERNAL_PROVIDER_IDENTITIES
-
-
-def _identity_values(value: Any) -> Iterable[str]:
-    if isinstance(value, str):
-        if value.strip():
-            yield value
-    elif isinstance(value, dict):
-        for key, child in value.items():
-            normalized = _normalized_key(key)
-            if normalized in PROVIDER_VALUE_KEYS:
-                yield from _identity_values(child)
-            elif normalized in PROVIDER_IDENTITY_KEYS:
-                yield from _identity_values(child)
-    elif isinstance(value, list):
-        for child in value:
-            yield from _identity_values(child)
-
-
-def _provider_identity_values(value: Any) -> Iterable[str]:
-    if isinstance(value, list):
-        for child in value:
-            yield from _provider_identity_values(child)
-        return
-    if not isinstance(value, dict):
-        return
-    for key, child in value.items():
-        normalized = _normalized_key(key)
-        if normalized in PROVIDER_IDENTITY_KEYS:
-            if normalized == "source" and isinstance(child, dict):
-                # The required top-level source object is a provenance
-                # container, not itself a provider identity. An explicit
-                # source name/id/slug/label is still an identity, and nested
-                # semantic source/origin/issuer fields remain identities.
-                for source_key, source_value in child.items():
-                    if _normalized_key(source_key) in PROVIDER_VALUE_KEYS:
-                        yield from _identity_values(source_value)
-                yield from _provider_identity_values(child)
-            else:
-                yield from _identity_values(child)
-        elif isinstance(child, (dict, list)):
-            yield from _provider_identity_values(child)
-
-
-def _has_external_provider(value: dict[str, Any]) -> bool:
-    return any(
-        not _is_internal_provider(identity)
-        for identity in _provider_identity_values(value)
-    )
-
-
-def _contains_rarity_metric_key(value: Any) -> bool:
+def _contains_metric_key(value: Any) -> bool:
     if isinstance(value, dict):
         return any(
-            _is_rarity_metric_key(key) or _contains_rarity_metric_key(child)
+            _is_metric_key(key) or _contains_metric_key(child)
             for key, child in value.items()
         )
     if isinstance(value, list):
-        return any(_contains_rarity_metric_key(child) for child in value)
+        return any(_contains_metric_key(child) for child in value)
     return False
 
 
-def _reject_marketplace_metric_fields(
-    value: Any,
-    path: str = "snapshot",
-    *,
-    external_provider_context: bool = False,
-) -> None:
-    """Reject third-party metrics while allowing provenance prose and URLs."""
+def _reject_precomputed_metric_fields(value: Any, path: str = "snapshot") -> None:
+    """Reject precomputed input metrics while allowing citation-only provenance."""
 
     if isinstance(value, dict):
-        external_context = external_provider_context or _has_external_provider(value)
         for key, child in value.items():
             key_text = str(key)
-            if _is_external_service_metric_key(key):
+            if _is_provenance_key(key) and _contains_metric_key(child):
                 raise InputError(
-                    "OpenSea or other third-party marketplace/service rarity "
-                    "metric fields are "
-                    f"prohibited in Museum rarity snapshots: {path}.{key_text}"
-                )
-            if _is_provenance_key(key) and _contains_rarity_metric_key(child):
-                raise InputError(
-                    "third-party rarity metric fields are prohibited inside "
+                    "precomputed rarity/score/rank/metric fields are prohibited "
+                    "inside "
                     f"provenance/methodology citations: {path}.{key_text}"
                 )
-            if _is_rarity_metric_key(key) and (
-                external_context or _contains_external_service_reference(child)
-            ):
+            if _is_metric_key(key):
                 raise InputError(
-                    "OpenSea or other third-party marketplace/service rarity "
-                    "metric fields are "
-                    f"prohibited in Museum rarity snapshots: {path}.{key_text}"
+                    "third-party or internal precomputed rarity/score/rank/metric "
+                    "fields are prohibited in Museum input snapshots: "
+                    f"{path}.{key_text}"
                 )
-            _reject_marketplace_metric_fields(
-                child,
-                f"{path}.{key_text}",
-                external_provider_context=external_context,
-            )
+            _reject_precomputed_metric_fields(child, f"{path}.{key_text}")
     elif isinstance(value, list):
         for index, child in enumerate(value):
-            _reject_marketplace_metric_fields(
-                child,
-                f"{path}[{index}]",
-                external_provider_context=external_provider_context,
-            )
+            _reject_precomputed_metric_fields(child, f"{path}[{index}]")
 
 
 def _validate_snapshot_shape(
@@ -542,7 +383,7 @@ def normalize_snapshot(
 
     _reject_non_finite_values(snapshot)
     collection_id = _validate_snapshot_metadata(snapshot)
-    _reject_marketplace_metric_fields(snapshot)
+    _reject_precomputed_metric_fields(snapshot)
     tokens, raw_traits = _validate_snapshot_shape(snapshot, collection_id)
     token_ids = [token["id"] for token in tokens]
     token_id_duplicates = sorted(
@@ -944,9 +785,9 @@ def analyze_snapshot(
             "trait_rank_tie_policy": "dense rank, descending, independently within each trait category",
             "token_rank_tie_policy": "competition rank, stable sort, direction depends on score family",
             "third_party_metric_policy": (
-                "reject structured third-party marketplace/service-sourced or "
-                "computed rarity metric fields; allow provenance prose, "
-                "citations, and URLs that mention those services"
+                "reject every structured precomputed rarity/score/rank/metric "
+                "field in input, regardless of claimed provider; allow "
+                "provenance prose, citations, and URLs without metric fields"
             ),
         },
         "determinism": determinism_profile(),

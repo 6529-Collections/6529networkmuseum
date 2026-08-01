@@ -19,7 +19,7 @@
     "none_value_policy": "values whose lowercase text starts with 'none' are excluded from trait_count but retained in score products",
     "trait_rank_tie_policy": "dense rank, descending, independently within each trait category",
     "token_rank_tie_policy": "competition rank, stable sort, direction depends on score family",
-    "third_party_metric_policy": "reject structured third-party marketplace/service-sourced or computed rarity metric fields; allow provenance prose, citations, and URLs that mention those services"
+    "third_party_metric_policy": "reject every structured precomputed rarity/score/rank/metric field in input, regardless of claimed provider; allow provenance prose, citations, and URLs without metric fields"
   },
   "determinism": {
     "implementation": "CPython",
@@ -675,6 +675,6 @@
   "hashes": {
     "input_snapshot_sha256": "sha256:84d91373847f5727318282a10991679c00407bbc5b0ebf6f0c54c5719a443193",
     "normalized_snapshot_sha256": "sha256:963aae8c808d1751075e399c8b1e1a11e6f0f139ef74d8b1fe2174221726cc4c",
-    "output_sha256": "sha256:8ea21f0eb6a94679c57160fcc7c51a181dbb4243dfb7bcc95f99953f4c903acb"
+    "output_sha256": "sha256:35b343eb24e8b62440ff1b04c120f458dbb08838a826898b727485d7de38fc13"
   }
 }

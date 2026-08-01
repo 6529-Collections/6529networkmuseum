@@ -10,11 +10,12 @@ artistically unimportant work, and a common trait may occur in an important
 work. Rarity must never substitute for artist, provenance, rights, condition,
 technical, historical, or curatorial review.
 
-Third-party marketplace/service-sourced or computed rarity metric fields are
-prohibited as Museum evidence and rejected by this tooling. This includes
-OpenSea, LooksRare, and equivalent providers. Provenance prose, citations, and
-URLs that mention a marketplace remain admissible; they are evidence of
-provenance or source context, not rarity inputs.
+Precomputed rarity/score/rank/metric fields are prohibited as Museum evidence
+and rejected by this tooling, including fields claimed to come from OpenSea,
+LooksRare, equivalent providers, or internal Museum/NextGen sources.
+Provenance prose, citations, and URLs that mention a marketplace remain
+admissible; they are evidence of provenance or source context, not rarity
+inputs.
 
 ## Pinned sources
 
@@ -57,18 +58,16 @@ quality observations, configuration, per-trait rows, per-token scores/ranks,
 and hashes. It retains `Mint Type` rows in the audit/per-trait output while
 excluding them from score aggregates, matching the backend.
 
-The third-party metric guard rejects structured fields such as
-`opensea_rarity_score` or `looksrare_rank`, and generic rarity metric fields
-whose provider is a third-party service. It does not reject free-text notes,
-provenance descriptions, citation labels, or citation URLs that happen to
-contain marketplace names. Marketplace values are never used to calculate a
-Museum score. Provider identity semantics are closed: `provider`,
-`marketplace`, `service`, `source`, `origin`, and `issuer` values are treated
-as identities only in those explicit fields, and only the exact allowlisted
-Museum/NextGen identities are internal. A value such as `OpenSea Museum` is
-therefore third-party, not an internal identity by substring coincidence.
-`rarity_provenance` and methodology/citation fields remain admissible when
-they contain citation text or URLs but no structured rarity metric fields.
+The input guard rejects every structured precomputed rarity, score, rank, or
+metric field at any depth, regardless of whether it claims to come from
+OpenSea, LooksRare, the Museum, NextGen, or another provider. Provider claims
+and wrapper URLs do not make an imported score trustworthy. Internal
+NextGen-compatible scores are computed by this tool and appear only in its
+output. Free-text notes, provenance descriptions, citation labels, and
+citation URLs that mention marketplaces remain admissible. Exact provenance or
+methodology citation objects such as `rarity_provenance` are admissible only
+when they contain no structured precomputed metric fields; their text and URLs
+are never treated as score inputs.
 
 ## Normalization and data quality
 
