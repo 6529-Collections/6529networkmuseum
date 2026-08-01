@@ -7,8 +7,13 @@
   "entries": [
     {
       "path": "policies/README.md",
-      "sha256": "sha256:d98819f23c0832d73e156b664c8ac6595fd66801404938a6bac5d57b8b579bde",
-      "size": 613
+      "sha256": "sha256:4cc032249a64ae9bc9fb0cfe91342c7c444122c0bd5ae526c1f118dfe4cf2da8",
+      "size": 681
+    },
+    {
+      "path": "policies/donation-acceptance.md",
+      "sha256": "sha256:ec733b02b537f02eb6096c6aeb67c445af15d081d864cd08bd5e4018aa64e881",
+      "size": 10489
     },
     {
       "path": "policies/founding-and-operating-principles.md",
@@ -19,6 +24,41 @@
       "path": "policies/general-nft-collecting-scope.md",
       "sha256": "sha256:57c7ce3ba741df93bfb19913b4d449377f804ee676df2f9655c07cb8cd3379a1",
       "size": 5049
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xc7690bd93c3c9432897e9b25c4337246cbf2c8b98f219994cd619ad2ee699fbb"
+      },
+      "path": "records/accessions/register.json",
+      "sha256": "sha256:d700205bb0dc47c460c0ab5f1e66c5826f32d156d39dedd13a78d5ba2f4a1272",
+      "size": 2241
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xc09fd79a147a674c7feed8ef68769c1f3ae7e8bcb32f506a03c7b5331bc33fc4"
+      },
+      "path": "records/collections/approved-collections.json",
+      "sha256": "sha256:0de203fe26f28033552e0070b7f60c4058fe45467944d4b0c9a56ee1477e9e2d",
+      "size": 3617
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x594467f56fa45be131da9385424a5e2292835152340cc1c5868605626a473041"
+      },
+      "path": "records/governance/decisions.json",
+      "sha256": "sha256:860a1593e4ee7c1539ec8c394ef0f726ce21d5abfd592004b863e03b6cc39914",
+      "size": 6387
+    },
+    {
+      "path": "records/programs/README.md",
+      "sha256": "sha256:5bc8bf562378a26fdd05c2eccbc9a9a38c1cfb44eccb3a6262fea1690b29e6e0",
+      "size": 388
     },
     {
       "content_hash": {
@@ -44,6 +84,16 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xcf78661e4d984fb1b7c91500ee419cba79cc4a1afb0a3e799dbb7a83ea1d6651"
+      },
+      "path": "schemas/accession-register.schema.json",
+      "sha256": "sha256:5c6f157489be3d1d0edbcad4aa85d7a8bdc0b7a89298f0292c4324b307942563",
+      "size": 2877
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
         "digest": "0xd66d87e9ba6f51ac7254ca9818c61ed373d6432067cd12eeaff8731987d15ce0"
       },
       "path": "schemas/accession.schema.json",
@@ -59,6 +109,16 @@
       "path": "schemas/approved-collection.schema.json",
       "sha256": "sha256:627f47628a8b22e21aa731c53c393d40bcf5940e9b80462f821eaec50a7edb56",
       "size": 1092
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xdfee45cbb1b5f708dfd574e71586718947c5ce88f0e2524dfef2392c80472db7"
+      },
+      "path": "schemas/approved-collections.schema.json",
+      "sha256": "sha256:68e9f0ff161c8401d826c63c5fe081ce7705edb89b69acd841cfa03a35ef85f2",
+      "size": 3172
     },
     {
       "content_hash": {
@@ -109,6 +169,16 @@
       "path": "schemas/governance-decision.schema.json",
       "sha256": "sha256:260dc93b6033b236e33ef9aa902a3ebcf99610ce308f07ec5c819e97172dd8bd",
       "size": 1616
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x3ee629283e3b932b13b57c048d062b57b989a3c4d9ceaddb3dc5346c86f4f9a8"
+      },
+      "path": "schemas/governance-decisions.schema.json",
+      "sha256": "sha256:35f390019f750210e844732e1fd3ce42c9ae5ac892df90403dd595de697dc5aa",
+      "size": 3675
     },
     {
       "content_hash": {
@@ -173,9 +243,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xe038eb76edb24865c60d412684148610ef1fdce723e7ed122cb5c27bf92acfcb"
+    "digest": "0x7da46d0dffbfff87da3e4e14fd570264c54e75ac91d9db368a75ea06ab0e0f61"
   },
-  "manifest_sha256": "sha256:c4db52ced8368860053df2172af448dc75af5de020947cb8abc14d2794eb95be",
+  "manifest_sha256": "sha256:ebee3dfb3711d3921bf88c89e90ea6d24d4dad271fa2e5b9c45d0e7bbe657b8f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

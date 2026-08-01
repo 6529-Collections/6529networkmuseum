@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -106,9 +107,21 @@ class ControlPlaneTests(unittest.TestCase):
         manifest = make_manifest(REPO_ROOT)
         self.assertEqual("6529NM_RECORD_MANIFEST", manifest["manifest_type"])
         self.assertTrue(manifest["entries"])
+        self.assertTrue(all("\\" not in entry["path"] for entry in manifest["entries"]))
+        self.assertTrue(all(not entry["path"].startswith("evidence/") for entry in manifest["entries"]))
         self.assertRegex(manifest["manifest_commitment"]["digest"], r"^0x[0-9a-f]{64}$")
         self.assertRegex(manifest["manifest_sha256"], r"^sha256:[0-9a-f]{64}$")
         self.assertEqual(manifest, make_manifest(REPO_ROOT))
+
+    def test_foundation_bootstrap_controls_pass_current_register(self) -> None:
+        result = subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / "bootstrap_validate.py")],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

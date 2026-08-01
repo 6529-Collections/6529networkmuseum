@@ -1,0 +1,79 @@
+{
+  "$schema": "../../schemas/approved-collections.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "reviewed",
+    "constructor": {
+      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:13:00Z"
+    },
+    "review": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T15:42:12.081Z",
+      "reviewed_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
+      "outcome": "approved",
+      "payload_sha256": "sha256:d57a3456e9d95f3b5f3063b8a1b5ee8cdae9ab1329de7975a5bfd6af25fe181e"
+    }
+  },
+  "record_set_id": "6529NM-COL-APPROVED",
+  "snapshot_at": "2026-08-01T15:01:05Z",
+  "meaning": "Donation preapproval removes collection-specific pre-authorization only. Every offered work remains subject to authenticity, provenance, title, donor authority, legal, rights, technical, risk, and formal acceptance checks.",
+  "collections": [
+    {
+      "approval_id": "6529NM-COL-APPROVED-0001",
+      "preferred_name": "Autoglyphs",
+      "scope_definition": "The original Autoglyphs project; work-level identity must be verified before acceptance.",
+      "category": "onchain_generative_art",
+      "status": "approved_for_donation_review_pathway",
+      "decision_id": "6529NM-GOV-1052148",
+      "effective_evidence": "wave_winner",
+      "exclusions": ["derivatives", "unofficial wrappers", "works merely inspired by Autoglyphs"]
+    },
+    {
+      "approval_id": "6529NM-COL-APPROVED-0002",
+      "preferred_name": "Art Blocks collections",
+      "scope_definition": "Works from Art Blocks collections; project, contract, series, and token identity must be verified before acceptance.",
+      "category": "generative_art_platform",
+      "status": "approved_for_donation_review_pathway",
+      "decision_id": "6529NM-GOV-1052156",
+      "effective_evidence": "wave_winner",
+      "exclusions": ["unaffiliated projects", "unofficial derivatives", "counterfeit contracts"]
+    },
+    {
+      "approval_id": "6529NM-COL-APPROVED-0003",
+      "preferred_name": "Original Rare Pepes",
+      "scope_definition": "Original Rare Pepe cards; card authenticity, Counterparty asset identity, and any representation or wrapper must be verified before acceptance.",
+      "category": "blockchain_native_meme_artifact",
+      "status": "approved_for_donation_review_pathway",
+      "decision_id": "6529NM-GOV-1052401",
+      "effective_evidence": "wave_winner",
+      "exclusions": ["Pepe derivatives", "meme coins", "later derivative projects", "unofficial wrappers"]
+    },
+    {
+      "approval_id": "6529NM-COL-APPROVED-0004",
+      "preferred_name": "Original CryptoPunks",
+      "scope_definition": "The original fixed set of 10,000 CryptoPunks; contract and token identity must be verified before acceptance.",
+      "category": "blockchain_native_avatar_art",
+      "status": "approved_for_donation_review_pathway",
+      "decision_id": "6529NM-GOV-1052437",
+      "effective_evidence": "wave_winner",
+      "exclusions": ["CryptoPunks derivatives", "unofficial wrappers", "other avatar or PFP projects"]
+    }
+  ],
+  "not_approved_at_snapshot": [
+    {
+      "preferred_name": "The Complaint Cards (not) by 6529",
+      "decision_id": "6529NM-GOV-1052714",
+      "observed_wave_status": "PARTICIPATORY",
+      "disposition": "deferred"
+    },
+    {
+      "preferred_name": "Original Lost Robbies",
+      "decision_id": "6529NM-GOV-1069256",
+      "observed_wave_status": "PARTICIPATORY",
+      "disposition": "undetermined"
+    }
+  ]
+}

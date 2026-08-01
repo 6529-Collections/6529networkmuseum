@@ -6,10 +6,18 @@ status into an adopted record.
 
 ## What is enforced
 
-The control plane is deliberately split between JSON Schema and semantic checks.
-Schemas handle types, required fields, patterns, controlled values, and closed
-nested objects. `scripts/validate.py` handles the checks that need the whole
-repository or need to compare values:
+The repository currently has two compatible validation layers. The foundation
+registers in `records/` use local bootstrap schemas plus a `record_control`
+block; `scripts/bootstrap_validate.py` remains authoritative for their source-
+derived governance checks, raw evidence manifests, local links, public safety,
+and constructor/reviewer payload hashes. New Stream-envelope records use the
+schemas and semantic checks in `scripts/validate.py`. The required GitHub job
+`Museum validation` runs both layers.
+
+The complete control plane is deliberately split between JSON Schema and
+semantic checks. Schemas handle types, required fields, patterns, controlled
+values, and closed nested objects. `scripts/validate.py` handles the checks
+that need the whole repository or need to compare values:
 
 - the off-chain file has the exact Stream `CollectionRecord` envelope under
   `envelope`; field names and order are not changed in the ABI-facing shape;
@@ -30,6 +38,12 @@ repository or need to compare values:
 - constructor and reviewer IDs differ;
 - public records contain no restricted field names, credentials, private keys,
   private filesystem paths, or local/private-network URLs.
+
+The bootstrap layer additionally verifies that governance decisions reproduce
+the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,
+approved collections reference adopted decisions, evidence manifest paths and
+raw-byte hashes match, and every reviewed `record_control.payload_sha256`
+matches its record payload.
 
 The repository may contain no canonical records while the record register is
 being established. In that case the validator still compiles every schema and
@@ -95,6 +109,7 @@ From the repository root:
 ```powershell
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
+python scripts/bootstrap_validate.py
 python scripts/validate.py
 python scripts/generate_manifest.py
 python scripts/generate_manifest.py --check
@@ -102,8 +117,11 @@ python scripts/generate_manifest.py --check
 
 Run the generator after changing a policy, canonical record, or schema. Commit
 the resulting `release-artifacts/latest/record-manifest.json` with the change.
-The pull-request workflow runs the test suite, validator, and stale-manifest
-check on every PR with a bounded job timeout and pinned Python dependencies.
+The pull-request workflow runs the bootstrap validator, test suite, full
+validator, and stale-manifest check on every PR with a bounded job timeout and
+pinned Python dependencies. A separate deterministic matrix runs the same
+portable checks on Ubuntu and Windows; it does not replace the required
+`Museum validation` job.
 
 ## Adding a correction
 

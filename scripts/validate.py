@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -23,6 +24,7 @@ SCHEMAS_DIR = REPO_ROOT / "schemas"
 VOCAB_PATH = SCHEMAS_DIR / "controlled-vocabularies.json"
 VOCAB_SCHEMA_PATH = SCHEMAS_DIR / "controlled-vocabularies.schema.json"
 ENVELOPE_PATH = SCHEMAS_DIR / "record-envelope.schema.json"
+OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
 
 RECORD_REFERENCE_KEYS = {
     "references",
@@ -307,6 +309,18 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
 
 def validate_records(root: Path) -> list[str]:
     issues: list[str] = []
+    bootstrap_script = root / "scripts" / "bootstrap_validate.py"
+    if bootstrap_script.is_file():
+        bootstrap = subprocess.run(
+            [sys.executable, str(bootstrap_script)],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if bootstrap.returncode:
+            detail = (bootstrap.stdout + bootstrap.stderr).strip()
+            issues.append(f"bootstrap validation failed: {detail}")
     vocabularies, envelope_schema, schema_store = load_schemas()
     issues.extend(validate_vocabularies(vocabularies))
     try:
@@ -334,6 +348,10 @@ def validate_records(root: Path) -> list[str]:
             continue
         if not isinstance(record, dict):
             issues.append(f"{relative}: record must be an object")
+            continue
+        if record.get("$schema") != OFFCHAIN_ENVELOPE_SCHEMA and "record_control" in record:
+            # Foundation registers use local bootstrap schemas and record_control;
+            # bootstrap_validate.py is their authoritative structural and hash gate.
             continue
         envelope_errors = sorted(validator_for(envelope_schema, schema_store).iter_errors(record), key=lambda error: list(error.absolute_path))
         issues.extend(f"{relative}: envelope {format_error(error)}" for error in envelope_errors)
