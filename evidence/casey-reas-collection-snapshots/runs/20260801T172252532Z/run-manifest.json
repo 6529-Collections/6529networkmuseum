@@ -1,5 +1,5 @@
 {
-  "schema_version": "6529nm.casey-collection-run-manifest.v2",
+  "schema_version": "6529nm.casey-collection-run-manifest.v3",
   "run_id": "20260801T172252532Z",
   "status": "complete",
   "constructor": {
@@ -299,8 +299,8 @@
         }
       ],
       "snapshot_path": "runs/20260801T172252532Z/snapshots/century/snapshot.json",
-      "snapshot_file_sha256": "sha256:430e09d3f78e14891f939c4b4a31d68a4957485645d0294cdd40bfca2efb9988",
-      "snapshot_canonical_sha256": "sha256:1643428c5ab7e6ad086c86b8ec2152eff61510a38f9bfbf4a0f0342c9cc8b793",
+      "snapshot_file_sha256": "sha256:1644e142dfbe34c685f9a7f0e6dcbd052b84c4168b5f6bee41e22b90b7b3cf45",
+      "snapshot_canonical_sha256": "sha256:5181cc40392baa76b77b8027d03c46a1609ea1ce939b971ca3af743abf68e9a8",
       "errors": []
     },
     {
@@ -419,8 +419,8 @@
         }
       ],
       "snapshot_path": "runs/20260801T172252532Z/snapshots/pre-process/snapshot.json",
-      "snapshot_file_sha256": "sha256:46f03101a84a8150c4fd1cea12a5e7f7b2e241807d9237d06aa123a4c8b0dc11",
-      "snapshot_canonical_sha256": "sha256:95d40fd389fb4c513c68529cb7edf960bdb454c9dce61ea40064473fd856d7fa",
+      "snapshot_file_sha256": "sha256:f7c62a25f9d9cc1118faf702378c7c8ab726029ee524da9032eb2ec4bbad4226",
+      "snapshot_canonical_sha256": "sha256:5384338d0b6abfd404aa75fb9bdd92cf0b929a9b7a8a1b9eeee6e59bf5c0f167",
       "errors": []
     },
     {
@@ -611,8 +611,8 @@
         }
       ],
       "snapshot_path": "runs/20260801T172252532Z/snapshots/phototaxis/snapshot.json",
-      "snapshot_file_sha256": "sha256:d1fc2f8c47b0d179c0b380020ee5e7e76e26cef3743f9956c4a0f594c116aba7",
-      "snapshot_canonical_sha256": "sha256:2fd1b1ba88459d83b27b65de1859f9be3209ba559ee73f4748f3c9be260d3fb6",
+      "snapshot_file_sha256": "sha256:e3eee20294b8a15069c52e31b98ba79a517983f43d185e26cd5e75405a9b10c4",
+      "snapshot_canonical_sha256": "sha256:ee8533efeb7e2f9e760b561ac806560187a1dc1b2357b961bc105bb3662f6f92",
       "errors": []
     },
     {
@@ -803,8 +803,8 @@
         }
       ],
       "snapshot_path": "runs/20260801T172252532Z/snapshots/923-empty-rooms/snapshot.json",
-      "snapshot_file_sha256": "sha256:9c99b10ac512fd456869a2c5377eb7f490690beab57ed2fd1989584a300ec5ee",
-      "snapshot_canonical_sha256": "sha256:cff12e034648738f2d61676246abac3c0d46c9ef0f9126037ee132a5b0150eea",
+      "snapshot_file_sha256": "sha256:824ba30b0cfa3d54d189d68235fe01c11280fcbe6729a17dd0aa3b693a8d85ad",
+      "snapshot_canonical_sha256": "sha256:e79d59c041ec77c1809d031128e889150dd65c2468163919d065c0f77ccd274e",
       "errors": []
     },
     {
@@ -947,8 +947,8 @@
         }
       ],
       "snapshot_path": "runs/20260801T172252532Z/snapshots/ex-nihilo-cosmos/snapshot.json",
-      "snapshot_file_sha256": "sha256:429a593501c7fb01fa48bc7d59c89e9d1705ec3d4530f644ec6ca9ecb0d2b94e",
-      "snapshot_canonical_sha256": "sha256:5e5650db2287b55745dd6194ede9b90473106077e2cacef5441fc8b2331497bf",
+      "snapshot_file_sha256": "sha256:b22d33d867b2b5a04355d6b00cf11a6c71651a58770ea8857b3809f8b811b337",
+      "snapshot_canonical_sha256": "sha256:2ee8f1d7b2118bb0c44bc16dde8236e812f301e4c04e1c645819bfca393cf858",
       "errors": []
     }
   ],
@@ -1154,5 +1154,22 @@
       "identity_match": true,
       "features_match": false
     }
-  ]
+  ],
+  "request_provenance": {
+    "path": "derived/provenance/sha256-19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34.json",
+    "sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
+    "size": 10160614,
+    "byte_mode": "reconstructed_from_preserved_v2_invocation"
+  },
+  "exclusion_summary": {
+    "path": "derived/provenance/sha256-085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3.json",
+    "sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
+    "size": 17294,
+    "byte_mode": "reconstructed_from_preserved_v2_invocation"
+  },
+  "raw_observation_integrity": {
+    "raw_directory": "raw",
+    "raw_file_count": 79,
+    "raw_bytes_are_unchanged": true
+  }
 }

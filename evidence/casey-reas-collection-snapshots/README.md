@@ -2,7 +2,8 @@
 
 Status: acquisition package and collection-level statistical descriptors were
 constructed on 2026-08-01 UTC after the independent approval and merge of
-Museum PR #4. Outputs remain pending independent review.
+Museum PR #4. Outputs remain pending independent review. This package does
+not accept title, rights, accession, or curatorial-significance claims.
 
 This package is the source-and-acquisition layer for the five Art Blocks
 projects represented by accession lot `6529NM.2026.001`:
@@ -52,13 +53,23 @@ price, or floor field is requested, imported, cited, or preserved.
 - `collection-sources.json` - immutable acquisition configuration and exact
   contract/project identities.
 - `run-manifest.json` - generated observation block/time, paginated bulk-query
-  hashes, completeness counts, every tokenURI batch, HTTP cross-check attempts,
-  errors, and raw-file hashes.
+  hashes, completeness counts, every tokenURI batch, all 3,327 request records
+  (including reconstructed request bytes, endpoint authorities, response refs,
+  retry policy, attempt ordinals, and discarded-partial caveats), HTTP
+  cross-check attempts, errors, and raw-file hashes.
 - `snapshots/<slug>/snapshot.json` - full rarity-tool input plus source and
   ordering provenance. It preserves token source order separately from the
   canonical numeric token-and-trait ordering used for deterministic analysis.
 - `raw/<slug>/` - content-addressed raw GraphQL, JSON-RPC, and cross-check
   bodies.
+- `derived/provenance/` and `derived/request-bytes/` - content-addressed
+  request and exclusion records reconstructed offline from preserved v2
+  invocation data. They are explicitly not presented as contemporaneous
+  request-byte captures; raw response bodies remain contemporaneous evidence.
+- `package-manifest.json` - root fail-closed inventory binding every raw file,
+  child manifest, snapshot, descriptor, configuration, fixture, script, and
+  merged tool blob identity. `latest-run.json` is a pointer and is excluded
+  from the inventory to avoid a self-reference cycle.
 - `pending-descriptors.json` - dependency and review ledger for the emitted
   descriptors; it remains `complete_pending_review` with reviewer fields null.
   It is not a quality claim or marketplace result.
@@ -101,8 +112,14 @@ checked-out history contains the caller-supplied merged PR #4 commit and the
 merged `scripts/rarity/analyze.py` is present at the current HEAD. It invokes
 that exact merged tool on all five snapshots, emits one collection-level
 descriptor per project, retains the full result artifact, and records separate
-source/canonical orderings. The tool input is a hash-recorded derived projection
-that removes only the negative Museum control annotation rejected by PR #4's
-closed-field guard; source snapshot bytes are not rewritten. Outputs remain
-labeled as transparent statistical descriptors of a frozen metadata snapshot,
-never as quality, value, importance, or canonical truth.
+source/canonical orderings. The input is byte-identical to the hash-bound
+snapshot; no local compatibility projection is used. Descriptors record stable
+`source_snapshot_commit` and `acquisition_commit` inputs plus the exact PR #4
+merge commit, Git blob, and SHA-256. They contain no mutable `current_head`.
+Outputs remain labeled as transparent statistical descriptors of a frozen
+metadata snapshot, never as quality, value, importance, or canonical truth.
+
+The package currently remains independent of the PR #7 safety-control merge.
+Executable network fetching is not migrated in this draft; after PR #7 merges,
+the approved HTTPS primitive/static guard must be adopted before a future
+acquisition run.

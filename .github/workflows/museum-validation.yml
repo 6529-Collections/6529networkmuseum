@@ -31,5 +31,11 @@ jobs:
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
 
+      - name: Run NextGen compatibility tests
+        run: python -m unittest tests.rarity.test_nextgen_compat -v
+
+      - name: Run Casey package mutation tests
+        run: python -m unittest tests.casey.test_casey_snapshot_mutations -v
+
       - name: Verify Casey snapshot and descriptor package
         run: python scripts/verify_casey_snapshot_package.py

@@ -296784,8 +296784,7 @@
   "materialization": {
     "version": "6529nm.artblocks-hasura-features-to-analysis-rows.v1",
     "raw_field": "tokens_metadata.features",
-    "scalar_rule": "strings unchanged; booleans become lowercase JSON text; numbers use compact JSON text",
-    "not_a_marketplace_metric": true
+    "scalar_rule": "strings unchanged; booleans become lowercase JSON text; numbers use compact JSON text"
   },
   "analysis_input_note": "The traits array is an explicit Museum materialization of the authoritative Art Blocks Hasura features object; it is a technical distribution descriptor input, not a platform or marketplace rarity taxonomy."
 }

@@ -1,0 +1,1 @@
+{"id":"project-info-phototaxis","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x8c2c362200000000000000000000000000000000000000000000000000000000000000a4","to":"0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"},"0x1879030"]}
