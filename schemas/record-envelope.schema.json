@@ -19,7 +19,7 @@
       "type": "object",
       "properties": {
         "algorithm": {"type": "integer", "enum": [1, 2]},
-        "digest": {"type": "string", "pattern": "^0x[0-9a-fA-F]*$"},
+        "digest": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
         "canonicalizationId": {"$ref": "#/$defs/bytes32"}
       },
       "required": ["algorithm", "digest", "canonicalizationId"],

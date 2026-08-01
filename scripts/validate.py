@@ -128,15 +128,28 @@ def validate_vocabularies(vocabularies: dict[str, Any]) -> list[str]:
     record_types = vocabularies.get("record_types", [])
     schema_ids = vocabularies.get("schema_ids", {})
     schema_paths = vocabularies.get("schema_paths", {})
-    if not isinstance(record_types, list) or not isinstance(schema_ids, dict) or not isinstance(schema_paths, dict):
+    if (
+        not isinstance(record_types, list)
+        or not all(isinstance(record_type, str) for record_type in record_types)
+        or not isinstance(schema_ids, dict)
+        or not isinstance(schema_paths, dict)
+    ):
         return ["vocabularies: record_types must be an array and schema_ids/schema_paths must be objects"]
     if set(record_types) != set(schema_ids) or set(record_types) != set(schema_paths):
         issues.append("vocabularies: record_types, schema_ids, and schema_paths must cover exactly the same types")
     for name, value in schema_ids.items():
         if not isinstance(value, str) or not re.fullmatch(r"0x[0-9a-f]{64}", value):
             issues.append(f"vocabularies.schema_ids.{name}: must be a lowercase bytes32 hex value")
-    transitions = vocabularies.get("workflow_transitions", {})
-    states = set(vocabularies.get("workflow_states", []))
+    transitions = vocabularies.get("workflow_transitions")
+    workflow_states = vocabularies.get("workflow_states")
+    if not isinstance(transitions, dict) or not isinstance(workflow_states, list) or not all(
+        isinstance(state, str) for state in workflow_states
+    ):
+        return issues + ["vocabularies: workflow_states must be a string array and workflow_transitions must be an object"]
+    if any(not isinstance(successors, list) or not all(isinstance(successor, str) for successor in successors) for successors in transitions.values()):
+        issues.append("vocabularies.workflow_transitions: every state must map to a string array")
+        return issues
+    states = set(workflow_states)
     if set(transitions) != states:
         issues.append("vocabularies.workflow_transitions must define every workflow state")
     for state, successors in transitions.items():
@@ -194,7 +207,9 @@ def validate_state_machine(payload: dict[str, Any], vocabularies: dict[str, Any]
     states = [entry.get("state") for entry in history]
     if not all(isinstance(state, str) for state in states):
         return ["state_history: every entry must have a string state"]
-    transitions = vocabularies["workflow_transitions"]
+    transitions = vocabularies.get("workflow_transitions")
+    if not isinstance(transitions, dict):
+        return ["vocabularies.workflow_transitions: must be an object before workflow validation"]
     if states and states[0] != "offered":
         issues.append("state_history: the complete history must begin at offered")
     if len(states) != len(set(states)):
@@ -393,11 +408,14 @@ def validate_records(root: Path) -> list[str]:
                 issues.append(f"{relative}: unresolved record reference {reference}")
         supersedes = payload.get("supersedes")
         if supersedes:
-            superseded_path = record_ids.get(supersedes)
-            if superseded_path:
-                superseded = load_json(superseded_path)
-                if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
-                    issues.append(f"{relative}: supersedes must point to the same record_type")
+            if supersedes == payload.get("record_id"):
+                issues.append(f"{relative}: supersedes must not point to itself")
+            else:
+                superseded_path = record_ids.get(supersedes)
+                if superseded_path:
+                    superseded = load_json(superseded_path)
+                    if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
+                        issues.append(f"{relative}: supersedes must point to the same record_type")
     return issues
 
 

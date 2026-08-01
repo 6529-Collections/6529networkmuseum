@@ -214,11 +214,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x8366c6ad79ec9ac2a2a00b4728b97f14355b255bad1fb933e1eaf002b771ac51"
+        "digest": "0xc26d9935670da5c313d419e0784b3ac02d5fd21ab8ba56c5c73ed043bd5c2f4f"
       },
       "path": "schemas/record-envelope.schema.json",
-      "sha256": "sha256:b85898a2082e1cfb6f2e65a362e76932b3747e38febfe776e550cdbb667d2c18",
-      "size": 1868
+      "sha256": "sha256:3ed58395883750aa6e90b01fdddb1cf456918292dddd9545ebfb6d69d7fc5ddf",
+      "size": 1871
     },
     {
       "content_hash": {
@@ -243,9 +243,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x7da46d0dffbfff87da3e4e14fd570264c54e75ac91d9db368a75ea06ab0e0f61"
+    "digest": "0x5a4c330b5d4d4f10653959ca9c6e46b2682c6d2ab7a4f2f410402607185d4228"
   },
-  "manifest_sha256": "sha256:ebee3dfb3711d3921bf88c89e90ea6d24d4dad271fa2e5b9c45d0e7bbe657b8f",
+  "manifest_sha256": "sha256:290fcb466895c19134dcc11815598b1ca659a0084bdd811e07c0b98cc9382ab3",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

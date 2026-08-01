@@ -26,13 +26,15 @@ that need the whole repository or need to compare values:
 - the subject is `keccak256("6529networkmuseum.subject.<record-type-lower>.v1:<subject_id>")`;
 - envelope `effectiveAt` matches the payload's UTC timestamp;
 - every stable cross-reference resolves to another record in the same public
-  register, and `supersedes` preserves same-type append-only lineage;
+  register, and `supersedes` preserves same-type append-only lineage without
+  self-reference;
 - object workflow history starts at `offered`, follows only the controlled
   transitions, never regresses or repeats a state, and agrees with
   `current_state`;
 - accession completion requires verified custody, an executed `TITLE_BINDING`,
-  explicit rights status, condition assessment, preservation evidence, and a
-  distinct reviewer;
+  an explicit rights status (`granted`, `denied`, or `not_applicable` are all
+  decisions; this gate does not grant rights), condition assessment,
+  preservation evidence, and a distinct reviewer;
 - a `WINNER` governance observation is adopted, while a `PARTICIPATORY`
   observation cannot be marked adopted;
 - constructor and reviewer IDs differ;

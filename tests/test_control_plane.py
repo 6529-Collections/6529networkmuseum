@@ -14,7 +14,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
 from generate_manifest import make_manifest  # noqa: E402
-from validate import keccak256, validate_records  # noqa: E402
+from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -84,6 +84,25 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "accession-lot.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unresolved record reference" in issue for issue in issues), issues)
+
+    def test_self_supersession_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "governance-decision.json")
+        record["payload"]["supersedes"] = record["payload"]["record_id"]
+        self.save_record(records, "governance-decision.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("supersedes must not point to itself" in issue for issue in issues), issues)
+
+    def test_malformed_workflow_vocabularies_fail_closed(self) -> None:
+        malformed = {"workflow_states": ["offered"], "workflow_transitions": None}
+        self.assertTrue(validate_vocabularies(malformed))
+        self.assertTrue(
+            validate_state_machine(
+                {"record_type": "WORK_DESCRIPTION", "state_history": []},
+                malformed,
+            )
+        )
 
     def test_invalid_workflow_transition_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
