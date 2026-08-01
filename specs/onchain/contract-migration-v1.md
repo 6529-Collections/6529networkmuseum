@@ -33,11 +33,13 @@ The Museum deploys a small token-agnostic `NetworkMuseumRegistryV1`.
   deleted or edited.
 * Custody, legal title, copyright, and accession remain separate assertions.
   A registration, transfer, or `WINNER` label is never accession by itself.
-* Stream-native works use Stream's owner-record surface for shared object
-  records. The Museum registry stores institutional governance/accession
-  records and cross-references the Stream record hash. The two record hashes
-  MAY differ because their host/domain context differs; the canonical payload,
-  `HashRef`, schema ID, record type, and subject identity MUST agree.
+* The pinned Stream commit supplies the collection-record ABI, but it does
+  not pin an executable owner-record ABI or hash formula. V1 therefore does
+  not claim that a Museum contract can write Stream owner records. A future
+  Stream-native integration is provisional until the bilateral convergence
+  gate in §2.1 passes. Until then, the Museum may carry a proposed work and
+  its evidence, but it MUST NOT label that as a successful Stream owner-record
+  write.
 
 ## 2. Compatibility facts pinned from Stream
 
@@ -103,6 +105,63 @@ the Stream record-family registry. The Museum registry intentionally has no
 `collectionId` requirement because an external ERC-721, ERC-1155, legacy EVM,
 Bitcoin/Counterparty, or future namespace is not a Stream collection.
 
+### 2.1 Provisional owner-record boundary
+
+The pinned Stream source has prose describing owner records, but it does not
+publish a callable owner-record selector, module ABI, or owner-record hash
+preimage. No V1 requirement may therefore say that the Museum can call a
+canonical Stream owner-record method. The following is a deliberately
+provisional bilateral interface for design and test-vector purposes only; it
+is not asserted to exist at `5021c8060950c3fef995271e674ed4b2007fee6d`:
+
+```solidity
+interface IProvisionalStreamOwnerRecordV0 {
+    function ownerRecordHash(uint256 tokenId) external view returns (bytes32);
+    function ownerRecordHashDomain() external pure returns (bytes32);
+    function ownerRecordHashVectorId() external pure returns (bytes32);
+}
+```
+
+External asset profiles use an admitted canonicalizer with the following
+read-only contract surface. The registry MUST accept a candidate only when
+the adapter returns the same canonical bytes supplied by the caller:
+
+```solidity
+interface IMuseumAssetCanonicalizerV1 {
+    function canonicalize(bytes32 profileId, string calldata supplied)
+        external view returns (string memory canonical);
+}
+```
+
+If adopted, the module's returned hash MUST be:
+
+```solidity
+keccak256(abi.encode(
+    0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a,
+    block.chainid,
+    ownerRecordModule,
+    streamCore,
+    collectionId,
+    tokenId,
+    streamSubjectId,
+    keccak256(canonicalOwnerRecordPayload)
+))
+```
+
+The exact bilateral reference carries `ownerRecordModule`, `streamCore`,
+`collectionId`, `tokenId`, `streamSubjectId`, `ownerRecordHash`,
+`ownerRecordHashDomain`, and `ownerRecordHashVectorId`. A mirror link MUST
+not be described as a Stream owner-record write unless all of these values
+are returned or independently verified by the converged adapter.
+
+The convergence gate is closed until Stream publishes and pins the callable
+ABI, module/version semantics, exact hash-domain literal and formula, payload
+canonicalization, vector, and a round-trip test against a deployed Stream
+module. The Museum deployment gate MUST record that evidence and the exact
+Stream commit. Before that gate, Keys and Gates records remain Museum-side
+proposals/evidence and a link, if admitted by governance, is only a
+provisional cross-reference—not an owner-record mutation or title assertion.
+
 ## 3. Exact identifiers and profile rule
 
 Identifiers are `keccak256` of the exact ASCII literal unless the value is a
@@ -144,6 +203,9 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | External subject domain | `6529networkmuseum.subject.external-asset.v1` | `0x1dd722ea239e47e25bdadfcc0053bdc4e7ee75e7ca9dd0afe97076a6d9eb8a80` |
 | CAIP-19 asset profile | `MUSEUM_ASSET_PROFILE_CAIP19_V1` | `0xac72cc7c2b027b8ee3d459de7829fd7b3b31cf575c28734e736ebd33b10f41cc` |
 | Relayed authorization scheme (outside the envelope) | `MUSEUM_SIGNATURE_EIP712_RECORD_V1` | `0xd522d14409fadb7afb8c4cbf90ad662519010926e69625200b14f0ba12c90cba` |
+| Relayed nonce-revocation scheme (outside the envelope) | `MUSEUM_SIGNATURE_EIP712_NONCE_REVOKE_V1` | `0xda7e20c41761de210a954ede904dd134c0d4dd6c8dc7e73c4072a8c717b956a5` |
+| Provisional Stream owner-record hash domain | `6529networkmuseum.stream-owner-record.v0` | `0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a` |
+| Provisional Stream owner-record vector | `STREAM_OWNER_RECORD_HASH_VECTOR_V0` | `0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c` |
 | Payload schema | `MUSEUM_REGISTRY_RECORD_V1` | `0xc9f2c9b650ebb4955871484238be9d3dfd1bf9f0ec09a5365917d6294e5967c9` |
 | Payload schema | `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` | `0x34e9649723069df3772c810e6e825f7589c211bac81acc9b908a60067f936aa6` |
 | Payload schema | `MUSEUM_CUSTODY_OBSERVATION_V1` | `0xb0c467baa7db6862385e58253c1c4702d95b141a1ef66cd2b86234a597344014` |
@@ -151,6 +213,8 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Payload schema | `MUSEUM_PROGRAM_OUTCOME_V1` | `0x7a25e6a6a5e91d55ef0ea9115ad5902929bcf0d3331b4bb2d22100f65fc78470` |
 | Payload schema | `MUSEUM_RELEASE_MANIFEST_V1` | `0x7a41091035def3c5fa62722d73a7ea87f996fe9be34e9115317c5d128581d299` |
 | Payload schema | `MUSEUM_RESEARCH_NOTE_V1` | `0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0` |
+| Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
+| Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
 
 The subject formula is:
 
@@ -246,7 +310,9 @@ bytes32 recordHash = keccak256(abi.encode(
     record.schemaId,
     record.signatureScheme,
     hashRefHash(record.signatureHash),
-    record.effectiveAt
+    record.effectiveAt,
+    payloadMode,
+    supersedesRecordHash
 ));
 
 bytes32 hashRefHash(HashRef memory ref) {
@@ -262,9 +328,12 @@ the `HashRef`, regardless of `ref.algorithm`; it is not a conditional shortcut
 for Keccak content. Thus a 32-byte SHA-256, BLAKE3, Arweave, or other fixed-size
 digest is re-hashed as those 32 bytes before the outer ABI encoding. An
 implementation MUST NOT substitute the source payload hash or skip this inner
-hash merely because the digest came from content addressing. The Museum hash
-omits predecessor so the same immutable envelope has one identity even if an
-import is retried after a reorg. A lane append separately computes:
+hash merely because the digest came from content addressing. `payloadMode` is
+a `uint8` encoded by `abi.encode` and is part of the Museum hash: `0 = NONE`,
+`1 = INLINE`, and `2 = CONTENT_ADDRESSED`. The `supersedesRecordHash` slot is
+zero for a non-correction. The Museum hash omits the predecessor so the same
+immutable envelope has one identity even if an import is retried after a
+reorg. A lane append separately computes:
 
 ```solidity
 chainHash = keccak256(abi.encode(
@@ -284,11 +353,15 @@ lane is not a successful append.
 
 A legitimate correction MUST therefore change at least one field committed by
 `recordHash` (normally `contentHash`, `uri`, `schemaId`, `signatureScheme`,
-`signatureHash`, or `effectiveAt`) and MUST carry payload-level
-`supersedes`/reason/evidence. Repeating byte-identical content under the same
-envelope is a reference to the existing record, not a new revision. This
-explicitly resolves identical-envelope recurrence: the first accepted hash
-wins, and corrections are new hashes.
+`signatureHash`, `effectiveAt`, `payloadMode`, or the nonzero
+`supersedesRecordHash`) and MUST carry payload-level
+`supersedes`/reason/evidence. The supplied `supersedesRecordHash` MUST equal
+the payload's schema-defined `supersedes` value; the contract enforces the
+target's existence, lane, and age below, while the admitted schema validator
+enforces that byte-level payload equality before submission. Repeating
+byte-identical content under the same envelope is a reference to the existing
+record, not a new revision. This explicitly resolves identical-envelope
+recurrence: the first accepted hash wins, and corrections are new hashes.
 
 Lanes are keyed by `(recordType, subjectId)`. Revision starts at 1. The first
 record has predecessor and prior chain hash zero. A write MUST supply the
@@ -300,7 +373,12 @@ supersedes another record, including `supersedes`, `supersession_reason`,
 `authority`, `effective_at`, and evidence references. The contract does not
 parse arbitrary JSON; schema validation is a pre-write and deployment-gate
 requirement. The contract still enforces the envelope, digest, URI, and
-admitted-schema rules.
+admitted-schema rules. When `supersedesRecordHash != bytes32(0)`, the target
+MUST already exist, MUST have the same `recordType` and `subjectId`, and MUST
+have a revision strictly less than the new revision. A target in another lane,
+a missing target, or a target at or after the new revision MUST revert. A
+nonzero target is immutable metadata in the record hash and `RecordSummary`,
+so it cannot be detached or rewritten after signing.
 
 ### 5.2 State versus events
 
@@ -310,6 +388,10 @@ The registry stores enough state for a client with no event history to recover:
 * a compact summary by `recordHash`;
 * full inline payload bytes when `payloadMode == INLINE`;
 * canonical asset strings and profile IDs;
+* immutable Stream mirror links, including module/token/owner-record hash
+  domain and vector fields;
+* nonce-use and nonce-revocation state, including revocation deadline,
+  signature commitment, actor, and revision;
 * latest lane head and revision;
 * admitted schema/profile/type documents and hashes;
 * role/provider revisions, successor, and write-freeze state.
@@ -346,6 +428,14 @@ and `NONE` contribute zero to the batch inline-byte total.
 * `NONE` is allowed only for explicitly schema-approved commitment records
   whose schema says that no payload bytes are needed.
 
+The mode is an explicit `uint8` argument to every write path and is committed
+by `recordHash`; it is not inferred from whether the `bytes` argument happens
+to be empty. `recordMuseumRecord` and the batch `RecordInput` still carry the
+mode even though they carry no inline bytes. `INLINE` requires nonempty bytes,
+`CONTENT_ADDRESSED` requires zero bytes, and `NONE` requires zero bytes. Any
+mode/bytes/URI/schema mismatch MUST revert. This makes all three modes
+unambiguous to an ABI decoder, a signature verifier, and a state-only reader.
+
 Meaning-bearing migration records SHOULD be inline when they are small enough;
 large dossiers, media, legal instruments, private annexes, BagIt/OCFL objects,
 and manifests live in content-addressed storage. For V1 `INLINE`, the contract
@@ -353,15 +443,25 @@ MUST verify `keccak256(payload) == bytes32(record.contentHash.digest)` and MUST
 reject any nonempty payload under another hash/canonicalization profile. A
 `CONTENT_ADDRESSED` record MUST pass the envelope's algorithm-specific
 `HashRef` validation, but its bytes are intentionally not supplied to the
-contract. `NONE` MUST supply zero payload bytes.
+contract. `NONE` MUST supply zero payload bytes and an empty URI.
 
 ### 5.3 Content addressing and privacy
 
 Repository JSON is canonicalized with RFC 8785 JCS and committed with
 `HashRef(1, keccak256(canonicalBytes), RFC8785_JCS)`. Repository and BagIt
-manifests additionally retain LF-normalized SHA-256. The URI SHOULD be an
-`ipfs://` or `ar://` pointer. An HTTPS gateway MAY be a retrieval convenience,
-but it is never the integrity anchor.
+manifests additionally retain LF-normalized SHA-256. The URI MUST be empty or
+use exactly one of the Stream-safe schemes `https://`, `ipfs://`, or `ar://`.
+It MUST be valid UTF-8, at most 2,048 bytes, contain no control bytes,
+userinfo, query, or fragment, and be stored in its exact
+canonical byte form. `ipfs://` requires a nonempty CID authority/path and no
+query or fragment. `ar://` requires exactly one nonempty base64url transaction
+identifier and no query or fragment. `https://` requires a lower-case ASCII
+DNS name or globally routable IP literal, no explicit port, no userinfo, and
+no fragment; localhost names and loopback, link-local, private, multicast,
+documentation, and other reserved address ranges are forbidden. Because a
+contract cannot resolve DNS, the public-network check is a signed
+pre-write/deployment-gate assertion recorded with the URI profile. An HTTPS
+gateway MAY be a retrieval convenience, but it is never the integrity anchor.
 
 The chain MUST NOT contain donor contact details, full legal instruments,
 appraisals, private signer information, private storage locations, credentials,
@@ -436,12 +536,24 @@ MuseumRecordWrite(
     uint256 nonce,
     uint64 deadline
 )
+
+MuseumNonceRevocation(
+    address signer,
+    uint256 nonce,
+    uint64 deadline
+)
 ```
 
 The exact EIP-712 type string is:
 
 ```text
 MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
+```
+
+The exact nonce-revocation type string is:
+
+```text
+MuseumNonceRevocation(address signer,uint256 nonce,uint64 deadline)
 ```
 
 `MUSEUM_SIGNATURE_EIP712_RECORD_V1` names this relayed-authorization method;
@@ -468,9 +580,19 @@ V1 pins the envelope/signature interaction to avoid a circular preimage:
   revert with the same path-specific error unless its schema/authority
   admission explicitly admits it.
 
-The signer address is explicit in the ABI, is checked for the record family,
-and is included in the event. EOA signatures use exact ECDSA recovery;
-contract signers use ERC-1271 `isValidSignature(bytes32,bytes)`.
+The signer address is explicit in the ABI, is included in the record-write or
+nonce-revocation EIP-712 struct, and is checked for the relevant authority.
+EOA signatures use exact ECDSA recovery; contract signers use ERC-1271
+`isValidSignature(bytes32,bytes)`.
+
+Both ERC-1271 paths are `nonReentrant` and reserve the signer/nonce lane while
+the external `isValidSignature` call is in flight. After the callback returns,
+the registry MUST re-read the lane head and the signer nonce/revocation state;
+any change from the pre-call values MUST revert with
+`LaneHeadChangedDuringSignature` or `NonceStateChangedDuringSignature`.
+The callback cannot call any registry mutator through the reentrancy guard.
+Only after these checks does the registry consume the nonce and append the
+record or persist the revocation.
 
 Nonces are unordered and scoped to the signer. A used or revoked nonce cannot
 be reused. Deadlines are inclusive: `block.timestamp <= deadline` is
@@ -486,6 +608,17 @@ circular. It is checked for permission and is represented by the signer,
 nonce, deadline, and authorization event metadata instead. Direct writes may
 carry a separately admitted envelope signature commitment, but the contract
 does not verify its external signature bytes.
+
+`revokeNonceBySig` uses the same EIP-712 domain as record writes. Its digest is
+`keccak256(0x1901 || domainSeparator || structHash)`, with
+`structHash = keccak256(abi.encode(
+keccak256("MuseumNonceRevocation(address signer,uint256 nonce,uint64 deadline)"),
+signer, nonce, deadline))`. A valid revocation persists the signer, nonce,
+inclusive deadline, and `keccak256(signature)` commitment in state and emits
+them in `NonceRevocationRecorded` plus the relayer and authority revision. The persisted
+deadline is an audit fact even after it has elapsed; it does not automatically
+unrevoke or delete the nonce. A direct revocation persists zero deadline and
+zero signature commitment. The revocation entry is immutable once written.
 
 ## 7. Proposed ABI
 
@@ -515,6 +648,8 @@ interface INetworkMuseumRegistryV1 {
     struct RecordInput {
         CollectionRecord record;
         bytes32 previousRecordHash;
+        uint8 payloadMode;
+        bytes32 supersedesRecordHash;
         bytes payload;
     }
 
@@ -532,6 +667,7 @@ interface INetworkMuseumRegistryV1 {
         address authorizedSigner;
         uint8 authorizationClass;
         uint8 payloadMode;
+        bytes32 supersedesRecordHash;
         uint32 payloadLength;
         uint64 authorityRevision;
     }
@@ -545,6 +681,44 @@ interface INetworkMuseumRegistryV1 {
         address registrar;
     }
 
+    struct AssetProfile {
+        bool admitted;
+        bytes32 schemaId;
+        bytes32 documentHash;
+        string uri;
+        address canonicalizer;
+        uint64 revision;
+    }
+
+    struct StreamMirrorLink {
+        address streamCore;
+        address ownerRecordModule;
+        uint256 collectionId;
+        uint256 tokenId;
+        bytes32 streamSubjectId;
+        bytes32 ownerRecordHash;
+        bytes32 ownerRecordHashDomain;
+        bytes32 ownerRecordHashVectorId;
+        uint64 revision;
+    }
+
+    struct NonceRevocation {
+        bool revoked;
+        uint64 deadline;
+        bytes32 signatureCommitment;
+        address actor;
+        uint64 revision;
+    }
+
+    struct StreamOwnerRecordInterface {
+        bool admitted;
+        address interfaceModule;
+        bytes32 ownerRecordHashDomain;
+        bytes32 ownerRecordHashVectorId;
+        bytes32 evidenceHash;
+        uint64 revision;
+    }
+
     function isNetworkMuseumRegistry() external pure returns (bool);
     function registryVersion() external pure returns (bytes32);
     function streamCompatibilityCommit() external pure returns (bytes32);
@@ -555,14 +729,16 @@ interface INetworkMuseumRegistryV1 {
 
     function externalAssetSubjectId(bytes32 assetProfileId, string calldata canonicalAssetId)
         external pure returns (bytes32);
-    function registerExternalAsset(bytes32 assetProfileId, string calldata canonicalAssetId)
+    function registerExternalAsset(bytes32 assetProfileId, string calldata canonicalAssetId,
+        bytes32 expectedSubjectId)
         external returns (bytes32 subjectId);
     function externalAsset(bytes32 subjectId) external view returns (ExternalAsset memory);
 
-    function admitAssetProfile(bytes32 profileId, bytes32 schemaId, bytes32 documentHash, string calldata uri)
+    function admitAssetProfile(bytes32 profileId, bytes32 schemaId, bytes32 documentHash,
+        string calldata uri, address canonicalizer)
         external;
     function assetProfile(bytes32 profileId)
-        external view returns (bool admitted, bytes32 schemaId, bytes32 documentHash, string memory uri, uint64 revision);
+        external view returns (AssetProfile memory);
     function admitSchema(bytes32 schemaId, bytes32 documentHash, string calldata uri,
         bool payloadRequired) external;
     function schema(bytes32 schemaId)
@@ -577,12 +753,20 @@ interface INetworkMuseumRegistryV1 {
     function recordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account)
         external view returns (bool enabled, uint64 revision);
     function setAuthority(address newAuthority) external;
+    function admitStreamOwnerRecordInterface(address interfaceModule,
+        bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId, bytes32 evidenceHash)
+        external;
+    function streamOwnerRecordInterface()
+        external view returns (StreamOwnerRecordInterface memory);
 
-    function recordMuseumRecord(CollectionRecord calldata record, bytes32 previousRecordHash)
+    function recordMuseumRecord(CollectionRecord calldata record, bytes32 previousRecordHash,
+        uint8 payloadMode, bytes32 supersedesRecordHash)
         external returns (bytes32 recordHash);
     function recordMuseumRecordWithPayload(
         CollectionRecord calldata record,
         bytes32 previousRecordHash,
+        uint8 payloadMode,
+        bytes32 supersedesRecordHash,
         bytes calldata payload
     ) external returns (bytes32 recordHash);
     function recordMuseumRecordBySig(
@@ -594,12 +778,15 @@ interface INetworkMuseumRegistryV1 {
         uint256 nonce,
         uint64 deadline,
         bytes calldata signature,
+        uint8 payloadMode,
+        bytes32 supersedesRecordHash,
         bytes calldata payload
     ) external returns (bytes32 recordHash);
     function recordMuseumRecordBatch(RecordInput[] calldata inputs, bytes32 batchId)
         external returns (bytes32[] memory recordHashes);
 
-    function deriveMuseumRecordHash(CollectionRecord calldata record)
+    function deriveMuseumRecordHash(CollectionRecord calldata record, uint8 payloadMode,
+        bytes32 supersedesRecordHash)
         external view returns (bytes32 recordHash);
     function latestRecordHash(bytes32 recordType, bytes32 subjectId)
         external view returns (bytes32);
@@ -609,15 +796,18 @@ interface INetworkMuseumRegistryV1 {
     function record(bytes32 recordHash) external view returns (CollectionRecord memory);
     function payload(bytes32 recordHash) external view returns (bytes memory);
 
-    function setStreamMirrorLink(bytes32 subjectId, address streamCore, uint256 collectionId,
-        bytes32 streamSubjectId) external;
+    function setStreamMirrorLink(bytes32 subjectId, address streamCore, address ownerRecordModule,
+        uint256 collectionId, uint256 tokenId, bytes32 streamSubjectId, bytes32 ownerRecordHash,
+        bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId) external;
     function streamMirrorLink(bytes32 subjectId)
-        external view returns (address streamCore, uint256 collectionId, bytes32 streamSubjectId, uint64 revision);
+        external view returns (StreamMirrorLink memory);
 
     function revokeNonce(uint256 nonce) external;
     function revokeNonces(uint256[] calldata nonces) external;
     function revokeNonceBySig(address signer, uint256 nonce, uint64 deadline, bytes calldata signature)
         external;
+    function nonceRevocation(address signer, uint256 nonce)
+        external view returns (NonceRevocation memory);
     function setSuccessor(address newSuccessor) external;
     function freezeWrites() external;
 }
@@ -626,12 +816,14 @@ interface INetworkMuseumRegistryV1 {
 `recordMuseumRecordBySig` MUST perform these checks before accepting the
 signature:
 
-1. Compute `derivedRecordHash = deriveMuseumRecordHash(record)`.
+1. Compute `derivedRecordHash = deriveMuseumRecordHash(
+   record, payloadMode, supersedesRecordHash)`.
 2. Require `derivedRecordHash == signedRecordHash`.
 3. Require `signedPreviousRecordHash == previousRecordHash`.
 4. Require `previousRecordHash` equals the current lane head (zero for the
    first revision).
-5. Apply the same `payloadMode`/`INLINE` profile, byte-cap, zero-payload, and
+5. Apply the same explicit `payloadMode`/`INLINE` profile, byte-cap,
+   zero-payload, URI, and
    `PayloadDigestMismatch`/`InlinePayloadProfileMismatch` checks required by
    §5.2 for `recordMuseumRecordWithPayload` to the `payload` argument. A
    relayer MUST NOT be able to attach bytes that do not match the signed
@@ -639,7 +831,12 @@ signature:
 6. Construct the EIP-712 struct using the exact `signedRecordHash`,
    `record.recordType`, `record.subjectId`, exact
    `signedPreviousRecordHash`, `nonce`, and `deadline` arguments.
-7. Verify that digest for `signer`, then consume the signer-scoped nonce.
+   `payloadMode` and `supersedesRecordHash` are not duplicate EIP-712 fields;
+   they are cryptographically covered by the recomputed `signedRecordHash`
+   and therefore by the signed `recordHash` field.
+7. Verify that digest for `signer`, re-read the lane head and signer nonce
+   state, and revert if either changed during an ERC-1271 callback. Only then
+   consume the signer-scoped nonce and append the record.
 
 The contract MUST NOT derive a digest from one record/predecessor pair while
 storing another. `SignedRecordHashMismatch` and
@@ -648,7 +845,9 @@ storing another. `SignedRecordHashMismatch` and
 `recordMuseumRecordBatch` is all-or-nothing, has a hard maximum of
 `MAX_BATCH_RECORDS` records, and advances each lane in input order. The sum of
 `INLINE` payload bytes MUST obey `MAX_BATCH_INLINE_PAYLOAD_BYTES` and each
-record MUST obey `MAX_INLINE_PAYLOAD_BYTES`. `batchId` is an audit label and
+record MUST obey `MAX_INLINE_PAYLOAD_BYTES`. Each `RecordInput` supplies its
+explicit `payloadMode` and `supersedesRecordHash`; neither is inferred from
+the payload bytes. `batchId` is an audit label and
 MUST be emitted; it is not part of any record hash. A retry after a reorg is
 permitted once the caller re-reads state and resubmits only records not
 present in the surviving chain. A record already present is handled by the
@@ -656,6 +855,49 @@ global duplicate semantics above, not by silently skipping it in a batch.
 Since the batch is all-or-nothing, any already-present `recordHash` reverts the
 whole batch; a reorg-retry batch MUST exclude every record hash already present
 in the surviving chain.
+
+### 7.0 Selector and role controls
+
+The following selectors and caller classes are normative. A selector is
+listed both as its Solidity signature and as its first four bytes so an
+implementation cannot accidentally authorize an overload:
+
+| Selector | Caller requirement | Additional anti-pollution rule |
+|---|---|---|
+| `0x73c0a0b4` `registerExternalAsset(bytes32,string,bytes32)` | Active family grant for `AUTH_MUSEUM_REGISTRAR` (10) or `AUTH_MUSEUM_MIGRATION_ADMIN` (12); never an open/public caller | `assetProfileId` MUST be admitted; the profile normalizer MUST return the supplied exact bytes; `expectedSubjectId` MUST equal the deterministic subject; an existing subject never overwrites or aliases another asset. |
+| `0x49c44b5c` `setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)` | Same registrar/migration-admin grant, or the governance executor (9) during the convergence-gate action | The Museum subject MUST already exist; the link is write-once; all Stream/module/token/hash-domain/vector fields are committed together; a duplicate or altered link reverts. |
+| `0x75c75961` `admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)` | Registry authority/provider plus an explicit governance-executor (9) convergence action | The evidence hash, exact owner-record domain/vector, interface module, and pinned Stream commit are recorded before any mirror link can be set. |
+| `recordMuseumRecord(CollectionRecord,bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | The active family grant for the record's admitted `(familyId, authorizationClass)`; `bySig` additionally requires a valid signer | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
+| `admitAssetProfile`, `admitSchema`, `admitRecordType`, `setRecordFamilyGrant` | Registry authority/provider only, with the governance revision recorded | Admission is append-only; a new document or policy revision gets a new revision and cannot silently broaden a prior grant. |
+
+The canonical asset string is profile output, not caller interpretation. The
+admitted profile MUST name a governance-approved canonicalizer and document
+code hash. Registration calls that canonicalizer in a read-only call and MUST
+require byte-for-byte equality between its returned string and the supplied
+string. The string MUST be UTF-8 without leading/trailing whitespace or
+controls, and the exact profile document hash MUST pin normalization, case,
+decimal, Unicode, and collision rules. For
+`MUSEUM_ASSET_PROFILE_CAIP19_V1`, the supplied string MUST use lowercase EVM
+addresses, decimal chain IDs without leading zeroes, and canonical
+nonnegative decimal token IDs. EIP-55 display strings, percent encoding,
+Unicode lookalikes, alternate separators, aliases, and leading-zero token IDs
+are rejected. `externalAssetSubjectId` hashes the exact admitted canonical
+bytes. The caller supplies `expectedSubjectId` so a relayer or front-runner
+cannot substitute a different result; only the authorized role can create the
+first mapping. A same-subject/same-string retry reverts with
+`ExternalAssetAlreadyRegistered`, while a same-subject/different profile or
+string reverts with `SubjectIdCollision`.
+
+`setStreamMirrorLink` is also not an untrusted assertion channel. It requires
+an existing Museum subject, an admitted `streamOwnerRecordInterface`, a
+converged/approved owner-record evidence vector, nonzero module/core
+addresses, a nonzero token ID where the source namespace requires one, and a
+nonzero owner-record hash/domain/vector ID. The supplied module, domain, and
+vector MUST equal the admitted interface values, and the evidence hash for
+the interface MUST be anchored to the pinned Stream compatibility commit.
+The link is immutable and one-per-subject in V1; the contract MUST NOT
+silently replace it after a source transfer or owner-record revision. A later
+source revision is a new Museum evidence record, not a mutation of this link.
 
 ### 7.1 Required errors
 
@@ -665,6 +907,8 @@ normative):
 ```solidity
 error InvalidAssetProfile(bytes32 profileId);
 error InvalidCanonicalAssetId(bytes32 profileId);
+error InvalidCanonicalizer(bytes32 profileId, address canonicalizer);
+error SubjectIdMismatch(bytes32 expected, bytes32 derived);
 error ExternalAssetAlreadyRegistered(bytes32 subjectId);
 error SubjectIdCollision(bytes32 subjectId);
 error SchemaNotAdmitted(bytes32 schemaId);
@@ -677,6 +921,9 @@ error InvalidMuseumRecord(bytes32 recordType, bytes32 subjectId, bytes32 schemaI
 error InvalidMuseumHashRef(uint16 algorithm, uint256 digestLength);
 error URITooLarge(uint256 actual, uint256 maximum);
 error InvalidUTF8URI();
+error InvalidURI(bytes32 uriHash);
+error InvalidPayloadMode(uint8 payloadMode);
+error PayloadModeMismatch(uint8 payloadMode, uint256 payloadLength);
 error PayloadRequired(bytes32 schemaId);
 error PayloadTooLarge(uint256 actual, uint256 maximum);
 error PayloadDigestMismatch(bytes32 expected, bytes32 actual);
@@ -689,9 +936,14 @@ error RecordAlreadyExists(bytes32 recordHash);
 error PreviousRecordMismatch(bytes32 expected, bytes32 actual);
 error SignedRecordHashMismatch(bytes32 derived, bytes32 signed);
 error SignedPreviousRecordHashMismatch(bytes32 supplied, bytes32 signed);
+error SupersessionTargetMissing(bytes32 supersedesRecordHash);
+error SupersessionLaneMismatch(bytes32 supersedesRecordHash, bytes32 recordType, bytes32 subjectId);
+error SupersessionNotOlder(bytes32 supersedesRecordHash, uint64 targetRevision, uint64 newRevision);
 error RecordFamilyUnauthorized(address actor, bytes32 recordType, bytes32 familyId, uint16 classMask);
 error InvalidAuthority(address signer, uint8 authorizationClass);
 error InvalidSignature(address signer);
+error LaneHeadChangedDuringSignature(bytes32 expected, bytes32 actual);
+error NonceStateChangedDuringSignature(address signer, uint256 nonce);
 error SignatureExpired(uint64 deadline, uint64 currentTime);
 error NonceUsed(address signer, uint256 nonce);
 error NonceRevoked(address signer, uint256 nonce);
@@ -700,7 +952,10 @@ error BatchIdAlreadyUsed(bytes32 batchId);
 error WritesFrozen();
 error InvalidSuccessor(address successor);
 error SuccessorAlreadySet(address successor);
-error InvalidStreamMirrorLink(bytes32 subjectId, address streamCore, uint256 collectionId);
+error InvalidStreamMirrorLink(bytes32 subjectId, address streamCore, address ownerRecordModule,
+    uint256 collectionId, uint256 tokenId);
+error StreamMirrorLinkAlreadySet(bytes32 subjectId);
+error OwnerRecordConvergenceRequired(bytes32 ownerRecordHashVectorId);
 error InvalidRoleProvider(address provider);
 error FunctionUnauthorized(address caller, bytes4 selector);
 ```
@@ -729,6 +984,7 @@ event MuseumRecordRecorded(
     address authorizedSigner,
     uint8 authorizationClass,
     uint8 payloadMode,
+    bytes32 supersedesRecordHash,
     uint32 payloadLength,
     uint64 authorityRevision
 );
@@ -744,8 +1000,11 @@ event RecordTypeAdmitted(bytes32 indexed recordType, bytes32 indexed familyId, b
 event RecordFamilyGrantUpdated(bytes32 indexed familyId, uint8 indexed authorizationClass,
     address indexed account, bool enabled, uint64 revision, address authority);
 event StreamMirrorLinkSet(bytes32 indexed subjectId, address indexed streamCore,
-    uint256 collectionId, bytes32 streamSubjectId, uint64 revision, address authority);
-event NonceRevoked(address indexed signer, uint256 indexed nonce, address actor);
+    address indexed ownerRecordModule, uint256 collectionId, uint256 tokenId,
+    bytes32 streamSubjectId, bytes32 ownerRecordHash, bytes32 ownerRecordHashDomain,
+    bytes32 ownerRecordHashVectorId, uint64 revision, address authority);
+event NonceRevocationRecorded(address indexed signer, uint256 indexed nonce, uint64 deadline,
+    bytes32 signatureCommitment, address actor, uint64 revision);
 event RegistryAuthorityUpdated(address indexed oldAuthority, address indexed newAuthority, uint64 revision);
 event SuccessorSet(address indexed successor, address authority);
 event WritesFrozen(address indexed authority, address indexed successor);
@@ -755,6 +1014,78 @@ The full envelope is emitted in `MuseumRecordRecorded`, but the state views
 remain authoritative after event pruning or an RPC provider's log limits.
 
 ## 8. Migration procedure
+
+### 8.0 `MUSEUM_RELEASE_MANIFEST_V1`
+
+The release manifest is a canonical JSON payload whose `root` is excluded
+from the body hash and is recomputed from the ordered record entries. Its
+schema is exactly this object shape (RFC 8785 JCS is applied after the
+ordinary JSON object is constructed):
+
+```json
+{
+  "schema": "MUSEUM_RELEASE_MANIFEST_V1",
+  "sourceCommit": "<40 lowercase hexadecimal characters>",
+  "streamCompatibilityCommit": "<40 lowercase hexadecimal characters>",
+  "generator": "<nonempty ASCII generator/version>",
+  "records": [
+    {
+      "sourceOrdinal": 1,
+      "path": "<repository-relative POSIX path>",
+      "recordHash": "0x<64 lowercase hexadecimal characters>",
+      "payloadMode": "NONE|INLINE|CONTENT_ADDRESSED",
+      "payloadBytesHash": "0x<64 lowercase hexadecimal characters>"
+    }
+  ],
+  "root": "0x<64 lowercase hexadecimal characters>"
+}
+```
+
+`sourceCommit` and `streamCompatibilityCommit` are Git SHA-1 values encoded
+as `bytes32` by right-aligning the 20 decoded bytes and left-padding with
+zeroes. `sourceOrdinal` is a positive `uint64`; records MUST be strictly
+increasing by ordinal, and each path MUST be unique, POSIX-normalized, and
+inside the governed-file set. `payloadBytesHash` is `keccak256` of the exact
+inline bytes for `INLINE`, and `keccak256(bytes(""))` for `NONE` and
+`CONTENT_ADDRESSED`; the latter's integrity anchor remains the record's
+committed `HashRef` and URI. The JSON `payloadMode` strings map to the ABI
+values `0`, `1`, and `2`.
+
+For each record, define:
+
+```solidity
+bytes32 entryHash = keccak256(abi.encode(
+    0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef,
+    uint64(sourceOrdinal),
+    keccak256(bytes(path)),
+    recordHash,
+    uint8(payloadMode),
+    payloadBytesHash
+));
+```
+
+Let `entryHashes` be the `bytes32[]` of entry hashes in strictly increasing
+`sourceOrdinal` order. The manifest root is the `abi.encode` tuple with
+argument types `(bytes32,bytes32,bytes32,bytes32,uint64,bytes32[])`:
+
+```solidity
+bytes32 root = keccak256(abi.encode(
+    0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64,
+    sourceCommitBytes32,
+    streamCompatibilityCommitBytes32,
+    keccak256(bytes(generator)),
+    uint64(records.length),
+    entryHashes // encoded as bytes32[] in this exact order
+));
+```
+
+The final JSON `root` MUST equal this value. The body hash is
+`keccak256(RFC8785_JCS(bodyWithoutRoot))`; the body hash and root are both
+stored in the manifest record or release evidence. No implementation may
+sort entries by path or record hash, omit the source ordinal, or derive a
+root from event order. This binds every migrated record to its source
+ordinal, source path, explicit payload mode, exact inline bytes (when
+present), record hash, generator, and both source commits.
 
 ### Phase 0 — freeze and pin
 
@@ -793,9 +1124,11 @@ contract with `streamCompatibilityCommit` and `moduleSupersedes` metadata.
 1. Register each external asset's exact canonical CAIP identity.
 2. Record `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` only as identity evidence; do
    not mark custody, title, or accession in that record.
-3. For a Stream-native work, set a `StreamMirrorLink` containing the verified
-   Stream Core address, collection ID, and the Stream subject ID. A mirror
-   link is a cross-reference, not a second artwork identity.
+3. For a Stream-native work, set a `StreamMirrorLink` only after the §2.1
+   convergence gate. It MUST contain the verified Stream Core address,
+   owner-record module, collection ID, token ID, Stream subject ID, owner
+   record hash, hash domain, and vector ID. A mirror link is a
+   cross-reference, not a second artwork identity.
 
 ### Phase 4 — migrate records in lane order
 
@@ -868,11 +1201,14 @@ For a future Stream-native Keys and Gates work:
 1. Migrate the selected outcome with its stable
    `6529NM-AP-01-OUT-<NNN>` ID and source Wave/drop evidence.
 2. After the actual mint and acquisition are independently verified, register
-   the Stream subject/link. Do not replace the outcome ID.
-3. Write the canonical shared object payload through Stream's owner-record
-   surface using `STREAM_WORK_DESCRIPTION_V1`, `STREAM_ACCESSION_V1`,
-   `STREAM_RIGHTS_V1`, and the exact profile IDs that have passed the
-   convergence gate.
+   the Stream subject. Do not replace the outcome ID.
+3. Only after the §2.1 convergence gate has a pinned callable module, exact
+   owner-record preimage, and deployed round-trip vector may an approved
+   adapter write or link a Stream owner record. Until then, the Museum records
+   the candidate and evidence without claiming a Stream owner-record write.
+   After convergence, use `STREAM_WORK_DESCRIPTION_V1`,
+   `STREAM_ACCESSION_V1`, `STREAM_RIGHTS_V1`, and only the exact profile IDs
+   that passed that gate.
 4. Write the Museum accession lot, program result, title/custody observations,
    and institutional approval in the Museum registry.
 5. Cross-check byte-for-byte canonical payloads and `contentHash` values.
@@ -952,6 +1288,8 @@ recordType = 0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0
 subjectId = 0x1111111111111111111111111111111111111111111111111111111111111111
 canonicalPayload = {"id":"6529NM.2026.001.1","status":"proposed"}
 payloadMode = INLINE
+payloadMode uint8 = 1
+supersedesRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 recordHashDomain = 0x0c86cc4258c69b4674aa86e715d4d167bd8288b78832a0a4c5a37943b31876c4
 contentHash.algorithm = 1
 contentDigest = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
@@ -970,11 +1308,11 @@ hashRefHash(signatureHash) = 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca
 chainId = 1
 registry = 0x0000000000000000000000000000000000000001
 effectiveAt = 1722470400
-recordHash = 0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
+recordHash = 0xc4c82486491323ce9af3d84d00b239e1148832fb059b8880483e4a838b320627
 ```
 
 For the first lane append, `revision = 1`, `previousRecordHash = 0x00...00`,
-and `chainHash = 0xd58c19ce69e7e703fb3f2f22e70f4600a0602db704abc6b740277fd04b6340c7`.
+and `chainHash = 0xd4e3b242f775f431ac172cd764f032addceb847ceb646845c74b9fb6d6319f63`.
 
 ### 13.3 EIP-712 relayed write
 
@@ -988,7 +1326,7 @@ EIP712Domain type string = EIP712Domain(string name,string version,uint256 chain
 EIP712 name = 6529 Network Museum Registry
 EIP712 version = 1
 MuseumRecordWrite type string = MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
-signedRecordHash = 0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
+signedRecordHash = 0xc4c82486491323ce9af3d84d00b239e1148832fb059b8880483e4a838b320627
 signedPreviousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 previousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 nonce = 7
@@ -997,11 +1335,36 @@ record.signatureScheme = 0x00000000000000000000000000000000000000000000000000000
 record.signatureHash = (algorithm=0,digest=0x,canonicalizationId=0x0000000000000000000000000000000000000000000000000000000000000000)
 domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 MuseumRecordWrite typeHash = 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-structHash = 0xd27f3f4288df41d1246978615a45466dd9d42a90f49d5178eae2287168c32098
-digest = 0xaedfcd6cd01ef40781ca1ebd9887dcf5415801b6b667bf4d2d3245675a0c589f
+structHash = 0x7d4ea0e0c6cc267d01b953edec4e87a7dc20e2cc8a0c882037830608b426c57b
+preimage = 0x1901 || domainSeparator || structHash
+preimage = 0x1901fffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70d7d4ea0e0c6cc267d01b953edec4e87a7dc20e2cc8a0c882037830608b426c57b
+digest = 0xee99a98f35e2cc855f10e1feeb3c21be639e75dd2c2c28effc811cf09cf8f4b8
 ```
 
-### 13.4 Stream bilateral vector
+The raw EIP-712 preimage is exactly 2 bytes followed by two 32-byte words;
+it MUST NOT be ABI-encoded as `bytes2`, which would insert 30 zero bytes.
+
+### 13.4 Nonce-revocation EIP-712 vector
+
+The domain is the same as §13.3. For signer
+`0x000000000000000000000000000000000000dead`, nonce `7`, and deadline
+`1800000000`:
+
+```text
+EIP712Domain type string = EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)
+EIP712 name = 6529 Network Museum Registry
+EIP712 version = 1
+chainId = 1
+verifyingContract = 0x0000000000000000000000000000000000000001
+domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
+MuseumNonceRevocation type string = MuseumNonceRevocation(address signer,uint256 nonce,uint64 deadline)
+MuseumNonceRevocation typeHash = 0xe97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef
+structHash = 0xadf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13
+preimage = 0x1901fffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13
+digest = 0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd
+```
+
+### 13.5 Provisional Stream owner-record vector
 
 For the same envelope, a Stream write MUST derive its hash with the pinned
 formula:
@@ -1029,14 +1392,48 @@ The bilateral equality test is: exact envelope shape, exact content hash,
 exact schema/type/subject IDs, canonical payload bytes, and successful
 round-trip through the Stream and Museum export profiles.
 
-### 13.5 Required negative tests
+The provisional owner-record vector is not evidence that the pinned Stream
+commit implements this interface:
+
+```text
+streamCore = 0x0000000000000000000000000000000000001001
+ownerRecordModule = 0x0000000000000000000000000000000000002002
+collectionId = 42
+tokenId = 771769
+streamSubjectId = 0x1111111111111111111111111111111111111111111111111111111111111111
+canonicalOwnerRecordPayload = {"record":"owner","tokenId":"771769"}
+ownerRecordHashDomain = 0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a
+ownerRecordHashVectorId = 0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c
+keccak256(canonicalOwnerRecordPayload) = 0x1978e517eeb4e20fc20ca3b1110613584494206425197a9d447d7e11c6dab70d
+ownerRecordHash = 0xee351e5f3e3edbbdf00670dc9116f99ef5ed8da4d070b6a3c734d81a099b0fd4
+```
+
+### 13.6 Release-manifest vector
+
+For one record with source ordinal `1`, path
+`specs/onchain/contract-migration-v1.md`, record hash from §13.2, payload
+mode `INLINE`, payload bytes from §13.2, source commit bytes32 `0x...01`,
+Stream commit bytes32 `0x...02`, and generator `museum-migration/1.0.0`:
+
+```text
+pathHash = 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
+payloadBytesHash = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
+entryHash = 0x3aa074dec49b0294d9abb908dceea5a4d202418c4c3853fdf844bd645f62b7f7
+root = 0xbc5568367bca90d555bc6327649169ad38e1afee36f86d8695b7c927b20c87f9
+```
+
+### 13.7 Required negative tests
 
 Conformance MUST cover malformed digest lengths, zero IDs, zero effective
-time, invalid UTF-8/oversized URI, unknown schema/type/profile, wrong class,
-wrong predecessor, duplicate hash, payload mismatch, empty payload for a
-meaning-bearing schema, expired signature, invalid EOA signature, invalid
-ERC-1271 result, used/revoked nonce, batch over cap, batch partial failure,
-reorg retry, URI substitution, and attempted writes after freeze.
+time, invalid UTF-8/oversized or unsafe-scheme URI, unknown schema/type/profile,
+wrong class, wrong predecessor, duplicate hash, payload-mode mismatch, payload
+mismatch, empty payload for a meaning-bearing schema, missing/cross-lane/newer
+supersession target, expired signature, invalid EOA signature, invalid
+ERC-1271 result, ERC-1271 callback lane/nonce mutation, used/revoked nonce,
+nonce-revocation digest mismatch, batch over cap, batch partial failure,
+duplicate external subject, noncanonical asset alias, duplicate mirror link,
+pre-convergence Stream link, reorg retry, URI substitution, and attempted
+writes after freeze.
 
 It MUST also prove that:
 
@@ -1065,11 +1462,13 @@ below pass and Museum governance explicitly approves the deployment:
 3. **Identity gate:** CAIP-19/CAIP-10 normalization and every supported legacy
    profile have collision tests and vectors.
 4. **Envelope/hash gate:** ABI tuple order, `abi.encode`, hash algorithms,
-   URI limits, signature emptiness rules, and Museum/Stream hash distinction
-   pass golden tests.
+   explicit payload mode and supersession binding, URI limits/public-network
+   safety, signature emptiness rules, raw EIP-712 prefix, and Museum/Stream
+   hash distinction pass golden tests.
 5. **Authorization gate:** family masks, Safe/ERC-1271, EOA signatures,
-   unordered nonces, revocations, deadlines, provider rotation, and class
-   isolation pass negative tests.
+   unordered nonces, nonce-revocation commitments/deadlines, reentrancy
+   callback rechecks, provider rotation, and class isolation pass negative
+   tests.
 6. **Lineage gate:** duplicate rejection, predecessor/head accumulation,
    correction/supersession, successor import, batch atomicity, and state-only
    reconstruction pass.
@@ -1080,14 +1479,18 @@ below pass and Museum governance explicitly approves the deployment:
    title binding is tested as a separate fact; no accession completes without
    the Museum completion profile.
 9. **Migration rehearsal gate:** a frozen repository manifest migrates in a
-   disposable environment, reorg retry is rehearsed, and a third party
-   regenerates the index, dossier, PREMIS/LIDO exports, and manifests.
+   disposable environment; `MUSEUM_RELEASE_MANIFEST_V1` source ordinals,
+   per-record entry hashes, root, and body hash are independently regenerated;
+   reorg retry is rehearsed; and a third party regenerates the index, dossier,
+   PREMIS/LIDO exports, and manifests.
 10. **Operational gate:** registrar, curator, digital-conservation, privacy,
     and records-management review is complete; incident and recovery runbooks
     are content-addressed.
 11. **Security gate:** independent contract review/audit covers authority
     capture, replay, malformed external strings, griefing/spam, reentrancy in
     providers, URI/payload mismatch, upgrade/import, and chain reorg handling.
+    The audit MUST also verify the write-once external-subject/mirror selectors
+    and the closed Stream owner-record convergence gate.
 12. **Governance gate:** deployment address, authority provider, write policy,
     migration scope, and non-goals are explicitly adopted; current signer
     names are not hard-coded.

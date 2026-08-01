@@ -119,7 +119,9 @@ token identity.
 4. Use EIP-712/EIP-1271 for optional relayed writes, unordered signer-scoped
    nonces, deadlines, and nonce revocation.
 5. Require lane predecessor matching and a deterministic chain accumulator;
-   keep supersession meaning in the payload.
+   commit `payloadMode` and `supersedesRecordHash` into the Museum hash, and
+   enforce an existing, same-lane, older supersession target while retaining
+   the schema-defined payload fields.
 6. Store full envelopes and selected payload bytes in state; use content-
    addressed URIs and hash commitments for larger/restricted material.
 7. Batch migration atomically, with a bounded batch size and state-based reorg
@@ -136,8 +138,9 @@ token identity.
   as contract logic.
 * Supported non-EVM/legacy asset profiles need maintainers, resolution rules,
   collision tests, and independent verification adapters.
-* The inline payload limit, storage budget, URI policy, and content-addressed
-  storage families need an operations decision and preservation rehearsal.
+* The V1 inline caps and Stream-safe URI policy are pinned; storage budget,
+  public-network resolution evidence, and content-addressed storage families
+  still need an operations decision and preservation rehearsal.
 * Registrar, curator, digital-conservation, privacy, and independent security
   reviews are required before governance can approve deployment.
 
@@ -175,7 +178,8 @@ The follow-up review also identified and resolved three implementation hazards:
 1. `hashRefHash` always re-hashes the exact bytes in `HashRef.digest`, regardless
    of the algorithm. The transcript now computes that second hash explicitly;
    the corrected content-ref, record-hash, chain-hash, and EIP-712 values below
-   were independently recomputed from it.
+   were independently recomputed from it. The final EIP-712 digest uses the
+   raw two-byte `0x1901` prefix, not ABI encoding of `bytes2`.
 2. `recordMuseumRecordBySig` explicitly applies the §5.2 payload mode, inline
    profile, byte-cap, zero-payload, and digest checks to its payload argument.
 3. A duplicate `recordHash` in an all-or-nothing batch reverts the entire batch;
@@ -183,6 +187,25 @@ The follow-up review also identified and resolved three implementation hazards:
    chain. Direct/batch envelope-field violations use
    `InvalidEnvelopeSignatureFields`, while `bySig` uses
    `InvalidRelayedSignatureFields`.
+
+The independent implementation-readiness review added and resolved these
+further requirements:
+
+1. `revokeNonceBySig` has its own exact EIP-712 type string, domain, typehash,
+   raw-prefix digest, state view, event, deadline, and `keccak256(signature)`
+   commitment.
+2. The pinned Stream commit's prose-only owner-record description is now an
+   explicit provisional interface and vector with a closed convergence gate;
+   the draft makes no executable compatibility claim.
+3. Payload mode is an explicit ABI `uint8` and record-hash field. External
+   asset registration and mirror-link selectors are role-gated, canonical,
+   expected-subject-bound, and write-once.
+4. ERC-1271 calls are non-reentrant and recheck lane-head/nonce state after
+   the external callback. Supersession metadata is hash-bound and the target
+   must exist in the same lane at an older revision.
+5. URI schemes are restricted to `https`, `ipfs`, and `ar` with the public
+   network safety gate; `MUSEUM_RELEASE_MANIFEST_V1` pins its JSON schema,
+   source ordinal, entry hash, root formula, and worked root vector.
 
 ### Reproducible hash transcript
 
@@ -214,7 +237,8 @@ $uriHash = cast keccak $uri
 $contentRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 1 $contentDigestHash $canon)
 $emptyBytesHash = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 $signatureRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 0 $emptyBytesHash 0x0000000000000000000000000000000000000000000000000000000000000000)
-$recordHash = cast keccak (cast abi-encode 'f(bytes32,uint256,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,uint64)' $domain 1 0x0000000000000000000000000000000000000001 $type $subject $contentRef $uriHash $schema 0x0000000000000000000000000000000000000000000000000000000000000000 $signatureRef 1722470400)
+$zero = '0x0000000000000000000000000000000000000000000000000000000000000000'
+$recordHash = cast keccak (cast abi-encode 'f(bytes32,uint256,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,uint64,uint8,bytes32)' $domain 1 0x0000000000000000000000000000000000000001 $type $subject $contentRef $uriHash $schema $zero $signatureRef 1722470400 1 $zero)
 $chainHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint64)' $chainDomain 0x0000000000000000000000000000000000000000000000000000000000000000 $recordHash 1)
 $domainTypeHash = cast keccak 'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'
 $nameHash = cast keccak '6529 Network Museum Registry'
@@ -222,7 +246,30 @@ $versionHash = cast keccak '1'
 $domainSeparator = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint256,address)' $domainTypeHash $nameHash $versionHash 1 0x0000000000000000000000000000000000000001)
 $writeTypeHash = cast keccak 'MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)'
 $structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,bytes32,uint256,uint64)' $writeTypeHash $recordHash $type $subject 0x0000000000000000000000000000000000000000000000000000000000000000 7 1800000000)
-$digest = cast keccak (cast abi-encode 'f(bytes2,bytes32,bytes32)' 0x1901 $domainSeparator $structHash)
+$eipPreimage = '0x1901'+$domainSeparator.Substring(2)+$structHash.Substring(2)
+$digest = cast keccak $eipPreimage
+$nonceTypeHash = cast keccak 'MuseumNonceRevocation(address signer,uint256 nonce,uint64 deadline)'
+$signer = '0x000000000000000000000000000000000000dead'
+$nonceStructHash = cast keccak (cast abi-encode 'f(bytes32,address,uint256,uint64)' $nonceTypeHash $signer 7 1800000000)
+$noncePreimage = '0x1901'+$domainSeparator.Substring(2)+$nonceStructHash.Substring(2)
+$nonceDigest = cast keccak $noncePreimage
+$manifestEntryDomain = cast keccak '6529networkmuseum.release-manifest.entry.v1'
+$manifestRootDomain = cast keccak '6529networkmuseum.release-manifest.root.v1'
+$pathHash = cast keccak 'specs/onchain/contract-migration-v1.md'
+$payloadBytesHash = cast keccak $payload
+$entryHash = cast keccak (cast abi-encode 'f(bytes32,uint64,bytes32,bytes32,uint8,bytes32)' $manifestEntryDomain 1 $pathHash $recordHash 1 $payloadBytesHash)
+$sourceCommit = '0x0000000000000000000000000000000000000000000000000000000000000001'
+$streamCommit = '0x0000000000000000000000000000000000000000000000000000000000000002'
+$generatorHash = cast keccak 'museum-migration/1.0.0'
+$manifestRoot = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32[])' $manifestRootDomain $sourceCommit $streamCommit $generatorHash 1 "[$entryHash]")
+$ownerDomain = cast keccak '6529networkmuseum.stream-owner-record.v0'
+$ownerVector = cast keccak 'STREAM_OWNER_RECORD_HASH_VECTOR_V0'
+$ownerStreamCore = '0x0000000000000000000000000000000000001001'
+$ownerModule = '0x0000000000000000000000000000000000002002'
+$ownerSubject = '0x1111111111111111111111111111111111111111111111111111111111111111'
+$ownerPayload = '{"record":"owner","tokenId":"771769"}'
+$ownerPayloadHash = cast keccak $ownerPayload
+$ownerRecordHash = cast keccak (cast abi-encode 'f(bytes32,uint256,address,address,uint256,uint256,bytes32,bytes32)' $ownerDomain 1 $ownerModule $ownerStreamCore 42 771769 $ownerSubject $ownerPayloadHash)
 $assetHash
 $externalSubjectId
 $contentDigest
@@ -237,6 +284,19 @@ $domainSeparator
 $writeTypeHash
 $structHash
 $digest
+$nonceTypeHash
+$nonceStructHash
+$nonceDigest
+$manifestEntryDomain
+$manifestRootDomain
+$pathHash
+$payloadBytesHash
+$entryHash
+$manifestRoot
+$ownerDomain
+$ownerVector
+$ownerPayloadHash
+$ownerRecordHash
 ```
 
 Expected output, in order:
@@ -249,14 +309,31 @@ Expected output, in order:
 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
 0x66de33e7d57cf2169917368e5d3e0e9e9841cd367f8de4ff95f3a15164456462
 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
-0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
-0xd58c19ce69e7e703fb3f2f22e70f4600a0602db704abc6b740277fd04b6340c7
+0xc4c82486491323ce9af3d84d00b239e1148832fb059b8880483e4a838b320627
+0xd4e3b242f775f431ac172cd764f032addceb847ceb646845c74b9fb6d6319f63
 0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f
 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-0xd27f3f4288df41d1246978615a45466dd9d42a90f49d5178eae2287168c32098
-0xaedfcd6cd01ef40781ca1ebd9887dcf5415801b6b667bf4d2d3245675a0c589f
+0x7d4ea0e0c6cc267d01b953edec4e87a7dc20e2cc8a0c882037830608b426c57b
+0xee99a98f35e2cc855f10e1feeb3c21be639e75dd2c2c28effc811cf09cf8f4b8
+0xe97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef
+0xadf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13
+0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd
+0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef
+0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64
+0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
+0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
+0x3aa074dec49b0294d9abb908dceea5a4d202418c4c3853fdf844bd645f62b7f7
+0xbc5568367bca90d555bc6327649169ad38e1afee36f86d8695b7c927b20c87f9
+0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a
+0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c
+0x1978e517eeb4e20fc20ca3b1110613584494206425197a9d447d7e11c6dab70d
+0xee351e5f3e3edbbdf00670dc9116f99ef5ed8da4d070b6a3c734d81a099b0fd4
 ```
+
+The EIP-712 preimages are constructed by literal hex concatenation. A
+command using `cast abi-encode 'f(bytes2,bytes32,bytes32)'` inserts ABI padding
+for `bytes2` and is intentionally not a valid conformance command.
 
 The EIP-712 signature bytes are intentionally absent from the record-hash
 preimage; V1 uses zero/empty envelope signature fields for `bySig` writes and
