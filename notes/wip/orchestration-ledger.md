@@ -410,3 +410,39 @@ the deterministic release-manifest commitment reports
 `sha256:6bd97c002283999ae739f705a11e1b2d8fc2cca93e7fa03a2510764bfd706892`.
 All populations, source/canonical orderings, raw bytes, exclusion rows,
 descriptor results, runtime pin, and null reviewer fields remain unchanged.
+
+## 2026-08-01 - PR #13 symlink and direct-PR4-byte remediation checkpoint
+
+Independent review at `3391d74619a0955fb479ea1ffae706aa8ea37d19` identified a
+fail-open bound-raw symlink substitution and an unconfirmed Phototaxis
+serialization hash alternative. The pinned PR #4 tool was rerun from the
+preserved Phototaxis snapshot under CPython `3.12.10` in isolated constructor
+and reviewer trees, including `PYTHONHASHSEED` values `0`, `1`, `2`, `42`,
+`123`, and `random`; every raw output was
+`sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044`,
+matching the recorded descriptor. The reported
+`sha256:492687b80070621cc10f7dd32855e11ccffefad69c875b039b9eed9efcfa58c8`
+was not reproducible by the pinned tool or common JSON reserializations and is
+therefore not substituted for governed bytes.
+
+The verifier now lstat-checks every bound package/inventory/raw/derived/
+snapshot/descriptor path component, rejects POSIX symlinks and Windows
+reparse points/junctions before reads or enumeration, and constrains the
+governed package root lexically. The mutation suite includes an end-to-end
+same-byte bound-raw symlink case and a Windows reparse-attribute negative
+control. Descriptor verification now compares direct merged-PR4 output bytes
+and SHA-256 for all five results, in addition to semantic equality, under the
+pinned UTF-8/indent/newline serialization boundary.
+
+No acquisition or descriptor rerun was performed. The preserved package still
+contains 79 raw files, 3,300 tokenURI requests, 35,088 traits, 3,327 request
+records, 62 unique request bodies, 17 explicit exclusions, eight warnings, and
+five descriptor outputs; source and canonical orderings remain separate. The
+working package manifest is
+`sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f`;
+the release manifest was regenerated after this append-only checkpoint. Its
+current commitment is intentionally reported by the validation handoff rather
+than embedded here, avoiding a self-referential ledger/manifest hash.
+Review and curatorial metadata remain null; no title/rights/accession
+acceptance is claimed. PR #13 remains draft pending the same independent
+exact-head review.
