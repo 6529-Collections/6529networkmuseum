@@ -3,3 +3,10 @@
 *.md text eol=lf
 *.py text eol=lf
 *.yml text eol=lf
+
+# Preserve authenticated evidence snapshots byte-for-byte, including upstream
+# line endings, BOMs, and whitespace. Human-authored indexes remain text.
+evidence/waves/museum-wave/proposals.json binary
+evidence/waves/museum-wave/source-index.md binary
+evidence/waves/museum-wave/wave-history.md binary
+evidence/waves/museum-wave/wave-snapshot.json binary
