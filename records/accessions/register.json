@@ -1,31 +1,35 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 1,
-    "record_status": "reviewed",
+    "revision": 2,
+    "record_status": "constructed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
-      "constructed_at": "2026-08-01T15:13:00Z"
+      "constructed_at": "2026-08-01T22:55:00Z"
     },
-    "review": {
-      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
-      "role": "reviewer",
-      "reviewed_at": "2026-08-01T15:42:12.081Z",
-      "reviewed_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
-      "outcome": "approved",
-      "payload_sha256": "sha256:b45b4ddf1d1cb81f63d9174d8a3928de9fa72a6899395f62e26d5a9c9838b76f"
-    }
+    "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-01T14:58:31.905115Z",
+  "snapshot_at": "2026-08-01T22:55:00Z",
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-01T22:55:00Z",
+      "prior_payload_sha256": "sha256:b45b4ddf1d1cb81f63d9174d8a3928de9fa72a6899395f62e26d5a9c9838b76f",
+      "prior_review_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
+      "reason": "Superseded current-view register entry to record the user-authorized formal gift acceptance separately from pending Stream accession completion; the reviewed revision-one commitment remains identified here."
+    }
+  ],
   "lots": [
     {
       "accession_lot_id": "6529NM.2026.001",
       "preferred_title": "Casey Reas donation from punk6529",
       "object_count": 7,
-      "donation_status": "received",
+      "donation_status": "formally_accepted",
       "accession_status": "documentation_in_progress",
+      "formal_acceptance_status": "formally_accepted",
+      "gift_acceptance_authorization_record": "6529NM.2026.001.GAA-01",
       "donor_public_credit": "Gift of punk6529",
       "custody": {
         "ens": "networkmuseum.6529.eth",
@@ -49,9 +53,9 @@
         "notes/research/casey-reas-art-technical-research.md"
       ],
       "completion_limits": [
-        "Work-level accession records are in construction.",
-        "Custody does not by itself establish legal title, copyright, display rights, donor authority, or curatorial acceptance.",
-        "The public donor instrument summary and restricted-instrument hash have not yet been recorded."
+        "The gift is formally accepted under 6529NM.2026.001.GAA-01; the Stream-equivalent accession completion certificate remains pending.",
+        "Formal acceptance does not itself establish legal title, copyright, display rights, condition, technical verification, or preservation completion.",
+        "An executed title instrument, rights review, condition/preservation records, and independent registrar, technical, and curatorial review remain pending."
       ]
     }
   ]

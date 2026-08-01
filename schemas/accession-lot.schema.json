@@ -18,6 +18,8 @@
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "intake_status": {"type": "string", "enum": ["accepted_for_accession_processing", "received_onchain"]},
         "formal_acceptance_status": {"type": "string", "enum": ["not_formally_accepted", "formally_accepted"]},
+        "formal_acceptance_date": {"type": "string", "format": "date-time"},
+        "gift_acceptance_authorization_record": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "accession_status": {"type": "string", "enum": ["not_complete", "complete"]},
         "controlled_decision": {"type": "object", "additionalProperties": true},
         "collection_curatorial_statement": {"type": "object", "additionalProperties": true},

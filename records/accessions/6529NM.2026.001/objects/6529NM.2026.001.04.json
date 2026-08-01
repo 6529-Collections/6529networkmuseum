@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x72d514efca52009e1e8aaa28aab620815dbe365225b190aaa855ba4a0a57f86c"
+      "digest": "0xa5ab649783e8d0d0d81518a7de480345f12099976d7c8538308c569534c249bd"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -55,8 +55,9 @@
     "claims": {
       "artist_statement": "The artist describes Pre-Process as a system of 100 circle Elements whose movement, surface constraints, collisions, and overlap avoidance move toward but never reach equilibrium.",
       "documented_fact": "Art Blocks records this token in project 383, with 120 invocations; the contract token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "This object links an early rule-based software lineage to a later blockchain edition and makes code, performance, and image distinct preservation layers."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "This object links an early rule-based software lineage to a later blockchain edition and makes code, performance, and image distinct preservation layers.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -117,6 +118,13 @@
       "uri": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: rows of circular masses, repeated axes, and translucent sweeps/overlaps."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0x0213c37bac5f5131c42712099aeec240c73416bd66163d2e144a6517613cd77e",
@@ -128,7 +136,7 @@
     },
     "object_id": "6529NM.2026.001.04",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:93cb06e90d8e1903c6ef9b50478ac01d851eca17447bbd2cdd0675855a849d82",
+    "payload_sha256": "sha256:9f7ec91d04f53837882eea99bc8a58738258fa0e33a6c9d5b6ad124573b145da",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -138,6 +146,7 @@
     },
     "project": {
       "edition_size": 120,
+      "edition_logic": "Artist/platform statement: eight surfaces × three origins × five growth configurations = 120; ordinal feature labels are retained without inferred meanings.",
       "license_claim_status": "not_a_Museum_grant",
       "name": "Pre-Process",
       "platform": "Art Blocks Curated",

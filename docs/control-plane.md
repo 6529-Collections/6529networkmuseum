@@ -36,6 +36,10 @@ that need the whole repository or need to compare values:
   custody receipt records its custody path;
 - `RIGHTS_STATEMENT` and `CONDITION_REPORT` carry their own dated,
   authority-bound evidence events;
+- `GIFT_ACCEPTANCE_AUTHORIZATION` records a formally effective gift decision
+  and its authority-evidence limitations without substituting for a pending
+  Stream `ACCESSION` completion certificate; its constructed/review-pending
+  state is documentation QA, not a reversal of the stated decision;
 - object workflow history starts at `offered`, follows only the controlled
   transitions, never regresses or repeats a state, and agrees with
   `current_state`;

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x35b4c2797a01faae853c78b0a9569299337097a7ffd490b25e8fe867aff3bb28"
+      "digest": "0xd0cfc1c7a2730ace3e135466bfa693843450bf5baa7180911f76378b7da02472"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -55,8 +55,9 @@
     "claims": {
       "artist_statement": "The project and presenting records describe a finite combinatorial release using six colorforms, distributed across six cities and the METAVASARELY/Empty Room context.",
       "documented_fact": "Art Blocks records project 1 and token 1000713 as 923 EMPTY ROOMS #713 by Casey REAS; the token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "The object is preserved as a token-specific state within a finite combinatorial system, without implying that the Museum recreates the original multi-city event."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "The object is preserved as a token-specific state within a finite combinatorial system, without implying that the Museum recreates the original multi-city event or that this token is individually LACMA-commissioned.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -117,6 +118,13 @@
       "uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: bright green/dark room-like perspectival field."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0x54cef04e951dc8891350b8a3012b7aa5de17fb7bf23d0d70085332c6df70f684",
@@ -128,7 +136,7 @@
     },
     "object_id": "6529NM.2026.001.06",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:2b356b7bf906726194543210a0d9eac7d06c5e785262b4eae831df111600d58c",
+    "payload_sha256": "sha256:0f5b16afa7a3e2c2edc2b4eb1406f97672c2381241166aca10345deff04c784e",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -138,6 +146,7 @@
     },
     "project": {
       "edition_size": 924,
+      "edition_statement": "Public edition: 924 unique artworks/tokens; generative system: 923 rooms/combinations.",
       "license_claim_status": "not_a_Museum_grant",
       "name": "923 EMPTY ROOMS",
       "platform": "Art Blocks x Bright Moments",

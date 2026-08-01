@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0cb6eda39c83690482c846e2ff3041bd112399c5d4ef85aaa9cecbfe2d952b01"
+      "digest": "0x6c72e9948112b5c088f00a0fdf2a272eb3f4f4da58f2929fa9a3fcba4dc42c1e"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -55,8 +55,9 @@
     "claims": {
       "artist_statement": "The artist describes CENTURY as a generative response to modernist painting and drawing, with slicing, recomposition, motion, and chance.",
       "documented_fact": "Art Blocks records this token in Casey REAS's CENTURY project 100; the contract token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, not a complete CENTURY set or artist-defined triptych."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, not a complete CENTURY set or artist-defined triptych.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -117,6 +118,13 @@
       "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: open rust/cream field with broad dark partitions."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0xd157b004925a1d34d85373a4cc39194b641806f2be0f45c4520fa0d171beb773",
@@ -128,7 +136,7 @@
     },
     "object_id": "6529NM.2026.001.02",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:0f86f8cf32586e9f69314e0904befb63ba23d19e4eb4b4a88bb076df65c236a4",
+    "payload_sha256": "sha256:9621ba3017e2e5cdf8ff590b49a5f4a6769301ab2c90cd2c0b0823ed89b90220",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",

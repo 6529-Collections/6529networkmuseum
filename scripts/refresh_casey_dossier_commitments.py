@@ -99,6 +99,18 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
         payload["source_manifest"]["casey_collection_snapshot_package"] = copy.deepcopy(source)
         payload["constructor_controls"]["merge_authority"] = None
         payload["controlled_decision"]["decision_authority"] = None
+        payload["formal_acceptance_status"] = "formally_accepted"
+        payload["formal_acceptance_date"] = "2026-08-01T22:55:00Z"
+        payload["acceptance_date"] = "2026-08-01T22:55:00Z"
+        payload["gift_acceptance_authorization_record"] = "6529NM.2026.001.GAA-01"
+        payload["intake_status"] = "received_onchain"
+        payload["controlled_decision"]["acceptance_date_semantics"] = "formal gift/accession authorization timestamp; not a Stream-equivalent accession completion certificate or title passage"
+        payload["controlled_decision"]["outcome"] = "formally_accepted_gift_and_accession_authorization"
+        payload["controlled_decision"]["rationale"] = "The adopted Art Blocks preapproval and Donation Acceptance Policy, common receipt, and user-supplied donor/authority fact support formal acceptance of this gift. Title binding, rights, condition, preservation, technical verification, and independent review remain open."
+        payload["donation_rights_schedule"]["public_summary"] = "The seven identified Casey REAS Art Blocks tokens are formally accepted as a gift under 6529NM.2026.001.GAA-01 and remain received_onchain. This is not a title, rights, condition, preservation, or Stream accession-completion conclusion."
+        payload["non_claims"][0] = "Formal gift acceptance is limited to 6529NM.2026.001.GAA-01 and does not substitute for a Stream-equivalent accession completion certificate or title binding."
+        payload["constructor_controls"]["completion_decision"]["reason"] = "Formal gift/accession authorization is complete; the Stream completion certificate, title, rights, condition, preservation, display, and independent review gates remain open."
+        payload["constructor_controls"]["signature_semantics"] = "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, an executed title instrument, completed Stream accession, rights grant, or signed authority."
         payload["trait_analysis"] = trait_analysis(source)
         payload["collection_curatorial_statement"]["trait_analysis"] = trait_analysis(source)
     elif record_id in OBJECT_TO_COLLECTION:
@@ -117,7 +129,7 @@ def refresh_public_pages(descriptors: dict[str, dict[str, Any]]) -> None:
         new = (
             f"A [transparent linked descriptor]({descriptor['uri']}) is available from the published source package and reproducible from its published frozen snapshot and hashes. "
             "It makes no OpenSea or other marketplace-metric, aesthetic, quality, value, or ranking claim. "
-            "The dossier remains `received_onchain` / `not_complete`: formal accession acceptance, title, rights, condition, preservation, and registrar review are incomplete."
+            "The formal gift/accession authorization is complete; the dossier remains `received_onchain` / `not_complete`: completion certificate, title, rights, condition, preservation, and registrar review remain pending."
         )
         if old in text:
             updated = text.replace(old, new)
@@ -125,7 +137,7 @@ def refresh_public_pages(descriptors: dict[str, dict[str, Any]]) -> None:
             updated = text
         elif "transparent linked descriptor" in text:
             updated, replacements = re.subn(
-                r"A \[transparent linked descriptor\]\([^)]*\) is available.*?registrar review are incomplete\.",
+                r"A \[transparent linked descriptor\]\([^)]*\) is available.*?(?:registrar review are incomplete|registrar review remain pending)\.",
                 new,
                 text,
                 flags=re.DOTALL,

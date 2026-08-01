@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc48eda96f0e312f215c2fc4d96a71a82a5cec5ad4c9e03970ae046738e4342b7"
+      "digest": "0x389b5ce3aa4980e69388588b83c7c866a460d5d39b8c022491040545a4fcb953"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -55,8 +55,9 @@
     "claims": {
       "artist_statement": "The artist's technical note connects Phototaxis to artificial-life simulations, moving lines, light-seeking behavior, and a code lineage from C++ through Processing/Java to p5.js/JavaScript.",
       "documented_fact": "Art Blocks records this token in Casey REAS's Phototaxis project 164; the contract token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "This object foregrounds simulated organisms and trajectories as a bridge between software lineage and browser-based generative display."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "This object foregrounds simulated organisms and trajectories as a bridge between software lineage and browser-based generative display.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -117,6 +118,13 @@
       "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: blue-gray central/lower knot with trajectories rising and dispersing."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0xfb88337f26e6ba41c1fc279784607ae3ef59d4c2281b186483c0a22a917641ab",
@@ -128,7 +136,7 @@
     },
     "object_id": "6529NM.2026.001.05",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:30874f68c7af6889de1952af0cfcbc03b80eede9fa0a43d3b5df45e6be30a277",
+    "payload_sha256": "sha256:c9cb2aa946b81f339a397638411f1bb1b51063e9faba63754accc0d6872ddc70",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -138,6 +146,7 @@
     },
     "project": {
       "edition_size": 1000,
+      "date_conflict": "Art Blocks and the artist's 2021 technical note support the 2021 release date; the current artist NFT register lists Phototaxis as 2022. The conflict is recorded, not resolved by inference.",
       "license_claim_status": "not_a_Museum_grant",
       "name": "Phototaxis",
       "platform": "Art Blocks Playground",

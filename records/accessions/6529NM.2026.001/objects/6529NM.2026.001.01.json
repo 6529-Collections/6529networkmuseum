@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x48f5993c32ce927ac578075f9a2ecf90d35f73badcbf889a6267ed61e9fb0a87"
+      "digest": "0x29b1bde770e686ea9f2967ebc0da9c9287d707dedd5689e8954f00a59f220edc"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -55,8 +55,9 @@
     "claims": {
       "artist_statement": "The artist describes CENTURY as a generative response to modernist painting and drawing, with slicing, recomposition, motion, and chance.",
       "documented_fact": "Art Blocks records this token in Casey REAS's CENTURY project 100; the contract token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, useful for studying how one program distributes line, color, slicing, and motion."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, useful for studying how one program distributes line, color, slicing, and motion; it is not an artist-defined triptych.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -117,6 +118,13 @@
       "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: dark blue-charcoal circular field with cream semicircles, diagonal fragments, and conspicuous vertical slice divisions."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0x4beb057cf4002b81e3b3185667d7db6202a3d5f204f3fed6d7b849470c3b839a",
@@ -128,7 +136,7 @@
     },
     "object_id": "6529NM.2026.001.01",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:deeea874f263529aeec5424714c98113e7d080e618ca627ec7e2e316aae687a1",
+    "payload_sha256": "sha256:17acf914a02e1525e36eda61c0d84ff2339fdebd18b4a2561b6dec5188a01752",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",

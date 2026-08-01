@@ -78,6 +78,16 @@ An accession uses `STREAM_ACCESSION_V1`: accession identifier, acquiring-institu
 
 The acquisition packet remains distinct from the accession statement. It includes chain identity, record-chain heads, finality/content roots, attribution, rights completeness, fixity/preservation coverage, ownership history, title bindings, work description, condition records, recovery lineage, and platform-sustainability evidence where applicable.
 
+### Limited Museum gift authorization
+
+`GIFT_ACCEPTANCE_AUTHORIZATION` is a versioned Museum-local envelope profile
+for a formally accepted gift whose Stream `ACCESSION` completion certificate is
+not yet evidence-backed. It is intentionally not an alternate spelling of
+`STREAM_ACCESSION_V1`: it cannot carry an executed title binding, a signed
+authority claim, or an `accessioned` lifecycle assertion. It records the
+effective acceptance decision and its limitations while independent
+documentation QA remains pending.
+
 ## Shared provenance-entry format
 
 Human-facing provenance histories use the Stream manifest shape:

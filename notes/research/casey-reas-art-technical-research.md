@@ -6,6 +6,24 @@
 
 **Scope:** CENTURY #31, #724, and #401; Pre-Process #63; Phototaxis #308; 923 EMPTY ROOMS #713; and Ex Nihilo (Cosmos) #248. The object numbers below are provisional Museum identifiers for the planned accession lot `6529NM.2026.001`; chain custody, legal title, donor instrument, transfer transaction, and final accession status remain separate records to be completed by the registrar.
 
+## Dated supersession — 2026-08-01T22:55:00Z
+
+This research note retains its original 2026-08-01 research date and the
+historical wording below about a proposed donation or the absence of a donation.
+Those statements are superseded only as to current gift status: the common
+seven-transfer receipt is verified and the Museum has issued
+`6529NM.2026.001.GAA-01`, a formally effective Gift Acceptance and Accession
+Authorization under the adopted Art Blocks preapproval and Donation Acceptance
+Policy. The current lot therefore records a formally accepted gift while
+remaining `received_onchain` / `not_complete`.
+
+This supersession does not supply a signed deed, legal title opinion, executed
+title binding, copyright or display grant, condition assessment, preservation
+completion, or independent registrar/technical/curatorial review. The original
+research claims and evidence classes remain historically legible below; current
+acceptance and completion limits are controlled by the linked authorization and
+accession records.
+
 ## How to read this note
 
 The dossier keeps four kinds of statement apart:

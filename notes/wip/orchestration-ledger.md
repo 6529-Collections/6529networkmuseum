@@ -570,3 +570,48 @@ release-bound fields. The seven raw public metadata bytes remain separately
 bound and unchanged. Formal state remains `received_onchain` / `not_complete`,
 with reviewer and authority fields null; no acceptance, title, rights,
 condition, preservation, or registrar decision is asserted.
+
+## 2026-08-01 - Casey formal gift authorization and curatorial integration
+
+This checkpoint adds a limited, effective Gift Acceptance and Accession
+Authorization for lot `6529NM.2026.001`. It records the user-authorized
+institutional decision to formally accept the seven verified gifts under the
+adopted Art Blocks preapproval (`6529NM-GOV-1052156`, Wave `#1052156`, drop
+`2e88273f-013c-4fdd-bea3-7de5451098e8`) and Donation Acceptance Policy
+(`6529NM-GOV-1052812`, Wave `#1052812`, drop
+`86e43beb-b55d-42f0-9eea-a3c115b08abc`). The authorization is formally
+accepted and effective; its constructed record status and pending independent
+review describe documentation QA only, not a provisional institutional
+decision. The public donor/authority declaration is expressly user-supplied
+and is neither a cryptographic signature nor an executed deed.
+
+The generic Gift Acceptance and Accession Authorization schema is reusable:
+it requires one or more assets and closed evidence structures but does not
+hard-code this donor, custody name, transfer count, or seven-asset schedule.
+Casey-specific semantic checks bind those facts, the shared receipt, exact
+CAIP-19 assets, governing records, and the pending completion boundary.
+
+The lot therefore remains `received_onchain` / `not_complete`. The pending
+gates are the Stream-equivalent completion certificate and title binding,
+rights, condition, preservation, registrar review, and independent exact-head
+review. No title, copyright assignment, unrestricted display or publication
+right, legal opinion, preservation completion, technical completion, signed
+authority, or `accessioned` lifecycle transition is asserted.
+
+The public dossier now includes a sourced Casey Reas artist/practice profile,
+a collection essay, and dated object-specific static/live observations on all
+seven object pages. These distinguish documented fact, artist or platform
+statement, time-specific static documentation surrogate, live generator
+observation, and Museum interpretation. The seven raw public metadata files
+remain byte-identical to the pre-change Casey branch and retain their manifest
+binding. The immutable source/publication evidence remains bound to source
+commit `9700e842d0c991280b476cc67849d966221a742a`, publication commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`,
+and release SHA-256
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+
+Before local commit, regenerate the governed manifest and run fetch guard,
+complete validation, package verification, and the diff check. The full
+discovered unittest suite has already passed: 80 tests, one expected Windows
+named-pipe skip.

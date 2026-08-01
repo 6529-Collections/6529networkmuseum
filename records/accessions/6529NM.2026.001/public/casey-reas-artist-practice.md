@@ -1,0 +1,41 @@
+# Casey Reas: artist and practice profile
+
+**Scope and status:** Collection research for `6529NM.2026.001`; this is not a rights statement, catalogue raisonné, title opinion, or claim that the seven works survey the artist's full practice.
+
+## Biography and significance
+
+Casey Reas (b. 1972, Troy, Ohio) is an artist and educator based in Los Angeles. He has been a Professor in UCLA Design Media Arts since 2003. UCLA describes a practice spanning software, installations, prints, and drawings, developed through computational systems that unfold over time and engage histories of conceptual art, drawing, and photography. The artist's [information page](https://reas.com/info) records a Master of Science in Media Arts and Sciences from MIT and a Bachelor of Science from the University of Cincinnati's College of Design, Architecture, Art, and Planning; UCLA independently records those degrees.
+
+The studio and teaching work are linked by tool-building and publishing. UCLA records that Reas co-founded Processing with Ben Fry in 2001, the Processing Foundation in 2012, and Feral File in 2020; it also identifies his co-direction of UCLA Social Software with Lauren Lee McCarthy. The [artist's books page](https://reas.com/books) distinguishes early collaborative educational publications—including *Processing: A Programming Handbook for Visual Designers and Artists* and *Form+Code in Design, Art, and Architecture*—from later artist's books such as *A Mathematical Theory of Communication* and *Compressed Cinema*. This is a practice relationship, not a claim that tools, teaching, publications, and studio works are interchangeable.
+
+The Museum understands the significance of this practice through a persistent question: when an instruction is executed, where does the artwork reside—in a description, source code, runtime behavior, rendered image, installation, or each changing relation among them? The [Whitney's account of {Software} Structures](https://whitney.org/exhibitions/programmed/art?section=1&subsection=14) presents Reas's 2004/2016 JavaScript works as software that turns natural-language instructions into generative drawing. The artist's [exhibition record](https://reas.com/exhibitions) lists presentations at the Whitney, LACMA, SFMOMA, Centre Pompidou, the Victoria and Albert Museum, and the Ullens Center for Contemporary Art; the artist-controlled [information archive](https://www.gray.reas.com/information) identifies Centre Pompidou and SFMOMA among public collections. This concise institutional context describes documented presentation and collection history without inflating it into a hierarchy or a proxy for value. It informs, but does not determine, the Museum's reading of later tokens.
+
+## Practice arc
+
+### Software Structures, Process, and Pre-Process
+
+The Whitney records *{Software} Structure #003 A* and *#003 B* as works whose circles, intersections, cumulative marks, and changing display states are produced from an instruction. Reas's [Process page](https://reas.com/process) connects that procedural vocabulary to *Pre-Process*: a 2022 blockchain edition with a 2003 origin. The artist/platform account establishes the 8 × 3 × 5 edition logic—eight surfaces, three origins, and five growth configurations—as 120 outputs. The Museum retains that logic as a documented system, not as a scarcity or quality claim.
+
+### MicroImage and Phototaxis
+
+The [MicroImage context](https://reas.com/microimage) and the artist's [Phototaxis project record](https://www.gray.reas.com/phototaxis/) place *Phototaxis* in a long inquiry into machine-like behavior, movement, and image formation. The 2021 artist technical note relates its agents to Braitenberg's *Vehicles* and traces a path from C++ through Processing/Java to p5.js. The visible line field is therefore documented as a record of simulated movement, not simply an abstract still. The Museum preserves an explicit source conflict: Art Blocks and the 2021 technical note support a 2021 release; the current [Reas NFT register](https://reas.com/nfts) lists *Phototaxis* as 2022. The record does not resolve that discrepancy by inference.
+
+### CENTURY and Ellsworth Kelly
+
+*CENTURY* takes twentieth-century painting and drawing into a live browser system. Reas's [project record](https://www.gray.reas.com/century_s/) and [Art Blocks interview](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-century) identify Ellsworth Kelly's cut-and-reassembled works as a reference and describe slicing, recomposition, motion, and chance. The three CENTURY tokens in this lot are a comparative sample of one generative system, not a triptych, a complete CENTURY set, or an artist-defined grouping.
+
+### Atomism, An Empty Room, and 923 EMPTY ROOMS
+
+The [Atomism overview](https://reas.com/atomism) supplies artist-controlled context for the relations among *An Empty Room*, *923 EMPTY ROOMS*, Still Life, and recomposition. [LACMA's record](https://www.lacma.org/zh/node/42726) locates *An Empty Room* in its Art + Technology/Vasarely context; [Bright Moments](https://www.brightmoments.io/923emptyrooms) and [Art Blocks](https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas) document the later six-city release. Those sources describe 923 combinations and a public edition of 924 unique artworks/tokens. The lot's #713 is not therefore described as individually commissioned by LACMA, nor is a theory about the numerical difference supplied.
+
+### Still Life and Ex Nihilo (Cosmos)
+
+The [Art Blocks release record](https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase) describes *Ex Nihilo (Cosmos)* as a Still Life work concerning a dodecahedron, pixels, lines, and a continuing display. [Feral File](https://feralfile.com/exhibitions/artist/casey-reas-nsa) and [bitforms](https://www.bitforms.art/exhibition/casey-reas/) provide presenter and gallery context for the 2026 exhibition and the longer Still Life investigation. These platform and exhibition statements support series context; they do not establish title, rights, or valuation.
+
+## Blockchain and NFT practice
+
+The token does not replace the software artwork. In this group, a token is a native chain identity that points toward a particular project state, while the work's appearance depends on a script, runtime, browser, timing, interactions, and mutable delivery infrastructure. Art Blocks documents this assembly through its [protocol overview](https://docs.artblocks.io/protocol/overview/). Reas's NFT releases therefore continue, rather than sever, a practice concerned with the relation of instruction, execution, and image. The Museum keeps token custody, legal title, rights, software preservation, and static documentation separate.
+
+## Evidence boundary
+
+Biographical and project-history statements above are attributed to artist, institutional, or platform sources. The Museum's own dated visual and live observations appear on the object pages and records. Curatorial connections are Museum interpretations, not artist-intent claims. The complete source register and technical caution are retained in the [Casey research note](../../../../notes/research/casey-reas-art-technical-research.md).

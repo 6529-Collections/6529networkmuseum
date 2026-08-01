@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc204c8fb3d76de0b93d9e70c25e89f1a34c0f2440670a4beb62246078e9d0455"
+      "digest": "0x1b78305d560590783167dec921ce91a42ddd8b9907f277651dc2e256dad14434"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -60,8 +60,9 @@
     "claims": {
       "artist_statement": "The project record describes a dodecahedral/pixel source translated into a moving field of lines and colors, with controls for channel, speed, pause, and Still Life state.",
       "documented_fact": "Art Blocks records this token in project 0 of Art Blocks Studio | 92; the contract token hash matches the token metadata token_hash.",
-      "evidence_class": "A/B/E",
-      "museum_interpretation": "This object provides a contemporary endpoint for the accession's study of elemental systems, linking geometry, pixels, and continuous line behavior without claiming direct formal descent."
+      "evidence_class": "A/B/C/E",
+      "museum_interpretation": "This object provides a contemporary endpoint for the accession's study of elemental systems, linking geometry, pixels, and continuous line behavior without claiming direct formal descent.",
+      "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
       "behavior": "not_assessed",
@@ -122,6 +123,13 @@
       "uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248"
     },
     "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "museum_observations": {
+      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
+      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
+      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
+      "observed_at": "2026-08-01T22:55:00Z",
+      "static_visual_observation": "Museum observation: black field with granular white lines and unstable polygonal/dodecahedral suggestions."
+    },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
       "keccak256": "0x3a5ffba1bf80b7d85a6c99d60d769909fdd1f19e08ecc84064869047a39ac69d",
@@ -133,7 +141,7 @@
     },
     "object_id": "6529NM.2026.001.07",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:2ef4829edb8e574fa00ad20637e47786c2f0a9a01ccd32e8883bb21bdb50f7a2",
+    "payload_sha256": "sha256:6ae15af3bbbc894b07793075db945f21f1facd2477b8da2acd1586b43409871a",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",

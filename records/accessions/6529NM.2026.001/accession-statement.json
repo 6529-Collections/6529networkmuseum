@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5c440e4d868a0421168a8a7f9ee6906ef0193f420e75d1f4440d520e10aca116"
+      "digest": "0xa5d2539702833434e888b147381d37bc630cdf4d84950f0a8ccb7be454aa5736"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -19,7 +19,7 @@
     "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
   },
   "payload": {
-    "acceptance_date": "2026-08-01T13:25:47Z",
+    "acceptance_date": "2026-08-01T22:55:00Z",
     "accession_number": "6529NM.2026.001",
     "accession_status": "not_complete",
     "acquisition_method": "donation",
@@ -53,14 +53,18 @@
           "policies/donation-acceptance.md",
           "records/governance/decisions.json"
         ],
-        "text": "The adopted Art Blocks donation preapproval places these works on the donation review pathway, while the adopted donation policy preserves ordinary authenticity, provenance, title, rights, technical, risk, and acceptance checks."
+        "text": "The adopted Art Blocks donation preapproval and Donation Acceptance Policy provide the basis for formal gift acceptance in 6529NM.2026.001.GAA-01 while preserving ordinary authenticity, provenance, title, rights, technical, risk, and completion-certificate checks."
       },
       "rationale": [
         "The group documents how a major artist's software practice enters multiple Art Blocks release contexts across 2021-2026.",
         "It supports public study of the relation among code, token identity, live behavior, and static documentation.",
         "It gives the Museum a coherent but bounded Casey REAS case study without claiming completeness."
       ],
-      "status": "provisional_constructed_statement",
+      "public_materials": [
+        "records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md",
+        "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"
+      ],
+      "status": "constructed_collection_statement",
       "trait_analysis": {
         "status": "transparent_linked_descriptors_available",
         "method": "Museum published NextGen-compatible method over the frozen source package; linked descriptors are available and reproducible.",
@@ -156,7 +160,7 @@
     },
     "constructor_controls": {
       "completion_decision": {
-        "reason": "Receipt/custody is verified; formal acceptance, title, rights, condition, preservation, display, and independent review gates remain open.",
+        "reason": "Formal gift/accession authorization is complete; the Stream completion certificate, title, rights, condition, preservation, display, and independent review gates remain open.",
         "status": "not_complete"
       },
       "constructor": {
@@ -172,13 +176,13 @@
       "reviewer": null,
       "self_review_prohibited": true,
       "signature_status": "unsigned_placeholder_not_authority",
-      "signature_semantics": "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, formal acceptance, completed accession, title, rights, or signed authority.",
+      "signature_semantics": "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, an executed title instrument, completed Stream accession, rights grant, or signed authority.",
       "specialist_review": "not requested; dossier adds no executable fetch/ingest/parser tooling"
     },
     "controlled_decision": {
-      "acceptance_date_semantics": "intake/pathway processing timestamp equal to the common receipt time; not formal institutional acceptance",
+      "acceptance_date_semantics": "formal gift/accession authorization timestamp; not a Stream-equivalent accession completion certificate or title passage",
       "basis": [
-        "User-confirmed donation",
+        "6529NM.2026.001.GAA-01 formal Gift Acceptance and Accession Authorization",
         "Seven-token successful receipt into the ENS-resolved custody address",
         "6529NM-GOV-1052156 adopted Art Blocks preapproval",
         "6529NM-POL-003 donation acceptance policy"
@@ -186,8 +190,8 @@
       "completion_status": "not_complete",
       "current_state": "received_onchain",
       "decision_authority": null,
-      "outcome": "accepted_for_accession_processing",
-      "rationale": "The adopted Art Blocks preapproval supplies a collection-specific pathway. The donation policy still requires identity, authenticity, provenance, donor authority, title, rights, technical, risk, and acceptance checks. The verified chain evidence satisfies custody receipt only."
+      "outcome": "formally_accepted_gift_and_accession_authorization",
+      "rationale": "The adopted Art Blocks preapproval and Donation Acceptance Policy, common receipt, and user-supplied donor/authority fact support formal acceptance of this gift. Title binding, rights, condition, preservation, technical verification, and independent review remain open."
     },
     "created_at": "2026-08-01T14:58:31.905115Z",
     "donation_rights_schedule": {
@@ -239,7 +243,7 @@
         "6529NM-GOV-1052156 adopted Art Blocks preapproval",
         "6529NM-POL-003 donation acceptance policy"
       ],
-      "public_summary": "User-confirmed donation of seven identified Casey REAS Art Blocks tokens is recorded as received_onchain. This is a public custody and intake summary, not a title or rights conclusion.",
+      "public_summary": "The seven identified Casey REAS Art Blocks tokens are formally accepted as a gift under 6529NM.2026.001.GAA-01 and remain received_onchain. This is not a title, rights, condition, preservation, or Stream accession-completion conclusion.",
       "restricted_instrument_ref": {
         "content_hash": null,
         "custodian": "registrar_to_assign",
@@ -308,13 +312,15 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas"
       }
     ],
-    "formal_acceptance_status": "not_formally_accepted",
+    "formal_acceptance_date": "2026-08-01T22:55:00Z",
+    "formal_acceptance_status": "formally_accepted",
+    "gift_acceptance_authorization_record": "6529NM.2026.001.GAA-01",
     "governing_references": [
       "6529NM.2026.001"
     ],
-    "intake_status": "accepted_for_accession_processing",
+    "intake_status": "received_onchain",
     "non_claims": [
-      "Acceptance_date and accepted_for_accession_processing describe intake/pathway processing only; they are not formal institutional acceptance.",
+      "Formal gift acceptance is limited to 6529NM.2026.001.GAA-01 and does not substitute for a Stream-equivalent accession completion certificate or title binding.",
       "No copyright, reproduction, commercial, exhibition, print, derivative, AI-training, display, or preservation right is granted.",
       "No deed, legal title opinion, valuation, market, rarity, or tax claim is made.",
       "No OpenSea metric or marketplace rarity claim is used.",
@@ -388,7 +394,7 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:f2d2527c787352ba5448e26f735f94742e3c6a411b2e80ab58e938c9d407fd5b",
+    "payload_sha256": "sha256:f78abc8cf6725f8ba996db373007cc4f1d0fd2d93823b308defe6258f03bd42b",
     "preservation_manifest": {
       "manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
@@ -1141,7 +1147,7 @@
     "record_version": "1.0.0",
     "references": [],
     "remaining_gates": [
-      "Record or confirm a restricted donation/title instrument and bind it to the exact seven identities and receipt.",
+      "Create an evidence-backed Stream-equivalent ACCESSION completion certificate and bind an executed title instrument to the exact seven identities and receipt.",
       "Complete donor-authority, provenance, sanctions, dispute, and encumbrance diligence.",
       "Record explicit rights bases and grant statuses; do not infer rights from custody or platform labels.",
       "Capture generator bytes, project scripts, dependencies, and complete two-environment render/condition testing.",
