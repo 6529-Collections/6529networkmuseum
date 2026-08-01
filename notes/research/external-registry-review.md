@@ -300,6 +300,34 @@ The next exact-head review required and resolved:
    external-call, creation, blob, gas, and logging opcodes, with exact
    extcodehash allowlisting primary and scanning defense-in-depth.
 
+The latest exact-head reviewer found five current-blob gaps and they are
+resolved together here:
+
+1. Authority and successor targets now require a pre-admitted, append-only
+   `(targetKind, runtimeCodeHash)` release row. The row binds release ID,
+   right-aligned source SHA-1, artifact hash, conformance-document hash,
+   interface, version, protocol, Stream compatibility, and revisions. Two
+   independent source/toolchain rebuilds and bounded staticcall conformance
+   probes are deployment/admission gates; a caller-supplied expected hash or
+   target marker cannot self-admit an inert contract.
+2. Successor validation now requires `predecessorRegistry == address(this)`,
+   `moduleSupersedes() == predecessorRegistry`, the release's exact fields,
+   and independently recomputed capability and probe commitments that include
+   every target field, including `capabilityCommitment`. Queue and execution
+   reload the release row and repeat the checks.
+3. The six stable Museum record IDs now have a closed-world family/schema/
+   class table. `admitRecordType` rejects any wrong pairing with
+   `StableRecordTypePairMismatch`; stable IDs cannot be remapped by a local
+   deployment.
+4. `MUSEUM_URI_SAFETY_PUBLIC_V1` now has exact canonical profile-document
+   bytes/hash and a complete URI conformance table covering mapped IPv6,
+   reserved ranges, DNS label/trailing-dot rules, numeric forms, ports,
+   userinfo, percent encoding, and path/query/fragment cases.
+5. The batch formula is explicitly `MUSEUM_BATCH_GAS_GATE_V1`, a best-effort
+   caller gas gate rather than an execution upper bound. Storage, URI/schema,
+   HTTPS, and event costs may exceed it; atomic revert and measured benchmark
+   evidence remain the safety controls.
+
 ### Current-head HTTPS and manifest consistency check
 
 The V1 HTTPS assertion has exactly one 12-field canonical payload and EIP-712
@@ -394,6 +422,8 @@ $selectorGolden = [ordered]@{
   'recordTypePolicy(bytes32)' = '0xcd2369a6'
   'setRecordFamilyGrant(bytes32,uint8,address,bool)' = '0x40ee7ee3'
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
+  'admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)' = '0x47655475'
+  'targetRelease(uint8,bytes32)' = '0x07ba475e'
   'setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x81a86ff4'
   'executeAuthority()' = '0xc9dc7d0d'
   'cancelAuthority()' = '0xf0edf065'
@@ -436,6 +466,68 @@ foreach($signature in $selectorGolden.Keys) {
   }
   "$actual  $signature"
 }
+```
+
+The authority capability selector-set hash was recomputed after adding the
+governed target-release admission selector. The exact sorted `bytes4[]` is
+`[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065]`:
+
+```powershell
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065]'
+$selectorSetHash = cast keccak $selectorSetAbi
+if ($selectorSetHash -ne '0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7') { throw 'selector-set hash mismatch' }
+$selectorSetHash
+```
+
+The fixed URI-safety profile document was independently hashed from exact
+UTF-8 bytes (941 bytes, no trailing LF) with both `cast keccak` and
+`Crypto.Hash.keccak`; both produce
+`0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d`.
+
+```powershell
+@'
+from Crypto.Hash import keccak
+import subprocess
+doc = b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"path":{"percentTripletsUppercase":true,"rejectEncodedUnreserved":true}}'
+assert len(doc) == 941
+k = keccak.new(digest_bits=256); k.update(doc)
+assert k.hexdigest() == '3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d'
+cast = subprocess.check_output(['cast','keccak','0x'+doc.hex()], text=True).strip()
+assert cast == '0x'+k.hexdigest(), cast
+print(len(doc), cast)
+'@ | python -
+```
+
+The successor target-release fixture in §13.9 was independently recomputed
+with `Crypto.Hash.keccak` and `eth_abi` using
+`target=0x0000000000000000000000000000000000000042` and
+`predecessorRegistry=0x000000000000000000000000000000000000cafe`:
+
+```powershell
+@'
+from Crypto.Hash import keccak
+from eth_abi import encode
+def k(value):
+    h = keccak.new(digest_bits=256); h.update(value); return h.digest()
+target = '0x' + '00'*19 + '42'
+registry = '0x' + '00'*18 + 'cafe'
+release = k(b'MUSEUM_SUCCESSOR_RELEASE_VECTOR_V1')
+code = k(b'MUSEUM_SUCCESSOR_CODEHASH_VECTOR_V1')
+conformance = k(b'MUSEUM_SUCCESSOR_CONFORMANCE_VECTOR_V1')
+module = k(b'MUSEUM_REGISTRY_VERSION_V2_VECTOR')
+protocol = bytes.fromhex('ea7ed1159fede00c63bf928f3b977361b7471b9bd72bb677289a42b8eec98713')
+stream = bytes.fromhex('00'*12 + '5021c8060950c3fef995271e674ed4b2007fee6d')
+iface = bytes.fromhex('573d91cc')
+cap = k(encode(['bytes32','bytes32','address','bytes32','bytes4','address','bytes32','bytes32','bytes32','address','bytes32'], [k(b'6529networkmuseum.successor-capability.v1'), release, target, code, iface, registry, module, protocol, stream, registry, conformance]))
+probe = k(encode(['bytes32','bytes32','address','bytes32','bytes4','bool','address','bytes32','bytes32','bytes32','address','bytes32'], [k(b'6529networkmuseum.target-probe.v1'), release, target, code, iface, True, registry, module, protocol, stream, registry, cap]))
+assert release.hex() == '5681ad0ab20e496843b5795ad4c7b9e7a3f460f069b4891ea07a9a34ee64d95a'
+assert code.hex() == 'd5a00f7341bd82056e931b07a2d8f28c4e11346df2d42d2c36566e108d31df2a'
+assert conformance.hex() == '6e4410d14b8d771e9e6250b6e8aa1124051d3b30887bd53cd4658b88921b7fa9'
+assert module.hex() == '8578d451c146e5c9542b0a271b29ec0826085f5f1b5991d77245cfdcae3d7465'
+assert cap.hex() == '9eb7de0ee6411bd638968f0c3eea4ddefe9982952982164a9c8d9cf81bbc19c9'
+assert probe.hex() == '8640ff49f37e78608f06f222a9a753e83c4e9687cb0d25f620368a8b7bc9dcc1'
+print('target-release/probe vector passed')
+'@ | python -
 ```
 
 ### Reproducible hash transcript

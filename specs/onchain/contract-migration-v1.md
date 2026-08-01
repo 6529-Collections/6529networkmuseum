@@ -321,10 +321,13 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Registry protocol version | `MUSEUM_PROTOCOL_VERSION_V1` | `0xea7ed1159fede00c63bf928f3b977361b7471b9bd72bb677289a42b8eec98713` |
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0xe40024b2dac9b7de75bfb7bc9d962d54ccc0ce9b5287e0788304367828aa8754` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7` |
+| Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
+| Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
 | Successor interface | `IMuseumSuccessorV1` | `0x573d91cc` |
 | Museum URI safety profile | `MUSEUM_URI_SAFETY_PUBLIC_V1` | `0x5480eb62c7af1dd376bd8ddad6729a756d0f05ce8610d2a21e798440fc859189` |
+| Museum URI safety profile document hash | `MUSEUM_URI_SAFETY_PUBLIC_V1_DOCUMENT_V1` | `0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d` |
 | HTTPS assertion record type | `MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` | `0x8041bfef6459ccf942bb6bfe17c778c4db60a9d0831f24f6154deba96e99391e` |
 | HTTPS assertion signature scheme | `MUSEUM_SIGNATURE_EIP712_HTTPS_PUBLIC_V1` | `0x738aed5a63fd21dfdd96f878826e6652140072c65ee952653d5432bf6ded33d0` |
 | HTTPS assertion subject domain | `6529networkmuseum.subject.https-public.v1` | `0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4` |
@@ -341,20 +344,35 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Payload schema | `MUSEUM_RESEARCH_NOTE_V1` | `0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0` |
 | Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
+| Museum-native stable family | `MUSEUM_FAMILY_MUSEUM_NATIVE_V1` | `0x3b1abe4d004439222a742d0cad0e6c8e179135c6fbcf1853b509976d51b77cd0` |
+| Authority target kind (`uint8`) | `MUSEUM_TARGET_KIND_AUTHORITY_V1` | `1` |
+| Successor target kind (`uint8`) | `MUSEUM_TARGET_KIND_SUCCESSOR_V1` | `2` |
 
 The stable Museum record-type IDs below are `keccak256` of the exact ASCII
 literal shown (without the `_V1` schema suffix). Each type is permanently
 paired with the listed payload schema; a deployment MUST NOT substitute a
 deployment-local type ID for one of these records.
 
-| Record-type literal | Record-type ID | Required payload schema |
-|---|---|---|
-| `MUSEUM_EXTERNAL_ASSET_IDENTITY` | `0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e` | `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` |
-| `MUSEUM_CUSTODY_OBSERVATION` | `0x8351820e5600a2472b0dd68eb83a0480b8663df2efcab7d34321b1df5918316e` | `MUSEUM_CUSTODY_OBSERVATION_V1` |
-| `MUSEUM_ACCESSION_LOT` | `0xc544e9b2b8226296197005f65dd84855588d18be5e1ce13082b8314004cb4661` | `MUSEUM_ACCESSION_LOT_V1` |
-| `MUSEUM_PROGRAM_OUTCOME` | `0xe81870465556c524f1375c1a3cff4aa920e8f0c15b9858ae6bb55c6c3cb0ad5a` | `MUSEUM_PROGRAM_OUTCOME_V1` |
-| `MUSEUM_RESEARCH_NOTE` | `0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0` | `MUSEUM_RESEARCH_NOTE_V1` |
-| `MUSEUM_RELEASE_MANIFEST` | `0x8889bb0d1446ec07b517aca915af9a4ad6d993ef8af5b999301ca8b15f789084` | `MUSEUM_RELEASE_MANIFEST_V1` |
+| Record-type literal | Record-type ID | Required payload schema | Required class |
+|---|---|---|---|
+| `MUSEUM_EXTERNAL_ASSET_IDENTITY` | `0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e` | `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` | `AUTH_MUSEUM_REGISTRAR (10)` |
+| `MUSEUM_CUSTODY_OBSERVATION` | `0x8351820e5600a2472b0dd68eb83a0480b8663df2efcab7d34321b1df5918316e` | `MUSEUM_CUSTODY_OBSERVATION_V1` | `AUTH_MUSEUM_PROGRAM_AUTHORITY (11)` |
+| `MUSEUM_ACCESSION_LOT` | `0xc544e9b2b8226296197005f65dd84855588d18be5e1ce13082b8314004cb4661` | `MUSEUM_ACCESSION_LOT_V1` | `AUTH_MUSEUM_PROGRAM_AUTHORITY (11)` |
+| `MUSEUM_PROGRAM_OUTCOME` | `0xe81870465556c524f1375c1a3cff4aa920e8f0c15b9858ae6bb55c6c3cb0ad5a` | `MUSEUM_PROGRAM_OUTCOME_V1` | `AUTH_MUSEUM_PROGRAM_AUTHORITY (11)` |
+| `MUSEUM_RESEARCH_NOTE` | `0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0` | `MUSEUM_RESEARCH_NOTE_V1` | `AUTH_MUSEUM_PROGRAM_AUTHORITY (11)` |
+| `MUSEUM_RELEASE_MANIFEST` | `0x8889bb0d1446ec07b517aca915af9a4ad6d993ef8af5b999301ca8b15f789084` | `MUSEUM_RELEASE_MANIFEST_V1` | `AUTH_MUSEUM_MIGRATION_ADMIN (12)` |
+
+The table is a closed-world admission rule, not documentation-only metadata.
+The stable family for all six rows is
+`MUSEUM_FAMILY_MUSEUM_NATIVE_V1`; its `familyKind` MUST be `2` and its
+bitmap MUST include every listed class. Before storing or revising any row
+whose `recordType` is one of these six IDs, `admitRecordType` MUST compare the
+supplied `(familyId, schemaId, authorizationClass)` byte-for-byte with the row
+above and MUST reject any other family, schema, or class with
+`StableRecordTypePairMismatch`. A stable ID cannot be paired with a
+deployment-local schema or family. The same check MUST run before a
+record-type revision becomes active; non-stable record IDs remain subject to
+the ordinary governed family/schema admission rules.
 
 The subject formula is:
 
@@ -599,11 +617,18 @@ submit only the not-yet-present records under a fresh batch ID. A client may
 treat an already-used ID as idempotent only after the stored commitment and
 all record/lane state match exactly.
 
-For a gas bound, the contract computes
+For a caller gas-budget gate, the contract computes
 `requiredGas = 250000 + 120000 * inputs.length + 16 * inlineBytes` before any
 write, rejects `requiredGas > MAX_BATCH_GAS_UNITS`, and rejects when
-`gasleft() < requiredGas + 50_000`. This is a deterministic upper-bound gate,
-not a caller assertion; count and byte caps remain independently enforced.
+`gasleft() < requiredGas + 50_000`. This formula is the versioned
+`MUSEUM_BATCH_GAS_GATE_V1` best-effort caller gate; it is not a reproducible
+upper bound on execution gas and MUST NOT be treated as one. URI parsing,
+schema checks, HTTPS assertion checks, storage expansion, and event encoding
+may cost more; an out-of-gas failure still reverts the whole call. Count,
+inline-byte, and `MAX_BATCH_GAS_UNITS` budget caps remain independently
+enforced. A deployment gate MUST retain a measured benchmark report for all
+V1 batch paths, but the report is operational evidence rather than a protocol
+gas proof.
 
 * `INLINE` retains byte-identical canonical payload bytes, subject to a
   hard cap of `MAX_INLINE_PAYLOAD_BYTES`. V1 permits `INLINE` only when
@@ -650,6 +675,79 @@ DNS name or globally routable IP literal, no explicit port, no userinfo, and
 no fragment; localhost names and loopback, link-local, private, multicast,
 documentation, and other reserved address ranges are forbidden. The exact
 canonical URI bytes remain in the envelope and are hashed as before.
+
+`MUSEUM_URI_SAFETY_PUBLIC_V1` is independently implementable from the
+following exact UTF-8 profile-document bytes (the code block contains one
+line, with no trailing LF). Its Keccak-256 is
+`0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d` and
+an admission using this profile MUST use this document hash:
+
+```text
+{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"path":{"percentTripletsUppercase":true,"rejectEncodedUnreserved":true}}
+```
+
+The validator first rejects invalid UTF-8, more than 2,048 UTF-8 bytes,
+U+0000--U+001F or U+007F controls, userinfo, query, and fragment. Scheme
+matching is case-sensitive and only `https`, `ipfs`, and `ar` are admitted.
+For HTTPS, the authority is either a dotted DNS name or a bracketed IPv6
+literal, with no port. DNS is ASCII lowercase, has at least two labels, has
+labels of 1--63 bytes containing only `a`--`z`, `0`--`9`, or interior `-`,
+and has a total length of at most 253 bytes; an empty label, leading/trailing
+hyphen, uppercase letter, trailing dot, or non-ASCII byte rejects. IPv4 is
+exactly four decimal octets with no leading zero unless the octet is `0`, and
+single-integer, hexadecimal, octal, short, and dotted forms with any other
+numeric ambiguity reject. IPv6 uses lowercase RFC 5952 hexadecimal syntax,
+allows `::` only once, disallows zone IDs and embedded dotted IPv4, and
+rejects every CIDR in the profile document, including IPv4-mapped IPv6.
+Listed IPv4/IPv6 ranges are checked as integer ranges, not by string prefix.
+The path is empty or consists of RFC 3986 pchar and `/`; percent triplets
+are uppercase hexadecimal and percent-encoding an unreserved byte rejects.
+`ipfs` and `ar` retain the existing CID/transaction-identifier rules above
+and use the same byte/control/query/fragment checks.
+
+The complete V1 conformance vectors are:
+
+| URI | Result | Reason |
+|---|---|---|
+| `https://example.com/art` | ACCEPT | lowercase DNS, valid labels |
+| `https://a-b.example/x` | ACCEPT | interior hyphen and path |
+| `https://8.8.8.8/x` | ACCEPT | canonical globally routable IPv4 |
+| `https://[2001:4860:4860::8888]/x` | ACCEPT | canonical globally routable IPv6 |
+| `https://example.com` | ACCEPT | empty path is allowed |
+| `ipfs://bafybeigdyrzt5example/path` | ACCEPT | nonempty CID authority/path |
+| `ar://AbCdEf012_-` | ACCEPT | one nonempty base64url transaction identifier |
+| `https://example.com./x` | REJECT | DNS trailing dot |
+| `https://a..example.com/x` | REJECT | empty DNS label |
+| `https://-a.example.com/x` | REJECT | leading label hyphen |
+| `https://A.example.com/x` | REJECT | uppercase DNS byte |
+| `https://example.com:443/x` | REJECT | explicit port |
+| `https://user@example.com/x` | REJECT | userinfo |
+| `https://127.0.0.1/x` | REJECT | loopback IPv4 |
+| `https://010.0.0.1/x` | REJECT | leading-zero numeric ambiguity |
+| `https://2130706433/x` | REJECT | single-integer numeric ambiguity and no dot |
+| `https://192.0.2.1/x` | REJECT | documentation IPv4 range |
+| `https://[::ffff:8.8.8.8]/x` | REJECT | IPv4-mapped IPv6 |
+| `https://[2001:db8::1]/x` | REJECT | documentation IPv6 range |
+| `https://example.com/a%2fb` | REJECT | lowercase percent triplet |
+| `https://example.com/a%2Fb` | ACCEPT | uppercase triplet for a reserved path byte |
+| `https://example.com/a%41` | REJECT | encoded unreserved byte |
+| `https://1.2.3/x` | REJECT | short numeric IPv4 form |
+| `https://0x7f000001/x` | REJECT | hexadecimal numeric form |
+| `https://[2001:4860:4860::8888%25eth0]/x` | REJECT | IPv6 zone identifier |
+| `https://[2001:4860:4860:0:0:0:0:8888]/x` | REJECT | non-RFC-5952 IPv6 spelling |
+| `https://` + 64-byte DNS label + `.example/x` | REJECT | DNS label exceeds 63 bytes |
+| `hex("https://example.com/x\\x01")` | REJECT | exact control byte U+0001 |
+| `https://example.com/x?y` | REJECT | query |
+| `https://example.com/x#frag` | REJECT | fragment |
+| `https://example.com/x` with a control byte | REJECT | control-byte rule |
+
+The conformance table, profile-document bytes, and document hash are one
+versioned predicate. A future EVM revision or URI parser MUST use a new
+profile ID/document hash and a new vector set; it MUST NOT reinterpret this
+profile in place. The URI parser treats the profile ID and document hash as
+immutable V1 constants and every HTTPS record path MUST execute that exact
+predicate; a generic asset-profile admission MUST NOT be able to replace or
+reinterpret it.
 
 The pinned Stream source documents only its shared UTF-8/2,048-byte URI
 validation and does not supply this public-network predicate. A bilateral
@@ -944,40 +1042,102 @@ capabilityCommitment, predecessorRegistry, expectedModuleVersion,
 evidenceHash)`. The queued/stored target additionally contains
 `authorityRevision`, `proposer`, `queuedAt`, `queuedBlock`, and `eta`.
 
+Target acceptance is also closed over a governed release registry. The
+registry key is `(targetKind, codeHash)` and its state row is:
+
+```solidity
+struct TargetRelease {
+    bool admitted;
+    uint8 targetKind;                 // 1 authority, 2 successor
+    bytes32 releaseId;
+    bytes32 codeHash;
+    bytes32 sourceCommit;             // right-aligned 40-hex Git SHA-1
+    bytes32 artifactHash;             // exact runtime/build artifact hash
+    bytes32 conformanceDocumentHash;  // independently reproduced probe report
+    bytes4 requiredInterfaceId;
+    bytes32 expectedModuleVersion;    // zero for authority
+    bytes32 protocolVersion;
+    bytes32 streamCompatibilityCommit;
+    uint64 revision;
+    uint64 authorityRevision;
+}
+```
+
+`admitTargetRelease` is authority-admin controlled, append-only, and
+available only while writes are not frozen. It MUST reject a duplicate key,
+zero release/artifact/conformance hashes, a nonzero authority module version,
+or a kind/interface/version tuple outside the V1 rules. For kind `1`, the
+interface MUST be `IMuseumAuthorityProviderV1`, module version MUST be zero,
+and protocol/Stream commits MUST be zero. For kind `2`, the interface MUST be
+`IMuseumSuccessorV1`, module version MUST be nonzero and different from
+`MUSEUM_REGISTRY_VERSION_V1`, and protocol/Stream commits MUST equal the
+current V1 constants. The admission process
+MUST require two independent rebuilds from `sourceCommit` and the pinned
+toolchain, byte-for-byte agreement on `artifactHash` and runtime
+`extcodehash`, and an independently signed conformance report whose hash is
+`conformanceDocumentHash`. The report is retained off-chain, but the release
+row, source, artifact, conformance, interface, version, and compatibility
+commitments are state and event facts. A caller-supplied `expectedCodeHash` or
+`evidenceHash` cannot create or bypass a release row. Removing or mutating a
+release is impossible in V1; a later EVM/toolchain revision needs a new
+release key and document.
+
+At queue and execution, the registry MUST set `releaseId` and
+`conformanceDocumentHash` from the loaded row, then load the admitted row for the
+target kind and `expectedCodeHash`, require the input interface, version, and
+`evidenceHash` to equal that row, and require the target's returned protocol
+and Stream-compatibility values to equal the release row where those fields
+apply. It MUST also require `extcodehash(target) == expectedCodeHash`. It then performs bounded
+`staticcall`s to ERC-165 and every required probe method, checks exact return
+lengths and values, and recomputes the context-bound probe and capability
+commitments below. A failed call, malformed return, or changed code hash
+reverts. The exact-codehash release row plus these independently recomputed
+callability checks are the conformance gate; target-returned marker values or
+target-supplied commitments are never accepted by themselves.
+
 V1 pins `AUTHORITY_TIMELOCK_SECONDS = 172800` (48 hours). `setAuthority`
 MUST reject an EOA, zero address, zero code hash, wrong interface ID, missing
 ERC-165 support, failed probe, wrong predecessor, zero evidence hash, or a
 nonzero `expectedModuleVersion`. It MUST require
+an admitted `TargetRelease` under kind `MUSEUM_TARGET_KIND_AUTHORITY_V1` with
+`codeHash == expectedCodeHash`, `requiredInterfaceId` equal to the input,
+`expectedModuleVersion == bytes32(0)`, and `evidenceHash` equal to its
+`conformanceDocumentHash`; it MUST also require
 `extcodehash(target) == expectedCodeHash`, `predecessorRegistry == address(this)`,
 `isMuseumAuthorityProvider() == true`, `registry() == predecessorRegistry`,
 and `authorityRevision() == authorityRevision + 1`. The exact interface probe
 commitment is
-`keccak256(abi.encode(requiredInterfaceId, target, true, predecessorRegistry,
-targetRevision))`; the supplied `interfaceProbeHash` MUST equal it. The target
+`keccak256(abi.encode(MUSEUM_TARGET_PROBE_DOMAIN, releaseId, target,
+expectedCodeHash, requiredInterfaceId, true, predecessorRegistry,
+targetRevision, capabilityCommitment))`; the supplied `interfaceProbeHash`
+MUST equal it. The target
 MUST also pass the context-bound `capabilityHandshake` for
 `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1`, the exact closed-world
 `MUSEUM_AUTHORITY_SELECTOR_SET_HASH`, and challenge
 `keccak256(abi.encode(MUSEUM_AUTHORITY_CAPABILITY_DOMAIN, target,
-predecessorRegistry, authorityRevision + 1))`. Its returned commitment MUST
+predecessorRegistry, authorityRevision + 1))`. Its expected commitment MUST
 equal
-`keccak256(abi.encode(MUSEUM_AUTHORITY_CAPABILITY_DOMAIN, target,
-predecessorRegistry, MUSEUM_AUTHORITY_ROLE_DOMAIN_V1,
+`keccak256(abi.encode(MUSEUM_AUTHORITY_CAPABILITY_DOMAIN, releaseId, target,
+expectedCodeHash, predecessorRegistry, MUSEUM_AUTHORITY_ROLE_DOMAIN_V1,
 MUSEUM_AUTHORITY_SELECTOR_SET_HASH, challenge, targetRevision))`,
 `canAuthorize` MUST be true, and the supplied `capabilityCommitment` MUST
-equal that value. This handshake covers the actual required selector set and
-registry/role domain; it is not a marker-only probe and grants no arbitrary
-call capability. The selector set is the strictly increasing numeric
-`bytes4[]` `[0x05d53fba, 0x43dd6c37, 0x81a86ff4, 0xab6627c3, 0xc9dc7d0d,
-0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]` and hashed to
-`0xe40024b2dac9b7de75bfb7bc9d962d54ccc0ce9b5287e0788304367828aa8754`. It
-binds freeze, successor, authority, global-role, execute, and cancel
-capabilities only. It queues one complete target
+equal that value. The bounded staticcalls MUST return exactly the expected
+booleans, addresses, revision, commitment, and `canAuthorize` value; a
+malformed or reverting call fails the gate. This handshake covers the actual
+required selector set and registry/role domain; it is not a marker-only probe
+and grants no arbitrary call capability. The selector set is the strictly increasing numeric
+`bytes4[]` `[0x05d53fba, 0x43dd6c37, 0x47655475, 0x81a86ff4, 0xab6627c3,
+0xc9dc7d0d, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
+and hashed to
+`0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7`. It
+binds freeze, successor, authority, target-release admission, global-role,
+execute, and cancel capabilities only. It queues one complete target
 and `eta = block.timestamp + AUTHORITY_TIMELOCK_SECONDS`; a second queue
 requires `cancelAuthority` first.
 
-`executeAuthority` is allowed only at or after `eta`. It MUST repeat every
-code-hash, ERC-165, interface, probe, capability, predecessor, and target-
-revision check
+`executeAuthority` is allowed only at or after `eta`. It MUST reload the
+`TargetRelease` row and repeat every release, code-hash, ERC-165, interface,
+probe, capability, evidence, predecessor, version, and target-revision check
 against the stored target in the same transaction. A changed target reverts
 with `AuthorityTargetChanged` and leaves the queue cancellable. On success it
 changes active authority exactly once, increments `authorityRevision`, and
@@ -988,7 +1148,8 @@ roles are not implicitly transferred. `cancelAuthority` is permitted before
 execution and clears the complete target without changing active authority.
 The registry MUST persist the resulting `AuthorityState` and expose it through
 `authorityState()` and `authorityRevision()`: authority address, direct
-`extcodehash`, required interface ID, interface-probe commitment,
+`extcodehash`, target-release ID and conformance-document hash, required
+interface ID, interface-probe commitment,
 context-bound capability commitment, evidence hash, predecessor/current
 registry linkage, revision, proposer, proposed timestamp/block, and executed
 timestamp/block. These are state facts, not event-only fields. Every use of
@@ -999,27 +1160,46 @@ capability handshake against this state; a changed provider reverts.
 complete target commitment. It is authorized only by the global
 governance-executor role, requires `writesFrozen == true`, and MUST reject an
 EOA, zero code hash, wrong successor interface ID, missing ERC-165 support,
-failed probe, `moduleSupersedes() != address(this)`,
+failed probe, an absent successor `TargetRelease`, or an input whose
+`requiredInterfaceId`, `expectedModuleVersion`, or `evidenceHash` differs from
+that release row. It MUST require
+`predecessorRegistry == address(this)`, `moduleSupersedes() ==
+predecessorRegistry`, and `extcodehash(target) == expectedCodeHash`;
+`moduleSupersedes() != address(this)`,
 `expectedModuleVersion == bytes32(0)`,
 `registryVersion() != expectedModuleVersion`,
 `expectedModuleVersion == MUSEUM_REGISTRY_VERSION_V1`,
 `protocolVersion() != MUSEUM_PROTOCOL_VERSION_V1`,
 `streamCompatibilityCommit() != streamCompatibilityCommit`, or zero evidence
-hash. Its exact probe commitment is
-`keccak256(abi.encode(requiredInterfaceId, target, expectedModuleVersion,
-streamCompatibilityCommit, predecessorRegistry))`. Same-version targets and
-wrong-predecessor targets MUST fail; a new governed module version with the
-same protocol/Stream compatibility and exact predecessor MAY pass.
+hash. The release row's `protocolVersion` and
+`streamCompatibilityCommit` MUST equal the current V1 constants. Its
+capability commitment is independently recomputed as
+`keccak256(abi.encode(MUSEUM_SUCCESSOR_CAPABILITY_DOMAIN, releaseId, target,
+expectedCodeHash, requiredInterfaceId, predecessorRegistry,
+expectedModuleVersion, MUSEUM_PROTOCOL_VERSION_V1,
+streamCompatibilityCommit, address(this),
+conformanceDocumentHash))`; the supplied value MUST equal it. Its exact probe
+commitment is
+`keccak256(abi.encode(MUSEUM_TARGET_PROBE_DOMAIN, releaseId, target,
+expectedCodeHash, requiredInterfaceId, true, predecessorRegistry,
+expectedModuleVersion, MUSEUM_PROTOCOL_VERSION_V1, streamCompatibilityCommit,
+address(this), capabilityCommitment))`; the supplied value MUST equal it.
+Same-version targets and wrong-predecessor targets MUST fail; a new governed
+module version with the same protocol/Stream compatibility and exact
+predecessor MAY pass. Every successor staticcall and commitment is repeated
+immediately before storing the target; no target-returned marker or
+caller-supplied evidence can substitute for the release row.
 The contract rechecks the target immediately before storing it; a change
 reverts with `SuccessorTargetChanged`. The stored successor target and
-`SuccessorSet` event include address, expected code hash, interface ID/probe,
-predecessor, evidence hash, authority revision, proposer, and commit time.
+`SuccessorSet` event include address, expected code hash, release ID,
+conformance-document hash, interface ID/probe, capability, predecessor,
+version, evidence hash, authority revision, proposer, and commit time.
 `freezeWrites` is an immediate, one-way transition authorized only by the
 global governance-executor role. It cancels any pending authority queue,
 emitting `AuthorityChangeCancelled` for that pending address before
 `WritesFrozen`,
-blocks record, schema, profile, type, family-grant, global-role, convergence,
-and authority-transition mutators, and leaves read selectors plus the single
+blocks record, schema, profile, type, family-grant, global-role, target-release,
+convergence, and authority-transition mutators, and leaves read selectors plus the single
 post-freeze `setSuccessor` transition available. A second freeze reverts.
 `WritesFrozen` records the active authority, successor, and authority
 revision. No selector may bypass these guards through an alternate overload.
@@ -1306,6 +1486,22 @@ interface INetworkMuseumRegistryV1 {
         uint64 authorityRevision;
     }
 
+    struct TargetRelease {
+        bool admitted;
+        uint8 targetKind;
+        bytes32 releaseId;
+        bytes32 codeHash;
+        bytes32 sourceCommit;
+        bytes32 artifactHash;
+        bytes32 conformanceDocumentHash;
+        bytes4 requiredInterfaceId;
+        bytes32 expectedModuleVersion;
+        bytes32 protocolVersion;
+        bytes32 streamCompatibilityCommit;
+        uint64 revision;
+        uint64 authorityRevision;
+    }
+
     struct TransitionTargetInput {
         address target;
         bytes32 expectedCodeHash;
@@ -1320,6 +1516,8 @@ interface INetworkMuseumRegistryV1 {
     struct TransitionTarget {
         address target;
         bytes32 expectedCodeHash;
+        bytes32 releaseId;
+        bytes32 conformanceDocumentHash;
         bytes4 requiredInterfaceId;
         bytes32 interfaceProbeHash;
         bytes32 capabilityCommitment;
@@ -1336,6 +1534,8 @@ interface INetworkMuseumRegistryV1 {
     struct AuthorityState {
         address authority;
         bytes32 authorityCodeHash;
+        bytes32 authorityReleaseId;
+        bytes32 authorityConformanceDocumentHash;
         bytes4 requiredInterfaceId;
         bytes32 interfaceProbeHash;
         bytes32 capabilityCommitment;
@@ -1420,6 +1620,12 @@ interface INetworkMuseumRegistryV1 {
     function recordTypePolicy(bytes32 recordType)
         external view returns (bytes32 familyId, bytes32 schemaId, uint8 authorizationClass,
             bool admitted, uint64 revision, uint64 authorityRevision);
+    function admitTargetRelease(uint8 targetKind, bytes32 releaseId, bytes32 codeHash,
+        bytes32 sourceCommit, bytes32 artifactHash, bytes32 conformanceDocumentHash,
+        bytes4 requiredInterfaceId, bytes32 expectedModuleVersion,
+        bytes32 protocolVersion, bytes32 streamCompatibilityCommit) external;
+    function targetRelease(uint8 targetKind, bytes32 codeHash)
+        external view returns (TargetRelease memory);
     function setRecordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account, bool enabled)
         external;
     function recordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account)
@@ -1591,6 +1797,7 @@ implementation cannot accidentally authorize an overload:
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority | The role ID is closed-world, the selector allowlist is fixed, and each change increments the role revision and records the authority revision. |
+| `0x47655475` `admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The `(targetKind,codeHash)` key is append-only and the source/artifact/conformance/interface/version/compatibility commitments are independently reproduced before a transition can reference them. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global authority-admin grant and active authority | Queues a 48-hour contract-only authority transition with code hash, ERC-165/interface probe, capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
 | `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Enabled global governance-executor for execute; enabled global authority-admin for cancel | Execute requires the stored ETA; cancel clears only the pending transition. Both are blocked after freeze. |
 | `0x43dd6c37` `setSuccessor((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global governance-executor grant | Requires frozen writes, no prior successor, a strictly new expected module version, and immediate repeat validation of the complete successor target commitment; one-way. |
@@ -1701,6 +1908,8 @@ error StreamClassNotPinned(uint8 authorizationClass);
 error RecordTypeNotAdmitted(bytes32 recordType);
 error RecordTypeAlreadyAdmitted(bytes32 recordType);
 error RecordTypeClassMismatch(bytes32 recordType, uint8 authorizationClass);
+error StableRecordTypePairMismatch(bytes32 recordType, bytes32 familyId, bytes32 schemaId,
+    uint8 authorizationClass);
 error FamilyRevisionMismatch(bytes32 familyId, uint64 expected, uint64 actual);
 error InvalidMuseumRecord(bytes32 recordType, bytes32 subjectId, bytes32 schemaId);
 error InvalidMuseumHashRef(uint16 algorithm, uint256 digestLength);
@@ -1735,6 +1944,10 @@ error AuthorityChangePending(address pendingAuthority, uint64 eta);
 error NoPendingAuthority();
 error AuthorityChangeNotReady(uint64 eta, uint64 currentTime);
 error InvalidTransitionTarget(address target, bytes32 expectedCodeHash);
+error TargetReleaseNotAdmitted(uint8 targetKind, bytes32 codeHash);
+error TargetReleaseAlreadyAdmitted(uint8 targetKind, bytes32 codeHash);
+error TargetReleaseMismatch(uint8 targetKind, bytes32 codeHash);
+error TargetConformanceMismatch(bytes32 expected, bytes32 actual);
 error InvalidInterfaceProbe(bytes32 expected, bytes32 actual);
 error InvalidSuccessorVersion(bytes32 expected, bytes32 actual);
 error SuccessorVersionNotNew(bytes32 version);
@@ -1849,24 +2062,34 @@ event NonceRevocationRecorded(address indexed signer, uint256 indexed nonce, uin
     uint64 authorityRevision);
 event GlobalRoleGrantUpdated(bytes32 indexed globalRoleId, address indexed account,
     bool enabled, uint64 roleRevision, uint64 authorityRevision, address authority);
+event TargetReleaseAdmitted(uint8 indexed targetKind, bytes32 indexed codeHash,
+    bytes32 releaseId, bytes32 sourceCommit, bytes32 artifactHash,
+    bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 expectedModuleVersion, bytes32 protocolVersion,
+    bytes32 streamCompatibilityCommit, uint64 revision,
+    uint64 authorityRevision, address authority);
 event AuthorityChangeQueued(address indexed pendingAuthority, bytes32 expectedCodeHash,
-    bytes4 requiredInterfaceId, bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
+    bytes32 releaseId, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
     address predecessorRegistry, bytes32 expectedModuleVersion, bytes32 evidenceHash,
     uint64 eta, uint64 authorityRevision, address proposer, uint64 queuedAt,
     uint64 queuedBlock, address authority);
 event AuthorityChangeCancelled(address indexed pendingAuthority, bytes32 expectedCodeHash,
-    bytes4 requiredInterfaceId, bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
+    bytes32 releaseId, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
     address predecessorRegistry, bytes32 expectedModuleVersion, bytes32 evidenceHash,
     uint64 authorityRevision, address proposer, uint64 queuedAt, uint64 queuedBlock,
     address authority);
 event RegistryAuthorityUpdated(address indexed oldAuthority, address indexed newAuthority,
-    bytes32 expectedCodeHash, bytes4 requiredInterfaceId, bytes32 interfaceProbeHash,
+    bytes32 expectedCodeHash, bytes32 releaseId, bytes32 conformanceDocumentHash,
+    bytes4 requiredInterfaceId, bytes32 interfaceProbeHash,
     bytes32 capabilityCommitment, address predecessorRegistry,
     bytes32 expectedModuleVersion, bytes32 evidenceHash, uint64 authorityRevision,
     address proposer, uint64 queuedAt, uint64 queuedBlock, uint64 executedAt,
     uint64 executedBlock, address authority);
 event SuccessorSet(address indexed successor, bytes32 expectedCodeHash,
-    bytes4 requiredInterfaceId, bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
+    bytes32 releaseId, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
     address predecessorRegistry, bytes32 expectedModuleVersion, bytes32 evidenceHash,
     uint64 authorityRevision, address proposer, uint64 committedAt, address authority);
 event WritesFrozen(address indexed authority, address indexed successor, uint64 authorityRevision);
@@ -1895,7 +2118,9 @@ same value. A missing event never justifies omitting the state value.
 | HTTPS assertion context | `RecordSummary.httpsAssertionHash`, `httpsResolverRevision` | Same event fields | `bytes32(0), 0` for non-HTTPS | Current matching `HttpsAssertion.assertionHash` and resolver revision |
 | HTTPS assertion nonce/revision lineage | `httpsAssertionByHash`/`currentHttpsAssertion` | `HttpsAssertion` stores nonce, deadline, monotone revision, predecessor, and signature commitment; duplicate/replay/reorg rules are readback-based | `HttpsAssertionRecorded` carries the same fields |
 | Batch atomicity/commitment | `batchIdUsed(batchId)`, `batchCommitment(batchId)` | Exact ordered `MUSEUM_BATCH_COMMITMENT_DOMAIN` preimage; stored before visibility; duplicate ID/record or stale lane reverts all writes | `MuseumRecordBatchRecorded` with commitment and authority revision |
-| Active authority reconstruction | `authorityRevision()`, `authorityState()`, `pendingAuthority()` | Recheck target code hash, interface, context-bound capability, predecessor, version, and authority linkage at queue/execution/use | `AuthorityChangeQueued`, `RegistryAuthorityUpdated` with all commitments |
+| Batch gas budget | batch entry gate and `MAX_BATCH_GAS_UNITS` | `MUSEUM_BATCH_GAS_GATE_V1` is a best-effort caller gas gate only; measured benchmark evidence is retained, while all writes remain atomic on out-of-gas | `MuseumRecordBatchRecorded` on success; no event on revert |
+| Target release reconstruction | `targetRelease(targetKind,codeHash)` | Append-only exact-codehash release row with independent source/artifact/conformance admission; no caller-supplied hash/evidence bypass | `TargetReleaseAdmitted` |
+| Active authority reconstruction | `authorityRevision()`, `authorityState()`, `pendingAuthority()` | Recheck target release row, code hash, interface, context-bound capability, predecessor, version, and authority linkage at queue/execution/use | `AuthorityChangeQueued`, `RegistryAuthorityUpdated` with all commitments |
 | External asset authorization | `ExternalAsset.authorizationRoleId`, `authorityRevision` | `ExternalAssetRegistered.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
 | Stream mirror authorization | `StreamMirrorLink.authorizationRoleId`, `authorityRevision` | `StreamMirrorLinkSet.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
 | Owner-record interface admission | `StreamOwnerRecordInterface.revision`, `authorizationRoleId`, `authorityRevision` | `StreamOwnerRecordInterfaceAdmitted` | N/A | Governance-executor role and authority revision |
@@ -1921,13 +2146,13 @@ redundant audit event are all identified here.
 |---|---|---|---|
 | Canonicalizer is immutable and non-proxy | `admitAssetProfile`, `AssetProfile` | governed exact `(profileId, address, extcodehash)` allowlist; reviewed source/toolchain evidence; code size, defined executable-region scan, forbidden-opcode scan, mode `0`, zero implementation hash, static canonicalize equality at admission and registration | `AssetProfileAdmitted`, `ExternalAssetRegistered` |
 | Canonicalizer opcode policy is revision-pinned | `AssetProfile.documentHash`, `canonicalizerVersionId` | Cancun opcode table, exact executable region/CBOR treatment, PUSH/JUMPDEST boundary rules, reserved/unknown fail-closed, future revision requires new profile/version/allowlist | `AssetProfileAdmitted` and deployment manifest |
-| Authority target is accepted only after proof | `setAuthority(TransitionTargetInput)`, `pendingAuthority`, `authorityState()` | contract code hash, ERC-165, context-bound `IMuseumAuthorityProviderV1` capability handshake, probe/capability commitments, `predecessorRegistry==address(this)`, `registry()==predecessorRegistry`, target revision, evidence hash | `AuthorityChangeQueued`, `AuthorityChangeCancelled`, `RegistryAuthorityUpdated` |
+| Authority target is accepted only after proof | `targetRelease`, `setAuthority(TransitionTargetInput)`, `pendingAuthority`, `authorityState()` | governed exact `(targetKind,codeHash)` release row, two independent source/artifact rebuilds, bounded ERC-165/probe calls, context-bound `IMuseumAuthorityProviderV1` capability handshake, probe/capability commitments, `predecessorRegistry==address(this)`, `registry()==predecessorRegistry`, target revision, evidence hash | `TargetReleaseAdmitted`, `AuthorityChangeQueued`, `AuthorityChangeCancelled`, `RegistryAuthorityUpdated` |
 | Authority execution is safe against target mutation | `executeAuthority` | ETA, repeat every stored target check, unchanged code/interface/linkage/probe | `RegistryAuthorityUpdated`; pending state remains on failed execution |
-| Successor is validated after freeze | `setSuccessor(TransitionTargetInput)`, `successorTarget` | freeze state, no prior successor, `IMuseumSuccessorV1`, code hash, probe, `moduleSupersedes()==address(this)`, expected new module version, current protocol/Stream compatibility | `SuccessorSet` |
+| Successor is validated after freeze | `setSuccessor(TransitionTargetInput)`, `successorTarget`, `targetRelease` | freeze state, no prior successor, governed exact-codehash release row, independent conformance report, bounded `IMuseumSuccessorV1` calls, full capability/probe/predecessor binding, `moduleSupersedes()==address(this)`, expected new module version, current protocol/Stream compatibility | `SuccessorSet` |
 | Family kind and class bitmap are governed | `admitRecordFamily`, `recordFamily` | closed-world kind; Stream subset `0x01fe`; Museum subset `0x1e00`; append-only revision | `RecordFamilyAdmitted` |
-| Record type has one class | `admitRecordType`, `recordTypePolicy` | nonzero one-bit class selected and present in family bitmap; no write-time selection | `RecordTypeAdmitted` |
+| Record type has one class | `admitRecordType`, `recordTypePolicy` | nonzero one-bit class selected and present in family bitmap; stable six IDs additionally require the exact closed-world family/schema/class row; no write-time selection | `RecordTypeAdmitted` or revert with `StableRecordTypePairMismatch` |
 | Direct and relayed writers are identical | record selectors, `recordFamilyGrant`, by-signature fields | both call `requireRecordWriter`; full-call nonReentrant guard; every snapshotted dependency revalidated after ERC-1271 callback; by-signature class and family revision equal current mapping and are signed | `MuseumRecordRecorded`, `RecordFamilyGrantUpdated`, `RecordSummary`; no state/event on revert |
-| HTTPS profile and TTL are governed | `admitHttpsResolverProfile`, `resolverProfile` | nonzero attestor, bounded TTL, append-only profile revision and authority revision | `ResolverProfileAdmitted` |
+| HTTPS profile and TTL are governed | `admitHttpsResolverProfile`, `resolverProfile`, immutable `MUSEUM_URI_SAFETY_PUBLIC_V1` constants | nonzero attestor, bounded TTL, append-only resolver-profile revision and authority revision; URI parser executes the pinned safety-document hash and vectors | `ResolverProfileAdmitted` and `HttpsAssertionRecorded` |
 | HTTPS assertion is valid on-chain | `recordHttpsAssertionBySig`, `httpsAssertion`, `currentHttpsAssertion`, `httpsAssertionByHash` | per-URI key; canonical URI/host parse; hostHash recomputed; EOA/ERC-1271 signer; signer nonce/deadline; monotone revision/predecessor; profile revision/attestor role; sorted/deduped bounded address ABI hash; routability; TTL/window; assertion hash | `HttpsAssertionRecorded` |
 | Every HTTPS record has current evidence | record write selectors, `RecordSummary` | recompute exact record `uriHash` and `hostHash`; load current per-URI pointer; require matching profile/revision/hash and live window; store assertion hash/revision | `MuseumRecordRecorded` and state-only summary |
 | External/mirror authorization is reconstructable | `ExternalAsset`, `StreamMirrorLink` | exact enabled global role and active authority revision captured at write | `ExternalAssetRegistered`, `StreamMirrorLinkSet` |
@@ -2036,10 +2261,15 @@ present), record hash, generator, and both source commits.
 
 ### Phase 2 — deploy V1
 
-The constructor parameters are the fully probed authority-provider target, the
-immutable Stream compatibility commit (`bytes32`), `moduleSupersedes` (zero
-for the first deployment), and a zero successor. Deployment MUST verify the
-provider's exact code hash, ERC-165/interface ID, probe commitment,
+The constructor parameters include the initial authority-kind `TargetRelease`
+row and its fully probed authority-provider target, the immutable Stream
+compatibility commit (`bytes32`), `moduleSupersedes` (zero for the first
+deployment), and a zero successor. The constructor stores the release row
+before activating authority and MUST apply the same append-only release
+admission rules, including two independent source/artifact rebuilds and the
+conformance-document commitment; it MUST NOT accept an arbitrary caller hash
+or evidence value. Deployment MUST verify the provider's exact code hash,
+ERC-165/interface ID, probe commitment,
 context-bound capability handshake, role-domain and exact selector-set hash,
 `predecessorRegistry == address(this)`, `registry() == predecessorRegistry`,
 and authority-revision linkage; it MUST reject
@@ -2429,7 +2659,32 @@ payloadHashes = [0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c97
 batchCommitment = 0xad748c99c6edc245f77ae5a46660e3c0706696e9f9c4117308a7dd773a312314
 ```
 
-### 13.9 Required negative tests
+### 13.9 Target-release capability/probe vector
+
+This deterministic successor fixture tests the new release-row and complete
+probe preimages; it is not a deployable address or code hash:
+
+```text
+target = 0x0000000000000000000000000000000000000042
+predecessorRegistry = 0x000000000000000000000000000000000000cafe
+releaseId = 0x5681ad0ab20e496843b5795ad4c7b9e7a3f460f069b4891ea07a9a34ee64d95a
+expectedCodeHash = 0xd5a00f7341bd82056e931b07a2d8f28c4e11346df2d42d2c36566e108d31df2a
+conformanceDocumentHash = 0x6e4410d14b8d771e9e6250b6e8aa1124051d3b30887bd53cd4658b88921b7fa9
+expectedModuleVersion = 0x8578d451c146e5c9542b0a271b29ec0826085f5f1b5991d77245cfdcae3d7465
+capabilityCommitment = 0x9eb7de0ee6411bd638968f0c3eea4ddefe9982952982164a9c8d9cf81bbc19c9
+interfaceProbeHash = 0x8640ff49f37e78608f06f222a9a753e83c4e9687cb0d25f620368a8b7bc9dcc1
+```
+
+The fixture uses `requiredInterfaceId = 0x573d91cc`,
+`protocolVersion = MUSEUM_PROTOCOL_VERSION_V1`,
+`streamCompatibilityCommit = bytes32(0x5021c8060950c3fef995271e674ed4b2007fee6d)`,
+and `moduleSupersedes = predecessorRegistry`. The capability preimage is
+the exact `MUSEUM_SUCCESSOR_CAPABILITY_DOMAIN` tuple in §6.1.2; the probe
+preimage is the exact `MUSEUM_TARGET_PROBE_DOMAIN` tuple and includes the
+capability commitment. Ordinary `abi.encode` is required; packed encoding is
+not a valid implementation.
+
+### 13.10 Required negative tests
 
 Conformance MUST cover malformed digest lengths, zero IDs, zero effective
 time, invalid UTF-8/oversized or unsafe-scheme URI, unknown schema/type/profile,
