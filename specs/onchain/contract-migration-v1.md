@@ -187,7 +187,11 @@ contains a compiler marker key `solc` or `vyper` whose value is a byte string.
 The executable region is `[0, codeSize-L-2)` in that case; otherwise the
 region is the complete runtime and admission MUST fail if it is not a valid
 instruction stream. An invalid, ambiguous, or nonstandard trailer is never
-silently stripped.
+silently stripped. Bytes in a trailer satisfying the exact rule are metadata,
+not executable opcodes, so a forbidden byte there cannot cause a metadata false
+reject; bytes in any unrecognized trailer remain in the executable region and
+make admission fail closed if decoding is ambiguous. No other suffix or
+compiler marker is an accepted exclusion.
 
 Within that region, the scanner is a deterministic syntactic EVM instruction
 walk: begin at offset 0, decode one opcode, treat `PUSH0` (`0x5f`) as having
@@ -215,9 +219,12 @@ storage, another contract, caller/address/value, code introspection, mutable
 chain/blob state, returndata, program counter, gas, logging, or code creation.
 The walk is deliberately not a reachability proof: it conservatively rejects
 forbidden opcodes even in unreachable executable-region bytes and MUST NOT be
-used to claim that an allowlisted hash is pure. The governed source/toolchain
-allowlist and an independently reviewed control-flow/disassembly report are
-the authority; if that report cannot establish valid EVM boundaries and
+used to claim that an allowlisted hash is pure. It never skips decoded
+executable bytes, and any PUSH-boundary, jump-target, opcode-table, trailer,
+or EOF ambiguity rejects admission. The governed source/toolchain allowlist
+and an independently reviewed control-flow/disassembly report are the primary
+authority; the scan is defense-in-depth and cannot turn a non-allowlisted hash
+into an admission. If that report cannot establish valid EVM boundaries and
 JUMPDEST targets, the exact hash is rejected. The scan is performed at
 admission and on every external-asset registration; an unscannable, changed,
 proxy-like, or non-allowlisted runtime is not admitted.
@@ -334,6 +341,20 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Payload schema | `MUSEUM_RESEARCH_NOTE_V1` | `0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0` |
 | Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
+
+The stable Museum record-type IDs below are `keccak256` of the exact ASCII
+literal shown (without the `_V1` schema suffix). Each type is permanently
+paired with the listed payload schema; a deployment MUST NOT substitute a
+deployment-local type ID for one of these records.
+
+| Record-type literal | Record-type ID | Required payload schema |
+|---|---|---|
+| `MUSEUM_EXTERNAL_ASSET_IDENTITY` | `0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e` | `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` |
+| `MUSEUM_CUSTODY_OBSERVATION` | `0x8351820e5600a2472b0dd68eb83a0480b8663df2efcab7d34321b1df5918316e` | `MUSEUM_CUSTODY_OBSERVATION_V1` |
+| `MUSEUM_ACCESSION_LOT` | `0xc544e9b2b8226296197005f65dd84855588d18be5e1ce13082b8314004cb4661` | `MUSEUM_ACCESSION_LOT_V1` |
+| `MUSEUM_PROGRAM_OUTCOME` | `0xe81870465556c524f1375c1a3cff4aa920e8f0c15b9858ae6bb55c6c3cb0ad5a` | `MUSEUM_PROGRAM_OUTCOME_V1` |
+| `MUSEUM_RESEARCH_NOTE` | `0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0` | `MUSEUM_RESEARCH_NOTE_V1` |
+| `MUSEUM_RELEASE_MANIFEST` | `0x8889bb0d1446ec07b517aca915af9a4ad6d993ef8af5b999301ca8b15f789084` | `MUSEUM_RELEASE_MANIFEST_V1` |
 
 The subject formula is:
 
@@ -688,11 +709,28 @@ V1 assertions are per-URI, not per-host. The primary assertion key is the
 canonical `uriHash`, including the path; a host's address set MUST NOT be
 reused as a wildcard for another URI. Every distinct canonical HTTPS URI,
 including every distinct path, requires its own signed assertion and its own
-current-pointer entry. The submitted `hostHash` is a redundant commitment,
-not a lookup key: `recordHttpsAssertionBySig` MUST recompute it from the
+current-pointer entry. The exact immutable version key is:
+
+```solidity
+bytes32 assertionKey = keccak256(abi.encode(
+    uriHash, resolverProfileId, resolverRevision, assertionRevision
+));
+```
+
+`assertionRevision` is the URI's monotone version and `previousAssertionHash`
+links that version to the prior row. `hostHash`, `resolvedAddressSetHash`,
+issued/deadline fields, attestor, nonce, and the predecessor are not alternate
+lookup keys: they are included in the assertion hash and complete stored row.
+A key collision with different complete fields MUST revert rather than
+overwrite; an exact duplicate assertion hash also MUST revert without a second
+event. The submitted `hostHash` is a redundant derived commitment, not a
+host-wide lookup key: `recordHttpsAssertionBySig` MUST recompute it from the
 submitted canonical URI and reject any mismatch, and every HTTPS record write
 MUST parse the exact record URI, recompute both `uriHash` and `hostHash`, and
-require equality with the current assertion's two fields. Operations MUST
+require equality with the current assertion's two fields. A record may reuse
+the current unexpired assertion for the same exact URI; a different path,
+address set, profile revision, or assertion revision requires a separately
+signed row under the corresponding key and predecessor rules. Operations MUST
 budget assertion admission, storage, expiry, and renewal per distinct URI;
 shared host/address data does not reduce that cardinality. A large path set
 SHOULD use `ipfs://`/`ar://` or content-addressed material when per-URI HTTPS
@@ -1616,15 +1654,15 @@ admitted; each admission increments `revision` and records the active
 writer. It recomputes the canonical URI/host hashes, sorted address-set hash,
 EIP-712 digest, assertion hash, and signature commitment; requires the
 profile's exact current revision and attestor role; and stores the complete
-`HttpsAssertion` under the key
-`keccak256(abi.encode(uriHash, resolverProfileId, resolverRevision,
-resolvedAddressSetHash))`. It also updates `currentHttpsAssertion[uriHash]`
-only when the assertion is valid now and has an issued time no older than the
-current pointer. This is a per-URI registry: the canonical URI path is part of
-`uriHash`, so each distinct path needs a distinct signed assertion even when
-the host and resolved address set are unchanged. `hostHash` is recomputed from
-the exact canonical URI and is checked as a redundant field, never used as a
-host-wide wildcard.
+`HttpsAssertion` under the exact `assertionKey` above. It also updates
+`currentHttpsAssertion[uriHash]` only when the assertion is valid now and has
+the required next revision and predecessor. This is a per-URI registry: the
+canonical URI path is part of `uriHash`, so each distinct path needs a distinct
+signed assertion even when the host and resolved address set are unchanged.
+`hostHash` is recomputed from the exact canonical URI and is checked as a
+redundant field, never used as a host-wide wildcard. The canonical assertion
+payload and EIP-712 type string are exactly the 12-field form shown above; an
+older 8-field form is not a V1 encoding and MUST be rejected.
 
 Every record path calls `requireCurrentHttpsAssertion` after URI validation.
 For a non-HTTPS URI it stores zero assertion hash/revision. For HTTPS it

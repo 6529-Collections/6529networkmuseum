@@ -300,6 +300,23 @@ The next exact-head review required and resolved:
    external-call, creation, blob, gas, and logging opcodes, with exact
    extcodehash allowlisting primary and scanning defense-in-depth.
 
+### Current-head HTTPS and manifest consistency check
+
+The V1 HTTPS assertion has exactly one 12-field canonical payload and EIP-712
+type string: `uriHash`, `hostHash`, `resolverProfileId`, `resolverRevision`,
+`resolvedAddressSetHash`, `assertionRevision`, `previousAssertionHash`,
+`issuedAt`, `expiresAt`, `attestor`, `nonce`, and `deadline`. The cast and
+independent Python transcripts below use this same string and the same
+12-field ABI preimage; an 8-field legacy string is not present in the V1
+fixture. The immutable assertion key is independently pinned as
+`keccak256(abi.encode(uriHash, resolverProfileId, resolverRevision,
+assertionRevision))`. Per-URI reuse is permitted only for the same exact
+canonical URI and current unexpired row; each path and each renewal has its
+own key/revision/predecessor. The final manifest vector in both this note and
+§13.6 uses Museum release baseline
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d` and root
+`0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d`.
+
 ### Reproducible custom-error and interface-ID checks
 
 The following check parses only the normative error declarations above, strips
