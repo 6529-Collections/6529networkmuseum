@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../../schemas/technical-condition-report.schema.json",
+  "record_control": {"revision": 1, "record_status": "constructed", "constructor": {"actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7", "role": "constructor", "constructed_at": "2026-08-01T15:57:29Z"}, "review": null},
+  "record_id": "6529NM.2026.001.06-TECH01",
+  "record_type": "technical_condition_report",
+  "object_id": "6529NM.2026.001.06",
+  "protocol_state": {"chain": "Ethereum mainnet", "chain_id": 1, "observed_at": "2026-08-01T14:58:31.905115Z", "source": "notes/research/casey-reas-onchain-evidence.md"},
+  "condition_outcome": "not_assessed",
+  "condition_components": {"chain_identity": "green", "metadata_retrieval": "amber", "generator_retrieval": "amber", "render": "not_assessed", "dependencies": "not_assessed", "preservation": "not_assessed"},
+  "verified_observations": ["ownerOf(1000713) resolved to the ENS-resolved Museum custody address.", "tokenURI and tokenIdToHash were read from the contract; the token hash matches the Art Blocks metadata token_hash.", "Metadata response fixity was recorded as sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd.", "The current generator response was observed with p5.js 1.0.0 via cdnjs; its retrieval fixity is recorded in the object record."],
+  "pending_tests": ["Capture the generator HTML, project script, colorform definitions, and project invocation documentation.", "Render in two clean browser environments and compare deterministic captures.", "Record browser/runtime, canvas, network, and restart behavior; resolve the 923/924 project wording as a separate research amendment if needed.", "Complete a conservator/technical condition review."],
+  "recovery_lineage": "No local preservation package committed; source routes and observation hashes are retained as retrieval targets.",
+  "evidence_class": "A/C",
+  "interpretive_limit": "The corrected token ID is directly supported by the Art Blocks project encoding; a probe of token 713 is a different asset and is excluded."
+}

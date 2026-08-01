@@ -33,6 +33,20 @@ Status vocabulary:
 | [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
 | [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
 
+## Casey Reas accession dossier
+
+| File | Status | Contents |
+|---|---|---|
+| [`records/accessions/6529NM.2026.001/accession-statement.json`](records/accessions/6529NM.2026.001/accession-statement.json) | constructed dossier | Formal intake statement, controlled completion decision, seven-object schedule, policy pathway, and remaining gates; current state is `received_onchain` |
+| [`records/accessions/6529NM.2026.001/public-inventory.json`](records/accessions/6529NM.2026.001/public-inventory.json) | constructed public inventory | Seven public object identities, CAIP-19 references, custody observation, and public page links |
+| [`records/accessions/6529NM.2026.001/transaction-provenance.json`](records/accessions/6529NM.2026.001/transaction-provenance.json) | constructed evidence schedule | Direct-RPC-verified mint and transfer lineage, common seven-token receipt, blocks, times, logs, and provenance limits |
+| [`records/accessions/6529NM.2026.001/donation-rights.json`](records/accessions/6529NM.2026.001/donation-rights.json) | constructed schedule | Public donation summary, rights matrix with unspecified grants, and restricted-instrument/title-binding placeholder |
+| [`records/accessions/6529NM.2026.001/preservation-manifest.json`](records/accessions/6529NM.2026.001/preservation-manifest.json) | constructed plan | Per-object metadata/generator observation fixity, required preservation package, and incomplete ingest/recovery events |
+| [`records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json`](records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json) | constructed object record | CENTURY #31 machine-readable object record; sibling files cover the other six objects |
+| [`records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md`](records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md) | constructed public page | Public object page for CENTURY #31; sibling pages cover the other six objects |
+| [`records/accessions/6529NM.2026.001/restricted-registrar-annex-stub.json`](records/accessions/6529NM.2026.001/restricted-registrar-annex-stub.json) | public restricted stub | Boundary-safe placeholder for a future registrar instrument reference/hash; no instrument or deed hash is present |
+| [`records/accessions/6529NM.2026.001/constructor-controls.json`](records/accessions/6529NM.2026.001/constructor-controls.json) | constructed control | Constructor identity, self-review prohibition, independent-review scope, and controlled completion decision |
+
 ## Working standards and architecture
 
 | File | Status | Contents |

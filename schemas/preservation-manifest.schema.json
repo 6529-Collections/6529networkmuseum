@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/preservation-manifest/v1",
+  "title": "6529 Network Museum preservation manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "preservation_status", "objects", "shared_sources"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "preservation_manifest"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "preservation_status": {"type": "string", "minLength": 1},
+    "objects": {"type": "array", "minItems": 7},
+    "shared_sources": {"type": "array", "minItems": 1}
+  }
+}

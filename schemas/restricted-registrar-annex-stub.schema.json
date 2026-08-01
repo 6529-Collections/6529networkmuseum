@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/restricted-registrar-annex-stub/v1",
+  "title": "6529 Network Museum public restricted registrar annex stub",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "annex_status", "instrument_reference", "title_binding", "public_boundary"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "restricted_registrar_annex_stub"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "annex_status": {"type": "string", "minLength": 1},
+    "instrument_reference": {"type": "object", "required": ["status", "content_hash", "custodian"]},
+    "title_binding": {"type": "object", "required": ["status", "transfer_transaction"]},
+    "public_boundary": {"type": "array", "minItems": 1}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/constructor-controls/v1",
+  "title": "6529 Network Museum constructor and review controls",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "constructor", "review_control", "completion_decision"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "constructor_controls"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "constructor": {"type": "object", "required": ["actor_id", "role", "constructed_at"]},
+    "review_control": {"type": "object", "required": ["independent_review_required", "self_review_prohibited"]},
+    "completion_decision": {"type": "object", "required": ["status", "reason"]}
+  }
+}

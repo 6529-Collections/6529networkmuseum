@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/donation-rights/v1",
+  "title": "6529 Network Museum donation and rights schedule",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "public_summary", "policy_basis", "restricted_instrument_ref", "objects", "rights_matrix"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "donation_rights_schedule"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "public_summary": {"type": "string", "minLength": 1},
+    "policy_basis": {"type": "array", "minItems": 2},
+    "restricted_instrument_ref": {"type": "object", "required": ["status", "content_hash", "custodian"]},
+    "objects": {"type": "array", "minItems": 7},
+    "rights_matrix": {"type": "array", "minItems": 1}
+  }
+}

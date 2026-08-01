@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/trait-analysis-pending/v1",
+  "title": "6529 Network Museum pending generative trait analysis",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "status", "linked_deliverable", "prohibited_inputs"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "trait_analysis_pending"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "status": {"const": "pending_linked_deliverable"},
+    "linked_deliverable": {"type": "object", "required": ["dependency", "target"]},
+    "prohibited_inputs": {"type": "array", "minItems": 1}
+  }
+}

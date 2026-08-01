@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/technical-condition-report/v1",
+  "title": "6529 Network Museum technical and condition report",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "object_id", "condition_outcome", "verified_observations", "pending_tests"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "technical_condition_report"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "object_id": {"type": "string", "minLength": 1},
+    "condition_outcome": {"enum": ["not_assessed", "amber", "green", "red"]},
+    "verified_observations": {"type": "array", "minItems": 1},
+    "pending_tests": {"type": "array", "minItems": 1}
+  }
+}

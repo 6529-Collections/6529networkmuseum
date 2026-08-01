@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../schemas/accession-statement.schema.json",
+  "record_control": {"revision": 1, "record_status": "constructed", "constructor": {"actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7", "role": "constructor", "constructed_at": "2026-08-01T15:57:29Z"}, "review": null},
+  "record_id": "6529NM.2026.001-ACC01",
+  "record_type": "accession_statement",
+  "accession_lot_id": "6529NM.2026.001",
+  "preferred_title": "Casey Reas donation: seven Art Blocks works",
+  "statement_status": "formal_intake_statement_constructed",
+  "statement": "The 6529 Network Museum records the user-confirmed donation credited publicly as Gift of punk6529 of seven identified Casey REAS Art Blocks tokens as one accession lot. The Museum records the donation as received on-chain after independently verifying the seven ERC-721 Transfer events into the custody address resolved from networkmuseum.6529.eth. This statement opens the accession dossier and establishes the current state as received_onchain; it is not a substitute for a restricted legal instrument, a title opinion, a rights grant, a preservation completion certificate, or an independent review.",
+  "acceptance_date": "2026-08-01",
+  "custody_receipt_date": "2026-08-01",
+  "title_passage_date": null,
+  "acquisition_method": "donation",
+  "public_donor_credit": "Gift of punk6529",
+  "custody": {"ens": "networkmuseum.6529.eth", "chain_id": "eip155:1", "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c", "resolution_observed_at": "2026-08-01T14:58:31.905115Z", "evidence_class": "A"},
+  "controlled_decision": {"outcome": "accepted_for_accession_processing", "current_state": "received_onchain", "completion_status": "not_complete", "decision_authority": "Museum accession constructor pending independent registrar/curatorial approval", "basis": ["6529NM-POL-003: donation acceptance policy", "6529NM-GOV-1052156: adopted Art Blocks donation preapproval", "user-confirmed donation instruction", "seven-token successful receipt transaction 0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498"], "rationale": "Art Blocks preapproval establishes the collection-specific pathway; the policy still requires ordinary identity, authenticity, provenance, donor-authority, rights, technical, risk, and acceptance checks. The chain evidence satisfies the receipt/custody fact only."},
+  "state_assessment": {"offered": "superseded by user-confirmed donation", "authorized": "collection-specific preapproval present", "acquired": "donation asserted by user confirmation; executed public title reference not recorded", "received_onchain": "complete for observed receipt; seven direct RPC-verified Transfer events", "accessioned": "pending controlled completion decision and title binding", "catalogued": "dossier records constructed; independent curatorial/registrar review pending", "technically_verified": "pending render and dependency tests", "preservation_complete": "pending preservation ingest and recovery verification", "display_ready": "pending rights and display review"},
+  "object_schedule": [
+    {"object_id": "6529NM.2026.001.01", "title": "CENTURY #31", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031"},
+    {"object_id": "6529NM.2026.001.02", "title": "CENTURY #724", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"},
+    {"object_id": "6529NM.2026.001.03", "title": "CENTURY #401", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401"},
+    {"object_id": "6529NM.2026.001.04", "title": "Pre-Process #63", "chain_object": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063"},
+    {"object_id": "6529NM.2026.001.05", "title": "Phototaxis #308", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308"},
+    {"object_id": "6529NM.2026.001.06", "title": "923 EMPTY ROOMS #713", "chain_object": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"},
+    {"object_id": "6529NM.2026.001.07", "title": "Ex Nihilo (Cosmos) #248", "chain_object": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248"}
+  ],
+  "title_binding": {"status": "not_recorded", "required_target_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498", "restricted_instrument_ref": "6529NM.2026.001-REG-ANNEX", "content_hash": null},
+  "rights_and_conditions": {"rights_status": "unspecified", "condition_status": "not_assessed", "display_status": "not_assessed", "preservation_status": "planned_not_complete", "credit_line": "Gift of punk6529; Casey REAS; platform credit pending rights/registrar confirmation"},
+  "remaining_gates": ["Record or confirm the restricted donation/title instrument and bind it to the exact common transfer plus seven token identities.", "Complete donor authority, provenance, sanctions, dispute, and encumbrance diligence.", "Record explicit rights bases and grant statuses; do not infer rights from token custody or platform metadata labels.", "Complete two-environment render and dependency tests and individual condition review.", "Ingest and verify the preservation package, recovery lineage, and fixity manifest.", "Obtain independent registrar/technical and curatorial review; constructor may not self-review.", "Resolve display permissions and approved public derivatives before display_ready."],
+  "non_claims": ["No copyright, reproduction, commercial, exhibition, print, derivative, AI-training, or preservation rights are granted by this record.", "No deed, title instrument, valuation, market, rarity, or tax claim is made.", "No OpenSea metric or marketplace rarity claim is used.", "The seven objects are a focused sample, not a complete CENTURY set or Casey REAS retrospective."],
+  "evidence_refs": ["records/collections/approved-collections.json", "records/governance/decisions.json", "policies/donation-acceptance.md", "notes/research/casey-reas-onchain-evidence.md", "notes/research/casey-reas-art-technical-research.md", "records/accessions/6529NM.2026.001/transaction-provenance.json", "records/accessions/6529NM.2026.001/donation-rights.json"]
+}
