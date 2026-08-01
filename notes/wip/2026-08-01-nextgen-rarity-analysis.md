@@ -20,8 +20,19 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
   competition ranks, with rarity descending and statistical/single-trait
   families ascending.
 - OpenSea-sourced or computed rarity metric fields are outside the Museum
-  analysis boundary; provenance prose, citations, and URLs mentioning OpenSea
-  remain admissible and are not used as score inputs.
+  analysis boundary; the same guard applies to other third-party marketplace
+  or service metrics such as LooksRare. Provenance prose, citations, and URLs
+  mentioning those services remain admissible and are not used as score inputs.
+- Compatibility calculations retain effective source row order while the
+  normalized snapshot exposes a separate canonical sorted presentation.
+- Source identity now requires `snapshot_id`, `observed_at`, `collection.id`,
+  and non-empty `source.kind`; every token and trait row must match the single
+  declared `collection.id`.
+- The default compatibility path reproduces the backend's zero-non-Mint-trait
+  behavior for Mint Type-only snapshots, including empty-list product/minimum
+  parity and the trait-count adjustment.
+- All additive score folds are explicit left-to-right JavaScript-style
+  reductions, and JSON input rejects `NaN`/`Infinity` before analysis.
 - Trait rarity is descriptive prevalence, not quality or curatorial
   significance.
 - Hash determinism is explicitly bounded to the same CPython implementation

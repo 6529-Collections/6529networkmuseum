@@ -45,18 +45,23 @@ def main(argv: list[str] | None = None) -> int:
         result = analyze_snapshot(
             load_snapshot(args.snapshot), duplicate_policy=args.duplicates
         )
-    except (OSError, UnicodeError, json.JSONDecodeError, InputError) as error:
+        encoded = json.dumps(
+            result, ensure_ascii=False, indent=2, sort_keys=False
+        ) + "\n"
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(encoded, encoding="utf-8", newline="\n")
+        else:
+            sys.stdout.write(encoded)
+    except (
+        OSError,
+        UnicodeError,
+        json.JSONDecodeError,
+        InputError,
+        ValueError,
+    ) as error:
         print(f"error: {error}", file=sys.stderr)
         return DATA_ERROR_EXIT
-
-    encoded = json.dumps(
-        result, ensure_ascii=False, indent=2, sort_keys=False
-    ) + "\n"
-    if args.output:
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(encoded, encoding="utf-8", newline="\n")
-    else:
-        sys.stdout.write(encoded)
     return 0
 
 

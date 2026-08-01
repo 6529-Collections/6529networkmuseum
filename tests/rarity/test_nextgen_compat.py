@@ -13,6 +13,7 @@ from scripts.rarity.analyze import main
 from scripts.rarity.nextgen_compat import (
     InputError,
     _dense_trait_ranks,
+    _left_to_right_sum,
     analyze_snapshot,
     canonical_json,
 )
@@ -136,25 +137,158 @@ class NextGenCompatibilityTests(unittest.TestCase):
         self.assertIn(99, [row["token_id"] for row in preserved["per_trait"]])
         self.assertEqual([row["id"] for row in preserved["per_token"]], [1, 2, 3, 4])
 
-    def test_opensea_metric_fields_are_prohibited_but_prose_is_allowed(self) -> None:
+    def test_marketplace_metric_fields_are_prohibited_but_provenance_is_allowed(
+        self,
+    ) -> None:
         allowed = json.loads(json.dumps(self.snapshot))
         allowed["source"]["note"] = "migrated off OpenSea in 2024"
         allowed["source"]["citation"] = "https://opensea.io/assets/example"
         allowed["source"]["opensea_trait_source_url"] = (
             "https://opensea.io/assets/example"
         )
+        allowed["source"]["marketplace_url"] = "https://looksrare.org/collections/example"
+        allowed["source"]["looksrare_citation_url"] = (
+            "https://looksrare.org/collections/example"
+        )
+        allowed["source"]["provenance"] = (
+            "The accession history mentions OpenSea and LooksRare as prior listings."
+        )
         analyze_snapshot(allowed)
 
-        forbidden = json.loads(json.dumps(self.snapshot))
-        forbidden["source"]["opensea_rarity_score"] = 1
-        with self.assertRaisesRegex(InputError, "OpenSea"):
-            analyze_snapshot(forbidden)
+        for service in ("opensea", "looksrare"):
+            forbidden = json.loads(json.dumps(self.snapshot))
+            forbidden["source"][f"{service}_rarity_score"] = 1
+            with self.assertRaisesRegex(InputError, "third-party"):
+                analyze_snapshot(forbidden)
 
         sourced = json.loads(json.dumps(self.snapshot))
-        sourced["source"]["provider"] = "OpenSea"
+        sourced["source"]["provider"] = "LooksRare"
         sourced["source"]["rarity_score"] = 1
-        with self.assertRaisesRegex(InputError, "OpenSea"):
+        with self.assertRaisesRegex(InputError, "third-party"):
             analyze_snapshot(sourced)
+
+        unknown_service = json.loads(json.dumps(self.snapshot))
+        unknown_service["source"]["provider"] = "ExternalRarityService"
+        unknown_service["source"]["score"] = 1
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(unknown_service)
+
+    def test_left_fold_matches_javascript_reduce_not_python_sum(self) -> None:
+        values = [1e16, 1.0, -1e16, 1.0]
+
+        javascript_reduce = 0.0
+        for value in values:
+            javascript_reduce += value
+
+        self.assertEqual(sum(values), 2.0)
+        self.assertEqual(javascript_reduce, 1.0)
+        self.assertEqual(_left_to_right_sum(values), javascript_reduce)
+
+    def test_source_order_is_separate_from_canonical_presentation(self) -> None:
+        reordered = json.loads(json.dumps(self.snapshot))
+        reordered["tokens"] = [
+            reordered["tokens"][2],
+            reordered["tokens"][0],
+            reordered["tokens"][3],
+            reordered["tokens"][1],
+        ]
+        reordered["traits"] = list(reversed(reordered["traits"]))
+
+        result = analyze_snapshot(reordered)
+        self.assertEqual(
+            [row["id"] for row in result["per_token"]], [3, 1, 4, 2]
+        )
+        self.assertEqual(
+            [
+                (row["token_id"], row["trait"], row["value"])
+                for row in result["per_trait"]
+            ],
+            [
+                (row["token_id"], row["trait"], row["value"])
+                for row in reordered["traits"]
+            ],
+        )
+
+        normalized = result["input"]["normalized_snapshot"]
+        self.assertEqual([row["id"] for row in normalized["tokens"]], [1, 2, 3, 4])
+        self.assertEqual(
+            [
+                (row["token_id"], row["trait"], row["value"])
+                for row in normalized["traits"]
+            ],
+            sorted(
+                (
+                    row["token_id"],
+                    row["trait"],
+                    row["value"],
+                )
+                for row in reordered["traits"]
+            ),
+        )
+
+    def test_snapshot_identity_and_provenance_are_required(self) -> None:
+        missing_fields = (
+            "snapshot_id",
+            "observed_at",
+            "collection",
+            "source",
+        )
+        for field in missing_fields:
+            invalid = json.loads(json.dumps(self.snapshot))
+            invalid.pop(field)
+            with self.subTest(field=field), self.assertRaises(InputError):
+                analyze_snapshot(invalid)
+
+        invalid_source = json.loads(json.dumps(self.snapshot))
+        invalid_source["source"] = {}
+        with self.assertRaisesRegex(InputError, "source provenance"):
+            analyze_snapshot(invalid_source)
+
+        mixed = json.loads(json.dumps(self.snapshot))
+        mixed["traits"][0]["collection_id"] = 9002
+        with self.assertRaisesRegex(InputError, "mixed collection_id"):
+            analyze_snapshot(mixed)
+
+    def test_mint_type_only_snapshot_matches_compatibility_scoring(self) -> None:
+        mint_only = json.loads(json.dumps(self.snapshot))
+        mint_only["tokens"] = [
+            {"id": 1, "collection_id": 9001},
+            {"id": 2, "collection_id": 9001},
+        ]
+        mint_only["traits"] = [
+            {
+                "token_id": 1,
+                "collection_id": 9001,
+                "trait": "Mint Type",
+                "value": "Public",
+            },
+            {
+                "token_id": 2,
+                "collection_id": 9001,
+                "trait": "Mint Type",
+                "value": "Airdrop",
+            },
+        ]
+
+        result = analyze_snapshot(mint_only)
+        self.assertEqual(result["collection_summary"]["non_mint_type_trait_category_count"], 0)
+        self.assertEqual(
+            {row["rarity_score"] for row in result["per_trait"]}, {-1}
+        )
+        for token in result["per_token"]:
+            self.assertEqual(token["rarity_score"], 0)
+            self.assertEqual(token["rarity_score_trait_count"], 1.0)
+            self.assertEqual(token["rarity_score_trait_count_normalised"], 500000.0)
+            self.assertEqual(token["statistical_score"], 1)
+            self.assertEqual(token["statistical_score_trait_count"], 1.0)
+            self.assertEqual(token["statistical_score_normalised"], 1)
+            self.assertEqual(token["statistical_score_trait_count_normalised"], 1.0)
+            self.assertEqual(token["single_trait_rarity_score"], 0)
+            self.assertEqual(token["single_trait_rarity_score_trait_count"], 0)
+            self.assertEqual(token["single_trait_rarity_score_normalised"], 0)
+            self.assertEqual(
+                token["single_trait_rarity_score_trait_count_normalised"], 1.0
+            )
 
     def test_empty_trait_rank_group_is_defensive(self) -> None:
         rows: list[dict[str, object]] = []
@@ -174,6 +308,29 @@ class NextGenCompatibilityTests(unittest.TestCase):
             with self.assertRaises(SystemExit) as error:
                 main([])
         self.assertEqual(error.exception.code, 2)
+
+    def test_cli_rejects_non_finite_json_and_output_failures_without_traceback(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for constant in ("NaN", "Infinity", "-Infinity"):
+                path = root / f"{constant.replace('-', 'negative-')}.json"
+                text = json.dumps(self.snapshot)[:-1]
+                path.write_text(f'{text},"non_finite":{constant}}}', encoding="utf-8")
+                stderr = io.StringIO()
+                with contextlib.redirect_stderr(stderr):
+                    self.assertEqual(main([str(path)]), 1)
+                self.assertNotIn("Traceback", stderr.getvalue())
+
+            output_directory = root / "output-directory"
+            output_directory.mkdir()
+            stderr = io.StringIO()
+            with contextlib.redirect_stderr(stderr):
+                self.assertEqual(
+                    main([str(FIXTURE), "--output", str(output_directory)]), 1
+                )
+            self.assertNotIn("Traceback", stderr.getvalue())
 
     def test_canonical_float_boundary_is_explicit(self) -> None:
         result = analyze_snapshot(self.snapshot)

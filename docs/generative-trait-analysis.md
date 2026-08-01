@@ -10,10 +10,11 @@ artistically unimportant work, and a common trait may occur in an important
 work. Rarity must never substitute for artist, provenance, rights, condition,
 technical, historical, or curatorial review.
 
-OpenSea-sourced or computed rarity metric fields are prohibited as Museum
-evidence and rejected by this tooling. Provenance prose, citations, and URLs
-that mention OpenSea remain admissible; they are evidence of provenance or
-source context, not rarity inputs.
+Third-party marketplace/service-sourced or computed rarity metric fields are
+prohibited as Museum evidence and rejected by this tooling. This includes
+OpenSea, LooksRare, and equivalent providers. Provenance prose, citations, and
+URLs that mention a marketplace remain admissible; they are evidence of
+provenance or source context, not rarity inputs.
 
 ## Pinned sources
 
@@ -56,19 +57,23 @@ quality observations, configuration, per-trait rows, per-token scores/ranks,
 and hashes. It retains `Mint Type` rows in the audit/per-trait output while
 excluding them from score aggregates, matching the backend.
 
-The OpenSea guard rejects structured fields such as `opensea_rarity_score`,
-or a generic rarity metric field whose provider is OpenSea. It does not reject
-free-text notes, provenance descriptions, citation labels, or citation URLs
-that happen to contain the word OpenSea. OpenSea values are never used to
-calculate a Museum score.
+The third-party metric guard rejects structured fields such as
+`opensea_rarity_score` or `looksrare_rank`, and generic rarity metric fields
+whose provider is a third-party service. It does not reject free-text notes,
+provenance descriptions, citation labels, or citation URLs that happen to
+contain marketplace names. Marketplace values are never used to calculate a
+Museum score.
 
 ## Normalization and data quality
 
-Normalization sorts token rows by token ID and trait rows by token ID, trait,
-and value. It does not invent rows or change case, whitespace, values, or
-trait names. Values whose lowercase text starts with `none` are recognized
-only for the source's `trait_count` adjustment; they remain in the score
-products.
+Normalization produces a canonical presentation with token rows sorted by
+token ID and trait rows sorted by token ID, trait, and value. It does not
+invent rows or change case, whitespace, values, or trait names. Compatibility
+calculations retain the effective source row order, including source token
+order and raw/preserve-mode trait order; the sorted view is exposed separately
+as `input.normalized_snapshot`. Values whose lowercase text starts with `none`
+are recognized only for the source's `trait_count` adjustment; they remain in
+the score products.
 
 The tool reports:
 
@@ -124,6 +129,12 @@ calculation. Let:
 - `A` be the observed non-`Mint Type` trait categories on declared tokens;
 - `A_none` be the categories with at least one explicit `None`-prefixed value.
 
+Every arithmetic sum above is evaluated as an explicit left-to-right fold,
+matching JavaScript `reduce((total, value) => total + value, 0)`. Python's
+built-in `sum()` is not used because its optimized CPython implementation can
+produce a different last bit for adversarial input order. The pinned fixture
+and regression test include an independent reference fold for this boundary.
+
 The backend calculates:
 
 ```text
@@ -149,6 +160,14 @@ single_trait_rarity_score_trait_count_normalised = min(
   (d(t) / T) * (|A_none| + 1)
 )
 ```
+
+If the snapshot has only `Mint Type` traits, the default
+`production-compatibility` mode still emits each Mint Type row with `-1` and
+scores each declared token using the backend's empty non-Mint list behavior.
+In particular, the token score products are `1`, the additive rarity sums are
+`0`, and the trait-count adjustment remains active. This is compatibility
+behavior, not a claim that a Mint Type-only collection has useful descriptive
+rarity.
 
 The last `min` intentionally matches JavaScript `Math.min(...[])` behavior:
 an empty per-trait list contributes positive infinity to that intermediate
@@ -176,7 +195,9 @@ preserved array order. It emits:
 All are rendered as `sha256:<64 lowercase hex digits>`. Repeat runs over the
 same snapshot and duplicate policy must produce identical JSON and hashes.
 The output's `determinism` profile records the active Python implementation,
-version, JSON encoder settings, and float boundary. This implementation's
+version, JSON encoder settings, and float boundary. JSON parsing rejects
+`NaN`, `Infinity`, and `-Infinity`, and canonical encoding rejects any
+non-finite value. This implementation's
 output commitment deliberately excludes that runtime profile so the exact
 fixture is not pinned to the maintainer's CPython patch version. The
 byte/hash guarantee for the numeric payload is still intentionally limited to
@@ -190,7 +211,9 @@ claim of RFC 8785 cross-runtime compatibility.
 Argument-parser misuse (missing required arguments, unknown flags, or invalid
 choice values) exits with `2`, as required by `argparse`. A readable but
 invalid snapshot, rejected duplicate/orphan policy, prohibited metric field,
-or input file/JSON error exits with `1`. A successful analysis exits with `0`.
+non-finite JSON constant, input file/JSON error, or output-path failure exits
+with `1` and a concise `error:` message without a traceback. A successful
+analysis exits with `0`.
 
 ## Tests and review boundary
 
@@ -202,10 +225,12 @@ python -m unittest discover -s tests/rarity -p 'test_*.py' -v
 
 The fixture tests cover exact score values, explicit missing traits, `None`
 handling, `Mint Type` exclusion, duplicate error/preserve/deduplicate modes,
-per-trait dense ranks, token competition ranks, and repeatable hashes.
-They also cover OpenSea provenance prose/citations versus metric fields, the
-defensive empty-rank guard, preserve-mode products, the empty-token
-`Math.min(...[])` parity path, CLI exit codes, and the CPython float boundary.
+per-trait dense ranks, token competition ranks, and repeatable hashes. They
+also cover source-order versus canonical presentation, OpenSea/LooksRare and
+generic third-party provenance versus metric fields, the defensive empty-rank
+guard, preserve-mode products, the empty-token `Math.min(...[])` parity path,
+Mint Type-only scoring, non-finite JSON and output failures, CLI exit codes,
+the independent JavaScript-style left fold, and the CPython float boundary.
 
 This analysis is an evidence aid only. It must remain separate from the
 Museum accession register, object identity, rights, provenance, preservation,

@@ -11,13 +11,15 @@
   },
   "configuration": {
     "duplicate_policy": "error",
+    "calculation_mode": "production-compatibility",
+    "source_order_policy": "compatibility calculations retain effective input row order; input.normalized_snapshot is the canonical sorted presentation",
     "token_count_for_trait_prevalence": "distinct token_id values in effective trait rows",
     "token_count_for_token_scores": "declared snapshot token rows",
     "missing_trait_policy": "absence is preserved; no synthetic None values",
     "none_value_policy": "values whose lowercase text starts with 'none' are excluded from trait_count but retained in score products",
     "trait_rank_tie_policy": "dense rank, descending, independently within each trait category",
     "token_rank_tie_policy": "competition rank, stable sort, direction depends on score family",
-    "opensea_policy": "reject structured OpenSea-sourced or computed metric fields; allow provenance prose, citations, and URLs that mention OpenSea"
+    "third_party_metric_policy": "reject structured third-party marketplace/service-sourced or computed rarity metric fields; allow provenance prose, citations, and URLs that mention those services"
   },
   "determinism": {
     "implementation": "CPython",
@@ -136,6 +138,13 @@
     "snapshot_sha256": "sha256:84d91373847f5727318282a10991679c00407bbc5b0ebf6f0c54c5719a443193",
     "normalized_snapshot": {
       "schema": "6529nm.generative-trait-analysis-input/v1",
+      "snapshot_id": "nextgen-compatibility-fixture-1",
+      "observed_at": "2026-08-01T00:00:00Z",
+      "source": {
+        "kind": "synthetic-conformance-fixture",
+        "purpose": "exercise prevalence, None, Mint Type, missing, normalization, and ties",
+        "algorithm_source": "https://github.com/6529-Collections/6529seize-backend/blob/902557e9274f03b9851e97ef7ffac4b3c310b8a0/src/nextgen/nextgen_tokens.ts"
+      },
       "collection": {
         "id": 9001,
         "name": "Museum Compatibility Fixture"
@@ -233,13 +242,13 @@
         }
       ],
       "normalization": {
-        "ordering": "tokens by token id; trait rows by token id, trait, value",
+        "ordering": "canonical presentation: tokens by token id; trait rows by token id, trait, value; compatibility calculations retain effective source row order",
         "duplicate_policy": "error",
         "missing_policy": "preserve absence; never synthesize a trait or None value",
         "mint_type_policy": "retain Mint Type rows for audit and per-trait output; exclude them from score aggregates"
       }
     },
-    "normalized_snapshot_sha256": "sha256:a8f9ffcf2149c061ca7bbb3a94db131768ad9204d3c15bfc5236e252f4d8d321",
+    "normalized_snapshot_sha256": "sha256:963aae8c808d1751075e399c8b1e1a11e6f0f139ef74d8b1fe2174221726cc4c",
     "data_quality": {
       "duplicate_policy": "error",
       "duplicate_token_ids": [],
@@ -354,27 +363,6 @@
     {
       "token_id": 2,
       "collection_id": 9001,
-      "trait": "Accent",
-      "value": "None",
-      "token_count": 4,
-      "trait_count": 2,
-      "value_count": 1,
-      "statistical_rarity": 0.25,
-      "single_trait_rarity_score_normalised": 0.5,
-      "statistical_rarity_normalised": 0.5,
-      "rarity_score": 4.0,
-      "rarity_score_normalised": 166666.66666666666,
-      "rarity_score_trait_count_normalised": 125000.0,
-      "rarity_score_rank": 1,
-      "rarity_score_normalised_rank": 1,
-      "statistical_rarity_rank": 2,
-      "statistical_rarity_normalised_rank": 2,
-      "single_trait_rarity_score_normalised_rank": 2,
-      "rarity_score_trait_count_normalised_rank": 1
-    },
-    {
-      "token_id": 2,
-      "collection_id": 9001,
       "trait": "Color",
       "value": "Red",
       "token_count": 4,
@@ -415,25 +403,25 @@
       "rarity_score_trait_count_normalised_rank": 2
     },
     {
-      "token_id": 3,
+      "token_id": 2,
       "collection_id": 9001,
       "trait": "Accent",
-      "value": "Gold",
+      "value": "None",
       "token_count": 4,
       "trait_count": 2,
-      "value_count": 2,
-      "statistical_rarity": 0.5,
-      "single_trait_rarity_score_normalised": 1.0,
-      "statistical_rarity_normalised": 0.7071067811865476,
-      "rarity_score": 2.0,
-      "rarity_score_normalised": 83333.33333333333,
-      "rarity_score_trait_count_normalised": 62500.0,
-      "rarity_score_rank": 2,
-      "rarity_score_normalised_rank": 2,
-      "statistical_rarity_rank": 1,
-      "statistical_rarity_normalised_rank": 1,
-      "single_trait_rarity_score_normalised_rank": 1,
-      "rarity_score_trait_count_normalised_rank": 2
+      "value_count": 1,
+      "statistical_rarity": 0.25,
+      "single_trait_rarity_score_normalised": 0.5,
+      "statistical_rarity_normalised": 0.5,
+      "rarity_score": 4.0,
+      "rarity_score_normalised": 166666.66666666666,
+      "rarity_score_trait_count_normalised": 125000.0,
+      "rarity_score_rank": 1,
+      "rarity_score_normalised_rank": 1,
+      "statistical_rarity_rank": 2,
+      "statistical_rarity_normalised_rank": 2,
+      "single_trait_rarity_score_normalised_rank": 2,
+      "rarity_score_trait_count_normalised_rank": 1
     },
     {
       "token_id": 3,
@@ -478,7 +466,7 @@
       "rarity_score_trait_count_normalised_rank": 2
     },
     {
-      "token_id": 4,
+      "token_id": 3,
       "collection_id": 9001,
       "trait": "Accent",
       "value": "Gold",
@@ -533,6 +521,27 @@
       "rarity_score": 1.3333333333333333,
       "rarity_score_normalised": 55555.555555555555,
       "rarity_score_trait_count_normalised": 41666.666666666664,
+      "rarity_score_rank": 2,
+      "rarity_score_normalised_rank": 2,
+      "statistical_rarity_rank": 1,
+      "statistical_rarity_normalised_rank": 1,
+      "single_trait_rarity_score_normalised_rank": 1,
+      "rarity_score_trait_count_normalised_rank": 2
+    },
+    {
+      "token_id": 4,
+      "collection_id": 9001,
+      "trait": "Accent",
+      "value": "Gold",
+      "token_count": 4,
+      "trait_count": 2,
+      "value_count": 2,
+      "statistical_rarity": 0.5,
+      "single_trait_rarity_score_normalised": 1.0,
+      "statistical_rarity_normalised": 0.7071067811865476,
+      "rarity_score": 2.0,
+      "rarity_score_normalised": 83333.33333333333,
+      "rarity_score_trait_count_normalised": 62500.0,
       "rarity_score_rank": 2,
       "rarity_score_normalised_rank": 2,
       "statistical_rarity_rank": 1,
@@ -578,7 +587,7 @@
       "trait_count": 2,
       "trait_count_denominator": 2,
       "rarity_score": 7.333333333333333,
-      "rarity_score_normalised": 305555.55555555556,
+      "rarity_score_normalised": 305555.5555555555,
       "rarity_score_trait_count": 9.333333333333332,
       "rarity_score_trait_count_normalised": 291666.6666666666,
       "statistical_score": 0.09375,
@@ -608,7 +617,7 @@
       "trait_count": 3,
       "trait_count_denominator": 2,
       "rarity_score": 5.333333333333333,
-      "rarity_score_normalised": 222222.22222222222,
+      "rarity_score_normalised": 222222.2222222222,
       "rarity_score_trait_count": 7.333333333333333,
       "rarity_score_trait_count_normalised": 229166.66666666666,
       "statistical_score": 0.1875,
@@ -638,7 +647,7 @@
       "trait_count": 3,
       "trait_count_denominator": 2,
       "rarity_score": 5.333333333333333,
-      "rarity_score_normalised": 222222.22222222222,
+      "rarity_score_normalised": 222222.2222222222,
       "rarity_score_trait_count": 7.333333333333333,
       "rarity_score_trait_count_normalised": 229166.66666666666,
       "statistical_score": 0.1875,
@@ -665,7 +674,7 @@
   ],
   "hashes": {
     "input_snapshot_sha256": "sha256:84d91373847f5727318282a10991679c00407bbc5b0ebf6f0c54c5719a443193",
-    "normalized_snapshot_sha256": "sha256:a8f9ffcf2149c061ca7bbb3a94db131768ad9204d3c15bfc5236e252f4d8d321",
-    "output_sha256": "sha256:86028fcb108a63838b21bbf1ad062d23545aec56c8bcf96c509763c6d5c13799"
+    "normalized_snapshot_sha256": "sha256:963aae8c808d1751075e399c8b1e1a11e6f0f139ef74d8b1fe2174221726cc4c",
+    "output_sha256": "sha256:8ea21f0eb6a94679c57160fcc7c51a181dbb4243dfb7bcc95f99953f4c903acb"
   }
 }

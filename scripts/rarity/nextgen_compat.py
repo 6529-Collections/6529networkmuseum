@@ -82,6 +82,15 @@ class InputError(ValueError):
     """Raised when a snapshot cannot be analyzed without an implicit repair."""
 
 
+def _left_to_right_sum(values: Iterable[float]) -> float:
+    """Match JavaScript ``Array.reduce`` addition order exactly."""
+
+    total = 0.0
+    for value in values:
+        total += value
+    return total
+
+
 def determinism_profile() -> dict[str, str]:
     """Describe the runtime boundary for byte- and hash-stable output."""
 
@@ -138,8 +147,13 @@ def _output_hash_payload(result: dict[str, Any]) -> dict[str, Any]:
 def load_snapshot(path: str | Path) -> dict[str, Any]:
     """Load a UTF-8 JSON snapshot without changing its raw representation."""
 
+    def reject_json_constant(value: str) -> None:
+        raise InputError(
+            f"non-finite numeric value is prohibited: JSON constant {value}"
+        )
+
     with Path(path).open("r", encoding="utf-8") as handle:
-        value = json.load(handle)
+        value = json.load(handle, parse_constant=reject_json_constant)
     if not isinstance(value, dict):
         raise InputError("snapshot root must be a JSON object")
     return value
@@ -157,6 +171,40 @@ def _require_text(value: Any, label: str) -> str:
     return value
 
 
+def _require_nonempty_text(value: Any, label: str) -> str:
+    text = _require_text(value, label)
+    if not text.strip():
+        raise InputError(f"{label} must not be empty")
+    return text
+
+
+def _reject_non_finite_values(value: Any, path: str = "snapshot") -> None:
+    if isinstance(value, float) and not math.isfinite(value):
+        raise InputError(f"non-finite numeric value is prohibited: {path}")
+    if isinstance(value, dict):
+        for key, child in value.items():
+            _reject_non_finite_values(child, f"{path}.{key}")
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            _reject_non_finite_values(child, f"{path}[{index}]")
+
+
+def _validate_snapshot_metadata(snapshot: dict[str, Any]) -> int:
+    _require_nonempty_text(snapshot.get("snapshot_id"), "snapshot_id")
+    _require_nonempty_text(snapshot.get("observed_at"), "observed_at")
+
+    collection = snapshot.get("collection")
+    if not isinstance(collection, dict):
+        raise InputError("collection identity is required as an object")
+    collection_id = _require_int(collection.get("id"), "collection.id")
+
+    source = snapshot.get("source")
+    if not isinstance(source, dict) or not source:
+        raise InputError("source provenance is required as a non-empty object")
+    _require_nonempty_text(source.get("kind"), "source.kind")
+    return collection_id
+
+
 def _is_mint_type(trait: str) -> bool:
     return trait.lower().startswith(MINT_TYPE_TRAIT_PREFIX)
 
@@ -165,7 +213,7 @@ def _is_none_value(value: str) -> bool:
     return value.lower().startswith("none")
 
 
-OPEN_SEA_METRIC_TERMS = (
+METRIC_TERMS = (
     "rarity",
     "rank",
     "score",
@@ -187,7 +235,28 @@ RARITY_METRIC_TERMS = (
     "frequency",
     "prevalence",
 )
-PROVIDER_KEYS = {"source", "provider", "marketplace", "origin", "issuer"}
+EXTERNAL_SERVICE_KEY_TERMS = (
+    "opensea",
+    "looksrare",
+    "blur",
+    "rarible",
+    "magiceden",
+    "x2y2",
+    "nftgo",
+    "icytools",
+    "traitsniper",
+    "raritysniper",
+    "raritytools",
+    "reservoir",
+    "tensor",
+    "nftscan",
+    "gem",
+    "marketplace",
+    "service",
+    "provider",
+)
+PROVIDER_KEYS = {"provider", "marketplace", "service"}
+INTERNAL_PROVIDER_TERMS = ("6529", "nextgen", "museum", "seize")
 
 
 def _normalized_key(key: Any) -> str:
@@ -196,7 +265,7 @@ def _normalized_key(key: Any) -> str:
 
 def _is_metric_key(key: Any) -> bool:
     normalized = _normalized_key(key)
-    return any(term in normalized for term in OPEN_SEA_METRIC_TERMS)
+    return any(term in normalized for term in METRIC_TERMS)
 
 
 def _is_rarity_metric_key(key: Any) -> bool:
@@ -204,54 +273,93 @@ def _is_rarity_metric_key(key: Any) -> bool:
     return any(term in normalized for term in RARITY_METRIC_TERMS)
 
 
-def _is_opensea_metric_key(key: Any) -> bool:
+def _is_external_service_metric_key(key: Any) -> bool:
     normalized = _normalized_key(key)
-    return "opensea" in normalized and _is_metric_key(normalized)
+    return _is_metric_key(normalized) and any(
+        term in normalized for term in EXTERNAL_SERVICE_KEY_TERMS
+    )
 
 
-def _contains_opensea_text(value: Any) -> bool:
+def _contains_external_service_reference(value: Any) -> bool:
     if isinstance(value, str):
-        return "opensea" in value.lower()
+        normalized = _normalized_key(value)
+        return (
+            "http" in value.lower()
+            or any(term in normalized for term in EXTERNAL_SERVICE_KEY_TERMS)
+        )
     if isinstance(value, dict):
-        return any(_contains_opensea_text(child) for child in value.values())
+        return any(
+            _contains_external_service_reference(child) for child in value.values()
+        )
     if isinstance(value, list):
-        return any(_contains_opensea_text(child) for child in value)
+        return any(_contains_external_service_reference(child) for child in value)
     return False
 
 
-def _reject_opensea_metric_fields(value: Any, path: str = "snapshot") -> None:
-    """Reject structured OpenSea metrics while allowing provenance text/citations."""
+def _is_internal_provider(value: Any) -> bool:
+    if not isinstance(value, str):
+        return False
+    normalized = _normalized_key(value)
+    return any(term in normalized for term in INTERNAL_PROVIDER_TERMS)
+
+
+def _contains_text(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, dict):
+        return any(_contains_text(child) for child in value.values())
+    if isinstance(value, list):
+        return any(_contains_text(child) for child in value)
+    return False
+
+
+def _has_external_provider(value: dict[str, Any]) -> bool:
+    return any(
+        _normalized_key(key) in PROVIDER_KEYS
+        and _contains_text(child)
+        and not _is_internal_provider(child)
+        for key, child in value.items()
+    )
+
+
+def _reject_marketplace_metric_fields(value: Any, path: str = "snapshot") -> None:
+    """Reject third-party metrics while allowing provenance prose and URLs."""
 
     if isinstance(value, dict):
-        has_opensea_provider = any(
-            _normalized_key(key) in PROVIDER_KEYS and _contains_opensea_text(child)
-            for key, child in value.items()
-        )
+        has_external_provider = _has_external_provider(value)
         has_metric_key = any(_is_rarity_metric_key(key) for key in value)
-        if has_opensea_provider and has_metric_key:
+        if has_external_provider and has_metric_key:
             raise InputError(
-                "OpenSea-sourced rarity metric fields are prohibited in Museum "
+                "OpenSea or other third-party marketplace/service rarity metric "
+                "fields are "
+                "prohibited in Museum "
                 f"snapshots: {path}"
             )
         for key, child in value.items():
             key_text = str(key)
-            if _is_opensea_metric_key(key):
+            if _is_external_service_metric_key(key):
                 raise InputError(
-                    "OpenSea-sourced or computed rarity metric fields are "
+                    "OpenSea or other third-party marketplace/service rarity "
+                    "metric fields are "
                     f"prohibited in Museum rarity snapshots: {path}.{key_text}"
                 )
-            if _is_rarity_metric_key(key) and _contains_opensea_text(child):
+            if _is_rarity_metric_key(key) and _contains_external_service_reference(
+                child
+            ):
                 raise InputError(
-                    "OpenSea-sourced or computed rarity metric fields are "
+                    "OpenSea or other third-party marketplace/service rarity "
+                    "metric fields are "
                     f"prohibited in Museum rarity snapshots: {path}.{key_text}"
                 )
-            _reject_opensea_metric_fields(child, f"{path}.{key_text}")
+            _reject_marketplace_metric_fields(child, f"{path}.{key_text}")
     elif isinstance(value, list):
         for index, child in enumerate(value):
-            _reject_opensea_metric_fields(child, f"{path}[{index}]")
+            _reject_marketplace_metric_fields(child, f"{path}[{index}]")
 
 
-def _validate_snapshot_shape(snapshot: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def _validate_snapshot_shape(
+    snapshot: dict[str, Any], collection_id: int
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     tokens_value = snapshot.get("tokens")
     traits_value = snapshot.get("traits")
     if not isinstance(tokens_value, list) or not tokens_value:
@@ -267,17 +375,17 @@ def _validate_snapshot_shape(snapshot: dict[str, Any]) -> tuple[list[dict[str, A
         if not isinstance(token, dict):
             raise InputError(f"tokens[{index}] must be an object")
         token_id = _require_int(token.get("id"), f"tokens[{index}].id")
-        collection_id = _require_int(
+        token_collection_id = _require_int(
             token.get("collection_id"), f"tokens[{index}].collection_id"
         )
-        tokens.append({"id": token_id, "collection_id": collection_id})
+        tokens.append({"id": token_id, "collection_id": token_collection_id})
 
     traits: list[dict[str, Any]] = []
     for index, row in enumerate(traits_value):
         if not isinstance(row, dict):
             raise InputError(f"traits[{index}] must be an object")
         token_id = _require_int(row.get("token_id"), f"traits[{index}].token_id")
-        collection_id = _require_int(
+        trait_collection_id = _require_int(
             row.get("collection_id"), f"traits[{index}].collection_id"
         )
         trait = _require_text(row.get("trait"), f"traits[{index}].trait")
@@ -285,10 +393,19 @@ def _validate_snapshot_shape(snapshot: dict[str, Any]) -> tuple[list[dict[str, A
         traits.append(
             {
                 "token_id": token_id,
-                "collection_id": collection_id,
+                "collection_id": trait_collection_id,
                 "trait": trait,
                 "value": value,
             }
+        )
+
+    observed_collection_ids = {
+        row["collection_id"] for row in tokens + traits
+    }
+    if observed_collection_ids != {collection_id}:
+        raise InputError(
+            "mixed collection_id values are not analyzable; every token and "
+            f"trait row must match collection.id {collection_id}"
         )
 
     return tokens, traits
@@ -313,7 +430,12 @@ def _duplicate_groups(rows: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def normalize_snapshot(
     snapshot: dict[str, Any], *, duplicate_policy: str = "error"
-) -> tuple[dict[str, Any], dict[str, Any]]:
+) -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+]:
     """Validate and deterministically order a raw snapshot.
 
     ``error`` is the safe default.  ``preserve`` reproduces the source's
@@ -328,8 +450,10 @@ def normalize_snapshot(
             "duplicate_policy must be one of: error, preserve, deduplicate"
         )
 
-    _reject_opensea_metric_fields(snapshot)
-    tokens, raw_traits = _validate_snapshot_shape(snapshot)
+    _reject_non_finite_values(snapshot)
+    collection_id = _validate_snapshot_metadata(snapshot)
+    _reject_marketplace_metric_fields(snapshot)
+    tokens, raw_traits = _validate_snapshot_shape(snapshot, collection_id)
     token_ids = [token["id"] for token in tokens]
     token_id_duplicates = sorted(
         token_id for token_id, count in Counter(token_ids).items() if count > 1
@@ -365,12 +489,12 @@ def normalize_snapshot(
         by_key: dict[tuple[int, str], list[dict[str, Any]]] = {}
         for row in raw_traits:
             by_key.setdefault((row["token_id"], row["trait"]), []).append(row)
-        effective_traits = []
+        kept_by_key: dict[tuple[int, str], dict[str, Any]] = {}
         for (token_id, trait), rows in sorted(by_key.items()):
             kept_row = min(
                 rows, key=lambda row: (row["value"], row["collection_id"])
             )
-            effective_traits.append(kept_row)
+            kept_by_key[(token_id, trait)] = kept_row
             if len(rows) > 1:
                 kept = False
                 removed_values: list[str] = []
@@ -386,6 +510,13 @@ def normalize_snapshot(
                         "removed_values": sorted(removed_values),
                     }
                 )
+        seen_keys: set[tuple[int, str]] = set()
+        effective_traits = []
+        for row in raw_traits:
+            key = (row["token_id"], row["trait"])
+            if key not in seen_keys:
+                seen_keys.add(key)
+                effective_traits.append(kept_by_key[key])
 
     normalized_tokens = sorted(tokens, key=lambda token: token["id"])
     normalized_traits = sorted(
@@ -431,11 +562,18 @@ def normalize_snapshot(
 
     normalized = {
         "schema": "6529nm.generative-trait-analysis-input/v1",
+        "snapshot_id": snapshot["snapshot_id"],
+        "observed_at": snapshot["observed_at"],
+        "source": deepcopy(snapshot["source"]),
         "collection": deepcopy(snapshot.get("collection")),
         "tokens": normalized_tokens,
         "traits": normalized_traits,
         "normalization": {
-            "ordering": "tokens by token id; trait rows by token id, trait, value",
+            "ordering": (
+                "canonical presentation: tokens by token id; trait rows by token "
+                "id, trait, value; compatibility calculations retain effective "
+                "source row order"
+            ),
             "duplicate_policy": duplicate_policy,
             "missing_policy": "preserve absence; never synthesize a trait or None value",
             "mint_type_policy": (
@@ -444,7 +582,7 @@ def normalize_snapshot(
             ),
         },
     }
-    return normalized, quality
+    return normalized, quality, tokens, effective_traits
 
 
 def _competition_ranks(
@@ -499,11 +637,9 @@ def analyze_snapshot(
 ) -> dict[str, Any]:
     """Analyze a snapshot using the pinned NextGen backend algorithm."""
 
-    normalized, quality = normalize_snapshot(
+    normalized, quality, tokens, traits = normalize_snapshot(
         snapshot, duplicate_policy=duplicate_policy
     )
-    tokens = normalized["tokens"]
-    traits = normalized["traits"]
     token_count = len(set(row["token_id"] for row in traits))
     if token_count == 0:
         raise InputError("the source algorithm has no observed token denominator")
@@ -517,8 +653,6 @@ def analyze_snapshot(
     traits_count = len(
         {trait for trait in trait_value_counts if not _is_mint_type(trait)}
     )
-    if traits_count == 0:
-        raise InputError("no non-Mint Type trait categories are available")
 
     per_trait: list[dict[str, Any]] = []
     for row in traits:
@@ -592,11 +726,13 @@ def analyze_snapshot(
     per_token: list[dict[str, Any]] = []
     for token in tokens:
         token_rows = traits_by_token[token["id"]]
-        rarity_score = sum(row["rarity_score"] for row in token_rows)
-        rarity_score_normalised = sum(
+        rarity_score = _left_to_right_sum(
+            row["rarity_score"] for row in token_rows
+        )
+        rarity_score_normalised = _left_to_right_sum(
             row["rarity_score_normalised"] for row in token_rows
         )
-        rarity_score_trait_count_normalised = sum(
+        rarity_score_trait_count_normalised = _left_to_right_sum(
             row["rarity_score_trait_count_normalised"] for row in token_rows
         )
         statistical_score = math.prod(
@@ -706,15 +842,21 @@ def analyze_snapshot(
         },
         "configuration": {
             "duplicate_policy": duplicate_policy,
+            "calculation_mode": "production-compatibility",
+            "source_order_policy": (
+                "compatibility calculations retain effective input row order; "
+                "input.normalized_snapshot is the canonical sorted presentation"
+            ),
             "token_count_for_trait_prevalence": "distinct token_id values in effective trait rows",
             "token_count_for_token_scores": "declared snapshot token rows",
             "missing_trait_policy": "absence is preserved; no synthetic None values",
             "none_value_policy": "values whose lowercase text starts with 'none' are excluded from trait_count but retained in score products",
             "trait_rank_tie_policy": "dense rank, descending, independently within each trait category",
             "token_rank_tie_policy": "competition rank, stable sort, direction depends on score family",
-            "opensea_policy": (
-                "reject structured OpenSea-sourced or computed metric fields; "
-                "allow provenance prose, citations, and URLs that mention OpenSea"
+            "third_party_metric_policy": (
+                "reject structured third-party marketplace/service-sourced or "
+                "computed rarity metric fields; allow provenance prose, "
+                "citations, and URLs that mention those services"
             ),
         },
         "determinism": determinism_profile(),
