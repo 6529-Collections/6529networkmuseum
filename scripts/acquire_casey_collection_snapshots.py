@@ -507,7 +507,7 @@ def run(args: argparse.Namespace) -> int:
             "source_metadata": source_metadata,
             "source_trait_rows": source_trait_rows,
             "ordering": {"source_token_order": [item["id"] for item in tokens], "source_trait_row_order": [item["source_row_index"] for item in source_trait_rows], "canonical_token_order": [item["id"] for item in canonical_tokens], "canonical_trait_order": [item["source_row_index"] for item in canonical_traits], "source_order_definition": "Hasura page order: pages by offset, tokens ordered by token_id asc, features object insertion order", "canonical_order_definition": "tokens by numeric id; traits by token_id, trait, value, source_feature_index"},
-            "materialization": {"version": "6529nm.artblocks-hasura-features-to-analysis-rows.v1", "raw_field": "tokens_metadata.features", "scalar_rule": "strings unchanged; booleans become lowercase JSON text; numbers use compact JSON text", "not_a_marketplace_metric": True},
+            "materialization": {"version": "6529nm.artblocks-hasura-features-to-analysis-rows.v1", "raw_field": "tokens_metadata.features", "scalar_rule": "strings unchanged; booleans become lowercase JSON text; numbers use compact JSON text"},
             "analysis_input_note": "The traits array is an explicit Museum materialization of the authoritative Art Blocks Hasura features object; it is a technical distribution descriptor input, not a platform or marketplace rarity taxonomy.",
         }
         snapshot_path = run_root / "snapshots" / slug / "snapshot.json"

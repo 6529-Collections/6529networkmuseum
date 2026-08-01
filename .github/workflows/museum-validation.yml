@@ -35,7 +35,6 @@ jobs:
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
 
-<<<<<<< HEAD
       - name: Check network fetch guard
         run: python scripts/check_fetch_guard.py
 
