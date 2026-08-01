@@ -46,6 +46,19 @@ App Runner is upgraded. Do not use the unsupported shortcut, substitute an
 unrelated profile, or deploy/restart production from this PR. The pinned
 compatibility assertion is tested by `test_reviewbot_config_matches_deployed_compatibility_catalog`.
 
+## Exact-head remediation checkpoint
+
+Independent review of the prior head identified three fail-closed gaps. The
+working remediation now rejects every declared non-text evidence media type
+outside the structurally parsed PNG profile, scans bounded UTF-16LE/BE
+candidate spans case-insensitively, and rejects `getattr`-mediated access to
+network/process/dynamic-import roots in every Python tree including tests.
+Governance prose now states the exact four-kind automatic production baseline;
+external-media and deploy-actions remain manual specialists, and Stream review
+uses the central head-bound workflow until the production catalog upgrade.
+Focused adversarial tests cover PDF/octet-stream polyglots, uppercase secrets
+in both UTF-16 endiannesses, and aliased `getattr` bypasses.
+
 ## Unresolved questions
 
 - The pinned Stream commit does not publish standalone canonical JSON Schema

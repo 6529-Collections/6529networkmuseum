@@ -264,6 +264,10 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(supported, configured)
         self.assertNotIn("stream-contracts", configured)
         self.assertEqual(["stream-contracts"], catalog["temporarily_unsupported_repository_review_kinds"])
+        governance = (REPO_ROOT / "governance/github-repository-governance.md").read_text(encoding="utf-8")
+        self.assertIn("automatic production-compatible baseline is exactly", governance)
+        self.assertIn("These specialists are not automatic baseline coverage", governance)
+        self.assertIn("central head-bound `review-job.yml` workflow", governance)
 
     def make_mock_fetcher(self, answers: dict[str, list[str]], responses: dict[str, tuple[int, dict[str, str], bytes, str | None]], clock=None):
         connections = []
@@ -500,6 +504,9 @@ class ControlPlaneTests(unittest.TestCase):
             "subprocess_curl.py": "import subprocess\nsubprocess.run(['curl', 'https://example.test'])\n",
             "subprocess_alias.py": "from subprocess import Popen as launch\nlaunch(['wget', 'https://example.test'])\n",
             "os_shell.py": "import os as operating\noperating.system('powershell Invoke-WebRequest https://example.test')\n",
+            "getattr_subprocess.py": "import subprocess as sp\ngetattr(sp, 'Popen')(['curl', 'https://example.test'])\n",
+            "getattr_os.py": "import os as operating\ngetattr(operating, 'system')('wget https://example.test')\n",
+            "getattr_importlib.py": "import importlib as loader\ngetattr(loader, 'import_module')('requests')\n",
         }
         for filename, source in bad_sources.items():
             with self.subTest(filename=filename):
@@ -628,11 +635,56 @@ class ControlPlaneTests(unittest.TestCase):
                     with self.assertRaises(SystemExit):
                         bootstrap_validate.check_public_record_safety(entries)
 
+        for label in ("API_KEY", "CLIENT_SECRET", "PRIVATE_KEY", "PASSWORD"):
+            for encoding in ("utf-16-le", "utf-16-be"):
+                with self.subTest(label=label, encoding=encoding):
+                    payload = self.make_png(f"{label}=SyntheticSecretValue".encode(encoding))
+                    write_manifest(payload)
+                    with patch.object(bootstrap_validate, "ROOT", root):
+                        entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+                        with self.assertRaises(SystemExit):
+                            bootstrap_validate.check_public_record_safety(entries)
+
         image.write_bytes(b"\xff\x00undeclared")
         manifest.unlink()
         with patch.object(bootstrap_validate, "ROOT", root):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
+
+    def test_declared_nontext_binary_media_fails_closed_before_text_fallback(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-nontext-evidence-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        evidence = root / "evidence"
+        evidence.mkdir()
+        manifest = evidence / "manifest.json"
+        payload = b"MZ\nPK\x03\x04\n#!/bin/sh\n<script>alert(1)</script>"
+        for media_type in ("application/pdf", "application/octet-stream"):
+            with self.subTest(media_type=media_type):
+                target = evidence / "payload.dat"
+                target.write_bytes(payload)
+                manifest.write_text(
+                    json.dumps(
+                        {
+                            "hash_algorithm": "sha256",
+                            "byte_mode": "raw",
+                            "entries": [
+                                {
+                                    "path": target.name,
+                                    "byte_mode": "raw",
+                                    "media_type": media_type,
+                                    "size": len(payload),
+                                    "sha256": hashlib.sha256(payload).hexdigest(),
+                                }
+                            ],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                with patch.object(bootstrap_validate, "ROOT", root):
+                    entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+                    with self.assertRaises(SystemExit):
+                        bootstrap_validate.check_public_record_safety(entries)
 
     def test_full_validator_enforces_all_governed_record_schemas(self) -> None:
         result = subprocess.run(

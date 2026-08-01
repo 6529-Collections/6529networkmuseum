@@ -27,6 +27,7 @@ SOCKET_ATTRIBUTES = {
     "socket",
 }
 SUBPROCESS_CALLS = {"run", "call", "check_call", "check_output", "Popen"}
+SENSITIVE_DYNAMIC_ROOTS = NETWORK_IMPORT_ROOTS | {"socket", "urllib", "http", "subprocess", "os", "importlib"}
 COMMAND_FETCH_WORDS = re.compile(
     r"(?i)(?:^|[^a-z0-9])(?:curl|wget|powershell|pwsh|invoke-webrequest|invoke-restmethod|bitsadmin|certutil)(?:[^a-z0-9]|$)"
 )
@@ -112,6 +113,14 @@ def scan_file(path: Path, root: Path) -> list[str]:
             literals = _string_literals(node)
             if not literals or any(_network_import(value) for value in literals) or qualified in {"builtins.__import__", "__import__"}:
                 violations.append(f"{relative}:{node.lineno}: dynamic module loading is not allowed: {qualified}")
+        elif qualified in {"getattr", "builtins.getattr"}:
+            if not node.args:
+                violations.append(f"{relative}:{node.lineno}: dynamic attribute access is not allowed")
+                continue
+            receiver = resolve_alias(dotted_name(node.args[0]), aliases)
+            receiver_root = receiver.split(".", 1)[0]
+            if receiver_root in SENSITIVE_DYNAMIC_ROOTS:
+                violations.append(f"{relative}:{node.lineno}: dynamic sensitive attribute access is not allowed: {receiver}")
         elif root in NETWORK_IMPORT_ROOTS:
             violations.append(f"{relative}:{node.lineno}: unmediated HTTP client call {qualified}")
         elif qualified in {"urllib.urlopen", "urllib.request.urlopen", "urllib.request.urlretrieve"} or qualified.endswith(".urlopen"):

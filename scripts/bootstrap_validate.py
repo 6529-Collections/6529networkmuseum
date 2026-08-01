@@ -89,6 +89,7 @@ def check_local_markdown_links() -> None:
 
 
 TEXT_MEDIA_PREFIXES = ("text/",)
+TEXTUAL_MEDIA_TYPES = {"application/json", "application/ld+json", "application/xml", "application/yaml", "application/x-yaml"}
 # V1 admits only PNG because it has a small, deterministic structural parser.
 # Other image/PDF/container types remain text-or-fail-closed until a parser is
 # deliberately added and covered by equivalent public-safety tests.
@@ -114,7 +115,8 @@ BINARY_SECRET_PATTERNS = (
 )
 BINARY_LOCAL_PATH = re.compile(rb"(?:[A-Za-z]:[\\/](?:Users|repos)[\\/]|\\\\[A-Za-z0-9][A-Za-z0-9_.-]*[\\/][A-Za-z0-9][A-Za-z0-9_.-]*[\\/]|/(?:home|Users|root)/)")
 BINARY_EXECUTABLE_SIGNATURES = (b"MZ", b"\x7fELF", b"#!", b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08", b"<script")
-BINARY_TEXT_MARKERS = ("api", "client", "private", "seed", "mnemonic", "password", "ghp_", "AKIA", "eyJ", "-----BEGIN", "C:\\", "/Users/", "/home/", "/root/")
+BINARY_TEXT_MARKERS = ("api", "client", "secret", "private", "seed", "mnemonic", "password", "token", "ghp_", "AKIA", "eyJ", "-----BEGIN", "C:\\", "/Users/", "/home/", "/root/")
+UTF16_SCAN_LIMIT = 65_536
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 PNG_CHUNK_TYPE = re.compile(rb"^[A-Za-z]{4}$")
 
@@ -126,6 +128,16 @@ def is_manifest_approved_binary(entry: dict[str, object] | None) -> bool:
     if not isinstance(media_type, str) or not media_type or media_type.startswith(TEXT_MEDIA_PREFIXES):
         return False
     return media_type in SAFE_BINARY_MEDIA_TYPES
+
+
+def is_manifest_textual(entry: dict[str, object] | None) -> bool:
+    if not isinstance(entry, dict):
+        return False
+    media_type = entry.get("media_type")
+    if not isinstance(media_type, str):
+        return False
+    base_media_type = media_type.split(";", 1)[0].strip().lower()
+    return base_media_type.startswith(TEXT_MEDIA_PREFIXES) or base_media_type in TEXTUAL_MEDIA_TYPES
 
 
 def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
@@ -149,18 +161,19 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
     # UTF-16 evidence may be embedded at an arbitrary byte offset inside a
     # structurally valid container. Decode candidate spans for both endian
     # forms, with and without BOM, rather than trusting container alignment.
+    folded_payload = payload.lower()
     for encoding in ("utf-16-le", "utf-16-be"):
         for marker in BINARY_TEXT_MARKERS:
-            needle = marker.encode(encoding)
-            start = payload.find(needle)
+            needle = marker.encode(encoding).lower()
+            start = folded_payload.find(needle)
             while start >= 0:
                 try:
-                    decoded = payload[start:].decode(encoding)
+                    decoded = payload[start : start + UTF16_SCAN_LIMIT].decode(encoding)
                 except UnicodeDecodeError:
                     decoded = ""
                 if LOCAL_PATH.search(decoded) or any(pattern.search(decoded) for pattern in SECRET_PATTERNS):
                     fail(f"credential-shaped UTF-16 text in raw public evidence: {path.relative_to(ROOT)}")
-                start = payload.find(needle, start + 2)
+                start = folded_payload.find(needle, start + 2)
     if media_type != "image/png":
         fail(f"raw evidence media profile is not admitted: {path.relative_to(ROOT)}")
     if not payload.startswith(PNG_SIGNATURE):
@@ -226,6 +239,8 @@ def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] |
             if is_manifest_approved_binary(entry):
                 validate_binary_evidence(path, entry)
                 continue
+            if isinstance(entry, dict) and not is_manifest_textual(entry):
+                fail(f"undeclared or unsupported non-text evidence media: {path.relative_to(ROOT)}")
             try:
                 text = path.read_bytes().decode("utf-8-sig")
             except UnicodeDecodeError as exc:

@@ -17,7 +17,7 @@ All changes to the default branch are made through pull requests and are subject
 
 Repository-wide ownership is declared in `.github/CODEOWNERS`.
 
-Every pull request opened by a trusted maintainer is enrolled in the repository-aware `6529bot` review profile at `.github/6529bot.yml`. Initial review fans out to general, security, external-media, Stream-contract, privacy/evidence, and advisory GLM-swarm review; subsequent commits receive follow-up review. Untrusted public contributors cannot consume model budget automatically; a maintainer triggers the same review before approval. The configuration contains budget ceilings and no secrets. GitHub Copilot review is requested independently through a repository ruleset on every draft and non-draft pull request.
+Every pull request opened by a trusted maintainer is enrolled in the repository-aware `6529bot` review profile at `.github/6529bot.yml`. The automatic production-compatible baseline is exactly `general`, `security`, `privacy-evidence`, and advisory `glm-swarm`; `followup` is expected after synchronization when the deployed service supports it. `media-external` and `deploy-actions` are separate maintainer-requested specialists, while Stream-equivalent contract review is manually dispatched through the central head-bound `review-job.yml` workflow until the deployed catalog upgrade admits `stream-contracts`. These specialists are not automatic baseline coverage. Untrusted public contributors cannot consume model budget automatically; a maintainer triggers the configured review before approval. The configuration contains budget ceilings and no secrets. GitHub Copilot review is requested independently through a repository ruleset on every draft and non-draft pull request.
 
 ## Configured access
 

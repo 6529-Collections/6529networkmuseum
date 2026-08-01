@@ -472,8 +472,8 @@
     },
     {
       "path": "scripts/bootstrap_validate.py",
-      "sha256": "sha256:c34eb935d049ce130f3f0bce0d650b8d0c452d14da798b990372d6d0fc174685",
-      "size": 24890
+      "sha256": "sha256:0e37070c486f4f6b191767d46db641aa7a8481f4eb0c6e619df1fc50ddd94499",
+      "size": 25717
     },
     {
       "path": "scripts/canonical.py",
@@ -482,8 +482,8 @@
     },
     {
       "path": "scripts/check_fetch_guard.py",
-      "sha256": "sha256:5b03b177aff55c7526a72ad8e59df8ebe849c7c9b1bf5e6e6e2ed5ef489af09c",
-      "size": 6606
+      "sha256": "sha256:4fd4f6d5744fb2ebbd74cdb1f4dd217ac326369dff47e658c3162a3b32cfae60",
+      "size": 7245
     },
     {
       "path": "scripts/generate_manifest.py",
@@ -657,8 +657,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:352929cc0077655b232416486715bde3e70518998ba6eb119704ce4c41cb9ac5",
-      "size": 42136
+      "sha256": "sha256:afb3b75febd4a2f066d02d855b982a3a74b28b0f0cc9b9350665340b7bf4d40d",
+      "size": 45314
     }
   ],
   "hash_algorithms": {
@@ -676,9 +676,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xb23a3d9f146481e8e0e01d6cc6c6e1e75ca788b5c79df9e2f900a078044913fd"
+    "digest": "0x04a85a8cef29cc7747c666380ae4ecb25c303c37b7994a1900bbb40d913b08c4"
   },
-  "manifest_sha256": "sha256:da53e89036de9c5a9e1c78b6b716a2f5a528bb5cca0c5e3be890c69d34cc867a",
+  "manifest_sha256": "sha256:69919a9c4299621b69c711bdbc4fa39a6b2bde0d9bed3687611021f8a411030f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
