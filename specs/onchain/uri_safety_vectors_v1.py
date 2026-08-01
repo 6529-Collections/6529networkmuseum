@@ -18,10 +18,20 @@ import rfc8785
 from Crypto.Hash import keccak
 
 
-PROFILE = (b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"path":{"percentTripletsUppercase":true,"rejectEncodedUnreserved":true}}')
-PROFILE_HASH = "3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d"
+PROFILE = (b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":{"multibase":"base58btc","prefix":"Qm","length":46,"multihash":"0x1220+32-byte-digest"},"cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}')
+PROFILE_HASH = "797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570"
 CID_V1 = "bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq"
 AR_TX = "A" * 43
+RESERVED_IPV4 = tuple(ipaddress.ip_network(value) for value in (
+    "0.0.0.0/8", "10.0.0.0/8", "100.64.0.0/10", "127.0.0.0/8",
+    "169.254.0.0/16", "192.0.0.0/24", "192.0.2.0/24", "192.88.99.0/24",
+    "192.168.0.0/16", "198.18.0.0/15", "198.51.100.0/24", "203.0.113.0/24",
+    "224.0.0.0/4", "240.0.0.0/4"
+))
+RESERVED_IPV6 = tuple(ipaddress.ip_network(value) for value in (
+    "::/128", "::1/128", "::ffff:0:0/96", "100::/64", "2001:2::/48",
+    "2001:10::/28", "2001:db8::/32", "fc00::/7", "fe80::/10", "ff00::/8"
+))
 
 
 def keccak256(value: bytes) -> bytes:
@@ -38,6 +48,8 @@ def _varint(value: bytes, offset: int) -> tuple[int, int]:
         offset += 1
         result |= (byte & 0x7F) << shift
         if byte < 0x80:
+            if shift and byte == 0:
+                raise ValueError("non-canonical overlong varint")
             return result, offset
         shift += 7
     raise ValueError("invalid varint")
@@ -69,16 +81,30 @@ def _valid_cid(authority: str) -> bool:
 def _valid_path(path: str) -> bool:
     if any(ord(char) < 0x20 or ord(char) == 0x7F for char in path):
         return False
-    for match in re.finditer(r"%([0-9A-Fa-f]{2})", path):
-        if match.group(0)[1:] != match.group(0)[1:].upper():
+    allowed = "/:@!$&'()*+,;=-._~"
+    index = 0
+    while index < len(path):
+        char = path[index]
+        if char == "%":
+            if index + 2 >= len(path) or not re.fullmatch(r"[0-9A-Fa-f]{2}", path[index + 1:index + 3]):
+                return False
+            triplet = path[index + 1:index + 3]
+            if triplet != triplet.upper():
+                return False
+            if chr(int(triplet, 16)) in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~":
+                return False
+            index += 3
+            continue
+        if not (char.isascii() and (char.isalnum() or char in allowed)):
             return False
-        if chr(int(match.group(1), 16)) in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~":
-            return False
-    return all(char == "/" or char.isalnum() or char in ":@!$&'()*+,;=-._~%" for char in path)
+        index += 1
+    return True
 
 
 def _globally_routable(address: ipaddress._BaseAddress) -> bool:
     return not (
+        any(address in network for network in (RESERVED_IPV4 if address.version == 4 else RESERVED_IPV6))
+        or
         address.is_private
         or address.is_loopback
         or address.is_link_local
@@ -91,10 +117,17 @@ def _globally_routable(address: ipaddress._BaseAddress) -> bool:
 
 
 def valid_uri(uri: str) -> bool:
-    raw = uri.encode("utf-8")
+    try:
+        raw = uri.encode("utf-8")
+    except UnicodeError:
+        return False
     if len(raw) > 2048 or any(byte < 0x20 or byte == 0x7F for byte in raw):
         return False
-    parsed = urlsplit(uri)
+    try:
+        parsed = urlsplit(uri)
+        parsed_port = parsed.port
+    except (UnicodeError, ValueError):
+        return False
     if parsed.scheme not in {"https", "ipfs", "ar"} or parsed.username is not None or parsed.password is not None:
         return False
     if parsed.query or parsed.fragment or not _valid_path(parsed.path):
@@ -102,8 +135,8 @@ def valid_uri(uri: str) -> bool:
     if parsed.scheme == "ar":
         return parsed.path == "" and re.fullmatch(r"[A-Za-z0-9_-]{43}", parsed.netloc or "") is not None and len(base64.urlsafe_b64decode((parsed.netloc + "==").encode())) == 32
     if parsed.scheme == "ipfs":
-        return bool(parsed.netloc) and _valid_cid(parsed.netloc.split(":", 1)[0]) and _valid_path(parsed.path)
-    if parsed.port is not None or not parsed.netloc:
+        return parsed_port is None and bool(parsed.netloc) and _valid_cid(parsed.netloc) and _valid_path(parsed.path)
+    if parsed_port is not None or not parsed.netloc:
         return False
     host = parsed.netloc[1:-1] if parsed.netloc.startswith("[") and parsed.netloc.endswith("]") else parsed.netloc
     if parsed.netloc.startswith("["):
@@ -166,19 +199,26 @@ VECTORS = [
     {"id": "https-fragment", "uri": "https://example.com/x#frag", "accept": False},
     {"id": "ipfs-invalid-cid", "uri": "ipfs://bafybeigdyrzt5example/path", "accept": False},
     {"id": "ar-short", "uri": "ar://AbCdEf012_-", "accept": False},
-    {"id": "https-control", "uri": "https://example.com/x\x01", "accept": False}
+    {"id": "https-control", "uri": "https://example.com/x\x01", "accept": False},
+    {"id": "https-bare-percent", "uri": "https://example.com/a%", "accept": False},
+    {"id": "https-invalid-percent-hex", "uri": "https://example.com/a%G0", "accept": False},
+    {"id": "https-cgnat", "uri": "https://100.64.0.1/x", "accept": False},
+    {"id": "https-nonnumeric-port", "uri": "https://example.com:abc/x", "accept": False},
+    {"id": "https-nonascii-path", "uri": "https://example.com/café", "accept": False},
+    {"id": "ipfs-overlong-varint", "uri": "ipfs://bqeahaeraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/path", "accept": False},
+    {"id": "ipfs-port", "uri": f"ipfs://{CID_V1}:443/path", "accept": False}
 ]
 
 
 def main() -> int:
-    assert len(PROFILE) == 941
+    assert len(PROFILE) == 1365
     assert keccak256(PROFILE).hex() == PROFILE_HASH
     for vector in VECTORS:
         actual = valid_uri(vector["uri"])
         assert actual == vector["accept"], (vector["id"], actual, vector)
     bundle = rfc8785.dumps(VECTORS)
     bundle_hash = keccak256(bundle).hex()
-    expected_bundle_hash = "e21b70aa8619f17e81dcc5fe738db966372824bdbe68e20d0184eb2b88814aa9"
+    expected_bundle_hash = "159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9"
     assert bundle_hash == expected_bundle_hash, bundle_hash
     print(f"profileBytes={len(PROFILE)} profileHash=0x{PROFILE_HASH}")
     print(f"vectorCount={len(VECTORS)} vectorBundleHash=0x{bundle_hash}")

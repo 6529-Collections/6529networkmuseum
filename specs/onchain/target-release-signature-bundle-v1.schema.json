@@ -1,0 +1,28 @@
+{
+  "$id": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "releaseId", "signedDocumentHash", "entries"],
+  "properties": {
+    "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
+    "version": { "const": 1 },
+    "releaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "entries": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signer", "signature", "signatureCommitment"],
+        "properties": {
+          "signer": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "signature": { "type": "string", "pattern": "^0x[0-9a-f]{130}$" },
+          "signatureCommitment": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

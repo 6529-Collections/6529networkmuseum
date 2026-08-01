@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:f3d03748bf578a3922f46cf897933395529de3b7befb6a85d3b04b764aa8555b",
-      "size": 11845
+      "sha256": "sha256:dbba1ab9765a5740e31b93e96c8fe36df8d3055edd452e4653f1b5714c82a308",
+      "size": 12278
     },
     {
       "path": "README.md",
@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:da3ebc6de451fadc3b954047bca4ef2b1752a38a1661e244031311cdd8e80ccf",
-      "size": 4925
+      "sha256": "sha256:624a7e97b474e8ec97c5f324422a4c74a48f47c7196ee3299aa23b9c18d3ea25",
+      "size": 5924
     },
     {
       "path": "docs/onchain-design.md",
@@ -606,6 +606,11 @@
       "size": 1255
     },
     {
+      "path": "specs/onchain/abi_encoding_v1.py",
+      "sha256": "sha256:4f17c14156a43de3027426a7570d01481583dffe79596d883f43f6dac25f4ec0",
+      "size": 1718
+    },
+    {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
@@ -627,18 +632,18 @@
     },
     {
       "path": "specs/onchain/batch_vector_check_v1.py",
-      "sha256": "sha256:473de58ba9faf67b21418c7de128c0790c28fa7a025b1ef7d0129955e5ca020e",
-      "size": 1336
+      "sha256": "sha256:c6f059165dd8e0a742fa0411b2fbca60208c3f07ee1533cb46c5478b481b6fbe",
+      "size": 1323
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:4f15d043b8f462d2ceea675f2b883769803c86212b139a6c9cdcfdab84c9d164",
-      "size": 186581
+      "sha256": "sha256:22a11a05ce469be42bdc1553a5e12ffa2b4cb60ffd224428ff2ca77ab425b2e7",
+      "size": 190466
     },
     {
       "path": "specs/onchain/https_expiry_renewal_check_v1.py",
-      "sha256": "sha256:0a0c3cab04886fd344003dec530006a39d89e66a9295a551008729863e54783d",
-      "size": 2618
+      "sha256": "sha256:b086d7c38391274ab19f8770b51ee5948b5b28460063bfc6a983e7a68ce86c45",
+      "size": 3559
     },
     {
       "content_hash": {
@@ -654,6 +659,26 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f"
+      },
+      "path": "specs/onchain/target-release-signature-bundle-v1.fixture.json",
+      "sha256": "sha256:401d3e3bb9aada8cc9b4aa3fe1024274d45f893a597d8ceceeb062f0625b906f",
+      "size": 1132
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x18a4e8f485799541fd9b710f08eedeea5bfec43dcd8d22232c5082acfbecb583"
+      },
+      "path": "specs/onchain/target-release-signature-bundle-v1.reference.json",
+      "sha256": "sha256:a52627dbcf38f25c19747cdd6c04ed153500ba26c9fa07b865449cd735fb362a",
+      "size": 858
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
         "digest": "0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.schema.json",
@@ -661,9 +686,14 @@
       "size": 1010
     },
     {
+      "path": "specs/onchain/target_release_signature_bundle_check_v1.py",
+      "sha256": "sha256:30d25a8f37326f73178b84ebd05b9fd4399b195911d3b22d38bfa22363a8e03e",
+      "size": 6432
+    },
+    {
       "path": "specs/onchain/uri_safety_vectors_v1.py",
-      "sha256": "sha256:1827dd061157983034b723f81bac9263968e5ca2a656fbf5d6626a480f2f34a4",
-      "size": 11522
+      "sha256": "sha256:960d9dd3cfe7cc1b6a25c7269fa77b64f220feac0165b5c186f930dcde6a2575",
+      "size": 11665
     },
     {
       "path": "templates/README.md",
@@ -877,8 +907,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:82464918d55e8b578ce4bca4520719ac4222e5d16ce295309029616d7d4763ac",
-      "size": 52680
+      "sha256": "sha256:49711e6306e79ca064eeabc096bf0f5ab387b7eb25d66ee5275f1f9cb4c8ee4f",
+      "size": 53380
     }
   ],
   "hash_algorithms": {
@@ -908,9 +938,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x88467a3d51b1a9e5eff4ea920f22f9c4815efc9f41d24b3d9cdc497dd51194b1"
+    "digest": "0xc9c0f235735e1491b5fc62f6feb1484211b133d9ca9c9dffca1c808460938520"
   },
-  "manifest_sha256": "sha256:29555e08e86b6e3df700e7bb1828aa56e6ec00ba91f8dbe00820e5a5be6495f9",
+  "manifest_sha256": "sha256:1771d27ccded987e4e4cc5b7f7a633dd4cfd987c55ca1b2ac74ae90486ff33f7",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

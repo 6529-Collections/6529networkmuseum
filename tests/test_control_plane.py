@@ -1019,6 +1019,23 @@ class ControlPlaneTests(unittest.TestCase):
         )
         self.assertEqual(0, result.returncode, result.stdout + result.stderr)
 
+    def test_onchain_conformance_harnesses_pass(self) -> None:
+        for name in (
+            "uri_safety_vectors_v1.py",
+            "batch_vector_check_v1.py",
+            "https_expiry_renewal_check_v1.py",
+            "target_release_signature_bundle_check_v1.py",
+        ):
+            with self.subTest(name=name):
+                result = subprocess.run(
+                    [sys.executable, "-B", str(REPO_ROOT / "specs" / "onchain" / name)],
+                    cwd=REPO_ROOT,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()

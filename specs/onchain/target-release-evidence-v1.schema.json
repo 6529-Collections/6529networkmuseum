@@ -25,6 +25,7 @@
     "builds",
     "conformance",
     "signers",
+    "detachedSignatureBundle",
     "availability",
     "previousReleaseId",
     "supersessionReasonHash"
@@ -99,6 +100,35 @@
           "maxItems": 3,
           "uniqueItems": true,
           "items": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "detachedSignatureBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "schemaHash", "version", "uri", "contentHash", "mediaType", "sizeBytes", "availability"],
+      "properties": {
+        "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
+        "schemaHash": { "const": "0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439" },
+        "version": { "const": 1 },
+        "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+        "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "mediaType": { "const": "application/json" },
+        "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 65536 },
+        "availability": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["uri", "contentHash", "fetchObservationHash"],
+            "properties": {
+              "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+              "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+              "fetchObservationHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+            }
+          }
         }
       }
     },

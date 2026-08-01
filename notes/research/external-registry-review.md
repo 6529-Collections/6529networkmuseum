@@ -20,6 +20,30 @@ This review used:
 
 The review is design evidence, not a deployed-contract or live-custody claim.
 
+The current executable conformance artifacts are byte-oriented and are part of
+the remediation transcript: `python -B
+specs/onchain/uri_safety_vectors_v1.py` reports the 1,365-byte profile hash
+`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` and 38
+vectors with bundle hash
+`0x159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9`;
+`python -B specs/onchain/batch_vector_check_v1.py` reports the canonical
+batch ID `0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b`
+and commitment
+`0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`;
+and `python -B specs/onchain/https_expiry_renewal_check_v1.py` exercises
+expired-write rejection, renewal acceptance, historical readability, and
+non-retroactive validity.
+`python -B specs/onchain/target_release_signature_bundle_check_v1.py` also
+validates the detached TargetRelease 1,131-byte JCS fixture at
+`specs/onchain/target-release-signature-bundle-v1.fixture.json`,
+content hash
+`0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f`,
+the `ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq` /
+`ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk` references, and 3/3
+signature recovery; the separate
+`specs/onchain/target-release-signature-bundle-v1.reference.json` records the
+two schema-validated availability observations.
+
 ## Findings
 
 ### 1. External works need a Museum registry boundary
@@ -343,7 +367,16 @@ canonical URI and current unexpired row; each path and each renewal has its
 own key/revision/predecessor. The final manifest vector in both this note and
 §13.6 uses Museum release baseline
 `ff1c5825e3b61bfb2df0a639e057297beb946e4d` and root
-`0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d`.
+`0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`.
+This is the worked one-record root, not the complete repository release
+artifact root.
+
+Historical values from the superseded pre-URI-remediation transcript are kept
+only as provenance and are not active vectors: the synthetic URI
+`ipfs://bafybeigdyrzt5example`, record `0x96b210df...`, chain
+`0x7e68037d...`, worked root `0x9743e8c8...`, and malformed leading-zero batch
+ID `0x0a471326...` with commitment `0x045fef92...`. They MUST NOT be used by
+the current conformance commands.
 
 ### Reproducible custom-error and interface-ID checks
 
@@ -469,29 +502,30 @@ foreach($signature in $selectorGolden.Keys) {
 ```
 
 The authority capability selector-set hash was recomputed after adding the
-governed target-release admission selector. The exact sorted `bytes4[]` is
-`[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065]`:
+governed target-release admission and quarantine selectors. The exact sorted
+`bytes4[]` is
+`[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065,0xf2ebf174]`:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065,0xf2ebf174]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0x43ccccabed39ca7cb155e6fa7af0ea39328f3d618c8ea6ca21faa7ce4b31ddc7') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 
 The fixed URI-safety profile document was independently hashed from exact
-UTF-8 bytes (941 bytes, no trailing LF) with both `cast keccak` and
+UTF-8 bytes (1365 bytes, no trailing LF) with both `cast keccak` and
 `Crypto.Hash.keccak`; both produce
-`0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d`.
+`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570`.
 
 ```powershell
 @'
 from Crypto.Hash import keccak
 import subprocess
-doc = b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"path":{"percentTripletsUppercase":true,"rejectEncodedUnreserved":true}}'
-assert len(doc) == 941
+doc = b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":{"multibase":"base58btc","prefix":"Qm","length":46,"multihash":"0x1220+32-byte-digest"},"cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}'
+assert len(doc) == 1365
 k = keccak.new(digest_bits=256); k.update(doc)
-assert k.hexdigest() == '3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d'
+assert k.hexdigest() == '797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570'
 cast = subprocess.check_output(['cast','keccak','0x'+doc.hex()], text=True).strip()
 assert cast == '0x'+k.hexdigest(), cast
 print(len(doc), cast)
@@ -552,7 +586,7 @@ $schema = '0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0'
 $asset = 'eip155:1/erc721:0x06012c8cf97bead5deae2370709587f8e7a266d/771769'
 $payloadUtf8Hex = '0x7b226964223a22363532394e4d2e323032362e3030312e31222c22737461747573223a2270726f706f736564227d'
 $payloadUtf8Length = 46
-$uri = 'ipfs://bafybeigdyrzt5example'
+$uri = 'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq'
 $assetHash = cast keccak $asset
 $externalSubjectId = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32)' $subjectDomain $assetProfile $assetHash)
 $contentDigest = cast keccak $payloadUtf8Hex
@@ -595,7 +629,7 @@ $sourceCommit = '0x'+('0'*24)+$sourceCommitHex
 $streamCommit = '0x'+('0'*24)+$streamCommitHex
 $generatorHash = cast keccak 'museum-migration/1.0.0'
 $manifestRoot = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32[])' $manifestRootDomain $sourceCommit $streamCommit $generatorHash 1 "[$entryHash]")
-$expectedManifestRoot = '0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d'
+$expectedManifestRoot = '0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280'
 if ($manifestRoot -ne $expectedManifestRoot) { throw "manifest root mismatch: $manifestRoot" }
 $ownerDomain = cast keccak '6529networkmuseum.stream-owner-record.v0'
 $ownerVector = cast keccak 'STREAM_OWNER_RECORD_HASH_VECTOR_V0'
@@ -651,16 +685,16 @@ ownerPayloadUtf8Length=37
 0xa6e5bb8be82a8267e4c7a5398a63d1b1cf8d3c612aa4529349882667e8a2ba78
 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
 0x648907ed3d936c0f74f8e05755c2ca9b06447e792208a269350464151c68fe36
-0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
+0x8ad820c94c531631741265f884f264fc8f3052c9f34c6590cdc7c59f7ebedffe
 0x2a7a69c6080aa4baf28ec37f556a929a605eab80f755f25a5d8416c1fabaa0a5
 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
-0x96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9
-0x7e68037dddf1c53e8b0ac5256d02893fd85d9ffee59207f1e1eca6881588bf7c
+0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1
+0xd4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49
 0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f
 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 0x9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba
-0x60c2187bc87f2fe0a6f4f22d4ce61d050ae3ce7a4ce82a5607a772f356bc5cf4
-0xb97f2572a6bd9f4b0075771cd3d0fb2de1c0ffa41345ac05ae4f30e6879a91ae
+0x146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa
+0x797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca
 0xe97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef
 0xadf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13
 0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd
@@ -668,8 +702,8 @@ ownerPayloadUtf8Length=37
 0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64
 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
-0xb4e92c4245949474f8dacf09e36c2ae4a5a82ae6bd2ccc46654ce311630f8919
-0x9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d
+0xfa531a4233206547049d1b83c4b4e3e4d9763effb47227b2fd761ea1846ddfc8
+0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280
 0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a
 0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c
 0x869b5e7167f9281b7c232510e776e95500162af0fe1c031f5f7d065bf7014ee7
@@ -716,7 +750,7 @@ asset_hash = k(b'eip155:1/erc721:0x06012c8cf97bead5deae2370709587f8e7a266d/77176
 content_digest = k(payload)
 content_ref = k(abi(['uint16','bytes32','bytes32'], [1, k(content_digest), canon]))
 signature_ref = k(abi(['uint16','bytes32','bytes32'], [0, k(b''), z]))
-uri_hash = k(b'ipfs://bafybeigdyrzt5example')
+uri_hash = k(b'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq')
 record_hash = k(abi(['bytes32','uint256','address','bytes32','bytes32','bytes32','bytes32','bytes32','bytes32','bytes32','uint64','uint8','bytes32'], [domain, 1, bytes.fromhex('00'*19+'01'), record_type, subject, content_ref, uri_hash, schema, z, signature_ref, 1722470400, 1, z]))
 chain_hash = k(abi(['bytes32','bytes32','bytes32','uint64'], [chain_domain, z, record_hash, 1]))
 domain_separator = k(abi(['bytes32','bytes32','bytes32','uint256','address'], [k(b'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'), k(b'6529 Network Museum Registry'), k(b'1'), 1, bytes.fromhex('00'*19+'01')]))
@@ -741,7 +775,7 @@ https_key=k(abi(['bytes32','bytes32','uint64','uint64'],[uri2,profile2,1,1]))
 https_type=k(b'MuseumHTTPSPublicNetworkAssertion(bytes32 uriHash,bytes32 hostHash,bytes32 resolverProfileId,uint64 resolverRevision,bytes32 resolvedAddressSetHash,uint64 assertionRevision,bytes32 previousAssertionHash,uint64 issuedAt,uint64 expiresAt,address attestor,uint256 nonce,uint64 deadline)')
 https_struct=k(abi(['bytes32','bytes32','bytes32','bytes32','uint64','bytes32','uint64','bytes32','uint64','uint64','address','uint256','uint64'],[https_type,uri2,host2,profile2,1,address_set_hash,1,previous,1750000000,1750003600,bytes.fromhex('00'*18+'dead'),9,1750003600]))
 https_digest=k(b'\x19\x01'+domain_separator+https_struct)
-expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9', 'chain':'7e68037dddf1c53e8b0ac5256d02893fd85d9ffee59207f1e1eca6881588bf7c', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'60c2187bc87f2fe0a6f4f22d4ce61d050ae3ce7a4ce82a5607a772f356bc5cf4', 'write_digest':'b97f2572a6bd9f4b0075771cd3d0fb2de1c0ffa41345ac05ae4f30e6879a91ae', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner':'869b5e7167f9281b7c232510e776e95500162af0fe1c031f5f7d065bf7014ee7', 'owner_record':'c9b32f342b0bbb44603958986a0bec0933b5a930b351002d2cf8eca9bdd3236c', 'manifest':'9743e8c811e3bc2760c438012d1ad61a265b385f903e02d823aa5664be5bcd7d', 'batch':'ad748c99c6edc245f77ae5a46660e3c0706696e9f9c4117308a7dd773a312314'}
+expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1', 'chain':'d4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa', 'write_digest':'797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner':'869b5e7167f9281b7c232510e776e95500162af0fe1c031f5f7d065bf7014ee7', 'owner_record':'c9b32f342b0bbb44603958986a0bec0933b5a930b351002d2cf8eca9bdd3236c', 'manifest':'8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280', 'batch':'1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d'}
 actual = {'content':content_digest.hex(), 'record':record_hash.hex(), 'chain':chain_hash.hex(), 'write_type':write_type.hex(), 'write_struct':struct_hash.hex(), 'write_digest':digest.hex(), 'nonce_type':nonce_type.hex(), 'nonce_struct':nonce_struct.hex(), 'nonce_digest':nonce_digest.hex(), 'https_hash':https_hash.hex(), 'https_key':https_key.hex(), 'https_type':https_type.hex(), 'https_struct':https_struct.hex(), 'https_digest':https_digest.hex(), 'owner':k(owner_payload).hex(), 'owner_record':owner_hash.hex(), 'manifest':root.hex(), 'batch':batch.hex()}
 assert actual == expected, (actual, expected)
 for name, value in actual.items(): print(name, '0x' + value)
@@ -810,7 +844,7 @@ Expected output:
 ```powershell
 $batchDomain = cast keccak '6529networkmuseum.batch-commitment.v1'
 $batchId = cast keccak 'MUSEUM_BATCH_VECTOR_V1'
-$recordHash = '0x96b210df56d85918cd186e5f9a1eff34918626f25b424c2e883e72c7c54cb2d9'
+$recordHash = '0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1'
 $zero = '0x0000000000000000000000000000000000000000000000000000000000000000'
 $payloadHash = '0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7'
 $batchCommitment = cast keccak (cast abi-encode 'f(bytes32,bytes32,uint64,bytes32[],bytes32[],bytes32[],uint64)' $batchDomain $batchId 1 "[$recordHash]" "[$zero]" "[$payloadHash]" 1)
@@ -824,7 +858,7 @@ Expected output:
 ```text
 0x6743de485825345432a60824968ffa9c8b3ef54adb2f4ad2d1cb219ec56e4400
 0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b
-0xad748c99c6edc245f77ae5a46660e3c0706696e9f9c4117308a7dd773a312314
+0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d
 ```
 
 ## Negative claims preserved

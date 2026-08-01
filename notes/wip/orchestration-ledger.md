@@ -446,3 +446,26 @@ than embedded here, avoiding a self-referential ledger/manifest hash.
 Review and curatorial metadata remain null; no title/rights/accession
 acceptance is claimed. PR #13 remains draft pending the same independent
 exact-head review.
+
+## 2026-08-01 — PR #2 deterministic remediation checkpoint
+
+The PR #2 branch merged `origin/main` at
+`9700e842d0c991280b476cc67849d966221a742a` through
+`4329953d66360037122691023b1d0d4da42e9ecd`. The V1 specification now pins the
+full `keccak256("MUSEUM_BATCH_VECTOR_V1")` value
+`0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b`
+and batch commitment
+`0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`.
+The one-record manifest vector remains
+`0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`.
+
+The URI harness rejects malformed percent escapes, CGNAT/private/reserved
+literals, overlong CIDv1 varints, non-ASCII path characters, and malformed or
+explicit ports without throwing. The HTTPS lifecycle harness proves expiry
+blocks new writes, renewal restores eligibility, and pre-expiry records remain
+readable with their historical assertion. The detached signature-bundle
+fixture has a content-addressed IPFS URI, alternate Arweave-form retrieval
+reference, schema, 3/3 offline recovery check, and an explicit statement that
+it is not published release or deployment evidence. Full validation, a fresh
+release manifest, exact-head CI, and independent review remain required before
+any merge; implementation and deployment remain separate authorization gates.

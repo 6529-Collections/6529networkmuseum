@@ -56,3 +56,20 @@ CI enforces structural separation. Governance determines who is authorized to fi
 4. Work on the earliest incomplete phase whose prerequisites are met.
 5. Save research to `notes/research/` or `notes/wip/` before it can be lost to task compaction.
 6. Update the index, run validation, obtain independent review, and publish through a pull request.
+
+## 2026-08-01 — PR #2 remediation checkpoint
+
+The V1 on-chain migration specification remains a non-deployment working
+standard. Its current remediation completes the full-width
+`MUSEUM_BATCH_VECTOR_V1` ID and dependent commitment, strict executable URI
+grammar vectors, an offline HTTPS expiry/renewal/history lifecycle check, and
+a detached content-addressed TargetRelease signature-bundle fixture with
+schema, retrieval reference, and public-key recovery validation. The branch
+contains `origin/main` at `9700e842d0c991280b476cc67849d966221a742a` through
+merge commit `4329953d66360037122691023b1d0d4da42e9ecd`.
+
+Required next gates are the complete local validation/manifest suite, exact
+head CI, independent protocol/security review, governance approval, a real
+release-evidence retrieval rehearsal, and a separately reviewed implementation
+and audit. No test URI, fixture signer, signature, TargetRelease, or vector
+authorizes deployment, admission, custody, accession, or a network write.

@@ -332,7 +332,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
 | Successor interface | `IMuseumSuccessorV1` | `0x573d91cc` |
 | Museum URI safety profile | `MUSEUM_URI_SAFETY_PUBLIC_V1` | `0x5480eb62c7af1dd376bd8ddad6729a756d0f05ce8610d2a21e798440fc859189` |
-| Museum URI safety profile document hash | `MUSEUM_URI_SAFETY_PUBLIC_V1_DOCUMENT_V1` | `0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d` |
+| Museum URI safety profile document hash | `MUSEUM_URI_SAFETY_PUBLIC_V1_DOCUMENT_V1` | `0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` |
 | HTTPS assertion record type | `MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` | `0x8041bfef6459ccf942bb6bfe17c778c4db60a9d0831f24f6154deba96e99391e` |
 | HTTPS assertion signature scheme | `MUSEUM_SIGNATURE_EIP712_HTTPS_PUBLIC_V1` | `0x738aed5a63fd21dfdd96f878826e6652140072c65ee952653d5432bf6ded33d0` |
 | HTTPS assertion subject domain | `6529networkmuseum.subject.https-public.v1` | `0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4` |
@@ -353,7 +353,8 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Target runtime immutability policy | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` | `0xfc13992d1a910c799d0a0783dd5b5951d980bec84550c404662098ce4bfa45a5` |
 | Target runtime policy document hash | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_DOCUMENT_V1` | `0xa2c5f9eba4e409a24f7f01472f715980b5f2e6026898d9012c4de73828579893` |
 | Target-release evidence schema | `MUSEUM_TARGET_RELEASE_EVIDENCE_V1` | `0xbb8a203a0f161e49f7f5fd9cdd4471c56e21263fa789bb50ec6198ff4b441f6c` |
-| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da` |
+| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xca463d96fb8d46e4d0853d226fa19ed6c3129b0bbdfc973cc6f64e47bb992e36` |
+| Target-release signature bundle schema hash | `target-release-signature-bundle-v1.schema.json` | `0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439` |
 | Batch benchmark schema | `MUSEUM_BATCH_GAS_BENCHMARK_V1` | `0xfd6cc699ac634ec33160703ce1c9a46a43fab11232511f2ef8ad220520d05d1c` |
 | Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021` |
 | Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4` |
@@ -728,11 +729,11 @@ canonical URI bytes remain in the envelope and are hashed as before.
 `MUSEUM_URI_SAFETY_PUBLIC_V1` is independently implementable from the
 following exact UTF-8 profile-document bytes (the code block contains one
 line, with no trailing LF). Its Keccak-256 is
-`0x3136032e7f393a796aecedbe4ce1251ca4d5b86b888fb05303fde910d6a8fa8d` and
+`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` and
 an admission using this profile MUST use this document hash:
 
 ```text
-{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"path":{"percentTripletsUppercase":true,"rejectEncodedUnreserved":true}}
+{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":{"multibase":"base58btc","prefix":"Qm","length":46,"multihash":"0x1220+32-byte-digest"},"cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}
 ```
 
 The validator first rejects invalid UTF-8, more than 2,048 UTF-8 bytes,
@@ -749,20 +750,22 @@ numeric ambiguity reject. IPv6 uses lowercase RFC 5952 hexadecimal syntax,
 allows `::` only once, disallows zone IDs and embedded dotted IPv4, and
 rejects every CIDR in the profile document, including IPv4-mapped IPv6.
 Listed IPv4/IPv6 ranges are checked as integer ranges, not by string prefix.
-The path is empty or consists of RFC 3986 pchar and `/`; percent triplets
-are uppercase hexadecimal and percent-encoding an unreserved byte rejects.
+The path is empty or consists of ASCII RFC 3986 pchar and `/`; a literal `%`
+is valid only as the start of exactly two hexadecimal digits, those triplets
+are uppercase hexadecimal, and percent-encoding an unreserved byte rejects.
 `ipfs` and `ar` retain the existing CID/transaction-identifier rules above
-and use the same byte/control/query/fragment checks.
+and use the same byte/control/query/fragment checks. CID varints MUST use their
+shortest encoding; an overlong encoding is rejected before any value is read.
 
 The complete V1 conformance vectors are executable, not merely illustrative.
 The release-controlled harness at
 `specs/onchain/uri_safety_vectors_v1.py` executes this table, validates the
-941-byte profile-document hash, and hashes the RFC 8785 vector bundle with
+1365-byte profile-document hash, and hashes the RFC 8785 vector bundle with
 `MUSEUM_URI_VECTOR_BUNDLE_V1 =
 0xc5d4b5509668127362d486c057b5183a4cf2379d537401e0cf8b5e0cdedd9925`.
-The bundle contains 31 vectors and its exact Keccak-256 is
-`0xe21b70aa8619f17e81dcc5fe738db966372824bdbe68e20d0184eb2b88814aa9`.
-The command `python specs/onchain/uri_safety_vectors_v1.py` MUST pass before
+The bundle contains 38 vectors and its exact Keccak-256 is
+`0x159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9`.
+The command `python -B specs/onchain/uri_safety_vectors_v1.py` MUST pass before
 deployment and whenever this profile is changed.
 
 The complete V1 conformance vectors are:
@@ -802,6 +805,13 @@ The complete V1 conformance vectors are:
 | `https://example.com/x` with a control byte | REJECT | control-byte rule |
 | `ipfs://bafybeigdyrzt5example/path` | REJECT | truncated CIDv1 multihash |
 | `ar://AbCdEf012_-` | REJECT | transaction identifier is not exactly 32 decoded bytes |
+| `https://example.com/a%` | REJECT | incomplete percent triplet |
+| `https://example.com/a%G0` | REJECT | non-hex percent triplet |
+| `https://100.64.0.1/x` | REJECT | shared CGNAT IPv4 range |
+| `https://example.com:abc/x` | REJECT | nonnumeric port; parser failure is caught and rejected |
+| `https://example.com/café` | REJECT | non-ASCII path character |
+| `ipfs://bqeahaeraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/path` | REJECT | overlong CIDv1 version varint |
+| `ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq:443/path` | REJECT | explicit IPFS authority port |
 
 The conformance table, executable harness, profile-document bytes, and document hash are one
 versioned predicate. A future EVM revision or URI parser MUST use a new
@@ -815,7 +825,7 @@ The non-HTTPS grammar is closed in V1. An IPFS authority is either CIDv0:
 `Qm` followed by exactly 44 base58btc characters, decoding to the 34-byte
 multihash prefix `0x1220` plus a 32-byte digest; or CIDv1: lowercase multibase
 `b` followed by unpadded lowercase RFC 4648 base32, decoding to the exact
-varint sequence `version=1`, `codec in {0x55 (raw), 0x70 (dag-pb)}`,
+minimally encoded varint sequence `version=1`, `codec in {0x55 (raw), 0x70 (dag-pb)}`,
 `multihashCode=0x12`, `digestLength=32`, and exactly 32 digest bytes. Uppercase
 base32, base32 padding, alternate multicodecs, alternate multihashes, invalid
 varints, truncated values, percent escapes in the authority, userinfo, ports,
@@ -1182,7 +1192,7 @@ overwritten. A duplicate release ID or a same-revision row reverts.
 
 The canonical evidence document MUST validate against the release-controlled
 `specs/onchain/target-release-evidence-v1.schema.json`, whose JCS hash is
-`0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da`.
+`0xca463d96fb8d46e4d0853d226fa19ed6c3129b0bbdfc973cc6f64e47bb992e36`.
 The document's `schema` is `MUSEUM_TARGET_RELEASE_EVIDENCE_V1`, its `version`
 is `1`, and its `conformanceDocumentHash` is the Keccak-256 of the exact JCS
 document preimage defined below. It MUST contain, with lowercase exact encodings, the target
@@ -1194,19 +1204,23 @@ policy is exactly 2-of-3 distinct release-attestor addresses, sorted by
 numeric address; each signs the exact `signedDocumentHash` defined below, and
 the document records three signature
 commitments in the same address order. At least two availability observations
-MUST use distinct content-addressed `ipfs://` or `ar://` URIs, match the
-document hash, and be independently fetched and hash-checked. HTTPS evidence
+MUST use distinct content-addressed `ipfs://` or `ar://` URIs, match the `D0`
+core hash, and be independently fetched and hash-checked. HTTPS evidence
 MUST additionally carry a current Museum HTTPS assertion; the contract never
 fetches a network URI.
 
-The canonical document has no `signatures` member. To avoid a self-referential
-hash, define `D0` as the schema-valid document with both
-`conformanceDocumentHash` and `signers.signedDocumentHash` replaced by
-`0x` followed by 64 zeroes. `conformanceDocumentHash` is exactly
-`keccak256(RFC8785_JCS(D0))`. Define `D1` as the same document with the real
-`conformanceDocumentHash` restored and `signers.signedDocumentHash` still all
-zero; `signedDocumentHash` is exactly `keccak256(RFC8785_JCS(D1))`. The signer
-preimage is therefore deterministic and non-circular. The detached signature bytes use
+The canonical document has no inline `signatures` member. Its hash projection
+prevents self-reference: define `core(E)` from a schema-valid evidence object
+`E` by omitting `availability` and `detachedSignatureBundle`, replacing every
+`signers.signatureCommitments` item with `0x` followed by 64 zeroes, and then
+applying the substitutions below. `D0` is `core(E)` with both
+`conformanceDocumentHash` and `signers.signedDocumentHash` set to zero;
+`conformanceDocumentHash` is exactly `keccak256(RFC8785_JCS(D0))`. `D1` is the
+same projection with the real `conformanceDocumentHash` restored and
+`signers.signedDocumentHash` still zero; `signedDocumentHash` is exactly
+`keccak256(RFC8785_JCS(D1))`. The projection, rather than a self-referential
+retrieval carrier, is the canonical signed release evidence. The detached
+signature bytes use
 `EIP-191-KECCAK256-DOCUMENT_V1`, namely
 `keccak256(0x19 || UTF8("Ethereum Signed Message:\\n32") ||
 signedDocumentHash)`. The three signer addresses are strictly increasing as
@@ -1216,6 +1230,47 @@ signature bytes. The release gate requires at least two valid recoveries, while
 retaining all three commitments in the evidence document. This is a release
 artifact check, not a claim that a Solidity contract can fetch or recover
 detached GitHub evidence from `bytes32` alone.
+
+The canonical evidence object MUST also contain `detachedSignatureBundle`,
+validated against `MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1` with schema hash
+`0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439`. It
+commits an `ipfs://` or `ar://` URI, the exact Keccak content hash, media type
+`application/json`, byte size in `1..65,536`, and two distinct fetch
+observations whose content hashes equal that bundle hash. The bundle bytes are
+RFC 8785 JCS of the schema-valid object with exactly three sorted entries;
+each entry contains the exact 65-byte ECDSA signature bytes and its
+`keccak256` commitment. The bundle's `releaseId` and `signedDocumentHash` MUST
+equal the evidence document, and its entries MUST match the three signer
+addresses and commitments byte-for-byte. The release gate fetches both
+availability copies, checks the exact byte count and media type, parses the
+bundle, recovers the signatures, and verifies the EIP-191 preimage before an
+authority-admin transaction is signed. A copied canonical evidence document
+without this separately available bundle is incomplete and MUST NOT pass the
+release gate.
+
+The repository's deterministic detached-bundle fixture is
+`specs/onchain/target-release-signature-bundle-v1.fixture.json`; it is checked
+by `python -B specs/onchain/target_release_signature_bundle_check_v1.py` using
+independent fixed-width secp256k1 public-key recovery. The fixture
+has 1,131 RFC 8785 bytes, content hash
+`0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f`,
+primary URI
+`ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq`, and
+alternate URI `ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk`. Its fixture
+reference binds observation hashes
+`0x6c7cbb37a256f94a1a486a47bb158002258bac7c38dd417e70087b4e40b22324` and
+`0x997ed37a67abf99ed4b44942527a626e37ee3d696cbf0ad84dbea0ed7900dfc3`;
+the checker MUST report `signatureRecovery=3/3` before this vector is
+accepted. The separately committed
+`specs/onchain/target-release-signature-bundle-v1.reference.json` is the
+machine-readable availability record checked against the evidence schema.
+These are conformance bytes and observations, not deployment attestations.
+
+For avoidance of doubt, `availability` and the bundle descriptor are excluded
+from `core(E)` precisely because their URIs, content hashes, and signature
+bytes depend on `D0`/`D1`; they remain mandatory, independently verified
+release-gate inputs. The `D0`/`D1` projection definition above supersedes any
+interpretation that would hash a self-referential retrieval carrier.
 
 Source validation is exact: `sourceCommit` is lower-case 40-hex SHA-1; the
 release gate runs `git cat-file -e <sourceCommit>^{commit}`, obtains
@@ -1228,8 +1283,8 @@ on-chain `bytes32` value rejects the evidence. The two build entries require
 distinct builders and toolchain identities, identical compiler-input and
 runtime/artifact hashes, and runtime hashes equal to the target's direct
 `extcodehash`. Availability uses the exact IPFS/Arweave grammar in §5.3; the
-two URIs and fetch observations are distinct, each fetches the exact JCS bytes,
-and each content hash equals `conformanceDocumentHash`. A missing, revoked,
+two URIs and fetch observations are distinct, each fetches the exact `D0` JCS
+bytes, and each content hash equals `conformanceDocumentHash`. A missing, revoked,
 expired, unreachable, mismatched, or superseded evidence bundle cannot be used
 to admit a row.
 
@@ -2936,6 +2991,26 @@ The signature type string is the exact string in §5.3; the digest is the raw
 addresses, hashing packed bytes, or hashing a JSON representation instead of
 `abi.encode(address[])` is non-conformant.
 
+The expiry/renewal state transition is executable in
+`specs/onchain/https_expiry_renewal_check_v1.py` and MUST pass with:
+
+```text
+oldAssertionHash=0xfd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a
+renewedAssertionHash=0x757cefc2594290ff8a4fd62b99be6bf050165023c854b50061797dc9cc9f2eb5
+expiredWrite=REJECT
+renewedWrite=ACCEPT
+historicalRecord=READABLE
+oldValidityAfterRenewal=NOT_RETROACTIVE
+```
+
+At timestamp `1,750,003,601`, the revision-1 pointer is expired and a new
+HTTPS-bearing write MUST reject until the signed revision-2 pointer is stored.
+The revision-2 pointer starts at that timestamp, names the revision-1 hash as
+its predecessor, and permits the new write. A record already stored with the
+revision-1 assertion remains readable with its original assertion hash and
+revision after expiry and renewal; renewal changes neither historical record
+validity nor its audit fields.
+
 ### 13.8 Batch commitment vector
 
 This one-record vector exercises the dynamic-array ABI encoding and the
@@ -2944,13 +3019,20 @@ predecessor, payload hash, or authority revision from a production batch:
 
 ```text
 batchCommitmentDomain = 0x6743de485825345432a60824968ffa9c8b3ef54adb2f4ad2d1cb219ec56e4400
-batchId = 0x0a4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70
+batchIdLiteral = MUSEUM_BATCH_VECTOR_V1
+batchId = 0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b
 authorityRevision = 1
 recordHashes = [0x217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1]
 previousRecordHashes = [0x0000000000000000000000000000000000000000000000000000000000000000]
 payloadHashes = [0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7]
-batchCommitment = 0x045fef922ae594deb4df63a10095f153076ddb5a8e0adfb37f43c762911b2339
+batchCommitment = 0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d
 ```
+
+The exact one-record fixture is executable: `python -B
+specs/onchain/batch_vector_check_v1.py` MUST print the batch ID above and
+`0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`.
+The batch ID is the direct 32-byte Keccak result of the literal; no extra
+leading zero nibble is permitted.
 
 ### 13.9 Target-release capability/probe vector
 
@@ -2976,6 +3058,42 @@ the exact `MUSEUM_SUCCESSOR_CAPABILITY_DOMAIN` tuple in §6.1.2; the probe
 preimage is the exact `MUSEUM_TARGET_PROBE_DOMAIN` tuple and includes the
 capability commitment. Ordinary `abi.encode` is required; packed encoding is
 not a valid implementation.
+
+### 13.9.1 Target-release detached signature-bundle vector
+
+The release-controlled fixture
+`specs/onchain/target-release-signature-bundle-v1.fixture.json` is the exact
+RFC 8785 JCS source object for a non-deployment test bundle. Its canonical
+retrieval bytes are the RFC 8785 rendering (without the repository text-file
+terminator). Its URI/hash/availability reference is
+`specs/onchain/target-release-signature-bundle-v1.reference.json`. `python -B
+specs/onchain/target_release_signature_bundle_check_v1.py` schema-validates
+the bundle and its reference, checks every byte count/content hash/CID,
+requires the two distinct retrieval URIs, recomputes all signature
+commitments, and recovers all three EIP-191 signers without a private key.
+
+```text
+releaseId = 0xcaab6726358fae34ce8d4a969ce487e81c67b8003f76a8e57ab958be7cb6a63c
+signedDocumentHash = 0xa6e6398c9909bab2d2c4f2d9a26a2d357e3451f2a0ca8097691eba1cd41079c7
+signatureDigest = 0xf54bc0bb6e2213fa11fffc68e657f042118d5415b784aed6739744ab534c5132
+bundleUri = ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq
+bundleContentHash = 0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f
+bundleBytes = 1131
+bundleSchemaHash = 0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439
+ipfsObservationHash = 0x6c7cbb37a256f94a1a486a47bb158002258bac7c38dd417e70087b4e40b22324
+arUri = ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk
+arObservationHash = 0x997ed37a67abf99ed4b44942527a626e37ee3d696cbf0ad84dbea0ed7900dfc3
+signer[0] = 0x3eb71849bc6fde0e8287a5b9a44cf675622ca180
+signer[1] = 0x5ab32d3debe5e7cfdff6d26fdabd8e8db700747e
+signer[2] = 0xfc101b413818fe4cda7f40c7d760831500dea9d3
+signatureRecovery = 3/3
+```
+
+The IPFS and Arweave identifiers in this fixture exercise the required
+retrieval shape but are not observations of a published TargetRelease. They
+MUST NOT be used as admission evidence or deployment evidence. A real release
+must independently retrieve both declared locations, compare their bytes to
+the committed bundle hash and size, and record its own fetch observations.
 
 ### 13.10 Required negative tests
 
