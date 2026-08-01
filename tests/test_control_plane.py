@@ -442,6 +442,12 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(manifest["entries"])
         self.assertTrue(all("\\" not in entry["path"] for entry in manifest["entries"]))
         self.assertTrue(all(not entry["path"].startswith("evidence/") for entry in manifest["entries"]))
+        paths = {entry["path"] for entry in manifest["entries"]}
+        self.assertIn("docs/generative-trait-analysis.md", paths)
+        self.assertIn("scripts/rarity/nextgen_compat.py", paths)
+        self.assertIn("tests/rarity/test_nextgen_compat.py", paths)
+        self.assertFalse(any("__pycache__" in path or path.endswith((".pyc", ".pyo")) for path in paths))
+        self.assertNotIn("release-artifacts/latest/record-manifest.json", paths)
         self.assertRegex(manifest["manifest_commitment"]["digest"], r"^0x[0-9a-f]{64}$")
         self.assertRegex(manifest["manifest_sha256"], r"^sha256:[0-9a-f]{64}$")
         self.assertEqual(manifest, make_manifest(REPO_ROOT))

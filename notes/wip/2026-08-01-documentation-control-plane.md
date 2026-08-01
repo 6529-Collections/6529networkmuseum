@@ -16,10 +16,12 @@ repository controls, not adopted Museum policy.
   safe integers only, no floats, deterministic UTF-16 key sorting, and UTF-8
   output. This avoids runtime-dependent numeric serialization for public
   commitments.
-- JSON files receive JCS/Keccak commitments and all governed files receive
-  LF-normalized SHA-256 entries in `release-artifacts/latest/record-manifest.json`.
+- JSON files receive JCS/Keccak commitments and the deterministic release
+  inventory receives LF-normalized SHA-256 entries in
+  `release-artifacts/latest/record-manifest.json`.
 - No canonical record was invented in this change. Fixtures are explicitly
-  synthetic and are never included in the governed manifest.
+  synthetic and are not governed records, even when the control-plane source
+  inventory includes their test bytes.
 
 ## Unresolved questions
 

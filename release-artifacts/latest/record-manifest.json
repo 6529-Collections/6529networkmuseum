@@ -6,6 +6,56 @@
   },
   "entries": [
     {
+      "path": "docs/accession-standard.md",
+      "sha256": "sha256:c65fbbfea50324cf625096b308da9c11e719f9b1e4a713a5fd3857412ed08b7d",
+      "size": 8713
+    },
+    {
+      "path": "docs/control-plane.md",
+      "sha256": "sha256:2abdd368d2ac30d95d0965fb03416f02304307c89734498f5cec08583278ace0",
+      "size": 7290
+    },
+    {
+      "path": "docs/external-works-registry.md",
+      "sha256": "sha256:9640cb544e2f7c76b2fb4b7556ced23f352c38e8c8ddf1180ca229760ee8ffa1",
+      "size": 10801
+    },
+    {
+      "path": "docs/generative-trait-analysis.md",
+      "sha256": "sha256:55ef3f72953e0a4c657b325d01f877213614f26397e5f236848bc31b2fda1d59",
+      "size": 13552
+    },
+    {
+      "path": "docs/implementation-roadmap.md",
+      "sha256": "sha256:da3ebc6de451fadc3b954047bca4ef2b1752a38a1661e244031311cdd8e80ccf",
+      "size": 4925
+    },
+    {
+      "path": "docs/onchain-design.md",
+      "sha256": "sha256:a68466f21632589823ff936c9a770eb81930aa45618bb23684ddbc0346e2d338",
+      "size": 3638
+    },
+    {
+      "path": "docs/programs/keys-and-gates.md",
+      "sha256": "sha256:0071825c7ef37d1fad8806fc74a13ea5a99982b833b1980d6ffa15e90df50375",
+      "size": 4578
+    },
+    {
+      "path": "docs/record-model.md",
+      "sha256": "sha256:26489d3f3f6d4980a983ef85efa6a8065da1f982706d49122c640e82fb4c20c9",
+      "size": 3235
+    },
+    {
+      "path": "docs/standards-crosswalk.md",
+      "sha256": "sha256:19dae459ad31b4a4e6612ed86d93246232b396850e024fa3965d596727cfa894",
+      "size": 22244
+    },
+    {
+      "path": "docs/stream-interoperability.md",
+      "sha256": "sha256:e1132e130381bea300ac13fe8c6312c4dcd6d7fbac77882f64dda77a746575d9",
+      "size": 5873
+    },
+    {
       "path": "policies/README.md",
       "sha256": "sha256:4cc032249a64ae9bc9fb0cfe91342c7c444122c0bd5ae526c1f118dfe4cf2da8",
       "size": 681
@@ -419,6 +469,176 @@
       "path": "schemas/rights-statement.schema.json",
       "sha256": "sha256:69fc811f558460a78dc41663fe6cf1687b2ccf4f580611177075c5298b0103ae",
       "size": 2609
+    },
+    {
+      "path": "scripts/bootstrap_validate.py",
+      "sha256": "sha256:cfc9b36e22a5581f456f02643d0d38516d916181e31a4a160a4bdb5ac128653e",
+      "size": 20138
+    },
+    {
+      "path": "scripts/canonical.py",
+      "sha256": "sha256:c9f6d9dd2b00dd498c36775a198fd1ff41d1b3aead4b0d07ec848be1db69cc06",
+      "size": 1538
+    },
+    {
+      "path": "scripts/generate_manifest.py",
+      "sha256": "sha256:be71105a14c68eeee2de4d405b7f9284199249f11f51614a944822357f9fdd5d",
+      "size": 5483
+    },
+    {
+      "path": "scripts/rarity/__init__.py",
+      "sha256": "sha256:20055f37666eff2a0cd5685b02c8fb61430c3cb0ce6f63aaced1193de8c9e2f3",
+      "size": 295
+    },
+    {
+      "path": "scripts/rarity/analyze.py",
+      "sha256": "sha256:e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+      "size": 2016
+    },
+    {
+      "path": "scripts/rarity/nextgen_compat.py",
+      "sha256": "sha256:39655020130b9fb0721e4e7acc0e2c285491d697d6c67f8b9b8d205ae680c98c",
+      "size": 32037
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "sha256:16f3e64e6f6aa9991c107096ca0689d320d87abf1f4c6e6f0f4776a2fe1bdc0b",
+      "size": 35613
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "sha256:9df0bfc8c6db9812d53501133b601b7ccdc089f8a15041fff8d36dd93e90df4a",
+      "size": 66
+    },
+    {
+      "path": "tests/fixtures/invalid/README.md",
+      "sha256": "sha256:575c57e659ede3c72228afe93a7d0c4b8dbe783e09663092a15b3eec6180ca34",
+      "size": 411
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xbb432f7fe1c2e3b8d730bbb7486f3499f20cc69dd88136e75a2bfb5a308c9c99"
+      },
+      "path": "tests/fixtures/valid/accession-lot.json",
+      "sha256": "sha256:78fc5e13be3d879508ef8d73ae7efe977884dbcee08363d1dc9eb8ccb444740c",
+      "size": 1847
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xd22baa35b2f58b434a7913c06a76097ead2fe24ca39c50e7c07637556c121dfd"
+      },
+      "path": "tests/fixtures/valid/accession-program.json",
+      "sha256": "sha256:2040d9988c9ad9636d4e597a981146a5fba91a61629641231001d17f0319e042",
+      "size": 1963
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xedf0464205a9972006dab10832d248a9a2d2d34439615ae3523170060c30f431"
+      },
+      "path": "tests/fixtures/valid/accession.json",
+      "sha256": "sha256:f64c351782e222f427bbe4e432b01cea635db92502241e19447b86eeebef5395",
+      "size": 5025
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x4764f93d1efea32d5032278cd6d3c0f24b4e1a791c92fc3e21b2a64d1ab9ae73"
+      },
+      "path": "tests/fixtures/valid/approved-collection.json",
+      "sha256": "sha256:e6d8f98de7b003f1d14bf9a48601d444a10292c9bc5e598f990b2804d0807c2b",
+      "size": 1889
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xc42f695ecf0810fda49fa633808fd2c1c51634b63360a5b8c134918f50bcd4e9"
+      },
+      "path": "tests/fixtures/valid/condition-report.json",
+      "sha256": "sha256:40ad5ff28cf7a4cab1207f24689a5550281d1bfb248a901776369c73b17e657e",
+      "size": 2308
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x06b12c1868e18b276b47fe18d7a665cf90d9d0cbc26ff2c10d7fba00e9911c95"
+      },
+      "path": "tests/fixtures/valid/governance-decision.json",
+      "sha256": "sha256:423e5b990bc2a43fb8ca8776219f207a8c91067b054aea72a420dfc06c4654bf",
+      "size": 2051
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x568e8dffef24ae99fcc54a4ac2465215ca9ea840d70353039d9b6dbe7c7185bb"
+      },
+      "path": "tests/fixtures/valid/object-record.json",
+      "sha256": "sha256:2ba1ebcd4c9bc1821bc002eab4a215a827d1ee78f6710fabaacebc3f987556fe",
+      "size": 5986
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x84b2fe3e74856bbd737a9a7a284c7edd1ef4e40d460524c7d5b03822064d0fa8"
+      },
+      "path": "tests/fixtures/valid/program-outcome.json",
+      "sha256": "sha256:b2588db01ba01df909545ba40fccbb2fe6aa429dc03824156252beb34b145819",
+      "size": 1843
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xf8cb032c27b7417cfb634b49c0c74d72c35da1652a897888bf32a112aff30d93"
+      },
+      "path": "tests/fixtures/valid/rights-statement.json",
+      "sha256": "sha256:a49ee5de42c7613a3ea902d5a39bd1fa7e2580033c3188981e0f7d1af2876636",
+      "size": 2797
+    },
+    {
+      "path": "tests/rarity/__init__.py",
+      "sha256": "sha256:896bbe45b4d323dc1495dc75b0adfcf6b1cb487f117ee734b7b1712cd6a236b0",
+      "size": 64
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x1890792db15c6e1de61b5d73390f281c9bcdee81af5758aeeb9671b4f2d1bc8c"
+      },
+      "path": "tests/rarity/fixtures/nextgen-compatibility.expected.json",
+      "sha256": "sha256:c8c5b94f09d78fa97b59d9d213854d4b6e2355763c3efb445397dabcad53af88",
+      "size": 23402
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x525c679226c1dfa30566b7336046348af7272beefe0233bf507847faa0c4736e"
+      },
+      "path": "tests/rarity/fixtures/nextgen-compatibility.json",
+      "sha256": "sha256:57648e605ddef62a8a948c81e57330718fdd2521b74b4183c09f74ed4b286737",
+      "size": 1691
+    },
+    {
+      "path": "tests/rarity/test_nextgen_compat.py",
+      "sha256": "sha256:4cd14e83ff2d85053bda3d1822b31140d547960bdeba6e5a56fe052fcd09223f",
+      "size": 19628
+    },
+    {
+      "path": "tests/test_control_plane.py",
+      "sha256": "sha256:4e81855d1e97e5dee58d93ccc644386fe2239612bfb2bd462fa6be22872c2787",
+      "size": 24451
     }
   ],
   "hash_algorithms": {
@@ -428,14 +648,17 @@
   "inventory_roots": [
     "policies",
     "records",
-    "schemas"
+    "schemas",
+    "docs",
+    "scripts",
+    "tests"
   ],
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xdd6108d61327bc5cc72e9cac8dcd22c6aa8307b11b0ee7efbda90e9675cde059"
+    "digest": "0xaf61b222e4b77c15a8f1204ebc768f0f75f058b1cac6b7a3dbb694535ca166a9"
   },
-  "manifest_sha256": "sha256:a7b63e2a57c583b7f70bf49e4f52cc9a4a7339973fdaf01e318cd6c8dca55156",
+  "manifest_sha256": "sha256:ce5e960c853e38481741fdd1706a22a993a23512448b632217b7738913b8ea6a",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

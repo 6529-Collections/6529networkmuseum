@@ -47,7 +47,10 @@ commitments, cross-references, append-only state transitions,
 constructor/reviewer separation, and public-record sensitive-field guardrails.
 The pull-request workflow runs these checks on every PR.
 
-The generated manifest uses the 6529Stream conventions:
+The generated release manifest covers the governed records and the control-plane
+source that validates them (`policies/`, `records/`, `schemas/`, `docs/`,
+`scripts/`, and `tests/`). Evidence remains separately authenticated by its
+raw-byte evidence manifests. It uses the 6529Stream conventions:
 
 - repository-relative POSIX paths;
 - `sha256:` file digests over LF-normalized Museum-authored text;

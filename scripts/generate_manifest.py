@@ -16,7 +16,7 @@ from canonical import canonicalize
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = REPO_ROOT / "release-artifacts" / "latest" / "record-manifest.json"
-INVENTORY_ROOTS = ("policies", "records", "schemas")
+INVENTORY_ROOTS = ("policies", "records", "schemas", "docs", "scripts", "tests")
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 
 
@@ -57,7 +57,13 @@ def inventory_paths(root: Path) -> list[Path]:
     for inventory_root in INVENTORY_ROOTS:
         directory = root / inventory_root
         if directory.exists():
-            paths.extend(path for path in directory.rglob("*") if path.is_file())
+            paths.extend(
+                path
+                for path in directory.rglob("*")
+                if path.is_file()
+                and not any(part in {"__pycache__", ".pytest_cache", ".mypy_cache"} for part in path.parts)
+                and path.suffix.lower() not in {".pyc", ".pyo"}
+            )
     return sorted(paths, key=lambda path: path.relative_to(root).as_posix())
 
 

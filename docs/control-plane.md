@@ -119,8 +119,9 @@ The release profile is RFC 8785-compatible constrained I-JSON:
 JSON entries receive a Stream-shaped Keccak/JCS `content_hash` and all governed
 files receive an LF-normalized SHA-256 digest. The manifest itself commits its
 canonical body with both Keccak/JCS and SHA-256. The inventory covers
-`policies/`, `records/`, and `schemas/` in sorted repository-relative POSIX
-order; the manifest is not self-included.
+`policies/`, `records/`, `schemas/`, `docs/`, `scripts/`, and `tests/` in sorted
+repository-relative POSIX order. Evidence remains in separate raw-byte
+manifests, and the release manifest is not self-included.
 
 ## Local commands
 
@@ -135,8 +136,9 @@ python scripts/generate_manifest.py
 python scripts/generate_manifest.py --check
 ```
 
-Run the generator after changing a policy, canonical record, or schema. Commit
-the resulting `release-artifacts/latest/record-manifest.json` with the change.
+Run the generator after changing a policy, canonical record, schema,
+control-plane document, tool, or test. Commit the resulting
+`release-artifacts/latest/record-manifest.json` with the change.
 The pull-request workflow runs the bootstrap validator, test suite, full
 validator, and stale-manifest check on every PR with a bounded job timeout and
 pinned Python dependencies. A separate deterministic matrix runs the same
