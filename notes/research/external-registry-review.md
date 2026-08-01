@@ -207,6 +207,28 @@ further requirements:
    network safety gate; `MUSEUM_RELEASE_MANIFEST_V1` pins its JSON schema,
    source ordinal, entry hash, root formula, and worked root vector.
 
+The exact-head review additionally required and resolved:
+
+1. Global role IDs now authorize `setAuthority`, `setSuccessor`,
+   `freezeWrites`, subject registration, mirror links, and convergence actions
+   without an ambiguous family grant. Authority queuing, 48-hour timelock,
+   successor-after-freeze, one-way freeze, role revocation, and transition
+   events are normative.
+2. `RecordSummary` and `MuseumRecordRecorded` now persist and emit relayer,
+   nonce, deadline, outside-envelope signature scheme, signature commitment,
+   class, and authority revision. Direct writes have explicit zero values.
+   Revocation state/event fields distinguish `nonceRevision` from
+   `authorityRevision`.
+3. Asset profiles pin canonicalizer runtime/implementation hashes and version
+   IDs, with immutable-runtime and EIP-1967 proxy checks on every registration.
+4. The URI rule is now the versioned Museum-specific
+   `MUSEUM_URI_SAFETY_PUBLIC_V1` predicate, with an exact HTTPS public-network
+   assertion record and EIP-712 signature format plus explicit Stream-adapter
+   convergence behavior.
+5. The manifest fixture uses actual 40-hex Git SHA-1 values for the source and
+   pinned Stream commits, right-aligned into `bytes32`; the root was
+   independently recomputed.
+
 ### Reproducible hash transcript
 
 This transcript was run in a clean PowerShell session with Foundry `cast`.
@@ -258,8 +280,10 @@ $manifestRootDomain = cast keccak '6529networkmuseum.release-manifest.root.v1'
 $pathHash = cast keccak 'specs/onchain/contract-migration-v1.md'
 $payloadBytesHash = cast keccak $payload
 $entryHash = cast keccak (cast abi-encode 'f(bytes32,uint64,bytes32,bytes32,uint8,bytes32)' $manifestEntryDomain 1 $pathHash $recordHash 1 $payloadBytesHash)
-$sourceCommit = '0x0000000000000000000000000000000000000000000000000000000000000001'
-$streamCommit = '0x0000000000000000000000000000000000000000000000000000000000000002'
+$sourceCommitHex = '6ab83b456f1ad8d1b7b88b79cc960954feb56432'
+$streamCommitHex = '5021c8060950c3fef995271e674ed4b2007fee6d'
+$sourceCommit = '0x'+('0'*24)+$sourceCommitHex
+$streamCommit = '0x'+('0'*24)+$streamCommitHex
 $generatorHash = cast keccak 'museum-migration/1.0.0'
 $manifestRoot = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32[])' $manifestRootDomain $sourceCommit $streamCommit $generatorHash 1 "[$entryHash]")
 $ownerDomain = cast keccak '6529networkmuseum.stream-owner-record.v0'
@@ -324,7 +348,7 @@ Expected output, in order:
 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
 0x3aa074dec49b0294d9abb908dceea5a4d202418c4c3853fdf844bd645f62b7f7
-0xbc5568367bca90d555bc6327649169ad38e1afee36f86d8695b7c927b20c87f9
+0x685f7fa37801cc1c6264ff9bbf143d836926887ad890132e43a1943b7a91b41a
 0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a
 0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c
 0x1978e517eeb4e20fc20ca3b1110613584494206425197a9d447d7e11c6dab70d

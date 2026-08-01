@@ -130,6 +130,8 @@ the adapter returns the same canonical bytes supplied by the caller:
 interface IMuseumAssetCanonicalizerV1 {
     function canonicalize(bytes32 profileId, string calldata supplied)
         external view returns (string memory canonical);
+    function versionId(bytes32 profileId) external view returns (bytes32);
+    function implementationCodeHash(bytes32 profileId) external view returns (bytes32);
 }
 ```
 
@@ -204,6 +206,14 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | CAIP-19 asset profile | `MUSEUM_ASSET_PROFILE_CAIP19_V1` | `0xac72cc7c2b027b8ee3d459de7829fd7b3b31cf575c28734e736ebd33b10f41cc` |
 | Relayed authorization scheme (outside the envelope) | `MUSEUM_SIGNATURE_EIP712_RECORD_V1` | `0xd522d14409fadb7afb8c4cbf90ad662519010926e69625200b14f0ba12c90cba` |
 | Relayed nonce-revocation scheme (outside the envelope) | `MUSEUM_SIGNATURE_EIP712_NONCE_REVOKE_V1` | `0xda7e20c41761de210a954ede904dd134c0d4dd6c8dc7e73c4072a8c717b956a5` |
+| Global role | `MUSEUM_GLOBAL_ROLE_GOVERNANCE_EXECUTOR_V1` | `0x865cb1cc1a43094ea97b42f5b9e950e7952c1f106d37051e97d2a3fdb1584ce2` |
+| Global role | `MUSEUM_GLOBAL_ROLE_REGISTRAR_V1` | `0xb1f5e657823d31bde6c263be60f0418d7361b8365b264c97798c0b790c1a5f8b` |
+| Global role | `MUSEUM_GLOBAL_ROLE_MIGRATION_ADMIN_V1` | `0x2729f1662f9bb2682a0a433e8329cd1b73680e122f49b4b4987cef1106b97004` |
+| Global role | `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` | `0x28ad41c29b6a0872dec6410316cebb3f72fc3c9e4f4ea88e8e87e81784c94426` |
+| Museum URI safety profile | `MUSEUM_URI_SAFETY_PUBLIC_V1` | `0x5480eb62c7af1dd376bd8ddad6729a756d0f05ce8610d2a21e798440fc859189` |
+| HTTPS assertion record type | `MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` | `0x8041bfef6459ccf942bb6bfe17c778c4db60a9d0831f24f6154deba96e99391e` |
+| HTTPS assertion signature scheme | `MUSEUM_SIGNATURE_EIP712_HTTPS_PUBLIC_V1` | `0x738aed5a63fd21dfdd96f878826e6652140072c65ee952653d5432bf6ded33d0` |
+| HTTPS assertion subject domain | `6529networkmuseum.subject.https-public.v1` | `0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4` |
 | Provisional Stream owner-record hash domain | `6529networkmuseum.stream-owner-record.v0` | `0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a` |
 | Provisional Stream owner-record vector | `STREAM_OWNER_RECORD_HASH_VECTOR_V0` | `0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c` |
 | Payload schema | `MUSEUM_REGISTRY_RECORD_V1` | `0xc9f2c9b650ebb4955871484238be9d3dfd1bf9f0ec09a5365917d6294e5967c9` |
@@ -449,19 +459,68 @@ contract. `NONE` MUST supply zero payload bytes and an empty URI.
 
 Repository JSON is canonicalized with RFC 8785 JCS and committed with
 `HashRef(1, keccak256(canonicalBytes), RFC8785_JCS)`. Repository and BagIt
-manifests additionally retain LF-normalized SHA-256. The URI MUST be empty or
-use exactly one of the Stream-safe schemes `https://`, `ipfs://`, or `ar://`.
-It MUST be valid UTF-8, at most 2,048 bytes, contain no control bytes,
-userinfo, query, or fragment, and be stored in its exact
-canonical byte form. `ipfs://` requires a nonempty CID authority/path and no
+manifests additionally retain LF-normalized SHA-256. V1 uses the distinct,
+versioned `MUSEUM_URI_SAFETY_PUBLIC_V1` predicate; it is not claimed to be
+the pinned Stream URI predicate. The Museum predicate MUST accept an empty
+URI only for `NONE`, otherwise accept only `https://`, `ipfs://`, or `ar://`,
+and require valid UTF-8 of at most 2,048 bytes with no control bytes, userinfo,
+query, or fragment. `ipfs://` requires a nonempty CID authority/path and no
 query or fragment. `ar://` requires exactly one nonempty base64url transaction
 identifier and no query or fragment. `https://` requires a lower-case ASCII
 DNS name or globally routable IP literal, no explicit port, no userinfo, and
 no fragment; localhost names and loopback, link-local, private, multicast,
-documentation, and other reserved address ranges are forbidden. Because a
-contract cannot resolve DNS, the public-network check is a signed
-pre-write/deployment-gate assertion recorded with the URI profile. An HTTPS
-gateway MAY be a retrieval convenience, but it is never the integrity anchor.
+documentation, and other reserved address ranges are forbidden. The exact
+canonical URI bytes remain in the envelope and are hashed as before.
+
+The pinned Stream source documents only its shared UTF-8/2,048-byte URI
+validation and does not supply this public-network predicate. A bilateral
+adapter MUST pass the URI through both predicates and MUST NOT rewrite a URI;
+if a future Stream predicate conflicts, the adapter defers the export and
+opens a convergence gate. The Museum contract does not perform DNS resolution
+or claim that an HTTPS host is public from syntax alone. For every nonempty
+HTTPS URI, the migration adapter MUST provide the signed
+`MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` record below and reject an expired
+or mismatched assertion before submission. An HTTPS gateway MAY be a
+retrieval convenience, but it is never the integrity anchor.
+
+The canonical HTTPS assertion payload is RFC 8785 JCS JSON with exactly these
+fields and no signature bytes:
+
+```json
+{
+  "schema": "MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1",
+  "uriHash": "0x<64 lowercase hex>",
+  "hostHash": "0x<64 lowercase hex>",
+  "resolverProfileId": "0x<64 lowercase hex>",
+  "resolvedAddressSetHash": "0x<64 lowercase hex>",
+  "observedAt": 0,
+  "expiresAt": 0
+}
+```
+
+Its subject is
+`keccak256(abi.encode(0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4, uriHash))`.
+The assertion record MUST set `uriHash == keccak256(bytes(targetURI))` and
+`hostHash == keccak256(bytes(lowercaseAsciiHost(targetURI)))`. The resolver
+MUST canonicalize the resolved address set as strictly increasing, duplicate-
+free 20-byte address values and set
+`resolvedAddressSetHash == keccak256(abi.encode(sortedUniqueAddresses))`.
+It MUST set `expiresAt > observedAt` and `expiresAt` no later than the resolver
+profile's maximum TTL. The signer is an authority-admitted public-network
+resolver or registrar. Its signature scheme is
+`MUSEUM_SIGNATURE_EIP712_HTTPS_PUBLIC_V1`, and its exact signed type string is:
+
+```text
+MuseumHTTPSPublicNetworkAssertion(bytes32 uriHash,bytes32 hostHash,bytes32 resolverProfileId,bytes32 resolvedAddressSetHash,uint64 observedAt,uint64 expiresAt)
+```
+
+The domain is the registry EIP-712 domain from §6.2; the signature digest is
+the raw `0x1901 || domainSeparator || structHash` preimage. The envelope's
+`signatureHash` commits to the exact signature bytes, while the canonical
+payload commits to the assertion fields. An adapter MUST verify the signer,
+payload/URI equality, resolver profile, globally routable address set, and
+validity window; the contract stores the resulting record and does not pretend
+to be a DNS resolver.
 
 The chain MUST NOT contain donor contact details, full legal instruments,
 appraisals, private signer information, private storage locations, credentials,
@@ -514,6 +573,73 @@ The initial deployment MUST grant the Museum Safe or an explicitly governed
 authority provider rather than hard-coding the current signer list. The
 current `networkmuseum.6529.eth` reference and named 3-of-5 signers are
 historical operating context, not contract constants.
+
+### 6.1.1 Global roles and class-selection domain
+
+Family grants are valid only for record writes and always key the tuple
+`(familyId, authorizationClass, account)`. External subject registration,
+Stream mirror links, owner-record convergence, authority transitions, and
+freeze controls use the following global roles instead; they MUST NOT accept
+an omitted or caller-chosen family ID as a substitute:
+
+| Role ID | Scope |
+|---|---|
+| `MUSEUM_GLOBAL_ROLE_REGISTRAR_V1` | Register already-profiled external subjects and set an admitted Stream mirror link. |
+| `MUSEUM_GLOBAL_ROLE_MIGRATION_ADMIN_V1` | The same subject/link selectors while its exact global-role grant is enabled; the grant's `GlobalRoleGrantUpdated` enable/revoke pair is the migration window. It does not grant governance, title, rights, or independent-attestor authority and does not bypass `freezeWrites`. |
+| `MUSEUM_GLOBAL_ROLE_GOVERNANCE_EXECUTOR_V1` | Convergence admission, authority transition execution, successor transition, and irreversible write freeze. |
+| `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` | Grant/revoke global roles and queue or cancel an authority transition. |
+
+The global authorization domain is exactly the tuple
+`(selector, globalRoleId, account, authorityRevision)`, where `selector` is
+the four-byte Solidity selector in the role-control table and `account` is
+the `msg.sender` being checked. A direct global-role call MUST check the exact
+selector allowlist, the enabled role grant for `msg.sender`, and the active
+`authorityRevision`; no global selector accepts a `familyId` or `classMask`.
+V1 has no relayed global-role calls. A future
+relayed global action requires a new signature scheme that signs this exact
+domain and selector; a record-family EIP-712 signature MUST NOT be reused for
+it. Record writes retain the separate family/class domain and include the
+selected `authorizationClass` and `authorityRevision` in their audit state.
+
+The constructor grants the initial authority account the governance-executor
+and authority-admin roles at revision 1. Thereafter `setGlobalRoleGrant` is
+authority-admin controlled, append-only by role revision, and emits the exact
+role ID, account, enabled state, and authority revision. A role grant cannot
+alter a record-family class mask or retroactively authorize a prior record.
+
+### 6.1.2 Authority, successor, and freeze transitions
+
+V1 pins `AUTHORITY_TIMELOCK_SECONDS = 172800` (48 hours). `setAuthority`
+does not immediately change `authority`; it queues one nonzero pending address
+and an `eta = block.timestamp + AUTHORITY_TIMELOCK_SECONDS`. A second queue
+requires `cancelAuthority` first. `executeAuthority` is allowed only at or
+after `eta`, changes the active authority exactly once for that transition,
+increments `authorityRevision`, and emits `RegistryAuthorityUpdated`. The
+execution atomically grants the new authority the governance-executor and
+authority-admin roles and disables those two transition roles for the old
+authority; ordinary registrar/migration roles are not implicitly transferred.
+queue, cancellation, and execution events expose the address, ETA, and
+authority revision. `cancelAuthority` is permitted before execution and
+clears the queue without changing active authority.
+
+`setSuccessor` is a one-way transition. It is authorized only by the global
+governance-executor role, requires `writesFrozen == true`, requires a nonzero
+successor with the successor interface/code evidence required by §12, and
+reverts if a successor is already set. It changes no authority or record
+state, and emits `SuccessorSet` with the current authority revision.
+
+`freezeWrites` is an immediate, one-way transition authorized only by the
+global governance-executor role. It cancels any pending authority queue,
+emitting `AuthorityChangeCancelled` for that pending address before
+`WritesFrozen`,
+blocks record, schema, profile, type, family-grant, global-role, convergence,
+and authority-transition mutators, and leaves read selectors plus the single
+post-freeze `setSuccessor` transition available. A second freeze reverts.
+`WritesFrozen` records the active authority, successor, and authority
+revision. No selector may bypass these guards through an alternate overload.
+V1 is non-proxy and non-delegatecall; deployment behind an upgradeable proxy
+or an implementation with an unguarded transition selector fails the
+deployment gate.
 
 ### 6.2 Direct and relayed writes
 
@@ -665,6 +791,10 @@ interface INetworkMuseumRegistryV1 {
         uint64 recordedBlock;
         address recorder;
         address authorizedSigner;
+        uint256 authorizationNonce;
+        uint64 authorizationDeadline;
+        bytes32 authorizationSignatureScheme;
+        bytes32 authorizationSignatureCommitment;
         uint8 authorizationClass;
         uint8 payloadMode;
         bytes32 supersedesRecordHash;
@@ -687,6 +817,10 @@ interface INetworkMuseumRegistryV1 {
         bytes32 documentHash;
         string uri;
         address canonicalizer;
+        uint8 canonicalizerMode;
+        bytes32 canonicalizerCodeHash;
+        bytes32 canonicalizerImplementationHash;
+        bytes32 canonicalizerVersionId;
         uint64 revision;
     }
 
@@ -707,7 +841,8 @@ interface INetworkMuseumRegistryV1 {
         uint64 deadline;
         bytes32 signatureCommitment;
         address actor;
-        uint64 revision;
+        uint64 nonceRevision;
+        uint64 authorityRevision;
     }
 
     struct StreamOwnerRecordInterface {
@@ -719,6 +854,12 @@ interface INetworkMuseumRegistryV1 {
         uint64 revision;
     }
 
+    struct GlobalRoleGrant {
+        bool enabled;
+        uint64 revision;
+        uint64 authorityRevision;
+    }
+
     function isNetworkMuseumRegistry() external pure returns (bool);
     function registryVersion() external pure returns (bytes32);
     function streamCompatibilityCommit() external pure returns (bytes32);
@@ -726,6 +867,8 @@ interface INetworkMuseumRegistryV1 {
     function authority() external view returns (address);
     function successor() external view returns (address);
     function writesFrozen() external view returns (bool);
+    function pendingAuthority() external view returns (address newAuthority, uint64 eta,
+        uint64 authorityRevision);
 
     function externalAssetSubjectId(bytes32 assetProfileId, string calldata canonicalAssetId)
         external pure returns (bytes32);
@@ -735,7 +878,9 @@ interface INetworkMuseumRegistryV1 {
     function externalAsset(bytes32 subjectId) external view returns (ExternalAsset memory);
 
     function admitAssetProfile(bytes32 profileId, bytes32 schemaId, bytes32 documentHash,
-        string calldata uri, address canonicalizer)
+        string calldata uri, address canonicalizer, uint8 canonicalizerMode,
+        bytes32 canonicalizerCodeHash, bytes32 canonicalizerImplementationHash,
+        bytes32 canonicalizerVersionId)
         external;
     function assetProfile(bytes32 profileId)
         external view returns (AssetProfile memory);
@@ -753,6 +898,11 @@ interface INetworkMuseumRegistryV1 {
     function recordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account)
         external view returns (bool enabled, uint64 revision);
     function setAuthority(address newAuthority) external;
+    function executeAuthority() external;
+    function cancelAuthority() external;
+    function setGlobalRoleGrant(bytes32 globalRoleId, address account, bool enabled) external;
+    function globalRoleGrant(bytes32 globalRoleId, address account)
+        external view returns (GlobalRoleGrant memory);
     function admitStreamOwnerRecordInterface(address interfaceModule,
         bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId, bytes32 evidenceHash)
         external;
@@ -864,17 +1014,37 @@ implementation cannot accidentally authorize an overload:
 
 | Selector | Caller requirement | Additional anti-pollution rule |
 |---|---|---|
-| `0x73c0a0b4` `registerExternalAsset(bytes32,string,bytes32)` | Active family grant for `AUTH_MUSEUM_REGISTRAR` (10) or `AUTH_MUSEUM_MIGRATION_ADMIN` (12); never an open/public caller | `assetProfileId` MUST be admitted; the profile normalizer MUST return the supplied exact bytes; `expectedSubjectId` MUST equal the deterministic subject; an existing subject never overwrites or aliases another asset. |
-| `0x49c44b5c` `setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)` | Same registrar/migration-admin grant, or the governance executor (9) during the convergence-gate action | The Museum subject MUST already exist; the link is write-once; all Stream/module/token/hash-domain/vector fields are committed together; a duplicate or altered link reverts. |
-| `0x75c75961` `admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)` | Registry authority/provider plus an explicit governance-executor (9) convergence action | The evidence hash, exact owner-record domain/vector, interface module, and pinned Stream commit are recorded before any mirror link can be set. |
+| `0x73c0a0b4` `registerExternalAsset(bytes32,string,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_REGISTRAR_V1` or `MUSEUM_GLOBAL_ROLE_MIGRATION_ADMIN_V1` grant for `msg.sender`; never an open/public or family-grant caller | `assetProfileId` MUST be admitted; the profile canonicalizer/runtime checks MUST pass; `expectedSubjectId` MUST equal the deterministic subject; an existing subject never overwrites or aliases another asset. |
+| `0x49c44b5c` `setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)` | Enabled global registrar or migration-admin grant, or enabled `MUSEUM_GLOBAL_ROLE_GOVERNANCE_EXECUTOR_V1` grant during the convergence-gate action | The Museum subject MUST already exist; the link is write-once; all Stream/module/token/hash-domain/vector fields are committed together; a duplicate or altered link reverts. |
+| `0x75c75961` `admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)` | Active authority plus enabled global governance-executor grant | The evidence hash, exact owner-record domain/vector, interface module, and pinned Stream commit are recorded before any mirror link can be set. |
 | `recordMuseumRecord(CollectionRecord,bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | The active family grant for the record's admitted `(familyId, authorizationClass)`; `bySig` additionally requires a valid signer | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
-| `admitAssetProfile`, `admitSchema`, `admitRecordType`, `setRecordFamilyGrant` | Registry authority/provider only, with the governance revision recorded | Admission is append-only; a new document or policy revision gets a new revision and cannot silently broaden a prior grant. |
+| `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority | The role ID is closed-world, the selector allowlist is fixed, and each change increments the role revision and records the authority revision. |
+| `0x7a9e5e4b` `setAuthority(address)` | Enabled global authority-admin grant and active authority | Queues a 48-hour authority transition; it does not mutate active authority inline. |
+| `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Enabled global governance-executor for execute; enabled global authority-admin for cancel | Execute requires the stored ETA; cancel clears only the pending transition. Both are blocked after freeze. |
+| `0x10e5bff8` `setSuccessor(address)` | Enabled global governance-executor grant | Requires frozen writes, a nonzero successor, no prior successor, and successor code/interface evidence; one-way. |
+| `0x05d53fba` `freezeWrites()` | Enabled global governance-executor grant | Immediate and one-way; cancels pending authority and blocks all mutators except post-freeze `setSuccessor`. |
+| `admitAssetProfile`, `admitSchema`, `admitRecordType`, `setRecordFamilyGrant` | Active authority plus their explicitly admitted metadata/admin scope; never an unqualified family grant | Admission is append-only; a new document or policy revision gets a new revision and cannot silently broaden a prior grant. |
 
 The canonical asset string is profile output, not caller interpretation. The
-admitted profile MUST name a governance-approved canonicalizer and document
-code hash. Registration calls that canonicalizer in a read-only call and MUST
-require byte-for-byte equality between its returned string and the supplied
-string. The string MUST be UTF-8 without leading/trailing whitespace or
+admitted profile MUST name a governance-approved canonicalizer, a
+`canonicalizerMode` (`0 = IMMUTABLE_RUNTIME`, `1 = EIP1967_PROXY`), its exact
+runtime `canonicalizerCodeHash`, its `canonicalizerVersionId`, and, for mode 1,
+its exact `canonicalizerImplementationHash`. Registration MUST enforce
+`extcodehash(canonicalizer) == canonicalizerCodeHash`, and the canonicalizer's
+`versionId(profileId)` MUST equal the stored version ID. Mode 0 MUST have a
+zero implementation hash and the adapter's `implementationCodeHash(profileId)`
+MUST equal the runtime hash. Mode 1 MUST read the standard EIP-1967
+implementation slot `bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1)`,
+require the implementation's `extcodehash` and the
+adapter-reported implementation hash to equal the stored implementation hash,
+and reject any other proxy shape. `admitAssetProfile` MUST perform these same
+code-hash, implementation-slot, and version checks before storing the profile;
+these checks also occur on every registration;
+changing runtime code, implementation code, or version is an
+`AssetProfileAlreadyAdmitted` violation under the same profile ID and requires
+a new profile ID and document. Registration calls the canonicalizer
+in a read-only call and MUST require byte-for-byte equality between its
+returned string and the supplied string. The string MUST be UTF-8 without leading/trailing whitespace or
 controls, and the exact profile document hash MUST pin normalization, case,
 decimal, Unicode, and collision rules. For
 `MUSEUM_ASSET_PROFILE_CAIP19_V1`, the supplied string MUST use lowercase EVM
@@ -906,8 +1076,12 @@ normative):
 
 ```solidity
 error InvalidAssetProfile(bytes32 profileId);
+error AssetProfileAlreadyAdmitted(bytes32 profileId);
 error InvalidCanonicalAssetId(bytes32 profileId);
 error InvalidCanonicalizer(bytes32 profileId, address canonicalizer);
+error InvalidCanonicalizerCodeHash(bytes32 profileId, bytes32 expected, bytes32 actual);
+error InvalidCanonicalizerImplementation(bytes32 profileId, bytes32 expected, bytes32 actual);
+error CanonicalizerVersionMismatch(bytes32 profileId, bytes32 expected, bytes32 actual);
 error SubjectIdMismatch(bytes32 expected, bytes32 derived);
 error ExternalAssetAlreadyRegistered(bytes32 subjectId);
 error SubjectIdCollision(bytes32 subjectId);
@@ -942,6 +1116,13 @@ error SupersessionNotOlder(bytes32 supersedesRecordHash, uint64 targetRevision, 
 error RecordFamilyUnauthorized(address actor, bytes32 recordType, bytes32 familyId, uint16 classMask);
 error InvalidAuthority(address signer, uint8 authorizationClass);
 error InvalidSignature(address signer);
+error GlobalRoleUnauthorized(bytes32 globalRoleId, address caller, bytes4 selector);
+error InvalidAuthorityTransition(address newAuthority);
+error AuthorityChangePending(address pendingAuthority, uint64 eta);
+error NoPendingAuthority();
+error AuthorityChangeNotReady(uint64 eta, uint64 currentTime);
+error WritesNotFrozen();
+error WritesAlreadyFrozen();
 error LaneHeadChangedDuringSignature(bytes32 expected, bytes32 actual);
 error NonceStateChangedDuringSignature(address signer, uint256 nonce);
 error SignatureExpired(uint64 deadline, uint64 currentTime);
@@ -982,6 +1163,10 @@ event MuseumRecordRecorded(
     uint64 revision,
     address recorder,
     address authorizedSigner,
+    uint256 authorizationNonce,
+    uint64 authorizationDeadline,
+    bytes32 authorizationSignatureScheme,
+    bytes32 authorizationSignatureCommitment,
     uint8 authorizationClass,
     uint8 payloadMode,
     bytes32 supersedesRecordHash,
@@ -992,7 +1177,9 @@ event MuseumRecordBatchRecorded(bytes32 indexed batchId, uint256 count, bytes32 
 event ExternalAssetRegistered(bytes32 indexed subjectId, bytes32 indexed assetProfileId,
     bytes32 canonicalAssetIdHash, string canonicalAssetId, address indexed registrar);
 event AssetProfileAdmitted(bytes32 indexed profileId, bytes32 schemaId, bytes32 documentHash,
-    string uri, uint64 revision, address authority);
+    string uri, address canonicalizer, uint8 canonicalizerMode, bytes32 canonicalizerCodeHash,
+    bytes32 canonicalizerImplementationHash, bytes32 canonicalizerVersionId,
+    uint64 revision, address authority);
 event SchemaAdmitted(bytes32 indexed schemaId, bytes32 documentHash, string uri,
     uint64 revision, address authority);
 event RecordTypeAdmitted(bytes32 indexed recordType, bytes32 indexed familyId, bytes32 indexed schemaId,
@@ -1004,14 +1191,51 @@ event StreamMirrorLinkSet(bytes32 indexed subjectId, address indexed streamCore,
     bytes32 streamSubjectId, bytes32 ownerRecordHash, bytes32 ownerRecordHashDomain,
     bytes32 ownerRecordHashVectorId, uint64 revision, address authority);
 event NonceRevocationRecorded(address indexed signer, uint256 indexed nonce, uint64 deadline,
-    bytes32 signatureCommitment, address actor, uint64 revision);
-event RegistryAuthorityUpdated(address indexed oldAuthority, address indexed newAuthority, uint64 revision);
-event SuccessorSet(address indexed successor, address authority);
-event WritesFrozen(address indexed authority, address indexed successor);
+    bytes32 signatureCommitment, address actor, uint64 nonceRevision,
+    uint64 authorityRevision);
+event GlobalRoleGrantUpdated(bytes32 indexed globalRoleId, address indexed account,
+    bool enabled, uint64 roleRevision, uint64 authorityRevision, address authority);
+event AuthorityChangeQueued(address indexed pendingAuthority, uint64 eta,
+    uint64 authorityRevision, address authority);
+event AuthorityChangeCancelled(address indexed pendingAuthority, uint64 authorityRevision,
+    address authority);
+event RegistryAuthorityUpdated(address indexed oldAuthority, address indexed newAuthority,
+    uint64 authorityRevision);
+event SuccessorSet(address indexed successor, address authority, uint64 authorityRevision);
+event WritesFrozen(address indexed authority, address indexed successor, uint64 authorityRevision);
 ```
 
 The full envelope is emitted in `MuseumRecordRecorded`, but the state views
 remain authoritative after event pruning or an RPC provider's log limits.
+
+### 7.2.1 Normative state/audit reconstruction
+
+The following table is normative. A state-only auditor MUST obtain the state
+column; the event column is a redundant audit/index surface and MUST carry the
+same value. A missing event never justifies omitting the state value.
+
+| Audit fact | State source | Event source | Direct-write value | Relayed-write value |
+|---|---|---|---|---|
+| Envelope, predecessor, chain, revision, mode, supersession | `record(recordHash)` + `recordSummary(recordHash)` | `MuseumRecordRecorded` | Supplied envelope and explicit mode/supersession | Same signed/recomputed values |
+| Recorder | `RecordSummary.recorder` | `MuseumRecordRecorded.recorder` | `msg.sender` | Relayer `msg.sender` |
+| Authorized signer | `RecordSummary.authorizedSigner` | `MuseumRecordRecorded.authorizedSigner` | `address(0)` | Explicit `signer` |
+| Authorization nonce | `RecordSummary.authorizationNonce` | `MuseumRecordRecorded.authorizationNonce` | `0` | Supplied signer-scoped nonce |
+| Authorization deadline | `RecordSummary.authorizationDeadline` | `MuseumRecordRecorded.authorizationDeadline` | `0` | Supplied inclusive deadline |
+| Authorization signature scheme | `RecordSummary.authorizationSignatureScheme` | `MuseumRecordRecorded.authorizationSignatureScheme` | `bytes32(0)` | `MUSEUM_SIGNATURE_EIP712_RECORD_V1` |
+| Authorization signature commitment | `RecordSummary.authorizationSignatureCommitment` | `MuseumRecordRecorded.authorizationSignatureCommitment` | `bytes32(0)` | `keccak256(signature)`; signature bytes are never required for state reconstruction |
+| Selected class and authority revision | `RecordSummary.authorizationClass`, `authorityRevision` | Same event fields | Direct caller's active family grant and current revision | Signer's active family grant and current revision |
+| Inline payload | `payload(recordHash)` | `MuseumRecordRecorded.payloadMode/payloadLength` plus the state view | Exact bytes for `INLINE`, otherwise empty | Same signed envelope bytes |
+| Nonce revocation | `nonceRevocation(signer,nonce)` | `NonceRevocationRecorded` | Deadline `0`, commitment `0`, actor `msg.sender`, `nonceRevision=1` | Supplied deadline, `keccak256(signature)`, relayer actor, `nonceRevision=1` |
+| Revocation authority context | `NonceRevocation.authorityRevision` | `NonceRevocationRecorded.authorityRevision` | Current authority revision | Current authority revision |
+
+`authorizationNonce` and `authorizationDeadline` are not part of
+`recordHash`; the signed `recordHash` remains the envelope identity. They are
+durable sidecar authorization facts and MUST be populated before the write
+becomes visible. `authorizationSignatureScheme` is the outside-the-envelope
+scheme ID; it MUST NOT be confused with `record.signatureScheme`. The
+`nonceRevision` in a revocation is the revision of that signer/nonce lane,
+while `authorityRevision` is the registry authority revision; neither may be
+reused for the other.
 
 ## 8. Migration procedure
 
@@ -1412,14 +1636,18 @@ ownerRecordHash = 0xee351e5f3e3edbbdf00670dc9116f99ef5ed8da4d070b6a3c734d81a099b
 
 For one record with source ordinal `1`, path
 `specs/onchain/contract-migration-v1.md`, record hash from §13.2, payload
-mode `INLINE`, payload bytes from §13.2, source commit bytes32 `0x...01`,
-Stream commit bytes32 `0x...02`, and generator `museum-migration/1.0.0`:
+mode `INLINE`, payload bytes from §13.2, source commit
+`6ab83b456f1ad8d1b7b88b79cc960954feb56432`, Stream commit
+`5021c8060950c3fef995271e674ed4b2007fee6d`, and generator
+`museum-migration/1.0.0`. Their `bytes32` encodings are respectively
+`0x0000000000000000000000006ab83b456f1ad8d1b7b88b79cc960954feb56432` and
+`0x0000000000000000000000005021c8060950c3fef995271e674ed4b2007fee6d`.
 
 ```text
 pathHash = 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
 payloadBytesHash = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
 entryHash = 0x3aa074dec49b0294d9abb908dceea5a4d202418c4c3853fdf844bd645f62b7f7
-root = 0xbc5568367bca90d555bc6327649169ad38e1afee36f86d8695b7c927b20c87f9
+root = 0x685f7fa37801cc1c6264ff9bbf143d836926887ad890132e43a1943b7a91b41a
 ```
 
 ### 13.7 Required negative tests
@@ -1467,8 +1695,9 @@ below pass and Museum governance explicitly approves the deployment:
    hash distinction pass golden tests.
 5. **Authorization gate:** family masks, Safe/ERC-1271, EOA signatures,
    unordered nonces, nonce-revocation commitments/deadlines, reentrancy
-   callback rechecks, provider rotation, and class isolation pass negative
-   tests.
+   callback rechecks, global-role selector scope, authority timelock,
+   successor-after-freeze, one-way freeze, provider rotation, and class
+   isolation pass negative tests.
 6. **Lineage gate:** duplicate rejection, predecessor/head accumulation,
    correction/supersession, successor import, batch atomicity, and state-only
    reconstruction pass.
@@ -1483,15 +1712,19 @@ below pass and Museum governance explicitly approves the deployment:
    per-record entry hashes, root, and body hash are independently regenerated;
    reorg retry is rehearsed; and a third party regenerates the index, dossier,
    PREMIS/LIDO exports, and manifests.
-10. **Operational gate:** registrar, curator, digital-conservation, privacy,
+10. **Canonicalizer/URI gate:** every asset profile's runtime hash,
+    implementation hash when EIP-1967 proxyable, version ID, and collision
+    behavior are checked before registration; every HTTPS URI has a valid,
+    unexpired `MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` record.
+11. **Operational gate:** registrar, curator, digital-conservation, privacy,
     and records-management review is complete; incident and recovery runbooks
     are content-addressed.
-11. **Security gate:** independent contract review/audit covers authority
+12. **Security gate:** independent contract review/audit covers authority
     capture, replay, malformed external strings, griefing/spam, reentrancy in
     providers, URI/payload mismatch, upgrade/import, and chain reorg handling.
     The audit MUST also verify the write-once external-subject/mirror selectors
     and the closed Stream owner-record convergence gate.
-12. **Governance gate:** deployment address, authority provider, write policy,
+13. **Governance gate:** deployment address, authority provider, write policy,
     migration scope, and non-goals are explicitly adopted; current signer
     names are not hard-coded.
 
