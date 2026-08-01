@@ -43,6 +43,7 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
+| [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | WIP analysis | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
 | [`notes/wip/2026-08-01-stream-coverage-and-gaps.md`](notes/wip/2026-08-01-stream-coverage-and-gaps.md) | WIP analysis | What Stream covers, strengths, implementation caveat, Museum gaps |
 | [`notes/wip/2026-08-01-external-works-registry.md`](notes/wip/2026-08-01-external-works-registry.md) | WIP analysis | Options and recommended boundary for externally minted works |
 | [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | WIP analysis | Multi-object numbering and proposed deliverables from the supplied accession draft |
