@@ -130,6 +130,14 @@ commits as historical provenance. Publishing a future package has two phases:
 merge the reviewed package, then bind its resulting immutable merge commit in
 the excluded `latest-run.json` pointer and rerun the verifier.
 
+The squash-dropped construction commit OIDs are historical identifiers; a
+fresh-clone verifier does not pretend it can dereference objects absent from
+published history. Integrity authority instead comes from the closed package
+inventory and its hashes, reinforced by byte comparison to the reachable
+publication commit. Reachability is fail-closed: validation intentionally
+fails in a shallow checkout that omits the publication commit, and the Museum
+workflow therefore checks out full history with `fetch-depth: 0`.
+
 The verifier recursively rejects marketplace/provider references, marketplace
 URLs, and imported or precomputed metric fields across every bound JSON
 artifact, including descriptor metadata, generated-result inputs, methods,

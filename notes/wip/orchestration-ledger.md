@@ -470,7 +470,9 @@ new boundary.
 No raw observation, snapshot, descriptor, descriptor-result, request,
 exclusion, warning, or collection-population byte changed. The regenerated
 package-manifest SHA-256 is
-`sha256:a078558758f4e1cd88819e8a67466c5c8d59c8504b49a3c658f14bc150c27ba0`;
+`sha256:b539984fdf9fcb297e64af07acdc7ed7a51b3b0190f13e5cd6e7a19d7737e98b`;
 its change is limited to the updated README, verifier, and mutation-test
-inventory entries. The governed release-manifest SHA-256 is
-`sha256:199faee2ee2cd2cbc0b4b1f8fd18253b9b4ccf142f2f6b3e0c13c2139fa957b0`.
+inventory entries. The excluded `latest-run.json` pointer itself also changed
+to add `published_source_commit` and the regenerated package-manifest pointer.
+The governed release-manifest SHA-256 is
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.

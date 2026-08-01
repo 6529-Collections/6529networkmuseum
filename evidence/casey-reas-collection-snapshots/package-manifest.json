@@ -82,8 +82,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/README.md",
         "role": "package-documentation",
-        "sha256": "sha256:b0c98c44fca6c5f7753d436bfc7fbbb6e174b5eb107a60d3d09e25c1c05a5cfc",
-        "size": 8928
+        "sha256": "sha256:61b8616d0d443b5928fd45ac60446f8fe0a93456f16e3c536614c19e272c775b",
+        "size": 9448
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
@@ -1096,8 +1096,8 @@
       {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:daaf8c5a96289b1bcc42293cb53f2c34af75d3a6c1a3f4c313c583c01e0c0a91",
-        "size": 75235
+        "sha256": "sha256:2d8fc45057989d39410cf8d420413b981bb517e99175caa175ebca994030d8f8",
+        "size": 75274
       },
       {
         "path": "tests/casey/test_casey_snapshot_mutations.py",
