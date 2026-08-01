@@ -83,7 +83,7 @@
     "mint_timestamp": null,
     "purchase_status": "unverified",
     "purchase_transaction": null,
-    "purchase_price_eth": 0.5,
+    "purchase_price_eth": null,
     "title_binding": null,
     "planned_custody_reference": "networkmuseum.6529.eth",
     "custody_receipt_status": "unverified",

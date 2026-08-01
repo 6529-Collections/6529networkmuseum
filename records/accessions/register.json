@@ -1,6 +1,5 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
-  "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
     "revision": 1,
     "record_status": "reviewed",

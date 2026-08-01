@@ -59,8 +59,9 @@
     "artist_cc0_declaration": "CC0 Rights - The artist declares that this work is original and may be released under CC0. Upon accession, the work may be used, copied, modified, distributed and displayed by anyone without restriction.",
     "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
     "consent_representation": {
-      "representation_status": "no people-consent representation located in declaration",
-      "documentation_status": "not stated; independently verify if people are depicted"
+      "representation_status": "statement_declares_written_consent_for_depicted_people",
+      "documentation_status": "Artist statement declares written consent exists for the depicted person and identifies the artist's mother; restricted instrument and hash are not held in this public record.",
+      "source_text": "I have written people(My mother is the lady in the frame) consent suitable for this release. Documentation can be provided upon request."
     },
     "restricted_consent_instrument": null,
     "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
@@ -82,7 +83,7 @@
     "mint_timestamp": null,
     "purchase_status": "unverified",
     "purchase_transaction": null,
-    "purchase_price_eth": 0.5,
+    "purchase_price_eth": null,
     "title_binding": null,
     "planned_custody_reference": "networkmuseum.6529.eth",
     "custody_receipt_status": "unverified",
