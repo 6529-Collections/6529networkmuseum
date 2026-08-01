@@ -170,17 +170,20 @@ preserved array order. It emits:
 - `normalized_snapshot_sha256`: the canonical hash after explicit
   normalization/duplicate handling;
 - `output_sha256`: the canonical hash of the output payload while its `hashes`
-  object is empty (the emitted hashes are commitments, not self-hashed data).
+  object is empty and its runtime-only `determinism` profile is omitted (the
+  emitted hashes and environment description are not self-hashed data).
 
 All are rendered as `sha256:<64 lowercase hex digits>`. Repeat runs over the
 same snapshot and duplicate policy must produce identical JSON and hashes.
 The output's `determinism` profile records the active Python implementation,
 version, JSON encoder settings, and float boundary. This implementation's
-byte/hash guarantee is intentionally limited to the same CPython
-implementation and version: CPython's shortest-round-trip float encoding is
-part of the commitment. A Python implementation/version change requires
-review and fixture regeneration; this compact encoder is not a claim of RFC
-8785 cross-runtime compatibility.
+output commitment deliberately excludes that runtime profile so the exact
+fixture is not pinned to the maintainer's CPython patch version. The
+byte/hash guarantee for the numeric payload is still intentionally limited to
+the same CPython implementation and version: CPython's shortest-round-trip
+float encoding is part of the commitment. A Python implementation/version
+change requires review and fixture regeneration; this compact encoder is not a
+claim of RFC 8785 cross-runtime compatibility.
 
 ## CLI exit semantics
 

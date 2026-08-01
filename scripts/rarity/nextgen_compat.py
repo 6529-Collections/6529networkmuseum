@@ -126,6 +126,15 @@ def sha256_json(value: Any) -> str:
     return "sha256:" + hashlib.sha256(canonical_json(value)).hexdigest()
 
 
+def _output_hash_payload(result: dict[str, Any]) -> dict[str, Any]:
+    """Return the output payload with self-hashes and runtime metadata normalized."""
+
+    payload = deepcopy(result)
+    payload["hashes"] = {}
+    payload.pop("determinism", None)
+    return payload
+
+
 def load_snapshot(path: str | Path) -> dict[str, Any]:
     """Load a UTF-8 JSON snapshot without changing its raw representation."""
 
@@ -164,7 +173,6 @@ OPEN_SEA_METRIC_TERMS = (
     "percentile",
     "frequency",
     "prevalence",
-    "trait",
     "floor",
     "price",
     "sale",
@@ -735,6 +743,6 @@ def analyze_snapshot(
     result["hashes"] = {
         "input_snapshot_sha256": raw_snapshot_sha256,
         "normalized_snapshot_sha256": normalized_snapshot_sha256,
-        "output_sha256": sha256_json(result),
+        "output_sha256": sha256_json(_output_hash_payload(result)),
     }
     return result

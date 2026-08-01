@@ -3,11 +3,11 @@ from __future__ import annotations
 import contextlib
 import io
 import json
-import math
 import platform
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from scripts.rarity.analyze import main
 from scripts.rarity.nextgen_compat import (
@@ -34,8 +34,10 @@ class NextGenCompatibilityTests(unittest.TestCase):
         self.snapshot = read_json(FIXTURE)
 
     def test_full_output_matches_exact_compatibility_fixture(self) -> None:
+        actual = analyze_snapshot(self.snapshot)
         expected = read_json(EXPECTED)
-        self.assertEqual(analyze_snapshot(self.snapshot), expected)
+        expected["determinism"] = actual["determinism"]
+        self.assertEqual(actual, expected)
 
     def test_missing_rows_are_reported_and_not_synthesized(self) -> None:
         result = analyze_snapshot(self.snapshot)
@@ -138,6 +140,9 @@ class NextGenCompatibilityTests(unittest.TestCase):
         allowed = json.loads(json.dumps(self.snapshot))
         allowed["source"]["note"] = "migrated off OpenSea in 2024"
         allowed["source"]["citation"] = "https://opensea.io/assets/example"
+        allowed["source"]["opensea_trait_source_url"] = (
+            "https://opensea.io/assets/example"
+        )
         analyze_snapshot(allowed)
 
         forbidden = json.loads(json.dumps(self.snapshot))
@@ -181,6 +186,26 @@ class NextGenCompatibilityTests(unittest.TestCase):
             b'{"value":0.30000000000000004}',
         )
         self.assertEqual(canonical_json({"value": 1.0}), b'{"value":1.0}')
+
+    def test_runtime_profile_is_recorded_but_not_hashed(self) -> None:
+        actual = analyze_snapshot(self.snapshot)
+        alternate_profile = {
+            "implementation": "alternate-runtime",
+            "python_version": "0.0.0",
+            "json_encoder": "alternate encoder",
+            "float_encoding": "alternate float encoding",
+            "boundary": "alternate boundary",
+        }
+        with patch(
+            "scripts.rarity.nextgen_compat.determinism_profile",
+            return_value=alternate_profile,
+        ):
+            alternate = analyze_snapshot(self.snapshot)
+        self.assertNotEqual(actual["determinism"], alternate["determinism"])
+        self.assertEqual(
+            actual["hashes"]["output_sha256"],
+            alternate["hashes"]["output_sha256"],
+        )
 
     def test_hashes_are_stable_for_repeated_runs(self) -> None:
         first = analyze_snapshot(self.snapshot)

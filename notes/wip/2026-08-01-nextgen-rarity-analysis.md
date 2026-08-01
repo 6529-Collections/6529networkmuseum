@@ -26,8 +26,9 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
   significance.
 - Hash determinism is explicitly bounded to the same CPython implementation
   and version because canonical JSON uses CPython's shortest-round-trip float
-  encoding; fixture regeneration and review are required after a runtime
-  change.
+  encoding. The output records runtime metadata but excludes that metadata
+  from `output_sha256`, so the exact fixture is not pinned to one patch version;
+  fixture regeneration and review are still required after a runtime change.
 
 ## Implementation status
 
@@ -50,5 +51,7 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
    publication. The default remains rejection of duplicate `(token_id, trait)`
    rows.
 4. The repository currently does not pin a Python runtime in a project-level
-   manifest. Until it does, the fixture's recorded CPython version is the
-   determinism boundary and must be checked by the focused tests.
+   manifest. The focused tests therefore compare the recorded runtime profile
+   to the active interpreter separately from the portable exact fixture; the
+   numeric output/hash boundary remains the same-CPython implementation and
+   version rule above.
