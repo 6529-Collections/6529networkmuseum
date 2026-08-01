@@ -204,12 +204,13 @@ $asset = 'eip155:1/erc721:0x06012c8cf97bead5deae2370709587f8e7a266d/771769'
 $payload = '{"id":"6529NM.2026.001.1","status":"proposed"}'
 $uri = 'ipfs://bafybeigdyrzt5example'
 $assetHash = cast keccak $asset
-$subjectId = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32)' $subjectDomain $assetProfile $assetHash)
+$externalSubjectId = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32)' $subjectDomain $assetProfile $assetHash)
 $contentDigest = cast keccak $payload
 $contentDigestHash = cast keccak $contentDigest
 $uriHash = cast keccak $uri
 # hashRefHash always places keccak256(ref.digest), not ref.digest, in slot 2.
 # Here contentDigest is the stored 32-byte HashRef.digest, so it is re-hashed.
+# The record vector uses the separately pinned $subject value above.
 $contentRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 1 $contentDigestHash $canon)
 $emptyBytesHash = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
 $signatureRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 0 $emptyBytesHash 0x0000000000000000000000000000000000000000000000000000000000000000)
@@ -223,7 +224,7 @@ $writeTypeHash = cast keccak 'MuseumRecordWrite(bytes32 recordHash,bytes32 recor
 $structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,bytes32,uint256,uint64)' $writeTypeHash $recordHash $type $subject 0x0000000000000000000000000000000000000000000000000000000000000000 7 1800000000)
 $digest = cast keccak (cast abi-encode 'f(bytes2,bytes32,bytes32)' 0x1901 $domainSeparator $structHash)
 $assetHash
-$subjectId
+$externalSubjectId
 $contentDigest
 $contentDigestHash
 $uriHash
@@ -248,13 +249,13 @@ Expected output, in order:
 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
 0x66de33e7d57cf2169917368e5d3e0e9e9841cd367f8de4ff95f3a15164456462
 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
-0xacdb0e50ffc52d3f6aca12e671528b4aeeb1930ae3f8afe7416e4869d1946819
-0x4c59441f8bca411094bcaa368d6701b3fde57aae1d2b431fbe4339940a420ed3
+0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
+0xd58c19ce69e7e703fb3f2f22e70f4600a0602db704abc6b740277fd04b6340c7
 0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f
 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-0xeb8f13d8bc5e1d40d070560f3368a0eb492d6bc9c29713fd1e7a37f448e35521
-0x229e0c78381d5cca1d44454e9afc3f41a615674cdcfe8df0d2ec6bdf68f73cd0
+0xd27f3f4288df41d1246978615a45466dd9d42a90f49d5178eae2287168c32098
+0xaedfcd6cd01ef40781ca1ebd9887dcf5415801b6b667bf4d2d3245675a0c589f
 ```
 
 The EIP-712 signature bytes are intentionally absent from the record-hash

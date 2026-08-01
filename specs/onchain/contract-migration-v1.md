@@ -970,11 +970,11 @@ hashRefHash(signatureHash) = 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca
 chainId = 1
 registry = 0x0000000000000000000000000000000000000001
 effectiveAt = 1722470400
-recordHash = 0xacdb0e50ffc52d3f6aca12e671528b4aeeb1930ae3f8afe7416e4869d1946819
+recordHash = 0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
 ```
 
 For the first lane append, `revision = 1`, `previousRecordHash = 0x00...00`,
-and `chainHash = 0x4c59441f8bca411094bcaa368d6701b3fde57aae1d2b431fbe4339940a420ed3`.
+and `chainHash = 0xd58c19ce69e7e703fb3f2f22e70f4600a0602db704abc6b740277fd04b6340c7`.
 
 ### 13.3 EIP-712 relayed write
 
@@ -988,7 +988,7 @@ EIP712Domain type string = EIP712Domain(string name,string version,uint256 chain
 EIP712 name = 6529 Network Museum Registry
 EIP712 version = 1
 MuseumRecordWrite type string = MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
-signedRecordHash = 0xacdb0e50ffc52d3f6aca12e671528b4aeeb1930ae3f8afe7416e4869d1946819
+signedRecordHash = 0x21bdc865eb767d54ccf685db524c76a35535ffc664a8becc799a50bc545b4802
 signedPreviousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 previousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 nonce = 7
@@ -997,8 +997,8 @@ record.signatureScheme = 0x00000000000000000000000000000000000000000000000000000
 record.signatureHash = (algorithm=0,digest=0x,canonicalizationId=0x0000000000000000000000000000000000000000000000000000000000000000)
 domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 MuseumRecordWrite typeHash = 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-structHash = 0xeb8f13d8bc5e1d40d070560f3368a0eb492d6bc9c29713fd1e7a37f448e35521
-digest = 0x229e0c78381d5cca1d44454e9afc3f41a615674cdcfe8df0d2ec6bdf68f73cd0
+structHash = 0xd27f3f4288df41d1246978615a45466dd9d42a90f49d5178eae2287168c32098
+digest = 0xaedfcd6cd01ef40781ca1ebd9887dcf5415801b6b667bf4d2d3245675a0c589f
 ```
 
 ### 13.4 Stream bilateral vector
