@@ -18,7 +18,26 @@ from canonical import canonicalize
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = REPO_ROOT / "release-artifacts" / "latest" / "record-manifest.json"
-INVENTORY_ROOTS = ("policies", "records", "schemas", "docs", "specs", "scripts", "tests")
+INVENTORY_ROOTS = (
+    ".github",
+    "policies",
+    "records",
+    "schemas",
+    "docs",
+    "governance",
+    "specs",
+    "templates",
+    "scripts",
+    "tests",
+)
+INVENTORY_FILES = (
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "INDEX.md",
+    "README.md",
+    "requirements-dev.txt",
+)
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 
 
@@ -69,6 +88,18 @@ def inventory_paths(root: Path) -> list[Path]:
             raise ManifestUnsafePathError(f"reparse point is not allowed in governed inventory: {path.relative_to(root)}")
 
     paths: list[Path] = []
+    for inventory_file in INVENTORY_FILES:
+        path = root / inventory_file
+        if not os.path.lexists(path):
+            continue
+        file_stat = path.lstat()
+        assert_not_link(path, file_stat)
+        if not stat.S_ISREG(file_stat.st_mode):
+            raise ManifestUnsafePathError(
+                f"configured governed file is not a regular file: {path.relative_to(root)}"
+            )
+        paths.append(path)
+
     for inventory_root in INVENTORY_ROOTS:
         directory = root / inventory_root
         if not os.path.lexists(directory):
@@ -115,6 +146,7 @@ def manifest_body(root: Path) -> dict[str, Any]:
         "manifest_type": "6529NM_RECORD_MANIFEST",
         "manifest_version": "1.0.0",
         "inventory_roots": list(INVENTORY_ROOTS),
+        "inventory_files": list(INVENTORY_FILES),
         "hash_algorithms": {"keccak256": 1, "sha256": 2},
         "canonicalization": {"name": "RFC8785_JCS", "id": JCS_ID, "profile": "museum-i-json-v1"},
         "entries": [file_entry(root, path) for path in inventory_paths(root)],

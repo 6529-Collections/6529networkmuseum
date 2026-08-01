@@ -22,7 +22,14 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 from canonical import canonicalize  # noqa: E402
 import bootstrap_validate  # noqa: E402
 from check_fetch_guard import scan_file, scan_tree  # noqa: E402
-from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, ManifestUnsafePathError, make_manifest, normalized_bytes  # noqa: E402
+from generate_manifest import (  # noqa: E402
+    DuplicateJsonKeyError as ManifestDuplicateJsonKeyError,
+    INVENTORY_FILES,
+    INVENTORY_ROOTS,
+    ManifestUnsafePathError,
+    make_manifest,
+    normalized_bytes,
+)
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
 from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
@@ -814,18 +821,42 @@ class ControlPlaneTests(unittest.TestCase):
         manifest = make_manifest(REPO_ROOT)
         self.assertEqual("6529NM_RECORD_MANIFEST", manifest["manifest_type"])
         self.assertEqual(
-            ["policies", "records", "schemas", "docs", "specs", "scripts", "tests"],
+            [
+                ".github",
+                "policies",
+                "records",
+                "schemas",
+                "docs",
+                "governance",
+                "specs",
+                "templates",
+                "scripts",
+                "tests",
+            ],
             manifest["inventory_roots"],
         )
+        self.assertEqual(
+            [".gitattributes", ".gitignore", "AGENTS.md", "INDEX.md", "README.md", "requirements-dev.txt"],
+            manifest["inventory_files"],
+        )
+        self.assertTrue(all((REPO_ROOT / root).is_dir() for root in INVENTORY_ROOTS))
+        self.assertTrue(all((REPO_ROOT / path).is_file() for path in INVENTORY_FILES))
         self.assertTrue(manifest["entries"])
         self.assertTrue(all("\\" not in entry["path"] for entry in manifest["entries"]))
         self.assertTrue(all(not entry["path"].startswith("evidence/") for entry in manifest["entries"]))
         paths = {entry["path"] for entry in manifest["entries"]}
         self.assertIn("docs/generative-trait-analysis.md", paths)
+        self.assertIn("governance/pull-request-review-policy.md", paths)
+        self.assertIn("templates/object-record.md", paths)
+        self.assertIn(".github/workflows/museum-validation.yml", paths)
+        self.assertIn("specs/README.md", paths)
+        self.assertIn("README.md", paths)
+        self.assertIn("requirements-dev.txt", paths)
         self.assertIn("scripts/rarity/nextgen_compat.py", paths)
         self.assertIn("tests/rarity/test_nextgen_compat.py", paths)
         self.assertFalse(any("__pycache__" in path or path.endswith((".pyc", ".pyo")) for path in paths))
         self.assertNotIn("release-artifacts/latest/record-manifest.json", paths)
+        self.assertFalse(any(path.startswith("notes/") for path in paths))
         self.assertRegex(manifest["manifest_commitment"]["digest"], r"^0x[0-9a-f]{64}$")
         self.assertRegex(manifest["manifest_sha256"], r"^sha256:[0-9a-f]{64}$")
         self.assertEqual(manifest, make_manifest(REPO_ROOT))
@@ -843,6 +874,7 @@ class ControlPlaneTests(unittest.TestCase):
         source = docs / "example.md"
         source.write_bytes(b"first\r\nsecond\rthird\n")
         (specs / "protocol.md").write_text("governed spec\n", encoding="utf-8")
+        (root / "README.md").write_bytes(b"first\r\nsecond\rthird\n")
         (cache / "example.pyc").write_bytes(b"cache")
         self.assertEqual(b"first\nsecond\nthird\n", normalized_bytes(source))
         first = make_manifest(root)
@@ -850,6 +882,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertIn("docs/example.md", {entry["path"] for entry in first["entries"]})
         self.assertIn("specs/protocol.md", {entry["path"] for entry in first["entries"]})
+        self.assertIn("README.md", {entry["path"] for entry in first["entries"]})
         self.assertNotIn("scripts/__pycache__/example.pyc", {entry["path"] for entry in first["entries"]})
 
     def test_manifest_rejects_file_and_directory_symlinks(self) -> None:
@@ -880,6 +913,22 @@ class ControlPlaneTests(unittest.TestCase):
         except (OSError, NotImplementedError) as exc:
             if os.name == "nt":
                 self.skipTest(f"Windows directory symlink privilege unavailable: {exc}")
+            raise
+        with self.assertRaises(ManifestUnsafePathError):
+            make_manifest(root)
+
+    def test_manifest_rejects_root_file_symlink(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-root-link-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        external = root.parent / f"museum-manifest-root-external-{root.name}.txt"
+        external.write_text("outside\n", encoding="utf-8")
+        self.addCleanup(lambda: external.unlink(missing_ok=True))
+        try:
+            os.symlink(external, root / "README.md")
+        except (OSError, NotImplementedError) as exc:
+            if os.name == "nt":
+                self.skipTest(f"Windows symlink privilege unavailable: {exc}")
             raise
         with self.assertRaises(ManifestUnsafePathError):
             make_manifest(root)

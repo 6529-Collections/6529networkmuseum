@@ -48,10 +48,13 @@ commitments, cross-references, append-only state transitions,
 constructor/reviewer separation, and public-record sensitive-field guardrails.
 The pull-request workflow runs these checks on every PR.
 
-The generated release manifest covers the governed records and the control-plane
-source that validates them (`policies/`, `records/`, `schemas/`, `docs/`,
-`specs/`, `scripts/`, and `tests/`). Evidence remains separately authenticated by its
-raw-byte evidence manifests. It uses the 6529Stream conventions:
+The generated release manifest covers the governed records, governance and
+review controls, protocol specifications, templates, validation source, tests,
+and named root control files. The exact closed inventory is documented in
+[`docs/control-plane.md`](docs/control-plane.md). Evidence remains separately
+authenticated by raw-byte evidence manifests, while indexed WIP and research
+notes remain outside the release authority. The manifest uses the 6529Stream
+conventions:
 
 - repository-relative POSIX paths;
 - `sha256:` file digests over LF-normalized Museum-authored text;

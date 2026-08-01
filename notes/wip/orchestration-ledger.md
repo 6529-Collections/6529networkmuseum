@@ -203,8 +203,15 @@ head-bound bot reruns follow the cross-platform validation.
 
 The merged control plane validates `specs/` as governed public content, but its
 deterministic release manifest initially omitted that root because no protocol
-specification existed when the control plane was constructed. Before the
-on-chain migration specification can merge, `specs/` is added to the closed
-release inventory beside policies, records, schemas, docs, scripts, and tests.
-The manifest test pins this exact root set and proves that a specification file
-is inventoried. Evidence and WIP notes retain their separate commitment rules.
+specification existed when the control plane was constructed. The first narrow
+remediation exposed a wider boundary omission: governance controls, templates,
+GitHub CI/review policy, and named root controls also affected releases without
+being committed by the release manifest.
+
+Before the on-chain migration specification can merge, the release inventory is
+therefore closed over `.github/`, policies, records, schemas, docs, governance,
+specs, templates, scripts, tests, and six named root control files. A formal
+`specs/README.md` defines the admission boundary. Tests pin the exact roots and
+files, prove that real and future specification files are inventoried, and
+reject linked root files. Evidence, WIP notes, Git internals, and the
+self-referential release-artifact directory retain explicit separate treatment.

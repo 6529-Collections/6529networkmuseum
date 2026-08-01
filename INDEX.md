@@ -42,6 +42,7 @@ Status vocabulary:
 | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
+| [`specs/README.md`](specs/README.md) | working standard | Boundary and admission requirements for implementation-ready protocol specifications |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
 | [`docs/standards-crosswalk.md`](docs/standards-crosswalk.md) | working standard | Current operational field-level crosswalk used by the accession and donation templates |
@@ -93,7 +94,7 @@ Status vocabulary:
 | [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with IDNA/endpoint filtering, IP pinning, strict framing/headers, redirect rechecks, streamed caps, and observations |
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
-| [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments |
+| [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments over the closed governed release inventory |
 | [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
 | [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
