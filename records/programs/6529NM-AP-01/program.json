@@ -1,0 +1,159 @@
+{
+  "record_type": "ACCESSION_PROGRAM",
+  "schema_profile": "6529NM_ACCESSION_PROGRAM_V1",
+  "program_id": "6529NM-AP-01",
+  "title": "Keys and Gates",
+  "subtitle": "photographs of access, control, and exit",
+  "status": "selection_complete_acquisition_and_accession_unverified",
+  "status_as_of": "2026-08-01T15:03:35Z",
+  "benefit_work_model": "Meme Card benefit work funds a themed 1/1 accession program; the benefit work is not itself an accession shortcut.",
+  "authorities_and_sources": {
+    "program_wave": {
+      "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+      "url": "https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+      "name": "Keys and Gates",
+      "description_drop_id": "71c798bc-629d-46f2-8610-507a91be4f57",
+      "description_drop_serial_no": 972000,
+      "description_drop_observed_at": "2026-08-01T15:03:35Z"
+    },
+    "formal_notes": [
+      {
+        "role": "program_note",
+        "url": "https://keysandgates_thememes.ar.io/",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "sha256": "sha256:0dbb79439224de8c86359a164f4777c81a70c3bc2eb852127a2ec54ae467a441",
+        "hash_basis": "UTF-8 bytes of the HTTP response body returned by GET; HTML representation, not a claim that the source is immutable"
+      },
+      {
+        "role": "institutional_note",
+        "url": "https://6529networkmuseum_thememes.ar.io/",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "sha256": "sha256:75889ed25b623fde356129e39ba5330d4c0c2b38de0f3a7d94355282ff28b8d4",
+        "hash_basis": "UTF-8 bytes of the HTTP response body returned by GET; HTML representation, not a claim that the source is immutable"
+      }
+    ],
+    "live_wave_configuration": {
+      "observed_at": "2026-08-01T15:00:52Z",
+      "voting_period_start": "2026-05-09T19:45:46.161Z",
+      "voting_period_end": "2026-07-09T12:00:00Z",
+      "voting_credit_type": "TDH",
+      "voting_credit_scope": "WAVE",
+      "selection_status_evidence": "Individual selected submissions returned by the live API as drop_type WINNER with winning_context.awards describing acquisition by the 6529 Network Museum."
+    },
+    "operational_chat_context": [
+      {
+        "serial_no": 1243947,
+        "drop_id": "6177e578-a827-4f2b-a720-ba5dc26fa3fd",
+        "author": "punk6529",
+        "occurred_at": "2026-07-26T21:05:24.479Z",
+        "interpretation": "The Stream contract was described as the main blocker for Stream and Museum/Keys and Gates; discussion context, not a mint or acquisition record."
+      },
+      {
+        "serial_no": 1259672,
+        "drop_id": "d751d212-1309-4826-b63b-6c0a2d141d64",
+        "author": "ikertje",
+        "occurred_at": "2026-07-31T16:13:50.422Z",
+        "text": "soon the pieces will be minted, punk finished the new contract",
+        "interpretation": "Forward-looking chat statement; it does not establish a deployed contract, mint transaction, token identity, payment, custody, or accession."
+      }
+    ]
+  },
+  "curatorial_frame": {
+    "premise": "A focused photography subcollection about the mechanics of freedom: who gets access, who is excluded, what is permissioned, what is open, what is surveilled, what can be carried across a border, what can be said without reprisal, and what it means to leave.",
+    "in_scope": [
+      "thresholds and gates",
+      "civic and state systems",
+      "permissioning and membership",
+      "markets and capital gatekeeping",
+      "surveillance and compliance",
+      "informal autonomy",
+      "the right to exit",
+      "self-custody and self-sovereignty as lived practice"
+    ],
+    "selection_standards": [
+      "photographic strength and craft",
+      "clarity of the control, access, custody, or exit theme",
+      "distinct voice and point of view",
+      "long-horizon relevance as document and image",
+      "completeness and quality of documentation",
+      "suitability for permanent CC0 accession"
+    ],
+    "outcome_interpretation": "The 16 selected outcomes form a provisional program selection list, not a completed collection or accession list."
+  },
+  "rules": {
+    "open_call_duration_days": 60,
+    "work_type": "original 1/1 photographic works made by the submitting artist",
+    "theme": "access, exclusion, permission, surveillance, custody, autonomy, and exit",
+    "submission_limit_per_artist": 3,
+    "rights": {
+      "program_license": "CC0 only",
+      "artist_requirement": "Artist must be able to release the work under CC0 and warrant that release.",
+      "depicted_people": "Written consent required when people are depicted; consent documentation must be available on request.",
+      "identifiable_minors": "Excluded",
+      "sensitive_personal_data": "Submissions exposing sensitive personal data, doxxing vectors, or vulnerable situations do not fit the program."
+    },
+    "submission_package": [
+      "proposed photograph",
+      "title, year, and location, or withheld where appropriate",
+      "75-150 word caption describing the threshold, control, custody, or exit dynamic",
+      "technical note covering process, camera or workflow, and material manipulation",
+      "CC0 declaration",
+      "confirmation that written consent documentation exists and can be provided on request when people are depicted"
+    ],
+    "selection": {
+      "method": "TDH holders vote on eligible submissions in the single program Wave",
+      "fallback": "If a selected work is unavailable or does not meet program terms at acquisition, allocation rolls to the next eligible work in rank order",
+      "live_vote_scope": "TDH / WAVE",
+      "selected_count": 16
+    },
+    "acquisition": {
+      "budget_formula": "Based on Meme Card mints",
+      "purchase_price_eth_per_acquired_work": 0.5,
+      "quantity_formula": "Determined by the number of Meme Cards minted",
+      "planned_custody_reference": "networkmuseum.6529.eth",
+      "first_mint_expectation_in_program_note": "Expected to be minted for the first time on-chain through this process on a 6529 Network Museum common contract unless final program mechanics specify otherwise",
+      "current_mint_topology": {
+        "status": "undecided",
+        "options": [
+          "dedicated_6529Stream_instance",
+          "subcollection_on_main_6529Stream"
+        ],
+        "contract_address": null,
+        "deployment_transaction": null,
+        "decision_record": null
+      }
+    },
+    "publication_outputs": [
+      "curatorial subcollection page",
+      "individual standardized object pages",
+      "checklist of final accessions",
+      "compact downloadable catalogue"
+    ]
+  },
+  "registrar_gate": {
+    "required_before_acquisition_or_accession": [
+      "artist availability and program-term confirmation",
+      "identity, title, and authority review",
+      "CC0 and depicted-person consent review",
+      "contract, network, token, metadata, and media identity",
+      "purchase and mint transaction evidence",
+      "TITLE_BINDING between any legal instrument and the specific transfer",
+      "custody receipt and last-custody verification",
+      "technical, condition, preservation, and display records",
+      "curatorial and mission-fit review",
+      "accession statement and individual object record",
+      "second-person review"
+    ],
+    "current_collection_register_effect": "No selected outcome in this program record is an accession register entry.",
+    "unresolved_fields_policy": "Unknown values remain null or explicitly unverified; no value is inferred from a WINNER label, wallet custody, a transfer, an airdrop, or an artist's conditional CC0 statement."
+  },
+  "record_links": {
+    "outcome_index": "records/programs/6529NM-AP-01/selected-works.json",
+    "individual_outcomes": "records/programs/6529NM-AP-01/outcomes/OUT-001.json through OUT-016.json"
+  },
+  "non_claims": [
+    "The program note and Wave selection do not by themselves prove that any selected work was minted, purchased, transferred, received, legally titled, rights-cleared, technically verified, or accessioned.",
+    "The program's planned custody reference is not evidence that any selected work is held by that address.",
+    "The current mint topology remains undecided between a dedicated 6529Stream instance and a subcollection on main Stream."
+  ]
+}

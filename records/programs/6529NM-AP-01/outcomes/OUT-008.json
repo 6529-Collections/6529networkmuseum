@@ -1,0 +1,95 @@
+{
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-008",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "Rakesh",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "Dichotomy.",
+  "title_as_submitted": "Dichotomy.",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "Dichotomy.\n\n\nA single line runs through this frame and decides everything. On one side, rows of palm trees stand in ordered silence inside a jail facility, green and geometric, tended and contained. On the other, a residential neighbourhood sprawls freely in concrete and colour, unplanned and ungoverned.\n\n\nFrom above, the irony collapses into a single image. The place with no freedom looks like a garden. The place with freedom looks like a cage of a different kind. Inside that green order, movement is timed, monitored, and permitted by the state. Outside it, movement is free but formless.\n\n\nShot in my hometown, this aerial photograph asks what custody truly looks like when the architecture of confinement is indistinguishable from order, and the architecture of freedom is indistinguishable from chaos. The line between them is the only honest thing in the frame.\n\nThis is dichotomy. \n\n\nShot on DJI Mavic Pro drone at 26mm,\n\n f/2.2, ISO 100, 1/120 secs. Processed in Photoshop. 2952 x 3888 pixels.\n\n\nLocation: Rajahmundry, India. \n\nYear: 2017.\n\n\n“I, Rakesh Pulapa, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.”",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_771ecd1d-4149-4fa9-b589-aff9980e52dd/f41827d1-d0f7-49c3-aab3-92d55d811c87/DJI-0152-copy-2.JPG",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/{wave_id}",
+    "submission_drop_id": "aa257b16-4309-48b6-9033-1e3d7fb9016d",
+    "submission_serial_no": 973173,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 8,
+    "vote_total": 9845249,
+    "realtime_vote_total": 9845249,
+    "voter_count": 59,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "“I, Rakesh Pulapa, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.”",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "no people-consent representation located in declaration",
+      "documentation_status": "not stated; independently verify if people are depicted"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": 0.5,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:8c43b3ca228e34987ffc46b0b825058c49d227826173c8f9ef29fd4ad69f22b7",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}

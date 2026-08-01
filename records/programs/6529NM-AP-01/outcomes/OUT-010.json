@@ -1,0 +1,95 @@
+{
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-010",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "Minalisa",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "Checkpoint",
+  "title_as_submitted": "\"Checkpoint\"",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "\"Checkpoint\"\n\nYear: 2026\n\nLocation: Withheld-\n\n\nIn a country that decides what a woman's body wears, where it goes, and how it is seen — the body itself becomes a checkpoint. Borders are not always walls and barbed wire — sometimes they are fabric, sometimes law, sometimes a gaze.\n\nThis image comes from the moment I realized my body has never belonged only to me. There has always been someone deciding on its behalf. What you see in this photograph is not an exhibition — it is the moment the border retreats, and what has always been, is finally seen.\n\n\nTechnical Note:\n\n(Fujifilm X-T4, 16 mm \n\nF2.8, 1/200 Sec, ISO 320)\n\n4160×6240\n\n300 dpi\n\n\nCaptured with a digital camera. Post-processed in Adobe Lightroom for exposure and color grading, and Adobe Photoshop for background retouching using the clone stamp tool. No composite or generative elements.\n\n\nCC0 declaration:\n\nI, Mina Rahmani, hereby confirm that I hold full rights over the submitted work and all persons depicted within it. I provide informed consent for this work to be released under CC0 and permanently accessioned as part of the 6529 Network Museum collection. Written consent documentation is available and can be provided upon request.\n\nI understand that CC0 means relinquishing all copyright and related rights to the extent possible under law.\n\nName: Mina Rahmani\n\nDate: June 7, 2026",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_32085850-1538-4837-b7ac-1d8d1f605fea/c58bd3f6-bda4-4ec0-8c4b-ec87e78fc108/DSCF9688-Edit-Edit.jpg",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/{wave_id}",
+    "submission_drop_id": "d68542bc-f05e-4f23-ae8b-fac730cd4b7b",
+    "submission_serial_no": 1066664,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 10,
+    "vote_total": 9499454,
+    "realtime_vote_total": 9499454,
+    "voter_count": 43,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "I, Mina Rahmani, hereby confirm that I hold full rights over the submitted work and all persons depicted within it. I provide informed consent for this work to be released under CC0 and permanently accessioned as part of the 6529 Network Museum collection. Written consent documentation is available and can be provided upon request.",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "artist_represents_documented_consent",
+      "documentation_status": "claimed available_or_covered in submission; restricted document not supplied to this public record"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": 0.5,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:534912e35abb0530aa8d26d6b73575cbc9f2c29fd2a218762551b418c7041adb",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}

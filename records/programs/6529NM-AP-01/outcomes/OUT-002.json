@@ -1,0 +1,95 @@
+{
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-002",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "HugoFaz",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "the Artist in teh Open Sea",
+  "title_as_submitted": "**the Artist in teh Open Sea**",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "**the Artist in teh Open Sea**\n\nA man rows a bathtub through lanes of rush-hour traffic. The slowest participant in the frame, he’s the only one going anywhere of his own. There is no water here. The sea he was promised turned out to be traffic. The road is infrastructure built for speed and volume, there is no place in it for anyone moving at their own pace. Still he rows, unhurried, as if the promise were worth holding to even after the water is gone. What he holds is little, but all of it is his.\n\nThis is the artist in the marketplace: present, visible, but structurally ignored, moving by muscle through a system that moves by volume. Platforms that call themselves open seas are in fact corridors, permissioned for velocity and trade, with no lane for meaningful creation, no attention to  what the small fish needs. There is no application for what the artist is doing, however that is the point: the free act is the one that never asks.\n\n6000 x 4000 px composite long exposure digital photograph. Directed, shot on Canon 6DMII, edited and color graded by Hugo Faz.\n\nI, Hugo Faz, hereby confirm that I hold full rights over the submitted work and formally consent for this work to be released under CC0, relinquishing all copyright and related rights, and permanently accessioned as part of the 6529 Network Museum collection.\n\nShot on July 6th, 2026, in São Paulo, Brazil, and submitted to Keys and gates on the same date.",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_0f82f62c-87b4-11ee-9d82-029a0e4b6159/f36442bb-9ece-4410-b0af-c32ccbc8fd27/The-Artist-in-the-OpenSea-by-Hugo-Faz.jpeg",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/{wave_id}",
+    "submission_drop_id": "35efbf4c-2633-4b14-aa6a-82ea7660b6b9",
+    "submission_serial_no": 1171592,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 2,
+    "vote_total": 12319732,
+    "realtime_vote_total": 12319732,
+    "voter_count": 35,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "I, Hugo Faz, hereby confirm that I hold full rights over the submitted work and formally consent for this work to be released under CC0, relinquishing all copyright and related rights, and permanently accessioned as part of the 6529 Network Museum collection.",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "no people-consent representation located in declaration",
+      "documentation_status": "not stated; independently verify if people are depicted"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": 0.5,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:1984e94dbe7417b071dcf35af0b359f6375e5b14a242817880aaef9093c304a3",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}

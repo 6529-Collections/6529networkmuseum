@@ -1,0 +1,95 @@
+{
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-001",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "GulYildiz",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "Take the Key!",
+  "title_as_submitted": "Take the Key !",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "Take the Key !\n\nWhat lies behind the door, and who holds the key to open it?\n\n\nFor centuries, doors have been symbols of knowledge and power. Not everyone could access the palaces of kings, the sacred chambers of temples, and the secret archives of states. The key was given only to a select few. Because whoever held the key also decided which part of the truth would be revealed.\n\n\nThe light-filled door in this photograph represents the new threshold of the modern age. The person standing before the door, gazing into the unknown, is actually looking at the limits of their own freedom. The weight of the stone walls behind them symbolizes the central authorities of the past; the bright light in front symbolizes the possibility of a new world.\n\n\nThis is where the Web3 idea emerges. The traditional internet often consisted of doors owned by others. Our data, identities, and digital presence were hidden within grand fortresses. The keys were in the hands of platforms. Web3 asks a different question: What if the key belonged directly to the user?\n\n\nThis key wouldn't just open an account; it would represent the individual's digital sovereignty, ownership, and identity. For the first time, humanity approaches becoming not merely a guest, but a potential owner of the digital world.\n\n\nBut not every door opens to freedom. Some only lead to new labyrinths. Therefore, the most important question of Web3 is not technology, but consciousness. Holding the key also means taking responsibility. The person who opens their own door can no longer blame a gatekeeper for what they have lost.\n\n\nThe elongation of the shadow of the figure in the photograph within the light is no coincidence. Because a person is divided in two before every new door: one is their past self, the other is the future they do not yet know. Opening the door is not actually changing location, but transformation.\n\n\nPerhaps the greatest truth of life is this: Doors are not found in the outside world, but within the person. And keys are not made of metal, but of awareness. Web3, blockchain, or digital property are merely tools. The real question is whether humanity can become the guardian of its own doors.\n\n\nAnd in this photograph, that lonely person standing on the threshold of the light silently whispers to us:\n\n\n\"The future is not a door. The future is the moment you hold the key in your hand.\"\n\n\n“I, Gül Yıldız, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.”\n\n\nCologne /Germany\n\nFujifilm Camera 10-24 mm. ",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_61b48317-f46c-45b3-beed-cfd9054326d8/2a39fe28-4040-4a80-92a6-306384a4e735/DSCF2374-copy-2.jpg",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/{wave_id}",
+    "submission_drop_id": "c3283930-101e-4e3a-b921-57d81649ca81",
+    "submission_serial_no": 1085874,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 1,
+    "vote_total": 18739379,
+    "realtime_vote_total": 18739379,
+    "voter_count": 62,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "“I, Gül Yıldız, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.”",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "no people-consent representation located in declaration",
+      "documentation_status": "not stated; independently verify if people are depicted"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": 0.5,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:9ea93ea62fd6bd805cd298169e78dbb6628f29f957ad6935bae209cab9582138",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}
