@@ -813,6 +813,10 @@ class ControlPlaneTests(unittest.TestCase):
     def test_manifest_is_deterministic_and_has_both_commitments(self) -> None:
         manifest = make_manifest(REPO_ROOT)
         self.assertEqual("6529NM_RECORD_MANIFEST", manifest["manifest_type"])
+        self.assertEqual(
+            ["policies", "records", "schemas", "docs", "specs", "scripts", "tests"],
+            manifest["inventory_roots"],
+        )
         self.assertTrue(manifest["entries"])
         self.assertTrue(all("\\" not in entry["path"] for entry in manifest["entries"]))
         self.assertTrue(all(not entry["path"].startswith("evidence/") for entry in manifest["entries"]))
@@ -831,17 +835,21 @@ class ControlPlaneTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
         docs = root / "docs"
+        specs = root / "specs"
         cache = root / "scripts" / "__pycache__"
         docs.mkdir(parents=True)
+        specs.mkdir(parents=True)
         cache.mkdir(parents=True)
         source = docs / "example.md"
         source.write_bytes(b"first\r\nsecond\rthird\n")
+        (specs / "protocol.md").write_text("governed spec\n", encoding="utf-8")
         (cache / "example.pyc").write_bytes(b"cache")
         self.assertEqual(b"first\nsecond\nthird\n", normalized_bytes(source))
         first = make_manifest(root)
         second = make_manifest(root)
         self.assertEqual(first, second)
         self.assertIn("docs/example.md", {entry["path"] for entry in first["entries"]})
+        self.assertIn("specs/protocol.md", {entry["path"] for entry in first["entries"]})
         self.assertNotIn("scripts/__pycache__/example.pyc", {entry["path"] for entry in first["entries"]})
 
     def test_manifest_rejects_file_and_directory_symlinks(self) -> None:

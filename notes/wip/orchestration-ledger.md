@@ -198,3 +198,13 @@ AST guard. The remediation adds fail-closed media routing, bounded folded
 UTF-16 scanning, alias-aware sensitive-root dynamic-attribute rejection, and
 focused negative tests. No governed records are changed; exact-head review and
 head-bound bot reruns follow the cross-platform validation.
+
+## 2026-08-01 - protocol-spec release boundary
+
+The merged control plane validates `specs/` as governed public content, but its
+deterministic release manifest initially omitted that root because no protocol
+specification existed when the control plane was constructed. Before the
+on-chain migration specification can merge, `specs/` is added to the closed
+release inventory beside policies, records, schemas, docs, scripts, and tests.
+The manifest test pins this exact root set and proves that a specification file
+is inventoried. Evidence and WIP notes retain their separate commitment rules.

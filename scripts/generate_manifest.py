@@ -18,7 +18,7 @@ from canonical import canonicalize
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = REPO_ROOT / "release-artifacts" / "latest" / "record-manifest.json"
-INVENTORY_ROOTS = ("policies", "records", "schemas", "docs", "scripts", "tests")
+INVENTORY_ROOTS = ("policies", "records", "schemas", "docs", "specs", "scripts", "tests")
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 
 

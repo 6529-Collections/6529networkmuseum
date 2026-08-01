@@ -50,7 +50,7 @@ The pull-request workflow runs these checks on every PR.
 
 The generated release manifest covers the governed records and the control-plane
 source that validates them (`policies/`, `records/`, `schemas/`, `docs/`,
-`scripts/`, and `tests/`). Evidence remains separately authenticated by its
+`specs/`, `scripts/`, and `tests/`). Evidence remains separately authenticated by its
 raw-byte evidence manifests. It uses the 6529Stream conventions:
 
 - repository-relative POSIX paths;

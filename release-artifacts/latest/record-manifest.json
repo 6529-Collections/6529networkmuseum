@@ -12,8 +12,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:e9ac0537ca43478dc678a292fcbf6542d583de406f847f33989d9e48be9c2c7a",
-      "size": 8760
+      "sha256": "sha256:955f825030ea690ee99e258dc14f8d3da3021ff8672a4da3f7b7b58487337b40",
+      "size": 8794
     },
     {
       "path": "docs/external-works-registry.md",
@@ -42,8 +42,8 @@
     },
     {
       "path": "docs/record-model.md",
-      "sha256": "sha256:26489d3f3f6d4980a983ef85efa6a8065da1f982706d49122c640e82fb4c20c9",
-      "size": 3235
+      "sha256": "sha256:6627d6cf90b72ef8f3587611652c4d2aa40b19c16e9374f983cb50e2a1ec57de",
+      "size": 3242
     },
     {
       "path": "docs/standards-crosswalk.md",
@@ -487,8 +487,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:4b3c67f638621bfbb6e9ea8ebee589630ceeb6ffc5741fc73ce1b50f8f26b6dd",
-      "size": 6791
+      "sha256": "sha256:5fdcf335c6d869333f447c03791ad5323708bd74b8489400693b269b72d0280e",
+      "size": 6800
     },
     {
       "path": "scripts/rarity/__init__.py",
@@ -657,8 +657,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:60f01380e1fbfb62232bb672f495a092c8263b9a2c97172230829c03a28648d4",
-      "size": 46363
+      "sha256": "sha256:4f785e7de48d6f4635e793b6ff726f5933206beee8e4ca88892dd5c9f2c59ea7",
+      "size": 46760
     }
   ],
   "hash_algorithms": {
@@ -670,15 +670,16 @@
     "records",
     "schemas",
     "docs",
+    "specs",
     "scripts",
     "tests"
   ],
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa6a652495526d6f46f102c29cd7189dadf7e375c038319084c924f4a658235c2"
+    "digest": "0x957d28a3ba1993ebe208585f32e84965a37205056d987937b38f1753aa46d185"
   },
-  "manifest_sha256": "sha256:a40ac423c40f09d6f07513ad9a3e76b95c43d5d0b7337d3764bcffc27af3d040",
+  "manifest_sha256": "sha256:20e46b651e9bf4d3527823354255d288249fede5165685335c3e59c892dadb20",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
