@@ -219,8 +219,11 @@ The exact-head review additionally required and resolved:
    class, and authority revision. Direct writes have explicit zero values.
    Revocation state/event fields distinguish `nonceRevision` from
    `authorityRevision`.
-3. Asset profiles pin canonicalizer runtime/implementation hashes and version
-   IDs, with immutable-runtime and EIP-1967 proxy checks on every registration.
+3. Asset profiles admit only immutable, non-proxy canonicalizers. Admission
+   and registration bind direct `extcodehash`, scan runtime opcodes for proxy,
+   storage, external-call, creation, and environment dependence, require mode
+   `0`/zero implementation hash, and never trust a self-reported implementation
+   or version hash.
 4. The URI rule is now the versioned Museum-specific
    `MUSEUM_URI_SAFETY_PUBLIC_V1` predicate, with an exact HTTPS public-network
    assertion record and EIP-712 signature format plus explicit Stream-adapter
@@ -228,6 +231,27 @@ The exact-head review additionally required and resolved:
 5. The manifest fixture uses actual 40-hex Git SHA-1 values for the source and
    pinned Stream commits, right-aligned into `bytes32`; the root was
    independently recomputed.
+
+The next exact-head review required and resolved:
+
+1. Authority and successor transitions now queue/store complete target
+   commitments: address, expected runtime code hash, ERC-165/interface ID,
+   deterministic probe hash, predecessor linkage (`predecessorRegistry` must
+   be this registry and the provider must report that same address), evidence hash, authority
+   revision, proposer, and time. Execution repeats all checks; only pre-
+   execution cancellation is a rollback, and emergency handling is freeze plus
+   a validated successor. EOA/arbitrary targets are rejected.
+2. Families now have governed STREAM/MUSEUM kind, allowed bitmap, revision,
+   and authority revision; every record type selects exactly one class. Direct
+   and relayed writes call the same writer primitive, and relayed EIP-712 binds
+   class and family revision.
+3. HTTPS is enforced on-chain through resolver profiles, bounded TTLs, signed
+   assertions, sorted address-array commitments, current URI pointers, and
+   record-side assertion hash/revision state. A golden HTTPS vector was added.
+4. External assets, mirror links, and provisional owner-record interface
+   admissions persist and emit their actual global role IDs and authority
+   revisions; the new enforceability matrix maps each control to ABI/state,
+   checks, and events.
 
 ### Reproducible hash transcript
 
@@ -266,8 +290,8 @@ $domainTypeHash = cast keccak 'EIP712Domain(string name,string version,uint256 c
 $nameHash = cast keccak '6529 Network Museum Registry'
 $versionHash = cast keccak '1'
 $domainSeparator = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint256,address)' $domainTypeHash $nameHash $versionHash 1 0x0000000000000000000000000000000000000001)
-$writeTypeHash = cast keccak 'MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)'
-$structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,bytes32,uint256,uint64)' $writeTypeHash $recordHash $type $subject 0x0000000000000000000000000000000000000000000000000000000000000000 7 1800000000)
+$writeTypeHash = cast keccak 'MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint8 authorizationClass,uint64 familyRevision,uint256 nonce,uint64 deadline)'
+$structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,bytes32,uint8,uint64,uint256,uint64)' $writeTypeHash $recordHash $type $subject 0x0000000000000000000000000000000000000000000000000000000000000000 12 1 7 1800000000)
 $eipPreimage = '0x1901'+$domainSeparator.Substring(2)+$structHash.Substring(2)
 $digest = cast keccak $eipPreimage
 $nonceTypeHash = cast keccak 'MuseumNonceRevocation(address signer,uint256 nonce,uint64 deadline)'
@@ -337,9 +361,9 @@ Expected output, in order:
 0xd4e3b242f775f431ac172cd764f032addceb847ceb646845c74b9fb6d6319f63
 0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f
 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
-0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-0x7d4ea0e0c6cc267d01b953edec4e87a7dc20e2cc8a0c882037830608b426c57b
-0xee99a98f35e2cc855f10e1feeb3c21be639e75dd2c2c28effc811cf09cf8f4b8
+0x9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba
+0x577cb71645b86228b205f6a624a1321e19865736b93930a57fcd7008c674b400
+0xa734dbb40a39bf699687c7994f2d4b07ebbbbd5e751aafc3c0bc38ca2046bfe1
 0xe97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef
 0xadf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13
 0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd
@@ -362,6 +386,59 @@ for `bytes2` and is intentionally not a valid conformance command.
 The EIP-712 signature bytes are intentionally absent from the record-hash
 preimage; V1 uses zero/empty envelope signature fields for `bySig` writes and
 keeps the relay signature in authorization metadata, as specified above.
+
+### HTTPS assertion vector transcript
+
+The HTTPS vector was independently recomputed with the following PowerShell
+commands. The address-set hash uses the ABI type `address[]`, not packed
+encoding or JSON bytes:
+
+```powershell
+$uri = 'https://example.com/archive/6529'
+$hostName = 'example.com'
+$profile = '0x52be64fd2fb1c3795cf8dd6472100377858fd563f16de75584dcaf0f74b3e186'
+$attestor = '0x000000000000000000000000000000000000dead'
+$a1 = '0x0000000000000000000000000000000001010101'
+$a2 = '0x0000000000000000000000000000000008080808'
+$uriHash = cast keccak $uri
+$hostHash = cast keccak $hostName
+$addressSetEncoding = cast abi-encode 'f(address[])' "[$a1,$a2]"
+$addressSetHash = cast keccak $addressSetEncoding
+$assertionDomain = '0x4fcfa708a5b354629d48cb2b96432841b5566b13b7c8f30468d34106b0f7904a'
+$assertionHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32,uint64,uint64,address)' $assertionDomain $uriHash $hostHash $profile 1 $addressSetHash 1750000000 1750003600 $attestor)
+$assertionKey = cast keccak (cast abi-encode 'f(bytes32,bytes32,uint64,bytes32)' $uriHash $profile 1 $addressSetHash)
+$subjectDomain = '0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4'
+$assertionSubject = cast keccak (cast abi-encode 'f(bytes32,bytes32)' $subjectDomain $uriHash)
+$domainSeparator = '0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70'
+$typeHash = cast keccak 'MuseumHTTPSPublicNetworkAssertion(bytes32 uriHash,bytes32 hostHash,bytes32 resolverProfileId,uint64 resolverRevision,bytes32 resolvedAddressSetHash,uint64 issuedAt,uint64 expiresAt,address attestor)'
+$structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32,uint64,uint64,address)' $typeHash $uriHash $hostHash $profile 1 $addressSetHash 1750000000 1750003600 $attestor)
+$digest = cast keccak ('0x1901'+$domainSeparator.Substring(2)+$structHash.Substring(2))
+$uriHash
+$hostHash
+$addressSetEncoding
+$addressSetHash
+$assertionHash
+$assertionKey
+$assertionSubject
+$typeHash
+$structHash
+$digest
+```
+
+Expected output:
+
+```text
+0x000c84d539237dee07b2286ba2f354c5f808a9e49e2001c1e7ed9279e11cb704
+0x02438d3405cadd648e08dbff51bdbeb415913e642189100dc4a012064c870883
+0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000010101010000000000000000000000000000000000000000000000000000000008080808
+0x17971e83b91ac972b51bdefb4cab3445a46319fc90d6bc5894819de59fbf03a9
+0x4b6469d55483ccd786822fb5f78a7d5d688e5e97238e9137c194cbf0d059158e
+0x2b94c52c2a6fbc24e47426fa55396bd00aa8dd4b7585020a8461bcf72aa9bc06
+0x6528698388e83a3af89e9af7095da74d003172bf2979ea74d7e27f9fc22a745c
+0xf41fab3fc718e4270c6f00833eeec924dbf16c2a6b88e46639c1529c5fc7f9d5
+0x49d3bf7e1ca0bcc98b913e7d912e266e56a3a4378b8f33b0d23605b05110330a
+0xcc29374b9420f6ed97e838c2cab3ee32e3f3ee8a9a4eb09c06c1fdf30d813bf3
+```
 
 ## Negative claims preserved
 
