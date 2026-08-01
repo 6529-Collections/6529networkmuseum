@@ -173,6 +173,77 @@ class NextGenCompatibilityTests(unittest.TestCase):
         with self.assertRaisesRegex(InputError, "third-party"):
             analyze_snapshot(unknown_service)
 
+        provenance_citation = json.loads(json.dumps(self.snapshot))
+        provenance_citation["source"]["rarity_provenance"] = (
+            "https://museum.example/methodology"
+        )
+        provenance_citation["source"]["rarity_provenance_note"] = (
+            "The methodology explains why OpenSea and LooksRare metrics are "
+            "not imported."
+        )
+        analyze_snapshot(provenance_citation)
+
+        provenance_with_metric = json.loads(json.dumps(self.snapshot))
+        provenance_with_metric["source"]["rarity_provenance"] = {
+            "url": "https://museum.example/methodology",
+            "score": 1,
+        }
+        with self.assertRaisesRegex(InputError, "provenance/methodology"):
+            analyze_snapshot(provenance_with_metric)
+
+    def test_provider_semantics_are_closed_exact_and_propagate_nested_context(
+        self,
+    ) -> None:
+        for semantic_key in ("source", "origin", "issuer"):
+            invalid = json.loads(json.dumps(self.snapshot))
+            invalid["source"][semantic_key] = "LooksRare"
+            invalid["source"]["rarity_score"] = 1
+            with self.subTest(semantic_key=semantic_key), self.assertRaisesRegex(
+                InputError, "third-party"
+            ):
+                analyze_snapshot(invalid)
+
+        source_name = json.loads(json.dumps(self.snapshot))
+        source_name["source"]["name"] = "LooksRare"
+        source_name["source"]["rarity_score"] = 1
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(source_name)
+
+        nested = json.loads(json.dumps(self.snapshot))
+        nested["source"]["evidence"] = {
+            "provenance": {"issuer": "LooksRare"},
+            "analysis": {"values": {"rarity_score": 1}},
+        }
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(nested)
+
+        nested_list = json.loads(json.dumps(self.snapshot))
+        nested_list["source"]["evidence"] = [
+            {"origin": "LooksRare"},
+            {"metrics": {"rarity_rank": 1}},
+        ]
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(nested_list)
+
+        nested_metric = json.loads(json.dumps(self.snapshot))
+        nested_metric["source"]["provider"] = {"name": "LooksRare"}
+        nested_metric["source"]["record"] = {"analysis": {"rank": 1}}
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(nested_metric)
+
+        substring_bypass = json.loads(json.dumps(self.snapshot))
+        substring_bypass["source"]["provider"] = "OpenSea Museum"
+        substring_bypass["source"]["rarity_score"] = 1
+        with self.assertRaisesRegex(InputError, "third-party"):
+            analyze_snapshot(substring_bypass)
+
+        for internal_identity in ("6529 Network Museum", "6529 NextGen"):
+            internal = json.loads(json.dumps(self.snapshot))
+            internal["source"]["provider"] = internal_identity
+            internal["source"]["rarity_score"] = 1
+            with self.subTest(internal_identity=internal_identity):
+                analyze_snapshot(internal)
+
     def test_left_fold_matches_javascript_reduce_not_python_sum(self) -> None:
         values = [1e16, 1.0, -1e16, 1.0]
 

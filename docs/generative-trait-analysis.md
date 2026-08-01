@@ -62,7 +62,13 @@ The third-party metric guard rejects structured fields such as
 whose provider is a third-party service. It does not reject free-text notes,
 provenance descriptions, citation labels, or citation URLs that happen to
 contain marketplace names. Marketplace values are never used to calculate a
-Museum score.
+Museum score. Provider identity semantics are closed: `provider`,
+`marketplace`, `service`, `source`, `origin`, and `issuer` values are treated
+as identities only in those explicit fields, and only the exact allowlisted
+Museum/NextGen identities are internal. A value such as `OpenSea Museum` is
+therefore third-party, not an internal identity by substring coincidence.
+`rarity_provenance` and methodology/citation fields remain admissible when
+they contain citation text or URLs but no structured rarity metric fields.
 
 ## Normalization and data quality
 

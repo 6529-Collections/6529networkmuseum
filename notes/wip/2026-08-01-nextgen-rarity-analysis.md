@@ -23,6 +23,12 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
   analysis boundary; the same guard applies to other third-party marketplace
   or service metrics such as LooksRare. Provenance prose, citations, and URLs
   mentioning those services remain admissible and are not used as score inputs.
+- Provider semantics are closed to the explicit `provider`, `marketplace`,
+  `service`, `source`, `origin`, and `issuer` fields. Only exact normalized
+  allowlisted Museum/NextGen identities are internal; names such as `OpenSea
+  Museum` remain third-party. The guard propagates external-provider context
+  through nested objects and lists, while `rarity_provenance` and methodology
+  citations remain admissible unless they contain structured metric fields.
 - Compatibility calculations retain effective source row order while the
   normalized snapshot exposes a separate canonical sorted presentation.
 - Source identity now requires `snapshot_id`, `observed_at`, `collection.id`,
