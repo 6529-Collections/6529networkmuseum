@@ -142,6 +142,8 @@ covers `.github/`, `policies/`, `records/`, `schemas/`, `docs/`, `governance/`,
 `specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
 files `.gitattributes`, `.gitignore`, `AGENTS.md`, `INDEX.md`, `README.md`, and
 `requirements-dev.txt`. Entries use sorted repository-relative POSIX paths.
+Generation fails closed if any configured root or named control file is missing,
+linked, a reparse point, or not the expected regular-file/directory type.
 
 Evidence remains in separately governed raw-byte manifests so authenticated
 source bytes are never silently normalized. `notes/` is the indexed WIP and

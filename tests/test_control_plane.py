@@ -38,6 +38,14 @@ VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
 
 
 class ControlPlaneTests(unittest.TestCase):
+    def scaffold_manifest_root(self, root: Path) -> None:
+        for directory in INVENTORY_ROOTS:
+            (root / directory).mkdir(parents=True, exist_ok=True)
+        for filename in INVENTORY_FILES:
+            path = root / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(f"fixture for {filename}\n", encoding="utf-8")
+
     def make_records_root(self) -> tuple[tempfile.TemporaryDirectory[str], Path]:
         temporary = tempfile.TemporaryDirectory(prefix="museum-control-plane-")
         records = Path(temporary.name) / "records"
@@ -756,7 +764,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(any("duplicate JSON object key" in issue for issue in issues), issues)
 
         manifest_root = Path(temporary.name) / "manifest-root"
-        (manifest_root / "schemas").mkdir(parents=True)
+        self.scaffold_manifest_root(manifest_root)
         (manifest_root / "schemas" / "duplicate.json").write_text('{"digest":"one","digest":"two"}\n', encoding="utf-8")
         with self.assertRaises(ManifestDuplicateJsonKeyError):
             make_manifest(manifest_root)
@@ -868,12 +876,11 @@ class ControlPlaneTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-normalization-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
         docs = root / "docs"
         specs = root / "specs"
         notes = root / "notes" / "wip"
         cache = root / "scripts" / "__pycache__"
-        docs.mkdir(parents=True)
-        specs.mkdir(parents=True)
         notes.mkdir(parents=True)
         cache.mkdir(parents=True)
         source = docs / "example.md"
@@ -903,8 +910,8 @@ class ControlPlaneTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-links-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
         docs = root / "docs"
-        docs.mkdir(parents=True)
         (docs / "real.md").write_text("safe\n", encoding="utf-8")
         external = Path(temporary.name).parent / f"museum-manifest-external-{Path(temporary.name).name}.txt"
         external.write_text("outside\n", encoding="utf-8")
@@ -935,6 +942,8 @@ class ControlPlaneTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-root-link-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
+        (root / "README.md").unlink()
         external = root.parent / f"museum-manifest-root-external-{root.name}.txt"
         external.write_text("outside\n", encoding="utf-8")
         self.addCleanup(lambda: external.unlink(missing_ok=True))
@@ -945,6 +954,25 @@ class ControlPlaneTests(unittest.TestCase):
                 self.skipTest(f"Windows symlink privilege unavailable: {exc}")
             raise
         with self.assertRaises(ManifestUnsafePathError):
+            make_manifest(root)
+
+    def test_manifest_rejects_missing_configured_root_and_file(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-missing-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
+
+        (root / "AGENTS.md").unlink()
+        with self.assertRaisesRegex(ManifestUnsafePathError, "configured governed file is missing"):
+            make_manifest(root)
+
+        (root / "AGENTS.md").write_text("restored\n", encoding="utf-8")
+        shutil.rmtree(root / "templates")
+        with self.assertRaisesRegex(ManifestUnsafePathError, "configured governed root is missing"):
+            make_manifest(root)
+
+        (root / "templates").write_text("not a directory\n", encoding="utf-8")
+        with self.assertRaisesRegex(ManifestUnsafePathError, "configured governed root is not a directory"):
             make_manifest(root)
 
     def test_foundation_bootstrap_controls_pass_current_register(self) -> None:

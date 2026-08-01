@@ -91,7 +91,9 @@ def inventory_paths(root: Path) -> list[Path]:
     for inventory_file in INVENTORY_FILES:
         path = root / inventory_file
         if not os.path.lexists(path):
-            continue
+            raise ManifestUnsafePathError(
+                f"configured governed file is missing: {path.relative_to(root)}"
+            )
         file_stat = path.lstat()
         assert_not_link(path, file_stat)
         if not stat.S_ISREG(file_stat.st_mode):
@@ -103,8 +105,15 @@ def inventory_paths(root: Path) -> list[Path]:
     for inventory_root in INVENTORY_ROOTS:
         directory = root / inventory_root
         if not os.path.lexists(directory):
-            continue
-        assert_not_link(directory, directory.lstat())
+            raise ManifestUnsafePathError(
+                f"configured governed root is missing: {directory.relative_to(root)}"
+            )
+        directory_stat = directory.lstat()
+        assert_not_link(directory, directory_stat)
+        if not stat.S_ISDIR(directory_stat.st_mode):
+            raise ManifestUnsafePathError(
+                f"configured governed root is not a directory: {directory.relative_to(root)}"
+            )
         pending = [directory]
         while pending:
             current = pending.pop()

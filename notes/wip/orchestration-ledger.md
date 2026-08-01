@@ -213,5 +213,5 @@ therefore closed over `.github/`, policies, records, schemas, docs, governance,
 specs, templates, scripts, tests, and six named root control files. A formal
 `specs/README.md` defines the admission boundary. Tests pin the exact roots and
 files, prove that real and future specification files are inventoried, and
-reject linked root files. Evidence, WIP notes, Git internals, and the
+reject missing or linked configured roots and files. Evidence, WIP notes, Git internals, and the
 self-referential release-artifact directory retain explicit separate treatment.
