@@ -2,8 +2,8 @@ version: 1
 enabled: true
 
 reviewKinds:
-  allowed: [general, followup, security, media-external, stream-contracts, privacy-evidence, glm-swarm]
-  initial: [general, security, media-external, stream-contracts, privacy-evidence, glm-swarm]
+  allowed: [general, followup, security, deploy-actions, media-external, stream-contracts, privacy-evidence, glm-swarm]
+  initial: [general, security, privacy-evidence, glm-swarm]
   followup: [followup]
 
 commands:
@@ -14,7 +14,7 @@ lanes:
     model: claude-opus-4-8
 
 limits:
-  maxJobsPerDelivery: 6
+  maxJobsPerDelivery: 4
 
 admission:
   publicRepoMode: trusted

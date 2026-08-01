@@ -26,6 +26,7 @@ Status vocabulary:
 |---|---|---|
 | [`records/governance/decisions.json`](records/governance/decisions.json) | canonical reviewed register | Six adopted decisions and two proposals with no adopted effect at snapshot, with source hashes |
 | [`governance/github-repository-governance.md`](governance/github-repository-governance.md) | active operating control | Maintainer approval/merge policy, configured team access, and current GitHub Free enforcement limitation |
+| [`governance/pull-request-review-policy.md`](governance/pull-request-review-policy.md) | active operating control | Baseline 6529bot reviews, specialist routing matrix, follow-up procedure, and constructor/reviewer boundary |
 | [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required bootstrap record-integrity check on every PR and main push |
 | `records/programs/6529NM-AP-01/program.json` | pending creation | Keys and Gates rules and current stage |
@@ -67,6 +68,7 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
+| [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | research input | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
 | [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Spectrum, ICOM, Object ID, CIDOC CRM, LIDO, PREMIS, IIIF, C2PA, BagIt, OCFL, public/restricted, and maker/checker crosswalk |
 | [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
 | [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
