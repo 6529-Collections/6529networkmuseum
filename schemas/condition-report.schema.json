@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/condition-report-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "CONDITION_REPORT"},
+        "schema_id": {"const": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44"},
+        "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "protocol_state": {"type": "string", "minLength": 1},
+        "assessments": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]}
+        },
+        "method": {"type": "string", "minLength": 1},
+        "outcome": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      },
+      "required": ["object_id", "protocol_state", "assessments", "method", "outcome", "observed_at"]
+    }
+  ]
+}

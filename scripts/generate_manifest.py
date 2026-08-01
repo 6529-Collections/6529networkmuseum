@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""Generate or verify the deterministic public Museum release manifest."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+from Crypto.Hash import keccak
+
+from canonical import canonicalize
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+OUTPUT = REPO_ROOT / "release-artifacts" / "latest" / "record-manifest.json"
+INVENTORY_ROOTS = ("policies", "records", "schemas")
+JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+
+
+def keccak256(data: bytes) -> bytes:
+    digest = keccak.new(digest_bits=256)
+    digest.update(data)
+    return digest.digest()
+
+
+def prefixed(name: str, data: bytes) -> str:
+    return f"{name}:" + data.hex()
+
+
+def normalized_bytes(path: Path) -> bytes:
+    raw = path.read_bytes()
+    return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def inventory_paths(root: Path) -> list[Path]:
+    paths: list[Path] = []
+    for inventory_root in INVENTORY_ROOTS:
+        directory = root / inventory_root
+        if directory.exists():
+            paths.extend(path for path in directory.rglob("*") if path.is_file())
+    return sorted(paths, key=lambda path: path.relative_to(root).as_posix())
+
+
+def file_entry(root: Path, path: Path) -> dict[str, Any]:
+    normalized = normalized_bytes(path)
+    relative = path.relative_to(root).as_posix()
+    entry: dict[str, Any] = {
+        "path": relative,
+        "size": len(normalized),
+        "sha256": prefixed("sha256", hashlib.sha256(normalized).digest()),
+    }
+    if path.suffix.lower() == ".json":
+        with path.open("r", encoding="utf-8") as handle:
+            value = json.load(handle)
+        entry["content_hash"] = {
+            "algorithm": 1,
+            "digest": "0x" + keccak256(canonicalize(value)).hex(),
+            "canonicalizationId": JCS_ID,
+        }
+    return entry
+
+
+def manifest_body(root: Path) -> dict[str, Any]:
+    return {
+        "manifest_type": "6529NM_RECORD_MANIFEST",
+        "manifest_version": "1.0.0",
+        "inventory_roots": list(INVENTORY_ROOTS),
+        "hash_algorithms": {"keccak256": 1, "sha256": 2},
+        "canonicalization": {"name": "RFC8785_JCS", "id": JCS_ID, "profile": "museum-i-json-v1"},
+        "entries": [file_entry(root, path) for path in inventory_paths(root)],
+    }
+
+
+def make_manifest(root: Path) -> dict[str, Any]:
+    body = manifest_body(root)
+    canonical_body = canonicalize(body)
+    body["manifest_commitment"] = {
+        "algorithm": 1,
+        "digest": "0x" + keccak256(canonical_body).hex(),
+        "canonicalizationId": JCS_ID,
+    }
+    body["manifest_sha256"] = prefixed("sha256", hashlib.sha256(canonical_body).digest())
+    return body
+
+
+def write_pretty(path: Path, value: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        json.dump(value, handle, ensure_ascii=False, indent=2, sort_keys=True)
+        handle.write("\n")
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="fail if the committed manifest is not current")
+    parser.add_argument("--output", type=Path, default=OUTPUT, help="manifest path")
+    parser.add_argument("--root", type=Path, default=REPO_ROOT, help="repository root")
+    args = parser.parse_args(argv)
+    root = args.root.resolve()
+    output = args.output if args.output.is_absolute() else root / args.output
+    expected = make_manifest(root)
+    if args.check:
+        if not output.exists():
+            print(f"manifest missing: {output}")
+            return 1
+        try:
+            with output.open("r", encoding="utf-8") as handle:
+                actual = json.load(handle)
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"manifest unreadable: {exc}")
+            return 1
+        if actual != expected:
+            print(f"manifest is stale: regenerate with python scripts/generate_manifest.py ({output})")
+            return 1
+        print(f"manifest is current: {output}")
+        return 0
+    write_pretty(output, expected)
+    print(f"wrote deterministic manifest: {output}")
+    print(f"keccak256: {expected['manifest_commitment']['digest']}")
+    print(f"sha256: {expected['manifest_sha256']}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

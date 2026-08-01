@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/governance-decision-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "GOVERNANCE_DECISION"},
+        "schema_id": {"const": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206"},
+        "decision_id": {"type": "string", "pattern": "^6529NM-GOV-\\d+$"},
+        "decision_status": {"type": "string", "enum": ["adopted", "not_adopted", "active", "superseded", "observed"]},
+        "source": {
+          "type": "object",
+          "properties": {
+            "uri": {"type": "string", "pattern": "^https://[^\\s]+$"},
+            "wave_serial": {"type": "string", "pattern": "^\\d+$"},
+            "drop_id": {"type": "string", "format": "uuid"},
+            "status": {"type": "string", "enum": ["WINNER", "PARTICIPATORY", "OPEN", "CLOSED", "UNKNOWN"]},
+            "status_observed_at": {"type": "string", "format": "date-time"},
+            "status_evidence_uri": {"type": "string", "pattern": "^https://[^\\s]+$"}
+          },
+          "required": ["uri", "wave_serial", "status", "status_observed_at", "status_evidence_uri"],
+          "unevaluatedProperties": false
+        },
+        "authority_effect": {"type": "string", "minLength": 1},
+        "proposal_text_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      },
+      "required": ["decision_id", "decision_status", "source", "authority_effect"]
+    }
+  ]
+}

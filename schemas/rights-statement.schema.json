@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/rights-statement-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "RIGHTS_STATEMENT"},
+        "schema_id": {"const": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967"},
+        "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "rights_holder_reference": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "grants": {"type": "object", "minProperties": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      },
+      "required": ["object_id", "rights_holder_reference", "basis", "grants", "observed_at"]
+    }
+  ]
+}

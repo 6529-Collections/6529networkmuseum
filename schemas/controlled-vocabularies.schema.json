@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/controlled-vocabularies-v1.json",
+  "title": "6529 Network Museum controlled vocabularies",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://json-schema.org/draft/2020-12/schema"},
+    "vocabulary_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "subject_domain_prefix": {"type": "string", "const": "6529networkmuseum.subject"},
+    "hash_algorithms": {"type": "object", "properties": {"HASH_KECCAK256": {"const": 1}, "HASH_SHA256": {"const": 2}}, "required": ["HASH_KECCAK256", "HASH_SHA256"], "additionalProperties": false},
+    "canonicalization": {
+      "type": "object",
+      "properties": {
+        "name": {"const": "RFC8785_JCS"},
+        "id": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "profile": {"const": "museum-i-json-v1"}
+      },
+      "required": ["name", "id", "profile"],
+      "additionalProperties": false
+    },
+    "record_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$"}},
+    "schema_ids": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}},
+    "schema_paths": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "pattern": "^[a-z0-9-]+\\.schema\\.json$"}},
+    "evidence_classes": {"type": "array", "const": ["A", "B", "C", "D", "E"]},
+    "visibility": {"type": "array", "const": ["public", "restricted"]},
+    "actor_roles": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "governance_source_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "decision_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "program_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "outcome_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "acquisition_methods": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "workflow_states": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "workflow_transitions": {"type": "object", "additionalProperties": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}},
+    "condition_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "title_binding_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "custody_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "rights_grant_statuses": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "rights_use_classes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}}
+  },
+  "required": ["$schema", "vocabulary_version", "subject_domain_prefix", "hash_algorithms", "canonicalization", "record_types", "schema_ids", "schema_paths", "evidence_classes", "visibility", "actor_roles", "governance_source_statuses", "decision_statuses", "program_statuses", "outcome_statuses", "acquisition_methods", "workflow_states", "workflow_transitions", "condition_statuses", "title_binding_statuses", "custody_statuses", "rights_grant_statuses", "rights_use_classes"],
+  "additionalProperties": false
+}

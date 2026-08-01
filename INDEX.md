@@ -51,10 +51,13 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
-| `schemas/` | pending creation | JSON Schemas and Stream-compatible profiles |
-| `scripts/validate.py` | pending creation | Structural, semantic, secret, and status validation |
-| `scripts/generate_manifest.py` | pending creation | Deterministic SHA-256 and JCS/Keccak release commitments |
-| `release-artifacts/latest/record-manifest.json` | pending generation | Current governed-file manifest |
+| [`schemas/`](schemas/) | working standard | JSON Schemas, controlled vocabularies, and Stream-compatible profiles |
+| [`scripts/validate.py`](scripts/validate.py) | working standard | Structural, semantic, secret, cross-reference, state, and status validation |
+| [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments |
+| [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
+| [`.github/workflows/validate.yml`](.github/workflows/validate.yml) | working standard | Bounded non-flaky validation on every pull request |
+| [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
+| [`release-artifacts/latest/record-manifest.json`](release-artifacts/latest/record-manifest.json) | canonical register commitment | Current governed-file manifest |
 
 ## Maintenance rule
 

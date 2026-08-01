@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/program-outcome-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "PROGRAM_OUTCOME"},
+        "schema_id": {"const": "0x859268bf3ff96f82c33cf1b6fa2001bd66343bc906cec9a2f7616769295aebff"},
+        "outcome_id": {"type": "string", "pattern": "^6529NM-AP-\\d{2}-OUT-\\d{3}$"},
+        "program_id": {"type": "string", "pattern": "^6529NM-AP-\\d{2}$"},
+        "outcome_status": {"type": "string", "enum": ["selected", "not_selected", "withdrawn", "pending_verification"]},
+        "selection_evidence": {"type": "string", "minLength": 1},
+        "acquisition_state": {"type": "string", "enum": ["not_started", "authorized", "acquired", "received_onchain", "accessioned", "cancelled"]},
+        "object_ids": {"type": "array", "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}, "uniqueItems": true}
+      },
+      "required": ["outcome_id", "program_id", "outcome_status", "selection_evidence", "acquisition_state"]
+    }
+  ]
+}

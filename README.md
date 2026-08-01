@@ -31,9 +31,18 @@ A work can be held by a Museum wallet without being accessioned. A Wave `WINNER`
 Run:
 
 ```powershell
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests -v
 python scripts/validate.py
 python scripts/generate_manifest.py --check
 ```
+
+The documentation-as-code control plane is specified in
+[`docs/control-plane.md`](docs/control-plane.md). It validates JSON Schema,
+controlled vocabularies, Stream envelope compatibility, canonical payload
+commitments, cross-references, append-only state transitions,
+constructor/reviewer separation, and public-record sensitive-field guardrails.
+The pull-request workflow runs these checks on every PR.
 
 The generated manifest uses the 6529Stream conventions:
 

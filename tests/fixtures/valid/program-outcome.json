@@ -1,0 +1,39 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "PROGRAM_OUTCOME",
+    "subjectId": "0xfea2d0aa645c68bd45e5dad80391a91c004266fcf650234de5a53788e9810f30",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xda080f1c9010cf383c4ee77b429d193970afa327406955583188e43f5ab7d343",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5exampleoutcome",
+    "schemaId": "0x859268bf3ff96f82c33cf1b6fa2001bd66343bc906cec9a2f7616769295aebff",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM-AP-01-OUT-001",
+    "record_type": "PROGRAM_OUTCOME",
+    "schema_id": "0x859268bf3ff96f82c33cf1b6fa2001bd66343bc906cec9a2f7616769295aebff",
+    "subject_id": "6529NM-AP-01-OUT-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {"id": "program-authority", "role": "program_authority", "observed_at": "2026-08-01T00:00:00Z"},
+    "reviewer": {"id": "outcome-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "program_id": "6529NM-AP-01",
+    "outcome_id": "6529NM-AP-01-OUT-001",
+    "outcome_status": "selected",
+    "selection_evidence": "Program outcome recorded by the program authority and independently reviewed.",
+    "acquisition_state": "authorized"
+  }
+}

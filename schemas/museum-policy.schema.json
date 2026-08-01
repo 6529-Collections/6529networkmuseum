@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/museum-policy-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "MUSEUM_POLICY"},
+        "schema_id": {"const": "0x4f742df0f409d9b218f47244d66fcbffd1406a707cbb7c5794043eaacf1d9503"},
+        "policy_id": {"type": "string", "pattern": "^6529NM-POL-\\d{3}$"},
+        "title": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "enum": ["source_transcription", "adopted", "working_standard", "superseded"]},
+        "authority_reference": {"type": "string", "minLength": 1},
+        "text_uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+        "amendment_ids": {"type": "array", "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}, "uniqueItems": true}
+      },
+      "required": ["policy_id", "title", "status", "authority_reference", "text_uri"]
+    }
+  ]
+}

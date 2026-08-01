@@ -1,0 +1,181 @@
+{
+  "canonicalization": {
+    "id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+    "name": "RFC8785_JCS",
+    "profile": "museum-i-json-v1"
+  },
+  "entries": [
+    {
+      "path": "policies/README.md",
+      "sha256": "sha256:d98819f23c0832d73e156b664c8ac6595fd66801404938a6bac5d57b8b579bde",
+      "size": 613
+    },
+    {
+      "path": "policies/founding-and-operating-principles.md",
+      "sha256": "sha256:a9e82ed94553099902848bdda72fe8d6bdf9b21393196b182647476af8e1c9c4",
+      "size": 7784
+    },
+    {
+      "path": "policies/general-nft-collecting-scope.md",
+      "sha256": "sha256:57c7ce3ba741df93bfb19913b4d449377f804ee676df2f9655c07cb8cd3379a1",
+      "size": 5049
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x1efd2e1b91144382560079455bee40d1106c88ad42fe31ebe19765a49756ac16"
+      },
+      "path": "schemas/accession-lot.schema.json",
+      "sha256": "sha256:4dca1854018b8f9e8f5ddec96da38be145eae067378d0eeb54228f2ddf032fa9",
+      "size": 1171
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xc98b211cbb2222d9dc14257b036d4881a95d539c3b32d89d4cebc9ce06f13229"
+      },
+      "path": "schemas/accession-program.schema.json",
+      "sha256": "sha256:cdb6666cb712a7d421b92a56eba58b24e61d6ae13d855c983cf15cb3a34bf16c",
+      "size": 1482
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xd66d87e9ba6f51ac7254ca9818c61ed373d6432067cd12eeaff8731987d15ce0"
+      },
+      "path": "schemas/accession.schema.json",
+      "sha256": "sha256:05dd40c76ae08b802838f82c3690d3405e0e6fbd276e92d0b70b0e9a9cbf2c93",
+      "size": 1256
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xca751d579656f7fd78b61f2f2b9f435040995f4f636910b296afb9f65b2cd3af"
+      },
+      "path": "schemas/approved-collection.schema.json",
+      "sha256": "sha256:627f47628a8b22e21aa731c53c393d40bcf5940e9b80462f821eaec50a7edb56",
+      "size": 1092
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x9981e3bb9c139d11306bf8a93022c674d71978ecbb9069e0b5a214d1b7346f78"
+      },
+      "path": "schemas/common.schema.json",
+      "sha256": "sha256:c4835ebb91f2bef09281522411d66e6e2f725ec736d3c8b8e226044acc7536ac",
+      "size": 2980
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x2acda08e324df9dbb32683dd89dffbc87727c4d8e05fb10a4df5002fa0ddc418"
+      },
+      "path": "schemas/condition-report.schema.json",
+      "sha256": "sha256:20a0237046ecf50ff0ee0428fb622b7df5c75596d5585a65078b3f66198ac215",
+      "size": 1103
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x16c7a0896eba5d2786bceedc21add13468ee98c39e82f0817da332d91787239a"
+      },
+      "path": "schemas/controlled-vocabularies.json",
+      "sha256": "sha256:de44fda1469056f6e1321778eb49ce46ea3c4de03a8f79a83ff766b1c57a88e1",
+      "size": 3981
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x997251bf3da1b0abb942c7588d35669bc4e5a75e532d3de30ef7728194661cd7"
+      },
+      "path": "schemas/controlled-vocabularies.schema.json",
+      "sha256": "sha256:dcee2134f45ebd0b38df83ee77cde26aef1d7d0fb488b95be7155bbeb374dbc8",
+      "size": 3556
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x4c0be3a8e2e818287916df57af921e81766148529281c73dcb6c62838116bfb2"
+      },
+      "path": "schemas/governance-decision.schema.json",
+      "sha256": "sha256:260dc93b6033b236e33ef9aa902a3ebcf99610ce308f07ec5c819e97172dd8bd",
+      "size": 1616
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xf8765388adb09989b40a3d51414938c61c5ea0c6812fc90d7bd0391a8f46f27a"
+      },
+      "path": "schemas/museum-policy.schema.json",
+      "sha256": "sha256:87ba5c8be386c699d8c308738d7ab1596ecc1f67ba91c6d7e4eea3d2c60680cc",
+      "size": 1100
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x21f69693755d596336501724d37bcfabeaba9095801952a9680174cf1a66ea1a"
+      },
+      "path": "schemas/object-record.schema.json",
+      "sha256": "sha256:a87417d704d4697d68181869960a6e91efb43b56fa4be68c7ee466c3a45a5a47",
+      "size": 7707
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x2aab3fd3f4a4d1d36fd9aa09436e9387fdebe4fe5ede830b87104e4fb2052f9a"
+      },
+      "path": "schemas/program-outcome.schema.json",
+      "sha256": "sha256:7e898db4703b49eb0630500cf659071c7563c6dbcfae01216e0132c36d9f5b23",
+      "size": 1219
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x8366c6ad79ec9ac2a2a00b4728b97f14355b255bad1fb933e1eaf002b771ac51"
+      },
+      "path": "schemas/record-envelope.schema.json",
+      "sha256": "sha256:b85898a2082e1cfb6f2e65a362e76932b3747e38febfe776e550cdbb667d2c18",
+      "size": 1868
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xf0e209bdc00bf942a4a73f66b37e8587013d75e26817b29622af229d39629b38"
+      },
+      "path": "schemas/rights-statement.schema.json",
+      "sha256": "sha256:e3e73e89a09ea2a6d21c1236813d4c4c0875dd5decd1bb17236b2c81b3c2280b",
+      "size": 908
+    }
+  ],
+  "hash_algorithms": {
+    "keccak256": 1,
+    "sha256": 2
+  },
+  "inventory_roots": [
+    "policies",
+    "records",
+    "schemas"
+  ],
+  "manifest_commitment": {
+    "algorithm": 1,
+    "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+    "digest": "0xe038eb76edb24865c60d412684148610ef1fdce723e7ed122cb5c27bf92acfcb"
+  },
+  "manifest_sha256": "sha256:c4db52ced8368860053df2172af448dc75af5de020947cb8abc14d2794eb95be",
+  "manifest_type": "6529NM_RECORD_MANIFEST",
+  "manifest_version": "1.0.0"
+}

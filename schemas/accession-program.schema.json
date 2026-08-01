@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/accession-program-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "ACCESSION_PROGRAM"},
+        "schema_id": {"const": "0xefa681ad653c03480986e8abcd105fc7149d180f4bb5a5c808b1c5ce7a6ad6af"},
+        "program_id": {"type": "string", "pattern": "^6529NM-AP-\\d{2}$"},
+        "title": {"type": "string", "minLength": 1},
+        "status": {"type": "string", "enum": ["draft", "open_call", "selection_complete", "acquisition_in_progress", "complete", "closed"]},
+        "curatorial_premise": {"type": "string", "minLength": 1},
+        "acquisition_method": {"type": "string", "enum": ["donation", "purchase", "bequest", "exchange", "transfer"]},
+        "rights_requirement": {"type": "string", "minLength": 1},
+        "open_at": {"type": "string", "format": "date-time"},
+        "close_at": {"type": "string", "format": "date-time"},
+        "selection_mechanism": {"type": "string", "minLength": 1},
+        "selected_outcome_ids": {"type": "array", "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}, "uniqueItems": true}
+      },
+      "required": ["program_id", "title", "status", "curatorial_premise", "acquisition_method", "rights_requirement", "selection_mechanism"]
+    }
+  ]
+}
