@@ -198,6 +198,25 @@ AST guard. The remediation adds fail-closed media routing, bounded folded
 UTF-16 scanning, alias-aware sensitive-root dynamic-attribute rejection, and
 focused negative tests. No governed records are changed; exact-head review and
 head-bound bot reruns follow the cross-platform validation.
+
+## 2026-08-01 - protocol-spec release boundary
+
+The merged control plane validates `specs/` as governed public content, but its
+deterministic release manifest initially omitted that root because no protocol
+specification existed when the control plane was constructed. The first narrow
+remediation exposed a wider boundary omission: governance controls, templates,
+GitHub CI/review policy, and named root controls also affected releases without
+being committed by the release manifest.
+
+Before the on-chain migration specification can merge, the release inventory is
+therefore closed over `.github/`, policies, records, schemas, docs, governance,
+specs, templates, scripts, tests, and six named root control files. A formal
+`specs/README.md` defines the admission boundary. Tests pin the exact roots and
+files, prove that real and future specification files are inventoried, and
+reject missing or linked configured roots and files. Evidence, WIP notes, Git
+internals, and the self-referential release-artifact directory retain explicit
+separate treatment.
+
 ## 2026-08-01 - Casey accession exact-head synchronization
 
 PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677fbfb32dbbe51725f`, preserving the merged Casey research and this ledger checkpoint. The dossier now ends at `4b75ece88b354c534137e2f6306965f541a38faa`. Local bootstrap validation, whitespace checks, and the refreshed mandatory Museum validation pass. The PR remains draft and unmerged; no constructor self-review or accession-completion claim is made.
@@ -213,3 +232,11 @@ PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677f
 ## 2026-08-01 - Casey dossier migrated to merged control plane
 
 `origin/main` was synchronized once at the user-specified PR #7 merge `7193bfb9a0a6ead1871180b931aced755676b327`. The Casey lot is now represented by one enforced `ACCESSION_LOT`, seven `WORK_DESCRIPTION` object records, seven `RIGHTS_STATEMENT` records, and seven `CONDITION_REPORT` records, with public pages and a content-addressed preservation evidence manifest. The seven-token receipt remains custody evidence and the lot remains `received_onchain`/`not_complete`; intake processing is not formal acceptance, title, rights, condition, curatorial, preservation, or display approval. Historical events are classified per-event, `.07` retains raw Studio fields, and every Casey payload has a self-excluding canonical SHA-256 commitment. Reviewer fields remain null for independent review. Bootstrap, fetch guard, and the full 57-test suite pass at this working checkpoint; final manifest/CI and draft-PR head binding remain to be completed.
+
+## 2026-08-01 - post-migration release-inventory synchronization
+
+Main subsequently advanced to `13578fe13a9638e497e96b26b5ce8c4a863543ab` through PR #14, which closes the governed release inventory over `.github/`, policies, records, schemas, docs, governance, specs, templates, scripts, tests, and named root controls. PR #10 was rebased onto that current main so the release manifest and mandatory validation use the merged tooling; Casey payloads and evidence boundaries remain substantive work in this draft. The draft remains open, unmerged, and independent-reviewer metadata remains null.
+
+## 2026-08-01 - Casey final merged-main validation checkpoint
+
+The closed manifest was regenerated at the PR #14 boundary with 146 governed entries and commitments `keccak256:0x2eeacfa36a8f8ddd32df4ddd4e22859848487dfb76133775354dce005754415a` / `sha256:603e6fae89122f6a023483a0f6c3197551287b2897ea05908e3ea6deff9509ba`. Bootstrap, fetch guard, full validator, manifest idempotence, whitespace checks, and the complete 60-test merged-main suite pass (one platform skip). Targeted mutations of a token ID, receipt transfer count, and `received_onchain` state were each rejected after canonical commitments were refreshed. Casey remains `received_onchain`/`not_complete`; reviewer metadata remains null pending the same independent reviewer’s exact-head re-review.
