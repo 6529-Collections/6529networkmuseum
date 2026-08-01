@@ -11,7 +11,7 @@ Read `INDEX.md` before starting work. Before ending any substantive research or 
 - Use stable Museum identifiers. Do not encode artist, collection, chain, or wallet information in accession numbers.
 - Use CAIP-19-shaped citations for on-chain objects and preserve title/custody/rights as separate facts.
 - Match 6529Stream's record envelope and museum profiles wherever the same concept exists. Record any unavoidable divergence in `docs/stream-interoperability.md`.
-- Run `python scripts/validate.py` and `python scripts/generate_manifest.py --check` before committing.
+- Run `python scripts/bootstrap_validate.py` before committing until the indexed complete schema and manifest tooling lands. Once present, run the complete validator and manifest check as well.
 - Treat `docs/implementation-roadmap.md` and `notes/wip/orchestration-ledger.md` as the durable task handoff. Append material status changes before ending a work session.
 - Keys and Gates is currently selected but unminted. Do not assign a contract, token ID, custody event, or accession number until primary mint evidence exists.
 - The Casey Reas seven-work group is a completed donation requiring accession documentation; record any incomplete accession gate explicitly instead of downgrading the donation to a proposal.

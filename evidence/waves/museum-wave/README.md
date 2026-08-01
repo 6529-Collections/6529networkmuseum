@@ -7,6 +7,8 @@ Purpose: reproducible evidence for policy, decision, and institutional-history r
 
 These files preserve the complete Wave snapshot used for this repository build. They are evidence, not independent policy. Live API state can change; a later refresh must be stored as a new dated snapshot or release, not silently substituted for this evidence packet.
 
+The four captured source files are stored as Git `binary` paths so their upstream BOMs, line endings, and whitespace survive byte-for-byte. Their digests are SHA-256 over the raw stored bytes. [`manifest.json`](manifest.json) is the machine-readable authority for those sizes and digests; required CI recomputes every entry.
+
 | File | SHA-256 |
 |---|---|
 | `wave-snapshot.json` | `sha256:2185bbc52ed47c7a4a35b5bdee4ce75a0e55c8633d420aa5cd9ac7997c6edaef` |

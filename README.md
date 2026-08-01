@@ -9,7 +9,7 @@ Git history is useful evidence, but GitHub is not the final trust model. Every m
 | Area | Canonical location | Current state |
 |---|---|---|
 | Founding and policy | [`policies/`](policies/) | Institutional note plus adopted collecting and donation policy |
-| Governance decisions | [`records/governance/decisions.json`](records/governance/decisions.json) | Six adopted and two explicitly not adopted at the snapshot |
+| Governance decisions | [`records/governance/decisions.json`](records/governance/decisions.json) | Six adopted decisions and two participatory proposals with no adopted effect at the snapshot |
 | Preapproved donation collections | [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | Autoglyphs, Art Blocks, original Rare Pepes, original CryptoPunks |
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
 | Accessioned donations | [`records/accessions/register.json`](records/accessions/register.json) | Casey Reas donation received; work-level accession documentation in progress |
@@ -28,20 +28,22 @@ A work can be held by a Museum wallet without being accessioned. A Wave `WINNER`
 
 ## Integrity and validation
 
-Run:
+The complete schema and release-manifest pipeline is under construction. The active required check is:
 
 ```powershell
-python scripts/validate.py
-python scripts/generate_manifest.py --check
+python scripts/bootstrap_validate.py
 ```
 
-The generated manifest uses the 6529Stream conventions:
+The target release manifest uses the 6529Stream conventions:
 
 - repository-relative POSIX paths;
-- `sha256:` file digests over LF-normalized text;
+- `sha256:` file digests over LF-normalized Museum-authored text;
+- raw-byte SHA-256 for explicitly binary authenticated evidence snapshots, with the byte mode recorded in their evidence manifest;
 - RFC 8785-compatible canonical JSON under the repository's constrained I-JSON profile;
 - Keccak-256 payload commitments;
 - the Stream `HashRef` algorithm and canonicalization identifiers.
+
+Raw evidence hashes and canonical record commitments are intentionally separate domains. A release manifest must identify the applicable byte mode; it must never silently normalize an authenticated source snapshot.
 
 ## Public and restricted records
 

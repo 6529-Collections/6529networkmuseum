@@ -49,7 +49,9 @@ Terra subagents are reserved for bounded independent review and disjoint sidecar
 - `@6529-Collections/6529seize-maintainers` was granted `maintain` access.
 - Repository-wide `CODEOWNERS` and a Museum review template were added.
 - Squash-only merges and automatic deletion of merged branches were configured.
-- GitHub Free does not expose branch protection/rulesets for this private organization repository. The intended enforceable rules are recorded in `governance/github-repository-governance.md` and must be activated if the repository becomes public or the plan is upgraded.
+- GitHub Free did not expose branch protection/rulesets while this organization repository was private; the initial 403 limitation and intended rules were recorded before visibility changed.
+
+The repository was subsequently made public with owner authorization. Rulesets `20188741`, `20188742`, and `20188743` now enforce maintainer review semantics, no-bypass Museum CI, and Copilot review respectively. The `6529bot` GitHub App installation `140321060` covers all organization repositories; the Museum review profile passed its repository-config and limited-initial readiness validators.
 
 ### Known evidence anchors
 

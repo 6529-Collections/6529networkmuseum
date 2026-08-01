@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import sys
 from pathlib import Path, PurePosixPath
@@ -74,6 +75,35 @@ def check_public_record_safety() -> None:
                     fail(f"credential-shaped content in governed record: {path.relative_to(ROOT)}")
 
 
+def check_evidence_manifests(loaded: dict[Path, object]) -> None:
+    for manifest_path in sorted((ROOT / "evidence").rglob("manifest.json")):
+        manifest = loaded.get(manifest_path)
+        if not isinstance(manifest, dict):
+            fail(f"evidence manifest must be an object: {manifest_path.relative_to(ROOT)}")
+        if manifest.get("hash_algorithm") != "sha256" or manifest.get("byte_mode") != "raw":
+            fail(f"unsupported evidence digest mode: {manifest_path.relative_to(ROOT)}")
+        entries = manifest.get("entries")
+        if not isinstance(entries, list) or not entries:
+            fail(f"evidence manifest has no entries: {manifest_path.relative_to(ROOT)}")
+        seen: set[str] = set()
+        for entry in entries:
+            if not isinstance(entry, dict):
+                fail(f"invalid evidence entry: {manifest_path.relative_to(ROOT)}")
+            relative = entry.get("path")
+            if not isinstance(relative, str) or relative in seen:
+                fail(f"invalid or duplicate evidence path: {relative!r}")
+            seen.add(relative)
+            target = (manifest_path.parent / relative).resolve()
+            if not target.is_relative_to(manifest_path.parent.resolve()) or not target.is_file():
+                fail(f"missing or escaping evidence path: {relative}")
+            payload = target.read_bytes()
+            observed_hash = hashlib.sha256(payload).hexdigest()
+            if observed_hash != entry.get("sha256"):
+                fail(f"raw-byte evidence hash mismatch: {target.relative_to(ROOT)}")
+            if len(payload) != entry.get("size"):
+                fail(f"raw-byte evidence size mismatch: {target.relative_to(ROOT)}")
+
+
 def check_governance_references(loaded: dict[Path, object]) -> None:
     decisions_path = ROOT / "records/governance/decisions.json"
     approvals_path = ROOT / "records/collections/approved-collections.json"
@@ -100,6 +130,7 @@ def main() -> None:
     loaded = load_json_files()
     check_local_markdown_links()
     check_public_record_safety()
+    check_evidence_manifests(loaded)
     check_governance_references(loaded)
     print(f"Museum bootstrap validation passed ({len(loaded)} JSON files checked).")
 

@@ -45,16 +45,18 @@
       "exclusions": ["CryptoPunks derivatives", "unofficial wrappers", "other avatar or PFP projects"]
     }
   ],
-  "explicitly_not_approved_at_snapshot": [
+  "not_approved_at_snapshot": [
     {
       "preferred_name": "The Complaint Cards (not) by 6529",
       "decision_id": "6529NM-GOV-1052714",
-      "observed_wave_status": "PARTICIPATORY"
+      "observed_wave_status": "PARTICIPATORY",
+      "disposition": "deferred"
     },
     {
       "preferred_name": "Original Lost Robbies",
       "decision_id": "6529NM-GOV-1069256",
-      "observed_wave_status": "PARTICIPATORY"
+      "observed_wave_status": "PARTICIPATORY",
+      "disposition": "undetermined"
     }
   ]
 }
