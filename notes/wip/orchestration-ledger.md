@@ -446,3 +446,44 @@ than embedded here, avoiding a self-referential ledger/manifest hash.
 Review and curatorial metadata remain null; no title/rights/accession
 acceptance is claimed. PR #13 remains draft pending the same independent
 exact-head review.
+
+## 2026-08-01 - Post-merge fresh-clone publication-pin correction
+
+Supersedes: `2026-08-01 - PR #13 acquisition-pin reachability remediation` in
+this ledger.
+
+Post-merge `main` workflow run `30718106015` failed only in the Casey package
+verifier. PR-head and long-lived local worktrees could resolve construction
+commit `48cd2fbf2914d295cdc4260dedb1345061f5e3b6`, but GitHub's squash merge did
+not retain that construction history in the ancestry fetched by a fresh
+`main` checkout. The prior entry's claim that the acquisition pin would remain
+reachable after squash publication is therefore corrected here; it was
+reachable from the PR branch, not from the resulting public main history.
+
+The immutable construction provenance remains unchanged in the package:
+`acquisition_commit` is `48cd2fbf2914d295cdc4260dedb1345061f5e3b6` and
+`source_snapshot_commit` is `820f4bb6999fb9df3b094692913d70ebf6d9dc63`.
+The excluded `latest-run.json` pointer now additionally records
+`published_source_commit` as merged main commit
+`9700e842d0c991280b476cc67849d966221a742a`. Fresh clones verify the 79 raw
+observations, five snapshots, and child run manifest against that reachable
+publication commit. A fail-closed mutation test and an ancestry test cover the
+new boundary.
+
+No raw observation, snapshot, descriptor, descriptor-result, request,
+exclusion, warning, or collection-population byte changed. The regenerated
+package-manifest SHA-256 is
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`;
+its change is limited to the updated README, verifier, and mutation-test
+inventory entries. The excluded `latest-run.json` pointer itself also changed
+to add `published_source_commit` and the regenerated package-manifest pointer.
+The governed release-manifest SHA-256 is
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+
+After final package and governed-manifest regeneration, the constructor ran
+`python scripts/bootstrap_validate.py`, `python scripts/check_fetch_guard.py`,
+`python scripts/validate.py`, `python scripts/generate_manifest.py --check`,
+`python scripts/verify_casey_snapshot_package.py`, the complete discovered
+unittest suite, and `codex-diff-check`. All passed; 75 tests ran with the one
+expected Windows named-pipe skip, and the package verifier reproduced 3,300
+tokens, 35,088 traits, 79 raw files, and five descriptor outputs.

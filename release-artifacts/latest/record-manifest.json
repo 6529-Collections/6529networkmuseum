@@ -597,8 +597,8 @@
     },
     {
       "path": "scripts/verify_casey_snapshot_package.py",
-      "sha256": "sha256:88411ff5f66659e06d1488cfa2898fcf07dbac8ab57a52c1b2c14ef5aaee0e28",
-      "size": 74984
+      "sha256": "sha256:2d8fc45057989d39410cf8d420413b981bb517e99175caa175ebca994030d8f8",
+      "size": 75274
     },
     {
       "path": "specs/README.md",
@@ -677,8 +677,8 @@
     },
     {
       "path": "tests/casey/test_casey_snapshot_mutations.py",
-      "sha256": "sha256:01f51cc943fe1c4174b07b8a427a22867aed68ba465099ef6ce189bc85d556ed",
-      "size": 11384
+      "sha256": "sha256:c177c47550d6459e607d9a04f0916261fcf75d0a4339c1d4b5252b98b9686806",
+      "size": 12568
     },
     {
       "content_hash": {
@@ -848,9 +848,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x082240345caea8bb4300d6579b4dc23027d6324982f42079dddce79d3d081219"
+    "digest": "0xe8c395b65beec9b8f832ea32b48cac19d5943c35f733c6ed86679d892fa0aac7"
   },
-  "manifest_sha256": "sha256:21276ba82cc6b450ccd77ced801ed0d079716db4ce2ff5a8043808faeafe9edc",
+  "manifest_sha256": "sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
