@@ -143,7 +143,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Record-chain domain | `6529networkmuseum.record-chain.v1` | `0x4bc9065a5ebf49c9fff664fca90b1a40c0edac25bd076026f1b2685de7db666a` |
 | External subject domain | `6529networkmuseum.subject.external-asset.v1` | `0x1dd722ea239e47e25bdadfcc0053bdc4e7ee75e7ca9dd0afe97076a6d9eb8a80` |
 | CAIP-19 asset profile | `MUSEUM_ASSET_PROFILE_CAIP19_V1` | `0xac72cc7c2b027b8ee3d459de7829fd7b3b31cf575c28734e736ebd33b10f41cc` |
-| EIP-712 record signature | `MUSEUM_SIGNATURE_EIP712_RECORD_V1` | `0xd522d14409fadb7afb8c4cbf90ad662519010926e69625200b14f0ba12c90cba` |
+| Relayed authorization scheme (outside the envelope) | `MUSEUM_SIGNATURE_EIP712_RECORD_V1` | `0xd522d14409fadb7afb8c4cbf90ad662519010926e69625200b14f0ba12c90cba` |
 | Payload schema | `MUSEUM_REGISTRY_RECORD_V1` | `0xc9f2c9b650ebb4955871484238be9d3dfd1bf9f0ec09a5365917d6294e5967c9` |
 | Payload schema | `MUSEUM_EXTERNAL_ASSET_IDENTITY_V1` | `0x34e9649723069df3772c810e6e825f7589c211bac81acc9b908a60067f936aa6` |
 | Payload schema | `MUSEUM_CUSTODY_OBSERVATION_V1` | `0xb0c467baa7db6862385e58253c1c4702d95b141a1ef66cd2b86234a597344014` |
@@ -266,6 +266,24 @@ chainHash = keccak256(abi.encode(
 ));
 ```
 
+`recordHash` is a global immutable envelope identity, not a lane-entry ID. If
+the same hash is already stored, every later write MUST revert with
+`RecordAlreadyExists`, whether the requested predecessor is the same, a
+different hash, or the current head of another lane. The registry MUST NOT
+silently treat a duplicate as a new revision or move its latest pointer. A
+migration client MAY treat a duplicate revert as an idempotent retry only
+after reading the stored envelope, payload bytes, summary, and lane head and
+confirming that they match the intended write; a duplicate in a different
+lane is not a successful append.
+
+A legitimate correction MUST therefore change at least one field committed by
+`recordHash` (normally `contentHash`, `uri`, `schemaId`, `signatureScheme`,
+`signatureHash`, or `effectiveAt`) and MUST carry payload-level
+`supersedes`/reason/evidence. Repeating byte-identical content under the same
+envelope is a reference to the existing record, not a new revision. This
+explicitly resolves identical-envelope recurrence: the first accepted hash
+wins, and corrections are new hashes.
+
 Lanes are keyed by `(recordType, subjectId)`. Revision starts at 1. The first
 record has predecessor and prior chain hash zero. A write MUST supply the
 current lane head as `previousRecordHash`; a batch advances that head in array
@@ -295,10 +313,28 @@ they are not the sole storage for records, payloads, or heads. Events MUST NOT
 be used as an excuse to omit state-readable `payload`, `record`, or
 `recordChainHead` views.
 
-`payloadMode` is `NONE`, `INLINE`, or `CONTENT_ADDRESSED`:
+`payloadMode` is `NONE`, `INLINE`, or `CONTENT_ADDRESSED`. V1 pins these
+limits and their interaction:
+
+```solidity
+uint256 constant MAX_INLINE_PAYLOAD_BYTES = 16_384;
+uint256 constant MAX_BATCH_RECORDS = 64;
+uint256 constant MAX_BATCH_INLINE_PAYLOAD_BYTES = 262_144;
+```
+
+For a batch, each `INLINE` payload MUST be at most
+`MAX_INLINE_PAYLOAD_BYTES`, and the sum of all inline payload byte lengths in
+the batch MUST be at most `MAX_BATCH_INLINE_PAYLOAD_BYTES`. The per-record
+limit still applies when the batch contains one record. `CONTENT_ADDRESSED`
+and `NONE` contribute zero to the batch inline-byte total.
 
 * `INLINE` retains byte-identical canonical payload bytes, subject to a
-  deployment constant `MAX_INLINE_PAYLOAD_BYTES` (recommended 16,384).
+  hard cap of `MAX_INLINE_PAYLOAD_BYTES`. V1 permits `INLINE` only when
+  `contentHash.algorithm == HASH_KECCAK256` and
+  `contentHash.canonicalizationId == RFC8785_JCS`. The bytes MUST be
+  nonempty canonical UTF-8 JSON for the admitted schema. V1 does not accept
+  SHA-256, BLAKE3, multihash, IPFS-CID, or Arweave `INLINE` payloads; a future
+  algorithm-complete inline carrier requires a new version and new vectors.
 * `CONTENT_ADDRESSED` stores no payload bytes and requires a URI plus matching
   `contentHash`.
 * `NONE` is allowed only for explicitly schema-approved commitment records
@@ -306,9 +342,12 @@ be used as an excuse to omit state-readable `payload`, `record`, or
 
 Meaning-bearing migration records SHOULD be inline when they are small enough;
 large dossiers, media, legal instruments, private annexes, BagIt/OCFL objects,
-and manifests live in content-addressed storage. A payload-carrying write
-MUST verify `keccak256(payload) == bytes32(record.contentHash.digest)` for the
-Keccak/JCS profile and MUST reject a payload that does not match the envelope.
+and manifests live in content-addressed storage. For V1 `INLINE`, the contract
+MUST verify `keccak256(payload) == bytes32(record.contentHash.digest)` and MUST
+reject any nonempty payload under another hash/canonicalization profile. A
+`CONTENT_ADDRESSED` record MUST pass the envelope's algorithm-specific
+`HashRef` validation, but its bytes are intentionally not supplied to the
+contract. `NONE` MUST supply zero payload bytes.
 
 ### 5.3 Content addressing and privacy
 
@@ -393,8 +432,33 @@ MuseumRecordWrite(
 )
 ```
 
-`MUSEUM_SIGNATURE_EIP712_RECORD_V1` is the `signatureScheme` ID for this
-method. The digest is `keccak256(0x1901 || domainSeparator || structHash)`.
+The exact EIP-712 type string is:
+
+```text
+MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
+```
+
+`MUSEUM_SIGNATURE_EIP712_RECORD_V1` names this relayed-authorization method;
+it is an authorization-scheme ID outside the `CollectionRecord` envelope. It
+MUST NOT be placed in `record.signatureScheme` for a V1 `bySig` write. The
+digest is `keccak256(0x1901 || domainSeparator || structHash)`.
+
+V1 pins the envelope/signature interaction to avoid a circular preimage:
+
+* `recordMuseumRecord` and `recordMuseumRecordBatch` MAY carry a zero
+  `signatureScheme` with the exact empty `signatureHash`, or a separately
+  admitted nonzero envelope signature scheme with a valid required
+  `signatureHash`; the contract treats a nonzero envelope scheme as a
+  commitment and does not verify its external signature bytes.
+* `recordMuseumRecordBySig` MUST use `record.signatureScheme == bytes32(0)`,
+  `record.signatureHash.algorithm == 0`, empty `record.signatureHash.digest`,
+  and `record.signatureHash.canonicalizationId == bytes32(0)`. The relayed
+  EIP-712 signature is authorization metadata, not the envelope's
+  `signatureHash`, so `recordHash` can be computed before signature creation.
+* A zero envelope scheme with any nonempty or nonzero signature hash MUST
+  revert. An unsupported nonzero envelope scheme MUST revert unless its
+  schema/authority admission explicitly admits it.
+
 The signer address is explicit in the ABI, is checked for the record family,
 and is included in the event. EOA signatures use exact ECDSA recovery;
 contract signers use ERC-1271 `isValidSignature(bytes32,bytes)`.
@@ -406,9 +470,13 @@ revocation signature. Authority rotation does not rewrite old records; the
 record retains the class, signer, and role/provider revision observed at
 write time.
 
-The envelope's `signatureHash` is still only a commitment, as in Stream. The
-relayed authorization signature is checked for permission and MAY be
-committed in that field; it is not required to be stored in cleartext.
+The envelope's `signatureHash` is still only a commitment, as in Stream. In a
+V1 relayed write, the relayed authorization signature MUST NOT be placed in
+that field because doing so would make the `recordHash`/signature preimage
+circular. It is checked for permission and is represented by the signer,
+nonce, deadline, and authorization event metadata instead. Direct writes may
+carry a separately admitted envelope signature commitment, but the contract
+does not verify its external signature bytes.
 
 ## 7. Proposed ABI
 
@@ -511,6 +579,8 @@ interface INetworkMuseumRegistryV1 {
     function recordMuseumRecordBySig(
         CollectionRecord calldata record,
         bytes32 previousRecordHash,
+        bytes32 signedRecordHash,
+        bytes32 signedPreviousRecordHash,
         address signer,
         uint256 nonce,
         uint64 deadline,
@@ -544,11 +614,31 @@ interface INetworkMuseumRegistryV1 {
 }
 ```
 
-`recordMuseumRecordBatch` is all-or-nothing, has a recommended maximum of 64
-records and a deployment-configured total inline-byte cap, and advances each
-lane in input order. `batchId` is an audit label and MUST be emitted; it is not
-part of any record hash. A retry after a reorg is permitted once the caller
-re-reads state and resubmits only records not present in the surviving chain.
+`recordMuseumRecordBySig` MUST perform these checks before accepting the
+signature:
+
+1. Compute `derivedRecordHash = deriveMuseumRecordHash(record)`.
+2. Require `derivedRecordHash == signedRecordHash`.
+3. Require `signedPreviousRecordHash == previousRecordHash`.
+4. Require `previousRecordHash` equals the current lane head (zero for the
+   first revision).
+5. Construct the EIP-712 struct using the exact `signedRecordHash`,
+   `record.recordType`, `record.subjectId`, exact
+   `signedPreviousRecordHash`, `nonce`, and `deadline` arguments.
+6. Verify that digest for `signer`, then consume the signer-scoped nonce.
+
+The contract MUST NOT derive a digest from one record/predecessor pair while
+storing another. `SignedRecordHashMismatch` and
+`SignedPreviousRecordHashMismatch` are distinct failure cases.
+
+`recordMuseumRecordBatch` is all-or-nothing, has a hard maximum of
+`MAX_BATCH_RECORDS` records, and advances each lane in input order. The sum of
+`INLINE` payload bytes MUST obey `MAX_BATCH_INLINE_PAYLOAD_BYTES` and each
+record MUST obey `MAX_INLINE_PAYLOAD_BYTES`. `batchId` is an audit label and
+MUST be emitted; it is not part of any record hash. A retry after a reorg is
+permitted once the caller re-reads state and resubmits only records not
+present in the surviving chain. A record already present is handled by the
+global duplicate semantics above, not by silently skipping it in a batch.
 
 ### 7.1 Required errors
 
@@ -567,14 +657,19 @@ error RecordTypeNotAdmitted(bytes32 recordType);
 error RecordTypeAlreadyAdmitted(bytes32 recordType);
 error InvalidClassMask(bytes32 familyId, uint16 supplied);
 error InvalidMuseumRecord(bytes32 recordType, bytes32 subjectId, bytes32 schemaId);
-error InvalidHashRef(uint16 algorithm, uint256 digestLength);
+error InvalidMuseumHashRef(uint16 algorithm, uint256 digestLength);
 error URITooLarge(uint256 actual, uint256 maximum);
 error InvalidUTF8URI();
 error PayloadRequired(bytes32 schemaId);
 error PayloadTooLarge(uint256 actual, uint256 maximum);
 error PayloadDigestMismatch(bytes32 expected, bytes32 actual);
+error InlinePayloadProfileMismatch(uint16 algorithm, bytes32 canonicalizationId);
+error InvalidRelayedSignatureFields(bytes32 signatureScheme, uint16 algorithm,
+    uint256 digestLength, bytes32 canonicalizationId);
 error RecordAlreadyExists(bytes32 recordHash);
 error PreviousRecordMismatch(bytes32 expected, bytes32 actual);
+error SignedRecordHashMismatch(bytes32 derived, bytes32 signed);
+error SignedPreviousRecordHashMismatch(bytes32 supplied, bytes32 signed);
 error RecordFamilyUnauthorized(address actor, bytes32 recordType, bytes32 familyId, uint16 classMask);
 error InvalidAuthority(address signer, uint8 authorizationClass);
 error InvalidSignature(address signer);
@@ -591,7 +686,10 @@ error InvalidRoleProvider(address provider);
 error FunctionUnauthorized(address caller, bytes4 selector);
 ```
 
-The Stream adapter MUST also recognize the pinned Stream errors:
+The Museum registry MUST NOT declare an `InvalidHashRef` error. The name
+`InvalidMuseumHashRef` is intentionally distinct so its selector cannot be
+confused with a pinned Stream adapter error. The Stream adapter MUST recognize
+the pinned Stream errors:
 `InvalidCoreContract`, `InvalidAdminContract`, `InvalidRecordFamilyRegistry`,
 `FunctionAdminUnauthorized`, `MetadataMutationPaused`,
 `CollectionDoesNotExist`, `InvalidCollectionRecord`, `InvalidHashRef`,
@@ -830,13 +928,25 @@ produce a second subject.
 ### 13.2 Canonical payload and Museum record hash
 
 ```text
-canonicalPayload = {"id":"6529NM.2026.001.1","status":"proposed"}
-contentDigest = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
-uri = ipfs://bafybeigdyrzt5example
-uriHash = 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
+recordTypeLiteral = MUSEUM_RESEARCH_NOTE
 recordType = 0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0
 subjectId = 0x1111111111111111111111111111111111111111111111111111111111111111
+canonicalPayload = {"id":"6529NM.2026.001.1","status":"proposed"}
+payloadMode = INLINE
+recordHashDomain = 0x0c86cc4258c69b4674aa86e715d4d167bd8288b78832a0a4c5a37943b31876c4
+contentHash.algorithm = 1
+contentDigest = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
+contentHash.canonicalizationId = 0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044
+uri = ipfs://bafybeigdyrzt5example
+uriHash = 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
 schemaId = 0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0
+signatureScheme = 0x0000000000000000000000000000000000000000000000000000000000000000
+signatureHash.algorithm = 0
+signatureHash.digest = 0x
+signatureHash.canonicalizationId = 0x0000000000000000000000000000000000000000000000000000000000000000
+keccak256(signatureHash.digest) = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+hashRefHash(contentHash) = 0x7e4c1fd9e0fb136070ef0c61d036bbb01b5a7b3da66c97984d3a5c266219f19f
+hashRefHash(signatureHash) = 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
 chainId = 1
 registry = 0x0000000000000000000000000000000000000001
 effectiveAt = 1722470400
@@ -849,9 +959,22 @@ and `chainHash = 0x96772821fc5d7389343e83d7f04ba0c914c055ce04b4e1dd1fc8fadfa492e
 ### 13.3 EIP-712 relayed write
 
 With chain ID 1, verifying contract `0x0000000000000000000000000000000000000001`,
-the record hash above, nonce 7, deadline 1,800,000,000, and zero predecessor:
+the record hash above, `signedRecordHash` equal to that record hash,
+`signedPreviousRecordHash = 0x00...00`, `previousRecordHash = 0x00...00`,
+nonce 7, and deadline 1,800,000,000:
 
 ```text
+EIP712Domain type string = EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)
+EIP712 name = 6529 Network Museum Registry
+EIP712 version = 1
+MuseumRecordWrite type string = MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
+signedRecordHash = 0x3798a5094d3d998aeed0ecfab6efcb84a3eac5bc9b91988c7c841b82eb7cdc50
+signedPreviousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
+previousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
+nonce = 7
+deadline = 1800000000
+record.signatureScheme = 0x0000000000000000000000000000000000000000000000000000000000000000
+record.signatureHash = (algorithm=0,digest=0x,canonicalizationId=0x0000000000000000000000000000000000000000000000000000000000000000)
 domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 MuseumRecordWrite typeHash = 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
 structHash = 0x370f37113d360bd678d23a6fcf53a14055dff4149538eb76cc3f042080cce6ca

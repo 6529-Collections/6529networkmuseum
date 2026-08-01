@@ -141,6 +141,107 @@ token identity.
 * Registrar, curator, digital-conservation, privacy, and independent security
   reviews are required before governance can approve deployment.
 
+## PR #2 general-review resolutions
+
+The 6529bot general review on PR #2 identified seven valid specification gaps;
+all are addressed in the companion contract specification:
+
+1. `INLINE` is now explicitly restricted to nonempty RFC 8785/JCS UTF-8 JSON
+   using Keccak-256. SHA-256, BLAKE3, multihash, IPFS-CID, and Arweave
+   payloads remain content-addressed or `NONE` in V1; no algorithm-specific
+   integrity check is implied for inline bytes outside that profile.
+2. The normative record vector now pins every envelope/preimage field,
+   including `signatureScheme = 0x00...00`, an empty `signatureHash`, its
+   zero algorithm/canonicalization fields, both `HashRef` sub-hashes, and the
+   exact payload mode.
+3. The by-signature ABI now carries `signedRecordHash` and
+   `signedPreviousRecordHash`. The implementation must recompute the record
+   hash, compare both signed values to the supplied values, compare the
+   predecessor to the lane head, and only then verify the EIP-712 signature.
+4. Identical envelopes are global immutable duplicates: a second occurrence
+   always reverts and never advances a lane. A correction must change a
+   hashed envelope field and carry payload-level supersession evidence.
+5. V1 pins `MAX_INLINE_PAYLOAD_BYTES = 16,384`,
+   `MAX_BATCH_RECORDS = 64`, and `MAX_BATCH_INLINE_PAYLOAD_BYTES = 262,144`,
+   with both per-record and aggregate limits applying to batches.
+6. The Museum ABI now uses `InvalidMuseumHashRef`; the pinned Stream
+   adapter's `InvalidHashRef` remains external and is explicitly not
+   redeclared by the Museum registry.
+7. The exact EIP-712 type string, signed-value bindings, and an independent
+   Foundry `cast` transcript are now normative and reproducible.
+
+### Reproducible hash transcript
+
+This transcript was run in a clean PowerShell session with Foundry `cast`.
+The commands use only the literals, ABI types, and values printed here; they
+do not read repository state or rely on an implementation. The output is the
+golden vector set for the draft.
+
+```powershell
+$domain = '0x0c86cc4258c69b4674aa86e715d4d167bd8288b78832a0a4c5a37943b31876c4'
+$chainDomain = '0x4bc9065a5ebf49c9fff664fca90b1a40c0edac25bd076026f1b2685de7db666a'
+$subjectDomain = '0x1dd722ea239e47e25bdadfcc0053bdc4e7ee75e7ca9dd0afe97076a6d9eb8a80'
+$assetProfile = '0xac72cc7c2b027b8ee3d459de7829fd7b3b31cf575c28734e736ebd33b10f41cc'
+$canon = '0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044'
+$type = '0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0'
+$subject = '0x1111111111111111111111111111111111111111111111111111111111111111'
+$schema = '0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0'
+$asset = 'eip155:1/erc721:0x06012c8cf97bead5deae2370709587f8e7a266d/771769'
+$payload = '{"id":"6529NM.2026.001.1","status":"proposed"}'
+$uri = 'ipfs://bafybeigdyrzt5example'
+$assetHash = cast keccak $asset
+$subjectId = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32)' $subjectDomain $assetProfile $assetHash)
+$payloadHash = cast keccak $payload
+$uriHash = cast keccak $uri
+$contentRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 1 $payloadHash $canon)
+$emptyBytesHash = '0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470'
+$signatureRef = cast keccak (cast abi-encode 'f(uint16,bytes32,bytes32)' 0 $emptyBytesHash 0x0000000000000000000000000000000000000000000000000000000000000000)
+$recordHash = cast keccak (cast abi-encode 'f(bytes32,uint256,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,uint64)' $domain 1 0x0000000000000000000000000000000000000001 $type $subject $contentRef $uriHash $schema 0x0000000000000000000000000000000000000000000000000000000000000000 $signatureRef 1722470400)
+$chainHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint64)' $chainDomain 0x0000000000000000000000000000000000000000000000000000000000000000 $recordHash 1)
+$domainTypeHash = cast keccak 'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'
+$nameHash = cast keccak '6529 Network Museum Registry'
+$versionHash = cast keccak '1'
+$domainSeparator = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint256,address)' $domainTypeHash $nameHash $versionHash 1 0x0000000000000000000000000000000000000001)
+$writeTypeHash = cast keccak 'MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)'
+$structHash = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,bytes32,uint256,uint64)' $writeTypeHash $recordHash $type $subject 0x0000000000000000000000000000000000000000000000000000000000000000 7 1800000000)
+$digest = cast keccak (cast abi-encode 'f(bytes2,bytes32,bytes32)' 0x1901 $domainSeparator $structHash)
+$assetHash
+$subjectId
+$payloadHash
+$uriHash
+$contentRef
+$signatureRef
+$recordHash
+$chainHash
+$domainTypeHash
+$domainSeparator
+$writeTypeHash
+$structHash
+$digest
+```
+
+Expected output, in order:
+
+```text
+0x0ff37eede3af67254c8d44c52b88bce8e1b191ace633f456212fd13d9cbdcca9
+0xa6e5bb8be82a8267e4c7a5398a63d1b1cf8d3c612aa4529349882667e8a2ba78
+0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
+0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
+0x7e4c1fd9e0fb136070ef0c61d036bbb01b5a7b3da66c97984d3a5c266219f19f
+0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
+0x3798a5094d3d998aeed0ecfab6efcb84a3eac5bc9b91988c7c841b82eb7cdc50
+0x96772821fc5d7389343e83d7f04ba0c914c055ce04b4e1dd1fc8fadfa492e74c
+0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f
+0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
+0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
+0x370f37113d360bd678d23a6fcf53a14055dff4149538eb76cc3f042080cce6ca
+0x2bd3f0ecd251135824eb711179846c19c3cb037205ca35a20cea14e39fde68d2
+```
+
+The EIP-712 signature bytes are intentionally absent from the record-hash
+preimage; V1 uses zero/empty envelope signature fields for `bySig` writes and
+keeps the relay signature in authorization metadata, as specified above.
+
 ## Negative claims preserved
 
 This review does not claim that any Casey work is accessioned, that any Keys
