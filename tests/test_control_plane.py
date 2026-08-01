@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
@@ -39,6 +40,20 @@ class ControlPlaneTests(unittest.TestCase):
 
     def refresh_content_hash(self, record: dict) -> None:
         record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(record["payload"])).hex()
+
+    def make_repository_copy(self) -> tuple[tempfile.TemporaryDirectory[str], Path]:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-repository-" )
+        destination = Path(temporary.name) / "repo"
+        shutil.copytree(
+            REPO_ROOT,
+            destination,
+            ignore=shutil.ignore_patterns(".git", "__pycache__", "*.pyc"),
+        )
+        return temporary, destination
+
+    def refresh_review_hash(self, record: dict) -> None:
+        review = record["record_control"]["review"]
+        review["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
 
     def test_valid_fixture_chain(self) -> None:
         temporary, records = self.make_records_root()
@@ -142,6 +157,21 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(any("ACCESSION.events must contain" in issue for issue in issues), issues)
         self.assertTrue(any("instrument_reference must match" in issue for issue in issues), issues)
 
+    def test_accession_custody_path_is_bound_to_executed_title_binding(self) -> None:
+        for field, value in (
+            ("from", "0x4444444444444444444444444444444444444444"),
+            ("to", "0x5555555555555555555555555555555555555555"),
+            ("custodian_reference", "othermuseum.example"),
+        ):
+            with self.subTest(field=field):
+                temporary, records = self.make_records_root()
+                self.addCleanup(temporary.cleanup)
+                record = self.load_record(records, "accession.json")
+                record["payload"]["events"][4]["custody_path"][field] = value
+                self.save_record(records, "accession.json", record)
+                issues = validate_records(Path(temporary.name))
+                self.assertTrue(any(f"custody_path.{field} must match" in issue for issue in issues), issues)
+
     def test_accession_binding_requirements_and_strict_chronology_are_rejected(self) -> None:
         mutations = (
             (lambda record: record["payload"]["title_bindings"][0].update(status="pending"), "executed title binding"),
@@ -187,6 +217,16 @@ class ControlPlaneTests(unittest.TestCase):
             "https://[::1]/private-record",
             "https://[fd00::1]/private-record",
             "https://192.0.2.1/private-record",
+            "https://127.1/private-record",
+            "https://2130706433/private-record",
+            "https://127.0.0.1.nip.io/private-record",
+            "https://nip.io/private-record",
+            "https://redirect.127.0.0.1.nip.io/private-record",
+            "https://metadata/private-record",
+            "https://0x7f000001/private-record",
+            "https://%31%32%37.0.0.1/private-record",
+            "https://[::ffff:127.0.0.1]/private-record",
+            "https://*.example.com/private-record",
         ):
             with self.subTest(uri=uri):
                 temporary, records = self.make_records_root()
@@ -196,6 +236,22 @@ class ControlPlaneTests(unittest.TestCase):
                 self.save_record(records, "object-record.json", record)
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any("envelope.uri: local/private network URL" in issue for issue in issues), issues)
+
+    def test_endpoint_fetch_policy_is_fail_closed_and_redirect_aware(self) -> None:
+        vocabularies = json.loads((REPO_ROOT / "schemas/controlled-vocabularies.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            {
+                "mode": "resolve_at_fetch",
+                "require_all_a_aaaa_global": True,
+                "pin_connected_ip": True,
+                "recheck_every_redirect": True,
+                "unknown_hostname": "reject",
+            },
+            vocabularies["endpoint_policy"],
+        )
+        mutated = dict(vocabularies)
+        mutated["endpoint_policy"] = {**vocabularies["endpoint_policy"], "recheck_every_redirect": False}
+        self.assertTrue(any("endpoint_policy" in issue for issue in validate_vocabularies(mutated)))
 
     def test_caip19_and_custody_chain_bindings_are_enforced(self) -> None:
         temporary, records = self.make_records_root()
@@ -223,6 +279,93 @@ class ControlPlaneTests(unittest.TestCase):
         with patch.object(bootstrap_validate, "ROOT", Path(temporary.name)):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
+
+    def test_manifest_authorized_binary_evidence_is_checked_before_text_decode(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-binary-evidence-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        evidence = root / "evidence"
+        evidence.mkdir()
+        binary = b"\x89PNG\r\n\x1a\npublic-image-bytes"
+        image = evidence / "image.png"
+        image.write_bytes(binary)
+        manifest = evidence / "manifest.json"
+        manifest.write_text(
+            json.dumps(
+                {
+                    "hash_algorithm": "sha256",
+                    "byte_mode": "raw",
+                    "entries": [
+                        {
+                            "path": "image.png",
+                            "byte_mode": "raw",
+                            "media_type": "image/png",
+                            "size": len(binary),
+                            "sha256": hashlib.sha256(binary).hexdigest(),
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        loaded = {manifest: json.loads(manifest.read_text(encoding="utf-8"))}
+        with patch.object(bootstrap_validate, "ROOT", root):
+            entries = bootstrap_validate.check_evidence_manifests(loaded)
+            bootstrap_validate.check_public_record_safety(entries)
+
+        executable = b"MZ-not-an-image"
+        image.write_bytes(executable)
+        manifest.write_text(
+            manifest.read_text(encoding="utf-8").replace("image/png", "application/octet-stream").replace(
+                hashlib.sha256(binary).hexdigest(), hashlib.sha256(executable).hexdigest()
+            ).replace(str(len(binary)), str(len(executable))),
+            encoding="utf-8",
+        )
+        with patch.object(bootstrap_validate, "ROOT", root):
+            entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+            with self.assertRaises(SystemExit):
+                bootstrap_validate.check_public_record_safety(entries)
+
+        image.write_bytes(b"\xff\x00undeclared")
+        manifest.unlink()
+        with patch.object(bootstrap_validate, "ROOT", root):
+            with self.assertRaises(SystemExit):
+                bootstrap_validate.check_public_record_safety()
+
+    def test_full_validator_enforces_all_governed_record_schemas(self) -> None:
+        result = subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / "validate.py")],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
+    def test_direct_governed_record_schema_mutations_are_rejected(self) -> None:
+        mutations = (
+            ("records/programs/6529NM-AP-01/program.json", lambda record: record.pop("rules"), "rules"),
+            ("records/programs/6529NM-AP-01/selected-works.json", lambda record: record["works"][0].update(unknown_field="reject"), "unknown_field"),
+            ("records/programs/6529NM-AP-01/outcomes/OUT-001.json", lambda record: record.update(unknown_field="reject"), "unknown_field"),
+        )
+        for relative, mutate, expected in mutations:
+            with self.subTest(relative=relative):
+                temporary, root = self.make_repository_copy()
+                self.addCleanup(temporary.cleanup)
+                path = root / relative
+                record = json.loads(path.read_text(encoding="utf-8"))
+                mutate(record)
+                self.refresh_review_hash(record)
+                path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+                result = subprocess.run(
+                    [sys.executable, str(root / "scripts" / "validate.py")],
+                    cwd=root,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertNotEqual(0, result.returncode, result.stdout + result.stderr)
+                self.assertIn(expected, result.stdout + result.stderr)
 
     def test_duplicate_json_keys_are_rejected_before_validation_and_hashing(self) -> None:
         temporary, records = self.make_records_root()

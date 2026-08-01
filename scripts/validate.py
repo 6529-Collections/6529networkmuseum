@@ -84,6 +84,17 @@ SECRET_VALUE_PATTERNS = [
     re.compile(r"\b(?:gho_|github_pat_|sk-|AKIA)[A-Za-z0-9_-]+"),
     re.compile(r"^(?:file://|\\\\|[A-Za-z]:\\|/Users/|/home/|/root/|C:/Users/)", re.IGNORECASE),
 ]
+ENDPOINT_POLICY = {
+    "mode": "resolve_at_fetch",
+    "require_all_a_aaaa_global": True,
+    "pin_connected_ip": True,
+    "recheck_every_redirect": True,
+    "unknown_hostname": "reject",
+}
+SUSPICIOUS_HOSTS = {"localhost", "localhost.localdomain", "metadata", "nip.io", "sslip.io", "xip.io", "localtest.me", "lvh.me"}
+SUSPICIOUS_HOST_SUFFIXES = (".localhost", ".local", ".internal", ".lan", ".nip.io", ".sslip.io", ".xip.io", ".localtest.me", ".lvh.me")
+NUMERIC_HOST = re.compile(r"^(?:0[xX][0-9a-fA-F]+|[0-9]+)(?:\.(?:0[xX][0-9a-fA-F]+|[0-9]+))*$")
+CANONICAL_IPV4 = re.compile(r"^(?:0|[1-9][0-9]{0,2})(?:\.(?:0|[1-9][0-9]{0,2})){3}$")
 
 
 def keccak256(data: bytes) -> bytes:
@@ -115,11 +126,12 @@ def load_json(path: Path) -> Any:
         return json.load(handle, object_pairs_hook=reject_duplicate_keys)
 
 
-def load_schemas() -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, Any]]]:
-    vocabularies = load_json(VOCAB_PATH)
-    envelope = load_json(ENVELOPE_PATH)
+def load_schemas(root: Path = REPO_ROOT) -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, Any]]]:
+    schemas_dir = root / "schemas"
+    vocabularies = load_json(schemas_dir / "controlled-vocabularies.json")
+    envelope = load_json(schemas_dir / "record-envelope.schema.json")
     by_id: dict[str, dict[str, Any]] = {}
-    for path in sorted(SCHEMAS_DIR.glob("*.schema.json")):
+    for path in sorted(schemas_dir.glob("*.schema.json")):
         schema = load_json(path)
         schema_id = schema.get("$id")
         if schema_id:
@@ -130,6 +142,14 @@ def load_schemas() -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, 
 def validator_for(schema: dict[str, Any], store: dict[str, dict[str, Any]]) -> Draft202012Validator:
     registry = Registry().with_resources((uri, Resource.from_contents(document)) for uri, document in store.items())
     return Draft202012Validator(schema, registry=registry, format_checker=FormatChecker())
+
+
+def schema_leaf_errors(error: Any) -> Iterable[Any]:
+    if error.context:
+        for child in error.context:
+            yield from schema_leaf_errors(child)
+    else:
+        yield error
 
 
 def top_level_payload_keys(type_schema: dict[str, Any], store: dict[str, dict[str, Any]]) -> set[str]:
@@ -153,6 +173,8 @@ def format_error(error: Any) -> str:
 
 def validate_vocabularies(vocabularies: dict[str, Any]) -> list[str]:
     issues: list[str] = []
+    if vocabularies.get("endpoint_policy") != ENDPOINT_POLICY:
+        issues.append("vocabularies.endpoint_policy must require global-at-fetch resolution, IP pinning, redirect rechecks, and unknown-host rejection")
     record_types = vocabularies.get("record_types", [])
     schema_ids = vocabularies.get("schema_ids", {})
     schema_paths = vocabularies.get("schema_paths", {})
@@ -219,11 +241,19 @@ def is_private_network_url(value: str) -> bool:
         return True
     if parsed.scheme.lower() not in {"http", "https"}:
         return False
-    if not host:
+    if not host or parsed.username is not None or parsed.password is not None:
+        return True
+    if any(ord(char) > 127 for char in host) or any(char in host for char in ("%", "\\", "*")):
         return True
     host = host.rstrip(".").lower()
-    if host in {"localhost", "localhost.localdomain"} or host.endswith((".localhost", ".local", ".internal", ".lan")):
+    if host in SUSPICIOUS_HOSTS or "." not in host or host.endswith(SUSPICIOUS_HOST_SUFFIXES):
         return True
+    if NUMERIC_HOST.fullmatch(host):
+        if not CANONICAL_IPV4.fullmatch(host):
+            return True
+        octets = [int(part) for part in host.split(".")]
+        if any(octet > 255 for octet in octets):
+            return True
     try:
         address = ip_address(host.split("%", 1)[0])
     except ValueError:
@@ -390,6 +420,16 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
             issues.append("ACCESSION custody_receipt must identify a non_token_off_chain custody path")
         if instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
             issues.append("ACCESSION custody_receipt instrument_reference must match title_passage instrument.reference")
+        executed_bindings = [binding for binding in bindings if isinstance(binding, dict) and binding.get("status") == "executed"] if isinstance(bindings, list) else []
+        path_object_id = custody_path.get("object_id")
+        matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == path_object_id]
+        if len(matching_bindings) != 1:
+            issues.append("ACCESSION custody_path must identify exactly one executed title binding by object_id")
+        else:
+            binding = matching_bindings[0]
+            for field in ("from", "to", "custodian_reference"):
+                if custody_path.get(field) != binding.get(field):
+                    issues.append(f"ACCESSION custody_path.{field} must match the executed title binding")
     return issues
 
 
@@ -467,6 +507,7 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
 
 def validate_records(root: Path) -> list[str]:
     issues: list[str] = []
+    schema_root = root if (root / "schemas").is_dir() else REPO_ROOT
     bootstrap_script = root / "scripts" / "bootstrap_validate.py"
     if bootstrap_script.is_file():
         bootstrap = subprocess.run(
@@ -480,17 +521,21 @@ def validate_records(root: Path) -> list[str]:
             detail = (bootstrap.stdout + bootstrap.stderr).strip()
             issues.append(f"bootstrap validation failed: {detail}")
     try:
-        vocabularies, envelope_schema, schema_store = load_schemas()
+        vocabularies, envelope_schema, schema_store = load_schemas(schema_root)
     except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
         return [f"schema and vocabulary load failed: {exc}"]
     issues.extend(validate_vocabularies(vocabularies))
     try:
-        vocabulary_schema = load_json(VOCAB_SCHEMA_PATH)
-        vocabulary_errors = sorted(validator_for(vocabulary_schema, schema_store).iter_errors(vocabularies), key=lambda error: list(error.absolute_path))
+        vocabulary_schema = load_json(schema_root / "schemas/controlled-vocabularies.schema.json")
+        vocabulary_errors = sorted(
+            (leaf for error in validator_for(vocabulary_schema, schema_store).iter_errors(vocabularies) for leaf in schema_leaf_errors(error)),
+            key=lambda error: list(error.absolute_path),
+        )
         issues.extend(f"schemas/controlled-vocabularies.json: {format_error(error)}" for error in vocabulary_errors)
     except OSError as exc:
         issues.append(f"schemas/controlled-vocabularies.schema.json: unavailable: {exc}")
-    for schema_path in [ENVELOPE_PATH, *sorted(SCHEMAS_DIR.glob("*.schema.json"))]:
+    schemas_dir = schema_root / "schemas"
+    for schema_path in [schemas_dir / "record-envelope.schema.json", *sorted(schemas_dir.glob("*.schema.json"))]:
         try:
             schema = load_json(schema_path)
             Draft202012Validator.check_schema(schema)
@@ -498,7 +543,7 @@ def validate_records(root: Path) -> list[str]:
             issues.append(f"{schema_path.relative_to(root)}: invalid JSON Schema: {exc}")
     records_dir = root / "records"
     record_paths = sorted(records_dir.rglob("*.json")) if records_dir.exists() else []
-    records: list[tuple[Path, dict[str, Any]]] = []
+    records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]] = []
     record_ids: dict[str, Path] = {}
     for path in record_paths:
         relative = path.relative_to(root).as_posix()
@@ -510,15 +555,46 @@ def validate_records(root: Path) -> list[str]:
         if not isinstance(record, dict):
             issues.append(f"{relative}: record must be an object")
             continue
-        if record.get("$schema") != OFFCHAIN_ENVELOPE_SCHEMA and "record_control" in record:
-            # Foundation registers use local bootstrap schemas and record_control;
-            # bootstrap_validate.py is their authoritative structural and hash gate.
+        is_envelope = record.get("$schema") == OFFCHAIN_ENVELOPE_SCHEMA
+        payload = record.get("payload") if is_envelope else None
+        if is_envelope:
+            envelope_errors = sorted(
+                (leaf for error in validator_for(envelope_schema, schema_store).iter_errors(record) for leaf in schema_leaf_errors(error)),
+                key=lambda error: list(error.absolute_path),
+            )
+            issues.extend(f"{relative}: envelope {format_error(error)}" for error in envelope_errors)
+            if not isinstance(payload, dict):
+                records.append((path, record, None))
+                continue
+        else:
+            record_type = record.get("record_type")
+            schema_path_name = vocabularies.get("schema_paths", {}).get(record_type)
+            declared_schema = record.get("$schema")
+            declared_path = (path.parent / declared_schema).resolve() if isinstance(declared_schema, str) else None
+            if declared_path is None or not declared_path.is_relative_to(schemas_dir) or not declared_path.is_file():
+                issues.append(f"{relative}: declared local schema is missing or escapes schemas/")
+                records.append((path, record, None))
+                continue
+            if isinstance(schema_path_name, str) and declared_path != (schema_root / "schemas" / schema_path_name).resolve():
+                issues.append(f"{relative}: $schema must route to schemas/{schema_path_name}")
+            try:
+                type_schema = load_json(declared_path)
+                type_errors = sorted(
+                    (leaf for error in validator_for(type_schema, schema_store).iter_errors(record) for leaf in schema_leaf_errors(error)),
+                    key=lambda error: list(error.absolute_path),
+                )
+                issues.extend(f"{relative}: record {format_error(error)}" for error in type_errors)
+            except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+                issues.append(f"{relative}: declared schema unavailable: {exc}")
+            record_id = record.get("record_id")
+            if isinstance(record_id, str):
+                if record_id in record_ids:
+                    issues.append(f"{relative}: duplicate record_id {record_id}; first seen at {record_ids[record_id].relative_to(root).as_posix()}")
+                else:
+                    record_ids[record_id] = path
+            records.append((path, record, None))
             continue
-        envelope_errors = sorted(validator_for(envelope_schema, schema_store).iter_errors(record), key=lambda error: list(error.absolute_path))
-        issues.extend(f"{relative}: envelope {format_error(error)}" for error in envelope_errors)
-        payload = record.get("payload")
-        if not isinstance(payload, dict):
-            continue
+
         record_id = payload.get("record_id")
         if isinstance(record_id, str):
             if record_id in record_ids:
@@ -531,10 +607,13 @@ def validate_records(root: Path) -> list[str]:
         if not schema_path_name:
             issues.append(f"{relative}: unknown payload.record_type {record_type!r}")
             continue
-        type_path = SCHEMAS_DIR / schema_path_name
+        type_path = schema_root / "schemas" / schema_path_name
         try:
             type_schema = load_json(type_path)
-            type_errors = sorted(validator_for(type_schema, schema_store).iter_errors(payload), key=lambda error: list(error.absolute_path))
+            type_errors = sorted(
+                (leaf for error in validator_for(type_schema, schema_store).iter_errors(payload) for leaf in schema_leaf_errors(error)),
+                key=lambda error: list(error.absolute_path),
+            )
             issues.extend(f"{relative}: payload {format_error(error)}" for error in type_errors)
             allowed_keys = top_level_payload_keys(type_schema, schema_store)
             for extra_key in sorted(set(payload) - allowed_keys):
@@ -543,11 +622,12 @@ def validate_records(root: Path) -> list[str]:
             issues.append(f"{relative}: schema {schema_path_name} unavailable: {exc}")
         # Semantic checks deliberately run even when a schema error exists so a failed
         # record gets the complete diagnostic set in one deterministic CI run.
-        if isinstance(record.get("envelope"), dict) and isinstance(payload, dict):
+        if isinstance(record.get("envelope"), dict):
             issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies))
-        records.append((path, record))
-    for path, record in records:
-        payload = record.get("payload", {})
+        records.append((path, record, payload))
+    for path, record, payload in records:
+        if not isinstance(payload, dict):
+            continue
         relative = path.relative_to(root).as_posix()
         for reference in iter_reference_values(payload):
             if reference not in record_ids:

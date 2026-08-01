@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small fail-closed validator used until the complete schema pipeline lands."""
+"""Fail-closed foundation and evidence validator for the Museum register."""
 
 from __future__ import annotations
 
@@ -9,6 +9,9 @@ import re
 import sys
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
+
+from jsonschema import Draft202012Validator, FormatChecker
+from referencing import Registry, Resource
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -83,7 +86,56 @@ def check_local_markdown_links() -> None:
                 fail(f"broken local link in {path.relative_to(ROOT)}: {raw}")
 
 
-def check_public_record_safety() -> None:
+TEXT_MEDIA_PREFIXES = ("text/",)
+SAFE_BINARY_MEDIA_TYPES = {
+    "application/octet-stream",
+    "application/pdf",
+    "audio/mpeg",
+    "audio/wav",
+    "image/gif",
+    "image/jpeg",
+    "image/png",
+    "image/tiff",
+    "image/webp",
+    "video/mp4",
+    "video/webm",
+}
+EXECUTABLE_SUFFIXES = {
+    ".apk", ".app", ".bat", ".bin", ".class", ".cmd", ".com", ".dll", ".dmg", ".elf",
+    ".exe", ".jar", ".js", ".msi", ".ps1", ".scr", ".sh", ".so", ".vbs",
+}
+BINARY_SECRET_MARKERS = (
+    b"-----BEGIN RSA PRIVATE KEY-----",
+    b"-----BEGIN EC PRIVATE KEY-----",
+    b"-----BEGIN OPENSSH PRIVATE KEY-----",
+    b"-----BEGIN PRIVATE KEY-----",
+)
+
+
+def is_manifest_approved_binary(entry: dict[str, object] | None) -> bool:
+    if not isinstance(entry, dict) or entry.get("byte_mode") != "raw":
+        return False
+    media_type = entry.get("media_type")
+    if not isinstance(media_type, str) or not media_type or media_type.startswith(TEXT_MEDIA_PREFIXES):
+        return False
+    return media_type in SAFE_BINARY_MEDIA_TYPES
+
+
+def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
+    media_type = entry.get("media_type")
+    if not isinstance(media_type, str) or media_type not in SAFE_BINARY_MEDIA_TYPES:
+        fail(f"raw evidence has unsupported media_type: {path.relative_to(ROOT)}")
+    if path.suffix.lower() in EXECUTABLE_SUFFIXES:
+        fail(f"raw evidence has executable suffix: {path.relative_to(ROOT)}")
+    payload = path.read_bytes()
+    if payload.startswith((b"MZ", b"\x7fELF", b"#!")):
+        fail(f"raw evidence has executable signature: {path.relative_to(ROOT)}")
+    if any(marker in payload for marker in BINARY_SECRET_MARKERS):
+        fail(f"credential-shaped content in raw public evidence: {path.relative_to(ROOT)}")
+
+
+def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] | None = None) -> None:
+    evidence_entries = evidence_entries or {}
     for directory in GOVERNED_DIRS:
         root = ROOT / directory
         if not root.exists():
@@ -104,6 +156,10 @@ def check_public_record_safety() -> None:
     evidence_root = ROOT / "evidence"
     if evidence_root.exists():
         for path in sorted(p for p in evidence_root.rglob("*") if p.is_file()):
+            entry = evidence_entries.get(path.resolve())
+            if is_manifest_approved_binary(entry):
+                validate_binary_evidence(path, entry)
+                continue
             try:
                 text = path.read_bytes().decode("utf-8-sig")
             except UnicodeDecodeError as exc:
@@ -113,74 +169,58 @@ def check_public_record_safety() -> None:
                     fail(f"credential-shaped content in public evidence: {path.relative_to(ROOT)}")
 
 
-def type_matches(value: object, expected: str) -> bool:
-    return {
-        "object": isinstance(value, dict),
-        "array": isinstance(value, list),
-        "string": isinstance(value, str),
-        "integer": isinstance(value, int) and not isinstance(value, bool),
-        "number": isinstance(value, (int, float)) and not isinstance(value, bool),
-        "boolean": isinstance(value, bool),
-        "null": value is None,
-    }.get(expected, False)
+def schema_registry(loaded: dict[Path, object]) -> Registry:
+    resources = []
+    for path, schema in loaded.items():
+        if "schemas" not in path.parts or not isinstance(schema, dict):
+            continue
+        schema_id = schema.get("$id")
+        if isinstance(schema_id, str):
+            Draft202012Validator.check_schema(schema)
+            resources.append((schema_id, Resource.from_contents(schema)))
+    return Registry().with_resources(resources)
 
 
-def validate_schema_subset(instance: object, schema: object, location: str) -> None:
-    """Validate the deliberately small JSON Schema subset used by bootstrap schemas."""
+def validate_declared_schema(instance: object, schema: object, location: str, registry: Registry) -> None:
     if not isinstance(schema, dict):
         fail(f"invalid schema node at {location}")
-    expected = schema.get("type")
-    if isinstance(expected, str) and not type_matches(instance, expected):
-        fail(f"schema type failure at {location}: expected {expected}")
-    if isinstance(expected, list) and not any(type_matches(instance, item) for item in expected):
-        fail(f"schema type failure at {location}: expected one of {expected}")
-    if "const" in schema and instance != schema["const"]:
-        fail(f"schema const failure at {location}")
-    if "enum" in schema and instance not in schema["enum"]:
-        fail(f"schema enum failure at {location}: {instance!r}")
-    if isinstance(instance, str):
-        if len(instance) < schema.get("minLength", 0):
-            fail(f"schema minLength failure at {location}")
-        pattern = schema.get("pattern")
-        if isinstance(pattern, str) and re.search(pattern, instance) is None:
-            fail(f"schema pattern failure at {location}: {instance!r}")
-    if isinstance(instance, int) and not isinstance(instance, bool):
-        if "minimum" in schema and instance < schema["minimum"]:
-            fail(f"schema minimum failure at {location}")
-    if isinstance(instance, list):
-        if len(instance) < schema.get("minItems", 0):
-            fail(f"schema minItems failure at {location}")
-        item_schema = schema.get("items")
-        if item_schema is not None:
-            for index, item in enumerate(instance):
-                validate_schema_subset(item, item_schema, f"{location}[{index}]")
-    if isinstance(instance, dict):
-        required = schema.get("required", [])
-        for key in required:
-            if key not in instance:
-                fail(f"schema required-field failure at {location}.{key}")
-        properties = schema.get("properties", {})
-        if schema.get("additionalProperties") is False:
-            extras = set(instance) - set(properties)
-            if extras:
-                fail(f"schema additional-properties failure at {location}: {sorted(extras)}")
-        for key, child_schema in properties.items():
-            if key in instance:
-                validate_schema_subset(instance[key], child_schema, f"{location}.{key}")
+    try:
+        validator = Draft202012Validator(schema, registry=registry, format_checker=FormatChecker())
+        errors = sorted(
+            (leaf for error in validator.iter_errors(instance) for leaf in schema_leaf_errors(error)),
+            key=lambda error: list(error.absolute_path),
+        )
+    except Exception as exc:
+        fail(f"schema evaluation failure at {location}: {exc}")
+    if errors:
+        details = "; ".join(f"{location}{''.join(f'[{part!r}]' if isinstance(part, int) else f'.{part}' for part in error.absolute_path)}: {error.message}" for error in errors[:8])
+        fail(f"schema validation failure: {details}")
+
+
+def schema_leaf_errors(error: object) -> list[object]:
+    context = getattr(error, "context", ())
+    if context:
+        leaves: list[object] = []
+        for child in context:
+            leaves.extend(schema_leaf_errors(child))
+        return leaves
+    return [error]
 
 
 def check_declared_schemas(loaded: dict[Path, object]) -> None:
+    registry = schema_registry(loaded)
     for path in sorted((ROOT / "records").rglob("*.json")):
         instance = loaded[path]
-        if isinstance(instance, dict) and instance.get("$schema") == OFFCHAIN_ENVELOPE_SCHEMA:
-            continue
         if not isinstance(instance, dict) or not isinstance(instance.get("$schema"), str):
             fail(f"governed JSON must declare a local schema: {path.relative_to(ROOT)}")
-        schema_path = (path.parent / instance["$schema"]).resolve()
+        if instance["$schema"] == OFFCHAIN_ENVELOPE_SCHEMA:
+            schema_path = ROOT / "schemas/record-envelope.schema.json"
+        else:
+            schema_path = (path.parent / instance["$schema"]).resolve()
         if not schema_path.is_relative_to(ROOT) or not schema_path.is_file():
             fail(f"missing or escaping declared schema: {path.relative_to(ROOT)}")
         schema = loaded.get(schema_path)
-        validate_schema_subset(instance, schema, str(path.relative_to(ROOT)))
+        validate_declared_schema(instance, schema, str(path.relative_to(ROOT)), registry)
 
 
 def canonical_payload_hash(record: dict[str, object]) -> str:
@@ -240,7 +280,11 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
             fail(f"constructed record cannot contain review: {path.relative_to(ROOT)}")
 
 
-def check_evidence_manifests(loaded: dict[Path, object]) -> None:
+MEDIA_TYPE = re.compile(r"^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+(?:\s*;\s*[A-Za-z0-9!#$&^_.+-]+=[^;\s]+)*$")
+
+
+def check_evidence_manifests(loaded: dict[Path, object]) -> dict[Path, dict[str, object]]:
+    declared: dict[Path, dict[str, object]] = {}
     for manifest_path in sorted((ROOT / "evidence").rglob("manifest.json")):
         manifest = loaded.get(manifest_path)
         if not isinstance(manifest, dict):
@@ -255,18 +299,35 @@ def check_evidence_manifests(loaded: dict[Path, object]) -> None:
             if not isinstance(entry, dict):
                 fail(f"invalid evidence entry: {manifest_path.relative_to(ROOT)}")
             relative = entry.get("path")
-            if not isinstance(relative, str) or relative in seen:
+            if (
+                not isinstance(relative, str)
+                or not relative
+                or relative in seen
+                or PurePosixPath(relative).is_absolute()
+                or "\\" in relative
+                or any(part in {"", ".", ".."} for part in PurePosixPath(relative).parts)
+            ):
                 fail(f"invalid or duplicate evidence path: {relative!r}")
             seen.add(relative)
             target = (manifest_path.parent / relative).resolve()
             if not target.is_relative_to(manifest_path.parent.resolve()) or not target.is_file():
                 fail(f"missing or escaping evidence path: {relative}")
+            byte_mode = entry.get("byte_mode", manifest.get("byte_mode"))
+            if byte_mode not in {"utf-8", "utf-8-sig", "raw"}:
+                fail(f"unsupported evidence byte_mode: {manifest_path.relative_to(ROOT)}:{relative}")
+            media_type = entry.get("media_type")
+            if not isinstance(media_type, str) or not MEDIA_TYPE.fullmatch(media_type):
+                fail(f"evidence entry must declare a valid media_type: {manifest_path.relative_to(ROOT)}:{relative}")
             payload = target.read_bytes()
             observed_hash = hashlib.sha256(payload).hexdigest()
-            if observed_hash != entry.get("sha256"):
+            if not re.fullmatch(r"[0-9a-f]{64}", str(entry.get("sha256", ""))) or observed_hash != entry.get("sha256"):
                 fail(f"raw-byte evidence hash mismatch: {target.relative_to(ROOT)}")
-            if len(payload) != entry.get("size"):
+            if not isinstance(entry.get("size"), int) or isinstance(entry.get("size"), bool) or len(payload) != entry.get("size"):
                 fail(f"raw-byte evidence size mismatch: {target.relative_to(ROOT)}")
+            if target in declared:
+                fail(f"evidence path is declared by multiple manifests: {target.relative_to(ROOT)}")
+            declared[target] = {**entry, "byte_mode": byte_mode, "media_type": media_type}
+    return declared
 
 
 def check_governance_references(loaded: dict[Path, object]) -> None:
@@ -352,8 +413,8 @@ def check_governance_references(loaded: dict[Path, object]) -> None:
 def main() -> None:
     loaded = load_json_files()
     check_local_markdown_links()
-    check_public_record_safety()
-    check_evidence_manifests(loaded)
+    evidence_entries = check_evidence_manifests(loaded)
+    check_public_record_safety(evidence_entries)
     check_keys_and_gates_duplicate_keys()
     check_declared_schemas(loaded)
     check_record_controls(loaded)

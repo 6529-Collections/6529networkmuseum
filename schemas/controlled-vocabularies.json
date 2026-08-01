@@ -11,6 +11,13 @@
     "id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
     "profile": "museum-i-json-v1"
   },
+  "endpoint_policy": {
+    "mode": "resolve_at_fetch",
+    "require_all_a_aaaa_global": true,
+    "pin_connected_ip": true,
+    "recheck_every_redirect": true,
+    "unknown_hostname": "reject"
+  },
   "record_types": [
     "MUSEUM_POLICY",
     "GOVERNANCE_DECISION",

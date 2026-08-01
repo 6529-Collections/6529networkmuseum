@@ -5,7 +5,7 @@
     "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x88c92cac68f815cef0cb6bef7e5c4d6916fef2a4e89a0dbf34752b1338d00fa8",
+      "digest": "0x31b3a33e9e2243223bcd2bfe703f2cd149e59396ad407c69a26d80c38db92e94",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleaccession",
@@ -85,11 +85,12 @@
         "occurred_at": "2026-07-31T00:00:00Z",
         "authority_reference": "museum:registrar",
         "evidence_refs": [{"label": "Custody receipt", "uri": "ipfs://bafybeigdyrzt5examplecustody", "observed_at": "2026-07-31T00:00:00Z", "evidence_class": "A"}],
-        "custody_path": {
-          "kind": "non_token_off_chain",
-          "from": "donor:example-artist",
-          "to": "networkmuseum.6529.eth",
-          "custodian_reference": "networkmuseum.6529.eth",
+      "custody_path": {
+        "kind": "non_token_off_chain",
+        "object_id": "6529NM.2026.001.1",
+        "from": "0x3333333333333333333333333333333333333333",
+        "to": "0x2222222222222222222222222222222222222222",
+        "custodian_reference": "networkmuseum.6529.eth",
           "instrument_reference": "6529NM-INSTR-2026-001"
         }
       },

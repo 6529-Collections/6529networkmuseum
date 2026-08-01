@@ -7,12 +7,14 @@ status into an adopted record.
 ## What is enforced
 
 The repository currently has two compatible validation layers. The foundation
-registers in `records/` use local bootstrap schemas plus a `record_control`
-block; `scripts/bootstrap_validate.py` remains authoritative for their source-
-derived governance checks, raw evidence manifests, local links, public safety,
-and constructor/reviewer payload hashes. New Stream-envelope records use the
-schemas and semantic checks in `scripts/validate.py`. The required GitHub job
-`Museum validation` runs both layers.
+registers in `records/` use local schemas plus a `record_control` block;
+`scripts/bootstrap_validate.py` uses the pinned Draft 2020-12 validator,
+including `allOf`/`anyOf` composition, and validates every routed record,
+including foundation records. It remains authoritative for source-derived
+governance checks, raw evidence manifests, local links, public safety, and
+constructor/reviewer payload hashes. New Stream-envelope records use the same
+schema catalog and semantic checks in `scripts/validate.py`. The required
+GitHub job `Museum validation` runs both layers.
 
 The complete control plane is deliberately split between JSON Schema and
 semantic checks. Schemas handle types, required fields, patterns, controlled
@@ -45,13 +47,18 @@ that need the whole repository or need to compare values:
   observation cannot be marked adopted;
 - constructor and reviewer IDs differ;
 - public records contain no restricted field names, credentials, private keys,
-  private filesystem paths, or local/private-network URLs.
+  private filesystem paths, or local/private-network URLs; endpoint policy is
+  fail-closed for fetches, requiring globally routable A/AAAA answers, a
+  pinned connected IP, and a fresh check for every redirect.
 
 The bootstrap layer additionally verifies that governance decisions reproduce
 the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,
-approved collections reference adopted decisions, evidence manifest paths and
-raw-byte hashes match, and every reviewed `record_control.payload_sha256`
-matches its record payload.
+approved collections reference adopted decisions, evidence manifest paths,
+media types, sizes, and raw-byte hashes match, and every reviewed
+`record_control.payload_sha256` matches its record payload. Manifest-authorized
+raw binary evidence is checked before UTF-8 public-safety scanning and is
+limited to non-executable, explicitly declared media; undeclared undecodable
+bytes fail closed.
 Markdown templates and explanatory prose never satisfy these executable event
 or completion gates.
 

@@ -49,12 +49,13 @@
                 "type": "object",
                 "properties": {
                   "kind": {"type": "string", "enum": ["non_token_off_chain", "onchain_token"]},
+                  "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
                   "from": {"type": "string", "minLength": 1},
                   "to": {"type": "string", "minLength": 1},
                   "custodian_reference": {"type": "string", "minLength": 1},
                   "instrument_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}
                 },
-                "required": ["kind", "from", "to", "custodian_reference"],
+                "required": ["kind", "object_id", "from", "to", "custodian_reference"],
                 "allOf": [
                   {"if": {"properties": {"kind": {"const": "non_token_off_chain"}}}, "then": {"required": ["instrument_reference"]}}
                 ],
