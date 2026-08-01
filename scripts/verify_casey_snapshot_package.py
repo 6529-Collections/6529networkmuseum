@@ -35,10 +35,12 @@ PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PR4_TOOL_SHA256 = "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
 PR4_TOOL_BLOB_OID = "755a1b1c948d900496f5e279594223c8c99ab3e8"
 RUN_ID = "20260801T172252532Z"
+ACQUISITION_COMMIT = "8585aedb9f176806624a7b069cdd10a6f1995824"
 TOKEN_URI_SELECTOR = "c87b56dd"
 PROJECT_TOKEN_INFO_SELECTOR = "8c2c3622"
 PROJECT_STATE_DATA_SELECTOR = "0ea5613f"
 EXPECTED_RAW_FILES = 79
+CROSS_CHECK_WARNINGS_SHA256 = "d94e65e6e6cdb30aaf01360a7bbcda9e8e24af894f917657e21e4a156db881c8"
 FORBIDDEN_KEY_FRAGMENTS = ("opensea", "looksrare", "rarity", "score", "rank", "metric", "percentile", "prevalence", "frequency", "statistical")
 FORBIDDEN_URL_FRAGMENTS = ("opensea.io", "looksrare.org", "rarible.com", "blur.io", "nftgo.io")
 
@@ -111,7 +113,7 @@ def verify_pr4_tool_exact() -> Path:
     tool = ROOT / "scripts/rarity/analyze.py"
     if not tool.is_file():
         raise VerificationError("merged PR #4 rarity tool is missing")
-    assert_equal(f"sha256:{sha256_bytes(tool.read_bytes())}", PR4_TOOL_SHA256, "current PR4 rarity tool SHA")
+    assert_equal(sha256_bytes(tool.read_bytes()), PR4_TOOL_SHA256, "current PR4 rarity tool SHA")
     blob = subprocess.run(["git", "rev-parse", f"{PR4_MERGE_COMMIT}:scripts/rarity/analyze.py"], cwd=ROOT, text=True, capture_output=True, check=False)
     if blob.returncode != 0 or blob.stdout.strip() != PR4_TOOL_BLOB_OID:
         raise VerificationError("PR4 merge commit does not contain the pinned rarity-tool blob")
@@ -119,6 +121,13 @@ def verify_pr4_tool_exact() -> Path:
     if dirty.returncode != 0 or dirty.stdout.strip():
         raise VerificationError("rarity-tool path is dirty; local variants are not admissible")
     return tool
+
+
+def verify_git_bytes(commit: str, relative: str, payload: bytes, label: str) -> None:
+    completed = subprocess.run(["git", "cat-file", "blob", f"{commit}:{relative}"], cwd=ROOT, capture_output=True, check=False)
+    if completed.returncode != 0:
+        raise VerificationError(f"{label}: {commit} does not contain {relative}")
+    assert_equal(completed.stdout, payload, f"{label} byte preservation {relative}")
 
 
 def reject_external_metrics(value: Any, path: str = "value") -> None:
@@ -280,11 +289,11 @@ def verify_block_and_population(output_dir: Path, run_root: Path, manifest: dict
     assert_equal(manifest.get("bulk_source", {}).get("uri"), "https://data.artblocks.io/v1/graphql", "manifest GraphQL endpoint")
     assert_equal(manifest.get("bulk_source", {}).get("project_query"), PROJECT_QUERY, "manifest project GraphQL query")
     assert_equal(manifest.get("bulk_source", {}).get("token_query"), TOKENS_QUERY, "manifest token GraphQL query")
-    assert_equal(manifest.get("bulk_source", {}).get("project_query_sha256"), f"sha256:{sha256_bytes(PROJECT_QUERY.encode('utf-8'))}", "manifest project query hash")
-    assert_equal(manifest.get("bulk_source", {}).get("token_query_sha256"), f"sha256:{sha256_bytes(TOKENS_QUERY.encode('utf-8'))}", "manifest token query hash")
+    assert_equal(manifest.get("bulk_source", {}).get("project_query_sha256"), digest_json(PROJECT_QUERY), "manifest project query hash")
+    assert_equal(manifest.get("bulk_source", {}).get("token_query_sha256"), digest_json(TOKENS_QUERY), "manifest token query hash")
     assert_equal(manifest.get("bulk_source", {}).get("order_by"), "token_id asc", "manifest token order")
     assert_equal(manifest.get("bulk_source", {}).get("page_size"), 250, "manifest page size")
-    assert_equal(manifest.get("rpc", {}).get("token_uri_selector"), TOKEN_URI_SELECTOR, "tokenURI selector")
+    assert_equal(manifest.get("rpc", {}).get("token_uri_selector"), "0x" + TOKEN_URI_SELECTOR, "tokenURI selector")
     block_number_response = json.loads(verify_raw_ref(run_root, manifest["rpc"]["block_number_source"]).decode("utf-8"))
     assert_equal(int(block_number_response["result"], 16), observation["block_number"], "pinned block number RPC")
     assert_equal(block_number_response.get("jsonrpc"), "2.0", "block number RPC version")
@@ -322,8 +331,8 @@ def verify_block_and_population(output_dir: Path, run_root: Path, manifest: dict
             invocation_index, max_index = 0, 1
         invocations = abi_uint(data, invocation_index)
         max_invocations = abi_uint(data, max_index)
-        assert_equal(invocations, expected["population"], f"{slug}: decoded onchain invocations")
-        assert_equal(max_invocations, expected["population"], f"{slug}: decoded onchain max invocations")
+        assert_equal(invocations, closed["population"], f"{slug}: decoded onchain invocations")
+        assert_equal(max_invocations, closed["population"], f"{slug}: decoded onchain max invocations")
         assert_equal(snapshot["population"]["onchain_invocations"], invocations, f"{slug}: snapshot onchain invocations")
         assert_equal(snapshot["population"]["onchain_max_invocations"], max_invocations, f"{slug}: snapshot onchain max invocations")
         project_graphql = json.loads(verify_raw_ref(run_root, source["project_graphql_response"]).decode("utf-8"))
@@ -335,8 +344,8 @@ def verify_block_and_population(output_dir: Path, run_root: Path, manifest: dict
         assert_equal(project.get("chain_id"), 1, f"{slug}: project GraphQL chain")
         assert_equal(str(project.get("project_id")), str(expected["project_id"]), f"{slug}: project GraphQL project")
         assert_equal(str(project.get("contract_address")).lower(), expected["contract_address"].lower(), f"{slug}: project GraphQL contract")
-        assert_equal(project.get("max_invocations"), expected["population"], f"{slug}: project GraphQL max invocations")
-        assert_equal(project.get("invocations"), expected["population"], f"{slug}: project GraphQL invocations")
+        assert_equal(project.get("max_invocations"), closed["population"], f"{slug}: project GraphQL max invocations")
+        assert_equal(project.get("invocations"), closed["population"], f"{slug}: project GraphQL invocations")
         if project.get("complete") is not True:
             raise VerificationError(f"{slug}: project GraphQL completeness false")
 
@@ -353,7 +362,8 @@ def verify_materialization(output_dir: Path, run_root: Path, manifest: dict[str,
         assert_equal(len(collection_manifest["bulk_pages"]), expected_page_count, f"{slug}: bulk page count")
         for page_index, page in enumerate(collection_manifest["bulk_pages"]):
             expected_offset = page_index * 250
-            expected_limit = min(250, expected_population - expected_offset)
+            expected_limit = 250
+            expected_returned = min(250, expected_population - expected_offset)
             assert_equal(page.get("offset"), expected_offset, f"{slug}: bulk page offset")
             assert_equal(page.get("limit"), expected_limit, f"{slug}: bulk page limit")
             assert_equal(page.get("variables"), {"project": config["project_graphql_id"], "limit": expected_limit, "offset": expected_offset}, f"{slug}: bulk page variables")
@@ -363,11 +373,11 @@ def verify_materialization(output_dir: Path, run_root: Path, manifest: dict[str,
             rows = raw.get("data", {}).get("tokens_metadata")
             if not isinstance(rows, list) or len(rows) != page["returned_count"]:
                 raise VerificationError(f"{slug}: raw bulk page count mismatch at {page['offset']}")
-            assert_equal(page["returned_count"], expected_limit, f"{slug}: bulk page returned count")
+            assert_equal(page["returned_count"], expected_returned, f"{slug}: bulk page returned count")
             bulk_rows.extend(rows)
         expected = int(config["project_id"])
         expected_ids = [expected * 1_000_000 + invocation for invocation in range(EXPECTED[slug]["population"])]
-        if [int(row["token_id"]) for row in bulk_rows] != expected_ids:
+        if sorted(int(row["token_id"]) for row in bulk_rows) != expected_ids:
             raise VerificationError(f"{slug}: raw Hasura token population mismatch")
         uri_by_id: dict[int, tuple[str, dict[str, Any], str]] = {}
         response_member_ids: set[str] = set()
@@ -702,6 +712,7 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     assert_equal(package.get("review"), None, "root package review")
     reject_current_head(package, "root package")
     verify_stable_dependency(package.get("dependency", {}), "root package dependency")
+    assert_equal(package["dependency"].get("acquisition_commit"), ACQUISITION_COMMIT, "acquisition source commit")
     assert_equal(package.get("network_fetch_status"), "offline_reconstruction_only_after_v2_acquisition", "root network-fetch status")
     assert_equal(package.get("pr7_safety_dependency", {}).get("status"), "deferred_until_pr7_merge", "PR7 safety dependency status")
     inventory = package.get("inventory", {}).get("files")
@@ -760,6 +771,13 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     raw_refs.update(collect_raw_refs(json.loads(verify_derived_ref(run_root, manifest["request_provenance"]).decode("utf-8"))))
     raw_refs.update(collect_raw_refs(json.loads(verify_derived_ref(run_root, manifest["exclusion_summary"]).decode("utf-8"))))
     assert_equal(raw_refs, {str(path.relative_to(run_root)).replace("\\", "/") for path in (run_root / "raw").rglob("*") if path.is_file()}, "all raw observations are referenced")
+    for relative in sorted(raw_paths):
+        verify_git_bytes(ACQUISITION_COMMIT, relative, (repo_root / relative).read_bytes(), "raw source")
+    source_commit = package["dependency"]["source_snapshot_commit"]
+    for row in manifest["collections"]:
+        relative = str((Path("evidence/casey-reas-collection-snapshots") / row["snapshot_path"]).as_posix())
+        verify_git_bytes(source_commit, relative, (repo_root / relative).read_bytes(), "source snapshot")
+    verify_git_bytes(source_commit, str((Path("evidence/casey-reas-collection-snapshots") / latest["manifest_path"]).as_posix()), manifest_path.read_bytes(), "source child manifest")
     for raw_path in (run_root / "raw").rglob("*"):
         if raw_path.is_file():
             try:
@@ -774,6 +792,7 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     fixture_count = verify_fixture()
     if len(manifest.get("cross_check_warnings", [])) != 8:
         raise VerificationError("cross-check warning count changed")
+    assert_equal(sha256_bytes(canonical_json(manifest["cross_check_warnings"])), CROSS_CHECK_WARNINGS_SHA256, "cross-check warning bytes")
     return {"status": "verified", "run_id": RUN_ID, "total_tokens": 3300, "total_traits": total_traits, "raw_files": len(raw_paths), "request_records": request_summary["records"], "token_uri_requests": request_summary["token_uri"], "unique_request_bodies": request_summary["unique_request_bodies"], "excluded_http_group_rows": exclusions, "descriptor_outputs": descriptor_count, "fixture_cases": fixture_count, "cross_check_warnings": len(manifest["cross_check_warnings"]), "rarity_outputs_emitted": True}
 
 

@@ -5,7 +5,11 @@
     "pull_request": 4,
     "required_state": "independently_approved_and_merged",
     "current_state_at_construction": "independently_approved_and_merged",
-    "final_outputs_permitted": true
+    "final_outputs_permitted": true,
+    "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
+    "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+    "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
+    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824"
   },
   "run_id": "20260801T172252532Z",
   "snapshot_manifest": "runs/20260801T172252532Z/run-manifest.json",

@@ -3,9 +3,12 @@
   "status": "complete",
   "dependency": {
     "pull_request": 4,
-    "merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
-    "tool_path": "scripts/rarity/analyze.py",
-    "current_head": "8585aedb9f176806624a7b069cdd10a6f1995824"
+    "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
+    "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+    "rarity_tool_git_blob_oid": "755a1b1c948d900496f5e279594223c8c99ab3e8",
+    "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
+    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824",
+    "tool_path": "scripts/rarity/analyze.py"
   },
   "constructor": {
     "actor_id": "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652",
@@ -21,14 +24,16 @@
   },
   "input": {
     "snapshot_id": "6529NM.2026.001.ex-nihilo-cosmos.metadata.25661488",
-    "snapshot_sha256": "sha256:429a593501c7fb01fa48bc7d59c89e9d1705ec3d4530f644ec6ca9ecb0d2b94e",
+    "snapshot_sha256": "sha256:b22d33d867b2b5a04355d6b00cf11a6c71651a58770ea8857b3809f8b811b337",
     "tool_input_sha256": "sha256:b22d33d867b2b5a04355d6b00cf11a6c71651a58770ea8857b3809f8b811b337",
     "compatibility_projection": {
-      "removed_paths": [
-        "materialization.not_a_marketplace_metric"
-      ],
-      "reason": "PR #4 rejects structured keys containing metric even when the field is a negative Museum control annotation; source snapshot bytes and provenance remain unchanged"
+      "mode": "byte_identical_source_snapshot",
+      "removed_paths": []
     },
+    "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
+    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824",
+    "request_provenance_sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
+    "exclusion_summary_sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
     "observed_at": "2026-08-01T17:22:52.532Z",
     "source": {
       "kind": "artblocks-hasura-token-metadata-snapshot",
@@ -4229,7 +4234,9 @@
     "label": "transparent statistical descriptor",
     "quality_or_canonical_truth_claim": false,
     "duplicate_policy": "error",
-    "tool_sha256": "sha256:e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
+    "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
+    "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+    "rarity_tool_git_blob_oid": "755a1b1c948d900496f5e279594223c8c99ab3e8"
   },
   "result": {
     "schema": "6529nm.generative-trait-analysis-output/v1",

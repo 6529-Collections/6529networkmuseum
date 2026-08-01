@@ -4,5 +4,10 @@
   "status": "complete",
   "manifest_path": "runs/20260801T172252532Z/run-manifest.json",
   "manifest_sha256": "sha256:1418c39103b474543f6a1666adfddb006d42c8148feede92b55e1bf3e6b0904a",
-  "review": null
+  "review": null,
+  "package_manifest": {
+    "path": "package-manifest.json",
+    "sha256": "sha256:ecd8256cc15181c3e8b8d9e59a7f20ef0b8a192d6b4ef2da389ca5b95d1314ad",
+    "size": 62632
+  }
 }

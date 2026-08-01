@@ -268,3 +268,32 @@ frozen acquisition package. The outputs are transparent statistical
 descriptors only, not quality, value, marketplace, or canonical-truth claims.
 The descriptor manifest and every descriptor retain `review: null` pending
 independent review.
+
+## 2026-08-01 - PR #13 reviewer-remediation construction checkpoint
+
+Reviewer changes requested at exact head
+`0181ec4c7eed184dd4bbac963ef30392dca37f34` were remediated on
+`codex/casey-reas-collection-snapshots`. The stable source-snapshot commit is
+`820f4bb6999fb9df3b094692913d70ebf6d9dc63`; the raw acquisition source commit
+is `8585aedb9f176806624a7b069cdd10a6f1995824`. The current package contains
+the exact independently merged PR #4 tool at merge commit
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d`, Git blob
+`755a1b1c948d900496f5e279594223c8c99ab3e8`, and SHA-256
+`e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53`.
+
+The complete run remains `20260801T172252532Z`: 3,300 tokenURI requests,
+3,327 total request records, 62 unique reconstructed request bodies, 35,088
+materialized traits, 79 raw files, 17 explicitly recorded HTTP group-marker
+exclusions, and eight unchanged cross-check warnings. The verifier compares
+all raw bytes to the acquisition commit, all snapshots and the child manifest
+to the stable source commit, recomputes rows from raw Hasura/JSON-RPC bytes,
+recomputes all five descriptor results with the exact tool, and checks the
+root inventory and mutation controls. The root package manifest has 171 bound
+files (79 raw, 64 derived provenance/request files, five snapshots, and five
+descriptors); no tracked file exceeds GitHub's per-file limit.
+
+Generated descriptors remain transparent statistical descriptors only. Review,
+curatorial significance, title, rights, accession acceptance, and accession
+completion remain null/unclaimed. PR #7's approved safe-HTTPS migration is a
+deferred dependency; this draft does not claim that migration or readiness for
+merge.

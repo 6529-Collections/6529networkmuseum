@@ -120,6 +120,7 @@ def build(output_dir: Path, source_snapshot_commit: str, acquisition_commit: str
     by_path = {item["path"]: item for item in records}
 
     def binding(relative: str) -> dict[str, Any]:
+        relative = relative.replace("\\", "/")
         if relative not in by_path:
             raise PackageManifestError(f"semantic binding missing from root inventory: {relative}")
         return ref_from_record(by_path[relative])
