@@ -18,8 +18,8 @@ import rfc8785
 from Crypto.Hash import keccak
 
 
-PROFILE = (b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":{"multibase":"base58btc","prefix":"Qm","length":46,"multihash":"0x1220+32-byte-digest"},"cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}')
-PROFILE_HASH = "797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570"
+PROFILE = (b'{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":"reject","cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true,"requireCanonicalReencode":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32,"requireCanonicalReencode":true},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}')
+PROFILE_HASH = "7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09"
 CID_V1 = "bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq"
 AR_TX = "A" * 43
 RESERVED_IPV4 = tuple(ipaddress.ip_network(value) for value in (
@@ -56,19 +56,12 @@ def _varint(value: bytes, offset: int) -> tuple[int, int]:
 
 
 def _valid_cid(authority: str) -> bool:
-    if authority.startswith("Qm"):
-        if len(authority) != 46 or not re.fullmatch(r"Qm[1-9A-HJ-NP-Za-km-z]{44}", authority):
-            return False
-        alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-        number = 0
-        for char in authority:
-            number = number * 58 + alphabet.index(char)
-        raw = number.to_bytes((number.bit_length() + 7) // 8, "big")
-        return len(raw) == 34 and raw[:2] == b"\x12\x20"
     if not re.fullmatch(r"b[a-z2-7]+", authority):
         return False
     try:
         raw = base64.b32decode(authority[1:].upper() + "=" * ((8 - len(authority[1:]) % 8) % 8))
+        if base64.b32encode(raw).decode("ascii").lower().rstrip("=") != authority[1:]:
+            return False
         version, offset = _varint(raw, 0)
         codec, offset = _varint(raw, offset)
         code, offset = _varint(raw, offset)
@@ -133,7 +126,13 @@ def valid_uri(uri: str) -> bool:
     if parsed.query or parsed.fragment or not _valid_path(parsed.path):
         return False
     if parsed.scheme == "ar":
-        return parsed.path == "" and re.fullmatch(r"[A-Za-z0-9_-]{43}", parsed.netloc or "") is not None and len(base64.urlsafe_b64decode((parsed.netloc + "==").encode())) == 32
+        if parsed.path or re.fullmatch(r"[A-Za-z0-9_-]{43}", parsed.netloc or "") is None:
+            return False
+        try:
+            decoded = base64.urlsafe_b64decode((parsed.netloc + "==").encode("ascii"))
+        except (ValueError, base64.binascii.Error):
+            return False
+        return len(decoded) == 32 and base64.urlsafe_b64encode(decoded).decode("ascii").rstrip("=") == parsed.netloc
     if parsed.scheme == "ipfs":
         return parsed_port is None and bool(parsed.netloc) and _valid_cid(parsed.netloc) and _valid_path(parsed.path)
     if parsed_port is not None or not parsed.netloc:
@@ -206,19 +205,22 @@ VECTORS = [
     {"id": "https-nonnumeric-port", "uri": "https://example.com:abc/x", "accept": False},
     {"id": "https-nonascii-path", "uri": "https://example.com/café", "accept": False},
     {"id": "ipfs-overlong-varint", "uri": "ipfs://bqeahaeraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/path", "accept": False},
-    {"id": "ipfs-port", "uri": f"ipfs://{CID_V1}:443/path", "accept": False}
+    {"id": "ipfs-port", "uri": f"ipfs://{CID_V1}:443/path", "accept": False},
+    {"id": "ipfs-cidv0-rejected", "uri": "ipfs://QmYwAPJzv5CZsnAzt8auVZRnGJH4p2v4WgDy5h1h7P42J9/path", "accept": False},
+    {"id": "ipfs-cidv1-noncanonical-unused-bits", "uri": f"ipfs://{CID_V1[:-1]}r/path", "accept": False},
+    {"id": "ar-noncanonical-unused-bits", "uri": f"ar://{AR_TX[:-1]}B", "accept": False}
 ]
 
 
 def main() -> int:
-    assert len(PROFILE) == 1365
+    assert len(PROFILE) == 1350
     assert keccak256(PROFILE).hex() == PROFILE_HASH
     for vector in VECTORS:
         actual = valid_uri(vector["uri"])
         assert actual == vector["accept"], (vector["id"], actual, vector)
     bundle = rfc8785.dumps(VECTORS)
     bundle_hash = keccak256(bundle).hex()
-    expected_bundle_hash = "159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9"
+    expected_bundle_hash = "7cf5863cb613309e826954884ae32a710d0ca31af92b80091fab5ba1dcefca9e"
     assert bundle_hash == expected_bundle_hash, bundle_hash
     print(f"profileBytes={len(PROFILE)} profileHash=0x{PROFILE_HASH}")
     print(f"vectorCount={len(VECTORS)} vectorBundleHash=0x{bundle_hash}")

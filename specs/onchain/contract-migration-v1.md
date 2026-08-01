@@ -326,13 +326,13 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Stream compatibility commit | `MUSEUM_STREAM_COMPATIBILITY_COMMIT_V1` | `0x0000000000000000000000005021c8060950c3fef995271e674ed4b2007fee6d` |
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0xafee23b5447d9b050283c506b2af140cf332002f55e035ad1edfe6c5a4bb34b3` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
 | Successor interface | `IMuseumSuccessorV1` | `0x573d91cc` |
 | Museum URI safety profile | `MUSEUM_URI_SAFETY_PUBLIC_V1` | `0x5480eb62c7af1dd376bd8ddad6729a756d0f05ce8610d2a21e798440fc859189` |
-| Museum URI safety profile document hash | `MUSEUM_URI_SAFETY_PUBLIC_V1_DOCUMENT_V1` | `0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` |
+| Museum URI safety profile document hash | `MUSEUM_URI_SAFETY_PUBLIC_V1_DOCUMENT_V1` | `0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09` |
 | HTTPS assertion record type | `MUSEUM_HTTPS_PUBLIC_NETWORK_ASSERTION_V1` | `0x8041bfef6459ccf942bb6bfe17c778c4db60a9d0831f24f6154deba96e99391e` |
 | HTTPS assertion signature scheme | `MUSEUM_SIGNATURE_EIP712_HTTPS_PUBLIC_V1` | `0x738aed5a63fd21dfdd96f878826e6652140072c65ee952653d5432bf6ded33d0` |
 | HTTPS assertion subject domain | `6529networkmuseum.subject.https-public.v1` | `0xe08003722c1e7c0465bdd4353706df75808fa767fca549cc020bd0c0081e59f4` |
@@ -349,15 +349,17 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Payload schema | `MUSEUM_RESEARCH_NOTE_V1` | `0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0` |
 | Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
-| Target-release supersession domain | `6529networkmuseum.target-release-supersession.v1` | `0x20a50e6f2d146669898c56fa881235136a06035d97aeb8464c03275c938a611d` |
-| Target runtime immutability policy | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` | `0xfc13992d1a910c799d0a0783dd5b5951d980bec84550c404662098ce4bfa45a5` |
-| Target runtime policy document hash | `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_DOCUMENT_V1` | `0xa2c5f9eba4e409a24f7f01472f715980b5f2e6026898d9012c4de73828579893` |
+| Target-release identity domain | `6529networkmuseum.target-release-id.v1` | `0xb46f066b6a2753ffb8634e3ab1934b6d08110f50ca4d56478f0c05b8ae5f6ff0` |
+| Canonicalizer purity policy | `MUSEUM_CANONICALIZER_RUNTIME_PURITY_V1` | `0xa6bf8d47e01db9e1380475c7e9afe08bfa7bdc4ee378d3164d4058da2904e2e7` |
+| Canonicalizer purity policy document hash | `canonicalizer-runtime-purity-v1.json` | `0xb86728d1c1f942ba0cb50f5cc4f95de94cb019f7e3dbe9d47ac953d989e64e85` |
+| Target non-upgradeability policy | `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` | `0x8148bd5ce1f57455106f3425ad39d8c0c80e527c51c51ad350f27028e8c6c367` |
+| Target non-upgradeability policy document hash | `target-runtime-nonupgradeability-v1.json` | `0xccb469268dc422f42673db5a02aa2e56a33639c4e193c4f20e4b3af4dccff341` |
 | Target-release evidence schema | `MUSEUM_TARGET_RELEASE_EVIDENCE_V1` | `0xbb8a203a0f161e49f7f5fd9cdd4471c56e21263fa789bb50ec6198ff4b441f6c` |
-| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xca463d96fb8d46e4d0853d226fa19ed6c3129b0bbdfc973cc6f64e47bb992e36` |
+| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xd04fee6ac693e8508694d596dd7ed7c17f3f74eae6ee8938c37a997bbcf8f6f9` |
 | Target-release signature bundle schema hash | `target-release-signature-bundle-v1.schema.json` | `0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439` |
 | Batch benchmark schema | `MUSEUM_BATCH_GAS_BENCHMARK_V1` | `0xfd6cc699ac634ec33160703ce1c9a46a43fab11232511f2ef8ad220520d05d1c` |
-| Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021` |
-| Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4` |
+| Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0x458a9637f7acda5ea92f1a082c3211a716083d6198c050c587d65d67f58bfb50` |
+| Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x849cdf34cb653ce73defc1d0c37b8658e1cb6afcf982d59f04e97a54c88576b6` |
 | URI vector bundle | `MUSEUM_URI_VECTOR_BUNDLE_V1` | `0xc5d4b5509668127362d486c057b5183a4cf2379d537401e0cf8b5e0cdedd9925` |
 | Museum-native stable family | `MUSEUM_FAMILY_MUSEUM_NATIVE_V1` | `0x3b1abe4d004439222a742d0cad0e6c8e179135c6fbcf1853b509976d51b77cd0` |
 | Authority target kind (`uint8`) | `MUSEUM_TARGET_KIND_AUTHORITY_V1` | `1` |
@@ -426,7 +428,7 @@ admitted, versioned profile containing normalization, resolution, collision,
 and worked-vector rules. Individual records MUST NOT invent an ad hoc string.
 
 The Museum-native record IDs remain stable and chain-independent, for example
-`6529NM.2026.001.1`. Chain, contract, wallet, creator, and collection data
+`6529NM.2026.999.01`. Chain, contract, wallet, creator, and collection data
 are typed fields, never accession-number components.
 
 ### 4.2 Separate assertions
@@ -593,7 +595,9 @@ limits and their interaction:
 uint256 constant MAX_INLINE_PAYLOAD_BYTES = 16_384;
 uint256 constant MAX_BATCH_RECORDS = 64;
 uint256 constant MAX_BATCH_INLINE_PAYLOAD_BYTES = 262_144;
-uint256 constant MAX_BATCH_GAS_UNITS = 10_000_000;
+uint256 constant MAX_BATCH_GAS_UNITS = 13_000_000;
+uint256 constant BATCH_CALLER_RESERVE_GAS = 50_000;
+uint256 constant MEASURED_BATCH_GAS_THRESHOLD = 9_000_000;
 uint256 constant MAX_HTTPS_ADDRESSES = 32;
 ```
 
@@ -635,7 +639,7 @@ all record/lane state match exactly.
 For a caller gas-budget gate, the contract computes
 `requiredGas = 250000 + 120000 * inputs.length + 16 * inlineBytes` before any
 write, rejects `requiredGas > MAX_BATCH_GAS_UNITS`, and rejects when
-`gasleft() < requiredGas + 50_000`. This formula is the versioned
+`gasleft() < requiredGas + BATCH_CALLER_RESERVE_GAS`. This formula is the versioned
 `MUSEUM_BATCH_GAS_GATE_V1` best-effort caller gate; it is not a reproducible
 upper bound on execution gas and MUST NOT be treated as one. URI parsing,
 schema checks, HTTPS assertion checks, storage expansion, and event encoding
@@ -648,10 +652,10 @@ gas proof.
 The measured report is a JSON object with schema
 `MUSEUM_BATCH_GAS_BENCHMARK_V1` and MUST validate against the release-controlled
 corpus file `specs/onchain/batch-gas-benchmark-v1.json`. Its JCS corpus hash is
-`0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021`.
+`0x458a9637f7acda5ea92f1a082c3211a716083d6198c050c587d65d67f58bfb50`.
 The report MUST validate against
 `specs/onchain/batch-gas-benchmark-v1.schema.json`, whose JCS hash is
-`0x93910f8c3df0ab8a102dc654412bc71ce571af0312a48fb66b1d5efa3582abf4`.
+`0x849cdf34cb653ce73defc1d0c37b8658e1cb6afcf982d59f04e97a54c88576b6`.
 It MUST contain `schema`, `version`, `chainId`, `evmRevision`,
 `registryCodeHash`, `deploymentAddress`, `deploymentBlock`, `rpcEndpointId`,
 `forgeVersion`, `solcVersion`, optimizer/via-IR/EVM settings, the corpus hash,
@@ -672,13 +676,22 @@ The corpus is deliberately worst-case, not a representative average: 64
 and the same maximum inline load with HTTPS assertion pointers and envelope
 supersession checks. Each case uses unique lanes, maximal schema/type/URI
 field lengths, event emission, and the exact authority revision checks. The
-deployment acceptance threshold is measured execution gas at most 9,000,000
-for every case and measured gas plus the 50,000 caller reserve at most
-`MAX_BATCH_GAS_UNITS` (10,000,000). Every case MUST complete atomically on a
+worst `https-supersession-max` input calculates `12,124,304` required units and
+`12,174,304` with the caller reserve, so it is admissible below the separate
+`MAX_BATCH_GAS_UNITS` eligibility cap of 13,000,000. The deployment acceptance
+threshold is independently measured execution gas at most 9,000,000 for every
+case and measured gas plus the 50,000 caller reserve at most 9,050,000. Neither
+threshold is inferred from, or converts, the caller formula into an execution
+gas bound. Every case MUST complete atomically on a
 fork at the pinned deployment block; any out-of-gas, revert, missing case,
 placeholder toolchain value, or code-hash mismatch fails deployment. This is a
 release/deployment gate and does not convert `MUSEUM_BATCH_GAS_GATE_V1` into an
 execution upper-bound claim.
+
+`python -B specs/onchain/batch_gas_gate_check_v1.py` MUST reproduce all corpus
+formula results, including the worst-case caller-reserve calculation above. It
+does not execute a contract and makes no measured-gas claim; the separately
+signed benchmark report remains the deployment measurement gate.
 
 * `INLINE` retains byte-identical canonical payload bytes, subject to a
   hard cap of `MAX_INLINE_PAYLOAD_BYTES`. V1 permits `INLINE` only when
@@ -729,11 +742,11 @@ canonical URI bytes remain in the envelope and are hashed as before.
 `MUSEUM_URI_SAFETY_PUBLIC_V1` is independently implementable from the
 following exact UTF-8 profile-document bytes (the code block contains one
 line, with no trailing LF). Its Keccak-256 is
-`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` and
+`0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09` and
 an admission using this profile MUST use this document hash:
 
 ```text
-{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":{"multibase":"base58btc","prefix":"Qm","length":46,"multihash":"0x1220+32-byte-digest"},"cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}
+{"id":"MUSEUM_URI_SAFETY_PUBLIC_V1","version":1,"maxUtf8Bytes":2048,"schemes":["ar","https","ipfs"],"reject":{"controls":true,"userinfo":true,"query":true,"fragment":true,"httpsPort":true,"httpsTrailingDot":true,"httpsNumericAmbiguity":true,"httpsMappedIpv6":true},"httpsDns":{"asciiLowercase":true,"labelMaxBytes":63,"totalMaxBytes":253,"requireDot":true},"httpsIp":{"reservedIpv4Cidr":["0.0.0.0/8","10.0.0.0/8","100.64.0.0/10","127.0.0.0/8","169.254.0.0/16","192.0.0.0/24","192.0.2.0/24","192.88.99.0/24","192.168.0.0/16","198.18.0.0/15","198.51.100.0/24","203.0.113.0/24","224.0.0.0/4","240.0.0.0/4"],"reservedIpv6Cidr":["::/128","::1/128","::ffff:0:0/96","100::/64","2001:2::/48","2001:10::/28","2001:db8::/32","fc00::/7","fe80::/10","ff00::/8"],"rejectReservedCidr":true,"rejectIpv4MappedIpv6":true,"ipv4DottedDecimal":true,"ipv6Rfc5952":true,"rejectZoneId":true,"rejectEmbeddedIpv4":true},"ipfs":{"cidv0":"reject","cidv1":{"multibase":"base32lower","prefix":"b","version":1,"codecs":[85,112],"multihashCode":18,"digestBytes":32,"rejectOverlongVarint":true,"requireCanonicalReencode":true}},"ar":{"identifier":"base64url-unpadded","characters":"A-Z a-z 0-9 _ -","length":43,"decodedBytes":32,"requireCanonicalReencode":true},"path":{"asciiPchar":true,"percentTripletsUppercase":true,"rejectMalformedPercent":true,"rejectEncodedUnreserved":true}}
 ```
 
 The validator first rejects invalid UTF-8, more than 2,048 UTF-8 bytes,
@@ -753,18 +766,21 @@ Listed IPv4/IPv6 ranges are checked as integer ranges, not by string prefix.
 The path is empty or consists of ASCII RFC 3986 pchar and `/`; a literal `%`
 is valid only as the start of exactly two hexadecimal digits, those triplets
 are uppercase hexadecimal, and percent-encoding an unreserved byte rejects.
-`ipfs` and `ar` retain the existing CID/transaction-identifier rules above
-and use the same byte/control/query/fragment checks. CID varints MUST use their
-shortest encoding; an overlong encoding is rejected before any value is read.
+`ipfs` and `ar` use the same byte/control/query/fragment checks. CID varints
+MUST use their shortest encoding; an overlong encoding is rejected before any
+value is read. After decoding an accepted CIDv1 or Arweave identifier, the
+validator MUST re-encode it in the required lowercase unpadded base32 or
+base64url form and require byte-for-byte equality to the supplied authority;
+unused encoding bits and every alternate textual spelling reject.
 
 The complete V1 conformance vectors are executable, not merely illustrative.
 The release-controlled harness at
 `specs/onchain/uri_safety_vectors_v1.py` executes this table, validates the
-1365-byte profile-document hash, and hashes the RFC 8785 vector bundle with
+1350-byte profile-document hash, and hashes the RFC 8785 vector bundle with
 `MUSEUM_URI_VECTOR_BUNDLE_V1 =
 0xc5d4b5509668127362d486c057b5183a4cf2379d537401e0cf8b5e0cdedd9925`.
-The bundle contains 38 vectors and its exact Keccak-256 is
-`0x159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9`.
+The bundle contains 41 vectors and its exact Keccak-256 is
+`0x7cf5863cb613309e826954884ae32a710d0ca31af92b80091fab5ba1dcefca9e`.
 The command `python -B specs/onchain/uri_safety_vectors_v1.py` MUST pass before
 deployment and whenever this profile is changed.
 
@@ -798,11 +814,9 @@ The complete V1 conformance vectors are:
 | `https://0x7f000001/x` | REJECT | hexadecimal numeric form |
 | `https://[2001:4860:4860::8888%25eth0]/x` | REJECT | IPv6 zone identifier |
 | `https://[2001:4860:4860:0:0:0:0:8888]/x` | REJECT | non-RFC-5952 IPv6 spelling |
-| `https://` + 64-byte DNS label + `.example/x` | REJECT | DNS label exceeds 63 bytes |
 | `hex("https://example.com/x\\x01")` | REJECT | exact control byte U+0001 |
 | `https://example.com/x?y` | REJECT | query |
 | `https://example.com/x#frag` | REJECT | fragment |
-| `https://example.com/x` with a control byte | REJECT | control-byte rule |
 | `ipfs://bafybeigdyrzt5example/path` | REJECT | truncated CIDv1 multihash |
 | `ar://AbCdEf012_-` | REJECT | transaction identifier is not exactly 32 decoded bytes |
 | `https://example.com/a%` | REJECT | incomplete percent triplet |
@@ -812,6 +826,9 @@ The complete V1 conformance vectors are:
 | `https://example.com/café` | REJECT | non-ASCII path character |
 | `ipfs://bqeahaeraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/path` | REJECT | overlong CIDv1 version varint |
 | `ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq:443/path` | REJECT | explicit IPFS authority port |
+| `ipfs://QmYwAPJzv5CZsnAzt8auVZRnGJH4p2v4WgDy5h1h7P42J9/path` | REJECT | CIDv0 is disallowed for new Museum writes |
+| `ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragr/path` | REJECT | CIDv1 unused base32 bits are noncanonical |
+| `ar://AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB` | REJECT | Arweave unused base64url bits are noncanonical |
 
 The conformance table, executable harness, profile-document bytes, and document hash are one
 versioned predicate. A future EVM revision or URI parser MUST use a new
@@ -821,19 +838,21 @@ immutable V1 constants and every HTTPS record path MUST execute that exact
 predicate; a generic asset-profile admission MUST NOT be able to replace or
 reinterpret it.
 
-The non-HTTPS grammar is closed in V1. An IPFS authority is either CIDv0:
-`Qm` followed by exactly 44 base58btc characters, decoding to the 34-byte
-multihash prefix `0x1220` plus a 32-byte digest; or CIDv1: lowercase multibase
-`b` followed by unpadded lowercase RFC 4648 base32, decoding to the exact
+The non-HTTPS grammar is closed in V1. CIDv0 is rejected for all new Museum
+writes: allowing a base58 CIDv0 and a CIDv1 representation of the same
+multihash would fork canonical URI identity. An IPFS authority is only CIDv1:
+lowercase multibase `b` followed by unpadded lowercase RFC 4648 base32,
+decoding to the exact
 minimally encoded varint sequence `version=1`, `codec in {0x55 (raw), 0x70 (dag-pb)}`,
 `multihashCode=0x12`, `digestLength=32`, and exactly 32 digest bytes. Uppercase
-base32, base32 padding, alternate multicodecs, alternate multihashes, invalid
-varints, truncated values, percent escapes in the authority, userinfo, ports,
-query, and fragment are rejected. The optional IPFS path uses the same pchar,
+base32, base32 padding, alternate multicodecs, alternate multihashes, CIDv0,
+invalid varints, truncated values, noncanonical unused bits, percent escapes in
+the authority, userinfo, ports, query, and fragment are rejected. The optional IPFS path uses the same pchar,
 uppercase-percent-triplet, and encoded-unreserved rules as the HTTPS path.
 An Arweave URI is exactly `ar://` followed by 43 unpadded base64url characters
-(`A-Z`, `a-z`, `0-9`, `_`, `-`) decoding to exactly 32 bytes; it has no path,
-userinfo, port, query, or fragment. No other IPFS or Arweave grammar is
+(`A-Z`, `a-z`, `0-9`, `_`, `-`) decoding to exactly 32 bytes and re-encoding to
+the identical 43-character unpadded form; it has no path, userinfo, port,
+query, or fragment. No other IPFS or Arweave grammar is
 implicitly accepted by V1.
 
 The pinned Stream source documents only its shared UTF-8/2,048-byte URI
@@ -1129,16 +1148,22 @@ capabilityCommitment, predecessorRegistry, expectedModuleVersion,
 evidenceHash)`. The queued/stored target additionally contains
 `authorityRevision`, `proposer`, `queuedAt`, `queuedBlock`, and `eta`.
 
-Target acceptance is also closed over a governed release registry. The
-registry key is `(targetKind, codeHash)` and its state row is:
+Target acceptance is also closed over a governed release registry. The current
+and historical key is `(targetKind, target, codeHash)`; `releaseId` has its own
+global non-reuse index and therefore cannot be recycled for the same code at a
+different address. Its state row is:
 
 ```solidity
 struct TargetRelease {
     bool admitted;
     uint8 targetKind;                 // 1 authority, 2 successor
+    address target;                   // exact admitted address
     bytes32 releaseId;
     bytes32 codeHash;
+    bytes32 runtimePolicyHash;
+    bytes32 externalDependencyHash;
     bytes32 sourceCommit;             // right-aligned 40-hex Git SHA-1
+    bytes32 sourceTreeHash;
     bytes32 artifactHash;             // exact runtime/build artifact hash
     bytes32 conformanceDocumentHash;  // independently reproduced probe report
     bytes4 requiredInterfaceId;
@@ -1155,8 +1180,9 @@ struct TargetRelease {
 
 `admitTargetRelease` is authority-admin controlled and available only while
 writes are not frozen. The release history is append-only, while the current
-`(targetKind, codeHash)` pointer may advance to a new revision. It MUST reject
-zero release/artifact/conformance hashes, a nonzero authority module version,
+`(targetKind, target, codeHash)` pointer may advance to a new revision. It MUST reject
+a zero target, zero release/code/artifact/conformance/runtime-policy/dependency
+hash, a nonzero authority module version,
 or a kind/interface/version tuple outside the V1 rules. For kind `1`, the
 interface MUST be `IMuseumAuthorityProviderV1`, module version MUST be zero,
 and protocol/Stream commits MUST be zero. For kind `2`, the interface MUST be
@@ -1167,37 +1193,55 @@ SHA-1: its high 12 bytes are zero and its low 20 bytes are nonzero. A first
 admission has `revision == 1`, `status == 1`, `previousReleaseId == 0`, and
 `supersessionReasonHash == 0`. A correction of an active or quarantined row
 MUST use `revision == current.revision + 1`, a new release ID, and the exact
-supersession commitment:
+acyclic identity derivation. `releaseId` is derived before either evidence
+projection, excludes `conformanceDocumentHash`, `signedDocumentHash`,
+signature bytes/commitments, and availability, and is globally unique:
+
+`admitTargetRelease` takes `previousReleaseId` and
+`supersessionReasonHash` explicitly but never takes a caller revision. The
+contract derives revision `1` when no current row exists and otherwise derives
+`current.revision + 1`; it requires zero predecessor and zero reason for the
+first row, and for every later row requires
+`previousReleaseId == current.releaseId` plus a nonzero reason. It recomputes
+the complete identity tuple below and requires the supplied `releaseId` to
+equal it before storing anything; a caller-supplied release ID is not trusted.
 
 ```solidity
 releaseId = keccak256(abi.encode(
-    MUSEUM_TARGET_RELEASE_SUPERSESSION_DOMAIN,
-    current.releaseId,
+    MUSEUM_TARGET_RELEASE_ID_DOMAIN,
     targetKind,
+    target,
     codeHash,
+    runtimePolicyHash,
+    externalDependencyHash,
     sourceCommit,
+    sourceTreeHash,
     artifactHash,
-    conformanceDocumentHash,
     requiredInterfaceId,
     expectedModuleVersion,
     protocolVersion,
-    streamCompatibilityCommit
+    streamCompatibilityCommit,
+    revision,
+    previousReleaseId,
+    supersessionReasonHash
 ));
 ```
 
 The new row stores `previousReleaseId == current.releaseId` and the
 `supersessionReasonHash` committed by its canonical evidence document. The
 old row remains readable through `targetReleaseAtRevision`; it is never
-overwritten. A duplicate release ID or a same-revision row reverts.
+overwritten. A duplicate release ID anywhere, a same-revision row, or a row
+whose exact target differs from its evidence document reverts.
 
 The canonical evidence document MUST validate against the release-controlled
 `specs/onchain/target-release-evidence-v1.schema.json`, whose JCS hash is
-`0xca463d96fb8d46e4d0853d226fa19ed6c3129b0bbdfc973cc6f64e47bb992e36`.
+`0xd04fee6ac693e8508694d596dd7ed7c17f3f74eae6ee8938c37a997bbcf8f6f9`.
 The document's `schema` is `MUSEUM_TARGET_RELEASE_EVIDENCE_V1`, its `version`
 is `1`, and its `conformanceDocumentHash` is the Keccak-256 of the exact JCS
 document preimage defined below. It MUST contain, with lowercase exact encodings, the target
 kind/address/code hash, all TargetRelease fields, source repository and tree
-hash, source commit, runtime-policy hash, two-build evidence, probe/vector
+hash, source commit, the versioned target non-upgradeability policy ID/hash,
+declared external-dependency hash/list, two-build evidence, probe/vector
 bundle hash, signer threshold and commitments, two independent availability
 observations, and supersession predecessor/reason fields. The fixed signer
 policy is exactly 2-of-3 distinct release-attestor addresses, sorted by
@@ -1210,15 +1254,18 @@ MUST additionally carry a current Museum HTTPS assertion; the contract never
 fetches a network URI.
 
 The canonical document has no inline `signatures` member. Its hash projection
-prevents self-reference: define `core(E)` from a schema-valid evidence object
-`E` by omitting `availability` and `detachedSignatureBundle`, replacing every
-`signers.signatureCommitments` item with `0x` followed by 64 zeroes, and then
-applying the substitutions below. `D0` is `core(E)` with both
-`conformanceDocumentHash` and `signers.signedDocumentHash` set to zero;
-`conformanceDocumentHash` is exactly `keccak256(RFC8785_JCS(D0))`. `D1` is the
-same projection with the real `conformanceDocumentHash` restored and
+prevents self-reference and follows this mandatory acyclic order: first derive
+`releaseId` from the identity tuple above; then define `core(E)` from the
+schema-valid evidence object `E` by omitting `availability` and
+`detachedSignatureBundle`, replacing every `signers.signatureCommitments` item
+with `0x` followed by 64 zeroes, and then applying the substitutions below.
+`D0` is `core(E)` with both `conformanceDocumentHash` and
+`signers.signedDocumentHash` set to zero; `conformanceDocumentHash` is exactly
+`keccak256(RFC8785_JCS(D0))`. `D1` is the same projection with the already
+derived real `conformanceDocumentHash` restored and
 `signers.signedDocumentHash` still zero; `signedDocumentHash` is exactly
-`keccak256(RFC8785_JCS(D1))`. The projection, rather than a self-referential
+`keccak256(RFC8785_JCS(D1))`. Only then are the three commitments, detached
+bundle, and availability observations derived. The projection, rather than a self-referential
 retrieval carrier, is the canonical signed release evidence. The detached
 signature bytes use
 `EIP-191-KECCAK256-DOCUMENT_V1`, namely
@@ -1302,7 +1349,7 @@ implementation MUST reject the transaction when the canonical evidence gate
 has not produced a signed report. A caller-supplied `expectedCodeHash` or
 `evidenceHash` cannot create or bypass a release row.
 
-The terminal `quarantineTargetRelease(targetKind, codeHash, reasonHash)` action
+The terminal `quarantineTargetRelease(targetKind, target, codeHash, reasonHash)` action
 is authority-admin controlled, requires a nonzero reason hash, and changes the
 current row to status `2`. Quarantine is terminal for that revision: no
 authority or successor transition may reference it, and no second quarantine
@@ -1322,9 +1369,10 @@ check. A replacement must use a new release ID, a new conformance-document
 hash, a new evidence bundle, and the exact `previousReleaseId` commitment; the
 old code hash may be reused only after that new row is independently admitted.
 
-The state view `targetRelease(targetKind, codeHash)` returns the current row;
-`targetReleaseAtRevision(targetKind, codeHash, revision)` returns an immutable
-historical row. A transition requires `status == 1`. A later EVM/toolchain
+The state view `targetRelease(targetKind, target, codeHash)` returns the current row;
+`targetReleaseAtRevision(targetKind, target, codeHash, revision)` returns an immutable
+historical row, and `targetReleaseById(releaseId)` is the globally unique
+identity lookup. A transition requires `status == 1`. A later EVM/toolchain
 revision uses a new runtime-policy hash and a new release revision; it MUST
 not reinterpret an existing row.
 
@@ -1333,48 +1381,50 @@ compatibility, status, predecessor, and reason commitments are state and event
 facts. `TargetRelease` is not an allowlist merely because an admin supplied a
 hash.
 
-Every authority and successor target is also subject to the fixed
-`MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` admission rule. This rule is stronger
-than a repeated `extcodehash` check and is the reason V1 admits no proxy or
-delegatecall target. At admission, queue, execution, constructor activation,
-and successor storage, the registry MUST:
+Canonicalizer purity and target non-upgradeability are separate versioned
+policies. `specs/onchain/canonicalizer-runtime-purity-v1.json` (hash
+`0xb86728d1c1f942ba0cb50f5cc4f95de94cb019f7e3dbe9d47ac953d989e64e85`)
+applies only to asset canonicalizers: it retains the strict state-free,
+external-call-free, caller-free policy in §2.1. It MUST NOT be applied to an
+authority provider or successor registry.
 
-The policy document is exactly the following 776 UTF-8 bytes with no trailing
-LF; its Keccak-256 is
-`0xa2c5f9eba4e409a24f7f01472f715980b5f2e6026898d9012c4de73828579893`:
+Every authority and successor target instead uses
+`MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1`, whose exact JCS document is
+`specs/onchain/target-runtime-nonupgradeability-v1.json` and whose hash is
+`0xccb469268dc422f42673db5a02aa2e56a33639c4e193c4f20e4b3af4dccff341`.
+Its literal ID hash is separately `0x8148bd5ce1f57455106f3425ad39d8c0c80e527c51c51ad350f27028e8c6c367`;
+`TargetRelease.runtimePolicyHash` and release evidence MUST use the governed
+document hash, not that literal ID hash.
+This policy permits `SLOAD`, `SSTORE`, `ADDRESS`, `CALLER`, and bounded
+`STATICCALL` so a stateful successor and a Safe-aware authority provider can
+operate. It still rejects `CALL`, `CALLCODE`, `DELEGATECALL`, `CREATE`,
+`CREATE2`, and `SELFDESTRUCT`, all EOF/reserved/ambiguous instruction streams,
+and declared EIP-1167, EIP-1967 implementation/beacon/admin-slot, beacon, and
+diamond upgrade patterns. Thus a target has no proxy/delegatecall, creation,
+self-destruct, metamorphic, or arbitrary-call upgrade path.
 
-```text
-{"id":"MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1","version":1,"evmRevision":"cancun","maxRuntimeBytes":24576,"metadata":"terminal-definite-cbor-solc-or-vyper-only","rejectState":["SLOAD","SSTORE","TLOAD","TSTORE"],"rejectExternal":["CALL","CALLCODE","DELEGATECALL","STATICCALL","EXTCODESIZE","EXTCODECOPY","EXTCODEHASH","BALANCE"],"rejectCreation":["CREATE","CREATE2","SELFDESTRUCT"],"rejectEnvironment":["ADDRESS","ORIGIN","CALLER","CALLVALUE","CODESIZE","CODECOPY","RETURNDATASIZE","RETURNDATACOPY","PC","BLOCKHASH","COINBASE","TIMESTAMP","NUMBER","PREVRANDAO","GASLIMIT","CHAINID","SELFBALANCE","BASEFEE","BLOBHASH","BLOBBASEFEE","GAS","GASPRICE"],"rejectLogs":["LOG0","LOG1","LOG2","LOG3","LOG4"],"reservedOpcodes":"reject","eof":"reject","jumpPolicy":"decoded-boundary-only"}
-```
+At admission, queue, execution, constructor activation, and successor storage,
+the registry MUST:
 
-1. require a nonzero contract code size no larger than 24,576 bytes and copy
-   the complete runtime with `extcodecopy`; require the direct
-   `extcodehash(target)` to equal both `TargetRelease.codeHash` and the two
-   independently built `artifactHash` values;
-2. apply the exact Cancun instruction decoder used by the canonicalizer rule:
-   `PUSH0` consumes zero immediate bytes, `PUSH1`--`PUSH32` consume exactly
-   `opcode - 0x5f` bytes, and a byte inside a PUSH immediate is never decoded
-   as an opcode or JUMPDEST; reserved, invalid, truncated, and EOF-form
-   runtimes fail closed;
-3. exclude a suffix only when the final two bytes encode a big-endian length,
-   the preceding bytes are exactly one definite-length CBOR map, and the map
-   has a `solc` or `vyper` byte-string marker. The code hash still covers the
-   complete runtime including this metadata. An invalid or ambiguous suffix
-   is scanned as executable bytes and fails closed if undecodable;
-4. reject `SLOAD`, `SSTORE`, `TLOAD`, `TSTORE`, `CALL`, `CALLCODE`,
-   `DELEGATECALL`, `STATICCALL`, `CREATE`, `CREATE2`, `SELFDESTRUCT`,
-   `EXTCODESIZE`, `EXTCODECOPY`, `EXTCODEHASH`, `BALANCE`, `ADDRESS`,
-   `ORIGIN`, `CALLER`, `CALLVALUE`, `CODESIZE`, `CODECOPY`,
-   `RETURNDATASIZE`, `RETURNDATACOPY`, `PC`, `BLOCKHASH`, `COINBASE`,
-   `TIMESTAMP`, `NUMBER`, `PREVRANDAO`, `GASLIMIT`, `CHAINID`, `SELFBALANCE`,
-   `BASEFEE`, `BLOBHASH`, `BLOBBASEFEE`, `GAS`, `GASPRICE`, and `LOG0`--`LOG4`;
-5. scan every decoded instruction, including unreachable bytes, and require
-   all jump destinations used by the reviewed disassembly to be decoded
-   instruction boundaries. The scanner is conservative and is not a
-   reachability or purity proof; only the exact governed runtime allowlist and
-   two-build evidence admit a target. A target with any proxy pattern,
-   delegatecall path, mutable implementation/admin/storage path, external
-   dependency, environment dependency, or scanner ambiguity is rejected.
+1. require nonzero code at the exact `TargetRelease.target`, size at most
+   24,576 bytes, direct `extcodehash(target)` equal to `codeHash` and both
+   independent build/runtime hashes, and the exact row runtime-policy hash;
+2. apply the same exact Cancun decoder, PUSH-boundary rule, terminal
+   definite-CBOR exclusion, reserved/EOF fail-closed behavior, and conservative
+   decoded-instruction-boundary review used for canonicalizers;
+3. reject every target-policy forbidden opcode and upgrade pattern, including
+   unreachable executable bytes. This syntactic scan is not a reachability or
+   semantic-purity proof; exact code hash, two distinct reproducible builds,
+   source audit, and target-specific probes remain mandatory;
+4. require the evidence's sorted, bounded `externalDependencies` list and its
+   JCS `externalDependencyHash`. Only the declared static-call dependencies may
+   support a target; each records address, code hash, interface ID, and purpose.
+   The source audit and capability/probe commitments MUST account for each one;
+   no undeclared external dependency may be relied on; and
+5. repeat the direct hash, policy, dependency, interface, and capability checks
+   at every transition. The contract does not claim to prove off-chain source
+   or dependency semantics; the release gate records that audit before an
+   authority-admin transaction is signed.
 
 The target probe calls are bounded to `TARGET_PROBE_GAS_LIMIT = 250_000` gas
 per call and `TARGET_PROBE_RETURN_BYTES_LIMIT = 4_096` returned bytes. A call
@@ -1387,10 +1437,11 @@ cannot change an implementation behind an admitted target.
 
 At queue and execution, the registry MUST set `releaseId` and
 `conformanceDocumentHash` from the loaded row, then load the admitted row for the
-target kind and `expectedCodeHash`, require `status == 1`, the input interface,
-version, and `evidenceHash` to equal that row, and require the target's returned protocol
+target kind, exact `target`, and `expectedCodeHash`; require `status == 1`,
+`row.target == target`, the input interface, version, runtime-policy/dependency
+commitments, and `evidenceHash` to equal that row, and require the target's returned protocol
 and Stream-compatibility values to equal the release row where those fields
-apply. It MUST also require `extcodehash(target) == expectedCodeHash` and the complete runtime immutability scanner above. It then performs bounded
+apply. It MUST also require `extcodehash(target) == expectedCodeHash` and the complete target non-upgradeability scanner above. It then performs bounded
 `staticcall`s to ERC-165 and every required probe method, checks exact return
 lengths and values, and recomputes the context-bound probe and capability
 commitments below. A failed call, malformed return, or changed code hash
@@ -1403,7 +1454,7 @@ MUST reject an EOA, zero address, zero code hash, wrong interface ID, missing
 ERC-165 support, failed probe, wrong predecessor, zero evidence hash, or a
 nonzero `expectedModuleVersion`. It MUST require
 an admitted `TargetRelease` under kind `MUSEUM_TARGET_KIND_AUTHORITY_V1` with
-`codeHash == expectedCodeHash`, `requiredInterfaceId` equal to the input,
+`target == target`, `codeHash == expectedCodeHash`, `requiredInterfaceId` equal to the input,
 `expectedModuleVersion == bytes32(0)`, and `evidenceHash` equal to its
 `conformanceDocumentHash`, `status == 1`; it MUST also require
 `extcodehash(target) == expectedCodeHash`, `predecessorRegistry == address(this)`,
@@ -1429,10 +1480,10 @@ booleans, addresses, revision, commitment, and `canAuthorize` value; a
 malformed or reverting call fails the gate. This handshake covers the actual
 required selector set and registry/role domain; it is not a marker-only probe
 and grants no arbitrary call capability. The selector set is the strictly increasing numeric
-`bytes4[]` `[0x05d53fba, 0x43dd6c37, 0x47655475, 0x81a86ff4, 0xab6627c3,
-0xc9dc7d0d, 0xf0edf065, 0xf2ebf174]`, ABI-encoded as `address`-independent `bytes4[]`
+`bytes4[]` `[0x05d53fba, 0x0742c529, 0x43dd6c37, 0x81a86ff4, 0xab6627c3,
+0xc9dc7d0d, 0xda6d916f, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
 and hashed to
-`0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069`. It
+`0xafee23b5447d9b050283c506b2af140cf332002f55e035ad1edfe6c5a4bb34b3`. It
 binds freeze, successor, authority, target-release admission/quarantine,
 global-role, execute, and cancel capabilities only. It queues one complete target
 and `eta = block.timestamp + AUTHORITY_TIMELOCK_SECONDS`; a second queue
@@ -1463,8 +1514,8 @@ capability handshake against this state; a changed provider reverts.
 complete target commitment. It is authorized only by the global
 governance-executor role, requires `writesFrozen == true`, and MUST reject an
 EOA, zero code hash, wrong successor interface ID, missing ERC-165 support,
-failed probe, an absent successor `TargetRelease`, or an input whose
-`requiredInterfaceId`, `expectedModuleVersion`, or `evidenceHash` differs from
+failed probe, an absent successor `TargetRelease`, or an input whose exact
+target address, `requiredInterfaceId`, `expectedModuleVersion`, or `evidenceHash` differs from
 that release row or whose `status != 1`. It MUST require
 `predecessorRegistry == address(this)`, `moduleSupersedes() ==
 predecessorRegistry` (and therefore exactly `address(this)`), and
@@ -1792,9 +1843,13 @@ interface INetworkMuseumRegistryV1 {
     struct TargetRelease {
         bool admitted;
         uint8 targetKind;
+        address target;
         bytes32 releaseId;
         bytes32 codeHash;
+        bytes32 runtimePolicyHash;
+        bytes32 externalDependencyHash;
         bytes32 sourceCommit;
+        bytes32 sourceTreeHash;
         bytes32 artifactHash;
         bytes32 conformanceDocumentHash;
         bytes4 requiredInterfaceId;
@@ -1926,15 +1981,18 @@ interface INetworkMuseumRegistryV1 {
     function recordTypePolicy(bytes32 recordType)
         external view returns (bytes32 familyId, bytes32 schemaId, uint8 authorizationClass,
             bool admitted, uint64 revision, uint64 authorityRevision);
-    function admitTargetRelease(uint8 targetKind, bytes32 releaseId, bytes32 codeHash,
-        bytes32 sourceCommit, bytes32 artifactHash, bytes32 conformanceDocumentHash,
+    function admitTargetRelease(uint8 targetKind, address target, bytes32 releaseId, bytes32 codeHash,
+        bytes32 runtimePolicyHash, bytes32 externalDependencyHash, bytes32 sourceCommit,
+        bytes32 sourceTreeHash, bytes32 artifactHash, bytes32 conformanceDocumentHash,
         bytes4 requiredInterfaceId, bytes32 expectedModuleVersion,
-        bytes32 protocolVersion, bytes32 streamCompatibilityCommit) external;
-    function targetRelease(uint8 targetKind, bytes32 codeHash)
+        bytes32 protocolVersion, bytes32 streamCompatibilityCommit,
+        bytes32 previousReleaseId, bytes32 supersessionReasonHash) external;
+    function targetRelease(uint8 targetKind, address target, bytes32 codeHash)
         external view returns (TargetRelease memory);
-    function targetReleaseAtRevision(uint8 targetKind, bytes32 codeHash, uint64 revision)
+    function targetReleaseAtRevision(uint8 targetKind, address target, bytes32 codeHash, uint64 revision)
         external view returns (TargetRelease memory);
-    function quarantineTargetRelease(uint8 targetKind, bytes32 codeHash, bytes32 reasonHash)
+    function targetReleaseById(bytes32 releaseId) external view returns (TargetRelease memory);
+    function quarantineTargetRelease(uint8 targetKind, address target, bytes32 codeHash, bytes32 reasonHash)
         external;
     function setRecordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account, bool enabled)
         external;
@@ -2107,8 +2165,8 @@ implementation cannot accidentally authorize an overload:
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority | The role ID is closed-world, the selector allowlist is fixed, and each change increments the role revision and records the authority revision. |
-| `0x47655475` `admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The release history is append-only; first admission is revision 1, and a new release ID may supersede or correct the current row only with the exact predecessor commitment, evidence gate, and immutable runtime policy. |
-| `0x89d9ae30` `targetReleaseAtRevision(uint8,bytes32,uint64)` / `0xf2ebf174` `quarantineTargetRelease(uint8,bytes32,bytes32)` | Historical read for any caller / enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The historical row is immutable; quarantine is a terminal revocation with a nonzero reason hash and blocks every transition until a new governed revision supersedes it. |
+| `0x0742c529` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The release history is append-only and binds the exact target address, source tree, runtime policy, dependency commitment, predecessor/reason, and globally non-reusable acyclic release ID. |
+| `0x85968ef0` `targetRelease(uint8,address,bytes32)` / `0x288b2e93` `targetReleaseAtRevision(uint8,address,bytes32,uint64)` / `0xb9bc97a1` `targetReleaseById(bytes32)` / `0xda6d916f` `quarantineTargetRelease(uint8,address,bytes32,bytes32)` | Historical read for any caller / enabled `MUSEUM_GLOBAL_ROLE_AUTHORITY_ADMIN_V1` grant and active authority before freeze | The historical row is immutable; address A evidence cannot authorize identical code at address B; quarantine is terminal with a nonzero reason and a new governed revision is required. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global authority-admin grant and active authority | Queues a 48-hour contract-only authority transition with code hash, ERC-165/interface probe, capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
 | `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Enabled global governance-executor for execute; enabled global authority-admin for cancel | Execute requires the stored ETA; cancel clears only the pending transition. Both are blocked after freeze. |
 | `0x43dd6c37` `setSuccessor((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Enabled global governance-executor grant | Requires frozen writes, no prior successor, a strictly new expected module version, and immediate repeat validation of the complete successor target commitment; one-way. |
@@ -2262,9 +2320,9 @@ error AuthorityChangePending(address pendingAuthority, uint64 eta);
 error NoPendingAuthority();
 error AuthorityChangeNotReady(uint64 eta, uint64 currentTime);
 error InvalidTransitionTarget(address target, bytes32 expectedCodeHash);
-error TargetReleaseNotAdmitted(uint8 targetKind, bytes32 codeHash);
-error TargetReleaseAlreadyAdmitted(uint8 targetKind, bytes32 codeHash);
-error TargetReleaseMismatch(uint8 targetKind, bytes32 codeHash);
+error TargetReleaseNotAdmitted(uint8 targetKind, address target, bytes32 codeHash);
+error TargetReleaseAlreadyAdmitted(uint8 targetKind, address target, bytes32 codeHash);
+error TargetReleaseMismatch(uint8 targetKind, address target, bytes32 codeHash);
 error TargetConformanceMismatch(bytes32 expected, bytes32 actual);
 error InvalidInterfaceProbe(bytes32 expected, bytes32 actual);
 error InvalidSuccessorVersion(bytes32 expected, bytes32 actual);
@@ -2380,14 +2438,15 @@ event NonceRevocationRecorded(address indexed signer, uint256 indexed nonce, uin
     uint64 authorityRevision);
 event GlobalRoleGrantUpdated(bytes32 indexed globalRoleId, address indexed account,
     bool enabled, uint64 roleRevision, uint64 authorityRevision, address authority);
-event TargetReleaseAdmitted(uint8 indexed targetKind, bytes32 indexed codeHash,
-    bytes32 releaseId, bytes32 sourceCommit, bytes32 artifactHash,
+event TargetReleaseAdmitted(uint8 indexed targetKind, address indexed target, bytes32 indexed codeHash,
+    bytes32 releaseId, bytes32 runtimePolicyHash, bytes32 externalDependencyHash,
+    bytes32 sourceCommit, bytes32 sourceTreeHash, bytes32 artifactHash,
     bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
     bytes32 expectedModuleVersion, bytes32 protocolVersion,
     bytes32 streamCompatibilityCommit, uint64 revision,
     uint64 authorityRevision, uint8 status, bytes32 previousReleaseId,
     bytes32 supersessionReasonHash, address authority);
-event TargetReleaseQuarantined(uint8 indexed targetKind, bytes32 indexed codeHash,
+event TargetReleaseQuarantined(uint8 indexed targetKind, address indexed target, bytes32 indexed codeHash,
     bytes32 releaseId, uint64 revision, bytes32 reasonHash,
     uint64 authorityRevision, address actor, address authority);
 event AuthorityChangeQueued(address indexed pendingAuthority, bytes32 expectedCodeHash,
@@ -2441,7 +2500,7 @@ same value. A missing event never justifies omitting the state value.
 | HTTPS assertion nonce/revision lineage | `httpsAssertionByHash`/`currentHttpsAssertion` | `HttpsAssertion` stores nonce, deadline, monotone revision, predecessor, and signature commitment; duplicate/replay/reorg rules are readback-based | `HttpsAssertionRecorded` carries the same fields |
 | Batch atomicity/commitment | `batchIdUsed(batchId)`, `batchCommitment(batchId)` | Exact ordered `MUSEUM_BATCH_COMMITMENT_DOMAIN` preimage; stored before visibility; duplicate ID/record or stale lane reverts all writes | `MuseumRecordBatchRecorded` with commitment and authority revision |
 | Batch gas budget | batch entry gate and `MAX_BATCH_GAS_UNITS` | `MUSEUM_BATCH_GAS_GATE_V1` is a best-effort caller gas gate only; measured benchmark evidence is retained, while all writes remain atomic on out-of-gas | `MuseumRecordBatchRecorded` on success; no event on revert |
-| Target release reconstruction | `targetRelease(targetKind,codeHash)`, `targetReleaseAtRevision(targetKind,codeHash,revision)` | Append-only evidence-validated release history, active/quarantined status, exact predecessor supersession commitment, immutable runtime scanner, and no caller-supplied hash/evidence bypass | `TargetReleaseAdmitted`, `TargetReleaseQuarantined` |
+| Target release reconstruction | `targetRelease(targetKind,target,codeHash)`, `targetReleaseAtRevision(targetKind,target,codeHash,revision)`, `targetReleaseById` | Append-only evidence-validated address-bound release history, globally unique acyclic release IDs, active/quarantined status, exact predecessor/reason identity, target non-upgradeability policy, and no caller-supplied hash/evidence bypass | `TargetReleaseAdmitted`, `TargetReleaseQuarantined` |
 | Active authority reconstruction | `authorityRevision()`, `authorityState()`, `pendingAuthority()` | Recheck target release row, code hash, interface, context-bound capability, predecessor, version, and authority linkage at queue/execution/use | `AuthorityChangeQueued`, `RegistryAuthorityUpdated` with all commitments |
 | External asset authorization | `ExternalAsset.authorizationRoleId`, `authorityRevision` | `ExternalAssetRegistered.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
 | Stream mirror authorization | `StreamMirrorLink.authorizationRoleId`, `authorityRevision` | `StreamMirrorLinkSet.authorizationRoleId/authorityRevision` | N/A | Actual enabled global role and authority revision |
@@ -2600,7 +2659,8 @@ machine-checkable checklist is exactly:
    hash;
 2. require `artifactHash == extcodehash(target) ==` both independent build
    runtime hashes, code size within 24,576 bytes, and the complete
-   `MUSEUM_TARGET_RUNTIME_IMMUTABILITY_V1` scanner result;
+   `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` scanner result and the exact
+   declared external-dependency commitment;
 3. require the exact required ERC-165 interface and exact return lengths for
    every probe, with `TARGET_PROBE_GAS_LIMIT` and
    `TARGET_PROBE_RETURN_BYTES_LIMIT` enforced per call;
@@ -2682,33 +2742,43 @@ reproduce the hashes without GitHub, the original operator, or a marketplace.
 
 ## 9. Casey donation records
 
-The current Casey working plan proposes one accession lot and seven object
-IDs, but it explicitly says that contract addresses, token IDs, title evidence,
-transfer history, custody, rights, and review authority are not verified.
-The migration MUST preserve that uncertainty.
+The Casey Reas seven-work group donated by punk 6529 is a completed donation
+and has been received on-chain under the Art Blocks preapproval. The canonical
+accession register and on-chain evidence record the exact seven CAIP-19-shaped
+native identities, receipt transaction, and custody observations. A migration
+MUST preserve those completed donation and receipt facts; it MUST cite their
+recorded evidence rather than infer either fact merely from a wallet transfer
+or donor attribution.
 
-| Proposed stable ID | Label from the working plan |
+That receipt is not an accession-complete claim. Formal Gift Acceptance and
+Accession Authorization documentation is being added, and the work-level
+title, rights, condition, preservation, registrar/reviewer, and
+`STREAM_ACCESSION_V1` gates remain incomplete or not yet admitted as applicable.
+The contract specification does not fabricate completion of any of those gates.
+
+| Stable Museum ID | Received work |
 |---|---|
-| `6529NM.2026.001.1` | `CENTURY #31` |
-| `6529NM.2026.001.2` | `CENTURY #724` |
-| `6529NM.2026.001.3` | `CENTURY #401` |
-| `6529NM.2026.001.4` | `Pre-Process #63` |
-| `6529NM.2026.001.5` | `Phototaxis #308` |
-| `6529NM.2026.001.6` | `923 EMPTY ROOMS #713` |
-| `6529NM.2026.001.7` | `Ex Nihilo (Cosmos) #248` |
+| `6529NM.2026.001.01` | `CENTURY #31` |
+| `6529NM.2026.001.02` | `CENTURY #724` |
+| `6529NM.2026.001.03` | `CENTURY #401` |
+| `6529NM.2026.001.04` | `Pre-Process #63` |
+| `6529NM.2026.001.05` | `Phototaxis #308` |
+| `6529NM.2026.001.06` | `923 EMPTY ROOMS #713` |
+| `6529NM.2026.001.07` | `Ex Nihilo (Cosmos) #248` |
 
-Until verification is complete, the migration MAY carry the working plan as
-one `MUSEUM_RESEARCH_NOTE_V1` record with explicit `status: "WIP"`, or as a
-proposed lot/outcome record. It MUST NOT write any of these as an accessioned
-object, title binding, verified custody observation, or completed donation.
-It MUST NOT infer accession from a wallet transfer or a donor attribution.
+The migration MAY carry incomplete accession documentation as
+`MUSEUM_RESEARCH_NOTE_V1` records with an explicit in-progress status. It MUST
+NOT relabel the completed donation as proposed, and it MUST NOT write an
+accession-complete object, title binding, rights determination, condition
+assessment, preservation completion, or `STREAM_ACCESSION_V1` assertion before
+the corresponding evidence and approval gate is complete.
 
-When a valid donation later completes, append one `MUSEUM_ACCESSION_LOT_V1`
-for `6529NM.2026.001` and one `STREAM_ACCESSION_V1` object record per token.
-Each object gets its own CAIP-19 identity, title binding, custody observation,
-rights record, technical/preservation evidence, and reviewer sign-off. The
-collection-level curatorial argument does not substitute for those object
-records.
+The lot `6529NM.2026.001` and the seven received object records retain their
+native CAIP-19 identities. When each remaining gate is complete, append the
+corresponding evidence-backed title, rights, condition, preservation, review,
+and (where the Stream convergence gate permits it) `STREAM_ACCESSION_V1`
+records. The collection-level curatorial argument does not substitute for
+those object-level records.
 
 ## 10. Future Stream-native Keys and Gates
 
@@ -2775,17 +2845,23 @@ V1 is append-only and non-proxy. A successor MUST:
   `protocolVersion()`; the module version MUST be new and strictly different
   from `MUSEUM_REGISTRY_VERSION_V1`;
 * preserve the exact V1 envelope and all V1 read selectors;
-* retain the V1 hash domain and Stream compatibility commit for migrated data;
-* import by record hash and verify envelope/payload/chain commitments;
-* emit an import event with source registry, source record hash, source chain,
-  and destination record hash;
-* never rewrite or delete an old record;
+* retain the V1 hash domain and Stream compatibility commit if a future governed
+  import interface is introduced; and
+* never rewrite or delete an old record.
 * receive explicit governance approval before becoming the write target.
 
 `setSuccessor` is one-way. `freezeWrites` is one-way for the old registry and
 does not erase read access. A successor cannot silently change a shared schema,
 canonicalization ID, subject derivation, authorization-class meaning, or
 Stream adapter behavior. A change needs a new ID and a new convergence gate.
+
+V1 designates a successor but defines no import selector, import event, or
+source-record/lane commitment. It therefore makes no V1 claim that a successor
+imports, preserves, or verifies source hash/lane lineage. Any transfer of V1
+records into a successor is scoped to a required V2 interface revision, which
+MUST define an import ABI, source-registry/record/chain commitment, destination
+record commitment, import event, replay protection, and executable vectors
+before it can be deployed or relied on.
 
 ## 13. Test vectors and conformance
 
@@ -2806,6 +2882,10 @@ canonicalizer or produce a different non-admitted input; it MUST NOT silently
 produce a second subject.
 
 ### 13.2 Canonical payload and Museum record hash
+
+This is a synthetic, non-Casey conformance vector only. Its Casey-like local
+identifier and `"proposed"` payload are not a statement about the Casey Reas
+donation, its receipt, or accession status.
 
 ```text
 recordTypeLiteral = MUSEUM_RESEARCH_NOTE
@@ -3048,15 +3128,17 @@ specs/onchain/batch_vector_check_v1.py` MUST print the batch ID above and
 The batch ID is the direct 32-byte Keccak result of the literal; no extra
 leading zero nibble is permitted.
 
-### 13.9 Target-release capability/probe vector
+### 13.9 Successor capability/probe vector
 
-This deterministic successor fixture tests the new release-row and complete
-probe preimages; it is not a deployable address or code hash:
+This deterministic successor-probe fixture isolates the complete probe
+preimages. Its `probeReleaseId` is an input to those preimages only; it is not
+an admitted `TargetRelease.releaseId`, not a deployable address, and not a code
+hash:
 
 ```text
 target = 0x0000000000000000000000000000000000000042
 predecessorRegistry = 0x000000000000000000000000000000000000cafe
-releaseId = 0x5681ad0ab20e496843b5795ad4c7b9e7a3f460f069b4891ea07a9a34ee64d95a
+probeReleaseId = 0x5681ad0ab20e496843b5795ad4c7b9e7a3f460f069b4891ea07a9a34ee64d95a
 expectedCodeHash = 0xd5a00f7341bd82056e931b07a2d8f28c4e11346df2d42d2c36566e108d31df2a
 conformanceDocumentHash = 0x6e4410d14b8d771e9e6250b6e8aa1124051d3b30887bd53cd4658b88921b7fa9
 expectedModuleVersion = 0x8578d451c146e5c9542b0a271b29ec0826085f5f1b5991d77245cfdcae3d7465
@@ -3073,41 +3155,44 @@ preimage is the exact `MUSEUM_TARGET_PROBE_DOMAIN` tuple and includes the
 capability commitment. Ordinary `abi.encode` is required; packed encoding is
 not a valid implementation.
 
-### 13.9.1 Target-release detached signature-bundle vector
+### 13.9.1 Complete TargetRelease evidence and detached-bundle vector
 
-The release-controlled fixture
-`specs/onchain/target-release-signature-bundle-v1.fixture.json` is the exact
-RFC 8785 JCS source object for a non-deployment test bundle. Its canonical
-retrieval bytes are the RFC 8785 rendering (without the repository text-file
-terminator). Its URI/hash/availability reference is
-`specs/onchain/target-release-signature-bundle-v1.reference.json`. `python -B
-specs/onchain/target_release_signature_bundle_check_v1.py` schema-validates
-the bundle and its reference, checks every byte count/content hash/CID,
-requires the two distinct retrieval URIs, recomputes all signature
-commitments, and recovers all three EIP-191 signers without a private key.
+`specs/onchain/target-release-evidence-v1.fixture.json` is a complete,
+schema-valid `NON_DEPLOYMENT_CONFORMANCE_FIXTURE`, not a published release or
+deployment attestation. It uses the exact synthetic authority target below and
+the only permitted target policy. `python -B
+specs/onchain/target_release_evidence_check_v1.py` derives the acyclic order
+`releaseId -> D0 -> conformanceDocumentHash -> D1 -> signedDocumentHash ->
+three public test signatures -> detached bundle/reference/availability`, checks
+the exact target address, two builds, dependency list, policy hash, predecessor
+and reason, and rejects target-address, policy, code-hash, and signer-threshold
+mutations. It uses only public deterministic test scalars and contacts no
+network.
 
 ```text
-releaseId = 0xcaab6726358fae34ce8d4a969ce487e81c67b8003f76a8e57ab958be7cb6a63c
-signedDocumentHash = 0xa6e6398c9909bab2d2c4f2d9a26a2d357e3451f2a0ca8097691eba1cd41079c7
-signatureDigest = 0xf54bc0bb6e2213fa11fffc68e657f042118d5415b784aed6739744ab534c5132
-bundleUri = ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq
-bundleContentHash = 0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f
+targetKind = 1
+target = 0x0000000000000000000000000000000000000042
+runtimePolicyHash = 0xccb469268dc422f42673db5a02aa2e56a33639c4e193c4f20e4b3af4dccff341
+releaseId = 0xa3c5bf9e5f3ab44afdd1fdd5dc6b885c6afe345e372ea31fcdc2c9c655ea943d
+conformanceDocumentHash = D0 = 0xd214948cb635545b41e0f657ba73efe950b0d9e99d71bf1ff68d66619b5713a0
+signedDocumentHash = D1 = 0x3d1fb01b8114bf325050872cc033cbb0d95043d5660f1dca4b23e87f97021f22
+bundleUri = ipfs://bafkreidtpcfaumxixdprbdlhqigzaicjua7u3zxuqwcg5grcmmnntxt6qu
+bundleContentHash = 0x809e19f8e094804ffd9b7b8b4dd86d1597148d55f798b776e3e6f1dd0a02ba83
 bundleBytes = 1131
 bundleSchemaHash = 0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439
-ipfsObservationHash = 0x6c7cbb37a256f94a1a486a47bb158002258bac7c38dd417e70087b4e40b22324
-arUri = ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk
-arObservationHash = 0x997ed37a67abf99ed4b44942527a626e37ee3d696cbf0ad84dbea0ed7900dfc3
-signer[0] = 0x3eb71849bc6fde0e8287a5b9a44cf675622ca180
-signer[1] = 0x5ab32d3debe5e7cfdff6d26fdabd8e8db700747e
-signer[2] = 0xfc101b413818fe4cda7f40c7d760831500dea9d3
 signatureRecovery = 3/3
 ```
 
-The IPFS and Arweave identifiers in this fixture exercise the required
-retrieval shape but are not observations of a published TargetRelease. They
-MUST NOT be used as admission evidence or deployment evidence. A real release
-must independently retrieve both declared locations, compare their bytes to
-the committed bundle hash and size, and record its own fetch observations.
+The coherent detached bundle is
+`specs/onchain/target-release-signature-bundle-v1.fixture.json`; its descriptor
+and two retrieval observations are
+`specs/onchain/target-release-signature-bundle-v1.reference.json` and are
+byte-for-byte the evidence object's `detachedSignatureBundle`. `python -B
+specs/onchain/target_release_signature_bundle_check_v1.py` independently
+schema-validates that linkage, content hash/CID/size, sorted unique signers, and
+3/3 EIP-191 recovery. These synthetic IPFS/Arweave identifiers only exercise
+the required retrieval shape. They MUST NOT be used as admission evidence,
+deployment evidence, custody evidence, or authorization for a network write.
 
 ### 13.10 Required negative tests
 
@@ -3129,6 +3214,13 @@ new-version successor with a mismatched protocol or Stream compatibility,
 expired/mismatched HTTPS assertion, resolver-profile revision mismatch, URI
 substitution, reorg retry, and attempted writes after freeze.
 
+Target-release evidence conformance additionally MUST reject a target-address
+substitution (including equal code at a second address), runtime-policy or
+external-dependency-hash substitution, code/build-hash substitution, duplicate
+or circular release ID, malformed D0/D1 projection, an undersized signer
+threshold, a detached bundle/reference mismatch, and any CIDv0 or noncanonical
+CIDv1/Arweave textual alias.
+
 It MUST also prove that:
 
 * an external token registration does not create a custody/title/accession
@@ -3140,7 +3232,8 @@ It MUST also prove that:
 * state-only reconstruction works with all events unavailable;
 * a Stream-native record can round-trip without changing its canonical payload;
 * an unauthorized Museum-only class cannot write a Stream family;
-* a successor import preserves the source hash and lane lineage.
+* V1 successor designation exposes no import path; any V2 import path must pass
+  its separately defined source-hash and lane-lineage vectors.
 
 ## 14. Deployment gates
 
@@ -3166,7 +3259,7 @@ below pass and Museum governance explicitly approves the deployment:
    successor-after-freeze, one-way freeze, provider rotation, and class
    isolation pass negative tests.
 6. **Lineage gate:** duplicate rejection, predecessor/head accumulation,
-   correction/supersession, successor import, batch atomicity, and state-only
+   correction/supersession, successor designation without an import path, batch atomicity, and state-only
    reconstruction pass.
 7. **Privacy gate:** public/restricted separation is reviewed; no private
    donor, legal, appraisal, credential, signer-security, or storage-location

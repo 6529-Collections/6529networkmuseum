@@ -15,6 +15,7 @@
     "toolchain",
     "environment",
     "corpusHash",
+    "gasGate",
     "measurements",
     "signatures"
   ],
@@ -54,7 +55,19 @@
         "cpuModel": { "type": "string", "minLength": 1 }
       }
     },
-    "corpusHash": { "const": "0x959ef9578f67440fbec9e17d1e257e64b7b08a5d57480408be1abe572c8c9021" },
+    "corpusHash": { "const": "0x458a9637f7acda5ea92f1a082c3211a716083d6198c050c587d65d67f58bfb50" },
+    "gasGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formulaId", "maxBatchGasUnits", "callerReserveGas", "measuredDeploymentGasUnits", "measuredGasPlusCallerReserveUnits"],
+      "properties": {
+        "formulaId": { "const": "MUSEUM_BATCH_GAS_GATE_V1" },
+        "maxBatchGasUnits": { "const": 13000000 },
+        "callerReserveGas": { "const": 50000 },
+        "measuredDeploymentGasUnits": { "const": 9000000 },
+        "measuredGasPlusCallerReserveUnits": { "const": 9050000 }
+      }
+    },
     "measurements": {
       "type": "array",
       "minItems": 4,

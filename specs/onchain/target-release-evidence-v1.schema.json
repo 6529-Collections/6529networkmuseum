@@ -5,11 +5,14 @@
   "required": [
     "schema",
     "version",
+    "evidenceScope",
     "targetKind",
     "releaseId",
     "target",
     "codeHash",
+    "runtimePolicyId",
     "runtimePolicyHash",
+    "externalDependencyHash",
     "sourceCommit",
     "sourceRepository",
     "sourceTreeHash",
@@ -24,6 +27,7 @@
     "status",
     "builds",
     "conformance",
+    "externalDependencies",
     "signers",
     "detachedSignatureBundle",
     "availability",
@@ -33,11 +37,14 @@
   "properties": {
     "schema": { "const": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1" },
     "version": { "const": 1 },
+    "evidenceScope": { "enum": ["RELEASE_GATE_EVIDENCE", "NON_DEPLOYMENT_CONFORMANCE_FIXTURE"] },
     "targetKind": { "type": "integer", "enum": [1, 2] },
     "releaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "target": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
     "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "runtimePolicyId": { "const": "MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1" },
     "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "externalDependencyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
     "sourceRepository": { "const": "6529-Collections/6529networkmuseum" },
     "sourceTreeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
@@ -45,7 +52,7 @@
     "requiredInterfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
     "expectedModuleVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "protocolVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
-    "streamCompatibilityCommit": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "streamCompatibilityCommit": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "conformanceDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "revision": { "type": "integer", "minimum": 1 },
     "authorityRevision": { "type": "integer", "minimum": 1 },
@@ -77,6 +84,21 @@
         "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
         "probeGasLimit": { "type": "integer", "minimum": 1, "maximum": 1000000 },
         "returnDataBytesLimit": { "type": "integer", "minimum": 32, "maximum": 4096 }
+      }
+    },
+    "externalDependencies": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["address", "codeHash", "interfaceId", "purpose"],
+        "properties": {
+          "address": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "interfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+          "purpose": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" }
+        }
       }
     },
     "signers": {

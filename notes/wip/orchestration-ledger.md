@@ -589,3 +589,36 @@ network, target-admission, deployment, accession, or migration behavior.
 Independent protocol review is still evaluating potential batch-gas and
 immutable-target-policy contradictions; this candidate must remain unpushed
 and draft pending its exact evidence and disposition.
+
+## 2026-08-01 - PR #2 consolidated protocol-remediation toolchain amendment
+
+The immutable PR #15 Casey publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+Its reachable `published_source_commit` remains
+`9700e842d0c991280b476cc67849d966221a742a`. It is historical release
+evidence and is not rewritten.
+
+The current PR #2 toolchain-manifest revision is
+`sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`.
+It is a governed test/toolchain evolution that binds the expanded offline
+control-plane checks; it is not a new art-data release, accession authority,
+or deployment claim. The only Casey evidence-tree differences from the
+historical PR #15 baseline are `package-manifest.json` and the excluded
+`latest-run.json` pointer. Every raw observation, snapshot, descriptor,
+descriptor result, reconstructed request, exclusion, warning, population, and
+child run-manifest byte remains unchanged; the verifier reproduces 3,300
+tokens, 35,088 traits, 79 raw files, and five descriptor outputs from the
+reachable publication boundary.
+
+The local, unpushed protocol remediation now makes the batch caller gate
+internally satisfiable without calling it a measured gas bound; separates
+strict canonicalizer purity from stateful-target non-upgradeability; binds
+TargetRelease evidence and identity to the exact target address; derives
+release identity before D0/D1 projections; admits exact predecessor/reason
+commitments; rejects URI textual aliases; and scopes successor import to a
+future V2 interface. The complete TargetRelease fixture is explicitly
+non-deployment conformance evidence. Casey remains a completed, received
+donation with accession documentation in progress, not an accession-complete
+claim. This candidate remains local and draft pending the final validation
+pass and reviewer direction; it must not be pushed yet.

@@ -21,15 +21,9 @@ BUNDLE_PATH = ROOT / "target-release-signature-bundle-v1.fixture.json"
 REFERENCE_PATH = ROOT / "target-release-signature-bundle-v1.reference.json"
 SCHEMA_PATH = ROOT / "target-release-signature-bundle-v1.schema.json"
 EVIDENCE_SCHEMA_PATH = ROOT / "target-release-evidence-v1.schema.json"
+EVIDENCE_PATH = ROOT / "target-release-evidence-v1.fixture.json"
 
 EXPECTED_SCHEMA_HASH = "cc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439"
-EXPECTED_RELEASE_ID = "caab6726358fae34ce8d4a969ce487e81c67b8003f76a8e57ab958be7cb6a63c"
-EXPECTED_SIGNED_DOCUMENT_HASH = "a6e6398c9909bab2d2c4f2d9a26a2d357e3451f2a0ca8097691eba1cd41079c7"
-EXPECTED_BUNDLE_HASH = "9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f"
-EXPECTED_IPFS_URI = "ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq"
-EXPECTED_AR_URI = "ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk"
-EXPECTED_IPFS_OBSERVATION = "6c7cbb37a256f94a1a486a47bb158002258bac7c38dd417e70087b4e40b22324"
-EXPECTED_AR_OBSERVATION = "997ed37a67abf99ed4b44942527a626e37ee3d696cbf0ad84dbea0ed7900dfc3"
 
 # secp256k1 constants. They are used only to recover public keys from the
 # public test signatures; no private key is retained by this repository.
@@ -103,35 +97,34 @@ def cidv1_raw_sha256(payload: bytes) -> str:
 def main() -> int:
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     evidence_schema = json.loads(EVIDENCE_SCHEMA_PATH.read_text(encoding="utf-8"))
+    evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8"))
     bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
     reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
+    jsonschema.validate(evidence, evidence_schema)
     jsonschema.validate(bundle, schema)
     canonical = rfc8785.dumps(bundle)
 
     assert k(rfc8785.dumps(schema)).hex() == EXPECTED_SCHEMA_HASH
-    assert bundle["releaseId"] == "0x" + EXPECTED_RELEASE_ID
-    assert bundle["signedDocumentHash"] == "0x" + EXPECTED_SIGNED_DOCUMENT_HASH
-    assert len(canonical) == 1131
-    assert k(canonical).hex() == EXPECTED_BUNDLE_HASH
-    assert cidv1_raw_sha256(canonical) == EXPECTED_IPFS_URI
+    assert bundle["releaseId"] == evidence["releaseId"]
+    assert bundle["signedDocumentHash"] == evidence["signers"]["signedDocumentHash"]
+    assert cidv1_raw_sha256(canonical) == evidence["detachedSignatureBundle"]["uri"]
 
-    sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(EXPECTED_SIGNED_DOCUMENT_HASH))
+    sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(bundle["signedDocumentHash"][2:]))
     entries = bundle["entries"]
     assert [entry["signer"] for entry in entries] == sorted(entry["signer"] for entry in entries)
     assert len({entry["signer"] for entry in entries}) == 3
+    assert [entry["signer"] for entry in entries] == evidence["signers"]["addresses"]
+    assert [entry["signatureCommitment"] for entry in entries] == evidence["signers"]["signatureCommitments"]
     for entry in entries:
         signature = bytes.fromhex(entry["signature"][2:])
         assert k(signature).hex() == entry["signatureCommitment"][2:]
         assert recover_address(sign_digest, signature) == entry["signer"]
 
     jsonschema.validate(reference, evidence_schema["properties"]["detachedSignatureBundle"])
-    assert reference["uri"] == EXPECTED_IPFS_URI
-    assert reference["contentHash"] == "0x" + EXPECTED_BUNDLE_HASH
+    assert reference == evidence["detachedSignatureBundle"]
+    assert reference["uri"] == cidv1_raw_sha256(canonical)
+    assert reference["contentHash"] == "0x" + k(canonical).hex()
     assert reference["sizeBytes"] == len(canonical)
-    assert reference["availability"] == [
-        {"uri": EXPECTED_IPFS_URI, "contentHash": "0x" + EXPECTED_BUNDLE_HASH, "fetchObservationHash": "0x" + EXPECTED_IPFS_OBSERVATION},
-        {"uri": EXPECTED_AR_URI, "contentHash": "0x" + EXPECTED_BUNDLE_HASH, "fetchObservationHash": "0x" + EXPECTED_AR_OBSERVATION},
-    ]
     assert len({row["uri"] for row in reference["availability"]}) == 2
     assert all(row["contentHash"] == reference["contentHash"] for row in reference["availability"])
 

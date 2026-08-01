@@ -22,27 +22,30 @@ The review is design evidence, not a deployed-contract or live-custody claim.
 
 The current executable conformance artifacts are byte-oriented and are part of
 the remediation transcript: `python -B
-specs/onchain/uri_safety_vectors_v1.py` reports the 1,365-byte profile hash
-`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570` and 38
+specs/onchain/uri_safety_vectors_v1.py` reports the 1,350-byte profile hash
+`0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09` and 41
 vectors with bundle hash
-`0x159886ef3409519d464aca64e83c98376734fe6d1cac98544f99b358222e78d9`;
+`0x7cf5863cb613309e826954884ae32a710d0ca31af92b80091fab5ba1dcefca9e`;
 `python -B specs/onchain/batch_vector_check_v1.py` reports the canonical
 batch ID `0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b`
 and commitment
 `0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`;
+`python -B specs/onchain/batch_gas_gate_check_v1.py` proves the worst corpus
+requires `12,124,304` units and `12,174,304` including caller reserve under
+the non-measured 13,000,000 eligibility cap; and
 and `python -B specs/onchain/https_expiry_renewal_check_v1.py` exercises
 expired-write rejection, renewal acceptance, historical readability, and
 non-retroactive validity.
-`python -B specs/onchain/target_release_signature_bundle_check_v1.py` also
-validates the detached TargetRelease 1,131-byte JCS fixture at
-`specs/onchain/target-release-signature-bundle-v1.fixture.json`,
-content hash
-`0x9201549e174049b0b389c44bcaaf86458cf2885ada61b2ad5a0f55196634b26f`,
-the `ipfs://bafkreifvfwpn5kbrw73c7jjydgwz5h7tacmv5n7zsesmbjho4crnfu3qtq` /
-`ar://f69odaLOBxZAMm9ygWje576VMKP7-6nFsypCpNZYmCk` references, and 3/3
-signature recovery; the separate
-`specs/onchain/target-release-signature-bundle-v1.reference.json` records the
-two schema-validated availability observations.
+`python -B specs/onchain/target_release_evidence_check_v1.py` recomputes the
+complete schema-valid non-deployment TargetRelease vector, including the exact
+target address, acyclic release ID/D0/D1 projections, policy/dependency hash,
+two builds, three signer commitments, detached bundle linkage, and availability;
+`python -B specs/onchain/target_release_signature_bundle_check_v1.py` then
+independently validates its coherent 1,131-byte bundle, content hash
+`0x809e19f8e094804ffd9b7b8b4dd86d1597148d55f798b776e3e6f1dd0a02ba83`,
+the `ipfs://bafkreidtpcfaumxixdprbdlhqigzaicjua7u3zxuqwcg5grcmmnntxt6qu` /
+`ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and 3/3
+signature recovery.
 
 ## Findings
 
@@ -111,15 +114,15 @@ legacy EVM, and future namespaces before using them in subject derivation.
 The original canonical string must remain retrievable; a hash-only subject is
 not a catalog identifier.
 
-### 7. Casey is a proposed multi-object donation, not a verified accession
+### 7. Casey is a completed donation with incomplete accession gates
 
-The Casey working plan proposes `6529NM.2026.001` with seven object IDs, but
-explicitly says no contract addresses, token IDs, title evidence, custody,
-rights, or review authority are verified. The safe migration is a WIP research
-record, not an `ACCESSION`, `TITLE_BINDING`, or completed custody record.
-Future acceptance must append one object-level Stream accession record and
-object evidence per token; the lot-level curatorial statement cannot replace
-those records.
+The seven-work Casey Reas group donated by punk 6529 is completed and received
+on-chain. That completed donation is distinct from formal accession: accession
+documentation, title and rights evidence, condition/preservation work,
+registrar action, and reviewer gates remain incomplete. The safe migration is
+therefore a WIP research record, not an `ACCESSION`, `TITLE_BINDING`, or a claim
+that the remaining gates are complete. Each object still needs its own required
+accession evidence; the lot-level curatorial statement cannot replace it.
 
 ### 8. Keys and Gates selection must remain separate from accession
 
@@ -319,18 +322,28 @@ The next exact-head review required and resolved:
    state, count/bytes/gas caps, and all-or-nothing retry semantics.
 8. V1 corrections enforce only envelope-level same-lane older-target lineage;
    semantic payload supersession remains release-gated unless a future pinned
-   validator/proof interface is admitted. The Cancun canonicalizer policy now
-   explicitly bans environment, code-introspection, returndata, state,
-   external-call, creation, blob, gas, and logging opcodes, with exact
-   extcodehash allowlisting primary and scanning defense-in-depth.
+   validator/proof interface is admitted. The Cancun canonicalizer purity
+   policy alone bans state, external calls, caller/environment dependence,
+   creation, blob, gas, and logging opcodes; it remains separate from the
+   target non-upgradeability policy, which allows state and declared bounded
+   `STATICCALL` dependencies but rejects proxy/delegatecall/callcode,
+   selfdestruct, creation, and upgrade paths.
+
+   The literal ID hash for `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` is
+   `0x8148bd5ce1f57455106f3425ad39d8c0c80e527c51c51ad350f27028e8c6c367`;
+   the governed JCS policy-document hash is
+   `0xccb469268dc422f42673db5a02aa2e56a33639c4e193c4f20e4b3af4dccff341`.
+   `TargetRelease.runtimePolicyHash` and evidence use the latter document hash,
+   never the literal ID hash.
 
 The latest exact-head reviewer found five current-blob gaps and they are
 resolved together here:
 
 1. Authority and successor targets now require a pre-admitted, append-only
-   `(targetKind, runtimeCodeHash)` release row. The row binds release ID,
-   right-aligned source SHA-1, artifact hash, conformance-document hash,
-   interface, version, protocol, Stream compatibility, and revisions. Two
+   `(targetKind, targetAddress, runtimeCodeHash)` release row with a globally
+   non-reusable acyclic release ID. The row binds address, source SHA-1/tree,
+   artifact, runtime-policy/dependency, conformance-document hash, interface,
+   version, protocol, Stream compatibility, and revisions. Two
    independent source/toolchain rebuilds and bounded staticcall conformance
    probes are deployment/admission gates; a caller-supplied expected hash or
    target marker cannot self-admit an inert contract.
@@ -384,18 +397,21 @@ The active source/vector pair remains
 `ff1c5825e3b61bfb2df0a639e057297beb946e4d` and
 `0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`.
 Earlier `6ab...` / `685...` values are historical context only and are not
-active source or root inputs. The canonicalizer text already defines terminal
+active source or root inputs. The strict canonicalizer policy retains terminal
 CBOR exclusion, decoded-instruction boundaries, conservative rejection of
 unreachable executable bytes, and the explicit non-claim that the scan proves
-reachability or purity; this review lead is therefore dispositioned without a
-semantic rewrite.
+reachability or purity. The confirmed contradiction was instead the reuse of
+that purity policy for stateful authority/successor targets; the active spec
+now uses the separately versioned non-upgradeability policy and evidence hash.
 
 The state-only HTTPS clarification is now explicit: an auditor dereferences a
 record's stored assertion hash, verifies the stored assertion row's hash and
 resolver profile/revision, and does not use a replacement current pointer to
 reinterpret historical state. The detached signature fixture already has
 schema-enforced exactly three entries plus checker-enforced sorted, unique,
-recovered signers, so no malformed or undersized-signature change is needed.
+recovered signers. The coherent complete evidence checker additionally rejects
+an undersized threshold, address/policy/code substitutions, and detached-bundle
+linkage drift.
 
 ### Reproducible custom-error and interface-ID checks
 
@@ -474,10 +490,11 @@ $selectorGolden = [ordered]@{
   'recordTypePolicy(bytes32)' = '0xcd2369a6'
   'setRecordFamilyGrant(bytes32,uint8,address,bool)' = '0x40ee7ee3'
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
-  'admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)' = '0x47655475'
-  'targetRelease(uint8,bytes32)' = '0x07ba475e'
-  'targetReleaseAtRevision(uint8,bytes32,uint64)' = '0x89d9ae30'
-  'quarantineTargetRelease(uint8,bytes32,bytes32)' = '0xf2ebf174'
+  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0x0742c529'
+  'targetRelease(uint8,address,bytes32)' = '0x85968ef0'
+  'targetReleaseAtRevision(uint8,address,bytes32,uint64)' = '0x288b2e93'
+  'targetReleaseById(bytes32)' = '0xb9bc97a1'
+  'quarantineTargetRelease(uint8,address,bytes32,bytes32)' = '0xda6d916f'
   'setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x81a86ff4'
   'executeAuthority()' = '0xc9dc7d0d'
   'cancelAuthority()' = '0xf0edf065'
@@ -525,12 +542,12 @@ foreach($signature in $selectorGolden.Keys) {
 The authority capability selector-set hash was recomputed after adding the
 governed target-release admission and quarantine selectors. The exact sorted
 `bytes4[]` is
-`[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065,0xf2ebf174]`:
+`[0x05d53fba,0x0742c529,0x43dd6c37,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xf0edf065]`:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x43dd6c37,0x47655475,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xf0edf065,0xf2ebf174]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x0742c529,0x43dd6c37,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0xafee23b5447d9b050283c506b2af140cf332002f55e035ad1edfe6c5a4bb34b3') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 
@@ -542,10 +559,12 @@ and the stable Museum record-type/class allowlist. It is conformance evidence
 for this design specification only and has no network, target-admission, or
 deployment behavior.
 
-The fixed URI-safety profile document was independently hashed from exact
-UTF-8 bytes (1365 bytes, no trailing LF) with both `cast keccak` and
-`Crypto.Hash.keccak`; both produce
-`0x797688971fc9275e39fe5631268ace2a5105b114fbd230bcca48ec99aeff8570`.
+The active URI-safety profile is the 1,350-byte document in
+`specs/onchain/uri_safety_vectors_v1.py`; its current hash is
+`0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09`.
+The executable harness checks 41 active vectors, including CIDv0 rejection and
+noncanonical CIDv1/Arweave unused-bit aliases. The calculation block below is
+superseded historical context only and MUST NOT be used as an active profile.
 
 ```powershell
 @'

@@ -98,6 +98,7 @@ Status vocabulary:
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
 | [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments over the closed governed release inventory |
+| [`specs/onchain/`](specs/onchain/) | active design conformance | Offline-only contract-migration vectors for batch eligibility, URI canonical identity, HTTPS assertion lifecycle, address-bound TargetRelease evidence/signatures, and ABI/allowlist reconstruction; never deployment evidence |
 | [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
 | [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |

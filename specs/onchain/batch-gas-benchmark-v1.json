@@ -17,8 +17,9 @@
     "maxBatchRecords": 64,
     "maxInlinePayloadBytes": 16384,
     "maxBatchInlinePayloadBytes": 262144,
-    "maxBatchGasUnits": 10000000,
-    "callerReserveGas": 50000
+    "maxBatchGasUnits": 13000000,
+    "callerReserveGas": 50000,
+    "measuredDeploymentGasUnits": 9000000
   },
   "corpus": [
     {
@@ -60,7 +61,7 @@
   ],
   "acceptance": {
     "measuredGasMustBeAtMost": 9000000,
-    "measuredGasPlusCallerReserveMustBeAtMost": 10000000,
+    "measuredGasPlusCallerReserveMustBeAtMost": 9050000,
     "everyCorpusCaseRequired": true,
     "outOfGasMustRevertAtomically": true,
     "reportMustIncludePerCaseGas": true,

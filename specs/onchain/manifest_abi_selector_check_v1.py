@@ -66,10 +66,11 @@ ABI_SELECTORS = (
     ("recordTypePolicy(bytes32)", "0xcd2369a6"),
     ("setRecordFamilyGrant(bytes32,uint8,address,bool)", "0x40ee7ee3"),
     ("recordFamilyGrant(bytes32,uint8,address)", "0x1118ed2f"),
-    ("admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)", "0x47655475"),
-    ("targetRelease(uint8,bytes32)", "0x07ba475e"),
-    ("targetReleaseAtRevision(uint8,bytes32,uint64)", "0x89d9ae30"),
-    ("quarantineTargetRelease(uint8,bytes32,bytes32)", "0xf2ebf174"),
+    ("admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)", "0x0742c529"),
+    ("targetRelease(uint8,address,bytes32)", "0x85968ef0"),
+    ("targetReleaseAtRevision(uint8,address,bytes32,uint64)", "0x288b2e93"),
+    ("targetReleaseById(bytes32)", "0xb9bc97a1"),
+    ("quarantineTargetRelease(uint8,address,bytes32,bytes32)", "0xda6d916f"),
     ("setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))", "0x81a86ff4"),
     ("executeAuthority()", "0xc9dc7d0d"),
     ("cancelAuthority()", "0xf0edf065"),
@@ -125,10 +126,10 @@ GLOBAL_ROLE_IDS = (
 )
 
 AUTHORITY_SELECTOR_ALLOWLIST = (
-    "0x05d53fba", "0x43dd6c37", "0x47655475", "0x81a86ff4",
-    "0xab6627c3", "0xc9dc7d0d", "0xf0edf065", "0xf2ebf174",
+    "0x05d53fba", "0x0742c529", "0x43dd6c37", "0x81a86ff4",
+    "0xab6627c3", "0xc9dc7d0d", "0xda6d916f", "0xf0edf065",
 )
-EXPECTED_ALLOWLIST_HASH = "0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069"
+EXPECTED_ALLOWLIST_HASH = "0xafee23b5447d9b050283c506b2af140cf332002f55e035ad1edfe6c5a4bb34b3"
 
 STABLE_RECORD_TYPE_ALLOWLIST = (
     ("MUSEUM_EXTERNAL_ASSET_IDENTITY", "0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e", "MUSEUM_EXTERNAL_ASSET_IDENTITY_V1", "0x34e9649723069df3772c810e6e825f7589c211bac81acc9b908a60067f936aa6", 10),

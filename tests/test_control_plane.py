@@ -1023,8 +1023,10 @@ class ControlPlaneTests(unittest.TestCase):
         for name in (
             "uri_safety_vectors_v1.py",
             "batch_vector_check_v1.py",
+            "batch_gas_gate_check_v1.py",
             "https_expiry_renewal_check_v1.py",
             "target_release_signature_bundle_check_v1.py",
+            "target_release_evidence_check_v1.py",
             "manifest_abi_selector_check_v1.py",
         ):
             with self.subTest(name=name):
