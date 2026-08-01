@@ -198,20 +198,6 @@ AST guard. The remediation adds fail-closed media routing, bounded folded
 UTF-16 scanning, alias-aware sensitive-root dynamic-attribute rejection, and
 focused negative tests. No governed records are changed; exact-head review and
 head-bound bot reruns follow the cross-platform validation.
+## 2026-08-01 - Casey accession exact-head synchronization
 
-## 2026-08-01 - protocol-spec release boundary
-
-The merged control plane validates `specs/` as governed public content, but its
-deterministic release manifest initially omitted that root because no protocol
-specification existed when the control plane was constructed. The first narrow
-remediation exposed a wider boundary omission: governance controls, templates,
-GitHub CI/review policy, and named root controls also affected releases without
-being committed by the release manifest.
-
-Before the on-chain migration specification can merge, the release inventory is
-therefore closed over `.github/`, policies, records, schemas, docs, governance,
-specs, templates, scripts, tests, and six named root control files. A formal
-`specs/README.md` defines the admission boundary. Tests pin the exact roots and
-files, prove that real and future specification files are inventoried, and
-reject missing or linked configured roots and files. Evidence, WIP notes, Git internals, and the
-self-referential release-artifact directory retain explicit separate treatment.
+PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677fbfb32dbbe51725f`, preserving the merged Casey research and this ledger checkpoint. The dossier now ends at `4b75ece88b354c534137e2f6306965f541a38faa`. Local bootstrap validation, whitespace checks, and the refreshed mandatory Museum validation pass. The PR remains draft and unmerged; no constructor self-review or accession-completion claim is made.
