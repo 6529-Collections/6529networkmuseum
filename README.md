@@ -28,13 +28,30 @@ A work can be held by a Museum wallet without being accessioned. A Wave `WINNER`
 
 ## Integrity and validation
 
-The complete schema and release-manifest pipeline is under construction. The active required check is:
+The active required check is `Museum validation`; it runs the foundation
+bootstrap and full control-plane checks on every pull request and main push.
+Run the complete local control plane with:
 
 ```powershell
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
+python scripts/check_fetch_guard.py
+python scripts/validate.py
+python scripts/generate_manifest.py --check
 ```
 
-The target release manifest uses the 6529Stream conventions:
+The documentation-as-code control plane is specified in
+[`docs/control-plane.md`](docs/control-plane.md). It validates JSON Schema,
+controlled vocabularies, Stream envelope compatibility, canonical payload
+commitments, cross-references, append-only state transitions,
+constructor/reviewer separation, and public-record sensitive-field guardrails.
+The pull-request workflow runs these checks on every PR.
+
+The generated release manifest covers the governed records and the control-plane
+source that validates them (`policies/`, `records/`, `schemas/`, `docs/`,
+`scripts/`, and `tests/`). Evidence remains separately authenticated by its
+raw-byte evidence manifests. It uses the 6529Stream conventions:
 
 - repository-relative POSIX paths;
 - `sha256:` file digests over LF-normalized Museum-authored text;

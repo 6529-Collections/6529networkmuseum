@@ -1,0 +1,40 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION_LOT",
+    "subjectId": "0x8a8336aa532259fa80565b52b84845e1b235f8e1067feca86440e30fa93a5f11",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xfb6b7e062f694c8cf0d8acaa13e947bc32aea1ca77f0c33db0dda90660a8762c",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5examplelot",
+    "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM.2026.001",
+    "record_type": "ACCESSION_LOT",
+    "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "subject_id": "6529NM.2026.001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {"id": "registrar", "role": "registrar", "observed_at": "2026-08-01T00:00:00Z"},
+    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "references": ["6529NM-GOV-1052604", "6529NM-AP-01"],
+    "accession_number": "6529NM.2026.001",
+    "acquisition_method": "purchase",
+    "acceptance_date": "2026-08-01T00:00:00Z",
+    "object_ids": ["6529NM.2026.001.1"],
+    "governing_references": ["6529NM-GOV-1052604", "6529NM-AP-01"]
+  }
+}

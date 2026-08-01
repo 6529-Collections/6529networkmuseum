@@ -27,8 +27,8 @@ Status vocabulary:
 | [`records/governance/decisions.json`](records/governance/decisions.json) | canonical reviewed register | Six adopted decisions and two proposals with no adopted effect at snapshot, with source hashes |
 | [`governance/github-repository-governance.md`](governance/github-repository-governance.md) | active operating control | Maintainer approval/merge policy, configured team access, and current GitHub Free enforcement limitation |
 | [`governance/pull-request-review-policy.md`](governance/pull-request-review-policy.md) | active operating control | Baseline 6529bot reviews, specialist routing matrix, follow-up procedure, and constructor/reviewer boundary |
-| [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
-| [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required bootstrap record-integrity check on every PR and main push |
+| [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Four-kind automatic production baseline plus bounded, maintainer-requested specialists; Stream review uses the documented central head-bound fallback until catalog upgrade |
+| [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required `Museum validation` foundation/full checks plus Ubuntu/Windows deterministic matrix on every PR and main push |
 | [`records/programs/6529NM-AP-01/program.json`](records/programs/6529NM-AP-01/program.json) | canonical constructed program record | Keys and Gates rules, source provenance, undecided mint topology, and registrar gates |
 | [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
 | [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
@@ -88,13 +88,19 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
-| [`schemas/`](schemas/) | active bootstrap schemas | Foundation registers plus accession-program, selected-work index, and selected-work outcome schemas |
+| [`schemas/`](schemas/) | active working standard | Bootstrap governance/collection/accession schemas plus controlled vocabularies and Stream-compatible profiles |
+| [`scripts/bootstrap_validate.py`](scripts/bootstrap_validate.py) | active CI control | Source-derived governance, raw evidence manifest, record-control, local-link, and public-safety checks |
+| [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with IDNA/endpoint filtering, IP pinning, strict framing/headers, redirect rechecks, streamed caps, and observations |
+| [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
+| [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
+| [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments |
+| [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
+| [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
+| [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
+| [`release-artifacts/latest/record-manifest.json`](release-artifacts/latest/record-manifest.json) | canonical release commitment | Deterministic manifest for governed records and control-plane source |
 | [`schemas/accession-program.schema.json`](schemas/accession-program.schema.json) | active local schema | Rigorous Keys and Gates program record contract |
 | [`schemas/program-outcome-index.schema.json`](schemas/program-outcome-index.schema.json) | active local schema | Sixteen-row selected-work index contract |
 | [`schemas/program-outcome.schema.json`](schemas/program-outcome.schema.json) | active local schema | Individual selected-work registrar outcome contract |
-| `scripts/bootstrap_validate.py` | active validator | Structural, semantic, secret, evidence, local-schema, record-control, and governance checks |
-| `scripts/generate_manifest.py` | pending creation | Deterministic SHA-256 and JCS/Keccak release commitments |
-| `release-artifacts/latest/record-manifest.json` | pending generation | Current governed-file manifest |
 
 ## Maintenance rule
 

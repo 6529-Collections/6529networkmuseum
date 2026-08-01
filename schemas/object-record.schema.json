@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/object-record-v1.json",
+  "$defs": {
+    "address": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
+    "hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "titleBinding": {
+      "type": "object",
+      "properties": {
+        "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "status": {"type": "string", "enum": ["pending", "executed", "not_applicable"]},
+        "instrument_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "custodian_reference": {"type": "string", "minLength": 1},
+        "transfer_transaction": {"$ref": "#/$defs/hash"},
+        "block_number": {"type": "integer", "minimum": 0},
+        "from": {"$ref": "#/$defs/address"},
+        "to": {"$ref": "#/$defs/address"},
+        "bound_at": {"type": "string", "format": "date-time"}
+      },
+      "required": ["status", "instrument_sha256", "custodian_reference", "transfer_transaction", "block_number", "from", "to", "bound_at"],
+      "unevaluatedProperties": false
+    },
+    "rightsGrant": {
+      "type": "object",
+      "properties": {
+        "grant_status": {"type": "string", "enum": ["granted", "denied", "unspecified", "not_applicable"]},
+        "basis": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "evidence_ref": {"type": "string", "minLength": 1}
+      },
+      "required": ["grant_status", "basis", "observed_at"],
+      "unevaluatedProperties": false
+    },
+    "condition": {
+      "type": "object",
+      "properties": {
+        "token": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "metadata": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "script": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "dependencies": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "rendering": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "behavior": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "documentation": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "protocol_state": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "minLength": 1},
+        "narrative": {"type": "string", "minLength": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      },
+      "required": ["token", "metadata", "script", "dependencies", "rendering", "behavior", "documentation", "protocol_state", "method", "narrative", "observed_at"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "WORK_DESCRIPTION"},
+        "schema_id": {"const": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c"},
+        "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
+        "accession_lot_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"},
+        "title": {"type": "string", "minLength": 1},
+        "creator": {"type": "string", "minLength": 1},
+        "medium": {"type": "string", "minLength": 1},
+        "credit_line": {"type": "string", "minLength": 1},
+        "chain_identity": {
+          "type": "object",
+          "properties": {
+            "caip19": {"type": "string", "pattern": "^eip155:[0-9]+/(erc721|erc1155):0x[0-9a-fA-F]{40}/[0-9]+$"},
+            "chain_id": {"type": "integer", "minimum": 1},
+            "contract": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+            "token_id": {"type": "string", "pattern": "^[0-9]+$"},
+            "token_standard": {"type": "string", "enum": ["ERC-721", "ERC-1155", "legacy_evm", "non_evm"]},
+            "mint_transaction": {"$ref": "#/$defs/hash"},
+            "acquisition_transaction": {"$ref": "#/$defs/hash"},
+            "custody_account": {"type": "string", "pattern": "^eip155:[0-9]+:0x[0-9a-fA-F]{40}$"},
+            "custody_status": {"type": "string", "enum": ["pending", "verified", "unverified", "not_applicable"]},
+            "custody_verified_at": {"type": "string", "format": "date-time"},
+            "custody_block": {"type": "integer", "minimum": 0}
+          },
+          "required": ["caip19", "chain_id", "contract", "token_id", "token_standard", "acquisition_transaction", "custody_account", "custody_status", "custody_verified_at", "custody_block"],
+          "unevaluatedProperties": false
+        },
+        "title_binding": {"$ref": "#/$defs/titleBinding"},
+        "rights": {
+          "type": "object",
+          "properties": {
+            "reproduction": {"$ref": "#/$defs/rightsGrant"},
+            "publication": {"$ref": "#/$defs/rightsGrant"},
+            "exhibition": {"$ref": "#/$defs/rightsGrant"},
+            "print": {"$ref": "#/$defs/rightsGrant"},
+            "derivative_use": {"$ref": "#/$defs/rightsGrant"},
+            "ai_training": {"$ref": "#/$defs/rightsGrant"}
+          },
+          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"],
+          "unevaluatedProperties": false
+        },
+        "condition": {"$ref": "#/$defs/condition"},
+        "current_state": {"type": "string", "enum": ["offered", "authorized", "acquired", "received_onchain", "accessioned", "catalogued", "technically_verified", "preservation_complete", "display_ready"]},
+        "state_history": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "state": {"type": "string", "enum": ["offered", "authorized", "acquired", "received_onchain", "accessioned", "catalogued", "technically_verified", "preservation_complete", "display_ready"]},
+              "observed_at": {"type": "string", "format": "date-time"},
+              "evidence_refs": {"type": "array", "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}, "uniqueItems": true}
+            },
+            "required": ["state", "observed_at", "evidence_refs"],
+            "unevaluatedProperties": false
+          }
+        },
+        "preservation": {
+          "type": "object",
+          "properties": {
+            "status": {"type": "string", "enum": ["not_started", "in_progress", "complete"]},
+            "package_uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+            "fixity_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "render_environment": {"type": "string", "minLength": 1},
+            "observed_at": {"type": "string", "format": "date-time"}
+          },
+          "required": ["status", "package_uri", "fixity_sha256", "render_environment", "observed_at"],
+          "unevaluatedProperties": false
+        },
+        "display": {
+          "type": "object",
+          "properties": {
+            "status": {"type": "string", "enum": ["not_assessed", "ready", "ready_with_conditions", "not_ready"]},
+            "manifest_uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+            "credit_line": {"type": "string", "minLength": 1},
+            "observed_at": {"type": "string", "format": "date-time"}
+          },
+          "required": ["status", "manifest_uri", "credit_line", "observed_at"],
+          "unevaluatedProperties": false
+        }
+      },
+      "required": ["object_id", "accession_lot_id", "title", "creator", "medium", "credit_line", "chain_identity", "title_binding", "rights", "condition", "current_state", "state_history", "preservation", "display"]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/accession-lot-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "ACCESSION_LOT"},
+        "schema_id": {"const": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4"},
+        "accession_number": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"},
+        "acquisition_method": {"type": "string", "enum": ["donation", "purchase", "bequest", "exchange", "transfer"]},
+        "acceptance_date": {"type": "string", "format": "date-time"},
+        "object_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"}, "uniqueItems": true},
+        "governing_references": {"type": "array", "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}, "uniqueItems": true}
+      },
+      "required": ["accession_number", "acquisition_method", "acceptance_date", "object_ids", "governing_references"]
+    }
+  ]
+}

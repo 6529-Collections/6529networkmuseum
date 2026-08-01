@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/common-v1.json",
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"},
+    "dateTime": {"type": "string", "format": "date-time"},
+    "bytes32": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "actor": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "role": {"type": "string"},
+        "observed_at": {"$ref": "#/$defs/dateTime"}
+      },
+      "required": ["id", "role", "observed_at"],
+      "unevaluatedProperties": false
+    },
+    "reviewer": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "role": {"type": "string", "const": "reviewer"},
+        "reviewed_at": {"$ref": "#/$defs/dateTime"}
+      },
+      "required": ["id", "role", "reviewed_at"],
+      "unevaluatedProperties": false
+    },
+    "evidenceRef": {
+      "type": "object",
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+        "sha256": {"type": "string", "pattern": "^(sha256:[0-9a-f]{64}|not_available_local)$"},
+        "observed_at": {"$ref": "#/$defs/dateTime"},
+        "evidence_class": {"type": "string", "enum": ["A", "B", "C", "D", "E"]},
+        "notes": {"type": "string"}
+      },
+      "required": ["label", "uri", "observed_at", "evidence_class"],
+      "unevaluatedProperties": false
+    },
+    "commonPayload": {
+      "type": "object",
+      "properties": {
+        "record_id": {"$ref": "#/$defs/id"},
+        "record_type": {"type": "string"},
+        "schema_id": {"$ref": "#/$defs/bytes32"},
+        "subject_id": {"$ref": "#/$defs/id"},
+        "visibility": {"type": "string", "const": "public"},
+        "record_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "created_at": {"$ref": "#/$defs/dateTime"},
+        "observed_at": {"$ref": "#/$defs/dateTime"},
+        "effective_at": {"$ref": "#/$defs/dateTime"},
+        "constructor": {"$ref": "#/$defs/actor"},
+        "reviewer": {"$ref": "#/$defs/reviewer"},
+        "references": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
+        "supersedes": {"$ref": "#/$defs/id"},
+        "supersession_reason": {"type": "string", "minLength": 1},
+        "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/evidenceRef"}, "uniqueItems": true}
+      },
+      "required": ["record_id", "record_type", "schema_id", "subject_id", "visibility", "record_version", "created_at", "observed_at", "effective_at", "constructor", "reviewer"],
+      "allOf": [
+        {
+          "if": {"required": ["supersedes"]},
+          "then": {"required": ["supersession_reason"]}
+        },
+        {
+          "if": {"required": ["supersession_reason"]},
+          "then": {"required": ["supersedes"]}
+        }
+      ]
+    }
+  }
+}

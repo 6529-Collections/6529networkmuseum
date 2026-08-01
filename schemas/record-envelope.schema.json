@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "title": "6529 Network Museum off-chain Stream-compatible record envelope",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/record-envelope-v1.json"},
+    "envelope": {"$ref": "#/$defs/collectionRecord"},
+    "payload": {"type": "object"}
+  },
+  "required": ["$schema", "envelope", "payload"],
+  "unevaluatedProperties": false,
+  "$defs": {
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{64}$"
+    },
+    "hashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"type": "integer", "enum": [1, 2]},
+        "digest": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+        "canonicalizationId": {"$ref": "#/$defs/bytes32"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false
+    },
+    "collectionRecord": {
+      "type": "object",
+      "properties": {
+        "recordType": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$"},
+        "subjectId": {"$ref": "#/$defs/bytes32"},
+        "contentHash": {"$ref": "#/$defs/hashRef"},
+        "uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+        "schemaId": {"$ref": "#/$defs/bytes32"},
+        "signatureScheme": {"$ref": "#/$defs/bytes32"},
+        "signatureHash": {"$ref": "#/$defs/hashRef"},
+        "effectiveAt": {"type": "integer", "minimum": 0, "maximum": 9007199254740991, "description": "uint64 Stream field constrained to the I-JSON safe-integer range in this off-chain profile."}
+      },
+      "required": ["recordType", "subjectId", "contentHash", "uri", "schemaId", "signatureScheme", "signatureHash", "effectiveAt"],
+      "unevaluatedProperties": false
+    }
+  }
+}
