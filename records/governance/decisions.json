@@ -1,0 +1,151 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "reviewed",
+    "constructor": {
+      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:13:00Z"
+    },
+    "review": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T15:42:12.081Z",
+      "reviewed_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
+      "outcome": "approved",
+      "payload_sha256": "sha256:cc3a641963db8b7ab9eb31716b419be0957398f78b1c1e5f44142f123cf1ba91"
+    }
+  },
+  "record_set_id": "6529NM-GOV-REGISTER",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+  "snapshot_at": "2026-08-01T15:01:05Z",
+  "source_snapshot": {
+    "path": "evidence/waves/museum-wave/proposals.json",
+    "sha256": "7693e75ca37a15ff200c3deed02377a64bbe140ac34bdfa3d9c445cd77170fe7"
+  },
+  "records": [
+    {
+      "decision_id": "6529NM-GOV-1052148",
+      "serial_no": 1052148,
+      "drop_id": "d2613993-2714-4618-b2db-8175f395cea6",
+      "title": "Autoglyphs donation preapproval",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T13:24:57.224Z",
+      "rating": 90331683,
+      "raters_count": 25,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:a6f0d26db616f96304c23af13e4f685572ebe1228e05ae885814130637165383",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052148"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052156",
+      "serial_no": 1052156,
+      "drop_id": "2e88273f-013c-4fdd-bea3-7de5451098e8",
+      "title": "Art Blocks donation preapproval",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T13:27:00.441Z",
+      "rating": 73698446,
+      "raters_count": 21,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:44aa47ce4d4dfd3e4bd0e25db6d3855cd7fda743f7da8b789116678807efbb9e",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052156"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052401",
+      "serial_no": 1052401,
+      "drop_id": "457056cf-3090-4332-ba37-196b10f5f5d2",
+      "title": "Original Rare Pepes donation preapproval",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T14:04:58.899Z",
+      "rating": 74715713,
+      "raters_count": 22,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:5f2bb1751ae975e629b21b360eb52db575f1b7f1bc474a03b1aa86a55b947063",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052401"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052437",
+      "serial_no": 1052437,
+      "drop_id": "e7999acd-4e06-44fc-8f40-bd8d55dc91d1",
+      "title": "Original CryptoPunks donation preapproval",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T14:13:36.227Z",
+      "rating": 85650475,
+      "raters_count": 24,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:4735837fdba7310d18bcb46b7dedd4bbd45f51f811be5e041d1a9224fb39ca87",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052437"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052604",
+      "serial_no": 1052604,
+      "drop_id": "d65befc2-65dc-4362-8ddd-75f867338669",
+      "title": "General NFT Collecting Scope",
+      "decision_class": "collecting_scope",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T14:50:40.977Z",
+      "rating": 89724244,
+      "raters_count": 26,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:0af692816198468f208ef26a6407d97975ef51251317002a77ec8083ca564521",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052604"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052714",
+      "serial_no": 1052714,
+      "drop_id": "d91dc46f-68f3-4879-bb78-bf369ae52046",
+      "title": "The Complaint Cards (not) by 6529",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "PARTICIPATORY",
+      "governance_effect": "no_adopted_effect_at_snapshot",
+      "disposition": "deferred",
+      "created_at": "2026-06-02T15:21:49.459Z",
+      "rating": 5646938,
+      "raters_count": 15,
+      "author_handle": "blocknoob",
+      "proposal_content_hash": "sha256:32f702895b306f063186b117197d6e633438f3b6561a89865ffbfb889580bacb",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052714"
+    },
+    {
+      "decision_id": "6529NM-GOV-1052812",
+      "serial_no": 1052812,
+      "drop_id": "86e43beb-b55d-42f0-9eea-a3c115b08abc",
+      "title": "Donation Acceptance Policy",
+      "decision_class": "donation_policy",
+      "observed_wave_status": "WINNER",
+      "governance_effect": "adopted",
+      "created_at": "2026-06-02T15:45:27.545Z",
+      "rating": 87077479,
+      "raters_count": 21,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:50861873d524c35d3cf782904805f5fa742233367dc5ce2cd02d1f3a4f18165f",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052812"
+    },
+    {
+      "decision_id": "6529NM-GOV-1069256",
+      "serial_no": 1069256,
+      "drop_id": "21b4ba5d-1015-4853-89a0-71eaf780199e",
+      "title": "Lost Robbies donation preapproval",
+      "decision_class": "collection_preapproval",
+      "observed_wave_status": "PARTICIPATORY",
+      "governance_effect": "no_adopted_effect_at_snapshot",
+      "disposition": "undetermined",
+      "created_at": "2026-06-08T17:23:19.256Z",
+      "rating": 44711261,
+      "raters_count": 18,
+      "author_handle": "punk6529",
+      "proposal_content_hash": "sha256:681c5b65ebc313105c9c7f22b7d0240aef5086ba33b3d25fd397f5e26ea70914",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1069256"
+    }
+  ]
+}

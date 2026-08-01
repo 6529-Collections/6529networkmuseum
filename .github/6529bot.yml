@@ -1,0 +1,42 @@
+version: 1
+enabled: true
+
+reviewKinds:
+  allowed: [general, followup, security, media-external, stream-contracts, privacy-evidence, glm-swarm]
+  initial: [general, security, media-external, stream-contracts, privacy-evidence, glm-swarm]
+  followup: [followup]
+
+commands:
+  enabled: true
+
+lanes:
+  - provider: anthropic
+    model: claude-opus-4-8
+
+limits:
+  maxJobsPerDelivery: 6
+
+admission:
+  publicRepoMode: trusted
+  privateRepoMode: open
+  draftPrMode: allow
+  trustedPermission: write
+  trustedUsers: []
+  trustedTeams: [6529seize-maintainers]
+  trustedOrganizations: [6529-Collections]
+  denyUsers: []
+
+budget:
+  mode: enforce
+  defaultEstimatedCostUsd: 1
+  caps:
+    repo:
+      dailyUsd: 50
+      weeklyUsd: 300
+      monthlyUsd: 1000
+    requestor:
+      dailyUsd: 20
+    pr:
+      dailyUsd: 15
+    review_kind:
+      dailyUsd: 25
