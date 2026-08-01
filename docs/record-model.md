@@ -53,8 +53,11 @@ Current-view indexes may point to the newest record, but they do not erase histo
 
 ## Release commitments
 
-`release-artifacts/latest/record-manifest.json` inventories governed records and
-the control-plane source that validates them: policies, records, schemas, docs,
-specs, scripts, and tests. JSON descriptors include a Stream-shaped `HashRef` using
-Keccak-256 over constrained RFC 8785 canonical JSON. Text files also receive
-LF-normalized SHA-256 digests for repository and archival tooling.
+`release-artifacts/latest/record-manifest.json` inventories the closed governed
+release boundary: records and policies, governance and review controls,
+protocol specifications, templates, validation source and tests, plus named
+root controls. The exact roots, files, and intentional exclusions are defined
+in [`control-plane.md`](control-plane.md). JSON descriptors include a
+Stream-shaped `HashRef` using Keccak-256 over constrained RFC 8785 canonical
+JSON. Text files also receive LF-normalized SHA-256 digests for repository and
+archival tooling.

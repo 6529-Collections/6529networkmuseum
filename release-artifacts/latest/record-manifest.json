@@ -87,8 +87,8 @@
     },
     {
       "path": "docs/record-model.md",
-      "sha256": "sha256:6627d6cf90b72ef8f3587611652c4d2aa40b19c16e9374f983cb50e2a1ec57de",
-      "size": 3242
+      "sha256": "sha256:fc6a51097bebc545400be3f21940edb7e8e1c6dc807d941324af5cfa50abc131",
+      "size": 3403
     },
     {
       "path": "docs/standards-crosswalk.md",
@@ -782,8 +782,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:185d8c46d20a44668ba7dee650016724d61b92a451cb790c79cedf13d598f780",
-      "size": 48741
+      "sha256": "sha256:01a58acb62b3e9c460bedb8dd9695caf717208aead41b8afcd82d60a675d6051",
+      "size": 49413
     }
   ],
   "hash_algorithms": {
@@ -813,9 +813,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x4c0864d76b613708e5e48c36758c72dcdc6a665a35cc23e814bd76f124d25726"
+    "digest": "0xd1b97fc5ceb7c5d81b191ba521ab5858d4660436bde94ebae57dfe6cfc26ade6"
   },
-  "manifest_sha256": "sha256:68f8960432a737ad394fc5a3773c52d9ee446032b51aed8de6c44ff36b764631",
+  "manifest_sha256": "sha256:ede3a09419eae39dd88293fb45e2ce8263c00b4554b1ec5204ed431b6a7bdcad",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

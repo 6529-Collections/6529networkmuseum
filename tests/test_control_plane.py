@@ -844,7 +844,10 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(manifest["entries"])
         self.assertTrue(all("\\" not in entry["path"] for entry in manifest["entries"]))
         self.assertTrue(all(not entry["path"].startswith("evidence/") for entry in manifest["entries"]))
-        paths = {entry["path"] for entry in manifest["entries"]}
+        entry_paths = [entry["path"] for entry in manifest["entries"]]
+        self.assertEqual(sorted(entry_paths), entry_paths)
+        self.assertEqual(len(entry_paths), len(set(entry_paths)))
+        paths = set(entry_paths)
         self.assertIn("docs/generative-trait-analysis.md", paths)
         self.assertIn("governance/pull-request-review-policy.md", paths)
         self.assertIn("templates/object-record.md", paths)
@@ -867,23 +870,34 @@ class ControlPlaneTests(unittest.TestCase):
         root = Path(temporary.name)
         docs = root / "docs"
         specs = root / "specs"
+        notes = root / "notes" / "wip"
         cache = root / "scripts" / "__pycache__"
         docs.mkdir(parents=True)
         specs.mkdir(parents=True)
+        notes.mkdir(parents=True)
         cache.mkdir(parents=True)
         source = docs / "example.md"
+        specification = specs / "protocol.md"
         source.write_bytes(b"first\r\nsecond\rthird\n")
-        (specs / "protocol.md").write_text("governed spec\n", encoding="utf-8")
+        specification.write_bytes(b"governed\r\nspec\r")
+        (notes / "working.md").write_text("not release authority\n", encoding="utf-8")
         (root / "README.md").write_bytes(b"first\r\nsecond\rthird\n")
         (cache / "example.pyc").write_bytes(b"cache")
         self.assertEqual(b"first\nsecond\nthird\n", normalized_bytes(source))
+        self.assertEqual(b"governed\nspec\n", normalized_bytes(specification))
         first = make_manifest(root)
         second = make_manifest(root)
         self.assertEqual(first, second)
-        self.assertIn("docs/example.md", {entry["path"] for entry in first["entries"]})
-        self.assertIn("specs/protocol.md", {entry["path"] for entry in first["entries"]})
-        self.assertIn("README.md", {entry["path"] for entry in first["entries"]})
-        self.assertNotIn("scripts/__pycache__/example.pyc", {entry["path"] for entry in first["entries"]})
+        paths = {entry["path"] for entry in first["entries"]}
+        self.assertIn("docs/example.md", paths)
+        self.assertIn("specs/protocol.md", paths)
+        self.assertIn("README.md", paths)
+        self.assertNotIn("notes/wip/working.md", paths)
+        self.assertNotIn("scripts/__pycache__/example.pyc", paths)
+        specification.write_text("changed specification\n", encoding="utf-8")
+        changed = make_manifest(root)
+        self.assertNotEqual(first["manifest_commitment"], changed["manifest_commitment"])
+        self.assertNotEqual(first["manifest_sha256"], changed["manifest_sha256"])
 
     def test_manifest_rejects_file_and_directory_symlinks(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-links-")
