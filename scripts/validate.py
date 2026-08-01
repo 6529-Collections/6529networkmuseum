@@ -134,8 +134,16 @@ def validator_for(schema: dict[str, Any], store: dict[str, dict[str, Any]]) -> D
 
 def top_level_payload_keys(type_schema: dict[str, Any], store: dict[str, dict[str, Any]]) -> set[str]:
     common = store["https://6529networkmuseum.org/schemas/common-v1.json"]["$defs"]["commonPayload"]
-    own = next(part for part in type_schema.get("allOf", []) if part.get("type") == "object")
-    return set(common.get("properties", {})) | set(own.get("properties", {}))
+
+    def properties_in(schema: dict[str, Any]) -> set[str]:
+        keys = set(schema.get("properties", {}))
+        for keyword in ("allOf", "anyOf", "oneOf"):
+            for part in schema.get(keyword, []):
+                if isinstance(part, dict):
+                    keys.update(properties_in(part))
+        return keys
+
+    return set(common.get("properties", {})) | properties_in(type_schema)
 
 
 def format_error(error: Any) -> str:

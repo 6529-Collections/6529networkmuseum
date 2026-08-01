@@ -29,8 +29,8 @@ Status vocabulary:
 | [`governance/pull-request-review-policy.md`](governance/pull-request-review-policy.md) | active operating control | Baseline 6529bot reviews, specialist routing matrix, follow-up procedure, and constructor/reviewer boundary |
 | [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required `Museum validation` foundation/full checks plus Ubuntu/Windows deterministic matrix on every PR and main push |
-| `records/programs/6529NM-AP-01/program.json` | pending creation | Keys and Gates rules and current stage |
-| `records/programs/6529NM-AP-01/selected-works.json` | pending creation | Sixteen Wave winners, each explicitly pending acquisition/accession verification |
+| [`records/programs/6529NM-AP-01/program.json`](records/programs/6529NM-AP-01/program.json) | canonical constructed program record | Keys and Gates rules, source provenance, undecided mint topology, and registrar gates |
+| [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
 | [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
 
 ## Working standards and architecture
@@ -86,6 +86,9 @@ Status vocabulary:
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
 | [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
 | [`release-artifacts/latest/record-manifest.json`](release-artifacts/latest/record-manifest.json) | canonical register commitment | Current governed-file manifest |
+| [`schemas/accession-program.schema.json`](schemas/accession-program.schema.json) | active local schema | Rigorous Keys and Gates program record contract |
+| [`schemas/program-outcome-index.schema.json`](schemas/program-outcome-index.schema.json) | active local schema | Sixteen-row selected-work index contract |
+| [`schemas/program-outcome.schema.json`](schemas/program-outcome.schema.json) | active local schema | Individual selected-work registrar outcome contract |
 
 ## Maintenance rule
 

@@ -47,12 +47,28 @@ class ControlPlaneTests(unittest.TestCase):
 
     def test_rfc8785_profile_and_keccak_vector(self) -> None:
         self.assertEqual(b'{"a":1,"b":2}', canonicalize({"b": 2, "a": 1}))
+        golden_numbers = {
+            -0.0: b"0",
+            1e-6: b"0.000001",
+            1e-7: b"1e-7",
+            1e20: b"100000000000000000000",
+            1e21: b"1e+21",
+            5e-324: b"5e-324",
+            1.2345678901234567: b"1.2345678901234567",
+        }
+        for number, expected in golden_numbers.items():
+            self.assertEqual(expected, canonicalize(number), repr(number))
+        self.assertEqual(b"9007199254740991", canonicalize(9007199254740991))
+        with self.assertRaises(ValueError):
+            canonicalize(9007199254740992)
+        with self.assertRaises(ValueError):
+            canonicalize(float("nan"))
+        with self.assertRaises(ValueError):
+            canonicalize(float("inf"))
         self.assertEqual(
             "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
             keccak256(b"").hex(),
         )
-        with self.assertRaises(TypeError):
-            canonicalize({"not_allowed": 0.5})
 
     def test_content_hash_tampering_is_rejected(self) -> None:
         temporary, records = self.make_records_root()

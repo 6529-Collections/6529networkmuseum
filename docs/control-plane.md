@@ -102,9 +102,12 @@ The release profile is RFC 8785-compatible constrained I-JSON:
 
 - objects sort keys by UTF-16 code units;
 - strings use JSON's shortest valid escaping and UTF-8 output;
-- booleans, null, arrays, and safe integers are supported;
-- floats, non-finite values, unsafe integers, and Unicode surrogate code points
-  are rejected rather than normalized differently by different runtimes.
+- booleans, null, arrays, finite IEEE-754 numbers, and safe integers are supported;
+- non-finite values, unsafe integers, and Unicode surrogate code points are
+  rejected rather than normalized differently by different runtimes;
+- number serialization is delegated to the pinned RFC 8785 implementation and
+  is covered by golden vectors for negative zero, exponent cutovers, precision,
+  and subnormal values.
 
 JSON entries receive a Stream-shaped Keccak/JCS `content_hash` and all governed
 files receive an LF-normalized SHA-256 digest. The manifest itself commits its
