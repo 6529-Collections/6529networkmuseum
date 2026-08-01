@@ -82,8 +82,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/README.md",
         "role": "package-documentation",
-        "sha256": "sha256:61b8616d0d443b5928fd45ac60446f8fe0a93456f16e3c536614c19e272c775b",
-        "size": 9448
+        "sha256": "sha256:74c27465078d7fabdc420c54c743e79a17cfa0c2790402bc8cc749bda20ab3ee",
+        "size": 9592
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",

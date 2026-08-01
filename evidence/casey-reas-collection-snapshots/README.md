@@ -128,7 +128,9 @@ clones verify raw observations, snapshots, and the child run manifest against
 that reachable publication commit while retaining the earlier construction
 commits as historical provenance. Publishing a future package has two phases:
 merge the reviewed package, then bind its resulting immutable merge commit in
-the excluded `latest-run.json` pointer and rerun the verifier.
+both `latest-run.json.published_source_commit` and the verifier's
+`PUBLISHED_SOURCE_COMMIT` constant, regenerate the package and governed release
+manifests, and rerun the full validation suite and verifier.
 
 The squash-dropped construction commit OIDs are historical identifiers; a
 fresh-clone verifier does not pretend it can dereference objects absent from
