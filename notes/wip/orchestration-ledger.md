@@ -201,3 +201,7 @@ head-bound bot reruns follow the cross-platform validation.
 ## 2026-08-01 - Casey accession exact-head synchronization
 
 PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677fbfb32dbbe51725f`, preserving the merged Casey research and this ledger checkpoint. The dossier now ends at `4b75ece88b354c534137e2f6306965f541a38faa`. Local bootstrap validation, whitespace checks, and the refreshed mandatory Museum validation pass. The PR remains draft and unmerged; no constructor self-review or accession-completion claim is made.
+
+## 2026-08-01 - Casey accession synchronization after PR #8
+
+`origin/main` advanced to `956ca06ba9c4563c844422c400ccb0bd37c94357` after the independently approved templates/crosswalk PR #8. PR #10 was rebased once onto that exact main. The Casey dossier records and schemas are byte-for-byte unchanged from the pre-sync head `ae42e16f5e93a169c30ce0b111fe992fddd59652`, and the approved main templates/crosswalk remain unchanged. The synchronized dossier head is `8435faf858ec4dc807487a618e75baa3f1d0f229`; local bootstrap and whitespace checks pass, and mandatory Museum validation run `30708569720` / job `91391853135` passed. PR #10 remains open, draft, and unmerged for independent integration review; no merge or accession-completion claim is made.
