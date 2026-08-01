@@ -1,0 +1,114 @@
+{
+  "$schema": "../../../../schemas/program-outcome.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "reviewed",
+    "constructor": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:48:20Z"
+    },
+    "review": {
+      "actor_id": "codex-task:019fbe15-7872-7312-a455-697a8835683c",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T16:29:31.633Z",
+      "reviewed_commit": "0e82d12306048c7356cd27587e7d5c84e2bbde80",
+      "outcome": "approved",
+      "payload_sha256": "sha256:3deb074639cdb45b3b168a1d3b2baa093677e93640effda9f2b9bbd876f7abdf"
+    }
+  },
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-003",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "nasimghanizadeh",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "Managed Freedom",
+  "title_as_submitted": "Managed Freedom",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "Managed Freedom \n\n2023\n\nKayseri, Turkey\n\n\n\"Managed Freedom\" explores the tension between openness and control through the movement of a horse herd across an empty landscape in central Turkey. Although the scene appears unrestricted, the herd’s behavior is still shaped by riders, training, hierarchy, and invisible boundaries. The image reflects on how authority can exist without physical fences or visible barriers.\n\n\nThe open plain functions almost like a borderland, where movement feels free while still being directed and monitored. At the same time, the herd itself resembles a self-organized system adapting collectively outside formal structures or official chokepoints. The photograph itself also connects horses to ideas of migration, departure, refusal, evasion, shelter, invisibility, and the quiet act of leaving. It aims to show freedom not as absolute, but as something constantly negotiated within systems of control.\n\n\nCanon 5D Mark IV \n\n24–105mm lens at 70mm\n\nISO 800, f/4, 1/1250s\n\n\nThe image was captured by hand during active movement across a rugged landscape. Editing was limited to slight rotation adjustments and mild color correction to preserve the natural atmosphere of the original scene. No AI manipulation was used.\n\n\n I, Nasim Ghanizadeh, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_3193a483-dbd5-46b5-801b-ef54b5450314/45742d59-df5d-4d1a-9dc4-f25812df220f/Managed-Freedom.jpg",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "submission_drop_id": "b47b7d58-6276-45ba-b707-ec0f623e39e2",
+    "submission_serial_no": 980507,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 3,
+    "vote_total": 12280514,
+    "realtime_vote_total": 12280514,
+    "voter_count": 55,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "decision_at_basis": "Voting-period end recorded as the selection cutoff; no separate decision event is asserted.",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "I, Nasim Ghanizadeh, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "no people-consent representation located in declaration",
+      "documentation_status": "not stated; independently verify if people are depicted"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": null,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:48d3c7657b0c3b51402580b788e536e378c45c17d8df1bb54cdabad2aaf57052",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}

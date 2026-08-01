@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/accession-program/v1",
+  "title": "6529 Network Museum accession program record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "record_control", "record_type", "schema_profile", "program_id", "title", "subtitle", "status", "status_as_of", "benefit_work_model", "authorities_and_sources", "curatorial_frame", "rules", "registrar_gate", "record_links", "non_claims"],
+  "properties": {
+    "$schema": {"const": "../../../schemas/accession-program.schema.json"},
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "constructor"},
+            "constructed_at": {"type": "string", "minLength": 20}
+          }
+        },
+        "review": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "reviewed_at", "reviewed_commit", "outcome", "payload_sha256"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "reviewer"},
+            "reviewed_at": {"type": "string", "minLength": 20},
+            "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "outcome": {"const": "approved"},
+            "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+          }
+        }
+      }
+    },
+    "record_type": {"const": "ACCESSION_PROGRAM"},
+    "schema_profile": {"const": "6529NM_ACCESSION_PROGRAM_V1"},
+    "program_id": {"type": "string", "pattern": "^6529NM-AP-[0-9]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "subtitle": {"type": "string", "minLength": 1},
+    "status": {"const": "selection_complete_acquisition_and_accession_unverified"},
+    "status_as_of": {"type": "string", "minLength": 20},
+    "benefit_work_model": {"type": "string", "minLength": 1},
+    "authorities_and_sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["program_wave", "formal_notes", "live_wave_configuration", "operational_chat_context"],
+      "properties": {
+        "program_wave": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["wave_id", "url", "name", "description_drop_id", "description_drop_serial_no", "description_drop_observed_at"],
+          "properties": {
+            "wave_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+            "url": {"type": "string", "pattern": "^https://6529\\.io/waves/"},
+            "name": {"type": "string", "minLength": 1},
+            "description_drop_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+            "description_drop_serial_no": {"type": "integer", "minimum": 1},
+            "description_drop_observed_at": {"type": "string", "minLength": 20}
+          }
+        },
+        "formal_notes": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "url", "observed_at", "sha256", "hash_basis"],
+            "properties": {
+              "role": {"enum": ["program_note", "institutional_note"]},
+              "url": {"type": "string", "pattern": "^https://"},
+              "observed_at": {"type": "string", "minLength": 20},
+              "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+              "hash_basis": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "live_wave_configuration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["observed_at", "voting_period_start", "voting_period_end", "voting_credit_type", "voting_credit_scope", "selection_status_evidence"],
+          "properties": {
+            "observed_at": {"type": "string", "minLength": 20},
+            "voting_period_start": {"type": "string", "minLength": 20},
+            "voting_period_end": {"type": "string", "minLength": 20},
+            "voting_credit_type": {"const": "TDH"},
+            "voting_credit_scope": {"const": "WAVE"},
+            "selection_status_evidence": {"type": "string", "minLength": 1}
+          }
+        },
+        "operational_chat_context": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["serial_no", "drop_id", "author", "occurred_at", "interpretation"],
+            "properties": {
+              "serial_no": {"type": "integer", "minimum": 1},
+              "drop_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+              "author": {"type": "string", "minLength": 1},
+              "occurred_at": {"type": "string", "minLength": 20},
+              "text": {"type": "string", "minLength": 1},
+              "interpretation": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "curatorial_frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["premise", "in_scope", "selection_standards", "outcome_interpretation"],
+      "properties": {
+        "premise": {"type": "string", "minLength": 1},
+        "in_scope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "selection_standards": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "outcome_interpretation": {"type": "string", "minLength": 1}
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["open_call_duration_days", "work_type", "theme", "submission_limit_per_artist", "rights", "submission_package", "selection", "acquisition", "publication_outputs"],
+      "properties": {
+        "open_call_duration_days": {"type": "integer", "minimum": 1},
+        "work_type": {"type": "string", "minLength": 1},
+        "theme": {"type": "string", "minLength": 1},
+        "submission_limit_per_artist": {"type": "integer", "minimum": 1},
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["program_license", "artist_requirement", "depicted_people", "identifiable_minors", "sensitive_personal_data"],
+          "properties": {
+            "program_license": {"const": "CC0 only"},
+            "artist_requirement": {"type": "string", "minLength": 1},
+            "depicted_people": {"type": "string", "minLength": 1},
+            "identifiable_minors": {"type": "string", "minLength": 1},
+            "sensitive_personal_data": {"type": "string", "minLength": 1}
+          }
+        },
+        "submission_package": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "selection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["method", "fallback", "live_vote_scope", "selected_count", "selected_count_meaning"],
+          "properties": {
+            "method": {"type": "string", "minLength": 1},
+            "fallback": {"type": "string", "minLength": 1},
+            "live_vote_scope": {"const": "TDH / WAVE"},
+            "selected_count": {"const": 16},
+            "selected_count_meaning": {"type": "string", "minLength": 1}
+          }
+        },
+        "acquisition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["budget_formula", "purchase_price_eth_per_acquired_work", "quantity_formula", "planned_custody_reference", "first_mint_expectation_in_program_note", "current_mint_topology"],
+          "properties": {
+            "budget_formula": {"type": "string", "minLength": 1},
+            "purchase_price_eth_per_acquired_work": {"type": "number", "minimum": 0},
+            "quantity_formula": {"type": "string", "minLength": 1},
+            "planned_custody_reference": {"const": "networkmuseum.6529.eth"},
+            "first_mint_expectation_in_program_note": {"type": "string", "minLength": 1},
+            "current_mint_topology": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["status", "options", "contract_address", "deployment_transaction", "decision_record"],
+              "properties": {
+                "status": {"const": "undecided"},
+                "options": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}},
+                "contract_address": {"type": ["string", "null"]},
+                "deployment_transaction": {"type": ["string", "null"]},
+                "decision_record": {"type": ["string", "null"]}
+              }
+            }
+          }
+        },
+        "publication_outputs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "registrar_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_before_acquisition_or_accession", "current_collection_register_effect", "unresolved_fields_policy"],
+      "properties": {
+        "required_before_acquisition_or_accession": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "current_collection_register_effect": {"type": "string", "minLength": 1},
+        "unresolved_fields_policy": {"type": "string", "minLength": 1}
+      }
+    },
+    "record_links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome_index", "individual_outcomes"],
+      "properties": {
+        "outcome_index": {"const": "records/programs/6529NM-AP-01/selected-works.json"},
+        "individual_outcomes": {"const": "records/programs/6529NM-AP-01/outcomes/OUT-001.json through OUT-016.json"}
+      }
+    },
+    "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+  }
+}
