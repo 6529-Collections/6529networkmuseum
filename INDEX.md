@@ -18,19 +18,19 @@ Status vocabulary:
 | [`policies/founding-and-operating-principles.md`](policies/founding-and-operating-principles.md) | source transcription | Mission, public-good posture, TDH governance, custody, permanent holding, pathways, documentation, CC0 default |
 | [`policies/general-nft-collecting-scope.md`](policies/general-nft-collecting-scope.md) | adopted | Exact text of winning Wave proposal #1052604 |
 | [`policies/donation-acceptance.md`](policies/donation-acceptance.md) | adopted | Exact text of winning Wave proposal #1052812 |
-| [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | canonical register | Four adopted donation preapprovals and two proposals with no adopted effect at snapshot |
+| [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | constructed register | Four adopted donation preapprovals and two proposals with no adopted effect at snapshot; independent review pending |
 
 ## Governance and programs
 
 | File | Status | Contents |
 |---|---|---|
-| [`records/governance/decisions.json`](records/governance/decisions.json) | canonical register | Six adopted decisions and two proposals with no adopted effect at snapshot, with source hashes |
+| [`records/governance/decisions.json`](records/governance/decisions.json) | constructed register | Six adopted decisions and two proposals with no adopted effect at snapshot, with source hashes; independent review pending |
 | [`governance/github-repository-governance.md`](governance/github-repository-governance.md) | active operating control | Maintainer approval/merge policy, configured team access, and current GitHub Free enforcement limitation |
 | [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required bootstrap record-integrity check on every PR and main push |
 | `records/programs/6529NM-AP-01/program.json` | pending creation | Keys and Gates rules and current stage |
 | `records/programs/6529NM-AP-01/selected-works.json` | pending creation | Sixteen Wave winners, each explicitly pending acquisition/accession verification |
-| [`records/accessions/register.json`](records/accessions/register.json) | canonical register | Casey Reas donation received; seven-work accession documentation in progress |
+| [`records/accessions/register.json`](records/accessions/register.json) | constructed register | Casey Reas donation received; seven-work accession documentation in progress; independent review pending |
 
 ## Working standards and architecture
 
@@ -73,7 +73,7 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
-| `schemas/` | pending creation | JSON Schemas and Stream-compatible profiles |
+| [`schemas/`](schemas/) | active bootstrap schemas | Governance decisions, donation-preapproved collections, and accession-register structure; additional record families and Stream-compatible profiles remain under construction |
 | `scripts/validate.py` | pending creation | Structural, semantic, secret, and status validation |
 | `scripts/generate_manifest.py` | pending creation | Deterministic SHA-256 and JCS/Keccak release commitments |
 | `release-artifacts/latest/record-manifest.json` | pending generation | Current governed-file manifest |

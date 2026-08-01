@@ -4,7 +4,7 @@ Record ID: `6529NM-POL-003`
 Governance decision: `6529NM-GOV-1052812`
 Wave serial: `1052812`
 Drop: `86e43beb-b55d-42f0-9eea-a3c115b08abc`
-Status observed 2026-08-01T13:58:09Z: `WINNER`
+Status observed 2026-08-01T15:01:05Z: `WINNER`
 Proposal-content SHA-256: `sha256:50861873d524c35d3cf782904805f5fa742233367dc5ce2cd02d1f3a4f18165f`
 
 The following is the adopted proposal text. Headings have been rendered as Markdown; the words and numbered requirements are unchanged.

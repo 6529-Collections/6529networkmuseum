@@ -10,7 +10,7 @@ All changes to the default branch are made through pull requests and are subject
 
 - Members of `@6529-Collections/6529seize-maintainers` are the Museum repository maintainers.
 - A maintainer may authorize and merge a pull request after required CI succeeds.
-- A pull request by anyone outside the maintainer team requires at least one approving review from a maintainer and successful CI before merge.
+- A pull request by anyone outside the maintainer team requires at least one approving review from the designated maintainer team and successful CI before merge.
 - A maintainer-authored pull request may be merged by a maintainer after successful CI; high-risk governed-record and release changes still use the constructor/reviewer separation defined in the record standards.
 - Approval applies to the reviewed commit. Material changes after approval require review again.
 - Administrators follow the same process except for a documented emergency intervention.
@@ -40,11 +40,11 @@ The following repository rulesets are active:
 The active settings implement:
 
 1. require a pull request before merging;
-2. require one approval;
-3. require code-owner review for outside contributors;
+2. require one approval by the designated maintainer team for outside contributors;
+3. request repository-wide ownership review through `CODEOWNERS` without claiming the separate GitHub code-owner-review flag is enabled;
 4. dismiss stale approvals when new commits are pushed;
 5. require approval of the latest reviewable push;
-6. require all Museum validation and manifest checks;
+6. require the `Museum validation` check, which currently includes schema/record checks and raw evidence-manifest verification; add the release-manifest check to the ruleset when that job lands;
 7. require conversation resolution;
 8. block force pushes and deletion;
 9. do not permit a CI bypass, including by maintainers;

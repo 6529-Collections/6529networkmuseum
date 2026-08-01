@@ -1,5 +1,15 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:13:00Z"
+    },
+    "review": null
+  },
   "register_id": "6529NM-ACCESSION-REGISTER",
   "snapshot_at": "2026-08-01T14:58:31.905115Z",
   "lots": [

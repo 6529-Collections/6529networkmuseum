@@ -1,7 +1,17 @@
 {
   "$schema": "../../schemas/approved-collections.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:13:00Z"
+    },
+    "review": null
+  },
   "record_set_id": "6529NM-COL-APPROVED",
-  "snapshot_at": "2026-08-01T13:58:09Z",
+  "snapshot_at": "2026-08-01T15:01:05Z",
   "meaning": "Donation preapproval removes collection-specific pre-authorization only. Every offered work remains subject to authenticity, provenance, title, donor authority, legal, rights, technical, risk, and formal acceptance checks.",
   "collections": [
     {

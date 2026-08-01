@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/approved-collections/v1",
+  "title": "6529 Network Museum donation-preapproved collections",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "record_control", "record_set_id", "snapshot_at", "meaning", "collections", "not_approved_at_snapshot"],
+  "properties": {
+    "$schema": {"const": "../../schemas/approved-collections.schema.json"},
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {"type": "object", "required": ["actor_id", "role", "constructed_at"]},
+        "review": {"type": ["object", "null"]}
+      }
+    },
+    "record_set_id": {"const": "6529NM-COL-APPROVED"},
+    "snapshot_at": {"type": "string", "minLength": 20},
+    "meaning": {"type": "string", "minLength": 1},
+    "collections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["approval_id", "preferred_name", "scope_definition", "category", "status", "decision_id", "effective_evidence", "exclusions"],
+        "properties": {
+          "approval_id": {"type": "string", "pattern": "^6529NM-COL-APPROVED-[0-9]{4}$"},
+          "preferred_name": {"type": "string", "minLength": 1},
+          "scope_definition": {"type": "string", "minLength": 1},
+          "category": {"type": "string", "minLength": 1},
+          "status": {"const": "approved_for_donation_review_pathway"},
+          "decision_id": {"type": "string", "pattern": "^6529NM-GOV-[0-9]+$"},
+          "effective_evidence": {"const": "wave_winner"},
+          "exclusions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "not_approved_at_snapshot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["preferred_name", "decision_id", "observed_wave_status", "disposition"],
+        "properties": {
+          "preferred_name": {"type": "string", "minLength": 1},
+          "decision_id": {"type": "string", "pattern": "^6529NM-GOV-[0-9]+$"},
+          "observed_wave_status": {"const": "PARTICIPATORY"},
+          "disposition": {"enum": ["deferred", "undetermined"]}
+        }
+      }
+    }
+  }
+}

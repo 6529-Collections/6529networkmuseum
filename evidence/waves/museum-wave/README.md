@@ -1,7 +1,7 @@
 # Museum Wave evidence snapshot
 
 Wave: `5f207393-5418-4a75-8738-e40edb44a94d`
-Captured: 2026-08-01T13:58:09Z
+Captured: 2026-08-01T15:01:05Z
 Method: authenticated read through the local `punk6529bot` helper
 Purpose: reproducible evidence for policy, decision, and institutional-history records
 

@@ -1,8 +1,18 @@
 {
   "$schema": "../../schemas/governance-decisions.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:13:00Z"
+    },
+    "review": null
+  },
   "record_set_id": "6529NM-GOV-REGISTER",
   "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
-  "snapshot_at": "2026-08-01T13:58:09Z",
+  "snapshot_at": "2026-08-01T15:01:05Z",
   "source_snapshot": {
     "path": "evidence/waves/museum-wave/proposals.json",
     "sha256": "7693e75ca37a15ff200c3deed02377a64bbe140ac34bdfa3d9c445cd77170fe7"
@@ -95,7 +105,7 @@
       "created_at": "2026-06-02T15:21:49.459Z",
       "rating": 5646938,
       "raters_count": 15,
-      "author_handle": "punk6529",
+      "author_handle": "blocknoob",
       "proposal_content_hash": "sha256:32f702895b306f063186b117197d6e633438f3b6561a89865ffbfb889580bacb",
       "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052714"
     },
