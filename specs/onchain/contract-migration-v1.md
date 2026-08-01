@@ -257,8 +257,14 @@ bytes32 hashRefHash(HashRef memory ref) {
 ```
 
 The implementation MUST use Solidity `abi.encode`, not packed encoding. The
-Museum hash omits predecessor so the same immutable envelope has one identity
-even if an import is retried after a reorg. A lane append separately computes:
+inner `keccak256(ref.digest)` is always over the exact digest bytes stored in
+the `HashRef`, regardless of `ref.algorithm`; it is not a conditional shortcut
+for Keccak content. Thus a 32-byte SHA-256, BLAKE3, Arweave, or other fixed-size
+digest is re-hashed as those 32 bytes before the outer ABI encoding. An
+implementation MUST NOT substitute the source payload hash or skip this inner
+hash merely because the digest came from content addressing. The Museum hash
+omits predecessor so the same immutable envelope has one identity even if an
+import is retried after a reorg. A lane append separately computes:
 
 ```solidity
 chainHash = keccak256(abi.encode(
@@ -456,8 +462,11 @@ V1 pins the envelope/signature interaction to avoid a circular preimage:
   EIP-712 signature is authorization metadata, not the envelope's
   `signatureHash`, so `recordHash` can be computed before signature creation.
 * A zero envelope scheme with any nonempty or nonzero signature hash MUST
-  revert. An unsupported nonzero envelope scheme MUST revert unless its
-  schema/authority admission explicitly admits it.
+  revert. For direct and batch writes, either violation MUST revert with
+  `InvalidEnvelopeSignatureFields`; for `bySig`, it MUST revert with
+  `InvalidRelayedSignatureFields`. An unsupported nonzero envelope scheme MUST
+  revert with the same path-specific error unless its schema/authority
+  admission explicitly admits it.
 
 The signer address is explicit in the ABI, is checked for the record family,
 and is included in the event. EOA signatures use exact ECDSA recovery;
@@ -622,10 +631,15 @@ signature:
 3. Require `signedPreviousRecordHash == previousRecordHash`.
 4. Require `previousRecordHash` equals the current lane head (zero for the
    first revision).
-5. Construct the EIP-712 struct using the exact `signedRecordHash`,
+5. Apply the same `payloadMode`/`INLINE` profile, byte-cap, zero-payload, and
+   `PayloadDigestMismatch`/`InlinePayloadProfileMismatch` checks required by
+   §5.2 for `recordMuseumRecordWithPayload` to the `payload` argument. A
+   relayer MUST NOT be able to attach bytes that do not match the signed
+   envelope.
+6. Construct the EIP-712 struct using the exact `signedRecordHash`,
    `record.recordType`, `record.subjectId`, exact
    `signedPreviousRecordHash`, `nonce`, and `deadline` arguments.
-6. Verify that digest for `signer`, then consume the signer-scoped nonce.
+7. Verify that digest for `signer`, then consume the signer-scoped nonce.
 
 The contract MUST NOT derive a digest from one record/predecessor pair while
 storing another. `SignedRecordHashMismatch` and
@@ -639,6 +653,9 @@ MUST be emitted; it is not part of any record hash. A retry after a reorg is
 permitted once the caller re-reads state and resubmits only records not
 present in the surviving chain. A record already present is handled by the
 global duplicate semantics above, not by silently skipping it in a batch.
+Since the batch is all-or-nothing, any already-present `recordHash` reverts the
+whole batch; a reorg-retry batch MUST exclude every record hash already present
+in the surviving chain.
 
 ### 7.1 Required errors
 
@@ -664,6 +681,8 @@ error PayloadRequired(bytes32 schemaId);
 error PayloadTooLarge(uint256 actual, uint256 maximum);
 error PayloadDigestMismatch(bytes32 expected, bytes32 actual);
 error InlinePayloadProfileMismatch(uint16 algorithm, bytes32 canonicalizationId);
+error InvalidEnvelopeSignatureFields(bytes32 signatureScheme, uint16 algorithm,
+    uint256 digestLength, bytes32 canonicalizationId);
 error InvalidRelayedSignatureFields(bytes32 signatureScheme, uint16 algorithm,
     uint256 digestLength, bytes32 canonicalizationId);
 error RecordAlreadyExists(bytes32 recordHash);
@@ -936,6 +955,7 @@ payloadMode = INLINE
 recordHashDomain = 0x0c86cc4258c69b4674aa86e715d4d167bd8288b78832a0a4c5a37943b31876c4
 contentHash.algorithm = 1
 contentDigest = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
+keccak256(contentHash.digest) = 0x23a91b3a3e46e505e103bc13198f617068273bf16ef976794ee14bde2640a2e5
 contentHash.canonicalizationId = 0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044
 uri = ipfs://bafybeigdyrzt5example
 uriHash = 0x8104a3a6d02c26de42514a3425567e1b75724dfda699658584c39e61153b713c
@@ -945,16 +965,16 @@ signatureHash.algorithm = 0
 signatureHash.digest = 0x
 signatureHash.canonicalizationId = 0x0000000000000000000000000000000000000000000000000000000000000000
 keccak256(signatureHash.digest) = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
-hashRefHash(contentHash) = 0x7e4c1fd9e0fb136070ef0c61d036bbb01b5a7b3da66c97984d3a5c266219f19f
+hashRefHash(contentHash) = 0x66de33e7d57cf2169917368e5d3e0e9e9841cd367f8de4ff95f3a15164456462
 hashRefHash(signatureHash) = 0x2653d71e6881daccbff9917e23f12df8e56f7a0f8688215ca7092a5368a7d470
 chainId = 1
 registry = 0x0000000000000000000000000000000000000001
 effectiveAt = 1722470400
-recordHash = 0x3798a5094d3d998aeed0ecfab6efcb84a3eac5bc9b91988c7c841b82eb7cdc50
+recordHash = 0xacdb0e50ffc52d3f6aca12e671528b4aeeb1930ae3f8afe7416e4869d1946819
 ```
 
 For the first lane append, `revision = 1`, `previousRecordHash = 0x00...00`,
-and `chainHash = 0x96772821fc5d7389343e83d7f04ba0c914c055ce04b4e1dd1fc8fadfa492e74c`.
+and `chainHash = 0x4c59441f8bca411094bcaa368d6701b3fde57aae1d2b431fbe4339940a420ed3`.
 
 ### 13.3 EIP-712 relayed write
 
@@ -968,7 +988,7 @@ EIP712Domain type string = EIP712Domain(string name,string version,uint256 chain
 EIP712 name = 6529 Network Museum Registry
 EIP712 version = 1
 MuseumRecordWrite type string = MuseumRecordWrite(bytes32 recordHash,bytes32 recordType,bytes32 subjectId,bytes32 previousRecordHash,uint256 nonce,uint64 deadline)
-signedRecordHash = 0x3798a5094d3d998aeed0ecfab6efcb84a3eac5bc9b91988c7c841b82eb7cdc50
+signedRecordHash = 0xacdb0e50ffc52d3f6aca12e671528b4aeeb1930ae3f8afe7416e4869d1946819
 signedPreviousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 previousRecordHash = 0x0000000000000000000000000000000000000000000000000000000000000000
 nonce = 7
@@ -977,8 +997,8 @@ record.signatureScheme = 0x00000000000000000000000000000000000000000000000000000
 record.signatureHash = (algorithm=0,digest=0x,canonicalizationId=0x0000000000000000000000000000000000000000000000000000000000000000)
 domainSeparator = 0xfffa62454cc94111fc3da4487def1fc9f0e36727a701015f2a46ff4a1a7c7b70
 MuseumRecordWrite typeHash = 0xa7df80542664ee83129e8d3ace9f44135f9a4514ad949246a14df795f16dbb3e
-structHash = 0x370f37113d360bd678d23a6fcf53a14055dff4149538eb76cc3f042080cce6ca
-digest = 0x2bd3f0ecd251135824eb711179846c19c3cb037205ca35a20cea14e39fde68d2
+structHash = 0xeb8f13d8bc5e1d40d070560f3368a0eb492d6bc9c29713fd1e7a37f448e35521
+digest = 0x229e0c78381d5cca1d44454e9afc3f41a615674cdcfe8df0d2ec6bdf68f73cd0
 ```
 
 ### 13.4 Stream bilateral vector
