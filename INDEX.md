@@ -39,11 +39,16 @@ Status vocabulary:
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 
-## Dated WIP notebook
+## Research evidence
 
 | File | Status | Contents |
 |---|---|---|
 | [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | WIP analysis | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
+
+## Dated WIP notebook
+
+| File | Status | Contents |
+|---|---|---|
 | [`notes/wip/2026-08-01-stream-coverage-and-gaps.md`](notes/wip/2026-08-01-stream-coverage-and-gaps.md) | WIP analysis | What Stream covers, strengths, implementation caveat, Museum gaps |
 | [`notes/wip/2026-08-01-external-works-registry.md`](notes/wip/2026-08-01-external-works-registry.md) | WIP analysis | Options and recommended boundary for externally minted works |
 | [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | WIP analysis | Multi-object numbering and proposed deliverables from the supplied accession draft |

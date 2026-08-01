@@ -19,9 +19,11 @@ The complete authenticated API snapshot was refreshed at `2026-08-01T15:01:05Z` 
 - `wave-snapshot.json`: `sha256:2185bbc52ed47c7a4a35b5bdee4ce75a0e55c8633d420aa5cd9ac7997c6edaef`;
 - `proposals.json`: `sha256:7693e75ca37a15ff200c3deed02377a64bbe140ac34bdfa3d9c445cd77170fe7`.
 
-The eight proposal drops were reread individually through the authenticated `punk6529bot drops get <drop-id> --json` helper after the snapshot. Their `drop_type`, `rating`, `realtime_rating`, and `raters_count` values matched the snapshot. Vote figures below therefore mean the API's displayed `rating` / real-time rating at the stated observation, not an inferred count of positive votes. Live `drop_type` controls adoption status: `WINNER` is recorded as adopted and `PARTICIPATORY` as active/not adopted. A vote total, including a total above a discussed threshold, is not used to infer adoption.
+The eight proposal drops were reread individually through the authenticated `punk6529bot drops get <drop-id> --json` helper after the snapshot. Their `drop_type`, `rating`, `realtime_rating`, and `raters_count` values matched the snapshot. The figures below are the API's displayed Wave rating / TDH rating (`rating` / `realtime_rating`) at the stated observation, not counts of raters or approvals. Live `drop_type` controls adoption status: `WINNER` is recorded as adopted and `PARTICIPATORY` as active/not adopted. A displayed rating total, including one above a discussed threshold, is not used to infer adoption.
 
 The institutional source was fetched directly at `2026-08-01T15:03:05Z` from [the permanent institutional note](https://6529networkmuseum_thememes.ar.io/), HTTP 200, with HTML SHA-256 `sha256:75889ed25b623fde356129e39ba5330d4c0c2b38de0f3a7d94355282ff28b8d4`.
+
+URL fidelity: the institutional source's published URL is exactly `https://6529networkmuseum_thememes.ar.io/`, including the underscore in the host. That exact URL was fetched successfully and is preserved verbatim for provenance. This note makes no claim that the host is a DNS-normalized or RFC-normal hostname, and does not silently replace it with a guessed variant.
 
 ## Mission source — source transcription
 
@@ -53,7 +55,7 @@ The institutional note supplies the Museum's mission and public-good posture. Th
 
 All timestamps are UTC. `Decision time` is present only where the live API returned `winning_context.decision_time`; a blank value is not a negative decision, only the absence of an adopted-WINNER decision timestamp in the response.
 
-| Serial | Proposal | Drop ID | Live status | Institutional effect | Created | Decision time | Votes (`rating` = `realtime_rating`) | Voters |
+| Serial | Proposal | Drop ID | Live status | Institutional effect | Created | Decision time | Wave rating / TDH rating (`rating` = `realtime_rating`) | Raters |
 |---:|---|---|---|---|---|---|---:|---:|
 | 1052148 | Autoglyphs | `d2613993-2714-4618-b2db-8175f395cea6` | `WINNER` | adopted | 2026-06-02T13:24:57Z | 2026-06-05T02:10:15Z | 90,331,683 | 25 |
 | 1052156 | Art Blocks | `2e88273f-013c-4fdd-bea3-7de5451098e8` | `WINNER` | adopted | 2026-06-02T13:27:00Z | 2026-06-05T05:25:15Z | 73,698,446 | 21 |
@@ -64,7 +66,7 @@ All timestamps are UTC. `Decision time` is present only where the live API retur
 | 1052812 | 6529 Network Museum Donation Acceptance Policy | `86e43beb-b55d-42f0-9eea-a3c115b08abc` | `WINNER` | adopted | 2026-06-02T15:45:27Z | 2026-06-05T03:56:15Z | 87,077,479 | 21 |
 | 1069256 | Lost Robbies | `21b4ba5d-1015-4853-89a0-71eaf780199e` | `PARTICIPATORY` | not adopted at observation | 2026-06-08T17:23:19Z | — | 44,711,261 | 18 |
 
-The source status is retained separately from the institutional effect so a future API status change can be appended without rewriting this observation. The two `PARTICIPATORY` rows are not adopted even though Lost Robbies has a larger displayed vote total than the provisional threshold discussed in chat.
+The source status is retained separately from the institutional effect so a future API status change can be appended without rewriting this observation. The two `PARTICIPATORY` rows are not adopted even though Lost Robbies has a larger displayed rating than the provisional threshold discussed in chat.
 
 ## Six adopted `WINNER` proposals — source transcription and effect
 
@@ -188,7 +190,7 @@ The proposal asks:
 >
 > Donations of “The Complaint Cards (not) by 6529” from 6529complaints.eth or others may be accepted without further collection-specific review, subject only to the Museum’s ordinary procedures for provenance, title, custody, wallet security, legal compliance, and donor acceptance.
 
-**Live status and interpretation:** `PARTICIPATORY` at the 2026-08-01 observation; 5,646,938 displayed votes from 15 raters; not adopted. The source text is a proposal record only and creates no Complaint Cards safe harbor.
+**Live status and interpretation:** `PARTICIPATORY` at the 2026-08-01 observation; 5,646,938 displayed Wave rating / TDH rating from 15 raters; not adopted. The source text is a proposal record only and creates no Complaint Cards safe harbor.
 
 ### Lost Robbies — Wave #1069256
 
@@ -200,7 +202,7 @@ The proposal asks:
 >
 > Donations of original Lost Robbies may be accepted without further collection-specific review, subject only to the Museum’s ordinary procedures for provenance, title, authenticity, donor authority, legal compliance, rights, technical receivability, donor acceptance, and artwork-specific suitability.
 
-**Live status and interpretation:** `PARTICIPATORY` at the 2026-08-01 observation; 44,711,261 displayed votes from 18 raters; not adopted. The higher displayed vote total does not override the live status and creates no Lost Robbies safe harbor.
+**Live status and interpretation:** `PARTICIPATORY` at the 2026-08-01 observation; 44,711,261 displayed Wave rating / TDH rating from 18 raters; not adopted. The higher displayed rating does not override the live status and creates no Lost Robbies safe harbor.
 
 ## Custody wording — source transcription
 
@@ -230,7 +232,7 @@ This wording records the institutional custody reference and intended signing po
 
 ## Permanent append-only decision format
 
-Each governed proposal observation should be represented as a new immutable record with a stable decision identifier. The recommended identifier is `6529NM-GOV-<wave-serial>`, for example `6529NM-GOV-1052604`. A versioned record can use `-v2`, and a distinct amendment can use `-A01`.
+Each governed proposal observation should be represented as a new immutable record with a stable decision identifier. The canonical bare identifier is `6529NM-GOV-<wave-serial>`, for example `6529NM-GOV-1052604`, and **the bare form always means revision 1**. Every later revision must use an explicit revision suffix such as `6529NM-GOV-1052604-v2`; every amendment must use an explicit amendment suffix such as `6529NM-GOV-1052604-A01`. These suffixes are distinct record IDs, not aliases, and the record must populate explicit revision/lineage fields.
 
 Minimum fields:
 
@@ -238,6 +240,7 @@ Minimum fields:
 record_type: GOVERNANCE_DECISION
 record_id: 6529NM-GOV-1052604
 record_version: 1
+revision_kind: original
 wave_id: 5f207393-5418-4a75-8738-e40edb44a94d
 wave_serial: 1052604
 drop_id: d65befc2-65dc-4362-8ddd-75f867338669
@@ -246,10 +249,11 @@ source_observed_at: 2026-08-01T15:01:05Z
 proposal_created_at: 2026-06-02T14:50:40Z
 source_status: WINNER
 institutional_effect: adopted
-vote_observation:
-  votes: 89724244
-  voters: 26
-  rating_field: rating_and_realtime_rating
+rating_observation:
+  wave_rating: 89724244
+  tdh_rating: 89724244
+  raters: 26
+  api_fields: rating_and_realtime_rating
 source_transcription:
   title: Proposal: General NFT Collecting Scope
   operative_text: "Exact source wording, without added policy language."
@@ -259,13 +263,14 @@ interpretation:
 lineage:
   supersedes: null
   amends: null
+  reason: null
   original_hash: sha256:<hash-of-canonical-record>
 ```
 
 Lineage rules:
 
 1. Never edit or delete a published source transcription or its observation fields.
-2. A new live status or vote observation is a new version/observation record, even if the proposal text is unchanged.
+2. A new live status or rating observation is a new version/observation record, even if the proposal text is unchanged.
 3. Use `amends` when a later record changes only a defined part of the interpretation or operational effect.
 4. Use `supersedes` when a later authoritative record replaces the prior decision record in the current view. The prior record remains in the append-only history and its hash is retained.
 5. Every amendment records its own authority, source URI, observation/effective timestamps, reason, and evidence. It must state the prior record ID and hash.
@@ -278,7 +283,7 @@ For the two `PARTICIPATORY` proposals, the same format is used with `source_stat
 
 - This research note verifies the institutional custody wording but does not claim a fresh on-chain SAFE configuration or NFT ownership check.
 - No donation is recorded as accepted or accessioned by this note. Preapproval is not accession.
-- The API's live status and vote fields should be reobserved before any donation, acquisition, custody, or accession action.
+- The API's live status and rating fields should be reobserved before any donation, acquisition, custody, or accession action.
 - Any future correction to mission, scope, preapproved collections, donation policy, or custody wording must be added as an attributed amendment/supersession rather than silently editing this evidence.
 
 ## Source index
