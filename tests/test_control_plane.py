@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
 
@@ -16,7 +17,9 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
 import bootstrap_validate  # noqa: E402
-from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, make_manifest  # noqa: E402
+from check_fetch_guard import scan_file, scan_tree  # noqa: E402
+from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, make_manifest, normalized_bytes  # noqa: E402
+from safe_fetch import SAFE_FETCH_POLICY, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
 from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
@@ -240,18 +243,153 @@ class ControlPlaneTests(unittest.TestCase):
     def test_endpoint_fetch_policy_is_fail_closed_and_redirect_aware(self) -> None:
         vocabularies = json.loads((REPO_ROOT / "schemas/controlled-vocabularies.json").read_text(encoding="utf-8"))
         self.assertEqual(
-            {
-                "mode": "resolve_at_fetch",
-                "require_all_a_aaaa_global": True,
-                "pin_connected_ip": True,
-                "recheck_every_redirect": True,
-                "unknown_hostname": "reject",
-            },
+            SAFE_FETCH_POLICY,
             vocabularies["endpoint_policy"],
         )
         mutated = dict(vocabularies)
         mutated["endpoint_policy"] = {**vocabularies["endpoint_policy"], "recheck_every_redirect": False}
         self.assertTrue(any("endpoint_policy" in issue for issue in validate_vocabularies(mutated)))
+
+    def make_mock_fetcher(self, answers: dict[str, list[str]], responses: dict[str, tuple[int, dict[str, str], bytes, str | None]], clock=None):
+        connections = []
+
+        class MockResponse:
+            def __init__(self, status: int, headers: dict[str, str], body: bytes) -> None:
+                self.status = status
+                self.headers = headers
+                self.body = body
+
+            def read(self, _limit: int) -> bytes:
+                return self.body
+
+        class MockConnection:
+            def __init__(self, response: MockResponse, peer_ip: str) -> None:
+                self.response = response
+                self.peer_ip = peer_ip
+                self.requests = []
+                self.closed = False
+
+            def request(self, method: str, target: str, headers: dict[str, str]) -> MockResponse:
+                self.requests.append((method, target, headers))
+                return self.response
+
+            def close(self) -> None:
+                self.closed = True
+
+        def resolver(hostname: str, _port: int) -> list[str]:
+            return answers[hostname]
+
+        def factory(endpoint, resolved, _policy):
+            status, headers, body, peer = responses[endpoint.hostname]
+            connection = MockConnection(MockResponse(status, headers, body), peer or resolved.selected_ip)
+            connections.append((endpoint, connection))
+            return connection
+
+        fixed_clock = clock or (lambda: datetime(2026, 8, 1, tzinfo=UTC))
+        return SafeHTTPSFetcher(resolver=resolver, connection_factory=factory, clock=fixed_clock), connections
+
+    def test_safe_fetch_rejects_rebinding_private_answers_and_alternate_ip_forms(self) -> None:
+        for url in (
+            "https://2130706433/private",
+            "https://127.1/private",
+            "https://0x7f000001/private",
+            "https://[::ffff:127.0.0.1]/private",
+            "https://%31%32%37.0.0.1/private",
+            "https://127.0.0.1.nip.io/private",
+        ):
+            with self.subTest(url=url):
+                with self.assertRaises(FetchPolicyError):
+                    canonicalize_https_url(url)
+
+        for answers in (
+            [],
+            ["93.184.216.34", "127.0.0.1"],
+            ["2606:4700:4700::1111", "169.254.169.254"],
+        ):
+            with self.subTest(answers=answers):
+                fetcher, _connections = self.make_mock_fetcher(
+                    {"rebind.example.test": answers},
+                    {"rebind.example.test": (200, {"Content-Length": "2"}, b"ok", None)},
+                )
+                with self.assertRaises(FetchPolicyError):
+                    fetcher.fetch("https://rebind.example.test/data")
+
+    def test_safe_fetch_rechecks_redirects_and_rejects_metadata(self) -> None:
+        fetcher, connections = self.make_mock_fetcher(
+            {"redirect.example.test": ["93.184.216.34"]},
+            {
+                "redirect.example.test": (302, {"Location": "https://169.254.169.254/latest/meta-data"}, b"", None),
+            },
+        )
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://redirect.example.test/start")
+        self.assertEqual(1, len(connections))
+
+    def test_safe_fetch_pins_ipv6_peer_and_emits_observation(self) -> None:
+        fetcher, connections = self.make_mock_fetcher(
+            {
+                "redirect.example.test": ["93.184.216.34"],
+                "cdn.example.test": ["2001:4860:4860::8888"],
+            },
+            {
+                "redirect.example.test": (302, {"Location": "https://cdn.example.test/final"}, b"", None),
+                "cdn.example.test": (200, {"Content-Length": "5", "Content-Type": "image/png; charset=binary"}, b"hello", None),
+            },
+        )
+        result = fetcher.fetch("https://redirect.example.test/start")
+        self.assertEqual(b"hello", result.body)
+        self.assertEqual("https://cdn.example.test/final", result.observation.canonical_url)
+        self.assertEqual(
+            ("https://redirect.example.test/start", "https://cdn.example.test/final"),
+            result.observation.redirect_chain,
+        )
+        self.assertEqual("2001:4860:4860::8888", result.observation.selected_ip)
+        self.assertEqual("image/png", result.observation.media_type)
+        self.assertEqual(hashlib.sha256(b"hello").hexdigest(), result.observation.byte_sha256)
+        self.assertEqual(2, len(result.observation.hops))
+        self.assertEqual("redirect.example.test", connections[0][1].requests[0][2]["Host"])
+
+    def test_safe_fetch_rejects_peer_mismatch_expiry_methods_credentials_and_size(self) -> None:
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, {"Content-Length": "2"}, b"ok", "93.184.216.35")},
+        )
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data")
+
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, {"Content-Length": "2"}, b"ok", None)},
+        )
+        fixed = datetime(2026, 8, 1, tzinfo=UTC)
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", expires_at=fixed - timedelta(seconds=1))
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", method="POST")
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", headers={"Authorization": "Bearer secret"})
+        with self.assertRaises(FetchPolicyError):
+            canonicalize_https_url("https://good.example.test:444/data")
+
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, {"Content-Length": str(int(SAFE_FETCH_POLICY["max_response_bytes"]) + 1)}, b"", None)},
+        )
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data")
+
+    def test_fetch_guard_allows_only_approved_module_and_rejects_direct_clients(self) -> None:
+        self.assertEqual([], scan_tree(REPO_ROOT))
+        temporary = tempfile.TemporaryDirectory(prefix="museum-fetch-guard-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        bad = root / "bad.py"
+        bad.write_text(
+            "import requests\nfrom urllib.request import urlopen\nimport socket\nsocket.create_connection(('example.test', 443))\n",
+            encoding="utf-8",
+        )
+        violations = scan_file(bad, root)
+        self.assertGreaterEqual(len(violations), 4, violations)
 
     def test_caip19_and_custody_chain_bindings_are_enforced(self) -> None:
         temporary, records = self.make_records_root()
@@ -312,6 +450,60 @@ class ControlPlaneTests(unittest.TestCase):
         with patch.object(bootstrap_validate, "ROOT", root):
             entries = bootstrap_validate.check_evidence_manifests(loaded)
             bootstrap_validate.check_public_record_safety(entries)
+
+        credential_shapes = (
+            b"api_key=synthetic-secret-value",
+            b"ghp_" + b"a" * 36,
+            b"AKIA" + b"A" * 16,
+            b"private_key=0x" + b"b" * 64,
+            b"-----BEGIN PRIVATE KEY-----",
+        )
+        for credential in credential_shapes:
+            with self.subTest(credential=credential[:12]):
+                payload = b"\x89PNG\r\n\x1a\npublic-image\n" + credential
+                image.write_bytes(payload)
+                manifest.write_text(
+                    json.dumps(
+                        {
+                            "hash_algorithm": "sha256",
+                            "byte_mode": "raw",
+                            "entries": [
+                                {
+                                    "path": "image.png",
+                                    "byte_mode": "raw",
+                                    "media_type": "image/png",
+                                    "size": len(payload),
+                                    "sha256": hashlib.sha256(payload).hexdigest(),
+                                }
+                            ],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                with patch.object(bootstrap_validate, "ROOT", root):
+                    entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+                    with self.assertRaises(SystemExit):
+                        bootstrap_validate.check_public_record_safety(entries)
+
+        manifest.write_text(
+            json.dumps(
+                {
+                    "hash_algorithm": "sha256",
+                    "byte_mode": "raw",
+                    "entries": [
+                        {
+                            "path": "image.png",
+                            "byte_mode": "raw",
+                            "media_type": "image/png",
+                            "size": len(binary),
+                            "sha256": hashlib.sha256(binary).hexdigest(),
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        image.write_bytes(binary)
 
         executable = b"MZ-not-an-image"
         image.write_bytes(executable)
@@ -451,6 +643,24 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertRegex(manifest["manifest_commitment"]["digest"], r"^0x[0-9a-f]{64}$")
         self.assertRegex(manifest["manifest_sha256"], r"^sha256:[0-9a-f]{64}$")
         self.assertEqual(manifest, make_manifest(REPO_ROOT))
+
+    def test_manifest_is_crlf_normalized_and_cache_free(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-normalization-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        docs = root / "docs"
+        cache = root / "scripts" / "__pycache__"
+        docs.mkdir(parents=True)
+        cache.mkdir(parents=True)
+        source = docs / "example.md"
+        source.write_bytes(b"first\r\nsecond\rthird\n")
+        (cache / "example.pyc").write_bytes(b"cache")
+        self.assertEqual(b"first\nsecond\nthird\n", normalized_bytes(source))
+        first = make_manifest(root)
+        second = make_manifest(root)
+        self.assertEqual(first, second)
+        self.assertIn("docs/example.md", {entry["path"] for entry in first["entries"]})
+        self.assertNotIn("scripts/__pycache__/example.pyc", {entry["path"] for entry in first["entries"]})
 
     def test_foundation_bootstrap_controls_pass_current_register(self) -> None:
         result = subprocess.run(

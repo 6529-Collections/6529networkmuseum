@@ -13,10 +13,21 @@
   },
   "endpoint_policy": {
     "mode": "resolve_at_fetch",
+    "scheme": "https",
     "require_all_a_aaaa_global": true,
     "pin_connected_ip": true,
     "recheck_every_redirect": true,
-    "unknown_hostname": "reject"
+    "unknown_hostname": "reject",
+    "allowed_methods": ["GET", "HEAD"],
+    "allowed_ports": [443],
+    "max_redirects": 5,
+    "max_response_bytes": 1048576,
+    "max_url_length": 8192,
+    "connect_timeout_seconds": 10,
+    "read_timeout_seconds": 20,
+    "resolver_profile": "system_getaddrinfo",
+    "resolver_revision": "python-socket.getaddrinfo-v1",
+    "address_selection": "lowest_numeric"
   },
   "record_types": [
     "MUSEUM_POLICY",

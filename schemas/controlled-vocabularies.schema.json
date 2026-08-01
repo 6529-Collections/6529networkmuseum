@@ -22,12 +22,23 @@
       "type": "object",
       "properties": {
         "mode": {"const": "resolve_at_fetch"},
+        "scheme": {"const": "https"},
         "require_all_a_aaaa_global": {"const": true},
         "pin_connected_ip": {"const": true},
         "recheck_every_redirect": {"const": true},
-        "unknown_hostname": {"const": "reject"}
+        "unknown_hostname": {"const": "reject"},
+        "allowed_methods": {"const": ["GET", "HEAD"]},
+        "allowed_ports": {"const": [443]},
+        "max_redirects": {"const": 5},
+        "max_response_bytes": {"const": 1048576},
+        "max_url_length": {"const": 8192},
+        "connect_timeout_seconds": {"const": 10},
+        "read_timeout_seconds": {"const": 20},
+        "resolver_profile": {"const": "system_getaddrinfo"},
+        "resolver_revision": {"const": "python-socket.getaddrinfo-v1"},
+        "address_selection": {"const": "lowest_numeric"}
       },
-      "required": ["mode", "require_all_a_aaaa_global", "pin_connected_ip", "recheck_every_redirect", "unknown_hostname"],
+      "required": ["mode", "scheme", "require_all_a_aaaa_global", "pin_connected_ip", "recheck_every_redirect", "unknown_hostname", "allowed_methods", "allowed_ports", "max_redirects", "max_response_bytes", "max_url_length", "connect_timeout_seconds", "read_timeout_seconds", "resolver_profile", "resolver_revision", "address_selection"],
       "additionalProperties": false
     },
     "record_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$"}},

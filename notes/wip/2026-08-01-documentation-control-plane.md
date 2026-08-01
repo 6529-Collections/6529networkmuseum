@@ -22,6 +22,13 @@ repository controls, not adopted Museum policy.
 - No canonical record was invented in this change. Fixtures are explicitly
   synthetic and are not governed records, even when the control-plane source
   inventory includes their test bytes.
+- Manifest-authorized raw media is still subject to known credential-shape
+  scanning and media/signature checks; this is a known-pattern admission gate,
+  not a claim to detect arbitrary steganography.
+- External HTTPS retrieval is centralized in `scripts/safe_fetch.py`, with
+  resolution/address pinning, peer verification, redirect rechecks, bounded
+  responses, and structured observations. `scripts/check_fetch_guard.py`
+  keeps future collectors from bypassing that path.
 
 ## Unresolved questions
 

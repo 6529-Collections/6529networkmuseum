@@ -110,6 +110,13 @@ BINARY_SECRET_MARKERS = (
     b"-----BEGIN OPENSSH PRIVATE KEY-----",
     b"-----BEGIN PRIVATE KEY-----",
 )
+BINARY_SECRET_PATTERNS = (
+    re.compile(rb"gh[opsu]_[A-Za-z0-9]{30,}"),
+    re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    re.compile(rb"\bAKIA[0-9A-Z]{16}\b"),
+    re.compile(rb"\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b"),
+    re.compile(rb"(?i)(?:api[_ -]?key|client[_ -]?secret|private[_ -]?key|seed[_ -]?phrase|mnemonic|password)\s*[:=]\s*['\"]?[A-Za-z0-9_./+\-=]{8,}"),
+)
 
 
 def is_manifest_approved_binary(entry: dict[str, object] | None) -> bool:
@@ -130,8 +137,17 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
     payload = path.read_bytes()
     if payload.startswith((b"MZ", b"\x7fELF", b"#!")):
         fail(f"raw evidence has executable signature: {path.relative_to(ROOT)}")
-    if any(marker in payload for marker in BINARY_SECRET_MARKERS):
+    if any(marker in payload for marker in BINARY_SECRET_MARKERS) or any(pattern.search(payload) for pattern in BINARY_SECRET_PATTERNS):
         fail(f"credential-shaped content in raw public evidence: {path.relative_to(ROOT)}")
+    required_signatures = {
+        "image/png": (b"\x89PNG\r\n\x1a\n",),
+        "image/jpeg": (b"\xff\xd8\xff",),
+        "image/gif": (b"GIF87a", b"GIF89a"),
+        "application/pdf": (b"%PDF-",),
+    }
+    signatures = required_signatures.get(media_type)
+    if signatures and not payload.startswith(signatures):
+        fail(f"raw evidence media signature does not match {media_type}: {path.relative_to(ROOT)}")
 
 
 def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] | None = None) -> None:

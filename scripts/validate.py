@@ -19,6 +19,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from canonical import canonicalize
+from safe_fetch import SAFE_FETCH_POLICY
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
@@ -84,13 +85,7 @@ SECRET_VALUE_PATTERNS = [
     re.compile(r"\b(?:gho_|github_pat_|sk-|AKIA)[A-Za-z0-9_-]+"),
     re.compile(r"^(?:file://|\\\\|[A-Za-z]:\\|/Users/|/home/|/root/|C:/Users/)", re.IGNORECASE),
 ]
-ENDPOINT_POLICY = {
-    "mode": "resolve_at_fetch",
-    "require_all_a_aaaa_global": True,
-    "pin_connected_ip": True,
-    "recheck_every_redirect": True,
-    "unknown_hostname": "reject",
-}
+ENDPOINT_POLICY = dict(SAFE_FETCH_POLICY)
 SUSPICIOUS_HOSTS = {"localhost", "localhost.localdomain", "metadata", "nip.io", "sslip.io", "xip.io", "localtest.me", "lvh.me"}
 SUSPICIOUS_HOST_SUFFIXES = (".localhost", ".local", ".internal", ".lan", ".nip.io", ".sslip.io", ".xip.io", ".localtest.me", ".lvh.me")
 NUMERIC_HOST = re.compile(r"^(?:0[xX][0-9a-fA-F]+|[0-9]+)(?:\.(?:0[xX][0-9a-fA-F]+|[0-9]+))*$")

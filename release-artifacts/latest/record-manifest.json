@@ -12,8 +12,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:2abdd368d2ac30d95d0965fb03416f02304307c89734498f5cec08583278ace0",
-      "size": 7290
+      "sha256": "sha256:70102a6396086eceb15ceb7d343a81f819b9d34bfedae359bedbfd74eea30061",
+      "size": 8105
     },
     {
       "path": "docs/external-works-registry.md",
@@ -374,21 +374,21 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x39cb439380787264666df0a3c81af2ea4f39716d2b865e3ed92113e1d5b94388"
+        "digest": "0x735892967e678359eb5ef32c1a5044eb6e80d3284857608c009ee2769347b47a"
       },
       "path": "schemas/controlled-vocabularies.json",
-      "sha256": "sha256:bb98ff4cd3cb5c16389a0bdf550c51d7ab96044f78526f1d43c962afd8098524",
-      "size": 4179
+      "sha256": "sha256:dedbc4d4b8a9f57d1921f5083c48317dbb13aacc1d806020db5674b97a3fe255",
+      "size": 4570
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x0fdf4f5470e06fe4f21e4d6e11d789e2923c21ec8559092cf13cf10a875a1925"
+        "digest": "0x83871a55c3117d7f8dd8351ffd587f5d52679ec42692f94b11384c3626b73ad2"
       },
       "path": "schemas/controlled-vocabularies.schema.json",
-      "sha256": "sha256:3a95f8ae422219454d409b1822c522cb9284d39fc085daaa3a471d3b744af64c",
-      "size": 4066
+      "sha256": "sha256:27fd2ae982995cb040a1c1c1012a00a695f7f87e91be230dc02197c64fb9bab1",
+      "size": 4838
     },
     {
       "content_hash": {
@@ -472,13 +472,18 @@
     },
     {
       "path": "scripts/bootstrap_validate.py",
-      "sha256": "sha256:cfc9b36e22a5581f456f02643d0d38516d916181e31a4a160a4bdb5ac128653e",
-      "size": 20138
+      "sha256": "sha256:14e7a34225619da8ebfee17d8111f5cef701cd64d60bb62f5a01bdf39627f8a0",
+      "size": 21041
     },
     {
       "path": "scripts/canonical.py",
       "sha256": "sha256:c9f6d9dd2b00dd498c36775a198fd1ff41d1b3aead4b0d07ec848be1db69cc06",
       "size": 1538
+    },
+    {
+      "path": "scripts/check_fetch_guard.py",
+      "sha256": "sha256:ccd837a319d0cd2cc9670a4a0d01f94662b56898b7ee1617f852ac4a6aca0778",
+      "size": 4468
     },
     {
       "path": "scripts/generate_manifest.py",
@@ -501,9 +506,14 @@
       "size": 32037
     },
     {
+      "path": "scripts/safe_fetch.py",
+      "sha256": "sha256:921362b98d2479b968457283c610df1b8e34eb726a7f156734573cd93ee6684d",
+      "size": 19157
+    },
+    {
       "path": "scripts/validate.py",
-      "sha256": "sha256:16f3e64e6f6aa9991c107096ca0689d320d87abf1f4c6e6f0f4776a2fe1bdc0b",
-      "size": 35613
+      "sha256": "sha256:c74e8ee7fe91691aafe383971d245e2601e84da36baac7ac266ff6f69b2ef524",
+      "size": 35503
     },
     {
       "path": "tests/__init__.py",
@@ -637,8 +647,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:4e81855d1e97e5dee58d93ccc644386fe2239612bfb2bd462fa6be22872c2787",
-      "size": 24451
+      "sha256": "sha256:f3478b8c90c2e0a493b80a6fae9c50a5cbea483a2bf4cc4924427329493be579",
+      "size": 34373
     }
   ],
   "hash_algorithms": {
@@ -656,9 +666,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xaf61b222e4b77c15a8f1204ebc768f0f75f058b1cac6b7a3dbb694535ca166a9"
+    "digest": "0x5a605ce688dfacf7fb8de0eeca3b5c4754e9e7298a8b5bc4c62ee0642e5f8e78"
   },
-  "manifest_sha256": "sha256:ce5e960c853e38481741fdd1706a22a993a23512448b632217b7738913b8ea6a",
+  "manifest_sha256": "sha256:51d69a45df7a2fc0c0c03c3de64f6c67a287508ff274f1269c488b515ca0c2f1",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

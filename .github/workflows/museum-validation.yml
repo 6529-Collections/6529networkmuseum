@@ -34,6 +34,9 @@ jobs:
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
 
+      - name: Check network fetch guard
+        run: python scripts/check_fetch_guard.py
+
       - name: Run control-plane tests
         run: python -m unittest discover -s tests -v
 
@@ -68,6 +71,7 @@ jobs:
       - name: Run portable validation suite
         run: |
           python scripts/bootstrap_validate.py
+          python scripts/check_fetch_guard.py
           python -m unittest discover -s tests -v
           python scripts/validate.py
           python scripts/generate_manifest.py --check

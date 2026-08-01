@@ -48,8 +48,16 @@ that need the whole repository or need to compare values:
 - constructor and reviewer IDs differ;
 - public records contain no restricted field names, credentials, private keys,
   private filesystem paths, or local/private-network URLs; endpoint policy is
-  fail-closed for fetches, requiring globally routable A/AAAA answers, a
-  pinned connected IP, and a fresh check for every redirect.
+  fail-closed for fetches through `scripts/safe_fetch.py`, requiring HTTPS,
+  globally routable A/AAAA answers, a deterministically selected pinned IP,
+  original-host TLS/SNI and canonical Host, peer-IP equality, bounded manual
+  redirects with a fresh resolution at every hop, timeouts, method/port/
+  credential restrictions, and response-size caps;
+- `scripts/check_fetch_guard.py` rejects direct `requests`, `httpx`, `aiohttp`,
+  URL-opener, HTTP-client, and raw-socket fetch code outside that approved
+  module. The fetch primitive emits a structured observation containing the
+  canonical URL, resolver profile/revision, address set and hash, selected and
+  peer IPs, redirect chain, time, status, media type, and byte hash.
 
 The bootstrap layer additionally verifies that governance decisions reproduce
 the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,
@@ -57,8 +65,10 @@ approved collections reference adopted decisions, evidence manifest paths,
 media types, sizes, and raw-byte hashes match, and every reviewed
 `record_control.payload_sha256` matches its record payload. Manifest-authorized
 raw binary evidence is checked before UTF-8 public-safety scanning and is
-limited to non-executable, explicitly declared media; undeclared undecodable
-bytes fail closed.
+limited to non-executable, explicitly declared media. It still receives the
+known credential-pattern gate (ASCII/UTF-8 spans, cloud-key/token forms, and
+PEM/private-key markers); this detects known shapes, not arbitrary
+steganography. Undeclared undecodable bytes fail closed.
 Markdown templates and explanatory prose never satisfy these executable event
 or completion gates.
 
@@ -131,6 +141,7 @@ From the repository root:
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
+python scripts/check_fetch_guard.py
 python scripts/validate.py
 python scripts/generate_manifest.py
 python scripts/generate_manifest.py --check

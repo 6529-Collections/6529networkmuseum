@@ -36,6 +36,7 @@ Run the complete local control plane with:
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
+python scripts/check_fetch_guard.py
 python scripts/validate.py
 python scripts/generate_manifest.py --check
 ```

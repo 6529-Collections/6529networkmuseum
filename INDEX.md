@@ -90,6 +90,8 @@ Status vocabulary:
 |---|---|---|
 | [`schemas/`](schemas/) | active working standard | Bootstrap governance/collection/accession schemas plus controlled vocabularies and Stream-compatible profiles |
 | [`scripts/bootstrap_validate.py`](scripts/bootstrap_validate.py) | active CI control | Source-derived governance, raw evidence manifest, record-control, local-link, and public-safety checks |
+| [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with resolution filtering, IP pinning, redirect rechecks, and observations |
+| [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | AST guard rejecting unmediated network fetch implementations outside `safe_fetch.py` |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
 | [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments |
 | [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
