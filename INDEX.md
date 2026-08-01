@@ -29,8 +29,8 @@ Status vocabulary:
 | [`governance/pull-request-review-policy.md`](governance/pull-request-review-policy.md) | active operating control | Baseline 6529bot reviews, specialist routing matrix, follow-up procedure, and constructor/reviewer boundary |
 | [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required bootstrap record-integrity check on every PR and main push |
-| `records/programs/6529NM-AP-01/program.json` | pending creation | Keys and Gates rules and current stage |
-| `records/programs/6529NM-AP-01/selected-works.json` | pending creation | Sixteen Wave winners, each explicitly pending acquisition/accession verification |
+| [`records/programs/6529NM-AP-01/program.json`](records/programs/6529NM-AP-01/program.json) | canonical constructed program record | Keys and Gates rules, source provenance, undecided mint topology, and registrar gates |
+| [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
 | [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
 
 ## Working standards and architecture
@@ -44,6 +44,8 @@ Status vocabulary:
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
+| [`docs/standards-crosswalk.md`](docs/standards-crosswalk.md) | working standard | Current operational field-level crosswalk used by the accession and donation templates |
+| [`templates/`](templates/) | template | Blank born-digital/tokenized accession, donation, preservation, public/restricted, and review forms; no factual or completion claim |
 
 ## Dated WIP notebook
 
@@ -68,7 +70,8 @@ Status vocabulary:
 | File | Status | Contents |
 |---|---|---|
 | [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | research input | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
-| [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Spectrum, ICOM, Object ID, CIDOC CRM, LIDO, PREMIS, IIIF, C2PA, BagIt, OCFL, public/restricted, and maker/checker crosswalk |
+| [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Foundation source register and public-practice research retained as background to the current operational crosswalk |
+| [`notes/research/museum-standards-crosswalk-luna.md`](notes/research/museum-standards-crosswalk-luna.md) | research addendum | Template-alignment delta: exact record-control payload-hash semantics and current Casey/Keys and Gates states |
 | [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
 | [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
 | [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | research input | Primary-source art-historical, technical, display, and preservation research for seven donated works |
@@ -85,8 +88,11 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
-| [`schemas/`](schemas/) | active bootstrap schemas | Governance decisions, donation-preapproved collections, and accession-register structure; additional record families and Stream-compatible profiles remain under construction |
-| `scripts/validate.py` | pending creation | Structural, semantic, secret, and status validation |
+| [`schemas/`](schemas/) | active bootstrap schemas | Foundation registers plus accession-program, selected-work index, and selected-work outcome schemas |
+| [`schemas/accession-program.schema.json`](schemas/accession-program.schema.json) | active local schema | Rigorous Keys and Gates program record contract |
+| [`schemas/program-outcome-index.schema.json`](schemas/program-outcome-index.schema.json) | active local schema | Sixteen-row selected-work index contract |
+| [`schemas/program-outcome.schema.json`](schemas/program-outcome.schema.json) | active local schema | Individual selected-work registrar outcome contract |
+| `scripts/bootstrap_validate.py` | active validator | Structural, semantic, secret, evidence, local-schema, record-control, and governance checks |
 | `scripts/generate_manifest.py` | pending creation | Deterministic SHA-256 and JCS/Keccak release commitments |
 | `release-artifacts/latest/record-manifest.json` | pending generation | Current governed-file manifest |
 

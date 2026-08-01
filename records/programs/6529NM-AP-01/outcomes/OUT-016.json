@@ -1,0 +1,114 @@
+{
+  "$schema": "../../../../schemas/program-outcome.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "reviewed",
+    "constructor": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:48:20Z"
+    },
+    "review": {
+      "actor_id": "codex-task:019fbe15-7872-7312-a455-697a8835683c",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T16:29:31.633Z",
+      "reviewed_commit": "0e82d12306048c7356cd27587e7d5c84e2bbde80",
+      "outcome": "approved",
+      "payload_sha256": "sha256:9d58522bdbb0403182f8d9a5c250f3b57d40c77ed76675b82ffa9f1971f51ec0"
+    }
+  },
+  "record_type": "PROGRAM_OUTCOME",
+  "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
+  "record_id": "6529NM-AP-01-OUT-016",
+  "program_id": "6529NM-AP-01",
+  "status": "selected_unminted",
+  "as_of": "2026-08-01T15:03:35Z",
+  "record_scope": "Program outcome / selected work. This is not an accession statement and not an individual object record.",
+  "artist": {
+    "handle": "Veerendra",
+    "authority_status": "6529 API pseudonymous or displayed artist handle; legal identity is not asserted"
+  },
+  "title": "No Access",
+  "title_as_submitted": "No Access",
+  "classification": "photographic work; exact medium, dimensions, capture date, and technical constitution remain subject to registrar/technical verification",
+  "artist_statement": {
+    "text": "No Access\n\n\nA small house rests alone beneath an open night sky, surrounded not by walls, but by quiet signals of restriction. A narrow path leads toward the structure, interrupted by a simple gate and a warning that transforms the landscape from peaceful to controlled.\n\n\nThe work explores how boundaries are created not always through force or scale, but through suggestion, distance, and the feeling that something beyond the threshold is intentionally protected. What appears calm from afar slowly becomes uneasy the longer it is observed.\n\n\nCreated using handmade miniatures and focus stacking to build depth and scale while preserving the tactile quality of a constructed world.\n\n\nCamera: Nikon D750\n\n\nLens: Tamron 17–35mm\n\n\nFocal Length: 24mm\n\n\nExposure: 30 seconds\n\n\nAperture: f/3.2\n\n\nISO: 6400\n\n\nProcessed in Adobe Photoshop\n\n\nI, Veerendra Jillella, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.",
+    "verbatim": true,
+    "source_drop_part_id": 1,
+    "content_note": "Verbatim submission content returned by the live 6529 API; includes caption, technical note, location/year where supplied, and the artist rights declaration."
+  },
+  "media": [
+    {
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_d5cd331a-02e5-4912-a5bd-7b39769462bc/8a4ee715-af90-48c6-a0d5-0041458a7be2/selectiongj1.jpg",
+      "mime_type": "image/jpeg",
+      "retrieval_status": "source URL observed; binary not archived in this repository",
+      "sha256": null
+    }
+  ],
+  "selection_evidence": {
+    "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "wave_url": "https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
+    "submission_drop_id": "13407a59-3b86-4a04-b68e-87e818ed3766",
+    "submission_serial_no": 1058703,
+    "drop_type": "WINNER",
+    "api_signed": true,
+    "winner_place": 16,
+    "vote_total": 9129940,
+    "realtime_vote_total": 9129940,
+    "voter_count": 32,
+    "decision_at": "2026-07-09T12:00:00Z",
+    "decision_at_basis": "Voting-period end recorded as the selection cutoff; no separate decision event is asserted.",
+    "observed_at": "2026-08-01T15:03:35Z",
+    "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
+  },
+  "rights_and_consent": {
+    "program_requirement": "CC0 only; written consent required for depicted people; identifiable minors excluded",
+    "artist_cc0_declaration": "I, Veerendra Jillella, declare that if this piece is selected and purchased by the 6529 Network Museum, this work will be released under CC0 and I have full rights to make that release.",
+    "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
+    "consent_representation": {
+      "representation_status": "no people-consent representation located in declaration",
+      "documentation_status": "not stated; independently verify if people are depicted"
+    },
+    "restricted_consent_instrument": null,
+    "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"
+  },
+  "mint_acquisition_custody_accession": {
+    "mint_status": "not_verified_as_minted",
+    "mint_topology_status": "undecided",
+    "mint_topology_options": [
+      "dedicated_6529Stream_instance",
+      "subcollection_on_main_6529Stream"
+    ],
+    "contract_address": null,
+    "contract_deployment_transaction": null,
+    "token_standard": null,
+    "token_id": null,
+    "caip19": null,
+    "mint_transaction": null,
+    "mint_block": null,
+    "mint_timestamp": null,
+    "purchase_status": "unverified",
+    "purchase_transaction": null,
+    "purchase_price_eth": null,
+    "title_binding": null,
+    "planned_custody_reference": "networkmuseum.6529.eth",
+    "custody_receipt_status": "unverified",
+    "custody_wallet": null,
+    "custody_transfer_transaction": null,
+    "custody_verification": null,
+    "accession_status": "not_recorded",
+    "accession_number": null,
+    "accession_statement_id": null,
+    "accession_effective_at": null,
+    "technical_verification_status": "not_started_or_not_recorded",
+    "preservation_status": "not_started_or_not_recorded",
+    "display_status": "not_started_or_not_recorded"
+  },
+  "source_fixity": {
+    "submission_content_sha256": "sha256:957b974fa7427a53520007861edfdb84b8dd0fe3cf70100b56f11cfe6c701dfe",
+    "hash_basis": "UTF-8 bytes of the verbatim content field from the live drop payload; observed 2026-08-01T15:03:35Z"
+  },
+  "non_claims": [
+    "No mint, contract, token, acquisition, title, transfer, custody receipt, accession, technical verification, preservation completion, or display readiness is asserted by this record."
+  ]
+}
