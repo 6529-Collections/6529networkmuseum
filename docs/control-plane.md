@@ -28,6 +28,12 @@ that need the whole repository or need to compare values:
 - every stable cross-reference resolves to another record in the same public
   register, and `supersedes` preserves same-type append-only lineage without
   self-reference;
+- `ACCESSION` carries distinct receipt, acceptance, acquisition, title-passage,
+  custody-receipt, and accession events in order, each with its own date,
+  authority, and evidence; title passage binds an off-chain instrument and
+  custody receipt records its custody path;
+- `RIGHTS_STATEMENT` and `CONDITION_REPORT` carry their own dated,
+  authority-bound evidence events;
 - object workflow history starts at `offered`, follows only the controlled
   transitions, never regresses or repeats a state, and agrees with
   `current_state`;
@@ -46,6 +52,8 @@ the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,
 approved collections reference adopted decisions, evidence manifest paths and
 raw-byte hashes match, and every reviewed `record_control.payload_sha256`
 matches its record payload.
+Markdown templates and explanatory prose never satisfy these executable event
+or completion gates.
 
 The repository may contain no canonical records while the record register is
 being established. In that case the validator still compiles every schema and

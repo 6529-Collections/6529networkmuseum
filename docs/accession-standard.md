@@ -38,7 +38,8 @@ The revisable explanation of why a group belongs together. It does not substitut
 
 - Museum and governing-entity reference;
 - stable accession number and object schedule;
-- acceptance date, title-passage date, and custody-receipt date as separate fields;
+- receipt, acceptance, acquisition, title-passage, custody-receipt, and
+  accession events as separate dated, authority-bound, evidence-backed events;
 - acquisition method: donation, purchase, bequest, exchange, or transfer;
 - governing approval and collecting-policy pathway;
 - canonical chain identity for every token;
@@ -49,6 +50,10 @@ The revisable explanation of why a group belongs together. It does not substitut
 - concise accession rationale and explicit non-claims;
 - preparer, technical verifier, curator, registrar, approver, dates, version, and amendments;
 - final payload checksum and duplicate archival locations.
+
+The executable `ACCESSION` record keeps these events distinct and requires an
+off-chain title instrument plus an explicit custody path. A template or
+Markdown completion statement cannot satisfy the accession gate.
 
 Token ownership, legal title, copyright, display rights, and preservation rights are separate assertions.
 

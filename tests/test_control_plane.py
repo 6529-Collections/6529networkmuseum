@@ -110,6 +110,30 @@ class ControlPlaneTests(unittest.TestCase):
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(expected in issue for issue in issues), issues)
 
+    def test_accession_event_chain_separation_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "accession.json")
+        record["payload"]["events"][1]["event_type"] = "acquisition"
+        record["payload"]["events"][4]["custody_path"]["instrument_reference"] = "6529NM-INSTR-2026-999"
+        self.save_record(records, "accession.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("ACCESSION.events must contain" in issue for issue in issues), issues)
+        self.assertTrue(any("instrument_reference must match" in issue for issue in issues), issues)
+
+    def test_rights_and_condition_events_require_their_own_authority_timeline(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        rights = self.load_record(records, "rights-statement.json")
+        rights["payload"]["events"][0]["event_type"] = "rights_amendment"
+        self.save_record(records, "rights-statement.json", rights)
+        condition = self.load_record(records, "condition-report.json")
+        condition["payload"]["events"][0]["event_type"] = "condition_reassessment"
+        self.save_record(records, "condition-report.json", condition)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("RIGHTS_STATEMENT.events must begin" in issue for issue in issues), issues)
+        self.assertTrue(any("CONDITION_REPORT.events must begin" in issue for issue in issues), issues)
+
     def test_private_network_envelope_uri_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)

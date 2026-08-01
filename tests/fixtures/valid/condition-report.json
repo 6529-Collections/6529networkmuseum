@@ -5,7 +5,7 @@
     "subjectId": "0x110fcf42c67ba3f2c93772246ee760d212fd621efcef9062f011884db180465d",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x698809fefbed7db1144167e09a8d96399fa4ef26bbed96eda7773a924f428abf",
+      "digest": "0xa7e8293193548288109520135c44742b0ab33da13b345caec7b184a8c103beff",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplecondition",
@@ -35,6 +35,14 @@
     "protocol_state": "Ethereum mainnet at block 12345678",
     "assessments": {"token": "green", "metadata": "green", "script": "green"},
     "method": "Independent retrieval and deterministic render verification",
-    "outcome": "All assessed components were retrievable and rendered as expected."
+    "outcome": "All assessed components were retrievable and rendered as expected.",
+    "events": [
+      {
+        "event_type": "condition_assessment",
+        "occurred_at": "2026-08-01T00:00:00Z",
+        "authority_reference": "museum:conservator",
+        "evidence_refs": [{"label": "Condition protocol", "uri": "ipfs://bafybeigdyrzt5examplecondition", "observed_at": "2026-08-01T00:00:00Z", "evidence_class": "C"}]
+      }
+    ]
   }
 }

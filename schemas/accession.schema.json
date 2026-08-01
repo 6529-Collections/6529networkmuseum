@@ -13,9 +13,55 @@
         "object_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"}, "uniqueItems": true},
         "title_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/titleBinding"}},
         "acquisition_method": {"type": "string", "enum": ["donation", "purchase", "bequest", "exchange", "transfer"]},
-        "acceptance_date": {"type": "string", "format": "date-time"}
+        "acceptance_date": {"type": "string", "format": "date-time"},
+        "events": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {"type": "string", "enum": ["receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession"]},
+              "occurred_at": {"type": "string", "format": "date-time"},
+              "authority_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+              "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}, "uniqueItems": true},
+              "instrument": {
+                "type": "object",
+                "properties": {
+                  "kind": {"const": "off_chain_instrument"},
+                  "reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+                  "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+                  "uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+                  "custodian_reference": {"type": "string", "minLength": 1}
+                },
+                "required": ["kind", "reference", "sha256", "custodian_reference"],
+                "unevaluatedProperties": false
+              },
+              "custody_path": {
+                "type": "object",
+                "properties": {
+                  "kind": {"type": "string", "enum": ["non_token_off_chain", "onchain_token"]},
+                  "from": {"type": "string", "minLength": 1},
+                  "to": {"type": "string", "minLength": 1},
+                  "custodian_reference": {"type": "string", "minLength": 1},
+                  "instrument_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}
+                },
+                "required": ["kind", "from", "to", "custodian_reference"],
+                "allOf": [
+                  {"if": {"properties": {"kind": {"const": "non_token_off_chain"}}}, "then": {"required": ["instrument_reference"]}}
+                ],
+                "unevaluatedProperties": false
+              }
+            },
+            "required": ["event_type", "occurred_at", "authority_reference", "evidence_refs"],
+            "allOf": [
+              {"if": {"properties": {"event_type": {"const": "title_passage"}}}, "then": {"required": ["instrument"]}},
+              {"if": {"properties": {"event_type": {"const": "custody_receipt"}}}, "then": {"required": ["custody_path"]}}
+            ],
+            "unevaluatedProperties": false
+          }
+        }
       },
-      "required": ["accession_number", "acquiring_institution", "object_ids", "title_bindings", "acquisition_method", "acceptance_date"]
+      "required": ["accession_number", "acquiring_institution", "object_ids", "title_bindings", "acquisition_method", "acceptance_date", "events"]
     }
   ]
 }

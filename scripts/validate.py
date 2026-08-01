@@ -55,6 +55,7 @@ RECORD_REFERENCE_KEYS = {
     "selected_outcome_ids",
     "amendment_ids",
 }
+ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
 SENSITIVE_KEY_PARTS = {
     "api_key",
     "apikey",
@@ -301,6 +302,51 @@ def validate_state_machine(payload: dict[str, Any], vocabularies: dict[str, Any]
     return issues
 
 
+def validate_event_history(payload: dict[str, Any]) -> list[str]:
+    record_type = payload.get("record_type")
+    if record_type not in {"ACCESSION", "RIGHTS_STATEMENT", "CONDITION_REPORT"}:
+        return []
+    issues: list[str] = []
+    events = payload.get("events")
+    if not isinstance(events, list) or not all(isinstance(event, dict) for event in events):
+        return [f"{record_type}.events: must be an array of event objects"]
+    event_types = [event.get("event_type") for event in events]
+    if record_type == "ACCESSION":
+        if tuple(event_types) != ACCESSION_EVENT_ORDER:
+            issues.append("ACCESSION.events must contain receipt, acceptance, acquisition, title_passage, custody_receipt, and accession exactly once in order")
+    elif record_type == "RIGHTS_STATEMENT" and event_types and event_types[0] != "rights_assertion":
+        issues.append("RIGHTS_STATEMENT.events must begin with rights_assertion")
+    elif record_type == "CONDITION_REPORT" and event_types and event_types[0] != "condition_assessment":
+        issues.append("CONDITION_REPORT.events must begin with condition_assessment")
+    if record_type == "ACCESSION" and all(isinstance(event_type, str) for event_type in event_types) and len(event_types) != len(set(event_types)):
+        issues.append("ACCESSION.events must not repeat an event_type")
+    previous_time = None
+    for index, event in enumerate(events):
+        try:
+            current_time = parse_time(event["occurred_at"], f"{record_type}.events[{index}].occurred_at")
+        except (KeyError, ValueError) as exc:
+            issues.append(str(exc))
+            continue
+        if previous_time is not None and current_time < previous_time:
+            issues.append(f"{record_type}.events[{index}]: occurred_at moves backwards")
+        previous_time = current_time
+    if record_type == "ACCESSION" and len(events) == len(ACCESSION_EVENT_ORDER):
+        acceptance = events[1]
+        if acceptance.get("occurred_at") != payload.get("acceptance_date"):
+            issues.append("ACCESSION acceptance_date must equal the acceptance event occurred_at")
+        title_event = events[3]
+        custody_event = events[4]
+        instrument = title_event.get("instrument") if isinstance(title_event.get("instrument"), dict) else {}
+        custody_path = custody_event.get("custody_path") if isinstance(custody_event.get("custody_path"), dict) else {}
+        if instrument.get("kind") != "off_chain_instrument":
+            issues.append("ACCESSION title_passage must identify an off_chain_instrument")
+        if custody_path.get("kind") != "non_token_off_chain":
+            issues.append("ACCESSION custody_receipt must identify a non_token_off_chain custody path")
+        if instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
+            issues.append("ACCESSION custody_receipt instrument_reference must match title_passage instrument.reference")
+    return issues
+
+
 def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
@@ -369,6 +415,7 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
         if source_status == "PARTICIPATORY" and decision_status == "adopted":
             issues.append("governance evidence: PARTICIPATORY cannot be recorded as adopted")
     issues.extend(validate_state_machine(payload, vocabularies))
+    issues.extend(validate_event_history(payload))
     return issues
 
 

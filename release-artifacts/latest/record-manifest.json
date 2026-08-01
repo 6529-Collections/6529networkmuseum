@@ -94,11 +94,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd66d87e9ba6f51ac7254ca9818c61ed373d6432067cd12eeaff8731987d15ce0"
+        "digest": "0x02f7307a3666af0511baca745bf2a661e4f0a39a3f5cc0dc63d92f15f2fa4443"
       },
       "path": "schemas/accession.schema.json",
-      "sha256": "sha256:05dd40c76ae08b802838f82c3690d3405e0e6fbd276e92d0b70b0e9a9cbf2c93",
-      "size": 1256
+      "sha256": "sha256:5827acc18bdec419bcc74975a428f1be7bc852355ee27613e554f0db10ed857e",
+      "size": 3916
     },
     {
       "content_hash": {
@@ -134,11 +134,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x2acda08e324df9dbb32683dd89dffbc87727c4d8e05fb10a4df5002fa0ddc418"
+        "digest": "0xe5a86fb8cf382e287d22ca6a6ef4892203e298279fcfbdd0fb285968d7247935"
       },
       "path": "schemas/condition-report.schema.json",
-      "sha256": "sha256:20a0237046ecf50ff0ee0428fb622b7df5c75596d5585a65078b3f66198ac215",
-      "size": 1103
+      "sha256": "sha256:6e69625a6c359d9b1e8954dde1cdc4c2d324f80b6108c642f92bc14b7e5bf6e8",
+      "size": 1912
     },
     {
       "content_hash": {
@@ -224,11 +224,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xf0e209bdc00bf942a4a73f66b37e8587013d75e26817b29622af229d39629b38"
+        "digest": "0xc2ed7f2b214d8a6118b1706fef9a6eec340918bc73553a82edf98ab62346f8a3"
       },
       "path": "schemas/rights-statement.schema.json",
-      "sha256": "sha256:e3e73e89a09ea2a6d21c1236813d4c4c0875dd5decd1bb17236b2c81b3c2280b",
-      "size": 908
+      "sha256": "sha256:750242d37a93c4486d60965d7c8ee4acf2f310bc48ad3ff5a84213e941d5fd54",
+      "size": 1707
     }
   ],
   "hash_algorithms": {
@@ -243,9 +243,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa871caca7c7d6270543a72107ffaceb31eca079ef034dc2d4a642f6f0e22efa2"
+    "digest": "0xf37c0d2c9a07de07d23b4c3dcd0834682857d968d02764c95907e65cbec3b02f"
   },
-  "manifest_sha256": "sha256:50b07310fdf4cc92f0e60f0d77525e580a90ae305fbebc93ec69a34785096dbe",
+  "manifest_sha256": "sha256:57f5de6798155c37afdcb30834b5101823c7017cd025ee0e7b010e4b1e16249f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
