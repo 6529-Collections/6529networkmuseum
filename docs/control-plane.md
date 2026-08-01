@@ -52,8 +52,9 @@ that need the whole repository or need to compare values:
   IDNA-first ASCII canonical host syntax, globally routable A/AAAA answers, a
   deterministically selected pinned IP, original-host TLS/SNI and canonical
   Host, peer-IP equality, bounded manual redirects with a fresh resolution at
-  every hop, connect/read deadlines, GET/HEAD-only requests with a closed
-  `Accept`/`User-Agent` header allowlist, no request body, and strict
+  every hop, connect/read deadlines, GET/HEAD requests plus bounded JSON POST
+  requests with a closed `Accept`/`Content-Type`/`User-Agent` header allowlist,
+  a 1 MiB request-body limit, and strict
   Content-Length/Transfer-Encoding/content-encoding framing;
 - `scripts/check_fetch_guard.py` rejects direct `requests`, `httpx`, `aiohttp`,
   URL-opener, HTTP-client, raw-socket, dynamic-import, and command-line fetch

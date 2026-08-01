@@ -1,0 +1,420 @@
+{
+  "schema_version": "6529nm.casey-http-exclusions.v1",
+  "run_id": "20260801T172252532Z",
+  "observed_cross_check_count": 17,
+  "excluded_row_count": 17,
+  "by_reason": {
+    "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row": 17
+  },
+  "rows": [
+    {
+      "collection": "century",
+      "cross_check_order": 0,
+      "token_id": 100000000,
+      "source_uri": "https://api.artblocks.io/token/100000000",
+      "retrieval_uri": "https://api.artblocks.io/token/100000000",
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3.json",
+        "sha256": "sha256:454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3",
+        "size": 3229,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "CENTURY",
+        "value": "All CENTURYs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "100000000",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "century",
+      "cross_check_order": 1,
+      "token_id": 100000031,
+      "source_uri": "https://api.artblocks.io/token/100000031",
+      "retrieval_uri": "https://api.artblocks.io/token/100000031",
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74.json",
+        "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+        "size": 3232,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "CENTURY",
+        "value": "All CENTURYs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "100000031",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "century",
+      "cross_check_order": 2,
+      "token_id": 100000401,
+      "source_uri": "https://api.artblocks.io/token/100000401",
+      "retrieval_uri": "https://api.artblocks.io/token/100000401",
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81.json",
+        "sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+        "size": 3231,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "CENTURY",
+        "value": "All CENTURYs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "100000401",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "century",
+      "cross_check_order": 3,
+      "token_id": 100000724,
+      "source_uri": "https://api.artblocks.io/token/100000724",
+      "retrieval_uri": "https://api.artblocks.io/token/100000724",
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5.json",
+        "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+        "size": 3229,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "CENTURY",
+        "value": "All CENTURYs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "100000724",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "century",
+      "cross_check_order": 4,
+      "token_id": 100000999,
+      "source_uri": "https://api.artblocks.io/token/100000999",
+      "retrieval_uri": "https://api.artblocks.io/token/100000999",
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227.json",
+        "sha256": "sha256:6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227",
+        "size": 3231,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "CENTURY",
+        "value": "All CENTURYs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "100000999",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "pre-process",
+      "cross_check_order": 5,
+      "token_id": 383000000,
+      "source_uri": "https://api.artblocks.io/token/383000000",
+      "retrieval_uri": "https://api.artblocks.io/token/383000000",
+      "raw_response": {
+        "path": "raw/pre-process/http-cross-check/sha256-abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817.json",
+        "sha256": "sha256:abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817",
+        "size": 4359,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Pre-Process",
+        "value": "All Pre-Process"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "383000000",
+        "contract_address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069"
+      }
+    },
+    {
+      "collection": "pre-process",
+      "cross_check_order": 6,
+      "token_id": 383000063,
+      "source_uri": "https://api.artblocks.io/token/383000063",
+      "retrieval_uri": "https://api.artblocks.io/token/383000063",
+      "raw_response": {
+        "path": "raw/pre-process/http-cross-check/sha256-581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5.json",
+        "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+        "size": 4360,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Pre-Process",
+        "value": "All Pre-Process"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "383000063",
+        "contract_address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069"
+      }
+    },
+    {
+      "collection": "pre-process",
+      "cross_check_order": 7,
+      "token_id": 383000119,
+      "source_uri": "https://api.artblocks.io/token/383000119",
+      "retrieval_uri": "https://api.artblocks.io/token/383000119",
+      "raw_response": {
+        "path": "raw/pre-process/http-cross-check/sha256-78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8.json",
+        "sha256": "sha256:78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8",
+        "size": 4361,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Pre-Process",
+        "value": "All Pre-Process"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "383000119",
+        "contract_address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069"
+      }
+    },
+    {
+      "collection": "phototaxis",
+      "cross_check_order": 8,
+      "token_id": 164000000,
+      "source_uri": "https://api.artblocks.io/token/164000000",
+      "retrieval_uri": "https://api.artblocks.io/token/164000000",
+      "raw_response": {
+        "path": "raw/phototaxis/http-cross-check/sha256-ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554.json",
+        "sha256": "sha256:ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554",
+        "size": 3013,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Phototaxis",
+        "value": "All Phototaxis"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "164000000",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "phototaxis",
+      "cross_check_order": 9,
+      "token_id": 164000308,
+      "source_uri": "https://api.artblocks.io/token/164000308",
+      "retrieval_uri": "https://api.artblocks.io/token/164000308",
+      "raw_response": {
+        "path": "raw/phototaxis/http-cross-check/sha256-b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573.json",
+        "sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+        "size": 3029,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Phototaxis",
+        "value": "All Phototaxis"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "164000308",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "phototaxis",
+      "cross_check_order": 10,
+      "token_id": 164000999,
+      "source_uri": "https://api.artblocks.io/token/164000999",
+      "retrieval_uri": "https://api.artblocks.io/token/164000999",
+      "raw_response": {
+        "path": "raw/phototaxis/http-cross-check/sha256-7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084.json",
+        "sha256": "sha256:7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084",
+        "size": 3021,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Phototaxis",
+        "value": "All Phototaxis"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "164000999",
+        "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270"
+      }
+    },
+    {
+      "collection": "923-empty-rooms",
+      "cross_check_order": 11,
+      "token_id": 1000000,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379.json",
+        "sha256": "sha256:743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379",
+        "size": 3738,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "923 EMPTY ROOMS",
+        "value": "All 923 EMPTY ROOMSs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "1000000",
+        "contract_address": "0x145789247973c5d612bf121e9e4eef84b63eb707"
+      }
+    },
+    {
+      "collection": "923-empty-rooms",
+      "cross_check_order": 12,
+      "token_id": 1000713,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd.json",
+        "sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+        "size": 3748,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "923 EMPTY ROOMS",
+        "value": "All 923 EMPTY ROOMSs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "1000713",
+        "contract_address": "0x145789247973c5d612bf121e9e4eef84b63eb707"
+      }
+    },
+    {
+      "collection": "923-empty-rooms",
+      "cross_check_order": 13,
+      "token_id": 1000923,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce.json",
+        "sha256": "sha256:f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce",
+        "size": 3754,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "923 EMPTY ROOMS",
+        "value": "All 923 EMPTY ROOMSs"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "1000923",
+        "contract_address": "0x145789247973c5d612bf121e9e4eef84b63eb707"
+      }
+    },
+    {
+      "collection": "ex-nihilo-cosmos",
+      "cross_check_order": 14,
+      "token_id": 0,
+      "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/0",
+      "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/0",
+      "raw_response": {
+        "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad.json",
+        "sha256": "sha256:e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad",
+        "size": 4210,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Ex Nihilo (Cosmos)",
+        "value": "All Ex Nihilo (Cosmos)s"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "0",
+        "contract_address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894"
+      }
+    },
+    {
+      "collection": "ex-nihilo-cosmos",
+      "cross_check_order": 15,
+      "token_id": 248,
+      "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "raw_response": {
+        "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc.json",
+        "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+        "size": 4224,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Ex Nihilo (Cosmos)",
+        "value": "All Ex Nihilo (Cosmos)s"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "248",
+        "contract_address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894"
+      }
+    },
+    {
+      "collection": "ex-nihilo-cosmos",
+      "cross_check_order": 16,
+      "token_id": 255,
+      "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/255",
+      "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/255",
+      "raw_response": {
+        "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9.json",
+        "sha256": "sha256:4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9",
+        "size": 4224,
+        "byte_mode": "raw"
+      },
+      "source_location": "traits[0]",
+      "source_order": 0,
+      "excluded_row": {
+        "trait_type": "Ex Nihilo (Cosmos)",
+        "value": "All Ex Nihilo (Cosmos)s"
+      },
+      "reason": "Art Blocks token endpoint group marker ('All <collection>') is not a token feature row",
+      "token_identity": {
+        "metadata_token_id": "255",
+        "contract_address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894"
+      }
+    }
+  ],
+  "fail_closed_rule": "exactly one excluded row per observed cross-check, always traits[0] with an All <collection> value; any other exclusion or missing cross-check fails verification"
+}

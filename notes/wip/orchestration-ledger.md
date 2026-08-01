@@ -215,3 +215,234 @@ specs, templates, scripts, tests, and six named root control files. A formal
 files, prove that real and future specification files are inventoried, and
 reject missing or linked configured roots and files. Evidence, WIP notes, Git internals, and the
 self-referential release-artifact directory retain explicit separate treatment.
+
+## 2026-08-01 - Casey full-collection acquisition checkpoint
+
+The follow-on acquisition branch is `codex/casey-reas-collection-snapshots`,
+based exactly on synchronized `origin/main`
+`6ab83b456f1ad8d1b7b88b79cc960954feb56432`. It adds source configuration,
+reviewable acquisition and verification tooling, a materialization fixture, and
+one complete v2 run for all five Casey REAS projects represented in accession
+lot `6529NM.2026.001`. Governed `records/` payloads were not changed.
+
+The authoritative route is deliberately bulk-first: one observed Ethereum
+mainnet block binds the configured on-chain project population view and every
+`tokenURI(uint256)` string by batched `eth_call`; the official Art Blocks
+Hasura `tokens_metadata` endpoint supplies the complete paginated feature
+population with raw page bytes, query/variables, server order, counts, request
+hashes, and retry attempts. The current complete run is
+`20260801T172252532Z`: CENTURY 1,000, Pre-Process 120, Phototaxis 1,000,
+923 EMPTY ROOMS 924, and Ex Nihilo (Cosmos) 256, totaling 3,300 tokens. The
+server row order is retained separately from numeric canonical token/trait
+ordering. Sampled official token endpoint checks are cross-check evidence only;
+their eight feature omissions/differences are visible warnings and do not
+replace or reduce the bulk population.
+
+`scripts/verify_casey_snapshot_package.py` passes the run, raw-reference
+hashes, population/identity/order checks, prohibited-field checks, and the
+scalar materialization fixtures. At this checkpoint PR #4 is independently
+merged as `ff1c5825e3b61bfb2df0a639e057297beb946e4d`; descriptor emission is
+now permitted only after rebasing this branch to that exact mainline and
+running the merged `scripts/rarity/analyze.py`. Collection descriptor outputs
+remain transparent statistical descriptors, not quality judgments, value
+signals, or canonical truth; constructor/reviewer separation remains explicit
+with `review: null` until a separate reviewer is assigned.
+
+## 2026-08-01 - Casey descriptor emission checkpoint
+
+After PR #4 independently merged into `origin/main` at
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d`, the branch was rebased so that
+the merged `scripts/rarity/analyze.py` is an ancestor and its rarity-tool path
+is clean. That exact entry point ran with duplicate policy `error` against all
+five complete v2 snapshots. The resulting full collection artifacts are in
+`evidence/casey-reas-collection-snapshots/descriptors/`, with descriptor
+manifest `descriptor-manifest.json` and result hashes bound to the run.
+
+PR #4's closed-field safety guard rejects any input key containing `metric`,
+including the acquisition package's negative `not_a_marketplace_metric`
+control annotation. The source snapshots were not changed. Each descriptor
+records a hash of an explicit derived tool-input projection and the single
+removed path; all source rows, feature values, raw observations, source order,
+canonical order, block provenance, and cross-check warnings remain in the
+frozen acquisition package. The outputs are transparent statistical
+descriptors only, not quality, value, marketplace, or canonical-truth claims.
+The descriptor manifest and every descriptor retain `review: null` pending
+independent review.
+
+## 2026-08-01 - PR #13 reviewer-remediation construction checkpoint
+
+Reviewer changes requested at exact head
+`0181ec4c7eed184dd4bbac963ef30392dca37f34` were remediated on
+`codex/casey-reas-collection-snapshots`. The stable source-snapshot commit is
+`820f4bb6999fb9df3b094692913d70ebf6d9dc63`; the raw acquisition source commit
+is `8585aedb9f176806624a7b069cdd10a6f1995824`. The current package contains
+the exact independently merged PR #4 tool at merge commit
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d`, Git blob
+`755a1b1c948d900496f5e279594223c8c99ab3e8`, and SHA-256
+`e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53`.
+
+The complete run remains `20260801T172252532Z`: 3,300 tokenURI requests,
+3,327 total request records, 62 unique reconstructed request bodies, 35,088
+materialized traits, 79 raw files, 17 explicitly recorded HTTP group-marker
+exclusions, and eight unchanged cross-check warnings. The verifier compares
+all raw bytes to the acquisition commit, all snapshots and the child manifest
+to the stable source commit, recomputes rows from raw Hasura/JSON-RPC bytes,
+recomputes all five descriptor results with the exact tool, and checks the
+root inventory and mutation controls. The root package manifest has 171 bound
+files (79 raw, 64 derived provenance/request files, five snapshots, and five
+descriptors); no tracked file exceeds GitHub's per-file limit.
+
+Generated descriptors remain transparent statistical descriptors only. Review,
+curatorial significance, title, rights, accession acceptance, and accession
+completion remain null/unclaimed. PR #7's approved safe-HTTPS migration is a
+deferred dependency; this draft does not claim that migration or readiness for
+merge.
+
+## 2026-08-01 - PR #13 CI runtime-determinism remediation checkpoint
+
+Fresh CI run `30713015267` checked the full-history PR merge ref
+`d65bf813a195fba40fb262e54f0f9491974012d0` and failed only during merged PR #4
+descriptor recomputation. Native reproduction at that exact merge ref showed
+the source verifier itself was sound: descriptors were generated under CPython
+`3.12.10`, while `python-version: "3.12"` resolved in Actions to `3.12.13`.
+The differing float serialization caused the expected result comparison to
+fail at `century: merged PR4 result recomputation`; no source, raw observation,
+or descriptor payload was changed.
+
+The workflow now pins CPython `3.12.10` exactly (while retaining full history),
+and the verifier rejects any other CPython implementation/version before
+recomputing byte/hash-sensitive descriptors. It also checks each recorded
+descriptor determinism profile against that pinned runtime, with a dedicated
+negative mutation test. Review remains null; PR #7 remains deferred; the PR
+remains draft.
+
+## 2026-08-01 - PR #13 exact-head fail-open remediation checkpoint
+
+Independent exact-head review at `d58926fcf9ba5c8fe7ad5d09455db9e202042fd8`
+reproduced two fail-open mutations. The root verifier accepted a package README
+inventory substitution with internally updated hashes, and it accepted an
+OpenSea URL added to a descriptor when descriptor inventory and pointer hashes
+were updated. Neither mutation changed the preserved acquisition bytes or
+descriptor result payloads in the governed package.
+
+The verifier now derives and checks a closed path/role allowlist for all 172
+root inventory entries: package files, the exact five snapshots/descriptors,
+the pinned run raw/derived paths, and an explicit fixed list of shared source
+files. Semantic bindings must stay inside the package prefix except the
+hard-coded PR #4 tool path. A recursive external-reference guard now scans
+every bound JSON artifact, including descriptors, results, inputs, methods,
+provenance, fixtures, and raw observations. It rejects marketplace/provider
+variants, URLs, and imported/precomputed metric field names while allowing the
+Museum's generated internal statistical result fields. Two disposable exact
+worktree end-to-end mutations cover the README substitution and descriptor
+OpenSea/provider injection.
+
+Raw/source bytes, populations, runtime pin, descriptor results, review nulls,
+and PR #7 deferral remain unchanged. PR #13 stays draft and must not be
+merged or synchronized to PR #7 until this remediation receives independent
+exact-head review.
+
+## 2026-08-01 - PR #13 PR7 control-plane integration checkpoint
+
+The two fail-closed findings above were completed before the one permitted
+mainline synchronization. The branch was then rebased exactly once onto merged
+PR #7 / `origin/main` `7193bfb9a0a6ead1871180b931aced755676b327`. The package no
+longer records a deferred PR #7 status: its root dependency binds that merge
+commit, the merged control-plane blob pins, and current hashes for
+`scripts/safe_fetch.py` and `scripts/check_fetch_guard.py`; those modules and
+the control-plane test are now in the closed root inventory.
+
+Every executable network-retrieval path is mediated by `safe_fetch.py`. Because
+the authoritative acquisition protocols are JSON-RPC and Hasura POST, the
+approved primitive now admits only bounded `application/json` POST bodies in
+addition to GET/HEAD, with the same HTTPS-only resolve/pin/redirect/framing/
+deadline controls. `check_fetch_guard.py` passes. No acquisition run was
+performed: the preserved v2 raw bytes, source commits, populations, 3,300
+tokenURI requests, 35,088 traits, 17 explicit exclusions, eight warnings, and
+five descriptor payloads remain byte-for-byte unchanged.
+
+The regenerated package has 175 inventory files (79 raw observations and five
+descriptors), with package manifest SHA-256
+`sha256:9d9b863e728d554454817057bc4e536ff4b367056e4aa6798887eb9ed84fbc89`.
+The release manifest is current at SHA-256
+`sha256:e2e8cbbcc0149238307f5706a8225f232079265c17e36d11fc33aea2c4307f4b`.
+Review metadata remains null, no title/rights/accession acceptance is claimed,
+and PR #13 remains a draft pending exact-head independent review.
+
+## 2026-08-01 - PR #14 exact-main synchronization checkpoint
+
+After the complete merged-main suite passed (68 tests, including 17 rarity,
+11 Casey mutation, and merged control-plane tests), PR #13 fetched and verified
+`origin/main` exactly at `13578fe13a9638e497e96b26b5ce8c4a863543ab` and rebased
+the Casey work exactly once. The only conflicts were derived release-manifest
+hunks and the append-only ledger; PR #14's closed release inventory and both
+Casey ledger entries were preserved. An exact Git comparison reports no changes
+under the preserved 79-file raw observation tree.
+
+The package was regenerated without acquisition or descriptor reruns: 175 root
+inventory files, 79 raw observations, five descriptors, 3,300 tokenURI
+requests, 35,088 traits, 17 exclusions, and eight warnings remain bound. The
+rebased package manifest is
+`sha256:11e5a963a508fc15c5bfe683986a43aa25b0c85a06a0a98a7b66a621be1df8f6`;
+the closed release manifest is
+`sha256:518a80d7dfb20b25070c9fee94552824b250cd672e4f7de1fc63f30ea39480f2`.
+The exact rebase result before final manifest/ledger commit is `fda242b`; the
+working branch remains draft with reviewer, title/rights, and accession
+acceptance metadata unbound.
+
+## 2026-08-01 - PR #13 acquisition-pin reachability remediation
+
+Exact-head CI at `8b02fece50b7f93b0c0ca4b6e4db25dff39b6c20` showed that the
+historical acquisition pin `8585aedb9f176806624a7b069cdd10a6f1995824` was not
+reachable from the rebased remote history, although the local object-rich
+worktree could still read it. The acquisition commit pin is therefore updated
+to the reachable rebased acquisition commit
+`48cd2fbf2914d295cdc4260dedb1345061f5e3b6`, which contains the same preserved
+79 raw observation files byte-for-byte. The historical source-snapshot pin
+`820f4bb6999fb9df3b094692913d70ebf6d9dc63` remains unchanged and is retained as
+a reachable parent without a tree change.
+
+The five descriptors, descriptor manifest, pending review ledger, root package
+manifest, and release manifest were regenerated only for this dependency-pin
+change. The package now reports SHA-256
+`sha256:8b438b09c09eedc8ec53c3d8e4e063f6ebba9f32ff75afe672d6a1cea725cae6`;
+the deterministic release-manifest commitment reports
+`sha256:6bd97c002283999ae739f705a11e1b2d8fc2cca93e7fa03a2510764bfd706892`.
+All populations, source/canonical orderings, raw bytes, exclusion rows,
+descriptor results, runtime pin, and null reviewer fields remain unchanged.
+
+## 2026-08-01 - PR #13 symlink and direct-PR4-byte remediation checkpoint
+
+Independent review at `3391d74619a0955fb479ea1ffae706aa8ea37d19` identified a
+fail-open bound-raw symlink substitution and an unconfirmed Phototaxis
+serialization hash alternative. The pinned PR #4 tool was rerun from the
+preserved Phototaxis snapshot under CPython `3.12.10` in isolated constructor
+and reviewer trees, including `PYTHONHASHSEED` values `0`, `1`, `2`, `42`,
+`123`, and `random`; every raw output was
+`sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044`,
+matching the recorded descriptor. The reported
+`sha256:492687b80070621cc10f7dd32855e11ccffefad69c875b039b9eed9efcfa58c8`
+was not reproducible by the pinned tool or common JSON reserializations and is
+therefore not substituted for governed bytes.
+
+The verifier now lstat-checks every bound package/inventory/raw/derived/
+snapshot/descriptor path component, rejects POSIX symlinks and Windows
+reparse points/junctions before reads or enumeration, and constrains the
+governed package root lexically. The mutation suite includes an end-to-end
+same-byte bound-raw symlink case and a Windows reparse-attribute negative
+control. Descriptor verification now compares direct merged-PR4 output bytes
+and SHA-256 for all five results, in addition to semantic equality, under the
+pinned UTF-8/indent/newline serialization boundary.
+
+No acquisition or descriptor rerun was performed. The preserved package still
+contains 79 raw files, 3,300 tokenURI requests, 35,088 traits, 3,327 request
+records, 62 unique request bodies, 17 explicit exclusions, eight warnings, and
+five descriptor outputs; source and canonical orderings remain separate. The
+working package manifest is
+`sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f`;
+the release manifest was regenerated after this append-only checkpoint. Its
+current commitment is intentionally reported by the validation handoff rather
+than embedded here, avoiding a self-referential ledger/manifest hash.
+Review and curatorial metadata remain null; no title/rights/accession
+acceptance is claimed. PR #13 remains draft pending the same independent
+exact-head review.

@@ -84,6 +84,7 @@ Status vocabulary:
 | File | Status | Contents |
 |---|---|---|
 | [`evidence/waves/museum-wave/README.md`](evidence/waves/museum-wave/README.md) | immutable evidence index | Complete authenticated 2026-08-01 Museum Wave snapshot, rendered history, source index, proposals, and SHA-256 digests |
+| [`evidence/casey-reas-collection-snapshots/README.md`](evidence/casey-reas-collection-snapshots/README.md) | constructed acquisition and descriptor evidence package | Full Art Blocks Hasura/tokenURI observations, reconstructed request provenance, 17 explicit cross-check exclusions, closed-scope/no-follow root manifest, direct PR #4 byte recomputation, and transparent descriptors for the five Casey REAS projects in lot `6529NM.2026.001`; outputs await independent review |
 
 ## Integrity tooling
 
@@ -91,7 +92,7 @@ Status vocabulary:
 |---|---|---|
 | [`schemas/`](schemas/) | active working standard | Bootstrap governance/collection/accession schemas plus controlled vocabularies and Stream-compatible profiles |
 | [`scripts/bootstrap_validate.py`](scripts/bootstrap_validate.py) | active CI control | Source-derived governance, raw evidence manifest, record-control, local-link, and public-safety checks |
-| [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with IDNA/endpoint filtering, IP pinning, strict framing/headers, redirect rechecks, streamed caps, and observations |
+| [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with IDNA/endpoint filtering, IP pinning, strict framing/headers, bounded JSON POST/GET requests, redirect rechecks, streamed caps, and observations |
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
 | [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments over the closed governed release inventory |

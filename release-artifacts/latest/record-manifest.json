@@ -27,8 +27,8 @@
     },
     {
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:653f475178674489bac4cbcd6639297e69aba60db290b94d79aaf67d10d3027f",
-      "size": 2302
+      "sha256": "sha256:d69790fdfb5bb9f375a5ad49a46966169f01b085c45f40b5c4d9bac655f53c01",
+      "size": 2719
     },
     {
       "path": ".gitignore",
@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:af818fe339c51574964a00a95e7e0c3d0e4c4958fc0f708ac4969a1cccfde03f",
-      "size": 11335
+      "sha256": "sha256:f3d03748bf578a3922f46cf897933395529de3b7befb6a85d3b04b764aa8555b",
+      "size": 11845
     },
     {
       "path": "README.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:51ef7b38ad403cea22759e5606874d01e2fabefc40423b251a33f7422134c1e4",
-      "size": 9542
+      "sha256": "sha256:cba40cf0f7ae60675dbbb47b2c15e50b2821994959cf0753e5497714d2efbb7a",
+      "size": 9597
     },
     {
       "path": "docs/external-works-registry.md",
@@ -434,21 +434,21 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x735892967e678359eb5ef32c1a5044eb6e80d3284857608c009ee2769347b47a"
+        "digest": "0x38482bd159fc3f978d1886294bb9179b907969b78e3d95ec9c4a3e8c4256c6cf"
       },
       "path": "schemas/controlled-vocabularies.json",
-      "sha256": "sha256:dedbc4d4b8a9f57d1921f5083c48317dbb13aacc1d806020db5674b97a3fe255",
-      "size": 4570
+      "sha256": "sha256:eb9446040ea6c7a43d5ab3a34ae78cbdd69e939c2727d96f4132b6f00c3dfbdc",
+      "size": 4612
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x83871a55c3117d7f8dd8351ffd587f5d52679ec42692f94b11384c3626b73ad2"
+        "digest": "0x1e1281cce657732b1c46642a06f1011969df171449edef02ebe3a5075e4e39a8"
       },
       "path": "schemas/controlled-vocabularies.schema.json",
-      "sha256": "sha256:27fd2ae982995cb040a1c1c1012a00a695f7f87e91be230dc02197c64fb9bab1",
-      "size": 4838
+      "sha256": "sha256:12e3a565876b89308b58af4dada6d1f1aa1da447a31ee1360edfb6788d6d5e69",
+      "size": 4916
     },
     {
       "content_hash": {
@@ -531,9 +531,19 @@
       "size": 2609
     },
     {
+      "path": "scripts/acquire_casey_collection_snapshots.py",
+      "sha256": "sha256:252ec56cc5bdff0cce4ca68c27906af8b477141df2993d188779f8cc6bedc8c8",
+      "size": 33645
+    },
+    {
       "path": "scripts/bootstrap_validate.py",
       "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
       "size": 27239
+    },
+    {
+      "path": "scripts/build_casey_package_manifest.py",
+      "sha256": "sha256:aa5269de84cba8df583a6b8929c6a9801b57744ba1b6ca862272dbe06153c142",
+      "size": 11233
     },
     {
       "path": "scripts/canonical.py",
@@ -546,9 +556,19 @@
       "size": 7245
     },
     {
+      "path": "scripts/emit_casey_collection_descriptors.py",
+      "sha256": "sha256:b4b4be2e47bb3d90dede011b577bcc6538cea60dd9202caf704176a64a595f1b",
+      "size": 11499
+    },
+    {
       "path": "scripts/generate_manifest.py",
       "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
       "size": 8285
+    },
+    {
+      "path": "scripts/harden_casey_snapshot_package.py",
+      "sha256": "sha256:2fc0c93ee9dec11ae204e4bfe5324e1ac7d9ee446626b2d13944bc457117d986",
+      "size": 22010
     },
     {
       "path": "scripts/rarity/__init__.py",
@@ -567,13 +587,18 @@
     },
     {
       "path": "scripts/safe_fetch.py",
-      "sha256": "sha256:74686b7d912617541e3c9628e961599a4fa090c8d52a5b917ea7a2e6d04f9725",
-      "size": 25127
+      "sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+      "size": 26871
     },
     {
       "path": "scripts/validate.py",
       "sha256": "sha256:3c847ce385deb6aaf47757309461433ccb61fbda451db058336d95689c3fe81c",
       "size": 35725
+    },
+    {
+      "path": "scripts/verify_casey_snapshot_package.py",
+      "sha256": "sha256:88411ff5f66659e06d1488cfa2898fcf07dbac8ab57a52c1b2c14ef5aaee0e28",
+      "size": 74984
     },
     {
       "path": "specs/README.md",
@@ -601,24 +626,44 @@
       "size": 3973
     },
     {
+      "path": "specs/onchain/batch_vector_check_v1.py",
+      "sha256": "sha256:473de58ba9faf67b21418c7de128c0790c28fa7a025b1ef7d0129955e5ca020e",
+      "size": 1336
+    },
+    {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:88f2271058b4bd7e2a57e9a551a3eac74979aea431d0944b53df4a95412c2454",
-      "size": 182902
+      "sha256": "sha256:4f15d043b8f462d2ceea675f2b883769803c86212b139a6c9cdcfdab84c9d164",
+      "size": 186581
+    },
+    {
+      "path": "specs/onchain/https_expiry_renewal_check_v1.py",
+      "sha256": "sha256:0a0c3cab04886fd344003dec530006a39d89e66a9295a551008729863e54783d",
+      "size": 2618
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd956ec11943797848e38e7ac671237faabaf5859111ca19833a098d8b39dc3da"
+        "digest": "0xca463d96fb8d46e4d0853d226fa19ed6c3129b0bbdfc973cc6f64e47bb992e36"
       },
       "path": "specs/onchain/target-release-evidence-v1.schema.json",
-      "sha256": "sha256:f61fad3ef8631faad518a27ddff7679538fc5127a890d251f2d909cfe49c3796",
-      "size": 4857
+      "sha256": "sha256:b81af89b5dd1df130f40742901fdc1b9c9d42cd52fa6428d5c35fcecbc673b9a",
+      "size": 6215
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439"
+      },
+      "path": "specs/onchain/target-release-signature-bundle-v1.schema.json",
+      "sha256": "sha256:e1947058b4ab2fc8f64057a45e55aa34211559eb547377237aa9dda698aedf51",
+      "size": 1010
     },
     {
       "path": "specs/onchain/uri_safety_vectors_v1.py",
-      "sha256": "sha256:e38770164edde947ba2d6397aa77c7bf7442fa71e0281a81be297f5507ce6df2",
-      "size": 9359
+      "sha256": "sha256:1827dd061157983034b723f81bac9263968e5ca2a656fbf5d6626a480f2f34a4",
+      "size": 11522
     },
     {
       "path": "templates/README.md",
@@ -684,6 +729,16 @@
       "path": "tests/__init__.py",
       "sha256": "sha256:9df0bfc8c6db9812d53501133b601b7ccdc089f8a15041fff8d36dd93e90df4a",
       "size": 66
+    },
+    {
+      "path": "tests/casey/__init__.py",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "tests/casey/test_casey_snapshot_mutations.py",
+      "sha256": "sha256:01f51cc943fe1c4174b07b8a427a22867aed68ba465099ef6ce189bc85d556ed",
+      "size": 11384
     },
     {
       "content_hash": {
@@ -822,8 +877,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:d44f19a71701a97d2c72a8a357283dd01898e642d44166ed4ba532ce491db498",
-      "size": 51357
+      "sha256": "sha256:82464918d55e8b578ce4bca4520719ac4222e5d16ce295309029616d7d4763ac",
+      "size": 52680
     }
   ],
   "hash_algorithms": {
@@ -853,9 +908,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x01cae35ec9315631e7e011bf9704bbefbc5159067545a4392e46f52f946ad955"
+    "digest": "0x88467a3d51b1a9e5eff4ea920f22f9c4815efc9f41d24b3d9cdc497dd51194b1"
   },
-  "manifest_sha256": "sha256:a4adcc66139508eff939cf3cbe83f33910bf440fefec3b7a4d7663785144fb3f",
+  "manifest_sha256": "sha256:29555e08e86b6e3df700e7bb1828aa56e6ec00ba91f8dbe00820e5a5be6495f9",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
