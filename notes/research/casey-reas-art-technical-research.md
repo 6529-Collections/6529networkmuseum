@@ -17,9 +17,15 @@ The dossier keeps four kinds of statement apart:
 
 The seven token numbers were supplied as the proposed donation contents and are mapped below to the project contracts and token IDs visible in Art Blocks’ project records and generator routes. This mapping does **not** prove that `networkmuseum.6529.eth` currently controls the objects or that a donation has occurred.
 
+## Research conclusion
+
+The seven proposed works form a coherent Museum research lot about executable images: a token-bound state is made performable by code, and the viewer encounters a changing output rather than only a stored picture. The group traces a defensible arc from modernist recombination in **CENTURY**, through the recovered Process grammar of **Pre-Process**, artificial-life behavior in **Phototaxis**, finite combinatorics and distributed exhibition in **923 EMPTY ROOMS**, and geometric/pixel simulation in **Ex Nihilo (Cosmos)**. This is a Museum interpretation, not an artist-authored sequence; the three CENTURY tokens are a comparative sample, not an asserted artist-defined triptych.
+
+At the research snapshot, Art Blocks GraphQL reported the same `owner_address` for all seven tokens: `0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c`. That is an API observation and custody lead, not proof of legal title, donor authority, Museum control, or accession. Art Blocks token metadata reported `CC BY-NC 4.0`; that label does not by itself establish permissions for display, publication, preservation copying, migration, derivative use, or AI training. Those matters require separate title, rights, and accession records.
+
 ## Provisional object schedule and technical identity
 
-Art Blocks documents the standard token-ID relationship as `tokenId = (projectId × 1,000,000) + invocation`. The generator endpoints below were requested on 2026-08-01 UTC. The response SHA-256 values are retrieval snapshots of the returned UTF-8 HTML bodies; they are not substitutes for the token’s on-chain script, token hash, metadata, or a legal title binding.
+For the Art Blocks V3 projects in this schedule, Art Blocks documents the token-ID relationship as `tokenId = (projectId × 1,000,000) + invocation`; its V3 Core Contract powers Studio, Curated, and Engine projects. Ex Nihilo (Cosmos) #248 is a V3.2.4 Studio deployment: the token API records `engine_type: studio`, `project_id: 0`, and `tokenID: 248`, which decodes as project 0, invocation 248 (`248 = (0 × 1,000,000) + 248`). Keep the raw API fields and decoded fields separate; this technical decoding does not establish title, custody, or accession. The generator endpoints below were requested on 2026-08-01 UTC. The response SHA-256 values are retrieval snapshots of the returned UTF-8 HTML bodies; they are not substitutes for the token’s on-chain script, token hash, metadata, or a legal title binding.
 
 | Provisional object | Work / supplied number | Ethereum contract | Art Blocks project / token ID | Current generator dependency observed | Generator response SHA-256 |
 |---|---|---|---|---|---|
@@ -29,9 +35,39 @@ Art Blocks documents the standard token-ID relationship as `tokenId = (projectId
 | `6529NM.2026.001.04` | Pre-Process #63 | `0x99a9b7c1116f9ceeb1652de04d5969cce509b069` | project 383 / `383000063` | p5.js 1.0.0 via cdnjs | `8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b` |
 | `6529NM.2026.001.05` | Phototaxis #308 | `0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270` | project 164 / `164000308` | p5.js 1.0.0 via cdnjs | `b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3` |
 | `6529NM.2026.001.06` | 923 EMPTY ROOMS #713 | `0x145789247973c5d612bf121e9e4eef84b63eb707` | project 1 / `1000713` | p5.js 1.0.0 via cdnjs | `2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0` |
-| `6529NM.2026.001.07` | Ex Nihilo (Cosmos) #248 | `0x0000000c687daed0fba60d1dba4e5f6149e8b894` | project 0 / `248` | p5.js 1.9.0 via cdnjs | `17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9` |
+| `6529NM.2026.001.07` | Ex Nihilo (Cosmos) #248 | `0x0000000c687daed0fba60d1dba4e5f6149e8b894` | project 0 / token `248` / invocation `248` | p5.js 1.9.0 via cdnjs | `17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9` |
 
 **Technical caution.** The current generator response exposes a p5.js CDN script, but that is a snapshot of the present generator route. The accession package must also capture the token hash, project script, dependency metadata, contract state, generator HTML, and a local render test. Art Blocks’ own documentation explains that the generator assembles the artist script, token hash, and dependencies; it does not make the Museum’s one-time retrieval hash a permanent claim about future gateway behavior.
+
+### Token metadata snapshot [A/C]
+
+The following values were queried from Art Blocks token/project metadata on 2026-08-01 UTC. The CAIP-19-shaped citations identify the native Ethereum ERC-721 objects; they are not Museum accession numbers or title claims.
+
+| Work | Native object and token hash | Mint observation | Selected project features |
+|---|---|---|---|
+| CENTURY #31 | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031`; `0x55f52fb6b8134eb95200dfe109941c2df4ef53618d08598ccf7bd20a955bbfa9` | 2021-06-25 19:00:08 UTC | Palette A; Line Count 17; Slice Count 16; Oculi true |
+| CENTURY #724 | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724`; `0x02a66fde5911ca99640218fb0b8143bf6d4b9da045626de7065f0a2c88453766` | 2021-06-25 19:04:52 UTC | Palette B; Line Count 11; Slice Count 7; Oculi true; Janky true |
+| CENTURY #401 | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401`; `0x8e536efbdddc966eb7cea6d719463fd1310cc9054e6e6850557a5fd69b49dd16` | 2021-06-25 19:02:56 UTC | Palette C; Line Count 15; Alpha true; Alpha Value 209 |
+| Pre-Process #63 | `eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063`; `0x0d800ffd4ec82f477918afd163ef9089a92f6b6bb5e81247671bbad6a27bcbd0` | 2022-11-30 18:25:23 UTC | Aspect ratio 1.78; Growth 4; Origin 1; Surface 8; no palette feature returned |
+| Phototaxis #308 | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308`; `0x0cfd2dddb2da0dcf086b6a7955e1d0201d0425566962d002be7669742bbec72c` | 2021-09-21 19:52:20 UTC | Size Base; Speed Lively; Lights 3; Sensors Nonlinear; Population Assemblage |
+| 923 EMPTY ROOMS #713 | `eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713`; `0x293d12f425921929361c334bbe6402ff4eaf65b29d0b913df133e335f062896e` | 2023-08-18 16:57:59 UTC | City CDMX; Code 555536; six shapes; four Pyramids, one Cargo, one Moon; gray background |
+| Ex Nihilo (Cosmos) #248 | `eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248`; `0x09e7e497b272d55d199f92d3f0105d43d88f6f3b1f87e89f1ea64e4ea1ba01a8` | 2026-03-11 16:41:35 UTC | `engine_type: studio`; project 0; RGB false; CHUNK 3; # COSMOS 3; FFFFFF true |
+
+The token hashes and mint times are platform/API observations pending direct chain verification. The project script and generator response hashes elsewhere in this dossier are separate retrieval-fixity values, not contract bytecode or dependency-registry hashes.
+
+### Project-script retrieval and static observations [C]
+
+The Museum also retrieved the current `projects_metadata.script` values from Art Blocks GraphQL on 2026-08-01 UTC and computed SHA-256 over each returned UTF-8 string. These values describe the retrieved API state; they do not replace an on-chain script/dependency snapshot.
+
+| Project | Script bytes | Script SHA-256 | Runtime/behavior observed |
+|---|---:|---|---|
+| CENTURY | 8,975 | `fd6e03daada52c152eb00093d33c0ec56c27b94e120b7b0cef8fb72876409eec` | `p5@1.0.0`; square `WEBGL`; hash-seeded random generator; moving bands/ellipses; slice reorder keys `1`/`2` |
+| Pre-Process | 11,256 | `205c3bc9cd5a019cb94cb797755538446cddd564ca69ea4f55b6d57e97568369` | `p5@1.0.0`; full-window 2D canvas; 30 fps; 100 elements; mouse/keyboard interaction and pause |
+| Phototaxis | 7,308 | `57a994d9131fbdc79941579e3097d64291fb90bbfd1def3fc847f5df23bcc997` | `p5@1.0.0`; four machine classes; light field; accumulated line history; stops after 1,000 frames |
+| 923 EMPTY ROOMS | 29,178 | `5298304d3583d02f62aaf6e35c1ffd682c52468d69a74073833b7e280032661f` | `p5@1.0.0`; square `WEBGL`; off-screen surface; custom shaders; fixed combination list; diagram/city/speed/scale controls |
+| Ex Nihilo (Cosmos) | 20,434 | `a9f5e37a95115ac398856a4878ff03b2ac52af3dd41765518943f24bee8c18b7` | `p5@1.9.0`; responsive `WEBGL`; off-screen buffers; displacement texture; custom shaders; channel/pause/speed/new-state controls |
+
+The static triage scan found no project-specific external image, audio, network, or file-loading calls in these retrieved scripts. That is not a security or semantic audit and does not eliminate browser, CDN, p5.js, shader, WebGL, timing, or contract-dependency preservation requirements. The media-proxy PNGs were reviewed as preliminary reference stills only, not as complete manifestations of the works.
 
 ## CENTURY (2021)
 
@@ -77,7 +113,7 @@ The artist’s Art Blocks interview records that an early version was shown at t
 - **Medium [B/C]:** custom black-and-white, silent generative software; the current Art Blocks generator response for #63 loads p5.js 1.0.0 and returns a browser-viewable document.
 - **Constituent system [B]:** each output uses 100 circle Elements. Each Element has a form and four behaviors: movement in a straight line; constraint to the display surface; a change of direction upon contact with another Element; and movement away from overlap. These rules describe a behavioral system rather than a precomposed image.
 - **Finite edition logic [B]:** eight surfaces × three origins × five growth configurations = 120. The surfaces change how the Elements are rendered; the origins are center, horizontal line, or random positions; and the growth configurations vary the relative sizes of the Elements. The artist’s description makes the edition logic structural, not a market scarcity claim.
-- **#63 project metadata [A/B]:** the Art Blocks token page records `Growth=4`, `Origin=1`, and `Surface=8`. These are descriptive output fields. Their human-readable meanings must be retained alongside the project’s own feature vocabulary rather than guessed from ordinal values.
+- **#63 project metadata [A/B]:** the Art Blocks token page records aspect ratio `1.78`, `Growth=4`, `Origin=1`, and `Surface=8`, but no palette feature in the reviewed metadata. These are descriptive output fields. Their human-readable meanings must be retained alongside the project’s own feature vocabulary rather than guessed from ordinal values; no palette is inferred.
 
 ### Runtime and display expectations [B/C]
 
@@ -127,13 +163,13 @@ Phototaxis brings an artificial-life lineage into the proposed group. Its visual
 
 Art Blocks identifies 923 EMPTY ROOMS as a 2023 Art Blocks × Bright Moments project. Bright Moments presents it as an evolution of the LACMA-commissioned *An Empty Room*. The official Bright Moments record assigns six fundamental colorforms to six galleries/cities: Sun/Tokyo, Shard/Berlin, Cargo/London, Hive/New York, Pyramid/Mexico City, and Moon/Los Angeles.
 
-The Bright Moments record describes a six-day release and in-person reveal across those cities. LACMA’s official Art + Technology record places *An Empty Room* within the exhibition *Coded: Art Enters the Computer Age, 1952–1982* and describes the project as a software response to Victor Vasarely’s unrealized 1967–71 proposal for a grid-based machine capable of producing many permutations of colored forms. This is the authoritative institutional context for the relationship between *An Empty Room* and the later *923 EMPTY ROOMS* release; it does not make #713 an LACMA-commissioned work.
+The Bright Moments record describes a six-day release and in-person reveal across those cities. Art Blocks identifies the fixed project edition as 924 unique artworks and gives the project-level release date as 2023-08-19. Bright Moments separately lists edition size 924, 923 combinations, release dates 2023-08-14 through 2023-08-19 at 12:00 EDT, and CDMX on 2023-08-18. Token #713 is identified as City CDMX and its token metadata records a 2023-08-18 16:57:59 UTC mint. This supports placing the mint within the documented six-day schedule, but it does not establish the semantic relationship between the token timestamp and the project-level release date; preserve both observations and mark that relationship unresolved rather than calling the mint pre-release. LACMA’s official Art + Technology record places *An Empty Room* within the exhibition *Coded: Art Enters the Computer Age, 1952–1982* and describes the project as a software response to Victor Vasarely’s unrealized 1967–71 proposal for a grid-based machine capable of producing many permutations of colored forms. This is the authoritative institutional context for the relationship between *An Empty Room* and the later *923 EMPTY ROOMS* release; it does not make #713 an LACMA-commissioned work.
 
 ### Medium, algorithm, and output logic
 
 - **Medium [B/C]:** browser-based generative software presented through an Ethereum token and a multi-city exhibition/reveal format. The current Art Blocks generator response for #713 loads p5.js 1.0.0.
 - **System [B]:** six colorforms are combined using a combination-with-replacement approach. Bright Moments describes the full mint as the set of possible combinations, and says the release order begins with simpler combinations and proceeds through more complex ones. That is a project release rule, not a Museum or marketplace rarity metric.
-- **Edition and discrepancy [A/B]:** Bright Moments states that the system has 923 combinations and separately labels the edition size as 924; Art Blocks’ collection record also says 924 unique artworks. The title and the stated combination count therefore cannot be silently treated as identical to the token count. The Museum must reconcile the one-output difference against the contract’s invocation manifest, including whether the count reflects a special starting/terminal output or another project-specific convention.
+- **Edition and discrepancy [A/B]:** The authoritative project size for accession metadata is 924 unique artworks/tokens, as reported by both Art Blocks and Bright Moments. The generative system is separately described as 923 unique rooms/combinations. The accession record may claim “fixed edition: 924 unique artworks/tokens; generative system: 923 unique rooms/combinations; this object: native token #713.” It should not call the object one of 923 tokens or call a 924th token an extra room unless token-level evidence supports that narrower claim. The invocation manifest still needs to be preserved and checked; no theory about a special starting/terminal output is adopted here.
 - **#713 project metadata [A/B]:** Art Blocks currently records `Red=false`, `Blue=false`, `Green=true`, `City=CDMX`, `Code=555536`, `# Suns=0`, `# Hives=0`, `# Moons=1`, `# Cargos=1`, `# Shapes=6`, `# Shards=0`, `# Pyramids=4`, `Background=Gray`, and `Primary Form=Pyramid`. The code and counts should be preserved as source metadata; they should not be converted into a third-party rarity score.
 
 ### Runtime and display expectations [B/C]
@@ -159,7 +195,7 @@ The project description links the title to the generation of images from code ra
 - **Medium [A/B/C]:** browser-based, color, silent, long-form generative software registered as an Ethereum token. The current Art Blocks generator response for #248 loads p5.js 1.9.0.
 - **System [B]:** the dodecahedral source is not displayed as a stable three-dimensional object. The stated process transforms pixel information into line positions and colors, producing a field that moves between geometric structure and visual dissolution.
 - **Edition [A/B]:** 256 unique artworks; Art Blocks and Feral File presented the work in March 2026 through a ranked auction/settlement format. The auction mechanism is provenance/release history, not evidence of artistic quality or a Museum selection criterion.
-- **#248 project metadata [A/B]:** Art Blocks currently records `RGB=false`, `CHUNK=3`, `0000FF=false`, `00FF00=false`, `FF0000=false`, `FFFFFF=true`, and `# COSMOS=3`. These are retained as project feature assertions only.
+- **#248 project metadata [A/B]:** Art Blocks currently records `engine_type=studio`, `project_id=0`, `tokenID=248`, `RGB=false`, `CHUNK=3`, `0000FF=false`, `00FF00=false`, `FF0000=false`, `FFFFFF=true`, and `# COSMOS=3`. This is a V3.2.4 Studio deployment, so the documented V3 token-ID structure decodes the raw token ID as project 0, invocation 248 (`248 = (0 × 1,000,000) + 248`). Retain `engine_type`, `project_id`, `tokenID`, and decoded `invocation` as separate source fields; the technical decoding is not a custody, title, or accession claim.
 
 ### Runtime and display expectations [B/C]
 
@@ -170,6 +206,10 @@ Art Blocks’ official record documents live controls: `R`, `G`, and `B` toggle 
 ### Museum interpretation [E]
 
 Ex Nihilo (Cosmos) extends the accession’s concern with elemental systems from the flat colorforms of 923 EMPTY ROOMS into a dodecahedral/pixel/line system. Its relation to CENTURY and Pre-Process is not a claim of direct formal descent; it is a curatorial comparison of how different rule systems translate an abstract vocabulary into a time-based image. The work also gives the collection a contemporary endpoint without presenting the seven objects as a complete survey of Reas’s practice.
+
+## Curatorial thesis: *The Executable Image: Rule, Behavior, Room, Cosmos*
+
+The donation should be interpreted as a study in the changing status of the image when the medium is a rule system executed over time. The sequence moves from historical abstraction made operational in CENTURY, through Process grammar and artificial-life behavior, into a finite atlas of rooms whose combinations and exhibition history are part of the work, and finally to geometric form rendered as a continuously changing shader field. The Museum should preserve the tension among instructions, performance, token-bound state, viewer interaction, and resulting image rather than flattening the group into seven static catalogue pictures.
 
 ## Curatorial relationships among the seven objects
 
@@ -253,7 +293,9 @@ All URLs were retrieved or checked on **2026-08-01 UTC**. Source-quality notes u
 
 - [Art Blocks protocol overview](https://docs.artblocks.io/protocol/overview/) — **A/B**. Official technical explanation of on-chain scripts, token hashes, deterministic generation, and generator architecture.
 - [Art Blocks on-chain generator](https://docs.artblocks.io/protocol/on-chain-generator/) — **A/B**. Official generator assembly and dependency documentation; used for the runtime model and token-ID formula.
+- [Art Blocks Core Contract V3](https://docs.artblocks.io/developer/core-contract/) — **A/B**. Official contract documentation for project scripts, token hashes, dependency variants, the V3 contract coverage of Studio, Curated, and Engine projects, and the encoded token-ID rule; used here for the #248 project/invocation decoding.
 - [Art Blocks token and generator APIs](https://docs.artblocks.io/developer/token-and-generator-apis/) — **A/B**. Official URL patterns and API guidance for live views, static media, and authoritative token/project data.
+- [Art Blocks GraphQL reference](https://docs.artblocks.io/developer/graphql/) — **A/B**. Official field reference for project scripts, script versions, token hashes, invocation, mint time, feature fields, and render URLs.
 - [CENTURY #31 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
 - [CENTURY #724 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
 - [CENTURY #401 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
