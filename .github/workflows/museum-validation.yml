@@ -30,3 +30,6 @@ jobs:
 
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
+
+      - name: Verify Casey snapshot and descriptor package
+        run: python scripts/verify_casey_snapshot_package.py

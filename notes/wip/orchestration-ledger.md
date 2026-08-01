@@ -207,3 +207,24 @@ running the merged `scripts/rarity/analyze.py`. Collection descriptor outputs
 remain transparent statistical descriptors, not quality judgments, value
 signals, or canonical truth; constructor/reviewer separation remains explicit
 with `review: null` until a separate reviewer is assigned.
+
+## 2026-08-01 - Casey descriptor emission checkpoint
+
+After PR #4 independently merged into `origin/main` at
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d`, the branch was rebased so that
+the merged `scripts/rarity/analyze.py` is an ancestor and its rarity-tool path
+is clean. That exact entry point ran with duplicate policy `error` against all
+five complete v2 snapshots. The resulting full collection artifacts are in
+`evidence/casey-reas-collection-snapshots/descriptors/`, with descriptor
+manifest `descriptor-manifest.json` and result hashes bound to the run.
+
+PR #4's closed-field safety guard rejects any input key containing `metric`,
+including the acquisition package's negative `not_a_marketplace_metric`
+control annotation. The source snapshots were not changed. Each descriptor
+records a hash of an explicit derived tool-input projection and the single
+removed path; all source rows, feature values, raw observations, source order,
+canonical order, block provenance, and cross-check warnings remain in the
+frozen acquisition package. The outputs are transparent statistical
+descriptors only, not quality, value, marketplace, or canonical-truth claims.
+The descriptor manifest and every descriptor retain `review: null` pending
+independent review.
