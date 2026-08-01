@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/approved-collection-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "APPROVED_COLLECTION"},
+        "schema_id": {"const": "0x755188ec08abac93b8a11aff26e4af5e557bd51dd4fe982280dd44521c4744c7"},
+        "collection_id": {"type": "string", "pattern": "^6529NM-COL-[a-z0-9][a-z0-9-]{1,63}$"},
+        "name": {"type": "string", "minLength": 1},
+        "approval_status": {"type": "string", "enum": ["approved", "revoked", "pending"]},
+        "approval_decision_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "collection_scope": {"type": "string", "minLength": 1},
+        "donation_terms_uri": {"type": "string", "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"}
+      },
+      "required": ["collection_id", "name", "approval_status", "approval_decision_id", "collection_scope"]
+    }
+  ]
+}

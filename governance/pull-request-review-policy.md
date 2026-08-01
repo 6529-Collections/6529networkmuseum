@@ -33,8 +33,21 @@ Review kinds for WCAG, internationalization, backend APIs, databases, Safe write
 3. Request the specialist kinds selected by the matrix. The four automatic baseline jobs already cover general, security, privacy/evidence, and advisory review; do not repeat them in the specialist command. Keep each trusted maintainer request within the four-job delivery cap, for example:
 
    ```text
-   /6529bot stream-contracts
+   /6529bot deploy-actions
    ```
+
+   The deployed App Runner catalog observed at revision `eefe911e-202606222152`
+   does not recognize `stream-contracts`; its rejected repository configuration
+   prevents baseline and follow-up jobs from being enqueued. The repository
+   configuration therefore omits that kind temporarily, as a fail-safe
+   compatibility measure (the machine-checkable catalog fixture is
+   [`tests/fixtures/6529bot-production-catalog.json`](../tests/fixtures/6529bot-production-catalog.json)).
+   Stream-specific review remains required when the diff enters the
+   `stream-contracts` boundary. Until App Runner is upgraded to a catalog
+   release that admits it, dispatch the central `review-job.yml` workflow at a
+   head-bound SHA using its supported input—not the unsupported shortcut and
+   not an unrelated review profile. Do not treat this Museum pull request as a
+   production deployment or upgrade request.
 
 4. Request CodeRabbit review when the pull request is ready for external review. The repository ruleset also requests Copilot review.
 5. Address all critical and important findings or record a concrete, evidence-backed disposition in the pull request.
@@ -53,7 +66,7 @@ The active build uses this routing:
 | Keys and Gates evidence records | `media-external` only if executable ingest changes |
 | NextGen-compatible rarity tooling and datasets | `media-external` when a fetcher, importer, parser, or external snapshot pipeline changes |
 | Documentation control plane and CI | `deploy-actions` |
-| On-chain migration specification | `stream-contracts` only for normative ABI, EIP-712, invariant, Solidity, or contract-vector changes intentionally equivalent to 6529Stream |
+| On-chain migration specification | `stream-contracts` only for normative ABI, EIP-712, invariant, Solidity, or contract-vector changes intentionally equivalent to 6529Stream; temporarily dispatch through the central head-bound review job while the deployed catalog lacks this kind |
 | Templates and standards crosswalk | none |
 
 The routing table is operational memory for the current build, not an accession or governance decision. New work must be classified by changed domain rather than by pull request title alone.

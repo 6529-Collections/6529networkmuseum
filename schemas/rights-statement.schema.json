@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/rights-statement-v1.json",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "RIGHTS_STATEMENT"},
+        "schema_id": {"const": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967"},
+        "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "rights_holder_reference": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "grants": {
+          "type": "object",
+          "properties": {
+            "reproduction": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "publication": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "exhibition": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "print": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "derivative_use": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "ai_training": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"}
+          },
+          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"],
+          "unevaluatedProperties": false
+        },
+        "observed_at": {"type": "string", "format": "date-time"},
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "event_type": {"type": "string", "enum": ["rights_assertion", "rights_amendment"]},
+              "occurred_at": {"type": "string", "format": "date-time"},
+              "authority_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+              "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}, "uniqueItems": true}
+            },
+            "required": ["event_type", "occurred_at", "authority_reference", "evidence_refs"],
+            "unevaluatedProperties": false
+          }
+        }
+      },
+      "required": ["object_id", "rights_holder_reference", "basis", "grants", "observed_at", "events"]
+    }
+  ]
+}

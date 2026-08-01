@@ -2,7 +2,10 @@ version: 1
 enabled: true
 
 reviewKinds:
-  allowed: [general, followup, security, deploy-actions, media-external, stream-contracts, privacy-evidence, glm-swarm]
+  # App Runner production catalog eefe911e-202606222152 currently rejects
+  # stream-contracts. Keep the deployed-compatible set fail-safe until the
+  # central review job is upgraded; Stream routing remains documented below.
+  allowed: [general, followup, security, deploy-actions, media-external, privacy-evidence, glm-swarm]
   initial: [general, security, privacy-evidence, glm-swarm]
   followup: [followup]
 

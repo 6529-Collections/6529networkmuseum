@@ -123,7 +123,7 @@ These are research inputs, not governed records. They require integration review
 
 The `6529reviewbot` source repository was audited before changing Museum review routing. Its specialist kinds are intentionally opt-in rather than part of `review all`, and `followup` is designed for commits made after initial review.
 
-The Museum base profile now applies `general`, `security`, `privacy-evidence`, and advisory `glm-swarm` to every pull request. It allows, but does not automatically spend on, `media-external`, `stream-contracts`, and `deploy-actions`. Maintainer commands route those specialists to evidence ingest, contract, and CI/release diffs respectively. The active PR-by-PR matrix is preserved in `governance/pull-request-review-policy.md`.
+The Museum automatic baseline applies exactly `general`, `security`, `privacy-evidence`, and advisory `glm-swarm` to every pull request. `media-external` and `deploy-actions` are maintainer-requested specialists; Stream-equivalent contract review is manually dispatched through the central head-bound review job while the deployed catalog lacks `stream-contracts`. The active PR-by-PR matrix is preserved in `governance/pull-request-review-policy.md`.
 
 Independent review rejected the first routing draft because it documented five-kind commands that the four-job delivery cap would deny, duplicated automatic synchronize-event follow-up, and assigned external-media and Stream-contract specialists to prose outside their prompt boundaries. The corrected procedure keeps the conservative four-job cap, does not repeat the automatic baseline in specialist commands, and limits each command to four or fewer specialist jobs. `media-external` is now limited to executable external ingest, and `stream-contracts` to normative contract surfaces intentionally equivalent to 6529Stream.
 
@@ -175,3 +175,43 @@ The independent Keys and Gates reviewer was task `019fbe15-7872-7312-a455-697a88
 ### Casey accession review boundary
 
 Independent review confirms the seven token identities, CAIP-19 values, common receipt, log indices, custody, and `received_onchain` / `not_complete` state. It blocks accession-safe treatment until cross-file invariants fail closed, canonical payload hashes and source-head evidence are bound, PR #7 integration is complete, historical transaction verification grades are corrected, and the preservation evidence package captures raw metadata/generator bytes. Formal donation acceptance, title passage, rights grants, condition assessment, and preservation completion remain unclaimed gates.
+
+## 2026-08-01 - deployed review-catalog compatibility checkpoint
+
+Production evidence identifies App Runner image `eefe911e-202606222152` as
+rejecting `stream-contracts` in the repository catalog. The repository config
+now omits that kind so the automatic `general`/`security`/`privacy-evidence`/
+`glm-swarm` baseline and synchronize follow-up can resume after merge. This is
+a temporary compatibility pin, machine-checked by the catalog fixture; it is
+not a permanent specialist decision. Stream-equivalent contract diffs still
+require the central `review-job.yml` at a head-bound SHA with supported inputs
+until App Runner is upgraded. No production deployment or restart is part of
+PR #7.
+
+## 2026-08-01 - exact-head remediation in progress
+
+The independent review of PR #7 head `0a8f6b766c26ae3bde0febd03d95a8e59b3c8b5f`
+found three conservative public-control gaps: declared non-text raw evidence
+could fall back to text scanning, uppercase UTF-16 credential labels were not
+found, and `getattr` could mediate sensitive process/import calls around the
+AST guard. The remediation adds fail-closed media routing, bounded folded
+UTF-16 scanning, alias-aware sensitive-root dynamic-attribute rejection, and
+focused negative tests. No governed records are changed; exact-head review and
+head-bound bot reruns follow the cross-platform validation.
+
+## 2026-08-01 - protocol-spec release boundary
+
+The merged control plane validates `specs/` as governed public content, but its
+deterministic release manifest initially omitted that root because no protocol
+specification existed when the control plane was constructed. The first narrow
+remediation exposed a wider boundary omission: governance controls, templates,
+GitHub CI/review policy, and named root controls also affected releases without
+being committed by the release manifest.
+
+Before the on-chain migration specification can merge, the release inventory is
+therefore closed over `.github/`, policies, records, schemas, docs, governance,
+specs, templates, scripts, tests, and six named root control files. A formal
+`specs/README.md` defines the admission boundary. Tests pin the exact roots and
+files, prove that real and future specification files are inventoried, and
+reject missing or linked configured roots and files. Evidence, WIP notes, Git internals, and the
+self-referential release-artifact directory retain explicit separate treatment.
