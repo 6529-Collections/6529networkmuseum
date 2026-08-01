@@ -23,7 +23,7 @@
         "collection_curatorial_statement": {"type": "object", "additionalProperties": true},
         "object_identities": {"type": "array", "minItems": 7, "items": {"type": "object", "additionalProperties": true}},
         "receipt_summary": {"type": "object", "additionalProperties": true},
-        "provenance_schedule": {"type": "object", "additionalProperties": true},
+        "provenance_schedule": {"$ref": "https://6529.network/museum/schemas/transaction-provenance/v1#/$defs/provenanceSchedule"},
         "donation_rights_schedule": {"type": "object", "additionalProperties": true},
         "preservation_manifest": {"type": "object", "additionalProperties": true},
         "public_inventory": {"type": "array", "minItems": 7, "items": {"type": "object", "additionalProperties": true}},

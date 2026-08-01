@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa2f56a10a8388fd7eecbc9f2463b8a14ac5d73225dc451309dd0eee0ff85c7e9"
+      "digest": "0xe3dd0bb26d5af787765fa7e20bc40666d2f869efbe8156b4ce3ddf250857d7a4"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -89,6 +89,8 @@
       "review_status": "not_requested_in_record",
       "reviewer": null,
       "self_review_prohibited": true,
+      "signature_status": "unsigned_placeholder_not_authority",
+      "signature_semantics": "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, formal acceptance, completed accession, title, rights, or signed authority.",
       "specialist_review": "not requested; dossier adds no executable fetch/ingest/parser tooling"
     },
     "controlled_decision": {
@@ -304,7 +306,7 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:f7a6cc1cea9b8c1bdaecd29080f61d2f37e86cec85c62aacd208092b18226ed9",
+    "payload_sha256": "sha256:7c99c2002ebe5e5e33cc4feeffdf5213be487bb210de91290d9c4485d53126f3",
     "preservation_manifest": {
       "manifest_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas",
@@ -383,10 +385,10 @@
       ],
       "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "raw_metadata_status": "captured_and_content_addressed",
-      "status": "in_progress"
+      "status": "in_progress",
+      "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd"
     },
     "provenance_schedule": {
-      "$schema": "../../../schemas/transaction-provenance.schema.json",
       "accession_lot_id": "6529NM.2026.001",
       "common_receipt": {
         "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
@@ -413,7 +415,13 @@
       },
       "evidence_refs": [
         "notes/research/casey-reas-onchain-evidence.md",
-        "records/accessions/6529NM.2026.001/donation-rights.json"
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.02.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.03.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.04.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.05.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.06.json",
+        "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.07.json"
       ],
       "historical_event_boundary": "Historical events are indexer_observed unless an event carries retained per-event block/receipt evidence; only the common seven-token receipt is direct_rpc_verified in this dossier.",
       "objects": [
@@ -1079,7 +1087,7 @@
       "casey_snapshot_source_head": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "evidence_manifest_path": "evidence/casey-reas/manifest.json",
-      "evidence_manifest_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
+      "evidence_manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "source_evidence": [
         "notes/research/casey-reas-onchain-evidence.md",
         "notes/research/casey-reas-art-technical-research.md"

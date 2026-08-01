@@ -63,6 +63,7 @@ ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage"
 CASEY_LOT_ID = "6529NM.2026.001"
 CASEY_RECEIPT_TX = "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498"
 CASEY_CUSTODY = "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c"
+CASEY_ZERO_BYTES32 = "0x" + "0" * 64
 CASEY_OBJECTS = {
     "6529NM.2026.001.01": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "100000031"),
     "6529NM.2026.001.02": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "100000724"),
@@ -454,7 +455,7 @@ def casey_payload_sha256(payload: dict[str, Any]) -> str:
     return "sha256:" + hashlib.sha256(canonicalize(body)).hexdigest()
 
 
-def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]]) -> list[str]:
+def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]], root: Path = REPO_ROOT) -> list[str]:
     """Fail closed on the seven-token accession's cross-file control plane."""
 
     payloads = [payload for _path, _record, payload in records if isinstance(payload, dict)]
@@ -463,17 +464,28 @@ def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] 
         return []
     issues: list[str] = []
     by_id = {payload.get("record_id"): payload for payload in payloads if isinstance(payload.get("record_id"), str)}
+    casey_records = [
+        (path, record, payload)
+        for path, record, payload in records
+        if isinstance(payload, dict)
+        and isinstance(payload.get("record_id"), str)
+        and (payload.get("record_id") == CASEY_LOT_ID or payload.get("record_id").startswith(CASEY_LOT_ID + ".") or payload.get("record_id").startswith(CASEY_LOT_ID + "-"))
+    ]
     expected_ids = list(CASEY_OBJECTS)
     if lot.get("object_ids") != expected_ids:
         issues.append("CASEY accession lot.object_ids must equal the seven canonical object IDs in order")
-    for payload in payloads:
+    for _path, record, payload in casey_records:
         record_id = payload.get("record_id")
-        if isinstance(record_id, str) and (record_id == CASEY_LOT_ID or record_id.startswith(CASEY_LOT_ID + ".") or record_id.startswith(CASEY_LOT_ID + "-")):
+        envelope = record.get("envelope") if isinstance(record.get("envelope"), dict) else {}
+        signature_hash = envelope.get("signatureHash") if isinstance(envelope.get("signatureHash"), dict) else {}
+        if envelope.get("signatureScheme") != CASEY_ZERO_BYTES32 or signature_hash.get("digest") != CASEY_ZERO_BYTES32:
+            issues.append(f"{record_id}: zero Stream signature placeholders must remain unsigned and cannot be treated as authority")
+        if payload.get("record_status") != "constructed" or payload.get("review_status") != "pending_independent_review" or payload.get("reviewer") is not None:
+            issues.append(f"{record_id}: unsigned Casey records must remain constructed with reviewer null and independent review pending")
+        if isinstance(record_id, str):
             actual_hash = payload.get("payload_sha256")
             if actual_hash != casey_payload_sha256(payload):
                 issues.append(f"{record_id}: payload_sha256 does not match canonical payload excluding payload_sha256")
-            if payload.get("reviewer") is not None or payload.get("review_status") != "pending_independent_review":
-                issues.append(f"{record_id}: constructor controls must leave reviewer null pending independent review")
 
     receipt = lot.get("receipt_summary") if isinstance(lot.get("receipt_summary"), dict) else {}
     if receipt.get("transaction_hash", "").lower() != CASEY_RECEIPT_TX:
@@ -520,6 +532,21 @@ def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] 
                 issues.append("CASEY object .07 must preserve raw Art Blocks Studio fields and decoded invocation 248")
 
     provenance = lot.get("provenance_schedule") if isinstance(lot.get("provenance_schedule"), dict) else {}
+    if "$schema" in provenance:
+        issues.append("CASEY provenance_schedule must use the accession-lot schema's authoritative transaction-provenance ref without a nested $schema marker")
+    for reference in provenance.get("evidence_refs", []) if isinstance(provenance.get("evidence_refs"), list) else []:
+        if not isinstance(reference, str):
+            issues.append("CASEY provenance evidence references must be record IDs or repository-relative paths")
+            continue
+        if reference in by_id:
+            continue
+        candidate = (root / Path(reference)).resolve()
+        try:
+            within_root = candidate.is_relative_to(root.resolve())
+        except OSError:
+            within_root = False
+        if not within_root or not candidate.is_file():
+            issues.append(f"CASEY evidence reference does not resolve: {reference}")
     for event_group in provenance.get("objects", []) if isinstance(provenance.get("objects"), list) else []:
         for event in event_group.get("events", []) if isinstance(event_group, dict) and isinstance(event_group.get("events"), list) else []:
             if event.get("kind") == "museum_receipt":
@@ -530,10 +557,49 @@ def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] 
     source_manifest = lot.get("source_manifest") if isinstance(lot.get("source_manifest"), dict) else {}
     if source_manifest.get("control_plane_head") != "7193bfb9a0a6ead1871180b931aced755676b327" or source_manifest.get("casey_research_head") != "9f38bd4ba5f779540eabf2dfce019cc1382561e2":
         issues.append("CASEY source_manifest must bind the merged control-plane and Casey research heads")
-    if lot.get("acceptance_date") != "2026-08-01T13:25:47Z" or lot.get("intake_status") != "accepted_for_accession_processing" or lot.get("formal_acceptance_status") != "not_formally_accepted":
-        issues.append("CASEY acceptance_date must remain receipt-time intake processing, not formal acceptance")
+    manifest_reference = source_manifest.get("evidence_manifest_path")
+    actual_manifest_sha256: str | None = None
+    if not isinstance(manifest_reference, str):
+        issues.append("CASEY source_manifest must identify the preservation evidence manifest path")
+    else:
+        manifest_path = (root / Path(manifest_reference)).resolve()
+        try:
+            within_root = manifest_path.is_relative_to(root.resolve())
+        except OSError:
+            within_root = False
+        if not within_root or not manifest_path.is_file():
+            issues.append(f"CASEY evidence manifest path does not resolve: {manifest_reference}")
+        else:
+            actual_manifest_sha256 = "sha256:" + hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+            try:
+                manifest_document = json.loads(manifest_path.read_text(encoding="utf-8"))
+                if manifest_document.get("hash_algorithm") != "sha256" or manifest_document.get("byte_mode") != "raw":
+                    issues.append("CASEY evidence manifest must declare raw-byte SHA-256 mode")
+            except (OSError, json.JSONDecodeError) as exc:
+                issues.append(f"CASEY evidence manifest cannot be parsed for fixity: {exc}")
+    if actual_manifest_sha256 is not None:
+        if source_manifest.get("evidence_manifest_sha256") != actual_manifest_sha256:
+            issues.append("CASEY evidence manifest sha256 does not match the raw-byte manifest file")
+        lot_preservation = lot.get("preservation_manifest") if isinstance(lot.get("preservation_manifest"), dict) else {}
+        if lot_preservation.get("fixity_sha256") != actual_manifest_sha256:
+            issues.append("CASEY lot preservation fixity does not match the raw-byte evidence manifest")
+        for object_id in expected_ids:
+            object_payload = by_id.get(object_id)
+            object_preservation = object_payload.get("preservation") if isinstance(object_payload, dict) and isinstance(object_payload.get("preservation"), dict) else {}
+            if object_preservation.get("fixity_sha256") != actual_manifest_sha256:
+                issues.append(f"CASEY object {object_id} preservation fixity does not match the raw-byte evidence manifest")
+    if lot.get("acceptance_date") != "2026-08-01T13:25:47Z" or lot.get("intake_status") != "accepted_for_accession_processing":
+        issues.append("CASEY acceptance_date must remain receipt-time intake processing")
+    if lot.get("formal_acceptance_status") != "not_formally_accepted":
+        issues.append("CASEY unsigned draft cannot claim formal institutional acceptance")
     if lot.get("accession_status") != "not_complete":
-        issues.append("CASEY accession_status must remain not_complete")
+        issues.append("CASEY unsigned draft cannot claim completed accession")
+    decision = lot.get("controlled_decision") if isinstance(lot.get("controlled_decision"), dict) else {}
+    if decision.get("current_state") != "received_onchain":
+        issues.append("CASEY unsigned draft must remain received_onchain")
+    controls = lot.get("constructor_controls") if isinstance(lot.get("constructor_controls"), dict) else {}
+    if controls.get("signature_status") != "unsigned_placeholder_not_authority":
+        issues.append("CASEY constructor controls must identify zero Stream signatures as unsigned placeholders, not signed authority")
     return issues
 
 
@@ -747,7 +813,7 @@ def validate_records(root: Path) -> list[str]:
                     superseded = load_json(superseded_path)
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
                         issues.append(f"{relative}: supersedes must point to the same record_type")
-    issues.extend(validate_casey_lot(records))
+    issues.extend(validate_casey_lot(records, root))
     return issues
 
 

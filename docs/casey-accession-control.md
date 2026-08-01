@@ -30,6 +30,21 @@ remain explicit preservation gates. The Ex Nihilo object retains Art Blocks raw
 fields (`engine_type=studio`, `project_id=0`, `tokenID=248`) separately from its
 decoded invocation `248`.
 
+The retained upstream metadata is verbatim by design. Public artist/collection
+royalty-routing wallet fields and authenticity signatures are preserved solely
+for source fidelity; they are not donor PII, identity inference, Museum title,
+rights, or a current payment instruction. Historical counterparty wallet
+addresses are published solely for reproducible provenance, with no identity
+inference. The public boundary therefore preserves source bytes while keeping
+donor identity, title, rights, and payment claims separate and unresolved.
+
+The lot envelope has `reviewer: null` and zero Stream `signatureScheme` and
+`signatureHash` placeholders. The constructor control explicitly labels these
+as unsigned placeholders, never independent approval, formal acceptance,
+completed accession, title, rights, or signed authority. The lot remains
+`received_onchain` / `not_complete` until independent review and all remaining
+gates are completed.
+
 Trait analysis remains a typed pending linked deliverable and does not use
 OpenSea or marketplace rarity metrics. The dossier is intentionally left with
 `reviewer: null`; independent review and integration—not constructor

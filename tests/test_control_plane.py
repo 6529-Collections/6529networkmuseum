@@ -31,7 +31,7 @@ from generate_manifest import (  # noqa: E402
     normalized_bytes,
 )
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
-from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
+from validate import casey_payload_sha256, keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -62,6 +62,10 @@ class ControlPlaneTests(unittest.TestCase):
 
     def refresh_content_hash(self, record: dict) -> None:
         record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(record["payload"])).hex()
+
+    def refresh_casey_hashes(self, record: dict) -> None:
+        record["payload"]["payload_sha256"] = casey_payload_sha256(record["payload"])
+        self.refresh_content_hash(record)
 
     def make_repository_copy(self) -> tuple[tempfile.TemporaryDirectory[str], Path]:
         temporary = tempfile.TemporaryDirectory(prefix="museum-repository-" )
@@ -142,6 +146,55 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "accession-lot.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unresolved record reference" in issue for issue in issues), issues)
+
+    def test_casey_evidence_refs_and_nested_provenance_are_fail_closed(self) -> None:
+        temporary, root = self.make_repository_copy()
+        self.addCleanup(temporary.cleanup)
+        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["payload"]["provenance_schedule"]["evidence_refs"][0] = "records/accessions/6529NM.2026.001/rights/missing.json"
+        self.refresh_casey_hashes(record)
+        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+        issues = validate_records(root)
+        self.assertTrue(any("CASEY evidence reference does not resolve" in issue for issue in issues), issues)
+
+        temporary, root = self.make_repository_copy()
+        self.addCleanup(temporary.cleanup)
+        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
+        record = json.loads(path.read_text(encoding="utf-8"))
+        del record["payload"]["provenance_schedule"]["objects"][0]["events"][0]["tx"]
+        self.refresh_casey_hashes(record)
+        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+        issues = validate_records(root)
+        self.assertTrue(any("provenance_schedule" in issue and "required property" in issue for issue in issues), issues)
+
+        temporary, root = self.make_repository_copy()
+        self.addCleanup(temporary.cleanup)
+        manifest_path = root / "evidence/casey-reas/manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["status"] = "tampered_for_test"
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        issues = validate_records(root)
+        self.assertTrue(any("CASEY evidence manifest sha256 does not match" in issue for issue in issues), issues)
+
+    def test_casey_unsigned_draft_controls_are_fail_closed(self) -> None:
+        mutations = (
+            (lambda payload: payload.__setitem__("formal_acceptance_status", "formally_accepted"), "cannot claim formal institutional acceptance"),
+            (lambda payload: payload.__setitem__("accession_status", "complete"), "cannot claim completed accession"),
+            (lambda payload: payload["constructor_controls"].__setitem__("signature_status", "signed_authority"), "zero Stream signatures"),
+            (lambda payload: payload.__setitem__("review_status", "reviewed"), "unsigned Casey records must remain constructed"),
+        )
+        for mutate, expected in mutations:
+            with self.subTest(expected=expected):
+                temporary, root = self.make_repository_copy()
+                self.addCleanup(temporary.cleanup)
+                path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
+                record = json.loads(path.read_text(encoding="utf-8"))
+                mutate(record["payload"])
+                self.refresh_casey_hashes(record)
+                path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+                issues = validate_records(root)
+                self.assertTrue(any(expected in issue for issue in issues), issues)
 
     def test_self_supersession_is_rejected(self) -> None:
         temporary, records = self.make_records_root()

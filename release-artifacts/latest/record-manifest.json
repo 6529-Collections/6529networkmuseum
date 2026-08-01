@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/casey-accession-control.md",
-      "sha256": "sha256:704b1a165780dfa4cd59cf463d2d08d037480f37213f674ce1728fb14f77ac64",
-      "size": 2130
+      "sha256": "sha256:55e4892b0f15e16c429fb85f53123a1ae3308dbadcc6c033a44a76903ce9f08e",
+      "size": 3072
     },
     {
       "path": "docs/control-plane.md",
@@ -139,80 +139,80 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x3f9fdb4e55aa8d0632a20e4c91fefba3d94f5f27603407b50afc4bc505e40eed"
+        "digest": "0xe02b113db5a87f9e141fa621b4cf2133df220ff2a4dc2f3fdc485a2724f8a50a"
       },
       "path": "records/accessions/6529NM.2026.001/accession-statement.json",
-      "sha256": "sha256:4ee08ace7be8e1c7de07a8e6809f7d0ee753a033f3a91f1835edc6f6ca7f3ec4",
-      "size": 50800
+      "sha256": "sha256:f830d6b172290dd8293b17bb489b1ca811ca097a5d34d7decb5e5c40c32b9634",
+      "size": 51656
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd637e0afcba1675b281c6622c5a3329bd5b1255bff541c708f29cfa88d2ce4ed"
+        "digest": "0x3ef3a39bc575827eb0b1bb7c842de614b34e083f76b362b8c32fe78576b9d8ca"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-      "sha256": "sha256:03ee52ca0bb067138e635029036587bf6b898b9ddc2b5b35f7743d2a88d696c3",
+      "sha256": "sha256:71ed4837e2ad95d708e7c09e832204dcb97e24f86f578139c2dc3869622af7d4",
       "size": 12051
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd8f6037ca78b2863a40018801572c543aa29318f48bcd66bfae5922fc79a477a"
+        "digest": "0x7d4ff554b4c02d6ea6879ae571ae592b92a8fba1fb51924c5aeb65617a965264"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.02.json",
-      "sha256": "sha256:05ea6be2d680cdba887845e2620e162d647a1c2152158d1dae7c2a07ee316152",
+      "sha256": "sha256:65d5eeb7937c2ef387da701e1b75e3263bbc95d1c93c8f5551b39ea710da4a9a",
       "size": 12027
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x85d8fe40adfff8dfbbba13f3837de3b9093284ece70bf9a27e4e4e714acb1d8e"
+        "digest": "0xd48c84f3039465b9a14176907f723c5a331a4be3e136a887582f5119c50175e3"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json",
-      "sha256": "sha256:c42fcf8e3d683eb7ad143d39d902bb3f17a91db07f52456ef1619e6df4a93278",
+      "sha256": "sha256:413352cfbaf2e7f17a4bcc2334ed196768216086232401069bebbdc85aad24e1",
       "size": 12026
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xc26abcdda36c7fe98b23d8dc6177ff4e3c6a171ec92820742dd29225ed6e359d"
+        "digest": "0xd49b063510ade2af3ea22faa2ee7467881f9d9b1b5be4808efa07e745a36bbd1"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json",
-      "sha256": "sha256:e9a6926143fc0305a72dfd67a4f5bafea784cf74273196a315a636cab8ce81fc",
+      "sha256": "sha256:2e0ec6e5b18b52c49b5beb199a8c70e6917ea20856732c4ff4a0799ba6163f6e",
       "size": 12123
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe5d7c6faa409d7272380ee2740bfdf3beb92043e93d23b9eb4866cb23ba33984"
+        "digest": "0x398dabfc116860d1834da43bb9a903c6ad8e7ac688c0bacfbed62b0ec91c07b3"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json",
-      "sha256": "sha256:5a57ebffa99bdf8b52777cbed68bf3a07dc1d02cef430ef6c58b78e3b399d8ee",
+      "sha256": "sha256:f39f112f9cfca2717d767e725a1bc14569e03928888e8057cc732fb8fab5eb33",
       "size": 12122
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x4be9536c7e3762bb746c681baae6ef0f0608db27f6717d621f8f8988907ed13f"
+        "digest": "0xa7d9ccdeae7cc3f9622161dfc7e392edccb5cff2dd8cc4f3f6b18ebd38eb54e0"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json",
-      "sha256": "sha256:00f548839d0140d0f1917c5a3c5f84bea990ebbe74cf033544d8cac0f82a2d79",
+      "sha256": "sha256:a282678a5eae3a754e2859009a7809d48537938c0104aface0c3b36c6e756ade",
       "size": 12217
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x3dc98110aedf5a2bd08d2b86c81bacdd610f0cb06f43b0b13cff301f6101a7b4"
+        "digest": "0x5c21c20260f06498de46dafbe7617f54aece95b3cad6bf44c49c64be5cb01acb"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json",
-      "sha256": "sha256:65668d33a06b63edfefd0e41486dac7ed49c6f127519b5761f3c9d683faafc02",
+      "sha256": "sha256:dbcc8625e5b847c20e0cce810d4a0a158013305acea8aecd9eaf4b0813c57968",
       "size": 12314
     },
     {
@@ -624,11 +624,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd58322b88ca8a8ff9288d343fa9e63ba8536421670d8dddf531a49644dd52827"
+        "digest": "0x9846a5f53ab885ddbcf46c8e463a90a5d8a5337bcb8d918dba69e3101433782c"
       },
       "path": "schemas/accession-lot.schema.json",
-      "sha256": "sha256:521c2859a537089c40c79f968beaac85b81813c36968feb3be2abfbbd550737c",
-      "size": 2984
+      "sha256": "sha256:f2bb0703b004905b43e97fba6ff93a534f94888555eea450b86e820f5cedc6f8",
+      "size": 3035
     },
     {
       "content_hash": {
@@ -894,11 +894,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x0150a5656e678b6bd6880d1513f55c36660edfa2bddd7125964cb242e5058632"
+        "digest": "0x5a552aefd4467feeb2e250e52bcc305e9296f48d7129374cde1aabd8789bbeeb"
       },
       "path": "schemas/transaction-provenance.schema.json",
-      "sha256": "sha256:efe189b78bbb73b8470ffe73df378fdd56c5149f676be491fbd21c869426b7cb",
-      "size": 981
+      "sha256": "sha256:76d0f8a2344403e2b422576f2e29a14026405893623a5ba9da533d0b7e57b6f8",
+      "size": 5919
     },
     {
       "path": "scripts/bootstrap_validate.py",
@@ -942,8 +942,8 @@
     },
     {
       "path": "scripts/validate.py",
-      "sha256": "sha256:41a8140f4a07cd70151256c5e9d085ca9a5b74ba19c85fc3bfb9cd5f6a035bfc",
-      "size": 44384
+      "sha256": "sha256:cf832ce0c38428facaaf67eac455adf6c5749645256176ba1eb28c4dfe275ca7",
+      "size": 48998
     },
     {
       "path": "specs/README.md",
@@ -1152,8 +1152,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:d44f19a71701a97d2c72a8a357283dd01898e642d44166ed4ba532ce491db498",
-      "size": 51357
+      "sha256": "sha256:abefd30941328e3bb795039b0b74b022f3fc2b6ce1e697a625a7882cac339641",
+      "size": 54765
     }
   ],
   "hash_algorithms": {
@@ -1183,9 +1183,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x2eeacfa36a8f8ddd32df4ddd4e22859848487dfb76133775354dce005754415a"
+    "digest": "0xd97f5d597a5a4dbb94b7453e1a9d74b4835d68e341ba6660bb2accc7c27f42a3"
   },
-  "manifest_sha256": "sha256:603e6fae89122f6a023483a0f6c3197551287b2897ea05908e3ea6deff9509ba",
+  "manifest_sha256": "sha256:593bb1107c7507748c13df05974c0a6cf333d55a08979e7dcefbc56fa7381c00",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
