@@ -9,8 +9,10 @@ import re
 import subprocess
 import sys
 from datetime import datetime, timezone
+from ipaddress import ip_address
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlsplit
 
 from Crypto.Hash import keccak
 from jsonschema import Draft202012Validator, FormatChecker
@@ -202,7 +204,23 @@ def inspect_sensitive(value: Any, path: str = "$") -> Iterable[str]:
 
 
 def is_private_network_url(value: str) -> bool:
-    return bool(re.match(r"^https?://(?:localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)", value, re.IGNORECASE))
+    try:
+        parsed = urlsplit(value)
+        host = parsed.hostname
+    except ValueError:
+        return True
+    if parsed.scheme.lower() not in {"http", "https"}:
+        return False
+    if not host:
+        return True
+    host = host.rstrip(".").lower()
+    if host in {"localhost", "localhost.localdomain"} or host.endswith((".localhost", ".local", ".internal", ".lan")):
+        return True
+    try:
+        address = ip_address(host.split("%", 1)[0])
+    except ValueError:
+        return False
+    return not address.is_global
 
 
 def iter_reference_values(value: Any, key: str | None = None) -> Iterable[str]:
@@ -266,9 +284,12 @@ def validate_state_machine(payload: dict[str, Any], vocabularies: dict[str, Any]
     custody_account = chain.get("custody_account")
     title_binding_to = title_binding.get("to")
     if isinstance(custody_account, str) and isinstance(title_binding_to, str):
-        custody_match = re.fullmatch(r"eip155:[0-9]+:(0x[0-9a-fA-F]{40})", custody_account)
-        if custody_match and title_binding_to.lower() != custody_match.group(1).lower():
-            issues.append("title_binding.to must match chain_identity.custody_account")
+        custody_match = re.fullmatch(r"eip155:([0-9]+):(0x[0-9a-fA-F]{40})", custody_account)
+        if custody_match:
+            if isinstance(chain.get("chain_id"), int) and custody_match.group(1) != str(chain["chain_id"]):
+                issues.append("chain_identity.custody_account chain must match chain_identity.chain_id")
+            if title_binding_to.lower() != custody_match.group(2).lower():
+                issues.append("title_binding.to must match chain_identity.custody_account")
     caip19 = chain.get("caip19")
     if isinstance(caip19, str):
         caip_match = re.fullmatch(r"eip155:([0-9]+)/((?:erc721|erc1155)):0x([0-9a-fA-F]{40})/([0-9]+)", caip19)
@@ -327,8 +348,10 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
         except (KeyError, ValueError) as exc:
             issues.append(str(exc))
             continue
-        if previous_time is not None and current_time < previous_time:
-            issues.append(f"{record_type}.events[{index}]: occurred_at moves backwards")
+        if previous_time is not None:
+            invalid_order = current_time <= previous_time if record_type == "ACCESSION" else current_time < previous_time
+            if invalid_order:
+                issues.append(f"{record_type}.events[{index}]: occurred_at must be strictly increasing" if record_type == "ACCESSION" else f"{record_type}.events[{index}]: occurred_at moves backwards")
         previous_time = current_time
     if record_type == "ACCESSION" and len(events) == len(ACCESSION_EVENT_ORDER):
         acceptance = events[1]
@@ -338,6 +361,21 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
         custody_event = events[4]
         instrument = title_event.get("instrument") if isinstance(title_event.get("instrument"), dict) else {}
         custody_path = custody_event.get("custody_path") if isinstance(custody_event.get("custody_path"), dict) else {}
+        object_ids = payload.get("object_ids")
+        bindings = payload.get("title_bindings")
+        if isinstance(object_ids, list) and isinstance(bindings, list):
+            binding_ids = [binding.get("object_id") for binding in bindings if isinstance(binding, dict)]
+            if not all(isinstance(object_id, str) for object_id in object_ids + binding_ids):
+                issues.append("ACCESSION title_bindings must identify every object_id")
+            elif len(binding_ids) != len(set(binding_ids)) or set(binding_ids) != set(object_ids):
+                issues.append("ACCESSION must contain exactly one title binding per object_id")
+            if any(not isinstance(binding, dict) or binding.get("status") != "executed" for binding in bindings):
+                issues.append("ACCESSION must require an executed title binding for every object_id")
+            for binding in bindings:
+                if isinstance(binding, dict) and instrument.get("sha256") and binding.get("instrument_sha256") != instrument.get("sha256"):
+                    issues.append("ACCESSION title_passage instrument sha256 must match every title binding")
+                if isinstance(binding, dict) and instrument.get("custodian_reference") and binding.get("custodian_reference") != instrument.get("custodian_reference"):
+                    issues.append("ACCESSION title_passage custodian_reference must match every title binding")
         if instrument.get("kind") != "off_chain_instrument":
             issues.append("ACCESSION title_passage must identify an off_chain_instrument")
         if custody_path.get("kind") != "non_token_off_chain":

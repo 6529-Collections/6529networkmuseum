@@ -11,7 +11,19 @@
         "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "rights_holder_reference": {"type": "string", "minLength": 1},
         "basis": {"type": "string", "minLength": 1},
-        "grants": {"type": "object", "minProperties": 1},
+        "grants": {
+          "type": "object",
+          "properties": {
+            "reproduction": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "publication": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "exhibition": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "print": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "derivative_use": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "ai_training": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"}
+          },
+          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"],
+          "unevaluatedProperties": false
+        },
         "observed_at": {"type": "string", "format": "date-time"},
         "events": {
           "type": "array",

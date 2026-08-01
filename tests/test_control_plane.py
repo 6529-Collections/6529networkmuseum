@@ -7,12 +7,14 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 TESTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TESTS_DIR.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
+import bootstrap_validate  # noqa: E402
 from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, make_manifest  # noqa: E402
 from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
@@ -34,6 +36,9 @@ class ControlPlaneTests(unittest.TestCase):
 
     def save_record(self, records: Path, filename: str, record: dict) -> None:
         (records / filename).write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+
+    def refresh_content_hash(self, record: dict) -> None:
+        record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(record["payload"])).hex()
 
     def test_valid_fixture_chain(self) -> None:
         temporary, records = self.make_records_root()
@@ -121,6 +126,30 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(any("ACCESSION.events must contain" in issue for issue in issues), issues)
         self.assertTrue(any("instrument_reference must match" in issue for issue in issues), issues)
 
+    def test_accession_binding_requirements_and_strict_chronology_are_rejected(self) -> None:
+        mutations = (
+            (lambda record: record["payload"]["title_bindings"][0].update(status="pending"), "executed title binding"),
+            (lambda record: record["payload"]["events"][3]["instrument"].update(sha256="sha256:" + "d" * 64), "instrument sha256"),
+            (lambda record: record["payload"]["events"][1].update(occurred_at=record["payload"]["events"][0]["occurred_at"]), "strictly increasing"),
+        )
+        for mutate, expected in mutations:
+            with self.subTest(expected=expected):
+                temporary, records = self.make_records_root()
+                self.addCleanup(temporary.cleanup)
+                record = self.load_record(records, "accession.json")
+                mutate(record)
+                self.save_record(records, "accession.json", record)
+                issues = validate_records(Path(temporary.name))
+                self.assertTrue(any(expected in issue for issue in issues), issues)
+
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "accession.json")
+        record["payload"]["title_bindings"].append(dict(record["payload"]["title_bindings"][0]))
+        self.save_record(records, "accession.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("exactly one title binding per object_id" in issue for issue in issues), issues)
+
     def test_rights_and_condition_events_require_their_own_authority_timeline(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)
@@ -135,13 +164,49 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertTrue(any("CONDITION_REPORT.events must begin" in issue for issue in issues), issues)
 
     def test_private_network_envelope_uri_is_rejected(self) -> None:
+        for uri in (
+            "https://127.0.0.1/private-record",
+            "https://0.0.0.0/private-record",
+            "https://169.254.169.254/latest/meta-data",
+            "https://[::1]/private-record",
+            "https://[fd00::1]/private-record",
+            "https://192.0.2.1/private-record",
+        ):
+            with self.subTest(uri=uri):
+                temporary, records = self.make_records_root()
+                self.addCleanup(temporary.cleanup)
+                record = self.load_record(records, "object-record.json")
+                record["envelope"]["uri"] = uri
+                self.save_record(records, "object-record.json", record)
+                issues = validate_records(Path(temporary.name))
+                self.assertTrue(any("envelope.uri: local/private network URL" in issue for issue in issues), issues)
+
+    def test_caip19_and_custody_chain_bindings_are_enforced(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)
         record = self.load_record(records, "object-record.json")
-        record["envelope"]["uri"] = "https://127.0.0.1/private-record"
+        record["payload"]["chain_identity"]["token_standard"] = "ERC-1155"
+        record["payload"]["chain_identity"]["caip19"] = "eip155:1/erc1155:0x1111111111111111111111111111111111111111/1"
+        self.refresh_content_hash(record)
         self.save_record(records, "object-record.json", record)
         issues = validate_records(Path(temporary.name))
-        self.assertTrue(any("envelope.uri: local/private network URL" in issue for issue in issues), issues)
+        self.assertFalse(any("caip19" in issue for issue in issues), issues)
+
+        record["payload"]["chain_identity"]["custody_account"] = "eip155:5:0x2222222222222222222222222222222222222222"
+        self.refresh_content_hash(record)
+        self.save_record(records, "object-record.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("custody_account chain must match" in issue for issue in issues), issues)
+
+    def test_undecodable_evidence_fails_closed(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-undecodable-evidence-")
+        self.addCleanup(temporary.cleanup)
+        evidence = Path(temporary.name) / "evidence"
+        evidence.mkdir()
+        (evidence / "binary.bin").write_bytes(b"\xff\x00credential-shaped")
+        with patch.object(bootstrap_validate, "ROOT", Path(temporary.name)):
+            with self.assertRaises(SystemExit):
+                bootstrap_validate.check_public_record_safety()
 
     def test_duplicate_json_keys_are_rejected_before_validation_and_hashing(self) -> None:
         temporary, records = self.make_records_root()
@@ -164,6 +229,25 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "object-record.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unexpected" in issue and "unevaluated" in issue.lower() for issue in issues), issues)
+
+    def test_rights_grant_classes_and_status_are_closed(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "rights-statement.json")
+        record["payload"]["grants"]["unknown_class"] = {
+            "grant_status": "granted",
+            "basis": "invalid class",
+            "observed_at": "2026-08-01T00:00:00Z",
+        }
+        self.save_record(records, "rights-statement.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("unknown_class" in issue for issue in issues), issues)
+
+        record = self.load_record(records, "rights-statement.json")
+        record["payload"]["grants"]["reproduction"]["grant_status"] = "maybe"
+        self.save_record(records, "rights-statement.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("maybe" in issue for issue in issues), issues)
 
     def test_malformed_workflow_vocabularies_fail_closed(self) -> None:
         malformed = {"workflow_states": ["offered"], "workflow_transitions": None}

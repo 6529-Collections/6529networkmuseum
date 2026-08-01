@@ -94,11 +94,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x02f7307a3666af0511baca745bf2a661e4f0a39a3f5cc0dc63d92f15f2fa4443"
+        "digest": "0x94542e6198eac0b594681274df1d677a38c23971e0faacf0f1e63a65e32e9d99"
       },
       "path": "schemas/accession.schema.json",
-      "sha256": "sha256:5827acc18bdec419bcc74975a428f1be7bc852355ee27613e554f0db10ed857e",
-      "size": 3916
+      "sha256": "sha256:4f800813bfd2610fc8720c536e5f57879e86f6fc8d0dcb0f9a27e3f1cf115efa",
+      "size": 4230
     },
     {
       "content_hash": {
@@ -194,11 +194,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x510ec869e9511500da049542720f55095192d38ddf5906ecdc27e38ebd562c25"
+        "digest": "0x72308ede64f6790dda954255baafe0b70d7294d71321f19b7722121363fe86b9"
       },
       "path": "schemas/object-record.schema.json",
-      "sha256": "sha256:8bed909a93d418434998da73596de76f6a24aa1f27527abc2032bcfbff966fd5",
-      "size": 7745
+      "sha256": "sha256:b7b9aa8d659c5cdc4eb8e413a764cd672222dcdbb5775ed95abca1a4ba836f47",
+      "size": 7855
     },
     {
       "content_hash": {
@@ -224,11 +224,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xc2ed7f2b214d8a6118b1706fef9a6eec340918bc73553a82edf98ab62346f8a3"
+        "digest": "0x8fcc706af51dcf8554aa52c52380629e79e45e0817ceebfb3f9ed947b340947a"
       },
       "path": "schemas/rights-statement.schema.json",
-      "sha256": "sha256:750242d37a93c4486d60965d7c8ee4acf2f310bc48ad3ff5a84213e941d5fd54",
-      "size": 1707
+      "sha256": "sha256:69fc811f558460a78dc41663fe6cf1687b2ccf4f580611177075c5298b0103ae",
+      "size": 2609
     }
   ],
   "hash_algorithms": {
@@ -243,9 +243,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xf37c0d2c9a07de07d23b4c3dcd0834682857d968d02764c95907e65cbec3b02f"
+    "digest": "0x999c5d2a252e19e596ff10079ab1c4c4930e08798592e5acd0ac0fe34c2239a7"
   },
-  "manifest_sha256": "sha256:57f5de6798155c37afdcb30834b5101823c7017cd025ee0e7b010e4b1e16249f",
+  "manifest_sha256": "sha256:fd3440b2cd699d2dfbb52343787bcd1d647f0ffba4e28426b3fe990edaadc595",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

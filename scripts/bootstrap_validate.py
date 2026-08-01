@@ -72,9 +72,9 @@ def check_public_record_safety() -> None:
             continue
         for path in sorted(p for p in root.rglob("*") if p.is_file()):
             try:
-                text = path.read_text(encoding="utf-8")
-            except UnicodeDecodeError:
-                continue
+                text = path.read_bytes().decode("utf-8")
+            except UnicodeDecodeError as exc:
+                fail(f"undecodable governed file: {path.relative_to(ROOT)}: {exc}")
             if LOCAL_PATH.search(text):
                 fail(f"machine-local absolute path in governed record: {path.relative_to(ROOT)}")
             for pattern in SECRET_PATTERNS:
@@ -87,9 +87,9 @@ def check_public_record_safety() -> None:
     if evidence_root.exists():
         for path in sorted(p for p in evidence_root.rglob("*") if p.is_file()):
             try:
-                text = path.read_text(encoding="utf-8-sig")
-            except UnicodeDecodeError:
-                continue
+                text = path.read_bytes().decode("utf-8-sig")
+            except UnicodeDecodeError as exc:
+                fail(f"undecodable public evidence: {path.relative_to(ROOT)}: {exc}")
             for pattern in SECRET_PATTERNS:
                 if pattern.search(text):
                     fail(f"credential-shaped content in public evidence: {path.relative_to(ROOT)}")

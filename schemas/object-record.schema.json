@@ -7,6 +7,7 @@
     "titleBinding": {
       "type": "object",
       "properties": {
+        "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "status": {"type": "string", "enum": ["pending", "executed", "not_applicable"]},
         "instrument_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "custodian_reference": {"type": "string", "minLength": 1},
@@ -65,7 +66,7 @@
         "chain_identity": {
           "type": "object",
           "properties": {
-            "caip19": {"type": "string", "pattern": "^eip155:[0-9]+/erc721:0x[0-9a-f]{40}/[0-9]+$"},
+            "caip19": {"type": "string", "pattern": "^eip155:[0-9]+/(erc721|erc1155):0x[0-9a-fA-F]{40}/[0-9]+$"},
             "chain_id": {"type": "integer", "minimum": 1},
             "contract": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
             "token_id": {"type": "string", "pattern": "^[0-9]+$"},

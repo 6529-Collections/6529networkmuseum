@@ -5,7 +5,7 @@
     "subjectId": "0x357b5284c96e355fe0cb80e9714a952066422927408df131b948edc7bfe69b74",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xee9d77316cc86ae059993a3ce65b9eb58480426deeb294058655b5f1968dcfb4",
+      "digest": "0x705123d5fc61a8965976b5427032d47a37de7bf54c0aa71f8c6ab6f8e4da84df",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplerights",
@@ -36,7 +36,11 @@
     "basis": "CC0 statement",
     "grants": {
       "reproduction": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "publication": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"}
+      "publication": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
+      "exhibition": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
+      "print": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
+      "derivative_use": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
+      "ai_training": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"}
     },
     "events": [
       {

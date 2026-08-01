@@ -5,7 +5,7 @@
     "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xef3ce15e45f061376ca15fb9f15c1131f05b82fdb836a91a0944be0c00e7d92a",
+      "digest": "0x88c92cac68f815cef0cb6bef7e5c4d6916fef2a4e89a0dbf34752b1338d00fa8",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleaccession",
@@ -36,8 +36,9 @@
     "object_ids": ["6529NM.2026.001.1"],
     "title_bindings": [
       {
+        "object_id": "6529NM.2026.001.1",
         "status": "executed",
-        "instrument_sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "instrument_sha256": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
         "custodian_reference": "networkmuseum.6529.eth",
         "transfer_transaction": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
         "block_number": 12345678,
