@@ -62,6 +62,7 @@ PR4_RESULT_SERIALIZATION = (
 )
 RUN_ID = "20260801T172252532Z"
 ACQUISITION_COMMIT = "48cd2fbf2914d295cdc4260dedb1345061f5e3b6"
+PUBLISHED_SOURCE_COMMIT = "9700e842d0c991280b476cc67849d966221a742a"
 TOKEN_URI_SELECTOR = "c87b56dd"
 PROJECT_TOKEN_INFO_SELECTOR = "8c2c3622"
 PROJECT_STATE_DATA_SELECTOR = "0ea5613f"
@@ -992,6 +993,9 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     assert_equal(inventory_scope.get("external_inventory_roles"), EXPECTED_EXTERNAL_INVENTORY_ROLES, "root inventory external allowlist")
     assert_equal(inventory_scope.get("pinned_dependency_paths"), ["scripts/check_fetch_guard.py", "scripts/rarity/analyze.py", "scripts/safe_fetch.py"], "root inventory pinned dependency paths")
     assert_equal(package["dependency"].get("acquisition_commit"), ACQUISITION_COMMIT, "acquisition source commit")
+    published_source_commit = latest.get("published_source_commit")
+    assert_equal(published_source_commit, PUBLISHED_SOURCE_COMMIT, "published source commit")
+    verify_commit_id(published_source_commit, "published source commit")
     assert_equal(package.get("network_fetch_status"), "offline_reconstruction_only_after_v2_acquisition", "root network-fetch status")
     verify_pr7_dependency(package.get("pr7_safety_dependency"), repo_root)
     inventory = package.get("inventory", {}).get("files")
@@ -1061,12 +1065,11 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     raw_refs.update(collect_raw_refs(json.loads(verify_derived_ref(run_root, manifest["exclusion_summary"]).decode("utf-8"))))
     assert_equal(raw_refs, {str(path.relative_to(run_root)).replace("\\", "/") for path in raw_files}, "all raw observations are referenced")
     for relative in sorted(raw_paths):
-        verify_git_bytes(ACQUISITION_COMMIT, relative, within(repo_root, relative, label=f"raw source {relative}").read_bytes(), "raw source")
-    source_commit = package["dependency"]["source_snapshot_commit"]
+        verify_git_bytes(published_source_commit, relative, within(repo_root, relative, label=f"published raw source {relative}").read_bytes(), "published raw source")
     for row in manifest["collections"]:
         relative = str((Path("evidence/casey-reas-collection-snapshots") / row["snapshot_path"]).as_posix())
-        verify_git_bytes(source_commit, relative, within(repo_root, relative, label=f"source snapshot {relative}").read_bytes(), "source snapshot")
-    verify_git_bytes(source_commit, str((Path("evidence/casey-reas-collection-snapshots") / latest["manifest_path"]).as_posix()), manifest_path.read_bytes(), "source child manifest")
+        verify_git_bytes(published_source_commit, relative, within(repo_root, relative, label=f"published snapshot {relative}").read_bytes(), "published snapshot")
+    verify_git_bytes(published_source_commit, str((Path("evidence/casey-reas-collection-snapshots") / latest["manifest_path"]).as_posix()), manifest_path.read_bytes(), "published child manifest")
     for raw_path in raw_files:
         try:
             reject_external_metrics(json.loads(raw_path.read_text(encoding="utf-8")), f"raw.{raw_path.name}")

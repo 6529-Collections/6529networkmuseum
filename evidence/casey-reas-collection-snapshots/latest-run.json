@@ -2,12 +2,13 @@
   "schema_version": "6529nm.casey-collection-latest-run.v2",
   "run_id": "20260801T172252532Z",
   "status": "complete",
+  "published_source_commit": "9700e842d0c991280b476cc67849d966221a742a",
   "manifest_path": "runs/20260801T172252532Z/run-manifest.json",
   "manifest_sha256": "sha256:1418c39103b474543f6a1666adfddb006d42c8148feede92b55e1bf3e6b0904a",
   "review": null,
   "package_manifest": {
     "path": "package-manifest.json",
-    "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f",
+    "sha256": "sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab",
     "size": 65519
   }
 }
