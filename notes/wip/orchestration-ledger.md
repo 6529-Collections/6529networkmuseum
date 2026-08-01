@@ -175,3 +175,35 @@ The independent Keys and Gates reviewer was task `019fbe15-7872-7312-a455-697a88
 ### Casey accession review boundary
 
 Independent review confirms the seven token identities, CAIP-19 values, common receipt, log indices, custody, and `received_onchain` / `not_complete` state. It blocks accession-safe treatment until cross-file invariants fail closed, canonical payload hashes and source-head evidence are bound, PR #7 integration is complete, historical transaction verification grades are corrected, and the preservation evidence package captures raw metadata/generator bytes. Formal donation acceptance, title passage, rights grants, condition assessment, and preservation completion remain unclaimed gates.
+
+## 2026-08-01 - Casey full-collection acquisition checkpoint
+
+The follow-on acquisition branch is `codex/casey-reas-collection-snapshots`,
+based exactly on synchronized `origin/main`
+`6ab83b456f1ad8d1b7b88b79cc960954feb56432`. It adds source configuration,
+reviewable acquisition and verification tooling, a materialization fixture, and
+one complete v2 run for all five Casey REAS projects represented in accession
+lot `6529NM.2026.001`. Governed `records/` payloads were not changed.
+
+The authoritative route is deliberately bulk-first: one observed Ethereum
+mainnet block binds the configured on-chain project population view and every
+`tokenURI(uint256)` string by batched `eth_call`; the official Art Blocks
+Hasura `tokens_metadata` endpoint supplies the complete paginated feature
+population with raw page bytes, query/variables, server order, counts, request
+hashes, and retry attempts. The current complete run is
+`20260801T172252532Z`: CENTURY 1,000, Pre-Process 120, Phototaxis 1,000,
+923 EMPTY ROOMS 924, and Ex Nihilo (Cosmos) 256, totaling 3,300 tokens. The
+server row order is retained separately from numeric canonical token/trait
+ordering. Sampled official token endpoint checks are cross-check evidence only;
+their eight feature omissions/differences are visible warnings and do not
+replace or reduce the bulk population.
+
+`scripts/verify_casey_snapshot_package.py` passes the run, raw-reference
+hashes, population/identity/order checks, prohibited-field checks, and the
+scalar materialization fixtures. At this checkpoint PR #4 is independently
+merged as `ff1c5825e3b61bfb2df0a639e057297beb946e4d`; descriptor emission is
+now permitted only after rebasing this branch to that exact mainline and
+running the merged `scripts/rarity/analyze.py`. Collection descriptor outputs
+remain transparent statistical descriptors, not quality judgments, value
+signals, or canonical truth; constructor/reviewer separation remains explicit
+with `review: null` until a separate reviewer is assigned.

@@ -83,6 +83,7 @@ Status vocabulary:
 | File | Status | Contents |
 |---|---|---|
 | [`evidence/waves/museum-wave/README.md`](evidence/waves/museum-wave/README.md) | immutable evidence index | Complete authenticated 2026-08-01 Museum Wave snapshot, rendered history, source index, proposals, and SHA-256 digests |
+| [`evidence/casey-reas-collection-snapshots/README.md`](evidence/casey-reas-collection-snapshots/README.md) | constructed acquisition evidence package | Full Art Blocks Hasura/tokenURI observations for the five Casey REAS projects in lot `6529NM.2026.001`; descriptors remain gated on independently merged PR #4 |
 
 ## Integrity tooling
 

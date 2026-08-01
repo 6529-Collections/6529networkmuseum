@@ -1,0 +1,89 @@
+{
+  "schema_version": "6529nm.casey-collection-sources.v1",
+  "chain": {
+    "caip2": "eip155:1",
+    "chain_id": 1,
+    "name": "Ethereum mainnet",
+    "token_id_encoding": "(project_id * 1000000) + invocation_number"
+  },
+  "authoritative_sources": {
+    "project_graphql_uri": "https://data.artblocks.io/v1/graphql",
+    "token_api_documentation_uri": "https://docs.artblocks.io/developer/token-and-generator-apis/",
+    "core_contract_documentation_uri": "https://docs.artblocks.io/developer/core-contract/",
+    "token_id_documentation_uri": "https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project/",
+    "documented_chain_token_uri_template": "https://token.artblocks.io/1/{contract_address}/{token_id}"
+  },
+  "prohibited_sources": [
+    "marketplace metadata",
+    "marketplace rarity scores",
+    "third-party rarity rankings",
+    "third-party trait frequency indexes"
+  ],
+  "collections": [
+    {
+      "slug": "century",
+      "name": "CENTURY",
+      "artist": "Casey REAS",
+      "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "project_id": 100,
+      "collection_id": 100,
+      "project_graphql_id": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-100",
+      "token_uri_method": "tokenURI(uint256)",
+      "project_info_method": "projectTokenInfo(uint256)",
+      "cross_check_token_ids": [100000031, 100000724, 100000401],
+      "population_authority": "on-chain projectTokenInfo.maxInvocations at observed block; Art Blocks projects_metadata.max_invocations is a cross-check"
+    },
+    {
+      "slug": "pre-process",
+      "name": "Pre-Process",
+      "artist": "Casey REAS",
+      "contract_address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+      "project_id": 383,
+      "collection_id": 383,
+      "project_graphql_id": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069-383",
+      "token_uri_method": "tokenURI(uint256)",
+      "project_info_method": "projectStateData(uint256)",
+      "cross_check_token_ids": [383000063],
+      "population_authority": "on-chain projectStateData.maxInvocations at observed block; Art Blocks projects_metadata.max_invocations is a cross-check"
+    },
+    {
+      "slug": "phototaxis",
+      "name": "Phototaxis",
+      "artist": "Casey REAS",
+      "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "project_id": 164,
+      "collection_id": 164,
+      "project_graphql_id": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-164",
+      "token_uri_method": "tokenURI(uint256)",
+      "project_info_method": "projectTokenInfo(uint256)",
+      "cross_check_token_ids": [164000308],
+      "population_authority": "on-chain projectTokenInfo.maxInvocations at observed block; Art Blocks projects_metadata.max_invocations is a cross-check"
+    },
+    {
+      "slug": "923-empty-rooms",
+      "name": "923 EMPTY ROOMS",
+      "artist": "Casey REAS",
+      "contract_address": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+      "project_id": 1,
+      "collection_id": 1,
+      "project_graphql_id": "0x145789247973c5d612bf121e9e4eef84b63eb707-1",
+      "token_uri_method": "tokenURI(uint256)",
+      "project_info_method": "projectStateData(uint256)",
+      "cross_check_token_ids": [1000713],
+      "population_authority": "on-chain projectStateData.maxInvocations at observed block; Art Blocks projects_metadata.max_invocations is a cross-check"
+    },
+    {
+      "slug": "ex-nihilo-cosmos",
+      "name": "Ex Nihilo (Cosmos)",
+      "artist": "Casey REAS",
+      "contract_address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+      "project_id": 0,
+      "collection_id": 0,
+      "project_graphql_id": "0x0000000c687daed0fba60d1dba4e5f6149e8b894-0",
+      "token_uri_method": "tokenURI(uint256)",
+      "project_info_method": "projectStateData(uint256)",
+      "cross_check_token_ids": [248],
+      "population_authority": "on-chain projectStateData.maxInvocations at observed block; Art Blocks projects_metadata.max_invocations is a cross-check"
+    }
+  ]
+}
