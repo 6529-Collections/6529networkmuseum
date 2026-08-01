@@ -57,6 +57,21 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "published source package",
             ),
             (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["publication_release"].__setitem__("sha256", "sha256:" + "0" * 64),
+                "published source package",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["publication_release"].__setitem__("published_release_commit", "0" * 40),
+                "published source package",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["package_manifest"].__setitem__("uri", "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json"),
+                "published source package",
+            ),
+            (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"]["trait_analysis"]["descriptor"].__setitem__("path", "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json"),
                 "descriptor mapping",
@@ -71,12 +86,17 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 lambda record: record["payload"].__setitem__("current_state", "accessioned"),
                 "must remain received_onchain",
             ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["controlled_decision"].__setitem__("decision_authority", "unverified authority"),
+                "reviewer and decision-authority fields must remain null",
+            ),
         )
         for relative, mutation, expected in mutations:
             with self.subTest(expected=expected):
                 _temporary, root = self.make_copy()
                 self.mutate_record(root, relative, mutation)
-                self.assertTrue(any(expected in issue for issue in validate(root)), validate(root))
+                self.assertTrue(any(expected in issue for issue in validate(root, history_root=ROOT)), validate(root, history_root=ROOT))
 
     def test_public_pages_and_raw_metadata_are_bound(self) -> None:
         for object_id, slug in OBJECT_TO_DESCRIPTOR.items():
@@ -87,7 +107,12 @@ class CaseyDossierControlsTests(unittest.TestCase):
         _temporary, root = self.make_copy()
         raw = root / "evidence" / "casey-reas" / "raw" / "metadata" / f"{CASEY_ID}.01.json"
         raw.write_bytes(raw.read_bytes() + b"\n")
-        self.assertTrue(any("raw public metadata manifest binding failed" in issue for issue in validate(root)), validate(root))
+        self.assertTrue(any("raw public metadata manifest binding failed" in issue for issue in validate(root, history_root=ROOT)), validate(root, history_root=ROOT))
+
+    def test_historical_release_requires_full_git_history(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-history-") as directory:
+            issues = validate(ROOT, history_root=Path(directory))
+        self.assertTrue(any("immutable publication evidence cannot be verified" in issue for issue in issues), issues)
 
 
 if __name__ == "__main__":

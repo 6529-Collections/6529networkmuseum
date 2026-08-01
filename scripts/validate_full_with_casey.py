@@ -33,7 +33,16 @@ def validate_semantics_with_casey_nullable_reviewer(record: dict[str, Any], voca
             "role": "reviewer",
             "reviewed_at": payload["created_at"],
         }
-        return ORIGINAL_VALIDATE_SEMANTICS(compatible_record, vocabularies)
+        original_digest = record.get("envelope", {}).get("contentHash", {}).get("digest", "").lower()
+        original_expected = "0x" + standard_validate.keccak256(standard_validate.canonicalize(payload)).hex()
+        compatible_payload = compatible_record["payload"]
+        compatible_record["envelope"]["contentHash"]["digest"] = "0x" + standard_validate.keccak256(
+            standard_validate.canonicalize(compatible_payload)
+        ).hex()
+        issues = ORIGINAL_VALIDATE_SEMANTICS(compatible_record, vocabularies)
+        if original_digest != original_expected:
+            issues.append(f"envelope.contentHash.digest does not match canonical payload; expected {original_expected}")
+        return issues
     return ORIGINAL_VALIDATE_SEMANTICS(record, vocabularies)
 
 

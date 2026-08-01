@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3d7690b2df4dd2427fc3255f40456d57b1d394f5b3171c49847ba2affe25a394"
+      "digest": "0xb0ec8708da6e4d37d01fef8c3d8e50925baab77230e1e05948441d8406b91414"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -128,7 +128,7 @@
     },
     "object_id": "6529NM.2026.001.03",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:c6359628ff04baa52f5211555548f6f74d9df17f62ad3f87c43c981b60fbecda",
+    "payload_sha256": "sha256:41372369df71624406330c4182d3f6b627df1cf0f2d01e4ab609ac55b8c957a2",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -251,16 +251,24 @@
         "No aesthetic, quality, value, or ranking claim is made."
       ],
       "source_package": {
-        "merged_source_package_commit": "9700e842d0c991280b476cc67849d966221a742a",
+        "published_source_commit": "9700e842d0c991280b476cc67849d966221a742a",
+        "publication_semantics": "The published_source_commit is the reachable repository source anchor for this package; acquisition history remains package provenance, not an accession authority claim.",
+        "publication_release": {
+          "published_release_commit": "bf70ba3fd888d2d1b8add90fe56e913102f8aa68",
+          "path": "release-artifacts/latest/record-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/release-artifacts/latest/record-manifest.json",
+          "sha256": "sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e",
+          "scope": "Published Casey package boundary; this historical release commitment is not this dossier's regenerated release manifest."
+        },
         "path": "evidence/casey-reas-collection-snapshots",
         "package_manifest": {
           "path": "evidence/casey-reas-collection-snapshots/package-manifest.json",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json",
-          "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/package-manifest.json",
+          "sha256": "sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab"
         },
         "descriptor_manifest": {
           "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
           "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63"
         },
         "counts": {
@@ -275,7 +283,7 @@
           {
             "collection": "century",
             "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/century.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/century.json",
             "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
             "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
             "source_token_count": 1000,
@@ -284,7 +292,7 @@
           {
             "collection": "pre-process",
             "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
             "descriptor_sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
             "result_sha256": "sha256:d91b94efdb923b18af0f15cad0c05aeb2c1ce343376019f0eb8cc29bf59b154f",
             "source_token_count": 120,
@@ -293,7 +301,7 @@
           {
             "collection": "phototaxis",
             "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
             "descriptor_sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
             "result_sha256": "sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044",
             "source_token_count": 1000,
@@ -302,7 +310,7 @@
           {
             "collection": "923-empty-rooms",
             "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
             "descriptor_sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
             "result_sha256": "sha256:d819ef84f091e83a1c06b96d39f397cfd07e5a5a23c1252910b921f8b2edbf29",
             "source_token_count": 924,
@@ -311,19 +319,19 @@
           {
             "collection": "ex-nihilo-cosmos",
             "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
             "descriptor_sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
             "result_sha256": "sha256:0994eb240189e58eb1433a6c4979d4d9243523ce7d778505dead0dea91cfea7a",
             "source_token_count": 256,
             "trait_row_count": 1792
           }
         ],
-        "integrity_note": "Content hashes are integrity anchors; tree/main and blob/main URLs are transitional publication locators, not future merge pins."
+        "integrity_note": "Content hashes and exact blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68 URLs are immutable evidence anchors; tree/main and blob/main are reserved for intentionally mutable living-document links."
       },
       "descriptor": {
         "collection": "century",
         "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/century.json",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas-collection-snapshots/descriptors/century.json",
         "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
         "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
         "source_token_count": 1000,

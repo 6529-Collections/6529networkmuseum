@@ -545,3 +545,28 @@ After final package and governed-manifest regeneration, the constructor ran
 unittest suite, and `codex-diff-check`. All passed; 75 tests ran with the one
 expected Windows named-pipe skip, and the package verifier reproduced 3,300
 tokens, 35,088 traits, 79 raw files, and five descriptor outputs.
+
+## 2026-08-01 - PR #10 immutable Casey publication-boundary correction
+
+This append-only checkpoint supersedes the mutable-locator assertion in the
+earlier PR #10 package-integration checkpoint. The accession evidence is
+two-level: artwork-source bytes are bound to reachable
+`published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the
+reviewed Casey package/toolchain publication is bound to immutable release
+commit `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`,
+and release-manifest SHA-256
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+Construction commit OIDs remain provenance labels only.
+
+The accession records use exact `blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68`
+links for release-bound package, descriptor-manifest, and descriptor evidence;
+`main` links are reserved for deliberately mutable living documentation. The
+dossier refresher and fail-closed validator retrieve and hash the published
+bytes with fixed-argument Git history calls, require complete reachable
+history, and do not rebind this dossier if a future current package changes.
+Tests reject wrong release commits or hashes and mutable `blob/main` links in
+release-bound fields. The seven raw public metadata bytes remain separately
+bound and unchanged. Formal state remains `received_onchain` / `not_complete`,
+with reviewer and authority fields null; no acceptance, title, rights,
+condition, preservation, or registrar decision is asserted.

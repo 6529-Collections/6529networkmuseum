@@ -12,12 +12,11 @@ from typing import Any
 
 from canonical import canonicalize
 from validate import keccak256
+from validate_casey_dossier import PUBLISHED_SOURCE_COMMIT, source_package
 
 
 ROOT = Path(__file__).resolve().parent.parent
 CASEY_DIR = ROOT / "records" / "accessions" / "6529NM.2026.001"
-PACKAGE_ROOT = Path("evidence/casey-reas-collection-snapshots")
-PUBLISHED_SOURCE_COMMIT = "9700e842d0c991280b476cc67849d966221a742a"
 REPOSITORY_URL = "https://github.com/6529-Collections/6529networkmuseum"
 MAIN_TREE_URL = f"{REPOSITORY_URL}/tree/main"
 MAIN_BLOB_URL = f"{REPOSITORY_URL}/blob/main"
@@ -60,70 +59,9 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
 
 
 def descriptor_package() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
-    package_dir = ROOT / PACKAGE_ROOT
-    latest = read_json(package_dir / "latest-run.json")
-    package_manifest = read_json(package_dir / "package-manifest.json")
-    descriptor_manifest = read_json(package_dir / "descriptor-manifest.json")
-    run_manifest = read_json(package_dir / "runs" / latest["run_id"] / "run-manifest.json")
-
-    package_manifest_path = PACKAGE_ROOT / "package-manifest.json"
-    descriptor_manifest_path = PACKAGE_ROOT / "descriptor-manifest.json"
-    package_manifest_sha256 = sha256(ROOT / package_manifest_path)
-    descriptor_manifest_sha256 = sha256(ROOT / descriptor_manifest_path)
-    if latest.get("published_source_commit") != PUBLISHED_SOURCE_COMMIT:
-        raise ValueError("latest-run published source commit does not match the published Casey source")
-    if latest["package_manifest"]["sha256"] != package_manifest_sha256:
-        raise ValueError("latest-run package manifest fixity does not match package-manifest.json")
-    if package_manifest["semantic_bindings"]["descriptor_manifest"]["sha256"] != descriptor_manifest_sha256:
-        raise ValueError("package manifest descriptor fixity does not match descriptor-manifest.json")
-
-    population = {entry["slug"]: entry["population"]["expected_token_count"] for entry in run_manifest["collections"]}
-    descriptors: dict[str, dict[str, Any]] = {}
-    for job in descriptor_manifest["jobs"]:
-        slug = job["collection"]
-        descriptor_path = PACKAGE_ROOT / job["output"]
-        descriptor = read_json(ROOT / descriptor_path)
-        observed_descriptor_sha256 = sha256(ROOT / descriptor_path)
-        if job["descriptor_sha256"] != observed_descriptor_sha256:
-            raise ValueError(f"descriptor fixity does not match descriptor manifest: {slug}")
-        if descriptor["result_sha256"] != job["result_sha256"]:
-            raise ValueError(f"descriptor result fixity does not match descriptor manifest: {slug}")
-        descriptors[slug] = {
-            "collection": slug,
-            "path": descriptor_path.as_posix(),
-            "uri": f"{MAIN_BLOB_URL}/{descriptor_path.as_posix()}",
-            "descriptor_sha256": observed_descriptor_sha256,
-            "result_sha256": job["result_sha256"],
-            "source_token_count": population[slug],
-            "trait_row_count": len(descriptor["result"]["per_trait"]),
-        }
-
-    inventory = package_manifest["inventory"]
-    source = {
-        "published_source_commit": PUBLISHED_SOURCE_COMMIT,
-        "publication_semantics": "The published_source_commit is the reachable repository source anchor for this package; acquisition history remains package provenance, not an accession authority claim.",
-        "path": PACKAGE_ROOT.as_posix(),
-        "package_manifest": {
-            "path": package_manifest_path.as_posix(),
-            "uri": f"{MAIN_BLOB_URL}/{package_manifest_path.as_posix()}",
-            "sha256": package_manifest_sha256,
-        },
-        "descriptor_manifest": {
-            "path": descriptor_manifest_path.as_posix(),
-            "uri": f"{MAIN_BLOB_URL}/{descriptor_manifest_path.as_posix()}",
-            "sha256": descriptor_manifest_sha256,
-        },
-        "counts": {
-            "bound_files": inventory["file_count"],
-            "raw_files": inventory["raw_file_count"],
-            "derived_files": inventory["derived_file_count"],
-            "descriptor_results": inventory["descriptor_count"],
-            "source_tokens": sum(population.values()),
-            "trait_rows": sum(item["trait_row_count"] for item in descriptors.values()),
-        },
-        "descriptors": [descriptors[slug] for slug in ("century", "pre-process", "phototaxis", "923-empty-rooms", "ex-nihilo-cosmos")],
-        "integrity_note": "Content hashes are integrity anchors; tree/main and blob/main URLs are transitional publication locators, not future merge pins.",
-    }
+    source, descriptors, issues = source_package(ROOT)
+    if issues:
+        raise ValueError("; ".join(issues))
     return source, descriptors
 
 
@@ -159,6 +97,8 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
         payload["source"]["casey_collection_snapshot_package_published_source_commit"] = PUBLISHED_SOURCE_COMMIT
         payload["source_manifest"].pop("casey_snapshot_source_head", None)
         payload["source_manifest"]["casey_collection_snapshot_package"] = copy.deepcopy(source)
+        payload["constructor_controls"]["merge_authority"] = None
+        payload["controlled_decision"]["decision_authority"] = None
         payload["trait_analysis"] = trait_analysis(source)
         payload["collection_curatorial_statement"]["trait_analysis"] = trait_analysis(source)
     elif record_id in OBJECT_TO_COLLECTION:
@@ -184,7 +124,14 @@ def refresh_public_pages(descriptors: dict[str, dict[str, Any]]) -> None:
         elif new in text:
             updated = text
         elif "transparent linked descriptor" in text:
-            updated = text.replace("merged source package", "published source package")
+            updated, replacements = re.subn(
+                r"A \[transparent linked descriptor\]\([^)]*\) is available.*?registrar review are incomplete\.",
+                new,
+                text,
+                flags=re.DOTALL,
+            )
+            if replacements != 1:
+                raise ValueError(f"expected existing descriptor disclosure is malformed: {page}")
         else:
             raise ValueError(f"expected trait-analysis prose is missing: {page}")
         page.write_text(updated, encoding="utf-8", newline="\n")
@@ -198,10 +145,24 @@ def refresh_control_note() -> None:
         "They use no OpenSea or marketplace metrics and make no aesthetic, quality, value, or ranking claim. "
         "The dossier is intentionally left with `reviewer: null`; independent review and integration—not constructor self-review—control the next decision."
     )
+    new += (
+        "\n\nEvidence is intentionally two-level: the artwork-source bytes are anchored by "
+        "`published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the reviewed package/toolchain release is anchored by "
+        "`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256 `c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`, "
+        "and release SHA-256 `d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`. Exact commit URLs and content hashes "
+        "identify this immutable evidence basis; later current-package revisions must not silently rewrite it."
+    )
     if new in text:
         updated = text
-    elif "Transparent linked descriptors are available from the merged Casey source package" in text:
-        updated = text.replace("merged Casey source package", "published Casey source package")
+    elif "Transparent linked descriptors are available" in text:
+        updated, replacements = re.subn(
+            r"Transparent linked descriptors are available.*?next decision\.",
+            new,
+            text,
+            flags=re.DOTALL,
+        )
+        if replacements != 1:
+            raise ValueError("expected existing descriptor control note is malformed")
     else:
         updated, replacements = re.subn(
             r"Trait analysis remains a typed .*?self-review—control the next decision\\.",

@@ -488,11 +488,12 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
     reviewer = reviewer_data.get("id") if isinstance(reviewer_data, dict) else None
     if constructor == reviewer:
         issues.append("constructor/reviewer separation: constructor.id and reviewer.id must differ")
-    try:
-        if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
-            issues.append("reviewer.reviewed_at must not precede created_at")
-    except (KeyError, ValueError) as exc:
-        issues.append(str(exc))
+    if isinstance(reviewer_data, dict):
+        try:
+            if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
+                issues.append("reviewer.reviewed_at must not precede created_at")
+        except (KeyError, ValueError) as exc:
+            issues.append(str(exc))
     issues.extend(inspect_sensitive(payload))
     if record_type == "GOVERNANCE_DECISION":
         source_status = source_data.get("status") if isinstance(source_data, dict) else None
