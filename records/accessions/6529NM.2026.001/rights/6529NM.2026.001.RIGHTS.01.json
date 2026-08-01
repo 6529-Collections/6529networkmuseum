@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8fc6a28caa9bb0d2fc95a76e0c99c8ea035c1c2b0144db5aa1c7cd7afc14c4d7"
+      "digest": "0xee9f42e62f718fd136146e30e01479b76868fa6ca4d7ad242dd683c149c46acc"
     },
     "effectiveAt": 1785596311,
     "recordType": "RIGHTS_STATEMENT",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xea2d9a468ea4e2124a50c47ced49639c44e0a56b60efc1f50bce673541d11099",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
   },
   "payload": {
     "basis": "No public donation deed, license, or other rights instrument is recorded. Custody and platform metadata do not grant rights.",
@@ -36,7 +36,7 @@
             "evidence_class": "C",
             "label": "Public rights boundary",
             "observed_at": "2026-08-01T14:58:31.905115Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
           }
         ],
         "occurred_at": "2026-08-01T14:58:31.905115Z"
@@ -59,7 +59,7 @@
         "evidence_class": "C",
         "label": "Preservation evidence manifest",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas"
       }
     ],
     "grants": {
@@ -96,7 +96,7 @@
     },
     "object_id": "6529NM.2026.001.01",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:0712f414c9ccd37a01377174788682b3cd711fe9cbbef2c1b76077f6a6c05e7a",
+    "payload_sha256": "sha256:21e9777495da3ae3ee80ad18a99992911325b1f7300390063bde6a27964eb0b6",
     "record_id": "6529NM.2026.001.RIGHTS.01",
     "record_status": "constructed",
     "record_type": "RIGHTS_STATEMENT",

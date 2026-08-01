@@ -1,0 +1,1195 @@
+{
+  "schema_version": "6529nm.casey-package-manifest.v1",
+  "package_id": "6529NM.2026.001.casey-reas-full-collection",
+  "run_id": "20260801T172252532Z",
+  "observation": {
+    "chain": {
+      "caip2": "eip155:1",
+      "chain_id": 1,
+      "name": "Ethereum mainnet",
+      "token_id_encoding": "(project_id * 1000000) + invocation_number"
+    },
+    "rpc_uri": "https://ethereum.publicnode.com",
+    "block_number": 25661488,
+    "block_tag": "0x1879030",
+    "block_hash": "0x6802d1fd8a983eddc4c44588cdf3be88c8e5a3079d492b61ba7e97ca8c2fdd26",
+    "block_time": "2026-08-01T17:22:47Z",
+    "run_started_at": "2026-08-01T17:22:52.532Z"
+  },
+  "constructor": {
+    "actor_id": "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652",
+    "role": "constructor"
+  },
+  "review": null,
+  "dependency": {
+    "acquisition_commit": "48cd2fbf2914d295cdc4260dedb1345061f5e3b6",
+    "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
+    "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
+    "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+    "rarity_tool_git_blob_oid": "755a1b1c948d900496f5e279594223c8c99ab3e8"
+  },
+  "network_fetch_status": "offline_reconstruction_only_after_v2_acquisition",
+  "pr7_safety_dependency": {
+    "status": "merged_and_integrated",
+    "merge_commit": "7193bfb9a0a6ead1871180b931aced755676b327",
+    "network_fetch_migration_required": false,
+    "no_pr7_migration_claim": false,
+    "approved_fetch_module": "scripts/safe_fetch.py",
+    "approved_fetch_module_sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+    "approved_fetch_module_pr7_blob_oid": "4b42a53b0e9d7a9bd409ae4c1ccbc8bf5a9462bc",
+    "fetch_guard_module": "scripts/check_fetch_guard.py",
+    "fetch_guard_module_sha256": "sha256:4fd4f6d5744fb2ebbd74cdb1f4dd217ac326369dff47e658c3162a3b32cfae60",
+    "fetch_guard_module_pr7_blob_oid": "72099b5b6484d1b292839562f94228567ed0a861"
+  },
+  "pointer_files_excluded_from_inventory": {
+    "files": [
+      "evidence/casey-reas-collection-snapshots/latest-run.json",
+      "evidence/casey-reas-collection-snapshots/package-manifest.json"
+    ],
+    "reason": "latest-run points to this manifest and therefore cannot be included without a self-referential cycle; package-manifest is bound externally by latest-run"
+  },
+  "inventory_scope": {
+    "package_prefix": "evidence/casey-reas-collection-snapshots/",
+    "external_inventory_roles": {
+      "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
+      "scripts/bootstrap_validate.py": "executable-or-test-source",
+      "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+      "scripts/check_fetch_guard.py": "executable-or-test-source",
+      "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
+      "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
+      "scripts/rarity/analyze.py": "executable-or-test-source",
+      "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+      "scripts/safe_fetch.py": "executable-or-test-source",
+      "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
+      "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+      "tests/test_control_plane.py": "executable-or-test-source",
+      "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
+      "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
+      "tests/rarity/test_nextgen_compat.py": "executable-or-test-source"
+    },
+    "pinned_dependency_paths": [
+      "scripts/check_fetch_guard.py",
+      "scripts/rarity/analyze.py",
+      "scripts/safe_fetch.py"
+    ]
+  },
+  "inventory": {
+    "file_count": 175,
+    "raw_file_count": 79,
+    "derived_file_count": 64,
+    "descriptor_count": 5,
+    "files": [
+      {
+        "path": "evidence/casey-reas-collection-snapshots/README.md",
+        "role": "package-documentation",
+        "sha256": "sha256:31ec7577eb698599b316b8b0decc2abe5c6e886fbb6a82ff4fd8a1f0bfc6df6e",
+        "size": 8325
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
+        "role": "authoritative-acquisition-config",
+        "sha256": "sha256:96abb969211b32c002497a0ea849da2b4c23ee2c7676203c9c912b0afdd38190",
+        "size": 3977
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+        "role": "descriptor-child-manifest",
+        "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63",
+        "size": 2451
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+        "role": "descriptor",
+        "sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+        "size": 23369807
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
+        "role": "descriptor",
+        "sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+        "size": 22561079
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+        "role": "descriptor",
+        "sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+        "size": 3691856
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+        "role": "descriptor",
+        "sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+        "size": 16310682
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+        "role": "descriptor",
+        "sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+        "size": 1013453
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/fixtures/features-materialization.json",
+        "role": "verification-fixture",
+        "sha256": "sha256:aa7d2379b5e93ff3e0b0fe5991c93de40a024466ff69792728c53b8c4a655957",
+        "size": 769
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/fixtures/tool-input-projection.json",
+        "role": "verification-fixture",
+        "sha256": "sha256:debed7c6d0f599c65d13f8efa3faa1fd7de0b2ceab767526045d2c0c7650e35c",
+        "size": 340
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
+        "role": "review-ledger",
+        "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
+        "size": 2867
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
+        "size": 17294
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
+        "size": 10160614
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-05006750e957ddcb0734895d93b53ec991400b7bad7b6e61094d549e95edc8f3.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:05006750e957ddcb0734895d93b53ec991400b7bad7b6e61094d549e95edc8f3",
+        "size": 467
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-070929d63f4a0a01f9db4c96e6dbf5a1e9ae1c9ee06f45b720f4a2a1ff38059d.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:070929d63f4a0a01f9db4c96e6dbf5a1e9ae1c9ee06f45b720f4a2a1ff38059d",
+        "size": 415
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-087ac4ef12360f3d79afd5c07348586c9e9edb047a894295b2d1d997a2e27e6b.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:087ac4ef12360f3d79afd5c07348586c9e9edb047a894295b2d1d997a2e27e6b",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-0f56d7a2a0298e1a6079363ef785d37055364c49ecefdac50f82e7bf68b5cf62.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:0f56d7a2a0298e1a6079363ef785d37055364c49ecefdac50f82e7bf68b5cf62",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1022025e793faf67cbf154ffa1608355856b0ec3974ad3389ebd19f5a78ebf8c.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1022025e793faf67cbf154ffa1608355856b0ec3974ad3389ebd19f5a78ebf8c",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1167852028b5501ca757d8033eb2bb428d161d981ea732c596f2242ed56a0732.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1167852028b5501ca757d8033eb2bb428d161d981ea732c596f2242ed56a0732",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1682ea730a4c2d8029c673556f6308c1d0cfd0a6351c9c3b0212d2ae9b5fddd3.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1682ea730a4c2d8029c673556f6308c1d0cfd0a6351c9c3b0212d2ae9b5fddd3",
+        "size": 21691
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-16d39bf270e011c20c1aede6bf41c08eb72a2ce770985372a8839638f9ccab6a.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:16d39bf270e011c20c1aede6bf41c08eb72a2ce770985372a8839638f9ccab6a",
+        "size": 228
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-183677d35ae4504282c51705cc8cd1d87f7438bca0cc000af1416bd37339e588.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:183677d35ae4504282c51705cc8cd1d87f7438bca0cc000af1416bd37339e588",
+        "size": 227
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1ae7b10ecc7c35c24945b2ab9ab66d31c8b3cde5cba3b25563404c72a52b0b63.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1ae7b10ecc7c35c24945b2ab9ab66d31c8b3cde5cba3b25563404c72a52b0b63",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1c72e2c8f94b6785758d43f942c8fda3dce65e118869281fcec8f770ba17abe7.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1c72e2c8f94b6785758d43f942c8fda3dce65e118869281fcec8f770ba17abe7",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1e809427bb98c8d5ddb9aa2ade7bc3d1dc9d23de8d66e3a402d3df89fc8b1d16.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1e809427bb98c8d5ddb9aa2ade7bc3d1dc9d23de8d66e3a402d3df89fc8b1d16",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-1f85455f779d1596c3a50fdec3497c597014708904eaa85fd2fb14471e57a4af.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:1f85455f779d1596c3a50fdec3497c597014708904eaa85fd2fb14471e57a4af",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-2511c0b04e961b00dc288116b576fb2984a0859173884b997c2d9d95f6fd3ddc.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:2511c0b04e961b00dc288116b576fb2984a0859173884b997c2d9d95f6fd3ddc",
+        "size": 76
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-2bb5bf3a24a35af2fe74d54d86b4089d734f344f145cd97a82f1ad42393f5b45.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:2bb5bf3a24a35af2fe74d54d86b4089d734f344f145cd97a82f1ad42393f5b45",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-2c3dc127dcb6348f936b160c8c1f03aab3d2db6390a275c79b3893d6ed72e248.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:2c3dc127dcb6348f936b160c8c1f03aab3d2db6390a275c79b3893d6ed72e248",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-2d78a72637d153e0ceb6497fa83de95ce17abe9ec3989b1091fab46781ad0306.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:2d78a72637d153e0ceb6497fa83de95ce17abe9ec3989b1091fab46781ad0306",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-355830f0f50c2b7ffc4a1e5c716a0322529cab80a71bd54ae5ccbb08f3c41aba.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:355830f0f50c2b7ffc4a1e5c716a0322529cab80a71bd54ae5ccbb08f3c41aba",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-3b1ca07635376203ecb07e59de213372f1068c07450c9826dbed9df1215c953c.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:3b1ca07635376203ecb07e59de213372f1068c07450c9826dbed9df1215c953c",
+        "size": 417
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-3c88f6c540d435ddaeaa2caaadb4ca88927832c0c64a6b89268654694bf8f15f.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:3c88f6c540d435ddaeaa2caaadb4ca88927832c0c64a6b89268654694bf8f15f",
+        "size": 415
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-47fc6c00dec05e7209f34aa6f19a19677d9a9f4e5e0f4c682d9c6bb2606c8bcc.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:47fc6c00dec05e7209f34aa6f19a19677d9a9f4e5e0f4c682d9c6bb2606c8bcc",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-4d23d6ac4e9ef649013b83d7a0564fe79c545f196065b5f63f7fa0a9d9695551.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:4d23d6ac4e9ef649013b83d7a0564fe79c545f196065b5f63f7fa0a9d9695551",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-5235d4f43557b8e205b0160104e5491d66f65d1f1725f3e9d7fb0c1967fe69fa.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:5235d4f43557b8e205b0160104e5491d66f65d1f1725f3e9d7fb0c1967fe69fa",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-52f133180f8ef8e3da3e4715a10689e5e1a2a8d271d94d9882bbfe3dc433a00e.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:52f133180f8ef8e3da3e4715a10689e5e1a2a8d271d94d9882bbfe3dc433a00e",
+        "size": 100
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-5487f7c6521c2e59b2c2ab952fa698b4eaa1ad521f6d5dd2a59dfc61faed2a88.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:5487f7c6521c2e59b2c2ab952fa698b4eaa1ad521f6d5dd2a59dfc61faed2a88",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-5a61860f548346d3ef6caeda017cf61918577ae4c62b632f2111c3a077f3c643.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:5a61860f548346d3ef6caeda017cf61918577ae4c62b632f2111c3a077f3c643",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-64b3298339c07917d2ba7bde9f6249d53679721e22316c04bcff50cbb186fb6e.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:64b3298339c07917d2ba7bde9f6249d53679721e22316c04bcff50cbb186fb6e",
+        "size": 417
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-66013c672041882f99080a63a746cad982494c3f5023481deca8ac2ce4905c0a.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:66013c672041882f99080a63a746cad982494c3f5023481deca8ac2ce4905c0a",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-66b8f6f09b4817fb009872c7cbc1ed7e7aa694f2d251c8c8206d9161440ddfab.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:66b8f6f09b4817fb009872c7cbc1ed7e7aa694f2d251c8c8206d9161440ddfab",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-6f9706301d5bc9bbf7a415d15e81fd89ee90851d6693ff682ca592e8016d31c1.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:6f9706301d5bc9bbf7a415d15e81fd89ee90851d6693ff682ca592e8016d31c1",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-6fd5c1bf8ef6e9c6e2c7b57384582080f438ca1f86dcb187edd7c7673e297f9a.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:6fd5c1bf8ef6e9c6e2c7b57384582080f438ca1f86dcb187edd7c7673e297f9a",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-712c1f168cd32d1c3987074aeb7db1d673ec2367280517d79f84af7d8d315bd4.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:712c1f168cd32d1c3987074aeb7db1d673ec2367280517d79f84af7d8d315bd4",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-755dbc94bcd32dad0a122f78623f5d786c02683dd35b6d83abd23a7258932d8d.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:755dbc94bcd32dad0a122f78623f5d786c02683dd35b6d83abd23a7258932d8d",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-80b351a67a800ce788258e711408b59cf8f3eb41c3ddd1f570509d226c23b6b4.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:80b351a67a800ce788258e711408b59cf8f3eb41c3ddd1f570509d226c23b6b4",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-8504f37f74df400f7bc6fd457c33740ada4df70343f164a4b3966c351e217b07.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:8504f37f74df400f7bc6fd457c33740ada4df70343f164a4b3966c351e217b07",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-8de91fbc2c7b7d8ed00d2c10d045b76df01fe91943daa17cc67457801a612e18.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:8de91fbc2c7b7d8ed00d2c10d045b76df01fe91943daa17cc67457801a612e18",
+        "size": 21801
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-908e2e415f8877a3c0a5df806ccf0b0d12b930c29656c04a832a0bf40b0075bd.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:908e2e415f8877a3c0a5df806ccf0b0d12b930c29656c04a832a0bf40b0075bd",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-91f8ca5a52478b3d067a3fcb44add5d681af9c8c0f4295a5fb3c2004f98b5a3f.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:91f8ca5a52478b3d067a3fcb44add5d681af9c8c0f4295a5fb3c2004f98b5a3f",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-921dd462eb79221b42e553040f9b14d0da0d1b25f75b6decef4e844b7a61fff5.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:921dd462eb79221b42e553040f9b14d0da0d1b25f75b6decef4e844b7a61fff5",
+        "size": 12209
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-94a07082e117ed188811932bd1d7d05c991d3ea0ea0d26d56ed6f6e695d21e6e.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:94a07082e117ed188811932bd1d7d05c991d3ea0ea0d26d56ed6f6e695d21e6e",
+        "size": 417
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-a15ca315abfe48ce6a8ccb283c67bdf7fb0299b739dd78a52a07ae5356a27255.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:a15ca315abfe48ce6a8ccb283c67bdf7fb0299b739dd78a52a07ae5356a27255",
+        "size": 467
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ae9fedfd3f6f6eb5d0f57e4a839ead24595a31daf3afdf36f2e99cd9d448e2e2.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ae9fedfd3f6f6eb5d0f57e4a839ead24595a31daf3afdf36f2e99cd9d448e2e2",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-b350e6616ea564f0c943ee91bb2a9e438f70bacb9c6380aa92075fe7afb15815.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:b350e6616ea564f0c943ee91bb2a9e438f70bacb9c6380aa92075fe7afb15815",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-b69bfad5bd14b45012cd8784134d164655624ea6270ffd4333a07065514a4b21.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:b69bfad5bd14b45012cd8784134d164655624ea6270ffd4333a07065514a4b21",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-b6fabbd992a35bb3833b43b6466694a3dc100da007a9848c92528913a8f91922.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:b6fabbd992a35bb3833b43b6466694a3dc100da007a9848c92528913a8f91922",
+        "size": 4481
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-b73855735a17a648b8c072d8e7ceef661232c5333a4e0d876dfdacab204380c1.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:b73855735a17a648b8c072d8e7ceef661232c5333a4e0d876dfdacab204380c1",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-b8b8182d62386aa773062db2814bac6ce9c1ab6fee5733b0ee202b7ccd7302a6.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:b8b8182d62386aa773062db2814bac6ce9c1ab6fee5733b0ee202b7ccd7302a6",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-bba372cc44fa5db2234efd04622875cdee45e6ae64ba966cfe668da331f44859.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:bba372cc44fa5db2234efd04622875cdee45e6ae64ba966cfe668da331f44859",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-c581c91ef3899dfffa4ffb94b91003b2ac105b1fb236036440db416e7afbcdb4.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:c581c91ef3899dfffa4ffb94b91003b2ac105b1fb236036440db416e7afbcdb4",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-c6419fbab90fa9a45c1637d218e9481f360e29b6ee286daa05b2627b4ae9fa61.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:c6419fbab90fa9a45c1637d218e9481f360e29b6ee286daa05b2627b4ae9fa61",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ce6773c5d0a01a776d8c7dce75c7fa1301386d4462f534af7f8ae266c9f9a784.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ce6773c5d0a01a776d8c7dce75c7fa1301386d4462f534af7f8ae266c9f9a784",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-d8f5f2e68a657f8b5bc0f1ce9608fad61c0900b8a41007c3a644c7cf435f3cac.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:d8f5f2e68a657f8b5bc0f1ce9608fad61c0900b8a41007c3a644c7cf435f3cac",
+        "size": 22201
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-df42db71df5754499a40034a9bd52637e98916da882be26b8092b516be475c7b.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:df42db71df5754499a40034a9bd52637e98916da882be26b8092b516be475c7b",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-e78fe2c81d072cf78341963b358466d91b8fc98bc4041ba87ffe659fff969c44.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:e78fe2c81d072cf78341963b358466d91b8fc98bc4041ba87ffe659fff969c44",
+        "size": 232
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ea6c511b2cb57eda63817b9a85c1533c22a4eb765f8de6b01fd15fd5c357e69e.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ea6c511b2cb57eda63817b9a85c1533c22a4eb765f8de6b01fd15fd5c357e69e",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ec9a23a09faca60419fc00183aeec01f794cc2647698040ee09574c4856e9ce9.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ec9a23a09faca60419fc00183aeec01f794cc2647698040ee09574c4856e9ce9",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ed8f66a6b280347ee493fa8968604939594ed834fff4ed6f1a515b315bf9fcc1.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ed8f66a6b280347ee493fa8968604939594ed834fff4ed6f1a515b315bf9fcc1",
+        "size": 233
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-ee6563c8a3e0b6542b3ec913ac92b9047354bfb8612040f6ea4f5f32e13723b3.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:ee6563c8a3e0b6542b3ec913ac92b9047354bfb8612040f6ea4f5f32e13723b3",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-f65623dcf508735efe5b23c3e93409807f026841c5a2c462b61dff523bca51c0.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:f65623dcf508735efe5b23c3e93409807f026841c5a2c462b61dff523bca51c0",
+        "size": 224
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-f670bc9b0358f0f8738defd25424610283bb0877ebe7b08bf862d42a3f8ce76d.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:f670bc9b0358f0f8738defd25424610283bb0877ebe7b08bf862d42a3f8ce76d",
+        "size": 22401
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-f811b276f7fadbfd1411b46a3f5c38ddc46a5c5625cf1965d119b483df8832a1.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:f811b276f7fadbfd1411b46a3f5c38ddc46a5c5625cf1965d119b483df8832a1",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/request-bytes/sha256-fa844cd56efe9aa876af95a9d7ab1505d2598758350a27198fe34ff7de6a8acf.json",
+        "role": "derived-provenance",
+        "sha256": "sha256:fa844cd56efe9aa876af95a9d7ab1505d2598758350a27198fe34ff7de6a8acf",
+        "size": 5329
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/graphql/sha256-325385447308f72f1b003ba8d10db77a482aa647165b2f0dd4b4005a8c815851.json",
+        "role": "raw-observation",
+        "sha256": "sha256:325385447308f72f1b003ba8d10db77a482aa647165b2f0dd4b4005a8c815851",
+        "size": 219353
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/graphql/sha256-6ede46f5b336bc71a0e384a61476a421a77e54a0740929dfec3a9a3a069c59d6.json",
+        "role": "raw-observation",
+        "sha256": "sha256:6ede46f5b336bc71a0e384a61476a421a77e54a0740929dfec3a9a3a069c59d6",
+        "size": 218549
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/graphql/sha256-b83a3ef15657f3b3b4773d4bb7e624d71cb4fcdf73fdb4b16f48540e6c50e8ee.json",
+        "role": "raw-observation",
+        "sha256": "sha256:b83a3ef15657f3b3b4773d4bb7e624d71cb4fcdf73fdb4b16f48540e6c50e8ee",
+        "size": 219513
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/graphql/sha256-c5dc2a9f21b2b566301d7e863a20bff6755241e26bb5fb36dcd8f5614893e5ea.json",
+        "role": "raw-observation",
+        "sha256": "sha256:c5dc2a9f21b2b566301d7e863a20bff6755241e26bb5fb36dcd8f5614893e5ea",
+        "size": 509
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/graphql/sha256-efcfbdbad358ebbb12182a7fe446e20c894bd644830ad4b9a4cf24eace2e891b.json",
+        "role": "raw-observation",
+        "sha256": "sha256:efcfbdbad358ebbb12182a7fe446e20c894bd644830ad4b9a4cf24eace2e891b",
+        "size": 153086
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/http-cross-check/sha256-743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379.json",
+        "role": "raw-observation",
+        "sha256": "sha256:743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379",
+        "size": 3738
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/http-cross-check/sha256-a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd.json",
+        "role": "raw-observation",
+        "sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+        "size": 3748
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/http-cross-check/sha256-f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce.json",
+        "role": "raw-observation",
+        "sha256": "sha256:f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce",
+        "size": 3754
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-0ba875e5c0a44103d65900b3dc8fdf0ac4b675632b4a25139c8b606606c09883.json",
+        "role": "raw-observation",
+        "sha256": "sha256:0ba875e5c0a44103d65900b3dc8fdf0ac4b675632b4a25139c8b606606c09883",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-11b3d64de1a1a5c22587bbe1055d35fb1e72518d1aead0caa1cc16f14d7e9564.json",
+        "role": "raw-observation",
+        "sha256": "sha256:11b3d64de1a1a5c22587bbe1055d35fb1e72518d1aead0caa1cc16f14d7e9564",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-1a90a57c35a85ea9295598d423885c2cefd6ffd4125aebdc64c65825a49cc75e.json",
+        "role": "raw-observation",
+        "sha256": "sha256:1a90a57c35a85ea9295598d423885c2cefd6ffd4125aebdc64c65825a49cc75e",
+        "size": 9050
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-2f550071eaf57445e5acecd23cb81cc56b2f7f2fd91fc64f3009930f5b348304.json",
+        "role": "raw-observation",
+        "sha256": "sha256:2f550071eaf57445e5acecd23cb81cc56b2f7f2fd91fc64f3009930f5b348304",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-3a342ca15e72200816df0896d1c078f9436d81e6f4fa6e7d1b6331a3de917214.json",
+        "role": "raw-observation",
+        "sha256": "sha256:3a342ca15e72200816df0896d1c078f9436d81e6f4fa6e7d1b6331a3de917214",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-4d1ec017a874ab25d834fce2e75ca91ce8b5dee5ecdd6d916254003bbe140b0b.json",
+        "role": "raw-observation",
+        "sha256": "sha256:4d1ec017a874ab25d834fce2e75ca91ce8b5dee5ecdd6d916254003bbe140b0b",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-5cea099362ac0d0765ffef1d40dffdf16b4f301ba295821699d24d758be66e94.json",
+        "role": "raw-observation",
+        "sha256": "sha256:5cea099362ac0d0765ffef1d40dffdf16b4f301ba295821699d24d758be66e94",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-60bdd3504e960cae3ee5e41a129b77bbb027a63b0d4d7b16a7f497500d19d60d.json",
+        "role": "raw-observation",
+        "sha256": "sha256:60bdd3504e960cae3ee5e41a129b77bbb027a63b0d4d7b16a7f497500d19d60d",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-770b281e31c067963c0a7ff2620ce1fa0ac1e5e5006e1f2267cdc1f9561d9c82.json",
+        "role": "raw-observation",
+        "sha256": "sha256:770b281e31c067963c0a7ff2620ce1fa0ac1e5e5006e1f2267cdc1f9561d9c82",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-7fec7184d242b5bc52a6783867d48433c0335a9a1b4768fa47a27a78ab9209c0.json",
+        "role": "raw-observation",
+        "sha256": "sha256:7fec7184d242b5bc52a6783867d48433c0335a9a1b4768fa47a27a78ab9209c0",
+        "size": 452
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/923-empty-rooms/rpc/sha256-eac872502d5c0b3ed19a37a35a221e12d83e3b02195e0e6e0cae1be3dc9c73f2.json",
+        "role": "raw-observation",
+        "sha256": "sha256:eac872502d5c0b3ed19a37a35a221e12d83e3b02195e0e6e0cae1be3dc9c73f2",
+        "size": 37702
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/graphql/sha256-1d9e23f91f1edae7bb93576fcec7f830c3cd52c852bac537d4acac2208c275aa.json",
+        "role": "raw-observation",
+        "sha256": "sha256:1d9e23f91f1edae7bb93576fcec7f830c3cd52c852bac537d4acac2208c275aa",
+        "size": 226638
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/graphql/sha256-38c85ffc259312d69d483ac5bc8cac17da2b44bbabee0bc07376bf7838dfd5bc.json",
+        "role": "raw-observation",
+        "sha256": "sha256:38c85ffc259312d69d483ac5bc8cac17da2b44bbabee0bc07376bf7838dfd5bc",
+        "size": 226644
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/graphql/sha256-45a1fe500a168fe24ba6433c685a206c66989306a973a22faec1d5b7492f915a.json",
+        "role": "raw-observation",
+        "sha256": "sha256:45a1fe500a168fe24ba6433c685a206c66989306a973a22faec1d5b7492f915a",
+        "size": 226569
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/graphql/sha256-e517e29c65f8a7c9e2c5ee2ae096532281c33cd430ff88b93b7fd31d059ee6a4.json",
+        "role": "raw-observation",
+        "sha256": "sha256:e517e29c65f8a7c9e2c5ee2ae096532281c33cd430ff88b93b7fd31d059ee6a4",
+        "size": 465
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/graphql/sha256-ea3af24e07921418d46695ee14ef3dee1c0ed25a3fbe0d000f7068320772b1b5.json",
+        "role": "raw-observation",
+        "sha256": "sha256:ea3af24e07921418d46695ee14ef3dee1c0ed25a3fbe0d000f7068320772b1b5",
+        "size": 226479
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/http-cross-check/sha256-3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5.json",
+        "role": "raw-observation",
+        "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+        "size": 3229
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/http-cross-check/sha256-454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3.json",
+        "role": "raw-observation",
+        "sha256": "sha256:454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3",
+        "size": 3229
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/http-cross-check/sha256-6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227.json",
+        "role": "raw-observation",
+        "sha256": "sha256:6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227",
+        "size": 3231
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/http-cross-check/sha256-7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81.json",
+        "role": "raw-observation",
+        "sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+        "size": 3231
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/http-cross-check/sha256-e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74.json",
+        "role": "raw-observation",
+        "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+        "size": 3232
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-076a90089cb15b1633fc837497230f6b48c27ac600b23279ba1cb061359f6180.json",
+        "role": "raw-observation",
+        "sha256": "sha256:076a90089cb15b1633fc837497230f6b48c27ac600b23279ba1cb061359f6180",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-16ec5189136a3fc45bf0575391bd4d25366aff156136603d573e54779a2def84.json",
+        "role": "raw-observation",
+        "sha256": "sha256:16ec5189136a3fc45bf0575391bd4d25366aff156136603d573e54779a2def84",
+        "size": 764
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-4aa53bcb2620083e82f90556f6ed0c8891377a118e7a76b0fa2164098c12d7d1.json",
+        "role": "raw-observation",
+        "sha256": "sha256:4aa53bcb2620083e82f90556f6ed0c8891377a118e7a76b0fa2164098c12d7d1",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-626521721dfc9afdb0400c746d4c3f652def2f39c8f5b753a7f336c855b2f3d8.json",
+        "role": "raw-observation",
+        "sha256": "sha256:626521721dfc9afdb0400c746d4c3f652def2f39c8f5b753a7f336c855b2f3d8",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-6f3d09fe2b1b8cd65b86e5ff21171bd629cd5c609f9670b3d96497ece56ac443.json",
+        "role": "raw-observation",
+        "sha256": "sha256:6f3d09fe2b1b8cd65b86e5ff21171bd629cd5c609f9670b3d96497ece56ac443",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-75f207fd1c65ac092005e4494ddcc112c5c7bdee025cf539d5f8b853b40a9177.json",
+        "role": "raw-observation",
+        "sha256": "sha256:75f207fd1c65ac092005e4494ddcc112c5c7bdee025cf539d5f8b853b40a9177",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-8531cb2e252146bad09c21bcbfc7f05bc1b76ae1556b8d23fbb00ebd6bb6ae7d.json",
+        "role": "raw-observation",
+        "sha256": "sha256:8531cb2e252146bad09c21bcbfc7f05bc1b76ae1556b8d23fbb00ebd6bb6ae7d",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-92c0a539b7b8d340c0bfbc1933e5b692d90f4086818805188547bf1fb94993c0.json",
+        "role": "raw-observation",
+        "sha256": "sha256:92c0a539b7b8d340c0bfbc1933e5b692d90f4086818805188547bf1fb94993c0",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-ccc02cc6eecc754ab067138e9c743f50b3318be2a6b39dcf49f2ee39f94f072a.json",
+        "role": "raw-observation",
+        "sha256": "sha256:ccc02cc6eecc754ab067138e9c743f50b3318be2a6b39dcf49f2ee39f94f072a",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-cffb0b568fff1dc92a8f1b346da2f55c93238cf596391a3cfa5ae45f8a54960c.json",
+        "role": "raw-observation",
+        "sha256": "sha256:cffb0b568fff1dc92a8f1b346da2f55c93238cf596391a3cfa5ae45f8a54960c",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/century/rpc/sha256-d4460ecf7ab0913aaef4cd692e4fa666a1c9cbe4104321fc43bf67b8c98d66c6.json",
+        "role": "raw-observation",
+        "sha256": "sha256:d4460ecf7ab0913aaef4cd692e4fa666a1c9cbe4104321fc43bf67b8c98d66c6",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/graphql/sha256-033d08d8822373014a0eee82836285168d9ab40734be7ce093fe3aa181d79557.json",
+        "role": "raw-observation",
+        "sha256": "sha256:033d08d8822373014a0eee82836285168d9ab40734be7ce093fe3aa181d79557",
+        "size": 183657
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/graphql/sha256-1d3aeb7239d3f1f2e5bcf6cde3e9698b631073464f7f98e02fdc7c662aad223b.json",
+        "role": "raw-observation",
+        "sha256": "sha256:1d3aeb7239d3f1f2e5bcf6cde3e9698b631073464f7f98e02fdc7c662aad223b",
+        "size": 469
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/graphql/sha256-d5d2f3787ff88c165cf555b92f04351080cf030becba51b8c30b7b447e071411.json",
+        "role": "raw-observation",
+        "sha256": "sha256:d5d2f3787ff88c165cf555b92f04351080cf030becba51b8c30b7b447e071411",
+        "size": 4415
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/http-cross-check/sha256-4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9.json",
+        "role": "raw-observation",
+        "sha256": "sha256:4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9",
+        "size": 4224
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/http-cross-check/sha256-60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc.json",
+        "role": "raw-observation",
+        "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+        "size": 4224
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/http-cross-check/sha256-e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad.json",
+        "role": "raw-observation",
+        "sha256": "sha256:e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad",
+        "size": 4210
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/rpc/sha256-08b16cd9f734feabb42511f8f4fdadde5c06c79f549f0cc27307be71052363ee.json",
+        "role": "raw-observation",
+        "sha256": "sha256:08b16cd9f734feabb42511f8f4fdadde5c06c79f549f0cc27307be71052363ee",
+        "size": 37192
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/rpc/sha256-64636a72b2f7be0814658ac4f13d5ef8549964d4ad4fa8864b36d4fb5b3747b5.json",
+        "role": "raw-observation",
+        "sha256": "sha256:64636a72b2f7be0814658ac4f13d5ef8549964d4ad4fa8864b36d4fb5b3747b5",
+        "size": 37302
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/rpc/sha256-6f73988dbb5ce3be024eba6b25f6542d595b7272a9e5c637903ebe27c2ce6f51.json",
+        "role": "raw-observation",
+        "sha256": "sha256:6f73988dbb5ce3be024eba6b25f6542d595b7272a9e5c637903ebe27c2ce6f51",
+        "size": 453
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/ex-nihilo-cosmos/rpc/sha256-cca3213b1a58070fa5a09ddcf660a491c16587182776398aa8057b3e85dbd52b.json",
+        "role": "raw-observation",
+        "sha256": "sha256:cca3213b1a58070fa5a09ddcf660a491c16587182776398aa8057b3e85dbd52b",
+        "size": 20890
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/graphql/sha256-1c62f7de0930e5630569d788aeea6513da763c6894710b4330491fcc7193b219.json",
+        "role": "raw-observation",
+        "sha256": "sha256:1c62f7de0930e5630569d788aeea6513da763c6894710b4330491fcc7193b219",
+        "size": 204631
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/graphql/sha256-356bc540d9f4ac6f04d1f0ba6f960ceaa5ce71b84953d690076ed313fa227363.json",
+        "role": "raw-observation",
+        "sha256": "sha256:356bc540d9f4ac6f04d1f0ba6f960ceaa5ce71b84953d690076ed313fa227363",
+        "size": 204795
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/graphql/sha256-a43be055137aaacb7ec3539526c3029320d7d01520149c563355a016a1be159e.json",
+        "role": "raw-observation",
+        "sha256": "sha256:a43be055137aaacb7ec3539526c3029320d7d01520149c563355a016a1be159e",
+        "size": 204576
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/graphql/sha256-c0beff52da07deaa632dec9354de027b7aad2b107bd4d5bee2579b04c7e0c602.json",
+        "role": "raw-observation",
+        "sha256": "sha256:c0beff52da07deaa632dec9354de027b7aad2b107bd4d5bee2579b04c7e0c602",
+        "size": 471
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/graphql/sha256-c49d0f5d2ec9ca282602da4b4c3a2d931467be350b6673370b093c1815c5cef2.json",
+        "role": "raw-observation",
+        "sha256": "sha256:c49d0f5d2ec9ca282602da4b4c3a2d931467be350b6673370b093c1815c5cef2",
+        "size": 204516
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/http-cross-check/sha256-7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084.json",
+        "role": "raw-observation",
+        "sha256": "sha256:7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084",
+        "size": 3021
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/http-cross-check/sha256-b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573.json",
+        "role": "raw-observation",
+        "sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+        "size": 3029
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/http-cross-check/sha256-ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554.json",
+        "role": "raw-observation",
+        "sha256": "sha256:ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554",
+        "size": 3013
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-02354853c0dd24481eaa6e24221ff52c13e572db8ec44b2ea974c874f4da23f7.json",
+        "role": "raw-observation",
+        "sha256": "sha256:02354853c0dd24481eaa6e24221ff52c13e572db8ec44b2ea974c874f4da23f7",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-07120c4816ed100d77e45544ba9ad9f93451875be6909fe9ae3d4c7611002f2f.json",
+        "role": "raw-observation",
+        "sha256": "sha256:07120c4816ed100d77e45544ba9ad9f93451875be6909fe9ae3d4c7611002f2f",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-2ad06743104e2c556879d12f86e9e5e3a045b1abfe129cb4837b852522c66e97.json",
+        "role": "raw-observation",
+        "sha256": "sha256:2ad06743104e2c556879d12f86e9e5e3a045b1abfe129cb4837b852522c66e97",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-32750305854ea638e70ab06bbc84e5d4669a2c125002c2cf7392af2a065da590.json",
+        "role": "raw-observation",
+        "sha256": "sha256:32750305854ea638e70ab06bbc84e5d4669a2c125002c2cf7392af2a065da590",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-3b74580a9c57a3a0aeee741e9cd4ada11fa94b65b1b5840cb2cdcba24caa89ed.json",
+        "role": "raw-observation",
+        "sha256": "sha256:3b74580a9c57a3a0aeee741e9cd4ada11fa94b65b1b5840cb2cdcba24caa89ed",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-53376d861b5fa194477298b559dcaece928cd1bc24c8b091c86a6404535fe973.json",
+        "role": "raw-observation",
+        "sha256": "sha256:53376d861b5fa194477298b559dcaece928cd1bc24c8b091c86a6404535fe973",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-697e93a3892c07bdb566e91c74ced5319933976f786eb9842a858662ab3face2.json",
+        "role": "raw-observation",
+        "sha256": "sha256:697e93a3892c07bdb566e91c74ced5319933976f786eb9842a858662ab3face2",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-8cb10f38134ba083e4364533cc0eab18cb544db2462f3339e49544f8e4a3e200.json",
+        "role": "raw-observation",
+        "sha256": "sha256:8cb10f38134ba083e4364533cc0eab18cb544db2462f3339e49544f8e4a3e200",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-bc376ce0fa403303f6b4f92fd909750e56a86d529d463451b0000019298b64fd.json",
+        "role": "raw-observation",
+        "sha256": "sha256:bc376ce0fa403303f6b4f92fd909750e56a86d529d463451b0000019298b64fd",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-dfc753295558a869f1553a752bdccc1e37e6d52d8367dafeb64d939e0dc93a90.json",
+        "role": "raw-observation",
+        "sha256": "sha256:dfc753295558a869f1553a752bdccc1e37e6d52d8367dafeb64d939e0dc93a90",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/phototaxis/rpc/sha256-e1e810442b34e3e8dd981fc12aa96283e6637fb39a7198eba86024bb50b80066.json",
+        "role": "raw-observation",
+        "sha256": "sha256:e1e810442b34e3e8dd981fc12aa96283e6637fb39a7198eba86024bb50b80066",
+        "size": 767
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/graphql/sha256-d85be11ae14ef7f4d018ea142766af6fe3fe91ef65f0dc14056b04352fc5bac4.json",
+        "role": "raw-observation",
+        "sha256": "sha256:d85be11ae14ef7f4d018ea142766af6fe3fe91ef65f0dc14056b04352fc5bac4",
+        "size": 468
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/graphql/sha256-ef1f48c264796bca9a9531508c724d5a3bb7a7981ff14ec7ebcf5bc41a607a76.json",
+        "role": "raw-observation",
+        "sha256": "sha256:ef1f48c264796bca9a9531508c724d5a3bb7a7981ff14ec7ebcf5bc41a607a76",
+        "size": 82531
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/http-cross-check/sha256-581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5.json",
+        "role": "raw-observation",
+        "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+        "size": 4360
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/http-cross-check/sha256-78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8.json",
+        "role": "raw-observation",
+        "sha256": "sha256:78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8",
+        "size": 4361
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/http-cross-check/sha256-abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817.json",
+        "role": "raw-observation",
+        "sha256": "sha256:abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817",
+        "size": 4359
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/rpc/sha256-754b19e0eef8ef139ccfd298241655997e73bcaabfafa13fcc92bed15239e658.json",
+        "role": "raw-observation",
+        "sha256": "sha256:754b19e0eef8ef139ccfd298241655997e73bcaabfafa13fcc92bed15239e658",
+        "size": 31502
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/rpc/sha256-b4444ec434a4b973b9f1af74ac2a255f04ee48add508ed52eed73b3244424c21.json",
+        "role": "raw-observation",
+        "sha256": "sha256:b4444ec434a4b973b9f1af74ac2a255f04ee48add508ed52eed73b3244424c21",
+        "size": 448
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/pre-process/rpc/sha256-deec4828c40549ca37aa6a7f79b28ce0b62002fc2de5265019445839c2c6b311.json",
+        "role": "raw-observation",
+        "sha256": "sha256:deec4828c40549ca37aa6a7f79b28ce0b62002fc2de5265019445839c2c6b311",
+        "size": 6302
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/shared/rpc/sha256-b71a0dbe4217c8a05c53ee03681d0341abbea8bc29a525089fe2fce7b31bc90a.json",
+        "role": "raw-observation",
+        "sha256": "sha256:b71a0dbe4217c8a05c53ee03681d0341abbea8bc29a525089fe2fce7b31bc90a",
+        "size": 59
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/raw/shared/rpc/sha256-d1ddf47d6b322132e08e9de674e8ce5dbe9b0b32b8832e6fcb5dc20fb4a3e41a.json",
+        "role": "raw-observation",
+        "sha256": "sha256:d1ddf47d6b322132e08e9de674e8ce5dbe9b0b32b8832e6fcb5dc20fb4a3e41a",
+        "size": 28659
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/run-manifest.json",
+        "role": "acquisition-child-manifest",
+        "sha256": "sha256:1418c39103b474543f6a1666adfddb006d42c8148feede92b55e1bf3e6b0904a",
+        "size": 42033
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/923-empty-rooms/snapshot.json",
+        "role": "metadata-snapshot",
+        "sha256": "sha256:824ba30b0cfa3d54d189d68235fe01c11280fcbe6729a17dd0aa3b693a8d85ad",
+        "size": 7459755
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/century/snapshot.json",
+        "role": "metadata-snapshot",
+        "sha256": "sha256:1644e142dfbe34c685f9a7f0e6dcbd052b84c4168b5f6bee41e22b90b7b3cf45",
+        "size": 7413243
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/ex-nihilo-cosmos/snapshot.json",
+        "role": "metadata-snapshot",
+        "sha256": "sha256:b22d33d867b2b5a04355d6b00cf11a6c71651a58770ea8857b3809f8b811b337",
+        "size": 1270977
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/phototaxis/snapshot.json",
+        "role": "metadata-snapshot",
+        "sha256": "sha256:e3eee20294b8a15069c52e31b98ba79a517983f43d185e26cd5e75405a9b10c4",
+        "size": 5634905
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/pre-process/snapshot.json",
+        "role": "metadata-snapshot",
+        "sha256": "sha256:f7c62a25f9d9cc1118faf702378c7c8ab726029ee524da9032eb2ec4bbad4226",
+        "size": 401602
+      },
+      {
+        "path": "scripts/acquire_casey_collection_snapshots.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:252ec56cc5bdff0cce4ca68c27906af8b477141df2993d188779f8cc6bedc8c8",
+        "size": 33645
+      },
+      {
+        "path": "scripts/bootstrap_validate.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
+        "size": 27239
+      },
+      {
+        "path": "scripts/build_casey_package_manifest.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:aa5269de84cba8df583a6b8929c6a9801b57744ba1b6ca862272dbe06153c142",
+        "size": 11233
+      },
+      {
+        "path": "scripts/check_fetch_guard.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:4fd4f6d5744fb2ebbd74cdb1f4dd217ac326369dff47e658c3162a3b32cfae60",
+        "size": 7245
+      },
+      {
+        "path": "scripts/emit_casey_collection_descriptors.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:b4b4be2e47bb3d90dede011b577bcc6538cea60dd9202caf704176a64a595f1b",
+        "size": 11499
+      },
+      {
+        "path": "scripts/harden_casey_snapshot_package.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:2fc0c93ee9dec11ae204e4bfe5324e1ac7d9ee446626b2d13944bc457117d986",
+        "size": 22010
+      },
+      {
+        "path": "scripts/rarity/analyze.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+        "size": 2016
+      },
+      {
+        "path": "scripts/rarity/nextgen_compat.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:39655020130b9fb0721e4e7acc0e2c285491d697d6c67f8b9b8d205ae680c98c",
+        "size": 32037
+      },
+      {
+        "path": "scripts/safe_fetch.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+        "size": 26871
+      },
+      {
+        "path": "scripts/verify_casey_snapshot_package.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:88411ff5f66659e06d1488cfa2898fcf07dbac8ab57a52c1b2c14ef5aaee0e28",
+        "size": 74984
+      },
+      {
+        "path": "tests/casey/test_casey_snapshot_mutations.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:01f51cc943fe1c4174b07b8a427a22867aed68ba465099ef6ce189bc85d556ed",
+        "size": 11384
+      },
+      {
+        "path": "tests/rarity/fixtures/nextgen-compatibility.expected.json",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:c8c5b94f09d78fa97b59d9d213854d4b6e2355763c3efb445397dabcad53af88",
+        "size": 23402
+      },
+      {
+        "path": "tests/rarity/fixtures/nextgen-compatibility.json",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:57648e605ddef62a8a948c81e57330718fdd2521b74b4183c09f74ed4b286737",
+        "size": 1691
+      },
+      {
+        "path": "tests/rarity/test_nextgen_compat.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:4cd14e83ff2d85053bda3d1822b31140d547960bdeba6e5a56fe052fcd09223f",
+        "size": 19628
+      },
+      {
+        "path": "tests/test_control_plane.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:82464918d55e8b578ce4bca4520719ac4222e5d16ce295309029616d7d4763ac",
+        "size": 52680
+      }
+    ]
+  },
+  "semantic_bindings": {
+    "config": {
+      "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
+      "sha256": "sha256:96abb969211b32c002497a0ea849da2b4c23ee2c7676203c9c912b0afdd38190",
+      "size": 3977
+    },
+    "acquisition_manifest": {
+      "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/run-manifest.json",
+      "sha256": "sha256:1418c39103b474543f6a1666adfddb006d42c8148feede92b55e1bf3e6b0904a",
+      "size": 42033
+    },
+    "descriptor_manifest": {
+      "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+      "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63",
+      "size": 2451
+    },
+    "pending_review_ledger": {
+      "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
+      "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
+      "size": 2867
+    },
+    "request_provenance": {
+      "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34.json",
+      "sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
+      "size": 10160614
+    },
+    "exclusion_summary": {
+      "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3.json",
+      "sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
+      "size": 17294
+    },
+    "descriptors": [
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+        "sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+        "size": 23369807
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
+        "sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+        "size": 22561079
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+        "sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+        "size": 3691856
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+        "sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+        "size": 16310682
+      },
+      {
+        "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+        "sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+        "size": 1013453
+      }
+    ]
+  },
+  "source_order_policy": "server Hasura row order and feature insertion order are preserved; numeric token and deterministic trait order are separate fields",
+  "raw_bytes_policy": "all raw v2 response bytes are content-addressed and included; derived request bodies are separately labeled reconstructed"
+}

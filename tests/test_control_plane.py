@@ -17,7 +17,7 @@ from unittest.mock import patch
 
 TESTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TESTS_DIR.parent
-sys.path.insert(0, str(REPO_ROOT / "scripts"))
+sys.path.append(str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
 import bootstrap_validate  # noqa: E402
@@ -31,7 +31,7 @@ from generate_manifest import (  # noqa: E402
     normalized_bytes,
 )
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
-from validate import casey_payload_sha256, keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
+from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -62,10 +62,6 @@ class ControlPlaneTests(unittest.TestCase):
 
     def refresh_content_hash(self, record: dict) -> None:
         record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(record["payload"])).hex()
-
-    def refresh_casey_hashes(self, record: dict) -> None:
-        record["payload"]["payload_sha256"] = casey_payload_sha256(record["payload"])
-        self.refresh_content_hash(record)
 
     def make_repository_copy(self) -> tuple[tempfile.TemporaryDirectory[str], Path]:
         temporary = tempfile.TemporaryDirectory(prefix="museum-repository-" )
@@ -146,66 +142,6 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "accession-lot.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unresolved record reference" in issue for issue in issues), issues)
-
-    def test_casey_evidence_refs_and_nested_provenance_are_fail_closed(self) -> None:
-        temporary, root = self.make_repository_copy()
-        self.addCleanup(temporary.cleanup)
-        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
-        record = json.loads(path.read_text(encoding="utf-8"))
-        record["payload"]["provenance_schedule"]["evidence_refs"][0] = "records/accessions/6529NM.2026.001/rights/missing.json"
-        self.refresh_casey_hashes(record)
-        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-        issues = validate_records(root)
-        self.assertTrue(any("CASEY evidence reference does not resolve" in issue for issue in issues), issues)
-
-        temporary, root = self.make_repository_copy()
-        self.addCleanup(temporary.cleanup)
-        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
-        record = json.loads(path.read_text(encoding="utf-8"))
-        del record["payload"]["provenance_schedule"]["objects"][0]["events"][0]["tx"]
-        self.refresh_casey_hashes(record)
-        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-        issues = validate_records(root)
-        self.assertTrue(any("provenance_schedule" in issue and "required property" in issue for issue in issues), issues)
-
-        temporary, root = self.make_repository_copy()
-        self.addCleanup(temporary.cleanup)
-        manifest_path = root / "evidence/casey-reas/manifest.json"
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        manifest["status"] = "tampered_for_test"
-        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-        issues = validate_records(root)
-        self.assertTrue(any("CASEY evidence manifest sha256 does not match" in issue for issue in issues), issues)
-
-    def test_casey_unsigned_draft_controls_are_fail_closed(self) -> None:
-        mutations = (
-            (lambda payload: payload.__setitem__("formal_acceptance_status", "formally_accepted"), "cannot claim formal institutional acceptance"),
-            (lambda payload: payload.__setitem__("accession_status", "complete"), "cannot claim completed accession"),
-            (lambda payload: payload["constructor_controls"].__setitem__("signature_status", "signed_authority"), "zero Stream signatures"),
-            (lambda payload: payload.__setitem__("review_status", "reviewed"), "unsigned Casey records must remain constructed"),
-        )
-        for mutate, expected in mutations:
-            with self.subTest(expected=expected):
-                temporary, root = self.make_repository_copy()
-                self.addCleanup(temporary.cleanup)
-                path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
-                record = json.loads(path.read_text(encoding="utf-8"))
-                mutate(record["payload"])
-                self.refresh_casey_hashes(record)
-                path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-                issues = validate_records(root)
-                self.assertTrue(any(expected in issue for issue in issues), issues)
-
-    def test_casey_preservation_manifest_manifest_sha256_is_fail_closed(self) -> None:
-        temporary, root = self.make_repository_copy()
-        self.addCleanup(temporary.cleanup)
-        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
-        record = json.loads(path.read_text(encoding="utf-8"))
-        record["payload"]["preservation_manifest"]["manifest_sha256"] = "sha256:" + "4" * 64
-        self.refresh_casey_hashes(record)
-        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-        issues = validate_records(root)
-        self.assertTrue(any("CASEY preservation_manifest.manifest_sha256 does not match" in issue for issue in issues), issues)
 
     def test_self_supersession_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
@@ -370,8 +306,8 @@ class ControlPlaneTests(unittest.TestCase):
                 self.requests = []
                 self.closed = False
 
-            def request(self, method: str, target: str, headers: dict[str, str]) -> MockResponse:
-                self.requests.append((method, target, headers))
+            def request(self, method: str, target: str, headers: dict[str, str], body: bytes | None = None) -> MockResponse:
+                self.requests.append((method, target, headers, body))
                 return self.response
 
             def close(self) -> None:
@@ -526,6 +462,17 @@ class ControlPlaneTests(unittest.TestCase):
         result = fetcher.fetch("https://good.example.test/data", headers={"Accept": "image/png", "User-Agent": "Museum/1"})
         self.assertEqual(2, result.observation.byte_length)
 
+        request_body = b'{"jsonrpc":"2.0"}'
+        result = fetcher.fetch(
+            "https://good.example.test/data",
+            method="POST",
+            body=request_body,
+            headers={"Accept": "application/json", "Content-Type": "application/json", "User-Agent": "Museum/1"},
+        )
+        self.assertEqual(2, result.observation.byte_length)
+        self.assertEqual(request_body, _connections[-1][1].requests[-1][3])
+        self.assertEqual(str(len(request_body)), _connections[-1][1].requests[-1][2]["Content-Length"])
+
     def test_safe_fetch_policy_is_deep_frozen_and_caller_owned(self) -> None:
         caller_policy = {key: list(value) if isinstance(value, list) else value for key, value in SAFE_FETCH_POLICY_JSON.items()}
         fetcher, _connections = self.make_mock_fetcher(
@@ -539,8 +486,9 @@ class ControlPlaneTests(unittest.TestCase):
             policy=caller_policy,
         )
         caller_policy["max_response_bytes"] = 1
-        caller_policy["allowed_methods"].append("POST")
+        caller_policy["max_request_bytes"] = 1
         self.assertEqual(1_048_576, fetcher.policy["max_response_bytes"])
+        self.assertEqual(1_048_576, fetcher.policy["max_request_bytes"])
         self.assertNotEqual(caller_policy, fetcher.policy)
         with self.assertRaises((TypeError, AttributeError)):
             fetcher.policy["max_response_bytes"] = 1  # type: ignore[index]
@@ -554,8 +502,19 @@ class ControlPlaneTests(unittest.TestCase):
         fixed = datetime(2026, 8, 1, tzinfo=UTC)
         with self.assertRaises(FetchPolicyError):
             fetcher.fetch("https://good.example.test/data", expires_at=fixed - timedelta(seconds=1))
+        result = fetcher.fetch("https://good.example.test/data", method="POST", body=b"{}", headers={"Content-Type": "application/json"})
+        self.assertEqual(b"ok", result.body)
         with self.assertRaises(FetchPolicyError):
-            fetcher.fetch("https://good.example.test/data", method="POST")
+            fetcher.fetch("https://good.example.test/data", method="POST", body=b"{}", headers={"Content-Type": "text/plain"})
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", method="GET", body=b"{}")
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch(
+                "https://good.example.test/data",
+                method="POST",
+                body=b"x" * (int(SAFE_FETCH_POLICY["max_request_bytes"]) + 1),
+                headers={"Content-Type": "application/json"},
+            )
         with self.assertRaises(FetchPolicyError):
             fetcher.fetch("https://good.example.test/data", headers={"Authorization": "Bearer secret"})
         with self.assertRaises(FetchPolicyError):

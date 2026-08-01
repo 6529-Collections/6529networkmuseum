@@ -40,10 +40,11 @@ _POLICY_SOURCE: dict[str, object] = {
     "pin_connected_ip": True,
     "recheck_every_redirect": True,
     "unknown_hostname": "reject",
-    "allowed_methods": ["GET", "HEAD"],
+    "allowed_methods": ["GET", "HEAD", "POST"],
     "allowed_ports": [443],
     "max_redirects": 5,
     "max_response_bytes": 1_048_576,
+    "max_request_bytes": 1_048_576,
     "max_url_length": 8_192,
     "connect_timeout_seconds": 10,
     "read_timeout_seconds": 20,
@@ -88,7 +89,7 @@ HOST_LABEL = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$")
 HEADER_NAME = re.compile(r"^[!#$%&'*+.^_`|~0-9A-Za-z-]+$")
 DECIMAL_CONTENT_LENGTH = re.compile(r"^(?:0|[1-9][0-9]*)$")
 NON_ASCII_DOTS = {"\u3002", "\uff0e", "\uff61"}
-ALLOWED_REQUEST_HEADERS = {"accept", "user-agent"}
+ALLOWED_REQUEST_HEADERS = {"accept", "content-type", "user-agent"}
 RESPONSE_BINDING_HEADERS = {
     "content-length",
     "content-type",
@@ -338,14 +339,14 @@ class _PinnedHTTPSConnection(http.client.HTTPSConnection):
             raw_socket.close()
             raise
 
-    def request_with_headers(self, method: str, target: str, headers: Mapping[str, str]) -> Any:
+    def request_with_headers(self, method: str, target: str, headers: Mapping[str, str], body: bytes | None = None) -> Any:
         self.putrequest(method, target, skip_host=True, skip_accept_encoding=True)
         host_header = next((value for name, value in headers.items() if name.lower() == "host"), _format_host(self.host))
         self.putheader("Host", host_header)
         for name, value in headers.items():
             if name.lower() != "host":
                 self.putheader(name, value)
-        self.endheaders()
+        self.endheaders(body)
         return self.getresponse()
 
 
@@ -471,6 +472,23 @@ class SafeHTTPSFetcher:
             seen.add(name.lower())
         return result
 
+    def _validate_body(self, method: str, headers: Mapping[str, str], body: bytes | None) -> bytes | None:
+        if body is not None and not isinstance(body, bytes):
+            raise FetchPolicyError("request body must be bytes")
+        if body is not None and len(body) > int(self.policy["max_request_bytes"]):
+            raise FetchPolicyError("request body exceeds policy")
+        content_types = [value for name, value in headers.items() if name.lower() == "content-type"]
+        if method == "POST":
+            if body is None:
+                raise FetchPolicyError("POST requests require a body")
+            if len(content_types) != 1 or content_types[0].split(";", 1)[0].strip().casefold() != "application/json":
+                raise FetchPolicyError("POST requests require an application/json Content-Type")
+        elif body is not None:
+            raise FetchPolicyError("request bodies are only allowed for POST")
+        elif content_types:
+            raise FetchPolicyError("Content-Type is only allowed for POST")
+        return body
+
     @staticmethod
     def _read_limited(response: Any, limit: int, deadline: float) -> bytes:
         read = getattr(response, "read", None)
@@ -500,6 +518,7 @@ class SafeHTTPSFetcher:
         url: str,
         *,
         method: str = "GET",
+        body: bytes | None = None,
         headers: Mapping[str, str] | None = None,
         expires_at: datetime | None = None,
     ) -> SafeFetchResult:
@@ -510,6 +529,7 @@ class SafeHTTPSFetcher:
         if not isinstance(allowed_methods, Sequence) or method not in allowed_methods:
             raise FetchPolicyError("HTTP method is not allowed")
         request_headers = self._validate_headers(headers)
+        request_body = self._validate_body(method, request_headers, body)
         endpoint = canonicalize_https_url(url)
         initial_url = endpoint.url
         redirect_chain = [initial_url]
@@ -522,10 +542,17 @@ class SafeHTTPSFetcher:
             response: Any | None = None
             try:
                 connection_headers = {**request_headers, "Host": _format_host(endpoint.hostname)}
+                if request_body is not None:
+                    # The caller cannot supply framing headers; the primitive
+                    # emits one exact Content-Length for the bounded body.
+                    connection_headers["Content-Length"] = str(len(request_body))
                 if hasattr(connection, "request_with_headers"):
-                    response = connection.request_with_headers(method, endpoint.target, connection_headers)
+                    response = connection.request_with_headers(method, endpoint.target, connection_headers, request_body)
                 else:
-                    response = connection.request(method, endpoint.target, connection_headers)
+                    if request_body is None:
+                        response = connection.request(method, endpoint.target, connection_headers)
+                    else:
+                        response = connection.request(method, endpoint.target, connection_headers, request_body)
                 peer_ip = _normalize_address(getattr(connection, "peer_ip", ""))
                 if peer_ip != resolved.selected_ip or peer_ip not in resolved.addresses:
                     raise FetchPolicyError("connected peer differs from vetted selected IP")

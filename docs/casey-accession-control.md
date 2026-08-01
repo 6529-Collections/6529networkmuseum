@@ -45,7 +45,4 @@ completed accession, title, rights, or signed authority. The lot remains
 `received_onchain` / `not_complete` until independent review and all remaining
 gates are completed.
 
-Trait analysis remains a typed pending linked deliverable and does not use
-OpenSea or marketplace rarity metrics. The dossier is intentionally left with
-`reviewer: null`; independent review and integration—not constructor
-self-review—control the next decision.
+Transparent linked descriptors are available from the merged Casey source package and are reproducible from its published frozen snapshots, method, configuration, and content hashes. They use no OpenSea or marketplace metrics and make no aesthetic, quality, value, or ranking claim. The dossier is intentionally left with `reviewer: null`; independent review and integration—not constructor self-review—control the next decision.

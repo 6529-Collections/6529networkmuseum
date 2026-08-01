@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x21575406382c99106bb2cff2cfa81f627ea28658ef5f4586a675a5c1f100d7a3"
+      "digest": "0x54f03aeabbe21393f0cdb03d334ca3a5a3ec8be86e9c34cf702afe8dffb5e23b"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x8a8336aa532259fa80565b52b84845e1b235f8e1067feca86440e30fa93a5f11",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
   },
   "payload": {
     "acceptance_date": "2026-08-01T13:25:47Z",
@@ -62,9 +62,83 @@
       ],
       "status": "provisional_constructed_statement",
       "trait_analysis": {
-        "boundary": "No marketplace rarity or value claim.",
-        "linked_deliverable": "https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity",
-        "status": "pending_linked_deliverable"
+        "status": "transparent_linked_descriptors_available",
+        "method": "Museum published NextGen-compatible method over the frozen source package; linked descriptors are available and reproducible.",
+        "marketplace_metrics": "not_used",
+        "non_claims": [
+          "No OpenSea or other marketplace metric is used.",
+          "No aesthetic, quality, value, or ranking claim is made."
+        ],
+        "source_package": {
+          "merged_source_package_commit": "9700e842d0c991280b476cc67849d966221a742a",
+          "path": "evidence/casey-reas-collection-snapshots",
+          "package_manifest": {
+            "path": "evidence/casey-reas-collection-snapshots/package-manifest.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json",
+            "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f"
+          },
+          "descriptor_manifest": {
+            "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+            "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63"
+          },
+          "counts": {
+            "bound_files": 175,
+            "raw_files": 79,
+            "derived_files": 64,
+            "descriptor_results": 5,
+            "source_tokens": 3300,
+            "trait_rows": 35088
+          },
+          "descriptors": [
+            {
+              "collection": "century",
+              "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/century.json",
+              "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+              "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
+              "source_token_count": 1000,
+              "trait_row_count": 12000
+            },
+            {
+              "collection": "pre-process",
+              "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+              "descriptor_sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+              "result_sha256": "sha256:d91b94efdb923b18af0f15cad0c05aeb2c1ce343376019f0eb8cc29bf59b154f",
+              "source_token_count": 120,
+              "trait_row_count": 360
+            },
+            {
+              "collection": "phototaxis",
+              "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+              "descriptor_sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+              "result_sha256": "sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044",
+              "source_token_count": 1000,
+              "trait_row_count": 8000
+            },
+            {
+              "collection": "923-empty-rooms",
+              "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+              "descriptor_sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+              "result_sha256": "sha256:d819ef84f091e83a1c06b96d39f397cfd07e5a5a23c1252910b921f8b2edbf29",
+              "source_token_count": 924,
+              "trait_row_count": 12936
+            },
+            {
+              "collection": "ex-nihilo-cosmos",
+              "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+              "descriptor_sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+              "result_sha256": "sha256:0994eb240189e58eb1433a6c4979d4d9243523ce7d778505dead0dea91cfea7a",
+              "source_token_count": 256,
+              "trait_row_count": 1792
+            }
+          ],
+          "integrity_note": "Content hashes are integrity anchors; tree/main and blob/main URLs are transitional publication locators, not future merge pins."
+        }
       }
     },
     "constructor": {
@@ -223,7 +297,7 @@
         "evidence_class": "C",
         "label": "Preservation evidence manifest",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas"
       }
     ],
     "formal_acceptance_status": "not_formally_accepted",
@@ -306,10 +380,10 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:33a6b38e81e6b2e6cfa344e4901dca6f264c2fd480b10bb53c0e129d45d98c85",
+    "payload_sha256": "sha256:a68ffdb7c37217fce5920255fff9340a9df2489a39b42faf294fd4bbd245cf78",
     "preservation_manifest": {
       "manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
-      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "objects": [
         {
           "generator_raw_status": "not_captured",
@@ -1080,25 +1154,168 @@
     "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "source": {
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
-      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
+      "casey_collection_snapshot_package_commit": "9700e842d0c991280b476cc67849d966221a742a"
     },
     "source_manifest": {
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
-      "casey_snapshot_source_head": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "evidence_manifest_path": "evidence/casey-reas/manifest.json",
       "evidence_manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "source_evidence": [
         "notes/research/casey-reas-onchain-evidence.md",
         "notes/research/casey-reas-art-technical-research.md"
-      ]
+      ],
+      "casey_collection_snapshot_package": {
+        "merged_source_package_commit": "9700e842d0c991280b476cc67849d966221a742a",
+        "path": "evidence/casey-reas-collection-snapshots",
+        "package_manifest": {
+          "path": "evidence/casey-reas-collection-snapshots/package-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json",
+          "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f"
+        },
+        "descriptor_manifest": {
+          "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+          "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63"
+        },
+        "counts": {
+          "bound_files": 175,
+          "raw_files": 79,
+          "derived_files": 64,
+          "descriptor_results": 5,
+          "source_tokens": 3300,
+          "trait_rows": 35088
+        },
+        "descriptors": [
+          {
+            "collection": "century",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/century.json",
+            "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+            "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
+            "source_token_count": 1000,
+            "trait_row_count": 12000
+          },
+          {
+            "collection": "pre-process",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+            "descriptor_sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+            "result_sha256": "sha256:d91b94efdb923b18af0f15cad0c05aeb2c1ce343376019f0eb8cc29bf59b154f",
+            "source_token_count": 120,
+            "trait_row_count": 360
+          },
+          {
+            "collection": "phototaxis",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+            "descriptor_sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+            "result_sha256": "sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044",
+            "source_token_count": 1000,
+            "trait_row_count": 8000
+          },
+          {
+            "collection": "923-empty-rooms",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+            "descriptor_sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+            "result_sha256": "sha256:d819ef84f091e83a1c06b96d39f397cfd07e5a5a23c1252910b921f8b2edbf29",
+            "source_token_count": 924,
+            "trait_row_count": 12936
+          },
+          {
+            "collection": "ex-nihilo-cosmos",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+            "descriptor_sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+            "result_sha256": "sha256:0994eb240189e58eb1433a6c4979d4d9243523ce7d778505dead0dea91cfea7a",
+            "source_token_count": 256,
+            "trait_row_count": 1792
+          }
+        ],
+        "integrity_note": "Content hashes are integrity anchors; tree/main and blob/main URLs are transitional publication locators, not future merge pins."
+      }
     },
     "subject_id": "6529NM.2026.001",
     "trait_analysis": {
-      "linked_deliverable": "https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity",
+      "status": "transparent_linked_descriptors_available",
+      "method": "Museum published NextGen-compatible method over the frozen source package; linked descriptors are available and reproducible.",
       "marketplace_metrics": "not_used",
-      "method": "Museum NextGen-compatible method only; no trait result is asserted here.",
-      "status": "pending_linked_deliverable"
+      "non_claims": [
+        "No OpenSea or other marketplace metric is used.",
+        "No aesthetic, quality, value, or ranking claim is made."
+      ],
+      "source_package": {
+        "merged_source_package_commit": "9700e842d0c991280b476cc67849d966221a742a",
+        "path": "evidence/casey-reas-collection-snapshots",
+        "package_manifest": {
+          "path": "evidence/casey-reas-collection-snapshots/package-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json",
+          "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f"
+        },
+        "descriptor_manifest": {
+          "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
+          "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63"
+        },
+        "counts": {
+          "bound_files": 175,
+          "raw_files": 79,
+          "derived_files": 64,
+          "descriptor_results": 5,
+          "source_tokens": 3300,
+          "trait_rows": 35088
+        },
+        "descriptors": [
+          {
+            "collection": "century",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/century.json",
+            "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+            "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
+            "source_token_count": 1000,
+            "trait_row_count": 12000
+          },
+          {
+            "collection": "pre-process",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
+            "descriptor_sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+            "result_sha256": "sha256:d91b94efdb923b18af0f15cad0c05aeb2c1ce343376019f0eb8cc29bf59b154f",
+            "source_token_count": 120,
+            "trait_row_count": 360
+          },
+          {
+            "collection": "phototaxis",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
+            "descriptor_sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+            "result_sha256": "sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044",
+            "source_token_count": 1000,
+            "trait_row_count": 8000
+          },
+          {
+            "collection": "923-empty-rooms",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
+            "descriptor_sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+            "result_sha256": "sha256:d819ef84f091e83a1c06b96d39f397cfd07e5a5a23c1252910b921f8b2edbf29",
+            "source_token_count": 924,
+            "trait_row_count": 12936
+          },
+          {
+            "collection": "ex-nihilo-cosmos",
+            "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
+            "descriptor_sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+            "result_sha256": "sha256:0994eb240189e58eb1433a6c4979d4d9243523ce7d778505dead0dea91cfea7a",
+            "source_token_count": 256,
+            "trait_row_count": 1792
+          }
+        ],
+        "integrity_note": "Content hashes are integrity anchors; tree/main and blob/main URLs are transitional publication locators, not future merge pins."
+      }
     },
     "visibility": "public"
   }

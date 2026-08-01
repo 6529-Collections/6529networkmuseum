@@ -1,0 +1,13 @@
+{
+  "schema_version": "6529nm.casey-collection-latest-run.v2",
+  "run_id": "20260801T172252532Z",
+  "status": "complete",
+  "manifest_path": "runs/20260801T172252532Z/run-manifest.json",
+  "manifest_sha256": "sha256:1418c39103b474543f6a1666adfddb006d42c8148feede92b55e1bf3e6b0904a",
+  "review": null,
+  "package_manifest": {
+    "path": "package-manifest.json",
+    "sha256": "sha256:fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f",
+    "size": 65519
+  }
+}

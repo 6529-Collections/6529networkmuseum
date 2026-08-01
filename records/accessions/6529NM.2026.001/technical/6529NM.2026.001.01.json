@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x47698b606c43bf76da8f38437a612a1a0507937bd1543de7ad70cd5c12cf46b3"
+      "digest": "0xa4cc10c4b8b4f772ba7ef75b4eee6b2d248b79b9f7be26cf36e2064a57a4617c"
     },
     "effectiveAt": 1785596311,
     "recordType": "CONDITION_REPORT",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5bc56576b64dd6d3f0fd97b900bce3c0489a47cdcd8bbe3460cd0d4d535a50cf",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json"
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json"
   },
   "payload": {
     "assessments": {
@@ -43,7 +43,7 @@
             "evidence_class": "C",
             "label": "Technical condition boundary",
             "observed_at": "2026-08-01T14:58:31.905115Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
           }
         ],
         "occurred_at": "2026-08-01T14:58:31.905115Z"
@@ -66,14 +66,14 @@
         "evidence_class": "C",
         "label": "Preservation evidence manifest",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas"
       }
     ],
     "method": "Direct custody evidence plus retained metadata fixity and prior generator observation; no independent render or conservation test.",
     "object_id": "6529NM.2026.001.01",
     "observed_at": "2026-08-01T14:58:31.905115Z",
     "outcome": "not_assessed: chain identity and custody are verified observations; generator capture, dependencies, rendering, preservation, and display remain incomplete.",
-    "payload_sha256": "sha256:8e6a446ce4ee64a8551fc6863d836a7e6e18e58d7c6558782c17080164a43c49",
+    "payload_sha256": "sha256:d988cb006cef3bafafc37c19ad4a3960fdbacdf02600045c4e1bc5a4c81d5ac3",
     "protocol_state": "Constructor intake condition record; independent technical/conservator assessment pending.",
     "record_id": "6529NM.2026.001.COND.01",
     "record_status": "constructed",

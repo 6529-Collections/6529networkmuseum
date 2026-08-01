@@ -1,0 +1,60 @@
+{
+  "schema_version": "6529nm.casey-collection-descriptor-manifest.v2",
+  "status": "complete",
+  "dependency": {
+    "pull_request": 4,
+    "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
+    "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
+    "rarity_tool_git_blob_oid": "755a1b1c948d900496f5e279594223c8c99ab3e8",
+    "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
+    "acquisition_commit": "48cd2fbf2914d295cdc4260dedb1345061f5e3b6"
+  },
+  "run_id": "20260801T172252532Z",
+  "constructor": {
+    "actor_id": "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652",
+    "role": "constructor"
+  },
+  "review": null,
+  "jobs": [
+    {
+      "collection": "century",
+      "output": "descriptors/century.json",
+      "status": "complete",
+      "descriptor_sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
+      "result_sha256": "sha256:22964c531e1a41a2945931b81f72d8ab5fad41807f3a408539161d6fca0c1275",
+      "review": null
+    },
+    {
+      "collection": "pre-process",
+      "output": "descriptors/pre-process.json",
+      "status": "complete",
+      "descriptor_sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
+      "result_sha256": "sha256:d91b94efdb923b18af0f15cad0c05aeb2c1ce343376019f0eb8cc29bf59b154f",
+      "review": null
+    },
+    {
+      "collection": "phototaxis",
+      "output": "descriptors/phototaxis.json",
+      "status": "complete",
+      "descriptor_sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
+      "result_sha256": "sha256:aa3c6259d0529b84cc42ddbf3dbc209d9d44a320440f80d69b5bd8d91b4a5044",
+      "review": null
+    },
+    {
+      "collection": "923-empty-rooms",
+      "output": "descriptors/923-empty-rooms.json",
+      "status": "complete",
+      "descriptor_sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
+      "result_sha256": "sha256:d819ef84f091e83a1c06b96d39f397cfd07e5a5a23c1252910b921f8b2edbf29",
+      "review": null
+    },
+    {
+      "collection": "ex-nihilo-cosmos",
+      "output": "descriptors/ex-nihilo-cosmos.json",
+      "status": "complete",
+      "descriptor_sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
+      "result_sha256": "sha256:0994eb240189e58eb1433a6c4979d4d9243523ce7d778505dead0dea91cfea7a",
+      "review": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "6529nm.casey-tool-input-projection-fixture.v2",
+  "source_snapshot_is_preserved": true,
+  "mode": "byte_identical_source_snapshot",
+  "removed_paths": [],
+  "reason": "The merged PR #4 tool receives the exact hash-bound Museum snapshot bytes; no mutable current-head or local compatibility projection is included."
+}
