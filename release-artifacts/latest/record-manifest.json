@@ -581,6 +581,11 @@
       "size": 1255
     },
     {
+      "path": "specs/onchain/contract-migration-v1.md",
+      "sha256": "sha256:b31eaf83fde208e501d8ba0cad3e58246baa36f6be5e73bf35b1bef00f143d8c",
+      "size": 162286
+    },
+    {
       "path": "templates/README.md",
       "sha256": "sha256:199381ad7fb216bc1cc056ff51349084e0632822d60545de911f187beb649b3f",
       "size": 8853
@@ -813,9 +818,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xc26dc342e3a863e5433edde6b2e3d816b902be7b6b29385700229157b544dffc"
+    "digest": "0x0cb9b2a321e8917e40b393e409d84a043cb38c561c70bcb2ddf70454c8a9bc51"
   },
-  "manifest_sha256": "sha256:5564b2cb37ae258064418c7d3aac182a38312b145c3a76c1a5aa4cbd34d83835",
+  "manifest_sha256": "sha256:ca8cfc2a829c73d4eecd95416a640135445feab1468112681fe90baf400a2a31",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
