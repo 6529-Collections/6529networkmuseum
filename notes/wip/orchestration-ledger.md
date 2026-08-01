@@ -205,3 +205,7 @@ PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677f
 ## 2026-08-01 - Casey accession synchronization after PR #8
 
 `origin/main` advanced to `956ca06ba9c4563c844422c400ccb0bd37c94357` after the independently approved templates/crosswalk PR #8. PR #10 was rebased once onto that exact main. The Casey dossier records and schemas are byte-for-byte unchanged from the pre-sync head `ae42e16f5e93a169c30ce0b111fe992fddd59652`, and the approved main templates/crosswalk remain unchanged. The synchronized dossier head is `8435faf858ec4dc807487a618e75baa3f1d0f229`; local bootstrap and whitespace checks pass, and mandatory Museum validation run `30708569720` / job `91391853135` passed. PR #10 remains open, draft, and unmerged for independent integration review; no merge or accession-completion claim is made.
+
+## 2026-08-01 - Hold Casey remediation for PR #7 integration
+
+`origin/main` advanced to `a821eeadd3193f010dd5d27184ec3cf7dc90500f` after independently approved PR #6 merged the Keys and Gates selected-unminted records. PR #7 remains open and is the controlling dependency for the Casey fail-closed control-plane integration, so no rebase or dossier/schema remediation was applied in this checkpoint. PR #10 remains draft at `353858d46c2d2530381bc7664efd77e3abd21bba`; its accession payload is untouched. When synchronization resumes, preserve every `records/programs/6529NM-AP-01/**` payload byte-for-byte against the `a821eea` main-tree baseline while resolving only the required integration conflicts and review findings.
