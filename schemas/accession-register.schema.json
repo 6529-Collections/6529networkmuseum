@@ -15,7 +15,18 @@
         "revision": {"type": "integer", "minimum": 1},
         "record_status": {"enum": ["constructed", "reviewed"]},
         "constructor": {"type": "object", "required": ["actor_id", "role", "constructed_at"]},
-        "review": {"type": ["object", "null"]}
+        "review": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "reviewed_at", "outcome", "payload_sha256"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "reviewer"},
+            "reviewed_at": {"type": "string", "minLength": 20},
+            "outcome": {"const": "approved"},
+            "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+          }
+        }
       }
     },
     "register_id": {"const": "6529NM-ACCESSION-REGISTER"},

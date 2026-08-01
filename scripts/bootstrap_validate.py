@@ -171,7 +171,7 @@ def canonical_payload_hash(record: dict[str, object]) -> str:
         sort_keys=True,
         separators=(",", ":"),
     ).encode("utf-8")
-    return hashlib.sha256(encoded).hexdigest()
+    return "sha256:" + hashlib.sha256(encoded).hexdigest()
 
 
 def check_record_controls(loaded: dict[Path, object]) -> None:
@@ -189,6 +189,13 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
         if control.get("record_status") == "reviewed":
             if not isinstance(review, dict) or review.get("role") != "reviewer":
                 fail(f"reviewed record lacks reviewer: {path.relative_to(ROOT)}")
+            required_review_fields = {"actor_id", "role", "reviewed_at", "outcome", "payload_sha256"}
+            if not required_review_fields.issubset(review):
+                fail(f"reviewed record has incomplete reviewer identity: {path.relative_to(ROOT)}")
+            if not isinstance(review.get("actor_id"), str) or not review["actor_id"].strip():
+                fail(f"reviewed record has anonymous reviewer: {path.relative_to(ROOT)}")
+            if not isinstance(review.get("reviewed_at"), str) or len(review["reviewed_at"]) < 20:
+                fail(f"reviewed record has no review time: {path.relative_to(ROOT)}")
             if constructor.get("actor_id") == review.get("actor_id"):
                 fail(f"constructor cannot review own record: {path.relative_to(ROOT)}")
             if review.get("outcome") != "approved":
