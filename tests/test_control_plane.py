@@ -196,6 +196,17 @@ class ControlPlaneTests(unittest.TestCase):
                 issues = validate_records(root)
                 self.assertTrue(any(expected in issue for issue in issues), issues)
 
+    def test_casey_preservation_manifest_manifest_sha256_is_fail_closed(self) -> None:
+        temporary, root = self.make_repository_copy()
+        self.addCleanup(temporary.cleanup)
+        path = root / "records/accessions/6529NM.2026.001/accession-statement.json"
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["payload"]["preservation_manifest"]["manifest_sha256"] = "sha256:" + "4" * 64
+        self.refresh_casey_hashes(record)
+        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
+        issues = validate_records(root)
+        self.assertTrue(any("CASEY preservation_manifest.manifest_sha256 does not match" in issue for issue in issues), issues)
+
     def test_self_supersession_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)

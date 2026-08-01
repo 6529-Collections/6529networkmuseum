@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe3dd0bb26d5af787765fa7e20bc40666d2f869efbe8156b4ce3ddf250857d7a4"
+      "digest": "0x21575406382c99106bb2cff2cfa81f627ea28658ef5f4586a675a5c1f100d7a3"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -306,9 +306,9 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:7c99c2002ebe5e5e33cc4feeffdf5213be487bb210de91290d9c4485d53126f3",
+    "payload_sha256": "sha256:33a6b38e81e6b2e6cfa344e4901dca6f264c2fd480b10bb53c0e129d45d98c85",
     "preservation_manifest": {
-      "manifest_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
+      "manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas",
       "objects": [
         {

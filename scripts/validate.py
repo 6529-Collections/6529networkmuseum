@@ -581,6 +581,8 @@ def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] 
         if source_manifest.get("evidence_manifest_sha256") != actual_manifest_sha256:
             issues.append("CASEY evidence manifest sha256 does not match the raw-byte manifest file")
         lot_preservation = lot.get("preservation_manifest") if isinstance(lot.get("preservation_manifest"), dict) else {}
+        if lot_preservation.get("manifest_sha256") != actual_manifest_sha256:
+            issues.append("CASEY preservation_manifest.manifest_sha256 does not match the raw-byte evidence manifest")
         if lot_preservation.get("fixity_sha256") != actual_manifest_sha256:
             issues.append("CASEY lot preservation fixity does not match the raw-byte evidence manifest")
         for object_id in expected_ids:
