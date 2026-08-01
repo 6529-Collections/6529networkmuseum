@@ -44,7 +44,6 @@ Status vocabulary:
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
-| [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
 
 ## Dated WIP notebook
 
