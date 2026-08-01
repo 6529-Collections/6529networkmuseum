@@ -2,13 +2,20 @@
   "$schema": "../../../schemas/program-outcome-index.schema.json",
   "record_control": {
     "revision": 1,
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
       "role": "constructor",
       "constructed_at": "2026-08-01T15:48:20Z"
     },
-    "review": null
+    "review": {
+      "actor_id": "codex-task:019fbe15-7872-7312-a455-697a8835683c",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T16:29:31.633Z",
+      "reviewed_commit": "0e82d12306048c7356cd27587e7d5c84e2bbde80",
+      "outcome": "approved",
+      "payload_sha256": "sha256:762392c23d95c2338ab2fb62d861b41d222736add57d82395d7694c0c5539ef4"
+    }
   },
   "record_type": "PROGRAM_OUTCOME_INDEX",
   "schema_profile": "6529NM_PROGRAM_OUTCOME_INDEX_V1",
