@@ -6,7 +6,9 @@ import copy
 import json
 from pathlib import Path
 import unittest
+from unittest import mock
 
+import scripts.verify_casey_snapshot_package as verifier
 from scripts.verify_casey_snapshot_package import (
     EXPECTED,
     PR4_MERGE_COMMIT,
@@ -48,6 +50,11 @@ class CaseySnapshotMutationTests(unittest.TestCase):
         dependency = {"rarity_tool_merge_commit": PR4_MERGE_COMMIT, "rarity_tool_sha256": "sha256:" + "0" * 64, "rarity_tool_git_blob_oid": PR4_TOOL_BLOB_OID, "source_snapshot_commit": "a" * 40, "acquisition_commit": "b" * 40}
         with self.assertRaises(VerificationError):
             verify_stable_dependency(dependency)
+
+    def test_rarity_runtime_patch_mutation_fails_closed(self) -> None:
+        with mock.patch.object(verifier.platform, "python_version", return_value="3.12.13"):
+            with self.assertRaises(VerificationError):
+                verifier.verify_rarity_runtime()
 
     def test_forbidden_marketplace_metric_mutations_fail_closed(self) -> None:
         with self.assertRaises(VerificationError):

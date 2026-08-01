@@ -123,3 +123,10 @@ The package currently remains independent of the PR #7 safety-control merge.
 Executable network fetching is not migrated in this draft; after PR #7 merges,
 the approved HTTPS primitive/static guard must be adopted before a future
 acquisition run.
+
+The frozen Casey descriptor package was generated under CPython 3.12.10. Its
+GitHub validation workflow pins that exact version, and the package verifier
+fails closed before recomputation if the active implementation or version
+differs. This package-level guard makes the recorded descriptor bytes and
+result hashes reproducible rather than silently accepting a patch-runtime
+variant.

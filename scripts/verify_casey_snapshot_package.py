@@ -7,6 +7,7 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import platform
 from pathlib import Path
 import subprocess
 import sys
@@ -34,6 +35,20 @@ EXPECTED = {
 PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PR4_TOOL_SHA256 = "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
 PR4_TOOL_BLOB_OID = "755a1b1c948d900496f5e279594223c8c99ab3e8"
+EXPECTED_RARITY_RUNTIME = {
+    "implementation": "CPython",
+    "python_version": "3.12.10",
+    "json_encoder": (
+        "stdlib json.dumps(ensure_ascii=False, allow_nan=False, "
+        "sort_keys=True, separators=(',', ':'))"
+    ),
+    "float_encoding": "CPython json.encoder shortest-round-trip float representation",
+    "boundary": (
+        "byte/hash reproducibility is guaranteed only for the same CPython "
+        "implementation and version; review and regenerate fixtures after "
+        "any implementation or version change"
+    ),
+}
 RUN_ID = "20260801T172252532Z"
 ACQUISITION_COMMIT = "8585aedb9f176806624a7b069cdd10a6f1995824"
 TOKEN_URI_SELECTOR = "c87b56dd"
@@ -121,6 +136,20 @@ def verify_pr4_tool_exact() -> Path:
     if dirty.returncode != 0 or dirty.stdout.strip():
         raise VerificationError("rarity-tool path is dirty; local variants are not admissible")
     return tool
+
+
+def verify_rarity_runtime() -> None:
+    """Reject runtime drift before recomputing byte/hash-sensitive outputs."""
+
+    actual = {
+        "implementation": platform.python_implementation(),
+        "python_version": platform.python_version(),
+    }
+    expected = {
+        "implementation": EXPECTED_RARITY_RUNTIME["implementation"],
+        "python_version": EXPECTED_RARITY_RUNTIME["python_version"],
+    }
+    assert_equal(actual, expected, "rarity runtime")
 
 
 def verify_git_bytes(commit: str, relative: str, payload: bytes, label: str) -> None:
@@ -634,6 +663,7 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
     if not isinstance(jobs, list) or len(jobs) != len(EXPECTED) or {job.get("collection") for job in jobs} != EXPECTED_SLUGS:
         raise VerificationError("descriptor jobs are incomplete")
     by_slug = {row["slug"]: row for row in manifest["collections"]}
+    verify_rarity_runtime()
     tool = verify_pr4_tool_exact()
     for job in jobs:
         slug = job["collection"]
@@ -666,6 +696,7 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
         result = descriptor.get("result")
         if not isinstance(result, dict) or result.get("schema") != "6529nm.generative-trait-analysis-output/v1":
             raise VerificationError(f"{slug}: result schema missing")
+        assert_equal(result.get("determinism"), EXPECTED_RARITY_RUNTIME, f"{slug}: recorded rarity runtime")
         result_bytes = (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
         assert_equal(f"sha256:{sha256_bytes(result_bytes)}", descriptor.get("result_sha256"), f"{slug}: result hash")
         with tempfile.TemporaryDirectory(prefix=f"casey-verify-{slug}-") as temp_dir:

@@ -297,3 +297,21 @@ curatorial significance, title, rights, accession acceptance, and accession
 completion remain null/unclaimed. PR #7's approved safe-HTTPS migration is a
 deferred dependency; this draft does not claim that migration or readiness for
 merge.
+
+## 2026-08-01 - PR #13 CI runtime-determinism remediation checkpoint
+
+Fresh CI run `30713015267` checked the full-history PR merge ref
+`d65bf813a195fba40fb262e54f0f9491974012d0` and failed only during merged PR #4
+descriptor recomputation. Native reproduction at that exact merge ref showed
+the source verifier itself was sound: descriptors were generated under CPython
+`3.12.10`, while `python-version: "3.12"` resolved in Actions to `3.12.13`.
+The differing float serialization caused the expected result comparison to
+fail at `century: merged PR4 result recomputation`; no source, raw observation,
+or descriptor payload was changed.
+
+The workflow now pins CPython `3.12.10` exactly (while retaining full history),
+and the verifier rejects any other CPython implementation/version before
+recomputing byte/hash-sensitive descriptors. It also checks each recorded
+descriptor determinism profile against that pinned runtime, with a dedicated
+negative mutation test. Review remains null; PR #7 remains deferred; the PR
+remains draft.
