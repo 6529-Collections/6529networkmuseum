@@ -1096,14 +1096,14 @@
       {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:7066928f529b03fae96cb8f484f3f572ac572e7a4096d19d9b749a86fdab445f",
-        "size": 69894
+        "sha256": "sha256:88411ff5f66659e06d1488cfa2898fcf07dbac8ab57a52c1b2c14ef5aaee0e28",
+        "size": 74984
       },
       {
         "path": "tests/casey/test_casey_snapshot_mutations.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:d8e374e3f7bd391bdd5697e65b452d2b9cefd258b4cb12e5bc471332331932c7",
-        "size": 9903
+        "sha256": "sha256:01f51cc943fe1c4174b07b8a427a22867aed68ba465099ef6ce189bc85d556ed",
+        "size": 11384
       },
       {
         "path": "tests/rarity/fixtures/nextgen-compatibility.expected.json",

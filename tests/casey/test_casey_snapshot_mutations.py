@@ -5,10 +5,13 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import subprocess
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest import mock
 
@@ -121,11 +124,35 @@ class CaseySnapshotMutationTests(unittest.TestCase):
             raise AssertionError("century descriptor inventory entry missing")
         cls._refresh_package_pointer(worktree, package)
 
+    @classmethod
+    def _mutate_bound_raw_symlink(cls, worktree: Path) -> None:
+        package_root = worktree / "evidence/casey-reas-collection-snapshots"
+        package = json.loads((package_root / "package-manifest.json").read_text(encoding="utf-8"))
+        raw_item = next(item for item in package["inventory"]["files"] if item.get("role") == "raw-observation")
+        raw_path = worktree / raw_item["path"]
+        target = package_root / "symlink-test-target.json"
+        target.write_bytes(raw_path.read_bytes())
+        raw_path.unlink()
+        try:
+            os.symlink(target, raw_path, target_is_directory=False)
+        except OSError as error:
+            raise unittest.SkipTest(f"filesystem does not permit test symlink creation: {error}") from error
+
     def test_inventory_path_substitution_fails_end_to_end(self) -> None:
         self._run_end_to_end_mutation(self._mutate_inventory_path, "root inventory closed path/role allowlist")
 
     def test_descriptor_marketplace_provider_fails_end_to_end(self) -> None:
         self._run_end_to_end_mutation(self._mutate_descriptor_marketplace_reference, "forbidden external/provider field")
+
+    def test_bound_raw_symlink_fails_end_to_end(self) -> None:
+        self._run_end_to_end_mutation(self._mutate_bound_raw_symlink, "symlink or reparse point")
+
+    def test_windows_reparse_attribute_fails_closed(self) -> None:
+        root_info = SimpleNamespace(st_mode=stat.S_IFDIR, st_file_attributes=0)
+        reparse_info = SimpleNamespace(st_mode=stat.S_IFREG, st_file_attributes=0x400)
+        with mock.patch.object(verifier.os, "lstat", side_effect=(root_info, reparse_info)):
+            with self.assertRaisesRegex(VerificationError, "symlink or reparse point"):
+                verifier.within(Path("disposable-root"), "bound.json")
 
     def test_contract_mapping_mutation_fails_closed(self) -> None:
         config = json.loads((ROOT / "evidence/casey-reas-collection-snapshots/collection-sources.json").read_text(encoding="utf-8"))

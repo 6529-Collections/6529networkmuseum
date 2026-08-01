@@ -7,9 +7,11 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import os
 import platform
 from pathlib import Path
 from pathlib import PurePosixPath
+import stat
 import subprocess
 import sys
 import tempfile
@@ -53,6 +55,11 @@ EXPECTED_RARITY_RUNTIME = {
         "any implementation or version change"
     ),
 }
+PR4_RESULT_SERIALIZATION = (
+    "UTF-8 bytes emitted by merged PR #4 scripts/rarity/analyze.py: "
+    "stdlib json.dumps(ensure_ascii=False, indent=2, sort_keys=False) + '\\n'; "
+    "the verifier compares these bytes directly, under the pinned CPython runtime"
+)
 RUN_ID = "20260801T172252532Z"
 ACQUISITION_COMMIT = "48cd2fbf2914d295cdc4260dedb1345061f5e3b6"
 TOKEN_URI_SELECTOR = "c87b56dd"
@@ -119,11 +126,90 @@ def assert_equal(actual: Any, expected: Any, label: str) -> None:
         raise VerificationError(f"{label}: expected {expected!r}, got {actual!r}")
 
 
-def within(root: Path, relative: str) -> Path:
-    candidate = (root / relative).resolve()
-    if candidate != root and root not in candidate.parents:
-        raise VerificationError(f"path escapes root: {relative}")
+def _is_reparse_point(info: os.stat_result) -> bool:
+    """Return whether a directory entry is a Windows reparse point.
+
+    ``Path.resolve`` and ``Path.is_file`` follow links.  On Windows, junctions
+    and other reparse points are not all reported as POSIX symlinks, so the
+    file-attribute bit is checked explicitly as well.
+    """
+
+    return bool(getattr(info, "st_file_attributes", 0) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400))
+
+
+def _checked_lstat(path: Path, label: str) -> os.stat_result:
+    try:
+        info = os.lstat(path)
+    except OSError as error:
+        raise VerificationError(f"bound path is missing or inaccessible: {label}: {path}") from error
+    if stat.S_ISLNK(info.st_mode) or _is_reparse_point(info):
+        raise VerificationError(f"bound path is a symlink or reparse point: {label}: {path}")
+    return info
+
+
+def _relative_parts(relative: str, label: str) -> tuple[str, ...]:
+    if not isinstance(relative, str) or not relative or relative.startswith(("/", "\\")) or "\\" in relative:
+        raise VerificationError(f"invalid bound relative path: {label}: {relative!r}")
+    path = PurePosixPath(relative)
+    if path.is_absolute() or any(part in {"", ".", ".."} for part in path.parts):
+        raise VerificationError(f"bound path escapes root: {label}: {relative!r}")
+    return path.parts
+
+
+def within(root: Path, relative: str, *, require_file: bool = True, label: str = "bound path") -> Path:
+    """Resolve a lexical relative path without following any component.
+
+    The returned path is deliberately not resolved.  Every directory and the
+    final file is lstat-checked, rejecting POSIX symlinks and Windows reparse
+    points (including junctions) before any bytes are read.
+    """
+
+    root = Path(root)
+    root_info = _checked_lstat(root, f"{label} root")
+    if not stat.S_ISDIR(root_info.st_mode):
+        raise VerificationError(f"bound path root is not a directory: {label}: {root}")
+    candidate = root
+    parts = _relative_parts(relative, label)
+    final_info: os.stat_result | None = None
+    for part in parts:
+        candidate = candidate / part
+        final_info = _checked_lstat(candidate, label)
+        if candidate != root and not stat.S_ISDIR(final_info.st_mode) and part != parts[-1]:
+            raise VerificationError(f"bound path component is not a directory: {label}: {candidate}")
+    if final_info is None:
+        raise VerificationError(f"bound path is empty: {label}")
+    if require_file and not stat.S_ISREG(final_info.st_mode):
+        raise VerificationError(f"bound path is not a regular file: {label}: {candidate}")
+    if require_file is False and not stat.S_ISDIR(final_info.st_mode):
+        raise VerificationError(f"bound path is not a directory: {label}: {candidate}")
     return candidate
+
+
+def iter_regular_files_no_follow(root: Path, label: str) -> list[Path]:
+    """Enumerate a bound tree while rejecting links/reparse points."""
+
+    root = Path(root)
+    root_info = _checked_lstat(root, f"{label} root")
+    if not stat.S_ISDIR(root_info.st_mode):
+        raise VerificationError(f"bound tree is not a directory: {label}: {root}")
+    files: list[Path] = []
+    pending = [root]
+    while pending:
+        current = pending.pop()
+        try:
+            entries = sorted(os.scandir(current), key=lambda entry: entry.name)
+        except OSError as error:
+            raise VerificationError(f"cannot enumerate bound tree: {label}: {current}") from error
+        for entry in entries:
+            path = Path(entry.path)
+            info = _checked_lstat(path, label)
+            if stat.S_ISDIR(info.st_mode):
+                pending.append(path)
+            elif stat.S_ISREG(info.st_mode):
+                files.append(path)
+            else:
+                raise VerificationError(f"bound tree contains non-regular entry: {label}: {path}")
+    return sorted(files, key=lambda path: path.as_posix())
 
 
 def normalize_key(key: Any) -> str:
@@ -174,9 +260,7 @@ def verify_pr7_dependency(value: Any, repo_root: Path) -> None:
         relative = value.get(path_key)
         if not isinstance(relative, str) or relative not in {"scripts/safe_fetch.py", "scripts/check_fetch_guard.py"}:
             raise VerificationError(f"PR7 dependency path is not an approved control-plane module: {relative!r}")
-        path = repo_root / relative
-        if not path.is_file():
-            raise VerificationError(f"PR7 dependency module is missing: {relative}")
+        path = within(repo_root, relative, label=f"PR7 dependency module {relative}")
         assert_equal(value.get(sha_key), f"sha256:{sha256_bytes(path.read_bytes())}", f"PR7 current module hash {relative}")
         assert_equal(value.get(blob_key), expected_blob, f"PR7 merged blob pin {relative}")
         blob = subprocess.run(["git", "rev-parse", f"{PR7_MERGE_COMMIT}:{relative}"], cwd=repo_root, text=True, capture_output=True, check=False)
@@ -185,9 +269,7 @@ def verify_pr7_dependency(value: Any, repo_root: Path) -> None:
 
 
 def verify_pr4_tool_exact() -> Path:
-    tool = ROOT / "scripts/rarity/analyze.py"
-    if not tool.is_file():
-        raise VerificationError("merged PR #4 rarity tool is missing")
+    tool = within(ROOT, "scripts/rarity/analyze.py", label="merged PR #4 rarity tool")
     assert_equal(sha256_bytes(tool.read_bytes()), PR4_TOOL_SHA256, "current PR4 rarity tool SHA")
     blob = subprocess.run(["git", "rev-parse", f"{PR4_MERGE_COMMIT}:scripts/rarity/analyze.py"], cwd=ROOT, text=True, capture_output=True, check=False)
     if blob.returncode != 0 or blob.stdout.strip() != PR4_TOOL_BLOB_OID:
@@ -264,9 +346,7 @@ def verify_file_record(repo_root: Path, item: dict[str, Any]) -> Path:
     relative = item.get("path")
     if not isinstance(relative, str) or relative.startswith("/"):
         raise VerificationError(f"invalid root inventory path: {item!r}")
-    path = within(repo_root, relative)
-    if not path.is_file():
-        raise VerificationError(f"root inventory file missing: {relative}")
+    path = within(repo_root, relative, label=f"root inventory {relative}")
     payload = path.read_bytes()
     assert_equal(f"sha256:{sha256_bytes(payload)}", item.get("sha256"), f"root inventory hash {relative}")
     assert_equal(len(payload), item.get("size"), f"root inventory size {relative}")
@@ -278,9 +358,7 @@ def verify_raw_ref(run_root: Path, ref: dict[str, Any]) -> bytes:
     if not isinstance(relative, str) or not relative.startswith("raw/"):
         raise VerificationError(f"invalid raw ref: {ref!r}")
     assert_equal(ref.get("byte_mode"), "raw", f"raw byte mode {relative}")
-    path = within(run_root, relative)
-    if not path.is_file():
-        raise VerificationError(f"raw response missing: {relative}")
+    path = within(run_root, relative, label=f"raw response {relative}")
     payload = path.read_bytes()
     assert_equal(f"sha256:{sha256_bytes(payload)}", ref.get("sha256"), f"raw response hash {relative}")
     assert_equal(len(payload), ref.get("size"), f"raw response size {relative}")
@@ -292,9 +370,7 @@ def verify_derived_ref(run_root: Path, ref: dict[str, Any]) -> bytes:
     if not isinstance(relative, str) or not relative.startswith("derived/"):
         raise VerificationError(f"invalid derived ref: {ref!r}")
     assert_equal(ref.get("byte_mode"), "reconstructed_from_preserved_v2_invocation", f"derived byte mode {relative}")
-    path = within(run_root, relative)
-    if not path.is_file():
-        raise VerificationError(f"derived file missing: {relative}")
+    path = within(run_root, relative, label=f"derived file {relative}")
     payload = path.read_bytes()
     assert_equal(f"sha256:{sha256_bytes(payload)}", ref.get("sha256"), f"derived hash {relative}")
     assert_equal(len(payload), ref.get("size"), f"derived size {relative}")
@@ -348,10 +424,10 @@ def expected_static_inventory_roles() -> dict[str, str]:
 
 def expected_inventory_roles(run_root: Path, manifest: dict[str, Any]) -> dict[str, str]:
     expected = expected_static_inventory_roles()
-    repo_root = ROOT.resolve()
-    for raw in sorted((run_root / "raw").rglob("*")):
-        if raw.is_file():
-            expected[str(raw.relative_to(repo_root)).replace("\\", "/")] = "raw-observation"
+    repo_root = ROOT
+    raw_root = within(run_root, "raw", require_file=False, label="raw observation tree")
+    for raw in iter_regular_files_no_follow(raw_root, "raw observations"):
+        expected[str(raw.relative_to(repo_root)).replace("\\", "/")] = "raw-observation"
     derived_paths = collect_derived_refs(manifest)
     for ref_name in ("request_provenance", "exclusion_summary"):
         ref = manifest.get(ref_name)
@@ -488,7 +564,7 @@ def verify_block_and_population(output_dir: Path, run_root: Path, manifest: dict
         assert_equal(row.get("name"), closed["name"], f"{slug}: manifest name")
         assert_equal(str(row.get("contract_address")).lower(), closed["contract_address"].lower(), f"{slug}: manifest contract")
         assert_equal(row.get("project_id"), closed["project_id"], f"{slug}: manifest project")
-        snapshot = read_json(output_dir / row["snapshot_path"])
+        snapshot = read_json(within(output_dir, row["snapshot_path"], label=f"{slug}: metadata snapshot"))
         source = snapshot["source"]
         assert_equal(source.get("chain"), "eip155:1", f"{slug}: snapshot chain")
         assert_equal(str(source.get("contract_address")).lower(), closed["contract_address"].lower(), f"{slug}: snapshot contract")
@@ -532,7 +608,7 @@ def verify_materialization(output_dir: Path, run_root: Path, manifest: dict[str,
     for collection_manifest in manifest["collections"]:
         slug = collection_manifest["slug"]
         config = config_by_slug[slug]
-        snapshot = read_json(output_dir / collection_manifest["snapshot_path"])
+        snapshot = read_json(within(output_dir, collection_manifest["snapshot_path"], label=f"{slug}: metadata snapshot"))
         bulk_rows: list[dict[str, Any]] = []
         expected_population = EXPECTED[slug]["population"]
         expected_page_count = (expected_population + 249) // 250
@@ -644,7 +720,7 @@ def verify_request_provenance(output_dir: Path, run_root: Path, manifest: dict[s
     for collection in manifest["collections"]:
         slug = collection["slug"]
         config = config_by_slug[slug]
-        snapshot = read_json(output_dir / collection["snapshot_path"])
+        snapshot = read_json(within(output_dir, collection["snapshot_path"], label=f"{slug}: metadata snapshot"))
         source = snapshot["source"]
         project_id = int(config["project_id"])
         selector = PROJECT_TOKEN_INFO_SELECTOR if config["project_info_method"] == "projectTokenInfo(uint256)" else PROJECT_STATE_DATA_SELECTOR
@@ -798,7 +874,7 @@ def verify_exclusions(run_root: Path, manifest: dict[str, Any], config_by_slug: 
 
 
 def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict[str, Any], config_by_slug: dict[str, dict[str, Any]]) -> int:
-    descriptor_manifest = read_json(output_dir / "descriptor-manifest.json")
+    descriptor_manifest = read_json(within(output_dir, "descriptor-manifest.json", label="descriptor child manifest"))
     assert_equal(descriptor_manifest.get("schema_version"), "6529nm.casey-collection-descriptor-manifest.v2", "descriptor manifest schema")
     assert_equal(descriptor_manifest.get("review"), None, "descriptor manifest review")
     dependency = descriptor_manifest.get("dependency", {})
@@ -815,7 +891,7 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
     tool = verify_pr4_tool_exact()
     for job in jobs:
         slug = job["collection"]
-        path = within(output_dir, job["output"])
+        path = within(output_dir, job["output"], label=f"{slug}: descriptor")
         descriptor = read_json(path)
         reject_external_references(descriptor, f"descriptor.{slug}")
         reject_current_head(descriptor, f"descriptor.{slug}")
@@ -827,7 +903,7 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
             assert_equal(dep.get(key), package_dependency.get(key), f"{slug}: dependency {key}")
         descriptor_input = descriptor.get("input", {})
         collection = by_slug[slug]
-        snapshot_path = output_dir / collection["snapshot_path"]
+        snapshot_path = within(output_dir, collection["snapshot_path"], label=f"{slug}: descriptor snapshot input")
         assert_equal(descriptor.get("collection", {}).get("name"), config_by_slug[slug]["name"], f"{slug}: descriptor name")
         assert_equal(str(descriptor.get("collection", {}).get("contract_address")).lower(), config_by_slug[slug]["contract_address"].lower(), f"{slug}: descriptor contract")
         assert_equal(descriptor.get("collection", {}).get("project_id"), config_by_slug[slug]["project_id"], f"{slug}: descriptor project")
@@ -858,19 +934,22 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
             completed = subprocess.run([sys.executable, str(tool), str(snapshot_path), "--duplicates", "error", "--output", str(result_path)], cwd=ROOT, text=True, capture_output=True, check=False)
             if completed.returncode != 0 or not result_path.is_file():
                 raise VerificationError(f"{slug}: merged PR4 tool recomputation failed: {completed.stderr.strip()}")
-            assert_equal(read_json(result_path), result, f"{slug}: merged PR4 result recomputation")
+            recomputed_bytes = result_path.read_bytes()
+            assert_equal(f"sha256:{sha256_bytes(recomputed_bytes)}", descriptor.get("result_sha256"), f"{slug}: merged PR4 byte result hash")
+            assert_equal(recomputed_bytes, result_bytes, f"{slug}: merged PR4 byte recomputation ({PR4_RESULT_SERIALIZATION})")
+            assert_equal(read_json(result_path), result, f"{slug}: merged PR4 semantic result recomputation")
     return len(jobs)
 
 
-def verify_fixture() -> int:
-    fixture = read_json(ROOT / "evidence/casey-reas-collection-snapshots/fixtures/features-materialization.json")
+def verify_fixture(output_dir: Path) -> int:
+    fixture = read_json(within(output_dir, "fixtures/features-materialization.json", label="materialization fixture"))
     assert_equal(fixture.get("schema_version"), "6529nm.features-materialization-fixture.v1", "materialization fixture schema")
     count = 0
     for case in fixture.get("cases", []):
         actual = {key: scalar_text(value) for key, value in case["features"].items()}
         assert_equal(actual, case["expected_scalar_text"], f"materialization fixture {case.get('name')}")
         count += 1
-    projection = read_json(ROOT / "evidence/casey-reas-collection-snapshots/fixtures/tool-input-projection.json")
+    projection = read_json(within(output_dir, "fixtures/tool-input-projection.json", label="tool-input projection fixture"))
     assert_equal(projection.get("schema_version"), "6529nm.casey-tool-input-projection-fixture.v2", "tool input fixture schema")
     assert_equal(projection.get("mode"), "byte_identical_source_snapshot", "tool input fixture mode")
     assert_equal(projection.get("removed_paths"), [], "tool input fixture removals")
@@ -878,9 +957,16 @@ def verify_fixture() -> int:
 
 
 def verify_package(output_dir: Path) -> dict[str, Any]:
-    output_dir = output_dir.resolve()
-    repo_root = ROOT.resolve()
-    latest = read_json(output_dir / "latest-run.json")
+    repo_root = ROOT
+    package_root = within(repo_root, PACKAGE_PREFIX.rstrip("/"), require_file=False, label="Casey package root")
+    requested_output = Path(output_dir)
+    if not requested_output.is_absolute():
+        requested_output = repo_root / requested_output
+    if requested_output != package_root:
+        raise VerificationError(f"output directory is not the governed Casey package root: {output_dir}")
+    output_dir = package_root
+    latest_path = within(output_dir, "latest-run.json", label="latest-run pointer")
+    latest = read_json(latest_path)
     reject_external_references(latest, "latest-run")
     manifest_path = within(output_dir, latest["manifest_path"])
     manifest = read_json(manifest_path)
@@ -888,10 +974,10 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     assert_equal(manifest.get("run_id"), RUN_ID, "run id")
     assert_equal(manifest.get("status"), "complete", "manifest status")
     assert_equal(f"sha256:{sha256_bytes(manifest_path.read_bytes())}", latest.get("manifest_sha256"), "child manifest pointer hash")
-    config = read_json(output_dir / "collection-sources.json")
+    config = read_json(within(output_dir, "collection-sources.json", label="acquisition configuration"))
     config_by_slug = validate_config(config)
     reject_external_metrics(config, "collection-sources")
-    package_path = output_dir / "package-manifest.json"
+    package_path = within(output_dir, "package-manifest.json", label="root package manifest")
     package = read_json(package_path)
     reject_external_references(package, "root package")
     assert_equal(latest.get("package_manifest", {}).get("sha256"), f"sha256:{sha256_bytes(package_path.read_bytes())}", "root package manifest pointer hash")
@@ -917,7 +1003,7 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     inventory_paths = {item.get("path") for item in inventory}
     if "evidence/casey-reas-collection-snapshots/package-manifest.json" in inventory_paths or "evidence/casey-reas-collection-snapshots/latest-run.json" in inventory_paths:
         raise VerificationError("root inventory pointer exclusion is not fail-closed")
-    run_root = output_dir / "runs" / RUN_ID
+    run_root = within(output_dir, f"runs/{RUN_ID}", require_file=False, label="acquisition run root")
     verify_inventory_scope(run_root, manifest, inventory)
     for item in inventory:
         path = verify_file_record(repo_root, item)
@@ -959,38 +1045,39 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
         assert_equal(bindings[binding_name].get("path"), expected_path, f"root {binding_name} path")
     assert_equal(bindings["request_provenance"].get("path"), str(Path("evidence/casey-reas-collection-snapshots") / "runs" / RUN_ID / manifest["request_provenance"]["path"]).replace("\\", "/"), "root request provenance binding")
     assert_equal(bindings["exclusion_summary"].get("path"), str(Path("evidence/casey-reas-collection-snapshots") / "runs" / RUN_ID / manifest["exclusion_summary"]["path"]).replace("\\", "/"), "root exclusion binding")
-    raw_paths = {str(path.relative_to(repo_root)).replace("\\", "/") for path in (run_root / "raw").rglob("*") if path.is_file()}
+    raw_root = within(run_root, "raw", require_file=False, label="raw observation tree")
+    raw_files = iter_regular_files_no_follow(raw_root, "raw observations")
+    raw_paths = {str(path.relative_to(repo_root)).replace("\\", "/") for path in raw_files}
     inventory_raw_paths = {item["path"] for item in inventory if item.get("role") == "raw-observation"}
     assert_equal(raw_paths, inventory_raw_paths, "root raw file inventory")
     assert_equal(len(raw_paths), EXPECTED_RAW_FILES, "raw file count")
     reject_external_metrics(manifest, "run-manifest")
     raw_refs = collect_raw_refs(manifest)
     for row in manifest["collections"]:
-        snapshot = read_json(output_dir / row["snapshot_path"])
+        snapshot = read_json(within(output_dir, row["snapshot_path"], label=f"{row['slug']}: metadata snapshot"))
         reject_external_metrics(snapshot, f"snapshot.{row['slug']}")
         raw_refs.update(collect_raw_refs(snapshot))
     raw_refs.update(collect_raw_refs(json.loads(verify_derived_ref(run_root, manifest["request_provenance"]).decode("utf-8"))))
     raw_refs.update(collect_raw_refs(json.loads(verify_derived_ref(run_root, manifest["exclusion_summary"]).decode("utf-8"))))
-    assert_equal(raw_refs, {str(path.relative_to(run_root)).replace("\\", "/") for path in (run_root / "raw").rglob("*") if path.is_file()}, "all raw observations are referenced")
+    assert_equal(raw_refs, {str(path.relative_to(run_root)).replace("\\", "/") for path in raw_files}, "all raw observations are referenced")
     for relative in sorted(raw_paths):
-        verify_git_bytes(ACQUISITION_COMMIT, relative, (repo_root / relative).read_bytes(), "raw source")
+        verify_git_bytes(ACQUISITION_COMMIT, relative, within(repo_root, relative, label=f"raw source {relative}").read_bytes(), "raw source")
     source_commit = package["dependency"]["source_snapshot_commit"]
     for row in manifest["collections"]:
         relative = str((Path("evidence/casey-reas-collection-snapshots") / row["snapshot_path"]).as_posix())
-        verify_git_bytes(source_commit, relative, (repo_root / relative).read_bytes(), "source snapshot")
+        verify_git_bytes(source_commit, relative, within(repo_root, relative, label=f"source snapshot {relative}").read_bytes(), "source snapshot")
     verify_git_bytes(source_commit, str((Path("evidence/casey-reas-collection-snapshots") / latest["manifest_path"]).as_posix()), manifest_path.read_bytes(), "source child manifest")
-    for raw_path in (run_root / "raw").rglob("*"):
-        if raw_path.is_file():
-            try:
-                reject_external_metrics(json.loads(raw_path.read_text(encoding="utf-8")), f"raw.{raw_path.name}")
-            except UnicodeDecodeError as error:
-                raise VerificationError(f"raw observation is not UTF-8 JSON: {raw_path}") from error
+    for raw_path in raw_files:
+        try:
+            reject_external_metrics(json.loads(raw_path.read_text(encoding="utf-8")), f"raw.{raw_path.name}")
+        except UnicodeDecodeError as error:
+            raise VerificationError(f"raw observation is not UTF-8 JSON: {raw_path}") from error
     verify_block_and_population(output_dir, run_root, manifest, config_by_slug)
     total_traits = verify_materialization(output_dir, run_root, manifest, config_by_slug)
     request_summary = verify_request_provenance(output_dir, run_root, manifest, config_by_slug)
     exclusions = verify_exclusions(run_root, manifest, config_by_slug)
     descriptor_count = verify_descriptors(output_dir, manifest, package, config_by_slug)
-    fixture_count = verify_fixture()
+    fixture_count = verify_fixture(output_dir)
     if len(manifest.get("cross_check_warnings", [])) != 8:
         raise VerificationError("cross-check warning count changed")
     assert_equal(sha256_bytes(canonical_json(manifest["cross_check_warnings"])), CROSS_CHECK_WARNINGS_SHA256, "cross-check warning bytes")
