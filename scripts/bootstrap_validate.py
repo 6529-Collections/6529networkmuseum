@@ -189,13 +189,24 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
         if control.get("record_status") == "reviewed":
             if not isinstance(review, dict) or review.get("role") != "reviewer":
                 fail(f"reviewed record lacks reviewer: {path.relative_to(ROOT)}")
-            required_review_fields = {"actor_id", "role", "reviewed_at", "outcome", "payload_sha256"}
+            required_review_fields = {
+                "actor_id",
+                "role",
+                "reviewed_at",
+                "reviewed_commit",
+                "outcome",
+                "payload_sha256",
+            }
             if not required_review_fields.issubset(review):
                 fail(f"reviewed record has incomplete reviewer identity: {path.relative_to(ROOT)}")
             if not isinstance(review.get("actor_id"), str) or not review["actor_id"].strip():
                 fail(f"reviewed record has anonymous reviewer: {path.relative_to(ROOT)}")
             if not isinstance(review.get("reviewed_at"), str) or len(review["reviewed_at"]) < 20:
                 fail(f"reviewed record has no review time: {path.relative_to(ROOT)}")
+            if not isinstance(review.get("reviewed_commit"), str) or not re.fullmatch(
+                r"[0-9a-f]{40}", review["reviewed_commit"]
+            ):
+                fail(f"reviewed record has no immutable commit: {path.relative_to(ROOT)}")
             if constructor.get("actor_id") == review.get("actor_id"):
                 fail(f"constructor cannot review own record: {path.relative_to(ROOT)}")
             if review.get("outcome") != "approved":
