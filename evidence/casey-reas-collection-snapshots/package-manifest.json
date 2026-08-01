@@ -30,9 +30,16 @@
   },
   "network_fetch_status": "offline_reconstruction_only_after_v2_acquisition",
   "pr7_safety_dependency": {
-    "status": "deferred_until_pr7_merge",
-    "network_fetch_migration_required": true,
-    "no_pr7_migration_claim": true
+    "status": "merged_and_integrated",
+    "merge_commit": "7193bfb9a0a6ead1871180b931aced755676b327",
+    "network_fetch_migration_required": false,
+    "no_pr7_migration_claim": false,
+    "approved_fetch_module": "scripts/safe_fetch.py",
+    "approved_fetch_module_sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+    "approved_fetch_module_pr7_blob_oid": "4b42a53b0e9d7a9bd409ae4c1ccbc8bf5a9462bc",
+    "fetch_guard_module": "scripts/check_fetch_guard.py",
+    "fetch_guard_module_sha256": "sha256:4fd4f6d5744fb2ebbd74cdb1f4dd217ac326369dff47e658c3162a3b32cfae60",
+    "fetch_guard_module_pr7_blob_oid": "72099b5b6484d1b292839562f94228567ed0a861"
   },
   "pointer_files_excluded_from_inventory": {
     "files": [
@@ -47,22 +54,27 @@
       "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
       "scripts/bootstrap_validate.py": "executable-or-test-source",
       "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+      "scripts/check_fetch_guard.py": "executable-or-test-source",
       "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
       "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
       "scripts/rarity/analyze.py": "executable-or-test-source",
       "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+      "scripts/safe_fetch.py": "executable-or-test-source",
       "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
       "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+      "tests/test_control_plane.py": "executable-or-test-source",
       "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
       "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
       "tests/rarity/test_nextgen_compat.py": "executable-or-test-source"
     },
     "pinned_dependency_paths": [
-      "scripts/rarity/analyze.py"
+      "scripts/check_fetch_guard.py",
+      "scripts/rarity/analyze.py",
+      "scripts/safe_fetch.py"
     ]
   },
   "inventory": {
-    "file_count": 172,
+    "file_count": 175,
     "raw_file_count": 79,
     "derived_file_count": 64,
     "descriptor_count": 5,
@@ -70,8 +82,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/README.md",
         "role": "package-documentation",
-        "sha256": "sha256:1eafec5d32abb93bc0756bc862fcbd10b0b892b23e06272367a4aedccf4d3ae3",
-        "size": 8023
+        "sha256": "sha256:31ec7577eb698599b316b8b0decc2abe5c6e886fbb6a82ff4fd8a1f0bfc6df6e",
+        "size": 8325
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
@@ -1030,20 +1042,26 @@
       {
         "path": "scripts/acquire_casey_collection_snapshots.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:ab4bff9f52264fc88bd27abab1bb2d48d1bc5cc04e26a3a3ce90833b88a487ba",
-        "size": 33182
+        "sha256": "sha256:252ec56cc5bdff0cce4ca68c27906af8b477141df2993d188779f8cc6bedc8c8",
+        "size": 33645
       },
       {
         "path": "scripts/bootstrap_validate.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:709de69a41f200c08a4816c3d4a343878e891a664ad362e9af1ff07c01872917",
-        "size": 17370
+        "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
+        "size": 27239
       },
       {
         "path": "scripts/build_casey_package_manifest.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:b4151bfd7de5d85930ea38cc7ff764f5beb892af1034fe90be1a86feff92c9ab",
-        "size": 10172
+        "sha256": "sha256:aa5269de84cba8df583a6b8929c6a9801b57744ba1b6ca862272dbe06153c142",
+        "size": 11233
+      },
+      {
+        "path": "scripts/check_fetch_guard.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:4fd4f6d5744fb2ebbd74cdb1f4dd217ac326369dff47e658c3162a3b32cfae60",
+        "size": 7245
       },
       {
         "path": "scripts/emit_casey_collection_descriptors.py",
@@ -1070,10 +1088,16 @@
         "size": 32037
       },
       {
+        "path": "scripts/safe_fetch.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+        "size": 26871
+      },
+      {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:281c90a6989238aeef22cc53282533719bbe3ab3a721a4884d546f7e67dabbeb",
-        "size": 67594
+        "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
+        "size": 69894
       },
       {
         "path": "tests/casey/test_casey_snapshot_mutations.py",
@@ -1098,6 +1122,12 @@
         "role": "executable-or-test-source",
         "sha256": "sha256:4cd14e83ff2d85053bda3d1822b31140d547960bdeba6e5a56fe052fcd09223f",
         "size": 19628
+      },
+      {
+        "path": "tests/test_control_plane.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:7d2af53f17a9fac9d4c1a3f753b0cb30a106ff6e247f143ef0b6809b4897d8da",
+        "size": 47686
       }
     ]
   },

@@ -434,21 +434,21 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x735892967e678359eb5ef32c1a5044eb6e80d3284857608c009ee2769347b47a"
+        "digest": "0x38482bd159fc3f978d1886294bb9179b907969b78e3d95ec9c4a3e8c4256c6cf"
       },
       "path": "schemas/controlled-vocabularies.json",
-      "sha256": "sha256:dedbc4d4b8a9f57d1921f5083c48317dbb13aacc1d806020db5674b97a3fe255",
-      "size": 4570
+      "sha256": "sha256:eb9446040ea6c7a43d5ab3a34ae78cbdd69e939c2727d96f4132b6f00c3dfbdc",
+      "size": 4612
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x83871a55c3117d7f8dd8351ffd587f5d52679ec42692f94b11384c3626b73ad2"
+        "digest": "0x1e1281cce657732b1c46642a06f1011969df171449edef02ebe3a5075e4e39a8"
       },
       "path": "schemas/controlled-vocabularies.schema.json",
-      "sha256": "sha256:27fd2ae982995cb040a1c1c1012a00a695f7f87e91be230dc02197c64fb9bab1",
-      "size": 4838
+      "sha256": "sha256:12e3a565876b89308b58af4dada6d1f1aa1da447a31ee1360edfb6788d6d5e69",
+      "size": 4916
     },
     {
       "content_hash": {
@@ -531,9 +531,19 @@
       "size": 2609
     },
     {
+      "path": "scripts/acquire_casey_collection_snapshots.py",
+      "sha256": "sha256:252ec56cc5bdff0cce4ca68c27906af8b477141df2993d188779f8cc6bedc8c8",
+      "size": 33645
+    },
+    {
       "path": "scripts/bootstrap_validate.py",
       "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
       "size": 27239
+    },
+    {
+      "path": "scripts/build_casey_package_manifest.py",
+      "sha256": "sha256:aa5269de84cba8df583a6b8929c6a9801b57744ba1b6ca862272dbe06153c142",
+      "size": 11233
     },
     {
       "path": "scripts/canonical.py",
@@ -546,9 +556,19 @@
       "size": 7245
     },
     {
+      "path": "scripts/emit_casey_collection_descriptors.py",
+      "sha256": "sha256:b4b4be2e47bb3d90dede011b577bcc6538cea60dd9202caf704176a64a595f1b",
+      "size": 11499
+    },
+    {
       "path": "scripts/generate_manifest.py",
       "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
       "size": 8285
+    },
+    {
+      "path": "scripts/harden_casey_snapshot_package.py",
+      "sha256": "sha256:2fc0c93ee9dec11ae204e4bfe5324e1ac7d9ee446626b2d13944bc457117d986",
+      "size": 22010
     },
     {
       "path": "scripts/rarity/__init__.py",
@@ -567,8 +587,8 @@
     },
     {
       "path": "scripts/safe_fetch.py",
-      "sha256": "sha256:74686b7d912617541e3c9628e961599a4fa090c8d52a5b917ea7a2e6d04f9725",
-      "size": 25127
+      "sha256": "sha256:d5ad884e4bceafe26c85bedc3139c6dc18c92b6d7ffde1d11d30030b01193315",
+      "size": 26871
     },
     {
       "path": "scripts/validate.py",
@@ -641,9 +661,24 @@
       "size": 4822
     },
     {
+      "path": "scripts/verify_casey_snapshot_package.py",
+      "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
+      "size": 69894
+    },
+    {
       "path": "tests/__init__.py",
       "sha256": "sha256:9df0bfc8c6db9812d53501133b601b7ccdc089f8a15041fff8d36dd93e90df4a",
       "size": 66
+    },
+    {
+      "path": "tests/casey/__init__.py",
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "tests/casey/test_casey_snapshot_mutations.py",
+      "sha256": "sha256:d8e374e3f7bd391bdd5697e65b452d2b9cefd258b4cb12e5bc471332331932c7",
+      "size": 9903
     },
     {
       "content_hash": {

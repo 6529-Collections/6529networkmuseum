@@ -341,3 +341,30 @@ Raw/source bytes, populations, runtime pin, descriptor results, review nulls,
 and PR #7 deferral remain unchanged. PR #13 stays draft and must not be
 merged or synchronized to PR #7 until this remediation receives independent
 exact-head review.
+
+## 2026-08-01 - PR #13 PR7 control-plane integration checkpoint
+
+The two fail-closed findings above were completed before the one permitted
+mainline synchronization. The branch was then rebased exactly once onto merged
+PR #7 / `origin/main` `7193bfb9a0a6ead1871180b931aced755676b327`. The package no
+longer records a deferred PR #7 status: its root dependency binds that merge
+commit, the merged control-plane blob pins, and current hashes for
+`scripts/safe_fetch.py` and `scripts/check_fetch_guard.py`; those modules and
+the control-plane test are now in the closed root inventory.
+
+Every executable network-retrieval path is mediated by `safe_fetch.py`. Because
+the authoritative acquisition protocols are JSON-RPC and Hasura POST, the
+approved primitive now admits only bounded `application/json` POST bodies in
+addition to GET/HEAD, with the same HTTPS-only resolve/pin/redirect/framing/
+deadline controls. `check_fetch_guard.py` passes. No acquisition run was
+performed: the preserved v2 raw bytes, source commits, populations, 3,300
+tokenURI requests, 35,088 traits, 17 explicit exclusions, eight warnings, and
+five descriptor payloads remain byte-for-byte unchanged.
+
+The regenerated package has 175 inventory files (79 raw observations and five
+descriptors), with package manifest SHA-256
+`sha256:9d9b863e728d554454817057bc4e536ff4b367056e4aa6798887eb9ed84fbc89`.
+The release manifest is current at SHA-256
+`sha256:e2e8cbbcc0149238307f5706a8225f232079265c17e36d11fc33aea2c4307f4b`.
+Review metadata remains null, no title/rights/accession acceptance is claimed,
+and PR #13 remains a draft pending exact-head independent review.

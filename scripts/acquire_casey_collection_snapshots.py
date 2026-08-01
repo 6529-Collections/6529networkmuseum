@@ -13,15 +13,15 @@ the bulk snapshot.
 from __future__ import annotations
 
 import argparse
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 import hashlib
 import json
 from pathlib import Path
 import sys
 import time
 from typing import Any
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+
+from safe_fetch import FetchPolicyError, SafeHTTPSFetcher
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,6 +61,9 @@ query CaseyTokens($project: String!, $limit: Int!, $offset: Int!) {
 
 class AcquisitionError(RuntimeError):
     """Raised when a complete bulk snapshot cannot be emitted."""
+
+
+SAFE_FETCHER = SafeHTTPSFetcher()
 
 
 def now_iso() -> str:
@@ -110,26 +113,41 @@ def request_bytes(
     sleep_ms: int,
 ) -> dict[str, Any]:
     attempts: list[dict[str, Any]] = []
+    request_sha256 = f"sha256:{digest(body or b'')}"
     for attempt in range(1, retries + 2):
         if attempt > 1 and sleep_ms:
             time.sleep(sleep_ms / 1000)
+        attempt_record: dict[str, Any] = {
+            "attempt": attempt,
+            "attempt_ordinal": attempt,
+            "method": method,
+            "request_sha256": request_sha256,
+            "request_byte_length": len(body or b""),
+        }
         try:
-            with urlopen(Request(url, data=body, headers=headers, method=method), timeout=timeout) as response:
-                response_body = response.read()
-                status = int(response.status)
-                headers_out = {"content_type": response.headers.get("Content-Type", "")}
-            attempts.append({"attempt": attempt, "status": status, "ok": status == 200})
+            result = SAFE_FETCHER.fetch(
+                url,
+                method=method,
+                body=body,
+                headers=headers,
+                expires_at=datetime.now(UTC) + timedelta(seconds=max(0.0, timeout)),
+            )
+            status = result.observation.status
+            response_body = result.body
+            content_type = next(
+                (value for name, value in result.observation.response_headers if name == "content-type"),
+                "",
+            )
+            headers_out = {"content_type": content_type}
+            attempt_record.update({"status": status, "ok": status == 200, "safe_fetch_observation": result.observation.to_dict()})
+            attempts.append(attempt_record)
             if status == 200:
                 return {"ok": True, "body": response_body, "status": status, "headers": headers_out, "attempts": attempts}
             if status not in {408, 425, 429} and status < 500:
                 break
-        except HTTPError as error:
-            status = int(error.code)
-            attempts.append({"attempt": attempt, "status": status, "ok": False, "error": str(error)})
-            if status not in {408, 425, 429} and status < 500:
-                break
-        except (OSError, URLError, TimeoutError) as error:
-            attempts.append({"attempt": attempt, "status": None, "ok": False, "error": str(error)})
+        except (FetchPolicyError, OSError, TimeoutError) as error:
+            attempt_record.update({"status": None, "ok": False, "error": str(error)})
+            attempts.append(attempt_record)
     return {"ok": False, "body": b"", "status": None, "headers": {}, "attempts": attempts}
 
 

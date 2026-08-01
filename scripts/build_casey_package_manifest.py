@@ -15,17 +15,23 @@ DEFAULT_OUTPUT = ROOT / "evidence/casey-reas-collection-snapshots"
 PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PR4_TOOL_SHA256 = "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
 PR4_TOOL_BLOB_OID = "755a1b1c948d900496f5e279594223c8c99ab3e8"
+PR7_MERGE_COMMIT = "7193bfb9a0a6ead1871180b931aced755676b327"
+PR7_SAFE_FETCH_BLOB_OID = "4b42a53b0e9d7a9bd409ae4c1ccbc8bf5a9462bc"
+PR7_FETCH_GUARD_BLOB_OID = "72099b5b6484d1b292839562f94228567ed0a861"
 ACTOR_ID = "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652"
 EXTERNAL_INVENTORY_ROLES = {
     "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
     "scripts/bootstrap_validate.py": "executable-or-test-source",
     "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+    "scripts/check_fetch_guard.py": "executable-or-test-source",
     "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
     "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
     "scripts/rarity/analyze.py": "executable-or-test-source",
     "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+    "scripts/safe_fetch.py": "executable-or-test-source",
     "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
     "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+    "tests/test_control_plane.py": "executable-or-test-source",
     "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
     "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
     "tests/rarity/test_nextgen_compat.py": "executable-or-test-source",
@@ -142,9 +148,20 @@ def build(output_dir: Path, source_snapshot_commit: str, acquisition_commit: str
             "rarity_tool_git_blob_oid": PR4_TOOL_BLOB_OID,
         },
         "network_fetch_status": "offline_reconstruction_only_after_v2_acquisition",
-        "pr7_safety_dependency": {"status": "deferred_until_pr7_merge", "network_fetch_migration_required": True, "no_pr7_migration_claim": True},
+        "pr7_safety_dependency": {
+            "status": "merged_and_integrated",
+            "merge_commit": PR7_MERGE_COMMIT,
+            "network_fetch_migration_required": False,
+            "no_pr7_migration_claim": False,
+            "approved_fetch_module": "scripts/safe_fetch.py",
+            "approved_fetch_module_sha256": f"sha256:{sha256_bytes((repo_root / 'scripts/safe_fetch.py').read_bytes())}",
+            "approved_fetch_module_pr7_blob_oid": PR7_SAFE_FETCH_BLOB_OID,
+            "fetch_guard_module": "scripts/check_fetch_guard.py",
+            "fetch_guard_module_sha256": f"sha256:{sha256_bytes((repo_root / 'scripts/check_fetch_guard.py').read_bytes())}",
+            "fetch_guard_module_pr7_blob_oid": PR7_FETCH_GUARD_BLOB_OID,
+        },
         "pointer_files_excluded_from_inventory": {"files": ["evidence/casey-reas-collection-snapshots/latest-run.json", "evidence/casey-reas-collection-snapshots/package-manifest.json"], "reason": "latest-run points to this manifest and therefore cannot be included without a self-referential cycle; package-manifest is bound externally by latest-run"},
-        "inventory_scope": {"package_prefix": "evidence/casey-reas-collection-snapshots/", "external_inventory_roles": EXTERNAL_INVENTORY_ROLES, "pinned_dependency_paths": ["scripts/rarity/analyze.py"]},
+        "inventory_scope": {"package_prefix": "evidence/casey-reas-collection-snapshots/", "external_inventory_roles": EXTERNAL_INVENTORY_ROLES, "pinned_dependency_paths": ["scripts/check_fetch_guard.py", "scripts/rarity/analyze.py", "scripts/safe_fetch.py"]},
         "inventory": {"file_count": len(records), "raw_file_count": len(raw_records), "derived_file_count": len(derived_records), "descriptor_count": len(descriptor_records), "files": records},
         "semantic_bindings": {
             "config": binding("evidence/casey-reas-collection-snapshots/collection-sources.json"),

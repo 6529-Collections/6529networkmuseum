@@ -17,7 +17,7 @@ from typing import Any
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.append(str(ROOT / "scripts"))
 from acquire_casey_collection_snapshots import (  # noqa: E402
     PROJECT_QUERY,
     TOKENS_QUERY,
@@ -36,6 +36,9 @@ EXPECTED = {
 PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PR4_TOOL_SHA256 = "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
 PR4_TOOL_BLOB_OID = "755a1b1c948d900496f5e279594223c8c99ab3e8"
+PR7_MERGE_COMMIT = "7193bfb9a0a6ead1871180b931aced755676b327"
+PR7_SAFE_FETCH_BLOB_OID = "4b42a53b0e9d7a9bd409ae4c1ccbc8bf5a9462bc"
+PR7_FETCH_GUARD_BLOB_OID = "72099b5b6484d1b292839562f94228567ed0a861"
 EXPECTED_RARITY_RUNTIME = {
     "implementation": "CPython",
     "python_version": "3.12.10",
@@ -76,12 +79,15 @@ EXPECTED_EXTERNAL_INVENTORY_ROLES = {
     "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
     "scripts/bootstrap_validate.py": "executable-or-test-source",
     "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+    "scripts/check_fetch_guard.py": "executable-or-test-source",
     "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
     "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
     "scripts/rarity/analyze.py": "executable-or-test-source",
     "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+    "scripts/safe_fetch.py": "executable-or-test-source",
     "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
     "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+    "tests/test_control_plane.py": "executable-or-test-source",
     "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
     "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
     "tests/rarity/test_nextgen_compat.py": "executable-or-test-source",
@@ -150,6 +156,32 @@ def verify_stable_dependency(dependency: dict[str, Any], label: str = "dependenc
     assert_equal(dependency.get("rarity_tool_git_blob_oid"), PR4_TOOL_BLOB_OID, f"{label} PR4 tool blob")
     verify_commit_id(dependency.get("source_snapshot_commit"), f"{label} source snapshot commit")
     verify_commit_id(dependency.get("acquisition_commit"), f"{label} acquisition commit")
+
+
+def verify_pr7_dependency(value: Any, repo_root: Path) -> None:
+    if not isinstance(value, dict):
+        raise VerificationError("PR7 safety dependency is missing")
+    reject_current_head(value, "PR7 safety dependency")
+    assert_equal(value.get("status"), "merged_and_integrated", "PR7 safety dependency status")
+    assert_equal(value.get("merge_commit"), PR7_MERGE_COMMIT, "PR7 merge commit")
+    assert_equal(value.get("network_fetch_migration_required"), False, "PR7 network-fetch migration status")
+    assert_equal(value.get("no_pr7_migration_claim"), False, "PR7 migration claim status")
+    modules = (
+        ("approved_fetch_module", "approved_fetch_module_sha256", "approved_fetch_module_pr7_blob_oid", PR7_SAFE_FETCH_BLOB_OID),
+        ("fetch_guard_module", "fetch_guard_module_sha256", "fetch_guard_module_pr7_blob_oid", PR7_FETCH_GUARD_BLOB_OID),
+    )
+    for path_key, sha_key, blob_key, expected_blob in modules:
+        relative = value.get(path_key)
+        if not isinstance(relative, str) or relative not in {"scripts/safe_fetch.py", "scripts/check_fetch_guard.py"}:
+            raise VerificationError(f"PR7 dependency path is not an approved control-plane module: {relative!r}")
+        path = repo_root / relative
+        if not path.is_file():
+            raise VerificationError(f"PR7 dependency module is missing: {relative}")
+        assert_equal(value.get(sha_key), f"sha256:{sha256_bytes(path.read_bytes())}", f"PR7 current module hash {relative}")
+        assert_equal(value.get(blob_key), expected_blob, f"PR7 merged blob pin {relative}")
+        blob = subprocess.run(["git", "rev-parse", f"{PR7_MERGE_COMMIT}:{relative}"], cwd=repo_root, text=True, capture_output=True, check=False)
+        if blob.returncode != 0 or blob.stdout.strip() != expected_blob:
+            raise VerificationError(f"PR7 merge commit does not contain the pinned control-plane blob: {relative}")
 
 
 def verify_pr4_tool_exact() -> Path:
@@ -872,10 +904,10 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
         raise VerificationError("root inventory scope is missing")
     assert_equal(inventory_scope.get("package_prefix"), PACKAGE_PREFIX, "root inventory package prefix")
     assert_equal(inventory_scope.get("external_inventory_roles"), EXPECTED_EXTERNAL_INVENTORY_ROLES, "root inventory external allowlist")
-    assert_equal(inventory_scope.get("pinned_dependency_paths"), ["scripts/rarity/analyze.py"], "root inventory pinned dependency paths")
+    assert_equal(inventory_scope.get("pinned_dependency_paths"), ["scripts/check_fetch_guard.py", "scripts/rarity/analyze.py", "scripts/safe_fetch.py"], "root inventory pinned dependency paths")
     assert_equal(package["dependency"].get("acquisition_commit"), ACQUISITION_COMMIT, "acquisition source commit")
     assert_equal(package.get("network_fetch_status"), "offline_reconstruction_only_after_v2_acquisition", "root network-fetch status")
-    assert_equal(package.get("pr7_safety_dependency", {}).get("status"), "deferred_until_pr7_merge", "PR7 safety dependency status")
+    verify_pr7_dependency(package.get("pr7_safety_dependency"), repo_root)
     inventory = package.get("inventory", {}).get("files")
     inventory_summary = package.get("inventory", {})
     if not isinstance(inventory, list) or len(inventory) != inventory_summary.get("file_count"):

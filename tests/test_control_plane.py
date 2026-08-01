@@ -17,7 +17,7 @@ from unittest.mock import patch
 
 TESTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TESTS_DIR.parent
-sys.path.insert(0, str(REPO_ROOT / "scripts"))
+sys.path.append(str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
 import bootstrap_validate  # noqa: E402
@@ -306,8 +306,8 @@ class ControlPlaneTests(unittest.TestCase):
                 self.requests = []
                 self.closed = False
 
-            def request(self, method: str, target: str, headers: dict[str, str]) -> MockResponse:
-                self.requests.append((method, target, headers))
+            def request(self, method: str, target: str, headers: dict[str, str], body: bytes | None = None) -> MockResponse:
+                self.requests.append((method, target, headers, body))
                 return self.response
 
             def close(self) -> None:
@@ -462,6 +462,17 @@ class ControlPlaneTests(unittest.TestCase):
         result = fetcher.fetch("https://good.example.test/data", headers={"Accept": "image/png", "User-Agent": "Museum/1"})
         self.assertEqual(2, result.observation.byte_length)
 
+        request_body = b'{"jsonrpc":"2.0"}'
+        result = fetcher.fetch(
+            "https://good.example.test/data",
+            method="POST",
+            body=request_body,
+            headers={"Accept": "application/json", "Content-Type": "application/json", "User-Agent": "Museum/1"},
+        )
+        self.assertEqual(2, result.observation.byte_length)
+        self.assertEqual(request_body, _connections[-1][1].requests[-1][3])
+        self.assertEqual(str(len(request_body)), _connections[-1][1].requests[-1][2]["Content-Length"])
+
     def test_safe_fetch_policy_is_deep_frozen_and_caller_owned(self) -> None:
         caller_policy = {key: list(value) if isinstance(value, list) else value for key, value in SAFE_FETCH_POLICY_JSON.items()}
         fetcher, _connections = self.make_mock_fetcher(
@@ -475,8 +486,9 @@ class ControlPlaneTests(unittest.TestCase):
             policy=caller_policy,
         )
         caller_policy["max_response_bytes"] = 1
-        caller_policy["allowed_methods"].append("POST")
+        caller_policy["max_request_bytes"] = 1
         self.assertEqual(1_048_576, fetcher.policy["max_response_bytes"])
+        self.assertEqual(1_048_576, fetcher.policy["max_request_bytes"])
         self.assertNotEqual(caller_policy, fetcher.policy)
         with self.assertRaises((TypeError, AttributeError)):
             fetcher.policy["max_response_bytes"] = 1  # type: ignore[index]
@@ -490,8 +502,19 @@ class ControlPlaneTests(unittest.TestCase):
         fixed = datetime(2026, 8, 1, tzinfo=UTC)
         with self.assertRaises(FetchPolicyError):
             fetcher.fetch("https://good.example.test/data", expires_at=fixed - timedelta(seconds=1))
+        result = fetcher.fetch("https://good.example.test/data", method="POST", body=b"{}", headers={"Content-Type": "application/json"})
+        self.assertEqual(b"ok", result.body)
         with self.assertRaises(FetchPolicyError):
-            fetcher.fetch("https://good.example.test/data", method="POST")
+            fetcher.fetch("https://good.example.test/data", method="POST", body=b"{}", headers={"Content-Type": "text/plain"})
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", method="GET", body=b"{}")
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch(
+                "https://good.example.test/data",
+                method="POST",
+                body=b"x" * (int(SAFE_FETCH_POLICY["max_request_bytes"]) + 1),
+                headers={"Content-Type": "application/json"},
+            )
         with self.assertRaises(FetchPolicyError):
             fetcher.fetch("https://good.example.test/data", headers={"Authorization": "Bearer secret"})
         with self.assertRaises(FetchPolicyError):
