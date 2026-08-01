@@ -1,8 +1,8 @@
 # Casey REAS collection metadata snapshots
 
-Status: acquisition package constructed on 2026-08-01 UTC; collection-level
-statistical descriptors are intentionally pending the independent approval and
-merge of Museum PR #4.
+Status: acquisition package and collection-level statistical descriptors were
+constructed on 2026-08-01 UTC after the independent approval and merge of
+Museum PR #4. Outputs remain pending independent review.
 
 This package is the source-and-acquisition layer for the five Art Blocks
 projects represented by accession lot `6529NM.2026.001`:
@@ -59,8 +59,9 @@ price, or floor field is requested, imported, cited, or preserved.
   canonical numeric token-and-trait ordering used for deterministic analysis.
 - `raw/<slug>/` - content-addressed raw GraphQL, JSON-RPC, and cross-check
   bodies.
-- `pending-descriptors.json` - explicit dependency-gated jobs; it is not a
-  rarity result and contains no score or rank claim.
+- `pending-descriptors.json` - dependency and review ledger for the emitted
+  descriptors; it remains `complete_pending_review` with reviewer fields null.
+  It is not a quality claim or marketplace result.
 
 ## Attribute materialization boundary
 
@@ -97,9 +98,11 @@ does not claim that two observations are the same snapshot.
 
 `scripts/emit_casey_collection_descriptors.py` refuses to run unless the
 checked-out history contains the caller-supplied merged PR #4 commit and the
-merged `scripts/rarity/analyze.py` is present at the current HEAD. After that
-gate passes, it invokes the merged tool on all five snapshots, emits one
-collection-level descriptor per project, retains the full result artifact, and
-records separate source/canonical orderings. Its outputs must remain labeled as
-transparent statistical descriptors of a frozen metadata snapshot, never as
-quality, value, importance, or canonical truth.
+merged `scripts/rarity/analyze.py` is present at the current HEAD. It invokes
+that exact merged tool on all five snapshots, emits one collection-level
+descriptor per project, retains the full result artifact, and records separate
+source/canonical orderings. The tool input is a hash-recorded derived projection
+that removes only the negative Museum control annotation rejected by PR #4's
+closed-field guard; source snapshot bytes are not rewritten. Outputs remain
+labeled as transparent statistical descriptors of a frozen metadata snapshot,
+never as quality, value, importance, or canonical truth.

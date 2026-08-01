@@ -19,6 +19,7 @@ EXPECTED_SLUGS = {
     "923-empty-rooms",
     "ex-nihilo-cosmos",
 }
+PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PROHIBITED_KEY_FRAGMENTS = (
     "opensea",
     "marketplacerarity",
@@ -146,6 +147,60 @@ def verify_fixture() -> int:
     return checked
 
 
+def verify_tool_projection_fixture() -> None:
+    fixture = read_json(ROOT / "evidence/casey-reas-collection-snapshots/fixtures/tool-input-projection.json")
+    assert_equal(fixture.get("schema_version"), "6529nm.casey-tool-input-projection-fixture.v1", "tool projection fixture schema")
+    assert_equal(fixture.get("source_snapshot_is_preserved"), True, "tool projection source preservation")
+    assert_equal(fixture.get("removed_paths"), ["materialization.not_a_marketplace_metric"], "tool projection removed paths")
+
+
+def verify_descriptor_outputs(output_dir: Path, manifest: dict[str, Any], collections: list[dict[str, Any]]) -> int:
+    descriptor_manifest_path = output_dir / "descriptor-manifest.json"
+    if not descriptor_manifest_path.is_file():
+        raise VerificationError("descriptor-manifest.json is missing")
+    descriptor_manifest = read_json(descriptor_manifest_path)
+    assert_equal(descriptor_manifest.get("schema_version"), "6529nm.casey-collection-descriptor-manifest.v1", "descriptor manifest schema")
+    assert_equal(descriptor_manifest.get("status"), "complete", "descriptor manifest status")
+    assert_equal(descriptor_manifest.get("dependency", {}).get("pull_request"), 4, "descriptor PR dependency")
+    assert_equal(descriptor_manifest.get("dependency", {}).get("merge_commit"), PR4_MERGE_COMMIT, "descriptor merge commit")
+    assert_equal(descriptor_manifest.get("run_id"), manifest.get("run_id"), "descriptor run id")
+    assert_equal(descriptor_manifest.get("review"), None, "descriptor manifest review")
+    jobs = descriptor_manifest.get("jobs")
+    if not isinstance(jobs, list) or {job.get("collection") for job in jobs} != EXPECTED_SLUGS:
+        raise VerificationError("descriptor manifest does not contain exactly five jobs")
+    collection_by_slug = {row["slug"]: row for row in collections}
+    checked = 0
+    for job in jobs:
+        slug = job["collection"]
+        descriptor_path = within(output_dir, job["output"])
+        if not descriptor_path.is_file():
+            raise VerificationError(f"{slug}: descriptor output is missing")
+        assert_equal(f"sha256:{sha256_bytes(descriptor_path.read_bytes())}", job.get("descriptor_sha256"), f"{slug}: descriptor hash")
+        descriptor = read_json(descriptor_path)
+        assert_equal(descriptor.get("schema_version"), "6529nm.casey-collection-descriptor.v1", f"{slug}: descriptor schema")
+        assert_equal(descriptor.get("status"), "complete", f"{slug}: descriptor status")
+        assert_equal(descriptor.get("dependency", {}).get("merge_commit"), PR4_MERGE_COMMIT, f"{slug}: descriptor dependency")
+        assert_equal(descriptor.get("review"), None, f"{slug}: descriptor review")
+        assert_equal(descriptor.get("curatorial_significance"), None, f"{slug}: descriptor curatorial significance")
+        assert_equal(descriptor.get("method", {}).get("quality_or_canonical_truth_claim"), False, f"{slug}: descriptor interpretation gate")
+        assert_equal(descriptor.get("method", {}).get("duplicate_policy"), "error", f"{slug}: duplicate policy")
+        collection = collection_by_slug[slug]
+        descriptor_input = descriptor.get("input", {})
+        assert_equal(descriptor_input.get("snapshot_sha256"), collection.get("snapshot_file_sha256"), f"{slug}: descriptor source snapshot hash")
+        assert_equal(descriptor_input.get("compatibility_projection", {}).get("removed_paths"), ["materialization.not_a_marketplace_metric"], f"{slug}: descriptor projection")
+        snapshot_path = output_dir / collection["snapshot_path"]
+        snapshot = read_json(snapshot_path)
+        for descriptor_key, snapshot_key in (("source_token_order", "source_token_order"), ("canonical_token_order", "canonical_token_order"), ("source_trait_order", "source_trait_row_order"), ("canonical_trait_order", "canonical_trait_order")):
+            assert_equal(descriptor_input.get(descriptor_key), snapshot["ordering"][snapshot_key], f"{slug}: {descriptor_key}")
+        result_bytes = (json.dumps(descriptor["result"], ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+        assert_equal(f"sha256:{sha256_bytes(result_bytes)}", descriptor.get("result_sha256"), f"{slug}: descriptor result hash")
+        assert_equal(descriptor.get("result_sha256"), job.get("result_sha256"), f"{slug}: manifest result hash")
+        if not isinstance(descriptor.get("result"), dict) or descriptor["result"].get("schema") != "6529nm.generative-trait-analysis-output/v1":
+            raise VerificationError(f"{slug}: merged tool output schema missing")
+        checked += 1
+    return checked
+
+
 def verify(output_dir: Path) -> dict[str, Any]:
     output_dir = output_dir.resolve()
     latest_path = output_dir / "latest-run.json"
@@ -194,12 +249,14 @@ def verify(output_dir: Path) -> dict[str, Any]:
         total += expected
         snapshot_summaries.append({"slug": slug, "tokens": expected, "traits": len(snapshot["traits"])})
     pending = read_json(pending_path)
-    assert_equal(pending.get("status"), "pending_dependency_pr4", "pending descriptor status")
-    assert_equal(pending.get("dependency", {}).get("final_outputs_permitted"), False, "descriptor dependency gate")
+    assert_equal(pending.get("status"), "complete_pending_review", "pending descriptor status")
+    assert_equal(pending.get("dependency", {}).get("final_outputs_permitted"), True, "descriptor dependency gate")
     assert_equal(pending.get("review"), None, "pending review")
     assert_equal(pending.get("curatorial_significance"), None, "pending curatorial significance")
     fixture_cases = verify_fixture()
-    return {"status": "verified", "run_id": manifest["run_id"], "collections": snapshot_summaries, "total_tokens": total, "raw_references_checked": raw_refs, "fixture_cases": fixture_cases, "cross_check_warnings": len(manifest.get("cross_check_warnings", [])), "rarity_outputs_emitted": False}
+    verify_tool_projection_fixture()
+    descriptor_count = verify_descriptor_outputs(output_dir, manifest, collections)
+    return {"status": "verified", "run_id": manifest["run_id"], "collections": snapshot_summaries, "total_tokens": total, "raw_references_checked": raw_refs, "fixture_cases": fixture_cases, "descriptor_outputs": descriptor_count, "cross_check_warnings": len(manifest.get("cross_check_warnings", [])), "rarity_outputs_emitted": True}
 
 
 def main(argv: list[str] | None = None) -> int:

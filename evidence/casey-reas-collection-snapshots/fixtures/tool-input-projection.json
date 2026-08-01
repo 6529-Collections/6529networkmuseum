@@ -1,0 +1,8 @@
+{
+  "schema_version": "6529nm.casey-tool-input-projection-fixture.v1",
+  "source_snapshot_is_preserved": true,
+  "removed_paths": [
+    "materialization.not_a_marketplace_metric"
+  ],
+  "reason": "The merged PR #4 closed-field safety guard rejects any structured key containing metric; this negative Museum control annotation is removed only from a derived tool input, never from the source snapshot."
+}
