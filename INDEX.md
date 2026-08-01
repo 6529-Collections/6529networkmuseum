@@ -17,17 +17,20 @@ Status vocabulary:
 |---|---|---|
 | [`policies/founding-and-operating-principles.md`](policies/founding-and-operating-principles.md) | source transcription | Mission, public-good posture, TDH governance, custody, permanent holding, pathways, documentation, CC0 default |
 | [`policies/general-nft-collecting-scope.md`](policies/general-nft-collecting-scope.md) | adopted | Exact text of winning Wave proposal #1052604 |
-| `policies/donation-acceptance.md` | pending creation | Exact text of winning Wave proposal #1052812 |
-| [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | pending creation | Canonical donation preapproval list |
+| [`policies/donation-acceptance.md`](policies/donation-acceptance.md) | adopted | Exact text of winning Wave proposal #1052812 |
+| [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | canonical reviewed register | Four adopted donation preapprovals and two proposals with no adopted effect at snapshot |
 
 ## Governance and programs
 
 | File | Status | Contents |
 |---|---|---|
-| `records/governance/decisions.json` | pending creation | Six adopted and two non-adopted proposal observations |
+| [`records/governance/decisions.json`](records/governance/decisions.json) | canonical reviewed register | Six adopted decisions and two proposals with no adopted effect at snapshot, with source hashes |
+| [`governance/github-repository-governance.md`](governance/github-repository-governance.md) | active operating control | Maintainer approval/merge policy, configured team access, and current GitHub Free enforcement limitation |
+| [`.github/6529bot.yml`](.github/6529bot.yml) | active review policy | Multi-lane Museum-relevant review profile and bounded spend/admission policy for every PR |
+| [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required bootstrap record-integrity check on every PR and main push |
 | `records/programs/6529NM-AP-01/program.json` | pending creation | Keys and Gates rules and current stage |
 | `records/programs/6529NM-AP-01/selected-works.json` | pending creation | Sixteen Wave winners, each explicitly pending acquisition/accession verification |
-| `records/accessions/register.json` | pending creation | Canonical accession register; initially empty |
+| [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
 
 ## Working standards and architecture
 
@@ -38,6 +41,7 @@ Status vocabulary:
 | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
+| [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
 
 ## Dated WIP notebook
 
@@ -46,13 +50,30 @@ Status vocabulary:
 | [`notes/wip/2026-08-01-stream-coverage-and-gaps.md`](notes/wip/2026-08-01-stream-coverage-and-gaps.md) | WIP analysis | What Stream covers, strengths, implementation caveat, Museum gaps |
 | [`notes/wip/2026-08-01-external-works-registry.md`](notes/wip/2026-08-01-external-works-registry.md) | WIP analysis | Options and recommended boundary for externally minted works |
 | [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | WIP analysis | Multi-object numbering and proposed deliverables from the supplied accession draft |
-| [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | WIP analysis | Primary-source art-historical, technical, display, and preservation research for seven proposed Casey REAS works; no accession or title claim |
+| [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, and next actions |
+
+## Research inputs
+
+| File | Status | Contents |
+|---|---|---|
+| [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Spectrum, ICOM, Object ID, CIDOC CRM, LIDO, PREMIS, IIIF, C2PA, BagIt, OCFL, public/restricted, and maker/checker crosswalk |
+| [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
+| [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
+| [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | research input | Primary-source art-historical, technical, display, and preservation research for seven donated works |
+| [`notes/research/casey-reas-onchain-evidence.md`](notes/research/casey-reas-onchain-evidence.md) | research input | ENS resolution, seven token identities, common donation transaction, custody, metadata, and transfer evidence |
+| [`notes/research/keys-and-gates-evidence.md`](notes/research/keys-and-gates-evidence.md) | research input | Full program rule, voting, artist statement, selected-work, CC0/consent, and unminted-status evidence inventory |
+
+## Evidence snapshots
+
+| File | Status | Contents |
+|---|---|---|
+| [`evidence/waves/museum-wave/README.md`](evidence/waves/museum-wave/README.md) | immutable evidence index | Complete authenticated 2026-08-01 Museum Wave snapshot, rendered history, source index, proposals, and SHA-256 digests |
 
 ## Integrity tooling
 
 | File | Status | Contents |
 |---|---|---|
-| `schemas/` | pending creation | JSON Schemas and Stream-compatible profiles |
+| [`schemas/`](schemas/) | active bootstrap schemas | Governance decisions, donation-preapproved collections, and accession-register structure; additional record families and Stream-compatible profiles remain under construction |
 | `scripts/validate.py` | pending creation | Structural, semantic, secret, and status validation |
 | `scripts/generate_manifest.py` | pending creation | Deterministic SHA-256 and JCS/Keccak release commitments |
 | `release-artifacts/latest/record-manifest.json` | pending generation | Current governed-file manifest |
