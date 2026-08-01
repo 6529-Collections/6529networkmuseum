@@ -1,6 +1,6 @@
 # Constructor and reviewer attestations
 
-Status: draft working template. An attestation records who constructed or reviewed a record, the scope of the review, and its evidence. It is not a substitute for a legal signature where law or an instrument requires one.
+Status: documentation-only draft template. An attestation records who would construct or review a record, the scope of the review, and its evidence. It is not a governed record, current CI-validated schema, or substitute for a legal signature where law or an instrument requires one.
 
 The governed JSON record must use the exact [`record-control.md`](record-control.md) block. These attestations are the human-readable review narrative; `record_control.review.payload_sha256` is the authoritative machine-checkable binding.
 

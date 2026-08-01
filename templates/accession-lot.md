@@ -1,6 +1,6 @@
 # Accession lot record
 
-Status: draft working template. This is the short institutional act plus an object schedule. It is not complete until the completion gate is met for every object claimed as accessioned.
+Status: documentation-only draft template. This is the short institutional act plus an object schedule. It is not a governed record or current CI-validated schema, and it is not complete until the completion gate is met for every object claimed as accessioned.
 
 ## Record envelope
 
@@ -11,6 +11,12 @@ Status: draft working template. This is the short institutional act plus an obje
 - Schema/profile version: `[...]`
 - Lot lifecycle state: `[draft | proposed | approved | accessioned | amended | superseded]`
 - `donation_status`: `[offered | received | not_applicable]`
+- `offer_status`: `[not_offered | offered | withdrawn | not_applicable]`
+- `receipt_status`: `[not_received | received_offchain | received_onchain | not_applicable]`
+- `acceptance_status`: `[not_started | pending | accepted | rejected | conditional | not_applicable]`
+- `acquisition_status`: `[not_started | pending | completed | not_applicable]`
+- `title_status`: `[not_started | pending | passed | disputed | not_applicable]`
+- `custody_status`: `[not_received | received_offchain | received_onchain | verified | not_in_custody | not_applicable]`
 - `accession_status`: `[not_started | documentation_in_progress | accessioned]`
 - Created at / effective at: `[...]`
 - Supersedes / amendment: `[none | record ID]`
@@ -21,10 +27,22 @@ Status: draft working template. This is the short institutional act plus an obje
 
 - Acquiring institution: `6529 Network Museum`
 - Governing entity / custody reference: `[...]`
-- Accession date: `[...]`
-- Acceptance authority and decision evidence: `[...]`
+- Offer received date: `[...]`
+- Receipt date: `[...]`
+- Acceptance status: `[not_started | pending | accepted | rejected | conditional | not_applicable]`
+- Acceptance date: `[...]`
+- Acceptance authority: `[...]`
+- Acceptance decision evidence/reference: `[...]`
+- Acquisition date: `[...]`
 - Acquisition method: `[donation | purchase | bequest | exchange | transfer | program acquisition | other]`
 - Pathway: `[preapproved collection | ordinary donation review | network-funded program | Meme Card benefit-work program | individual/group-funded program | secondary acquisition | purchase | bequest | exchange | transfer | other]`
+- Legal title-passage date: `[...]`
+- Legal title evidence/reference: `[...]`
+- Custody-receipt date: `[...]`
+- Custody-receipt type: `[onchain | offchain | not_applicable]`
+- Custody-receipt evidence/reference: `[...]`
+- Formal accession date: `[...]`
+- Formal accession authority/evidence: `[...]`
 - Accession rationale (concise): `[...]`
 - Explicit non-claims: `[...]`
 - Donor credit line (public-safe): `[...]`
@@ -40,10 +58,11 @@ Every row must resolve to one object record. If an object has no native token ye
 
 ## Dates and custody are separate
 
-- Offer received: `[...]`
 - Authorization date: `[...]`
-- Acquisition/title date: `[...]`
-- On-chain receipt date and finality observation: `[...]`
+- Acquisition date: `[...]`
+- Legal title-passage date: `[...]`
+- On-chain custody-receipt date and finality observation: `[...]`
+- Off-chain custody-receipt date and evidence: `[...]`
 - Formal accession date: `[...]`
 - Cataloguing date: `[...]`
 - Technical verification date: `[...]`
@@ -66,7 +85,7 @@ Every row must resolve to one object record. If an object has no native token ye
 
 ## Title binding and transfer summary
 
-The detailed record lives in [`rights-donor-transfer.md`](rights-donor-transfer.md). Summarize one object-specific binding per transferred token or other acquired object.
+The detailed record lives in [`rights-donor-transfer.md`](rights-donor-transfer.md). Summarize one object-specific binding per transferred token or other acquired object. For non-token and hybrid objects, use the distinct off-chain instrument/receipt/title/custody event path in [`provenance-chain-history.md`](provenance-chain-history.md); do not force an on-chain transaction into the title or receipt fields.
 
 | Object ID | Instrument hash/URI | Non-sensitive custodian | Transfer transaction or receipt | From | To | Block/time | Binding result |
 |---|---|---|---|---|---|---|---|
@@ -87,7 +106,7 @@ The detailed record lives in [`rights-donor-transfer.md`](rights-donor-transfer.
 - BagIt package ID and manifest: `[...]`
 - OCFL object/version: `[...]`
 - IIIF manifest(s): `[...]`
-- C2PA manifest reference/validation status: `[not_applicable | absent | present/unvalidated | present/validated]`
+- C2PA 2.4 manifest reference/validation status: `[not_applicable | absent | present/unvalidated | present/validated]`
 - Fixity verification date/result: `[...]`
 - Render/behavior test date/result: `[...]`
 - Public release decision: `[ready | pending rights | pending technical verification | restricted | not released]`

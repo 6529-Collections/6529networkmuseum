@@ -1,6 +1,6 @@
 # Restricted registrar annex reference
 
-Status: draft working template. This file is a public pointer and control record only. Do not put the restricted annex contents, private contact data, credentials, private keys, signer details, or private storage locations in this repository.
+Status: documentation-only draft template. This file is a public pointer target, not a governed record or current CI-validated schema. Do not put the restricted annex contents, private contact data, credentials, private keys, signer details, or private storage locations in this repository.
 
 ## Public pointer
 

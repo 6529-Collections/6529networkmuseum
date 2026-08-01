@@ -1,6 +1,6 @@
 # Technical and condition report
 
-Status: draft working template. Complete per object, or explicitly identify a shared report and its object-specific exceptions.
+Status: documentation-only draft template. It is not a governed record or current CI-validated schema. Complete per object, or explicitly identify a shared report and its object-specific exceptions.
 
 ## Examination envelope
 
@@ -33,7 +33,7 @@ Status: draft working template. Complete per object, or explicitly identify a sh
 | Script/code | `[...]` | `[...]` | `[...]` | `[pass/fail/not_tested]` | `[...]` |
 | Dependency lockfile/list | `[...]` | `[...]` | `[...]` | `[pass/fail/not_tested]` | `[...]` |
 | Reference capture | `[...]` | `[...]` | `[...]` | `[pass/fail/not_tested]` | `[...]` |
-| IIIF/C2PA/BagIt/OCFL metadata | `[...]` | `[...]` | `[...]` | `[pass/fail/not_tested]` | `[...]` |
+| IIIF 3.0/C2PA 2.4/BagIt/OCFL metadata | `[...]` | `[...]` | `[...]` | `[pass/fail/not_tested]` | `[...]` |
 
 State what the hash proves and what it does not prove. A matching hash proves byte equality for the tested input; it does not by itself prove authorship, title, rights, or behavioral equivalence.
 

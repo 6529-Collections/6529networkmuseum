@@ -1,7 +1,7 @@
 # Luna research note — accession and donation standards crosswalk
 
 Date: 2026-08-01 UTC
-Status: WIP research and design note; not adopted policy.
+Status: WIP research and design note; not adopted policy. The linked Markdown forms and crosswalk are documentation-only/non-governed target artifacts until matching schemas, cross-record invariants, state/publication gates, and constructor/reviewer commit/payload binding are merged and exercised by CI.
 Scope: born-digital/tokenized art accession and donation operating templates.
 Repository scope respected: this note does not edit any Casey Reas or Keys and Gates record. It is a template-alignment addendum to the foundation crosswalk at [`notes/research/museum-standards-crosswalk.md`](museum-standards-crosswalk.md) and the current operational crosswalk at [`docs/standards-crosswalk.md`](../../docs/standards-crosswalk.md).
 
@@ -19,7 +19,7 @@ The research used primary or steward-maintained sources available on 2026-08-01 
 - The official LIDO 1.1 schema documentation and primer for delivery/exchange scope.
 - The Library of Congress PREMIS 3.0 pages for the Objects, Events, Rights, and Agents model.
 - The official IIIF Presentation API 3.0 specification.
-- The C2PA technical specification pages.
+- [C2PA Technical Specification 2.4](https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html).
 - RFC 8493 for BagIt 1.0 and the official OCFL 1.1 site.
 - Public Smithsonian Institution Archives and National Museum of American History pages describing born-digital inventory, fixity, backups, metadata, lifecycle stewardship, preservation/migration/emulation, access derivatives, rights, and restrictions.
 - The repository's pinned 6529Stream interoperability profile and Museum working standards.
@@ -30,7 +30,7 @@ No private Met, MoMA, or Pompidou operating procedure was used or inferred. Publ
 
 ### 1. Accession is a documented institutional act, not a wallet state
 
-Spectrum's public acquisition/accessioning guidance makes policy fit, applicable law/codes, written title transfer, donor terms, unique numbering, provenance, associated rights, and ongoing cost/obligation questions operational requirements. This aligns with the Museum's existing rule that custody or a transfer alone does not equal accession.
+Spectrum's public acquisition/accessioning guidance makes policy fit, applicable law/codes, written title transfer, donor terms, unique numbering, provenance, associated rights, and ongoing cost/obligation questions operational requirements. This aligns with the Museum's existing rule that custody or a transfer alone does not equal accession. The packet therefore records offer/receipt, institutional acceptance, acquisition, legal title passage, custody receipt, and formal accession as separate statuses, dates, authorities, and evidence; acceptance is not inferred from receipt.
 
 The template consequence is a lot-level accession statement plus an object schedule, with object-specific title binding and evidence. An unsolicited transfer or a selected program submission stays in an earlier state until the required gates are met.
 
@@ -46,7 +46,7 @@ LIDO 1.1 is designed for describing and delivering cultural-object metadata to o
 
 ### 4. Preservation requires event history and environment, not only a backup URL
 
-PREMIS's four-entity model makes the preservation dossier recordable: preservation Objects, Events, Agents, and Rights. BagIt supplies a transparent transfer/package structure with payload and tag manifests. OCFL supplies versioned, rebuildable, storage-independent object management. IIIF supplies a public presentation view, while C2PA can provide optional signed/hash-linked media provenance with an explicit validation result.
+PREMIS's four-entity model makes the preservation dossier recordable: preservation Objects, Events, Agents, and Rights, each with stable IDs and a pending/mapped export status. BagIt supplies a transparent transfer/package structure: `bagit.txt`, `data/`, and at least one payload manifest are required; `bag-info.txt` and tag manifests are optional. OCFL supplies versioned, rebuildable, storage-independent object management. IIIF supplies a public presentation view, while C2PA 2.4 can provide optional signed/hash-linked media provenance with `specVersion`, manifest/claim identifiers, and an explicit validation result.
 
 The Smithsonian public practice pages reinforce the workflow: establish intellectual and physical control at accession, inventory and assess risk, establish fixity, create backups, generate metadata, retain originals, use migration or emulation as appropriate, document actions and agents, and make access derivatives separately from the preserved source. The templates translate those principles into object-level package, event, environment, fixity, recovery, and access fields.
 
@@ -68,23 +68,26 @@ The payload hash is computed over the entire top-level JSON object after removin
 4. **Claim-level evidence.** A–E evidence classes, source, observation time, and content hash make it possible to tell direct chain evidence from issuer/governance evidence, Museum technical observation, third-party history, and curatorial interpretation.
 5. **Digital condition.** Byte fixity, metadata availability, script/dependency health, render success, behavioral equivalence, and documentation completeness are distinct observations.
 6. **Rights matrix.** Display, publication, reproduction, print, derivatives, preservation/migration, accessibility, and AI training/mining are separate statuses. `unknown` is recorded instead of omitted.
-7. **Preservation as a versioned dossier.** Native captures, dependencies, environment, significant properties, fixity, PREMIS events, BagIt packaging, OCFL versioning, access derivatives, and recovery tests are all represented.
+7. **Preservation as a versioned dossier.** Native captures, dependencies, environment, significant properties, fixity, structured PREMIS Objects/Events/Agents/Rights, BagIt packaging, OCFL versioning, IIIF/C2PA 2.4 identifiers/exports, access derivatives, and recovery tests are all represented or explicitly marked `pending`.
 8. **Public/restricted separation.** Public records expose stable identity and approved public evidence; restricted material is referred to by a hash and non-sensitive custodian only.
 9. **Attestations.** Constructor, registrar/title, technical, curatorial, and independent reviewer attestations make accountability explicit and preserve disagreement/open conditions.
 10. **Append-only correction.** Amendments carry `supersedes`, preserve prior hashes, and explain the reason for change.
 11. **Record-control binding.** A reviewed payload is bound to an immutable commit and the canonical payload SHA-256 after removing `record_control`; prose attestations do not replace the machine-checkable review object.
+12. **Off-chain event path.** Non-token and hybrid objects use a distinct instrument/receipt/title/custody event path; the absence of a blockchain transaction does not erase off-chain evidence, and no token transaction is fabricated.
+13. **Documentation-only boundary.** The forms describe a target profile. Current CI validates existing governed JSON records, not these Markdown forms or their future cross-record/state/publication invariants.
 
 ## Scenario controls
 
 ### Completed Casey Reas donation
 
-The completed Casey Reas donation is the motivating multi-object scenario. Its current canonical lot state is `donation_status: received` and `accession_status: documentation_in_progress` (accession-in-progress), while work-level accession gates remain evidence-based. The templates support one lot with one object row per donated work/token, one lot-level transfer/title schedule, and separate object-level technical/condition, rights, provenance, preservation, and public-inventory records. The actual Casey records remain outside this change; this note supplies only the operating pattern and the rule that verified values must be copied from the canonical record rather than inferred here.
+The completed Casey Reas donation is the motivating multi-object scenario. Its current canonical lot state is `donation_status: received` and `accession_status: documentation_in_progress` (accession-in-progress), while work-level acceptance and accession gates remain evidence-based and must not be inferred from the receipt event. The templates support one lot with one object row per donated work/token, one lot-level transfer/title schedule, explicit acceptance/acquisition/title/custody/accession dates, and separate object-level technical/condition, rights, provenance, preservation, and public-inventory records. The actual Casey records remain outside this change; this note supplies only the operating pattern and the rule that verified values must be copied from the canonical record rather than inferred here.
 
 ### Keys and Gates unminted state
 
 The formal Keys and Gates program model distinguishes a program selection from later minting, purchase/acquisition, transfer, rights/consent verification, custody, and accession. The templates use `selected_unminted` for a selected submission that lacks verified native token identity. In that state:
 
 - program selection evidence is recorded with Wave URL, serial, drop ID, live status, and observation time;
+- program authorization and selection are program-level facts only; they never authorize a specific object's acquisition, mint, custody, title passage, or accession;
 - native contract/token/CAIP-19 fields remain `not_yet_assigned` or `not_applicable`;
 - a title binding and custody receipt remain open;
 - accession remains `not_accessioned`;

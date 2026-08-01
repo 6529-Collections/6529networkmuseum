@@ -1,6 +1,6 @@
 # Public inventory and checklist record
 
-Status: draft working template. This is a public-safe projection of governed object records, not a substitute for the restricted registrar file or the full preservation dossier.
+Status: documentation-only draft template. This is a public-safe projection target, not a governed record, current CI-validated schema, substitute for the restricted registrar file, or substitute for the full preservation dossier.
 
 ## Publication envelope
 
@@ -27,7 +27,11 @@ Status: draft working template. This is a public-safe projection of governed obj
 | Native token/CAIP-19 citation | `[...]` |
 | Chain/contract/token ID | `[...]` |
 | Accession method/pathway | `[...]` |
-| Accession and custody dates | `[...]` |
+| Acceptance status/date (public-safe) | `[...]` |
+| Acquisition date | `[...]` |
+| Legal title-passage date (public-safe) | `[...]` |
+| Custody-receipt date | `[...]` |
+| Formal accession date | `[...]` |
 | Public provenance summary | `[...]` |
 | Credit line | `[...]` |
 | Rights/license statement | `[...]` |

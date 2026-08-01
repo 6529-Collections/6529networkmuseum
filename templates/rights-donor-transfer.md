@@ -1,6 +1,6 @@
 # Rights, donor, and transfer record
 
-Status: draft working template. This form records rights and transfer evidence; it is not legal advice, a tax opinion, an appraisal, or a promise of deductibility or value.
+Status: documentation-only draft template. This form records rights and transfer evidence; it is not a governed record, current CI-validated schema, legal advice, a tax opinion, an appraisal, or a promise of deductibility or value.
 
 ## Record envelope
 
@@ -12,6 +12,19 @@ Status: draft working template. This form records rights and transfer evidence; 
 - Public credit line: `[...]`
 - Restricted annex reference: `[...]`
 - Prepared / reviewed / effective: `[...]`
+
+## Separate acceptance and acquisition events
+
+Do not collapse donor receipt, institutional acceptance, acquisition, legal title passage, custody receipt, or formal accession into one transfer label.
+
+- Offer/receipt record and date: `[...]`
+- Institutional acceptance status: `[not_started | pending | accepted | rejected | conditional | not_applicable]`
+- Institutional acceptance date: `[...]`
+- Acceptance authority and decision evidence: `[...]`
+- Acquisition date/method/evidence: `[...]`
+- Legal title-passage date/evidence: `[...]`
+- Custody-receipt date/type/evidence: `[...]`
+- Formal accession date/authority/evidence: `[...]`
 
 ## Donor/transferor and authority
 
@@ -30,6 +43,8 @@ Status: draft working template. This form records rights and transfer evidence; 
 | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` | `[verified/pending/disputed/not_applicable]` | `[...]` |
 
 The `to` address must be the designated Museum custody address for the binding to evidence a Museum receipt. A transfer to a Museum-associated wallet is not, alone, an accession.
+
+For a `non_token_digital_object` or `hybrid` object, use the off-chain event path in [`provenance-chain-history.md`](provenance-chain-history.md) for the executed instrument, object receipt, legal title passage, and custody receipt. The absence of a blockchain transaction is not evidence that those off-chain events did not occur, and an on-chain transfer is not a substitute for the off-chain instrument.
 
 ## Rights matrix
 

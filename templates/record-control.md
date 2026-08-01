@@ -1,6 +1,6 @@
 # Governed record control block
 
-Status: draft working template. This contract mirrors `scripts/bootstrap_validate.py` and the active bootstrap schemas. It applies to instantiated governed JSON records; the Markdown template file itself is not the payload being hashed.
+Status: documentation-only draft template. This target contract mirrors `scripts/bootstrap_validate.py` and the active bootstrap schemas for existing governed JSON records. It is not itself a governed schema or CI-validated record; the Markdown template file is not the payload being hashed. Matching schemas, cross-record invariants, state/publication gates, and binding for this template family remain required before these forms can be treated as governed.
 
 ## Exact control shape
 

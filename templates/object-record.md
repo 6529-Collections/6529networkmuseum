@@ -1,6 +1,6 @@
 # Individual object record
 
-Status: draft working template. Complete one record per artwork/object even when several objects share an accession lot or donor instrument.
+Status: documentation-only draft template. It is not a governed record or current CI-validated schema. Complete one record per artwork/object even when several objects share an accession lot or donor instrument.
 
 ## Record envelope
 
@@ -51,6 +51,18 @@ Describe the artwork as more than its token. State whether the token, contract, 
 - State qualifier/commitment (`@fin`, `@snap`, or `@chain` where used): `[...]`
 
 If `subject_state` is `selected_unminted`, set all unverified chain identity fields to `not_yet_assigned` or `not_applicable`; preserve the program selection evidence in the state-gate worksheet; do not fabricate a CAIP-19 citation.
+
+## Institutional event references
+
+Acceptance, acquisition, title passage, custody receipt, and formal accession are separate object-level facts even when a lot-level instrument covers several objects.
+
+- Offer/receipt record: `[...]`
+- Institutional acceptance status/date/authority/evidence: `[...]`
+- Acquisition date/method/evidence: `[...]`
+- Legal title-passage date/evidence: `[...]`
+- Custody-receipt date/type/evidence: `[...]`
+- Formal accession date/authority/evidence: `[...]`
+- Off-chain instrument/receipt/title/custody event path for non-token or hybrid objects: `[provenance schedule reference | pending | not_applicable]`
 
 ## Title, custody, and provenance references
 
@@ -110,11 +122,15 @@ If `subject_state` is `selected_unminted`, set all unverified chain identity fie
 ## Preservation and public access
 
 - Preservation dossier: `[...]`
-- PREMIS object/event/agent/right refs: `[...]`
+- PREMIS Object ID(s)/structured export: `[...]`
+- PREMIS Event ID(s)/structured export: `[...]`
+- PREMIS Agent ID(s)/structured export: `[...]`
+- PREMIS Rights ID(s)/structured export: `[...]`
 - BagIt package/manifest: `[...]`
 - OCFL object/version: `[...]`
 - IIIF manifest/canvases: `[...]`
-- C2PA reference and validation status: `[...]`
+- C2PA 2.4 manifest/claim/asset assertion IDs and validation status: `[...]`
+- Interoperability mapping/export status: `[mapped | pending | not_applicable]`
 - Public inventory record: `[...]`
 - Display/publication status: `[not_ready | restricted | pending | ready]`
 - Documentation surrogate disclaimer: `[...]`
