@@ -446,3 +446,31 @@ than embedded here, avoiding a self-referential ledger/manifest hash.
 Review and curatorial metadata remain null; no title/rights/accession
 acceptance is claimed. PR #13 remains draft pending the same independent
 exact-head review.
+
+## 2026-08-01 - Post-merge fresh-clone publication-pin correction
+
+Post-merge `main` workflow run `30718106015` failed only in the Casey package
+verifier. PR-head and long-lived local worktrees could resolve construction
+commit `48cd2fbf2914d295cdc4260dedb1345061f5e3b6`, but GitHub's squash merge did
+not retain that construction history in the ancestry fetched by a fresh
+`main` checkout. The prior entry's claim that the acquisition pin would remain
+reachable after squash publication is therefore corrected here; it was
+reachable from the PR branch, not from the resulting public main history.
+
+The immutable construction provenance remains unchanged in the package:
+`acquisition_commit` is `48cd2fbf2914d295cdc4260dedb1345061f5e3b6` and
+`source_snapshot_commit` is `820f4bb6999fb9df3b094692913d70ebf6d9dc63`.
+The excluded `latest-run.json` pointer now additionally records
+`published_source_commit` as merged main commit
+`9700e842d0c991280b476cc67849d966221a742a`. Fresh clones verify the 79 raw
+observations, five snapshots, and child run manifest against that reachable
+publication commit. A fail-closed mutation test and an ancestry test cover the
+new boundary.
+
+No raw observation, snapshot, descriptor, descriptor-result, request,
+exclusion, warning, or collection-population byte changed. The regenerated
+package-manifest SHA-256 is
+`sha256:a078558758f4e1cd88819e8a67466c5c8d59c8504b49a3c658f14bc150c27ba0`;
+its change is limited to the updated README, verifier, and mutation-test
+inventory entries. The governed release-manifest SHA-256 is
+`sha256:199faee2ee2cd2cbc0b4b1f8fd18253b9b4ccf142f2f6b3e0c13c2139fa957b0`.

@@ -121,6 +121,15 @@ merge commit, Git blob, and SHA-256. They contain no mutable `current_head`.
 Outputs remain labeled as transparent statistical descriptors of a frozen
 metadata snapshot, never as quality, value, importance, or canonical truth.
 
+GitHub squash merge does not retain construction commits in the main-branch
+ancestry. `latest-run.json.published_source_commit` therefore separately pins
+the first merged `main` commit containing the reviewed package bytes. Fresh
+clones verify raw observations, snapshots, and the child run manifest against
+that reachable publication commit while retaining the earlier construction
+commits as historical provenance. Publishing a future package has two phases:
+merge the reviewed package, then bind its resulting immutable merge commit in
+the excluded `latest-run.json` pointer and rerun the verifier.
+
 The verifier recursively rejects marketplace/provider references, marketplace
 URLs, and imported or precomputed metric fields across every bound JSON
 artifact, including descriptor metadata, generated-result inputs, methods,

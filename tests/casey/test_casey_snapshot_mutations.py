@@ -21,6 +21,7 @@ from scripts.verify_casey_snapshot_package import (
     PR4_MERGE_COMMIT,
     PR4_TOOL_BLOB_OID,
     PR4_TOOL_SHA256,
+    PUBLISHED_SOURCE_COMMIT,
     VerificationError,
     reject_external_metrics,
     verify_exclusion_row,
@@ -138,6 +139,13 @@ class CaseySnapshotMutationTests(unittest.TestCase):
         except OSError as error:
             raise unittest.SkipTest(f"filesystem does not permit test symlink creation: {error}") from error
 
+    @classmethod
+    def _mutate_published_source_commit(cls, worktree: Path) -> None:
+        latest_path = worktree / "evidence/casey-reas-collection-snapshots/latest-run.json"
+        latest = json.loads(latest_path.read_text(encoding="utf-8"))
+        latest["published_source_commit"] = "0" * 40
+        cls._write_json(latest_path, latest)
+
     def test_inventory_path_substitution_fails_end_to_end(self) -> None:
         self._run_end_to_end_mutation(self._mutate_inventory_path, "root inventory closed path/role allowlist")
 
@@ -146,6 +154,23 @@ class CaseySnapshotMutationTests(unittest.TestCase):
 
     def test_bound_raw_symlink_fails_end_to_end(self) -> None:
         self._run_end_to_end_mutation(self._mutate_bound_raw_symlink, "symlink or reparse point")
+
+    def test_published_source_commit_mutation_fails_end_to_end(self) -> None:
+        self._run_end_to_end_mutation(self._mutate_published_source_commit, "published source commit")
+
+    def test_published_source_commit_is_reachable_from_main_package_release(self) -> None:
+        latest = json.loads(
+            (ROOT / "evidence/casey-reas-collection-snapshots/latest-run.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(latest["published_source_commit"], PUBLISHED_SOURCE_COMMIT)
+        completed = subprocess.run(
+            ["git", "merge-base", "--is-ancestor", PUBLISHED_SOURCE_COMMIT, "HEAD"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr)
 
     def test_windows_reparse_attribute_fails_closed(self) -> None:
         root_info = SimpleNamespace(st_mode=stat.S_IFDIR, st_file_attributes=0)
