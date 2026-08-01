@@ -73,3 +73,20 @@ head CI, independent protocol/security review, governance approval, a real
 release-evidence retrieval rehearsal, and a separately reviewed implementation
 and audit. No test URI, fixture signer, signature, TargetRelease, or vector
 authorizes deployment, admission, custody, accession, or a network write.
+
+## 2026-08-01 — PR #2 post-PR #15 integration checkpoint
+
+PR #15 merged as `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, preserving the
+Casey acquisition construction commit while adding the reachable public
+`published_source_commit` `9700e842d0c991280b476cc67849d966221a742a` for
+fresh-clone verification. PR #2 merges that new mainline before exact-head
+review. Because its governed control-plane test is one of the Casey package's
+closed external inventory inputs, the package manifest and its pointer are
+regenerated without changing raw observations, snapshots, descriptor results,
+or accession/curatorial status.
+
+This integration does not alter the V1 boundary: the Museum wrapper/registry,
+TargetRelease signature bundle, URI lifecycle, batch vectors, and Stream
+bilateral ontology requirements remain design and conformance material only.
+They are not a deployed contract, published TargetRelease, migration, Stream
+owner-record write, accession assertion, or network-write authorization.

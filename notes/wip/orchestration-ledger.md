@@ -469,3 +469,96 @@ reference, schema, 3/3 offline recovery check, and an explicit statement that
 it is not published release or deployment evidence. Full validation, a fresh
 release manifest, exact-head CI, and independent review remain required before
 any merge; implementation and deployment remain separate authorization gates.
+
+## 2026-08-01 - Post-merge fresh-clone publication-pin correction
+
+Supersedes: `2026-08-01 - PR #13 acquisition-pin reachability remediation` in
+this ledger.
+
+Post-merge `main` workflow run `30718106015` failed only in the Casey package
+verifier. PR-head and long-lived local worktrees could resolve construction
+commit `48cd2fbf2914d295cdc4260dedb1345061f5e3b6`, but GitHub's squash merge did
+not retain that construction history in the ancestry fetched by a fresh
+`main` checkout. The prior entry's claim that the acquisition pin would remain
+reachable after squash publication is therefore corrected here; it was
+reachable from the PR branch, not from the resulting public main history.
+
+The immutable construction provenance remains unchanged in the package:
+`acquisition_commit` is `48cd2fbf2914d295cdc4260dedb1345061f5e3b6` and
+`source_snapshot_commit` is `820f4bb6999fb9df3b094692913d70ebf6d9dc63`.
+The excluded `latest-run.json` pointer now additionally records
+`published_source_commit` as merged main commit
+`9700e842d0c991280b476cc67849d966221a742a`. Fresh clones verify the 79 raw
+observations, five snapshots, and child run manifest against that reachable
+publication commit. A fail-closed mutation test and an ancestry test cover the
+new boundary.
+
+No raw observation, snapshot, descriptor, descriptor-result, request,
+exclusion, warning, or collection-population byte changed. The regenerated
+package-manifest SHA-256 is
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`;
+its change is limited to the updated README, verifier, and mutation-test
+inventory entries. The excluded `latest-run.json` pointer itself also changed
+to add `published_source_commit` and the regenerated package-manifest pointer.
+The governed release-manifest SHA-256 is
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+
+After final package and governed-manifest regeneration, the constructor ran
+`python scripts/bootstrap_validate.py`, `python scripts/check_fetch_guard.py`,
+`python scripts/validate.py`, `python scripts/generate_manifest.py --check`,
+`python scripts/verify_casey_snapshot_package.py`, the complete discovered
+unittest suite, and `codex-diff-check`. All passed; 75 tests ran with the one
+expected Windows named-pipe skip, and the package verifier reproduced 3,300
+tokens, 35,088 traits, 79 raw files, and five descriptor outputs.
+
+## 2026-08-01 - PR #2 post-PR #15 Casey-pin integration checkpoint
+
+PR #15 is merged on `origin/main` as
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`. Its reachable publication
+boundary stays `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a`; the historical Casey construction
+provenance remains immutable. PR #2 merges that exact mainline before its
+independent exact-head review.
+
+PR #2 changes the governed `tests/test_control_plane.py`, which is deliberately
+one of the Casey package's closed external inventory inputs. The reproducible
+package builder therefore regenerates only the package inventory and
+`latest-run.json` pointer to bind that new test byte. It does not change the
+79 raw observations, five snapshots, five descriptor outputs, 3,300-token
+population, 35,088 traits, source/canonical ordering, exclusions, warnings,
+review-null state, or accession/rights/curatorial status.
+
+The V1 contract specification remains a non-deployment design. Its
+TargetRelease signature fixture, URI lifecycle harness, vectors, Stream
+bilateral compatibility gate, and immutable wrapper/registry requirements do
+not constitute a deployed contract, released TargetRelease, Stream
+owner-record mutation, accession, or authorization for a network write. The
+next gates remain final local validation, exact-head CI and independent
+protocol review, governance approval, a release-evidence rehearsal, and a
+separately reviewed implementation and audit.
+
+## 2026-08-01 - PR #2 current Casey toolchain-manifest revision
+
+The immutable historical PR #15 publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+It is not rewritten by this branch. Its reachable
+`published_source_commit` remains
+`9700e842d0c991280b476cc67849d966221a742a`.
+
+PR #2's governed `tests/test_control_plane.py` evolves the current verification
+toolchain. The Casey package therefore has a new current toolchain-manifest
+revision, SHA-256
+`sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`,
+with a regenerated `latest-run.json` pointer. This revision binds the evolved
+toolchain input; it is not an art-data, accession-authority, or historical
+release rewrite.
+
+The integration proof is a closed evidence-path diff against
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`: only
+`package-manifest.json` and the excluded `latest-run.json` pointer may differ
+under `evidence/casey-reas-collection-snapshots/`. Thus every raw observation,
+snapshot, descriptor and result, reconstructed request, exclusion, warning,
+population, and child run-manifest byte remains unchanged. The Casey verifier
+also checks the preserved raw bytes, snapshots, and child manifest against the
+reachable publication commit and recomputes all five descriptor outputs.
