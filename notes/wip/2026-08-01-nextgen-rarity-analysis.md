@@ -28,7 +28,8 @@ a working standard in [`docs/generative-trait-analysis.md`](../../docs/generativ
   wrapped in provider URLs or metadata and fields claiming an internal Museum
   or NextGen provider. Internal NextGen-compatible scores are computed by the
   tool and appear only in output. `rarity_provenance` and methodology
-  citations remain admissible when they contain no structured metric fields.
+  citations remain admissible through a closed recursive citation schema; raw
+  artist trait names and values are not scanned for metric words.
 - Compatibility calculations retain effective source row order while the
   normalized snapshot exposes a separate canonical sorted presentation.
 - Source identity now requires `snapshot_id`, `observed_at`, `collection.id`,

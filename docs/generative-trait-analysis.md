@@ -67,7 +67,11 @@ output. Free-text notes, provenance descriptions, citation labels, and
 citation URLs that mention marketplaces remain admissible. Exact provenance or
 methodology citation objects such as `rarity_provenance` are admissible only
 when they contain no structured precomputed metric fields; their text and URLs
-are never treated as score inputs.
+are never treated as score inputs. Citation objects use a closed recursive
+schema of URL/URI, source URI, method/methodology, version, observation time,
+hash/digest, note/citation, source, and descriptive label fields. Only mapping
+keys are inspected for metric semantics; raw artist trait names and values are
+not scanned for words such as `Rarity` or `Score`.
 
 ## Normalization and data quality
 

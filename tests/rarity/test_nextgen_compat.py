@@ -179,6 +179,24 @@ class NextGenCompatibilityTests(unittest.TestCase):
         with self.assertRaisesRegex(InputError, "provenance/methodology"):
             analyze_snapshot(provenance_with_metric)
 
+        citation_object = json.loads(json.dumps(self.snapshot))
+        citation_object["source"]["rarity_provenance"] = {
+            "url": "https://museum.example/methodology",
+            "source_uri": "ipfs://museum-methodology",
+            "method": "6529 NextGen compatibility input capture",
+            "version": "v1",
+            "observed_at": "2026-08-01T00:00:00Z",
+            "hash": "sha256:0123456789abcdef",
+            "note": "Citation only; no score or rank is imported.",
+        }
+        analyze_snapshot(citation_object)
+
+        raw_trait_content = json.loads(json.dumps(self.snapshot))
+        raw_trait_content["source"]["trait_type"] = "Rarity"
+        raw_trait_content["traits"][0]["trait"] = "Rarity"
+        raw_trait_content["traits"][0]["value"] = "Score"
+        analyze_snapshot(raw_trait_content)
+
     def test_precomputed_metrics_are_rejected_at_any_depth_and_provider_claim(
         self,
     ) -> None:
@@ -195,6 +213,26 @@ class NextGenCompatibilityTests(unittest.TestCase):
             invalid["source"]["rarity_score"] = 1
             with self.subTest(semantic_key=semantic_key), self.assertRaisesRegex(
                 InputError, "third-party"
+            ):
+                analyze_snapshot(invalid)
+
+        for metric_key in (
+            "rarity_value",
+            "rarity_data",
+            "rarity_result",
+            "precomputed_rarity_value",
+            "score",
+            "rank",
+            "metric",
+            "percentile",
+            "prevalence",
+            "frequency",
+            "statistical_rarity",
+        ):
+            invalid = json.loads(json.dumps(self.snapshot))
+            invalid["source"][metric_key] = 1
+            with self.subTest(metric_key=metric_key), self.assertRaisesRegex(
+                InputError, "precomputed"
             ):
                 analyze_snapshot(invalid)
 
@@ -215,6 +253,22 @@ class NextGenCompatibilityTests(unittest.TestCase):
             ):
                 analyze_snapshot(nested)
 
+        for metric_key in (
+            "rarity_value",
+            "rarity_data",
+            "rarity_result",
+            "precomputed_rarity_value",
+        ):
+            nested_citation = json.loads(json.dumps(self.snapshot))
+            nested_citation["source"]["rarity_provenance"] = {
+                "url": "https://museum.example/methodology",
+                "citation": {metric_key: 1},
+            }
+            with self.subTest(nested_metric_key=metric_key), self.assertRaises(
+                InputError
+            ):
+                analyze_snapshot(nested_citation)
+
         internal_claim = json.loads(json.dumps(self.snapshot))
         internal_claim["source"]["provider"] = "6529 NextGen"
         internal_claim["source"]["wrapper"] = {"score": 1}
@@ -225,7 +279,6 @@ class NextGenCompatibilityTests(unittest.TestCase):
         provenance_url["source"]["rarity_provenance"] = {
             "url": "https://looksrare.org/collection/example",
             "note": "prior marketplace citation only; no score or rank imported",
-            "provider": {"url": "https://looksrare.org"},
         }
         analyze_snapshot(provenance_url)
 

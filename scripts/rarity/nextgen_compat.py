@@ -213,25 +213,58 @@ def _is_none_value(value: str) -> bool:
     return value.lower().startswith("none")
 
 
-METRIC_TERMS = (
-    "rank",
+METRIC_KEY_TOKENS = (
+    "rarity",
     "score",
+    "rank",
     "metric",
     "percentile",
-    "frequency",
     "prevalence",
-    "floor",
-    "price",
-    "sale",
-    "volume",
+    "frequency",
+    "statistical",
+    "statistic",
+    "distribution",
+    "probability",
 )
-PROVENANCE_KEY_TERMS = (
-    "provenance",
-    "citation",
-    "methodology",
-    "reference",
-    "sourceurl",
-    "url",
+CITATION_ONLY_KEY_ALLOWLIST = frozenset(
+    {
+        "provenance",
+        "citation",
+        "methodology",
+        "methodologycitation",
+        "rarityprovenance",
+        "rarityprovenancenote",
+        "raritymethodology",
+        "algorithmsource",
+        "sourceurl",
+        "citationurl",
+        "provenanceurl",
+        "openseatraitsourceurl",
+        "marketplaceurl",
+        "looksrarecitationurl",
+    }
+)
+CITATION_SCHEMA_KEY_ALLOWLIST = frozenset(
+    {
+        "url",
+        "uri",
+        "sourceuri",
+        "sourceurl",
+        "method",
+        "methodology",
+        "version",
+        "observedat",
+        "hash",
+        "digest",
+        "sha256",
+        "note",
+        "citation",
+        "provenance",
+        "source",
+        "description",
+        "label",
+        "title",
+    }
 )
 
 
@@ -239,44 +272,50 @@ def _normalized_key(key: Any) -> str:
     return "".join(character for character in str(key).lower() if character.isalnum())
 
 
-def _is_metric_key(key: Any) -> bool:
+def _contains_metric_token(key: Any) -> bool:
     normalized = _normalized_key(key)
-    return (
-        normalized == "rarity"
-        or normalized.endswith("rarity")
-        or any(term in normalized for term in METRIC_TERMS)
-    )
+    return any(token in normalized for token in METRIC_KEY_TOKENS)
 
 
-def _is_provenance_key(key: Any) -> bool:
-    normalized = _normalized_key(key)
-    return any(term in normalized for term in PROVENANCE_KEY_TERMS)
-
-
-def _contains_metric_key(value: Any) -> bool:
-    if isinstance(value, dict):
-        return any(
-            _is_metric_key(key) or _contains_metric_key(child)
-            for key, child in value.items()
-        )
+def _validate_citation_value(value: Any, path: str) -> None:
+    if isinstance(value, str):
+        return
     if isinstance(value, list):
-        return any(_contains_metric_key(child) for child in value)
-    return False
+        for index, child in enumerate(value):
+            _validate_citation_value(child, f"{path}[{index}]")
+        return
+    if not isinstance(value, dict):
+        raise InputError(
+            "citation values must be strings, objects, or arrays of citation "
+            f"values: {path}"
+        )
+    for key, child in value.items():
+        normalized = _normalized_key(key)
+        if normalized not in CITATION_SCHEMA_KEY_ALLOWLIST:
+            raise InputError(
+                "unsupported field in closed provenance/methodology citation "
+                f"schema: {path}.{key}"
+            )
+        if _contains_metric_token(key):
+            raise InputError(
+                "precomputed rarity/score/rank/metric fields are prohibited "
+                "inside provenance/methodology citations: "
+                f"{path}.{key}"
+            )
+        _validate_citation_value(child, f"{path}.{key}")
 
 
 def _reject_precomputed_metric_fields(value: Any, path: str = "snapshot") -> None:
-    """Reject precomputed input metrics while allowing citation-only provenance."""
+    """Reject input metrics while allowing closed citation-only provenance."""
 
     if isinstance(value, dict):
         for key, child in value.items():
             key_text = str(key)
-            if _is_provenance_key(key) and _contains_metric_key(child):
-                raise InputError(
-                    "precomputed rarity/score/rank/metric fields are prohibited "
-                    "inside "
-                    f"provenance/methodology citations: {path}.{key_text}"
-                )
-            if _is_metric_key(key):
+            normalized = _normalized_key(key)
+            if normalized in CITATION_ONLY_KEY_ALLOWLIST:
+                _validate_citation_value(child, f"{path}.{key_text}")
+                continue
+            if _contains_metric_token(key):
                 raise InputError(
                     "third-party or internal precomputed rarity/score/rank/metric "
                     "fields are prohibited in Museum input snapshots: "
