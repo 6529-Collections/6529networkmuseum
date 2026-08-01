@@ -118,3 +118,9 @@ PR [#5](https://github.com/6529-Collections/6529networkmuseum/pull/5) merged at 
 - `notes/research/keys-and-gates-evidence.md`
 
 These are research inputs, not governed records. They require integration review.
+
+## 2026-08-01 - review-bot routing checkpoint
+
+The `6529reviewbot` source repository was audited before changing Museum review routing. Its specialist kinds are intentionally opt-in rather than part of `review all`, and `followup` is designed for commits made after initial review.
+
+The Museum base profile now applies `general`, `security`, `privacy-evidence`, and advisory `glm-swarm` to every pull request. It allows, but does not automatically spend on, `media-external`, `stream-contracts`, and `deploy-actions`. Maintainer commands route those specialists to evidence ingest, contract, and CI/release diffs respectively. The active PR-by-PR matrix is preserved in `governance/pull-request-review-policy.md`.
