@@ -137,10 +137,20 @@ The release profile is RFC 8785-compatible constrained I-JSON:
 
 JSON entries receive a Stream-shaped Keccak/JCS `content_hash` and all governed
 files receive an LF-normalized SHA-256 digest. The manifest itself commits its
-canonical body with both Keccak/JCS and SHA-256. The inventory covers
-`policies/`, `records/`, `schemas/`, `docs/`, `scripts/`, and `tests/` in sorted
-repository-relative POSIX order. Evidence remains in separate raw-byte
-manifests, and the release manifest is not self-included.
+canonical body with both Keccak/JCS and SHA-256. Its closed directory inventory
+covers `.github/`, `policies/`, `records/`, `schemas/`, `docs/`, `governance/`,
+`specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
+files `.gitattributes`, `.gitignore`, `AGENTS.md`, `INDEX.md`, `README.md`, and
+`requirements-dev.txt`. Entries use sorted repository-relative POSIX paths.
+Generation fails closed if any configured root or named control file is missing,
+linked, a reparse point, or not the expected regular-file/directory type.
+Non-regular entries inside governed directories, including pipes, sockets, and
+devices, are also rejected rather than silently omitted.
+
+Evidence remains in separately governed raw-byte manifests so authenticated
+source bytes are never silently normalized. `notes/` is the indexed WIP and
+research notebook, not a release authority. `release-artifacts/` is excluded to
+avoid a self-referential manifest; Git internals are never inventoried.
 
 ## Local commands
 
@@ -157,7 +167,8 @@ python scripts/generate_manifest.py --check
 ```
 
 Run the generator after changing a policy, canonical record, schema,
-control-plane document, tool, or test. Commit the resulting
+governance or control-plane document, protocol specification, template,
+repository control, tool, or test. Commit the resulting
 `release-artifacts/latest/record-manifest.json` with the change.
 The pull-request workflow runs the bootstrap validator, test suite, full
 validator, and stale-manifest check on every PR with a bounded job timeout and

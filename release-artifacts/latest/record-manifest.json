@@ -6,14 +6,59 @@
   },
   "entries": [
     {
+      "path": ".gitattributes",
+      "sha256": "sha256:9f1d1236882029abecf21f2d06f10f6b149ba63b6d3dba3624c38668335d3a58",
+      "size": 445
+    },
+    {
+      "path": ".github/6529bot.yml",
+      "sha256": "sha256:5e3c9803cf45c7303d8bce64523a0c35b390c3a3860d37835ab0eb97cf0e34e9",
+      "size": 1029
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "sha256:9ba643e6f2074245415d049e9f3be6611da8cb4307f76ae2306aac93f271e7c4",
+      "size": 169
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "sha256:752cfb855ee25f08c2f91682a2535477ebe18e3979ab00c418a663d839c9f696",
+      "size": 1505
+    },
+    {
+      "path": ".github/workflows/museum-validation.yml",
+      "sha256": "sha256:653f475178674489bac4cbcd6639297e69aba60db290b94d79aaf67d10d3027f",
+      "size": 2302
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "sha256:f6b228e652a56584f0c298fb331d5569c101b5705d3b9563412aa2c390e9726e",
+      "size": 41
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "sha256:ed2733e39329933323a7f45e797c51bf2960b26bbe095dce8f2892966243ecbd",
+      "size": 2161
+    },
+    {
+      "path": "INDEX.md",
+      "sha256": "sha256:af818fe339c51574964a00a95e7e0c3d0e4c4958fc0f708ac4969a1cccfde03f",
+      "size": 11335
+    },
+    {
+      "path": "README.md",
+      "sha256": "sha256:8d0ed7250d8ce08a65f246a567a7bec7f20af85c5edb569e2c9f0ad83da88520",
+      "size": 5276
+    },
+    {
       "path": "docs/accession-standard.md",
       "sha256": "sha256:c65fbbfea50324cf625096b308da9c11e719f9b1e4a713a5fd3857412ed08b7d",
       "size": 8713
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:e9ac0537ca43478dc678a292fcbf6542d583de406f847f33989d9e48be9c2c7a",
-      "size": 8760
+      "sha256": "sha256:51ef7b38ad403cea22759e5606874d01e2fabefc40423b251a33f7422134c1e4",
+      "size": 9542
     },
     {
       "path": "docs/external-works-registry.md",
@@ -42,8 +87,8 @@
     },
     {
       "path": "docs/record-model.md",
-      "sha256": "sha256:26489d3f3f6d4980a983ef85efa6a8065da1f982706d49122c640e82fb4c20c9",
-      "size": 3235
+      "sha256": "sha256:fc6a51097bebc545400be3f21940edb7e8e1c6dc807d941324af5cfa50abc131",
+      "size": 3403
     },
     {
       "path": "docs/standards-crosswalk.md",
@@ -54,6 +99,16 @@
       "path": "docs/stream-interoperability.md",
       "sha256": "sha256:e1132e130381bea300ac13fe8c6312c4dcd6d7fbac77882f64dda77a746575d9",
       "size": 5873
+    },
+    {
+      "path": "governance/github-repository-governance.md",
+      "sha256": "sha256:996c17072f9a2cbee8f765dcbb2b3b2b85bc2ecbd801253c6fe406fe319e80bb",
+      "size": 4865
+    },
+    {
+      "path": "governance/pull-request-review-policy.md",
+      "sha256": "sha256:d6f69774caf1189c2fcda8f84f46ae76d04aadbcbe95bd38b7851fbc32515aca",
+      "size": 5505
     },
     {
       "path": "policies/README.md",
@@ -291,6 +346,11 @@
       "size": 388
     },
     {
+      "path": "requirements-dev.txt",
+      "sha256": "sha256:5a266ee12b0a60f9e44e08e5cbcdd394dd72ad65913cb1142590f6b3578db372",
+      "size": 55
+    },
+    {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
@@ -487,8 +547,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:4b3c67f638621bfbb6e9ea8ebee589630ceeb6ffc5741fc73ce1b50f8f26b6dd",
-      "size": 6791
+      "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
+      "size": 8285
     },
     {
       "path": "scripts/rarity/__init__.py",
@@ -514,6 +574,71 @@
       "path": "scripts/validate.py",
       "sha256": "sha256:3c847ce385deb6aaf47757309461433ccb61fbda451db058336d95689c3fe81c",
       "size": 35725
+    },
+    {
+      "path": "specs/README.md",
+      "sha256": "sha256:1955b1f1b0fe6116abb38f32c508cc2bf7f65ef963b8d030237ece9fbef41c73",
+      "size": 1255
+    },
+    {
+      "path": "templates/README.md",
+      "sha256": "sha256:199381ad7fb216bc1cc056ff51349084e0632822d60545de911f187beb649b3f",
+      "size": 8853
+    },
+    {
+      "path": "templates/accession-lot.md",
+      "sha256": "sha256:29a56e39397febef0870a5367e6a66a76de8ce33818588e0367c47d273a32816",
+      "size": 6672
+    },
+    {
+      "path": "templates/accession-state-gates.md",
+      "sha256": "sha256:8b0fc7b7c0b3c0e80e336353c18afefa0c5787732859fccae8387dace47f2023",
+      "size": 7429
+    },
+    {
+      "path": "templates/attestations.md",
+      "sha256": "sha256:81a63e9e86ccf01b789bb983f2036a8e0db2c98ea39e86de0398e218fa06cc3f",
+      "size": 4580
+    },
+    {
+      "path": "templates/object-record.md",
+      "sha256": "sha256:0b36009f51f509fc77c8072055ccee4cba2376f08c81671b4d63b09476b9e377",
+      "size": 6997
+    },
+    {
+      "path": "templates/preservation-dossier.md",
+      "sha256": "sha256:98e7c6a3f9a0ca38d88f6686c4a0ad36ededff96c051e90d38d31a36770089cc",
+      "size": 6399
+    },
+    {
+      "path": "templates/provenance-chain-history.md",
+      "sha256": "sha256:0292023c1a1e8cdfaa712b6f625a21a9590ef739183130e82960d384d84e48c1",
+      "size": 4600
+    },
+    {
+      "path": "templates/public-inventory.md",
+      "sha256": "sha256:013347965d1ba2b5bff06b269d69f03977ea3e4b66907d2011a2a1a81f1f6724",
+      "size": 3098
+    },
+    {
+      "path": "templates/record-control.md",
+      "sha256": "sha256:6a0c02ba044504b4416ef6c7633aa0709b97cc22441e8850cd5223c58f9d8808",
+      "size": 3147
+    },
+    {
+      "path": "templates/restricted-annex-reference.md",
+      "sha256": "sha256:fd4122641153230399326b21bef04ac5aaa0396fe3a6d0acf95bfd4050592f89",
+      "size": 2012
+    },
+    {
+      "path": "templates/rights-donor-transfer.md",
+      "sha256": "sha256:cce61a939ae79a3ee2e93db4e439f3aec4001085c1a6befd76b3aa8c113e4b14",
+      "size": 5398
+    },
+    {
+      "path": "templates/technical-condition-report.md",
+      "sha256": "sha256:c001f609552596f68c1d9433a4c689d0b6ac368901555dedcea080fa4fcde227",
+      "size": 4822
     },
     {
       "path": "tests/__init__.py",
@@ -657,28 +782,40 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:60f01380e1fbfb62232bb672f495a092c8263b9a2c97172230829c03a28648d4",
-      "size": 46363
+      "sha256": "sha256:d44f19a71701a97d2c72a8a357283dd01898e642d44166ed4ba532ce491db498",
+      "size": 51357
     }
   ],
   "hash_algorithms": {
     "keccak256": 1,
     "sha256": 2
   },
+  "inventory_files": [
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "INDEX.md",
+    "README.md",
+    "requirements-dev.txt"
+  ],
   "inventory_roots": [
+    ".github",
     "policies",
     "records",
     "schemas",
     "docs",
+    "governance",
+    "specs",
+    "templates",
     "scripts",
     "tests"
   ],
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa6a652495526d6f46f102c29cd7189dadf7e375c038319084c924f4a658235c2"
+    "digest": "0xc26dc342e3a863e5433edde6b2e3d816b902be7b6b29385700229157b544dffc"
   },
-  "manifest_sha256": "sha256:a40ac423c40f09d6f07513ad9a3e76b95c43d5d0b7337d3764bcffc27af3d040",
+  "manifest_sha256": "sha256:5564b2cb37ae258064418c7d3aac182a38312b145c3a76c1a5aa4cbd34d83835",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
