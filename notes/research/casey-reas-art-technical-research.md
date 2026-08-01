@@ -28,6 +28,8 @@ The Art Blocks token metadata also reports `CC BY-NC 4.0` for all seven projects
 
 The CAIP-19-shaped citations below identify the native Ethereum ERC-721 objects. They are not Museum accession numbers and do not assert title.
 
+The selected Pre-Process record has an aspect ratio of 1.78; the reviewed token metadata does not return a palette feature for that project, so no palette is inferred.
+
 | Proposed object | Native identity and token hash | Project/date evidence | Runtime and selected token features |
 |---|---|---|---|
 | `6529NM.2026.001.1` — **CENTURY #31** | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031`; hash `0x55f52fb6b8134eb95200dfe109941c2df4ef53618d08598ccf7bd20a955bbfa9` | Art Blocks Curated, project `100`; released 2021-06-25; minted 2021-06-25 19:00:08 UTC | `p5@1.0.0`; square; palette A; slice count 16; line count 17; Oculi true |
@@ -35,10 +37,10 @@ The CAIP-19-shaped citations below identify the native Ethereum ERC-721 objects.
 | `6529NM.2026.001.3` — **CENTURY #401** | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401`; hash `0x8e536efbdddc966eb7cea6d719463fd1310cc9054e6e6850557a5fd69b49dd16` | Art Blocks Curated, project `100`; released 2021-06-25; minted 2021-06-25 19:02:56 UTC | `p5@1.0.0`; square; palette C; slice count 10; line count 15; alpha 209 |
 | `6529NM.2026.001.4` — **Pre-Process #63** | `eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063`; hash `0x0d800ffd4ec82f477918afd163ef9089a92f6b6bb5e81247671bbad6a27bcbd0` | Art Blocks Curated, project `383`; released 2022-11-30; minted 2022-11-30 18:25:23 UTC | `p5@1.0.0`; aspect ratio 1.78; Growth 4, Origin 1, Surface 8 |
 | `6529NM.2026.001.5` — **Phototaxis #308** | `eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308`; hash `0x0cfd2dddb2da0dcf086b6a7955e1d0201d0425566962d002be7669742bbec72c` | Art Blocks Playground, project `164`; released 2021-09-21; minted 2021-09-21 19:52:20 UTC | `p5@1.0.0`; square; Size Base; Speed Lively; Lights 3; Façade Atomic A; Sensors Nonlinear; Population Assemblage; Magnification 0.66 |
-| `6529NM.2026.001.6` — **923 EMPTY ROOMS #713** | `eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713`; hash `0x293d12f425921929361c334bbe6402ff4eaf65b29d0b913df133e335f062896e` | Art Blocks × Bright Moments, project `1`; released 2023-08-19; minted 2023-08-18 16:57:59 UTC | `p5@1.0.0`; square; City CDMX; code 555536; six shapes; four Pyramids, one Cargo, one Moon; gray background; Primary Form Pyramid |
+| `6529NM.2026.001.6` — **923 EMPTY ROOMS #713** | `eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713`; hash `0x293d12f425921929361c334bbe6402ff4eaf65b29d0b913df133e335f062896e` | Art Blocks × Bright Moments, project `1`; project release 2023-08-19; token minted 2023-08-18 16:57:59 UTC; relationship retained as unresolved | `p5@1.0.0`; square; City CDMX; code 555536; six shapes; four Pyramids, one Cargo, one Moon; gray background; Primary Form Pyramid |
 | `6529NM.2026.001.7` — **Ex Nihilo (Cosmos) #248** | `eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248`; hash `0x09e7e497b272d55d199f92d3f0105d43d88f6f3b1f87e89f1ea64e4ea1ba01a8` | Art Blocks Studio / Feral File, project `0`; released 2026-03-10; minted 2026-03-11 16:41:35 UTC | `p5@1.9.0`; square; RGB false; CHUNK 3; # COSMOS 3; FFFFFF true |
 
-The platform's token-ID rule is `projectId × 1,000,000 + invocation`; this explains, for example, `1000713` as project 1, invocation 713. The full token records, generator URLs, and static-image URLs are listed in the source register below.
+For the projects in this schedule whose metadata exposes the encoded form — CENTURY, Pre-Process, Phototaxis, and 923 EMPTY ROOMS — the platform's token-ID rule is `projectId × 1,000,000 + invocation`; this explains, for example, `1000713` as project 1, invocation 713. Do not apply that rule to a Studio or Engine deployment unless the contract/API exposes the same encoding. The Ex Nihilo token API identifies `engine_type: studio`, `project_id: "0"`, and `tokenID: "248"`; although `0 × 1,000,000 + 248` also equals 248 arithmetically, that coincidence does not establish that the Studio contract encoded the ID with the shared rule. Record #248 as the contract/API token ID and keep its project and engine metadata separate. The full token records, generator URLs, and static-image URLs are listed in the source register below.
 
 ## Project research
 
@@ -82,7 +84,9 @@ For #308, the authoritative feature set is Size Base, Speed Lively, Lights 3, Fa
 
 ### 923 EMPTY ROOMS #713
 
-**Sourced fact and project account (B).** Art Blocks and Bright Moments describe 923 EMPTY ROOMS as an evolution of *An Empty Room*, a 2023 LACMA commission for *Coded: Art Enters the Computer Age, 1952–1982*. The project contains six primary forms, each associated with one of six cities: Sun/Tokyo, Shard/Berlin, Cargo/London, Hive/New York, Pyramid/Mexico City, and Moon/Los Angeles. The full 923-room edition enumerates every combination with replacement of those six forms, and the works were minted and revealed through a simultaneous six-day exhibition across the cities. The project released on 19 August 2023 as 924 unique tokens, with the extra count reflecting the project mechanics rather than a claim that there are 924 combinations.
+**Sourced fact and project account (B).** Art Blocks and Bright Moments describe 923 EMPTY ROOMS as an evolution of *An Empty Room*, a 2023 LACMA commission for *Coded: Art Enters the Computer Age, 1952–1982*. The project contains six primary forms, each associated with one of six cities: Sun/Tokyo, Shard/Berlin, Cargo/London, Hive/New York, Pyramid/Mexico City, and Moon/Los Angeles. The generative system contains 923 unique rooms/combinations using those six forms. Art Blocks and Bright Moments separately identify the authoritative fixed project edition as 924 unique artworks/tokens, while Art Blocks gives the project-level release date as 19 August 2023. Bright Moments documents a six-day mint/reveal schedule from 14–19 August at 12:00 EDT, maps CDMX to 18 August, and states that the 923-combination mint order was predetermined. Token #713 is identified as City CDMX and its token metadata records a 2023-08-18 16:57:59 UTC mint. This supports placing the token mint within the documented six-day schedule, but it does not establish the semantic relationship between that token timestamp and the project-level release date; preserve both observations and mark that relationship unresolved rather than calling the mint pre-release.
+
+For an accession record, claim “fixed edition: 924 unique artworks/tokens; generative system: 923 unique rooms/combinations; this object: native token #713.” Do not describe the accession object as one of 923 tokens, or call a 924th token an extra room, unless token-level evidence supports that narrower claim.
 
 **Technical constitution (C).** The retrieved script was 29,178 UTF-8 bytes; SHA-256 `5298304d3583d02f62aaf6e35c1ffd682c52468d69a74073833b7e280032661f`; `p5@1.0.0`. It uses a token-hash seed, a fixed combination list, a square `WEBGL` canvas, an off-screen WebGL surface, and custom shader code for line rendering. It derives the initial combination from the invocation number when the token is in the 923-work range. The script includes city display presets, diagram mode, color toggles, speed and scale controls, and a save-canvas command. Static scan found no external asset, audio, or network-loading call.
 
@@ -163,14 +167,14 @@ All web sources below were accessed or queried on 2026-08-01 UTC. The source lis
 - [CENTURY — Art Blocks](https://www.artblocks.io/collection/century-by-casey-reas)
 - [Pre-Process — Art Blocks](https://www.artblocks.io/collection/pre-process-by-casey-reas)
 - [Phototaxis — Art Blocks](https://www.artblocks.io/collection/phototaxis-by-casey-reas)
-- [923 EMPTY ROOMS — Art Blocks](https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas)
+- [923 EMPTY ROOMS — Art Blocks](https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas) — fixed edition 924 unique artworks; 923 unique rooms/combinations; project release date 2023-08-19.
 - [Ex Nihilo (Cosmos) — Art Blocks](https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas)
-- [923 Empty Rooms — Bright Moments](https://www.brightmoments.io/923emptyrooms)
+- [923 Empty Rooms — Bright Moments](https://www.brightmoments.io/923emptyrooms) — edition size 924; 923 combinations; six-day mint/reveal schedule and predetermined combination order.
 - [CENTURY #31 token API](https://token.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031) · [#724](https://token.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724) · [#401](https://token.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401)
 - [Pre-Process #63 token API](https://token.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063)
 - [Phototaxis #308 token API](https://token.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308)
 - [923 EMPTY ROOMS #713 token API](https://token.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713)
-- [Ex Nihilo (Cosmos) #248 token API](https://token.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248)
+- [Ex Nihilo (Cosmos) #248 token API](https://token.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248) — `engine_type: studio`, `project_id: 0`, `tokenID: 248`.
 
 ### Technical sources
 
