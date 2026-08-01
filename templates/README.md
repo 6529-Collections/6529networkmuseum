@@ -2,7 +2,7 @@
 
 Status: draft working templates. These forms are not adopted policy and do not create, amend, or complete a Museum accession by themselves.
 
-These templates are the operational layer below [`docs/accession-standard.md`](../docs/accession-standard.md). They are designed for born-digital, generative, software, photographic, video, audio, interactive, and tokenized works. They keep the original artwork, the token, legal title, custody, rights, technical dependencies, and preservation copies as related but non-identical facts.
+These templates are the operational layer below the governing working standard [`docs/accession-standard.md`](../docs/accession-standard.md). The field-level implementation crosswalk is [`docs/standards-crosswalk.md`](../docs/standards-crosswalk.md); it explains how this application profile maps to external standards. The templates are designed for born-digital, generative, software, photographic, video, audio, interactive, and tokenized works. They keep the original artwork, the token, legal title, custody, rights, technical dependencies, and preservation copies as related but non-identical facts.
 
 ## Packet map
 
@@ -39,6 +39,8 @@ Use the state model in [`accession-state-gates.md`](accession-state-gates.md). T
 `offered` → `authorized` → `acquired` → `received_onchain` → `accessioned` → `catalogued` → `technically_verified` → `preservation_complete` → `display_ready`
 
 For pre-mint program selections, use `selected_unminted` alongside the program outcome. Do not create a token citation, title binding, custody receipt, or accession claim until a specific on-chain asset and the corresponding legal/acquisition evidence exist.
+
+Use this shared pathway vocabulary in both the lot record and gate worksheet: `[preapproved collection | ordinary donation review | network-funded program | Meme Card benefit-work program | individual/group-funded program | secondary acquisition | purchase | bequest | exchange | transfer | other]`.
 
 ## Scenario controls
 

@@ -9,7 +9,7 @@ Status: draft working template. Complete one record per artwork/object even when
 - Accession lot: `[...]`
 - Record-control block: `[instantiate exactly from record-control.md]`
 - `record_control.record_status`: `[constructed | reviewed]`
-- Object lifecycle state: `[draft | selected_unminted | acquired_pending_accession | accessioned | catalogued | technically_verified | preservation_complete | display_ready | amended | superseded]`
+- Object lifecycle state: `[draft | selected_unminted | acquired | accessioned | catalogued | technically_verified | preservation_complete | display_ready | amended | superseded]`
 - Created at / effective at / revision: `[...]`
 - Supersedes / amendment: `[none | record ID]`
 - Constructor and reviewer refs: `[...]`
@@ -36,7 +36,7 @@ Describe the artwork as more than its token. State whether the token, contract, 
 
 ## Native identity and state
 
-- Subject state: `[native_token_verified | non_token_digital_object | hybrid | selected_unminted | not_yet_identified]`
+- Subject state: `[native_token_verified | non_token_digital_object | hybrid | selected_unminted | not_yet_assigned]`
 - Blockchain/network and numeric chain ID: `[...]`
 - Token standard: `[...]`
 - Contract address: `[...]`

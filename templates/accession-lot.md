@@ -24,7 +24,7 @@ Status: draft working template. This is the short institutional act plus an obje
 - Accession date: `[...]`
 - Acceptance authority and decision evidence: `[...]`
 - Acquisition method: `[donation | purchase | bequest | exchange | transfer | program acquisition | other]`
-- Pathway: `[preapproved collection | ordinary donation review | network-funded program | Meme Card benefit-work program | individual/group-funded program | secondary acquisition | other]`
+- Pathway: `[preapproved collection | ordinary donation review | network-funded program | Meme Card benefit-work program | individual/group-funded program | secondary acquisition | purchase | bequest | exchange | transfer | other]`
 - Accession rationale (concise): `[...]`
 - Explicit non-claims: `[...]`
 - Donor credit line (public-safe): `[...]`

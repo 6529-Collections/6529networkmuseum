@@ -5,7 +5,7 @@ Status: draft working template. Complete one worksheet per lot and retain object
 ## Record identity
 
 - Lot ID: `[6529NM.<year>.<sequence>]`
-- Program or pathway: `[donation | preapproved donation | network-funded program | Meme Card benefit-work program | individual/group-funded program | purchase | other]`
+- Program or pathway: `[preapproved collection | ordinary donation review | network-funded program | Meme Card benefit-work program | individual/group-funded program | secondary acquisition | purchase | bequest | exchange | transfer | other]`
 - Object or outcome IDs covered: `[...]`
 - Record-control block: `[instantiate exactly from record-control.md]`
 - Prepared by / date / version: `[...]`
