@@ -1,0 +1,42 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "RIGHTS_STATEMENT",
+    "subjectId": "0x357b5284c96e355fe0cb80e9714a952066422927408df131b948edc7bfe69b74",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x5ed177672c4d265a637fdf7815d07bc4362561417e48deadd9401b94ac490fb0",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5examplerights",
+    "schemaId": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM-RIGHTS-2026-001",
+    "record_type": "RIGHTS_STATEMENT",
+    "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "subject_id": "6529NM-RIGHTS-2026-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {"id": "registrar", "role": "registrar", "observed_at": "2026-08-01T00:00:00Z"},
+    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "references": ["6529NM.2026.001.1"],
+    "object_id": "6529NM.2026.001.1",
+    "rights_holder_reference": "Example Artist",
+    "basis": "CC0 statement",
+    "grants": {
+      "reproduction": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
+      "publication": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"}
+    }
+  }
+}

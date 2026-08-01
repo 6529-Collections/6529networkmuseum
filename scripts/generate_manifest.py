@@ -20,6 +20,23 @@ INVENTORY_ROOTS = ("policies", "records", "schemas")
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 
 
+class DuplicateJsonKeyError(ValueError):
+    """Raised when a JSON object repeats a key before JCS hashing."""
+
+    def __init__(self, key: str) -> None:
+        super().__init__(f"duplicate JSON object key: {key!r}")
+        self.key = key
+
+
+def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise DuplicateJsonKeyError(key)
+        result[key] = value
+    return result
+
+
 def keccak256(data: bytes) -> bytes:
     digest = keccak.new(digest_bits=256)
     digest.update(data)
@@ -54,7 +71,7 @@ def file_entry(root: Path, path: Path) -> dict[str, Any]:
     }
     if path.suffix.lower() == ".json":
         with path.open("r", encoding="utf-8") as handle:
-            value = json.load(handle)
+            value = json.load(handle, object_pairs_hook=reject_duplicate_keys)
         entry["content_hash"] = {
             "algorithm": 1,
             "digest": "0x" + keccak256(canonicalize(value)).hex(),
@@ -101,15 +118,19 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     root = args.root.resolve()
     output = args.output if args.output.is_absolute() else root / args.output
-    expected = make_manifest(root)
+    try:
+        expected = make_manifest(root)
+    except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+        print(f"manifest generation failed: {exc}")
+        return 1
     if args.check:
         if not output.exists():
             print(f"manifest missing: {output}")
             return 1
         try:
             with output.open("r", encoding="utf-8") as handle:
-                actual = json.load(handle)
-        except (OSError, json.JSONDecodeError) as exc:
+                actual = json.load(handle, object_pairs_hook=reject_duplicate_keys)
+        except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
             print(f"manifest unreadable: {exc}")
             return 1
         if actual != expected:

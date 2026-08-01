@@ -26,6 +26,23 @@ VOCAB_SCHEMA_PATH = SCHEMAS_DIR / "controlled-vocabularies.schema.json"
 ENVELOPE_PATH = SCHEMAS_DIR / "record-envelope.schema.json"
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
 
+
+class DuplicateJsonKeyError(ValueError):
+    """Raised when a JSON object repeats a key before validation or hashing."""
+
+    def __init__(self, key: str) -> None:
+        super().__init__(f"duplicate JSON object key: {key!r}")
+        self.key = key
+
+
+def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise DuplicateJsonKeyError(key)
+        result[key] = value
+    return result
+
 RECORD_REFERENCE_KEYS = {
     "references",
     "supersedes",
@@ -92,7 +109,7 @@ def unix_seconds(value: str, label: str) -> int:
 
 def load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+        return json.load(handle, object_pairs_hook=reject_duplicate_keys)
 
 
 def load_schemas() -> tuple[dict[str, Any], dict[str, Any], dict[str, dict[str, Any]]]:
@@ -179,8 +196,12 @@ def inspect_sensitive(value: Any, path: str = "$") -> Iterable[str]:
     elif isinstance(value, str):
         if any(pattern.search(value) for pattern in SECRET_VALUE_PATTERNS):
             yield f"{path}: secret, credential, or private filesystem value is not allowed in public records"
-        if re.match(r"^https?://(?:localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)", value, re.IGNORECASE):
+        if is_private_network_url(value):
             yield f"{path}: local/private network URL is not allowed in public records"
+
+
+def is_private_network_url(value: str) -> bool:
+    return bool(re.match(r"^https?://(?:localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)", value, re.IGNORECASE))
 
 
 def iter_reference_values(value: Any, key: str | None = None) -> Iterable[str]:
@@ -236,6 +257,32 @@ def validate_state_machine(payload: dict[str, Any], vocabularies: dict[str, Any]
     title_binding = title_binding if isinstance(title_binding, dict) else {}
     rights = rights if isinstance(rights, dict) else {}
     condition = condition if isinstance(condition, dict) else {}
+    acquisition_transaction = chain.get("acquisition_transaction")
+    transfer_transaction = title_binding.get("transfer_transaction")
+    if isinstance(acquisition_transaction, str) and isinstance(transfer_transaction, str):
+        if transfer_transaction.lower() != acquisition_transaction.lower():
+            issues.append("title_binding.transfer_transaction must match chain_identity.acquisition_transaction")
+    custody_account = chain.get("custody_account")
+    title_binding_to = title_binding.get("to")
+    if isinstance(custody_account, str) and isinstance(title_binding_to, str):
+        custody_match = re.fullmatch(r"eip155:[0-9]+:(0x[0-9a-fA-F]{40})", custody_account)
+        if custody_match and title_binding_to.lower() != custody_match.group(1).lower():
+            issues.append("title_binding.to must match chain_identity.custody_account")
+    caip19 = chain.get("caip19")
+    if isinstance(caip19, str):
+        caip_match = re.fullmatch(r"eip155:([0-9]+)/((?:erc721|erc1155)):0x([0-9a-fA-F]{40})/([0-9]+)", caip19)
+        if not caip_match:
+            issues.append("chain_identity.caip19 must encode an eip155 ERC token identity")
+        else:
+            if isinstance(chain.get("chain_id"), int) and caip_match.group(1) != str(chain["chain_id"]):
+                issues.append("chain_identity.caip19 chain must match chain_identity.chain_id")
+            if isinstance(chain.get("contract"), str) and caip_match.group(3).lower() != chain["contract"].lower().removeprefix("0x"):
+                issues.append("chain_identity.caip19 contract must match chain_identity.contract")
+            if isinstance(chain.get("token_id"), str) and caip_match.group(4) != chain["token_id"]:
+                issues.append("chain_identity.caip19 token must match chain_identity.token_id")
+            expected_resource = {"ERC-721": "erc721", "ERC-1155": "erc1155"}.get(chain.get("token_standard"))
+            if expected_resource and caip_match.group(2) != expected_resource:
+                issues.append("chain_identity.caip19 resource type must match chain_identity.token_standard")
     if "received_onchain" in state_set and chain.get("custody_status") != "verified":
         issues.append("completion gate: received_onchain requires verified custody")
     if "accessioned" in state_set:
@@ -259,6 +306,9 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
     envelope = record["envelope"]
     payload = record["payload"]
     record_type = payload.get("record_type")
+    envelope_uri = envelope.get("uri")
+    if isinstance(envelope_uri, str) and is_private_network_url(envelope_uri):
+        issues.append("envelope.uri: local/private network URL is not allowed in public records")
     if not isinstance(record_type, str) or record_type not in vocabularies.get("schema_ids", {}):
         return [f"payload.record_type is unknown: {record_type!r}"]
     if envelope.get("recordType") != record_type:
@@ -336,7 +386,10 @@ def validate_records(root: Path) -> list[str]:
         if bootstrap.returncode:
             detail = (bootstrap.stdout + bootstrap.stderr).strip()
             issues.append(f"bootstrap validation failed: {detail}")
-    vocabularies, envelope_schema, schema_store = load_schemas()
+    try:
+        vocabularies, envelope_schema, schema_store = load_schemas()
+    except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+        return [f"schema and vocabulary load failed: {exc}"]
     issues.extend(validate_vocabularies(vocabularies))
     try:
         vocabulary_schema = load_json(VOCAB_SCHEMA_PATH)
@@ -358,7 +411,7 @@ def validate_records(root: Path) -> list[str]:
         relative = path.relative_to(root).as_posix()
         try:
             record = load_json(path)
-        except (OSError, json.JSONDecodeError) as exc:
+        except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
             issues.append(f"{relative}: cannot parse JSON: {exc}")
             continue
         if not isinstance(record, dict):

@@ -16,7 +16,8 @@
         "to": {"$ref": "#/$defs/address"},
         "bound_at": {"type": "string", "format": "date-time"}
       },
-      "required": ["status", "instrument_sha256", "custodian_reference", "transfer_transaction", "block_number", "from", "to", "bound_at"]
+      "required": ["status", "instrument_sha256", "custodian_reference", "transfer_transaction", "block_number", "from", "to", "bound_at"],
+      "unevaluatedProperties": false
     },
     "rightsGrant": {
       "type": "object",

@@ -13,7 +13,7 @@ REPO_ROOT = TESTS_DIR.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from canonical import canonicalize  # noqa: E402
-from generate_manifest import make_manifest  # noqa: E402
+from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, make_manifest  # noqa: E402
 from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
@@ -93,6 +93,53 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "governance-decision.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("supersedes must not point to itself" in issue for issue in issues), issues)
+
+    def test_accession_cross_field_integrity_is_rejected(self) -> None:
+        mutations = (
+            ("title_binding", "transfer_transaction", "0x" + "c" * 64, "title_binding.transfer_transaction must match"),
+            ("title_binding", "to", "0x" + "4" * 40, "title_binding.to must match"),
+            ("chain_identity", "caip19", "eip155:1/erc721:0x1111111111111111111111111111111111111111/2", "chain_identity.caip19 token must match"),
+        )
+        for section, key, value, expected in mutations:
+            with self.subTest(section=section, key=key):
+                temporary, records = self.make_records_root()
+                self.addCleanup(temporary.cleanup)
+                record = self.load_record(records, "object-record.json")
+                record["payload"][section][key] = value
+                self.save_record(records, "object-record.json", record)
+                issues = validate_records(Path(temporary.name))
+                self.assertTrue(any(expected in issue for issue in issues), issues)
+
+    def test_private_network_envelope_uri_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "object-record.json")
+        record["envelope"]["uri"] = "https://127.0.0.1/private-record"
+        self.save_record(records, "object-record.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("envelope.uri: local/private network URL" in issue for issue in issues), issues)
+
+    def test_duplicate_json_keys_are_rejected_before_validation_and_hashing(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        (records / "duplicate.json").write_text('{"record_id":"first","record_id":"second"}\n', encoding="utf-8")
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("duplicate JSON object key" in issue for issue in issues), issues)
+
+        manifest_root = Path(temporary.name) / "manifest-root"
+        (manifest_root / "schemas").mkdir(parents=True)
+        (manifest_root / "schemas" / "duplicate.json").write_text('{"digest":"one","digest":"two"}\n', encoding="utf-8")
+        with self.assertRaises(ManifestDuplicateJsonKeyError):
+            make_manifest(manifest_root)
+
+    def test_nested_title_binding_unknown_field_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "object-record.json")
+        record["payload"]["title_binding"]["unexpected"] = "reject me"
+        self.save_record(records, "object-record.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("unexpected" in issue and "unevaluated" in issue.lower() for issue in issues), issues)
 
     def test_malformed_workflow_vocabularies_fail_closed(self) -> None:
         malformed = {"workflow_states": ["offered"], "workflow_transitions": None}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION",
+    "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xdf33d2f4a7db508c9d785ee00d5f4e07e81f0d4c069d4f0c468f15ac40e821f8",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "ipfs://bafybeigdyrzt5exampleaccession",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785542400
+  },
+  "payload": {
+    "record_id": "6529NM-ACC-2026-001",
+    "record_type": "ACCESSION",
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "subject_id": "6529NM-ACC-2026-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-01T00:00:00Z",
+    "observed_at": "2026-08-01T00:00:00Z",
+    "effective_at": "2026-08-01T00:00:00Z",
+    "constructor": {"id": "registrar", "role": "registrar", "observed_at": "2026-08-01T00:00:00Z"},
+    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "references": ["6529NM.2026.001", "6529NM.2026.001.1"],
+    "accession_number": "6529NM.2026.001",
+    "acquiring_institution": "6529 Network Museum",
+    "object_ids": ["6529NM.2026.001.1"],
+    "title_bindings": [
+      {
+        "status": "executed",
+        "instrument_sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "block_number": 12345678,
+        "from": "0x3333333333333333333333333333333333333333",
+        "to": "0x2222222222222222222222222222222222222222",
+        "bound_at": "2026-08-01T00:00:00Z"
+      }
+    ],
+    "acquisition_method": "donation",
+    "acceptance_date": "2026-08-01T00:00:00Z"
+  }
+}
