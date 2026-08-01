@@ -1,4 +1,15 @@
 {
+  "$schema": "../../../../schemas/program-outcome.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:48:20Z"
+    },
+    "review": null
+  },
   "record_type": "PROGRAM_OUTCOME",
   "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
   "record_id": "6529NM-AP-01-OUT-012",
@@ -29,7 +40,7 @@
   ],
   "selection_evidence": {
     "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
-    "wave_url": "https://6529.io/waves/{wave_id}",
+    "wave_url": "https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
     "submission_drop_id": "7d3a31f8-41bf-4fc5-8756-ed67eccdcc96",
     "submission_serial_no": 1002997,
     "drop_type": "WINNER",
@@ -39,6 +50,7 @@
     "realtime_vote_total": 9154040,
     "voter_count": 23,
     "decision_at": "2026-07-09T12:00:00Z",
+    "decision_at_basis": "Voting-period end recorded as the selection cutoff; no separate decision event is asserted.",
     "observed_at": "2026-08-01T15:03:35Z",
     "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
   },
@@ -48,7 +60,8 @@
     "artist_assertion_status": "present in source submission; not independently verified and not treated as an effective institutional rights grant",
     "consent_representation": {
       "representation_status": "artist_represents_documented_consent",
-      "documentation_status": "claimed available_or_covered in submission; restricted document not supplied to this public record"
+      "documentation_status": "claimed available_or_covered in submission; restricted document not supplied to this public record",
+      "source_text": "Consent Documentation:\n\nThis image is a self-portrait. Written consent documentation can be provided upon request."
     },
     "restricted_consent_instrument": null,
     "rights_effective_status": "unverified until acquisition/title/rights review and any required consent instrument review complete"

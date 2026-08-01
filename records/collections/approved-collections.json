@@ -1,5 +1,6 @@
 {
   "$schema": "../../schemas/approved-collections.schema.json",
+  "$schema": "../../schemas/approved-collections.schema.json",
   "record_control": {
     "revision": 1,
     "record_status": "reviewed",

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/program-outcome-index/v1",
+  "title": "6529 Network Museum selected-work outcome index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "record_control", "record_type", "schema_profile", "program_id", "program_title", "status", "as_of", "count", "count_meaning", "selection_rule", "works"],
+  "properties": {
+    "$schema": {"const": "../../../schemas/program-outcome-index.schema.json"},
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "constructor"},
+            "constructed_at": {"type": "string", "minLength": 20}
+          }
+        },
+        "review": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "reviewed_at", "reviewed_commit", "outcome", "payload_sha256"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "reviewer"},
+            "reviewed_at": {"type": "string", "minLength": 20},
+            "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "outcome": {"const": "approved"},
+            "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+          }
+        }
+      }
+    },
+    "record_type": {"const": "PROGRAM_OUTCOME_INDEX"},
+    "schema_profile": {"const": "6529NM_PROGRAM_OUTCOME_INDEX_V1"},
+    "program_id": {"const": "6529NM-AP-01"},
+    "program_title": {"const": "Keys and Gates"},
+    "status": {"const": "selected_unminted"},
+    "as_of": {"type": "string", "minLength": 20},
+    "count": {"const": 16},
+    "count_meaning": {"type": "string", "minLength": 1},
+    "selection_rule": {"type": "string", "minLength": 1},
+    "works": {
+      "type": "array",
+      "minItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record_id", "outcome_record", "status", "artist", "title", "submission_drop_id", "submission_serial_no", "drop_type", "winner_place", "vote_total", "realtime_vote_total", "voter_count", "decision_at", "media_count"],
+        "properties": {
+          "record_id": {"type": "string", "pattern": "^6529NM-AP-01-OUT-[0-9]{3}$"},
+          "outcome_record": {"type": "string", "pattern": "^outcomes/OUT-[0-9]{3}\\.json$"},
+          "status": {"const": "selected_unminted"},
+          "artist": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "submission_drop_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+          "submission_serial_no": {"type": "integer", "minimum": 1},
+          "drop_type": {"const": "WINNER"},
+          "winner_place": {"type": "integer", "minimum": 1},
+          "vote_total": {"type": "integer", "minimum": 0},
+          "realtime_vote_total": {"type": "integer", "minimum": 0},
+          "voter_count": {"type": "integer", "minimum": 0},
+          "decision_at": {"type": "string", "minLength": 20},
+          "media_count": {"type": "integer", "minimum": 1}
+        }
+      }
+    }
+  }
+}

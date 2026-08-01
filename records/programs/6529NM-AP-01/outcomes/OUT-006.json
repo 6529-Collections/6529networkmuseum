@@ -1,4 +1,15 @@
 {
+  "$schema": "../../../../schemas/program-outcome.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:48:20Z"
+    },
+    "review": null
+  },
   "record_type": "PROGRAM_OUTCOME",
   "schema_profile": "6529NM_PROGRAM_OUTCOME_V1",
   "record_id": "6529NM-AP-01-OUT-006",
@@ -29,7 +40,7 @@
   ],
   "selection_evidence": {
     "wave_id": "4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
-    "wave_url": "https://6529.io/waves/{wave_id}",
+    "wave_url": "https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427",
     "submission_drop_id": "73ecf8fc-9bde-492d-a624-39d0dd547587",
     "submission_serial_no": 1157117,
     "drop_type": "WINNER",
@@ -39,6 +50,7 @@
     "realtime_vote_total": 10805417,
     "voter_count": 35,
     "decision_at": "2026-07-09T12:00:00Z",
+    "decision_at_basis": "Voting-period end recorded as the selection cutoff; no separate decision event is asserted.",
     "observed_at": "2026-08-01T15:03:35Z",
     "selection_interpretation": "WINNER is selection evidence only. It does not prove minting, purchase, title passage, custody, rights effectiveness, or accession."
   },

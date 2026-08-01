@@ -1,4 +1,15 @@
 {
+  "$schema": "../../../schemas/program-outcome-index.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "role": "constructor",
+      "constructed_at": "2026-08-01T15:48:20Z"
+    },
+    "review": null
+  },
   "record_type": "PROGRAM_OUTCOME_INDEX",
   "schema_profile": "6529NM_PROGRAM_OUTCOME_INDEX_V1",
   "program_id": "6529NM-AP-01",
@@ -6,6 +17,7 @@
   "status": "selected_unminted",
   "as_of": "2026-08-01T15:03:35Z",
   "count": 16,
+  "count_meaning": "Sixteen observed WINNER rows are retained as selected_unminted documentation; this is not a guaranteed acquisition quantity.",
   "selection_rule": "All 16 live API WINNER outcomes are retained as selected_unminted. WINNER is not mint, acquisition, custody, title, rights effectiveness, or accession evidence.",
   "works": [
     {

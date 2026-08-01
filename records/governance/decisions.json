@@ -1,5 +1,6 @@
 {
   "$schema": "../../schemas/governance-decisions.schema.json",
+  "$schema": "../../schemas/governance-decisions.schema.json",
   "record_control": {
     "revision": 1,
     "record_status": "reviewed",
