@@ -378,6 +378,25 @@ only as provenance and are not active vectors: the synthetic URI
 ID `0x0a471326...` with commitment `0x045fef92...`. They MUST NOT be used by
 the current conformance commands.
 
+### Exact-head lead disposition
+
+The active source/vector pair remains
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d` and
+`0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`.
+Earlier `6ab...` / `685...` values are historical context only and are not
+active source or root inputs. The canonicalizer text already defines terminal
+CBOR exclusion, decoded-instruction boundaries, conservative rejection of
+unreachable executable bytes, and the explicit non-claim that the scan proves
+reachability or purity; this review lead is therefore dispositioned without a
+semantic rewrite.
+
+The state-only HTTPS clarification is now explicit: an auditor dereferences a
+record's stored assertion hash, verifies the stored assertion row's hash and
+resolver profile/revision, and does not use a replacement current pointer to
+reinterpret historical state. The detached signature fixture already has
+schema-enforced exactly three entries plus checker-enforced sorted, unique,
+recovered signers, so no malformed or undersized-signature change is needed.
+
 ### Reproducible custom-error and interface-ID checks
 
 The following check parses only the normative error declarations above, strips
@@ -457,6 +476,8 @@ $selectorGolden = [ordered]@{
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
   'admitTargetRelease(uint8,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32)' = '0x47655475'
   'targetRelease(uint8,bytes32)' = '0x07ba475e'
+  'targetReleaseAtRevision(uint8,bytes32,uint64)' = '0x89d9ae30'
+  'quarantineTargetRelease(uint8,bytes32,bytes32)' = '0xf2ebf174'
   'setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x81a86ff4'
   'executeAuthority()' = '0xc9dc7d0d'
   'cancelAuthority()' = '0xf0edf065'
@@ -512,6 +533,14 @@ $selectorSetHash = cast keccak $selectorSetAbi
 if ($selectorSetHash -ne '0xe3e4e12c5bdab6196de71f666d4ecbf4d66919035508760ee81cb63161d81069') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
+
+The dependency-free offline command `python -B
+specs/onchain/manifest_abi_selector_check_v1.py` now independently recomputes
+the active §13.6 source/record/entry/root vector, every selector in this
+canonical transcript, the global-role IDs, the authority selector allowlist,
+and the stable Museum record-type/class allowlist. It is conformance evidence
+for this design specification only and has no network, target-admission, or
+deployment behavior.
 
 The fixed URI-safety profile document was independently hashed from exact
 UTF-8 bytes (1365 bytes, no trailing LF) with both `cast keccak` and

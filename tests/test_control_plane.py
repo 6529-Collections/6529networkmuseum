@@ -1025,6 +1025,7 @@ class ControlPlaneTests(unittest.TestCase):
             "batch_vector_check_v1.py",
             "https_expiry_renewal_check_v1.py",
             "target_release_signature_bundle_check_v1.py",
+            "manifest_abi_selector_check_v1.py",
         ):
             with self.subTest(name=name):
                 result = subprocess.run(

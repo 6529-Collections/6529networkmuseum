@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:a9c352492554ee25cf005dd649f95ae39391ba57001510e0de589d39586f234a",
-      "size": 12303
+      "sha256": "sha256:9a5e7f35eaf0c89b4d5d169c0318cfd938d5303174ffb738e28dd8ef79305af0",
+      "size": 12322
     },
     {
       "path": "README.md",
@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:2fab1703e5d1978ec4bd8d4f5ef91595b1bb7b9cce5752958222002b21549b45",
-      "size": 6923
+      "sha256": "sha256:d03bd403daf0aa3dc5621c6557c5bf50288a3f5c035d5b4a96c76db6c4a714df",
+      "size": 7817
     },
     {
       "path": "docs/onchain-design.md",
@@ -637,13 +637,18 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:22a11a05ce469be42bdc1553a5e12ffa2b4cb60ffd224428ff2ca77ab425b2e7",
-      "size": 190466
+      "sha256": "sha256:5745eb073758ff95a0cc75529df460d834f8f4c03e21af1ca13bf00aade7f64e",
+      "size": 191288
     },
     {
       "path": "specs/onchain/https_expiry_renewal_check_v1.py",
       "sha256": "sha256:b086d7c38391274ab19f8770b51ee5948b5b28460063bfc6a983e7a68ce86c45",
       "size": 3559
+    },
+    {
+      "path": "specs/onchain/manifest_abi_selector_check_v1.py",
+      "sha256": "sha256:9d14baa0af135db8f4591e961b93256d4a6f95e2c347060fc15d75f7d3a396e1",
+      "size": 12696
     },
     {
       "content_hash": {
@@ -907,8 +912,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:49711e6306e79ca064eeabc096bf0f5ab387b7eb25d66ee5275f1f9cb4c8ee4f",
-      "size": 53380
+      "sha256": "sha256:ebc5eb2a19101233a1bc292db7561408bd806135caaefbed471438928fcc2cc3",
+      "size": 53429
     }
   ],
   "hash_algorithms": {
@@ -938,9 +943,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa257af038ddd23adb0f1977fff0c0ba49f8664c4239185fd87f8fa1c4b2702d7"
+    "digest": "0x0a20ed53a2011b842abe05cce9d46938ba21dd1825c3ce4ae01c57596ccc869f"
   },
-  "manifest_sha256": "sha256:b074b1f3e6f9b64c71257e7bfdab1bbc04b1fd228abdf90a4e258b11d8e947ab",
+  "manifest_sha256": "sha256:d219ab109c7997d36916fc934322d5e268f6fd7f329757f712f8811c72611ae2",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

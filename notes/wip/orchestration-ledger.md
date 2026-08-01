@@ -562,3 +562,30 @@ snapshot, descriptor and result, reconstructed request, exclusion, warning,
 population, and child run-manifest byte remains unchanged. The Casey verifier
 also checks the preserved raw bytes, snapshots, and child manifest against the
 reachable publication commit and recomputes all five descriptor outputs.
+
+## 2026-08-01 - PR #2 offline vector/ABI checker toolchain amendment
+
+The immutable historical PR #15 publication remains
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with Casey package-manifest
+SHA-256 `sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+Its `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a` remains unchanged. This amendment
+does not rewrite that publication.
+
+PR #2 adds an offline active-manifest/ABI-selector checker and wires it into
+the governed control-plane test. The resulting current Casey toolchain-manifest
+revision is `sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`.
+It supersedes only this branch's current toolchain pointer, not any historical
+art-data release or accession authority. The closed Casey evidence-path diff
+continues to allow only `package-manifest.json` and excluded `latest-run.json`
+to differ from `bf70ba3...`; raw observations, snapshots, descriptors/results,
+requests, exclusions, warnings, populations, and child run manifest remain
+byte-identical.
+
+The new checker is offline and independently recomputes the active §13.6
+`ff1c5825...` / `0x8bb17fc4...` vector plus the canonical ABI and authorization
+allowlists. The state-only HTTPS audit rule is clarified without adding any
+network, target-admission, deployment, accession, or migration behavior.
+Independent protocol review is still evaluating potential batch-gas and
+immutable-target-policy contradictions; this candidate must remain unpushed
+and draft pending its exact evidence and disposition.

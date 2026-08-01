@@ -2192,6 +2192,13 @@ emits the assertion hash and resolver revision in `RecordSummary` and
 `MuseumRecordRecorded`. Expiry or profile revision change does not mutate old
 records and forces a new assertion association on the next write.
 
+A state-only auditor MUST dereference `RecordSummary.httpsAssertionHash` with
+`httpsAssertionByHash`, verify that the returned stored `HttpsAssertion` has
+the same `assertionHash`, and verify its stored `resolverProfileId` and
+`resolverRevision` (the latter equals `RecordSummary.httpsResolverRevision`);
+replacing `currentHttpsAssertion[uriHash]`, including across profiles, cannot
+change an old record's assertion context.
+
 ### 7.1 Required errors
 
 The V1 implementation MUST define and use these custom errors (arguments are
@@ -2955,6 +2962,13 @@ payloadBytesHash = 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c
 entryHash = 0xfa531a4233206547049d1b83c4b4e3e4d9763effb47227b2fd761ea1846ddfc8
 root = 0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280
 ```
+
+The offline command `python -B
+specs/onchain/manifest_abi_selector_check_v1.py` MUST independently recompute
+this active source commit, record/entry/root vector, every canonical §7 ABI
+selector, and the closed role/selector/stable-record authorization allowlists.
+It is a design conformance check only; it does not contact a network, publish
+a release, admit a target, or authorize deployment.
 
 ### 13.7 HTTPS assertion vector
 

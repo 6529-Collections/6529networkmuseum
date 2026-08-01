@@ -90,3 +90,18 @@ TargetRelease signature bundle, URI lifecycle, batch vectors, and Stream
 bilateral ontology requirements remain design and conformance material only.
 They are not a deployed contract, published TargetRelease, migration, Stream
 owner-record write, accession assertion, or network-write authorization.
+
+## 2026-08-01 — PR #2 offline conformance-checker checkpoint
+
+The design now has an offline checker for the active one-record release vector
+and canonical ABI/authorization transcript, and it explicitly binds state-only
+HTTPS reconstruction to the stored assertion row rather than a mutable current
+pointer. The checker is test-only and does not query a network, admit a target,
+deploy a contract, migrate data, or create accession authority.
+
+The current candidate remains draft and unpushed while independent protocol
+review resolves two potential design contradictions: whether the mandated
+worst-case batch benchmark corpus is rejected by the pre-write gas formula,
+and whether the shared immutable-target opcode policy forbids storage/calls a
+usable authority provider or successor registry needs. Resolve those claims
+from exact review evidence before final validation or publication.

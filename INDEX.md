@@ -42,7 +42,7 @@ Status vocabulary:
 | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
-| [`specs/onchain/contract-migration-v1.md`](specs/onchain/contract-migration-v1.md) | working standard | V1 immutable registry migration design, conformance vectors, Stream bilateral-convergence and release gates, and no-deployment status |
+| [`specs/onchain/contract-migration-v1.md`](specs/onchain/contract-migration-v1.md) | working standard | V1 immutable registry migration design, active-vector/ABI-selector conformance, Stream bilateral-convergence and release gates, and no-deployment status |
 | [`specs/README.md`](specs/README.md) | working standard | Boundary and admission requirements for implementation-ready protocol specifications |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
