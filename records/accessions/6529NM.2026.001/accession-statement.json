@@ -1,32 +1,1097 @@
 {
-  "$schema": "../../../schemas/accession-statement.schema.json",
-  "record_control": {"revision": 1, "record_status": "constructed", "constructor": {"actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7", "role": "constructor", "constructed_at": "2026-08-01T15:57:29Z"}, "review": null},
-  "record_id": "6529NM.2026.001-ACC01",
-  "record_type": "accession_statement",
-  "accession_lot_id": "6529NM.2026.001",
-  "preferred_title": "Casey Reas donation: seven Art Blocks works",
-  "statement_status": "formal_intake_statement_constructed",
-  "statement": "The 6529 Network Museum records the user-confirmed donation credited publicly as Gift of punk6529 of seven identified Casey REAS Art Blocks tokens as one accession lot. The Museum records the donation as received on-chain after independently verifying the seven ERC-721 Transfer events into the custody address resolved from networkmuseum.6529.eth. This statement opens the accession dossier and establishes the current state as received_onchain; it is not a substitute for a restricted legal instrument, a title opinion, a rights grant, a preservation completion certificate, or an independent review.",
-  "acceptance_date": "2026-08-01",
-  "custody_receipt_date": "2026-08-01",
-  "title_passage_date": null,
-  "acquisition_method": "donation",
-  "public_donor_credit": "Gift of punk6529",
-  "custody": {"ens": "networkmuseum.6529.eth", "chain_id": "eip155:1", "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c", "resolution_observed_at": "2026-08-01T14:58:31.905115Z", "evidence_class": "A"},
-  "controlled_decision": {"outcome": "accepted_for_accession_processing", "current_state": "received_onchain", "completion_status": "not_complete", "decision_authority": "Museum accession constructor pending independent registrar/curatorial approval", "basis": ["6529NM-POL-003: donation acceptance policy", "6529NM-GOV-1052156: adopted Art Blocks donation preapproval", "user-confirmed donation instruction", "seven-token successful receipt transaction 0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498"], "rationale": "Art Blocks preapproval establishes the collection-specific pathway; the policy still requires ordinary identity, authenticity, provenance, donor-authority, rights, technical, risk, and acceptance checks. The chain evidence satisfies the receipt/custody fact only."},
-  "state_assessment": {"offered": "superseded by user-confirmed donation", "authorized": "collection-specific preapproval present", "acquired": "donation asserted by user confirmation; executed public title reference not recorded", "received_onchain": "complete for observed receipt; seven direct RPC-verified Transfer events", "accessioned": "pending controlled completion decision and title binding", "catalogued": "dossier records constructed; independent curatorial/registrar review pending", "technically_verified": "pending render and dependency tests", "preservation_complete": "pending preservation ingest and recovery verification", "display_ready": "pending rights and display review"},
-  "object_schedule": [
-    {"object_id": "6529NM.2026.001.01", "title": "CENTURY #31", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031"},
-    {"object_id": "6529NM.2026.001.02", "title": "CENTURY #724", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"},
-    {"object_id": "6529NM.2026.001.03", "title": "CENTURY #401", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401"},
-    {"object_id": "6529NM.2026.001.04", "title": "Pre-Process #63", "chain_object": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063"},
-    {"object_id": "6529NM.2026.001.05", "title": "Phototaxis #308", "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308"},
-    {"object_id": "6529NM.2026.001.06", "title": "923 EMPTY ROOMS #713", "chain_object": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"},
-    {"object_id": "6529NM.2026.001.07", "title": "Ex Nihilo (Cosmos) #248", "chain_object": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248"}
-  ],
-  "title_binding": {"status": "not_recorded", "required_target_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498", "restricted_instrument_ref": "6529NM.2026.001-REG-ANNEX", "content_hash": null},
-  "rights_and_conditions": {"rights_status": "unspecified", "condition_status": "not_assessed", "display_status": "not_assessed", "preservation_status": "planned_not_complete", "credit_line": "Gift of punk6529; Casey REAS; platform credit pending rights/registrar confirmation"},
-  "remaining_gates": ["Record or confirm the restricted donation/title instrument and bind it to the exact common transfer plus seven token identities.", "Complete donor authority, provenance, sanctions, dispute, and encumbrance diligence.", "Record explicit rights bases and grant statuses; do not infer rights from token custody or platform metadata labels.", "Complete two-environment render and dependency tests and individual condition review.", "Ingest and verify the preservation package, recovery lineage, and fixity manifest.", "Obtain independent registrar/technical and curatorial review; constructor may not self-review.", "Resolve display permissions and approved public derivatives before display_ready."],
-  "non_claims": ["No copyright, reproduction, commercial, exhibition, print, derivative, AI-training, or preservation rights are granted by this record.", "No deed, title instrument, valuation, market, rarity, or tax claim is made.", "No OpenSea metric or marketplace rarity claim is used.", "The seven objects are a focused sample, not a complete CENTURY set or Casey REAS retrospective."],
-  "evidence_refs": ["records/collections/approved-collections.json", "records/governance/decisions.json", "policies/donation-acceptance.md", "notes/research/casey-reas-onchain-evidence.md", "notes/research/casey-reas-art-technical-research.md", "records/accessions/6529NM.2026.001/transaction-provenance.json", "records/accessions/6529NM.2026.001/donation-rights.json"]
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xa2f56a10a8388fd7eecbc9f2463b8a14ac5d73225dc451309dd0eee0ff85c7e9"
+    },
+    "effectiveAt": 1785596311,
+    "recordType": "ACCESSION_LOT",
+    "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x8a8336aa532259fa80565b52b84845e1b235f8e1067feca86440e30fa93a5f11",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
+  },
+  "payload": {
+    "acceptance_date": "2026-08-01T13:25:47Z",
+    "accession_number": "6529NM.2026.001",
+    "accession_status": "not_complete",
+    "acquisition_method": "donation",
+    "collection_curatorial_statement": {
+      "artist_statement": {
+        "claim_type": "artist_or_presenting_platform_statement",
+        "evidence_class": "B",
+        "source_refs": [
+          "notes/research/casey-reas-art-technical-research.md",
+          "https://www.gray.reas.com/century_s/",
+          "https://www.gray.reas.com/pre_process/",
+          "https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8",
+          "https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas",
+          "https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase"
+        ],
+        "text": "The research record attributes to artist and project sources a set of distinct computational systems: CENTURY cuts and recomposes modernist references; Pre-Process models moving circle Elements; Phototaxis records artificial-life trajectories; 923 EMPTY ROOMS enumerates colorform combinations in a distributed release; and Ex Nihilo (Cosmos) translates geometric and pixel data into a continuous line field."
+      },
+      "museum_interpretation": {
+        "claim_type": "Museum_interpretation",
+        "evidence_class": "E",
+        "source_refs": [
+          "notes/research/casey-reas-art-technical-research.md"
+        ],
+        "text": "The group is read through five connected but non-identical lines of inquiry: modernist recombination, Process grammar, artificial-life drawing, finite combinatorics, and geometric/pixel simulation. Across the lot, time is part of the medium rather than decoration, so the Museum must preserve token-specific state alongside the live system that makes each state performable. This is a focused institutional comparison, not a claim of direct formal descent or an artist-defined canonical group."
+      },
+      "policy_application": {
+        "claim_type": "Museum_policy_application",
+        "evidence_class": "B",
+        "source_refs": [
+          "records/collections/approved-collections.json",
+          "policies/donation-acceptance.md",
+          "records/governance/decisions.json"
+        ],
+        "text": "The adopted Art Blocks donation preapproval places these works on the donation review pathway, while the adopted donation policy preserves ordinary authenticity, provenance, title, rights, technical, risk, and acceptance checks."
+      },
+      "rationale": [
+        "The group documents how a major artist's software practice enters multiple Art Blocks release contexts across 2021-2026.",
+        "It supports public study of the relation among code, token identity, live behavior, and static documentation.",
+        "It gives the Museum a coherent but bounded Casey REAS case study without claiming completeness."
+      ],
+      "status": "provisional_constructed_statement",
+      "trait_analysis": {
+        "boundary": "No marketplace rarity or value claim.",
+        "linked_deliverable": "https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity",
+        "status": "pending_linked_deliverable"
+      }
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "role": "constructor"
+    },
+    "constructor_controls": {
+      "completion_decision": {
+        "reason": "Receipt/custody is verified; formal acceptance, title, rights, condition, preservation, display, and independent review gates remain open.",
+        "status": "not_complete"
+      },
+      "constructor": {
+        "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+        "constructed_at": "2026-08-01T14:58:31.905115Z",
+        "role": "constructor",
+        "source_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+      },
+      "independent_review_required": true,
+      "merge_authority": "independent integration review",
+      "record_id": "6529NM.2026.001-CONTROLS01",
+      "review_status": "not_requested_in_record",
+      "reviewer": null,
+      "self_review_prohibited": true,
+      "specialist_review": "not requested; dossier adds no executable fetch/ingest/parser tooling"
+    },
+    "controlled_decision": {
+      "acceptance_date_semantics": "intake/pathway processing timestamp equal to the common receipt time; not formal institutional acceptance",
+      "basis": [
+        "User-confirmed donation",
+        "Seven-token successful receipt into the ENS-resolved custody address",
+        "6529NM-GOV-1052156 adopted Art Blocks preapproval",
+        "6529NM-POL-003 donation acceptance policy"
+      ],
+      "completion_status": "not_complete",
+      "current_state": "received_onchain",
+      "decision_authority": "constructor record pending independent registrar/curatorial review",
+      "outcome": "accepted_for_accession_processing",
+      "rationale": "The adopted Art Blocks preapproval supplies a collection-specific pathway. The donation policy still requires identity, authenticity, provenance, donor authority, title, rights, technical, risk, and acceptance checks. The verified chain evidence satisfies custody receipt only."
+    },
+    "created_at": "2026-08-01T14:58:31.905115Z",
+    "donation_rights_schedule": {
+      "objects": [
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.01",
+          "rights_status": "unspecified",
+          "title": "CENTURY #31"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.02",
+          "rights_status": "unspecified",
+          "title": "CENTURY #724"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.03",
+          "rights_status": "unspecified",
+          "title": "CENTURY #401"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.04",
+          "rights_status": "unspecified",
+          "title": "Pre-Process #63"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.05",
+          "rights_status": "unspecified",
+          "title": "Phototaxis #308"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.06",
+          "rights_status": "unspecified",
+          "title": "923 EMPTY ROOMS #713"
+        },
+        {
+          "donation_status": "received_onchain",
+          "object_id": "6529NM.2026.001.07",
+          "rights_status": "unspecified",
+          "title": "Ex Nihilo (Cosmos) #248"
+        }
+      ],
+      "policy_basis": [
+        "6529NM-GOV-1052156 adopted Art Blocks preapproval",
+        "6529NM-POL-003 donation acceptance policy"
+      ],
+      "public_summary": "User-confirmed donation of seven identified Casey REAS Art Blocks tokens is recorded as received_onchain. This is a public custody and intake summary, not a title or rights conclusion.",
+      "restricted_instrument_ref": {
+        "content_hash": null,
+        "custodian": "registrar_to_assign",
+        "hash_algorithm": "sha256",
+        "note": "No deed or instrument hash is asserted or invented.",
+        "public_reference": "6529NM.2026.001-REG-ANNEX",
+        "status": "placeholder_not_recorded"
+      },
+      "rights_matrix": [
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.01"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.02"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.03"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.04"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.05"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.06"
+        },
+        {
+          "basis": "No public rights instrument recorded.",
+          "grant_status": "unspecified",
+          "object_id": "6529NM.2026.001.07"
+        }
+      ]
+    },
+    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Casey on-chain evidence",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-onchain-evidence.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Casey art and technical research",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-art-technical-research.md"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Preservation evidence manifest",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+      }
+    ],
+    "formal_acceptance_status": "not_formally_accepted",
+    "governing_references": [
+      "6529NM.2026.001"
+    ],
+    "intake_status": "accepted_for_accession_processing",
+    "non_claims": [
+      "Acceptance_date and accepted_for_accession_processing describe intake/pathway processing only; they are not formal institutional acceptance.",
+      "No copyright, reproduction, commercial, exhibition, print, derivative, AI-training, display, or preservation right is granted.",
+      "No deed, legal title opinion, valuation, market, rarity, or tax claim is made.",
+      "No OpenSea metric or marketplace rarity claim is used.",
+      "The seven objects are a focused sample, not a complete CENTURY set or Casey REAS retrospective."
+    ],
+    "object_identities": [
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "custody_receipt_log": 60,
+        "object_id": "6529NM.2026.001.01",
+        "title": "CENTURY #31",
+        "token_id": "100000031"
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "custody_receipt_log": 59,
+        "object_id": "6529NM.2026.001.02",
+        "title": "CENTURY #724",
+        "token_id": "100000724"
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "custody_receipt_log": 52,
+        "object_id": "6529NM.2026.001.03",
+        "title": "CENTURY #401",
+        "token_id": "100000401"
+      },
+      {
+        "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+        "contract": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+        "custody_receipt_log": 56,
+        "object_id": "6529NM.2026.001.04",
+        "title": "Pre-Process #63",
+        "token_id": "383000063"
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "custody_receipt_log": 53,
+        "object_id": "6529NM.2026.001.05",
+        "title": "Phototaxis #308",
+        "token_id": "164000308"
+      },
+      {
+        "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+        "contract": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+        "custody_receipt_log": 58,
+        "object_id": "6529NM.2026.001.06",
+        "title": "923 EMPTY ROOMS #713",
+        "token_id": "1000713"
+      },
+      {
+        "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+        "contract": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+        "custody_receipt_log": 54,
+        "object_id": "6529NM.2026.001.07",
+        "title": "Ex Nihilo (Cosmos) #248",
+        "token_id": "248"
+      }
+    ],
+    "object_ids": [
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "observed_at": "2026-08-01T14:58:31.905115Z",
+    "payload_sha256": "sha256:f7a6cc1cea9b8c1bdaecd29080f61d2f37e86cec85c62aacd208092b18226ed9",
+    "preservation_manifest": {
+      "manifest_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas",
+      "objects": [
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:465b45798f14bea109f59986bd2cdcfd6e2eb9050327f52b24af15e159704ae2",
+          "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.01.json",
+          "metadata_sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+          "metadata_uri": "https://api.artblocks.io/token/100000031",
+          "object_id": "6529NM.2026.001.01"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+          "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+          "metadata_sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+          "metadata_uri": "https://api.artblocks.io/token/100000724",
+          "object_id": "6529NM.2026.001.02"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:51ab1073b166701c9379984d9331c14d803dc84e35c8d06b5a8071f4eb895aad",
+          "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.03.json",
+          "metadata_sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+          "metadata_uri": "https://api.artblocks.io/token/100000401",
+          "object_id": "6529NM.2026.001.03"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
+          "generator_uri": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
+          "metadata_sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+          "metadata_uri": "https://api.artblocks.io/token/383000063",
+          "object_id": "6529NM.2026.001.04"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
+          "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.05.json",
+          "metadata_sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+          "metadata_uri": "https://api.artblocks.io/token/164000308",
+          "object_id": "6529NM.2026.001.05"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
+          "generator_uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.06.json",
+          "metadata_sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+          "metadata_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "object_id": "6529NM.2026.001.06"
+        },
+        {
+          "generator_raw_status": "not_captured",
+          "generator_sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
+          "generator_uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "metadata_raw_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+          "metadata_sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+          "metadata_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "object_id": "6529NM.2026.001.07"
+        }
+      ],
+      "pending": [
+        "generator response bytes",
+        "project scripts and dependencies",
+        "two-environment render comparison",
+        "recovery test",
+        "independent technical review",
+        "durable replica assignment"
+      ],
+      "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
+      "raw_metadata_status": "captured_and_content_addressed",
+      "status": "in_progress"
+    },
+    "provenance_schedule": {
+      "$schema": "../../../schemas/transaction-provenance.schema.json",
+      "accession_lot_id": "6529NM.2026.001",
+      "common_receipt": {
+        "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+        "block_number": 25660311,
+        "block_time": "2026-08-01T13:25:47Z",
+        "evidence_grade": "A",
+        "log_indices": {
+          "6529NM.2026.001.01": 60,
+          "6529NM.2026.001.02": 59,
+          "6529NM.2026.001.03": 52,
+          "6529NM.2026.001.04": 56,
+          "6529NM.2026.001.05": 53,
+          "6529NM.2026.001.06": 58,
+          "6529NM.2026.001.07": 54
+        },
+        "museum_custody_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "purpose": "on-chain receipt into the ENS-resolved Museum custody address; legal title and rights are separate fields",
+        "receipt_status": "0x1",
+        "transaction_from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "transaction_hash": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "transaction_to": "0x0000000000c2d145a2526bd8c716263bfebe1a72",
+        "transfer_count": 7,
+        "verification": "direct_rpc_verified"
+      },
+      "evidence_refs": [
+        "notes/research/casey-reas-onchain-evidence.md",
+        "records/accessions/6529NM.2026.001/donation-rights.json"
+      ],
+      "historical_event_boundary": "Historical events are indexer_observed unless an event carries retained per-event block/receipt evidence; only the common seven-token receipt is direct_rpc_verified in this dossier.",
+      "objects": [
+        {
+          "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+          "events": [
+            {
+              "block": 12704968,
+              "block_hash": "0x881417caed83cdfdbb21310b82e233ecb8ed9383f7969da9d2135382713c6bed",
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 42,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T19:00:08Z",
+              "to": "0xf873bebdd61ab385d6b24c135baf36c729ce8824",
+              "tx": "0x37f8400704b8d2829dab23cb1df2e5ad85d7c7ae943797a91f40a99895677544",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 12705685,
+              "direct_rpc_verified": false,
+              "from": "0xf873bebdd61ab385d6b24c135baf36c729ce8824",
+              "kind": "transfer",
+              "log": 262,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T21:42:45Z",
+              "to": "0x16ffe3938b69132c72a5b0250708792db72971b4",
+              "tx": "0x6d430d2114c17fd186dc395c2add2752403d475019c57e9237ad735939e15b8c",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 12836105,
+              "direct_rpc_verified": false,
+              "from": "0x16ffe3938b69132c72a5b0250708792db72971b4",
+              "kind": "transfer",
+              "log": 152,
+              "receipt_status": "0x1",
+              "time": "2021-07-16T05:38:41Z",
+              "to": "0xb53349160e38739b37e4bbfcf950ed26e26fcb41",
+              "tx": "0x098aaba06cdf92e20ff1fa1c54e57329dfb8bf4e95129d63f8cb97954fd08c77",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 24121552,
+              "direct_rpc_verified": false,
+              "from": "0xb53349160e38739b37e4bbfcf950ed26e26fcb41",
+              "kind": "transfer",
+              "log": 141,
+              "receipt_status": "0x1",
+              "time": "2025-12-29T23:22:35Z",
+              "to": "0xf3c7c2603bb7689d98d727769517b585d533ed57",
+              "tx": "0x843d1e49c000cea26c4b4507ea6ea416ad9ae27f40d5ed316935cd8c69bfd1ae",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 24222964,
+              "direct_rpc_verified": false,
+              "from": "0xf3c7c2603bb7689d98d727769517b585d533ed57",
+              "kind": "transfer",
+              "log": 53,
+              "receipt_status": "0x1",
+              "time": "2026-01-13T02:58:35Z",
+              "to": "0xaa55b6b6c8b4df868e89a4e96fa72253256d88b4",
+              "tx": "0xe5371c38dd27aa006fcb2cce4c80fc05fdb1bb2a9c720cf4e837d7c4e0d4977e",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25229951,
+              "direct_rpc_verified": false,
+              "from": "0xaa55b6b6c8b4df868e89a4e96fa72253256d88b4",
+              "kind": "transfer",
+              "log": 1148,
+              "receipt_status": "0x1",
+              "time": "2026-06-02T13:19:23Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x742b596280872e27e3fbe677e116669129c355c2af5a82e95e0ff53dc307248b",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 60,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.01"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+          "events": [
+            {
+              "block": 12704986,
+              "block_hash": "0x86afb3a5aac6e07b4aa3f65b7628a805d6a24b9e6f02f626b6a1dcbc2e74de24",
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 58,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T19:04:52Z",
+              "to": "0x60c83d65f25f2791c1d66ca129b035e7d5e2d2a1",
+              "tx": "0x0f6f3b970006c0d4efabc064f761a03dc93aa20a2b587643b8250e6f1afb53fb",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 12705312,
+              "direct_rpc_verified": false,
+              "from": "0x60c83d65f25f2791c1d66ca129b035e7d5e2d2a1",
+              "kind": "transfer",
+              "log": 94,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T20:19:26Z",
+              "to": "0x5a418d8bc0c074a4a8fa88d1322dc51cc1cb9d29",
+              "tx": "0x6a525a51b42920276d87cc93b2ceadd1905b7bfcdacd8427e676ce5c627454bf",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 13066336,
+              "direct_rpc_verified": false,
+              "from": "0x5a418d8bc0c074a4a8fa88d1322dc51cc1cb9d29",
+              "kind": "transfer",
+              "log": 409,
+              "receipt_status": "0x1",
+              "time": "2021-08-21T03:49:01Z",
+              "to": "0xddcc629c76f311d894b7c2953942a8652df2985d",
+              "tx": "0x45af7034454963db5fd23ff7f5d6d1a8506d6612ff39fd54d6f9e30d16be2199",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25230062,
+              "direct_rpc_verified": false,
+              "from": "0xddcc629c76f311d894b7c2953942a8652df2985d",
+              "kind": "transfer",
+              "log": 436,
+              "receipt_status": "0x1",
+              "time": "2026-06-02T13:41:35Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x13b222ed800dc0a2c55f9c2ac4a505dc1e587df666ab8b8e7b0ee600caf6d92b",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 59,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.02"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+          "events": [
+            {
+              "block": 12704978,
+              "block_hash": "0x476dc66de79efc853978bfba03586ab21eb8dee1f315e9585e7111edd010fbd2",
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 23,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T19:02:56Z",
+              "to": "0x36091073086495792e0ab3b94d230c2202243bac",
+              "tx": "0x0337b7cd3a783d43d7ff55d1173664a1e172475cb6017fd311fa85cfb33a7242",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 12705212,
+              "direct_rpc_verified": false,
+              "from": "0x36091073086495792e0ab3b94d230c2202243bac",
+              "kind": "transfer",
+              "log": 69,
+              "receipt_status": "0x1",
+              "time": "2021-06-25T19:58:20Z",
+              "to": "0x5aeedbc6b655c13950f32e5e8a0760d15bbe0afb",
+              "tx": "0xa68a7cec9339846e5d132ff153654ede0d9c6fafb32c12c8308add1b7fe114aa",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 12904548,
+              "direct_rpc_verified": false,
+              "from": "0x5aeedbc6b655c13950f32e5e8a0760d15bbe0afb",
+              "kind": "transfer",
+              "log": 56,
+              "receipt_status": "0x1",
+              "time": "2021-07-26T22:49:08Z",
+              "to": "0xcf19536605796f12dfe929f7e32cc1631c1e2124",
+              "tx": "0xc506465c8f86a821eeae2d4068037fc1ed6e71110296552c3b46381ed76ce6fb",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 23270314,
+              "direct_rpc_verified": false,
+              "from": "0xcf19536605796f12dfe929f7e32cc1631c1e2124",
+              "kind": "transfer",
+              "log": 489,
+              "receipt_status": "0x1",
+              "time": "2025-09-01T19:16:35Z",
+              "to": "0x5aeedbc6b655c13950f32e5e8a0760d15bbe0afb",
+              "tx": "0xba892314dc049233996fa05b238ff499b902e1e075700cf43d3341563000b744",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660193,
+              "direct_rpc_verified": false,
+              "from": "0x5aeedbc6b655c13950f32e5e8a0760d15bbe0afb",
+              "kind": "transfer",
+              "log": 470,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:02:11Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x6690542f972ba00b8fd7cadc90efcd5eaf3157a6e105f44cd51b1909091c79a8",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 52,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.03"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+          "events": [
+            {
+              "block": 16084576,
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 102,
+              "receipt_status": "0x1",
+              "time": "2022-11-30T18:25:23Z",
+              "to": "0x83f61d3c25f0596ba217426edffa6a446169148c",
+              "tx": "0x89de0effce798c6eb7557418a6ec9eeab78a583a05159e444fcd8cb6402fef39",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 24286196,
+              "direct_rpc_verified": false,
+              "from": "0x83f61d3c25f0596ba217426edffa6a446169148c",
+              "kind": "transfer",
+              "log": 276,
+              "receipt_status": "0x1",
+              "time": "2026-01-21T22:37:23Z",
+              "to": "0x8c12c52685de09e583d5e2b7ba56b3583484534b",
+              "tx": "0x4cba74271f8c21a03675efe19c81420f50994f8171c864d70a3c1208077e12b7",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25278547,
+              "direct_rpc_verified": false,
+              "from": "0x8c12c52685de09e583d5e2b7ba56b3583484534b",
+              "kind": "transfer",
+              "log": 72,
+              "receipt_status": "0x1",
+              "time": "2026-06-09T08:02:59Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x1e875add011f20ef6070e9aa66ffb707928638a60b6d3062bfa5d598c362789f",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 56,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.04"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+          "events": [
+            {
+              "block": 13271125,
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 116,
+              "receipt_status": "0x1",
+              "time": "2021-09-21T19:52:20Z",
+              "to": "0x9a19ff773eb4971c25f84882e609b2e3c44c4e8d",
+              "tx": "0x6a9ccda8e9d7f5dc87453d499972fa76eb19eb8cfc3479054afc8563f61156cf",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 13300954,
+              "direct_rpc_verified": false,
+              "from": "0x9a19ff773eb4971c25f84882e609b2e3c44c4e8d",
+              "kind": "transfer",
+              "log": 640,
+              "receipt_status": "0x1",
+              "time": "2021-09-26T10:49:18Z",
+              "to": "0x80c939f8a66c59b37330f93f1002541fd4e51aa2",
+              "tx": "0x33e5fbe52b5fecd6b3d8bd29e6ef903381d561a7b4962843e701a1ee3f203cfc",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 14747067,
+              "direct_rpc_verified": false,
+              "from": "0x80c939f8a66c59b37330f93f1002541fd4e51aa2",
+              "kind": "transfer",
+              "log": 148,
+              "receipt_status": "0x1",
+              "time": "2022-05-10T06:31:15Z",
+              "to": "0x28458f3442841da5e4773b39286447d27ec57b59",
+              "tx": "0x45a30535390ce1475707823c1ae356bfcf4af9179c485c612776cc974758731b",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 16549061,
+              "direct_rpc_verified": false,
+              "from": "0x28458f3442841da5e4773b39286447d27ec57b59",
+              "kind": "transfer",
+              "log": 303,
+              "receipt_status": "0x1",
+              "time": "2023-02-03T15:10:11Z",
+              "to": "0xe7e7cb488084bb6ba9d65f6c8372d705c0485d13",
+              "tx": "0x37ba554762c7b09b76ea71468999050c088c1846da9b9a5e632161eefc806770",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660172,
+              "direct_rpc_verified": false,
+              "from": "0xe7e7cb488084bb6ba9d65f6c8372d705c0485d13",
+              "kind": "transfer",
+              "log": 782,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T12:57:59Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x472bb5b1b2d25927c14ba0f56a38cc8a88006a5d405cf5e8e681a33a530425a6",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 53,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.05"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "events": [
+            {
+              "block": 17943010,
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 75,
+              "receipt_status": "0x1",
+              "time": "2023-08-18T16:57:59Z",
+              "to": "0xed075caf72d905bc24c18007bfea0f1dfa3353ad",
+              "tx": "0x96ce976bbe2e9393876cba120dc842a1c1cc1aea8f94e919b9b60c05d936c841",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 17943498,
+              "direct_rpc_verified": false,
+              "from": "0xed075caf72d905bc24c18007bfea0f1dfa3353ad",
+              "kind": "transfer",
+              "log": 374,
+              "receipt_status": "0x1",
+              "time": "2023-08-18T18:35:59Z",
+              "to": "0x31fc857d467aeec23d31ef7c89b0054eec49f711",
+              "tx": "0x0180274ec55b5b59033b371ccc25da00004fac9706b5d294a4d049ba177e4c6a",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 17950148,
+              "direct_rpc_verified": false,
+              "from": "0x31fc857d467aeec23d31ef7c89b0054eec49f711",
+              "kind": "transfer",
+              "log": 357,
+              "receipt_status": "0x1",
+              "time": "2023-08-19T16:56:11Z",
+              "to": "0x0f3378e9337c13b0d20bb3ebb6ce0f804c81da77",
+              "tx": "0xca8b3c0dbb64fc62b022102085c8de85da4d97175b799c619b1eec69715358bc",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 18132735,
+              "direct_rpc_verified": false,
+              "from": "0x0f3378e9337c13b0d20bb3ebb6ce0f804c81da77",
+              "kind": "transfer",
+              "log": 110,
+              "receipt_status": "0x1",
+              "time": "2023-09-14T06:29:11Z",
+              "to": "0xaeb4c41bfe72d72255d3744936db056ee8308779",
+              "tx": "0x5ad581a40f5f842f4f7da0e630f7a42f6cd939407bb9a416defdad7bfddf79d7",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 19754765,
+              "direct_rpc_verified": false,
+              "from": "0xaeb4c41bfe72d72255d3744936db056ee8308779",
+              "kind": "transfer",
+              "log": 265,
+              "receipt_status": "0x1",
+              "time": "2024-04-28T15:39:11Z",
+              "to": "0xd7b064f257428e7b0d5f6216bc31ecdebdccad62",
+              "tx": "0x353b45ddd65035f197cf8c986d754d235601d01e3f57f73130a95d1cb596851e",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 24014842,
+              "direct_rpc_verified": false,
+              "from": "0xd7b064f257428e7b0d5f6216bc31ecdebdccad62",
+              "kind": "transfer",
+              "log": 418,
+              "receipt_status": "0x1",
+              "time": "2025-12-15T01:52:35Z",
+              "to": "0xf61030d320e71256a43ec22839db345d80ac84b3",
+              "tx": "0xada776efae147b8bb82e729c374198eacd9aa25bc01058c1b9f4dfe6692450aa",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25281309,
+              "direct_rpc_verified": false,
+              "from": "0xf61030d320e71256a43ec22839db345d80ac84b3",
+              "kind": "transfer",
+              "log": 218,
+              "receipt_status": "0x1",
+              "time": "2026-06-09T17:17:11Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0x208f2e7b664e43018f37f9fce5b3ac1b5de0d56a17ea6136fa0b4784c20de8a7",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 58,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.06"
+        },
+        {
+          "chain_object": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "events": [
+            {
+              "block": 24635482,
+              "direct_rpc_verified": false,
+              "from": "0x0000000000000000000000000000000000000000",
+              "kind": "mint",
+              "log": 113,
+              "receipt_status": "0x1",
+              "time": "2026-03-11T16:41:35Z",
+              "to": "0x12bd6121197848f93f40bd82d4c80db4e3198990",
+              "tx": "0xb432b939b0f4a5fde252f109267dd98f219d00a8939d819f746542be7b0846c2",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25658325,
+              "direct_rpc_verified": false,
+              "from": "0x12bd6121197848f93f40bd82d4c80db4e3198990",
+              "kind": "transfer",
+              "log": 221,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T06:48:11Z",
+              "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "tx": "0xe277326e855eec1b0224914a071c181ce44daace570b2228c40814a09b8bca7b",
+              "verification": "indexer_observed"
+            },
+            {
+              "block": 25660311,
+              "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+              "direct_rpc_verified": true,
+              "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+              "kind": "museum_receipt",
+              "log": 54,
+              "receipt_status": "0x1",
+              "time": "2026-08-01T13:25:47Z",
+              "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+              "tx": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+              "verification": "direct_rpc_verified"
+            }
+          ],
+          "object_id": "6529NM.2026.001.07"
+        }
+      ],
+      "provenance_limits": [
+        "This schedule establishes ERC-721 event lineage and custody observations, not a market sale, consideration, donor legal identity, tax treatment, or legal title chain.",
+        "A transaction method name is not evidence of legal title passage or donation intent.",
+        "The source address is recorded as an address only; no person or organization is inferred from it."
+      ],
+      "record_control": {
+        "constructor": {
+          "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+          "constructed_at": "2026-08-01T15:57:29Z",
+          "role": "constructor"
+        },
+        "record_status": "constructed",
+        "review": null,
+        "revision": 1
+      },
+      "record_id": "6529NM.2026.001-TX01",
+      "record_type": "transaction_provenance_schedule",
+      "verification_method": {
+        "chain": "Ethereum mainnet",
+        "chain_id": 1,
+        "historical_method": "historical transfer discovery is preserved as indexer_observed unless a per-event block/receipt evidence object is retained",
+        "primary_evidence": "direct RPC receipt and contract reads retained in the source research note",
+        "title_boundary": "event lineage and custody observation are not a legal title chain"
+      }
+    },
+    "public_inventory": [
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+        "inventory_number": "6529NM.2026.001.01",
+        "public_page": "public/6529NM.2026.001.01.md",
+        "status": "received_onchain",
+        "title": "CENTURY #31"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+        "inventory_number": "6529NM.2026.001.02",
+        "public_page": "public/6529NM.2026.001.02.md",
+        "status": "received_onchain",
+        "title": "CENTURY #724"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+        "inventory_number": "6529NM.2026.001.03",
+        "public_page": "public/6529NM.2026.001.03.md",
+        "status": "received_onchain",
+        "title": "CENTURY #401"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+        "inventory_number": "6529NM.2026.001.04",
+        "public_page": "public/6529NM.2026.001.04.md",
+        "status": "received_onchain",
+        "title": "Pre-Process #63"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+        "inventory_number": "6529NM.2026.001.05",
+        "public_page": "public/6529NM.2026.001.05.md",
+        "status": "received_onchain",
+        "title": "Phototaxis #308"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+        "inventory_number": "6529NM.2026.001.06",
+        "public_page": "public/6529NM.2026.001.06.md",
+        "status": "received_onchain",
+        "title": "923 EMPTY ROOMS #713"
+      },
+      {
+        "artist": "Casey REAS",
+        "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+        "inventory_number": "6529NM.2026.001.07",
+        "public_page": "public/6529NM.2026.001.07.md",
+        "status": "received_onchain",
+        "title": "Ex Nihilo (Cosmos) #248"
+      }
+    ],
+    "receipt_summary": {
+      "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
+      "block_number": 25660311,
+      "block_time": "2026-08-01T13:25:47Z",
+      "ens_semantics": "networkmuseum.6529.eth resolved to the custody address at 2026-08-01T14:58:31.905115Z",
+      "evidence_grade": "A",
+      "log_indices": {
+        "6529NM.2026.001.01": 60,
+        "6529NM.2026.001.02": 59,
+        "6529NM.2026.001.03": 52,
+        "6529NM.2026.001.04": 56,
+        "6529NM.2026.001.05": 53,
+        "6529NM.2026.001.06": 58,
+        "6529NM.2026.001.07": 54
+      },
+      "museum_custody_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "purpose": "on-chain receipt into the ENS-resolved Museum custody address; legal title and rights are separate fields",
+      "receipt_status": "0x1",
+      "transaction_from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "transaction_hash": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+      "transaction_to": "0x0000000000c2d145a2526bd8c716263bfebe1a72",
+      "transfer_count": 7,
+      "verification": "direct_rpc_verified"
+    },
+    "record_id": "6529NM.2026.001",
+    "record_status": "constructed",
+    "record_type": "ACCESSION_LOT",
+    "record_version": "1.0.0",
+    "references": [],
+    "remaining_gates": [
+      "Record or confirm a restricted donation/title instrument and bind it to the exact seven identities and receipt.",
+      "Complete donor-authority, provenance, sanctions, dispute, and encumbrance diligence.",
+      "Record explicit rights bases and grant statuses; do not infer rights from custody or platform labels.",
+      "Capture generator bytes, project scripts, dependencies, and complete two-environment render/condition testing.",
+      "Complete the preservation package, recovery lineage, fixity verification, and durable replica assignment.",
+      "Resolve display permissions and approved public derivatives.",
+      "Obtain independent registrar/technical and curatorial review; constructor may not self-review."
+    ],
+    "restricted_registrar_annex": {
+      "content": null,
+      "instrument_sha256": null,
+      "instrument_status": "not_recorded",
+      "purpose": "Future registrar-only instrument reference and hash field; no restricted content is stored here.",
+      "record_id": "6529NM.2026.001-REG-ANNEX",
+      "visibility": "public_stub_only"
+    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "source": {
+      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+    },
+    "source_manifest": {
+      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "casey_snapshot_source_head": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
+      "evidence_manifest_path": "evidence/casey-reas/manifest.json",
+      "evidence_manifest_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
+      "source_evidence": [
+        "notes/research/casey-reas-onchain-evidence.md",
+        "notes/research/casey-reas-art-technical-research.md"
+      ]
+    },
+    "subject_id": "6529NM.2026.001",
+    "trait_analysis": {
+      "linked_deliverable": "https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity",
+      "marketplace_metrics": "not_used",
+      "method": "Museum NextGen-compatible method only; no trait result is asserted here.",
+      "status": "pending_linked_deliverable"
+    },
+    "visibility": "public"
+  }
 }

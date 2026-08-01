@@ -8,6 +8,9 @@
       "properties": {
         "record_type": {"const": "RIGHTS_STATEMENT"},
         "schema_id": {"const": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967"},
+        "record_status": {"const": "constructed"},
+        "review_status": {"const": "pending_independent_review"},
+        "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "rights_holder_reference": {"type": "string", "minLength": 1},
         "basis": {"type": "string", "minLength": 1},

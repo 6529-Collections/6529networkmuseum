@@ -1,0 +1,76 @@
+{
+  "manifest_type": "6529NM_CASEY_PRESERVATION_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "source_heads": {
+    "casey_snapshot_source": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
+    "casey_research": "9f38bd4ba5f779540eabf2dfce019cc1382561e2"
+  },
+  "status": "incomplete_generator_capture_pending",
+  "entries": [
+    {
+      "path": "generator-capture-status.md",
+      "sha256": "d70aa168f11c8d06d58924cf6e255d280e161a92a90ea99faa3679f83e458091",
+      "size": 330,
+      "media_type": "text/plain",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.01.json",
+      "sha256": "e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+      "size": 3232,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.02.json",
+      "sha256": "3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+      "size": 3229,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.03.json",
+      "sha256": "7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+      "size": 3231,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.04.json",
+      "sha256": "581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+      "size": 4360,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.05.json",
+      "sha256": "b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+      "size": 3029,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.06.json",
+      "sha256": "a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+      "size": 3748,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.07.json",
+      "sha256": "60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+      "size": 4224,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a13dca0958c6f9cb8024ea4aa86937b433d4db2b922e595e96a5dc658a1a0dd8",
+      "size": 741,
+      "media_type": "text/plain",
+      "byte_mode": "raw"
+    }
+  ]
+}

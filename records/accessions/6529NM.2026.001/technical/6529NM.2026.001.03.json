@@ -1,15 +1,96 @@
 {
-  "$schema": "../../../../schemas/technical-condition-report.schema.json",
-  "record_control": {"revision": 1, "record_status": "constructed", "constructor": {"actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7", "role": "constructor", "constructed_at": "2026-08-01T15:57:29Z"}, "review": null},
-  "record_id": "6529NM.2026.001.03-TECH01",
-  "record_type": "technical_condition_report",
-  "object_id": "6529NM.2026.001.03",
-  "protocol_state": {"chain": "Ethereum mainnet", "chain_id": 1, "observed_at": "2026-08-01T14:58:31.905115Z", "source": "notes/research/casey-reas-onchain-evidence.md"},
-  "condition_outcome": "not_assessed",
-  "condition_components": {"chain_identity": "green", "metadata_retrieval": "amber", "generator_retrieval": "amber", "render": "not_assessed", "dependencies": "not_assessed", "preservation": "not_assessed"},
-  "verified_observations": ["ownerOf(100000401) resolved to the ENS-resolved Museum custody address.", "tokenURI and tokenIdToHash were read from the contract; the token hash matches the Art Blocks metadata token_hash.", "Metadata response fixity was recorded as sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81.", "The current generator response was observed with p5.js 1.0.0 via cdnjs; its retrieval fixity is recorded in the object record."],
-  "pending_tests": ["Capture the generator HTML and project script into the preservation package.", "Render in two clean browser environments and compare deterministic captures.", "Record browser, runtime, canvas, network, and restart behavior.", "Complete a conservator/technical condition review."],
-  "recovery_lineage": "No local preservation package committed; source routes and observation hashes are retained as retrieval targets.",
-  "evidence_class": "A/C",
-  "interpretive_limit": "A retrieved response and token hash do not establish display readiness or preservation completion."
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x789b8b01655d070488a7bf78e95e4fa126887ec4eee9ac2b846c9889a657b002"
+    },
+    "effectiveAt": 1785596311,
+    "recordType": "CONDITION_REPORT",
+    "schemaId": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x30ce49d181f49e66602bba3aade0abcff842c52753449b9cc857f85c0492240a",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.03.json"
+  },
+  "payload": {
+    "assessments": {
+      "chain_identity": "green",
+      "dependencies": "not_assessed",
+      "generator_retrieval": "amber",
+      "metadata_retrieval": "amber",
+      "preservation": "amber",
+      "render": "not_assessed"
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-01T14:58:31.905115Z",
+    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "events": [
+      {
+        "authority_reference": "6529NM.2026.001",
+        "event_type": "condition_assessment",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Technical condition boundary",
+            "observed_at": "2026-08-01T14:58:31.905115Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
+          }
+        ],
+        "occurred_at": "2026-08-01T14:58:31.905115Z"
+      }
+    ],
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Casey on-chain evidence",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-onchain-evidence.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Casey art and technical research",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-art-technical-research.md"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Preservation evidence manifest",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+      }
+    ],
+    "method": "Direct custody evidence plus retained metadata fixity and prior generator observation; no independent render or conservation test.",
+    "object_id": "6529NM.2026.001.03",
+    "observed_at": "2026-08-01T14:58:31.905115Z",
+    "outcome": "not_assessed: chain identity and custody are verified observations; generator capture, dependencies, rendering, preservation, and display remain incomplete.",
+    "payload_sha256": "sha256:b0938cd3b453e3e1c1adbe8245a457760a2d61d104c2b4b29742b46d4a3169df",
+    "protocol_state": "Constructor intake condition record; independent technical/conservator assessment pending.",
+    "record_id": "6529NM.2026.001.COND.03",
+    "record_status": "constructed",
+    "record_type": "CONDITION_REPORT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.03"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "source": {
+      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+    },
+    "subject_id": "6529NM.2026.001.COND.03",
+    "visibility": "public"
+  }
 }

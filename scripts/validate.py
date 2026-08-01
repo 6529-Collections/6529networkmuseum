@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -59,6 +60,18 @@ RECORD_REFERENCE_KEYS = {
     "amendment_ids",
 }
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
+CASEY_LOT_ID = "6529NM.2026.001"
+CASEY_RECEIPT_TX = "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498"
+CASEY_CUSTODY = "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c"
+CASEY_OBJECTS = {
+    "6529NM.2026.001.01": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "100000031"),
+    "6529NM.2026.001.02": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "100000724"),
+    "6529NM.2026.001.03": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "100000401"),
+    "6529NM.2026.001.04": ("0x99a9b7c1116f9ceeb1652de04d5969cce509b069", "383000063"),
+    "6529NM.2026.001.05": ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "164000308"),
+    "6529NM.2026.001.06": ("0x145789247973c5d612bf121e9e4eef84b63eb707", "1000713"),
+    "6529NM.2026.001.07": ("0x0000000c687daed0fba60d1dba4e5f6149e8b894", "248"),
+}
 SENSITIVE_KEY_PARTS = {
     "api_key",
     "apikey",
@@ -434,6 +447,96 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
     return issues
 
 
+def casey_payload_sha256(payload: dict[str, Any]) -> str:
+    """Return the self-excluding SHA-256 commitment used by the Casey lot."""
+
+    body = {key: value for key, value in payload.items() if key != "payload_sha256"}
+    return "sha256:" + hashlib.sha256(canonicalize(body)).hexdigest()
+
+
+def validate_casey_lot(records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]]) -> list[str]:
+    """Fail closed on the seven-token accession's cross-file control plane."""
+
+    payloads = [payload for _path, _record, payload in records if isinstance(payload, dict)]
+    lot = next((payload for payload in payloads if payload.get("record_type") == "ACCESSION_LOT" and payload.get("accession_number") == CASEY_LOT_ID), None)
+    if lot is None or "source_manifest" not in lot:
+        return []
+    issues: list[str] = []
+    by_id = {payload.get("record_id"): payload for payload in payloads if isinstance(payload.get("record_id"), str)}
+    expected_ids = list(CASEY_OBJECTS)
+    if lot.get("object_ids") != expected_ids:
+        issues.append("CASEY accession lot.object_ids must equal the seven canonical object IDs in order")
+    for payload in payloads:
+        record_id = payload.get("record_id")
+        if isinstance(record_id, str) and (record_id == CASEY_LOT_ID or record_id.startswith(CASEY_LOT_ID + ".") or record_id.startswith(CASEY_LOT_ID + "-")):
+            actual_hash = payload.get("payload_sha256")
+            if actual_hash != casey_payload_sha256(payload):
+                issues.append(f"{record_id}: payload_sha256 does not match canonical payload excluding payload_sha256")
+            if payload.get("reviewer") is not None or payload.get("review_status") != "pending_independent_review":
+                issues.append(f"{record_id}: constructor controls must leave reviewer null pending independent review")
+
+    receipt = lot.get("receipt_summary") if isinstance(lot.get("receipt_summary"), dict) else {}
+    if receipt.get("transaction_hash", "").lower() != CASEY_RECEIPT_TX:
+        issues.append("CASEY receipt_summary.transaction_hash must equal the verified seven-token receipt")
+    if receipt.get("block_number") != 25660311 or receipt.get("block_time") != "2026-08-01T13:25:47Z":
+        issues.append("CASEY receipt_summary block number/time must equal the verified common receipt")
+    if receipt.get("transfer_count") != 7:
+        issues.append("CASEY receipt_summary.transfer_count must equal seven")
+    log_indices = receipt.get("log_indices") if isinstance(receipt.get("log_indices"), dict) else {}
+    if set(log_indices) != set(expected_ids):
+        issues.append("CASEY receipt_summary.log_indices must identify all seven objects")
+
+    identities = lot.get("object_identities") if isinstance(lot.get("object_identities"), list) else []
+    identity_by_id = {item.get("object_id"): item for item in identities if isinstance(item, dict)}
+    for object_id, (contract, token_id) in CASEY_OBJECTS.items():
+        expected_caip19 = f"eip155:1/erc721:{contract}/{token_id}"
+        schedule = identity_by_id.get(object_id)
+        if not isinstance(schedule, dict) or schedule.get("contract") != contract or schedule.get("token_id") != token_id or schedule.get("caip19") != expected_caip19:
+            issues.append(f"CASEY object identity schedule does not match the canonical identity for {object_id}")
+        object_payload = by_id.get(object_id)
+        if not isinstance(object_payload, dict) or object_payload.get("record_type") != "WORK_DESCRIPTION":
+            issues.append(f"CASEY object record missing for {object_id}")
+            continue
+        chain = object_payload.get("chain_identity") if isinstance(object_payload.get("chain_identity"), dict) else {}
+        if chain.get("contract", "").lower() != contract or chain.get("token_id") != token_id or chain.get("caip19") != expected_caip19:
+            issues.append(f"CASEY object {object_id} chain identity does not match the accession schedule")
+        if chain.get("custody_receipt_transaction", "").lower() != CASEY_RECEIPT_TX or chain.get("custody_receipt_block") != 25660311 or chain.get("custody_account", "").lower() != f"eip155:1:{CASEY_CUSTODY}":
+            issues.append(f"CASEY object {object_id} custody receipt is not bound to the common verified receipt")
+        if chain.get("custody_receipt_log") != log_indices.get(object_id):
+            issues.append(f"CASEY object {object_id} custody receipt log is not bound to the lot schedule")
+        if object_payload.get("current_state") != "received_onchain" or "accessioned" in [entry.get("state") for entry in object_payload.get("state_history", []) if isinstance(entry, dict)]:
+            issues.append(f"CASEY object {object_id} must remain received_onchain and may not claim accessioned")
+        if chain.get("custody_status") != "verified":
+            issues.append(f"CASEY object {object_id} must have verified custody")
+        binding = object_payload.get("title_binding") if isinstance(object_payload.get("title_binding"), dict) else {}
+        if binding.get("status") != "pending" or binding.get("instrument_sha256") is not None:
+            issues.append(f"CASEY object {object_id} must retain a pending title binding without an invented instrument hash")
+        rights = object_payload.get("rights") if isinstance(object_payload.get("rights"), dict) else {}
+        if any(isinstance(grant, dict) and grant.get("grant_status") == "granted" for grant in rights.values()):
+            issues.append(f"CASEY object {object_id} must not assert rights from custody or platform metadata")
+        if object_id == "6529NM.2026.001.07":
+            raw = chain.get("raw_art_blocks") if isinstance(chain.get("raw_art_blocks"), dict) else {}
+            if raw != {"engine_type": "studio", "project_id": 0, "tokenID": 248} or chain.get("decoded_invocation") != 248:
+                issues.append("CASEY object .07 must preserve raw Art Blocks Studio fields and decoded invocation 248")
+
+    provenance = lot.get("provenance_schedule") if isinstance(lot.get("provenance_schedule"), dict) else {}
+    for event_group in provenance.get("objects", []) if isinstance(provenance.get("objects"), list) else []:
+        for event in event_group.get("events", []) if isinstance(event_group, dict) and isinstance(event_group.get("events"), list) else []:
+            if event.get("kind") == "museum_receipt":
+                if event.get("verification") != "direct_rpc_verified" or event.get("block_hash") != receipt.get("block_hash"):
+                    issues.append("CASEY museum receipt event must carry direct RPC block evidence")
+            elif event.get("verification") != "indexer_observed" or event.get("direct_rpc_verified") is not False:
+                issues.append("CASEY historical provenance events must be classified indexer_observed unless per-event receipt evidence is retained")
+    source_manifest = lot.get("source_manifest") if isinstance(lot.get("source_manifest"), dict) else {}
+    if source_manifest.get("control_plane_head") != "7193bfb9a0a6ead1871180b931aced755676b327" or source_manifest.get("casey_research_head") != "9f38bd4ba5f779540eabf2dfce019cc1382561e2":
+        issues.append("CASEY source_manifest must bind the merged control-plane and Casey research heads")
+    if lot.get("acceptance_date") != "2026-08-01T13:25:47Z" or lot.get("intake_status") != "accepted_for_accession_processing" or lot.get("formal_acceptance_status") != "not_formally_accepted":
+        issues.append("CASEY acceptance_date must remain receipt-time intake processing, not formal acceptance")
+    if lot.get("accession_status") != "not_complete":
+        issues.append("CASEY accession_status must remain not_complete")
+    return issues
+
+
 def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
@@ -488,11 +591,12 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
     reviewer = reviewer_data.get("id") if isinstance(reviewer_data, dict) else None
     if constructor == reviewer:
         issues.append("constructor/reviewer separation: constructor.id and reviewer.id must differ")
-    try:
-        if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
-            issues.append("reviewer.reviewed_at must not precede created_at")
-    except (KeyError, ValueError) as exc:
-        issues.append(str(exc))
+    if reviewer_data is not None:
+        try:
+            if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
+                issues.append("reviewer.reviewed_at must not precede created_at")
+        except (KeyError, ValueError) as exc:
+            issues.append(str(exc))
     issues.extend(inspect_sensitive(payload))
     if record_type == "GOVERNANCE_DECISION":
         source_status = source_data.get("status") if isinstance(source_data, dict) else None
@@ -643,6 +747,7 @@ def validate_records(root: Path) -> list[str]:
                     superseded = load_json(superseded_path)
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
                         issues.append(f"{relative}: supersedes must point to the same record_type")
+    issues.extend(validate_casey_lot(records))
     return issues
 
 

@@ -1,26 +1,259 @@
 {
-  "$schema": "../../../../schemas/object-record.schema.json",
-  "record_control": {"revision": 1, "record_status": "constructed", "constructor": {"actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7", "role": "constructor", "constructed_at": "2026-08-01T15:57:29Z"}, "review": null},
-  "record_id": "6529NM.2026.001.02",
-  "record_type": "object_record",
-  "accession_lot_id": "6529NM.2026.001",
-  "object_number": "02",
-  "record_status": "received_onchain",
-  "title": "CENTURY #724",
-  "classification": "onchain_generative_software_art",
-  "artist": {"preferred_name": "Casey REAS", "claim_type": "issuer_and_artist_platform_metadata", "evidence_class": "B", "source_refs": ["notes/research/casey-reas-art-technical-research.md", "notes/research/casey-reas-onchain-evidence.md"]},
-  "chain_object": {"blockchain": "Ethereum", "chain_id": 1, "token_standard": "ERC-721", "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "contract_name": "Art Blocks", "project_id": 100, "project_artist_address": "0x457ee5f723c7606c12a7264b52e285906f91eea6", "invocation": 724, "token_id": "100000724", "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724", "owner_observed": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c", "custody_name": "networkmuseum.6529.eth", "owner_observed_at": "2026-08-01T14:58:31.905115Z", "token_uri": "https://api.artblocks.io/token/100000724", "token_hash": "0x02a66fde5911ca99640218fb0b8143bf6d4b9da045626de7065f0a2c88453766"},
-  "project": {"name": "CENTURY", "platform": "Art Blocks Curated", "release_year": 2021, "edition_size": 1000, "script_type_and_version": "p5@1.0.0", "platform_metadata_license_label": "CC BY-NC 4.0", "license_claim_status": "not_a_Museum_grant"},
-  "metadata_snapshot": {"observed_at": "2026-08-01T15:04:17Z", "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5", "keccak256": "0xd157b004925a1d34d85373a4cc39194b641806f2be0f45c4520fa0d171beb773", "fixity_scope": "retrieved HTTP response bytes; mutable endpoint", "metadata_token_name": "CENTURY #724"},
-  "generator_snapshot": {"uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724", "sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e", "dependency_observed": "p5.js 1.0.0 via cdnjs", "status": "observation_only"},
-  "claims": {"documented_fact": "Art Blocks records this token in Casey REAS's CENTURY project 100; the contract token hash matches the token metadata token_hash.", "artist_statement": "The artist describes CENTURY as a generative response to modernist painting and drawing, with slicing, recomposition, motion, and chance.", "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, not a complete CENTURY set or artist-defined triptych.", "evidence_class": "A/B/E"},
-  "provenance_ref": "../transaction-provenance.json",
-  "technical_condition_ref": "../technical/6529NM.2026.001.02.json",
-  "public_page": "../public/6529NM.2026.001.02.md",
-  "trait_analysis": {"status": "pending_linked_deliverable", "linked_deliverable": "../trait-analysis-pending.json", "descriptive_source": "Art Blocks metadata only", "rarity_metrics": "not_used"},
-  "rights_status": "unspecified_pending_registrar_instrument",
-  "preservation_status": "planned_not_complete",
-  "display_status": "not_assessed",
-  "evidence_grade": "A/B",
-  "uncertainties": ["On-chain custody is not a legal title opinion.", "The HTTP metadata and generator routes may change.", "No display, reproduction, copyright, or preservation grant is asserted."]
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xe2de2010d91e4c0eca47b2e4cfc569bbdbfa0397456bc8030b45fc86f182684a"
+    },
+    "effectiveAt": 1785596311,
+    "recordType": "WORK_DESCRIPTION",
+    "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xc02f916a1ba008b68a0e4d9a3f927494eee4ca3264e2056612b3e324d8764879",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.02.json"
+  },
+  "payload": {
+    "accession_lot_id": "6529NM.2026.001",
+    "artist": {
+      "claim_type": "issuer_and_artist_platform_metadata",
+      "evidence_class": "B",
+      "preferred_name": "Casey REAS",
+      "source_refs": [
+        "notes/research/casey-reas-art-technical-research.md",
+        "notes/research/casey-reas-onchain-evidence.md"
+      ]
+    },
+    "chain_identity": {
+      "acquisition_transaction": null,
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "chain_id": 1,
+      "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "custody_account": "eip155:1:0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_block": 25660311,
+      "custody_receipt_block": 25660311,
+      "custody_receipt_log": 59,
+      "custody_receipt_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+      "custody_status": "verified",
+      "custody_verified_at": "2026-08-01T14:58:31.905115Z",
+      "decoded_invocation": 724,
+      "generator_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+      "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "metadata_sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+      "metadata_uri": "https://api.artblocks.io/token/100000724",
+      "mint_transaction": "0x0f6f3b970006c0d4efabc064f761a03dc93aa20a2b587643b8250e6f1afb53fb",
+      "project_artist_address": "0x457ee5f723c7606c12a7264b52e285906f91eea6",
+      "token_hash": "0x02a66fde5911ca99640218fb0b8143bf6d4b9da045626de7065f0a2c88453766",
+      "token_id": "100000724",
+      "token_standard": "ERC-721"
+    },
+    "claims": {
+      "artist_statement": "The artist describes CENTURY as a generative response to modernist painting and drawing, with slicing, recomposition, motion, and chance.",
+      "documented_fact": "Art Blocks records this token in Casey REAS's CENTURY project 100; the contract token hash matches the token metadata token_hash.",
+      "evidence_class": "A/B/E",
+      "museum_interpretation": "This token is one comparative state in a three-token CENTURY sample, not a complete CENTURY set or artist-defined triptych."
+    },
+    "condition": {
+      "behavior": "not_assessed",
+      "dependencies": "not_assessed",
+      "documentation": "not_assessed",
+      "metadata": "amber",
+      "method": "Constructor evidence synthesis from direct custody evidence and retained response fixity; no independent condition assessment.",
+      "narrative": "A retrieved response and token hash do not establish display readiness or preservation completion.",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "protocol_state": "Ethereum mainnet receipt observed; conservation protocol incomplete.",
+      "rendering": "not_assessed",
+      "script": "amber",
+      "token": "green"
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-01T14:58:31.905115Z",
+    "creator": "Casey REAS",
+    "credit_line": "Gift of punk6529; Casey REAS; display credit pending rights and registrar review.",
+    "current_state": "received_onchain",
+    "display": {
+      "credit_line": "Display permissions pending rights and registrar review.",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/public/6529NM.2026.001.02.md",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "status": "not_assessed"
+    },
+    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "evidence_grade": "A for custody; B for artist/platform statements; C for technical observation.",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Casey on-chain evidence",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-onchain-evidence.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Casey art and technical research",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-art-technical-research.md"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Preservation evidence manifest",
+        "observed_at": "2026-08-01T14:58:31.905115Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
+      }
+    ],
+    "generator_snapshot": {
+      "dependency_observed": "p5.js 1.0.0 via cdnjs",
+      "preservation_gate": "generator bytes, dependencies, and render capture pending",
+      "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
+      "sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+      "status": "observation_only",
+      "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"
+    },
+    "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "metadata_snapshot": {
+      "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
+      "keccak256": "0xd157b004925a1d34d85373a4cc39194b641806f2be0f45c4520fa0d171beb773",
+      "metadata_token_name": "CENTURY #724",
+      "observed_at": "2026-08-01T15:04:17Z",
+      "raw_capture_path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+      "raw_capture_sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+      "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5"
+    },
+    "object_id": "6529NM.2026.001.02",
+    "observed_at": "2026-08-01T14:58:31.905115Z",
+    "payload_sha256": "sha256:8de0957d4e8555dd6384e0377b4ba5512b09405174b84f643c12cbef49c32cd6",
+    "preservation": {
+      "fixity_sha256": "sha256:4091651ed71f7f2627c06be359893fb957292260bf81f25e395d614b0d14bc94",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas",
+      "render_environment": "Not yet fixed; generator capture and two-environment render verification remain open.",
+      "status": "in_progress"
+    },
+    "project": {
+      "edition_size": 1000,
+      "license_claim_status": "not_a_Museum_grant",
+      "name": "CENTURY",
+      "platform": "Art Blocks Curated",
+      "platform_metadata_license_label": "CC BY-NC 4.0",
+      "release_year": 2021,
+      "script_type_and_version": "p5@1.0.0"
+    },
+    "record_id": "6529NM.2026.001.02",
+    "record_status": "constructed",
+    "record_type": "WORK_DESCRIPTION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.RIGHTS.02",
+      "6529NM.2026.001.COND.02"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights": {
+      "ai_training": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "derivative_use": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "exhibition": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "print": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "publication": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "reproduction": {
+        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      }
+    },
+    "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "source": {
+      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+    },
+    "source_refs": [
+      "notes/research/casey-reas-onchain-evidence.md",
+      "notes/research/casey-reas-art-technical-research.md",
+      "evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json"
+    ],
+    "state_history": [
+      {
+        "evidence_refs": [
+          "6529NM.2026.001"
+        ],
+        "observed_at": "2026-08-01T12:00:00Z",
+        "state": "offered"
+      },
+      {
+        "evidence_refs": [
+          "6529NM.2026.001"
+        ],
+        "observed_at": "2026-08-01T12:05:00Z",
+        "state": "authorized"
+      },
+      {
+        "evidence_refs": [
+          "6529NM.2026.001"
+        ],
+        "observed_at": "2026-08-01T12:15:00Z",
+        "state": "acquired"
+      },
+      {
+        "evidence_refs": [
+          "6529NM.2026.001"
+        ],
+        "observed_at": "2026-08-01T13:25:47Z",
+        "state": "received_onchain"
+      }
+    ],
+    "subject_id": "6529NM.2026.001.02",
+    "title": "CENTURY #724",
+    "title_binding": {
+      "basis": "Custody receipt is recorded separately; no public legal title instrument or deed hash is recorded.",
+      "block_number": null,
+      "bound_at": null,
+      "custodian_reference": "networkmuseum.6529.eth",
+      "from": null,
+      "instrument_sha256": null,
+      "object_id": "6529NM.2026.001.02",
+      "status": "pending",
+      "to": null,
+      "transfer_transaction": null
+    },
+    "trait_analysis": {
+      "linked_deliverable": "https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity",
+      "marketplace_metrics": "not_used",
+      "method": "Museum NextGen-compatible tooling only; no result is asserted in this dossier.",
+      "status": "pending_linked_deliverable"
+    },
+    "uncertainties": [
+      "On-chain custody is not a legal title opinion.",
+      "Historical events without retained per-event receipt evidence are indexer_observed.",
+      "HTTP metadata and generator routes may change.",
+      "No display, reproduction, copyright, or preservation grant is asserted."
+    ],
+    "visibility": "public"
+  }
 }

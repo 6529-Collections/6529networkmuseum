@@ -4,29 +4,22 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x44b54a92d3c25dcda711443aa6fbda193b6ca3f8e07826e9d7a17af7a6b79355"
+      "digest": "0xddf380fa8f67f350c6f587a0defd34383f91cf45496c5abefafd79adf02b848e"
     },
     "effectiveAt": 1785596311,
-    "recordType": "CONDITION_REPORT",
-    "schemaId": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "recordType": "RIGHTS_STATEMENT",
+    "schemaId": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
     "signatureHash": {
       "algorithm": 2,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "subjectId": "0x83faedc29219287132afbd06647243d75567c36c79af039f942e993ad5355dc2",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.04.json"
+    "subjectId": "0x48643bc27adc652790fe18cc525f7b0339e1e97e1fc6215cdaf21f6224892f40",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.04.json"
   },
   "payload": {
-    "assessments": {
-      "chain_identity": "green",
-      "dependencies": "not_assessed",
-      "generator_retrieval": "amber",
-      "metadata_retrieval": "amber",
-      "preservation": "amber",
-      "render": "not_assessed"
-    },
+    "basis": "No public donation deed, license, or other rights instrument is recorded. Custody and platform metadata do not grant rights.",
     "constructor": {
       "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -37,11 +30,11 @@
     "events": [
       {
         "authority_reference": "6529NM.2026.001",
-        "event_type": "condition_assessment",
+        "event_type": "rights_assertion",
         "evidence_refs": [
           {
             "evidence_class": "C",
-            "label": "Technical condition boundary",
+            "label": "Public rights boundary",
             "observed_at": "2026-08-01T14:58:31.905115Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/records/accessions/6529NM.2026.001"
           }
@@ -69,15 +62,44 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/codex/casey-reas-accession/evidence/casey-reas"
       }
     ],
-    "method": "Direct custody evidence plus retained metadata fixity and prior generator observation; no independent render or conservation test.",
+    "grants": {
+      "ai_training": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "derivative_use": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "exhibition": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "print": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "publication": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      },
+      "reproduction": {
+        "basis": "Registrar rights review pending; no grant inferred.",
+        "grant_status": "unspecified",
+        "observed_at": "2026-08-01T14:58:31.905115Z"
+      }
+    },
     "object_id": "6529NM.2026.001.04",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "outcome": "not_assessed: chain identity and custody are verified observations; generator capture, dependencies, rendering, preservation, and display remain incomplete.",
-    "payload_sha256": "sha256:438fee83e371d9af61a0dce1c3946bad4371c36e80a096110551ba1e6fc97f8f",
-    "protocol_state": "Constructor intake condition record; independent technical/conservator assessment pending.",
-    "record_id": "6529NM.2026.001.COND.04",
+    "payload_sha256": "sha256:9d4480c0e8c0efd32560e262b27281dcfa02c3c9c868f392a2dec24b51e7361b",
+    "record_id": "6529NM.2026.001.RIGHTS.04",
     "record_status": "constructed",
-    "record_type": "CONDITION_REPORT",
+    "record_type": "RIGHTS_STATEMENT",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.001",
@@ -85,12 +107,13 @@
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
-    "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "rights_holder_reference": "Casey REAS (public attribution; legal rights holder not established by this record)",
+    "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
     "source": {
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
     },
-    "subject_id": "6529NM.2026.001.COND.04",
+    "subject_id": "6529NM.2026.001.RIGHTS.04",
     "visibility": "public"
   }
 }
