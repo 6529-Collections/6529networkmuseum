@@ -22,7 +22,7 @@
   },
   "review": null,
   "dependency": {
-    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824",
+    "acquisition_commit": "48cd2fbf2914d295cdc4260dedb1345061f5e3b6",
     "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
     "rarity_tool_merge_commit": "ff1c5825e3b61bfb2df0a639e057297beb946e4d",
     "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
@@ -94,37 +94,37 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
         "role": "descriptor-child-manifest",
-        "sha256": "sha256:9add16aeb7d5f7aeb47b0340e527f68e8830b0ca02847daf70cebbd31bab095c",
+        "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63",
         "size": 2451
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
         "role": "descriptor",
-        "sha256": "sha256:ba73cd61d5e6d62a0cd2da4ed9054dbad8fd715cc501ebb0826f8fed66e11c12",
+        "sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
         "size": 23369807
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
         "role": "descriptor",
-        "sha256": "sha256:1e9b510889c7729c14f414ed232bbe096597f849b29f20ca35a2498d497c0f92",
+        "sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
         "size": 22561079
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
         "role": "descriptor",
-        "sha256": "sha256:56be61f004da9b83638c69f5ca08e6497aabeae71c7524703dcf9c7d36a5dbca",
+        "sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
         "size": 3691856
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
         "role": "descriptor",
-        "sha256": "sha256:0c8085a7ded890572aaad175c1b4a4e1556ab974f59f89772667c1186928c97d",
+        "sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
         "size": 16310682
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
         "role": "descriptor",
-        "sha256": "sha256:68b528cd9f2c7e5b7795b8db0b95f74c55d23c53038a02354686e42b46b27746",
+        "sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
         "size": 1013453
       },
       {
@@ -142,7 +142,7 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
         "role": "review-ledger",
-        "sha256": "sha256:c4f6f3d485b6be8a236ea49e04ef7ef0b39ac9c66edd5eca5639d48ba9ac4c25",
+        "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
         "size": 2867
       },
       {
@@ -1096,7 +1096,7 @@
       {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
+        "sha256": "sha256:7066928f529b03fae96cb8f484f3f572ac572e7a4096d19d9b749a86fdab445f",
         "size": 69894
       },
       {
@@ -1144,12 +1144,12 @@
     },
     "descriptor_manifest": {
       "path": "evidence/casey-reas-collection-snapshots/descriptor-manifest.json",
-      "sha256": "sha256:9add16aeb7d5f7aeb47b0340e527f68e8830b0ca02847daf70cebbd31bab095c",
+      "sha256": "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156ccd2bee7f9f1ff97012d63",
       "size": 2451
     },
     "pending_review_ledger": {
       "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
-      "sha256": "sha256:c4f6f3d485b6be8a236ea49e04ef7ef0b39ac9c66edd5eca5639d48ba9ac4c25",
+      "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
       "size": 2867
     },
     "request_provenance": {
@@ -1165,27 +1165,27 @@
     "descriptors": [
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json",
-        "sha256": "sha256:ba73cd61d5e6d62a0cd2da4ed9054dbad8fd715cc501ebb0826f8fed66e11c12",
+        "sha256": "sha256:f4288a49b5f187cceb8899b15c5535fcf76c9970ebd20ee28925df96a90416d9",
         "size": 23369807
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/century.json",
-        "sha256": "sha256:1e9b510889c7729c14f414ed232bbe096597f849b29f20ca35a2498d497c0f92",
+        "sha256": "sha256:cb64ad56ba979efabbee441708a4c130977aed409fe697607acfb2c8a5841bc9",
         "size": 22561079
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/ex-nihilo-cosmos.json",
-        "sha256": "sha256:56be61f004da9b83638c69f5ca08e6497aabeae71c7524703dcf9c7d36a5dbca",
+        "sha256": "sha256:ec19da4b1c8bcb9d0534dff18d1c260355d071615802495e84dec10071f3dd00",
         "size": 3691856
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/phototaxis.json",
-        "sha256": "sha256:0c8085a7ded890572aaad175c1b4a4e1556ab974f59f89772667c1186928c97d",
+        "sha256": "sha256:9ce08d9ad5c71bbcc327be6bdd65fa583566d20956e47a5bdcf225dbbbf209ab",
         "size": 16310682
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json",
-        "sha256": "sha256:68b528cd9f2c7e5b7795b8db0b95f74c55d23c53038a02354686e42b46b27746",
+        "sha256": "sha256:b88b1b57d5ef18a9b2edeb28687779a36a94dddeae1df9bb00c82f494aada3b3",
         "size": 1013453
       }
     ]

@@ -597,7 +597,7 @@
     },
     {
       "path": "scripts/verify_casey_snapshot_package.py",
-      "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
+      "sha256": "sha256:7066928f529b03fae96cb8f484f3f572ac572e7a4096d19d9b749a86fdab445f",
       "size": 69894
     },
     {
@@ -848,9 +848,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x0b3375ccb2aa9ec76e3711776903673309253687ef4928ee7ecdc2169b36a0fd"
+    "digest": "0x6c8d12ef57c7263fd331a52f5493d32e00c6bdad32a63ebf8e14258813919ced"
   },
-  "manifest_sha256": "sha256:518a80d7dfb20b25070c9fee94552824b250cd672e4f7de1fc63f30ea39480f2",
+  "manifest_sha256": "sha256:6bd97c002283999ae739f705a11e1b2d8fc2cca93e7fa03a2510764bfd706892",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

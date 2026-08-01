@@ -7,7 +7,7 @@
     "rarity_tool_sha256": "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53",
     "rarity_tool_git_blob_oid": "755a1b1c948d900496f5e279594223c8c99ab3e8",
     "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
-    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824",
+    "acquisition_commit": "48cd2fbf2914d295cdc4260dedb1345061f5e3b6",
     "tool_path": "scripts/rarity/analyze.py"
   },
   "constructor": {
@@ -31,7 +31,7 @@
       "removed_paths": []
     },
     "source_snapshot_commit": "820f4bb6999fb9df3b094692913d70ebf6d9dc63",
-    "acquisition_commit": "8585aedb9f176806624a7b069cdd10a6f1995824",
+    "acquisition_commit": "48cd2fbf2914d295cdc4260dedb1345061f5e3b6",
     "request_provenance_sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
     "exclusion_summary_sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
     "observed_at": "2026-08-01T17:22:52.532Z",

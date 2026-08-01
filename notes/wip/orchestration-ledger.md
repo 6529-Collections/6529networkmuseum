@@ -389,3 +389,24 @@ the closed release manifest is
 The exact rebase result before final manifest/ledger commit is `fda242b`; the
 working branch remains draft with reviewer, title/rights, and accession
 acceptance metadata unbound.
+
+## 2026-08-01 - PR #13 acquisition-pin reachability remediation
+
+Exact-head CI at `8b02fece50b7f93b0c0ca4b6e4db25dff39b6c20` showed that the
+historical acquisition pin `8585aedb9f176806624a7b069cdd10a6f1995824` was not
+reachable from the rebased remote history, although the local object-rich
+worktree could still read it. The acquisition commit pin is therefore updated
+to the reachable rebased acquisition commit
+`48cd2fbf2914d295cdc4260dedb1345061f5e3b6`, which contains the same preserved
+79 raw observation files byte-for-byte. The historical source-snapshot pin
+`820f4bb6999fb9df3b094692913d70ebf6d9dc63` remains unchanged and is retained as
+a reachable parent without a tree change.
+
+The five descriptors, descriptor manifest, pending review ledger, root package
+manifest, and release manifest were regenerated only for this dependency-pin
+change. The package now reports SHA-256
+`sha256:8b438b09c09eedc8ec53c3d8e4e063f6ebba9f32ff75afe672d6a1cea725cae6`;
+the deterministic release-manifest commitment reports
+`sha256:6bd97c002283999ae739f705a11e1b2d8fc2cca93e7fa03a2510764bfd706892`.
+All populations, source/canonical orderings, raw bytes, exclusion rows,
+descriptor results, runtime pin, and null reviewer fields remain unchanged.
