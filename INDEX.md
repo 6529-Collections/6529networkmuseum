@@ -43,12 +43,6 @@ Status vocabulary:
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
 
-## Research evidence
-
-| File | Status | Contents |
-|---|---|---|
-| [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | WIP analysis | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
-
 ## Dated WIP notebook
 
 | File | Status | Contents |
@@ -62,6 +56,7 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
+| [`notes/research/governance-decision-evidence.md`](notes/research/governance-decision-evidence.md) | research input | Independently verified Museum Wave governance evidence, source/interpretation boundary, and append-only decision format |
 | [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Spectrum, ICOM, Object ID, CIDOC CRM, LIDO, PREMIS, IIIF, C2PA, BagIt, OCFL, public/restricted, and maker/checker crosswalk |
 | [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
 | [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
