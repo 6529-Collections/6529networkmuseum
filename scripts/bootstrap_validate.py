@@ -6,7 +6,9 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import struct
 import sys
+import binascii
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
 
@@ -18,10 +20,10 @@ ROOT = Path(__file__).resolve().parents[1]
 GOVERNED_DIRS = ("policies", "records", "docs", "governance", "schemas", "specs")
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
 LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
-LOCAL_PATH = re.compile(r"(?:[A-Za-z]:\\(?:Users|repos)\\|/home/|/Users/)")
+LOCAL_PATH = re.compile(r"(?:[A-Za-z]:[\\/](?:Users|repos)[\\/]|\\\\[A-Za-z0-9][A-Za-z0-9_.-]*[\\/][A-Za-z0-9][A-Za-z0-9_.-]*[\\/]|/(?:home|Users|root)/)")
 SECRET_PATTERNS = (
     re.compile(r"gh[opsu]_[A-Za-z0-9]{30,}"),
-    re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    re.compile(r"-----BEGIN (?:[A-Z0-9]+ )?PRIVATE KEY(?: BLOCK)?-----"),
     re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
     re.compile(r"\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b"),
     re.compile(
@@ -87,24 +89,17 @@ def check_local_markdown_links() -> None:
 
 
 TEXT_MEDIA_PREFIXES = ("text/",)
-SAFE_BINARY_MEDIA_TYPES = {
-    "application/octet-stream",
-    "application/pdf",
-    "audio/mpeg",
-    "audio/wav",
-    "image/gif",
-    "image/jpeg",
-    "image/png",
-    "image/tiff",
-    "image/webp",
-    "video/mp4",
-    "video/webm",
-}
+# V1 admits only PNG because it has a small, deterministic structural parser.
+# Other image/PDF/container types remain text-or-fail-closed until a parser is
+# deliberately added and covered by equivalent public-safety tests.
+SAFE_BINARY_MEDIA_TYPES = {"image/png"}
 EXECUTABLE_SUFFIXES = {
     ".apk", ".app", ".bat", ".bin", ".class", ".cmd", ".com", ".dll", ".dmg", ".elf",
     ".exe", ".jar", ".js", ".msi", ".ps1", ".scr", ".sh", ".so", ".vbs",
 }
 BINARY_SECRET_MARKERS = (
+    b"-----BEGIN DSA PRIVATE KEY-----",
+    b"-----BEGIN PGP PRIVATE KEY BLOCK-----",
     b"-----BEGIN RSA PRIVATE KEY-----",
     b"-----BEGIN EC PRIVATE KEY-----",
     b"-----BEGIN OPENSSH PRIVATE KEY-----",
@@ -112,11 +107,16 @@ BINARY_SECRET_MARKERS = (
 )
 BINARY_SECRET_PATTERNS = (
     re.compile(rb"gh[opsu]_[A-Za-z0-9]{30,}"),
-    re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    re.compile(rb"-----BEGIN (?:[A-Z0-9]+ )?PRIVATE KEY(?: BLOCK)?-----"),
     re.compile(rb"\bAKIA[0-9A-Z]{16}\b"),
     re.compile(rb"\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b"),
     re.compile(rb"(?i)(?:api[_ -]?key|client[_ -]?secret|private[_ -]?key|seed[_ -]?phrase|mnemonic|password)\s*[:=]\s*['\"]?[A-Za-z0-9_./+\-=]{8,}"),
 )
+BINARY_LOCAL_PATH = re.compile(rb"(?:[A-Za-z]:[\\/](?:Users|repos)[\\/]|\\\\[A-Za-z0-9][A-Za-z0-9_.-]*[\\/][A-Za-z0-9][A-Za-z0-9_.-]*[\\/]|/(?:home|Users|root)/)")
+BINARY_EXECUTABLE_SIGNATURES = (b"MZ", b"\x7fELF", b"#!", b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08", b"<script")
+BINARY_TEXT_MARKERS = ("api", "client", "private", "seed", "mnemonic", "password", "ghp_", "AKIA", "eyJ", "-----BEGIN", "C:\\", "/Users/", "/home/", "/root/")
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
+PNG_CHUNK_TYPE = re.compile(rb"^[A-Za-z]{4}$")
 
 
 def is_manifest_approved_binary(entry: dict[str, object] | None) -> bool:
@@ -135,19 +135,69 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
     if path.suffix.lower() in EXECUTABLE_SUFFIXES:
         fail(f"raw evidence has executable suffix: {path.relative_to(ROOT)}")
     payload = path.read_bytes()
-    if payload.startswith((b"MZ", b"\x7fELF", b"#!")):
+    if any(signature.lower() in payload.lower() for signature in BINARY_EXECUTABLE_SIGNATURES):
         fail(f"raw evidence has executable signature: {path.relative_to(ROOT)}")
-    if any(marker in payload for marker in BINARY_SECRET_MARKERS) or any(pattern.search(payload) for pattern in BINARY_SECRET_PATTERNS):
+    if BINARY_LOCAL_PATH.search(payload) or any(marker in payload for marker in BINARY_SECRET_MARKERS) or any(pattern.search(payload) for pattern in BINARY_SECRET_PATTERNS):
         fail(f"credential-shaped content in raw public evidence: {path.relative_to(ROOT)}")
-    required_signatures = {
-        "image/png": (b"\x89PNG\r\n\x1a\n",),
-        "image/jpeg": (b"\xff\xd8\xff",),
-        "image/gif": (b"GIF87a", b"GIF89a"),
-        "application/pdf": (b"%PDF-",),
-    }
-    signatures = required_signatures.get(media_type)
-    if signatures and not payload.startswith(signatures):
+    for encoding in ("utf-8-sig",):
+        try:
+            decoded = payload.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+        if LOCAL_PATH.search(decoded) or any(pattern.search(decoded) for pattern in SECRET_PATTERNS):
+            fail(f"credential-shaped text in raw public evidence: {path.relative_to(ROOT)}")
+    # UTF-16 evidence may be embedded at an arbitrary byte offset inside a
+    # structurally valid container. Decode candidate spans for both endian
+    # forms, with and without BOM, rather than trusting container alignment.
+    for encoding in ("utf-16-le", "utf-16-be"):
+        for marker in BINARY_TEXT_MARKERS:
+            needle = marker.encode(encoding)
+            start = payload.find(needle)
+            while start >= 0:
+                try:
+                    decoded = payload[start:].decode(encoding)
+                except UnicodeDecodeError:
+                    decoded = ""
+                if LOCAL_PATH.search(decoded) or any(pattern.search(decoded) for pattern in SECRET_PATTERNS):
+                    fail(f"credential-shaped UTF-16 text in raw public evidence: {path.relative_to(ROOT)}")
+                start = payload.find(needle, start + 2)
+    if media_type != "image/png":
+        fail(f"raw evidence media profile is not admitted: {path.relative_to(ROOT)}")
+    if not payload.startswith(PNG_SIGNATURE):
         fail(f"raw evidence media signature does not match {media_type}: {path.relative_to(ROOT)}")
+    cursor = len(PNG_SIGNATURE)
+    saw_ihdr = False
+    saw_iend = False
+    while cursor < len(payload):
+        if cursor + 12 > len(payload):
+            fail(f"PNG has truncated chunk framing: {path.relative_to(ROOT)}")
+        length = struct.unpack(">I", payload[cursor : cursor + 4])[0]
+        chunk_type = payload[cursor + 4 : cursor + 8]
+        if not PNG_CHUNK_TYPE.fullmatch(chunk_type):
+            fail(f"PNG has invalid chunk type: {path.relative_to(ROOT)}")
+        end = cursor + 12 + length
+        if end > len(payload):
+            fail(f"PNG has truncated chunk data: {path.relative_to(ROOT)}")
+        chunk_data = payload[cursor + 8 : cursor + 8 + length]
+        expected_crc = struct.unpack(">I", payload[cursor + 8 + length : end])[0]
+        if binascii.crc32(chunk_type + chunk_data) & 0xFFFFFFFF != expected_crc:
+            fail(f"PNG chunk CRC is invalid: {path.relative_to(ROOT)}")
+        if not saw_ihdr:
+            if chunk_type != b"IHDR" or length != 13:
+                fail(f"PNG is missing a valid first IHDR: {path.relative_to(ROOT)}")
+            width, height, bit_depth, color_type, compression, filter_method, interlace = struct.unpack(">IIBBBBB", chunk_data)
+            if not width or not height or bit_depth not in {1, 2, 4, 8, 16} or color_type not in {0, 2, 3, 4, 6} or compression != 0 or filter_method != 0 or interlace not in {0, 1}:
+                fail(f"PNG IHDR profile is not admitted: {path.relative_to(ROOT)}")
+            saw_ihdr = True
+        if chunk_type == b"IEND":
+            if length != 0 or saw_iend or end != len(payload):
+                fail(f"PNG has trailing or malformed data after IEND: {path.relative_to(ROOT)}")
+            saw_iend = True
+        elif saw_iend:
+            fail(f"PNG has data after IEND: {path.relative_to(ROOT)}")
+        cursor = end
+    if not saw_ihdr or not saw_iend:
+        fail(f"PNG has no complete IHDR/IEND structure: {path.relative_to(ROOT)}")
 
 
 def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] | None = None) -> None:

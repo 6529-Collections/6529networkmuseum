@@ -1,25 +1,35 @@
 #!/usr/bin/env python3
-"""Reject network fetch implementations outside scripts/safe_fetch.py."""
+"""Reject unmediated network and command-line fetches in every Python file."""
 
 from __future__ import annotations
 
 import argparse
 import ast
+import re
 import sys
 from pathlib import Path
 
 
 APPROVED_MODULE = Path("scripts/safe_fetch.py")
-DISALLOWED_IMPORTS = {"requests", "httpx", "aiohttp"}
-DISALLOWED_SOCKET_ATTRIBUTES = {
+NETWORK_IMPORT_ROOTS = {"requests", "httpx", "aiohttp"}
+NETWORK_IMPORTS = {"socket", "urllib.request", "http.client"}
+SOCKET_ATTRIBUTES = {
     "accept",
     "connect",
     "connect_ex",
     "create_connection",
     "create_server",
+    "fromfd",
     "getaddrinfo",
+    "gethostbyname",
+    "gethostbyname_ex",
+    "getnameinfo",
     "socket",
 }
+SUBPROCESS_CALLS = {"run", "call", "check_call", "check_output", "Popen"}
+COMMAND_FETCH_WORDS = re.compile(
+    r"(?i)(?:^|[^a-z0-9])(?:curl|wget|powershell|pwsh|invoke-webrequest|invoke-restmethod|bitsadmin|certutil)(?:[^a-z0-9]|$)"
+)
 
 
 def dotted_name(node: ast.AST) -> str | None:
@@ -31,50 +41,90 @@ def dotted_name(node: ast.AST) -> str | None:
     return None
 
 
-def is_test_path(relative: Path) -> bool:
-    return "tests" in relative.parts
+def resolve_alias(name: str | None, aliases: dict[str, str]) -> str:
+    if not name:
+        return ""
+    root, separator, rest = name.partition(".")
+    mapped = aliases.get(root, root)
+    return mapped + (separator + rest if separator else "")
+
+
+def _network_import(module: str) -> bool:
+    return module in NETWORK_IMPORTS or module.split(".", 1)[0] in NETWORK_IMPORT_ROOTS
+
+
+def _string_literals(node: ast.AST) -> list[str]:
+    return [child.value for child in ast.walk(node) if isinstance(child, ast.Constant) and isinstance(child.value, str)]
+
+
+def _safe_static_subprocess_call(node: ast.Call) -> bool:
+    if not node.args:
+        return False
+    command = node.args[0]
+    if not isinstance(command, (ast.List, ast.Tuple)):
+        return False
+    literals = _string_literals(command)
+    if any(COMMAND_FETCH_WORDS.search(value) for value in literals):
+        return False
+    # A list/tuple with a statically visible interpreter or ordinary command
+    # is inspectable. Dynamic command objects are fail-closed above.
+    return bool(literals or any(dotted_name(child) == "sys.executable" for child in ast.walk(command)))
 
 
 def scan_file(path: Path, root: Path) -> list[str]:
     relative = path.relative_to(root)
-    if relative == APPROVED_MODULE or is_test_path(relative):
+    if relative == APPROVED_MODULE:
         return []
     try:
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(relative))
     except (OSError, SyntaxError, UnicodeDecodeError) as exc:
         return [f"{relative}: cannot parse Python source: {exc}"]
 
+    aliases: dict[str, str] = {}
     violations: list[str] = []
+
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
-            for alias in node.names:
-                module = alias.name
-                if module.split(".", 1)[0] in DISALLOWED_IMPORTS:
-                    violations.append(f"{relative}:{node.lineno}: disallowed HTTP client import {module}")
-                if module == "socket":
-                    violations.append(f"{relative}:{node.lineno}: raw socket import outside scripts/safe_fetch.py")
-                if module == "urllib.request":
-                    violations.append(f"{relative}:{node.lineno}: urllib.request import outside scripts/safe_fetch.py")
-                if module == "http.client":
-                    violations.append(f"{relative}:{node.lineno}: http.client import outside scripts/safe_fetch.py")
+            for imported in node.names:
+                local = imported.asname or imported.name.split(".", 1)[0]
+                aliases[local] = imported.name
+                if _network_import(imported.name):
+                    violations.append(f"{relative}:{node.lineno}: unmediated network import {imported.name}")
         elif isinstance(node, ast.ImportFrom):
             module = node.module or ""
-            if module.split(".", 1)[0] in DISALLOWED_IMPORTS:
-                violations.append(f"{relative}:{node.lineno}: disallowed HTTP client import {module}")
-            if module in {"socket", "urllib.request", "http.client"}:
-                violations.append(f"{relative}:{node.lineno}: unmediated network import {module}")
-            if module == "urllib" and any(alias.name == "urlopen" for alias in node.names):
-                violations.append(f"{relative}:{node.lineno}: urllib.urlopen is not allowed")
-        elif isinstance(node, ast.Call):
-            name = dotted_name(node.func) or ""
-            if name in {"urlopen", "urllib.urlopen", "urllib.request.urlopen", "urllib.request.urlretrieve"}:
-                violations.append(f"{relative}:{node.lineno}: unmediated URL opener {name}")
-            if name.startswith("socket.") and name.split(".", 1)[1] in DISALLOWED_SOCKET_ATTRIBUTES:
-                violations.append(f"{relative}:{node.lineno}: unmediated raw socket call {name}")
-            if name in {"http.client.HTTPConnection", "http.client.HTTPSConnection"}:
-                violations.append(f"{relative}:{node.lineno}: unmediated HTTP connection {name}")
-            if name in {"requests.get", "requests.post", "requests.request", "httpx.get", "httpx.post", "aiohttp.ClientSession"}:
-                violations.append(f"{relative}:{node.lineno}: unmediated HTTP client call {name}")
+            for imported in node.names:
+                if imported.name == "*":
+                    if _network_import(module):
+                        violations.append(f"{relative}:{node.lineno}: wildcard network import {module}")
+                    continue
+                local = imported.asname or imported.name
+                qualified = f"{module}.{imported.name}" if module else imported.name
+                aliases[local] = qualified
+                if _network_import(module) or _network_import(qualified):
+                    violations.append(f"{relative}:{node.lineno}: unmediated network import {qualified}")
+
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        qualified = resolve_alias(dotted_name(node.func), aliases)
+        root = qualified.split(".", 1)[0]
+        if qualified in {"importlib.import_module", "builtins.__import__", "__import__"}:
+            literals = _string_literals(node)
+            if not literals or any(_network_import(value) for value in literals) or qualified in {"builtins.__import__", "__import__"}:
+                violations.append(f"{relative}:{node.lineno}: dynamic module loading is not allowed: {qualified}")
+        elif root in NETWORK_IMPORT_ROOTS:
+            violations.append(f"{relative}:{node.lineno}: unmediated HTTP client call {qualified}")
+        elif qualified in {"urllib.urlopen", "urllib.request.urlopen", "urllib.request.urlretrieve"} or qualified.endswith(".urlopen"):
+            violations.append(f"{relative}:{node.lineno}: unmediated URL opener {qualified}")
+        elif qualified in {"http.client.HTTPConnection", "http.client.HTTPSConnection"}:
+            violations.append(f"{relative}:{node.lineno}: unmediated HTTP connection {qualified}")
+        elif root == "socket" and qualified.rsplit(".", 1)[-1] in SOCKET_ATTRIBUTES:
+            violations.append(f"{relative}:{node.lineno}: unmediated raw socket call {qualified}")
+        elif qualified in {"os.system", "os.popen", "os.spawnl", "os.spawnle", "os.spawnlp", "os.spawnlpe", "os.spawnv", "os.spawnve", "os.spawnvp", "os.spawnvpe"}:
+            violations.append(f"{relative}:{node.lineno}: shell/process invocation is not allowed: {qualified}")
+        elif root == "subprocess" and qualified.rsplit(".", 1)[-1] in SUBPROCESS_CALLS:
+            if not _safe_static_subprocess_call(node):
+                violations.append(f"{relative}:{node.lineno}: dynamic or network subprocess command is not allowed: {qualified}")
     return violations
 
 

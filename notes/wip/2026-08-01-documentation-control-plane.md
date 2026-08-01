@@ -27,8 +27,24 @@ repository controls, not adopted Museum policy.
   not a claim to detect arbitrary steganography.
 - External HTTPS retrieval is centralized in `scripts/safe_fetch.py`, with
   resolution/address pinning, peer verification, redirect rechecks, bounded
-  responses, and structured observations. `scripts/check_fetch_guard.py`
-  keeps future collectors from bypassing that path.
+  responses, strict framing/header policy, bounded streamed reads, and
+  structured observations. Only structurally checked PNG is admitted as raw
+  binary evidence in the current public-safety profile; known credential
+  patterns are checked across raw, ASCII/UTF-8, and UTF-16 forms. The guard
+  scans tests too and keeps future collectors from bypassing that path.
+
+## Review-bot deployment compatibility checkpoint
+
+The deployed App Runner image was observed as `eefe911e-202606222152`. Its
+repository catalog rejects `stream-contracts`, which invalidates the complete
+repository configuration and suppresses automatic baseline/follow-up jobs.
+`.github/6529bot.yml` therefore carries the deployed-compatible set and omits
+that specialist temporarily; this is not a permanent catalog decision. When a
+diff reaches the Stream-equivalent contract boundary, dispatch the central
+`review-job.yml` workflow at a head-bound SHA using its supported input until
+App Runner is upgraded. Do not use the unsupported shortcut, substitute an
+unrelated profile, or deploy/restart production from this PR. The pinned
+compatibility assertion is tested by `test_reviewbot_config_matches_deployed_compatibility_catalog`.
 
 ## Unresolved questions
 

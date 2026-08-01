@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import re
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
 import unittest
+import zlib
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
@@ -18,8 +22,8 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 from canonical import canonicalize  # noqa: E402
 import bootstrap_validate  # noqa: E402
 from check_fetch_guard import scan_file, scan_tree  # noqa: E402
-from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, make_manifest, normalized_bytes  # noqa: E402
-from safe_fetch import SAFE_FETCH_POLICY, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
+from generate_manifest import DuplicateJsonKeyError as ManifestDuplicateJsonKeyError, ManifestUnsafePathError, make_manifest, normalized_bytes  # noqa: E402
+from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
 from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
 
 
@@ -243,24 +247,38 @@ class ControlPlaneTests(unittest.TestCase):
     def test_endpoint_fetch_policy_is_fail_closed_and_redirect_aware(self) -> None:
         vocabularies = json.loads((REPO_ROOT / "schemas/controlled-vocabularies.json").read_text(encoding="utf-8"))
         self.assertEqual(
-            SAFE_FETCH_POLICY,
+            SAFE_FETCH_POLICY_JSON,
             vocabularies["endpoint_policy"],
         )
         mutated = dict(vocabularies)
         mutated["endpoint_policy"] = {**vocabularies["endpoint_policy"], "recheck_every_redirect": False}
         self.assertTrue(any("endpoint_policy" in issue for issue in validate_vocabularies(mutated)))
 
+    def test_reviewbot_config_matches_deployed_compatibility_catalog(self) -> None:
+        catalog = json.loads((TESTS_DIR / "fixtures/6529bot-production-catalog.json").read_text(encoding="utf-8"))
+        config = (REPO_ROOT / ".github/6529bot.yml").read_text(encoding="utf-8")
+        match = re.search(r"(?m)^\s+allowed:\s*\[([^\]]+)\]", config)
+        self.assertIsNotNone(match)
+        configured = {item.strip() for item in match.group(1).split(",")}
+        supported = set(catalog["supported_repository_review_kinds"])
+        self.assertEqual(supported, configured)
+        self.assertNotIn("stream-contracts", configured)
+        self.assertEqual(["stream-contracts"], catalog["temporarily_unsupported_repository_review_kinds"])
+
     def make_mock_fetcher(self, answers: dict[str, list[str]], responses: dict[str, tuple[int, dict[str, str], bytes, str | None]], clock=None):
         connections = []
 
         class MockResponse:
-            def __init__(self, status: int, headers: dict[str, str], body: bytes) -> None:
+            def __init__(self, status: int, headers: dict[str, str] | list[tuple[str, str]], body: bytes) -> None:
                 self.status = status
                 self.headers = headers
                 self.body = body
+                self.offset = 0
 
-            def read(self, _limit: int) -> bytes:
-                return self.body
+            def read(self, limit: int) -> bytes:
+                chunk = self.body[self.offset : self.offset + limit]
+                self.offset += len(chunk)
+                return chunk
 
         class MockConnection:
             def __init__(self, response: MockResponse, peer_ip: str) -> None:
@@ -314,6 +332,28 @@ class ControlPlaneTests(unittest.TestCase):
                 with self.assertRaises(FetchPolicyError):
                     fetcher.fetch("https://rebind.example.test/data")
 
+    def test_safe_fetch_rejects_unicode_ambiguous_hosts_before_resolution(self) -> None:
+        resolver_calls: list[str] = []
+
+        def resolver(hostname: str, _port: int) -> list[str]:
+            resolver_calls.append(hostname)
+            return ["93.184.216.34"]
+
+        fetcher = SafeHTTPSFetcher(resolver=resolver, connection_factory=lambda *_args: None)
+        for url in (
+            "https://127.0.0。1/private",
+            "https://127.0.0.1。nip.io/private",
+            "https://127.0.0．1/private",
+            "https://local\u3002host/private",
+            "https://localhost/private",
+            "https://metadata/private",
+            "https://[::ffff:127.0.0.1]/private",
+        ):
+            with self.subTest(url=url):
+                with self.assertRaises(FetchPolicyError):
+                    fetcher.fetch(url)
+        self.assertEqual([], resolver_calls)
+
     def test_safe_fetch_rechecks_redirects_and_rejects_metadata(self) -> None:
         fetcher, connections = self.make_mock_fetcher(
             {"redirect.example.test": ["93.184.216.34"]},
@@ -357,6 +397,73 @@ class ControlPlaneTests(unittest.TestCase):
         with self.assertRaises(FetchPolicyError):
             fetcher.fetch("https://good.example.test/data")
 
+    def test_safe_fetch_rejects_ambiguous_response_framing_and_headers(self) -> None:
+        bad_response_headers = (
+            [("Content-Length", "2"), ("Content-Length", "2")],
+            [("Content-Length", "02")],
+            [("Content-Length", "+2")],
+            [("Content-Length", "-1")],
+            [("Content-Length", "3")],
+            [("Transfer-Encoding", "chunked")],
+            [("Content-Length", "2"), ("Transfer-Encoding", "chunked")],
+            [("Content-Encoding", "gzip"), ("Content-Length", "2")],
+        )
+        for response_headers in bad_response_headers:
+            with self.subTest(response_headers=response_headers):
+                fetcher, _connections = self.make_mock_fetcher(
+                    {"good.example.test": ["93.184.216.34"]},
+                    {"good.example.test": (200, response_headers, b"ok", None)},
+                )
+                with self.assertRaises(FetchPolicyError):
+                    fetcher.fetch("https://good.example.test/data")
+
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, [("Content-Length", "2")], b"not-ok", None)},
+        )
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data")
+
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, [("Content-Length", "2")], b"ok", None)},
+        )
+        for headers in (
+            {"X-Api-Key": "synthetic"},
+            {"X-Auth-Token": "synthetic"},
+            {"Forwarded": "for=127.0.0.1"},
+            {"Host": "evil.example"},
+            {"Content-Length": "2"},
+            {"Accept": "text/plain\r\nX-Injected: yes"},
+            {"Accept": "text/plain", "accept": "application/json"},
+        ):
+            with self.subTest(headers=headers):
+                with self.assertRaises(FetchPolicyError):
+                    fetcher.fetch("https://good.example.test/data", headers=headers)
+        result = fetcher.fetch("https://good.example.test/data", headers={"Accept": "image/png", "User-Agent": "Museum/1"})
+        self.assertEqual(2, result.observation.byte_length)
+
+    def test_safe_fetch_policy_is_deep_frozen_and_caller_owned(self) -> None:
+        caller_policy = {key: list(value) if isinstance(value, list) else value for key, value in SAFE_FETCH_POLICY_JSON.items()}
+        fetcher, _connections = self.make_mock_fetcher(
+            {"good.example.test": ["93.184.216.34"]},
+            {"good.example.test": (200, {"Content-Length": "2"}, b"ok", None)},
+        )
+        fetcher = SafeHTTPSFetcher(
+            resolver=fetcher.resolver,
+            connection_factory=fetcher.connection_factory,
+            clock=fetcher.clock,
+            policy=caller_policy,
+        )
+        caller_policy["max_response_bytes"] = 1
+        caller_policy["allowed_methods"].append("POST")
+        self.assertEqual(1_048_576, fetcher.policy["max_response_bytes"])
+        self.assertNotEqual(caller_policy, fetcher.policy)
+        with self.assertRaises((TypeError, AttributeError)):
+            fetcher.policy["max_response_bytes"] = 1  # type: ignore[index]
+        with self.assertRaises(FetchPolicyError):
+            fetcher.fetch("https://good.example.test/data", method="POST")
+
         fetcher, _connections = self.make_mock_fetcher(
             {"good.example.test": ["93.184.216.34"]},
             {"good.example.test": (200, {"Content-Length": "2"}, b"ok", None)},
@@ -383,13 +490,22 @@ class ControlPlaneTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix="museum-fetch-guard-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
-        bad = root / "bad.py"
-        bad.write_text(
-            "import requests\nfrom urllib.request import urlopen\nimport socket\nsocket.create_connection(('example.test', 443))\n",
-            encoding="utf-8",
-        )
-        violations = scan_file(bad, root)
-        self.assertGreaterEqual(len(violations), 4, violations)
+        bad_sources = {
+            "requests_alias.py": "import requests as rq\nrq.get('https://example.test')\n",
+            "urllib_from_import.py": "from urllib.request import urlopen as open_url\nopen_url('https://example.test')\n",
+            "socket_alias.py": "import socket as sock\nsock.create_connection(('example.test', 443))\n",
+            "http_from_import.py": "from http.client import HTTPSConnection as Client\nClient('example.test')\n",
+            "dynamic_import.py": "import importlib\nimportlib.import_module('httpx')\n",
+            "dunder_import.py": "__import__('requests')\n",
+            "subprocess_curl.py": "import subprocess\nsubprocess.run(['curl', 'https://example.test'])\n",
+            "subprocess_alias.py": "from subprocess import Popen as launch\nlaunch(['wget', 'https://example.test'])\n",
+            "os_shell.py": "import os as operating\noperating.system('powershell Invoke-WebRequest https://example.test')\n",
+        }
+        for filename, source in bad_sources.items():
+            with self.subTest(filename=filename):
+                bad = root / filename
+                bad.write_text(source, encoding="utf-8")
+                self.assertTrue(scan_file(bad, root), filename)
 
     def test_caip19_and_custody_chain_bindings_are_enforced(self) -> None:
         temporary, records = self.make_records_root()
@@ -418,34 +534,55 @@ class ControlPlaneTests(unittest.TestCase):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
 
+    @staticmethod
+    def make_png(extra: bytes = b"") -> bytes:
+        def chunk(kind: bytes, data: bytes) -> bytes:
+            return struct.pack(">I", len(data)) + kind + data + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF)
+
+        chunks = [chunk(b"IHDR", struct.pack(">IIBBBBB", 1, 1, 8, 2, 0, 0, 0))]
+        if extra:
+            chunks.append(chunk(b"tEXt", b"note\x00" + extra))
+        chunks.extend(
+            [
+                chunk(b"IDAT", zlib.compress(b"\x00\xff\xff\xff")),
+                chunk(b"IEND", b""),
+            ]
+        )
+        return b"\x89PNG\r\n\x1a\n" + b"".join(chunks)
+
     def test_manifest_authorized_binary_evidence_is_checked_before_text_decode(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="museum-binary-evidence-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
         evidence = root / "evidence"
         evidence.mkdir()
-        binary = b"\x89PNG\r\n\x1a\npublic-image-bytes"
+        binary = self.make_png()
         image = evidence / "image.png"
         image.write_bytes(binary)
         manifest = evidence / "manifest.json"
-        manifest.write_text(
-            json.dumps(
-                {
-                    "hash_algorithm": "sha256",
-                    "byte_mode": "raw",
-                    "entries": [
-                        {
-                            "path": "image.png",
-                            "byte_mode": "raw",
-                            "media_type": "image/png",
-                            "size": len(binary),
-                            "sha256": hashlib.sha256(binary).hexdigest(),
-                        }
-                    ],
-                }
-            ),
-            encoding="utf-8",
-        )
+
+        def write_manifest(payload: bytes) -> None:
+            image.write_bytes(payload)
+            manifest.write_text(
+                json.dumps(
+                    {
+                        "hash_algorithm": "sha256",
+                        "byte_mode": "raw",
+                        "entries": [
+                            {
+                                "path": "image.png",
+                                "byte_mode": "raw",
+                                "media_type": "image/png",
+                                "size": len(payload),
+                                "sha256": hashlib.sha256(payload).hexdigest(),
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+        write_manifest(binary)
         loaded = {manifest: json.loads(manifest.read_text(encoding="utf-8"))}
         with patch.object(bootstrap_validate, "ROOT", root):
             entries = bootstrap_validate.check_evidence_manifests(loaded)
@@ -457,66 +594,39 @@ class ControlPlaneTests(unittest.TestCase):
             b"AKIA" + b"A" * 16,
             b"private_key=0x" + b"b" * 64,
             b"-----BEGIN PRIVATE KEY-----",
+            b"-----BEGIN DSA PRIVATE KEY-----",
+            b"-----BEGIN PGP PRIVATE KEY BLOCK-----",
+            b"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIn0.signature",
         )
         for credential in credential_shapes:
             with self.subTest(credential=credential[:12]):
-                payload = b"\x89PNG\r\n\x1a\npublic-image\n" + credential
-                image.write_bytes(payload)
-                manifest.write_text(
-                    json.dumps(
-                        {
-                            "hash_algorithm": "sha256",
-                            "byte_mode": "raw",
-                            "entries": [
-                                {
-                                    "path": "image.png",
-                                    "byte_mode": "raw",
-                                    "media_type": "image/png",
-                                    "size": len(payload),
-                                    "sha256": hashlib.sha256(payload).hexdigest(),
-                                }
-                            ],
-                        }
-                    ),
-                    encoding="utf-8",
-                )
+                payload = self.make_png(credential)
+                write_manifest(payload)
                 with patch.object(bootstrap_validate, "ROOT", root):
                     entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
                     with self.assertRaises(SystemExit):
                         bootstrap_validate.check_public_record_safety(entries)
 
-        manifest.write_text(
-            json.dumps(
-                {
-                    "hash_algorithm": "sha256",
-                    "byte_mode": "raw",
-                    "entries": [
-                        {
-                            "path": "image.png",
-                            "byte_mode": "raw",
-                            "media_type": "image/png",
-                            "size": len(binary),
-                            "sha256": hashlib.sha256(binary).hexdigest(),
-                        }
-                    ],
-                }
-            ),
-            encoding="utf-8",
-        )
-        image.write_bytes(binary)
+        for signature in (b"MZ", b"\x7fELF", b"#!/bin/sh\necho unsafe", b"PK\x03\x04", b"<script>alert(1)</script>"):
+            with self.subTest(signature=signature[:8]):
+                payload = binary + signature
+                write_manifest(payload)
+                with patch.object(bootstrap_validate, "ROOT", root):
+                    entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+                    with self.assertRaises(SystemExit):
+                        bootstrap_validate.check_public_record_safety(entries)
 
-        executable = b"MZ-not-an-image"
-        image.write_bytes(executable)
-        manifest.write_text(
-            manifest.read_text(encoding="utf-8").replace("image/png", "application/octet-stream").replace(
-                hashlib.sha256(binary).hexdigest(), hashlib.sha256(executable).hexdigest()
-            ).replace(str(len(binary)), str(len(executable))),
-            encoding="utf-8",
-        )
-        with patch.object(bootstrap_validate, "ROOT", root):
-            entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
-            with self.assertRaises(SystemExit):
-                bootstrap_validate.check_public_record_safety(entries)
+        for encoded in (
+            "api_key=synthetic-secret-value".encode("utf-16-le"),
+            "C:\\Users\\Administrator\\private.txt".encode("utf-16-be"),
+        ):
+            with self.subTest(encoded=encoded[:8]):
+                payload = self.make_png(encoded)
+                write_manifest(payload)
+                with patch.object(bootstrap_validate, "ROOT", root):
+                    entries = bootstrap_validate.check_evidence_manifests({manifest: json.loads(manifest.read_text(encoding="utf-8"))})
+                    with self.assertRaises(SystemExit):
+                        bootstrap_validate.check_public_record_safety(entries)
 
         image.write_bytes(b"\xff\x00undeclared")
         manifest.unlink()
@@ -661,6 +771,38 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertIn("docs/example.md", {entry["path"] for entry in first["entries"]})
         self.assertNotIn("scripts/__pycache__/example.pyc", {entry["path"] for entry in first["entries"]})
+
+    def test_manifest_rejects_file_and_directory_symlinks(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-links-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        docs = root / "docs"
+        docs.mkdir(parents=True)
+        (docs / "real.md").write_text("safe\n", encoding="utf-8")
+        external = Path(temporary.name).parent / f"museum-manifest-external-{Path(temporary.name).name}.txt"
+        external.write_text("outside\n", encoding="utf-8")
+        self.addCleanup(lambda: external.unlink(missing_ok=True))
+        try:
+            os.symlink(external, docs / "file-link.md")
+        except (OSError, NotImplementedError) as exc:
+            if os.name == "nt":
+                self.skipTest(f"Windows symlink privilege unavailable: {exc}")
+            raise
+        with self.assertRaises(ManifestUnsafePathError):
+            make_manifest(root)
+
+        (docs / "file-link.md").unlink()
+        target_dir = root / "target-dir"
+        target_dir.mkdir()
+        (target_dir / "nested.md").write_text("nested\n", encoding="utf-8")
+        try:
+            os.symlink(target_dir, docs / "directory-link", target_is_directory=True)
+        except (OSError, NotImplementedError) as exc:
+            if os.name == "nt":
+                self.skipTest(f"Windows directory symlink privilege unavailable: {exc}")
+            raise
+        with self.assertRaises(ManifestUnsafePathError):
+            make_manifest(root)
 
     def test_foundation_bootstrap_controls_pass_current_register(self) -> None:
         result = subprocess.run(

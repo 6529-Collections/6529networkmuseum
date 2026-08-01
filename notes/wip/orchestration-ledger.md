@@ -175,3 +175,15 @@ The independent Keys and Gates reviewer was task `019fbe15-7872-7312-a455-697a88
 ### Casey accession review boundary
 
 Independent review confirms the seven token identities, CAIP-19 values, common receipt, log indices, custody, and `received_onchain` / `not_complete` state. It blocks accession-safe treatment until cross-file invariants fail closed, canonical payload hashes and source-head evidence are bound, PR #7 integration is complete, historical transaction verification grades are corrected, and the preservation evidence package captures raw metadata/generator bytes. Formal donation acceptance, title passage, rights grants, condition assessment, and preservation completion remain unclaimed gates.
+
+## 2026-08-01 - deployed review-catalog compatibility checkpoint
+
+Production evidence identifies App Runner image `eefe911e-202606222152` as
+rejecting `stream-contracts` in the repository catalog. The repository config
+now omits that kind so the automatic `general`/`security`/`privacy-evidence`/
+`glm-swarm` baseline and synchronize follow-up can resume after merge. This is
+a temporary compatibility pin, machine-checked by the catalog fixture; it is
+not a permanent specialist decision. Stream-equivalent contract diffs still
+require the central `review-job.yml` at a head-bound SHA with supported inputs
+until App Runner is upgraded. No production deployment or restart is part of
+PR #7.

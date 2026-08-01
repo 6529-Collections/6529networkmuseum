@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
+import stat
 import sys
 from pathlib import Path
 from typing import Any
@@ -26,6 +28,10 @@ class DuplicateJsonKeyError(ValueError):
     def __init__(self, key: str) -> None:
         super().__init__(f"duplicate JSON object key: {key!r}")
         self.key = key
+
+
+class ManifestUnsafePathError(OSError):
+    """Raised when governed inventory traversal encounters a link/reparse point."""
 
 
 def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -53,17 +59,35 @@ def normalized_bytes(path: Path) -> bytes:
 
 
 def inventory_paths(root: Path) -> list[Path]:
+    def assert_not_link(path: Path, file_stat: os.stat_result) -> None:
+        if stat.S_ISLNK(file_stat.st_mode):
+            raise ManifestUnsafePathError(f"symlink is not allowed in governed inventory: {path.relative_to(root)}")
+        # Windows directory junctions and other reparse points can evade
+        # POSIX-style S_ISLNK checks. Reject the FILE_ATTRIBUTE_REPARSE_POINT
+        # bit for every path before deciding whether to recurse.
+        if getattr(file_stat, "st_file_attributes", 0) & 0x400:
+            raise ManifestUnsafePathError(f"reparse point is not allowed in governed inventory: {path.relative_to(root)}")
+
     paths: list[Path] = []
     for inventory_root in INVENTORY_ROOTS:
         directory = root / inventory_root
-        if directory.exists():
-            paths.extend(
-                path
-                for path in directory.rglob("*")
-                if path.is_file()
-                and not any(part in {"__pycache__", ".pytest_cache", ".mypy_cache"} for part in path.parts)
-                and path.suffix.lower() not in {".pyc", ".pyo"}
-            )
+        if not os.path.lexists(directory):
+            continue
+        assert_not_link(directory, directory.lstat())
+        pending = [directory]
+        while pending:
+            current = pending.pop()
+            with os.scandir(current) as entries:
+                for entry in entries:
+                    path = Path(entry.path)
+                    entry_stat = entry.stat(follow_symlinks=False)
+                    assert_not_link(path, entry_stat)
+                    if any(part in {"__pycache__", ".pytest_cache", ".mypy_cache"} for part in path.relative_to(root).parts):
+                        continue
+                    if stat.S_ISDIR(entry_stat.st_mode):
+                        pending.append(path)
+                    elif stat.S_ISREG(entry_stat.st_mode) and path.suffix.lower() not in {".pyc", ".pyo"}:
+                        paths.append(path)
     return sorted(paths, key=lambda path: path.relative_to(root).as_posix())
 
 

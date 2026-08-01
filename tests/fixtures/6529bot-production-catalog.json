@@ -1,0 +1,15 @@
+{
+  "catalog_revision": "app-runner-eefe911e-202606222152",
+  "observed_at": "2026-08-01T00:00:00Z",
+  "supported_repository_review_kinds": [
+    "general",
+    "followup",
+    "security",
+    "deploy-actions",
+    "media-external",
+    "privacy-evidence",
+    "glm-swarm"
+  ],
+  "temporarily_unsupported_repository_review_kinds": ["stream-contracts"],
+  "compatibility_scope": "deployed App Runner repository-config admission; not a permanent specialist catalog"
+}

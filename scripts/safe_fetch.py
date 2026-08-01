@@ -3,7 +3,8 @@
 
 This module is the only approved runtime network-fetch implementation in the
 repository. Callers must use :class:`SafeHTTPSFetcher`; the CI fetch guard
-rejects direct HTTP client, URL opener, and raw-socket fetch code elsewhere.
+rejects direct HTTP client, URL opener, raw-socket, and command-line fetch code
+elsewhere.
 """
 
 from __future__ import annotations
@@ -13,14 +14,26 @@ import http.client
 import re
 import socket
 import ssl
+import time
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from ipaddress import IPv4Address, IPv6Address, ip_address
+from types import MappingProxyType
 from typing import Any, Callable, Iterable, Mapping, Sequence
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 
-SAFE_FETCH_POLICY: dict[str, object] = {
+def _deep_freeze(value: object) -> object:
+    if isinstance(value, Mapping):
+        return MappingProxyType({str(key): _deep_freeze(child) for key, child in value.items()})
+    if isinstance(value, (list, tuple)):
+        return tuple(_deep_freeze(child) for child in value)
+    if isinstance(value, set):
+        return frozenset(_deep_freeze(child) for child in value)
+    return value
+
+
+_POLICY_SOURCE: dict[str, object] = {
     "mode": "resolve_at_fetch",
     "scheme": "https",
     "require_all_a_aaaa_global": True,
@@ -37,6 +50,15 @@ SAFE_FETCH_POLICY: dict[str, object] = {
     "resolver_profile": "system_getaddrinfo",
     "resolver_revision": "python-socket.getaddrinfo-v1",
     "address_selection": "lowest_numeric",
+}
+
+# This is an owned, recursively immutable policy. The JSON-shaped copy is
+# exported separately for schema/config comparisons; runtime code uses only
+# SAFE_FETCH_POLICY.
+SAFE_FETCH_POLICY: Mapping[str, object] = _deep_freeze(_POLICY_SOURCE)  # type: ignore[assignment]
+SAFE_FETCH_POLICY_JSON: dict[str, object] = {
+    key: list(value) if isinstance(value, tuple) else value
+    for key, value in _POLICY_SOURCE.items()
 }
 
 SUSPICIOUS_HOSTS = {
@@ -63,15 +85,16 @@ SUSPICIOUS_HOST_SUFFIXES = (
 NUMERIC_HOST = re.compile(r"^(?:0[xX][0-9a-fA-F]+|[0-9]+)(?:\.(?:0[xX][0-9a-fA-F]+|[0-9]+))*$")
 CANONICAL_IPV4 = re.compile(r"^(?:0|[1-9][0-9]{0,2})(?:\.(?:0|[1-9][0-9]{0,2})){3}$")
 HOST_LABEL = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$")
-FORBIDDEN_REQUEST_HEADERS = {
-    "authorization",
-    "connection",
+HEADER_NAME = re.compile(r"^[!#$%&'*+.^_`|~0-9A-Za-z-]+$")
+DECIMAL_CONTENT_LENGTH = re.compile(r"^(?:0|[1-9][0-9]*)$")
+NON_ASCII_DOTS = {"\u3002", "\uff0e", "\uff61"}
+ALLOWED_REQUEST_HEADERS = {"accept", "user-agent"}
+RESPONSE_BINDING_HEADERS = {
     "content-length",
-    "cookie",
-    "host",
-    "proxy-authorization",
-    "set-cookie",
+    "content-type",
+    "content-encoding",
     "transfer-encoding",
+    "location",
 }
 REDIRECT_STATUSES = {301, 302, 303, 307, 308}
 
@@ -106,6 +129,8 @@ class FetchHop:
     peer_ip: str
     status: int
     media_type: str | None
+    byte_length: int
+    response_headers: tuple[tuple[str, str], ...]
     observed_at: str
 
     def to_dict(self) -> dict[str, object]:
@@ -117,6 +142,8 @@ class FetchHop:
             "peer_ip": self.peer_ip,
             "status": self.status,
             "media_type": self.media_type,
+            "byte_length": self.byte_length,
+            "response_headers": [[name, value] for name, value in self.response_headers],
             "observed_at": self.observed_at,
         }
 
@@ -134,7 +161,9 @@ class FetchObservation:
     observed_at: str
     status: int
     media_type: str | None
+    byte_length: int
     byte_sha256: str
+    response_headers: tuple[tuple[str, str], ...]
     hops: tuple[FetchHop, ...]
 
     def to_dict(self) -> dict[str, object]:
@@ -150,7 +179,9 @@ class FetchObservation:
             "observed_at": self.observed_at,
             "status": self.status,
             "media_type": self.media_type,
+            "byte_length": self.byte_length,
             "byte_sha256": self.byte_sha256,
+            "response_headers": [[name, value] for name, value in self.response_headers],
             "hops": [hop.to_dict() for hop in self.hops],
         }
 
@@ -197,7 +228,24 @@ def canonicalize_https_url(value: str) -> CanonicalURL:
     raw_host = parsed.hostname
     if not raw_host:
         raise FetchPolicyError("URL has no hostname")
-    hostname = raw_host.rstrip(".").lower()
+    if raw_host.endswith("."):
+        raise FetchPolicyError("trailing-dot hostname is not admitted by the canonical policy")
+    if any(dot in raw_host for dot in NON_ASCII_DOTS):
+        raise FetchPolicyError("non-ASCII dot separator is not admitted")
+    if any(char in raw_host for char in ("%", "\\", "*", "/")):
+        raise FetchPolicyError("hostname has ambiguous or wildcard syntax")
+
+    # IDNA normalization happens before all suspicious-name, suffix, numeric,
+    # and IP checks. V1 then admits only ASCII canonical DNS labels, avoiding
+    # Unicode confusables and resolver-dependent UTS-46 differences.
+    try:
+        hostname = raw_host.encode("idna").decode("ascii").casefold()
+    except UnicodeError as exc:
+        raise FetchPolicyError("hostname IDNA conversion failed") from exc
+    if hostname in SUSPICIOUS_HOSTS or hostname.endswith(SUSPICIOUS_HOST_SUFFIXES):
+        raise FetchPolicyError("wildcard, local, or metadata hostname is not allowed")
+    if any(ord(char) > 127 for char in raw_host):
+        raise FetchPolicyError("non-ASCII hostname is not admitted by the canonical policy")
     if not hostname or any(char in hostname for char in ("%", "\\", "*", "/")):
         raise FetchPolicyError("hostname has ambiguous or wildcard syntax")
 
@@ -214,14 +262,8 @@ def canonicalize_https_url(value: str) -> CanonicalURL:
         if NUMERIC_HOST.fullmatch(hostname):
             if not CANONICAL_IPV4.fullmatch(hostname) or any(int(part) > 255 for part in hostname.split(".")):
                 raise FetchPolicyError("noncanonical numeric IPv4 hostname")
-        if hostname in SUSPICIOUS_HOSTS or hostname.endswith(SUSPICIOUS_HOST_SUFFIXES):
-            raise FetchPolicyError("wildcard, local, or metadata hostname is not allowed")
         if "." not in hostname:
             raise FetchPolicyError("single-label hostname is not allowed")
-        try:
-            hostname = hostname.encode("idna").decode("ascii").lower()
-        except UnicodeError as exc:
-            raise FetchPolicyError("hostname IDNA conversion failed") from exc
         labels = hostname.split(".")
         if any(not HOST_LABEL.fullmatch(label) for label in labels):
             raise FetchPolicyError("hostname label is not canonical")
@@ -298,12 +340,11 @@ class _PinnedHTTPSConnection(http.client.HTTPSConnection):
 
     def request_with_headers(self, method: str, target: str, headers: Mapping[str, str]) -> Any:
         self.putrequest(method, target, skip_host=True, skip_accept_encoding=True)
-        host_header = next((value for name, value in headers.items() if name.lower() == "host"), self.host)
+        host_header = next((value for name, value in headers.items() if name.lower() == "host"), _format_host(self.host))
         self.putheader("Host", host_header)
         for name, value in headers.items():
-            if name.lower() == "host":
-                continue
-            self.putheader(name, value)
+            if name.lower() != "host":
+                self.putheader(name, value)
         self.endheaders()
         return self.getresponse()
 
@@ -326,22 +367,66 @@ def _now(clock: Clock) -> datetime:
     return value.astimezone(UTC)
 
 
-def _header(response: Any, name: str) -> str | None:
+def _response_header_pairs(response: Any) -> tuple[tuple[str, str], ...]:
     headers = getattr(response, "headers", None)
     if headers is None:
-        return None
-    value = headers.get(name)
-    if value is not None:
-        return str(value)
-    for key, candidate in getattr(headers, "items", lambda: ())():
-        if str(key).lower() == name.lower():
-            return str(candidate)
+        return ()
+    try:
+        raw_items = list(headers.items())
+    except AttributeError:
+        raw_items = list(headers)
+    pairs: list[tuple[str, str]] = []
+    for item in raw_items:
+        if not isinstance(item, (tuple, list)) or len(item) != 2:
+            raise FetchPolicyError("response headers are malformed")
+        name, value = item
+        name = str(name)
+        values = value if isinstance(value, (list, tuple)) else (value,)
+        for one_value in values:
+            text_value = str(one_value)
+            if not HEADER_NAME.fullmatch(name) or any(ord(char) < 0x20 or ord(char) == 0x7F for char in text_value):
+                raise FetchPolicyError("response header contains invalid control syntax")
+            pairs.append((name.lower(), text_value))
+    return tuple(pairs)
+
+
+def _header_values(pairs: Sequence[tuple[str, str]], name: str) -> tuple[str, ...]:
+    return tuple(value for key, value in pairs if key == name.lower())
+
+
+def _single_header(pairs: Sequence[tuple[str, str]], name: str) -> str | None:
+    values = _header_values(pairs, name)
+    if len(values) > 1:
+        raise FetchPolicyError(f"duplicate response header: {name.lower()}")
+    return values[0] if values else None
+
+
+def _media_type(pairs: Sequence[tuple[str, str]]) -> str | None:
+    value = _single_header(pairs, "content-type")
+    return value.split(";", 1)[0].strip().lower() if value else None
+
+
+def _validate_response_headers(pairs: Sequence[tuple[str, str]]) -> int | None:
+    content_lengths = _header_values(pairs, "content-length")
+    transfer_encodings = _header_values(pairs, "transfer-encoding")
+    content_encodings = _header_values(pairs, "content-encoding")
+    if len(content_lengths) > 1:
+        raise FetchPolicyError("duplicate response Content-Length is not allowed")
+    if transfer_encodings:
+        # V1 deliberately does not admit chunked/transfer-coded responses.
+        raise FetchPolicyError("Transfer-Encoding is not admitted by the safe-fetch policy")
+    if content_encodings and any(value.casefold().strip() != "identity" for value in content_encodings):
+        raise FetchPolicyError("compressed response bodies are not admitted")
+    if content_lengths:
+        value = content_lengths[0]
+        if not DECIMAL_CONTENT_LENGTH.fullmatch(value):
+            raise FetchPolicyError("response Content-Length is not a canonical nonnegative decimal")
+        return int(value)
     return None
 
 
-def _media_type(response: Any) -> str | None:
-    value = _header(response, "Content-Type")
-    return value.split(";", 1)[0].strip().lower() if value else None
+def _bound_response_headers(pairs: Sequence[tuple[str, str]]) -> tuple[tuple[str, str], ...]:
+    return tuple((name, value) for name, value in pairs if name in RESPONSE_BINDING_HEADERS)
 
 
 class SafeHTTPSFetcher:
@@ -354,12 +439,13 @@ class SafeHTTPSFetcher:
         clock: Clock | None = None,
         policy: Mapping[str, object] = SAFE_FETCH_POLICY,
     ) -> None:
-        if dict(policy) != SAFE_FETCH_POLICY:
+        if _deep_freeze(dict(policy)) != SAFE_FETCH_POLICY:
             raise FetchPolicyError("safe fetch policy is not the pinned repository policy")
         self.resolver = resolver
         self.connection_factory = connection_factory
         self.clock = clock or (lambda: datetime.now(UTC))
-        self.policy = policy
+        # Never retain caller-owned policy data and never expose mutable state.
+        self.policy = SAFE_FETCH_POLICY
 
     def _check_expiry(self, expires_at: datetime | None) -> None:
         if expires_at is None:
@@ -371,13 +457,43 @@ class SafeHTTPSFetcher:
 
     def _validate_headers(self, headers: Mapping[str, str] | None) -> dict[str, str]:
         result: dict[str, str] = {}
+        seen: set[str] = set()
         for name, value in (headers or {}).items():
-            if not isinstance(name, str) or not isinstance(value, str) or not name or "\r" in value or "\n" in value:
-                raise FetchPolicyError("invalid request header")
-            if name.lower() in FORBIDDEN_REQUEST_HEADERS:
+            if not isinstance(name, str) or not isinstance(value, str) or not HEADER_NAME.fullmatch(name):
+                raise FetchPolicyError("invalid request header name")
+            if name.lower() not in ALLOWED_REQUEST_HEADERS:
                 raise FetchPolicyError(f"request header is not allowed: {name.lower()}")
+            if name.lower() in seen:
+                raise FetchPolicyError(f"duplicate request header: {name.lower()}")
+            if any(ord(char) < 0x20 or ord(char) == 0x7F for char in value):
+                raise FetchPolicyError("request header contains control characters")
             result[name] = value
+            seen.add(name.lower())
         return result
+
+    @staticmethod
+    def _read_limited(response: Any, limit: int, deadline: float) -> bytes:
+        read = getattr(response, "read", None)
+        if not callable(read):
+            raise FetchPolicyError("response has no readable body")
+        chunks: list[bytes] = []
+        total = 0
+        while True:
+            if time.monotonic() > deadline:
+                raise FetchPolicyError("response read timeout exceeded")
+            try:
+                chunk = read(min(65_536, limit - total + 1))
+            except (OSError, TimeoutError) as exc:
+                raise FetchPolicyError("response read failed or timed out") from exc
+            if not isinstance(chunk, bytes):
+                raise FetchPolicyError("response body is not bytes")
+            if not chunk:
+                break
+            total += len(chunk)
+            if total > limit:
+                raise FetchPolicyError("response body exceeds policy")
+            chunks.append(chunk)
+        return b"".join(chunks)
 
     def fetch(
         self,
@@ -405,7 +521,7 @@ class SafeHTTPSFetcher:
             connection = self.connection_factory(endpoint, resolved, self.policy)
             response: Any | None = None
             try:
-                connection_headers = {**request_headers, "Host": endpoint.hostname}
+                connection_headers = {**request_headers, "Host": _format_host(endpoint.hostname)}
                 if hasattr(connection, "request_with_headers"):
                     response = connection.request_with_headers(method, endpoint.target, connection_headers)
                 else:
@@ -414,8 +530,20 @@ class SafeHTTPSFetcher:
                 if peer_ip != resolved.selected_ip or peer_ip not in resolved.addresses:
                     raise FetchPolicyError("connected peer differs from vetted selected IP")
                 status = int(response.status)
-                media_type = _media_type(response)
+                response_pairs = _response_header_pairs(response)
+                declared_size = _validate_response_headers(response_pairs)
+                media_type = _media_type(response_pairs)
                 observed_at = _now(self.clock).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+                body = self._read_limited(
+                    response,
+                    int(self.policy["max_response_bytes"]),
+                    time.monotonic() + float(self.policy["read_timeout_seconds"]),
+                )
+                if method == "HEAD" and body:
+                    raise FetchPolicyError("HEAD response unexpectedly contained a body")
+                if declared_size is not None and declared_size != len(body):
+                    raise FetchPolicyError("response Content-Length does not match actual bytes")
+                bound_headers = _bound_response_headers(response_pairs)
                 hops.append(
                     FetchHop(
                         endpoint.url,
@@ -425,11 +553,13 @@ class SafeHTTPSFetcher:
                         peer_ip,
                         status,
                         media_type,
+                        len(body),
+                        bound_headers,
                         observed_at,
                     )
                 )
                 if status in REDIRECT_STATUSES:
-                    location = _header(response, "Location")
+                    location = _single_header(response_pairs, "location")
                     if not location:
                         raise FetchPolicyError("redirect response has no Location")
                     if len(location) > int(self.policy["max_url_length"]):
@@ -440,18 +570,6 @@ class SafeHTTPSFetcher:
                     redirect_chain.append(endpoint.url)
                     continue
 
-                content_length = _header(response, "Content-Length")
-                if content_length is not None:
-                    try:
-                        declared_size = int(content_length.strip())
-                    except ValueError as exc:
-                        raise FetchPolicyError("response Content-Length is invalid") from exc
-                    if declared_size < 0 or declared_size > int(self.policy["max_response_bytes"]):
-                        raise FetchPolicyError("response Content-Length exceeds policy")
-                limit = int(self.policy["max_response_bytes"])
-                body = b"" if method == "HEAD" else response.read(limit + 1)
-                if not isinstance(body, bytes) or len(body) > limit:
-                    raise FetchPolicyError("response body exceeds policy")
                 self._check_expiry(expires_at)
                 observation = FetchObservation(
                     endpoint.url,
@@ -465,7 +583,9 @@ class SafeHTTPSFetcher:
                     observed_at,
                     status,
                     media_type,
+                    len(body),
                     hashlib.sha256(body).hexdigest(),
+                    bound_headers,
                     tuple(hops),
                 )
                 return SafeFetchResult(body, observation)
@@ -482,6 +602,7 @@ __all__ = [
     "FetchPolicyError",
     "ResolvedEndpoint",
     "SAFE_FETCH_POLICY",
+    "SAFE_FETCH_POLICY_JSON",
     "SafeFetchResult",
     "SafeHTTPSFetcher",
     "canonicalize_https_url",

@@ -19,7 +19,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from canonical import canonicalize
-from safe_fetch import SAFE_FETCH_POLICY
+from safe_fetch import SAFE_FETCH_POLICY_JSON, FetchPolicyError, canonicalize_https_url
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
@@ -85,7 +85,7 @@ SECRET_VALUE_PATTERNS = [
     re.compile(r"\b(?:gho_|github_pat_|sk-|AKIA)[A-Za-z0-9_-]+"),
     re.compile(r"^(?:file://|\\\\|[A-Za-z]:\\|/Users/|/home/|/root/|C:/Users/)", re.IGNORECASE),
 ]
-ENDPOINT_POLICY = dict(SAFE_FETCH_POLICY)
+ENDPOINT_POLICY = dict(SAFE_FETCH_POLICY_JSON)
 SUSPICIOUS_HOSTS = {"localhost", "localhost.localdomain", "metadata", "nip.io", "sslip.io", "xip.io", "localtest.me", "lvh.me"}
 SUSPICIOUS_HOST_SUFFIXES = (".localhost", ".local", ".internal", ".lan", ".nip.io", ".sslip.io", ".xip.io", ".localtest.me", ".lvh.me")
 NUMERIC_HOST = re.compile(r"^(?:0[xX][0-9a-fA-F]+|[0-9]+)(?:\.(?:0[xX][0-9a-fA-F]+|[0-9]+))*$")
@@ -231,11 +231,17 @@ def inspect_sensitive(value: Any, path: str = "$") -> Iterable[str]:
 def is_private_network_url(value: str) -> bool:
     try:
         parsed = urlsplit(value)
-        host = parsed.hostname
     except ValueError:
         return True
     if parsed.scheme.lower() not in {"http", "https"}:
         return False
+    if parsed.scheme.lower() == "https":
+        try:
+            canonicalize_https_url(value)
+        except FetchPolicyError:
+            return True
+        return False
+    host = parsed.hostname
     if not host or parsed.username is not None or parsed.password is not None:
         return True
     if any(ord(char) > 127 for char in host) or any(char in host for char in ("%", "\\", "*")):
