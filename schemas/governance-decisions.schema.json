@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/governance-decisions/v1",
+  "title": "6529 Network Museum governance decision register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "record_control", "record_set_id", "wave_id", "snapshot_at", "source_snapshot", "records"],
+  "properties": {
+    "$schema": {"const": "../../schemas/governance-decisions.schema.json"},
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "constructor"},
+            "constructed_at": {"type": "string", "minLength": 20}
+          }
+        },
+        "review": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "reviewed_at", "reviewed_commit", "outcome", "payload_sha256"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "reviewer"},
+            "reviewed_at": {"type": "string", "minLength": 20},
+            "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "outcome": {"const": "approved"},
+            "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+          }
+        }
+      }
+    },
+    "record_set_id": {"const": "6529NM-GOV-REGISTER"},
+    "wave_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+    "snapshot_at": {"type": "string", "minLength": 20},
+    "source_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["decision_id", "serial_no", "drop_id", "title", "decision_class", "observed_wave_status", "governance_effect", "created_at", "rating", "raters_count", "author_handle", "proposal_content_hash", "source_url"],
+        "properties": {
+          "decision_id": {"type": "string", "pattern": "^6529NM-GOV-[0-9]+$"},
+          "serial_no": {"type": "integer", "minimum": 1},
+          "drop_id": {"type": "string", "pattern": "^[0-9a-f-]{36}$"},
+          "title": {"type": "string", "minLength": 1},
+          "decision_class": {"enum": ["collection_preapproval", "collecting_scope", "donation_policy"]},
+          "observed_wave_status": {"enum": ["WINNER", "PARTICIPATORY"]},
+          "governance_effect": {"enum": ["adopted", "no_adopted_effect_at_snapshot"]},
+          "disposition": {"enum": ["deferred", "undetermined"]},
+          "created_at": {"type": "string", "minLength": 20},
+          "rating": {"type": "integer", "minimum": 0},
+          "raters_count": {"type": "integer", "minimum": 0},
+          "author_handle": {"type": "string", "minLength": 1},
+          "proposal_content_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "source_url": {"type": "string", "pattern": "^https://6529\\.io/waves/"}
+        }
+      }
+    }
+  }
+}
