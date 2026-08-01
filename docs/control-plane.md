@@ -74,8 +74,10 @@ limited in this profile to an explicitly declared, structurally parsed PNG
 receives the same known credential-pattern gate across raw bytes, ASCII/UTF-8,
 and UTF-16LE/BE spans, including cloud-key/token, path, DSA/PGP/generic PEM,
 and private-key shapes; this detects known shapes, not arbitrary
-steganography. Undeclared undecodable bytes and unapproved media types fail
-closed.
+steganography. Every unmanifested evidence file must also use a recognized
+textual suffix and pass raw executable/polyglot signature checks before UTF-8
+decoding; non-text evidence therefore requires an approved raw-byte manifest
+entry. Undeclared undecodable bytes and unapproved media types fail closed.
 Markdown templates and explanatory prose never satisfy these executable event
 or completion gates.
 

@@ -59,6 +59,11 @@ uses the central head-bound workflow until the production catalog upgrade.
 Focused adversarial tests cover PDF/octet-stream polyglots, uppercase secrets
 in both UTF-16 endiannesses, and aliased `getattr` bypasses.
 
+The subsequent exact-head probe also covered an unmanifested ASCII polyglot.
+Evidence fallback now checks the raw bytes and suffix before decoding, so
+executable/container signatures cannot pass merely because they are valid
+UTF-8; non-text evidence must be admitted by an approved raw-byte manifest.
+
 ## Unresolved questions
 
 - The pinned Stream commit does not publish standalone canonical JSON Schema

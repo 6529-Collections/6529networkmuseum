@@ -94,10 +94,15 @@ TEXTUAL_MEDIA_TYPES = {"application/json", "application/ld+json", "application/x
 # Other image/PDF/container types remain text-or-fail-closed until a parser is
 # deliberately added and covered by equivalent public-safety tests.
 SAFE_BINARY_MEDIA_TYPES = {"image/png"}
+UNMANIFESTED_TEXT_SUFFIXES = {
+    ".csv", ".html", ".htm", ".json", ".log", ".md", ".ndjson", ".rst",
+    ".txt", ".xml", ".yaml", ".yml",
+}
 EXECUTABLE_SUFFIXES = {
     ".apk", ".app", ".bat", ".bin", ".class", ".cmd", ".com", ".dll", ".dmg", ".elf",
     ".exe", ".jar", ".js", ".msi", ".ps1", ".scr", ".sh", ".so", ".vbs",
 }
+BINARY_EMBEDDED_SIGNATURES = (b"\x7fELF", b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08")
 BINARY_SECRET_MARKERS = (
     b"-----BEGIN DSA PRIVATE KEY-----",
     b"-----BEGIN PGP PRIVATE KEY BLOCK-----",
@@ -138,6 +143,22 @@ def is_manifest_textual(entry: dict[str, object] | None) -> bool:
         return False
     base_media_type = media_type.split(";", 1)[0].strip().lower()
     return base_media_type.startswith(TEXT_MEDIA_PREFIXES) or base_media_type in TEXTUAL_MEDIA_TYPES
+
+
+def validate_unmanifested_evidence(path: Path, payload: bytes) -> None:
+    """Reject binary-looking evidence before any permissive text decode."""
+    if path.suffix.lower() not in UNMANIFESTED_TEXT_SUFFIXES:
+        fail(f"unmanifested evidence has unsupported suffix: {path.relative_to(ROOT)}")
+    if b"\x00" in payload or any(signature in payload for signature in BINARY_EMBEDDED_SIGNATURES):
+        fail(f"unmanifested evidence has binary signature: {path.relative_to(ROOT)}")
+    if payload.startswith(b"MZ") or re.search(rb"(?m)^MZ", payload):
+        fail(f"unmanifested evidence has executable signature: {path.relative_to(ROOT)}")
+    if payload.startswith(b"#!") or re.search(rb"(?m)^#!", payload):
+        fail(f"unmanifested evidence has executable signature: {path.relative_to(ROOT)}")
+    if b"<script" in payload.lower():
+        fail(f"unmanifested evidence has executable content: {path.relative_to(ROOT)}")
+    if BINARY_LOCAL_PATH.search(payload) or any(marker in payload for marker in BINARY_SECRET_MARKERS) or any(pattern.search(payload) for pattern in BINARY_SECRET_PATTERNS):
+        fail(f"credential-shaped content in unmanifested public evidence: {path.relative_to(ROOT)}")
 
 
 def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
@@ -241,8 +262,10 @@ def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] |
                 continue
             if isinstance(entry, dict) and not is_manifest_textual(entry):
                 fail(f"undeclared or unsupported non-text evidence media: {path.relative_to(ROOT)}")
+            payload = path.read_bytes()
+            validate_unmanifested_evidence(path, payload)
             try:
-                text = path.read_bytes().decode("utf-8-sig")
+                text = payload.decode("utf-8-sig")
             except UnicodeDecodeError as exc:
                 fail(f"undecodable public evidence: {path.relative_to(ROOT)}: {exc}")
             for pattern in SECRET_PATTERNS:

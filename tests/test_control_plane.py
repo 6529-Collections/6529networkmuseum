@@ -686,6 +686,26 @@ class ControlPlaneTests(unittest.TestCase):
                     with self.assertRaises(SystemExit):
                         bootstrap_validate.check_public_record_safety(entries)
 
+    def test_unmanifested_ascii_polyglots_fail_closed_before_text_decode(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-unmanifested-polyglot-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        evidence = root / "evidence"
+        evidence.mkdir()
+        payloads = (
+            b"MZ\nPK\x03\x04\n#!/bin/sh\n<script>alert(1)</script>",
+            b"safe prefix\nPK\x03\x04\n#!/bin/sh\n<script>alert(1)</script>",
+        )
+        for index, payload in enumerate(payloads):
+            for filename in (f"payload-{index}.txt", f"payload-{index}.dat"):
+                with self.subTest(filename=filename):
+                    for existing in evidence.iterdir():
+                        existing.unlink()
+                    (evidence / filename).write_bytes(payload)
+                    with patch.object(bootstrap_validate, "ROOT", root):
+                        with self.assertRaises(SystemExit):
+                            bootstrap_validate.check_public_record_safety()
+
     def test_full_validator_enforces_all_governed_record_schemas(self) -> None:
         result = subprocess.run(
             [sys.executable, str(REPO_ROOT / "scripts" / "validate.py")],
