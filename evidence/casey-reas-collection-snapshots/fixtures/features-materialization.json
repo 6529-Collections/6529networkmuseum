@@ -1,0 +1,34 @@
+{
+  "schema_version": "6529nm.features-materialization-fixture.v1",
+  "purpose": "Verify the explicit scalar-text materialization of Art Blocks features without applying a rarity score.",
+  "cases": [
+    {
+      "name": "mixed-scalars",
+      "features": {
+        "label": "Cosmos",
+        "enabled": true,
+        "disabled": false,
+        "count": 2,
+        "axis": 1.31
+      },
+      "expected_scalar_text": {
+        "label": "Cosmos",
+        "enabled": "true",
+        "disabled": "false",
+        "count": "2",
+        "axis": "1.31"
+      }
+    },
+    {
+      "name": "numeric-zero",
+      "features": {
+        "zero": 0,
+        "text-zero": "0"
+      },
+      "expected_scalar_text": {
+        "zero": "0",
+        "text-zero": "0"
+      }
+    }
+  ]
+}

@@ -22,11 +22,12 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
         with:
-          python-version: "3.12"
+          python-version: "3.12.10"
 
       - name: Install pinned validation dependencies
         run: python -m pip install --disable-pip-version-check --requirement requirements-dev.txt
@@ -46,6 +47,15 @@ jobs:
       - name: Check deterministic release manifest
         run: python scripts/generate_manifest.py --check
 
+      - name: Run NextGen compatibility tests
+        run: python -m unittest tests.rarity.test_nextgen_compat -v
+
+      - name: Run Casey package mutation tests
+        run: python -m unittest tests.casey.test_casey_snapshot_mutations -v
+
+      - name: Verify Casey snapshot and descriptor package
+        run: python scripts/verify_casey_snapshot_package.py
+
   deterministic:
     name: deterministic-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -59,11 +69,12 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
         with:
-          python-version: "3.12"
+          python-version: "3.12.10"
 
       - name: Install pinned validation dependencies
         run: python -m pip install --disable-pip-version-check --requirement requirements-dev.txt

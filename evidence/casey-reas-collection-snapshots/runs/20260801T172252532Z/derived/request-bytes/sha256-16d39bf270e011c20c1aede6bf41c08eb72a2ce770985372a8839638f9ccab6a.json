@@ -1,0 +1,1 @@
+{"id":"project-info-pre-process","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x0ea5613f000000000000000000000000000000000000000000000000000000000000017f","to":"0x99a9b7c1116f9ceeb1652de04d5969cce509b069"},"0x1879030"]}

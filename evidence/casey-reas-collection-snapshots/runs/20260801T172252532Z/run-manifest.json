@@ -1,0 +1,1175 @@
+{
+  "schema_version": "6529nm.casey-collection-run-manifest.v3",
+  "run_id": "20260801T172252532Z",
+  "status": "complete",
+  "constructor": {
+    "actor_id": "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652",
+    "role": "constructor",
+    "constructed_at": "2026-08-01T17:22:52.532Z"
+  },
+  "review": null,
+  "observation": {
+    "chain": {
+      "caip2": "eip155:1",
+      "chain_id": 1,
+      "name": "Ethereum mainnet",
+      "token_id_encoding": "(project_id * 1000000) + invocation_number"
+    },
+    "rpc_uri": "https://ethereum.publicnode.com",
+    "block_number": 25661488,
+    "block_tag": "0x1879030",
+    "block_hash": "0x6802d1fd8a983eddc4c44588cdf3be88c8e5a3079d492b61ba7e97ca8c2fdd26",
+    "block_time": "2026-08-01T17:22:47Z",
+    "run_started_at": "2026-08-01T17:22:52.532Z"
+  },
+  "rpc": {
+    "token_uri_method": "tokenURI(uint256)",
+    "token_uri_selector": "0xc87b56dd",
+    "batch_size": 100,
+    "block_number_source": {
+      "path": "raw/shared/rpc/sha256-b71a0dbe4217c8a05c53ee03681d0341abbea8bc29a525089fe2fce7b31bc90a.json",
+      "sha256": "sha256:b71a0dbe4217c8a05c53ee03681d0341abbea8bc29a525089fe2fce7b31bc90a",
+      "size": 59,
+      "byte_mode": "raw"
+    },
+    "block_number_attempts": [
+      {
+        "attempt": 1,
+        "status": 200,
+        "ok": true
+      }
+    ],
+    "block_source": {
+      "path": "raw/shared/rpc/sha256-d1ddf47d6b322132e08e9de674e8ce5dbe9b0b32b8832e6fcb5dc20fb4a3e41a.json",
+      "sha256": "sha256:d1ddf47d6b322132e08e9de674e8ce5dbe9b0b32b8832e6fcb5dc20fb4a3e41a",
+      "size": 28659,
+      "byte_mode": "raw"
+    },
+    "block_attempts": [
+      {
+        "attempt": 1,
+        "status": 200,
+        "ok": true
+      }
+    ]
+  },
+  "bulk_source": {
+    "uri": "https://data.artblocks.io/v1/graphql",
+    "project_query": "query CaseyProject($id: String!, $chain_id: Int!) {\n  projects_metadata(where: {id: {_eq: $id}, chain_id: {_eq: $chain_id}}) {\n    id project_id chain_id contract_address name artist_name invocations\n    max_invocations complete completed_at script_type_and_version aspect_ratio\n    license website vertical_name\n  }\n}",
+    "project_query_sha256": "sha256:bb18976f4bb14a99e0491e9b6ca64e0ea3996ad024df3c95e828f3e073dbe71a",
+    "token_query": "query CaseyTokens($project: String!, $limit: Int!, $offset: Int!) {\n  tokens_metadata(\n    where: {chain_id: {_eq: 1}, project_id: {_eq: $project}}\n    order_by: {token_id: asc}\n    limit: $limit\n    offset: $offset\n  ) {\n    id token_id chain_id contract_address project_id invocation hash\n    live_view_url media_url primary_asset_url features\n  }\n}",
+    "token_query_sha256": "sha256:7145f69de8ff2538f5b219584387f1a15b7301d272e3c7c524471363f11fc7be",
+    "order_by": "token_id asc",
+    "page_size": 250
+  },
+  "collections": [
+    {
+      "slug": "century",
+      "name": "CENTURY",
+      "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "project_id": 100,
+      "population": {
+        "onchain_max_invocations": 1000,
+        "graphql_max_invocations": 1000,
+        "expected_token_count": 1000,
+        "bulk_rows": 1000,
+        "token_uri_resolved": 1000,
+        "snapshot_tokens": 1000,
+        "complete": true
+      },
+      "bulk_pages": [
+        {
+          "offset": 0,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-100",
+            "limit": 250,
+            "offset": 0
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/century/graphql/sha256-ea3af24e07921418d46695ee14ef3dee1c0ed25a3fbe0d000f7068320772b1b5.json",
+            "sha256": "sha256:ea3af24e07921418d46695ee14ef3dee1c0ed25a3fbe0d000f7068320772b1b5",
+            "size": 226479,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:f811b276f7fadbfd1411b46a3f5c38ddc46a5c5625cf1965d119b483df8832a1",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 250,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-100",
+            "limit": 250,
+            "offset": 250
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/century/graphql/sha256-38c85ffc259312d69d483ac5bc8cac17da2b44bbabee0bc07376bf7838dfd5bc.json",
+            "sha256": "sha256:38c85ffc259312d69d483ac5bc8cac17da2b44bbabee0bc07376bf7838dfd5bc",
+            "size": 226644,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:c6419fbab90fa9a45c1637d218e9481f360e29b6ee286daa05b2627b4ae9fa61",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 500,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-100",
+            "limit": 250,
+            "offset": 500
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/century/graphql/sha256-45a1fe500a168fe24ba6433c685a206c66989306a973a22faec1d5b7492f915a.json",
+            "sha256": "sha256:45a1fe500a168fe24ba6433c685a206c66989306a973a22faec1d5b7492f915a",
+            "size": 226569,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:ec9a23a09faca60419fc00183aeec01f794cc2647698040ee09574c4856e9ce9",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 750,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-100",
+            "limit": 250,
+            "offset": 750
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/century/graphql/sha256-1d9e23f91f1edae7bb93576fcec7f830c3cd52c852bac537d4acac2208c275aa.json",
+            "sha256": "sha256:1d9e23f91f1edae7bb93576fcec7f830c3cd52c852bac537d4acac2208c275aa",
+            "size": 226638,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:5235d4f43557b8e205b0160104e5491d66f65d1f1725f3e9d7fb0c1967fe69fa",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        }
+      ],
+      "token_uri_errors": [],
+      "http_cross_checks": [
+        {
+          "token_id": 100000000,
+          "source_uri": "https://api.artblocks.io/token/100000000",
+          "retrieval_uri": "https://api.artblocks.io/token/100000000",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/century/http-cross-check/sha256-454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3.json",
+            "sha256": "sha256:454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3",
+            "size": 3229,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 100000031,
+          "source_uri": "https://api.artblocks.io/token/100000031",
+          "retrieval_uri": "https://api.artblocks.io/token/100000031",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/century/http-cross-check/sha256-e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74.json",
+            "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+            "size": 3232,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 100000401,
+          "source_uri": "https://api.artblocks.io/token/100000401",
+          "retrieval_uri": "https://api.artblocks.io/token/100000401",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/century/http-cross-check/sha256-7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81.json",
+            "sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+            "size": 3231,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 100000724,
+          "source_uri": "https://api.artblocks.io/token/100000724",
+          "retrieval_uri": "https://api.artblocks.io/token/100000724",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/century/http-cross-check/sha256-3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5.json",
+            "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+            "size": 3229,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 100000999,
+          "source_uri": "https://api.artblocks.io/token/100000999",
+          "retrieval_uri": "https://api.artblocks.io/token/100000999",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/century/http-cross-check/sha256-6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227.json",
+            "sha256": "sha256:6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227",
+            "size": 3231,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        }
+      ],
+      "snapshot_path": "runs/20260801T172252532Z/snapshots/century/snapshot.json",
+      "snapshot_file_sha256": "sha256:1644e142dfbe34c685f9a7f0e6dcbd052b84c4168b5f6bee41e22b90b7b3cf45",
+      "snapshot_canonical_sha256": "sha256:5181cc40392baa76b77b8027d03c46a1609ea1ce939b971ca3af743abf68e9a8",
+      "errors": []
+    },
+    {
+      "slug": "pre-process",
+      "name": "Pre-Process",
+      "contract_address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+      "project_id": 383,
+      "population": {
+        "onchain_max_invocations": 120,
+        "graphql_max_invocations": 120,
+        "expected_token_count": 120,
+        "bulk_rows": 120,
+        "token_uri_resolved": 120,
+        "snapshot_tokens": 120,
+        "complete": true
+      },
+      "bulk_pages": [
+        {
+          "offset": 0,
+          "limit": 250,
+          "variables": {
+            "project": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069-383",
+            "limit": 250,
+            "offset": 0
+          },
+          "returned_count": 120,
+          "raw_response": {
+            "path": "raw/pre-process/graphql/sha256-ef1f48c264796bca9a9531508c724d5a3bb7a7981ff14ec7ebcf5bc41a607a76.json",
+            "sha256": "sha256:ef1f48c264796bca9a9531508c724d5a3bb7a7981ff14ec7ebcf5bc41a607a76",
+            "size": 82531,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:ee6563c8a3e0b6542b3ec913ac92b9047354bfb8612040f6ea4f5f32e13723b3",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        }
+      ],
+      "token_uri_errors": [],
+      "http_cross_checks": [
+        {
+          "token_id": 383000000,
+          "source_uri": "https://api.artblocks.io/token/383000000",
+          "retrieval_uri": "https://api.artblocks.io/token/383000000",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/pre-process/http-cross-check/sha256-abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817.json",
+            "sha256": "sha256:abf9d214e270963833a86a67d01c175ea45ef2dee61d2c7e92a77b973ebeb817",
+            "size": 4359,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 383000063,
+          "source_uri": "https://api.artblocks.io/token/383000063",
+          "retrieval_uri": "https://api.artblocks.io/token/383000063",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/pre-process/http-cross-check/sha256-581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5.json",
+            "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+            "size": 4360,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 383000119,
+          "source_uri": "https://api.artblocks.io/token/383000119",
+          "retrieval_uri": "https://api.artblocks.io/token/383000119",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/pre-process/http-cross-check/sha256-78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8.json",
+            "sha256": "sha256:78c5b604d89fa0737fc36195822a6abb80bd7cbc0630c2c4df6ab3ce95e17fa8",
+            "size": 4361,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        }
+      ],
+      "snapshot_path": "runs/20260801T172252532Z/snapshots/pre-process/snapshot.json",
+      "snapshot_file_sha256": "sha256:f7c62a25f9d9cc1118faf702378c7c8ab726029ee524da9032eb2ec4bbad4226",
+      "snapshot_canonical_sha256": "sha256:5384338d0b6abfd404aa75fb9bdd92cf0b929a9b7a8a1b9eeee6e59bf5c0f167",
+      "errors": []
+    },
+    {
+      "slug": "phototaxis",
+      "name": "Phototaxis",
+      "contract_address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "project_id": 164,
+      "population": {
+        "onchain_max_invocations": 1000,
+        "graphql_max_invocations": 1000,
+        "expected_token_count": 1000,
+        "bulk_rows": 1000,
+        "token_uri_resolved": 1000,
+        "snapshot_tokens": 1000,
+        "complete": true
+      },
+      "bulk_pages": [
+        {
+          "offset": 0,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-164",
+            "limit": 250,
+            "offset": 0
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/phototaxis/graphql/sha256-a43be055137aaacb7ec3539526c3029320d7d01520149c563355a016a1be159e.json",
+            "sha256": "sha256:a43be055137aaacb7ec3539526c3029320d7d01520149c563355a016a1be159e",
+            "size": 204576,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:755dbc94bcd32dad0a122f78623f5d786c02683dd35b6d83abd23a7258932d8d",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 250,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-164",
+            "limit": 250,
+            "offset": 250
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/phototaxis/graphql/sha256-c49d0f5d2ec9ca282602da4b4c3a2d931467be350b6673370b093c1815c5cef2.json",
+            "sha256": "sha256:c49d0f5d2ec9ca282602da4b4c3a2d931467be350b6673370b093c1815c5cef2",
+            "size": 204516,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:ea6c511b2cb57eda63817b9a85c1533c22a4eb765f8de6b01fd15fd5c357e69e",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 500,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-164",
+            "limit": 250,
+            "offset": 500
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/phototaxis/graphql/sha256-356bc540d9f4ac6f04d1f0ba6f960ceaa5ce71b84953d690076ed313fa227363.json",
+            "sha256": "sha256:356bc540d9f4ac6f04d1f0ba6f960ceaa5ce71b84953d690076ed313fa227363",
+            "size": 204795,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:b73855735a17a648b8c072d8e7ceef661232c5333a4e0d876dfdacab204380c1",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 750,
+          "limit": 250,
+          "variables": {
+            "project": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270-164",
+            "limit": 250,
+            "offset": 750
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/phototaxis/graphql/sha256-1c62f7de0930e5630569d788aeea6513da763c6894710b4330491fcc7193b219.json",
+            "sha256": "sha256:1c62f7de0930e5630569d788aeea6513da763c6894710b4330491fcc7193b219",
+            "size": 204631,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:47fc6c00dec05e7209f34aa6f19a19677d9a9f4e5e0f4c682d9c6bb2606c8bcc",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        }
+      ],
+      "token_uri_errors": [],
+      "http_cross_checks": [
+        {
+          "token_id": 164000000,
+          "source_uri": "https://api.artblocks.io/token/164000000",
+          "retrieval_uri": "https://api.artblocks.io/token/164000000",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/phototaxis/http-cross-check/sha256-ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554.json",
+            "sha256": "sha256:ba3a17e0d55cce08503e5b738e78e8b7e3fb38291914d93fb6143ef6a1d9e554",
+            "size": 3013,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 164000308,
+          "source_uri": "https://api.artblocks.io/token/164000308",
+          "retrieval_uri": "https://api.artblocks.io/token/164000308",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/phototaxis/http-cross-check/sha256-b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573.json",
+            "sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+            "size": 3029,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 164000999,
+          "source_uri": "https://api.artblocks.io/token/164000999",
+          "retrieval_uri": "https://api.artblocks.io/token/164000999",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/phototaxis/http-cross-check/sha256-7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084.json",
+            "sha256": "sha256:7d190108a9295d407bf545336a5585323ceeca160c3a0fea87bfc2863c38d084",
+            "size": 3021,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        }
+      ],
+      "snapshot_path": "runs/20260801T172252532Z/snapshots/phototaxis/snapshot.json",
+      "snapshot_file_sha256": "sha256:e3eee20294b8a15069c52e31b98ba79a517983f43d185e26cd5e75405a9b10c4",
+      "snapshot_canonical_sha256": "sha256:ee8533efeb7e2f9e760b561ac806560187a1dc1b2357b961bc105bb3662f6f92",
+      "errors": []
+    },
+    {
+      "slug": "923-empty-rooms",
+      "name": "923 EMPTY ROOMS",
+      "contract_address": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+      "project_id": 1,
+      "population": {
+        "onchain_max_invocations": 924,
+        "graphql_max_invocations": 924,
+        "expected_token_count": 924,
+        "bulk_rows": 924,
+        "token_uri_resolved": 924,
+        "snapshot_tokens": 924,
+        "complete": true
+      },
+      "bulk_pages": [
+        {
+          "offset": 0,
+          "limit": 250,
+          "variables": {
+            "project": "0x145789247973c5d612bf121e9e4eef84b63eb707-1",
+            "limit": 250,
+            "offset": 0
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/923-empty-rooms/graphql/sha256-6ede46f5b336bc71a0e384a61476a421a77e54a0740929dfec3a9a3a069c59d6.json",
+            "sha256": "sha256:6ede46f5b336bc71a0e384a61476a421a77e54a0740929dfec3a9a3a069c59d6",
+            "size": 218549,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:a15ca315abfe48ce6a8ccb283c67bdf7fb0299b739dd78a52a07ae5356a27255",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 250,
+          "limit": 250,
+          "variables": {
+            "project": "0x145789247973c5d612bf121e9e4eef84b63eb707-1",
+            "limit": 250,
+            "offset": 250
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/923-empty-rooms/graphql/sha256-325385447308f72f1b003ba8d10db77a482aa647165b2f0dd4b4005a8c815851.json",
+            "sha256": "sha256:325385447308f72f1b003ba8d10db77a482aa647165b2f0dd4b4005a8c815851",
+            "size": 219353,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:80b351a67a800ce788258e711408b59cf8f3eb41c3ddd1f570509d226c23b6b4",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 500,
+          "limit": 250,
+          "variables": {
+            "project": "0x145789247973c5d612bf121e9e4eef84b63eb707-1",
+            "limit": 250,
+            "offset": 500
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/923-empty-rooms/graphql/sha256-b83a3ef15657f3b3b4773d4bb7e624d71cb4fcdf73fdb4b16f48540e6c50e8ee.json",
+            "sha256": "sha256:b83a3ef15657f3b3b4773d4bb7e624d71cb4fcdf73fdb4b16f48540e6c50e8ee",
+            "size": 219513,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:087ac4ef12360f3d79afd5c07348586c9e9edb047a894295b2d1d997a2e27e6b",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 750,
+          "limit": 250,
+          "variables": {
+            "project": "0x145789247973c5d612bf121e9e4eef84b63eb707-1",
+            "limit": 250,
+            "offset": 750
+          },
+          "returned_count": 174,
+          "raw_response": {
+            "path": "raw/923-empty-rooms/graphql/sha256-efcfbdbad358ebbb12182a7fe446e20c894bd644830ad4b9a4cf24eace2e891b.json",
+            "sha256": "sha256:efcfbdbad358ebbb12182a7fe446e20c894bd644830ad4b9a4cf24eace2e891b",
+            "size": 153086,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:df42db71df5754499a40034a9bd52637e98916da882be26b8092b516be475c7b",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        }
+      ],
+      "token_uri_errors": [],
+      "http_cross_checks": [
+        {
+          "token_id": 1000000,
+          "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+          "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/923-empty-rooms/http-cross-check/sha256-743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379.json",
+            "sha256": "sha256:743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379",
+            "size": 3738,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 1000713,
+          "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/923-empty-rooms/http-cross-check/sha256-a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd.json",
+            "sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+            "size": 3748,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        },
+        {
+          "token_id": 1000923,
+          "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+          "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/923-empty-rooms/http-cross-check/sha256-f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce.json",
+            "sha256": "sha256:f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce",
+            "size": 3754,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": false
+        }
+      ],
+      "snapshot_path": "runs/20260801T172252532Z/snapshots/923-empty-rooms/snapshot.json",
+      "snapshot_file_sha256": "sha256:824ba30b0cfa3d54d189d68235fe01c11280fcbe6729a17dd0aa3b693a8d85ad",
+      "snapshot_canonical_sha256": "sha256:e79d59c041ec77c1809d031128e889150dd65c2468163919d065c0f77ccd274e",
+      "errors": []
+    },
+    {
+      "slug": "ex-nihilo-cosmos",
+      "name": "Ex Nihilo (Cosmos)",
+      "contract_address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+      "project_id": 0,
+      "population": {
+        "onchain_max_invocations": 256,
+        "graphql_max_invocations": 256,
+        "expected_token_count": 256,
+        "bulk_rows": 256,
+        "token_uri_resolved": 256,
+        "snapshot_tokens": 256,
+        "complete": true
+      },
+      "bulk_pages": [
+        {
+          "offset": 0,
+          "limit": 250,
+          "variables": {
+            "project": "0x0000000c687daed0fba60d1dba4e5f6149e8b894-0",
+            "limit": 250,
+            "offset": 0
+          },
+          "returned_count": 250,
+          "raw_response": {
+            "path": "raw/ex-nihilo-cosmos/graphql/sha256-033d08d8822373014a0eee82836285168d9ab40734be7ce093fe3aa181d79557.json",
+            "sha256": "sha256:033d08d8822373014a0eee82836285168d9ab40734be7ce093fe3aa181d79557",
+            "size": 183657,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:05006750e957ddcb0734895d93b53ec991400b7bad7b6e61094d549e95edc8f3",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        },
+        {
+          "offset": 250,
+          "limit": 250,
+          "variables": {
+            "project": "0x0000000c687daed0fba60d1dba4e5f6149e8b894-0",
+            "limit": 250,
+            "offset": 250
+          },
+          "returned_count": 6,
+          "raw_response": {
+            "path": "raw/ex-nihilo-cosmos/graphql/sha256-d5d2f3787ff88c165cf555b92f04351080cf030becba51b8c30b7b447e071411.json",
+            "sha256": "sha256:d5d2f3787ff88c165cf555b92f04351080cf030becba51b8c30b7b447e071411",
+            "size": 4415,
+            "byte_mode": "raw"
+          },
+          "request_sha256": "sha256:355830f0f50c2b7ffc4a1e5c716a0322529cab80a71bd54ae5ccbb08f3c41aba",
+          "attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ]
+        }
+      ],
+      "token_uri_errors": [],
+      "http_cross_checks": [
+        {
+          "token_id": 0,
+          "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/0",
+          "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/0",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad.json",
+            "sha256": "sha256:e0bc92c9d464b302ad466a0f76045970648b89b4330db540736cf4a992142aad",
+            "size": 4210,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 248,
+          "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc.json",
+            "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+            "size": 4224,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        },
+        {
+          "token_id": 255,
+          "source_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/255",
+          "retrieval_uri": "https://token.artblocks.io/0x0000000c687daed0fba60d1dba4e5f6149e8b894/255",
+          "fallback_from": null,
+          "primary_attempts": [
+            {
+              "attempt": 1,
+              "status": 200,
+              "ok": true
+            }
+          ],
+          "fallback_attempts": [],
+          "raw_response": {
+            "path": "raw/ex-nihilo-cosmos/http-cross-check/sha256-4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9.json",
+            "sha256": "sha256:4edc5d269fb2f6be865be172d2afd49283c8e2d13b07a6904c75d7efab1a91a9",
+            "size": 4224,
+            "byte_mode": "raw"
+          },
+          "status": 200,
+          "error": null,
+          "identity_match": true,
+          "features_match": true
+        }
+      ],
+      "snapshot_path": "runs/20260801T172252532Z/snapshots/ex-nihilo-cosmos/snapshot.json",
+      "snapshot_file_sha256": "sha256:b22d33d867b2b5a04355d6b00cf11a6c71651a58770ea8857b3809f8b811b337",
+      "snapshot_canonical_sha256": "sha256:2ee8f1d7b2118bb0c44bc16dde8236e812f301e4c04e1c645819bfca393cf858",
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "cross_check_warnings": [
+    {
+      "collection": "century",
+      "token_id": 100000000,
+      "source_uri": "https://api.artblocks.io/token/100000000",
+      "retrieval_uri": "https://api.artblocks.io/token/100000000",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3.json",
+        "sha256": "sha256:454bf27c18e5cd68ae9293514f91ba19db5278dd9778fedf20d5bd68a02938c3",
+        "size": 3229,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "century",
+      "token_id": 100000031,
+      "source_uri": "https://api.artblocks.io/token/100000031",
+      "retrieval_uri": "https://api.artblocks.io/token/100000031",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74.json",
+        "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+        "size": 3232,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "century",
+      "token_id": 100000401,
+      "source_uri": "https://api.artblocks.io/token/100000401",
+      "retrieval_uri": "https://api.artblocks.io/token/100000401",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81.json",
+        "sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+        "size": 3231,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "century",
+      "token_id": 100000724,
+      "source_uri": "https://api.artblocks.io/token/100000724",
+      "retrieval_uri": "https://api.artblocks.io/token/100000724",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5.json",
+        "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+        "size": 3229,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "century",
+      "token_id": 100000999,
+      "source_uri": "https://api.artblocks.io/token/100000999",
+      "retrieval_uri": "https://api.artblocks.io/token/100000999",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/century/http-cross-check/sha256-6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227.json",
+        "sha256": "sha256:6003e36cfd86eb27ee4ee789ef6399eb5956bfc5df5a1f57ab44a19d2f0bb227",
+        "size": 3231,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "923-empty-rooms",
+      "token_id": 1000000,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000000",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379.json",
+        "sha256": "sha256:743bbbf79bde12083e0e53b96fab734abe24b0a687b1e0c96fd62e23f2d6b379",
+        "size": 3738,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "923-empty-rooms",
+      "token_id": 1000713,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd.json",
+        "sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+        "size": 3748,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    },
+    {
+      "collection": "923-empty-rooms",
+      "token_id": 1000923,
+      "source_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+      "retrieval_uri": "https://token.artblocks.io/0x145789247973c5d612bf121e9e4eef84b63eb707/1000923",
+      "fallback_from": null,
+      "primary_attempts": [
+        {
+          "attempt": 1,
+          "status": 200,
+          "ok": true
+        }
+      ],
+      "fallback_attempts": [],
+      "raw_response": {
+        "path": "raw/923-empty-rooms/http-cross-check/sha256-f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce.json",
+        "sha256": "sha256:f29a30d0c5846fe5042f09ea86a65a6c36dddb61df22c6fc32b36e9ae54cefce",
+        "size": 3754,
+        "byte_mode": "raw"
+      },
+      "status": 200,
+      "error": null,
+      "identity_match": true,
+      "features_match": false
+    }
+  ],
+  "request_provenance": {
+    "path": "derived/provenance/sha256-19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34.json",
+    "sha256": "sha256:19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34",
+    "size": 10160614,
+    "byte_mode": "reconstructed_from_preserved_v2_invocation"
+  },
+  "exclusion_summary": {
+    "path": "derived/provenance/sha256-085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3.json",
+    "sha256": "sha256:085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3",
+    "size": 17294,
+    "byte_mode": "reconstructed_from_preserved_v2_invocation"
+  },
+  "raw_observation_integrity": {
+    "raw_directory": "raw",
+    "raw_file_count": 79,
+    "raw_bytes_are_unchanged": true
+  }
+}
