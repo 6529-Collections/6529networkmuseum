@@ -1996,17 +1996,17 @@ ownerRecordHash = 0xee351e5f3e3edbbdf00670dc9116f99ef5ed8da4d070b6a3c734d81a099b
 For one record with source ordinal `1`, path
 `specs/onchain/contract-migration-v1.md`, record hash from §13.2, payload
 mode `INLINE`, payload bytes from §13.2, source commit
-`6ab83b456f1ad8d1b7b88b79cc960954feb56432`, Stream commit
+`ff1c5825e3b61bfb2df0a639e057297beb946e4d`, Stream commit
 `5021c8060950c3fef995271e674ed4b2007fee6d`, and generator
 `museum-migration/1.0.0`. Their `bytes32` encodings are respectively
-`0x0000000000000000000000006ab83b456f1ad8d1b7b88b79cc960954feb56432` and
+`0x000000000000000000000000ff1c5825e3b61bfb2df0a639e057297beb946e4d` and
 `0x0000000000000000000000005021c8060950c3fef995271e674ed4b2007fee6d`.
 
 ```text
 pathHash = 0x47f5e941106c25d308590891c8eb0bb3c721586361b9a9bf442b49782c132183
 payloadBytesHash = 0x5eb73c2a5337f2ba50340e7a39042e942894d09ec210e537334fbe068b710b73
 entryHash = 0x3aa074dec49b0294d9abb908dceea5a4d202418c4c3853fdf844bd645f62b7f7
-root = 0x685f7fa37801cc1c6264ff9bbf143d836926887ad890132e43a1943b7a91b41a
+root = 0x6b35f7b998c4bd61b6f45afe06b93f2d8e69a8a74caecd700025e10456daf027
 ```
 
 ### 13.7 HTTPS assertion vector
