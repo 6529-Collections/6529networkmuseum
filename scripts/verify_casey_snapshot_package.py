@@ -9,6 +9,7 @@ import hashlib
 import json
 import platform
 from pathlib import Path
+from pathlib import PurePosixPath
 import subprocess
 import sys
 import tempfile
@@ -58,6 +59,33 @@ EXPECTED_RAW_FILES = 79
 CROSS_CHECK_WARNINGS_SHA256 = "d94e65e6e6cdb30aaf01360a7bbcda9e8e24af894f917657e21e4a156db881c8"
 FORBIDDEN_KEY_FRAGMENTS = ("opensea", "looksrare", "rarity", "score", "rank", "metric", "percentile", "prevalence", "frequency", "statistical")
 FORBIDDEN_URL_FRAGMENTS = ("opensea.io", "looksrare.org", "rarible.com", "blur.io", "nftgo.io")
+MARKETPLACE_PROVIDER_FRAGMENTS = ("opensea", "looksrare", "rarible", "blur", "nftgo")
+EXTERNAL_REFERENCE_KEY_FRAGMENTS = (
+    "precomputed",
+    "imported",
+    "provider",
+    "externalrarity",
+    "externalscore",
+    "externalrank",
+    "externalmetric",
+    "marketplace",
+)
+PACKAGE_PREFIX = "evidence/casey-reas-collection-snapshots/"
+PINNED_EXTERNAL_SEMANTIC_PATHS = {"scripts/rarity/analyze.py"}
+EXPECTED_EXTERNAL_INVENTORY_ROLES = {
+    "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
+    "scripts/bootstrap_validate.py": "executable-or-test-source",
+    "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+    "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
+    "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
+    "scripts/rarity/analyze.py": "executable-or-test-source",
+    "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+    "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
+    "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+    "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
+    "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
+    "tests/rarity/test_nextgen_compat.py": "executable-or-test-source",
+}
 
 
 class VerificationError(RuntimeError):
@@ -175,6 +203,31 @@ def reject_external_metrics(value: Any, path: str = "value") -> None:
             raise VerificationError(f"forbidden marketplace URL at {path}")
 
 
+def reject_external_references(value: Any, path: str = "value") -> None:
+    """Reject marketplace/provider and imported-metric references everywhere.
+
+    Generated descriptor results intentionally contain the Museum's own
+    statistical fields. This separate guard therefore rejects external
+    provider/marketplace references and explicitly imported/precomputed field
+    names, while ``reject_external_metrics`` remains the stricter input/raw
+    policy for acquisition material.
+    """
+
+    if isinstance(value, dict):
+        for key, child in value.items():
+            normalized = normalize_key(key)
+            if any(fragment in normalized for fragment in EXTERNAL_REFERENCE_KEY_FRAGMENTS):
+                raise VerificationError(f"forbidden external/provider field at {path}.{key}")
+            reject_external_references(child, f"{path}.{key}")
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            reject_external_references(child, f"{path}[{index}]")
+    elif isinstance(value, str):
+        normalized = normalize_key(value)
+        if any(fragment in normalized for fragment in MARKETPLACE_PROVIDER_FRAGMENTS) or any(fragment in value.lower() for fragment in FORBIDDEN_URL_FRAGMENTS):
+            raise VerificationError(f"forbidden marketplace/provider reference at {path}")
+
+
 def verify_file_record(repo_root: Path, item: dict[str, Any]) -> Path:
     relative = item.get("path")
     if not isinstance(relative, str) or relative.startswith("/"):
@@ -228,6 +281,69 @@ def collect_raw_refs(value: Any, found: set[str] | None = None) -> set[str]:
         for child in value:
             collect_raw_refs(child, found)
     return found
+
+
+def collect_derived_refs(value: Any, found: set[str] | None = None) -> set[str]:
+    if found is None:
+        found = set()
+    if isinstance(value, dict):
+        if isinstance(value.get("path"), str) and value["path"].startswith("derived/"):
+            found.add(value["path"])
+        for child in value.values():
+            collect_derived_refs(child, found)
+    elif isinstance(value, list):
+        for child in value:
+            collect_derived_refs(child, found)
+    return found
+
+
+def expected_static_inventory_roles() -> dict[str, str]:
+    expected = {
+        f"{PACKAGE_PREFIX}collection-sources.json": "authoritative-acquisition-config",
+        f"{PACKAGE_PREFIX}pending-descriptors.json": "review-ledger",
+        f"{PACKAGE_PREFIX}descriptor-manifest.json": "descriptor-child-manifest",
+        f"{PACKAGE_PREFIX}fixtures/features-materialization.json": "verification-fixture",
+        f"{PACKAGE_PREFIX}fixtures/tool-input-projection.json": "verification-fixture",
+        f"{PACKAGE_PREFIX}runs/{RUN_ID}/run-manifest.json": "acquisition-child-manifest",
+        f"{PACKAGE_PREFIX}README.md": "package-documentation",
+    }
+    for slug in sorted(EXPECTED_SLUGS):
+        expected[f"{PACKAGE_PREFIX}descriptors/{slug}.json"] = "descriptor"
+        expected[f"{PACKAGE_PREFIX}runs/{RUN_ID}/snapshots/{slug}/snapshot.json"] = "metadata-snapshot"
+    expected.update(EXPECTED_EXTERNAL_INVENTORY_ROLES)
+    return expected
+
+
+def expected_inventory_roles(run_root: Path, manifest: dict[str, Any]) -> dict[str, str]:
+    expected = expected_static_inventory_roles()
+    repo_root = ROOT.resolve()
+    for raw in sorted((run_root / "raw").rglob("*")):
+        if raw.is_file():
+            expected[str(raw.relative_to(repo_root)).replace("\\", "/")] = "raw-observation"
+    derived_paths = collect_derived_refs(manifest)
+    for ref_name in ("request_provenance", "exclusion_summary"):
+        ref = manifest.get(ref_name)
+        if isinstance(ref, dict):
+            derived_paths.add(ref["path"])
+            derived_paths.update(collect_derived_refs(json.loads(verify_derived_ref(run_root, ref).decode("utf-8"))))
+    for relative in sorted(derived_paths):
+        expected[f"{PACKAGE_PREFIX}runs/{RUN_ID}/{relative}"] = "derived-provenance"
+    return expected
+
+
+def verify_inventory_scope(run_root: Path, manifest: dict[str, Any], inventory: list[dict[str, Any]]) -> None:
+    expected = expected_inventory_roles(run_root, manifest)
+    actual: dict[str, str] = {}
+    for item in inventory:
+        path = item.get("path")
+        role = item.get("role")
+        if not isinstance(path, str) or not isinstance(role, str):
+            raise VerificationError(f"root inventory item is malformed: {item!r}")
+        normalized = path.replace("\\", "/")
+        if normalized != path or any(part in {"", ".", ".."} for part in PurePosixPath(path).parts):
+            raise VerificationError(f"root inventory path is not canonical: {path}")
+        actual[path] = role
+    assert_equal(actual, expected, "root inventory closed path/role allowlist")
 
 
 def verify_ordering(snapshot: dict[str, Any], expected_ids: list[int], label: str) -> None:
@@ -669,6 +785,7 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
         slug = job["collection"]
         path = within(output_dir, job["output"])
         descriptor = read_json(path)
+        reject_external_references(descriptor, f"descriptor.{slug}")
         reject_current_head(descriptor, f"descriptor.{slug}")
         assert_equal(descriptor.get("review"), None, f"{slug}: descriptor review")
         assert_equal(descriptor.get("curatorial_significance"), None, f"{slug}: curatorial significance")
@@ -696,6 +813,11 @@ def verify_descriptors(output_dir: Path, manifest: dict[str, Any], package: dict
         result = descriptor.get("result")
         if not isinstance(result, dict) or result.get("schema") != "6529nm.generative-trait-analysis-output/v1":
             raise VerificationError(f"{slug}: result schema missing")
+        reject_external_metrics(descriptor_input, f"descriptor.{slug}.input")
+        reject_external_references(result, f"descriptor.{slug}.result")
+        result_input = result.get("input")
+        if isinstance(result_input, dict):
+            reject_external_metrics(result_input, f"descriptor.{slug}.result.input")
         assert_equal(result.get("determinism"), EXPECTED_RARITY_RUNTIME, f"{slug}: recorded rarity runtime")
         result_bytes = (json.dumps(result, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
         assert_equal(f"sha256:{sha256_bytes(result_bytes)}", descriptor.get("result_sha256"), f"{slug}: result hash")
@@ -727,6 +849,7 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     output_dir = output_dir.resolve()
     repo_root = ROOT.resolve()
     latest = read_json(output_dir / "latest-run.json")
+    reject_external_references(latest, "latest-run")
     manifest_path = within(output_dir, latest["manifest_path"])
     manifest = read_json(manifest_path)
     assert_equal(latest.get("status"), "complete", "latest status")
@@ -738,11 +861,18 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     reject_external_metrics(config, "collection-sources")
     package_path = output_dir / "package-manifest.json"
     package = read_json(package_path)
+    reject_external_references(package, "root package")
     assert_equal(latest.get("package_manifest", {}).get("sha256"), f"sha256:{sha256_bytes(package_path.read_bytes())}", "root package manifest pointer hash")
     assert_equal(package.get("schema_version"), "6529nm.casey-package-manifest.v1", "root package manifest schema")
     assert_equal(package.get("review"), None, "root package review")
     reject_current_head(package, "root package")
     verify_stable_dependency(package.get("dependency", {}), "root package dependency")
+    inventory_scope = package.get("inventory_scope")
+    if not isinstance(inventory_scope, dict):
+        raise VerificationError("root inventory scope is missing")
+    assert_equal(inventory_scope.get("package_prefix"), PACKAGE_PREFIX, "root inventory package prefix")
+    assert_equal(inventory_scope.get("external_inventory_roles"), EXPECTED_EXTERNAL_INVENTORY_ROLES, "root inventory external allowlist")
+    assert_equal(inventory_scope.get("pinned_dependency_paths"), ["scripts/rarity/analyze.py"], "root inventory pinned dependency paths")
     assert_equal(package["dependency"].get("acquisition_commit"), ACQUISITION_COMMIT, "acquisition source commit")
     assert_equal(package.get("network_fetch_status"), "offline_reconstruction_only_after_v2_acquisition", "root network-fetch status")
     assert_equal(package.get("pr7_safety_dependency", {}).get("status"), "deferred_until_pr7_merge", "PR7 safety dependency status")
@@ -755,8 +885,15 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     inventory_paths = {item.get("path") for item in inventory}
     if "evidence/casey-reas-collection-snapshots/package-manifest.json" in inventory_paths or "evidence/casey-reas-collection-snapshots/latest-run.json" in inventory_paths:
         raise VerificationError("root inventory pointer exclusion is not fail-closed")
+    run_root = output_dir / "runs" / RUN_ID
+    verify_inventory_scope(run_root, manifest, inventory)
     for item in inventory:
-        verify_file_record(repo_root, item)
+        path = verify_file_record(repo_root, item)
+        if path.suffix.lower() == ".json":
+            artifact = read_json(path)
+            reject_external_references(artifact, f"inventory.{item['path']}")
+            if item.get("role") in {"raw-observation", "metadata-snapshot", "acquisition-child-manifest", "derived-provenance", "authoritative-acquisition-config"}:
+                reject_external_metrics(artifact, f"inventory.{item['path']}")
     assert_equal(inventory_summary.get("raw_file_count"), sum(item.get("role") == "raw-observation" for item in inventory), "root raw inventory count")
     assert_equal(inventory_summary.get("derived_file_count"), sum(item.get("role") == "derived-provenance" for item in inventory), "root derived inventory count")
     assert_equal(inventory_summary.get("descriptor_count"), sum(item.get("role") == "descriptor" for item in inventory), "root descriptor inventory count")
@@ -773,6 +910,8 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
         for item in binding_items:
             if not isinstance(item, dict) or item.get("path") not in inventory_by_path:
                 raise VerificationError(f"root semantic binding is not inventory-bound: {binding_name}")
+            if not item["path"].startswith(PACKAGE_PREFIX) and item["path"] not in PINNED_EXTERNAL_SEMANTIC_PATHS:
+                raise VerificationError(f"root semantic binding escapes package scope: {binding_name}")
             inventory_item = inventory_by_path[item["path"]]
             assert_equal(item.get("sha256"), inventory_item.get("sha256"), f"root semantic binding hash {binding_name}")
             assert_equal(item.get("size"), inventory_item.get("size"), f"root semantic binding size {binding_name}")
@@ -788,7 +927,6 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
         assert_equal(bindings[binding_name].get("path"), expected_path, f"root {binding_name} path")
     assert_equal(bindings["request_provenance"].get("path"), str(Path("evidence/casey-reas-collection-snapshots") / "runs" / RUN_ID / manifest["request_provenance"]["path"]).replace("\\", "/"), "root request provenance binding")
     assert_equal(bindings["exclusion_summary"].get("path"), str(Path("evidence/casey-reas-collection-snapshots") / "runs" / RUN_ID / manifest["exclusion_summary"]["path"]).replace("\\", "/"), "root exclusion binding")
-    run_root = output_dir / "runs" / RUN_ID
     raw_paths = {str(path.relative_to(repo_root)).replace("\\", "/") for path in (run_root / "raw").rglob("*") if path.is_file()}
     inventory_raw_paths = {item["path"] for item in inventory if item.get("role") == "raw-observation"}
     assert_equal(raw_paths, inventory_raw_paths, "root raw file inventory")

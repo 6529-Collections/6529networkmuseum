@@ -315,3 +315,29 @@ recomputing byte/hash-sensitive descriptors. It also checks each recorded
 descriptor determinism profile against that pinned runtime, with a dedicated
 negative mutation test. Review remains null; PR #7 remains deferred; the PR
 remains draft.
+
+## 2026-08-01 - PR #13 exact-head fail-open remediation checkpoint
+
+Independent exact-head review at `d58926fcf9ba5c8fe7ad5d09455db9e202042fd8`
+reproduced two fail-open mutations. The root verifier accepted a package README
+inventory substitution with internally updated hashes, and it accepted an
+OpenSea URL added to a descriptor when descriptor inventory and pointer hashes
+were updated. Neither mutation changed the preserved acquisition bytes or
+descriptor result payloads in the governed package.
+
+The verifier now derives and checks a closed path/role allowlist for all 172
+root inventory entries: package files, the exact five snapshots/descriptors,
+the pinned run raw/derived paths, and an explicit fixed list of shared source
+files. Semantic bindings must stay inside the package prefix except the
+hard-coded PR #4 tool path. A recursive external-reference guard now scans
+every bound JSON artifact, including descriptors, results, inputs, methods,
+provenance, fixtures, and raw observations. It rejects marketplace/provider
+variants, URLs, and imported/precomputed metric field names while allowing the
+Museum's generated internal statistical result fields. Two disposable exact
+worktree end-to-end mutations cover the README substitution and descriptor
+OpenSea/provider injection.
+
+Raw/source bytes, populations, runtime pin, descriptor results, review nulls,
+and PR #7 deferral remain unchanged. PR #13 stays draft and must not be
+merged or synchronized to PR #7 until this remediation receives independent
+exact-head review.

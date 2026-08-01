@@ -41,8 +41,28 @@
     ],
     "reason": "latest-run points to this manifest and therefore cannot be included without a self-referential cycle; package-manifest is bound externally by latest-run"
   },
+  "inventory_scope": {
+    "package_prefix": "evidence/casey-reas-collection-snapshots/",
+    "external_inventory_roles": {
+      "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
+      "scripts/bootstrap_validate.py": "executable-or-test-source",
+      "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+      "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
+      "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
+      "scripts/rarity/analyze.py": "executable-or-test-source",
+      "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+      "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
+      "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+      "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
+      "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
+      "tests/rarity/test_nextgen_compat.py": "executable-or-test-source"
+    },
+    "pinned_dependency_paths": [
+      "scripts/rarity/analyze.py"
+    ]
+  },
   "inventory": {
-    "file_count": 171,
+    "file_count": 172,
     "raw_file_count": 79,
     "derived_file_count": 64,
     "descriptor_count": 5,
@@ -50,8 +70,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/README.md",
         "role": "package-documentation",
-        "sha256": "sha256:002aa46cfc168455413fb85846fd93e021009a8bd0399aad16ec1f6a99904205",
-        "size": 7464
+        "sha256": "sha256:1eafec5d32abb93bc0756bc862fcbd10b0b892b23e06272367a4aedccf4d3ae3",
+        "size": 8023
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
@@ -1022,8 +1042,8 @@
       {
         "path": "scripts/build_casey_package_manifest.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:eb237d2289a98776cfe5ba308999b3171f34831df7e650f64d3136a5a224b593",
-        "size": 9573
+        "sha256": "sha256:b4151bfd7de5d85930ea38cc7ff764f5beb892af1034fe90be1a86feff92c9ab",
+        "size": 10172
       },
       {
         "path": "scripts/emit_casey_collection_descriptors.py",
@@ -1052,8 +1072,14 @@
       {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:2c6653dfc986761885df244b8f6c8e89fca7153ae8ae0b447073c6732968595f",
-        "size": 60054
+        "sha256": "sha256:281c90a6989238aeef22cc53282533719bbe3ab3a721a4884d546f7e67dabbeb",
+        "size": 67594
+      },
+      {
+        "path": "tests/casey/test_casey_snapshot_mutations.py",
+        "role": "executable-or-test-source",
+        "sha256": "sha256:d8e374e3f7bd391bdd5697e65b452d2b9cefd258b4cb12e5bc471332331932c7",
+        "size": 9903
       },
       {
         "path": "tests/rarity/fixtures/nextgen-compatibility.expected.json",

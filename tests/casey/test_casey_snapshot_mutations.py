@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
 from unittest import mock
 
@@ -28,6 +32,101 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class CaseySnapshotMutationTests(unittest.TestCase):
+    def _run_end_to_end_mutation(self, mutate: object, expected_error: str) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-package-mutation-") as temp_dir:
+            worktree = Path(temp_dir) / "repo"
+            added = subprocess.run(
+                ["git", "worktree", "add", "--detach", str(worktree), "HEAD"],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(added.returncode, 0, added.stderr)
+            try:
+                mutate(worktree)
+                completed = subprocess.run(
+                    [sys.executable, str(worktree / "scripts/verify_casey_snapshot_package.py")],
+                    cwd=worktree,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertNotEqual(completed.returncode, 0, completed.stdout)
+                self.assertIn(expected_error, completed.stderr)
+            finally:
+                removed = subprocess.run(
+                    ["git", "worktree", "remove", "--force", str(worktree)],
+                    cwd=ROOT,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(removed.returncode, 0, removed.stderr)
+
+    @staticmethod
+    def _write_json(path: Path, value: object) -> None:
+        path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+    @classmethod
+    def _refresh_package_pointer(cls, worktree: Path, package: dict[str, object]) -> None:
+        package_path = worktree / "evidence/casey-reas-collection-snapshots/package-manifest.json"
+        cls._write_json(package_path, package)
+        package_bytes = package_path.read_bytes()
+        latest_path = worktree / "evidence/casey-reas-collection-snapshots/latest-run.json"
+        latest = json.loads(latest_path.read_text(encoding="utf-8"))
+        latest["package_manifest"] = {
+            "path": "package-manifest.json",
+            "sha256": "sha256:" + hashlib.sha256(package_bytes).hexdigest(),
+            "size": len(package_bytes),
+        }
+        cls._write_json(latest_path, latest)
+
+    @classmethod
+    def _mutate_inventory_path(cls, worktree: Path) -> None:
+        package_path = worktree / "evidence/casey-reas-collection-snapshots/package-manifest.json"
+        package = json.loads(package_path.read_text(encoding="utf-8"))
+        for item in package["inventory"]["files"]:
+            if item["path"] == "evidence/casey-reas-collection-snapshots/README.md":
+                replacement = worktree / "README.md"
+                payload = replacement.read_bytes()
+                item["path"] = "README.md"
+                item["sha256"] = "sha256:" + hashlib.sha256(payload).hexdigest()
+                item["size"] = len(payload)
+                break
+        else:
+            raise AssertionError("package README inventory entry missing")
+        cls._refresh_package_pointer(worktree, package)
+
+    @classmethod
+    def _mutate_descriptor_marketplace_reference(cls, worktree: Path) -> None:
+        descriptor_relative = "evidence/casey-reas-collection-snapshots/descriptors/century.json"
+        descriptor_path = worktree / descriptor_relative
+        descriptor = json.loads(descriptor_path.read_text(encoding="utf-8"))
+        descriptor["external_analysis"] = {
+            "provider": "OpenSea",
+            "url": "https://opensea.io/assets/1/0x0000000000000000000000000000000000000000/1",
+            "rarity_score": 1,
+        }
+        cls._write_json(descriptor_path, descriptor)
+        package_path = worktree / "evidence/casey-reas-collection-snapshots/package-manifest.json"
+        package = json.loads(package_path.read_text(encoding="utf-8"))
+        payload = descriptor_path.read_bytes()
+        for item in package["inventory"]["files"]:
+            if item["path"] == descriptor_relative:
+                item["sha256"] = "sha256:" + hashlib.sha256(payload).hexdigest()
+                item["size"] = len(payload)
+                break
+        else:
+            raise AssertionError("century descriptor inventory entry missing")
+        cls._refresh_package_pointer(worktree, package)
+
+    def test_inventory_path_substitution_fails_end_to_end(self) -> None:
+        self._run_end_to_end_mutation(self._mutate_inventory_path, "root inventory closed path/role allowlist")
+
+    def test_descriptor_marketplace_provider_fails_end_to_end(self) -> None:
+        self._run_end_to_end_mutation(self._mutate_descriptor_marketplace_reference, "forbidden external/provider field")
+
     def test_contract_mapping_mutation_fails_closed(self) -> None:
         config = json.loads((ROOT / "evidence/casey-reas-collection-snapshots/collection-sources.json").read_text(encoding="utf-8"))
         mutated = copy.deepcopy(config)

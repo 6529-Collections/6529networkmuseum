@@ -16,6 +16,20 @@ PR4_MERGE_COMMIT = "ff1c5825e3b61bfb2df0a639e057297beb946e4d"
 PR4_TOOL_SHA256 = "e4060edf7354aa683458dfa0e620c598673a0c65202c8efadd768ae8dc03cc53"
 PR4_TOOL_BLOB_OID = "755a1b1c948d900496f5e279594223c8c99ab3e8"
 ACTOR_ID = "codex-task:019fbe33-c412-7550-a1ba-f6c68c3b5652"
+EXTERNAL_INVENTORY_ROLES = {
+    "scripts/acquire_casey_collection_snapshots.py": "executable-or-test-source",
+    "scripts/bootstrap_validate.py": "executable-or-test-source",
+    "scripts/build_casey_package_manifest.py": "executable-or-test-source",
+    "scripts/emit_casey_collection_descriptors.py": "executable-or-test-source",
+    "scripts/harden_casey_snapshot_package.py": "executable-or-test-source",
+    "scripts/rarity/analyze.py": "executable-or-test-source",
+    "scripts/rarity/nextgen_compat.py": "executable-or-test-source",
+    "scripts/verify_casey_snapshot_package.py": "executable-or-test-source",
+    "tests/casey/test_casey_snapshot_mutations.py": "executable-or-test-source",
+    "tests/rarity/fixtures/nextgen-compatibility.expected.json": "executable-or-test-source",
+    "tests/rarity/fixtures/nextgen-compatibility.json": "executable-or-test-source",
+    "tests/rarity/test_nextgen_compat.py": "executable-or-test-source",
+}
 
 
 class PackageManifestError(RuntimeError):
@@ -95,20 +109,8 @@ def build(output_dir: Path, source_snapshot_commit: str, acquisition_commit: str
             derived_paths.update(collect_derived_paths(read_json(derived_path)))
     for relative in sorted(derived_paths):
         add(str(run_relative / relative), "derived-provenance")
-    for script in (
-        "scripts/acquire_casey_collection_snapshots.py",
-        "scripts/harden_casey_snapshot_package.py",
-        "scripts/build_casey_package_manifest.py",
-        "scripts/emit_casey_collection_descriptors.py",
-        "scripts/verify_casey_snapshot_package.py",
-        "scripts/bootstrap_validate.py",
-        "scripts/rarity/analyze.py",
-        "scripts/rarity/nextgen_compat.py",
-        "tests/rarity/test_nextgen_compat.py",
-        "tests/rarity/fixtures/nextgen-compatibility.json",
-        "tests/rarity/fixtures/nextgen-compatibility.expected.json",
-    ):
-        add(script, "executable-or-test-source")
+    for script, role in EXTERNAL_INVENTORY_ROLES.items():
+        add(script, role)
     add("evidence/casey-reas-collection-snapshots/README.md", "package-documentation")
 
     records.sort(key=lambda item: item["path"])
@@ -142,6 +144,7 @@ def build(output_dir: Path, source_snapshot_commit: str, acquisition_commit: str
         "network_fetch_status": "offline_reconstruction_only_after_v2_acquisition",
         "pr7_safety_dependency": {"status": "deferred_until_pr7_merge", "network_fetch_migration_required": True, "no_pr7_migration_claim": True},
         "pointer_files_excluded_from_inventory": {"files": ["evidence/casey-reas-collection-snapshots/latest-run.json", "evidence/casey-reas-collection-snapshots/package-manifest.json"], "reason": "latest-run points to this manifest and therefore cannot be included without a self-referential cycle; package-manifest is bound externally by latest-run"},
+        "inventory_scope": {"package_prefix": "evidence/casey-reas-collection-snapshots/", "external_inventory_roles": EXTERNAL_INVENTORY_ROLES, "pinned_dependency_paths": ["scripts/rarity/analyze.py"]},
         "inventory": {"file_count": len(records), "raw_file_count": len(raw_records), "derived_file_count": len(derived_records), "descriptor_count": len(descriptor_records), "files": records},
         "semantic_bindings": {
             "config": binding("evidence/casey-reas-collection-snapshots/collection-sources.json"),

@@ -68,8 +68,10 @@ price, or floor field is requested, imported, cited, or preserved.
   request-byte captures; raw response bodies remain contemporaneous evidence.
 - `package-manifest.json` - root fail-closed inventory binding every raw file,
   child manifest, snapshot, descriptor, configuration, fixture, script, and
-  merged tool blob identity. `latest-run.json` is a pointer and is excluded
-  from the inventory to avoid a self-reference cycle.
+  merged tool blob identity. The verifier enforces a closed path/role allowlist
+  and rejects package-external substitutions even when replacement hashes are
+  internally consistent. `latest-run.json` is a pointer and is excluded from
+  the inventory to avoid a self-reference cycle.
 - `pending-descriptors.json` - dependency and review ledger for the emitted
   descriptors; it remains `complete_pending_review` with reviewer fields null.
   It is not a quality claim or marketplace result.
@@ -118,6 +120,13 @@ snapshot; no local compatibility projection is used. Descriptors record stable
 merge commit, Git blob, and SHA-256. They contain no mutable `current_head`.
 Outputs remain labeled as transparent statistical descriptors of a frozen
 metadata snapshot, never as quality, value, importance, or canonical truth.
+
+The verifier recursively rejects marketplace/provider references, marketplace
+URLs, and imported or precomputed metric fields across every bound JSON
+artifact, including descriptor metadata, generated-result inputs, methods,
+provenance, fixtures, and raw observations. The generated internal statistical
+fields in the descriptor result are retained and independently recomputed by
+the exact merged tool.
 
 The package currently remains independent of the PR #7 safety-control merge.
 Executable network fetching is not migrated in this draft; after PR #7 merges,
