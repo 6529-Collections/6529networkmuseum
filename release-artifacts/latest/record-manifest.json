@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:0eab9713f5d08888c63ce0b4e0763edd321d30a99293d5492f55cb13dc04f9d5",
-      "size": 9406
+      "sha256": "sha256:51ef7b38ad403cea22759e5606874d01e2fabefc40423b251a33f7422134c1e4",
+      "size": 9542
     },
     {
       "path": "docs/external-works-registry.md",
@@ -547,8 +547,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:23d69f6bc7481a076f5ad274e835eae3648a1722caf2759835a061be7583c988",
-      "size": 7992
+      "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
+      "size": 8285
     },
     {
       "path": "scripts/rarity/__init__.py",
@@ -782,8 +782,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:b0d8ed340d21d74c709e31b3e3920959764067d8dae8e2f449d24577fbabd6ee",
-      "size": 50773
+      "sha256": "sha256:d44f19a71701a97d2c72a8a357283dd01898e642d44166ed4ba532ce491db498",
+      "size": 51357
     }
   ],
   "hash_algorithms": {
@@ -813,9 +813,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xca54c544f51446fbedd253e3c2e3ec033c8eef7c2e0bbdbebc348a7aab826812"
+    "digest": "0xc26dc342e3a863e5433edde6b2e3d816b902be7b6b29385700229157b544dffc"
   },
-  "manifest_sha256": "sha256:112b75544e2cce67cfac79e5b8d1ef35bb99e50ae89090820cb555f8c534f8e5",
+  "manifest_sha256": "sha256:5564b2cb37ae258064418c7d3aac182a38312b145c3a76c1a5aa4cbd34d83835",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

@@ -975,6 +975,17 @@ class ControlPlaneTests(unittest.TestCase):
         with self.assertRaisesRegex(ManifestUnsafePathError, "configured governed root is not a directory"):
             make_manifest(root)
 
+    @unittest.skipUnless(hasattr(os, "mkfifo"), "named pipes are not available on this platform")
+    def test_manifest_rejects_nonregular_governed_directory_entry(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-nonregular-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
+        pipe = root / "docs" / "named-pipe"
+        os.mkfifo(pipe)
+        with self.assertRaisesRegex(ManifestUnsafePathError, "not a regular file or directory"):
+            make_manifest(root)
+
     def test_foundation_bootstrap_controls_pass_current_register(self) -> None:
         result = subprocess.run(
             [sys.executable, str(REPO_ROOT / "scripts" / "bootstrap_validate.py")],

@@ -144,6 +144,8 @@ files `.gitattributes`, `.gitignore`, `AGENTS.md`, `INDEX.md`, `README.md`, and
 `requirements-dev.txt`. Entries use sorted repository-relative POSIX paths.
 Generation fails closed if any configured root or named control file is missing,
 linked, a reparse point, or not the expected regular-file/directory type.
+Non-regular entries inside governed directories, including pipes, sockets, and
+devices, are also rejected rather than silently omitted.
 
 Evidence remains in separately governed raw-byte manifests so authenticated
 source bytes are never silently normalized. `notes/` is the indexed WIP and

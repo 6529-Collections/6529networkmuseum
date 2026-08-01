@@ -128,6 +128,11 @@ def inventory_paths(root: Path) -> list[Path]:
                         pending.append(path)
                     elif stat.S_ISREG(entry_stat.st_mode) and path.suffix.lower() not in {".pyc", ".pyo"}:
                         paths.append(path)
+                    elif not stat.S_ISREG(entry_stat.st_mode):
+                        raise ManifestUnsafePathError(
+                            f"governed inventory entry is not a regular file or directory: "
+                            f"{path.relative_to(root)}"
+                        )
     return sorted(paths, key=lambda path: path.relative_to(root).as_posix())
 
 
