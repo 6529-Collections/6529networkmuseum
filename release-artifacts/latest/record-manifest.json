@@ -27,8 +27,8 @@
     },
     {
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:653f475178674489bac4cbcd6639297e69aba60db290b94d79aaf67d10d3027f",
-      "size": 2302
+      "sha256": "sha256:d69790fdfb5bb9f375a5ad49a46966169f01b085c45f40b5c4d9bac655f53c01",
+      "size": 2719
     },
     {
       "path": ".gitignore",
@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:af818fe339c51574964a00a95e7e0c3d0e4c4958fc0f708ac4969a1cccfde03f",
-      "size": 11335
+      "sha256": "sha256:d25262082ed275c4e34bb19e1773327a9e049ab49c5c1f35cdcaff1a1deb9b5b",
+      "size": 11816
     },
     {
       "path": "README.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:51ef7b38ad403cea22759e5606874d01e2fabefc40423b251a33f7422134c1e4",
-      "size": 9542
+      "sha256": "sha256:cba40cf0f7ae60675dbbb47b2c15e50b2821994959cf0753e5497714d2efbb7a",
+      "size": 9597
     },
     {
       "path": "docs/external-works-registry.md",
@@ -596,6 +596,11 @@
       "size": 35725
     },
     {
+      "path": "scripts/verify_casey_snapshot_package.py",
+      "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
+      "size": 69894
+    },
+    {
       "path": "specs/README.md",
       "sha256": "sha256:1955b1f1b0fe6116abb38f32c508cc2bf7f65ef963b8d030237ece9fbef41c73",
       "size": 1255
@@ -659,11 +664,6 @@
       "path": "templates/technical-condition-report.md",
       "sha256": "sha256:c001f609552596f68c1d9433a4c689d0b6ac368901555dedcea080fa4fcde227",
       "size": 4822
-    },
-    {
-      "path": "scripts/verify_casey_snapshot_package.py",
-      "sha256": "sha256:6f01f0e305de5e98cf97823cfc00ec07f5fae0980b925f91b7f04d2473f308ee",
-      "size": 69894
     },
     {
       "path": "tests/__init__.py",
@@ -817,8 +817,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:d44f19a71701a97d2c72a8a357283dd01898e642d44166ed4ba532ce491db498",
-      "size": 51357
+      "sha256": "sha256:82464918d55e8b578ce4bca4520719ac4222e5d16ce295309029616d7d4763ac",
+      "size": 52680
     }
   ],
   "hash_algorithms": {
@@ -848,9 +848,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xc26dc342e3a863e5433edde6b2e3d816b902be7b6b29385700229157b544dffc"
+    "digest": "0x0b3375ccb2aa9ec76e3711776903673309253687ef4928ee7ecdc2169b36a0fd"
   },
-  "manifest_sha256": "sha256:5564b2cb37ae258064418c7d3aac182a38312b145c3a76c1a5aa4cbd34d83835",
+  "manifest_sha256": "sha256:518a80d7dfb20b25070c9fee94552824b250cd672e4f7de1fc63f30ea39480f2",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

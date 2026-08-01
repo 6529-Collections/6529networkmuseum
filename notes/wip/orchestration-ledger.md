@@ -368,3 +368,24 @@ The release manifest is current at SHA-256
 `sha256:e2e8cbbcc0149238307f5706a8225f232079265c17e36d11fc33aea2c4307f4b`.
 Review metadata remains null, no title/rights/accession acceptance is claimed,
 and PR #13 remains a draft pending exact-head independent review.
+
+## 2026-08-01 - PR #14 exact-main synchronization checkpoint
+
+After the complete merged-main suite passed (68 tests, including 17 rarity,
+11 Casey mutation, and merged control-plane tests), PR #13 fetched and verified
+`origin/main` exactly at `13578fe13a9638e497e96b26b5ce8c4a863543ab` and rebased
+the Casey work exactly once. The only conflicts were derived release-manifest
+hunks and the append-only ledger; PR #14's closed release inventory and both
+Casey ledger entries were preserved. An exact Git comparison reports no changes
+under the preserved 79-file raw observation tree.
+
+The package was regenerated without acquisition or descriptor reruns: 175 root
+inventory files, 79 raw observations, five descriptors, 3,300 tokenURI
+requests, 35,088 traits, 17 exclusions, and eight warnings remain bound. The
+rebased package manifest is
+`sha256:11e5a963a508fc15c5bfe683986a43aa25b0c85a06a0a98a7b66a621be1df8f6`;
+the closed release manifest is
+`sha256:518a80d7dfb20b25070c9fee94552824b250cd672e4f7de1fc63f30ea39480f2`.
+The exact rebase result before final manifest/ledger commit is `fda242b`; the
+working branch remains draft with reviewer, title/rights, and accession
+acceptance metadata unbound.
