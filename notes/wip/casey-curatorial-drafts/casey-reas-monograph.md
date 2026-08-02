@@ -1,3 +1,17 @@
+---
+title: "Casey Reas: The Conditions for an Image"
+publication_id: "6529NM.PUB.CASEY.MONOGRAPH"
+version: "2.1.0"
+status: "completed_publication_manuscript"
+institutional_author: "6529 Network Museum"
+publication_date: "2026-08-02"
+research_cutoff: "2026-08-02"
+accession_ref: "6529NM.2026.001"
+supersedes_for_publication:
+  - "records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md"
+supersession_scope: "visitor-facing artist interpretation only; accession, identity, title, rights, custody, condition, and preservation records remain controlling"
+---
+
 # Casey Reas: The Conditions for an Image
 
 **Standfirst.** For more than twenty-five years, Casey Reas has made images by constructing the conditions under which they can occur. From artificial agents that turn behavior into line, through the instruction-based *Process* works and the public language of Processing, to executable collage, machine-learned cinema, on-chain editions, empty rooms, and unstable geometric worlds, his practice tests where an artwork resides among rule, code, execution, material, and encounter. This essay follows that practice without reducing it to a history of technologies. It argues that Reas's distinctive achievement is pictorial as much as procedural: he makes exact systems produce images that remain sensuous, difficult, and irreducible to explanation. The seven works given by punk6529 to the 6529 Network Museum provide a concentrated view of that achievement while also revealing what the collection does not yet hold.
@@ -429,8 +443,8 @@ The reward is not technical mastery. It is sustained uncertainty of a precise ki
 [^25]: Los Angeles County Museum of Art, “Introducing METAVASARELY and An Empty Room, a Two-Part Digital Work by Casey Reas,” *Unframed*, 13 February 2023, <https://unframed.lacma.org/2023/02/13/introducing-metavasarely-and-empty-room-two-part-digital-work-casey-reas>.
 [^26]: Bright Moments, “923 EMPTY ROOMS,” accessed 2 August 2026, <https://www.brightmoments.io/923emptyrooms>; Casey Reas, “Atomism,” <https://reas.com/atomism>.
 [^27]: Art Blocks, “Ex Nihilo (Cosmos) by Casey Reas,” 2026, <https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase>; Casey Reas, “Atomism,” <https://reas.com/atomism>.
-[^28]: 6529 Network Museum, [accession statement](../../../../records/accessions/6529NM.2026.001/accession-statement.json), [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), [gift acceptance authorization](../../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), and the file-by-file object, rights, and technical-condition links in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts), repository state researched 2 August 2026.
-[^29]: 6529 Network Museum, [visual-observation record](../../../../records/accessions/6529NM.2026.001/visual-observation-record.json), especially the object-level `retention_boundary` statements, researched 2 August 2026.
+[^28]: 6529 Network Museum, [accession statement](../../../records/accessions/6529NM.2026.001/accession-statement.json), [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), [gift acceptance authorization](../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), and the file-by-file object, rights, and technical-condition links in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts), repository state researched 2 August 2026.
+[^29]: 6529 Network Museum, [visual-observation record](../../../records/accessions/6529NM.2026.001/visual-observation-record.json), especially the object-level `retention_boundary` statements, researched 2 August 2026.
 [^30]: Meredith Hoy, “Painting as Programming: Casey Reas and the Aesthetics of Generative Code,” ISEA 2011, [symposium record](https://www.isea-symposium-archives.org/presentation/painting-as-programming-casey-reas-and-the-aesthetics-of-generative-code/) and [full paper](https://isea-archives.siggraph.org/wp-content/uploads/2020/06/ISEA2011_220_Meredith-Hoy.pdf).
 [^31]: Liz Stinson, “Processing: the Software that Shaped Creative Coding,” AIGA *Eye on Design*, 28 October 2021, <https://eyeondesign.aiga.org/processing-the-software-that-shaped-creative-coding/>; Museum of Modern Art, “Ben Fry, *Distellamap (Pac-Man)*, 2004,” <https://www.moma.org/collection/works/110352>; Ars Electronica, 2005 Golden Nica announcement, <https://webarchive.ars.electronica.art/documents/EN_PR_02_goldenenicas_Aenderung_2005.pdf>.
 [^32]: Diego Gómez-Venegas, “Redes vivas: trans-corporalidad y tecno-individuación,” *laFuga* 25 (2021), <https://www.lafuga.cl/redes-vivas-trans-corporalidad-y-tecno-individuacion/1048>.
@@ -479,7 +493,7 @@ The reward is not technical mastery. It is sustained uncertainty of a precise ki
 - Los Angeles County Museum of Art. “Introducing METAVASARELY and An Empty Room, a Two-Part Digital Work by Casey Reas.” <https://unframed.lacma.org/2023/02/13/introducing-metavasarely-and-empty-room-two-part-digital-work-casey-reas>.
 - Los Angeles County Museum of Art. “Digital art is a kind of performance.” <https://unframed.lacma.org/node/3771>.
 - Processing Foundation. “Processing Overview.” <https://processing.org/overview/>.
-- 6529 Network Museum. Casey Reas [accession statement](../../../../records/accessions/6529NM.2026.001/accession-statement.json), [gift acceptance authorization](../../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), [title and rights review](../../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md), and [visual-observation record](../../../../records/accessions/6529NM.2026.001/visual-observation-record.json).
+- 6529 Network Museum. Casey Reas [accession statement](../../../records/accessions/6529NM.2026.001/accession-statement.json), [gift acceptance authorization](../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), [title and rights review](../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md), and [visual-observation record](../../../records/accessions/6529NM.2026.001/visual-observation-record.json).
 - Whitney Museum of American Art. *{Software} Structures* [archive](https://artport.whitney.org/commissions/software-structures/text.html) and [*Programmed: Rules, Codes, and Choreographies in Art, 1965–2018* record](https://whitney.org/exhibitions/programmed/art?section=1&subsection=14).
 
 ## Publication metadata and revision history

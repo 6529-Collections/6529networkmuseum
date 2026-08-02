@@ -1430,3 +1430,152 @@ nested-manifest inventory, amendment-history schema enforcement, unsafe-path
 and CLI tests, runtime declaration, validator error clarity, and exact-block
 index wording. No acquired evidence, RPC method or selector, raw response,
 object result, OFAC observation, or museum conclusion changed.
+
+## 2026-08-02 - Public Museum experience and curatorial reset
+
+The production Museum frontend was re-audited against the actual visitor
+experience rather than release transport alone. It is a functioning registry
+browser, not an acceptable museum: it resolves records but presents no artwork
+media, omits the public Casey accession dossier, foregrounds counts/status/JSON,
+confuses donation-preapproved scopes with Museum holdings, and presents Keys
+and Gates as text despite being a visual selection program. The source adapter
+follows moving `main`, fetches Markdown and JSON only, does not normalize
+`records/accessions/**/public/*.md` into public routes, has no typed object-media
+model, and deliberately omits Markdown images.
+
+`docs/public-museum-experience-standard.md` is the replacement product and
+implementation standard. It makes the artwork encounter primary; defines
+visitor and institutional information architecture; specifies object, artist,
+project, gift, program, exhibition, story, policy, search, media, IIIF, live
+generator, rights, provenance, accessibility, performance, security, SEO, and
+release behavior; and uses the Casey gift and Keys and Gates as required launch
+exemplars. The release boundary is now 200 entries with Keccak-256
+`0x101e83c65f913ea6faf1db4c184845fa8bad878497edcaf58096de6f14fa77a5`
+and SHA-256
+`sha256:aadb082ea555a3b29a5f39dc54a189f3876f91c6ec8089f084cee71168c606a0`.
+These are local candidate values, not merged release authority.
+
+The curatorial audit also rejected the existing Casey artist/practice profile
+and collection essay as final public scholarship. They are careful accession
+research summaries whose structure is controlled by source qualifications and
+technical caveats rather than sustained art-historical argument. A user-supplied
+five-minute comparison produced an 8,576-word, fifteen-section monograph; that
+result is now treated as a floor, not a target. The persistent third lane is
+recorded in `notes/wip/2026-08-02-curatorial-writing-redo.md` and owns a finished
+Casey monograph, separate project essays, a major seven-work collection essay,
+a full donation narrative, seven object entries, and a separate conservation
+layer. Evidence must support that writing without becoming its subject.
+
+All 119 repository tests pass with one expected Windows named-pipe skip. The
+301-file bootstrap, complete Museum validator, network fetch guard, twenty-two-
+file Casey diligence package check, and deterministic 200-entry manifest check
+also pass. No frontend code, Casey media bytes, IIIF manifests, or replacement
+curatorial texts have yet been merged or deployed; this checkpoint defines and
+validates the required redo rather than claiming its implementation.
+
+### 6529-native visual-system correction
+
+The user identified a further release failure: the Museum page does not look
+native to `6529.io` and instead uses generic generated-product styling. The
+replacement standard now makes visual-system fidelity an absolute launch gate.
+The Museum must build from the frontend's actual Montserrat typography, black
+ground, white/iron hierarchy, primary-blue accent, global layout/sidebar,
+desktop/mobile navigation, spacing, focus, breakpoint, and motion conventions.
+Museum differentiation must come from artwork scale, sequence, editorial
+pacing, and narrowly justified viewing primitives, not a detached “museum”
+theme, oversized serif, rounded-card system, badges, gradients, glass effects,
+or dashboard composition.
+
+The exact frontend audit boundary now includes `styles/fonts.css`,
+`styles/globals.css`, `tailwind.config.ts`,
+`components/layout/WebLayout.tsx`, `components/layout/sidebar/**`,
+`hooks/useSidebarSections.ts`, `components/navigation/BottomNavigation.tsx`,
+and the existing art surfaces under `components/the-memes/**`,
+`components/memelab/**`, and `components/nextGen/collections/**`. The
+frontend worker must publish a visual-fidelity matrix, list reused foundations
+and justified extensions, and return side-by-side desktop/mobile captures plus
+computed-style evidence before product acceptance. The prior 200-entry
+candidate manifest commitments above are obsolete because the governed
+frontend standard changed after they were generated; new candidate commitments
+must be generated only after the current documentation and curatorial edits
+stabilize.
+
+### Timeboxed production rescue directive
+
+The user set a hard three-to-four-hour maximum for replacing the embarrassing
+production Museum experience while AFK. The authorized release sequence is:
+implement the smallest complete non-embarrassing art-first and 6529-native
+release in `6529-Collections/6529seize-frontend`; raise and iterate its PR
+with all configured bots and required CI; merge under the existing rules;
+deploy the exact merge to staging; retain desktop/mobile E2E evidence; promote
+the exact verified release to production; repeat the E2E suite in production;
+then begin a second improvement sweep against the full public-experience and
+curatorial standards.
+
+The rescue release may publish verified existing interpretation while longer
+replacement scholarship completes, but it may not fabricate text, media,
+rights, status, or technical behavior. Its minimum visitor outcome is actual
+Casey art at meaningful scale, an art-led home and holdings collection,
+readable Casey gift/accession and seven object routes, native 6529 visual
+grammar, corrected mobile overflow, governance/JSON demoted to supporting
+evidence, and honest live/fallback labeling. Keys and Gates remains selected
+and unminted and must never be presented as a holding. The frontend lane has
+been authorized to complete PR, controlled merge, staging deployment, staging
+E2E, production deployment, and production E2E without waiting for routine
+approval. Finished long-form scholarship and deeper visual refinement continue
+immediately after the rescue release as sweep two.
+
+### 21:29 UTC verification and editorial state
+
+- The first complete long-form Casey package now exists in WIP: a 12,557-word
+  artist monograph, five project essays, a 4,055-word seven-work collection
+  essay, a 2,557-word gift/accession narrative, seven object entries, and a
+  4,990-word source-and-chronology control matrix.
+- These files remain withheld from the canonical public release while the
+  constructor/reviewer correction cycle runs. The first project-essay
+  cross-review returned substantive revisions rather than a ceremonial pass;
+  all findings are recorded in
+  `notes/wip/casey-curatorial-drafts/editorial-review.md` and returned to the
+  original authors.
+- `python scripts/bootstrap_validate.py` passed at 21:29 UTC with 301 JSON
+  files checked while the manuscript package was present.
+- The production-rescue frontend is frozen to a coherent art-first slice. Its
+  remaining local gates are runtime activation of the strict atomic Casey
+  publication adapter, type/test completion, and retained desktop/mobile
+  visual evidence before PR review.
+
+### 22:30 UTC public-scholarship promotion checkpoint
+
+The complete Casey publication package has passed independent editorial review
+after substantive revision: the artist monograph, seven-work collection essay,
+gift narrative, five project essays, seven object entries, and the source and
+chronology matrix are all accepted for first release. The accepted manuscripts
+are promoted deterministically into the accession's canonical `public/` tree by
+`scripts/promote_casey_publications.py`; `scripts/bootstrap_validate.py` now
+fails closed if a canonical publication diverges from its accepted manuscript.
+This turns the editorial package into reproducible publication source rather
+than leaving it as untracked prose or a hand-copied website artifact.
+
+The generated public tree contains sixteen upgraded publications. Local
+promotion and bootstrap validation pass with all 301 JSON records checked.
+`INDEX.md` and `README.md` now expose the human-readable gift narrative,
+project essays, object entries, artist and collection writing, and supporting
+research apparatus directly rather than forcing a visitor to discover them
+through control-plane records. The release manifest and full package/test
+matrix remain to be regenerated and run only after this source boundary is
+final; this checkpoint does not claim a merge or deployment.
+
+The finalized local candidate now passes deterministic promotion, bootstrap,
+full Museum/Casey semantic validation, the 175-file immutable Casey package
+replay, the focused public-page binding regression, manifest idempotence, and
+whitespace validation. The complete 119-test run reached one obsolete literal-
+sentence assertion after all substantive validators passed; the generated
+publication was corrected to preserve that existing assertion, and its focused
+regression then passed. Hosted CI will rerun the entire matrix from the exact PR
+head. Candidate release commitments are
+`sha256:f115c92ec0c02a3d0ffb57b0688503a8ed979cef98749cd736ea04c23314ef0e`
+and
+`keccak256:0x0143e12b323e7171dc2f4d6233e4cab6e7ec0d3b8542077dca179d814342c523`;
+the Casey package SHA-256 is
+`4251581350afdee29e67c93e0da9b561d8da56f0382526b9306e7104d9e166be`.
+These remain candidate values until governed merge to canonical `main`.

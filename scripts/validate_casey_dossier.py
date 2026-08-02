@@ -1409,9 +1409,17 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
 
     artist_profile = (root / CASEY_DIR / "public" / "casey-reas-artist-practice.md").read_text(encoding="utf-8")
     collection_essay = (root / CASEY_DIR / "public" / "casey-reas-collection-essay.md").read_text(encoding="utf-8")
-    if "**Museum interpretation [E]:** The token does not replace the software artwork" not in artist_profile:
+    artist_boundary = (
+        "the token exceeds the function of an external certificate while remaining one layer of the artwork",
+        "a static platform image documents a token-specific state while the live work continues through execution",
+    )
+    if any(marker.lower() not in artist_profile.lower() for marker in artist_boundary):
         issues.append("Casey artist profile must retain the token/software interpretation boundary")
-    if "**Museum interpretation [E]:** The collection proposes an encounter with an executable image" not in collection_essay:
+    collection_boundary = (
+        "no single layer is the whole work",
+        "a *CENTURY* still can be closely read as a composition and still remain a state of moving software",
+    )
+    if any(marker.lower() not in collection_essay.lower() for marker in collection_boundary):
         issues.append("Casey collection essay must retain the executable-image interpretation boundary")
     rooms = records.get("6529NM.2026.001.06", {}).get("payload", {})
     expected_rooms_structure = {

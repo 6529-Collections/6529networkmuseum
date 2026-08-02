@@ -13,7 +13,9 @@ Git history is useful evidence, but GitHub is not the final trust model. Every m
 | Preapproved donation collections | [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | Autoglyphs, Art Blocks, original Rare Pepes, original CryptoPunks |
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
 | Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; post-accession title, finalized-state custody, token-approval, and exact-address compliance diligence complete; autonomous software preservation remains active stewardship |
+| Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
+| Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Stream interoperability | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | Bilateral record and ontology contract |
 | Future contract | [`docs/onchain-design.md`](docs/onchain-design.md) | Requirements and migration boundary, not deployed code |
 | Externally minted works | [`docs/external-works-registry.md`](docs/external-works-registry.md) | Token-agnostic registry design; no wrapping/reminting |

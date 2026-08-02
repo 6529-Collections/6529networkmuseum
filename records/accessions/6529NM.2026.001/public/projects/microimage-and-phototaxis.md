@@ -1,0 +1,129 @@
+# A line remembers: MicroImage and *Phototaxis*
+
+- **Final publication copy:** version 2.0.1
+- **Institutional author:** 6529 Network Museum
+- **Publication date:** 2026-08-02
+- **Release status:** final editorial copy, revised after cross-review
+- **Accession:** `6529NM.2026.001`
+- **Museum object:** `6529NM.2026.001.05`, *Phototaxis* #308, 2021
+- **Research cutoff:** 2026-08-02
+**Scope note:** This essay is a visitor-facing project study. It does not supersede the accession, rights, condition, custody, or preservation records.
+
+**Dating note:** Art Blocks and Reas’s 2021 technical note date the edition to 2021; the current Reas NFT register lists *Phototaxis* as 2022. The Museum records this discrepancy as unresolved. This essay uses 2021 only for the Art Blocks edition and #308’s object date.[^14]
+
+## Standfirst
+
+In *Phototaxis*, Casey Reas turns the movement of simple simulated agents into a drawing made from their accumulated traces. Museum object #308 gathers pale cyan circulation around a dark knot, then lets lines break beyond the field. The 2021 Art Blocks edition revisits a question Reas has pursued since the early 2000s: what remains when behavior becomes image?
+
+## Gallery label
+
+**Casey Reas, *Phototaxis* #308, 2021.** Browser-based generative artwork; Art Blocks Playground, edition of 1,000. A pale cyan field loops around a dense, dark center, with a smaller convergence above and long paths escaping vertically. The image is the residue of simulated movement: each line records an agent’s route through an environment of lights and rules. Reas developed this visual grammar across *Path*, *Tissue*, and *MicroImage* before returning to it for the Art Blocks edition. A static view can reveal the density of the drawing, while the live work unfolds over time. The Museum preserves the distinction between that changing performance and its documentation.
+
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review.
+
+## The image after the agent has gone
+
+The first thing one sees in *Phototaxis* #308 is not an animal, a light, or a diagram of a rule. It is an ovoid weather system: pale cyan and gray trajectories circulate around a dark, congested knot below the center; a second, looser convergence hangs above it; several lines peel away vertically as if the field could not hold them. The image has the poised, slightly retrospective authority of a drawing. Yet it is the residue of movements that have already happened. The line does not stand for a creature. It is the creature’s remembered route.
+
+That distinction gives *Phototaxis* its force. Casey Reas’s project is often introduced through its technical premise—simple machines, lights, four behavioral types, an Art Blocks release. That description can make the picture seem like an illustration of artificial-life research. *Phototaxis* instead turns explanation into afterimage: behavior becomes graphic density, color, rhythm, and delay. Its subject is the conversion of local action into a field that can be looked at, remembered, and misread.
+
+*Phototaxis* functions as a twenty-year retrospective instrument. Reas returns to the rule systems that animated *Path*, *Tissue*, and *MicroImage* in the early 2000s and changes their runtime, scale of circulation, and public distribution. The migration from C++ through Processing and Java to p5.js lets the same artistic problem pass through prints, projections, software environments, and browser-based token editions. Continuity becomes a question: when an image is made from behavior, what survives when the apparatus that performs the behavior changes?
+
+## From a thought experiment to a drawing system
+
+Reas identifies Valentino Braitenberg’s *Vehicles: Experiments in Synthetic Psychology* (1984) as a decisive source for this lineage.[^1] Braitenberg’s conceptual machines have minimal sensors and motors. Their wiring can make a vehicle appear timid, aggressive, attracted, or evasive without requiring an interior psychology to explain it. The lesson is not that machines secretly possess feelings. It is that an observer can too quickly project motives onto a simple relation between sensing and motion.
+
+Reas takes that warning seriously and makes it visual. The Museum’s retained research dossier, following artist-controlled project material, traces *Path*, *Tissue*, *MicroImage*, and *Phototaxis* through related code principles: simulated machines respond to an environment, leave linear traces, and accumulate those traces into an image.[^2] The series began with *Path* in 2001, proceeded through the denser systems of *Tissue* and *MicroImage*, and reached an Art Blocks edition in 2021. The current NFT register’s 2022 date for *Phototaxis* remains unresolved, so the larger project is not assigned one settled date here.[^14] The core question—how a sparse rule becomes a visible field—was already being tested through software, prints, and projections.
+
+*MicroImage* was especially important because it made scale a conceptual variable. In the 2003 work, Reas increased the number of simulated entities until the surface no longer read primarily as a collection of individual paths. It became a thick, shifting atmosphere. The artist’s current account is precise about the consequence: high-resolution prints could freeze a state whose detail early screens could not comfortably hold, while software and animation kept the system open in time.[^3] A print was not a deficient software work; it was a different perceptual instrument. It allowed a viewer to study a density that live rendering made difficult to retain.
+
+That is a useful precedent for *Phototaxis*, but it also introduces a limit. The more successful the accumulated trace becomes as a picture, the easier it is to forget the behavior it condenses. A dense field can look like expressive gesture, atmospheric abstraction, or microscopic matter. Those readings are not wrong. They are the work’s achievement. But the line’s relation to a moving agent means that the image also withholds the usual guarantee of a drawing: no human hand has completed the line by deciding where it should stop. A succession of local decisions has done so. Reas’s art makes that delegation legible without pretending that it is transparent.
+
+Meredith Hoy’s account of Reas’s practice helps name the stakes. In her ISEA paper “Painting as Programming,” Hoy argues against the stale division in which conceptual software is supposedly anti-visual and painterly abstraction merely decorative. Reas’s work, she proposes, keeps code’s performative execution and returns it to a visual register rich enough to resist reduction to information.[^4] *Phototaxis* sharpens that proposition. It does not reveal its program as a tidy diagram; it makes the program’s consequences available as a composition whose beauty can exceed a viewer’s ability to reconstruct the rules. That opacity is not a failure of explanation. It is where the work leaves cybernetics and becomes drawing.
+
+## Four kinds of motion, one field of traces
+
+The project’s explicit source is neither vague “AI” nor a generic claim of emergence. The artist’s project record describes a simulated environment of Explorers, Aggressors, Lovers, and Cowards, adapted from Braitenberg’s vocabulary of differently wired machines.[^5] Reas’s 2021 technical note states that each line charts one organism’s movement and that the initial thumbnail state stops after 1,000 iterations.[^6] The line is thus a history, not a contour. Its brightness and accumulation matter because they index speed, recurrence, and congestion within the system, even if a viewer cannot reliably identify an individual machine after the traces overlap.
+
+The distinction is particularly vivid in #308. Its central knot is not simply the picture’s “subject.” It is a pressure point where repeated courses have made individual paths nearly illegible. The cyan perimeter, by contrast, remains articulate enough to show wide looping movement. Near the top, paths meet in a small, tentative cluster before releasing again. A few long near-vertical trails break the oval’s centrifugal rhythm. The eye moves between these different regimes of attention: it reads the dense knot as matter, the perimeter as circulation, and the escaping lines as events that refuse enclosure.
+
+The field therefore stages two incompatible scales at once. From a distance, it has the calm unity of a blue-gray object—an oval, perhaps a cell or a weather front. At close range, it is restless and discontinuous. One can follow a single arc for a moment, only to lose it in an accumulation of crossings. This alternation between comprehension and loss is crucial. It keeps the work from becoming a persuasive visualization of a system one has mastered. The viewer sees that there were rules, but cannot stand outside the field long enough to own them.
+
+Reas’s use of color intensifies that ambiguity. In the MicroImage account, types of machine are associated with color channels and line saturation corresponds to speed.[^7] Those correspondences make the image diagrammatic, but never merely so. In #308, the cool cyan is not a label pasted onto an otherwise neutral figure; it creates an atmospheric drift around the darker center. Gray marks turn that drift toward smoke or water, while the heavy central cluster gives the image a gravitational pull. The project does not illustrate nature, but it understands that viewers will look for analogies to natural phenomena. Its refusal of literal representation does not remove affect. It shifts affect into the experience of finding turbulence where one expected a rule.
+
+## A migration is not a restoration
+
+The 2021 edition makes the long duration of this project visible in its material history. Reas’s technical note traces the code from C++ to Processing/Java and then to p5.js/JavaScript for the browser release.[^8] That is not a footnote about implementation. Each translation changes who can encounter the work, how it is executed, and what counts as the present of the work. A projected *MicroImage* software environment and a browser-rendered Art Blocks work are not identical manifestations simply because they share a behavioral grammar.
+
+Processing is especially important here, not as a credential attached to Reas’s name but as a public language for making visual systems. Reas and Ben Fry developed it in 2001 as an open-source programming environment oriented toward artists and designers; Reas’s early practice and teaching helped make code available as a medium of drawing rather than a specialist tool used after an image had been designed.[^9] *Phototaxis* does not advertise Processing’s pedagogy. It carries forward its proposition that an artist can work with code as a material of visual thought. The viewer encounters neither a hidden technical substrate nor a mere output. The browser is the current site at which instructions, token-bound parameters, dependencies, display hardware, and attention meet.
+
+There is a counter-pressure to this optimistic account. Migration can make continuity easier to narrate than to guarantee. The Museum’s exact object record identifies the live generator as an observed p5.js 1.0.0 route and records the work as display-ready with conditions, while the complete self-contained generator and dependency bundle remain preservation work.[^10] The records do not establish that every future browser will execute the work the same way, nor that a current generator response equals an autonomous archival package. This limitation changes interpretation because it returns the work to its own premise: *Phototaxis* has always depended on performance, and performance has conditions.
+
+The temptation is to treat an ERC-721 token and token hash as the solution to that contingency. They are not. They fix a valuable identity and relation within the project, but a token does not itself draw the paths on a screen. Nor does a static PNG exhaust the work. The Museum’s initial static response and two live screenshots were retained as hashes and observations rather than as original display bytes; the visible state is therefore a documented surrogate, not an ontological substitute.[^11] This is not an embarrassment to be hidden in technical prose. It clarifies why the live work matters. The artwork cannot be fully separated from the situation in which a rule becomes a moving line and a moving line becomes a remembered field.
+
+## Reception, difficulty, and the danger of naturalizing code
+
+Accounts of generative art often celebrate emergence as if it guaranteed life, novelty, or freedom. *Phototaxis* is more exact and more troubling. Braitenberg’s models are compelling precisely because an observer attributes complex intention to a small system of connections. Reas does not solve that anthropomorphic trap; he turns it into an aesthetic problem. The machine names—Lovers, Cowards, Aggressors—hover at the edge of the picture, tempting viewers to read emotional drama into color and motion. Yet the project’s accumulated traces prevent a clean narrative of one agent’s desire. What appears as intention is distributed across a crowd of local actions and the viewer’s need to make a coherent image.
+
+This makes the work a useful corrective to the language of autonomous creativity. Its agents act, but they do not author themselves. Its image emerges, but it is bounded by an authored environment, a fixed edition context, and a particular runtime. Its visual energy can feel organic, but the work does not ask us to confuse simulation with organism. The point is sharper than a demonstration that simple rules can become complex. *Phototaxis* shows how visual complexity makes the desire to assign agency almost irresistible.
+
+That resistance to easy reading is part of Reas’s broader critical reception. Hoy’s description of his work as suspended between painting and computation establishes the positive side: code can generate a visual richness that refuses the old anti-ocular rhetoric of conceptual art. Nora N. Khan’s title for her 2016 review, “Casey Reas’s Disconcerting Software Paintings,” supplies a needed counterweight.[^12] “Disconcerting” matters more than “software” here. Reas’s systems do not offer a frictionless conversion of knowledge into beauty. They can produce a surplus of activity in which the viewer’s desire for a stable object, a readable operation, or an expressive gesture is repeatedly frustrated.
+
+In #308, that frustration is productive. The pale outer circulation promises that a whole can be grasped; the lower knot denies it. The image oscillates between organism and evidence, atmosphere and diagram, action and archive. Its most memorable feature may be neither a single path nor a named trait but the way a field seems simultaneously to hold itself together and to come apart.
+
+## An edition stabilizes an address, not a performance
+
+The numbered edition gives this problem a particular public form. #308 has a token-bound identity within the 1,000-work *Phototaxis* edition, while its live manifestation remains time-based. The initial thumbnail state is documented as ending after 1,000 iterations.[^6] It supplies a shared published reference point; neither that fact nor the token identity independently verifies pixel-for-pixel repeatability after a reload. An exhibition can use the thumbnail to orient a visitor without passing it off as the whole work.
+
+The available controls make the difference concrete. The reviewed object record describes a running system that can be paused, restarted, magnified, and altered through its light setting.[^10] They let a viewer experience an authored situation as duration: a field may be held long enough to inspect, returned to a beginning, or brought into a different visual relation to its environment. The artwork’s authority lies in the behavioral grammar and exact edition context; a museum display should make that grammar available while treating a screenshot as documentation rather than neutral transcription.
+
+This also clarifies what a token can and cannot secure. It can preserve the relation of a numbered work to its project and provide a durable public reference for the object the Museum holds. It cannot, by itself, preserve a browser dependency, a display’s luminance, a visitor’s interval of attention, or the live accumulation that turns agents into drawing. The work is therefore neither dematerialized by its token nor completed by its metadata. It is materially dispersed across code, rendering, hardware, records, and looking.
+
+That dispersion gives #308 an unusual historical density. *Phototaxis* looks backward to early artificial-life experiments while entering a contemporary editioning infrastructure; it also looks forward to the practical question of how a public collection can preserve a work whose image is an event. The answer cannot be a false choice between a stable identifier and a changing display. The identifier allows the Museum to name its exact object; the changing display explains why that named object remains an artwork rather than a database entry. In the blue-gray image, then, the delayed trace is not only a formal effect. It is a model for accession itself: a way of holding a history that can be documented, seen, and revisited without claiming that its performance has stopped.
+
+## The Museum object
+
+The Museum’s *Phototaxis* #308 is not a representative sample that can stand in for the thousand-work project. It is one exact token-bound state within that project, with its own recorded hash, invocation, observed preview, and position in accession lot `6529NM.2026.001`.[^13] Its contribution to the seven-work group is unusually clear: it makes time visible as accumulated behavior. CENTURY makes recomposition visible; *Pre-Process* makes collision and constraint visible; *923 EMPTY ROOMS* turns units into a distributed spatial system; *Ex Nihilo (Cosmos)* allows geometry to remain unstable in continuous display. #308 supplies the line that joins them, but it is not a connecting illustration. It is the group’s most direct encounter with a picture made from the memory of movement.
+
+The accession also asks the Museum to preserve more than a good still. It must preserve the relation among the project’s code lineage, token identity, behavior, interaction, browser manifestation, and documentation. That obligation does not make the work valuable; it makes the work legible in public. To exhibit *Phototaxis* responsibly is to let a viewer see the blue-gray ovoid and then understand why it cannot be reduced to it. The line remembers a machine’s path, but the work remembers something larger: an artist’s long effort to make systems produce images that remain difficult to possess.
+
+## Notes
+
+[^1]: Valentino Braitenberg, *Vehicles: Experiments in Synthetic Psychology* (Cambridge, MA: MIT Press, 1984).
+
+[^2]: 6529 Network Museum, “[Casey Reas accession research: art-historical and technical dossier](../../../../../notes/research/casey-reas-art-technical-research.md),” “Phototaxis,” repository-retained research record, accessed 2026-08-02. It registers the artist-controlled MicroImage page as long-term project context; the public `reas.com/microimage` route was unavailable during release review.
+
+[^3]: Ibid.
+
+[^4]: Meredith Hoy, “[Painting as Programming: Casey Reas and the Aesthetics of Generative Code](https://www.isea-symposium-archives.org/presentation/painting-as-programming-casey-reas-and-the-aesthetics-of-generative-code/),” ISEA 2011.
+
+[^5]: Casey Reas, “[Phototaxis](https://www.gray.reas.com/phototaxis/),” artist project record, accessed 2026-08-02.
+
+[^6]: Casey Reas, “[Notes on ‘Phototaxis’](https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8),” 2021; 6529 Network Museum, “[Casey Reas accession research: art-historical and technical dossier](../../../../../notes/research/casey-reas-art-technical-research.md),” “Phototaxis” source register and technical summary (repository-retained access backstop).
+
+[^7]: 6529 Network Museum, “[Casey Reas accession research: art-historical and technical dossier](../../../../../notes/research/casey-reas-art-technical-research.md),” “Phototaxis.”
+
+[^8]: Reas, “[Notes on ‘Phototaxis’](https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8)”; 6529 Network Museum, “[Casey Reas accession research: art-historical and technical dossier](../../../../../notes/research/casey-reas-art-technical-research.md),” “Phototaxis” source register and technical summary (repository-retained access backstop).
+
+[^9]: Casey Reas and Ben Fry, “Processing: A Programming Language and Environment for Visual Artists,” *AI & Society* 20, no. 4 (2006): 526–543; [Processing Foundation](https://processingfoundation.org/).
+
+[^10]: [`6529NM.2026.001.05`](../../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json), reviewed object record; see also the associated technical and condition record.
+
+[^11]: [`6529NM.2026.001.VO-01`](../../../../../records/accessions/6529NM.2026.001/visual-observation-record.json), visual-observation record.
+
+[^12]: Nora N. Khan, “Casey Reas’s Disconcerting Software Paintings,” *Village Voice*, October 13, 2016; bibliographic record in [bitforms’ Casey Reas CV](https://www.bitforms.art/wp-content/uploads/2024/07/reas_bio.pdf).
+
+[^13]: [`6529NM.2026.001.05`](../../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json); [`Phototaxis #308`](../../../../../records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md), public object record.
+
+[^14]: [`Phototaxis #308`](../../../../../records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md), “Documented fact [A/B]”; [`6529NM.2026.001.05`](../../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json), `project.date_conflict`.
+
+## Selected bibliography
+
+- Braitenberg, Valentino. *Vehicles: Experiments in Synthetic Psychology*. Cambridge, MA: MIT Press, 1984.
+- Hoy, Meredith. “Painting as Programming: Casey Reas and the Aesthetics of Generative Code.” ISEA 2011.
+- Khan, Nora N. “Casey Reas’s Disconcerting Software Paintings.” *Village Voice*, 2016.
+- 6529 Network Museum. “Casey Reas accession research: art-historical and technical dossier.” Repository-retained research record, accessed 2026-08-02.
+- Reas, Casey. “Notes on ‘Phototaxis.’” 2021.
+- Reas, Casey. “Phototaxis.” Artist project record. Accessed 2026-08-02.
+- Reas, Casey, and Ben Fry. “Processing: A Programming Language and Environment for Visual Artists.” *AI & Society* 20, no. 4 (2006): 526–543.
+- 6529 Network Museum. *Phototaxis* #308 object, technical, visual-observation, and public records for accession `6529NM.2026.001`.
