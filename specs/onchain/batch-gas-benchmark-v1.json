@@ -1,0 +1,75 @@
+{
+  "schema": "MUSEUM_BATCH_GAS_BENCHMARK_V1",
+  "version": "1.0.0",
+  "chainId": 1,
+  "evmRevision": "cancun",
+  "toolchain": {
+    "forgeVersion": "1.7.1",
+    "forgeCommit": "4072e48705af9d93e3c0f6e29e93b5e9a40caed8",
+    "solcVersion": "0.8.19",
+    "solcCommit": "7dd6d404",
+    "optimizer": true,
+    "optimizerRuns": 200,
+    "viaIR": false,
+    "evmVersion": "cancun"
+  },
+  "constants": {
+    "maxBatchRecords": 64,
+    "maxInlinePayloadBytes": 16384,
+    "maxBatchInlinePayloadBytes": 262144,
+    "maxBatchGasUnits": 13000000,
+    "callerReserveGas": 50000,
+    "measuredDeploymentGasUnits": 9000000
+  },
+  "corpus": [
+    {
+      "id": "none-64",
+      "count": 64,
+      "inlineBytes": 0,
+      "recordModes": ["NONE"],
+      "features": ["record", "schema", "family", "event"]
+    },
+    {
+      "id": "content-addressed-64",
+      "count": 64,
+      "inlineBytes": 0,
+      "recordModes": ["CONTENT_ADDRESSED"],
+      "uriBytes": 2048,
+      "features": ["record", "schema", "family", "content-addressed-uri", "event"]
+    },
+    {
+      "id": "inline-mixed-max",
+      "count": 64,
+      "inlineBytes": 262144,
+      "recordModes": ["INLINE", "NONE"],
+      "inlineRecordCount": 16,
+      "inlineBytesPerRecord": 16384,
+      "features": ["record", "schema", "family", "inline-keccak", "event"]
+    },
+    {
+      "id": "https-supersession-max",
+      "count": 64,
+      "inlineBytes": 262144,
+      "recordModes": ["INLINE", "CONTENT_ADDRESSED"],
+      "inlineRecordCount": 16,
+      "nonInlineRecordCount": 48,
+      "nonInlineRecordMode": "CONTENT_ADDRESSED",
+      "inlineBytesPerRecord": 16384,
+      "uriBytes": 2048,
+      "httpsRecordCount": 64,
+      "httpsAssertion": true,
+      "supersession": true,
+      "features": ["record", "schema", "family", "inline-keccak", "https-pointer", "supersession", "event"]
+    }
+  ],
+  "acceptance": {
+    "measuredGasMustBeAtMost": 9000000,
+    "measuredGasPlusCallerReserveMustBeAtMost": 9050000,
+    "everyCorpusCaseRequired": true,
+    "outOfGasMustRevertAtomically": true,
+    "reportMustIncludePerCaseGas": true,
+    "reportMustIncludeRuntimeCodeHash": true,
+    "reportMustIncludeFoundryAndSolcVersions": true,
+    "reportMustIncludeRpcChainIdAndBlock": true
+  }
+}

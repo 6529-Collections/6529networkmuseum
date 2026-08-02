@@ -1,0 +1,182 @@
+{
+  "$id": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1",
+  "$comment": "URI patterns are structural only; target_release_evidence_check_v1.py normatively applies the exact MUSEUM_URI_SAFETY_PUBLIC_V1 predicate to every bundle and availability URI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "evidenceScope",
+    "targetKind",
+    "releaseId",
+    "target",
+    "codeHash",
+    "runtimePolicyId",
+    "runtimePolicyHash",
+    "externalDependencyHash",
+    "sourceCommit",
+    "sourceRepository",
+    "sourceTreeHash",
+    "artifactHash",
+    "requiredInterfaceId",
+    "expectedModuleVersion",
+    "protocolVersion",
+    "streamCompatibilityCommit",
+    "conformanceDocumentHash",
+    "revision",
+    "authorityRevision",
+    "status",
+    "builds",
+    "conformance",
+    "externalDependencies",
+    "signers",
+    "detachedSignatureBundle",
+    "availability",
+    "previousReleaseId",
+    "supersessionReasonHash"
+  ],
+  "properties": {
+    "schema": { "const": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1" },
+    "version": { "const": 1 },
+    "evidenceScope": { "enum": ["RELEASE_GATE_EVIDENCE", "NON_DEPLOYMENT_CONFORMANCE_FIXTURE"] },
+    "targetKind": { "type": "integer", "enum": [1, 2] },
+    "releaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "target": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "runtimePolicyId": { "const": "MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1" },
+    "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "externalDependencyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$", "description": "MUSEUM_TARGET_DEPENDENCY_ABI_SET_V1 commitment over canonical sorted dependency rows; not a JCS hash." },
+    "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "sourceRepository": { "const": "6529-Collections/6529networkmuseum" },
+    "sourceTreeHash": { "type": "string", "pattern": "^0x000000000000000000000000[0-9a-f]{40}$", "description": "Git SHA-1 tree OID decoded from 40 lowercase hex and right-aligned into bytes32 with 12 zero high bytes." },
+    "artifactHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "requiredInterfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+    "expectedModuleVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "protocolVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "streamCompatibilityCommit": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "conformanceDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "authorityRevision": { "type": "integer", "minimum": 1 },
+    "status": { "type": "integer", "enum": [1, 2] },
+    "builds": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["builderId", "toolchainId", "compilerInputHash", "artifactHash", "runtimeCodeHash"],
+        "properties": {
+          "builderId": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "toolchainId": { "type": "string", "minLength": 1 },
+          "compilerInputHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "artifactHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "runtimeCodeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "conformance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reportHash", "vectorBundleHash", "runtimePolicyHash", "probeGasLimit", "returnDataBytesLimit"],
+      "properties": {
+        "reportHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "vectorBundleHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "probeGasLimit": { "type": "integer", "minimum": 1, "maximum": 1000000 },
+        "returnDataBytesLimit": { "type": "integer", "minimum": 32, "maximum": 4096 }
+      }
+    },
+    "externalDependencies": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["address", "codeHash", "runtimePolicyHash", "interfaceId", "purposeId", "purpose"],
+        "properties": {
+          "address": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "interfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+          "purposeId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "purpose": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" }
+        }
+      }
+    },
+    "signers": {
+      "type": "object",
+      "additionalProperties": false,
+        "required": ["policyId", "policyHash", "signerSetHash", "threshold", "signatureScheme", "signedDocumentHash", "releaseAttestationDigest", "addresses", "signatureCommitments"],
+      "properties": {
+        "policyId": { "const": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1" },
+        "policyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "signerSetHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "threshold": { "const": 2 },
+          "signatureScheme": { "const": "EIP-712-MUSEUM-TARGET-RELEASE-V1" },
+          "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "releaseAttestationDigest": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "addresses": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" }
+        },
+        "signatureCommitments": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "detachedSignatureBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "schemaHash", "version", "uri", "contentHash", "mediaType", "sizeBytes", "availability"],
+      "properties": {
+        "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
+          "schemaHash": { "const": "0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82" },
+        "version": { "const": 1 },
+        "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+        "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "mediaType": { "const": "application/json" },
+        "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 65536 },
+        "availability": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["uri", "contentHash", "fetchObservationHash"],
+            "properties": {
+              "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+              "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+              "fetchObservationHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+            }
+          }
+        }
+      }
+    },
+    "availability": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["uri", "contentHash", "fetchObservationHash"],
+        "properties": {
+          "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
+          "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "fetchObservationHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "previousReleaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "supersessionReasonHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+  }
+}
