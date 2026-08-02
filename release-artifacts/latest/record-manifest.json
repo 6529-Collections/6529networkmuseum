@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:9173b93a6068e34cfa9ebd4b4af85ef699efc99a7e79eb991f0e504f7fdf4d22",
-      "size": 19758
+      "sha256": "sha256:3c2307f915af9a125567431d157c39643b622c3b19a1cb84754358788fa0a01b",
+      "size": 19792
     },
     {
       "path": "README.md",
@@ -1097,8 +1097,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:c0ba76991b2b0ecd0bf865fe49e203d49f51ed49152bc0ca216b96b861dfc16d",
-      "size": 82268
+      "sha256": "sha256:154401cf425ff6e66007a2d14d7ffbcbbbbf61b8ddb30bd668472de262b5dcb2",
+      "size": 82411
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1507,8 +1507,8 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:59c64a3baa601f5e5f432a3e8f1f5aa55a46fd9554e5b8063fa88eaa2132cbb0",
-      "size": 36906
+      "sha256": "sha256:10be0ae4e3c1ba4ce4a71d6ea85ad1eb6011988272ed4a61cf57d12787a23b5f",
+      "size": 38943
     },
     {
       "path": "tests/test_control_plane.py",
@@ -1543,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x77c4bb6dacd595fca2fe018f1a8b794903f22a386e9f608a07feb168d30a394f"
+    "digest": "0xb80f0d2168f5c16fd89be1b52460ee4316a700b60ac4859817f4650be8172b10"
   },
-  "manifest_sha256": "sha256:89cf215d284ce7342f2b5518c6796b1d7fc9c492a8f1ad3dedde4955d8dace34",
+  "manifest_sha256": "sha256:f4a0cf7c5f4c727fe6fe3652fffab0d53b138dd413fba5b8c051422caf113185",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

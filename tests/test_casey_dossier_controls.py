@@ -20,7 +20,7 @@ import sys
 sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
-from acquire_casey_custody_audit import AuditError, prepare_empty_output  # noqa: E402
+from acquire_casey_custody_audit import AuditError, main as acquire_custody_main, prepare_empty_output  # noqa: E402
 from build_casey_diligence_manifest import (  # noqa: E402
     ManifestError,
     _checked_info as checked_diligence_info,
@@ -144,6 +144,20 @@ class CaseyDossierControlsTests(unittest.TestCase):
         with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
             build_diligence_manifest(package)
 
+    def test_diligence_manifest_rejects_symlinked_directory(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        target = root / "linked-evidence-target"
+        target.mkdir()
+        (target / "response.json").write_text("{}\n", encoding="utf-8")
+        link = package / "raw/linked-directory"
+        try:
+            os.symlink(target, link, target_is_directory=True)
+        except (OSError, NotImplementedError) as error:
+            self.skipTest(f"filesystem does not permit directory symlink creation: {error}")
+        with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
+            build_diligence_manifest(package)
+
     def test_diligence_manifest_rejects_windows_reparse_point(self) -> None:
         package = ROOT / "evidence/casey-reas-diligence"
         reparse_info = SimpleNamespace(st_mode=stat.S_IFREG, st_file_attributes=0x400)
@@ -168,6 +182,32 @@ class CaseyDossierControlsTests(unittest.TestCase):
             (output / "existing.json").write_text("{}\n", encoding="utf-8")
             with self.assertRaisesRegex(AuditError, "output directory must be empty"):
                 prepare_empty_output(output)
+
+    def test_custody_acquisition_creates_new_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-parent-") as temporary:
+            output = Path(temporary) / "new-output"
+            prepare_empty_output(output)
+            self.assertTrue(output.is_dir())
+            self.assertEqual(list(output.iterdir()), [])
+
+    def test_custody_acquisition_refuses_symlinked_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-parent-") as temporary:
+            parent = Path(temporary)
+            target = parent / "target"
+            target.mkdir()
+            output = parent / "linked-output"
+            try:
+                os.symlink(target, output, target_is_directory=True)
+            except (OSError, NotImplementedError) as error:
+                self.skipTest(f"filesystem does not permit directory symlink creation: {error}")
+            with self.assertRaisesRegex(AuditError, "symlink or reparse point"):
+                prepare_empty_output(output)
+
+    def test_custody_acquisition_requires_output_argument(self) -> None:
+        with mock.patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as error:
+                acquire_custody_main([])
+        self.assertEqual(error.exception.code, 2)
 
     def test_live_accession_schemas_reject_undeclared_nested_fields(self) -> None:
         _vocabularies, _envelope, store = load_schemas(ROOT)

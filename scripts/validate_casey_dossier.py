@@ -616,6 +616,7 @@ def _abi_address(value: Any) -> str | None:
 def _validate_diligence_rpc_evidence(package_root: Path, custody: dict[str, Any]) -> list[str]:
     """Reconstruct every request and decode every retained custody response."""
     issues: list[str] = []
+    package_root = package_root.resolve()
     block = custody.get("block") if isinstance(custody.get("block"), dict) else {}
     block_hash = block.get("hash")
     block_number = block.get("numeric_tag")
@@ -641,7 +642,7 @@ def _validate_diligence_rpc_evidence(package_root: Path, custody: dict[str, Any]
                 raise ValueError("response reference shape")
             relative = Path(str(reference.get("path", "")))
             candidate = (package_root / relative).resolve()
-            if package_root.resolve() not in candidate.parents or relative.parts[:2] != ("raw", "rpc"):
+            if package_root not in candidate.parents or relative.parts[:2] != ("raw", "rpc"):
                 raise ValueError("response path escapes raw/rpc")
             payload = candidate.read_bytes()
             digest = hashlib.sha256(payload).hexdigest()
@@ -736,6 +737,7 @@ def _validate_diligence_rpc_evidence(package_root: Path, custody: dict[str, Any]
         retained_number = int(block_number, 16)
         retained_timestamp = datetime.fromtimestamp(first_timestamp, UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
     except (KeyError, OSError, OverflowError, TypeError, ValueError):
+        issues.append("Casey diligence raw block timestamps and numeric tag must be valid hexadecimal values")
         first_timestamp = -1
         last_timestamp = -2
         retained_number = -1
