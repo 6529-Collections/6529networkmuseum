@@ -69,6 +69,24 @@
     "evidence_refs",
     "non_claims"
   ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_control": {
+            "properties": {"revision": {"minimum": 2}},
+            "required": ["revision"]
+          }
+        },
+        "required": ["record_control"]
+      },
+      "then": {
+        "properties": {
+          "amendment_history": {"minItems": 1}
+        }
+      }
+    }
+  ],
   "properties": {
     "$schema": {"const": "../../../schemas/post-accession-diligence.schema.json"},
     "record_id": {"const": "6529NM.2026.001.DILIGENCE-01"},

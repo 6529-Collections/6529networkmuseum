@@ -76,7 +76,7 @@ def _files(package: Path) -> list[Path]:
             info = _checked_info(child, package)
             if not stat.S_ISREG(info.st_mode):
                 raise ManifestError(f"evidence tree contains a non-regular file: {child.relative_to(package)}")
-            if name != "manifest.json":
+            if child.relative_to(package) != Path("manifest.json"):
                 found.append(child)
     return sorted(found, key=lambda path: path.relative_to(package).as_posix())
 

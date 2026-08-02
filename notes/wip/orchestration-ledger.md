@@ -1425,7 +1425,8 @@ constructed commit `b89604ef1967579241fa72152cf65d92ef3e6151` at
 The primary review envelope binds payload
 `sha256:c8ad08661746f5c9f8a0522e2313ea9c6592ea15164520b4f47d0fea497f1513`.
 After the approved construction, the review envelope and pending-to-reviewed
-labels changed, followed by PR-review refinements limited to validator error
-clarity, explicit unsafe-path/CLI tests, and exact-block index wording. No
-evidence, acquisition method, raw response, object result, OFAC observation,
-museum conclusion, or substantive acquisition control changed.
+labels changed, followed by PR-review hardening of ABI padding validation,
+nested-manifest inventory, amendment-history schema enforcement, unsafe-path
+and CLI tests, runtime declaration, validator error clarity, and exact-block
+index wording. No acquired evidence, RPC method or selector, raw response,
+object result, OFAC observation, or museum conclusion changed.

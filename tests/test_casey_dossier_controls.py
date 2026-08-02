@@ -20,7 +20,12 @@ import sys
 sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
-from acquire_casey_custody_audit import AuditError, main as acquire_custody_main, prepare_empty_output  # noqa: E402
+from acquire_casey_custody_audit import (  # noqa: E402
+    AuditError,
+    abi_word_address,
+    main as acquire_custody_main,
+    prepare_empty_output,
+)
 from build_casey_diligence_manifest import (  # noqa: E402
     ManifestError,
     _checked_info as checked_diligence_info,
@@ -35,6 +40,7 @@ from validate_casey_dossier import (  # noqa: E402
     OBJECT_TO_DESCRIPTOR,
     VISUAL_OBSERVATION_ID,
     validate,
+    _abi_address,
     _validate_diligence_rpc_evidence,
     validate_evidence_manifest,
     validate_post_accession_diligence,
@@ -158,6 +164,16 @@ class CaseyDossierControlsTests(unittest.TestCase):
         with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
             build_diligence_manifest(package)
 
+    def test_diligence_manifest_retains_nested_manifest_named_evidence(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        nested = package / "raw/auxiliary/nested/manifest.json"
+        nested.parent.mkdir(parents=True)
+        nested.write_text("{}\n", encoding="utf-8")
+        manifest = build_diligence_manifest(package)
+        paths = {entry["path"] for entry in manifest["entries"]}
+        self.assertIn("raw/auxiliary/nested/manifest.json", paths)
+
     def test_diligence_manifest_rejects_windows_reparse_point(self) -> None:
         package = ROOT / "evidence/casey-reas-diligence"
         reparse_info = SimpleNamespace(st_mode=stat.S_IFREG, st_file_attributes=0x400)
@@ -190,6 +206,12 @@ class CaseyDossierControlsTests(unittest.TestCase):
             self.assertTrue(output.is_dir())
             self.assertEqual(list(output.iterdir()), [])
 
+    def test_custody_acquisition_accepts_existing_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-output-") as temporary:
+            output = Path(temporary)
+            prepare_empty_output(output)
+            self.assertEqual(list(output.iterdir()), [])
+
     def test_custody_acquisition_refuses_symlinked_output(self) -> None:
         with tempfile.TemporaryDirectory(prefix="casey-custody-parent-") as temporary:
             parent = Path(temporary)
@@ -208,6 +230,23 @@ class CaseyDossierControlsTests(unittest.TestCase):
             with self.assertRaises(SystemExit) as error:
                 acquire_custody_main([])
         self.assertEqual(error.exception.code, 2)
+
+    def test_abi_address_decoders_reject_non_zero_left_padding(self) -> None:
+        malformed = "0x" + "1" * 24 + "2" * 40
+        self.assertIsNone(_abi_address(malformed))
+        with self.assertRaisesRegex(AuditError, "non-zero left padding"):
+            abi_word_address(malformed)
+
+    def test_revision_two_schema_requires_amendment_history_entry(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(ROOT)
+        schema = json.loads((ROOT / "schemas/post-accession-diligence.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        record = json.loads(
+            (ROOT / "records/accessions/6529NM.2026.001/post-accession-diligence.json").read_text(encoding="utf-8")
+        )
+        record["amendment_history"] = []
+        errors = list(validator.iter_errors(record))
+        self.assertTrue(any("should be non-empty" in error.message for error in errors), errors)
 
     def test_live_accession_schemas_reject_undeclared_nested_fields(self) -> None:
         _vocabularies, _envelope, store = load_schemas(ROOT)

@@ -610,6 +610,8 @@ def _abi_address(value: Any) -> str | None:
         return None
     if any(character not in "0123456789abcdefABCDEF" for character in value[2:]):
         return None
+    if value[2:26] != "0" * 24:
+        return None
     return "0x" + value[-40:].lower()
 
 

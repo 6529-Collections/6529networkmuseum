@@ -127,6 +127,8 @@ def abi_word_address(value: str) -> str:
         raise AuditError("ABI address result is not one 32-byte word")
     if any(character not in "0123456789abcdefABCDEF" for character in value[2:]):
         raise AuditError("ABI address result is not hexadecimal")
+    if value[2:26] != "0" * 24:
+        raise AuditError("ABI address result has non-zero left padding")
     return "0x" + value[-40:].lower()
 
 
