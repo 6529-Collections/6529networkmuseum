@@ -238,11 +238,11 @@ class ControlPlaneTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         record = self.load_record(records, "accession.json")
         record["payload"]["events"][1]["event_type"] = "acquisition"
-        record["payload"]["events"][4]["custody_path"]["instrument_reference"] = "6529NM-INSTR-2026-999"
+        record["payload"]["events"][4]["custody_paths"][0]["kind"] = "non_token_off_chain"
         self.save_record(records, "accession.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("ACCESSION.events must contain" in issue for issue in issues), issues)
-        self.assertTrue(any("instrument_reference must match" in issue for issue in issues), issues)
+        self.assertTrue(any("custody_path.kind must be onchain_token" in issue for issue in issues), issues)
 
     def test_accession_custody_path_is_bound_to_executed_title_binding(self) -> None:
         for field, value in (
@@ -254,7 +254,7 @@ class ControlPlaneTests(unittest.TestCase):
                 temporary, records = self.make_records_root()
                 self.addCleanup(temporary.cleanup)
                 record = self.load_record(records, "accession.json")
-                record["payload"]["events"][4]["custody_path"][field] = value
+                record["payload"]["events"][4]["custody_paths"][0][field] = value
                 self.save_record(records, "accession.json", record)
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(f"custody_path.{field} must match" in issue for issue in issues), issues)

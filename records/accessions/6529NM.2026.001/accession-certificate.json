@@ -1,0 +1,368 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION",
+    "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x5cc2da2d4674dddab29f784bdaf895f40318f4b5e75f8ef8626a891e4bd067f6",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785652200
+  },
+  "payload": {
+    "record_id": "6529NM-ACC-2026-001",
+    "record_type": "ACCESSION",
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "subject_id": "6529NM-ACC-2026-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-02T06:30:00Z",
+    "observed_at": "2026-08-02T06:30:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "observed_at": "2026-08-02T06:30:00Z"
+    },
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:a059b375545a1c6498ca552e81a45d25b8e8648e8a8ceec2b3d11e0ab54882a4",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.GAA-01",
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "evidence_refs": [
+      {
+        "label": "Raw Ethereum transaction receipt",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "A",
+        "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+      },
+      {
+        "label": "Title, rights, and accession review",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
+      },
+      {
+        "label": "Technical and condition review",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+      },
+      {
+        "label": "Curatorial accession review",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615"
+      }
+    ],
+    "accession_number": "6529NM.2026.001",
+    "acquiring_institution": "6529 Network Museum",
+    "object_ids": [
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "title_bindings": [
+      {
+        "object_id": "6529NM.2026.001.01",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.02",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.03",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.04",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.05",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.06",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.07",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00.002Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      }
+    ],
+    "acquisition_method": "donation",
+    "acceptance_date": "2026-08-01T22:55:00Z",
+    "review_outcomes": {
+      "institutional_authority": "effective_direct_museum_authorization_recorded_in_6529NM.2026.001.GAA-01",
+      "identity_and_custody": "pass",
+      "title": "pass_with_accepted_residual_private_claim_risk",
+      "rights": "pass_with_cc_by_nc_4_0_conditions",
+      "provenance": "pass_for_accession",
+      "curatorial": "approved_for_permanent_collection",
+      "condition_and_technical": "pass_with_conditions",
+      "display": "ready_with_conditions",
+      "preservation": "in_progress_nonblocking"
+    },
+    "ongoing_stewardship_actions": [
+      "Retain attributed static/live documentation and self-contained generator/dependency packages.",
+      "Complete two-environment render and interaction testing.",
+      "Maintain redundant replicas, fixity/recovery tests, custody checks, and provenance enrichment."
+    ],
+    "events": [
+      {
+        "event_type": "receipt",
+        "occurred_at": "2026-08-01T13:25:47Z",
+        "authority_reference": "ethereum-mainnet:25660311",
+        "evidence_refs": [
+          {
+            "label": "Raw Ethereum transaction receipt",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "A",
+            "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+          }
+        ]
+      },
+      {
+        "event_type": "acceptance",
+        "occurred_at": "2026-08-01T22:55:00Z",
+        "authority_reference": "6529NM.2026.001.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Gift Acceptance and Accession Authorization",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C"
+          }
+        ]
+      },
+      {
+        "event_type": "acquisition",
+        "occurred_at": "2026-08-01T22:55:00.001Z",
+        "authority_reference": "6529NM.2026.001",
+        "evidence_refs": [
+          {
+            "label": "Reviewed accession lot",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C"
+          }
+        ]
+      },
+      {
+        "event_type": "title_passage",
+        "occurred_at": "2026-08-01T22:55:00.002Z",
+        "authority_reference": "6529NM.2026.001.TITLE-01",
+        "evidence_refs": [
+          {
+            "label": "Institutional title declaration",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
+          }
+        ],
+        "instrument": {
+          "kind": "institutional_gift_title_declaration",
+          "reference": "6529NM.2026.001.TITLE-01",
+          "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+          "custodian_reference": "networkmuseum.6529.eth"
+        }
+      },
+      {
+        "event_type": "custody_receipt",
+        "occurred_at": "2026-08-01T22:55:00.003Z",
+        "authority_reference": "6529NM.2026.001.RECEIPT-01",
+        "evidence_refs": [
+          {
+            "label": "Raw Ethereum transaction receipt",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "A",
+            "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+          }
+        ],
+        "custody_paths": [
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.01",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.02",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.03",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.04",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.05",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.06",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.07",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          }
+        ]
+      },
+      {
+        "event_type": "accession",
+        "occurred_at": "2026-08-02T06:30:00Z",
+        "authority_reference": "6529NM-ACC-2026-001",
+        "evidence_refs": [
+          {
+            "label": "Public accession certificate",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/accession-certificate.md",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:ee7377431304041a5b510fceae15f7ac33e47fcdb2167bdd795a2912d70e45c5"
+          },
+          {
+            "label": "Curatorial accession review",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615"
+          },
+          {
+            "label": "Technical and condition review",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+          }
+        ]
+      }
+    ],
+    "source": {
+      "lot_record": "records/accessions/6529NM.2026.001/accession-statement.json",
+      "provenance_ontology": "Stream-compatible event/evidence/title/custody structure for externally minted works"
+    }
+  }
+}

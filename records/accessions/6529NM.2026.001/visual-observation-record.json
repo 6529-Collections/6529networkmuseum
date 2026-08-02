@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf22dbd67adbe2a01cde4ba331a5179c45fd1e3791461a83c12afe565375cbc0b"
+      "digest": "0x15c8b99d0d96aa2931d90c28b8fe69129fbee981cfbf38b0b222644213514c1b"
     },
-    "effectiveAt": 1785627288,
+    "effectiveAt": 1785652200,
     "recordType": "VISUAL_OBSERVATION",
     "schemaId": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4",
     "signatureHash": {
@@ -39,15 +39,12 @@
       "role": "constructor"
     },
     "created_at": "2026-08-01T23:34:48.596Z",
-    "effective_at": "2026-08-01T23:34:48.596Z",
+    "effective_at": "2026-08-02T06:30:00Z",
     "limitations": [
-      "The static PNG response bytes and live viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-      "Each static timestamp is the downloaded file's LastWriteTimeUtc after the response bytes were saved; it is an observation-completion proxy, not a server Date header or an independently instrumented request start or end.",
-      "The recorded hashes fix the observed response and screenshot bytes but do not constitute a condition report.",
-      "The commanded 1500-millisecond minimum wait excludes screenshot overhead and is not an exact elapsed-time measurement. The two frames are not a full generator capture or a determinism proof.",
-      "The observation does not establish preservation completion, technical completion, or display readiness.",
-      "Browser version and user-agent were not captured, so the render environment is partial.",
-      "Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy because the static PNG and live viewport screenshot bytes are not retained in the public repository."
+      "The initial PNG and screenshot bytes were not retained; their hashes and byte sizes remain historical observation evidence, and a new rights-compliant preservation capture must be identified as a later capture rather than represented as the original bytes.",
+      "Static times are local post-write completion proxies; live times were recorded after both screenshots and hashing.",
+      "The 1500-millisecond value is a commanded minimum wait, not measured elapsed time; per-frame times, browser version, and user agent were not captured.",
+      "The observation supports an amber condition assessment but does not prove determinism, full interaction coverage, or autonomous preservation."
     ],
     "objects": [
       {
@@ -93,8 +90,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
           "viewport_css_pixels": {
@@ -120,8 +117,8 @@
           "response_sha256": "sha256:2769e41b8ea77a39b53103e31e1eaa52c04031c400062d309f7bf547792ba5da",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -172,8 +169,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
           "viewport_css_pixels": {
@@ -199,8 +196,8 @@
           "response_sha256": "sha256:e13ec3c6506e8f5942859af6068e2c677724aed9f1855c6eec970a64f16bc556",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -251,8 +248,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
           "viewport_css_pixels": {
@@ -278,8 +275,8 @@
           "response_sha256": "sha256:416bedf30696ca410ed2dc84aa8f57c6e752c21671dc42b20c32d2ad2e234e06",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -330,8 +327,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
           "viewport_css_pixels": {
@@ -357,8 +354,8 @@
           "response_sha256": "sha256:8b02640589888c3fd086a8208dab79dfb083c76e7fc9060848f1fe9f0e00acf2",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -409,8 +406,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
           "viewport_css_pixels": {
@@ -436,8 +433,8 @@
           "response_sha256": "sha256:8f370bc60848959def351197cce7accd0b88474e997bae6e52459ef0d30c60dd",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -488,8 +485,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
           "viewport_css_pixels": {
@@ -515,8 +512,8 @@
           "response_sha256": "sha256:c4e1bf468e1c632e429aa743c8b72999c4bad0e1063c9cee7b02031908972e2c",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -567,8 +564,8 @@
           },
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
           "viewport_css_pixels": {
@@ -594,8 +591,8 @@
           "response_sha256": "sha256:11724ce22525a6ec161af480cf8c60a3fb1519ea2c3d3e3f805827bde43398f8",
           "retention": {
             "bytes_retained_in_public_repository": false,
-            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
-            "status": "not_retained_pending_rights_and_preservation_review"
+            "statement": "The initial capture bytes were not retained. CC BY-NC 4.0 now authorizes noncommercial Museum retention with attribution; the next preservation capture will be retained as a separately dated object and will not be misrepresented as the original observation bytes.",
+            "status": "not_retained_rights_cleared_preservation_action_open"
           },
           "source_url": "https://media-proxy.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248.png",
           "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
@@ -607,11 +604,11 @@
     "observation_id": "6529NM.2026.001.VO-01",
     "observation_kind": "static_and_live_visual_observation",
     "observed_at": "2026-08-01T23:34:48.596Z",
-    "payload_sha256": "sha256:de0187681f2e73b1be1ce3f37d0bd711cf35e4d89f80e93fe6a2b3f2e5d7b4ed",
+    "payload_sha256": "sha256:2f217a4f7086a02146aaafa7160289724ee98b0a7bca2d4b27fadc58a64811f8",
     "record_id": "6529NM.2026.001.VO-01",
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "record_type": "VISUAL_OBSERVATION",
-    "record_version": "1.0.0",
+    "record_version": "1.1.0",
     "references": [
       "6529NM.2026.001",
       "6529NM.2026.001.01",
@@ -622,8 +619,12 @@
       "6529NM.2026.001.06",
       "6529NM.2026.001.07"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
     "schema_id": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4",
     "source": {
       "capture_facts": "Independent curatorial review supplied exact static-response and live-frame observations.",

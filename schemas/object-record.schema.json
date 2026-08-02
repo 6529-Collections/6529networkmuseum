@@ -9,7 +9,7 @@
       "properties": {
         "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "status": {"type": "string", "enum": ["pending", "executed", "not_applicable"]},
-        "instrument_sha256": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"},
+        "instrument_sha256": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
         "custodian_reference": {"type": "string", "minLength": 1},
         "transfer_transaction": {"anyOf": [{"$ref": "#/$defs/hash"}, {"type": "null"}]},
         "block_number": {"anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]},
@@ -18,13 +18,28 @@
         "bound_at": {"anyOf": [{"type": "string", "format": "date-time"}, {"type": "null"}]},
         "basis": {"type": "string", "minLength": 1}
       },
-      "required": ["status", "instrument_sha256", "custodian_reference", "transfer_transaction", "block_number", "from", "to", "bound_at"],
+      "required": ["object_id", "status", "instrument_sha256", "custodian_reference", "transfer_transaction", "block_number", "from", "to", "bound_at", "basis"],
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "executed"}}, "required": ["status"]},
+          "then": {
+            "properties": {
+              "instrument_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+              "transfer_transaction": {"$ref": "#/$defs/hash"},
+              "block_number": {"type": "integer", "minimum": 0},
+              "from": {"$ref": "#/$defs/address"},
+              "to": {"$ref": "#/$defs/address"},
+              "bound_at": {"type": "string", "format": "date-time"}
+            }
+          }
+        }
+      ],
       "unevaluatedProperties": false
     },
     "rightsGrant": {
       "type": "object",
       "properties": {
-        "grant_status": {"type": "string", "enum": ["granted", "denied", "unspecified", "not_applicable"]},
+        "grant_status": {"type": "string", "enum": ["granted", "granted_with_conditions", "denied", "unspecified", "not_applicable"]},
         "basis": {"type": "string", "minLength": 1},
         "observed_at": {"type": "string", "format": "date-time"},
         "evidence_ref": {"type": "string", "minLength": 1}
@@ -99,7 +114,7 @@
             "custody_verified_at": {"type": "string", "format": "date-time"},
             "custody_block": {"type": "integer", "minimum": 0}
           },
-          "required": ["caip19", "chain_id", "contract", "token_id", "token_standard", "acquisition_transaction", "custody_account", "custody_status", "custody_verified_at", "custody_block"],
+          "required": ["caip19", "chain_id", "contract", "token_id", "token_standard", "acquisition_transaction", "custody_receipt_transaction", "custody_receipt_block", "custody_receipt_log", "custody_account", "custody_status", "custody_verified_at", "custody_block"],
           "unevaluatedProperties": false
         },
         "title_binding": {"$ref": "#/$defs/titleBinding"},
@@ -111,9 +126,12 @@
             "exhibition": {"$ref": "#/$defs/rightsGrant"},
             "print": {"$ref": "#/$defs/rightsGrant"},
             "derivative_use": {"$ref": "#/$defs/rightsGrant"},
-            "ai_training": {"$ref": "#/$defs/rightsGrant"}
+            "ai_training": {"$ref": "#/$defs/rightsGrant"},
+            "preservation": {"$ref": "#/$defs/rightsGrant"},
+            "migration_emulation": {"$ref": "#/$defs/rightsGrant"},
+            "accessibility": {"$ref": "#/$defs/rightsGrant"}
           },
-          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"],
+          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"],
           "unevaluatedProperties": false
         },
         "condition": {"$ref": "#/$defs/condition"},
@@ -132,6 +150,7 @@
             "unevaluatedProperties": false
           }
         },
+        "state_history_semantics": {"type": "string", "minLength": 1},
         "preservation": {
           "type": "object",
           "properties": {
@@ -155,8 +174,8 @@
           "required": ["status", "manifest_uri", "credit_line", "observed_at"],
           "unevaluatedProperties": false
         },
-        "record_status": {"const": "constructed"},
-        "review_status": {"const": "pending_independent_review"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "artist": {"type": "object", "additionalProperties": true},
         "project": {"type": "object", "additionalProperties": true},
@@ -182,7 +201,7 @@
         "uncertainties": {"type": "array", "minItems": 1, "items": {"type": "string"}},
         "source_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
       },
-      "required": ["object_id", "accession_lot_id", "title", "creator", "medium", "credit_line", "chain_identity", "title_binding", "rights", "condition", "current_state", "state_history", "preservation", "display"]
+      "required": ["object_id", "accession_lot_id", "title", "creator", "medium", "credit_line", "chain_identity", "title_binding", "rights", "condition", "current_state", "state_history", "state_history_semantics", "preservation", "display"]
     }
   ]
 }

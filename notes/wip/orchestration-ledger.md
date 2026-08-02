@@ -1137,3 +1137,47 @@ rights, tax treatment, or accession completion.
 This remediation invalidates all earlier PR #10 exact-head approvals. Package
 and repository manifests, CI, specialist bots, and independent reviewers must
 all run again on the next committed head before merge.
+
+## 2026-08-02 - Casey accession substantive finalization checkpoint
+
+The Casey lot is no longer represented as an intake dossier awaiting a future
+reviewer. The current candidate makes and records the Museum's decisions:
+title to the seven tokens and the donor's full transferable interest is
+accepted; Casey REAS's copyright remains separate; the object-specific Art
+Blocks metadata supports the complete conditional CC BY-NC 4.0 Museum-use
+matrix; the seven objects and lot are accessioned; and the curatorial,
+registrar, condition, technical, display, and preservation findings are stated
+in final public and machine-readable records.
+
+The technical conclusion is `pass_with_conditions`. Exact token/custody
+identity and retained metadata fixity are green. The official generator routes
+were available and all seven produced changing output, so generator, render,
+dependency, behavior, documentation, and preservation findings are amber
+rather than red. They are not green because the Museum has not yet retained
+self-contained generator/dependency packages, complete interaction evidence,
+or two-environment reproducibility. Those are concrete active collection-care
+actions; `technically_verified`, `preservation_complete`, and unconditional
+`display_ready` remain later stricter states without reopening accession.
+
+The package now includes an accession certificate, title/rights determination,
+technical/condition review, curatorial decision, lot-level rights schedule,
+seven reviewed rights statements, seven reviewed condition reports, executed
+object-level title bindings, exact on-chain custody paths, a research-note
+resolution addendum, and a deterministic finalization script. The finalizer is
+idempotent and `--help` is non-mutating. Generic validators now fail closed on
+multi-object custody joins, malformed duplicate projections, malformed visual
+frames, and retention contradictions. Casey-specific controls reject any
+reversion to intake status, unspecified rights, placeholder title material,
+or a pending preservation list.
+
+Local verification at this checkpoint is green: full Museum/Casey validation,
+bootstrap validation over 276 JSON files, fetch guard, deterministic manifest,
+whitespace check, Python compilation, and 59 unit tests with one expected
+Windows named-pipe skip. After final record generation, the deterministic
+release manifest commits to Keccak-256
+`0x6480dbc430cf80f2f499fd1898892d1597918913ea3b2f0027a57e7340cb28f9`
+and SHA-256
+`5bf026405e3c6de8755ad1331151c56d0f18e3ff9417f6d7087f0593db2df37a`.
+Independent technical review, immutable exact-head URLs,
+PR bots, CI, and maintainer review must target the new committed head; earlier
+approvals do not carry forward.

@@ -8,8 +8,8 @@
       "properties": {
         "record_type": {"const": "CONDITION_REPORT"},
         "schema_id": {"const": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44"},
-        "record_status": {"const": "constructed"},
-        "review_status": {"const": "pending_independent_review"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "protocol_state": {"type": "string", "minLength": 1},

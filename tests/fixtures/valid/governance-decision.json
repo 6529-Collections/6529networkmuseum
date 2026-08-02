@@ -5,7 +5,7 @@
     "subjectId": "0x4f427583a47c17e599b14e09359f86d82c73d65326d0dca0dd1e64ef5905df48",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x1caf3729864fc64832c1460549dd35046321b05cdb0043529abf3cd0a7d577df",
+      "digest": "0xe8a3bed829ec5eb0410de50ea031a636137ea8dbcb47958de521c5743b9ab21a",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplegovernance",
@@ -28,8 +28,16 @@
     "created_at": "2026-08-01T00:00:00Z",
     "observed_at": "2026-08-01T00:00:00Z",
     "effective_at": "2026-08-01T00:00:00Z",
-    "constructor": {"id": "governance-executor", "role": "governance_executor", "observed_at": "2026-08-01T00:00:00Z"},
-    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "constructor": {
+      "id": "governance-executor",
+      "role": "governance_executor",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "museum-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
     "decision_id": "6529NM-GOV-1052604",
     "decision_status": "adopted",
     "source": {
@@ -40,6 +48,9 @@
       "status_observed_at": "2026-08-01T00:00:00Z",
       "status_evidence_uri": "https://6529.io/wave/1052604/status"
     },
-    "authority_effect": "Adopts the Museum's general NFT collecting scope."
+    "authority_effect": "Adopts the Museum's general NFT collecting scope.",
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:c87234bb40b2aa90592cd8bba1a6d8fb8d85446d451c11ca7a5ab58cc460bbee"
   }
 }

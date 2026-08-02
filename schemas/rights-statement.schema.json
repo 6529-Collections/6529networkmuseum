@@ -8,8 +8,8 @@
       "properties": {
         "record_type": {"const": "RIGHTS_STATEMENT"},
         "schema_id": {"const": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967"},
-        "record_status": {"const": "constructed"},
-        "review_status": {"const": "pending_independent_review"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
         "object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "rights_holder_reference": {"type": "string", "minLength": 1},
@@ -22,9 +22,12 @@
             "exhibition": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
             "print": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
             "derivative_use": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
-            "ai_training": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"}
+            "ai_training": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "preservation": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "migration_emulation": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"},
+            "accessibility": {"$ref": "https://6529networkmuseum.org/schemas/object-record-v1.json#/$defs/rightsGrant"}
           },
-          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"],
+          "required": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"],
           "unevaluatedProperties": false
         },
         "observed_at": {"type": "string", "format": "date-time"},

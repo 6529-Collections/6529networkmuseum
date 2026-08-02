@@ -488,7 +488,7 @@ def validate_receipt_evidence(root: Path) -> tuple[list[dict[str, Any]], list[st
     return sorted(transfers, key=lambda item: item["log"]), issues
 
 
-def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
+def validate_intake_stage_legacy(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     source, descriptors, issues = source_package(history_root or root)
     receipt_transfers, receipt_issues = validate_receipt_evidence(root)
     issues.extend(receipt_issues)
@@ -943,6 +943,298 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     collection_essay = (root / CASEY_DIR / "public" / "casey-reas-collection-essay.md").read_text(encoding="utf-8")
     if "**Museum interpretation [E]:** The collection proposes an encounter with an executable image" not in collection_essay:
         issues.append("Casey collection essay must label executable-image ontology as Museum interpretation [E]")
+
+    return issues
+
+
+def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
+    """Validate the reviewed, accessioned Casey REAS collection package."""
+    source, descriptors, issues = source_package(history_root or root)
+    receipt_transfers, receipt_issues = validate_receipt_evidence(root)
+    issues.extend(receipt_issues)
+    issues.extend(validate_evidence_manifest(root))
+
+    records: dict[str, dict[str, Any]] = {}
+    for path in sorted((root / CASEY_DIR).rglob("*.json")):
+        record = read_json(path)
+        payload = record.get("payload")
+        if not isinstance(payload, dict):
+            continue
+        record_id = payload.get("record_id")
+        if isinstance(record_id, str):
+            records[record_id] = record
+        if payload.get("payload_sha256") != payload_sha256(payload):
+            issues.append(f"Casey payload commitment is invalid: {path.relative_to(root)}")
+        reviewer = payload.get("reviewer")
+        if payload.get("record_status") != "reviewed" or payload.get("review_status") != "reviewed" or not isinstance(reviewer, dict):
+            issues.append(f"Casey accession record must be substantively reviewed: {path.relative_to(root)}")
+        if reviewer == payload.get("constructor") or reviewer.get("id") == payload.get("constructor", {}).get("id"):
+            issues.append(f"Casey constructor/reviewer separation is invalid: {path.relative_to(root)}")
+        signature_scheme = record.get("envelope", {}).get("signatureScheme")
+        signature_digest = record.get("envelope", {}).get("signatureHash", {}).get("digest")
+        if signature_scheme != "0x" + "0" * 64 or signature_digest != "0x" + "0" * 64:
+            issues.append(f"Casey repository record must remain unsigned until on-chain execution: {path.relative_to(root)}")
+        if any(STALE_BRANCH in text for text in nested_strings(record)):
+            issues.append(f"Casey record has a mutable construction-branch URL: {path.relative_to(root)}")
+
+    lot_record = records.get(CASEY_ID)
+    accession_record = records.get("6529NM-ACC-2026-001")
+    authorization_record = records.get(GIFT_AUTHORIZATION_ID)
+    visual_record = records.get(VISUAL_OBSERVATION_ID)
+    if lot_record is None:
+        return issues + ["Casey accession lot record is missing"]
+    if accession_record is None:
+        return issues + ["Casey accession certificate record is missing"]
+    if authorization_record is None:
+        return issues + ["Casey gift authorization record is missing"]
+    if visual_record is None:
+        return issues + ["Casey visual observation record is missing"]
+
+    lot = lot_record["payload"]
+    if (
+        lot.get("accession_status") != "complete"
+        or lot.get("intake_status") != "accessioned"
+        or lot.get("formal_acceptance_status") != "formally_accepted"
+        or lot.get("gift_acceptance_authorization_record") != GIFT_AUTHORIZATION_ID
+        or lot.get("controlled_decision", {}).get("current_state") != "accessioned"
+        or lot.get("controlled_decision", {}).get("completion_status") != "complete"
+        or lot.get("controlled_decision", {}).get("accession_status") != "complete"
+        or lot.get("controlled_decision", {}).get("outcome") != "approved_for_permanent_collection"
+        or lot.get("remaining_gates") != []
+    ):
+        issues.append("Casey lot must record completed permanent-collection accession with no unresolved gate")
+    actions = lot.get("ongoing_stewardship_actions")
+    if not isinstance(actions, list) or len(actions) < 4 or any(item.get("status") != "active" for item in actions if isinstance(item, dict)):
+        issues.append("Casey lot must state concrete active preservation, testing, replica, custody, and provenance duties")
+    if lot.get("references") != [GIFT_AUTHORIZATION_ID, "6529NM-ACC-2026-001", VISUAL_OBSERVATION_ID]:
+        issues.append("Casey lot must link the gift authorization, accession certificate, and visual observation")
+    if lot.get("governing_references") != GOVERNING_REFERENCES:
+        issues.append("Casey lot governing references must identify the adopted Art Blocks and Donation Acceptance decisions")
+    if lot.get("source_manifest", {}).get("casey_collection_snapshot_package") != source:
+        issues.append("Casey lot source package binding does not match the published source package")
+    evidence_manifest_sha256 = sha256(root / "evidence" / "casey-reas" / "manifest.json")
+    if (
+        lot.get("source_manifest", {}).get("evidence_manifest_sha256") != evidence_manifest_sha256
+        or lot.get("preservation_manifest", {}).get("manifest_sha256") != evidence_manifest_sha256
+        or lot.get("preservation_manifest", {}).get("fixity_sha256") != evidence_manifest_sha256
+    ):
+        issues.append("Casey lot must bind the current preservation evidence manifest")
+
+    identity_list = lot.get("object_identities")
+    identity_list = identity_list if isinstance(identity_list, list) and all(isinstance(item, dict) for item in identity_list) else []
+    expected_object_ids = list(OBJECT_TO_DESCRIPTOR)
+    identities = {item.get("object_id"): item for item in identity_list}
+    identity_keys = [(str(item.get("contract", "")).lower(), item.get("token_id"), item.get("custody_receipt_log")) for item in identity_list]
+    if (
+        [item.get("object_id") for item in identity_list] != expected_object_ids
+        or len(identities) != 7
+        or len(identity_keys) != len(set(identity_keys))
+        or any(item.get("caip19") != f"eip155:1/erc721:{str(item.get('contract', '')).lower()}/{item.get('token_id')}" for item in identity_list)
+    ):
+        issues.append("Casey accession identity schedule must retain seven exact unique chain identities")
+
+    public_inventory = lot.get("public_inventory") if isinstance(lot.get("public_inventory"), list) else []
+    if (
+        [item.get("inventory_number") for item in public_inventory if isinstance(item, dict)] != expected_object_ids
+        or any(item.get("status") != "accessioned" for item in public_inventory if isinstance(item, dict))
+    ):
+        issues.append("Casey public inventory must place all seven exact objects in accessioned state")
+
+    rights_schedule = lot.get("donation_rights_schedule") if isinstance(lot.get("donation_rights_schedule"), dict) else {}
+    rights_objects = rights_schedule.get("objects") if isinstance(rights_schedule.get("objects"), list) else []
+    rights_matrix = rights_schedule.get("rights_matrix") if isinstance(rights_schedule.get("rights_matrix"), list) else []
+    instrument = rights_schedule.get("restricted_instrument_ref") if isinstance(rights_schedule.get("restricted_instrument_ref"), dict) else {}
+    if (
+        [item.get("object_id") for item in rights_objects if isinstance(item, dict)] != expected_object_ids
+        or any(item.get("donation_status") != "accessioned" or item.get("rights_status") != "reviewed_with_conditions" or not item.get("rights_record") for item in rights_objects if isinstance(item, dict))
+        or [item.get("object_id") for item in rights_matrix if isinstance(item, dict)] != expected_object_ids
+        or any(item.get("grant_status") != "granted_with_conditions" or item.get("license") != "CC BY-NC 4.0" or not item.get("rights_record") for item in rights_matrix if isinstance(item, dict))
+        or instrument.get("status") != "executed_institutional_title_declaration"
+        or not instrument.get("content_hash")
+    ):
+        issues.append("Casey lot-level donation, title, and rights schedule must state the completed accession and reviewed CC BY-NC 4.0 determinations")
+
+    preservation_manifest = lot.get("preservation_manifest") if isinstance(lot.get("preservation_manifest"), dict) else {}
+    preservation_actions = preservation_manifest.get("active_stewardship_actions")
+    if "pending" in preservation_manifest or not isinstance(preservation_actions, list) or len(preservation_actions) < 4:
+        issues.append("Casey preservation manifest must state concrete active stewardship actions rather than an intake-stage pending list")
+
+    expected_transfers = sorted(
+        [
+            {
+                "contract": str(identity.get("contract", "")).lower(),
+                "from": RECEIPT_FROM,
+                "to": MUSEUM_CUSTODY,
+                "token_id": identity.get("token_id"),
+                "log": identity.get("custody_receipt_log"),
+            }
+            for identity in identity_list
+        ],
+        key=lambda item: item["log"] if isinstance(item["log"], int) else -1,
+    )
+    if receipt_transfers != expected_transfers:
+        issues.append("Casey raw RPC receipt transfer schedule must match the seven accession identities")
+    schedule = lot.get("provenance_schedule") if isinstance(lot.get("provenance_schedule"), dict) else {}
+    common_receipt = schedule.get("common_receipt") if isinstance(schedule.get("common_receipt"), dict) else {}
+    if (
+        common_receipt.get("transaction_hash") != RECEIPT_TRANSACTION
+        or common_receipt.get("block_hash") != RECEIPT_BLOCK_HASH
+        or common_receipt.get("block_number") != RECEIPT_BLOCK
+        or common_receipt.get("receipt_status") != "0x1"
+        or common_receipt.get("transfer_count") != 7
+        or common_receipt.get("museum_custody_address") != MUSEUM_CUSTODY
+        or common_receipt.get("verification") != "direct_rpc_verified"
+    ):
+        issues.append("Casey provenance common receipt must remain joined to the retained direct RPC evidence")
+
+    accession = accession_record["payload"]
+    if (
+        accession.get("accession_number") != CASEY_ID
+        or accession.get("object_ids") != expected_object_ids
+        or accession.get("acquisition_method") != "donation"
+        or accession.get("acceptance_date") != "2026-08-01T22:55:00Z"
+        or accession.get("review_outcomes", {}).get("curatorial") != "approved_for_permanent_collection"
+        or accession.get("review_outcomes", {}).get("condition_and_technical") != "pass_with_conditions"
+        or accession.get("review_outcomes", {}).get("preservation") != "in_progress_nonblocking"
+    ):
+        issues.append("Casey accession certificate must bind the exact lot, seven objects, and completed review outcomes")
+    bindings = accession.get("title_bindings") if isinstance(accession.get("title_bindings"), list) else []
+    if (
+        [item.get("object_id") for item in bindings if isinstance(item, dict)] != expected_object_ids
+        or any(item.get("status") != "executed" or item.get("transfer_transaction") != RECEIPT_TRANSACTION or not item.get("instrument_sha256") for item in bindings if isinstance(item, dict))
+    ):
+        issues.append("Casey accession certificate must execute one exact title binding per object")
+    events = accession.get("events") if isinstance(accession.get("events"), list) else []
+    if [item.get("event_type") for item in events if isinstance(item, dict)] != ["receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession"]:
+        issues.append("Casey accession certificate must preserve the Stream-compatible event order")
+    custody_paths = events[4].get("custody_paths", []) if len(events) == 6 and isinstance(events[4], dict) else []
+    if [item.get("object_id") for item in custody_paths if isinstance(item, dict)] != expected_object_ids or any(item.get("kind") != "onchain_token" for item in custody_paths if isinstance(item, dict)):
+        issues.append("Casey accession certificate must bind one on-chain custody path per object")
+
+    authorization = authorization_record["payload"]
+    expected_boundary = {
+        "current_state": "accessioned",
+        "accession_status": "complete",
+        "external_work_accession_certificate": "executed",
+        "title_binding": "executed",
+        "rights": "reviewed_with_conditions",
+        "condition": "reviewed_pass_with_conditions",
+        "preservation": "in_progress",
+        "independent_review": "reviewed",
+    }
+    if (
+        authorization.get("authorization_status") != "formally_accepted"
+        or authorization.get("completion_boundary") != expected_boundary
+        or authorization.get("completion_blockers") != []
+        or authorization.get("custody_receipt", {}).get("receipt_status") != "0x1"
+        or authorization.get("references") != [CASEY_ID, "6529NM-ACC-2026-001"]
+        or authorization.get("institutional_decision_authority", {}).get("documentation_qa_status") != "reviewed"
+        or "direct Museum-authorized collection authority" not in authorization.get("institutional_decision_authority", {}).get("publication_semantics", "")
+        or "do not replace or exercise" not in authorization.get("institutional_decision_authority", {}).get("publication_semantics", "")
+        or "full" not in authorization.get("donor_authority_declaration", {}).get("statement", "").lower()
+    ):
+        issues.append("Casey gift authorization must record the full gift and its completed accession resolution")
+    for basis in authorization.get("governing_basis", []):
+        if basis.get("observed_at") != "2026-08-01T15:01:05Z" or basis.get("effect_basis") != "reviewed_governance_record" or basis.get("governance_record_ref") != "6529NM-GOV-REGISTER":
+            issues.append("Casey governing basis must state when and from which reviewed register its effect was observed")
+
+    rights_classes = {"reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"}
+    condition_keys = {"token", "metadata", "script", "dependencies", "rendering", "behavior", "documentation"}
+    for object_id, descriptor_slug in OBJECT_TO_DESCRIPTOR.items():
+        object_record = records.get(object_id)
+        rights_record = records.get(f"{CASEY_ID}.RIGHTS.{object_id.rsplit('.', 1)[1]}")
+        condition_record = records.get(f"{CASEY_ID}.COND.{object_id.rsplit('.', 1)[1]}")
+        if object_record is None or rights_record is None or condition_record is None:
+            issues.append(f"Casey reviewed object/rights/condition record set is incomplete: {object_id}")
+            continue
+        payload = object_record["payload"]
+        identity = identities.get(object_id, {})
+        chain = payload.get("chain_identity", {})
+        if payload.get("title") != identity.get("title") or chain.get("caip19") != identity.get("caip19") or chain.get("custody_receipt_transaction") != RECEIPT_TRANSACTION:
+            issues.append(f"Casey object chain identity is invalid: {object_id}")
+        if payload.get("current_state") != "accessioned" or payload.get("state_history", [])[-1].get("state") != "accessioned":
+            issues.append(f"Casey object must end in accessioned state: {object_id}")
+        title_binding = payload.get("title_binding", {})
+        if title_binding.get("status") != "executed" or title_binding.get("transfer_transaction") != RECEIPT_TRANSACTION or title_binding.get("object_id") != object_id:
+            issues.append(f"Casey object must retain an executed transaction-bound title declaration: {object_id}")
+        grants = payload.get("rights", {})
+        if set(grants) != rights_classes or any(item.get("grant_status") != "granted_with_conditions" or "CC BY-NC 4.0" not in item.get("basis", "") for item in grants.values()):
+            issues.append(f"Casey object must state the complete conditional CC BY-NC 4.0 rights matrix: {object_id}")
+        condition = payload.get("condition", {})
+        if any(condition.get(key) in {None, "red", "not_assessed"} for key in condition_keys) or condition.get("token") != "green" or condition.get("metadata") != "green":
+            issues.append(f"Casey object must state a complete non-red accession condition finding: {object_id}")
+        if payload.get("display", {}).get("status") != "ready_with_conditions" or payload.get("preservation", {}).get("status") != "in_progress":
+            issues.append(f"Casey object must separate conditional display readiness from active preservation: {object_id}")
+        expected_trait = {
+            "status": "transparent_linked_descriptors_available",
+            "method": "Museum published NextGen-compatible method over the frozen source package; linked descriptors are available and reproducible.",
+            "marketplace_metrics": "not_used",
+            "non_claims": NON_CLAIMS,
+            "source_package": source,
+            "descriptor": descriptors.get(descriptor_slug),
+        }
+        if payload.get("trait_analysis") != expected_trait:
+            issues.append(f"Casey object descriptor mapping or no-marketplace claims are invalid: {object_id}")
+        rights_payload = rights_record["payload"]
+        if rights_payload.get("grants") != grants or "copyright is not transferred" not in rights_payload.get("rights_holder_reference", "").lower():
+            issues.append(f"Casey rights statement must match the object matrix and copyright boundary: {object_id}")
+        condition_payload = condition_record["payload"]
+        if condition_payload.get("outcome", "").split(":", 1)[0] != "pass_with_conditions" or any(value in {"red", "not_assessed"} for value in condition_payload.get("assessments", {}).values()):
+            issues.append(f"Casey condition report must reach a complete pass-with-conditions outcome: {object_id}")
+
+    visual = visual_record["payload"]
+    observed_objects = visual.get("objects") if isinstance(visual.get("objects"), list) else []
+    if [item.get("object_id") for item in observed_objects if isinstance(item, dict)] != expected_object_ids:
+        issues.append("Casey visual observation must bind the exact seven-object schedule")
+    for item in observed_objects:
+        for capture_name in ("static_capture", "live_capture"):
+            retention = item.get(capture_name, {}).get("retention", {})
+            if (
+                retention.get("bytes_retained_in_public_repository") is not False
+                or retention.get("status") != "not_retained_rights_cleared_preservation_action_open"
+                or "CC BY-NC 4.0" not in retention.get("statement", "")
+            ):
+                issues.append(f"Casey visual observation must record rights-cleared future capture without fabricating original bytes: {item.get('object_id')}")
+
+    required_public = {
+        "accession-certificate.md": ["approved and accessioned", "owns the seven tokens", "ready with conditions"],
+        "title-rights-and-accession-review.md": ["entire ownership interest", "copyright", "CC BY-NC 4.0", "AI training"],
+        "technical-and-condition-review.md": ["passes technical and condition review with conditions", "No red condition", "Active preservation actions"],
+        "curatorial-accession-review.md": ["approved for the permanent collection", "Processing", "Object-level findings"],
+        "gift-acceptance-authorization.md": ["full gift", "accession completed", "no accession blocker remains"],
+    }
+    for name, markers in required_public.items():
+        text = (root / CASEY_DIR / "public" / name).read_text(encoding="utf-8")
+        if any(marker.lower() not in text.lower() for marker in markers):
+            issues.append(f"Casey finished public review is missing a required substantive conclusion: {name}")
+    forbidden_final_phrases = (
+        "registrar review remain pending",
+        "independent review remains pending",
+        "rights review pending",
+        "completion certificate pending",
+        "not_complete",
+        "received_onchain` /",
+    )
+    for page in sorted((root / CASEY_DIR / "public").glob("*.md")):
+        text = page.read_text(encoding="utf-8")
+        if any(phrase.lower() in text.lower() for phrase in forbidden_final_phrases):
+            issues.append(f"Casey public document retains an intake-stage placeholder: {page.name}")
+    for object_id in expected_object_ids:
+        page = (root / CASEY_DIR / "public" / f"{object_id}.md").read_text(encoding="utf-8")
+        for marker in ("**Status:** `accessioned`", "The work is `accessioned`", "no OpenSea or marketplace rarity", "Museum interpretation [E]"):
+            if marker.lower() not in page.lower():
+                issues.append(f"Casey public object page lacks a finished state or interpretive boundary: {object_id}")
+                break
+
+    artist_profile = (root / CASEY_DIR / "public" / "casey-reas-artist-practice.md").read_text(encoding="utf-8")
+    collection_essay = (root / CASEY_DIR / "public" / "casey-reas-collection-essay.md").read_text(encoding="utf-8")
+    if "**Museum interpretation [E]:** The token does not replace the software artwork" not in artist_profile:
+        issues.append("Casey artist profile must retain the token/software interpretation boundary")
+    if "**Museum interpretation [E]:** The collection proposes an encounter with an executable image" not in collection_essay:
+        issues.append("Casey collection essay must retain the executable-image interpretation boundary")
+    rooms = records.get("6529NM.2026.001.06", {}).get("payload", {})
+    if "923 unique rooms/combinations" not in rooms.get("project", {}).get("edition_statement", "") or "924" not in rooms.get("project", {}).get("edition_statement", ""):
+        issues.append("Casey 923 EMPTY ROOMS record must retain the 923-combination / 924-token distinction")
 
     return issues
 

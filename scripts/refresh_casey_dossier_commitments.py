@@ -241,7 +241,7 @@ def refresh_control_note() -> None:
             raise ValueError("expected existing descriptor control note is malformed")
     else:
         updated, replacements = re.subn(
-            r"Trait analysis remains a typed .*?self-review—control the next decision\\.",
+            r"Trait analysis remains a typed .*?self-review—control the next decision\.",
             new,
             text,
             flags=re.DOTALL,

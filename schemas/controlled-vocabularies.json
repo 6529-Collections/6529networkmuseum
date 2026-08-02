@@ -116,6 +116,6 @@
   "condition_statuses": ["green", "amber", "red", "not_assessed"],
   "title_binding_statuses": ["pending", "executed", "not_applicable"],
   "custody_statuses": ["pending", "verified", "unverified", "not_applicable"],
-  "rights_grant_statuses": ["granted", "denied", "unspecified", "not_applicable"],
-  "rights_use_classes": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training"]
+  "rights_grant_statuses": ["granted", "granted_with_conditions", "denied", "unspecified", "not_applicable"],
+  "rights_use_classes": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"]
 }

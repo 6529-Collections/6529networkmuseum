@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x76422ba668b783cde45c3c55393dab5e209c2d37238dd615eea42e2ba0fa77ab"
+      "digest": "0xbb8e6f4cb521cd87b4d5d5c654b3452983256d7ebb1eef475d01787d1352f638"
     },
-    "effectiveAt": 1785624900,
+    "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
     "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
     "signatureHash": {
@@ -60,17 +60,17 @@
       "technical_observation": "The Museum's dated live/static observation is a documentation statement, not an inference of artist intent."
     },
     "condition": {
-      "behavior": "not_assessed",
-      "dependencies": "not_assessed",
-      "documentation": "not_assessed",
-      "metadata": "amber",
-      "method": "Constructor evidence synthesis from direct custody evidence and retained response fixity; no independent condition assessment.",
-      "narrative": "A retrieved response and token hash do not establish display readiness or preservation completion.",
-      "observed_at": "2026-08-01T14:58:31.905115Z",
-      "protocol_state": "Ethereum mainnet receipt observed; conservation protocol incomplete.",
-      "rendering": "not_assessed",
+      "token": "green",
+      "metadata": "green",
       "script": "amber",
-      "token": "green"
+      "dependencies": "amber",
+      "rendering": "amber",
+      "behavior": "amber",
+      "documentation": "amber",
+      "protocol_state": "Accession-level condition review complete; autonomous software preservation remains in progress.",
+      "method": "Reviewed chain, metadata, generator, visual-observation, dependency, display, and preservation evidence. Each current official generator route was available and rendered changing output; the absence of a Museum-held autonomous generator package limits reproducibility but does not make the work unavailable.",
+      "narrative": "No red condition is identified. Identity and retained metadata fixity are verified. The live generator routes were functional when observed, while generator packaging, dependency capture, behavior coverage, and cross-environment reproducibility remain amber stewardship priorities.",
+      "observed_at": "2026-08-02T06:30:00Z"
     },
     "constructor": {
       "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
@@ -79,15 +79,15 @@
     },
     "created_at": "2026-08-01T14:58:31.905115Z",
     "creator": "Casey REAS",
-    "credit_line": "Gift of punk6529; Casey REAS; display credit pending rights and registrar review.",
-    "current_state": "received_onchain",
+    "credit_line": "Gift of punk6529; Casey REAS; CENTURY #724; 6529 Network Museum, 6529NM.2026.001.02. Licensed CC BY-NC 4.0.",
+    "current_state": "accessioned",
     "display": {
-      "credit_line": "Display permissions pending rights and registrar review.",
-      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/public/6529NM.2026.001.02.md",
-      "observed_at": "2026-08-01T14:58:31.905115Z",
-      "status": "not_assessed"
+      "status": "ready_with_conditions",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+      "credit_line": "Casey REAS, CENTURY #724; 6529 Network Museum, gift of punk6529, 6529NM.2026.001.02. Licensed CC BY-NC 4.0.",
+      "observed_at": "2026-08-02T06:30:00Z"
     },
-    "effective_at": "2026-08-01T22:55:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
     "evidence_grade": "A for custody; B for artist/platform statements; C for technical observation.",
     "evidence_refs": [
       {
@@ -111,7 +111,7 @@
     ],
     "generator_snapshot": {
       "dependency_observed": "p5.js 1.0.0 via cdnjs",
-      "preservation_gate": "generator bytes, dependencies, and render capture pending",
+      "preservation_gate": "active stewardship action: retain the assembled generator, exact project script, dependencies, on-chain inputs, and a reproducible render environment",
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
       "status": "observation_only",
@@ -119,8 +119,8 @@
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
-      "documentation_surrogate": "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy.",
-      "interpretive_boundary": "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion.",
+      "documentation_surrogate": "The initial official static PNG and two full-viewport screenshot hashes document time-specific surrogates. The bytes were not retained in the initial public package; CC BY-NC 4.0 now authorizes noncommercial retention with attribution, and capture is an approved preservation action.",
+      "interpretive_boundary": "This Museum observation fixes two observed states and supports the reviewed amber technical assessment; it is not an artist-intent claim, proof of determinism, or a declaration that autonomous preservation is complete.",
       "live_behavior_observation": "The official generator observation completed at 2026-08-01T23:34:27.653Z; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial.",
       "observed_at": "2026-08-01T23:34:27.653Z",
       "static_visual_observation": "Museum observation of the captured surrogate: large cream ground, rust semicircles, and sparse dark partitions concentrated in the lower field.",
@@ -136,13 +136,13 @@
       "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5"
     },
     "object_id": "6529NM.2026.001.02",
-    "observed_at": "2026-08-01T22:55:00Z",
-    "payload_sha256": "sha256:54e408fd1d62daa61246dc3184f26bd5204f7b9c2c13a07d4720c9f5bb81d01c",
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:03a2c3f7ebd87ab812cd3ad524d073db9393ed413ebe5eb37659b553b7a1bc48",
     "preservation": {
       "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
-      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
-      "render_environment": "Not yet fixed; generator capture and two-environment render verification remain open.",
+      "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
       "status": "in_progress"
     },
     "project": {
@@ -155,44 +155,75 @@
       "script_type_and_version": "p5@1.0.0"
     },
     "record_id": "6529NM.2026.001.02",
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "record_type": "WORK_DESCRIPTION",
-    "record_version": "1.0.0",
+    "record_version": "1.1.0",
     "references": [
+      "6529NM-ACC-2026-001",
+      "6529NM.2026.001.COND.02",
+      "6529NM.2026.001.RIGHTS.02",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
     "rights": {
-      "ai_training": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
-      },
-      "derivative_use": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
-      },
-      "exhibition": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
-      },
-      "print": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
+      "reproduction": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial reproduction and sharing with attribution, license notice/link, change marking, no endorsement, and no additional downstream restrictions."
       },
       "publication": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial collection, scholarly, educational, and public communication with the required attribution and notices."
       },
-      "reproduction": {
-        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
-        "grant_status": "unspecified",
-        "observed_at": "2026-08-01T14:58:31.905115Z"
+      "exhibition": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial public display and sharing with attribution, license notice/link, no endorsement, and no additional downstream restrictions."
+      },
+      "print": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial labels, study prints, conservation references, catalogues, and publications; commercial merchandise is not approved."
+      },
+      "derivative_use": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial adapted material; modifications and prior modifications must be identified when shared."
+      },
+      "ai_training": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "To the extent copyright permission is required, CC BY-NC 4.0 permits Museum reproduction or adaptation for noncommercial research, cataloguing, conservation, and analysis; commercial model training is not approved."
+      },
+      "preservation": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial preservation copies in any medium and technical modifications necessary to exercise the licensed rights."
+      },
+      "migration_emulation": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits technical modifications and noncommercial adaptations needed for migration and emulation, subject to attribution and change marking when shared."
+      },
+      "accessibility": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+        "basis": "CC BY-NC 4.0 permits noncommercial accessible renditions and adaptations with attribution, license notice/link, and change marking."
       }
     },
     "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
@@ -233,21 +264,31 @@
         ],
         "observed_at": "2026-08-01T22:55:00Z",
         "state": "received_onchain"
+      },
+      {
+        "state": "accessioned",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-001",
+          "6529NM.2026.001.GAA-01",
+          "6529NM.2026.001.RIGHTS.02",
+          "6529NM.2026.001.COND.02"
+        ]
       }
     ],
     "subject_id": "6529NM.2026.001.02",
     "title": "CENTURY #724",
     "title_binding": {
-      "basis": "Custody receipt is recorded separately; no public legal title instrument or deed hash is recorded.",
-      "block_number": null,
-      "bound_at": null,
-      "custodian_reference": "networkmuseum.6529.eth",
-      "from": null,
-      "instrument_sha256": null,
       "object_id": "6529NM.2026.001.02",
-      "status": "pending",
-      "to": null,
-      "transfer_transaction": null
+      "status": "executed",
+      "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+      "custodian_reference": "networkmuseum.6529.eth",
+      "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+      "block_number": 25660311,
+      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "bound_at": "2026-08-01T22:55:00.002Z",
+      "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {
       "status": "transparent_linked_descriptors_available",
@@ -346,13 +387,11 @@
       }
     },
     "uncertainties": [
-      "On-chain custody is not a legal title opinion.",
-      "Historical events without retained per-event receipt evidence are indexer_observed.",
-      "HTTP metadata and generator routes may change.",
-      "No display, reproduction, copyright, or preservation grant is asserted.",
-      "The controlled state acquired records the Museum's formally accepted administrative acquisition decision; it is not an executed title instrument, and title_binding remains pending."
+      "The exact self-contained generator and complete dependency bundle are not yet retained.",
+      "Cross-environment reproducibility and the full documented interaction set have not yet been verified."
     ],
     "visibility": "public",
-    "visual_observation_record": "6529NM.2026.001.VO-01"
+    "visual_observation_record": "6529NM.2026.001.VO-01",
+    "state_history_semantics": "state_history.observed_at records when the Museum's evidence and administrative record substantiated a workflow state; the underlying chain receipt retains its separate block_time."
   }
 }

@@ -5,7 +5,7 @@
     "subjectId": "0xfaab2f7a756edc1e814efa153552ac03f3950bb8a33a115058e91defaf6a55d1",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xfad9bb0e676f9840572a7b76207cc97b3b01698c7c90830a0de8c6667116bf7f",
+      "digest": "0x759716cd7de2a8fd151026b6e08029e9a72b8ce9bee91d8c71132f9d82908797",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleprogram",
@@ -28,15 +28,28 @@
     "created_at": "2026-08-01T00:00:00Z",
     "observed_at": "2026-08-01T00:00:00Z",
     "effective_at": "2026-08-01T00:00:00Z",
-    "constructor": {"id": "program-authority", "role": "program_authority", "observed_at": "2026-08-01T00:00:00Z"},
-    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
-    "references": ["6529NM-COL-autoglyphs"],
+    "constructor": {
+      "id": "program-authority",
+      "role": "program_authority",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "museum-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
+    "references": [
+      "6529NM-COL-autoglyphs"
+    ],
     "program_id": "6529NM-AP-01",
     "title": "Keys and Gates",
     "status": "selection_complete",
     "curatorial_premise": "Photographs of access, control, and exit.",
     "acquisition_method": "purchase",
     "rights_requirement": "CC0 only",
-    "selection_mechanism": "Recorded program selection process with an attributable reviewer."
+    "selection_mechanism": "Recorded program selection process with an attributable reviewer.",
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:006daf6ff2a9b9b93265c18875b1e0cbfd8c846fe5a34119bbcfd9d82bbb0e6a"
   }
 }

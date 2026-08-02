@@ -5,7 +5,7 @@
     "subjectId": "0xed0ede77c4e4a7c1a8856b51afb1b996fa5d463411b19112042b478a9ab078f6",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x3de26a8a91196f2d5d8fb97f4012fd18c635bb3b40e339071c3a47725dae43a7",
+      "digest": "0x19495f8410c6dabbe835e3aacc1f2b7ab739f2de658954ae8fb255fbf6fa6dfc",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleobject",
@@ -28,9 +28,20 @@
     "created_at": "2026-08-01T00:00:00Z",
     "observed_at": "2026-08-01T00:00:00Z",
     "effective_at": "2026-08-01T00:00:00Z",
-    "constructor": {"id": "registrar", "role": "registrar", "observed_at": "2026-08-01T00:00:00Z"},
-    "reviewer": {"id": "conservator", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
-    "references": ["6529NM.2026.001", "6529NM-GOV-1052604"],
+    "constructor": {
+      "id": "registrar",
+      "role": "registrar",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "conservator",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
+    "references": [
+      "6529NM.2026.001",
+      "6529NM-GOV-1052604"
+    ],
     "object_id": "6529NM.2026.001.1",
     "accession_lot_id": "6529NM.2026.001",
     "title": "Example Work #1",
@@ -48,7 +59,10 @@
       "custody_account": "eip155:1:0x2222222222222222222222222222222222222222",
       "custody_status": "verified",
       "custody_verified_at": "2026-08-01T00:00:00Z",
-      "custody_block": 12345678
+      "custody_block": 12345678,
+      "custody_receipt_transaction": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "custody_receipt_block": 12345678,
+      "custody_receipt_log": 0
     },
     "title_binding": {
       "status": "executed",
@@ -58,15 +72,56 @@
       "block_number": 12345678,
       "from": "0x3333333333333333333333333333333333333333",
       "to": "0x2222222222222222222222222222222222222222",
-      "bound_at": "2026-08-01T00:00:00Z"
+      "bound_at": "2026-08-01T00:00:00Z",
+      "object_id": "6529NM.2026.001.1",
+      "basis": "Fixture executed title instrument."
     },
     "rights": {
-      "reproduction": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "publication": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "exhibition": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "print": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "derivative_use": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"},
-      "ai_training": {"grant_status": "granted", "basis": "CC0 statement", "observed_at": "2026-08-01T00:00:00Z"}
+      "reproduction": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "publication": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "exhibition": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "print": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "derivative_use": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "ai_training": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "preservation": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "migration_emulation": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      },
+      "accessibility": {
+        "grant_status": "granted",
+        "basis": "CC0 statement",
+        "observed_at": "2026-08-01T00:00:00Z"
+      }
     },
     "condition": {
       "token": "green",
@@ -83,15 +138,69 @@
     },
     "current_state": "display_ready",
     "state_history": [
-      {"state": "offered", "observed_at": "2026-07-01T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "authorized", "observed_at": "2026-07-02T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "acquired", "observed_at": "2026-07-03T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "received_onchain", "observed_at": "2026-07-04T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "accessioned", "observed_at": "2026-07-05T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "catalogued", "observed_at": "2026-07-06T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "technically_verified", "observed_at": "2026-07-07T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "preservation_complete", "observed_at": "2026-07-08T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]},
-      {"state": "display_ready", "observed_at": "2026-07-09T00:00:00Z", "evidence_refs": ["6529NM-GOV-1052604"]}
+      {
+        "state": "offered",
+        "observed_at": "2026-07-01T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "authorized",
+        "observed_at": "2026-07-02T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "acquired",
+        "observed_at": "2026-07-03T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "received_onchain",
+        "observed_at": "2026-07-04T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "accessioned",
+        "observed_at": "2026-07-05T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "catalogued",
+        "observed_at": "2026-07-06T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "technically_verified",
+        "observed_at": "2026-07-07T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "preservation_complete",
+        "observed_at": "2026-07-08T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      },
+      {
+        "state": "display_ready",
+        "observed_at": "2026-07-09T00:00:00Z",
+        "evidence_refs": [
+          "6529NM-GOV-1052604"
+        ]
+      }
     ],
     "preservation": {
       "status": "complete",
@@ -105,6 +214,10 @@
       "manifest_uri": "ipfs://bafybeigdyrzt5exampleiiif",
       "credit_line": "Example Artist, Example Work #1. 6529 Network Museum, 2026.",
       "observed_at": "2026-08-01T00:00:00Z"
-    }
+    },
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "state_history_semantics": "Fixture workflow observation semantics.",
+    "payload_sha256": "sha256:446ab0512dc8653c34252b234bc0338b0f5675a354d949a403ec7664d2791749"
   }
 }

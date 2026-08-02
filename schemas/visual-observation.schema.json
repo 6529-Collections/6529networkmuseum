@@ -21,6 +21,7 @@
           "enum": [
             "retained",
             "not_retained_pending_rights_and_preservation_review",
+            "not_retained_rights_cleared_preservation_action_open",
             "not_retained_other_documented_reason"
           ]
         },
@@ -122,8 +123,8 @@
       "properties": {
         "record_type": {"const": "VISUAL_OBSERVATION"},
         "schema_id": {"const": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4"},
-        "record_status": {"const": "constructed"},
-        "review_status": {"const": "pending_independent_review"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
         "observation_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.VO-\\d{2}$"},
         "observation_kind": {"const": "static_and_live_visual_observation"},
         "accession_lot_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"},

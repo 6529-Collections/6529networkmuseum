@@ -400,7 +400,8 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
         title_event = events[3]
         custody_event = events[4]
         instrument = title_event.get("instrument") if isinstance(title_event.get("instrument"), dict) else {}
-        custody_path = custody_event.get("custody_path") if isinstance(custody_event.get("custody_path"), dict) else {}
+        custody_paths = custody_event.get("custody_paths")
+        custody_paths = custody_paths if isinstance(custody_paths, list) and all(isinstance(path, dict) for path in custody_paths) else []
         object_ids = payload.get("object_ids")
         bindings = payload.get("title_bindings")
         if isinstance(object_ids, list) and isinstance(bindings, list):
@@ -416,19 +417,23 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
                     issues.append("ACCESSION title_passage instrument sha256 must match every title binding")
                 if isinstance(binding, dict) and instrument.get("custodian_reference") and binding.get("custodian_reference") != instrument.get("custodian_reference"):
                     issues.append("ACCESSION title_passage custodian_reference must match every title binding")
-        if instrument.get("kind") != "off_chain_instrument":
-            issues.append("ACCESSION title_passage must identify an off_chain_instrument")
-        if custody_path.get("kind") != "non_token_off_chain":
-            issues.append("ACCESSION custody_receipt must identify a non_token_off_chain custody path")
-        if instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
-            issues.append("ACCESSION custody_receipt instrument_reference must match title_passage instrument.reference")
+        if instrument.get("kind") not in {"off_chain_instrument", "institutional_gift_title_declaration"}:
+            issues.append("ACCESSION title_passage must identify a supported title instrument")
         executed_bindings = [binding for binding in bindings if isinstance(binding, dict) and binding.get("status") == "executed"] if isinstance(bindings, list) else []
-        path_object_id = custody_path.get("object_id")
-        matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == path_object_id]
-        if len(matching_bindings) != 1:
-            issues.append("ACCESSION custody_path must identify exactly one executed title binding by object_id")
-        else:
+        path_ids = [path.get("object_id") for path in custody_paths]
+        if not custody_paths or len(path_ids) != len(set(path_ids)) or set(path_ids) != set(payload.get("object_ids", [])):
+            issues.append("ACCESSION custody_paths must identify exactly one path per object_id")
+        for custody_path in custody_paths:
+            matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == custody_path.get("object_id")]
+            if len(matching_bindings) != 1:
+                issues.append("ACCESSION custody_path must identify exactly one executed title binding by object_id")
+                continue
             binding = matching_bindings[0]
+            expected_kind = "onchain_token" if binding.get("transfer_transaction") else "non_token_off_chain"
+            if custody_path.get("kind") != expected_kind:
+                issues.append(f"ACCESSION custody_path.kind must be {expected_kind} for its title binding")
+            if expected_kind == "non_token_off_chain" and instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
+                issues.append("ACCESSION off-chain custody_path.instrument_reference must match title_passage instrument.reference")
             for field in ("from", "to", "custodian_reference"):
                 if custody_path.get(field) != binding.get(field):
                     issues.append(f"ACCESSION custody_path.{field} must match the executed title binding")
@@ -459,7 +464,8 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
     )
     for label, projection in projections:
         values = [projection(asset) for asset in assets]
-        if len(values) != len(set(values)):
+        frozen = [json.dumps(value, sort_keys=True, separators=(",", ":"), default=str) for value in values]
+        if len(frozen) != len(set(frozen)):
             issues.append(f"GIFT_ACCEPTANCE_AUTHORIZATION.assets contains duplicate {label}")
     if receipt.get("transfer_count") != len(assets):
         issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
@@ -498,24 +504,25 @@ def validate_visual_observation(payload: dict[str, Any]) -> list[str]:
             issues.append(f"{prefix}.live_capture.source_url must equal raw_metadata_source.generator_url")
         frames = live.get("frames")
         if not isinstance(frames, list) or len(frames) != 2 or not all(isinstance(frame, dict) for frame in frames):
-            continue
-        if [frame.get("frame_index") for frame in frames] != [1, 2]:
-            issues.append(f"{prefix}.live_capture.frames must be ordered 1, 2")
-        captured_times = [frame.get("captured_at") for frame in frames]
-        if all(isinstance(value, str) for value in captured_times):
-            try:
-                first = parse_time(captured_times[0], f"{prefix}.live_capture.frames[0].captured_at")
-                second = parse_time(captured_times[1], f"{prefix}.live_capture.frames[1].captured_at")
-                minimum_wait = live.get("minimum_wait_between_frames_ms")
-                if not isinstance(minimum_wait, int) or int((second - first).total_seconds() * 1000) < minimum_wait:
-                    issues.append(f"{prefix}.live_capture frame timestamps must span at least minimum_wait_between_frames_ms")
-            except ValueError as exc:
-                issues.append(str(exc))
-        elif captured_times != [None, None]:
-            issues.append(f"{prefix}.live_capture frame timestamps must be both known or both null")
-        hashes_differ = frames[0].get("screenshot_sha256") != frames[1].get("screenshot_sha256")
-        if live.get("changed") != hashes_differ:
-            issues.append(f"{prefix}.live_capture.changed must equal screenshot hash inequality")
+            issues.append(f"{prefix}.live_capture.frames must contain exactly two frame objects")
+        else:
+            if [frame.get("frame_index") for frame in frames] != [1, 2]:
+                issues.append(f"{prefix}.live_capture.frames must be ordered 1, 2")
+            captured_times = [frame.get("captured_at") for frame in frames]
+            if all(isinstance(value, str) for value in captured_times):
+                try:
+                    first = parse_time(captured_times[0], f"{prefix}.live_capture.frames[0].captured_at")
+                    second = parse_time(captured_times[1], f"{prefix}.live_capture.frames[1].captured_at")
+                    minimum_wait = live.get("minimum_wait_between_frames_ms")
+                    if not isinstance(minimum_wait, int) or int((second - first).total_seconds() * 1000) < minimum_wait:
+                        issues.append(f"{prefix}.live_capture frame timestamps must span at least minimum_wait_between_frames_ms")
+                except ValueError as exc:
+                    issues.append(str(exc))
+            elif captured_times != [None, None]:
+                issues.append(f"{prefix}.live_capture frame timestamps must be both known or both null")
+            hashes_differ = frames[0].get("screenshot_sha256") != frames[1].get("screenshot_sha256")
+            if live.get("changed") != hashes_differ:
+                issues.append(f"{prefix}.live_capture.changed must equal screenshot hash inequality")
         for capture_name, capture in (("static_capture", static), ("live_capture", live)):
             retention = capture.get("retention")
             if not isinstance(retention, dict):

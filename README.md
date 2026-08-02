@@ -67,7 +67,7 @@ Raw evidence hashes and canonical record commitments are intentionally separate 
 
 ## Public and restricted records
 
-This repository contains public institutional records only. Never commit private donor contact details, non-public legal instruments, tax/appraisal material, Safe internals, hardware-wallet details, private storage locations, credentials, private keys, seed phrases, or raw signatures. Public records may contain a hash and a non-sensitive custodian reference to a restricted instrument.
+This repository contains public institutional records only. Never commit private donor contact details, non-public legal instruments, tax/appraisal material, Safe internals, hardware-wallet details, private storage locations, credentials, private keys, seed phrases, or non-public execution/signing payloads. Publicly issued upstream authenticity attestations may be retained verbatim as inert, content-addressed source evidence; they are never Museum signatures, signing authority, or executable instructions. Public records may contain a hash and a non-sensitive custodian reference to a restricted instrument.
 
 ## Source priority
 

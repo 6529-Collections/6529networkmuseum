@@ -61,7 +61,7 @@
         "supersession_reason": {"type": "string", "minLength": 1},
         "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/evidenceRef"}, "uniqueItems": true}
       },
-      "required": ["record_id", "record_type", "schema_id", "subject_id", "visibility", "record_version", "created_at", "observed_at", "effective_at", "constructor", "reviewer"],
+      "required": ["record_id", "record_type", "schema_id", "subject_id", "visibility", "record_version", "created_at", "observed_at", "effective_at", "constructor", "reviewer", "record_status", "review_status", "payload_sha256"],
       "allOf": [
         {
           "if": {"required": ["supersedes"]},

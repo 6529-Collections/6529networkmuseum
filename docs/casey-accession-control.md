@@ -1,60 +1,29 @@
-# Casey Reas accession control note
+# Casey REAS accession package
 
-Lot `6529NM.2026.001` is a constructed `ACCESSION_LOT` record for the
-formally accepted gift of seven Casey REAS Art Blocks tokens. Its controlled
-workflow state is `received_onchain`; accession completion remains
-`not_complete`.
+Lot `6529NM.2026.001` is the completed accession of seven Casey REAS Art Blocks works donated by punk6529. The gift was formally accepted on 2026-08-01 and the reviewed permanent-collection accession became effective on 2026-08-02. The lot and all seven object records are `accessioned`; the machine-readable completion record is `6529NM-ACC-2026-001`.
 
-`6529NM.2026.001.GAA-01` is a dated, formally effective Gift Acceptance and
-Accession Authorization under the adopted Art Blocks preapproval and Donation
-Acceptance Policy. Its user-authorized institutional acceptance decision is not
-provisional: `record_status: constructed` and pending independent review refer
-to documentation QA, not to whether the stated acceptance occurred. It is not
-title passage, a rights approval, condition approval, curatorial approval,
-display authorization, or a Stream-equivalent accession completion certificate.
-The adopted pathway does not waive ordinary title, rights, diligence, technical,
-preservation, or review gates.
+## Institutional conclusions
 
-Every Casey envelope payload carries a `payload_sha256` commitment computed as
-SHA-256 over RFC 8785 canonical JSON after excluding the commitment field
-itself. The envelope also carries the Stream-compatible Keccak content hash.
-The validator binds the lot schedule to all seven object CAIP-19 identities,
-the common seven-log receipt, receipt blocks/times/log indices, verified
-custody, pending title bindings, unspecified rights, condition records, source
-heads, and the content-addressed evidence manifest. Historical transfer events
-are `indexer_observed` unless retained per-event receipt/block evidence exists;
-the common museum receipt is `direct_rpc_verified`.
+- The Museum owns the seven exact tokens and the donor's full transferable interest in them. Every object has an executed title binding joined to the common transfer transaction, block, sender, Museum destination, and object-specific log.
+- Token ownership does not transfer Casey REAS's copyright. Every retained Art Blocks metadata response states `CC BY-NC 4.0`. The reviewed rights matrix authorizes noncommercial exhibition, reproduction, publication, print, adaptation, preservation, migration/emulation, accessibility work, and Museum computational research subject to attribution and license conditions. Commercial use is not approved.
+- The curatorial case is approved. The artist profile, collection essay, curatorial review, and seven object records establish the artist's historical importance, the significance and limits of this five-project group, and the specific contribution of each work.
+- Technical and condition review passes with conditions. Token identity and metadata fixity are green. Generator packaging, dependency capture, cross-environment rendering, behavior coverage, documentation-byte retention, and autonomous preservation are amber active stewardship areas. No red condition or unassessed accession domain remains.
+- Current official generators are approved for noncommercial display with attribution, tested network/browser conditions, monitoring, and a labelled fallback surrogate.
 
-Raw metadata response bytes are retained under
-[`evidence/casey-reas/manifest.json`](../evidence/casey-reas/manifest.json).
-The same manifest retains the exact
-[`eth_getTransactionReceipt` response](../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json)
-and its separate [request/acquisition record](../evidence/casey-reas/raw/rpc/receipt-acquisition.json).
-This is one observed RPC-provider response, not an independent-provider quorum.
-Generator response bytes, project/dependency capture, render comparison,
-recovery testing, durable replica assignment, and independent technical review
-remain explicit preservation gates. The Ex Nihilo object retains Art Blocks raw
-fields (`engine_type=studio`, `project_id=0`, `tokenID=248`) separately from its
-decoded invocation `248`.
+## Reproducible evidence
 
-The retained upstream metadata is verbatim by design. Public artist/collection
-royalty-routing wallet fields and authenticity signatures are preserved solely
-for source fidelity; they are not donor PII, identity inference, Museum title,
-rights, or a current payment instruction. Historical counterparty wallet
-addresses are published solely for reproducible provenance, with no identity
-inference. The public boundary therefore preserves source bytes while keeping
-donor identity, title, rights, and payment claims separate and unresolved.
+Every Stream-compatible envelope payload carries a SHA-256 commitment over RFC 8785 canonical JSON after excluding the commitment field itself, plus the envelope's Keccak content hash. The accession certificate preserves the ordered receipt, acceptance, acquisition, title-passage, custody-receipt, and accession events and binds all seven object-specific title and custody paths.
 
-The lot envelope has `reviewer: null` and zero Stream `signatureScheme` and
-`signatureHash` placeholders. The constructor control explicitly labels these
-as unsigned placeholders, never independent approval, an executed title
-instrument, completed Stream accession, rights grant, or signed authority. The
-formal gift authorization remains effective, while the lot remains
-`received_onchain` / `not_complete` until the completion certificate and all
-remaining gates are completed.
+The [evidence manifest](../evidence/casey-reas/manifest.json) retains exact raw Art Blocks metadata bytes, acquisition metadata, and the complete [`eth_getTransactionReceipt` response](../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json). This is a direct, fixed response from one recorded RPC observation, not a multi-provider quorum. The validator decodes the receipt and joins the seven ERC-721 `Transfer` logs to the accession lot, provenance schedule, object records, title bindings, custody paths, and public inventory.
 
-Transparent linked descriptors are available from the published Casey source package and are reproducible from its published frozen snapshots, method, configuration, and content hashes. They use no OpenSea or marketplace metrics and make no aesthetic, quality, value, or ranking claim. The dossier is intentionally left with `reviewer: null`; independent review and integration—not constructor self-review—control the next decision.
+The controlled visual observation `6529NM.2026.001.VO-01` fixes the source URLs, response and screenshot hashes, byte sizes, viewport and canvas dimensions, ordered object schedule, and timing limitations. The initial PNG and screenshot bytes were not retained and cannot be recreated as if they were the original observations. CC BY-NC 4.0 now authorizes a new attributed preservation capture, which must be dated and identified separately. Static times remain local post-write completion proxies; the 1500-millisecond value remains a commanded minimum wait; per-frame timestamps, browser version, and user agent were not captured.
 
-Evidence is intentionally two-level: the artwork-source bytes are anchored by `published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the reviewed package/toolchain release is anchored by `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256 `c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`, and release SHA-256 `d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`. Exact commit URLs and content hashes identify this immutable evidence basis; later current-package revisions must not silently rewrite it.
+Public artist/collection royalty-routing fields and upstream authenticity attestations remain in the raw metadata solely for verbatim source fidelity. They are inert, content-addressed evidence—not Museum signatures, title instruments, payment instructions, or identity inferences.
 
-The controlled visual observation `6529NM.2026.001.VO-01` binds all seven objects to their retained raw-metadata bytes and source image/generator URLs. Static response and live viewport hashes and byte sizes are recorded, but the PNG and screenshot bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will therefore require a future rights-cleared derivative or a controlled restricted copy. Static times are downloaded-file `LastWriteTimeUtc` completion proxies; live times were recorded after both screenshots and hashing. The 1500-millisecond value is a commanded minimum wait, not exact elapsed duration, and per-frame times, browser version, and user-agent remain unknown. This record is evidence class C only—not a condition report, full generator capture, determinism proof, or preservation completion.
+## Trait and distribution analysis
+
+The published descriptors are reproducible from frozen collection snapshots, a published method and configuration, and exact content hashes. They use the Museum's transparent NextGen-compatible distribution method. No OpenSea or other marketplace rarity metric is used, and no descriptor makes an aesthetic, quality, value, or ranking claim.
+
+## Continuing collection care
+
+The Museum will retain attributed documentation captures, assemble self-contained project scripts and dependencies, test each work in materially distinct render environments, exercise documented controls, maintain redundant replicas and recovery tests, verify fixity and custody, and enrich provenance when new evidence appears. These are standing duties for accessioned software art. They do not reopen the completed accession decision unless new evidence identifies a material title, rights, authenticity, condition, or compliance problem.

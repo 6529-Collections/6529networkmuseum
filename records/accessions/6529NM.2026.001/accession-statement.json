@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3781fe2bc67a69cbc03d32d425c4145b78f97c6e2f09be91d0b8a09a00c9869f"
+      "digest": "0x47f18c2f18d62df5a9b0e4ba2bce5b4b2ae02ee1abc62e173046fcd21e1bbf21"
     },
-    "effectiveAt": 1785596311,
+    "effectiveAt": 1785652200,
     "recordType": "ACCESSION_LOT",
     "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "signatureHash": {
@@ -21,7 +21,7 @@
   "payload": {
     "acceptance_date": "2026-08-01T22:55:00Z",
     "accession_number": "6529NM.2026.001",
-    "accession_status": "not_complete",
+    "accession_status": "complete",
     "acquisition_method": "donation",
     "collection_curatorial_statement": {
       "artist_statement": {
@@ -151,146 +151,154 @@
           ],
           "integrity_note": "Content hashes and exact blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68 URLs are immutable evidence anchors; tree/main and blob/main are reserved for intentionally mutable living-document links."
         }
-      }
+      },
+      "review_outcome": "approved_for_permanent_collection",
+      "review_record": "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
+      "reviewed_at": "2026-08-02T06:30:00Z",
+      "reviewer": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "institutional_author": "6529 Network Museum, Curatorial Department",
+      "decision_authority": "direct Museum-authorized collection authority recorded in 6529NM.2026.001.GAA-01",
+      "documentation_role": "The reviewer identifier records independent documentary QA and is not the institutional decision maker."
     },
     "constructor": {
       "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "observed_at": "2026-08-01T14:58:31.905115Z",
       "role": "constructor"
     },
-    "constructor_controls": {
-      "completion_decision": {
-        "reason": "Formal gift/accession authorization is complete; the Stream completion certificate, title, rights, condition, preservation, display, and independent review gates remain open.",
-        "status": "not_complete"
-      },
-      "constructor": {
-        "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
-        "constructed_at": "2026-08-01T14:58:31.905115Z",
-        "role": "constructor",
-        "source_head": "7193bfb9a0a6ead1871180b931aced755676b327"
-      },
-      "independent_review_required": true,
-      "merge_authority": null,
-      "record_id": "6529NM.2026.001-CONTROLS01",
-      "review_status": "not_requested_in_record",
-      "reviewer": null,
-      "self_review_prohibited": true,
-      "signature_status": "unsigned_placeholder_not_authority",
-      "signature_semantics": "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, an executed title instrument, completed Stream accession, rights grant, or signed authority.",
-      "specialist_review": "not requested; dossier adds no executable fetch/ingest/parser tooling"
-    },
     "controlled_decision": {
-      "acceptance_date_semantics": "formal gift/accession authorization timestamp; not a Stream-equivalent accession completion certificate or title passage",
+      "acceptance_date_semantics": "formal gift acceptance occurred at the stated acceptance timestamp; reviewed accession completion is recorded separately at 2026-08-02T06:30:00Z",
       "basis": [
         "6529NM.2026.001.GAA-01 formal Gift Acceptance and Accession Authorization",
         "Seven-token successful receipt into the ENS-resolved custody address",
         "6529NM-GOV-1052156 adopted Art Blocks preapproval",
         "6529NM-POL-003 donation acceptance policy"
       ],
-      "completion_status": "not_complete",
-      "current_state": "received_onchain",
-      "decision_authority": null,
-      "outcome": "formally_accepted_gift_and_accession_authorization",
-      "rationale": "The adopted Art Blocks preapproval and Donation Acceptance Policy, common receipt, and user-supplied donor/authority fact support formal acceptance of this gift. Title binding, rights, condition, preservation, technical verification, and independent review remain open."
+      "completion_status": "complete",
+      "current_state": "accessioned",
+      "decision_authority": "6529NM-ACC-2026-001",
+      "outcome": "approved_for_permanent_collection",
+      "rationale": "Exact identity and custody, the donor's full gift, executed title bindings, reviewed CC BY-NC 4.0 rights, a complete curatorial case, and pass-with-conditions technical findings support permanent-collection accession. Amber software-preservation work continues as stewardship.",
+      "accession_status": "complete"
     },
     "created_at": "2026-08-01T14:58:31.905115Z",
     "donation_rights_schedule": {
       "objects": [
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.01",
-          "rights_status": "unspecified",
-          "title": "CENTURY #31"
+          "rights_status": "reviewed_with_conditions",
+          "title": "CENTURY #31",
+          "rights_record": "6529NM.2026.001.RIGHTS.01"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.02",
-          "rights_status": "unspecified",
-          "title": "CENTURY #724"
+          "rights_status": "reviewed_with_conditions",
+          "title": "CENTURY #724",
+          "rights_record": "6529NM.2026.001.RIGHTS.02"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.03",
-          "rights_status": "unspecified",
-          "title": "CENTURY #401"
+          "rights_status": "reviewed_with_conditions",
+          "title": "CENTURY #401",
+          "rights_record": "6529NM.2026.001.RIGHTS.03"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.04",
-          "rights_status": "unspecified",
-          "title": "Pre-Process #63"
+          "rights_status": "reviewed_with_conditions",
+          "title": "Pre-Process #63",
+          "rights_record": "6529NM.2026.001.RIGHTS.04"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.05",
-          "rights_status": "unspecified",
-          "title": "Phototaxis #308"
+          "rights_status": "reviewed_with_conditions",
+          "title": "Phototaxis #308",
+          "rights_record": "6529NM.2026.001.RIGHTS.05"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.06",
-          "rights_status": "unspecified",
-          "title": "923 EMPTY ROOMS #713"
+          "rights_status": "reviewed_with_conditions",
+          "title": "923 EMPTY ROOMS #713",
+          "rights_record": "6529NM.2026.001.RIGHTS.06"
         },
         {
-          "donation_status": "received_onchain",
+          "donation_status": "accessioned",
           "object_id": "6529NM.2026.001.07",
-          "rights_status": "unspecified",
-          "title": "Ex Nihilo (Cosmos) #248"
+          "rights_status": "reviewed_with_conditions",
+          "title": "Ex Nihilo (Cosmos) #248",
+          "rights_record": "6529NM.2026.001.RIGHTS.07"
         }
       ],
       "policy_basis": [
         "6529NM-GOV-1052156 adopted Art Blocks preapproval",
         "6529NM-POL-003 donation acceptance policy"
       ],
-      "public_summary": "The seven identified Casey REAS Art Blocks tokens are formally accepted as a gift under 6529NM.2026.001.GAA-01 and remain received_onchain. This is not a title, rights, condition, preservation, or Stream accession-completion conclusion.",
+      "public_summary": "The Museum owns the seven tokens and the donor's full transferable interest. Copyright remains separate. Object-specific CC BY-NC 4.0 metadata supports the reviewed noncommercial exhibition, documentation, publication, print, adaptation, preservation, migration/emulation, accessibility, and internal computational-research uses subject to license conditions.",
       "restricted_instrument_ref": {
-        "content_hash": null,
-        "custodian": "registrar_to_assign",
+        "content_hash": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian": "6529 Network Museum registrar record",
         "hash_algorithm": "sha256",
-        "note": "No deed or instrument hash is asserted or invented.",
-        "public_reference": "6529NM.2026.001-REG-ANNEX",
-        "status": "placeholder_not_recorded"
+        "note": "Public institutional title declaration recording the accepted full gift, exact transfer, seven token identities, copyright boundary, and accepted residual private-claim risk.",
+        "public_reference": "6529NM.2026.001.TITLE-01",
+        "status": "executed_institutional_title_declaration"
       },
       "rights_matrix": [
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.01"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.01",
+          "rights_record": "6529NM.2026.001.RIGHTS.01"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.02"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.02",
+          "rights_record": "6529NM.2026.001.RIGHTS.02"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.03"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.03",
+          "rights_record": "6529NM.2026.001.RIGHTS.03"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.04"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.04",
+          "rights_record": "6529NM.2026.001.RIGHTS.04"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.05"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.05",
+          "rights_record": "6529NM.2026.001.RIGHTS.05"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.06"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.06",
+          "rights_record": "6529NM.2026.001.RIGHTS.06"
         },
         {
-          "basis": "No public rights instrument recorded.",
-          "grant_status": "unspecified",
-          "object_id": "6529NM.2026.001.07"
+          "basis": "Object-specific retained Art Blocks metadata states CC BY-NC 4.0; the reviewed rights record defines the licensed material, approved noncommercial uses, attribution duties, and excluded commercial rights.",
+          "grant_status": "granted_with_conditions",
+          "license": "CC BY-NC 4.0",
+          "object_id": "6529NM.2026.001.07",
+          "rights_record": "6529NM.2026.001.RIGHTS.07"
         }
       ]
     },
-    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "effective_at": "2026-08-02T06:30:00Z",
     "evidence_grade": "A/B/C",
     "evidence_refs": [
       {
@@ -319,13 +327,12 @@
       "6529NM-GOV-1052156",
       "6529NM-GOV-1052812"
     ],
-    "intake_status": "received_onchain",
+    "intake_status": "accessioned",
     "non_claims": [
-      "Formal gift acceptance is limited to 6529NM.2026.001.GAA-01 and does not substitute for a Stream-equivalent accession completion certificate or title binding.",
-      "No copyright, reproduction, commercial, exhibition, print, derivative, AI-training, display, or preservation right is granted.",
-      "No deed, legal title opinion, valuation, market, rarity, or tax claim is made.",
-      "No OpenSea metric or marketplace rarity claim is used.",
-      "The seven objects are a focused sample, not a complete CENTURY set or Casey REAS retrospective."
+      "Token ownership is not represented as copyright ownership.",
+      "No OpenSea or other marketplace rarity metric, valuation, aesthetic ranking, or quality score is used.",
+      "The three CENTURY works support comparative study but the seven-work lot is not represented as a comprehensive survey of Casey REAS's practice.",
+      "Amber preservation findings are not represented as autonomous software-preservation completion."
     ],
     "object_identities": [
       {
@@ -394,8 +401,8 @@
       "6529NM.2026.001.06",
       "6529NM.2026.001.07"
     ],
-    "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:032adea59c8c14926fab35c3f1c865379066cacd9417d285221e0c00a4ec36c4",
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:8fcbb2d84a88a45970ae2d9d114dd2af4ce9d5e38037c5dfd68ca8bb5549d0b3",
     "preservation_manifest": {
       "manifest_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
@@ -464,18 +471,16 @@
           "object_id": "6529NM.2026.001.07"
         }
       ],
-      "pending": [
-        "generator response bytes",
-        "project scripts and dependencies",
-        "two-environment render comparison",
-        "recovery test",
-        "independent technical review",
-        "durable replica assignment"
-      ],
       "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "raw_metadata_status": "captured_and_content_addressed",
       "status": "in_progress",
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780"
+      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "active_stewardship_actions": [
+        "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
+        "complete two-environment render, interaction, timing, and reset verification",
+        "retain attributed static and live documentation captures with fixity",
+        "assign durable replicas and complete periodic fixity and recovery tests"
+      ]
     },
     "provenance_schedule": {
       "accession_lot_id": "6529NM.2026.001",
@@ -1085,7 +1090,7 @@
         "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
         "inventory_number": "6529NM.2026.001.01",
         "public_page": "public/6529NM.2026.001.01.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "CENTURY #31"
       },
       {
@@ -1093,7 +1098,7 @@
         "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
         "inventory_number": "6529NM.2026.001.02",
         "public_page": "public/6529NM.2026.001.02.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "CENTURY #724"
       },
       {
@@ -1101,7 +1106,7 @@
         "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
         "inventory_number": "6529NM.2026.001.03",
         "public_page": "public/6529NM.2026.001.03.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "CENTURY #401"
       },
       {
@@ -1109,7 +1114,7 @@
         "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
         "inventory_number": "6529NM.2026.001.04",
         "public_page": "public/6529NM.2026.001.04.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "Pre-Process #63"
       },
       {
@@ -1117,7 +1122,7 @@
         "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
         "inventory_number": "6529NM.2026.001.05",
         "public_page": "public/6529NM.2026.001.05.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "Phototaxis #308"
       },
       {
@@ -1125,7 +1130,7 @@
         "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
         "inventory_number": "6529NM.2026.001.06",
         "public_page": "public/6529NM.2026.001.06.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "923 EMPTY ROOMS #713"
       },
       {
@@ -1133,7 +1138,7 @@
         "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
         "inventory_number": "6529NM.2026.001.07",
         "public_page": "public/6529NM.2026.001.07.md",
-        "status": "received_onchain",
+        "status": "accessioned",
         "title": "Ex Nihilo (Cosmos) #248"
       }
     ],
@@ -1178,22 +1183,15 @@
       "verification": "direct_rpc_verified"
     },
     "record_id": "6529NM.2026.001",
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "record_type": "ACCESSION_LOT",
-    "record_version": "1.0.0",
+    "record_version": "1.1.0",
     "references": [
       "6529NM.2026.001.GAA-01",
+      "6529NM-ACC-2026-001",
       "6529NM.2026.001.VO-01"
     ],
-    "remaining_gates": [
-      "Create an evidence-backed Stream-equivalent ACCESSION completion certificate and bind an executed title instrument to the exact seven identities and receipt.",
-      "Complete donor-authority, provenance, sanctions, dispute, and encumbrance diligence.",
-      "Record explicit rights bases and grant statuses; do not infer rights from custody or platform labels.",
-      "Capture generator bytes, project scripts, dependencies, and complete two-environment render/condition testing.",
-      "Complete the preservation package, recovery lineage, fixity verification, and durable replica assignment.",
-      "Resolve display permissions and approved public derivatives.",
-      "Obtain independent registrar/technical and curatorial review; constructor may not self-review."
-    ],
+    "remaining_gates": [],
     "restricted_registrar_annex": {
       "content": null,
       "instrument_sha256": null,
@@ -1202,8 +1200,12 @@
       "record_id": "6529NM.2026.001-REG-ANNEX",
       "visibility": "public_stub_only"
     },
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
     "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "source": {
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
@@ -1386,6 +1388,33 @@
         "integrity_note": "Content hashes and exact blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68 URLs are immutable evidence anchors; tree/main and blob/main are reserved for intentionally mutable living-document links."
       }
     },
-    "visibility": "public"
+    "visibility": "public",
+    "ongoing_stewardship_actions": [
+      {
+        "action": "retain rights-compliant static and live documentation bytes with attribution and fixity",
+        "status": "active",
+        "priority": "high"
+      },
+      {
+        "action": "capture project scripts, assembled generators, dependencies, and on-chain inputs in self-contained packages",
+        "status": "active",
+        "priority": "high"
+      },
+      {
+        "action": "verify each work in at least two materially distinct render environments and document controls",
+        "status": "active",
+        "priority": "high"
+      },
+      {
+        "action": "maintain redundant replicas, periodic fixity checks, recovery tests, and custody verification",
+        "status": "active",
+        "priority": "standing"
+      },
+      {
+        "action": "enrich earlier provenance and reassess material rights, technical, or display changes",
+        "status": "active",
+        "priority": "standing"
+      }
+    ]
   }
 }
