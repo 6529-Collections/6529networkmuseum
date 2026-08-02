@@ -1285,3 +1285,51 @@ does produce the final repository release commitments: Keccak-256
 `0x5c9471e01cb0b4b0a84424388df3be3e0214d839ee48db87cfc05f0a3f61d2b2`
 and SHA-256
 `e459c8e3bf4f19263b50cd27c8481078de85dee1a719715491fdd58d0dd5e12b`.
+
+## 2026-08-02 - Final factual-integrity remediation checkpoint
+
+Luna's exact-head variance review identified seven remaining documentary
+integrity defects after the earlier approvals: custody had been mislabeled as
+an offer; one certificate link did not bind the current accession-lot bytes;
+the descriptor ledger still said review was pending; INDEX statuses
+contradicted reviewed records; preservation actions admitted null entries;
+generator findings came from finalizer constants rather than an independent
+evidence object; and records retained a research head superseded by the
+923/924 correction.
+
+The next candidate resolves all seven in substance. Object lifecycle histories
+now begin offered only when the donor declaration substantiates the offer, at
+`2026-08-01T22:55:00Z`; the earlier Ethereum receipt remains a separately dated
+custody fact. The acquisition certificate binds the exact accession-statement
+bytes by immutable Git blob URI and SHA-256. The descriptor ledger is
+`complete_reviewed`, records two exact-head reviewers and five per-output
+approvals, and is enforced by the dossier validator. INDEX labels now match the
+reviewed records. The accession-lot schema closes and types the preservation
+manifest, and Casey validation requires the exact four substantive stewardship
+actions, so null or placeholder substitution fails closed.
+
+Generator findings now originate in the separately retained,
+manifest-bound `evidence/casey-reas/generator-observations.json` transcript.
+The finalizer and validator load it independently; the validator also pins its
+reviewed SHA-256 and requires every object and condition report to bind that
+exact transcript. The transcript expressly preserves the absence of raw
+generator bytes and therefore does not overstate autonomous preservation.
+Corrected art-technical and on-chain research bytes are hash-bound at commit
+`951f5afb95c511adaf879d017c662046ff6365b5`; superseded head
+`9f38bd4ba5f779540eabf2dfce019cc1382561e2` is rejected in canonical payloads.
+
+Focused negative controls now cover false offered chronology, an unhashable
+accession-lot citation, null preservation actions, mutated generator evidence,
+and a cleared descriptor review. Sixty-five focused tests pass with one
+expected Windows named-pipe skip; the 175-file Casey package verifies with
+SHA-256
+`2b2e7ce8897688fa8fde9137cf8f0c361e420d0799b6fbb9b6bfb5fa4d7c6299`.
+The candidate deterministic release before the final Git-blob URI hardening
+committed at Keccak-256
+`0xe5325c93e7bc12910909af1399551c95e3d2829a6b7ee5b0bfc03795694cd3cf`
+and SHA-256
+`36e069cbb1e9c20b000922605f8093907c9a8db560006b3c179fb43c13174471`.
+These values are retained as an intermediate checkpoint, not the release
+authority. The current commitments are always the values in
+`release-artifacts/latest/record-manifest.json` and must be approved against the
+resulting exact head.

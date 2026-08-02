@@ -6,8 +6,10 @@ observation evidence, not the tokenized works and not a preservation or display
 authorization.
 
 The corresponding generator URLs, exact observed response hashes, dependency
-versions, and source-reviewed interaction maps are recorded in the object and
-technical records. The accession-level technical review is complete and reaches
+versions, and source-reviewed interaction maps are retained in
+`generator-observations.json`, an independently reviewed transcript that is
+separate from the accession-record constructor and is hash-bound by this
+manifest. The accession-level technical review is complete and reaches
 an amber pass-with-conditions finding with no red accession blocker. A new raw
 generator capture is not claimed here: the repository's pinned safe-fetch policy
 rejected the live responses because their transfer framing is not admitted.

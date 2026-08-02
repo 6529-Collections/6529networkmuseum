@@ -16,6 +16,7 @@ import sys
 sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
+from finalize_casey_accession import REVIEW_AT, prior_event_for_replacement  # noqa: E402
 from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_visual_observation, validator_for  # noqa: E402
 from validate_casey_dossier import CASEY_ID, GIFT_AUTHORIZATION_ID, OBJECT_TO_DESCRIPTOR, VISUAL_OBSERVATION_ID, validate, validate_evidence_manifest  # noqa: E402
 
@@ -74,6 +75,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
             ),
             (
                 "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["preservation_manifest"]["active_stewardship_actions"].__setitem__(0, None),
+                "active stewardship actions rather than an intake-stage pending list",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
                 lambda record: record["payload"]["ongoing_stewardship_actions"].__setitem__(0, "future reviewer"),
                 "concrete active preservation",
             ),
@@ -103,6 +109,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "distinguish on-chain receipt",
             ),
             (
+                "records/accessions/6529NM.2026.001/accession-certificate.json",
+                lambda record: record["payload"]["events"][2]["evidence_refs"][0].pop("sha256"),
+                "immutably bind the exact reviewed accession-lot bytes",
+            ),
+            (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"].__setitem__("current_state", "received_onchain"),
                 "must end in accessioned state",
@@ -110,6 +121,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
             (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"].__setitem__("state_history", []),
+                "must end in accessioned state",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: record["payload"]["state_history"][0].__setitem__("observed_at", "2026-08-01T13:25:47Z"),
                 "must end in accessioned state",
             ),
             (
@@ -155,6 +171,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
             (
                 "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
                 lambda record: record["payload"]["assets"][0].__setitem__("token_id", "100000724"),
+                "full gift and its completed accession resolution",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["object_identities"][0].pop("contract"),
                 "full gift and its completed accession resolution",
             ),
             (
@@ -229,6 +250,40 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 self.mutate_record(root, relative, mutation)
                 found = validate(root, history_root=ROOT)
                 self.assertTrue(any(expected in issue for issue in found), found)
+
+    def test_finalizer_requires_a_prior_event_to_supersede(self) -> None:
+        current_only = [
+            {
+                "event_id": "6529NM.TEST.EVENT.rights_amendment.20260802T063000Z",
+                "event_type": "rights_amendment",
+                "occurred_at": REVIEW_AT,
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "no prior event remains"):
+            prior_event_for_replacement(current_only, "rights_amendment", Path("rights.json"))
+
+    def test_generator_transcript_and_descriptor_review_fail_closed(self) -> None:
+        _temporary, root = self.make_copy()
+        transcript_path = root / "evidence" / "casey-reas" / "generator-observations.json"
+        transcript = json.loads(transcript_path.read_text(encoding="utf-8"))
+        transcript["objects"][0]["dependency"] = "p5.js latest"
+        transcript_path.write_text(json.dumps(transcript, indent=2) + "\n", encoding="utf-8", newline="\n")
+        manifest_path = root / "evidence" / "casey-reas" / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        entry = next(item for item in manifest["entries"] if item["path"] == "generator-observations.json")
+        entry["sha256"] = hashlib.sha256(transcript_path.read_bytes()).hexdigest()
+        entry["size"] = transcript_path.stat().st_size
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate(root, history_root=ROOT)
+        self.assertTrue(any("independently reviewed bytes" in issue for issue in issues), issues)
+
+        _temporary_two, root_two = self.make_copy()
+        ledger_path = root_two / "evidence" / "casey-reas-collection-snapshots" / "pending-descriptors.json"
+        ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+        ledger["review"] = None
+        ledger_path.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate(root_two, history_root=ROOT)
+        self.assertTrue(any("completed independent package review" in issue for issue in issues), issues)
 
     def test_public_pages_and_raw_metadata_are_bound(self) -> None:
         for object_id, slug in OBJECT_TO_DESCRIPTOR.items():

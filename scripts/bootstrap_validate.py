@@ -382,24 +382,44 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
                 fail(f"review payload hash mismatch: {path.relative_to(ROOT)}")
         elif review is not None:
             fail(f"constructed record cannot contain review: {path.relative_to(ROOT)}")
+        current_revision = control.get("revision")
+        if not isinstance(current_revision, int) or current_revision < 1:
+            fail(f"invalid current revision: {path.relative_to(ROOT)}")
         amendment_history = record.get("amendment_history")
+        if current_revision > 1 and (
+            not isinstance(amendment_history, list)
+            or len(amendment_history) != current_revision - 1
+        ):
+            fail(f"revision requires a complete amendment history: {path.relative_to(ROOT)}")
+        if current_revision == 1 and amendment_history not in (None, []):
+            fail(f"revision one cannot have superseded revisions: {path.relative_to(ROOT)}")
         if isinstance(amendment_history, list) and amendment_history:
-            try:
-                constructed_at = datetime.fromisoformat(
-                    str(constructor["constructed_at"]).replace("Z", "+00:00")
-                )
-                superseded_at = [
-                    datetime.fromisoformat(str(item["superseded_at"]).replace("Z", "+00:00"))
-                    for item in amendment_history
-                ]
-            except (KeyError, TypeError, ValueError) as exc:
-                fail(f"invalid amendment chronology: {path.relative_to(ROOT)}: {exc}")
-            if constructed_at < max(superseded_at):
-                fail(f"current revision predates its latest supersession: {path.relative_to(ROOT)}")
-            prior_revisions = [item.get("revision") for item in amendment_history if isinstance(item, dict)]
-            current_revision = control.get("revision")
-            if not isinstance(current_revision, int) or prior_revisions != list(range(1, current_revision)):
+            if not all(isinstance(item, dict) for item in amendment_history):
+                fail(f"invalid amendment-history entry: {path.relative_to(ROOT)}")
+            prior_revisions = [item.get("revision") for item in amendment_history]
+            if prior_revisions != list(range(1, current_revision)):
                 fail(f"amendment revisions must be complete and ordered: {path.relative_to(ROOT)}")
+
+            def parse_control_time(value: object, label: str) -> datetime:
+                if not isinstance(value, str):
+                    fail(f"invalid {label}: {path.relative_to(ROOT)}")
+                try:
+                    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+                except ValueError as exc:
+                    fail(f"invalid {label}: {path.relative_to(ROOT)}: {exc}")
+                if parsed.tzinfo is None or parsed.utcoffset() is None:
+                    fail(f"timezone-less {label}: {path.relative_to(ROOT)}")
+                return parsed.astimezone(UTC)
+
+            constructed_at = parse_control_time(constructor.get("constructed_at"), "constructor timestamp")
+            superseded_at = [
+                parse_control_time(item.get("superseded_at"), f"revision {item.get('revision')} supersession timestamp")
+                for item in amendment_history
+            ]
+            if superseded_at != sorted(superseded_at):
+                fail(f"supersession timestamps must be ordered by revision: {path.relative_to(ROOT)}")
+            if constructed_at < superseded_at[-1]:
+                fail(f"current revision predates its latest supersession: {path.relative_to(ROOT)}")
 
 
 MEDIA_TYPE = re.compile(r"^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+(?:\s*;\s*[A-Za-z0-9!#$&^_.+-]+=[^;\s]+)*$")

@@ -34,7 +34,7 @@
               "authority_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
               "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}, "uniqueItems": true}
             },
-            "required": ["event_type", "occurred_at", "authority_reference", "evidence_refs"],
+            "required": ["event_id", "event_type", "occurred_at", "authority_reference", "evidence_refs"],
             "allOf": [
               {"if": {"properties": {"event_type": {"const": "condition_reassessment"}}}, "then": {"required": ["supersedes_event_id"]}}
             ],

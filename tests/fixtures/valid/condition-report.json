@@ -5,7 +5,7 @@
     "subjectId": "0x110fcf42c67ba3f2c93772246ee760d212fd621efcef9062f011884db180465d",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xb601e70680be2d20f54272992f5e54555242d0d0345560cf7730e98fbc9c8dbb",
+      "digest": "0x2cb12584d344ad89df340ee61c7776fe713204ea5da226b9c4c2cb002659eb3a",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplecondition",
@@ -52,6 +52,7 @@
     "outcome": "All assessed components were retrievable and rendered as expected.",
     "events": [
       {
+        "event_id": "6529NM-COND-2026-001.EVENT.condition_assessment.20260801T000000Z",
         "event_type": "condition_assessment",
         "occurred_at": "2026-08-01T00:00:00Z",
         "authority_reference": "museum:conservator",
@@ -67,6 +68,6 @@
     ],
     "record_status": "reviewed",
     "review_status": "reviewed",
-    "payload_sha256": "sha256:d1bd06fa7165dde2ec3476cbc189837d36b0f5e6a285dda721cc358608dd1112"
+    "payload_sha256": "sha256:706a40aa0d15336734afe167492cd22351a1a43838cab7db5267ec0c6103dcac"
   }
 }

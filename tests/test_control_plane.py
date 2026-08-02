@@ -283,7 +283,7 @@ class ControlPlaneTests(unittest.TestCase):
         accession["payload"]["events"][4]["custody_paths"][0]["object_id"] = ["malformed"]
         self.save_record(records, "accession.json", accession)
         issues = validate_records(Path(temporary.name))
-        self.assertTrue(any("custody_paths must identify" in issue or "object_id" in issue for issue in issues), issues)
+        self.assertTrue(any("ACCESSION custody_path must identify exactly one executed title binding by object_id" in issue for issue in issues), issues)
 
         schedule = json.loads(
             (REPO_ROOT / "records" / "accessions" / "6529NM.2026.001" / "accession-statement.json").read_text(encoding="utf-8")
@@ -316,6 +316,31 @@ class ControlPlaneTests(unittest.TestCase):
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("RIGHTS_STATEMENT.events must begin" in issue for issue in issues), issues)
         self.assertTrue(any("CONDITION_REPORT.events must begin" in issue for issue in issues), issues)
+
+    def test_rights_and_condition_event_lineage_is_unique_and_resolvable(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        rights = self.load_record(records, "rights-statement.json")
+        first = rights["payload"]["events"][0]
+        rights["payload"]["events"].append(
+            {
+                "event_id": first["event_id"],
+                "event_type": "rights_amendment",
+                "occurred_at": "2026-08-02T00:00:00Z",
+                "supersedes_event_id": "missing-rights-event",
+                "authority_reference": "rights-holder:example-artist",
+                "evidence_refs": first["evidence_refs"],
+            }
+        )
+        self.save_record(records, "rights-statement.json", rights)
+
+        condition = self.load_record(records, "condition-report.json")
+        condition["payload"]["events"][0].pop("event_id")
+        self.save_record(records, "condition-report.json", condition)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("RIGHTS_STATEMENT.events[1]: event_id must be unique" in issue for issue in issues), issues)
+        self.assertTrue(any("RIGHTS_STATEMENT.events[1]: supersedes_event_id must identify a unique earlier event" in issue for issue in issues), issues)
+        self.assertTrue(any("CONDITION_REPORT.events[0]: event_id is required" in issue for issue in issues), issues)
 
     def test_private_network_envelope_uri_is_rejected(self) -> None:
         for uri in (
@@ -665,18 +690,35 @@ class ControlPlaneTests(unittest.TestCase):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
 
-    def test_amendment_history_cannot_postdate_current_revision_construction(self) -> None:
+    def test_amendment_history_is_complete_timezone_aware_and_chronological(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="museum-amendment-chronology-")
         self.addCleanup(temporary.cleanup)
         root = Path(temporary.name)
         path = root / "records" / "accessions" / "register.json"
         path.parent.mkdir(parents=True)
-        record = json.loads((REPO_ROOT / "records" / "accessions" / "register.json").read_text(encoding="utf-8"))
-        record["record_control"]["constructor"]["constructed_at"] = "2026-08-01T22:55:00Z"
-        path.write_text(json.dumps(record), encoding="utf-8")
-        with patch.object(bootstrap_validate, "ROOT", root):
-            with self.assertRaises(SystemExit):
-                bootstrap_validate.check_record_controls({path: record})
+        source = REPO_ROOT / "records" / "accessions" / "register.json"
+        cases = (
+            ("current revision predates supersession", "current revision predates its latest supersession", lambda record: record["record_control"]["constructor"].__setitem__("constructed_at", "2026-08-01T22:55:00Z")),
+            ("history missing", "revision requires a complete amendment history", lambda record: record.pop("amendment_history")),
+            ("history empty", "revision requires a complete amendment history", lambda record: record.__setitem__("amendment_history", [])),
+            ("timezone missing", "timezone-less revision 1 supersession timestamp", lambda record: record["amendment_history"][0].__setitem__("superseded_at", "2026-08-01T22:55:00")),
+            ("supersession timestamps reversed", "supersession timestamps must be ordered by revision", lambda record: (
+                record["amendment_history"][0].__setitem__("superseded_at", "2026-08-02T06:30:00Z"),
+                record["amendment_history"][1].__setitem__("superseded_at", "2026-08-01T22:55:00Z"),
+            )),
+        )
+        def raise_failure(message: str) -> None:
+            raise ValueError(message)
+
+        for label, expected, mutate in cases:
+            with self.subTest(label=label):
+                record = json.loads(source.read_text(encoding="utf-8"))
+                mutate(record)
+                record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
+                path.write_text(json.dumps(record), encoding="utf-8")
+                with patch.object(bootstrap_validate, "ROOT", root), patch.object(bootstrap_validate, "fail", side_effect=raise_failure):
+                    with self.assertRaisesRegex(ValueError, expected):
+                        bootstrap_validate.check_record_controls({path: record})
 
     @staticmethod
     def make_png(extra: bytes = b"") -> bytes:

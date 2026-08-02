@@ -27,7 +27,26 @@
         "receipt_summary": {"type": "object", "additionalProperties": true},
         "provenance_schedule": {"$ref": "https://6529.network/museum/schemas/transaction-provenance/v1#/$defs/provenanceSchedule"},
         "donation_rights_schedule": {"type": "object", "additionalProperties": true},
-        "preservation_manifest": {"type": "object", "additionalProperties": true},
+        "preservation_manifest": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "manifest_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "manifest_uri": {"type": "string", "format": "uri"},
+            "objects": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": true}},
+            "raw_generator_status": {"type": "string", "minLength": 1},
+            "raw_metadata_status": {"type": "string", "minLength": 1},
+            "status": {"type": "string", "enum": ["not_started", "in_progress", "complete", "superseded"]},
+            "fixity_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "active_stewardship_actions": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            }
+          },
+          "required": ["manifest_sha256", "manifest_uri", "objects", "raw_generator_status", "raw_metadata_status", "status", "fixity_sha256", "active_stewardship_actions"]
+        },
         "public_inventory": {"type": "array", "minItems": 7, "items": {"type": "object", "additionalProperties": true}},
         "restricted_registrar_annex": {"type": "object", "additionalProperties": true},
         "constructor_controls": {"type": "object", "additionalProperties": true},

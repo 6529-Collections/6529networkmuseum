@@ -389,7 +389,21 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
     if record_type == "ACCESSION" and all(isinstance(event_type, str) for event_type in event_types) and len(event_types) != len(set(event_types)):
         issues.append("ACCESSION.events must not repeat an event_type")
     previous_time = None
+    prior_event_ids: set[str] = set()
     for index, event in enumerate(events):
+        if record_type in {"RIGHTS_STATEMENT", "CONDITION_REPORT"}:
+            current_event_id = event.get("event_id")
+            if not isinstance(current_event_id, str) or not current_event_id:
+                issues.append(f"{record_type}.events[{index}]: event_id is required")
+            elif current_event_id in prior_event_ids:
+                issues.append(f"{record_type}.events[{index}]: event_id must be unique")
+            supersedes_event_id = event.get("supersedes_event_id")
+            if supersedes_event_id is not None and (
+                not isinstance(supersedes_event_id, str) or supersedes_event_id not in prior_event_ids
+            ):
+                issues.append(f"{record_type}.events[{index}]: supersedes_event_id must identify a unique earlier event")
+            if isinstance(current_event_id, str) and current_event_id:
+                prior_event_ids.add(current_event_id)
         try:
             current_time = parse_time(event["occurred_at"], f"{record_type}.events[{index}].occurred_at")
         except (KeyError, ValueError) as exc:

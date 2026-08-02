@@ -5,7 +5,7 @@
     "subjectId": "0x357b5284c96e355fe0cb80e9714a952066422927408df131b948edc7bfe69b74",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x410e9333bfe009799d7557f2fa074cf0100982bf9a8fcc0f4fbe73c817db81ba",
+      "digest": "0x25234e1afe75633c5112263debdd2135c3873af4e3144fba2f4a79633adb744f",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplerights",
@@ -93,6 +93,7 @@
     },
     "events": [
       {
+        "event_id": "6529NM-RIGHTS-2026-001.EVENT.rights_assertion.20260801T000000Z",
         "event_type": "rights_assertion",
         "occurred_at": "2026-08-01T00:00:00Z",
         "authority_reference": "rights-holder:example-artist",
@@ -108,6 +109,6 @@
     ],
     "record_status": "reviewed",
     "review_status": "reviewed",
-    "payload_sha256": "sha256:13a5b6f1aa4d9f73bf64b1d8e72e794dd11c4d94d90d11ed5b18bab3223e33ba"
+    "payload_sha256": "sha256:224c837767edb450297150493bc2dc1abe06c849314bca81ac99a0e8c85b68da"
   }
 }

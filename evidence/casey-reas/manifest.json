@@ -5,7 +5,11 @@
   "byte_mode": "raw",
   "source_heads": {
     "casey_snapshot_source": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
-    "casey_research": "9f38bd4ba5f779540eabf2dfce019cc1382561e2"
+    "casey_research": "951f5afb95c511adaf879d017c662046ff6365b5"
+  },
+  "source_hashes": {
+    "casey_art_technical_research_sha256": "sha256:284f25c7405059f3de499c8720229f3b94c3ed6a93cf22a167c3bdd755f5affe",
+    "casey_onchain_research_sha256": "sha256:0b3daa8ebf3b008c341867724a05709a1439d534837f1869e15f1351533d1db9"
   },
   "status": "incomplete_generator_capture_pending",
   "entries": [
@@ -14,6 +18,13 @@
       "sha256": "d70aa168f11c8d06d58924cf6e255d280e161a92a90ea99faa3679f83e458091",
       "size": 330,
       "media_type": "text/plain",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "generator-observations.json",
+      "sha256": "a2e6a2295ffdbee3332fdeec7cd9e044d4bc5313cd63f9d6e5b67e01c3ac79da",
+      "size": 7148,
+      "media_type": "application/json",
       "byte_mode": "raw"
     },
     {
@@ -81,8 +92,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "3b650d44dece48a9f0cf5f8a2eeda32b059d0b8f907d93b94e29bb2aced8aec6",
-      "size": 2033,
+      "sha256": "44240188812a981b48b85257dc33f2cf09ddfa527053fda8669ce746ed7bbd2c",
+      "size": 2158,
       "media_type": "text/plain",
       "byte_mode": "raw"
     }

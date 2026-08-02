@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6ba9ec7e451a7ef0bbd79fa69dbd9cc4f1ff865c22626b22d3b2a224c2f95e37"
+      "digest": "0x73b1b0d339899f39dcc328659497671d356cb790b03a30dbe3569809350d6d64"
     },
     "effectiveAt": 1785652200,
     "recordType": "ACCESSION_LOT",
@@ -305,19 +305,19 @@
         "evidence_class": "A",
         "label": "Casey on-chain evidence",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-onchain-evidence.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/notes/research/casey-reas-onchain-evidence.md"
       },
       {
         "evidence_class": "B",
         "label": "Casey art and technical research",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-art-technical-research.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/notes/research/casey-reas-art-technical-research.md"
       },
       {
         "evidence_class": "C",
         "label": "Preservation evidence manifest",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/951f5afb95c511adaf879d017c662046ff6365b5/evidence/casey-reas"
       }
     ],
     "formal_acceptance_date": "2026-08-01T22:55:00Z",
@@ -402,10 +402,10 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:0878787e862a72b831672ff21664435a53f827e1a79915df795a64ff5b51c47a",
+    "payload_sha256": "sha256:502006d909177f82bb82c369a47e9b199aa32b4795d6538c8d9c2c91f5a89f89",
     "preservation_manifest": {
-      "manifest_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
-      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas",
+      "manifest_sha256": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215",
+      "manifest_uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/b0d2655f6ef38a0df55588dab02bae1ea7d32dd9",
       "objects": [
         {
           "generator_raw_status": "not_captured",
@@ -474,7 +474,7 @@
       "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "raw_metadata_status": "captured_and_content_addressed",
       "status": "in_progress",
-      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
+      "fixity_sha256": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215",
       "active_stewardship_actions": [
         "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
         "complete two-environment render, interaction, timing, and reset verification",
@@ -1208,15 +1208,15 @@
     },
     "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "source": {
-      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "casey_research_head": "951f5afb95c511adaf879d017c662046ff6365b5",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "casey_collection_snapshot_package_published_source_commit": "9700e842d0c991280b476cc67849d966221a742a"
     },
     "source_manifest": {
-      "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
+      "casey_research_head": "951f5afb95c511adaf879d017c662046ff6365b5",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "evidence_manifest_path": "evidence/casey-reas/manifest.json",
-      "evidence_manifest_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
+      "evidence_manifest_sha256": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215",
       "source_evidence": [
         "notes/research/casey-reas-onchain-evidence.md",
         "notes/research/casey-reas-art-technical-research.md"

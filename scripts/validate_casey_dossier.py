@@ -11,7 +11,6 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from canonical import canonicalize
-from finalize_casey_accession import GENERATOR_EVIDENCE, ROOMS_EDITION_STATEMENT
 
 ROOT = Path(__file__).resolve().parent.parent
 CASEY_ID = "6529NM.2026.001"
@@ -44,6 +43,17 @@ RECEIPT_SHA256 = "4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd
 ACQUISITION_SHA256 = "f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45"
 RECEIPT_SIZE = 6781
 ACQUISITION_SIZE = 1262
+CASEY_RESEARCH_COMMIT = "951f5afb95c511adaf879d017c662046ff6365b5"
+CASEY_ART_RESEARCH_SHA256 = "sha256:284f25c7405059f3de499c8720229f3b94c3ed6a93cf22a167c3bdd755f5affe"
+CASEY_ONCHAIN_RESEARCH_SHA256 = "sha256:0b3daa8ebf3b008c341867724a05709a1439d534837f1869e15f1351533d1db9"
+GENERATOR_OBSERVATIONS_RELATIVE = Path("generator-observations.json")
+GENERATOR_OBSERVATIONS_SHA256 = "sha256:a2e6a2295ffdbee3332fdeec7cd9e044d4bc5313cd63f9d6e5b67e01c3ac79da"
+PRESERVATION_ACTIONS = [
+    "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
+    "complete two-environment render, interaction, timing, and reset verification",
+    "retain attributed static and live documentation captures with fixity",
+    "assign durable replicas and complete periodic fixity and recovery tests",
+]
 
 OBJECT_TO_DESCRIPTOR = {
     "6529NM.2026.001.01": "century",
@@ -135,6 +145,66 @@ def sha256(path: Path) -> str:
 
 def sha256_bytes(data: bytes) -> str:
     return "sha256:" + hashlib.sha256(data).hexdigest()
+
+
+def git_blob_uri(path: Path) -> str:
+    data = path.read_bytes()
+    oid = hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
+    return f"https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/{oid}"
+
+
+def generator_observations(root: Path) -> tuple[str, dict[str, dict[str, Any]], list[str]]:
+    """Load the independent observation transcript without importing constructor data."""
+    issues: list[str] = []
+    path = root / "evidence" / "casey-reas" / GENERATOR_OBSERVATIONS_RELATIVE
+    try:
+        transcript = read_json(path)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        return "", {}, [f"Casey generator observation transcript cannot be decoded: {exc}"]
+    if sha256(path) != GENERATOR_OBSERVATIONS_SHA256:
+        issues.append("Casey generator observation transcript does not match the independently reviewed bytes")
+    if (
+        transcript.get("schema_version") != "6529nm.generator-observation-transcript.v1"
+        or transcript.get("evidence_kind") != "independently_reviewed_observation_transcript"
+        or transcript.get("reviewed_commit") != "514cb18aee37b0d04c3eeb59703b411ea34f6bf9"
+        or transcript.get("raw_response_bytes_retained") is not False
+        or not isinstance(transcript.get("method"), str)
+        or not isinstance(transcript.get("hash_semantics"), str)
+        or not isinstance(transcript.get("preservation_boundary"), str)
+    ):
+        issues.append("Casey generator observation transcript has an invalid review or preservation boundary")
+    reviewers = transcript.get("reviewers")
+    if not isinstance(reviewers, list) or len(reviewers) < 2 or len(reviewers) != len(set(reviewers)):
+        issues.append("Casey generator observation transcript must retain two distinct exact-head reviewers")
+    objects = transcript.get("objects") if isinstance(transcript.get("objects"), list) else []
+    expected_ids = list(OBJECT_TO_DESCRIPTOR)
+    if [item.get("object_id") for item in objects if isinstance(item, dict)] != expected_ids:
+        issues.append("Casey generator observation transcript must retain the exact seven-object schedule")
+    observations: dict[str, dict[str, Any]] = {}
+    for ordinal, item in enumerate(objects, 1):
+        if not isinstance(item, dict):
+            continue
+        suffix = f"{ordinal:02d}"
+        interactions = item.get("interaction_map")
+        if (
+            item.get("suffix") != suffix
+            or item.get("object_id") != f"{CASEY_ID}.{suffix}"
+            or not isinstance(item.get("title"), str)
+            or not str(item.get("generator_uri", "")).startswith("https://generator.artblocks.io/")
+            or not str(item.get("response_sha256", "")).startswith("sha256:")
+            or len(str(item.get("response_sha256", ""))) != 71
+            or not isinstance(item.get("dependency"), str)
+            or not isinstance(interactions, list)
+            or not interactions
+            or any(not isinstance(control, dict) or not isinstance(control.get("input"), str) or not isinstance(control.get("action"), str) for control in interactions)
+        ):
+            issues.append(f"Casey generator observation is structurally invalid: {CASEY_ID}.{suffix}")
+        observations[suffix] = item
+    rooms_statement = transcript.get("rooms_edition_statement")
+    if not isinstance(rooms_statement, str) or not rooms_statement:
+        issues.append("Casey generator observation transcript must retain the 923 EMPTY ROOMS edition statement")
+        rooms_statement = ""
+    return rooms_statement, observations, issues
 
 
 class HistoricalEvidenceError(RuntimeError):
@@ -351,6 +421,7 @@ def validate_evidence_manifest(root: Path) -> list[str]:
     metadata_paths = {f"raw/metadata/{CASEY_ID}.{suffix}.json" for suffix in ("01", "02", "03", "04", "05", "06", "07")}
     expected_paths = {
         "generator-capture-status.md",
+        GENERATOR_OBSERVATIONS_RELATIVE.as_posix(),
         *metadata_paths,
         RECEIPT_RELATIVE.as_posix(),
         ACQUISITION_RELATIVE.as_posix(),
@@ -358,7 +429,7 @@ def validate_evidence_manifest(root: Path) -> list[str]:
     }
     entry_paths = [entry.get("path") for entry in entries]
     if len(entry_paths) != len(set(entry_paths)) or set(entry_paths) != expected_paths:
-        issues.append("Casey raw-evidence manifest must bind exactly the eleven accession evidence files")
+        issues.append("Casey raw-evidence manifest must bind exactly the twelve accession evidence files")
     for entry in entries:
         relative = entry.get("path")
         if not isinstance(relative, str):
@@ -375,6 +446,17 @@ def validate_evidence_manifest(root: Path) -> list[str]:
         if not valid:
             label = "raw public metadata manifest binding failed" if entry.get("path") in metadata_paths else "evidence manifest binding failed"
             issues.append(f"Casey {label}: {entry.get('path')}")
+    source_heads = manifest.get("source_heads") if isinstance(manifest.get("source_heads"), dict) else {}
+    source_hashes = manifest.get("source_hashes") if isinstance(manifest.get("source_hashes"), dict) else {}
+    if source_heads.get("casey_research") != CASEY_RESEARCH_COMMIT:
+        issues.append("Casey evidence manifest must pin the corrected research head")
+    if (
+        source_hashes.get("casey_art_technical_research_sha256") != CASEY_ART_RESEARCH_SHA256
+        or source_hashes.get("casey_onchain_research_sha256") != CASEY_ONCHAIN_RESEARCH_SHA256
+        or sha256(root / "notes" / "research" / "casey-reas-art-technical-research.md") != CASEY_ART_RESEARCH_SHA256
+        or sha256(root / "notes" / "research" / "casey-reas-onchain-evidence.md") != CASEY_ONCHAIN_RESEARCH_SHA256
+    ):
+        issues.append("Casey evidence manifest must bind the corrected art-technical and on-chain research bytes")
     return issues
 
 
@@ -490,6 +572,27 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     receipt_transfers, receipt_issues = validate_receipt_evidence(root)
     issues.extend(receipt_issues)
     issues.extend(validate_evidence_manifest(root))
+    rooms_edition_statement, generator_evidence, generator_issues = generator_observations(root)
+    issues.extend(generator_issues)
+
+    descriptor_ledger = read_json(root / PACKAGE_ROOT / "pending-descriptors.json")
+    descriptor_review = descriptor_ledger.get("review") if isinstance(descriptor_ledger.get("review"), dict) else {}
+    descriptor_jobs = descriptor_ledger.get("jobs") if isinstance(descriptor_ledger.get("jobs"), list) else []
+    if (
+        descriptor_ledger.get("status") != "complete_reviewed"
+        or descriptor_review.get("status") != "approved"
+        or descriptor_review.get("reviewed_commit") != "514cb18aee37b0d04c3eeb59703b411ea34f6bf9"
+        or not isinstance(descriptor_review.get("reviewer_ids"), list)
+        or len(descriptor_review.get("reviewer_ids", [])) < 2
+        or len(descriptor_jobs) != 5
+        or any(
+            not isinstance(job, dict)
+            or job.get("status") != "complete_reviewed"
+            or job.get("review") != {"status": "approved", "review_ref": "descriptor-package-review-2026-08-02"}
+            for job in descriptor_jobs
+        )
+    ):
+        issues.append("Casey descriptor review ledger must record the completed independent package review")
 
     records: dict[str, dict[str, Any]] = {}
     for path in sorted((root / CASEY_DIR).rglob("*.json")):
@@ -513,6 +616,8 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey repository record must remain unsigned until on-chain execution: {path.relative_to(root)}")
         if any(STALE_BRANCH in text for text in nested_strings(record)):
             issues.append(f"Casey record has a mutable construction-branch URL: {path.relative_to(root)}")
+        if any("9f38bd4ba5f779540eabf2dfce019cc1382561e2" in text for text in nested_strings(payload)):
+            issues.append(f"Casey record retains the superseded research head: {path.relative_to(root)}")
         if any(
             marker in text
             for text in nested_strings(payload)
@@ -563,6 +668,7 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         lot.get("source_manifest", {}).get("evidence_manifest_sha256") != evidence_manifest_sha256
         or lot.get("preservation_manifest", {}).get("manifest_sha256") != evidence_manifest_sha256
         or lot.get("preservation_manifest", {}).get("fixity_sha256") != evidence_manifest_sha256
+        or lot.get("preservation_manifest", {}).get("manifest_uri") != git_blob_uri(root / "evidence" / "casey-reas" / "manifest.json")
     ):
         issues.append("Casey lot must bind the current preservation evidence manifest")
 
@@ -602,7 +708,7 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
 
     preservation_manifest = lot.get("preservation_manifest") if isinstance(lot.get("preservation_manifest"), dict) else {}
     preservation_actions = preservation_manifest.get("active_stewardship_actions")
-    if "pending" in preservation_manifest or not isinstance(preservation_actions, list) or len(preservation_actions) < 4:
+    if "pending" in preservation_manifest or preservation_actions != PRESERVATION_ACTIONS:
         issues.append("Casey preservation manifest must state concrete active stewardship actions rather than an intake-stage pending list")
 
     expected_transfers = sorted(
@@ -656,6 +762,18 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         issues.append("Casey accession certificate must preserve the Stream-compatible event order")
     elif events[3].get("instrument", {}).get("sha256") != title_instrument_sha256:
         issues.append("Casey accession title-passage event must bind the reviewed title instrument bytes")
+    accession_lot_path = root / CASEY_DIR / "accession-statement.json"
+    expected_lot_ref = {
+        "label": "Reviewed accession lot",
+        "uri": git_blob_uri(accession_lot_path),
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": sha256(accession_lot_path),
+        "notes": "Immutable Git blob URI and raw-file SHA-256 identify the exact reviewed accession-lot bytes used by this certificate.",
+    }
+    acquisition_refs = events[2].get("evidence_refs", []) if len(events) == 6 and isinstance(events[2], dict) else []
+    if acquisition_refs != [expected_lot_ref]:
+        issues.append("Casey accession certificate must immutably bind the exact reviewed accession-lot bytes")
     custody_paths = events[4].get("custody_paths", []) if len(events) == 6 and isinstance(events[4], dict) else []
     if [item.get("object_id") for item in custody_paths if isinstance(item, dict)] != expected_object_ids or any(item.get("kind") != "onchain_token" for item in custody_paths if isinstance(item, dict)):
         issues.append("Casey accession certificate must bind one on-chain custody path per object")
@@ -684,12 +802,12 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     }
     expected_authorized_assets = [
         {
-            "object_id": identity["object_id"],
-            "title": identity["title"],
-            "caip19": identity["caip19"],
-            "contract": identity["contract"],
-            "token_id": identity["token_id"],
-            "custody_receipt_log": identity["custody_receipt_log"],
+            "object_id": identity.get("object_id"),
+            "title": identity.get("title"),
+            "caip19": identity.get("caip19"),
+            "contract": identity.get("contract"),
+            "token_id": identity.get("token_id"),
+            "custody_receipt_log": identity.get("custody_receipt_log"),
         }
         for identity in identity_list
     ]
@@ -772,8 +890,22 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         if payload.get("title") != identity.get("title") or chain.get("caip19") != identity.get("caip19") or chain.get("custody_receipt_transaction") != RECEIPT_TRANSACTION:
             issues.append(f"Casey object chain identity is invalid: {object_id}")
         state_history = payload.get("state_history")
-        valid_state_history = isinstance(state_history, list) and bool(state_history) and all(isinstance(entry, dict) for entry in state_history)
-        if payload.get("current_state") != "accessioned" or not valid_state_history or state_history[-1].get("state") != "accessioned":
+        suffix = object_id.rsplit(".", 1)[1]
+        expected_state_history = [
+            {
+                "state": state,
+                "observed_at": "2026-08-01T22:55:00Z",
+                "evidence_refs": [GIFT_AUTHORIZATION_ID],
+            }
+            for state in ("offered", "authorized", "acquired", "received_onchain")
+        ] + [
+            {
+                "state": "accessioned",
+                "observed_at": "2026-08-02T06:30:00Z",
+                "evidence_refs": ["6529NM-ACC-2026-001", GIFT_AUTHORIZATION_ID, f"{CASEY_ID}.RIGHTS.{suffix}", f"{CASEY_ID}.COND.{suffix}"],
+            }
+        ]
+        if payload.get("current_state") != "accessioned" or state_history != expected_state_history:
             issues.append(f"Casey object must end in accessioned state: {object_id}")
         title_binding = payload.get("title_binding", {})
         if title_binding.get("status") != "executed" or title_binding.get("transfer_transaction") != RECEIPT_TRANSACTION or title_binding.get("object_id") != object_id or title_binding.get("instrument_sha256") != title_instrument_sha256:
@@ -784,16 +916,28 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         condition = payload.get("condition", {})
         if any(condition.get(key) in {None, "red", "not_assessed"} for key in condition_keys) or condition.get("token") != "green" or condition.get("metadata") != "green":
             issues.append(f"Casey object must state a complete non-red accession condition finding: {object_id}")
-        if payload.get("display", {}).get("status") != "ready_with_conditions" or payload.get("preservation", {}).get("status") != "in_progress":
-            issues.append(f"Casey object must separate conditional display readiness from active preservation: {object_id}")
-        suffix = object_id.rsplit(".", 1)[1]
-        expected_generator = GENERATOR_EVIDENCE[suffix]
-        generator = payload.get("generator_snapshot") if isinstance(payload.get("generator_snapshot"), dict) else {}
         if (
-            generator.get("sha256") != expected_generator["response_sha256"]
-            or generator.get("dependency_observed") != expected_generator["dependency"]
-            or generator.get("interaction_map") != expected_generator["interaction_map"]
+            payload.get("display", {}).get("status") != "ready_with_conditions"
+            or payload.get("preservation", {}).get("status") != "in_progress"
+            or payload.get("preservation", {}).get("package_uri") != git_blob_uri(root / "evidence" / "casey-reas" / "manifest.json")
+        ):
+            issues.append(f"Casey object must separate conditional display readiness from active preservation: {object_id}")
+        expected_generator = generator_evidence.get(suffix, {})
+        generator = payload.get("generator_snapshot") if isinstance(payload.get("generator_snapshot"), dict) else {}
+        generator_transcript_path = root / "evidence" / "casey-reas" / GENERATOR_OBSERVATIONS_RELATIVE
+        expected_generator_transcript = {
+            "uri": git_blob_uri(generator_transcript_path),
+            "sha256": GENERATOR_OBSERVATIONS_SHA256,
+            "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
+            "raw_response_bytes_retained": False,
+        }
+        if (
+            generator.get("sha256") != expected_generator.get("response_sha256")
+            or generator.get("dependency_observed") != expected_generator.get("dependency")
+            or generator.get("uri") != expected_generator.get("generator_uri")
+            or generator.get("interaction_map") != expected_generator.get("interaction_map")
             or generator.get("interaction_review_status") != "source_reviewed_not_exhaustively_exercised"
+            or generator.get("observation_transcript") != expected_generator_transcript
             or generator.get("automatic_behavior") != expected_generator.get("automatic_behavior")
             or generator.get("documentation_discrepancies") != expected_generator.get("documentation_discrepancies")
         ):
@@ -825,8 +969,23 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             if isinstance(item, dict) and item.get("label") == "Controlled visual observation"
         ]
         visual_sha256 = sha256(root / CASEY_DIR / "visual-observation-record.json")
-        if len(condition_visual_refs) != 1 or condition_visual_refs[0].get("sha256") != visual_sha256:
+        if (
+            len(condition_visual_refs) != 1
+            or condition_visual_refs[0].get("sha256") != visual_sha256
+            or condition_visual_refs[0].get("uri") != git_blob_uri(root / CASEY_DIR / "visual-observation-record.json")
+        ):
             issues.append(f"Casey condition report must bind the controlled visual observation bytes: {object_id}")
+        condition_generator_refs = [
+            item
+            for item in condition_payload.get("evidence_refs", [])
+            if isinstance(item, dict) and item.get("label") == "Independent generator observation transcript"
+        ]
+        if (
+            len(condition_generator_refs) != 1
+            or condition_generator_refs[0].get("uri") != expected_generator_transcript["uri"]
+            or condition_generator_refs[0].get("sha256") != GENERATOR_OBSERVATIONS_SHA256
+        ):
+            issues.append(f"Casey condition report must bind the independent generator observation transcript: {object_id}")
 
     visual = visual_record["payload"]
     observed_objects = visual.get("objects") if isinstance(visual.get("objects"), list) else []
@@ -890,7 +1049,7 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         "interpretive_boundary": "The evidence resolves the count structure but does not establish an artistic interpretation of invocation zero.",
     }
     if (
-        rooms.get("project", {}).get("edition_statement") != ROOMS_EDITION_STATEMENT
+        rooms.get("project", {}).get("edition_statement") != rooms_edition_statement
         or rooms.get("project", {}).get("combination_structure") != expected_rooms_structure
     ):
         issues.append("Casey 923 EMPTY ROOMS record must retain the 923-combination / 924-token distinction")

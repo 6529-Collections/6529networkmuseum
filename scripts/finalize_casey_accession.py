@@ -17,7 +17,10 @@ from validate import keccak256
 ROOT = Path(__file__).resolve().parent.parent
 CASEY = ROOT / "records" / "accessions" / "6529NM.2026.001"
 REPO = "https://github.com/6529-Collections/6529networkmuseum"
-EVIDENCE_COMMIT = "823586e89c365dff26ef598140ef856f96dcd501"
+EVIDENCE_COMMIT = "951f5afb95c511adaf879d017c662046ff6365b5"
+CASEY_RESEARCH_COMMIT = EVIDENCE_COMMIT
+LEGACY_EVIDENCE_COMMIT = "823586e89c365dff26ef598140ef856f96dcd501"
+SUPERSEDED_RESEARCH_COMMIT = "9f38bd4ba5f779540eabf2dfce019cc1382561e2"
 REVIEW_AT = "2026-08-02T06:30:00Z"
 ACCEPTED_AT = "2026-08-01T22:55:00Z"
 RECEIVED_AT = "2026-08-01T13:25:47Z"
@@ -31,91 +34,34 @@ CURATORIAL_REVIEWER = REGISTRAR_REVIEWER
 CANONICALIZATION_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 ACCESSION_SCHEMA_ID = "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86"
 
-ROOMS_EDITION_STATEMENT = (
-    "The retained population snapshot establishes 924 tokens and invocations 0–923. "
-    "Invocation 0 is separately coded 999999; invocations 1–923 follow the documented "
-    "combinatorial sequence. The reviewed generator contains the same 924-entry table. "
-    "Native token #713 is invocation 713 and maps to Code 555536. This resolves the "
-    "numerical structure but does not assign an artistic interpretation to invocation 0."
-)
+GENERATOR_OBSERVATIONS = ROOT / "evidence" / "casey-reas" / "generator-observations.json"
 
-GENERATOR_EVIDENCE: dict[str, dict[str, Any]] = {
-    "01": {
-        "response_sha256": "sha256:465b45798f14bea109f59986bd2cdcfd6e2eb9050327f52b24af15e159704ae2",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "1", "action": "Cut and reorder image slices."},
-            {"input": "2", "action": "Restore the ordered composition."},
-        ],
-    },
-    "02": {
-        "response_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "1", "action": "Cut and reorder image slices."},
-            {"input": "2", "action": "Restore the ordered composition."},
-        ],
-    },
-    "03": {
-        "response_sha256": "sha256:51ab1073b166701c9379984d9331c14d803dc84e35c8d06b5a8071f4eb895aad",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "1", "action": "Cut and reorder image slices."},
-            {"input": "2", "action": "Restore the ordered composition."},
-        ],
-    },
-    "04": {
-        "response_sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "mouse press", "action": "Reset the composition."},
-            {"input": "1–8", "action": "Select a surface treatment and reset the composition."},
-            {"input": "Space", "action": "Reset the composition."},
-            {"input": "P", "action": "Pause or resume animation."},
-        ],
-    },
-    "05": {
-        "response_sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "P", "action": "Pause or resume the simulation."},
-            {"input": "B", "action": "Restart the simulation from the beginning."},
-            {"input": "1–5", "action": "Change magnification."},
-            {"input": "L", "action": "Reveal or hide the simulated light locations."},
-        ],
-        "automatic_behavior": "The simulation stops after 1,000 iterations for the initial thumbnail state.",
-    },
-    "06": {
-        "response_sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
-        "dependency": "p5.js 1.0.0 via cdnjs",
-        "interaction_map": [
-            {"input": "+ / -", "action": "Increase or decrease scale."},
-            {"input": "D", "action": "Toggle the diagram view."},
-            {"input": "Space", "action": "Change the background state."},
-            {"input": "R / G / B", "action": "Toggle red, green, or blue channels."},
-            {"input": "1–6", "action": "Select a city preset."},
-            {"input": "Arrow keys", "action": "Change depth."},
-            {"input": "S", "action": "Change speed."},
-            {"input": "0 / 9", "action": "Change line length."},
-            {"input": "T", "action": "Change resolution."},
-            {"input": "P", "action": "Save the current view."},
-        ],
-    },
-    "07": {
-        "response_sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
-        "dependency": "p5.js 1.9.0 via cdnjs",
-        "interaction_map": [
-            {"input": "Space", "action": "Generate a new Still Life state."},
-            {"input": "P", "action": "Pause or resume animation."},
-            {"input": "S", "action": "Change speed."},
-            {"input": "G / W", "action": "Toggle the implemented green and white display states."},
-            {"input": "lowercase r / b", "action": "Toggle the implemented red and blue channel states."},
-        ],
-        "documentation_discrepancies": [
-            "The reviewed generator compares lowercase r and lowercase b (with duplicated lowercase comparisons); the uppercase R and B controls stated in platform metadata are not implemented as written. This is an amber behavior/documentation discrepancy."
-        ],
-    },
-}
+
+def load_generator_evidence() -> tuple[str, dict[str, dict[str, Any]]]:
+    transcript = json.loads(GENERATOR_OBSERVATIONS.read_text(encoding="utf-8"))
+    objects = transcript.get("objects")
+    if not isinstance(objects, list):
+        raise ValueError(f"{GENERATOR_OBSERVATIONS}: objects must be a list")
+    evidence_by_suffix = {
+        item["suffix"]: item
+        for item in objects
+        if isinstance(item, dict) and isinstance(item.get("suffix"), str)
+    }
+    if tuple(evidence_by_suffix) != ("01", "02", "03", "04", "05", "06", "07"):
+        raise ValueError(f"{GENERATOR_OBSERVATIONS}: exact seven-object order is required")
+    rooms_statement = transcript.get("rooms_edition_statement")
+    if not isinstance(rooms_statement, str) or not rooms_statement:
+        raise ValueError(f"{GENERATOR_OBSERVATIONS}: rooms_edition_statement is required")
+    return rooms_statement, evidence_by_suffix
+
+
+ROOMS_EDITION_STATEMENT, GENERATOR_EVIDENCE = load_generator_evidence()
+PRESERVATION_ACTIONS = [
+    "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
+    "complete two-environment render, interaction, timing, and reset verification",
+    "retain attributed static and live documentation captures with fixity",
+    "assign durable replicas and complete periodic fixity and recovery tests",
+]
 
 
 def load(path: Path) -> dict[str, Any]:
@@ -130,6 +76,13 @@ def file_sha(path: Path) -> str:
     return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def github_blob_uri(path: Path) -> str:
+    """Return the immutable Git blob API URI for exact local file bytes."""
+    data = path.read_bytes()
+    oid = hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
+    return f"https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/{oid}"
+
+
 def payload_sha(payload: dict[str, Any]) -> str:
     material = {key: value for key, value in payload.items() if key != "payload_sha256"}
     return "sha256:" + hashlib.sha256(canonicalize(material)).hexdigest()
@@ -138,10 +91,21 @@ def payload_sha(payload: dict[str, Any]) -> str:
 def pin_repository_urls(value: Any) -> Any:
     """Pin payload evidence/display URLs while leaving envelope discovery URIs live."""
     if isinstance(value, str):
-        return value.replace(
-            f"{REPO}/blob/main/", f"{REPO}/blob/{EVIDENCE_COMMIT}/"
+        if value == SUPERSEDED_RESEARCH_COMMIT:
+            return CASEY_RESEARCH_COMMIT
+        pinned = value
+        for source in ("main", LEGACY_EVIDENCE_COMMIT):
+            pinned = pinned.replace(
+                f"{REPO}/blob/{source}/", f"{REPO}/blob/{EVIDENCE_COMMIT}/"
+            ).replace(
+                f"{REPO}/tree/{source}/", f"{REPO}/tree/{EVIDENCE_COMMIT}/"
+            )
+        return pinned.replace(
+            f"{REPO}/blob/{SUPERSEDED_RESEARCH_COMMIT}/",
+            f"{REPO}/blob/{CASEY_RESEARCH_COMMIT}/",
         ).replace(
-            f"{REPO}/tree/main/", f"{REPO}/tree/{EVIDENCE_COMMIT}/"
+            f"{REPO}/tree/{SUPERSEDED_RESEARCH_COMMIT}/",
+            f"{REPO}/tree/{CASEY_RESEARCH_COMMIT}/",
         )
     if isinstance(value, list):
         return [pin_repository_urls(item) for item in value]
@@ -162,6 +126,20 @@ def subject_hash(record_type: str, subject_id: str) -> str:
 def event_id(record_id: str, event_type: str, occurred_at: str) -> str:
     stamp = occurred_at.replace("-", "").replace(":", "").replace(".", "").replace("Z", "Z")
     return f"{record_id}.EVENT.{event_type}.{stamp}"
+
+
+def prior_event_for_replacement(events: list[dict[str, Any]], event_type: str, path: Path) -> tuple[list[dict[str, Any]], str]:
+    retained = [
+        event
+        for event in events
+        if not (event.get("event_type") == event_type and event.get("occurred_at") == REVIEW_AT)
+    ]
+    if not retained:
+        raise ValueError(f"{path}: no prior event remains for {event_type} to supersede")
+    prior_event_id = retained[-1].get("event_id")
+    if not isinstance(prior_event_id, str) or not prior_event_id:
+        raise ValueError(f"{path}: prior event for {event_type} has no event_id")
+    return retained, prior_event_id
 
 
 def review(actor_id: str) -> dict[str, str]:
@@ -252,12 +230,7 @@ def finalize_rights() -> None:
         )
         for prior_event in payload["events"]:
             prior_event.setdefault("event_id", event_id(payload["record_id"], prior_event["event_type"], prior_event["occurred_at"]))
-        payload["events"] = [
-            prior_event
-            for prior_event in payload["events"]
-            if not (prior_event.get("event_type") == "rights_amendment" and prior_event.get("occurred_at") == REVIEW_AT)
-        ]
-        superseded_event_id = payload["events"][-1]["event_id"]
+        payload["events"], superseded_event_id = prior_event_for_replacement(payload["events"], "rights_amendment", path)
         payload["events"].append(
             {
                 "event_id": event_id(payload["record_id"], "rights_amendment", REVIEW_AT),
@@ -284,8 +257,16 @@ def finalize_rights() -> None:
 
 def finalize_condition() -> None:
     technical_sha = file_sha(TECHNICAL_REVIEW)
-    visual_sha = file_sha(CASEY / "visual-observation-record.json")
-    visual_uri = f"{REPO}/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+    visual_path = CASEY / "visual-observation-record.json"
+    visual_sha = file_sha(visual_path)
+    visual_uri = github_blob_uri(visual_path)
+    generator_transcript = evidence(
+        "Independent generator observation transcript",
+        github_blob_uri(GENERATOR_OBSERVATIONS),
+        "C",
+        file_sha(GENERATOR_OBSERVATIONS),
+        "Hash-bound exact-head review evidence; raw generator response bytes remain an active preservation action.",
+    )
     for path in sorted((CASEY / "technical").glob("*.json")):
         record = load(path)
         payload = record["payload"]
@@ -318,12 +299,7 @@ def finalize_condition() -> None:
         )
         for prior_event in payload["events"]:
             prior_event.setdefault("event_id", event_id(payload["record_id"], prior_event["event_type"], prior_event["occurred_at"]))
-        payload["events"] = [
-            prior_event
-            for prior_event in payload["events"]
-            if not (prior_event.get("event_type") == "condition_reassessment" and prior_event.get("occurred_at") == REVIEW_AT)
-        ]
-        superseded_event_id = payload["events"][-1]["event_id"]
+        payload["events"], superseded_event_id = prior_event_for_replacement(payload["events"], "condition_reassessment", path)
         payload["events"].append(
             {
                 "event_id": event_id(payload["record_id"], "condition_reassessment", REVIEW_AT),
@@ -335,6 +311,7 @@ def finalize_condition() -> None:
                     evidence("Reviewed technical and condition determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", technical_sha),
                     evidence("Object-specific retained Art Blocks metadata", metadata_uri, "B", file_sha(metadata_path)),
                     evidence("Controlled visual observation", visual_uri, "C", visual_sha),
+                    generator_transcript,
                 ],
             }
         )
@@ -342,7 +319,8 @@ def finalize_condition() -> None:
             evidence("Reviewed technical and condition determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", technical_sha),
             evidence("Object-specific retained Art Blocks metadata", metadata_uri, "B", file_sha(metadata_path)),
             evidence("Controlled visual observation", visual_uri, "C", visual_sha),
-            evidence("Preservation evidence manifest", f"{REPO}/blob/main/evidence/casey-reas/manifest.json", "C", file_sha(EVIDENCE_MANIFEST)),
+            generator_transcript,
+            evidence("Preservation evidence manifest", github_blob_uri(EVIDENCE_MANIFEST), "C", file_sha(EVIDENCE_MANIFEST)),
         ]
         commit_record(record)
         write(path, record)
@@ -368,7 +346,7 @@ def finalize_objects(title_sha: str) -> None:
                 "reviewer": review(REGISTRAR_REVIEWER),
                 "credit_line": f"Gift of punk6529; Casey REAS; {payload['title']}; 6529 Network Museum, {payload['object_id']}. Licensed CC BY-NC 4.0.",
                 "current_state": "accessioned",
-                "state_history_semantics": "state_history.observed_at records when the Museum's evidence and administrative record substantiated a workflow state; the underlying chain receipt retains its separate block_time.",
+                "state_history_semantics": "state_history.observed_at records when the Museum's evidence and administrative record substantiated a workflow state. On-chain custody at 2026-08-01T13:25:47Z is retained separately as a receipt event and is not represented as an offer. The donor declaration first substantiates offered, authorized, acquired, and received_onchain at the formal acceptance timestamp.",
                 "title_binding": {
                     "object_id": payload["object_id"],
                     "status": "executed",
@@ -408,9 +386,12 @@ def finalize_objects(title_sha: str) -> None:
             }
         )
         payload["state_history"] = [
-            entry
-            for entry in payload["state_history"]
-            if not (entry.get("state") == "accessioned" and entry.get("observed_at") == REVIEW_AT)
+            {
+                "state": state,
+                "observed_at": ACCEPTED_AT,
+                "evidence_refs": ["6529NM.2026.001.GAA-01"],
+            }
+            for state in ("offered", "authorized", "acquired", "received_onchain")
         ]
         payload["state_history"].append(
             {
@@ -422,7 +403,7 @@ def finalize_objects(title_sha: str) -> None:
         payload["preservation"].update(
             {
                 "status": "in_progress",
-                "package_uri": f"{REPO}/tree/main/evidence/casey-reas",
+                "package_uri": github_blob_uri(EVIDENCE_MANIFEST),
                 "fixity_sha256": file_sha(EVIDENCE_MANIFEST),
                 "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
                 "observed_at": REVIEW_AT,
@@ -439,6 +420,12 @@ def finalize_objects(title_sha: str) -> None:
                 "dependency_observed": generator_evidence["dependency"],
                 "interaction_map": generator_evidence["interaction_map"],
                 "interaction_review_status": "source_reviewed_not_exhaustively_exercised",
+                "observation_transcript": {
+                    "uri": github_blob_uri(GENERATOR_OBSERVATIONS),
+                    "sha256": file_sha(GENERATOR_OBSERVATIONS),
+                    "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
+                    "raw_response_bytes_retained": False,
+                },
             }
         )
         for optional_key in ("automatic_behavior", "documentation_discrepancies"):
@@ -641,12 +628,8 @@ def finalize_lot() -> None:
     preservation = payload["preservation_manifest"]
     preservation["manifest_sha256"] = evidence_manifest_sha256
     preservation["fixity_sha256"] = evidence_manifest_sha256
-    preservation["active_stewardship_actions"] = [
-        "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
-        "complete two-environment render, interaction, timing, and reset verification",
-        "retain attributed static and live documentation captures with fixity",
-        "assign durable replicas and complete periodic fixity and recovery tests",
-    ]
+    preservation["manifest_uri"] = github_blob_uri(EVIDENCE_MANIFEST)
+    preservation["active_stewardship_actions"] = PRESERVATION_ACTIONS
     preservation.pop("pending", None)
     payload["collection_curatorial_statement"].update(
         {
@@ -672,6 +655,9 @@ def finalize_lot() -> None:
 
 def accession_record(title_sha: str) -> dict[str, Any]:
     schedule = object_schedule()
+    accession_lot_path = CASEY / "accession-statement.json"
+    accession_lot_sha = file_sha(accession_lot_path)
+    accession_lot_uri = github_blob_uri(accession_lot_path)
     ids = [item["object_id"] for item in schedule]
     bindings = [
         {
@@ -699,8 +685,9 @@ def accession_record(title_sha: str) -> dict[str, Any]:
         }
         for item in schedule
     ]
-    title_uri = f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md"
-    receipt_uri = f"{REPO}/blob/main/evidence/casey-reas/raw/rpc/{RPC_RECEIPT.name}"
+    title_uri = github_blob_uri(TITLE_REVIEW)
+    receipt_uri = github_blob_uri(RPC_RECEIPT)
+    authorization_path = CASEY / "gift-acceptance-authorization.json"
     payload: dict[str, Any] = {
         "record_id": "6529NM-ACC-2026-001",
         "record_type": "ACCESSION",
@@ -720,8 +707,8 @@ def accession_record(title_sha: str) -> dict[str, Any]:
         "evidence_refs": [
             evidence("Raw Ethereum transaction receipt", receipt_uri, "A", file_sha(RPC_RECEIPT)),
             evidence("Title, rights, and accession review", title_uri, "C", title_sha),
-            evidence("Technical and condition review", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", file_sha(TECHNICAL_REVIEW)),
-            evidence("Curatorial accession review", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/curatorial-accession-review.md", "C", file_sha(CURATORIAL_REVIEW)),
+            evidence("Technical and condition review", github_blob_uri(TECHNICAL_REVIEW), "C", file_sha(TECHNICAL_REVIEW)),
+            evidence("Curatorial accession review", github_blob_uri(CURATORIAL_REVIEW), "C", file_sha(CURATORIAL_REVIEW)),
         ],
         "accession_number": "6529NM.2026.001",
         "acquiring_institution": "6529 Network Museum",
@@ -756,13 +743,21 @@ def accession_record(title_sha: str) -> dict[str, Any]:
                 "event_type": "acceptance",
                 "occurred_at": ACCEPTED_AT,
                 "authority_reference": "6529NM.2026.001.GAA-01",
-                "evidence_refs": [evidence("Gift Acceptance and Accession Authorization", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/gift-acceptance-authorization.json", "C")],
+                "evidence_refs": [evidence("Gift Acceptance and Accession Authorization", github_blob_uri(authorization_path), "C", file_sha(authorization_path))],
             },
             {
                 "event_type": "acquisition",
                 "occurred_at": ACCEPTED_AT,
                 "authority_reference": "6529NM.2026.001",
-                "evidence_refs": [evidence("Reviewed accession lot", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/accession-statement.json", "C")],
+                "evidence_refs": [
+                    evidence(
+                        "Reviewed accession lot",
+                        accession_lot_uri,
+                        "C",
+                        accession_lot_sha,
+                        "Immutable Git blob URI and raw-file SHA-256 identify the exact reviewed accession-lot bytes used by this certificate.",
+                    )
+                ],
             },
             {
                 "event_type": "title_passage",
@@ -792,9 +787,9 @@ def accession_record(title_sha: str) -> dict[str, Any]:
                 "occurred_at": REVIEW_AT,
                 "authority_reference": "6529NM-ACC-2026-001",
                 "evidence_refs": [
-                    evidence("Public accession certificate", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/accession-certificate.md", "C", file_sha(ACCESSION_PUBLIC)),
-                    evidence("Curatorial accession review", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/curatorial-accession-review.md", "C", file_sha(CURATORIAL_REVIEW)),
-                    evidence("Technical and condition review", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", file_sha(TECHNICAL_REVIEW)),
+                    evidence("Public accession certificate", github_blob_uri(ACCESSION_PUBLIC), "C", file_sha(ACCESSION_PUBLIC)),
+                    evidence("Curatorial accession review", github_blob_uri(CURATORIAL_REVIEW), "C", file_sha(CURATORIAL_REVIEW)),
+                    evidence("Technical and condition review", github_blob_uri(TECHNICAL_REVIEW), "C", file_sha(TECHNICAL_REVIEW)),
                 ],
             },
         ],
@@ -971,7 +966,7 @@ def main() -> None:
         description="Materialize the reviewed Casey REAS accession records from the final public determinations."
     )
     parser.parse_args()
-    required = [TITLE_REVIEW, TECHNICAL_REVIEW, CURATORIAL_REVIEW, ACCESSION_PUBLIC, EVIDENCE_MANIFEST, RPC_RECEIPT]
+    required = [TITLE_REVIEW, TECHNICAL_REVIEW, CURATORIAL_REVIEW, ACCESSION_PUBLIC, EVIDENCE_MANIFEST, GENERATOR_OBSERVATIONS, RPC_RECEIPT]
     missing = [str(path) for path in required if not path.is_file()]
     if missing:
         raise SystemExit("missing required accession inputs: " + ", ".join(missing))
