@@ -603,7 +603,7 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     if "2022" not in phototaxis.get("project", {}).get("date_conflict", "") or "2021" not in phototaxis.get("project", {}).get("date_conflict", ""):
         issues.append("Casey Phototaxis record must retain the 2021 release / 2022 artist-register date conflict")
     rooms = records.get("6529NM.2026.001.06", {}).get("payload", {})
-    if rooms.get("project", {}).get("edition_statement") != "Public edition: 924 unique artworks/tokens; generative system: 923 rooms/combinations.":
+    if rooms.get("project", {}).get("edition_statement") != "Edition size reported as 924; generative system described as 923 unique rooms/combinations; this object: native token #713. Reviewed sources do not explain the relationship between the two counts.":
         issues.append("Casey 923 EMPTY ROOMS record must retain the 923-combination / 924-token distinction")
 
     for object_id, descriptor_slug in OBJECT_TO_DESCRIPTOR.items():

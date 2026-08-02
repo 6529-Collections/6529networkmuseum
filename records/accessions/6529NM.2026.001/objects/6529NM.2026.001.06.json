@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x116461ff332640446b717cb73c34d54a9c277b39dd01995be060e21611bde227"
+      "digest": "0x7e98147998d213b45db6e3b811d531466db875970d6f1f027ba228587fa8917c"
     },
     "effectiveAt": 1785624900,
     "recordType": "WORK_DESCRIPTION",
@@ -137,7 +137,7 @@
     },
     "object_id": "6529NM.2026.001.06",
     "observed_at": "2026-08-01T22:55:00Z",
-    "payload_sha256": "sha256:3320611ac6cd8154441a81481683f03fa7f1c8124e5b18cc5194652b7bd55638",
+    "payload_sha256": "sha256:06cb78b9982c6e4e27d4fc213cc9999ac61108874b19eb950e30a788c6e08043",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -147,7 +147,7 @@
     },
     "project": {
       "edition_size": 924,
-      "edition_statement": "Public edition: 924 unique artworks/tokens; generative system: 923 rooms/combinations.",
+      "edition_statement": "Edition size reported as 924; generative system described as 923 unique rooms/combinations; this object: native token #713. Reviewed sources do not explain the relationship between the two counts.",
       "license_claim_status": "not_a_Museum_grant",
       "name": "923 EMPTY ROOMS",
       "platform": "Art Blocks x Bright Moments",

@@ -209,11 +209,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x6c9de7f7966010559a176d094f7091ad6b584357bf45c1a827527e00c1b1e413"
+        "digest": "0x2b5f220e5ff25deeb50be771015b9d0564326491df97a2a1edb3d701b845441c"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json",
-      "sha256": "sha256:bda304afd1ddbdf2ac7c667993b02ecf35699a45e265f4c09d4ca394ebee5e6a",
-      "size": 20495
+      "sha256": "sha256:6ecff83b4dc4306f013954ade5f6d82a43c328d8b013b552902b147d837379f3",
+      "size": 20605
     },
     {
       "content_hash": {
@@ -1027,8 +1027,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:21546c5cf9a9d864db9e7ebf44ffa2a975321e8a97a0d7f0ece35e47736ce9eb",
-      "size": 40164
+      "sha256": "sha256:e305285df6ce40188dbf33ac6ab1b6469f730d1373cfa2de8b863463d55c1fae",
+      "size": 40274
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1473,9 +1473,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x1bce0a9c7a7ebb08389f3b4d33e7facf41c3353c96eb31eff0cca642f6d008e7"
+    "digest": "0xc90d47d0d867dcf95c047370aaeb520a8ca6df40977e862654bd3bf792725a37"
   },
-  "manifest_sha256": "sha256:0e9f6dd0b81916f97a83807e269780173db28afa32a036073df53da42e61209e",
+  "manifest_sha256": "sha256:bb6e056c9f8b272f7b219568ef6d4c5c8b12332fed6848cbe94f7925c3170930",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

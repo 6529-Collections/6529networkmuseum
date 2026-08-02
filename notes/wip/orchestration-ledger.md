@@ -1077,3 +1077,23 @@ source boundaries, immutable-versus-mutable technical distinctions,
 conflict, transparent non-market descriptors, and no-rarity/no-value posture
 remain unchanged. Full package regeneration, validation, commit, push, exact
 CI, specialist review, and independent exact-head approval remain required.
+
+## 2026-08-02 - 923 EMPTY ROOMS edition-language correction
+
+Independent exact-head curatorial review of `7893dd9` found that the machine
+object record's phrase “Public edition: 924 unique artworks/tokens” exceeded
+the source boundary already enforced in the research dossier and public
+scholarship. Art Blocks and Bright Moments report an edition size of 924 and,
+separately, describe 923 unique rooms or combinations; the reviewed sources do
+not explain the relationship between those figures. The object record now
+preserves those two source statements separately, identifies the accessioned
+work only as native token `#713`, and adopts no reconciliation theory. The
+exact checker has been updated to require that source-limited formulation.
+
+The object payload SHA-256, envelope Keccak content commitment, and governed
+release manifest were regenerated after the correction. Targeted Casey
+validation, commitment refresh check, full Museum/Casey validation, all eight
+Casey dossier-control tests, deterministic-manifest check, and whitespace
+check pass locally. The correction requires a new committed head and complete
+fresh exact-head CI and independent review; no approval of `7893dd9` carries
+forward.
