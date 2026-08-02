@@ -178,6 +178,12 @@ def validate_entry_identity(entries: list[dict[str, str]]) -> None:
 
 def validate_documentation(reference: dict, evidence: dict) -> None:
     spec = SPEC_PATH.read_text(encoding="utf-8")
+    blocks = re.findall(
+        r"<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_BEGIN -->(.*?)<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->",
+        spec,
+        re.DOTALL,
+    )
+    assert len(blocks) == 1
     for required_literal in (
         EIP712_DOMAIN_TYPE,
         f"EIP712 name = {EIP712_NAME}",
@@ -185,13 +191,7 @@ def validate_documentation(reference: dict, evidence: dict) -> None:
         TARGET_RELEASE_ATTESTATION_TYPE,
         RELEASE_SIGNATURE_SET_DOMAIN_LITERAL,
     ):
-        assert required_literal in spec, required_literal
-    blocks = re.findall(
-        r"<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_BEGIN -->(.*?)<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->",
-        spec,
-        re.DOTALL,
-    )
-    assert len(blocks) == 1
+        assert required_literal in blocks[0], required_literal
     values = dict(re.findall(r"^([A-Za-z][A-Za-z0-9]+) = (\S+)$", blocks[0], re.MULTILINE))
     expected = {
         "releaseId": evidence["releaseId"],

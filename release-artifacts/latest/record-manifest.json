@@ -777,8 +777,8 @@
     },
     {
       "path": "specs/onchain/target_release_signature_bundle_check_v1.py",
-      "sha256": "sha256:68bf8c83026db43d0cba447fcc68b81607e8c41bb602c33f12f95c75e21c5a62",
-      "size": 14074
+      "sha256": "sha256:2fe5e6a1bcf53da1cf776601208e150ebdc81c8829872916bae1da2c71395463",
+      "size": 14079
     },
     {
       "path": "specs/onchain/uri_safety_vectors_v1.py",
@@ -1028,9 +1028,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xb596f33e488e0741864cebdf78cb9138d07d3a52c653054fa754b8389a22da0f"
+    "digest": "0x5659790f7205e08a15b02277a07ca14df63c9a360a016715d5262290194e1a98"
   },
-  "manifest_sha256": "sha256:dfcf557921033b0f160c15455e7b6e8d562b4f8774d6d15aff1055cadaf7ed34",
+  "manifest_sha256": "sha256:0856eb61cc152e958311fd3432d94f85606c89d936a1331947fa7a3e19f224a4",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
