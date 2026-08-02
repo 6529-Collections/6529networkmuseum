@@ -158,3 +158,12 @@ The owner-record conformance vector additionally derives its token subject from
 the pinned `STREAM_SUBJECT_TOKEN_V1`, chain ID, synthetic Stream Core, and token
 ID. A free-form subject is invalid even when the ABI and EIP-712 digest are
 otherwise internally coherent.
+
+Later exact-head review closed the Museum mirror side as well. Interface
+admission now binds exact Stream Core and adapter addresses, both runtime code
+hashes, and the owner-record hash domain/vector. Link creation accepts only a
+Museum subject, token ID, and expected-hash guard; it reads back the adapter's
+core, collection, derived subject, owner-record hash, domain, and vector under
+bounded exact-length calls. A retained offline checker rejects each substituted
+value. This remains a conformance design until a source-backed Stream adapter
+and deployment satisfy the convergence gate.

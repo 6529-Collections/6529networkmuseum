@@ -3,7 +3,7 @@
   "version": 1,
   "policyId": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1",
   "policyScope": "NON_DEPLOYMENT_CONFORMANCE_FIXTURE",
-  "signatureScheme": "EIP-191-KECCAK256-DOCUMENT_V1",
+  "signatureScheme": "EIP-712-MUSEUM-TARGET-RELEASE-V1",
   "threshold": 2,
   "addresses": [
     "0x3f839160d2b2e593fb624b3744d051ded823a32d",

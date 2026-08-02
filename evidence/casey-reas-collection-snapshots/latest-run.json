@@ -8,7 +8,7 @@
   "review": null,
   "package_manifest": {
     "path": "package-manifest.json",
-    "sha256": "sha256:b487dc056d7fa1cb298103e0d8c91592929cf9a14444cf2c483026c09426bd96",
+    "sha256": "sha256:256bca1e3c07df2e2afda85e2a831d1ed96d1e12f76a16867066a0b931bf5b16",
     "size": 65519
   }
 }

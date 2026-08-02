@@ -107,14 +107,15 @@
     "signers": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["policyId", "policyHash", "signerSetHash", "threshold", "signatureScheme", "signedDocumentHash", "addresses", "signatureCommitments"],
+        "required": ["policyId", "policyHash", "signerSetHash", "threshold", "signatureScheme", "signedDocumentHash", "releaseAttestationDigest", "addresses", "signatureCommitments"],
       "properties": {
         "policyId": { "const": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1" },
         "policyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
         "signerSetHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
         "threshold": { "const": 2 },
-        "signatureScheme": { "const": "EIP-191-KECCAK256-DOCUMENT_V1" },
-        "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "signatureScheme": { "const": "EIP-712-MUSEUM-TARGET-RELEASE-V1" },
+          "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "releaseAttestationDigest": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
         "addresses": {
           "type": "array",
           "minItems": 3,
@@ -137,7 +138,7 @@
       "required": ["schema", "schemaHash", "version", "uri", "contentHash", "mediaType", "sizeBytes", "availability"],
       "properties": {
         "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
-        "schemaHash": { "const": "0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3" },
+          "schemaHash": { "const": "0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82" },
         "version": { "const": 1 },
         "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
         "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },

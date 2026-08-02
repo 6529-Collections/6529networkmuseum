@@ -17,6 +17,7 @@ import jsonschema
 import rfc8785
 from Crypto.Hash import keccak
 
+from abi_encoding_v1 import address_word, static_words, uint_word
 from release_attestor_policy_check_v1 import (
     load_and_validate_policy,
     policy_hash as release_attestor_policy_hash,
@@ -36,7 +37,9 @@ EVIDENCE_SCHEMA_PATH = ROOT / "target-release-evidence-v1.schema.json"
 EVIDENCE_PATH = ROOT / "target-release-evidence-v1.fixture.json"
 SPEC_PATH = ROOT / "contract-migration-v1.md"
 
-EXPECTED_SCHEMA_HASH = "ff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3"
+EXPECTED_SCHEMA_HASH = "12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82"
+FIXTURE_CHAIN_ID = 1
+FIXTURE_REGISTRY_ADDRESS = "0x0000000000000000000000000000000000006529"
 
 # secp256k1 constants. They are used only to recover public keys from the
 # public test signatures; no private key is retained by this repository.
@@ -52,6 +55,52 @@ def k(value: bytes) -> bytes:
     digest = keccak.new(digest_bits=256)
     digest.update(value)
     return digest.digest()
+
+
+EIP712_DOMAIN_TYPEHASH = k(b"EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)")
+EIP712_NAME_HASH = k(b"6529NetworkMuseumTargetRelease")
+EIP712_VERSION_HASH = k(b"1")
+TARGET_RELEASE_ATTESTATION_TYPEHASH = k(
+    b"MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)"
+)
+RELEASE_SIGNATURE_SET_DOMAIN = k(b"6529networkmuseum.release-signature-set.v1")
+
+
+def release_attestation_digest(
+    chain_id: int,
+    registry_address: str,
+    release_id: str,
+    conformance_document_hash: str,
+    signed_document_hash: str,
+    release_attestor_policy_hash: str,
+    release_attestor_signer_set_hash: str,
+) -> bytes:
+    domain_separator = k(static_words(
+        EIP712_DOMAIN_TYPEHASH,
+        EIP712_NAME_HASH,
+        EIP712_VERSION_HASH,
+        uint_word(chain_id),
+        address_word(bytes.fromhex(registry_address.removeprefix("0x"))),
+    ))
+    struct_hash = k(static_words(
+        TARGET_RELEASE_ATTESTATION_TYPEHASH,
+        bytes.fromhex(release_id.removeprefix("0x")),
+        bytes.fromhex(conformance_document_hash.removeprefix("0x")),
+        bytes.fromhex(signed_document_hash.removeprefix("0x")),
+        bytes.fromhex(release_attestor_policy_hash.removeprefix("0x")),
+        bytes.fromhex(release_attestor_signer_set_hash.removeprefix("0x")),
+    ))
+    return k(b"\x19\x01" + domain_separator + struct_hash)
+
+
+def release_signature_set_hash(digest: bytes, entries: list[dict[str, str]]) -> str:
+    words = [RELEASE_SIGNATURE_SET_DOMAIN, digest]
+    for entry in entries:
+        words.extend((
+            address_word(bytes.fromhex(entry["signer"].removeprefix("0x"))),
+            bytes.fromhex(entry["signatureCommitment"].removeprefix("0x")),
+        ))
+    return "0x" + k(static_words(*words)).hex()
 
 
 def point_add(left: tuple[int, int] | None, right: tuple[int, int] | None) -> tuple[int, int] | None:
@@ -135,6 +184,11 @@ def validate_documentation(reference: dict, evidence: dict) -> None:
         "releaseAttestorSignerSetHash": evidence["signers"]["signerSetHash"],
         "D0ConformanceDocumentHash": evidence["conformanceDocumentHash"],
         "D1SignedDocumentHash": evidence["signers"]["signedDocumentHash"],
+        "releaseAttestationDigest": evidence["signers"]["releaseAttestationDigest"],
+        "releaseSignatureSetHash": release_signature_set_hash(
+            bytes.fromhex(evidence["signers"]["releaseAttestationDigest"][2:]),
+            json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))["entries"],
+        ),
         "bundleUri": reference["uri"],
         "alternateBundleUri": reference["availability"][1]["uri"],
         "bundleContentHash": reference["contentHash"],
@@ -167,7 +221,12 @@ def main() -> int:
 
     assert k(rfc8785.dumps(schema)).hex() == EXPECTED_SCHEMA_HASH
     assert bundle["releaseId"] == evidence["releaseId"]
+    assert bundle["chainId"] == FIXTURE_CHAIN_ID
+    assert bundle["registryAddress"] == FIXTURE_REGISTRY_ADDRESS
+    assert bundle["conformanceDocumentHash"] == evidence["conformanceDocumentHash"]
     assert bundle["signedDocumentHash"] == evidence["signers"]["signedDocumentHash"]
+    assert bundle["releaseAttestorPolicyHash"] == evidence["signers"]["policyHash"]
+    assert bundle["releaseAttestorSignerSetHash"] == evidence["signers"]["signerSetHash"]
     assert evidence["signers"]["policyId"] == attestor_policy["policyId"]
     assert evidence["signers"]["policyHash"] == release_attestor_policy_hash(attestor_policy)
     assert evidence["signers"]["signerSetHash"] == release_attestor_signer_set_hash(attestor_policy)
@@ -176,7 +235,17 @@ def main() -> int:
     assert evidence["signers"]["addresses"] == attestor_policy["addresses"]
     assert cidv1_raw_sha256(canonical) == evidence["detachedSignatureBundle"]["uri"]
 
-    sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(bundle["signedDocumentHash"][2:]))
+    sign_digest = release_attestation_digest(
+        bundle["chainId"],
+        bundle["registryAddress"],
+        bundle["releaseId"],
+        bundle["conformanceDocumentHash"],
+        bundle["signedDocumentHash"],
+        bundle["releaseAttestorPolicyHash"],
+        bundle["releaseAttestorSignerSetHash"],
+    )
+    assert bundle["releaseAttestationDigest"] == "0x" + sign_digest.hex()
+    assert evidence["signers"]["releaseAttestationDigest"] == bundle["releaseAttestationDigest"]
     entries = bundle["entries"]
     validate_entry_identity(entries)
     assert evidence["signers"]["threshold"] == 2
@@ -231,6 +300,7 @@ def main() -> int:
     print(f"bundleBytes={reference['sizeBytes']}")
     print(f"bundleSchemaHash=0x{EXPECTED_SCHEMA_HASH}")
     print(f"signatureDigest=0x{sign_digest.hex()}")
+    print(f"releaseSignatureSetHash={release_signature_set_hash(sign_digest, entries)}")
     print("signatureRecovery=2/3")
     return 0
 

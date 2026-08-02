@@ -795,3 +795,46 @@ address array; key/policy/set substitutions are negative tests. The checked
 file is explicitly a public non-deployment fixture. A real deployment must
 replace it with a governance-approved production policy and bind the resulting
 commitments in both constructor and release manifest.
+
+## 2026-08-02 - runtime attestation and Stream readback closure
+
+Exact-head independent review of `cf6ff24` found two substantive remaining
+gaps, so that head was not merged. First, the 2-of-3 release review existed in
+the evidence package but was not unavoidable inside `admitTargetRelease`.
+Second, a mirror-link caller could still supply a Stream subject and
+owner-record hash without a mandatory adapter readback tying both to the
+admitted Stream deployment.
+
+The local remediation makes release approval a registry-enforced EIP-712 gate.
+The domain binds chain ID and registry address; the exact struct binds release
+ID, D0 conformance hash, D1 signed-document hash, and the immutable policy and
+signer-set commitments. Admission accepts exactly two sorted governed signer
+addresses and their 65-byte canonical signatures, recovers both on-chain, and
+stores the digest, signer addresses, signature commitments, and signature-set
+commitment. The deterministic vector now has release ID
+`0x118d59bded209701cb211f4515fff0935c96fa4d2aa50d42e0a749d45c0eca85`,
+attestation digest
+`0xac389ba1bd808d6bb58087be65d31fcbe9ce9593d503a1a267f1aa0d80be5bc3`,
+and signature-set hash
+`0x8a1d8004d16e0b3de6f7d242a3cfad1e40740d517003d9ab827697e7452db555`.
+Its 1,300-byte detached bundle hash is
+`0xbc553ca1ffb482755bea510253a73b941dd81b5c313dce82267f6915ca75f70b`.
+The executable runtime model rejects missing, duplicate, out-of-order, or
+unauthorized signers; altered signatures; changed release/document/policy
+fields; and cross-chain or cross-registry replay.
+
+Stream interface admission now binds exact Core and adapter addresses plus
+both runtime hashes, domain, vector, and evidence. Mirror-link creation accepts
+only the Museum subject, token ID, and expected-hash guard; it rechecks both
+runtimes and reads the adapter's Core, domain, vector, collection, derived
+subject, and owner-record hash with exact-length bounded calls. A new ninth
+network-free checker rejects substitution of every readback field. The three
+changed governed selectors produce closed selector-set hash
+`0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5`
+and therefore new executor binding commitment
+`0x40a3c47c9686f82852e14e2b503ff9e02cdbed30d556db7347112bec4061e3f9`.
+
+Focused conformance scripts pass locally. Full regeneration, repository-wide
+validation, a new exact head, fresh CI, and fresh independent/bot review remain
+required. Nothing in this entry authorizes deployment, a network write, or a
+completed accession.

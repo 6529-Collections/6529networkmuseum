@@ -181,7 +181,9 @@ as Stream's current ABI:
 
 ```solidity
 interface IMuseumStreamOwnerRecordConvergenceAdapterV1 {
-    function ownerRecordHash(uint256 tokenId) external view returns (bytes32);
+    function streamCore() external view returns (address);
+    function ownerRecordBinding(uint256 tokenId) external view returns (
+        uint256 collectionId, bytes32 streamSubjectId, bytes32 ownerRecordHash);
     function ownerRecordHashDomain() external pure returns (bytes32);
     function ownerRecordHashVectorId() external pure returns (bytes32);
 }
@@ -279,11 +281,15 @@ proxy-like, or non-allowlisted runtime is not admitted.
 
 The exact bilateral reference carries `ownerRecordModule`, `streamCore`,
 `collectionId`, `tokenId`, `streamSubjectId`, `ownerRecordHash`,
-`ownerRecordHashDomain`, and `ownerRecordHashVectorId`. A mirror link MUST
-not be described as a Stream owner-record write unless all of these values
-are returned or independently verified by the converged adapter. V1 does not
-invent their values from the published EIP-712 authorization typehash: the
-authorization digest and stored owner `recordHash` are distinct commitments.
+`ownerRecordHashDomain`, and `ownerRecordHashVectorId`. The admitted adapter
+MUST return every value other than the Museum subject and token ID: its
+`streamCore()` binds the deployment, and `ownerRecordBinding(tokenId)` returns
+the collection, stored Stream subject, and current owner-record hash in one
+bounded read. The Museum registry independently recomputes the subject from
+`STREAM_SUBJECT_TOKEN_V1`, `block.chainid`, the admitted core, and `tokenId`,
+and rejects any disagreement. V1 does not invent a record hash from the
+published EIP-712 authorization typehash: the authorization digest and stored
+owner `recordHash` are distinct commitments.
 
 The convergence gate accepts the published draft ABI/typehash facts above but
 remains closed until Stream publishes and pins the implementing source and
@@ -304,6 +310,12 @@ authority rotation never rewrites this admission history; a new interface
 module or vector is a new revision and requires a new convergence gate.
 `streamOwnerRecordInterfaceAtRevision(revision)` is the state reconstruction
 view for every prior admission; the zero revision is absent and MUST revert.
+Each revision binds one exact Stream Core address/runtime hash and one exact
+adapter address/runtime hash. Admission rechecks both direct `extcodehash`
+values and requires bounded exact-length adapter reads whose `streamCore()`,
+hash domain, and vector ID equal the supplied values. Every mirror write
+repeats those runtime and readback checks, so a changed core, adapter, domain,
+or vector cannot use an earlier admission.
 
 ## 3. Exact identifiers and profile rule
 
@@ -365,7 +377,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
 | Governance-executor binding domain | `6529networkmuseum.governance-executor-binding.v1` | `0xc36068b55c238ed7d9935be44bdbe89a03cee1aaacccd5c0b739c1b40f5e5b06` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
@@ -388,6 +400,11 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
 | Target-release identity domain | `6529networkmuseum.target-release-id.v1` | `0xb46f066b6a2753ffb8634e3ab1934b6d08110f50ca4d56478f0c05b8ae5f6ff0` |
 | Release-attestor signer-set domain | `6529networkmuseum.release-attestor-signer-set.v1` | `0x70780232933964b71995ee4297ea125c132dbe977dd96658f75b993dc82b8c78` |
+| Target-release EIP-712 domain typehash | `EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)` | `0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f` |
+| Target-release EIP-712 name hash | `6529NetworkMuseumTargetRelease` | `0xad57a2fb87ede840686d52adfaccaae3c8c993597c2d21faf621069c6907e07e` |
+| Target-release EIP-712 version hash | `1` | `0xc89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6` |
+| Target-release EIP-712 typehash | `MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)` | `0x56ebb221b517fc83550c540843ed9cc30095835ef9b097e4c7fb9a51b9854ed7` |
+| Release-signature-set domain | `6529networkmuseum.release-signature-set.v1` | `0x4ab65e998eae4ebf35f9bc7579b02bcf9c44a1dae6b6eb14f65dfe6b2bc32a68` |
 | Target-dependency row domain | `6529networkmuseum.target-dependency-row.v1` | `0x0b0481d6fc4f5287c63d8e94d48e3b7f67661cbb8773f25ee18b45f6531d33ca` |
 | Target-dependency set domain | `6529networkmuseum.target-dependency-set.v1` | `0xeff667c3cf8eaa69b18ff3eea3d99d00f81293b6f031311cbe41b89a540a04a2` |
 | Canonicalizer purity policy | `MUSEUM_CANONICALIZER_RUNTIME_PURITY_V1` | `0xa6bf8d47e01db9e1380475c7e9afe08bfa7bdc4ee378d3164d4058da2904e2e7` |
@@ -397,9 +414,9 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Dependency non-proxy policy | `MUSEUM_DEPENDENCY_RUNTIME_NONPROXY_V1` | `0x91f6a97952f01ee36bc37c89abea588f77f59e170cfa6614d160d98762fdf452` |
 | Dependency non-proxy policy document hash | `dependency-runtime-nonproxy-v1.json` | `0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04` |
 | Target-release evidence schema | `MUSEUM_TARGET_RELEASE_EVIDENCE_V1` | `0xbb8a203a0f161e49f7f5fd9cdd4471c56e21263fa789bb50ec6198ff4b441f6c` |
-| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce` |
-| Target-release signature bundle schema hash | `target-release-signature-bundle-v1.schema.json` | `0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3` |
-| Release-attestor policy schema document hash | `release-attestor-policy-v1.schema.json` | `0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7` |
+| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xa54955d0077ad11a6b376b872aeeff758c36fe4c126f777ac3df64c01933a214` |
+| Target-release signature bundle schema hash | `target-release-signature-bundle-v1.schema.json` | `0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82` |
+| Release-attestor policy schema document hash | `release-attestor-policy-v1.schema.json` | `0x7ce79b67b7882dfa70c5bee9e62b7ccba9a987a338ae3b0186862e03a21bbc06` |
 | Batch benchmark schema | `MUSEUM_BATCH_GAS_BENCHMARK_V1` | `0xfd6cc699ac634ec33160703ce1c9a46a43fab11232511f2ef8ad220520d05d1c` |
 | Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0xf69a816a38f9b0f1addd6f8270318d6c1aacf17cb55bfb2adcb7efbe5983b293` |
 | Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x4384db06bd8e764511d5f0aca0a4ed656b1ff6ea5e412f313f6eb2407bec45e6` |
@@ -1274,6 +1291,13 @@ struct TargetRelease {
     bytes32 sourceTreeHash;           // right-aligned 40-hex Git SHA-1 tree OID
     bytes32 artifactHash;             // exact runtime/build artifact hash
     bytes32 conformanceDocumentHash;  // independently reproduced probe report
+    bytes32 signedDocumentHash;       // D1 evidence-document commitment
+    bytes32 releaseAttestationDigest; // registry/chain-bound EIP-712 digest
+    address releaseAttestor0;         // first recovered governed signer
+    address releaseAttestor1;         // second recovered governed signer
+    bytes32 releaseSignatureCommitment0;
+    bytes32 releaseSignatureCommitment1;
+    bytes32 releaseSignatureSetHash;
     bytes4 requiredInterfaceId;
     bytes32 expectedModuleVersion;    // zero for authority
     bytes32 protocolVersion;
@@ -1286,18 +1310,23 @@ struct TargetRelease {
 }
 ```
 
-`releaseAttestorPolicyHash` and `releaseAttestorSignerSetHash` are immutable
-registry-wide commitments supplied separately to the constructor. They are
-publicly readable and every admitted release row MUST equal both values. A V1
-signer-policy rotation therefore requires a new registry deployment and the
-ordinary successor gate; a release document cannot select its own trust root.
+`releaseAttestorPolicyHash` and the three strictly increasing release-attestor
+addresses are immutable registry-wide constructor inputs. The constructor
+derives `releaseAttestorSignerSetHash` from that policy hash, threshold `2`,
+cardinality `3`, and those addresses; it does not trust a caller-supplied set
+hash. The two commitments and each signer are publicly readable, and every
+admitted release row MUST equal those immutables. A V1 signer-policy rotation
+therefore requires a new registry deployment and the ordinary successor gate;
+a release document cannot select its own trust root.
 
 `admitTargetRelease` is authority-admin controlled and available only while
 writes are not frozen. The release history is append-only, while the current
 `(targetKind, target, codeHash)` pointer may advance to a new revision. It MUST reject
-a zero target, zero release/code/artifact/conformance/runtime-policy/dependency,
+a zero target, zero release/code/artifact/conformance/signed-document/runtime-policy/dependency,
 release-attestor-policy, or signer-set hash, either attestor commitment unequal
-to the registry immutable, a nonzero authority module version,
+to the registry immutable, signer/signature arrays other than exact length two,
+signers that are duplicated, unsorted, or outside the immutable three, a
+noncanonical or incorrectly recovered signature, a nonzero authority module version,
 or a kind/interface/version tuple outside the V1 rules. For kind `1`, the
 interface MUST be `IMuseumAuthorityProviderV1`, module version MUST be zero,
 and protocol/Stream commits MUST be zero. For kind `2`, the interface MUST be
@@ -1314,7 +1343,9 @@ admission has `revision == 1`, `status == 1`, `previousReleaseId == 0`, and
 MUST use `revision == current.revision + 1`, a new release ID, and the exact
 acyclic identity derivation. `releaseId` is derived before either evidence
 projection, excludes `conformanceDocumentHash`, `signedDocumentHash`,
-signature bytes/commitments, and availability, and is globally unique:
+`releaseAttestationDigest`, signature bytes/commitments, and availability, and
+is globally unique. The later EIP-712 attestation binds all of those evidence
+values back to this identity without introducing a release-ID cycle:
 
 `admitTargetRelease` takes the canonical `TargetDependency[]`,
 `previousReleaseId`, and `supersessionReasonHash` explicitly, but never takes
@@ -1356,9 +1387,16 @@ old row remains readable through `targetReleaseAtRevision`; it is never
 overwritten. A duplicate release ID anywhere, a same-revision row, or a row
 whose exact target differs from its evidence document reverts.
 
+The row and `TargetReleaseAdmitted` event also store `signedDocumentHash`, the
+recomputed EIP-712 `releaseAttestationDigest`, both recovered attestor
+addresses, both exact signature commitments, and `releaseSignatureSetHash`.
+Signature bytes remain available in transaction calldata and the retained
+detached bundle; the state commitments make the accepted proof independently
+reconstructable without paying permanent storage for 130 signature bytes.
+
 The canonical evidence document MUST validate against the release-controlled
 `specs/onchain/target-release-evidence-v1.schema.json`, whose JCS hash is
-`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
+the exact value published in §13.9.1 and checked by the retained harness.
 The document's `schema` is `MUSEUM_TARGET_RELEASE_EVIDENCE_V1`, its `version`
 is `1`, and its `conformanceDocumentHash` is the Keccak-256 of the exact JCS
 document preimage defined below. It MUST contain, with lowercase exact encodings, the target
@@ -1371,7 +1409,7 @@ observations, and supersession predecessor/reason fields. The fixed signer
 policy is exactly 2-of-3 distinct release-attestor addresses, sorted by
 numeric address. Its canonical policy artifact validates against
 `release-attestor-policy-v1.schema.json` (JCS schema hash
-`0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7`).
+`0x7ce79b67b7882dfa70c5bee9e62b7ccba9a987a338ae3b0186862e03a21bbc06`).
 `releaseAttestorPolicyHash` is the Keccak-256 of the exact RFC 8785 JCS policy
 bytes. `releaseAttestorSignerSetHash` is
 `keccak256(abi.encode(MUSEUM_RELEASE_ATTESTOR_SIGNER_SET_DOMAIN,
@@ -1382,7 +1420,7 @@ evidence document. The policy's authority source is a governance-approved
 deployment manifest; the document under review is evidence for that prior
 decision, never a self-authorizing signer list. The detached bundle contains exactly two entries: any two of
 the three admitted addresses, strictly sorted by numeric address. Each entry
-signs the exact `signedDocumentHash` defined below, and the evidence document
+signs the exact registry-bound `releaseAttestationDigest` defined below, and the evidence document
 records exactly those two signature commitments in bundle order. At least two availability observations
 MUST use distinct content-addressed `ipfs://` or `ar://` URIs, match the `D0`
 core hash, and be independently fetched and hash-checked. HTTPS evidence
@@ -1404,44 +1442,72 @@ prevents self-reference and follows this mandatory acyclic order: first derive
 `releaseId` from the identity tuple above; then define `core(E)` from the
 schema-valid evidence object `E` by omitting `availability` and
 `detachedSignatureBundle`, replacing every `signers.signatureCommitments` item
-with `0x` followed by 64 zeroes, and then applying the substitutions below.
+with `0x` followed by 64 zeroes, setting
+`signers.releaseAttestationDigest` to zero, and then applying the substitutions below.
 `D0` is `core(E)` with both `conformanceDocumentHash` and
 `signers.signedDocumentHash` set to zero; `conformanceDocumentHash` is exactly
 `keccak256(RFC8785_JCS(D0))`. `D1` is the same projection with the already
 derived real `conformanceDocumentHash` restored and
 `signers.signedDocumentHash` still zero; `signedDocumentHash` is exactly
-`keccak256(RFC8785_JCS(D1))`. Only then are the two commitments, detached
+`keccak256(RFC8785_JCS(D1))`. Only then is the registry- and chain-bound
+EIP-712 release attestation derived. Its domain is name
+`6529NetworkMuseumTargetRelease`, version `1`, `block.chainid`, and
+`address(this)`. Its exact type string is
+`MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)`:
+
+```solidity
+releaseAttestationStructHash = keccak256(abi.encode(
+    MUSEUM_TARGET_RELEASE_ATTESTATION_TYPEHASH,
+    releaseId,
+    conformanceDocumentHash,
+    signedDocumentHash,
+    releaseAttestorPolicyHash,
+    releaseAttestorSignerSetHash
+));
+releaseAttestationDigest = keccak256(abi.encodePacked(
+    hex"1901", targetReleaseDomainSeparator, releaseAttestationStructHash
+));
+```
+
+Only then are the two commitments, detached
 bundle, and availability observations derived. Both projections replace the
 two commitment slots with two zero hashes, preserving their fixed threshold
 cardinality. The projection, rather than a self-referential
-retrieval carrier, is the canonical signed release evidence. The detached
-signature bytes use
-`EIP-191-KECCAK256-DOCUMENT_V1`, namely
-`keccak256(0x19 || UTF8("Ethereum Signed Message:\\n32") ||
-signedDocumentHash)`. The three admitted signer addresses are strictly
+retrieval carrier, is the canonical release evidence; the EIP-712 digest binds
+that evidence to one registry deployment. The detached signature bytes use
+`EIP-712-MUSEUM-TARGET-RELEASE-V1` and sign
+`releaseAttestationDigest` directly. The three admitted signer addresses are strictly
 increasing as `uint160` and distinct; the two bundle signer addresses are a
 strictly increasing subset of that set, and both detached signatures MUST
 recover to their claimed addresses. The two signature commitments are
 `keccak256` of the exact detached signature bytes. One entry or an entry from
 outside the admitted three fails; a third entry fails the exact-threshold V1
-schema. This is a release
-artifact check, not a claim that a Solidity contract can fetch or recover
-detached GitHub evidence from `bytes32` alone.
+schema. The registry receives the same two signer addresses and signature
+bytes in `admitTargetRelease`, recomputes the EIP-712 digest from its own chain,
+address, release ID, and evidence commitments, performs canonical ECDSA
+recovery, and stores both signers and commitments. It also stores
+`releaseSignatureSetHash = keccak256(abi.encode(
+MUSEUM_RELEASE_SIGNATURE_SET_DOMAIN, releaseAttestationDigest, signer0,
+keccak256(signature0), signer1, keccak256(signature1)))`. An executor cannot
+substitute an unsigned report or signatures from another release, chain, or
+registry.
 
 The canonical evidence object MUST also contain `detachedSignatureBundle`,
 validated against `MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1` with schema hash
-`0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`. It
+`0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82`. It
 commits an `ipfs://` or `ar://` URI, the exact Keccak content hash, media type
 `application/json`, byte size in `1..65,536`, and two distinct fetch
 observations whose content hashes equal that bundle hash. The bundle bytes are
 RFC 8785 JCS of the schema-valid object with exactly two sorted entries;
 each entry contains the exact 65-byte ECDSA signature bytes and its
-`keccak256` commitment. The bundle's `releaseId` and `signedDocumentHash` MUST
-equal the evidence document, and its entries MUST be a subset of the three
+`keccak256` commitment. The bundle's chain ID, registry address, `releaseId`,
+`conformanceDocumentHash`, `signedDocumentHash`, attestor policy/set hashes,
+and `releaseAttestationDigest` MUST equal the evidence and transaction fields,
+and its entries MUST be a subset of the three
 admitted signer addresses and match the two evidence commitments byte-for-byte.
 The release gate fetches both
 availability copies, checks the exact byte count and media type, parses the
-bundle, recovers the signatures, and verifies the EIP-191 preimage before an
+bundle, recomputes the EIP-712 domain/struct digest, and recovers the signatures before an
 authority-admin transaction is signed. A copied canonical evidence document
 without this separately available bundle is incomplete and MUST NOT pass the
 release gate.
@@ -1500,12 +1566,15 @@ two independent builds, equality of both artifact hashes and runtime
 both availability observations before the authority-admin transaction is
 signed. The on-chain primitive additionally checks the right-aligned SHA-1
 encoding, `artifactHash == extcodehash(target)`, the fixed runtime policy,
-and all target probes. The contract intentionally does not pretend to verify
-GitHub, compiler, signature, or content-addressed storage semantics from a
-`bytes32`; those are an explicit release-gate trust boundary, and an
-implementation MUST reject the transaction when the canonical evidence gate
-has not produced a signed report. A caller-supplied `expectedCodeHash` or
-`evidenceHash` cannot create or bypass a release row.
+all target probes, and the same governed 2-of-3 EIP-712 signatures supplied in
+the detached bundle. The contract intentionally does not pretend to verify
+GitHub, compiler, or content-addressed storage semantics from a `bytes32`;
+those remain an explicit release-gate trust boundary. It does, however,
+cryptographically enforce that two immutable governed attestors approved the
+exact release ID, conformance-document hash, signed-document hash, policy/set
+commitments, chain, and registry. A caller-supplied `expectedCodeHash`,
+`evidenceHash`, unsigned `signedDocumentHash`, or unrelated signature cannot
+create or bypass a release row.
 
 The terminal `quarantineTargetRelease(targetKind, target, codeHash, reasonHash)` action
 is authority-admin controlled, requires a nonzero reason hash, and changes the
@@ -1673,11 +1742,11 @@ booleans, addresses, revision, commitment, and `canAuthorize` value; a
 malformed or reverting call fails the gate. This handshake covers the actual
 required selector set and registry/role domain; it is not a marker-only probe
 and grants no arbitrary call capability. The selector set is the strictly increasing numeric
-`bytes4[]` `[0x3a1a0b96, 0x4070473d, 0x49c44b5c, 0x51d8c5e0, 0x75c75961,
-0x81a86ff4, 0x967059b8, 0xab6627c3, 0xaf2fb948, 0xc9dc7d0d,
+`bytes4[]` `[0x3a1a0b96, 0x51b648fd, 0x51d8c5e0, 0x81a86ff4, 0x93936f62,
+0x967059b8, 0xab6627c3, 0xaf2fb948, 0xc1713cf2, 0xc9dc7d0d,
 0xda6d916f, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
 and hashed to
-`0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e`. It
+`0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5`. It
 binds authority, governance-executor, target-release admission/quarantine,
 global-role, Stream owner-record-interface admission and mirror-link convergence,
 HTTPS resolver-profile admission, execute, and cancel capabilities only. `freezeWrites` and
@@ -2081,7 +2150,10 @@ interface INetworkMuseumRegistryV1 {
 
     struct StreamOwnerRecordInterface {
         bool admitted;
+        address streamCore;
+        bytes32 streamCoreCodeHash;
         address interfaceModule;
+        bytes32 interfaceModuleCodeHash;
         bytes32 ownerRecordHashDomain;
         bytes32 ownerRecordHashVectorId;
         bytes32 evidenceHash;
@@ -2127,6 +2199,13 @@ interface INetworkMuseumRegistryV1 {
         bytes32 sourceTreeHash;
         bytes32 artifactHash;
         bytes32 conformanceDocumentHash;
+        bytes32 signedDocumentHash;
+        bytes32 releaseAttestationDigest;
+        address releaseAttestor0;
+        address releaseAttestor1;
+        bytes32 releaseSignatureCommitment0;
+        bytes32 releaseSignatureCommitment1;
+        bytes32 releaseSignatureSetHash;
         bytes4 requiredInterfaceId;
         bytes32 expectedModuleVersion;
         bytes32 protocolVersion;
@@ -2244,6 +2323,7 @@ interface INetworkMuseumRegistryV1 {
     function pendingGovernanceExecutor() external view returns (GovernanceExecutorState memory);
     function releaseAttestorPolicyHash() external view returns (bytes32);
     function releaseAttestorSignerSetHash() external view returns (bytes32);
+    function releaseAttestorSigner(uint256 index) external view returns (address);
     function successor() external view returns (address);
     function writesFrozen() external view returns (bool);
     function pendingAuthority() external view returns (TransitionTarget memory);
@@ -2283,6 +2363,8 @@ interface INetworkMuseumRegistryV1 {
         bytes32 releaseAttestorSignerSetHash,
         TargetDependency[] calldata externalDependencies, bytes32 sourceCommit,
         bytes32 sourceTreeHash, bytes32 artifactHash, bytes32 conformanceDocumentHash,
+        bytes32 signedDocumentHash, address[] calldata releaseAttestors,
+        bytes[] calldata releaseAttestorSignatures,
         bytes4 requiredInterfaceId, bytes32 expectedModuleVersion,
         bytes32 protocolVersion, bytes32 streamCompatibilityCommit,
         bytes32 previousReleaseId, bytes32 supersessionReasonHash) external;
@@ -2327,7 +2409,8 @@ interface INetworkMuseumRegistryV1 {
         external view returns (HttpsAssertion memory);
     function httpsAssertionByHash(bytes32 assertionHash)
         external view returns (HttpsAssertion memory);
-    function admitStreamOwnerRecordInterface(address interfaceModule,
+    function admitStreamOwnerRecordInterface(address streamCore, bytes32 streamCoreCodeHash,
+        address interfaceModule, bytes32 interfaceModuleCodeHash,
         bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId, bytes32 evidenceHash)
         external;
     function streamOwnerRecordInterface()
@@ -2376,9 +2459,8 @@ interface INetworkMuseumRegistryV1 {
     function record(bytes32 recordHash) external view returns (CollectionRecord memory);
     function payload(bytes32 recordHash) external view returns (bytes memory);
 
-    function setStreamMirrorLink(bytes32 subjectId, address streamCore, address ownerRecordModule,
-        uint256 collectionId, uint256 tokenId, bytes32 streamSubjectId, bytes32 ownerRecordHash,
-        bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId) external;
+    function setStreamMirrorLink(bytes32 subjectId, uint256 tokenId,
+        bytes32 expectedOwnerRecordHash) external;
     function streamMirrorLink(bytes32 subjectId)
         external view returns (StreamMirrorLink memory);
 
@@ -2464,14 +2546,14 @@ implementation cannot accidentally authorize an overload:
 | Selector | Caller requirement | Additional anti-pollution rule |
 |---|---|---|
 | `0x73c0a0b4` `registerExternalAsset(bytes32,string,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_REGISTRAR_V1` or `MUSEUM_GLOBAL_ROLE_MIGRATION_ADMIN_V1` grant for `msg.sender`; never an open/public or family-grant caller | `assetProfileId` MUST be admitted; the profile canonicalizer/runtime checks MUST pass; `expectedSubjectId` MUST equal the deterministic subject; an existing subject never overwrites or aliases another asset. |
-| `0x49c44b5c` `setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)` | Enabled global registrar or migration-admin grant, or the direct current governance-executor closed binding during the convergence-gate action; never a governance-executor grant row | The Museum subject MUST already exist; the link is write-once; all Stream/module/token/hash-domain/vector fields are committed together; a duplicate or altered link reverts. |
-| `0x75c75961` `admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)` | Direct current governance executor plus active authority/provider capability | The evidence hash, exact owner-record domain/vector, interface module, and pinned Stream commit are recorded before any mirror link can be set. |
+| `0xc1713cf2` `setStreamMirrorLink(bytes32,uint256,bytes32)` | Enabled global registrar or migration-admin grant, or the direct current governance-executor closed binding during the convergence-gate action; never a governance-executor grant row | The Museum subject MUST already exist; the link is write-once; core/module/collection/subject/hash-domain/vector values are runtime-checked and read back, and the expected owner-record hash is only a substitution guard. |
+| `0x51b648fd` `admitStreamOwnerRecordInterface(address,bytes32,address,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor plus active authority/provider capability | The evidence hash, exact Stream core and adapter addresses/runtime hashes, owner-record domain/vector, and pinned Stream commit are recorded before any mirror link can be set. |
 | `0xaf2fb948` `admitHttpsResolverProfile(bytes32,bytes32,address,uint64,uint64)` | Direct current governance executor under the closed authority-admin binding plus active authority/provider capability | Profile ID is write-once; attestor, TTL bounds, profile revision, and authority revision are stored before any assertion. |
 | `0x1e0c9fe6` `recordHttpsAssertionBySig(string,bytes32,bytes32,uint64,bytes32,uint64,bytes32,uint64,uint64,address,uint256,uint64,address[],bytes)` | Valid EIP-712 signature from the resolver profile's attestor with enabled HTTPS-attestor role | Canonical URI/host, current resolver revision, signer nonce/deadline, monotone assertion revision/predecessor, sorted bounded ABI address-set hash, routability, TTL, assertion hash, and signature commitment are recomputed on-chain. |
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Direct current governance executor under the closed authority-admin binding and active authority | The role ID is closed-world; the two executor-derived role IDs reject mutation; each ordinary change increments the role revision and records both control revisions. |
-| `0x4070473d` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor under the closed authority-admin binding and active authority before freeze | The release history is append-only; dependency rows include their runtime policy, are sorted, bounded, non-proxy scanned, ABI-committed, and persisted by release ID; the exact target address, governed release-attestor policy/signer-set commitments, source tree, runtime policy, predecessor/reason, and globally non-reusable acyclic release ID remain bound. |
+| `0x93936f62` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor under the closed authority-admin binding and active authority before freeze | The release history is append-only; dependency rows are persisted and ABI-committed; the registry recomputes the release identity and chain/address-bound EIP-712 digest, then requires two sorted governed signers and valid signatures before storing the row. |
 | `0x85968ef0` `targetRelease(uint8,address,bytes32)` / `0x288b2e93` `targetReleaseAtRevision(uint8,address,bytes32,uint64)` / `0xb9bc97a1` `targetReleaseById(bytes32)` / `0x1dcd55b2` `targetReleaseDependencyCount(bytes32)` / `0x1efe53c1` `targetReleaseDependency(bytes32,uint256)` / `0xda6d916f` `quarantineTargetRelease(uint8,address,bytes32,bytes32)` | Historical reads for any caller / quarantine by direct current governance executor under the closed authority-admin binding and active authority before freeze | The historical row and dependency rows are immutable; address A evidence cannot authorize identical code at address B; quarantine is terminal with a nonzero reason and a new governed revision is required. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Direct current governance executor under the closed authority-admin binding and active authority | Queues a 48-hour contract-only authority-provider transition with code hash, ERC-165/interface probe, executor-bound capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
 | `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Direct current governance executor | Execute requires the stored ETA; cancel clears only the pending provider transition. Both are blocked after freeze. |
@@ -2518,17 +2600,30 @@ actual enabled global role ID used by `msg.sender` and the active
 `authorityRevision`; a later role rotation never rewrites this registration.
 
 `setStreamMirrorLink` is also not an untrusted assertion channel. It requires
-an existing Museum subject, an admitted `streamOwnerRecordInterface`, a
-converged/approved owner-record evidence vector, nonzero module/core
-addresses, a nonzero token ID where the source namespace requires one, and a
-nonzero owner-record hash/domain/vector ID. The supplied module, domain, and
-vector MUST equal the admitted interface values, and the evidence hash for
-the interface MUST be anchored to the pinned Stream compatibility commit.
+an existing Museum subject and an admitted `streamOwnerRecordInterface` whose
+convergence evidence is anchored to the pinned Stream compatibility commit.
+The caller supplies only that Museum subject, the Stream token ID, and an
+`expectedOwnerRecordHash` substitution guard. The contract loads the admitted
+core/module/domain/vector, rechecks both direct runtime hashes, and performs
+bounded exact-length staticcalls to `streamCore()`,
+`ownerRecordHashDomain()`, `ownerRecordHashVectorId()`, and
+`ownerRecordBinding(tokenId)`. It requires the adapter's core/domain/vector to
+equal the admitted row, derives
+`keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, uint256(block.chainid),
+streamCore, uint256(tokenId)))`, and requires the adapter-returned subject to
+equal that derivation. The returned collection ID and owner-record hash must
+be nonzero, and the hash must equal the caller's expected value. The registry
+stores only these checked/read-back values; no Stream core, module,
+collection, subject, hash domain, or vector is caller-selected.
+
 The link is immutable and one-per-subject in V1; the contract MUST NOT
 silently replace it after a source transfer or owner-record revision. A later
 source revision is a new Museum evidence record, not a mutation of this link.
 The state and event MUST persist the actual enabled global role ID used by
-`msg.sender` and the active `authorityRevision`.
+`msg.sender` and the active `authorityRevision`. Negative conformance vectors
+MUST reject substituted core/module code, collection, derived subject,
+owner-record hash, domain, vector, expected hash, truncated return data, and a
+changed readback between admission and link creation.
 
 `admitHttpsResolverProfile` is authority-controlled and append-only. It MUST
 reject a zero attestor, zero or inverted TTL bounds, and a profile ID already
@@ -2662,6 +2757,9 @@ error InvalidSuccessor(address successor);
 error SuccessorAlreadySet(address successor);
 error InvalidStreamMirrorLink(bytes32 subjectId, address streamCore, address ownerRecordModule,
     uint256 collectionId, uint256 tokenId);
+error StreamMirrorRuntimeMismatch(address target, bytes32 expected, bytes32 actual);
+error StreamMirrorReadbackMismatch(uint256 tokenId, bytes32 field, bytes32 expected, bytes32 actual);
+error StreamMirrorReturnDataInvalid(address module, bytes4 selector, uint256 actualLength);
 error StreamMirrorLinkAlreadySet(bytes32 subjectId);
 error OwnerRecordConvergenceRequired(bytes32 ownerRecordHashVectorId);
 error InvalidRoleProvider(address provider);
@@ -2678,6 +2776,9 @@ error HttpsAssertionPredecessorMismatch(bytes32 expected, bytes32 actual);
 error ResolverRevisionMismatch(bytes32 expected, bytes32 actual);
 error InvalidAddressSet(uint256 index);
 error FunctionUnauthorized(address caller, bytes4 selector);
+error InvalidReleaseAttestorSet(bytes32 expectedSignerSetHash);
+error InvalidReleaseAttestation(bytes32 releaseId, bytes32 releaseAttestationDigest);
+error InvalidReleaseAttestorSignature(uint256 index, address expected, address recovered);
 ```
 
 The Museum registry MUST NOT declare an `InvalidHashRef` error. The name
@@ -2738,7 +2839,8 @@ event StreamMirrorLinkSet(bytes32 indexed subjectId, address indexed streamCore,
     bytes32 streamSubjectId, bytes32 ownerRecordHash, bytes32 ownerRecordHashDomain,
     bytes32 ownerRecordHashVectorId, uint64 revision, bytes32 authorizationRoleId,
     uint64 authorityRevision, address authority);
-event StreamOwnerRecordInterfaceAdmitted(address indexed interfaceModule,
+event StreamOwnerRecordInterfaceAdmitted(address indexed streamCore, bytes32 streamCoreCodeHash,
+    address indexed interfaceModule, bytes32 interfaceModuleCodeHash,
     bytes32 ownerRecordHashDomain, bytes32 ownerRecordHashVectorId, bytes32 evidenceHash,
     uint64 revision, bytes32 authorizationRoleId, uint64 authorityRevision, address authority);
 event ResolverProfileAdmitted(bytes32 indexed profileId, bytes32 documentHash,
@@ -2759,7 +2861,10 @@ event TargetReleaseAdmitted(uint8 indexed targetKind, address indexed target, by
     bytes32 releaseId, bytes32 runtimePolicyHash, bytes32 releaseAttestorPolicyHash,
     bytes32 releaseAttestorSignerSetHash, bytes32 externalDependencyHash,
     uint8 externalDependencyCount, bytes32 sourceCommit, bytes32 sourceTreeHash, bytes32 artifactHash,
-    bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 conformanceDocumentHash, bytes32 signedDocumentHash,
+    bytes32 releaseAttestationDigest, address releaseAttestor0, address releaseAttestor1,
+    bytes32 releaseSignatureCommitment0, bytes32 releaseSignatureCommitment1,
+    bytes32 releaseSignatureSetHash, bytes4 requiredInterfaceId,
     bytes32 expectedModuleVersion, bytes32 protocolVersion,
     bytes32 streamCompatibilityCommit, uint64 revision,
     uint64 authorityRevision, uint8 status, bytes32 previousReleaseId,
@@ -2991,13 +3096,16 @@ The constructor parameters include the exact separate inputs
 `bytes32 initialGovernanceExecutorEvidenceHash`, and
 `bytes32 initialGovernanceExecutorCapabilityCommitment`, all nonzero, plus the initial authority-kind
 `TargetRelease` row and its fully probed authority-provider target, nonzero
-`bytes32 releaseAttestorPolicyHash` and
-`bytes32 releaseAttestorSignerSetHash` commitments to the separately
-governance-approved deployment policy, the
+`bytes32 releaseAttestorPolicyHash` plus three strictly increasing
+`address releaseAttestorSigner0..2` inputs from the separately
+governance-approved deployment policy; the constructor derives and stores the
+signer-set commitment, the
 immutable Stream compatibility commit (`bytes32`), `moduleSupersedes` (zero
 for the first deployment), and a zero successor. The executor account is not
-runtime-scanned and no signer list is a constructor input. The constructor
-stores the release row
+runtime-scanned. The constructor verifies the initial row's exact two EIP-712
+attestor signatures against the predicted deployment address; production
+deployment therefore MUST use a governance-pinned CREATE2 address or another
+deterministically precomputed constructor address. The constructor stores the release row
 before activating authority by calling the one internal, non-reentrant
 `_admitAndValidateTargetReleaseV1` primitive. `admitTargetRelease`,
 `setAuthority`, `setSuccessor`, and constructor activation MUST call that same
@@ -3008,7 +3116,8 @@ machine-checkable checklist is exactly:
 1. validate the closed target kind, nonzero/revision-1 first-row fields,
    right-aligned source SHA-1, evidence-schema and release-attestor-policy
    schema hashes, the exact policy JCS and signer-set ABI commitments against
-   the constructor immutables, 2-of-3 evidence signatures from that governed
+   the constructor immutables, the registry/chain-bound 2-of-3 EIP-712
+   signatures from that governed
    set, two availability observations, and the target runtime-policy hash;
 2. require `artifactHash == extcodehash(target) ==` both independent build
    runtime hashes, code size within 24,576 bytes, and the complete
@@ -3432,6 +3541,34 @@ record hash. They are not fields of this Stream draft signature envelope, so
 whole-tuple positional equality is invalid. A future adapter MUST publish a
 named-field crosswalk plus source-backed stored-hash and readback vectors.
 
+### 13.5.1 Stream mirror-link readback vector
+
+This synthetic, non-deployment vector exercises the closed mirror-link gate.
+The registry admits exact core and adapter addresses plus both runtime hashes,
+then reads the adapter's core/domain/vector and the complete token binding. It
+derives the subject from the admitted core and token ID. The executable
+checker rejects substitutions of the core, adapter, collection, subject,
+owner-record hash, hash domain, vector, return-data length, or caller expected
+hash before any link can be stored.
+
+<!-- STREAM_MIRROR_LINK_VECTOR_V1_BEGIN -->
+```text
+streamCore = 0x0000000000000000000000000000000000001001
+ownerRecordModule = 0x0000000000000000000000000000000000002002
+collectionId = 6529
+tokenId = 771769
+streamSubjectId = 0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4
+ownerRecordHash = 0xfa797ba9f4ce165b23b56b09a245ca0776764c4043725b15b75397783abbc0b0
+ownerRecordHashDomain = 0x3333333333333333333333333333333333333333333333333333333333333333
+ownerRecordHashVectorId = 0x4444444444444444444444444444444444444444444444444444444444444444
+substitutedCoreModuleCollectionSubjectHashDomainVector = REJECT
+```
+<!-- STREAM_MIRROR_LINK_VECTOR_V1_END -->
+
+`python -B specs/onchain/stream_mirror_link_check_v1.py` independently
+recomputes this block and all listed rejection paths without contacting a
+network. The addresses and values are fixtures, not deployed Stream claims.
+
 ### 13.6 Release-manifest vector
 
 For one record with source ordinal `1`, path
@@ -3592,18 +3729,20 @@ runtimePolicyHash = 0x95f9e52ebbfec6aa2d1ad41a516a6d9e7ce2f55cfed9de1fb906e6f6e9
 dependencyAddress = 0x000000000000000000000000000000000000d3e1
 dependencyRuntimePolicyHash = 0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04
 externalDependencyHash = 0x87ff234ff7d93302befc44d1dd3104ce340883c2972058b94f8d50cf34aca6af
-releaseAttestorPolicyHash = 0x9c5749445275e3e89c495164e5d669e29b4bf2ce705cc67818f4e0c2d74479f1
-releaseAttestorSignerSetHash = 0xa40ace3b14c99a1056b76ed1258b6682e7d76b992177170df628a7d3275d4513
-releaseId = 0x2ab676bc71579fa1dc24eda7291239f3c2bbf179dd23656ce9683d96a2262bf7
-D0ConformanceDocumentHash = 0x2b8a2d0c9d48c4f88ede8b31668f6ef4e630df62478f9a2bdc910850a637d70d
-D1SignedDocumentHash = 0x3bf9e55898ed6b40104cc48aef98fddd193eb7978d377fa4537d7a555682ae6a
-bundleUri = ipfs://bafkreiamzwr3eqg4vc5kvanamsolj3b4rikus32ofdmftlxz62xbq3l2cm
+releaseAttestorPolicyHash = 0xf57a8f644ffb7acc960d2aa9b86b8381eda086e6e8ce1300b17fecb30c4f35e8
+releaseAttestorSignerSetHash = 0x4c22201c9dce9842bd7393223caa67d3383f802013b6d3fb6530f9086477046c
+releaseId = 0x118d59bded209701cb211f4515fff0935c96fa4d2aa50d42e0a749d45c0eca85
+D0ConformanceDocumentHash = 0xfce5892c9f3f07f69b9c5ec790e903952be5185864d30608ef1bc7c06d332f5e
+D1SignedDocumentHash = 0x49e78a6ffc860102987fc0a5ca377e6d2b8437b24dbf6161af67c97eb142bc36
+releaseAttestationDigest = 0xac389ba1bd808d6bb58087be65d31fcbe9ce9593d503a1a267f1aa0d80be5bc3
+releaseSignatureSetHash = 0x8a1d8004d16e0b3de6f7d242a3cfad1e40740d517003d9ab827697e7452db555
+bundleUri = ipfs://bafkreig2esgfrvnfszfwpmjvcjzzdpxtuwc3cszwezh4pzjvpwrn2zpiv4
 alternateBundleUri = ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ
-bundleContentHash = 0xe37f2203272f959259db99b7f5e0be1a8f91db1e24a4a6e4ad2d9c9ec95dc581
-bundleBytes = 837
-bundleSchemaHash = 0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3
-ipfsFetchObservationHash = 0xe1c12194f168ccb8a8b5957966649bdfd827c410d35540d33ded3c5d5b955228
-arFetchObservationHash = 0x5073b1fa1a4fcf6608e06fa5e0a8fb38e630073e4d247ea80f05cd693248b61d
+bundleContentHash = 0xbc553ca1ffb482755bea510253a73b941dd81b5c313dce82267f6915ca75f70b
+bundleBytes = 1300
+bundleSchemaHash = 0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82
+ipfsFetchObservationHash = 0x0f0d41aec76e898a7ab93e01664ff56a74de93bc591ea0f7dfb93e9b86677bf9
+arFetchObservationHash = 0x5bf515bef5820c9e28a168c45cc93b08a1745658a5837c49cf40e050ac9446f8
 signatureRecovery = 2/3
 ```
 <!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->
@@ -3615,7 +3754,7 @@ and two retrieval observations are
 byte-for-byte the evidence object's `detachedSignatureBundle`. `python -B
 specs/onchain/target_release_signature_bundle_check_v1.py` independently
 schema-validates that linkage, content hash/CID/size, an exact two-of-three
-sorted unique signer subset, and 2/3 EIP-191 recovery. These synthetic
+sorted unique signer subset, and 2/3 EIP-712 recovery. These synthetic
 IPFS/Arweave identifiers only exercise
 the required retrieval shape. They MUST NOT be used as admission evidence,
 deployment evidence, custody evidence, or authorization for a network write.
@@ -3634,14 +3773,14 @@ authorityReleaseId = 0x442b8c759b677e48ed822ecf57344181e081deeb894664d60f0e076d2
 authorityCodeHash = 0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1
 evidenceHash = 0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb
 challenge = 0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f
-capabilityCommitment = 0x6e526c58f808d6504923b3726c420d60cbb3eca35a454ea7f516841688afbbd4
-bindingCommitment = 0xbffcd2ef4501434a5acb2a72b9172b21b71d2ddd30ad6da15ab2a80f24e53d10
+capabilityCommitment = 0x970b6d8b04de91cb88b8b6fa3cf9f5af6faa46e452f27309a247ef7c5052e487
+bindingCommitment = 0x40a3c47c9686f82852e14e2b503ff9e02cdbed30d556db7347112bec4061e3f9
 crossBoundAfterExecutorRotation = true
 reboundAuthorityReleaseId = 0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de
 reboundAuthorityCodeHash = 0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90
 reboundChallenge = 0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f
-reboundCapabilityCommitment = 0x9ee25386cec2873435d4051f2faf3db92210ef43e33d125faa23a26433db5ae2
-reboundBindingCommitment = 0x18ab8656e5a832fd2d8cc1e0ca89d661bfca9cae58d408e0d64359c6aad9a4b9
+reboundCapabilityCommitment = 0x3c884a3210b5f6d3a8ff58804c326c58b2d67d3088d8a692e9e62f0838c552b4
+reboundBindingCommitment = 0xdbb9a475785baab44b9a2c20fbdcb9a1626bdb853081135cae8afd58d7cbe73c
 crossBoundAfterAuthorityRotation = true
 providerDeniedFreeze = ACCEPT
 providerDeniedSuccessor = ACCEPT
@@ -3687,9 +3826,13 @@ Target-release evidence conformance additionally MUST reject a target-address
 substitution (including equal code at a second address), runtime-policy or
 external-dependency-hash substitution, code/build-hash substitution, duplicate
 or circular release ID, malformed D0/D1 projection, a signer count other than
-exactly two, a signer outside the admitted three, a detached bundle/reference
+exactly two, duplicated or out-of-order signers, a signer outside the admitted
+three, a detached bundle/reference
 mismatch, a non-right-aligned SHA-1 tree OID, and any CIDv0 or noncanonical
-CIDv1/Arweave textual alias. Dependency conformance additionally rejects a
+CIDv1/Arweave textual alias. The modeled on-chain primitive MUST additionally
+reject changed release/conformance/signed-document/policy/signer-set fields,
+missing or altered signature bytes, and replay under a different chain ID or
+registry address. Dependency conformance additionally rejects a
 changed address/code/interface/purpose/policy, mutable or proxy runtime,
 external-call opcode, malformed ERC-165 response, duplicate/out-of-order row,
 or set-commitment mismatch. URI conformance rejects uppercase HTTPS/IPFS/AR
@@ -3699,6 +3842,13 @@ freeze atomically cancels a queued executor transition and a post-freeze
 proves both directions of cross-binding refresh and accepts direct-executor
 freeze/successor recovery when the active provider returns
 `canAuthorize == false`.
+
+Stream mirror conformance MUST reject a changed core or adapter runtime,
+adapter core/domain/vector readback mismatch, non-exact return-data length,
+zero or substituted collection ID, a subject not derived from the admitted
+core/chain/token tuple, zero or substituted owner-record hash, and a mismatch
+with the caller's expected-hash guard. The registry MUST persist no partial
+link state on any rejection.
 
 It MUST also prove that:
 

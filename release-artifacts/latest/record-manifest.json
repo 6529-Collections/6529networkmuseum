@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:36ca80cbf213b0f26be989976cf8f9bc350804368facca6e3cbf1432a407042d",
-      "size": 11069
+      "sha256": "sha256:66b8385086b95a40be74a06ee89dc767f06401dd3702227099515d6ae57fadb0",
+      "size": 11661
     },
     {
       "path": "docs/onchain-design.md",
@@ -97,8 +97,8 @@
     },
     {
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:eb6cef016eff08fe5701f94d35b1a04f1c656f012414b56c34eb7b5a4aec403a",
-      "size": 8584
+      "sha256": "sha256:1c630b275f95f97a0d22bb56ca10851102426b1ee0d00b01f57accf968ca1f61",
+      "size": 9762
     },
     {
       "path": "governance/github-repository-governance.md",
@@ -652,8 +652,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:6887d72633fcd8a89f3b082ffef7e2dc9b88ca309cec230f3afaf46a20e1c982",
-      "size": 230170
+      "sha256": "sha256:dc073163295c6dbe314cfd6991ad11adf12ad17d45d02ba70bf8ed360125e039",
+      "size": 239786
     },
     {
       "content_hash": {
@@ -672,83 +672,88 @@
     },
     {
       "path": "specs/onchain/manifest_abi_selector_check_v1.py",
-      "sha256": "sha256:9daf3e0643843eb24dc8b8c3f8aff37b02aa9175d0639e9f93a1a61a92d9d7ad",
-      "size": 40230
+      "sha256": "sha256:279019bbe957df695a0eccce65b215574e3c72f097e32195511db8ec85746e9f",
+      "size": 40325
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x9c5749445275e3e89c495164e5d669e29b4bf2ce705cc67818f4e0c2d74479f1"
+        "digest": "0xf57a8f644ffb7acc960d2aa9b86b8381eda086e6e8ce1300b17fecb30c4f35e8"
       },
       "path": "specs/onchain/release-attestor-policy-v1.fixture.json",
-      "sha256": "sha256:2a195c5d3e0972cd975db548631371ff2ad3926fd0031601578413aeb51ba7d8",
-      "size": 649
+      "sha256": "sha256:dd3bc12e5939d031024cc050e480e82b334d606388a52930234c30e6ceeb6cd9",
+      "size": 652
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7"
+        "digest": "0x7ce79b67b7882dfa70c5bee9e62b7ccba9a987a338ae3b0186862e03a21bbc06"
       },
       "path": "specs/onchain/release-attestor-policy-v1.schema.json",
-      "sha256": "sha256:e07944e0119d22ce175f5ef661837de2e6e0d45742409342b747d474efeeda94",
-      "size": 1562
+      "sha256": "sha256:b42fcc6fe1fea4d2c98238677aad1609df0ea1b3c8b6c2400ff677d4b35a197b",
+      "size": 1565
     },
     {
       "path": "specs/onchain/release_attestor_policy_check_v1.py",
-      "sha256": "sha256:11881ce77f7f32a54b76c12ceb46354f07760c9bfafcbbccd8b2d2d001897e55",
+      "sha256": "sha256:e19af7a5747145dc45d4e7d428652b3f4d58aca3ba5d4dc6baa082f2405950c0",
       "size": 3397
     },
     {
+      "path": "specs/onchain/stream_mirror_link_check_v1.py",
+      "sha256": "sha256:ab747e6d50e01ad53647673baa20a958537aad9827cfe04b1e266f4e5002fb00",
+      "size": 6490
+    },
+    {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x229681b1758d33b1577529ae618a80f2041021b1a5941f98901ecf598e01a081"
+        "digest": "0x198e976380ae81a0b67893b7c665e29037c86df1ea33d30f931cb08ab2c466a6"
       },
       "path": "specs/onchain/target-release-evidence-v1.fixture.json",
-      "sha256": "sha256:d4e521703e9c6517863ba3e5ac32adaa23198a9b0549b8b79b0ed14cb8150cb5",
-      "size": 5059
+      "sha256": "sha256:dc172735b9f4bdf59e51256caee5b59ca374cebd2483ea00cc8dc6d569a56794",
+      "size": 5159
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce"
+        "digest": "0xa54955d0077ad11a6b376b872aeeff758c36fe4c126f777ac3df64c01933a214"
       },
       "path": "specs/onchain/target-release-evidence-v1.schema.json",
-      "sha256": "sha256:292f1949d8973935af1ca4a33d6efe3349fcd3d4b7212719532f510ac76d7f55",
-      "size": 8076
+      "sha256": "sha256:7d5c2d72b70199a2bd2e9af56956e2b192508936eb2182cf9669a32edc84cbaa",
+      "size": 8206
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe37f2203272f959259db99b7f5e0be1a8f91db1e24a4a6e4ad2d9c9ec95dc581"
+        "digest": "0xbc553ca1ffb482755bea510253a73b941dd81b5c313dce82267f6915ca75f70b"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.fixture.json",
-      "sha256": "sha256:a381a88c695481f9e75aef72c91732f5f75de5966e3365f4a0bdb4c474120b92",
-      "size": 838
+      "sha256": "sha256:425419e34ad7a6fd60b2610f2c22f7b0851d32c23813fb6405c1c459139a22ce",
+      "size": 1301
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x794b1e184d528fe10e3e5114908afbcf9ada4211a0d88eb48eb6d229bbea9326"
+        "digest": "0x1e66ed19155f03848762e543b18f99599498f4c96240f4c54f0320f5564776f5"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.reference.json",
-      "sha256": "sha256:668e4affb9f043d515c9c03599ad45e01a0b8441683c02c122b3d096e4fda080",
-      "size": 857
+      "sha256": "sha256:b488ef5dc94c03ff4bee27109f8d5f54af84caef29578be55f2807d82ad054b1",
+      "size": 858
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3"
+        "digest": "0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.schema.json",
-      "sha256": "sha256:7ef4a424bdcf9c109267cd7e0ca74c827cf099894b805882b60f3e4f1a73a7db",
-      "size": 1460
+      "sha256": "sha256:d1bb83aa7f627f485c70a6e584cf0ae112cdceba73a9a5d8fdc3a864d30d4e4b",
+      "size": 2078
     },
     {
       "content_hash": {
@@ -762,13 +767,13 @@
     },
     {
       "path": "specs/onchain/target_release_evidence_check_v1.py",
-      "sha256": "sha256:3f4b9c6e80bb8ab3c214463a79152cbe87317797c63253514a65a1f56803a752",
-      "size": 30102
+      "sha256": "sha256:b0d5b6e13af1a159aedb930353e492a9504970726703a64eb1a258007c532002",
+      "size": 39668
     },
     {
       "path": "specs/onchain/target_release_signature_bundle_check_v1.py",
-      "sha256": "sha256:bf5a647a146eee97d74bffe142b4e86224f46c9371165a3321943317a22212f1",
-      "size": 10248
+      "sha256": "sha256:d9f44f62aeb82f2979adad642eab93dd5a7c3daa4c44175f4dd9dafec9221e15",
+      "size": 13453
     },
     {
       "path": "specs/onchain/uri_safety_vectors_v1.py",
@@ -987,8 +992,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:f2f1e5f00f811ebbd8cb090c2a63dd4305a6da65582fcede22134cf903c74248",
-      "size": 54633
+      "sha256": "sha256:2c1a9481c69cac76d83be5943b60219b4f342f24381e724fdf04a964eb7f9ffe",
+      "size": 54725
     }
   ],
   "hash_algorithms": {
@@ -1018,9 +1023,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xf8881ecd6639e44e96eb8ff35f398f6f11d3a74e71dad917480344e3e93149a2"
+    "digest": "0x5401a3c8e87e1bcc1107b771f03c9f6ce625fd9b8240db315781e2d43b46cb7b"
   },
-  "manifest_sha256": "sha256:76f4c2039cd21f2c46d8de0b629730bcc71fdf1ff6fc59d01c5c946066eaa23f",
+  "manifest_sha256": "sha256:b87b35eaadb6576cbe62a422e11489029db398c28410d828e7aae6dfa99cf9dc",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

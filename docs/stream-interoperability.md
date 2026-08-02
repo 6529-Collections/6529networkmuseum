@@ -104,6 +104,30 @@ deployment gate closed until Stream provides source, a deployment, an exact
 stored-record hash preimage, read surfaces, and a successful write/read
 round-trip. A synthetic EIP-712 vector cannot satisfy that gate.
 
+The Museum-side convergence adapter must expose this minimum read interface:
+
+```solidity
+function streamCore() external view returns (address);
+function ownerRecordBinding(uint256 tokenId) external view returns (
+    uint256 collectionId,
+    bytes32 streamSubjectId,
+    bytes32 ownerRecordHash
+);
+function ownerRecordHashDomain() external view returns (bytes32);
+function ownerRecordHashVectorId() external view returns (bytes32);
+```
+
+Governance admits exact Stream Core and adapter addresses, both runtime code
+hashes, the owner-record hash domain/vector, and convergence evidence. A
+Museum mirror-link call supplies only the existing Museum subject, token ID,
+and expected owner-record hash. The registry rechecks both runtimes, reads all
+adapter values with bounded exact-length static calls, derives the Stream
+subject itself, and stores only the returned and verified binding. The caller
+cannot select a core, module, collection, Stream subject, hash domain, or
+vector. The executable synthetic readback and substitution vectors are in
+`specs/onchain/stream_mirror_link_check_v1.py`; they do not open the deployment
+gate.
+
 ## Shared identifiers
 
 | Concept | Literal | Identifier |
@@ -180,4 +204,5 @@ Before deploying a Museum contract or publishing a completed accession on Stream
 5. reject deployment if any shared field, vocabulary, hash, or subject derivation has drifted.
 6. for owner records, pin the implemented module source and deployment, verify
    runtime code, confirm the stored-record hash preimage and read ABI, and pass
-   exact direct, relayed, nonce-revocation, and write/read round-trip vectors.
+   exact direct, relayed, nonce-revocation, write/read round-trip, and
+   Museum-side adapter readback/substitution vectors.

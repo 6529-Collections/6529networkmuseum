@@ -20,7 +20,7 @@ This review used:
 
 The review is design evidence, not a deployed-contract or live-custody claim.
 
-One command runs all seven network-free harnesses and is the required local
+One command runs all nine network-free harnesses and is the required local
 smoke gate:
 
 ```powershell
@@ -46,24 +46,24 @@ non-retroactive validity.
 `python -B specs/onchain/target_release_evidence_check_v1.py` recomputes the
 complete schema-valid non-deployment TargetRelease vector, including the exact
 target address, acyclic release ID/D0/D1 projections, runtime/dependency hash,
-governed release-attestor policy and signer-set commitments, two builds, two
-signatures from the exact three policy addresses, detached bundle
+governed release-attestor policy and signer-set commitments, two builds, a
+registry/chain-bound EIP-712 digest, two signatures from the exact three policy addresses, detached bundle
 linkage, and availability;
 `python -B specs/onchain/target_release_signature_bundle_check_v1.py` then
-independently validates its coherent 837-byte bundle, content hash
-`0xe37f2203272f959259db99b7f5e0be1a8f91db1e24a4a6e4ad2d9c9ec95dc581`,
-the `ipfs://bafkreiamzwr3eqg4vc5kvanamsolj3b4rikus32ofdmftlxz62xbq3l2cm` /
+independently validates its coherent 1,300-byte bundle, content hash
+`0xbc553ca1ffb482755bea510253a73b941dd81b5c313dce82267f6915ca75f70b`,
+the `ipfs://bafkreig2esgfrvnfszfwpmjvcjzzdpxtuwc3cszwezh4pzjvpwrn2zpiv4` /
 `ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and exact
 2-of-3 signature recovery.
 The exact-threshold 2-of-3 bundle schema hash is
-`0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`
+`0x12256931d7eebded2483454fdff90c2496ffca9cec980b1a07306b03082bef82`
 and the containing evidence-schema hash is
-`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
+`0xa54955d0077ad11a6b376b872aeeff758c36fe4c126f777ac3df64c01933a214`.
 The separate signer-policy schema hash is
-`0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7`;
+`0x7ce79b67b7882dfa70c5bee9e62b7ccba9a987a338ae3b0186862e03a21bbc06`;
 the non-deployment fixture policy and exact ABI signer set commit to
-`0x9c5749445275e3e89c495164e5d669e29b4bf2ce705cc67818f4e0c2d74479f1`
-and `0xa40ace3b14c99a1056b76ed1258b6682e7d76b992177170df628a7d3275d4513`.
+`0xf57a8f644ffb7acc960d2aa9b86b8381eda086e6e8ce1300b17fecb30c4f35e8`
+and `0x4c22201c9dce9842bd7393223caa67d3383f802013b6d3fb6530f9086477046c`.
 Production replaces those fixture values with a governance-approved policy and
 binds both commitments immutably in the registry constructor.
 JSON Schema cannot enforce uniqueness of one member across otherwise distinct
@@ -94,7 +94,7 @@ Emergency control is now independent of mutable provider state:
 `freezeWrites` and post-freeze `setSuccessor` use the registry-held direct
 executor address/revision and never call provider `canAuthorize`. Successor
 release evidence must already be admitted before freeze. Ordinary
-provider-mediated operations use the reduced nine-selector capability set;
+provider-mediated operations use the exact closed 12-selector capability set;
 after either authority or executor rotation, both state rows are atomically
 refreshed to the same capability commitment and revision pair, with an explicit
 rebind audit event for authority rotation.
@@ -554,6 +554,7 @@ $selectorGolden = [ordered]@{
   'pendingGovernanceExecutor()' = '0x737aa558'
   'releaseAttestorPolicyHash()' = '0x274ac640'
   'releaseAttestorSignerSetHash()' = '0xd66c61c0'
+  'releaseAttestorSigner(uint256)' = '0xbb295d02'
   'successor()' = '0x6ff968c3'
   'writesFrozen()' = '0x290d086b'
   'pendingAuthority()' = '0xfabb94bb'
@@ -571,7 +572,7 @@ $selectorGolden = [ordered]@{
   'recordTypePolicy(bytes32)' = '0xcd2369a6'
   'setRecordFamilyGrant(bytes32,uint8,address,bool)' = '0x40ee7ee3'
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
-  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0x4070473d'
+  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0x93936f62'
   'targetRelease(uint8,address,bytes32)' = '0x85968ef0'
   'targetReleaseAtRevision(uint8,address,bytes32,uint64)' = '0x288b2e93'
   'targetReleaseById(bytes32)' = '0xb9bc97a1'
@@ -592,7 +593,7 @@ $selectorGolden = [ordered]@{
   'httpsAssertion(bytes32,bytes32,uint64,uint64)' = '0x1120d46d'
   'currentHttpsAssertion(bytes32)' = '0x080dab7b'
   'httpsAssertionByHash(bytes32)' = '0x28208c17'
-  'admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)' = '0x75c75961'
+  'admitStreamOwnerRecordInterface(address,bytes32,address,bytes32,bytes32,bytes32,bytes32)' = '0x51b648fd'
   'streamOwnerRecordInterface()' = '0xfbab3335'
   'streamOwnerRecordInterfaceAtRevision(uint64)' = '0x7940fbb2'
   'recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)' = '0x29f319b0'
@@ -607,7 +608,7 @@ $selectorGolden = [ordered]@{
   'recordSummary(bytes32)' = '0x45fafe2f'
   'record(bytes32)' = '0xb5c645bd'
   'payload(bytes32)' = '0x9f165a87'
-  'setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)' = '0x49c44b5c'
+  'setStreamMirrorLink(bytes32,uint256,bytes32)' = '0xc1713cf2'
   'streamMirrorLink(bytes32)' = '0xfc584dc4'
   'revokeNonce(uint256)' = '0x05c1ee20'
   'revokeNonces(uint256[])' = '0xac7410a1'
@@ -630,12 +631,12 @@ governed target-release admission selector and including both provider-gated
 interface/profile admission selectors plus the direct governance-executor
 mirror-link convergence route. The exact sorted
 `bytes4[]` is
-`[0x3a1a0b96,0x4070473d,0x49c44b5c,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
+`[0x3a1a0b96,0x51b648fd,0x51d8c5e0,0x81a86ff4,0x93936f62,0x967059b8,0xab6627c3,0xaf2fb948,0xc1713cf2,0xc9dc7d0d,0xda6d916f,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x4070473d,0x49c44b5c,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x51b648fd,0x51d8c5e0,0x81a86ff4,0x93936f62,0x967059b8,0xab6627c3,0xaf2fb948,0xc1713cf2,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 

@@ -61,6 +61,7 @@ ABI_SELECTORS = (
     ("pendingGovernanceExecutor()", "0x737aa558"),
     ("releaseAttestorPolicyHash()", "0x274ac640"),
     ("releaseAttestorSignerSetHash()", "0xd66c61c0"),
+    ("releaseAttestorSigner(uint256)", "0xbb295d02"),
     ("successor()", "0x6ff968c3"),
     ("writesFrozen()", "0x290d086b"),
     ("pendingAuthority()", "0xfabb94bb"),
@@ -78,7 +79,7 @@ ABI_SELECTORS = (
     ("recordTypePolicy(bytes32)", "0xcd2369a6"),
     ("setRecordFamilyGrant(bytes32,uint8,address,bool)", "0x40ee7ee3"),
     ("recordFamilyGrant(bytes32,uint8,address)", "0x1118ed2f"),
-    ("admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)", "0x4070473d"),
+    ("admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)", "0x93936f62"),
     ("targetRelease(uint8,address,bytes32)", "0x85968ef0"),
     ("targetReleaseAtRevision(uint8,address,bytes32,uint64)", "0x288b2e93"),
     ("targetReleaseById(bytes32)", "0xb9bc97a1"),
@@ -99,7 +100,7 @@ ABI_SELECTORS = (
     ("httpsAssertion(bytes32,bytes32,uint64,uint64)", "0x1120d46d"),
     ("currentHttpsAssertion(bytes32)", "0x080dab7b"),
     ("httpsAssertionByHash(bytes32)", "0x28208c17"),
-    ("admitStreamOwnerRecordInterface(address,bytes32,bytes32,bytes32)", "0x75c75961"),
+    ("admitStreamOwnerRecordInterface(address,bytes32,address,bytes32,bytes32,bytes32,bytes32)", "0x51b648fd"),
     ("streamOwnerRecordInterface()", "0xfbab3335"),
     ("streamOwnerRecordInterfaceAtRevision(uint64)", "0x7940fbb2"),
     ("recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)", "0x29f319b0"),
@@ -114,7 +115,7 @@ ABI_SELECTORS = (
     ("recordSummary(bytes32)", "0x45fafe2f"),
     ("record(bytes32)", "0xb5c645bd"),
     ("payload(bytes32)", "0x9f165a87"),
-    ("setStreamMirrorLink(bytes32,address,address,uint256,uint256,bytes32,bytes32,bytes32,bytes32)", "0x49c44b5c"),
+    ("setStreamMirrorLink(bytes32,uint256,bytes32)", "0xc1713cf2"),
     ("streamMirrorLink(bytes32)", "0xfc584dc4"),
     ("revokeNonce(uint256)", "0x05c1ee20"),
     ("revokeNonces(uint256[])", "0xac7410a1"),
@@ -129,7 +130,8 @@ INTERFACE_ONLY_SELECTORS = (
     ("isMuseumAuthorityProvider()", "0x28a26c9f"),
     ("registry()", "0x7b103999"),
     ("capabilityHandshake(address,bytes32,bytes32,bytes32)", "0xf1292022"),
-    ("ownerRecordHash(uint256)", "0x9ab2d595"),
+    ("streamCore()", "0x5f59b4d2"),
+    ("ownerRecordBinding(uint256)", "0x814e950a"),
     ("ownerRecordHashDomain()", "0xe79efeda"),
     ("ownerRecordHashVectorId()", "0xfda2f68a"),
 )
@@ -155,11 +157,11 @@ GLOBAL_ROLE_IDS = (
 )
 
 AUTHORITY_SELECTOR_ALLOWLIST = (
-    "0x3a1a0b96", "0x4070473d", "0x49c44b5c", "0x51d8c5e0", "0x75c75961",
-    "0x81a86ff4", "0x967059b8", "0xab6627c3", "0xaf2fb948",
+    "0x3a1a0b96", "0x51b648fd", "0x51d8c5e0", "0x81a86ff4", "0x93936f62",
+    "0x967059b8", "0xab6627c3", "0xaf2fb948", "0xc1713cf2",
     "0xc9dc7d0d", "0xda6d916f", "0xf0edf065",
 )
-EXPECTED_ALLOWLIST_HASH = "0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e"
+EXPECTED_ALLOWLIST_HASH = "0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5"
 EMPTY_PAYLOAD_LITERAL = b"MUSEUM_EMPTY_PAYLOAD_V1"
 EMPTY_PAYLOAD_CANONICALIZATION_ID = "0xa441d30896b70045ccf31ccc5b89cefd312a64c9c2102fa1c6898140d443ef4f"
 EMPTY_PAYLOAD_DIGEST = "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
@@ -528,13 +530,13 @@ def check_governance_executor_vector() -> dict[str, str]:
         "authorityCodeHash": "0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1",
         "evidenceHash": "0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb",
         "challenge": "0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f",
-        "capabilityCommitment": "0x6e526c58f808d6504923b3726c420d60cbb3eca35a454ea7f516841688afbbd4",
-        "bindingCommitment": "0xbffcd2ef4501434a5acb2a72b9172b21b71d2ddd30ad6da15ab2a80f24e53d10",
+        "capabilityCommitment": "0x970b6d8b04de91cb88b8b6fa3cf9f5af6faa46e452f27309a247ef7c5052e487",
+        "bindingCommitment": "0x40a3c47c9686f82852e14e2b503ff9e02cdbed30d556db7347112bec4061e3f9",
         "reboundAuthorityReleaseId": "0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de",
         "reboundAuthorityCodeHash": "0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90",
         "reboundChallenge": "0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f",
-        "reboundCapabilityCommitment": "0x9ee25386cec2873435d4051f2faf3db92210ef43e33d125faa23a26433db5ae2",
-        "reboundBindingCommitment": "0x18ab8656e5a832fd2d8cc1e0ca89d661bfca9cae58d408e0d64359c6aad9a4b9",
+        "reboundCapabilityCommitment": "0x3c884a3210b5f6d3a8ff58804c326c58b2d67d3088d8a692e9e62f0838c552b4",
+        "reboundBindingCommitment": "0xdbb9a475785baab44b9a2c20fbdcb9a1626bdb853081135cae8afd58d7cbe73c",
         "crossBoundAfterExecutorRotation": "true",
         "crossBoundAfterAuthorityRotation": "true",
         "providerDeniedFreeze": "ACCEPT",

@@ -1,8 +1,10 @@
 """Reproduce the non-deployment TargetRelease evidence vector offline.
 
 The fixture is deliberately public and synthetic.  It exercises the complete
-schema and the acyclic releaseId -> D0 -> D1 -> signatures/bundle derivation;
-it neither names deployed code nor authorizes a release, admission, or write.
+schema and the acyclic releaseId -> D0 -> D1 -> EIP-712 digest ->
+signatures/bundle derivation, including a model of the registry's mandatory
+runtime signature gate.  It neither names deployed code nor authorizes a
+release, admission, or write.
 """
 
 from __future__ import annotations
@@ -23,7 +25,18 @@ from release_attestor_policy_check_v1 import (
     policy_hash as release_attestor_policy_hash,
     signer_set_hash as release_attestor_signer_set_hash,
 )
-from target_release_signature_bundle_check_v1 import G, N, cidv1_raw_sha256, k, point_multiply, recover_address
+from target_release_signature_bundle_check_v1 import (
+    FIXTURE_CHAIN_ID,
+    FIXTURE_REGISTRY_ADDRESS,
+    G,
+    N,
+    cidv1_raw_sha256,
+    k,
+    point_multiply,
+    recover_address,
+    release_attestation_digest,
+    release_signature_set_hash,
+)
 from uri_safety_vectors_v1 import AR_TX, CID_V1, valid_uri
 
 
@@ -50,6 +63,7 @@ FIXTURE_SCALAR_LABELS = (
     b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_FIXTURE_SIGNER_B_V1",
     b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_FIXTURE_SIGNER_C_V1",
 )
+EXPECTED_EVIDENCE_SCHEMA_HASH = "0xa54955d0077ad11a6b376b872aeeff758c36fe4c126f777ac3df64c01933a214"
 
 
 def hx(value: str) -> bytes:
@@ -205,6 +219,7 @@ def projection(evidence: dict, stage: str) -> dict:
     del value["detachedSignatureBundle"]
     value["conformanceDocumentHash"] = ZERO_HASH if stage == "D0" else evidence["conformanceDocumentHash"]
     value["signers"]["signedDocumentHash"] = ZERO_HASH
+    value["signers"]["releaseAttestationDigest"] = ZERO_HASH
     value["signers"]["signatureCommitments"] = [ZERO_HASH] * value["signers"]["threshold"]
     return value
 
@@ -264,6 +279,7 @@ def build_expected() -> tuple[dict, dict, dict]:
             "threshold": attestor_policy["threshold"],
             "signatureScheme": attestor_policy["signatureScheme"],
             "signedDocumentHash": ZERO_HASH,
+            "releaseAttestationDigest": ZERO_HASH,
             "addresses": attestor_policy["addresses"],
             "signatureCommitments": [ZERO_HASH, ZERO_HASH],
         },
@@ -275,14 +291,35 @@ def build_expected() -> tuple[dict, dict, dict]:
     evidence["releaseId"] = release_id(evidence)
     evidence["conformanceDocumentHash"] = h(rfc8785.dumps(projection(evidence, "D0")))
     evidence["signers"]["signedDocumentHash"] = h(rfc8785.dumps(projection(evidence, "D1")))
-    digest = k(b"\x19Ethereum Signed Message:\n32" + hx(evidence["signers"]["signedDocumentHash"]))
+    digest = release_attestation_digest(
+        FIXTURE_CHAIN_ID,
+        FIXTURE_REGISTRY_ADDRESS,
+        evidence["releaseId"],
+        evidence["conformanceDocumentHash"],
+        evidence["signers"]["signedDocumentHash"],
+        evidence["signers"]["policyHash"],
+        evidence["signers"]["signerSetHash"],
+    )
+    evidence["signers"]["releaseAttestationDigest"] = "0x" + digest.hex()
     entries = []
     for address, scalar in signer_pairs[:evidence["signers"]["threshold"]]:
         signature = sign_document(scalar, digest)
         assert recover_address(digest, signature) == address
         entries.append({"signer": address, "signature": "0x" + signature.hex(), "signatureCommitment": h(signature)})
     evidence["signers"]["signatureCommitments"] = [entry["signatureCommitment"] for entry in entries]
-    bundle = {"schema": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1", "version": 1, "releaseId": evidence["releaseId"], "signedDocumentHash": evidence["signers"]["signedDocumentHash"], "entries": entries}
+    bundle = {
+        "schema": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
+        "version": 1,
+        "chainId": FIXTURE_CHAIN_ID,
+        "registryAddress": FIXTURE_REGISTRY_ADDRESS,
+        "releaseId": evidence["releaseId"],
+        "conformanceDocumentHash": evidence["conformanceDocumentHash"],
+        "signedDocumentHash": evidence["signers"]["signedDocumentHash"],
+        "releaseAttestorPolicyHash": evidence["signers"]["policyHash"],
+        "releaseAttestorSignerSetHash": evidence["signers"]["signerSetHash"],
+        "releaseAttestationDigest": evidence["signers"]["releaseAttestationDigest"],
+        "entries": entries,
+    }
     bundle_bytes = rfc8785.dumps(bundle)
     bundle_hash = h(bundle_bytes)
     bundle_uri = cidv1_raw_sha256(bundle_bytes)
@@ -314,6 +351,7 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     jsonschema.validate(evidence, evidence_schema)
     jsonschema.validate(bundle, bundle_schema)
     jsonschema.validate(reference, evidence_schema["properties"]["detachedSignatureBundle"])
+    assert policy_hash(EVIDENCE_SCHEMA_PATH) == EXPECTED_EVIDENCE_SCHEMA_HASH
     assert evidence["target"] != "0x" + "00" * 20
     attestor_policy = load_and_validate_policy()
     assert evidence["signers"]["policyId"] == attestor_policy["policyId"]
@@ -343,13 +381,28 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert evidence["signers"]["threshold"] == 2
     assert len(evidence["signers"]["signatureCommitments"]) == evidence["signers"]["threshold"]
     assert bundle["releaseId"] == evidence["releaseId"]
+    assert bundle["chainId"] == FIXTURE_CHAIN_ID
+    assert bundle["registryAddress"] == FIXTURE_REGISTRY_ADDRESS
+    assert bundle["conformanceDocumentHash"] == evidence["conformanceDocumentHash"]
     assert bundle["signedDocumentHash"] == evidence["signers"]["signedDocumentHash"]
+    assert bundle["releaseAttestorPolicyHash"] == evidence["signers"]["policyHash"]
+    assert bundle["releaseAttestorSignerSetHash"] == evidence["signers"]["signerSetHash"]
     bundle_signers = [entry["signer"] for entry in bundle["entries"]]
     assert len(bundle_signers) == evidence["signers"]["threshold"]
     assert bundle_signers == sorted(bundle_signers) and len(set(bundle_signers)) == len(bundle_signers)
     assert set(bundle_signers).issubset(addresses)
     assert [entry["signatureCommitment"] for entry in bundle["entries"]] == evidence["signers"]["signatureCommitments"]
-    digest = k(b"\x19Ethereum Signed Message:\n32" + hx(evidence["signers"]["signedDocumentHash"]))
+    digest = release_attestation_digest(
+        bundle["chainId"],
+        bundle["registryAddress"],
+        bundle["releaseId"],
+        bundle["conformanceDocumentHash"],
+        bundle["signedDocumentHash"],
+        bundle["releaseAttestorPolicyHash"],
+        bundle["releaseAttestorSignerSetHash"],
+    )
+    assert bundle["releaseAttestationDigest"] == "0x" + digest.hex()
+    assert evidence["signers"]["releaseAttestationDigest"] == bundle["releaseAttestationDigest"]
     for entry in bundle["entries"]:
         signature = hx(entry["signature"])
         assert h(signature) == entry["signatureCommitment"]
@@ -370,6 +423,100 @@ class EvidenceRejection(ValueError):
     def __init__(self, code: str):
         super().__init__(code)
         self.code = code
+
+
+class RuntimeAdmissionRejection(ValueError):
+    """Model a revert from the on-chain release-attestation gate."""
+
+
+def runtime_admit_release(
+    evidence: dict,
+    *,
+    chain_id: int = FIXTURE_CHAIN_ID,
+    registry_address: str = FIXTURE_REGISTRY_ADDRESS,
+    supplied_release_id: str | None = None,
+    supplied_conformance_document_hash: str | None = None,
+    supplied_signed_document_hash: str | None = None,
+    supplied_policy_hash: str | None = None,
+    supplied_signer_set_hash: str | None = None,
+    attestors: list[str] | None = None,
+    signatures: list[str] | None = None,
+) -> dict[str, object]:
+    """Enforce the contract-side 2-of-3 EIP-712 admission primitive.
+
+    The registry derives the release ID from the complete release tuple before
+    entering this primitive.  The fixture models that derivation with
+    ``release_id(evidence)`` and models the chain/address EIP-712 domain with
+    explicit environment inputs.  It never trusts evidence-selected policy or
+    signer roots.
+    """
+    policy = load_and_validate_policy()
+    immutable_policy_hash = release_attestor_policy_hash(policy)
+    immutable_signer_set_hash = release_attestor_signer_set_hash(policy)
+    release = supplied_release_id or evidence["releaseId"]
+    conformance = supplied_conformance_document_hash or evidence["conformanceDocumentHash"]
+    signed_document = supplied_signed_document_hash or evidence["signers"]["signedDocumentHash"]
+    policy_commitment = supplied_policy_hash or evidence["signers"]["policyHash"]
+    signer_set_commitment = supplied_signer_set_hash or evidence["signers"]["signerSetHash"]
+    if release == ZERO_HASH or release != release_id(evidence):
+        raise RuntimeAdmissionRejection("RELEASE_ID")
+    if conformance == ZERO_HASH:
+        raise RuntimeAdmissionRejection("CONFORMANCE_DOCUMENT_HASH")
+    if signed_document == ZERO_HASH:
+        raise RuntimeAdmissionRejection("SIGNED_DOCUMENT_HASH")
+    if (
+        policy_commitment != immutable_policy_hash
+        or signer_set_commitment != immutable_signer_set_hash
+    ):
+        raise RuntimeAdmissionRejection("IMMUTABLE_ATTESTOR_POLICY")
+    if attestors is None or signatures is None or len(attestors) != 2 or len(signatures) != 2:
+        raise RuntimeAdmissionRejection("ATTESTOR_THRESHOLD")
+    if attestors != sorted(attestors) or len(set(attestors)) != 2:
+        raise RuntimeAdmissionRejection("ATTESTOR_ORDER")
+    if not set(attestors).issubset(policy["addresses"]):
+        raise RuntimeAdmissionRejection("ATTESTOR_UNAUTHORIZED")
+    digest = release_attestation_digest(
+        chain_id,
+        registry_address,
+        release,
+        conformance,
+        signed_document,
+        policy_commitment,
+        signer_set_commitment,
+    )
+    commitments: list[str] = []
+    for attestor, encoded_signature in zip(attestors, signatures, strict=True):
+        try:
+            signature = hx(encoded_signature)
+            recovered = recover_address(digest, signature)
+        except ValueError as error:
+            raise RuntimeAdmissionRejection("ATTESTATION_SIGNATURE") from error
+        if recovered != attestor:
+            raise RuntimeAdmissionRejection("ATTESTATION_SIGNATURE")
+        commitments.append(h(signature))
+    return {
+        "releaseAttestationDigest": "0x" + digest.hex(),
+        "releaseAttestors": attestors,
+        "releaseSignatureCommitments": commitments,
+        "releaseSignatureSetHash": release_signature_set_hash(
+            digest,
+            [
+                {"signer": signer, "signatureCommitment": commitment}
+                for signer, commitment in zip(attestors, commitments, strict=True)
+            ],
+        ),
+    }
+
+
+def assert_runtime_rejected(
+    evidence: dict, bundle: dict, expected_code: str, **overrides: object
+) -> None:
+    try:
+        runtime_admit_release(evidence, **overrides)
+    except RuntimeAdmissionRejection as error:
+        assert str(error) == expected_code, (str(error), expected_code)
+        return
+    raise AssertionError(f"runtime admission mutation accepted: {expected_code}")
 
 
 def validate_mutation(mutated: dict, pristine: dict, bundle: dict, reference: dict) -> None:
@@ -432,13 +579,23 @@ def self_selected_rekey_attack(evidence: dict) -> tuple[dict, dict, dict]:
     attack["signers"]["signerSetHash"] = release_attestor_signer_set_hash(attack_policy)
     attack["signers"]["signatureCommitments"] = [ZERO_HASH, ZERO_HASH]
     attack["signers"]["signedDocumentHash"] = ZERO_HASH
+    attack["signers"]["releaseAttestationDigest"] = ZERO_HASH
     attack["conformanceDocumentHash"] = ZERO_HASH
     attack["availability"] = []
     attack["detachedSignatureBundle"] = {}
     attack["releaseId"] = release_id(attack)
     attack["conformanceDocumentHash"] = h(rfc8785.dumps(projection(attack, "D0")))
     attack["signers"]["signedDocumentHash"] = h(rfc8785.dumps(projection(attack, "D1")))
-    digest = k(b"\x19Ethereum Signed Message:\n32" + hx(attack["signers"]["signedDocumentHash"]))
+    digest = release_attestation_digest(
+        FIXTURE_CHAIN_ID,
+        FIXTURE_REGISTRY_ADDRESS,
+        attack["releaseId"],
+        attack["conformanceDocumentHash"],
+        attack["signers"]["signedDocumentHash"],
+        attack["signers"]["policyHash"],
+        attack["signers"]["signerSetHash"],
+    )
+    attack["signers"]["releaseAttestationDigest"] = "0x" + digest.hex()
     entries = []
     for address, scalar in signer_pairs[:2]:
         signature = sign_document(scalar, digest)
@@ -447,8 +604,14 @@ def self_selected_rekey_attack(evidence: dict) -> tuple[dict, dict, dict]:
     bundle = {
         "schema": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
         "version": 1,
+        "chainId": FIXTURE_CHAIN_ID,
+        "registryAddress": FIXTURE_REGISTRY_ADDRESS,
         "releaseId": attack["releaseId"],
+        "conformanceDocumentHash": attack["conformanceDocumentHash"],
         "signedDocumentHash": attack["signers"]["signedDocumentHash"],
+        "releaseAttestorPolicyHash": attack["signers"]["policyHash"],
+        "releaseAttestorSignerSetHash": attack["signers"]["signerSetHash"],
+        "releaseAttestationDigest": attack["signers"]["releaseAttestationDigest"],
         "entries": entries,
     }
     bundle_bytes = rfc8785.dumps(bundle)
@@ -477,6 +640,85 @@ def self_selected_rekey_attack(evidence: dict) -> tuple[dict, dict, dict]:
 
 
 def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
+    attestors = [entry["signer"] for entry in bundle["entries"]]
+    signatures = [entry["signature"] for entry in bundle["entries"]]
+    runtime_result = runtime_admit_release(
+        evidence, attestors=attestors, signatures=signatures
+    )
+    assert runtime_result["releaseAttestationDigest"] == bundle["releaseAttestationDigest"]
+    assert runtime_result["releaseSignatureCommitments"] == evidence["signers"]["signatureCommitments"]
+
+    assert_runtime_rejected(
+        evidence, bundle, "ATTESTOR_THRESHOLD", attestors=attestors[:1], signatures=signatures[:1]
+    )
+    assert_runtime_rejected(
+        evidence, bundle, "ATTESTOR_ORDER", attestors=[attestors[0], attestors[0]], signatures=signatures
+    )
+    assert_runtime_rejected(
+        evidence,
+        bundle,
+        "ATTESTOR_UNAUTHORIZED",
+        attestors=[attestors[0], "0xffffffffffffffffffffffffffffffffffffffff"],
+        signatures=signatures,
+    )
+    assert_runtime_rejected(
+        evidence,
+        bundle,
+        "RELEASE_ID",
+        supplied_release_id="0x" + "01" * 32,
+        attestors=attestors,
+        signatures=signatures,
+    )
+    for field, override in (
+        ("supplied_conformance_document_hash", "0x" + "02" * 32),
+        ("supplied_signed_document_hash", "0x" + "03" * 32),
+    ):
+        assert_runtime_rejected(
+            evidence,
+            bundle,
+            "ATTESTATION_SIGNATURE",
+            attestors=attestors,
+            signatures=signatures,
+            **{field: override},
+        )
+    for field, override in (
+        ("supplied_policy_hash", "0x" + "04" * 32),
+        ("supplied_signer_set_hash", "0x" + "05" * 32),
+    ):
+        assert_runtime_rejected(
+            evidence,
+            bundle,
+            "IMMUTABLE_ATTESTOR_POLICY",
+            attestors=attestors,
+            signatures=signatures,
+            **{field: override},
+        )
+    assert_runtime_rejected(
+        evidence,
+        bundle,
+        "ATTESTATION_SIGNATURE",
+        chain_id=FIXTURE_CHAIN_ID + 1,
+        attestors=attestors,
+        signatures=signatures,
+    )
+    assert_runtime_rejected(
+        evidence,
+        bundle,
+        "ATTESTATION_SIGNATURE",
+        registry_address="0x0000000000000000000000000000000000006530",
+        attestors=attestors,
+        signatures=signatures,
+    )
+    altered_signature = signatures.copy()
+    altered_signature[0] = altered_signature[0][:-2] + ("00" if altered_signature[0][-2:] != "00" else "01")
+    assert_runtime_rejected(
+        evidence,
+        bundle,
+        "ATTESTATION_SIGNATURE",
+        attestors=attestors,
+        signatures=altered_signature,
+    )
+
     mutation = copy.deepcopy(evidence)
     mutation["target"] = "0x0000000000000000000000000000000000000043"
     assert_rejected(mutation, evidence, bundle, reference, "TARGET_ADDRESS")
@@ -590,6 +832,7 @@ def main() -> int:
     print(f"releaseId={evidence['releaseId']}")
     print(f"conformanceDocumentHash={evidence['conformanceDocumentHash']}")
     print(f"signedDocumentHash={evidence['signers']['signedDocumentHash']}")
+    print(f"releaseAttestationDigest={evidence['signers']['releaseAttestationDigest']}")
     print(f"target={evidence['target']} runtimePolicyHash={evidence['runtimePolicyHash']}")
     print(f"externalDependencyHash={evidence['externalDependencyHash']} dependencies={len(evidence['externalDependencies'])}")
     print(f"releaseAttestorPolicyHash={evidence['signers']['policyHash']}")
