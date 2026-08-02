@@ -7,6 +7,10 @@ from Crypto.Hash import keccak
 from abi_encoding_v1 import bytes32_arrays, uint_word
 
 
+if not __debug__:
+    raise SystemExit("optimized Python disables conformance checks")
+
+
 def keccak256(value: bytes) -> bytes:
     digest = keccak.new(digest_bits=256)
     digest.update(value)

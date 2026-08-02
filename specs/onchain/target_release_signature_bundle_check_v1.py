@@ -9,11 +9,17 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import copy
+import re
 from pathlib import Path
 
 import jsonschema
 import rfc8785
 from Crypto.Hash import keccak
+
+
+if not __debug__:
+    raise SystemExit("optimized Python disables conformance checks")
 
 
 ROOT = Path(__file__).resolve().parent
@@ -22,8 +28,9 @@ REFERENCE_PATH = ROOT / "target-release-signature-bundle-v1.reference.json"
 SCHEMA_PATH = ROOT / "target-release-signature-bundle-v1.schema.json"
 EVIDENCE_SCHEMA_PATH = ROOT / "target-release-evidence-v1.schema.json"
 EVIDENCE_PATH = ROOT / "target-release-evidence-v1.fixture.json"
+SPEC_PATH = ROOT / "contract-migration-v1.md"
 
-EXPECTED_SCHEMA_HASH = "cc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439"
+EXPECTED_SCHEMA_HASH = "5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd"
 
 # secp256k1 constants. They are used only to recover public keys from the
 # public test signatures; no private key is retained by this repository.
@@ -94,6 +101,51 @@ def cidv1_raw_sha256(payload: bytes) -> str:
     return "ipfs://b" + base64.b32encode(multihash).decode("ascii").lower().rstrip("=")
 
 
+def validate_entry_identity(entries: list[dict[str, str]]) -> None:
+    if len(entries) != 3:
+        raise ValueError("ENTRY_COUNT")
+    signers = [entry["signer"] for entry in entries]
+    if len(set(signers)) != 3:
+        raise ValueError("DUPLICATE_SIGNER")
+    if signers != sorted(signers):
+        raise ValueError("SIGNER_ORDER")
+    commitments = [entry["signatureCommitment"] for entry in entries]
+    if len(set(commitments)) != 3:
+        raise ValueError("DUPLICATE_SIGNATURE_COMMITMENT")
+
+
+def validate_documentation(reference: dict, evidence: dict) -> None:
+    spec = SPEC_PATH.read_text(encoding="utf-8")
+    blocks = re.findall(
+        r"<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_BEGIN -->(.*?)<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->",
+        spec,
+        re.DOTALL,
+    )
+    assert len(blocks) == 1
+    values = dict(re.findall(r"^([A-Za-z][A-Za-z0-9]+) = (\S+)$", blocks[0], re.MULTILINE))
+    expected = {
+        "releaseId": evidence["releaseId"],
+        "D0ConformanceDocumentHash": evidence["conformanceDocumentHash"],
+        "D1SignedDocumentHash": evidence["signers"]["signedDocumentHash"],
+        "bundleUri": reference["uri"],
+        "alternateBundleUri": reference["availability"][1]["uri"],
+        "bundleContentHash": reference["contentHash"],
+        "bundleBytes": str(reference["sizeBytes"]),
+        "bundleSchemaHash": reference["schemaHash"],
+        "ipfsFetchObservationHash": reference["availability"][0]["fetchObservationHash"],
+        "arFetchObservationHash": reference["availability"][1]["fetchObservationHash"],
+    }
+    for label, expected_value in expected.items():
+        assert values.get(label) == expected_value, label
+    for stale in (
+        "0x809e19f8e094804ffd9b7b8b4dd86d1597148d55f798b776e3e6f1dd0a02ba83",
+        "ipfs://bafkreidtpcfaumxixdprbdlhqigzaicjua7u3zxuqwcg5grcmmnntxt6qu",
+        "0xacf3819991e8be43bdeadd90707cc7a1ed01345f1faa682c63acc1ef7af56a65",
+        "ipfs://bafkreihtaaya2ro2hb543773zxb5bgimfnioz5l6cf5srnz7v4xogl24lu",
+    ):
+        assert stale not in spec
+
+
 def main() -> int:
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     evidence_schema = json.loads(EVIDENCE_SCHEMA_PATH.read_text(encoding="utf-8"))
@@ -111,8 +163,7 @@ def main() -> int:
 
     sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(bundle["signedDocumentHash"][2:]))
     entries = bundle["entries"]
-    assert [entry["signer"] for entry in entries] == sorted(entry["signer"] for entry in entries)
-    assert len({entry["signer"] for entry in entries}) == 3
+    validate_entry_identity(entries)
     assert [entry["signer"] for entry in entries] == evidence["signers"]["addresses"]
     assert [entry["signatureCommitment"] for entry in entries] == evidence["signers"]["signatureCommitments"]
     for entry in entries:
@@ -127,6 +178,17 @@ def main() -> int:
     assert reference["sizeBytes"] == len(canonical)
     assert len({row["uri"] for row in reference["availability"]}) == 2
     assert all(row["contentHash"] == reference["contentHash"] for row in reference["availability"])
+    validate_documentation(reference, evidence)
+
+    duplicate_signer = copy.deepcopy(bundle)
+    duplicate_signer["entries"][1]["signer"] = duplicate_signer["entries"][0]["signer"]
+    jsonschema.validate(duplicate_signer, schema)
+    try:
+        validate_entry_identity(duplicate_signer["entries"])
+    except ValueError as error:
+        assert str(error) == "DUPLICATE_SIGNER"
+    else:
+        raise AssertionError("schema-only duplicate signer passed semantic validation")
 
     print(f"bundleUri={reference['uri']}")
     print(f"bundleContentHash={reference['contentHash']}")

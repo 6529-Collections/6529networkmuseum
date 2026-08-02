@@ -22,18 +22,18 @@ The review is design evidence, not a deployed-contract or live-custody claim.
 
 The current executable conformance artifacts are byte-oriented and are part of
 the remediation transcript: `python -B
-specs/onchain/uri_safety_vectors_v1.py` reports the 1,350-byte profile hash
-`0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09` and 41
+specs/onchain/uri_safety_vectors_v1.py` reports the 1,380-byte profile hash
+`0x8dc321494e0703072c5f2f1e7967473836640551e4b5c64e8fe94116029cefbb` and 44
 vectors with bundle hash
-`0x7cf5863cb613309e826954884ae32a710d0ca31af92b80091fab5ba1dcefca9e`;
+`0x252c699a34e0c162f4055c292f23f7360272e3ec4b37031f2d17966055641011`;
 `python -B specs/onchain/batch_vector_check_v1.py` reports the canonical
 batch ID `0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b`
 and commitment
 `0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`;
 `python -B specs/onchain/batch_gas_gate_check_v1.py` proves the worst corpus
-requires `12,124,304` units and `12,174,304` including caller reserve under
-the non-measured 13,000,000 eligibility cap; and
-and `python -B specs/onchain/https_expiry_renewal_check_v1.py` exercises
+has base `requiredGas` of `12,124,304`; adding the `50,000` caller reserve
+equals `12,174,304`, which is under the non-measured `13,000,000` eligibility
+cap. `python -B specs/onchain/https_expiry_renewal_check_v1.py` exercises
 expired-write rejection, renewal acceptance, historical readability, and
 non-retroactive validity.
 `python -B specs/onchain/target_release_evidence_check_v1.py` recomputes the
@@ -42,10 +42,28 @@ target address, acyclic release ID/D0/D1 projections, policy/dependency hash,
 two builds, three signer commitments, detached bundle linkage, and availability;
 `python -B specs/onchain/target_release_signature_bundle_check_v1.py` then
 independently validates its coherent 1,131-byte bundle, content hash
-`0x809e19f8e094804ffd9b7b8b4dd86d1597148d55f798b776e3e6f1dd0a02ba83`,
-the `ipfs://bafkreidtpcfaumxixdprbdlhqigzaicjua7u3zxuqwcg5grcmmnntxt6qu` /
+`0xf97485a4617d8048f74dd21475d37f82ba6ffa634bf692f91ac1aadb8c2e0e85`,
+the `ipfs://bafkreiddwjjnzkdwl7cokq43uec3kngfj3vxmjdmqylt2uasiqaua7v44a` /
 `ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and 3/3
 signature recovery.
+The bundle schema hash is
+`0x5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd`
+and the containing evidence-schema hash is
+`0xca1b62e83ef91befe287fbc338ec30ce16dc88c8b7ca787b0a52812108136dcc`.
+JSON Schema cannot enforce uniqueness of one member across otherwise distinct
+objects, so the semantic checker normatively rejects duplicate signers and
+commitments after schema validation.
+
+HTTPS assertion cardinality is operationally per distinct canonical URI,
+including its path: migration planning counts one assertion, current-pointer
+entry, storage allocation, and renewal stream for every distinct HTTPS URI,
+not one per shared host. The active §13 golden values are recomputed by the
+offline on-chain checkers and bound back to their exact published prose; the
+manifest/ABI checker independently recomputes and binds every published
+general §13.1--§13.9 hash golden plus the selector/record-type tables, while
+the TargetRelease evidence/signature checkers independently bind the complete
+§13.9.1 fixture and documentation transcript. The batch and HTTPS lifecycle
+checkers remain focused second implementations of their dedicated vectors.
 
 ## Findings
 
@@ -332,9 +350,17 @@ The next exact-head review required and resolved:
    The literal ID hash for `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` is
    `0x8148bd5ce1f57455106f3425ad39d8c0c80e527c51c51ad350f27028e8c6c367`;
    the governed JCS policy-document hash is
-   `0xccb469268dc422f42673db5a02aa2e56a33639c4e193c4f20e4b3af4dccff341`.
+   `0x95f9e52ebbfec6aa2d1ad41a516a6d9e7ce2f55cfed9de1fb906e6f6e9dae452`.
    `TargetRelease.runtimePolicyHash` and evidence use the latter document hash,
    never the literal ID hash.
+   Declared target dependencies use the separate governed
+   `MUSEUM_DEPENDENCY_RUNTIME_NONPROXY_V1` document hash
+   `0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04`;
+   each stored row binds address, direct code hash, runtime policy, ERC-165
+   interface, and purpose ID. The direct governance executor (for example,
+   the Museum Safe) is categorically outside both TargetRelease and dependency
+   policy. The authority provider receives no executor/admin role and needs no
+   CALL capability.
 
 The latest exact-head reviewer found five current-blob gaps and they are
 resolved together here:
@@ -473,6 +499,10 @@ $selectorGolden = [ordered]@{
   'authority()' = '0xbf7e214f'
   'authorityRevision()' = '0x48de7dbc'
   'authorityState()' = '0xa865a4c7'
+  'governanceExecutor()' = '0x8fc98386'
+  'governanceExecutorRevision()' = '0x533620f9'
+  'governanceExecutorBinding()' = '0x5bcde725'
+  'pendingGovernanceExecutor()' = '0x737aa558'
   'successor()' = '0x6ff968c3'
   'writesFrozen()' = '0x290d086b'
   'pendingAuthority()' = '0xfabb94bb'
@@ -490,14 +520,19 @@ $selectorGolden = [ordered]@{
   'recordTypePolicy(bytes32)' = '0xcd2369a6'
   'setRecordFamilyGrant(bytes32,uint8,address,bool)' = '0x40ee7ee3'
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
-  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0x0742c529'
+  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0xdd3fcfd4'
   'targetRelease(uint8,address,bytes32)' = '0x85968ef0'
   'targetReleaseAtRevision(uint8,address,bytes32,uint64)' = '0x288b2e93'
   'targetReleaseById(bytes32)' = '0xb9bc97a1'
+  'targetReleaseDependencyCount(bytes32)' = '0x1dcd55b2'
+  'targetReleaseDependency(bytes32,uint256)' = '0x1efe53c1'
   'quarantineTargetRelease(uint8,address,bytes32,bytes32)' = '0xda6d916f'
   'setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x81a86ff4'
   'executeAuthority()' = '0xc9dc7d0d'
   'cancelAuthority()' = '0xf0edf065'
+  'setGovernanceExecutor(address,bytes32,bytes32)' = '0x3a1a0b96'
+  'executeGovernanceExecutor()' = '0x967059b8'
+  'cancelGovernanceExecutor()' = '0x51d8c5e0'
   'setGlobalRoleGrant(bytes32,address,bool)' = '0xab6627c3'
   'globalRoleGrant(bytes32,address)' = '0x59d2fe4a'
   'admitHttpsResolverProfile(bytes32,bytes32,address,uint64,uint64)' = '0xaf2fb948'
@@ -542,28 +577,30 @@ foreach($signature in $selectorGolden.Keys) {
 The authority capability selector-set hash was recomputed after adding the
 governed target-release admission and quarantine selectors. The exact sorted
 `bytes4[]` is
-`[0x05d53fba,0x0742c529,0x43dd6c37,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xf0edf065]`:
+`[0x05d53fba,0x3a1a0b96,0x43dd6c37,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]`:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x0742c529,0x43dd6c37,0x81a86ff4,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x3a1a0b96,0x43dd6c37,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0xafee23b5447d9b050283c506b2af140cf332002f55e035ad1edfe6c5a4bb34b3') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0x592f27261ae743811fe66b8441fca1aacfc53fcc230f5b444b1d57d66fc7d359') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 
-The dependency-free offline command `python -B
+The network-free offline command `python -B
 specs/onchain/manifest_abi_selector_check_v1.py` now independently recomputes
-the active §13.6 source/record/entry/root vector, every selector in this
+every active general §13.1--§13.9 hash golden, including the §13.6
+source/record/entry/root vector, every selector in this
 canonical transcript, the global-role IDs, the authority selector allowlist,
 and the stable Museum record-type/class allowlist. It is conformance evidence
 for this design specification only and has no network, target-admission, or
 deployment behavior.
 
-The active URI-safety profile is the 1,350-byte document in
+The active URI-safety profile is the 1,380-byte document in
 `specs/onchain/uri_safety_vectors_v1.py`; its current hash is
-`0x7c64187abee4064eb00fcf9fc5e09fc99772989f930c91efaf8e7b830c0c3b09`.
-The executable harness checks 41 active vectors, including CIDv0 rejection and
-noncanonical CIDv1/Arweave unused-bit aliases. The calculation block below is
+`0x8dc321494e0703072c5f2f1e7967473836640551e4b5c64e8fe94116029cefbb`.
+The executable harness checks 44 active vectors, including CIDv0 rejection,
+noncanonical CIDv1/Arweave unused-bit aliases, and uppercase HTTPS/IPFS/Arweave
+scheme aliases. The calculation block below is
 superseded historical context only and MUST NOT be used as an active profile.
 
 ```powershell
@@ -620,8 +657,18 @@ do not read repository state or rely on an implementation. The output is the
 golden vector set for the draft.
 
 ```powershell
-git cat-file -e 'ff1c5825e3b61bfb2df0a639e057297beb946e4d^{commit}'
+$sourceCommit = 'ff1c5825e3b61bfb2df0a639e057297beb946e4d'
+$trustedRef = 'refs/remotes/origin/main'
+$originUrl = (git config --get remote.origin.url).Replace('\','/')
+if ($originUrl -notmatch '(?i)(?:github\.com[:/])6529-Collections/6529networkmuseum(?:\.git)?$') { throw 'wrong Museum source repository' }
+git cat-file -e "$sourceCommit`^{commit}"
 if ($LASTEXITCODE -ne 0) { throw 'Museum release/source baseline is absent' }
+git show-ref --verify --quiet $trustedRef
+if ($LASTEXITCODE -ne 0) { throw 'trusted origin/main ref is absent' }
+git merge-base --is-ancestor $sourceCommit $trustedRef
+if ($LASTEXITCODE -ne 0) { throw 'source baseline is not reachable from trusted origin/main' }
+# The moving trusted ref may advance; equality to its current tip is neither
+# required nor asserted. The immutable source object and its ancestry are.
 
 $domain = '0x0c86cc4258c69b4674aa86e715d4d167bd8288b78832a0a4c5a37943b31876c4'
 $chainDomain = '0x4bc9065a5ebf49c9fff664fca90b1a40c0edac25bd076026f1b2685de7db666a'

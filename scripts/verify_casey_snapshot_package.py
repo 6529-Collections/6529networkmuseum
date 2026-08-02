@@ -354,6 +354,20 @@ def verify_file_record(repo_root: Path, item: dict[str, Any]) -> Path:
     return path
 
 
+def verify_package_pointer(latest: dict[str, Any], package_bytes: bytes) -> None:
+    """Validate the governed latest-run pointer against measured package bytes."""
+    package_pointer = latest.get("package_manifest")
+    if not isinstance(package_pointer, dict):
+        raise VerificationError("root package manifest pointer is missing")
+    assert_equal(package_pointer.get("path"), "package-manifest.json", "root package manifest pointer path")
+    assert_equal(
+        package_pointer.get("sha256"),
+        f"sha256:{sha256_bytes(package_bytes)}",
+        "root package manifest pointer hash",
+    )
+    assert_equal(package_pointer.get("size"), len(package_bytes), "root package manifest pointer size")
+
+
 def verify_raw_ref(run_root: Path, ref: dict[str, Any]) -> bytes:
     relative = ref.get("path")
     if not isinstance(relative, str) or not relative.startswith("raw/"):
@@ -981,7 +995,8 @@ def verify_package(output_dir: Path) -> dict[str, Any]:
     package_path = within(output_dir, "package-manifest.json", label="root package manifest")
     package = read_json(package_path)
     reject_external_references(package, "root package")
-    assert_equal(latest.get("package_manifest", {}).get("sha256"), f"sha256:{sha256_bytes(package_path.read_bytes())}", "root package manifest pointer hash")
+    package_bytes = package_path.read_bytes()
+    verify_package_pointer(latest, package_bytes)
     assert_equal(package.get("schema_version"), "6529nm.casey-package-manifest.v1", "root package manifest schema")
     assert_equal(package.get("review"), None, "root package review")
     reject_current_head(package, "root package")

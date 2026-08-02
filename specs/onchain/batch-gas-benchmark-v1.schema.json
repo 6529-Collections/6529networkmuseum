@@ -55,7 +55,7 @@
         "cpuModel": { "type": "string", "minLength": 1 }
       }
     },
-    "corpusHash": { "const": "0x458a9637f7acda5ea92f1a082c3211a716083d6198c050c587d65d67f58bfb50" },
+    "corpusHash": { "const": "0xf69a816a38f9b0f1addd6f8270318d6c1aacf17cb55bfb2adcb7efbe5983b293" },
     "gasGate": {
       "type": "object",
       "additionalProperties": false,

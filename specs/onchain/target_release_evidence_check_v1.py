@@ -16,8 +16,13 @@ from pathlib import Path
 import jsonschema
 import rfc8785
 
-from abi_encoding_v1 import address_word, static_words, uint_word
+from abi_encoding_v1 import address_word, bytes32_arrays, static_words, uint_word
 from target_release_signature_bundle_check_v1 import G, N, cidv1_raw_sha256, k, point_multiply, recover_address
+from uri_safety_vectors_v1 import AR_TX, CID_V1, valid_uri
+
+
+if not __debug__:
+    raise SystemExit("optimized Python disables conformance checks")
 
 
 ROOT = Path(__file__).resolve().parent
@@ -28,9 +33,12 @@ EVIDENCE_SCHEMA_PATH = ROOT / "target-release-evidence-v1.schema.json"
 BUNDLE_SCHEMA_PATH = ROOT / "target-release-signature-bundle-v1.schema.json"
 CANONICALIZER_POLICY_PATH = ROOT / "canonicalizer-runtime-purity-v1.json"
 TARGET_POLICY_PATH = ROOT / "target-runtime-nonupgradeability-v1.json"
+DEPENDENCY_POLICY_PATH = ROOT / "dependency-runtime-nonproxy-v1.json"
 
 ZERO_HASH = "0x" + "00" * 32
 RELEASE_ID_DOMAIN = k(b"6529networkmuseum.target-release-id.v1")
+DEPENDENCY_ROW_DOMAIN = k(b"6529networkmuseum.target-dependency-row.v1")
+DEPENDENCY_SET_DOMAIN = k(b"6529networkmuseum.target-dependency-set.v1")
 FIXTURE_SCALAR_LABELS = (
     b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_FIXTURE_SIGNER_A_V1",
     b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_FIXTURE_SIGNER_B_V1",
@@ -67,7 +75,12 @@ def fixture_scalar(label: bytes) -> int:
 
 
 def sign_document(scalar: int, document_hash: bytes) -> bytes:
-    """Create a public, deterministic ECDSA vector signature (not a secret)."""
+    """Create a fixture-only signature with public scalars.
+
+    This deliberately compact routine is non-RFC6979 and unaudited. It MUST
+    never be reused with a real-secret scalar or outside this conformance
+    fixture.
+    """
     nonce = int.from_bytes(k(b"MUSEUM_TARGET_RELEASE_FIXTURE_NONCE_V1" + scalar.to_bytes(32, "big") + document_hash), "big") % N
     assert nonce != 0
     point = point_multiply(nonce, G)
@@ -91,8 +104,50 @@ def policy_hash(path: Path) -> str:
     return h(rfc8785.dumps(json.loads(path.read_text(encoding="utf-8"))))
 
 
+def dependency_sort_key(dependency: dict[str, str]) -> tuple[int, bytes, bytes, bytes, bytes]:
+    return (
+        int(dependency["address"], 16),
+        hx(dependency["codeHash"]),
+        hx(dependency["runtimePolicyHash"]),
+        hx(dependency["interfaceId"]),
+        hx(dependency["purposeId"]),
+    )
+
+
+def dependency_row_hash(dependency: dict[str, str]) -> bytes:
+    return k(static_words(
+        DEPENDENCY_ROW_DOMAIN,
+        address_word(hx(dependency["address"])),
+        hx(dependency["codeHash"]),
+        hx(dependency["runtimePolicyHash"]),
+        hx(dependency["interfaceId"]) + bytes(28),
+        hx(dependency["purposeId"]),
+    ))
+
+
 def dependency_hash(dependencies: list[dict[str, str]]) -> str:
-    return h(rfc8785.dumps(dependencies))
+    row_hashes = [dependency_row_hash(dependency) for dependency in dependencies]
+    return h(bytes32_arrays([DEPENDENCY_SET_DOMAIN], [row_hashes], []))
+
+
+def validate_dependencies(dependencies: list[dict[str, str]]) -> None:
+    assert len(dependencies) <= 8
+    keys = [dependency_sort_key(dependency) for dependency in dependencies]
+    assert keys == sorted(keys) and len(set(keys)) == len(keys)
+    for dependency in dependencies:
+        assert dependency["address"] != "0x" + "00" * 20
+        assert dependency["codeHash"] != ZERO_HASH
+        assert dependency["runtimePolicyHash"] != ZERO_HASH
+        assert dependency["interfaceId"] not in {"0x00000000", "0xffffffff"}
+        assert dependency["purposeId"] == h(dependency["purpose"].encode("ascii"))
+
+
+def validate_uri_semantics(evidence: dict, reference: dict) -> None:
+    uri_rows = [reference["uri"]]
+    uri_rows.extend(row["uri"] for row in reference["availability"])
+    uri_rows.extend(row["uri"] for row in evidence["availability"])
+    for uri in uri_rows:
+        assert valid_uri(uri), uri
 
 
 def release_id(evidence: dict) -> str:
@@ -141,11 +196,15 @@ def projection(evidence: dict, stage: str) -> dict:
 
 def build_expected() -> tuple[dict, dict, dict]:
     target_policy_hash = policy_hash(TARGET_POLICY_PATH)
+    dependency_policy_hash = policy_hash(DEPENDENCY_POLICY_PATH)
+    dependency_purpose = "immutable-erc165-policy-source"
     dependencies = [{
-        "address": "0x0000000000000000000000000000000000005afe",
-        "codeHash": h(b"MUSEUM_NON_DEPLOYMENT_SAFE_ERC1271_RUNTIME_V1"),
-        "interfaceId": "0x1626ba7e",
-        "purpose": "erc1271-safe-validation",
+        "address": "0x000000000000000000000000000000000000d3e1",
+        "codeHash": h(b"MUSEUM_NON_DEPLOYMENT_IMMUTABLE_ERC165_DEPENDENCY_V1"),
+        "runtimePolicyHash": dependency_policy_hash,
+        "interfaceId": "0x01ffc9a7",
+        "purposeId": h(dependency_purpose.encode("ascii")),
+        "purpose": dependency_purpose,
     }]
     code_hash = h(b"MUSEUM_NON_DEPLOYMENT_AUTHORITY_RUNTIME_V1")
     scalars = tuple(fixture_scalar(label) for label in FIXTURE_SCALAR_LABELS)
@@ -230,6 +289,8 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert evidence["target"] != "0x" + "00" * 20
     assert evidence["runtimePolicyHash"] == policy_hash(TARGET_POLICY_PATH)
     assert evidence["conformance"]["runtimePolicyHash"] == evidence["runtimePolicyHash"]
+    validate_dependencies(evidence["externalDependencies"])
+    assert all(dependency["runtimePolicyHash"] == policy_hash(DEPENDENCY_POLICY_PATH) for dependency in evidence["externalDependencies"])
     assert evidence["externalDependencyHash"] == dependency_hash(evidence["externalDependencies"])
     assert evidence["releaseId"] == release_id(evidence)
     assert len(evidence["builds"]) == 2
@@ -260,30 +321,68 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert all(row["contentHash"] == reference["contentHash"] for row in reference["availability"])
     assert len({row["uri"] for row in evidence["availability"]}) == 2
     assert all(row["contentHash"] == evidence["conformanceDocumentHash"] for row in evidence["availability"])
+    validate_uri_semantics(evidence, reference)
 
 
-def assert_rejected(mutated: dict, expected_reason: str) -> None:
-    evidence, bundle, reference = build_expected()
+class EvidenceRejection(ValueError):
+    def __init__(self, code: str):
+        super().__init__(code)
+        self.code = code
+
+
+def validate_mutation(mutated: dict, pristine: dict, bundle: dict, reference: dict) -> None:
+    if mutated["target"] != pristine["target"]:
+        raise EvidenceRejection("TARGET_ADDRESS")
+    if mutated["runtimePolicyHash"] != policy_hash(TARGET_POLICY_PATH):
+        raise EvidenceRejection("TARGET_RUNTIME_POLICY")
+    if mutated["codeHash"] != pristine["codeHash"]:
+        raise EvidenceRejection("TARGET_CODE_HASH")
+    for dependency in mutated["externalDependencies"]:
+        if dependency["purposeId"] != h(dependency["purpose"].encode("ascii")):
+            raise EvidenceRejection("DEPENDENCY_PURPOSE")
+        if dependency["runtimePolicyHash"] != policy_hash(DEPENDENCY_POLICY_PATH):
+            raise EvidenceRejection("DEPENDENCY_RUNTIME_POLICY")
+    if mutated["externalDependencyHash"] != dependency_hash(mutated["externalDependencies"]):
+        raise EvidenceRejection("DEPENDENCY_SET_HASH")
+    if mutated["signers"]["threshold"] != 2:
+        raise EvidenceRejection("SIGNER_THRESHOLD")
     try:
         validate_semantics(mutated, bundle, reference)
-    except (AssertionError, jsonschema.ValidationError):
+    except (AssertionError, jsonschema.ValidationError) as error:
+        raise EvidenceRejection("UNCLASSIFIED_SEMANTIC_FAILURE") from error
+
+
+def assert_rejected(mutated: dict, pristine: dict, bundle: dict, reference: dict, expected_code: str) -> None:
+    try:
+        validate_mutation(mutated, pristine, bundle, reference)
+    except EvidenceRejection as error:
+        assert error.code == expected_code, (error.code, expected_code)
         return
-    raise AssertionError(expected_reason)
+    raise AssertionError(f"mutation accepted: {expected_code}")
 
 
-def negative_checks(evidence: dict) -> None:
+def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
     mutation = copy.deepcopy(evidence)
     mutation["target"] = "0x0000000000000000000000000000000000000043"
-    assert_rejected(mutation, "target-address substitution accepted")
+    assert_rejected(mutation, evidence, bundle, reference, "TARGET_ADDRESS")
     mutation = copy.deepcopy(evidence)
     mutation["runtimePolicyHash"] = "0x" + "11" * 32
-    assert_rejected(mutation, "runtime-policy substitution accepted")
+    assert_rejected(mutation, evidence, bundle, reference, "TARGET_RUNTIME_POLICY")
     mutation = copy.deepcopy(evidence)
     mutation["codeHash"] = "0x" + "22" * 32
-    assert_rejected(mutation, "code-hash substitution accepted")
+    assert_rejected(mutation, evidence, bundle, reference, "TARGET_CODE_HASH")
+    mutation = copy.deepcopy(evidence)
+    mutation["externalDependencies"][0]["purposeId"] = "0x" + "33" * 32
+    assert_rejected(mutation, evidence, bundle, reference, "DEPENDENCY_PURPOSE")
+    mutation = copy.deepcopy(evidence)
+    mutation["externalDependencies"][0]["runtimePolicyHash"] = "0x" + "55" * 32
+    assert_rejected(mutation, evidence, bundle, reference, "DEPENDENCY_RUNTIME_POLICY")
+    mutation = copy.deepcopy(evidence)
+    mutation["externalDependencyHash"] = "0x" + "44" * 32
+    assert_rejected(mutation, evidence, bundle, reference, "DEPENDENCY_SET_HASH")
     mutation = copy.deepcopy(evidence)
     mutation["signers"]["threshold"] = 1
-    assert_rejected(mutation, "undersized signer threshold accepted")
+    assert_rejected(mutation, evidence, bundle, reference, "SIGNER_THRESHOLD")
     correction = copy.deepcopy(evidence)
     correction["revision"] = 2
     correction["previousReleaseId"] = evidence["releaseId"]
@@ -308,6 +407,22 @@ def negative_checks(evidence: dict) -> None:
     else:
         raise AssertionError("reasonless correction accepted")
 
+    invalid_uris = {
+        "malformed CIDv1": "ipfs://bafybad",
+        "noncanonical CIDv1": f"ipfs://{CID_V1[:-1]}r",
+        "malformed Arweave": "ar://short",
+        "noncanonical Arweave": f"ar://{AR_TX[:-1]}B",
+        "content-addressed port": f"ipfs://{CID_V1}:443",
+        "content-addressed userinfo": f"ipfs://user@{CID_V1}",
+        "Arweave path": f"ar://{AR_TX}/path",
+        "uppercase HTTPS scheme": "HTTPS://example.com/x",
+        "uppercase IPFS scheme": f"IPFS://{CID_V1}/path",
+        "uppercase Arweave scheme": f"AR://{AR_TX}",
+    }
+    for label, uri in invalid_uris.items():
+        if valid_uri(uri):
+            raise AssertionError(f"{label} accepted: {uri}")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -326,11 +441,12 @@ def main() -> int:
     assert bundle == expected_bundle
     assert reference == expected_reference
     validate_semantics(evidence, bundle, reference)
-    negative_checks(evidence)
+    negative_checks(evidence, bundle, reference)
     print(f"releaseId={evidence['releaseId']}")
     print(f"conformanceDocumentHash={evidence['conformanceDocumentHash']}")
     print(f"signedDocumentHash={evidence['signers']['signedDocumentHash']}")
     print(f"target={evidence['target']} runtimePolicyHash={evidence['runtimePolicyHash']}")
+    print(f"externalDependencyHash={evidence['externalDependencyHash']} dependencies={len(evidence['externalDependencies'])}")
     print(f"detachedBundleHash={reference['contentHash']} signatureRecovery=3/3")
     return 0
 

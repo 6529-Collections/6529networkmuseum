@@ -158,6 +158,24 @@ class CaseySnapshotMutationTests(unittest.TestCase):
     def test_published_source_commit_mutation_fails_end_to_end(self) -> None:
         self._run_end_to_end_mutation(self._mutate_published_source_commit, "published source commit")
 
+    def test_package_pointer_path_mutation_fails_closed(self) -> None:
+        latest = json.loads(
+            (ROOT / "evidence/casey-reas-collection-snapshots/latest-run.json").read_text(encoding="utf-8")
+        )
+        package_bytes = (ROOT / "evidence/casey-reas-collection-snapshots/package-manifest.json").read_bytes()
+        latest["package_manifest"]["path"] = "runs/package-manifest.json"
+        with self.assertRaisesRegex(VerificationError, "root package manifest pointer path"):
+            verifier.verify_package_pointer(latest, package_bytes)
+
+    def test_package_pointer_size_mutation_fails_closed(self) -> None:
+        latest = json.loads(
+            (ROOT / "evidence/casey-reas-collection-snapshots/latest-run.json").read_text(encoding="utf-8")
+        )
+        package_bytes = (ROOT / "evidence/casey-reas-collection-snapshots/package-manifest.json").read_bytes()
+        latest["package_manifest"]["size"] += 1
+        with self.assertRaisesRegex(VerificationError, "root package manifest pointer size"):
+            verifier.verify_package_pointer(latest, package_bytes)
+
     def test_published_source_commit_is_reachable_from_main_package_release(self) -> None:
         latest = json.loads(
             (ROOT / "evidence/casey-reas-collection-snapshots/latest-run.json").read_text(encoding="utf-8")

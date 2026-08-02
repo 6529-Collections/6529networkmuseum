@@ -106,17 +106,20 @@ and whether the shared immutable-target opcode policy forbids storage/calls a
 usable authority provider or successor registry needs. Resolve those claims
 from exact review evidence before final validation or publication.
 
-## 2026-08-01 â€” PR #2 consolidated protocol remediation
+## 2026-08-01 - PR #2 consolidated protocol remediation
 
 The confirmed batch contradiction is closed in the design: the explicit
 eligibility formula accepts the 64-record/262,144-byte worst corpus at
-12,174,304 units including reserve under a 13,000,000 caller gate, while the
-separate measured deployment threshold remains 9,000,000 plus 50,000 reserve.
+base `requiredGas` `12,124,304`; adding the `50,000` caller reserve equals
+`12,174,304`, under the `13,000,000` caller gate. The separate measured
+deployment threshold remains `9,000,000`, or `9,050,000` with that reserve.
 This is a testable eligibility envelope, not a measured-gas claim.
 
 Canonicalizer purity is now a separate policy from target non-upgradeability.
 The target policy permits state and declared bounded static dependencies for a
-stateful successor or Safe-aware authority provider, yet still rejects proxy,
+stateful successor or immutable authority provider, while a separately bound
+direct governance-executor account (for example, the Museum Safe) remains
+outside the TargetRelease/dependency runtime policy; the policy still rejects proxy,
 delegatecall/callcode, creation, self-destruct, and recognized upgrade paths.
 Target-release evidence binds the exact address, policy document hash,
 dependency commitment, source/build evidence, and an acyclic globally unique
@@ -124,6 +127,8 @@ release ID. The complete synthetic fixture and its detached bundle are
 schema-valid but expressly non-deployment material. V1 designates a successor;
 record import is intentionally deferred to a required V2 interface revision.
 
-The branch remains draft and unpushed pending final local regeneration and the
-reviewer's final disposition. Nothing in these vectors, fixtures, policies, or
-tests is deployment, accession, custody, or network-write evidence.
+Head `8a2e26a` was subsequently pushed and PR #2 marked ready for exact-head
+review. This follow-up remediation remains local and unpushed pending final
+regeneration and reviewer disposition. Nothing in these vectors, fixtures,
+policies, or tests is deployment, accession, custody, or network-write
+evidence.

@@ -14,9 +14,13 @@ import rfc8785
 from Crypto.Hash import keccak
 
 
+if not __debug__:
+    raise SystemExit("optimized Python disables conformance checks")
+
+
 ROOT = Path(__file__).resolve().parent
 CORPUS_PATH = ROOT / "batch-gas-benchmark-v1.json"
-EXPECTED_CORPUS_HASH = "458a9637f7acda5ea92f1a082c3211a716083d6198c050c587d65d67f58bfb50"
+EXPECTED_CORPUS_HASH = "f69a816a38f9b0f1addd6f8270318d6c1aacf17cb55bfb2adcb7efbe5983b293"
 
 
 def k(value: bytes) -> bytes:
@@ -48,6 +52,13 @@ def main() -> int:
         constants["measuredDeploymentGasUnits"] + constants["callerReserveGas"]
     )
     calculated = {case["id"]: required_gas(case["count"], case["inlineBytes"]) for case in corpus["corpus"]}
+    worst_case = next(case for case in corpus["corpus"] if case["id"] == "https-supersession-max")
+    assert worst_case["recordModes"] == ["INLINE", "CONTENT_ADDRESSED"]
+    assert worst_case["inlineRecordCount"] == 16
+    assert worst_case["nonInlineRecordCount"] == 48
+    assert worst_case["nonInlineRecordMode"] == "CONTENT_ADDRESSED"
+    assert worst_case["inlineRecordCount"] + worst_case["nonInlineRecordCount"] == worst_case["count"]
+    assert worst_case["httpsRecordCount"] == worst_case["count"]
     assert all(case["count"] <= constants["maxBatchRecords"] for case in corpus["corpus"])
     assert all(case["inlineBytes"] <= constants["maxBatchInlinePayloadBytes"] for case in corpus["corpus"])
     assert all(value <= constants["maxBatchGasUnits"] for value in calculated.values())

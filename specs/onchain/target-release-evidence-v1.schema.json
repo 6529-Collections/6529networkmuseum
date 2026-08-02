@@ -1,5 +1,6 @@
 {
   "$id": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1",
+  "$comment": "URI patterns are structural only; target_release_evidence_check_v1.py normatively applies the exact MUSEUM_URI_SAFETY_PUBLIC_V1 predicate to every bundle and availability URI.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -44,7 +45,7 @@
     "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "runtimePolicyId": { "const": "MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1" },
     "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
-    "externalDependencyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "externalDependencyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$", "description": "MUSEUM_TARGET_DEPENDENCY_ABI_SET_V1 commitment over canonical sorted dependency rows; not a JCS hash." },
     "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
     "sourceRepository": { "const": "6529-Collections/6529networkmuseum" },
     "sourceTreeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
@@ -92,11 +93,13 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["address", "codeHash", "interfaceId", "purpose"],
+        "required": ["address", "codeHash", "runtimePolicyHash", "interfaceId", "purposeId", "purpose"],
         "properties": {
           "address": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
           "codeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+          "runtimePolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
           "interfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
+          "purposeId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
           "purpose": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" }
         }
       }
@@ -131,7 +134,7 @@
       "required": ["schema", "schemaHash", "version", "uri", "contentHash", "mediaType", "sizeBytes", "availability"],
       "properties": {
         "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
-        "schemaHash": { "const": "0xcc8807c693ea28ae50ba76544608529bb465ad11a1de5cfb1db5052916457439" },
+        "schemaHash": { "const": "0x5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd" },
         "version": { "const": 1 },
         "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
         "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },

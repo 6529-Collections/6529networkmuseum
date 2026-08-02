@@ -622,3 +622,59 @@ non-deployment conformance evidence. Casey remains a completed, received
 donation with accession documentation in progress, not an accession-complete
 claim. This candidate remains local and draft pending the final validation
 pass and reviewer direction; it must not be pushed yet.
+
+## 2026-08-01 - PR #2 executor/dependency remediation toolchain amendment
+
+Correction to earlier in-progress wording: commit `8a2e26a` was pushed to PR
+#2 and the PR was marked ready before this follow-up review began. Statements
+above that described the earlier candidate as unpushed/draft remain historical
+status at their observation times. The remediation after `8a2e26a` is local
+and unpushed, and this task does not mark the PR ready, merge it, or push it.
+
+The immutable PR #15 publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`
+and reachable `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a`. It is not rewritten.
+
+The complete current-pointer lineage is explicit:
+
+Supersedes (toolchain pointer only):
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`
+-> `sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`.
+
+Supersedes (toolchain pointer only):
+`sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`
+-> `sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`.
+
+Supersedes (toolchain pointer only):
+`sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`
+-> `sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`.
+
+Supersedes (toolchain pointer only):
+`sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`
+-> `sha256:2b41d542c71d7c2517611efbbd2ad363686a24e223f955fb9f685da3f75718a1`.
+
+The new 65,519-byte package manifest is a governed test/toolchain revision for
+the executor/dependency, URI, TargetRelease, Casey-pointer, and optimized-mode
+checks. The only Casey evidence-tree differences from the immutable PR #15
+baseline remain `package-manifest.json` and the excluded `latest-run.json`
+pointer. Every raw observation, snapshot, descriptor, descriptor result,
+reconstructed request, exclusion, warning, population, and child run-manifest
+byte remains unchanged. This is not a new art-data release, accession
+authority, TargetRelease admission, deployment, or network-write claim.
+
+## 2026-08-02 - PR #2 Casey pointer-verifier test amendment
+
+Supersedes (toolchain pointer only):
+`sha256:2b41d542c71d7c2517611efbbd2ad363686a24e223f955fb9f685da3f75718a1`
+-> `sha256:fc8d7c19f1831edfc274fa35a4c98ebe6aa4774156c03b6ec9981c40bd8010ba`.
+
+This final 65,519-byte toolchain-manifest revision factors the
+`latest-run.json` package pointer check into a directly mutation-tested
+verifier function. It requires the exact `package-manifest.json` path, measured
+byte size, and measured SHA-256. The immutable PR #15 publication, reachable
+`published_source_commit`, and all art/source/snapshot/descriptor/result/
+request/exclusion/warning/population/child-run-manifest bytes remain unchanged.
+The revision is local and unpushed and is not an art-data release, accession
+authority, TargetRelease admission, deployment, or network-write claim.
