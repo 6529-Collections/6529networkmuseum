@@ -4,13 +4,22 @@
   "record_type": "ACCESSION_DILIGENCE",
   "record_control": {
     "revision": 1,
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
       "constructed_at": "2026-08-02T10:46:00Z"
     },
-    "review": null
+    "review": {
+      "actor_id": "codex-review:019fc237-73ed-7b33-85a2-cd65cbd207a8",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T11:35:27Z",
+      "reviewed_commit": "ffd2cf34b66571a9617dc273037e3cf7bc8670c0",
+      "outcome": "approved",
+      "payload_sha256": "sha256:19474419d1c706865fc9d3dc1cfdaf0fca087185fe7d2450fe6cd346d0f23f20",
+      "scope": "Independent substantive and exact-commit review of Casey post-accession title, custody, token-level approval, finalized-state, OFAC exact-address, evidence-fixity, limitation, public-record, schema-closure, and migration-state conclusions.",
+      "finding": "Approved. Exact constructed commit ffd2cf34b66571a9617dc273037e3cf7bc8670c0 preserves the reviewed substantive package. Recomputed manifest and entry SHA-256 values match 22 files and 19 raw RPC responses; all seven ownerOf results match Museum custody, all seven token-specific getApproved results are zero, the finalized block boundary is stable, ENS resolves to the Museum, and the eight OFAC no-match observations are supported by a passing positive control. Title, annex, copyright, residual-risk, schema-closure, and Stream-integration statements accurately match the accepted full-gift accession record and preserve stated evidentiary limits."
+    }
   },
   "subject_id": "6529NM.2026.001",
   "observed_at": "2026-08-02T10:46:00Z",

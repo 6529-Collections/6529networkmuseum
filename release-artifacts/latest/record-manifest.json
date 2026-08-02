@@ -239,11 +239,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x3aecfee6896d470a6b5da461a8279e1c230a479a608e1fba58af09a45520d874"
+        "digest": "0x5c81a596cfad46c84544d3e6a105209c36076f09697380d4693c6ad549e4b6c4"
       },
       "path": "records/accessions/6529NM.2026.001/post-accession-diligence.json",
-      "sha256": "sha256:e673e392573bfa687fd2ac5b4e2a574de7a2bb2eeb460c87bb358a9131fd0824",
-      "size": 9157
+      "sha256": "sha256:861badc16ae655045b6dbcb2c14fab7a7bff0759d545133cde93f3e782760579",
+      "size": 10423
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md",
@@ -1543,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xa51eefe7d44dacd1d6a7521eab124143052e215b54ecb0991ca37e08b198cadc"
+    "digest": "0xf75356b64ab78bfb755644039b732671e181316644edc73156cd8b4ac5627a4e"
   },
-  "manifest_sha256": "sha256:fa14eefce3fb865afce0f29016ba2e3c5014e172f8bfca73e35b8c83f00a97a7",
+  "manifest_sha256": "sha256:463494e331aead12bea3ee83f783d2bb0dffa94025fdadabfc669cb817b86c8e",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

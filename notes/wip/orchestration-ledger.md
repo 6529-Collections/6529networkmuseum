@@ -1367,8 +1367,9 @@ deferred until independent review, complete local validation, governed PR
 checks, and merge.
 
 Independent substantive reviewer Peirce
-(`019fc237-73ed-7b33-85a2-cd65cbd207a8`) approved the full diligence package
-at `2026-08-02T11:26:53Z`. The reviewer recomputed the twenty-two-file
+(`019fc237-73ed-7b33-85a2-cd65cbd207a8`) approved exact constructed commit
+`ffd2cf34b66571a9617dc273037e3cf7bc8670c0` at
+`2026-08-02T11:35:27Z`. The reviewer recomputed the twenty-two-file
 manifest at
 `sha256:8770ca3f6a7591c4548a72c18f410bb2e51fa1862d1921d6cd800ffa355b6edd`,
 verified all nineteen raw RPC response digests and the exact custody/approval/
