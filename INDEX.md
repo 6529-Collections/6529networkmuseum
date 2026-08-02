@@ -44,6 +44,7 @@ Status vocabulary:
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 | [`specs/onchain/contract-migration-v1.md`](specs/onchain/contract-migration-v1.md) | working standard | V1 immutable registry migration design, active-vector/ABI-selector conformance, Stream bilateral-convergence and release gates, and no-deployment status |
 | [`specs/onchain/dependency-runtime-nonproxy-v1.json`](specs/onchain/dependency-runtime-nonproxy-v1.json) | governed policy | Exact no-proxy/no-external-call runtime policy for bounded TargetRelease dependency rows; distinct from the direct governance executor |
+| [`specs/onchain/release-attestor-policy-v1.fixture.json`](specs/onchain/release-attestor-policy-v1.fixture.json) | non-deployment conformance fixture | Schema-checked synthetic 2-of-3 release-attestor policy whose JCS policy and ABI signer-set commitments demonstrate immutable governance binding; never production authority |
 | [`specs/README.md`](specs/README.md) | working standard | Boundary and admission requirements for implementation-ready protocol specifications |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |

@@ -18,6 +18,11 @@ import jsonschema
 import rfc8785
 
 from abi_encoding_v1 import address_word, bytes32_arrays, static_words, uint_word
+from release_attestor_policy_check_v1 import (
+    load_and_validate_policy,
+    policy_hash as release_attestor_policy_hash,
+    signer_set_hash as release_attestor_signer_set_hash,
+)
 from target_release_signature_bundle_check_v1 import G, N, cidv1_raw_sha256, k, point_multiply, recover_address
 from uri_safety_vectors_v1 import AR_TX, CID_V1, valid_uri
 
@@ -165,6 +170,8 @@ def release_id(evidence: dict) -> str:
         address_word(hx(evidence["target"])),
         hx(evidence["codeHash"]),
         hx(evidence["runtimePolicyHash"]),
+        hx(evidence["signers"]["policyHash"]),
+        hx(evidence["signers"]["signerSetHash"]),
         hx(evidence["externalDependencyHash"]),
         commit_word("0x" + evidence["sourceCommit"]),
         hx(evidence["sourceTreeHash"]),
@@ -205,6 +212,9 @@ def projection(evidence: dict, stage: str) -> dict:
 def build_expected() -> tuple[dict, dict, dict]:
     target_policy_hash = policy_hash(TARGET_POLICY_PATH)
     dependency_policy_hash = policy_hash(DEPENDENCY_POLICY_PATH)
+    attestor_policy = load_and_validate_policy()
+    attestor_policy_hash = release_attestor_policy_hash(attestor_policy)
+    attestor_signer_set_hash = release_attestor_signer_set_hash(attestor_policy)
     dependency_purpose = "immutable-erc165-policy-source"
     dependencies = [{
         "address": "0x000000000000000000000000000000000000d3e1",
@@ -217,6 +227,7 @@ def build_expected() -> tuple[dict, dict, dict]:
     code_hash = h(b"MUSEUM_NON_DEPLOYMENT_AUTHORITY_RUNTIME_V1")
     scalars = tuple(fixture_scalar(label) for label in FIXTURE_SCALAR_LABELS)
     signer_pairs = sorted((address_for_scalar(scalar), scalar) for scalar in scalars)
+    assert [address for address, _ in signer_pairs] == attestor_policy["addresses"]
     evidence = {
         "schema": "MUSEUM_TARGET_RELEASE_EVIDENCE_V1",
         "version": 1,
@@ -246,7 +257,16 @@ def build_expected() -> tuple[dict, dict, dict]:
         ],
         "conformance": {"reportHash": h(b"MUSEUM_NON_DEPLOYMENT_TARGET_PROBE_REPORT_V1"), "vectorBundleHash": h(b"MUSEUM_NON_DEPLOYMENT_TARGET_PROBE_VECTORS_V1"), "runtimePolicyHash": target_policy_hash, "probeGasLimit": 250000, "returnDataBytesLimit": 4096},
         "externalDependencies": dependencies,
-        "signers": {"threshold": 2, "signatureScheme": "EIP-191-KECCAK256-DOCUMENT_V1", "signedDocumentHash": ZERO_HASH, "addresses": [address for address, _ in signer_pairs], "signatureCommitments": [ZERO_HASH, ZERO_HASH]},
+        "signers": {
+            "policyId": attestor_policy["policyId"],
+            "policyHash": attestor_policy_hash,
+            "signerSetHash": attestor_signer_set_hash,
+            "threshold": attestor_policy["threshold"],
+            "signatureScheme": attestor_policy["signatureScheme"],
+            "signedDocumentHash": ZERO_HASH,
+            "addresses": attestor_policy["addresses"],
+            "signatureCommitments": [ZERO_HASH, ZERO_HASH],
+        },
         "detachedSignatureBundle": {},
         "availability": [],
         "previousReleaseId": ZERO_HASH,
@@ -295,6 +315,13 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     jsonschema.validate(bundle, bundle_schema)
     jsonschema.validate(reference, evidence_schema["properties"]["detachedSignatureBundle"])
     assert evidence["target"] != "0x" + "00" * 20
+    attestor_policy = load_and_validate_policy()
+    assert evidence["signers"]["policyId"] == attestor_policy["policyId"]
+    assert evidence["signers"]["policyHash"] == release_attestor_policy_hash(attestor_policy)
+    assert evidence["signers"]["signerSetHash"] == release_attestor_signer_set_hash(attestor_policy)
+    assert evidence["signers"]["threshold"] == attestor_policy["threshold"]
+    assert evidence["signers"]["signatureScheme"] == attestor_policy["signatureScheme"]
+    assert evidence["signers"]["addresses"] == attestor_policy["addresses"]
     assert evidence["runtimePolicyHash"] == policy_hash(TARGET_POLICY_PATH)
     assert evidence["conformance"]["runtimePolicyHash"] == evidence["runtimePolicyHash"]
     validate_dependencies(evidence["externalDependencies"])
@@ -363,6 +390,14 @@ def validate_mutation(mutated: dict, pristine: dict, bundle: dict, reference: di
         raise EvidenceRejection("SOURCE_TREE_ENCODING")
     if mutated["signers"]["threshold"] != 2:
         raise EvidenceRejection("SIGNER_THRESHOLD")
+    attestor_policy = load_and_validate_policy()
+    if (
+        mutated["signers"]["policyId"] != attestor_policy["policyId"]
+        or mutated["signers"]["policyHash"] != release_attestor_policy_hash(attestor_policy)
+        or mutated["signers"]["signerSetHash"] != release_attestor_signer_set_hash(attestor_policy)
+        or mutated["signers"]["addresses"] != attestor_policy["addresses"]
+    ):
+        raise EvidenceRejection("RELEASE_ATTESTOR_POLICY")
     try:
         validate_semantics(mutated, bundle, reference)
     except (AssertionError, jsonschema.ValidationError) as error:
@@ -376,6 +411,69 @@ def assert_rejected(mutated: dict, pristine: dict, bundle: dict, reference: dict
         assert error.code == expected_code, (error.code, expected_code)
         return
     raise AssertionError(f"mutation accepted: {expected_code}")
+
+
+def self_selected_rekey_attack(evidence: dict) -> tuple[dict, dict, dict]:
+    """Build the formerly accepted all-new-keys attack as a coherent artifact."""
+    attack = copy.deepcopy(evidence)
+    attack_policy = copy.deepcopy(load_and_validate_policy())
+    attack_scalars = tuple(
+        fixture_scalar(label)
+        for label in (
+            b"MUSEUM_TARGET_RELEASE_ATTACKER_SIGNER_A_V1",
+            b"MUSEUM_TARGET_RELEASE_ATTACKER_SIGNER_B_V1",
+            b"MUSEUM_TARGET_RELEASE_ATTACKER_SIGNER_C_V1",
+        )
+    )
+    signer_pairs = sorted((address_for_scalar(scalar), scalar) for scalar in attack_scalars)
+    attack_policy["addresses"] = [address for address, _ in signer_pairs]
+    attack["signers"]["addresses"] = attack_policy["addresses"]
+    attack["signers"]["policyHash"] = release_attestor_policy_hash(attack_policy)
+    attack["signers"]["signerSetHash"] = release_attestor_signer_set_hash(attack_policy)
+    attack["signers"]["signatureCommitments"] = [ZERO_HASH, ZERO_HASH]
+    attack["signers"]["signedDocumentHash"] = ZERO_HASH
+    attack["conformanceDocumentHash"] = ZERO_HASH
+    attack["availability"] = []
+    attack["detachedSignatureBundle"] = {}
+    attack["releaseId"] = release_id(attack)
+    attack["conformanceDocumentHash"] = h(rfc8785.dumps(projection(attack, "D0")))
+    attack["signers"]["signedDocumentHash"] = h(rfc8785.dumps(projection(attack, "D1")))
+    digest = k(b"\x19Ethereum Signed Message:\n32" + hx(attack["signers"]["signedDocumentHash"]))
+    entries = []
+    for address, scalar in signer_pairs[:2]:
+        signature = sign_document(scalar, digest)
+        entries.append({"signer": address, "signature": "0x" + signature.hex(), "signatureCommitment": h(signature)})
+    attack["signers"]["signatureCommitments"] = [entry["signatureCommitment"] for entry in entries]
+    bundle = {
+        "schema": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
+        "version": 1,
+        "releaseId": attack["releaseId"],
+        "signedDocumentHash": attack["signers"]["signedDocumentHash"],
+        "entries": entries,
+    }
+    bundle_bytes = rfc8785.dumps(bundle)
+    bundle_hash = h(bundle_bytes)
+    bundle_uri = cidv1_raw_sha256(bundle_bytes)
+    reference = {
+        "schema": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
+        "schemaHash": policy_hash(BUNDLE_SCHEMA_PATH),
+        "version": 1,
+        "uri": bundle_uri,
+        "contentHash": bundle_hash,
+        "mediaType": "application/json",
+        "sizeBytes": len(bundle_bytes),
+        "availability": [
+            {"uri": bundle_uri, "contentHash": bundle_hash, "fetchObservationHash": h(b"MUSEUM_ATTACK_BUNDLE_IPFS_V1" + bundle_bytes)},
+            {"uri": ar_uri(b"MUSEUM_ATTACK_BUNDLE_AR_V1"), "contentHash": bundle_hash, "fetchObservationHash": h(b"MUSEUM_ATTACK_BUNDLE_AR_V1" + bundle_bytes)},
+        ],
+    }
+    d0_bytes = rfc8785.dumps(projection(attack, "D0"))
+    attack["availability"] = [
+        {"uri": cidv1_raw_sha256(d0_bytes), "contentHash": attack["conformanceDocumentHash"], "fetchObservationHash": h(b"MUSEUM_ATTACK_EVIDENCE_IPFS_V1" + d0_bytes)},
+        {"uri": ar_uri(b"MUSEUM_ATTACK_EVIDENCE_AR_V1"), "contentHash": attack["conformanceDocumentHash"], "fetchObservationHash": h(b"MUSEUM_ATTACK_EVIDENCE_AR_V1" + d0_bytes)},
+    ]
+    attack["detachedSignatureBundle"] = reference
+    return attack, bundle, reference
 
 
 def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
@@ -400,6 +498,22 @@ def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
     mutation = copy.deepcopy(evidence)
     mutation["signers"]["threshold"] = 1
     assert_rejected(mutation, evidence, bundle, reference, "SIGNER_THRESHOLD")
+    mutation = copy.deepcopy(evidence)
+    mutation["signers"]["addresses"] = [
+        "0x1000000000000000000000000000000000000001",
+        "0x2000000000000000000000000000000000000002",
+        "0x3000000000000000000000000000000000000003",
+    ]
+    assert_rejected(mutation, evidence, bundle, reference, "RELEASE_ATTESTOR_POLICY")
+    mutation = copy.deepcopy(evidence)
+    mutation["signers"]["policyHash"] = "0x" + "66" * 32
+    assert_rejected(mutation, evidence, bundle, reference, "RELEASE_ATTESTOR_POLICY")
+    mutation = copy.deepcopy(evidence)
+    mutation["signers"]["signerSetHash"] = "0x" + "77" * 32
+    assert_rejected(mutation, evidence, bundle, reference, "RELEASE_ATTESTOR_POLICY")
+    attack, attack_bundle, attack_reference = self_selected_rekey_attack(evidence)
+    assert attack["releaseId"] != evidence["releaseId"]
+    assert_rejected(attack, evidence, attack_bundle, attack_reference, "RELEASE_ATTESTOR_POLICY")
     mutation = copy.deepcopy(evidence)
     tree_oid = mutation["sourceTreeHash"][26:]
     mutation["sourceTreeHash"] = "0x" + tree_oid + "00" * 12
@@ -478,6 +592,8 @@ def main() -> int:
     print(f"signedDocumentHash={evidence['signers']['signedDocumentHash']}")
     print(f"target={evidence['target']} runtimePolicyHash={evidence['runtimePolicyHash']}")
     print(f"externalDependencyHash={evidence['externalDependencyHash']} dependencies={len(evidence['externalDependencies'])}")
+    print(f"releaseAttestorPolicyHash={evidence['signers']['policyHash']}")
+    print(f"releaseAttestorSignerSetHash={evidence['signers']['signerSetHash']}")
     print(f"detachedBundleHash={reference['contentHash']} signatureRecovery=2/3")
     return 0
 

@@ -107,8 +107,11 @@
     "signers": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["threshold", "signatureScheme", "signedDocumentHash", "addresses", "signatureCommitments"],
+      "required": ["policyId", "policyHash", "signerSetHash", "threshold", "signatureScheme", "signedDocumentHash", "addresses", "signatureCommitments"],
       "properties": {
+        "policyId": { "const": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1" },
+        "policyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+        "signerSetHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
         "threshold": { "const": 2 },
         "signatureScheme": { "const": "EIP-191-KECCAK256-DOCUMENT_V1" },
         "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },

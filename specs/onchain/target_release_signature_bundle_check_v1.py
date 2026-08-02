@@ -17,6 +17,12 @@ import jsonschema
 import rfc8785
 from Crypto.Hash import keccak
 
+from release_attestor_policy_check_v1 import (
+    load_and_validate_policy,
+    policy_hash as release_attestor_policy_hash,
+    signer_set_hash as release_attestor_signer_set_hash,
+)
+
 
 if not __debug__:
     raise SystemExit("optimized Python disables conformance checks")
@@ -125,6 +131,8 @@ def validate_documentation(reference: dict, evidence: dict) -> None:
     values = dict(re.findall(r"^([A-Za-z][A-Za-z0-9]+) = (\S+)$", blocks[0], re.MULTILINE))
     expected = {
         "releaseId": evidence["releaseId"],
+        "releaseAttestorPolicyHash": evidence["signers"]["policyHash"],
+        "releaseAttestorSignerSetHash": evidence["signers"]["signerSetHash"],
         "D0ConformanceDocumentHash": evidence["conformanceDocumentHash"],
         "D1SignedDocumentHash": evidence["signers"]["signedDocumentHash"],
         "bundleUri": reference["uri"],
@@ -155,10 +163,17 @@ def main() -> int:
     jsonschema.validate(evidence, evidence_schema)
     jsonschema.validate(bundle, schema)
     canonical = rfc8785.dumps(bundle)
+    attestor_policy = load_and_validate_policy()
 
     assert k(rfc8785.dumps(schema)).hex() == EXPECTED_SCHEMA_HASH
     assert bundle["releaseId"] == evidence["releaseId"]
     assert bundle["signedDocumentHash"] == evidence["signers"]["signedDocumentHash"]
+    assert evidence["signers"]["policyId"] == attestor_policy["policyId"]
+    assert evidence["signers"]["policyHash"] == release_attestor_policy_hash(attestor_policy)
+    assert evidence["signers"]["signerSetHash"] == release_attestor_signer_set_hash(attestor_policy)
+    assert evidence["signers"]["threshold"] == attestor_policy["threshold"]
+    assert evidence["signers"]["signatureScheme"] == attestor_policy["signatureScheme"]
+    assert evidence["signers"]["addresses"] == attestor_policy["addresses"]
     assert cidv1_raw_sha256(canonical) == evidence["detachedSignatureBundle"]["uri"]
 
     sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(bundle["signedDocumentHash"][2:]))

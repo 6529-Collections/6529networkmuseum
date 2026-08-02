@@ -45,19 +45,27 @@ expired-write rejection, renewal acceptance, historical readability, and
 non-retroactive validity.
 `python -B specs/onchain/target_release_evidence_check_v1.py` recomputes the
 complete schema-valid non-deployment TargetRelease vector, including the exact
-target address, acyclic release ID/D0/D1 projections, policy/dependency hash,
-two builds, two signatures from three admitted addresses, detached bundle
+target address, acyclic release ID/D0/D1 projections, runtime/dependency hash,
+governed release-attestor policy and signer-set commitments, two builds, two
+signatures from the exact three policy addresses, detached bundle
 linkage, and availability;
 `python -B specs/onchain/target_release_signature_bundle_check_v1.py` then
 independently validates its coherent 837-byte bundle, content hash
-`0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1`,
-the `ipfs://bafkreicggdjcp2fpkqdr7ua5yp7pfxiijgjodpjoo4xlqqqy7g2hemlz3y` /
+`0xe37f2203272f959259db99b7f5e0be1a8f91db1e24a4a6e4ad2d9c9ec95dc581`,
+the `ipfs://bafkreiamzwr3eqg4vc5kvanamsolj3b4rikus32ofdmftlxz62xbq3l2cm` /
 `ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and exact
 2-of-3 signature recovery.
 The exact-threshold 2-of-3 bundle schema hash is
 `0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`
 and the containing evidence-schema hash is
-`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`.
+`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
+The separate signer-policy schema hash is
+`0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7`;
+the non-deployment fixture policy and exact ABI signer set commit to
+`0x9c5749445275e3e89c495164e5d669e29b4bf2ce705cc67818f4e0c2d74479f1`
+and `0xa40ace3b14c99a1056b76ed1258b6682e7d76b992177170df628a7d3275d4513`.
+Production replaces those fixture values with a governance-approved policy and
+binds both commitments immutably in the registry constructor.
 JSON Schema cannot enforce uniqueness of one member across otherwise distinct
 objects, so the semantic checker normatively rejects duplicate signers and
 commitments after schema validation. The release schemas likewise use a broad
@@ -544,6 +552,8 @@ $selectorGolden = [ordered]@{
   'governanceExecutorRevision()' = '0x533620f9'
   'governanceExecutorBinding()' = '0x5bcde725'
   'pendingGovernanceExecutor()' = '0x737aa558'
+  'releaseAttestorPolicyHash()' = '0x274ac640'
+  'releaseAttestorSignerSetHash()' = '0xd66c61c0'
   'successor()' = '0x6ff968c3'
   'writesFrozen()' = '0x290d086b'
   'pendingAuthority()' = '0xfabb94bb'
@@ -561,7 +571,7 @@ $selectorGolden = [ordered]@{
   'recordTypePolicy(bytes32)' = '0xcd2369a6'
   'setRecordFamilyGrant(bytes32,uint8,address,bool)' = '0x40ee7ee3'
   'recordFamilyGrant(bytes32,uint8,address)' = '0x1118ed2f'
-  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0xdd3fcfd4'
+  'admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)' = '0x4070473d'
   'targetRelease(uint8,address,bytes32)' = '0x85968ef0'
   'targetReleaseAtRevision(uint8,address,bytes32,uint64)' = '0x288b2e93'
   'targetReleaseById(bytes32)' = '0xb9bc97a1'
@@ -615,15 +625,16 @@ foreach($signature in $selectorGolden.Keys) {
 }
 ```
 
-The authority capability selector-set hash was recomputed after adding the
-governed target-release admission and quarantine selectors. The exact sorted
+The authority capability selector-set hash was recomputed after binding the
+governed target-release admission selector and including both provider-gated
+interface/profile admission selectors. The exact sorted
 `bytes4[]` is
-`[0x3a1a0b96,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
+`[0x3a1a0b96,0x4070473d,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x4070473d,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 

@@ -1,0 +1,42 @@
+{
+  "$id": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1_SCHEMA",
+  "$comment": "Structure is necessary but not sufficient. release_attestor_policy_check_v1.py normatively enforces numeric signer ordering, exact cardinality, the governed policy JCS commitment, and the ABI signer-set commitment.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "policyId",
+    "policyScope",
+    "signatureScheme",
+    "threshold",
+    "addresses",
+    "authoritySource"
+  ],
+  "properties": {
+    "schema": { "const": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1" },
+    "version": { "const": 1 },
+    "policyId": { "const": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1" },
+    "policyScope": { "enum": ["DEPLOYMENT_GOVERNANCE_POLICY", "NON_DEPLOYMENT_CONFORMANCE_FIXTURE"] },
+    "signatureScheme": { "const": "EIP-191-KECCAK256-DOCUMENT_V1" },
+    "threshold": { "const": 2 },
+    "addresses": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" }
+    },
+    "authoritySource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "policyHashBinding", "signerSetHashBinding", "rotationRule"],
+      "properties": {
+        "kind": { "const": "governance-approved-deployment-manifest" },
+        "policyHashBinding": { "const": "immutable-constructor" },
+        "signerSetHashBinding": { "const": "immutable-constructor" },
+        "rotationRule": { "const": "new-registry-deployment" }
+      }
+    }
+  }
+}

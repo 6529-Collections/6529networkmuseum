@@ -365,7 +365,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
 | Governance-executor binding domain | `6529networkmuseum.governance-executor-binding.v1` | `0xc36068b55c238ed7d9935be44bdbe89a03cee1aaacccd5c0b739c1b40f5e5b06` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
@@ -387,6 +387,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Manifest entry domain | `6529networkmuseum.release-manifest.entry.v1` | `0xa524091b411df027ff64e4f8d590d93cf7e2e7658f6a5a8f623abfb4e01671ef` |
 | Manifest root domain | `6529networkmuseum.release-manifest.root.v1` | `0xe615064b79fb81a121afe1ad24d886aa86536f320be540a31023f43bbe935b64` |
 | Target-release identity domain | `6529networkmuseum.target-release-id.v1` | `0xb46f066b6a2753ffb8634e3ab1934b6d08110f50ca4d56478f0c05b8ae5f6ff0` |
+| Release-attestor signer-set domain | `6529networkmuseum.release-attestor-signer-set.v1` | `0x70780232933964b71995ee4297ea125c132dbe977dd96658f75b993dc82b8c78` |
 | Target-dependency row domain | `6529networkmuseum.target-dependency-row.v1` | `0x0b0481d6fc4f5287c63d8e94d48e3b7f67661cbb8773f25ee18b45f6531d33ca` |
 | Target-dependency set domain | `6529networkmuseum.target-dependency-set.v1` | `0xeff667c3cf8eaa69b18ff3eea3d99d00f81293b6f031311cbe41b89a540a04a2` |
 | Canonicalizer purity policy | `MUSEUM_CANONICALIZER_RUNTIME_PURITY_V1` | `0xa6bf8d47e01db9e1380475c7e9afe08bfa7bdc4ee378d3164d4058da2904e2e7` |
@@ -396,8 +397,9 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Dependency non-proxy policy | `MUSEUM_DEPENDENCY_RUNTIME_NONPROXY_V1` | `0x91f6a97952f01ee36bc37c89abea588f77f59e170cfa6614d160d98762fdf452` |
 | Dependency non-proxy policy document hash | `dependency-runtime-nonproxy-v1.json` | `0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04` |
 | Target-release evidence schema | `MUSEUM_TARGET_RELEASE_EVIDENCE_V1` | `0xbb8a203a0f161e49f7f5fd9cdd4471c56e21263fa789bb50ec6198ff4b441f6c` |
-| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f` |
+| Target-release evidence schema document hash | `target-release-evidence-v1.schema.json` | `0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce` |
 | Target-release signature bundle schema hash | `target-release-signature-bundle-v1.schema.json` | `0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3` |
+| Release-attestor policy schema document hash | `release-attestor-policy-v1.schema.json` | `0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7` |
 | Batch benchmark schema | `MUSEUM_BATCH_GAS_BENCHMARK_V1` | `0xfd6cc699ac634ec33160703ce1c9a46a43fab11232511f2ef8ad220520d05d1c` |
 | Batch benchmark corpus hash | `batch-gas-benchmark-v1.json` | `0xf69a816a38f9b0f1addd6f8270318d6c1aacf17cb55bfb2adcb7efbe5983b293` |
 | Batch benchmark report schema hash | `batch-gas-benchmark-v1.schema.json` | `0x4384db06bd8e764511d5f0aca0a4ed656b1ff6ea5e412f313f6eb2407bec45e6` |
@@ -1264,6 +1266,8 @@ struct TargetRelease {
     bytes32 releaseId;
     bytes32 codeHash;
     bytes32 runtimePolicyHash;
+    bytes32 releaseAttestorPolicyHash;    // governed JCS policy commitment
+    bytes32 releaseAttestorSignerSetHash; // governed ABI signer-set commitment
     bytes32 externalDependencyHash;
     uint8 externalDependencyCount;
     bytes32 sourceCommit;             // right-aligned 40-hex Git SHA-1
@@ -1282,11 +1286,18 @@ struct TargetRelease {
 }
 ```
 
+`releaseAttestorPolicyHash` and `releaseAttestorSignerSetHash` are immutable
+registry-wide commitments supplied separately to the constructor. They are
+publicly readable and every admitted release row MUST equal both values. A V1
+signer-policy rotation therefore requires a new registry deployment and the
+ordinary successor gate; a release document cannot select its own trust root.
+
 `admitTargetRelease` is authority-admin controlled and available only while
 writes are not frozen. The release history is append-only, while the current
 `(targetKind, target, codeHash)` pointer may advance to a new revision. It MUST reject
-a zero target, zero release/code/artifact/conformance/runtime-policy/dependency
-hash, a nonzero authority module version,
+a zero target, zero release/code/artifact/conformance/runtime-policy/dependency,
+release-attestor-policy, or signer-set hash, either attestor commitment unequal
+to the registry immutable, a nonzero authority module version,
 or a kind/interface/version tuple outside the V1 rules. For kind `1`, the
 interface MUST be `IMuseumAuthorityProviderV1`, module version MUST be zero,
 and protocol/Stream commits MUST be zero. For kind `2`, the interface MUST be
@@ -1323,6 +1334,8 @@ releaseId = keccak256(abi.encode(
     target,
     codeHash,
     runtimePolicyHash,
+    releaseAttestorPolicyHash,
+    releaseAttestorSignerSetHash,
     externalDependencyHash,
     sourceCommit,
     sourceTreeHash,
@@ -1345,17 +1358,29 @@ whose exact target differs from its evidence document reverts.
 
 The canonical evidence document MUST validate against the release-controlled
 `specs/onchain/target-release-evidence-v1.schema.json`, whose JCS hash is
-`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`.
+`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
 The document's `schema` is `MUSEUM_TARGET_RELEASE_EVIDENCE_V1`, its `version`
 is `1`, and its `conformanceDocumentHash` is the Keccak-256 of the exact JCS
 document preimage defined below. It MUST contain, with lowercase exact encodings, the target
 kind/address/code hash, all TargetRelease fields, source repository and tree
 hash, source commit, the versioned target non-upgradeability policy ID/hash,
 declared external-dependency hash/list, two-build evidence, probe/vector
-bundle hash, signer threshold and commitments, two independent availability
+bundle hash, governed signer-policy identity/hash, signer-set hash, signer
+threshold and commitments, two independent availability
 observations, and supersession predecessor/reason fields. The fixed signer
 policy is exactly 2-of-3 distinct release-attestor addresses, sorted by
-numeric address. The detached bundle contains exactly two entries: any two of
+numeric address. Its canonical policy artifact validates against
+`release-attestor-policy-v1.schema.json` (JCS schema hash
+`0xa83ab9eae2d0b15c9a41aab66dabb5a89f00b93c9ef95778c0f67d7426ecc5e7`).
+`releaseAttestorPolicyHash` is the Keccak-256 of the exact RFC 8785 JCS policy
+bytes. `releaseAttestorSignerSetHash` is
+`keccak256(abi.encode(MUSEUM_RELEASE_ATTESTOR_SIGNER_SET_DOMAIN,
+releaseAttestorPolicyHash, uint256(2), uint256(3), signer0, signer1,
+signer2))`, using three strictly increasing addresses. Both hashes MUST equal
+the immutable registry commitments and the fields in the release row and
+evidence document. The policy's authority source is a governance-approved
+deployment manifest; the document under review is evidence for that prior
+decision, never a self-authorizing signer list. The detached bundle contains exactly two entries: any two of
 the three admitted addresses, strictly sorted by numeric address. Each entry
 signs the exact `signedDocumentHash` defined below, and the evidence document
 records exactly those two signature commitments in bundle order. At least two availability observations
@@ -1648,13 +1673,14 @@ booleans, addresses, revision, commitment, and `canAuthorize` value; a
 malformed or reverting call fails the gate. This handshake covers the actual
 required selector set and registry/role domain; it is not a marker-only probe
 and grants no arbitrary call capability. The selector set is the strictly increasing numeric
-`bytes4[]` `[0x3a1a0b96, 0x51d8c5e0, 0x81a86ff4,
-0x967059b8, 0xab6627c3, 0xc9dc7d0d, 0xda6d916f, 0xdd3fcfd4,
-0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
+`bytes4[]` `[0x3a1a0b96, 0x4070473d, 0x51d8c5e0, 0x75c75961,
+0x81a86ff4, 0x967059b8, 0xab6627c3, 0xaf2fb948, 0xc9dc7d0d,
+0xda6d916f, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
 and hashed to
-`0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff`. It
+`0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0`. It
 binds authority, governance-executor, target-release admission/quarantine,
-global-role, execute, and cancel capabilities only. `freezeWrites` and
+global-role, Stream owner-record-interface admission, HTTPS resolver-profile
+admission, execute, and cancel capabilities only. `freezeWrites` and
 post-freeze `setSuccessor` are deliberately excluded because their emergency
 authorization is the registry's direct executor binding, independent of a
 mutable provider's `canAuthorize` state. It queues one complete target
@@ -2093,6 +2119,8 @@ interface INetworkMuseumRegistryV1 {
         bytes32 releaseId;
         bytes32 codeHash;
         bytes32 runtimePolicyHash;
+        bytes32 releaseAttestorPolicyHash;
+        bytes32 releaseAttestorSignerSetHash;
         bytes32 externalDependencyHash;
         uint8 externalDependencyCount;
         bytes32 sourceCommit;
@@ -2214,6 +2242,8 @@ interface INetworkMuseumRegistryV1 {
     function governanceExecutorRevision() external view returns (uint64);
     function governanceExecutorBinding() external view returns (GovernanceExecutorState memory);
     function pendingGovernanceExecutor() external view returns (GovernanceExecutorState memory);
+    function releaseAttestorPolicyHash() external view returns (bytes32);
+    function releaseAttestorSignerSetHash() external view returns (bytes32);
     function successor() external view returns (address);
     function writesFrozen() external view returns (bool);
     function pendingAuthority() external view returns (TransitionTarget memory);
@@ -2249,7 +2279,9 @@ interface INetworkMuseumRegistryV1 {
         external view returns (bytes32 familyId, bytes32 schemaId, uint8 authorizationClass,
             bool admitted, uint64 revision, uint64 authorityRevision);
     function admitTargetRelease(uint8 targetKind, address target, bytes32 releaseId, bytes32 codeHash,
-        bytes32 runtimePolicyHash, TargetDependency[] calldata externalDependencies, bytes32 sourceCommit,
+        bytes32 runtimePolicyHash, bytes32 releaseAttestorPolicyHash,
+        bytes32 releaseAttestorSignerSetHash,
+        TargetDependency[] calldata externalDependencies, bytes32 sourceCommit,
         bytes32 sourceTreeHash, bytes32 artifactHash, bytes32 conformanceDocumentHash,
         bytes4 requiredInterfaceId, bytes32 expectedModuleVersion,
         bytes32 protocolVersion, bytes32 streamCompatibilityCommit,
@@ -2439,7 +2471,7 @@ implementation cannot accidentally authorize an overload:
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Direct current governance executor under the closed authority-admin binding and active authority | The role ID is closed-world; the two executor-derived role IDs reject mutation; each ordinary change increments the role revision and records both control revisions. |
-| `0xdd3fcfd4` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor under the closed authority-admin binding and active authority before freeze | The release history is append-only; dependency rows include their runtime policy, are sorted, bounded, non-proxy scanned, ABI-committed, and persisted by release ID; the exact target address, source tree, runtime policy, predecessor/reason, and globally non-reusable acyclic release ID remain bound. |
+| `0x4070473d` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor under the closed authority-admin binding and active authority before freeze | The release history is append-only; dependency rows include their runtime policy, are sorted, bounded, non-proxy scanned, ABI-committed, and persisted by release ID; the exact target address, governed release-attestor policy/signer-set commitments, source tree, runtime policy, predecessor/reason, and globally non-reusable acyclic release ID remain bound. |
 | `0x85968ef0` `targetRelease(uint8,address,bytes32)` / `0x288b2e93` `targetReleaseAtRevision(uint8,address,bytes32,uint64)` / `0xb9bc97a1` `targetReleaseById(bytes32)` / `0x1dcd55b2` `targetReleaseDependencyCount(bytes32)` / `0x1efe53c1` `targetReleaseDependency(bytes32,uint256)` / `0xda6d916f` `quarantineTargetRelease(uint8,address,bytes32,bytes32)` | Historical reads for any caller / quarantine by direct current governance executor under the closed authority-admin binding and active authority before freeze | The historical row and dependency rows are immutable; address A evidence cannot authorize identical code at address B; quarantine is terminal with a nonzero reason and a new governed revision is required. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Direct current governance executor under the closed authority-admin binding and active authority | Queues a 48-hour contract-only authority-provider transition with code hash, ERC-165/interface probe, executor-bound capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
 | `0xc9dc7d0d` `executeAuthority()` / `0xf0edf065` `cancelAuthority()` | Direct current governance executor | Execute requires the stored ETA; cancel clears only the pending provider transition. Both are blocked after freeze. |
@@ -2603,6 +2635,8 @@ error InvalidTransitionTarget(address target, bytes32 expectedCodeHash);
 error TargetReleaseNotAdmitted(uint8 targetKind, address target, bytes32 codeHash);
 error TargetReleaseAlreadyAdmitted(uint8 targetKind, address target, bytes32 codeHash);
 error TargetReleaseMismatch(uint8 targetKind, address target, bytes32 codeHash);
+error ReleaseAttestorPolicyMismatch(bytes32 expectedPolicyHash, bytes32 actualPolicyHash,
+    bytes32 expectedSignerSetHash, bytes32 actualSignerSetHash);
 error InvalidTargetDependency(bytes32 releaseId, uint256 index);
 error TargetDependencyChanged(bytes32 releaseId, uint256 index, address dependency);
 error TargetConformanceMismatch(bytes32 expected, bytes32 actual);
@@ -2722,7 +2756,8 @@ event GlobalRoleGrantUpdated(bytes32 indexed globalRoleId, address indexed accou
     bool enabled, uint64 roleRevision, uint64 authorityRevision,
     uint64 governanceExecutorRevision, address authority, address governanceExecutor);
 event TargetReleaseAdmitted(uint8 indexed targetKind, address indexed target, bytes32 indexed codeHash,
-    bytes32 releaseId, bytes32 runtimePolicyHash, bytes32 externalDependencyHash,
+    bytes32 releaseId, bytes32 runtimePolicyHash, bytes32 releaseAttestorPolicyHash,
+    bytes32 releaseAttestorSignerSetHash, bytes32 externalDependencyHash,
     uint8 externalDependencyCount, bytes32 sourceCommit, bytes32 sourceTreeHash, bytes32 artifactHash,
     bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
     bytes32 expectedModuleVersion, bytes32 protocolVersion,
@@ -2955,7 +2990,10 @@ The constructor parameters include the exact separate inputs
 `address initialGovernanceExecutor`,
 `bytes32 initialGovernanceExecutorEvidenceHash`, and
 `bytes32 initialGovernanceExecutorCapabilityCommitment`, all nonzero, plus the initial authority-kind
-`TargetRelease` row and its fully probed authority-provider target, the
+`TargetRelease` row and its fully probed authority-provider target, nonzero
+`bytes32 releaseAttestorPolicyHash` and
+`bytes32 releaseAttestorSignerSetHash` commitments to the separately
+governance-approved deployment policy, the
 immutable Stream compatibility commit (`bytes32`), `moduleSupersedes` (zero
 for the first deployment), and a zero successor. The executor account is not
 runtime-scanned and no signer list is a constructor input. The constructor
@@ -2968,9 +3006,10 @@ checks or call a setter as a weaker substitute. The primitive's
 machine-checkable checklist is exactly:
 
 1. validate the closed target kind, nonzero/revision-1 first-row fields,
-   right-aligned source SHA-1, evidence-schema hash, 2-of-3 evidence
-   signatures, two availability observations, and the target runtime-policy
-   hash;
+   right-aligned source SHA-1, evidence-schema and release-attestor-policy
+   schema hashes, the exact policy JCS and signer-set ABI commitments against
+   the constructor immutables, 2-of-3 evidence signatures from that governed
+   set, two availability observations, and the target runtime-policy hash;
 2. require `artifactHash == extcodehash(target) ==` both independent build
    runtime hashes, code size within 24,576 bytes, and the complete
    `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` scanner result and the exact
@@ -3005,14 +3044,16 @@ not a proxy. A later implementation is a new immutable contract with
 
 Checklist items 1 and 2 have two explicit inputs: the signed release-evidence
 bundle is validated by the release gate before the transaction, and the
-contract-facing primitive validates the fixed schema/policy hashes, row fields,
+contract-facing primitive validates the fixed schema/policy hashes, immutable
+release-attestor policy/signer-set commitments, row fields,
 direct runtime hash, and all deterministic bytecode/probe invariants before it
 stores the row. The contract does not claim to fetch GitHub, IPFS, Arweave, or
 compiler output. A deployment controller MUST refuse to construct the
 transaction unless the external evidence result is present, signed by the
-fixed 2-of-3 policy, and bound to the exact `releaseId` and
+fixed governance-approved 2-of-3 policy, and bound to the exact `releaseId` and
 `conformanceDocumentHash`; the primitive then refuses any row whose committed
-evidence hash or policy/schema hash is not the admitted V1 value. This is the
+evidence hash, signer-policy/signer-set hash, or policy/schema hash is not the
+registry's immutable V1 value. This is the
 complete trust boundary, rather than an unreviewable imported rule.
 
 ### Phase 3 — register subjects and links
@@ -3529,13 +3570,17 @@ not a valid implementation.
 `specs/onchain/target-release-evidence-v1.fixture.json` is a complete,
 schema-valid `NON_DEPLOYMENT_CONFORMANCE_FIXTURE`, not a published release or
 deployment attestation. It uses the exact synthetic authority target below and
-the only permitted target policy. `python -B
+the only permitted target policy. Its signer addresses come exclusively from
+the separately schema-valid `release-attestor-policy-v1.fixture.json`; the
+fixture policy's JCS hash and ABI signer-set hash model the two immutable
+constructor commitments and do not approve production keys. `python -B
 specs/onchain/target_release_evidence_check_v1.py` derives the acyclic order
 `releaseId -> D0 -> conformanceDocumentHash -> D1 -> signedDocumentHash ->
 two public test signatures from three admitted addresses -> detached
 bundle/reference/availability`, checks
-the exact target address, two builds, dependency list, policy hash, predecessor
-and reason, and rejects target-address, policy, code-hash, and signer-threshold
+the exact target address, two builds, dependency list, runtime and governed
+attestor policy hashes, predecessor and reason, and rejects target-address,
+policy, code-hash, signer-threshold, signer-set, and self-selected-key
 mutations. It uses only public deterministic test scalars and contacts no
 network.
 
@@ -3547,16 +3592,18 @@ runtimePolicyHash = 0x95f9e52ebbfec6aa2d1ad41a516a6d9e7ce2f55cfed9de1fb906e6f6e9
 dependencyAddress = 0x000000000000000000000000000000000000d3e1
 dependencyRuntimePolicyHash = 0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04
 externalDependencyHash = 0x87ff234ff7d93302befc44d1dd3104ce340883c2972058b94f8d50cf34aca6af
-releaseId = 0x7d3cf4d1cc5a540e950b98c52138a6a75d9e747edf365602af12729adda1a522
-D0ConformanceDocumentHash = 0x9cb157597d7539eb19d8d6841c6f661abb7a7988d386fcec3ef666383e6e13cf
-D1SignedDocumentHash = 0x66d121d9f03a969cc2b5256706f307e33e2b3c99d3962f71b8b2e7fbed1f2732
-bundleUri = ipfs://bafkreicggdjcp2fpkqdr7ua5yp7pfxiijgjodpjoo4xlqqqy7g2hemlz3y
+releaseAttestorPolicyHash = 0x9c5749445275e3e89c495164e5d669e29b4bf2ce705cc67818f4e0c2d74479f1
+releaseAttestorSignerSetHash = 0xa40ace3b14c99a1056b76ed1258b6682e7d76b992177170df628a7d3275d4513
+releaseId = 0x2ab676bc71579fa1dc24eda7291239f3c2bbf179dd23656ce9683d96a2262bf7
+D0ConformanceDocumentHash = 0x2b8a2d0c9d48c4f88ede8b31668f6ef4e630df62478f9a2bdc910850a637d70d
+D1SignedDocumentHash = 0x3bf9e55898ed6b40104cc48aef98fddd193eb7978d377fa4537d7a555682ae6a
+bundleUri = ipfs://bafkreiamzwr3eqg4vc5kvanamsolj3b4rikus32ofdmftlxz62xbq3l2cm
 alternateBundleUri = ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ
-bundleContentHash = 0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1
+bundleContentHash = 0xe37f2203272f959259db99b7f5e0be1a8f91db1e24a4a6e4ad2d9c9ec95dc581
 bundleBytes = 837
 bundleSchemaHash = 0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3
-ipfsFetchObservationHash = 0x5af4c4d5763661459954662556105bf54c89905253ad89ebc87ca3b8321dea74
-arFetchObservationHash = 0x1236d17304c7addbcaaf4f3b72196ca48c1826d55e7bc48e95e030937af0ba32
+ipfsFetchObservationHash = 0xe1c12194f168ccb8a8b5957966649bdfd827c410d35540d33ded3c5d5b955228
+arFetchObservationHash = 0x5073b1fa1a4fcf6608e06fa5e0a8fb38e630073e4d247ea80f05cd693248b61d
 signatureRecovery = 2/3
 ```
 <!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->
@@ -3587,14 +3634,14 @@ authorityReleaseId = 0x442b8c759b677e48ed822ecf57344181e081deeb894664d60f0e076d2
 authorityCodeHash = 0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1
 evidenceHash = 0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb
 challenge = 0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f
-capabilityCommitment = 0x7fddf389f6f953bdb9d892251e509f39df334dfdb619b7ab891e535404d7710c
-bindingCommitment = 0x6e831821d7a5afe3eeb50a74092e342acab10b1fbaac92c9f104fe0dcd4f9c4d
+capabilityCommitment = 0xd9e7e6495b40d0aee7f09f391f1f3eaad0105b69e9d1f51bb9104eb98820b73d
+bindingCommitment = 0x73a8043c53593e1a6a61d140d9e116e578a8fcc33fe140d736bb235878e401bb
 crossBoundAfterExecutorRotation = true
 reboundAuthorityReleaseId = 0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de
 reboundAuthorityCodeHash = 0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90
 reboundChallenge = 0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f
-reboundCapabilityCommitment = 0x8718cf1f7651828cd6b0bdd86e53fdbef2bac3657ff35c154e65aaa5f6318f08
-reboundBindingCommitment = 0x41adb6f95e8da0c6dbbbf7c9d4fb0c30df93b85df10b3fbec51f91d4a3444a13
+reboundCapabilityCommitment = 0xe3f0a4fad677fe0e1ce5ed96e703a7923e1a28c7c9123090de7a62b23a6811e5
+reboundBindingCommitment = 0x194c63d683912414673e3651d8929e50d9ef0786d1bb66d7cff0d3229933915b
 crossBoundAfterAuthorityRotation = true
 providerDeniedFreeze = ACCEPT
 providerDeniedSuccessor = ACCEPT

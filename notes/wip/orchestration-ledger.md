@@ -772,3 +772,26 @@ The checker, specification, Stream profile, and two independent transcripts
 bind the same derivation. The synthetic addresses remain non-deployment test
 inputs. Regeneration, full validation, a new pushed head, and fresh exact-head
 review are required.
+
+## 2026-08-02 - closed authority selectors and governed release attestors
+
+An exact-head adversarial review found two additional protocol contradictions
+after CI was green. First, `admitStreamOwnerRecordInterface` and
+`admitHttpsResolverProfile` normatively required active provider capability but
+were absent from the closed selector commitment. Second, the release evidence
+proved 2-of-3 only over addresses declared by the evidence itself; substituting
+three attacker-controlled keys and recomputing signatures remained valid under
+the old checker and retained the same release ID.
+
+The remediation makes both trust boundaries explicit. The closed authority set
+now includes the two required admission selectors and the new attestor-bound
+`admitTargetRelease` selector. The independent release-attestor policy artifact
+has a schema, exact 2-of-3 signer list, governance-approved deployment-manifest
+authority source, and new-registry-only rotation rule. Its JCS policy hash and
+ABI signer-set hash are immutable constructor commitments, public registry
+getters, TargetRelease row fields, and inputs to `releaseId`. Evidence and
+bundle checkers must equal the external policy, not merely a self-declared
+address array; key/policy/set substitutions are negative tests. The checked
+file is explicitly a public non-deployment fixture. A real deployment must
+replace it with a governance-approved production policy and bind the resulting
+commitments in both constructor and release manifest.
