@@ -45,129 +45,6 @@ class CaseyDossierControlsTests(unittest.TestCase):
     def test_published_descriptor_dossier_is_valid(self) -> None:
         self.assertEqual(validate(ROOT), [])
 
-    def legacy_source_binding_descriptor_mapping_urls_and_states_fail_closed(self) -> None:
-        mutations = (
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"].__setitem__("published_source_commit", "0" * 40),
-                "published source package",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["package_manifest"].__setitem__("sha256", "sha256:" + "0" * 64),
-                "published source package",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["publication_release"].__setitem__("sha256", "sha256:" + "0" * 64),
-                "published source package",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["publication_release"].__setitem__("published_release_commit", "0" * 40),
-                "published source package",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"]["package_manifest"].__setitem__("uri", "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas-collection-snapshots/package-manifest.json"),
-                "published source package",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-                lambda record: record["payload"]["trait_analysis"]["descriptor"].__setitem__("path", "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json"),
-                "descriptor mapping",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["envelope"].__setitem__("uri", "https://github.com/6529-Collections/6529networkmuseum/tree/" + "codex/casey-reas-accession/records/accessions/6529NM.2026.001"),
-                "mutable construction-branch URL",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-                lambda record: record["payload"].__setitem__("current_state", "accessioned"),
-                "must remain received_onchain",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"]["controlled_decision"].__setitem__("decision_authority", "unverified authority"),
-                "reviewer and decision-authority fields must remain null",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"].__setitem__("formal_acceptance_status", "not_formally_accepted"),
-                "formal gift acceptance",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
-                lambda record: record["payload"]["assets"][0].__setitem__("token_id", "100000724"),
-                "seven assets, receipt",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
-                lambda record: record["payload"]["institutional_decision_authority"].__setitem__("documentation_qa_status", "reviewed"),
-                "separate effective institutional acceptance",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"].__setitem__("governing_references", [CASEY_ID]),
-                "governing references",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/accession-statement.json",
-                lambda record: record["payload"].__setitem__("references", [VISUAL_OBSERVATION_ID]),
-                "generic reference graph",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["objects"][0]["static_capture"].__setitem__("response_sha256", "sha256:" + "0" * 64),
-                "static response binding",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["objects"][0]["raw_metadata_source"].__setitem__("image_url", "https://example.com/wrong.png"),
-                "raw metadata URL/hash binding",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["objects"][0]["live_capture"].__setitem__("minimum_wait_between_frames_ms", 1499),
-                "live screenshot binding",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["objects"][0]["live_capture"]["frames"][0].__setitem__("captured_at", "2026-08-01T23:34:21Z"),
-                "live screenshot binding",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["objects"][0]["static_capture"]["retention"].__setitem__("bytes_retained_in_public_repository", True),
-                "public-byte non-retention",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/visual-observation-record.json",
-                lambda record: record["payload"]["limitations"].__setitem__(2, "The commanded wait is approximate."),
-                "timing/retention limitation",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-                lambda record: record["payload"].__setitem__("medium", "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum."),
-                "unverified live-determinism boundary",
-            ),
-            (
-                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-                lambda record: (
-                    record["payload"]["chain_identity"].__setitem__("caip19", "eip155:1/erc721:0x0000000000000000000000000000000000000001/1"),
-                    record["payload"]["chain_identity"].__setitem__("contract", "0x0000000000000000000000000000000000000001"),
-                    record["payload"]["chain_identity"].__setitem__("token_id", "1"),
-                ),
-                "object chain identity/provenance binding is invalid",
-            ),
-        )
-        for relative, mutation, expected in mutations:
-            with self.subTest(expected=expected):
-                _temporary, root = self.make_copy()
-                self.mutate_record(root, relative, mutation)
-                self.assertTrue(any(expected in issue for issue in validate(root, history_root=ROOT)), validate(root, history_root=ROOT))
-
     def test_finished_accession_decisions_fail_closed(self) -> None:
         mutations = (
             (
@@ -197,12 +74,22 @@ class CaseyDossierControlsTests(unittest.TestCase):
             ),
             (
                 "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda record: record["payload"]["ongoing_stewardship_actions"].__setitem__(0, "future reviewer"),
+                "concrete active preservation",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-statement.json",
                 lambda record: record["payload"].__setitem__("references", [VISUAL_OBSERVATION_ID]),
                 "must link the gift authorization",
             ),
             (
                 "records/accessions/6529NM.2026.001/accession-certificate.json",
                 lambda record: record["payload"]["title_bindings"][0].__setitem__("status", "pending"),
+                "execute one exact title binding",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/accession-certificate.json",
+                lambda record: record["payload"]["title_bindings"][0].__setitem__("instrument_sha256", "sha256:" + "0" * 64),
                 "execute one exact title binding",
             ),
             (
@@ -246,6 +133,16 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "complete pass-with-conditions outcome",
             ),
             (
+                "records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json",
+                lambda record: next(item for item in record["payload"]["evidence_refs"] if item.get("label") == "Controlled visual observation").pop("sha256"),
+                "bind the controlled visual observation bytes",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json",
+                lambda record: next(item for item in record["payload"]["evidence_refs"] if item.get("label") == "Reviewed title and rights determination").__setitem__("sha256", "sha256:" + "0" * 64),
+                "match the object matrix and copyright boundary",
+            ),
+            (
                 "records/accessions/6529NM.2026.001/visual-observation-record.json",
                 lambda record: record["payload"]["objects"][0]["static_capture"]["retention"].__setitem__("bytes_retained_in_public_repository", True),
                 "rights-cleared future capture",
@@ -253,6 +150,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
             (
                 "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
                 lambda record: record["payload"]["completion_boundary"].__setitem__("accession_status", "not_complete"),
+                "full gift and its completed accession resolution",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
+                lambda record: record["payload"]["assets"][0].__setitem__("token_id", "100000724"),
                 "full gift and its completed accession resolution",
             ),
             (

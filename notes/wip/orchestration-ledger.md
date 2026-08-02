@@ -1260,10 +1260,16 @@ The public collection essay, canonical repository index, and dated research
 record now distinguish the historical intake state from the completed
 accession. The rebuilt 175-file Casey package commits at
 `sha256:e76f18901101efda51361bda30ce22b57a87b9d60e1c21bd4ed2c66c1b41a22d`.
-The deterministic Museum release commits at Keccak-256
-`0xbbc4ccf487dc8123932c27ca3216b8d2f4901bbec6715e175ff13723be858079`
+The final hardening pass additionally binds the reviewed title instrument bytes
+across the lot, certificate, title-passage event, seven object records, and
+seven rights records; binds every condition report to the controlled visual
+observation bytes; rejects malformed stewardship-action entries; makes public
+page finalization assert the completed state; and removes the obsolete
+intake-stage validator and its dormant test corpus. The deterministic Museum
+release therefore commits at Keccak-256
+`0x072e076dad777042af9bae7569ce3035cd0abeb892d6623949333e6e1deb4eea`
 and SHA-256
-`985ae07e664e31edb488cb8cf0188fb46f4269ef64c0947759c5619ea232b95f`.
+`217b2597f2a687c8c00b9fcde6fda99402f838e277f327597b0eab3251d00fdd`.
 The CI-equivalent discovery suite passes 96 tests with one expected Windows
 named-pipe skip; full Museum/Casey validation, package verification, fetch
 safety, compilation, deterministic-manifest checking, and whitespace checking

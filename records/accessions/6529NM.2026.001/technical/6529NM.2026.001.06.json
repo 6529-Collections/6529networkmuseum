@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1ce727843ab60b50318fa10ae70e3e8570c98035bdba5d0dcb531d3f19e2f2cc"
+      "digest": "0x2384f873dba71f6158a311cee7eb1ec5a8ac032f6e9adb7f47e6053291df232e"
     },
     "effectiveAt": 1785652200,
     "recordType": "CONDITION_REPORT",
@@ -77,7 +77,8 @@
             "label": "Controlled visual observation",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/visual-observation-record.json",
             "observed_at": "2026-08-02T06:30:00Z",
-            "evidence_class": "C"
+            "evidence_class": "C",
+            "sha256": "sha256:962a2cac987b81dc5c9d9bdf84f712a2465ad1b6f281b310132d11eebe07f9dd"
           }
         ]
       }
@@ -101,7 +102,8 @@
         "label": "Controlled visual observation",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/visual-observation-record.json",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_class": "C"
+        "evidence_class": "C",
+        "sha256": "sha256:962a2cac987b81dc5c9d9bdf84f712a2465ad1b6f281b310132d11eebe07f9dd"
       },
       {
         "label": "Preservation evidence manifest",
@@ -115,7 +117,7 @@
     "object_id": "6529NM.2026.001.06",
     "observed_at": "2026-08-02T06:30:00Z",
     "outcome": "pass_with_conditions: no red condition is identified; the work is accessionable and display-ready with documented network/browser, attribution, monitoring, and fallback conditions while autonomous software preservation remains in progress.",
-    "payload_sha256": "sha256:0b1b4c93ed3c83a7a550bc6ed152f26d71aa32b641b3c7fef64403e96ce8ec6d",
+    "payload_sha256": "sha256:8d512875ae32881141de4154aa773fd3e4e34e97553645d6e068ed86a05c78bc",
     "protocol_state": "Accession-level technical and condition review complete; ongoing software preservation remains in progress.",
     "record_id": "6529NM.2026.001.COND.06",
     "record_status": "reviewed",

@@ -284,6 +284,7 @@ def finalize_rights() -> None:
 
 def finalize_condition() -> None:
     technical_sha = file_sha(TECHNICAL_REVIEW)
+    visual_sha = file_sha(CASEY / "visual-observation-record.json")
     visual_uri = f"{REPO}/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
     for path in sorted((CASEY / "technical").glob("*.json")):
         record = load(path)
@@ -333,14 +334,14 @@ def finalize_condition() -> None:
                 "evidence_refs": [
                     evidence("Reviewed technical and condition determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", technical_sha),
                     evidence("Object-specific retained Art Blocks metadata", metadata_uri, "B", file_sha(metadata_path)),
-                    evidence("Controlled visual observation", visual_uri, "C"),
+                    evidence("Controlled visual observation", visual_uri, "C", visual_sha),
                 ],
             }
         )
         payload["evidence_refs"] = [
             evidence("Reviewed technical and condition determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", technical_sha),
             evidence("Object-specific retained Art Blocks metadata", metadata_uri, "B", file_sha(metadata_path)),
-            evidence("Controlled visual observation", visual_uri, "C"),
+            evidence("Controlled visual observation", visual_uri, "C", visual_sha),
             evidence("Preservation evidence manifest", f"{REPO}/blob/main/evidence/casey-reas/manifest.json", "C", file_sha(EVIDENCE_MANIFEST)),
         ]
         commit_record(record)
@@ -922,6 +923,19 @@ def finalize_public_pages() -> None:
             "Related: [gift authorization](gift-acceptance-authorization.md), [artist and practice profile](casey-reas-artist-practice.md), [collection essay](casey-reas-collection-essay.md).",
             "Related: [accession certificate](accession-certificate.md), [title and rights review](title-rights-and-accession-review.md), [technical review](technical-and-condition-review.md), [curatorial review](curatorial-accession-review.md), [artist and practice profile](casey-reas-artist-practice.md), [collection essay](casey-reas-collection-essay.md).",
         )
+        required_final_markers = (
+            "**Status:** `accessioned`",
+            "The work is `accessioned`.",
+            "[accession certificate](accession-certificate.md)",
+            "[title and rights review](title-rights-and-accession-review.md)",
+        )
+        stale_markers = (
+            "**Status:** `received_onchain`",
+            "Neither record establishes legal title, rights, or display permission.",
+            "pending rights and preservation review",
+        )
+        if any(marker not in text for marker in required_final_markers) or any(marker in text for marker in stale_markers):
+            raise ValueError(f"public object page did not reach its required final state: {path}")
         path.write_text(text, encoding="utf-8", newline="\n")
 
 
@@ -962,10 +976,10 @@ def main() -> None:
     if missing:
         raise SystemExit("missing required accession inputs: " + ", ".join(missing))
     title_sha = file_sha(TITLE_REVIEW)
+    finalize_visual_observation()
     finalize_rights()
     finalize_condition()
     finalize_objects(title_sha)
-    finalize_visual_observation()
     finalize_gaa()
     finalize_lot()
     write(CASEY / "accession-certificate.json", accession_record(title_sha))
