@@ -1228,3 +1228,43 @@ building the Museum section in the 6529 Evolve monorepo from fresh remote main.
 Its scope is a GitHub-release-backed public Museum interface with immutable
 manifest verification and a source adapter designed to switch to Ethereum
 records later, followed by PR bots, maintainer merge, and post-merge validation.
+
+## 2026-08-02 - Immutable and append-only release-hardening checkpoint
+
+The candidate now pins every GitHub evidence URI inside committed Casey record
+payloads to exact source commit `823586e89c365dff26ef598140ef856f96dcd501`;
+only envelope discovery URIs remain live. The final validator rejects mutable
+`blob/main` and `tree/main` payload evidence links. Rights amendments,
+condition reassessments, and object state transitions are append-only,
+deterministically identified, and linked to the assertions they supersede.
+The completed accession cannot be rewritten by the legacy intake commitment
+refresher; that tool now refuses the operation and directs maintainers to the
+reviewed finalizer and full validator.
+
+The accession register finalizer is revision-generic and idempotent. It creates
+a successor only for a material payload change, preserves prior amendment
+history, records the real `2026-08-02T06:30:00Z` revision-three construction
+time, and leaves an existing review intact when the payload is unchanged. A
+generic control rejects current revisions constructed before their latest
+supersession and rejects incomplete or unordered revision histories.
+
+The Casey authority validator now requires exactly the adopted Art Blocks
+preapproval `1052156` and Donation Acceptance Policy `1052812`, once each,
+including their decision, drop, serial, and source identities. Mutation tests
+prove that substitution with another valid Wave winner, omission, and
+duplication all fail closed. Additional malformed-input tests cover missing
+evidence paths, null reviewers, empty object histories, mutable evidence URLs,
+and unhashable accession/provenance identities without validator crashes.
+
+The public collection essay, canonical repository index, and dated research
+record now distinguish the historical intake state from the completed
+accession. The rebuilt 175-file Casey package commits at
+`sha256:e76f18901101efda51361bda30ce22b57a87b9d60e1c21bd4ed2c66c1b41a22d`.
+The deterministic Museum release commits at Keccak-256
+`0xbbc4ccf487dc8123932c27ca3216b8d2f4901bbec6715e175ff13723be858079`
+and SHA-256
+`985ae07e664e31edb488cb8cf0188fb46f4269ef64c0947759c5619ea232b95f`.
+The CI-equivalent discovery suite passes 96 tests with one expected Windows
+named-pipe skip; full Museum/Casey validation, package verification, fetch
+safety, compilation, deterministic-manifest checking, and whitespace checking
+also pass. Exact-head review remains required after commit.

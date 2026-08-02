@@ -382,6 +382,24 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
                 fail(f"review payload hash mismatch: {path.relative_to(ROOT)}")
         elif review is not None:
             fail(f"constructed record cannot contain review: {path.relative_to(ROOT)}")
+        amendment_history = record.get("amendment_history")
+        if isinstance(amendment_history, list) and amendment_history:
+            try:
+                constructed_at = datetime.fromisoformat(
+                    str(constructor["constructed_at"]).replace("Z", "+00:00")
+                )
+                superseded_at = [
+                    datetime.fromisoformat(str(item["superseded_at"]).replace("Z", "+00:00"))
+                    for item in amendment_history
+                ]
+            except (KeyError, TypeError, ValueError) as exc:
+                fail(f"invalid amendment chronology: {path.relative_to(ROOT)}: {exc}")
+            if constructed_at < max(superseded_at):
+                fail(f"current revision predates its latest supersession: {path.relative_to(ROOT)}")
+            prior_revisions = [item.get("revision") for item in amendment_history if isinstance(item, dict)]
+            current_revision = control.get("revision")
+            if not isinstance(current_revision, int) or prior_revisions != list(range(1, current_revision)):
+                fail(f"amendment revisions must be complete and ordered: {path.relative_to(ROOT)}")
 
 
 MEDIA_TYPE = re.compile(r"^[A-Za-z0-9!#$&^_.+-]+/[A-Za-z0-9!#$&^_.+-]+(?:\s*;\s*[A-Za-z0-9!#$&^_.+-]+=[^;\s]+)*$")

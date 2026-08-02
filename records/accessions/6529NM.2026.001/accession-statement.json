@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xeecb8699d72e904f7e4f1925cf8ebcabf374364b20b50cc76b1347b588e573e9"
+      "digest": "0x6ba9ec7e451a7ef0bbd79fa69dbd9cc4f1ff865c22626b22d3b2a224c2f95e37"
     },
     "effectiveAt": 1785652200,
     "recordType": "ACCESSION_LOT",
@@ -317,7 +317,7 @@
         "evidence_class": "C",
         "label": "Preservation evidence manifest",
         "observed_at": "2026-08-01T14:58:31.905115Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas"
       }
     ],
     "formal_acceptance_date": "2026-08-01T22:55:00Z",
@@ -402,10 +402,10 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:1b6b09279036a315058664accc72ab47ae3a7cb6298e83294c1c02a755cfe6e3",
+    "payload_sha256": "sha256:0878787e862a72b831672ff21664435a53f827e1a79915df795a64ff5b51c47a",
     "preservation_manifest": {
       "manifest_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
-      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas",
       "objects": [
         {
           "generator_raw_status": "not_captured",

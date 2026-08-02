@@ -252,6 +252,12 @@ def refresh_control_note() -> None:
 
 
 def main() -> None:
+    lot = read_json(CASEY_DIR / "accession-statement.json").get("payload", {})
+    if lot.get("accession_status") == "complete" or lot.get("intake_status") == "accessioned":
+        raise SystemExit(
+            "refusing legacy intake refresh on a completed accession; "
+            "run finalize_casey_accession.py followed by validate_full_with_casey.py"
+        )
     source, descriptors = descriptor_package()
     for path in sorted(CASEY_DIR.rglob("*.json")):
         refresh_record(path, source, descriptors)

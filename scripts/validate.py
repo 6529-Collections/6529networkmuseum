@@ -60,6 +60,13 @@ RECORD_REFERENCE_KEYS = {
     "amendment_ids",
 }
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
+
+
+def frozen_projection(value: Any) -> str:
+    """Return a stable, hashable representation of JSON-derived untrusted data."""
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+
+
 SENSITIVE_KEY_PARTS = {
     "api_key",
     "apikey",
@@ -408,7 +415,10 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
             binding_ids = [binding.get("object_id") for binding in bindings if isinstance(binding, dict)]
             if not all(isinstance(object_id, str) for object_id in object_ids + binding_ids):
                 issues.append("ACCESSION title_bindings must identify every object_id")
-            elif len(binding_ids) != len(set(binding_ids)) or set(binding_ids) != set(object_ids):
+            elif (
+                len(binding_ids) != len(set(map(frozen_projection, binding_ids)))
+                or set(map(frozen_projection, binding_ids)) != set(map(frozen_projection, object_ids))
+            ):
                 issues.append("ACCESSION must contain exactly one title binding per object_id")
             if any(not isinstance(binding, dict) or binding.get("status") != "executed" for binding in bindings):
                 issues.append("ACCESSION must require an executed title binding for every object_id")
@@ -421,7 +431,12 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
             issues.append("ACCESSION title_passage must identify a supported title instrument")
         executed_bindings = [binding for binding in bindings if isinstance(binding, dict) and binding.get("status") == "executed"] if isinstance(bindings, list) else []
         path_ids = [path.get("object_id") for path in custody_paths]
-        if not custody_paths or len(path_ids) != len(set(path_ids)) or set(path_ids) != set(payload.get("object_ids", [])):
+        object_ids = payload.get("object_ids") if isinstance(payload.get("object_ids"), list) else []
+        if (
+            not custody_paths
+            or len(path_ids) != len(set(map(frozen_projection, path_ids)))
+            or set(map(frozen_projection, path_ids)) != set(map(frozen_projection, object_ids))
+        ):
             issues.append("ACCESSION custody_paths must identify exactly one path per object_id")
         for custody_path in custody_paths:
             matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == custody_path.get("object_id")]
@@ -482,7 +497,7 @@ def validate_visual_observation(payload: dict[str, Any]) -> list[str]:
         return ["VISUAL_OBSERVATION.objects must be an array of objects"]
     object_ids = [item.get("object_id") for item in objects]
     caip19s = [item.get("caip19", "").lower() if isinstance(item.get("caip19"), str) else None for item in objects]
-    if len(object_ids) != len(set(object_ids)):
+    if len(object_ids) != len(set(map(frozen_projection, object_ids))):
         issues.append("VISUAL_OBSERVATION.objects contains duplicate object_id")
     if len(caip19s) != len(set(caip19s)):
         issues.append("VISUAL_OBSERVATION.objects contains duplicate caip19")
@@ -545,14 +560,14 @@ def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
         return ["transaction provenance common_receipt and objects must be present"]
     object_ids = [item.get("object_id") for item in objects]
     chain_objects = [item.get("chain_object", "").lower() if isinstance(item.get("chain_object"), str) else None for item in objects]
-    if len(object_ids) != len(set(object_ids)):
+    if len(object_ids) != len(set(map(frozen_projection, object_ids))):
         issues.append("transaction provenance objects contains duplicate object_id")
     if len(chain_objects) != len(set(chain_objects)):
         issues.append("transaction provenance objects contains duplicate chain_object")
     if common.get("transfer_count") != len(objects):
         issues.append("transaction provenance common_receipt.transfer_count must equal objects.length")
     log_indices = common.get("log_indices")
-    if not isinstance(log_indices, dict) or set(log_indices) != set(object_ids):
+    if not isinstance(log_indices, dict) or set(map(frozen_projection, log_indices)) != set(map(frozen_projection, object_ids)):
         issues.append("transaction provenance common_receipt.log_indices must identify every object exactly once")
         log_indices = {}
     receipt_logs: list[Any] = []
@@ -572,7 +587,7 @@ def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
             "direct_rpc_verified": True,
             "from": common.get("transaction_from"),
             "kind": "museum_receipt",
-            "log": log_indices.get(object_id),
+            "log": log_indices.get(object_id) if isinstance(object_id, str) else None,
             "receipt_status": common.get("receipt_status"),
             "time": common.get("block_time"),
             "to": common.get("museum_custody_address"),
@@ -581,7 +596,7 @@ def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
         }
         if event != expected:
             issues.append(f"transaction provenance {object_id} museum_receipt must equal common_receipt projection")
-    if len(receipt_logs) != len(set(receipt_logs)):
+    if len(receipt_logs) != len(set(map(frozen_projection, receipt_logs))):
         issues.append("transaction provenance museum_receipt log indices must be unique")
     return issues
 

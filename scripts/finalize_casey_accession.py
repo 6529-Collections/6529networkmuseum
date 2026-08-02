@@ -17,6 +17,7 @@ from validate import keccak256
 ROOT = Path(__file__).resolve().parent.parent
 CASEY = ROOT / "records" / "accessions" / "6529NM.2026.001"
 REPO = "https://github.com/6529-Collections/6529networkmuseum"
+EVIDENCE_COMMIT = "823586e89c365dff26ef598140ef856f96dcd501"
 REVIEW_AT = "2026-08-02T06:30:00Z"
 ACCEPTED_AT = "2026-08-01T22:55:00Z"
 RECEIVED_AT = "2026-08-01T13:25:47Z"
@@ -134,6 +135,21 @@ def payload_sha(payload: dict[str, Any]) -> str:
     return "sha256:" + hashlib.sha256(canonicalize(material)).hexdigest()
 
 
+def pin_repository_urls(value: Any) -> Any:
+    """Pin payload evidence/display URLs while leaving envelope discovery URIs live."""
+    if isinstance(value, str):
+        return value.replace(
+            f"{REPO}/blob/main/", f"{REPO}/blob/{EVIDENCE_COMMIT}/"
+        ).replace(
+            f"{REPO}/tree/main/", f"{REPO}/tree/{EVIDENCE_COMMIT}/"
+        )
+    if isinstance(value, list):
+        return [pin_repository_urls(item) for item in value]
+    if isinstance(value, dict):
+        return {key: pin_repository_urls(item) for key, item in value.items()}
+    return value
+
+
 def unix_seconds(value: str) -> int:
     return int(datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp())
 
@@ -141,6 +157,11 @@ def unix_seconds(value: str) -> int:
 def subject_hash(record_type: str, subject_id: str) -> str:
     material = f"6529networkmuseum.subject.{record_type.lower()}.v1:{subject_id}".encode()
     return "0x" + keccak256(material).hex()
+
+
+def event_id(record_id: str, event_type: str, occurred_at: str) -> str:
+    stamp = occurred_at.replace("-", "").replace(":", "").replace(".", "").replace("Z", "Z")
+    return f"{record_id}.EVENT.{event_type}.{stamp}"
 
 
 def review(actor_id: str) -> dict[str, str]:
@@ -157,7 +178,8 @@ def evidence(label: str, uri: str, evidence_class: str, sha256: str | None = Non
 
 
 def commit_record(record: dict[str, Any]) -> None:
-    payload = record["payload"]
+    payload = pin_repository_urls(record["payload"])
+    record["payload"] = payload
     payload["payload_sha256"] = payload_sha(payload)
     record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(payload)).hex()
     record["envelope"]["effectiveAt"] = unix_seconds(payload["effective_at"])
@@ -228,11 +250,20 @@ def finalize_rights() -> None:
                 "grants": rights_grants(metadata_uri),
             }
         )
-        payload["events"] = [event for event in payload["events"] if event.get("event_type") != "rights_amendment"]
+        for prior_event in payload["events"]:
+            prior_event.setdefault("event_id", event_id(payload["record_id"], prior_event["event_type"], prior_event["occurred_at"]))
+        payload["events"] = [
+            prior_event
+            for prior_event in payload["events"]
+            if not (prior_event.get("event_type") == "rights_amendment" and prior_event.get("occurred_at") == REVIEW_AT)
+        ]
+        superseded_event_id = payload["events"][-1]["event_id"]
         payload["events"].append(
             {
+                "event_id": event_id(payload["record_id"], "rights_amendment", REVIEW_AT),
                 "event_type": "rights_amendment",
                 "occurred_at": REVIEW_AT,
+                "supersedes_event_id": superseded_event_id,
                 "authority_reference": "6529NM.2026.001.ACCESSION-REVIEW",
                 "evidence_refs": [
                     evidence("Reviewed title and rights determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md", "C", title_sha),
@@ -284,11 +315,20 @@ def finalize_condition() -> None:
                 "outcome": "pass_with_conditions: no red condition is identified; the work is accessionable and display-ready with documented network/browser, attribution, monitoring, and fallback conditions while autonomous software preservation remains in progress.",
             }
         )
-        payload["events"] = [event for event in payload["events"] if event.get("event_type") != "condition_reassessment"]
+        for prior_event in payload["events"]:
+            prior_event.setdefault("event_id", event_id(payload["record_id"], prior_event["event_type"], prior_event["occurred_at"]))
+        payload["events"] = [
+            prior_event
+            for prior_event in payload["events"]
+            if not (prior_event.get("event_type") == "condition_reassessment" and prior_event.get("occurred_at") == REVIEW_AT)
+        ]
+        superseded_event_id = payload["events"][-1]["event_id"]
         payload["events"].append(
             {
+                "event_id": event_id(payload["record_id"], "condition_reassessment", REVIEW_AT),
                 "event_type": "condition_reassessment",
                 "occurred_at": REVIEW_AT,
+                "supersedes_event_id": superseded_event_id,
                 "authority_reference": "6529NM.2026.001.TECHNICAL-REVIEW",
                 "evidence_refs": [
                     evidence("Reviewed technical and condition determination", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md", "C", technical_sha),
@@ -366,7 +406,11 @@ def finalize_objects(title_sha: str) -> None:
                 ],
             }
         )
-        payload["state_history"] = [entry for entry in payload["state_history"] if entry.get("state") != "accessioned"]
+        payload["state_history"] = [
+            entry
+            for entry in payload["state_history"]
+            if not (entry.get("state") == "accessioned" and entry.get("observed_at") == REVIEW_AT)
+        ]
         payload["state_history"].append(
             {
                 "state": "accessioned",
@@ -755,6 +799,7 @@ def accession_record(title_sha: str) -> dict[str, Any]:
         ],
         "source": {"lot_record": "records/accessions/6529NM.2026.001/accession-statement.json", "provenance_ontology": "Stream-compatible event/evidence/title/custody structure for externally minted works"},
     }
+    payload = pin_repository_urls(payload)
     payload["payload_sha256"] = payload_sha(payload)
     return {
         "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
@@ -775,22 +820,11 @@ def accession_record(title_sha: str) -> dict[str, Any]:
 def finalize_register() -> None:
     path = ROOT / "records" / "accessions" / "register.json"
     register = load(path)
-    prior_sha = "sha256:" + hashlib.sha256(canonicalize(register)).hexdigest()
-    register["record_control"]["revision"] = 3
-    register["record_control"]["record_status"] = "constructed"
-    register["record_control"]["review"] = None
+    prior_revision = register["record_control"]["revision"]
+    prior_review = register["record_control"].get("review")
+    prior_payload = {key: value for key, value in register.items() if key != "record_control"}
+    prior_sha = "sha256:" + hashlib.sha256(canonicalize(prior_payload)).hexdigest()
     register["snapshot_at"] = REVIEW_AT
-    if not any(item.get("revision") == 2 for item in register["amendment_history"]):
-        register["amendment_history"].append(
-            {
-                "revision": 2,
-                "superseded_at": REVIEW_AT,
-                "supersedes": prior_sha,
-                "prior_payload_sha256": prior_sha,
-                "prior_review_commit": "1abf5a81a080f3fdbc7f74fcf06647ed12336170",
-                "reason": "Replaced the intake-stage view with the completed Casey REAS accession, reviewed title and rights determinations, technical and curatorial decisions, and concrete continuing stewardship actions.",
-            }
-        )
     register["amendment_history"][0].setdefault("supersedes", register["amendment_history"][0]["prior_payload_sha256"])
     lot = register["lots"][0]
     lot.update(
@@ -816,6 +850,37 @@ def finalize_register() -> None:
         }
     )
     lot["receipt_event"]["receipt_status"] = "0x1"
+    current_payload = {key: value for key, value in register.items() if key != "record_control"}
+    current_sha = "sha256:" + hashlib.sha256(canonicalize(current_payload)).hexdigest()
+    if current_sha != prior_sha:
+        if not any(
+            item.get("revision") == prior_revision and item.get("prior_payload_sha256") == prior_sha
+            for item in register["amendment_history"]
+        ):
+            register["amendment_history"].append(
+                {
+                    "revision": prior_revision,
+                    "superseded_at": REVIEW_AT,
+                    "supersedes": prior_sha,
+                    "prior_payload_sha256": prior_sha,
+                    "prior_review_commit": (
+                        prior_review.get("reviewed_commit")
+                        if isinstance(prior_review, dict)
+                        else EVIDENCE_COMMIT
+                    ),
+                    "reason": "Superseded the prior current-view revision with a materially changed accession state; revision identifies the superseded record, while record_control.revision identifies its successor.",
+                }
+            )
+        register["record_control"]["revision"] = prior_revision + 1
+        register["record_control"]["record_status"] = "constructed"
+        register["record_control"]["constructor"]["constructed_at"] = REVIEW_AT
+        register["record_control"]["review"] = None
+    latest_supersession = max(
+        (item["superseded_at"] for item in register["amendment_history"]),
+        default=register["record_control"]["constructor"]["constructed_at"],
+    )
+    if register["record_control"]["constructor"]["constructed_at"] < latest_supersession:
+        register["record_control"]["constructor"]["constructed_at"] = latest_supersession
     write(path, register)
 
 

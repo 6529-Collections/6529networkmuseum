@@ -17,7 +17,7 @@ sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
 from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_visual_observation, validator_for  # noqa: E402
-from validate_casey_dossier import CASEY_ID, GIFT_AUTHORIZATION_ID, OBJECT_TO_DESCRIPTOR, VISUAL_OBSERVATION_ID, validate  # noqa: E402
+from validate_casey_dossier import CASEY_ID, GIFT_AUTHORIZATION_ID, OBJECT_TO_DESCRIPTOR, VISUAL_OBSERVATION_ID, validate, validate_evidence_manifest  # noqa: E402
 
 
 class CaseyDossierControlsTests(unittest.TestCase):
@@ -222,6 +222,16 @@ class CaseyDossierControlsTests(unittest.TestCase):
             ),
             (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: record["payload"].__setitem__("state_history", []),
+                "must end in accessioned state",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json",
+                lambda record: record["payload"].__setitem__("reviewer", None),
+                "must be substantively reviewed",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"]["title_binding"].__setitem__("status", "pending"),
                 "executed transaction-bound title declaration",
             ),
@@ -251,6 +261,21 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "state when and from which reviewed register",
             ),
             (
+                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
+                lambda record: record["payload"]["governing_basis"][0].update({"decision_id": "6529NM-GOV-1052148", "wave_serial": 1052148}),
+                "must bind exactly decisions 1052156 and 1052812",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
+                lambda record: record["payload"]["governing_basis"].pop(),
+                "must bind exactly decisions 1052156 and 1052812",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
+                lambda record: record["payload"]["governing_basis"].append(copy.deepcopy(record["payload"]["governing_basis"][0])),
+                "must bind exactly decisions 1052156 and 1052812",
+            ),
+            (
                 "records/accessions/6529NM.2026.001/accession-statement.json",
                 lambda record: record["payload"]["source_manifest"]["casey_collection_snapshot_package"].__setitem__("published_source_commit", "0" * 40),
                 "published source package",
@@ -269,6 +294,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"]["generator_snapshot"].__setitem__("sha256", "sha256:" + "0" * 64),
                 "generator response, dependency, and complete interaction map",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: record["payload"]["display"].__setitem__("manifest_uri", "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md"),
+                "payload evidence URL must be commit-pinned",
             ),
             (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json",
@@ -333,6 +363,15 @@ class CaseyDossierControlsTests(unittest.TestCase):
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
         issues = validate(root, history_root=ROOT)
         self.assertTrue(any("raw RPC receipt transfer schedule must match" in issue for issue in issues), issues)
+
+    def test_evidence_manifest_missing_path_reports_instead_of_aborting(self) -> None:
+        _temporary, root = self.make_copy()
+        manifest_path = root / "evidence" / "casey-reas" / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["entries"][0].pop("path")
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate_evidence_manifest(root)
+        self.assertTrue(any("entry has no path" in issue for issue in issues), issues)
 
     def test_raw_receipt_acquisition_metadata_is_semantically_bound(self) -> None:
         _temporary, root = self.make_copy()

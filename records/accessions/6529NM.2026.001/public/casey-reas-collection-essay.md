@@ -2,7 +2,7 @@
 
 **Collection-level curatorial essay for lot `6529NM.2026.001`**
 
-This seven-work group enters the permanent collection through a formally accepted gift authorization, but not yet through a completed Stream-equivalent accession certificate. Its curatorial value is therefore stated separately from title, rights, condition, preservation, and display determinations.
+This seven-work group entered the permanent collection through a formally accepted full gift and the completed Museum accession certificate `6529NM-ACC-2026-001`. The certificate joins exact title and custody bindings to the reviewed rights, curatorial, and technical determinations. Autonomous software preservation remains in progress, and display is ready with conditions; those continuing duties do not reopen the accession decision.
 
 **Museum interpretation [E]:** The collection proposes an encounter with an executable image: an image whose identity cannot be reduced to a token, a screenshot, or a file because it is formed by instructions carried out over time. This executable-image ontology is the Museum's curatorial frame, not a sourced artist or platform fact. Across CENTURY, Pre-Process, Phototaxis, 923 EMPTY ROOMS, and Ex Nihilo (Cosmos), the frame attends to how systems become legible as color, line, motion, density, and space. The group is bounded rather than comprehensive: three CENTURY works supply comparative states, not a triptych; five project lines do not constitute a retrospective.
 

@@ -275,6 +275,27 @@ class ControlPlaneTests(unittest.TestCase):
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(expected in issue for issue in issues), issues)
 
+    def test_accession_and_provenance_malformed_identity_projections_do_not_abort(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        accession = self.load_record(records, "accession.json")
+        accession["payload"]["object_ids"][0] = ["malformed"]
+        accession["payload"]["events"][4]["custody_paths"][0]["object_id"] = ["malformed"]
+        self.save_record(records, "accession.json", accession)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("custody_paths must identify" in issue or "object_id" in issue for issue in issues), issues)
+
+        schedule = json.loads(
+            (REPO_ROOT / "records" / "accessions" / "6529NM.2026.001" / "accession-statement.json").read_text(encoding="utf-8")
+        )["payload"]["provenance_schedule"]
+        schedule["objects"][0]["object_id"] = ["malformed"]
+        schedule["objects"][1]["object_id"] = ["malformed"]
+        next(event for event in schedule["objects"][0]["events"] if event.get("kind") == "museum_receipt")["log"] = ["malformed"]
+        next(event for event in schedule["objects"][1]["events"] if event.get("kind") == "museum_receipt")["log"] = ["malformed"]
+        provenance_issues = validate_provenance_schedule(schedule)
+        self.assertTrue(any("duplicate object_id" in issue for issue in provenance_issues), provenance_issues)
+        self.assertTrue(any("log indices must be unique" in issue for issue in provenance_issues), provenance_issues)
+
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)
         record = self.load_record(records, "accession.json")
@@ -643,6 +664,19 @@ class ControlPlaneTests(unittest.TestCase):
         with patch.object(bootstrap_validate, "ROOT", Path(temporary.name)):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
+
+    def test_amendment_history_cannot_postdate_current_revision_construction(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-amendment-chronology-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        path = root / "records" / "accessions" / "register.json"
+        path.parent.mkdir(parents=True)
+        record = json.loads((REPO_ROOT / "records" / "accessions" / "register.json").read_text(encoding="utf-8"))
+        record["record_control"]["constructor"]["constructed_at"] = "2026-08-01T22:55:00Z"
+        path.write_text(json.dumps(record), encoding="utf-8")
+        with patch.object(bootstrap_validate, "ROOT", root):
+            with self.assertRaises(SystemExit):
+                bootstrap_validate.check_record_controls({path: record})
 
     @staticmethod
     def make_png(extra: bytes = b"") -> bytes:

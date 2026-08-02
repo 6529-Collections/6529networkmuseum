@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc86dd2bcf5dd6a4ab935a698c8562df7adcdf584fe3094240f25161da3a58707"
+      "digest": "0x4de6b3bf5f11c8b2a821cb22282b13645a9599415babfdaf7a285b64ca6506bd"
     },
     "effectiveAt": 1785652200,
     "recordType": "CONDITION_REPORT",
@@ -46,33 +46,36 @@
             "evidence_class": "C",
             "label": "Technical condition boundary",
             "observed_at": "2026-08-01T14:58:31.905115Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001"
           }
         ],
-        "occurred_at": "2026-08-01T14:58:31.905115Z"
+        "occurred_at": "2026-08-01T14:58:31.905115Z",
+        "event_id": "6529NM.2026.001.COND.04.EVENT.condition_assessment.20260801T145831905115Z"
       },
       {
+        "event_id": "6529NM.2026.001.COND.04.EVENT.condition_reassessment.20260802T063000Z",
         "event_type": "condition_reassessment",
         "occurred_at": "2026-08-02T06:30:00Z",
+        "supersedes_event_id": "6529NM.2026.001.COND.04.EVENT.condition_assessment.20260801T145831905115Z",
         "authority_reference": "6529NM.2026.001.TECHNICAL-REVIEW",
         "evidence_refs": [
           {
             "label": "Reviewed technical and condition determination",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "C",
             "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
           },
           {
             "label": "Object-specific retained Art Blocks metadata",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "B",
             "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5"
           },
           {
             "label": "Controlled visual observation",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/visual-observation-record.json",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "C"
           }
@@ -82,27 +85,27 @@
     "evidence_refs": [
       {
         "label": "Reviewed technical and condition determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
         "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
       },
       {
         "label": "Object-specific retained Art Blocks metadata",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "B",
         "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5"
       },
       {
         "label": "Controlled visual observation",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/visual-observation-record.json",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C"
       },
       {
         "label": "Preservation evidence manifest",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/manifest.json",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/manifest.json",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
         "sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415"
@@ -112,7 +115,7 @@
     "object_id": "6529NM.2026.001.04",
     "observed_at": "2026-08-02T06:30:00Z",
     "outcome": "pass_with_conditions: no red condition is identified; the work is accessionable and display-ready with documented network/browser, attribution, monitoring, and fallback conditions while autonomous software preservation remains in progress.",
-    "payload_sha256": "sha256:fc53b2ad75782abf16f8d8fd0364f605c3f02264501ae6b66c1aa954be073f78",
+    "payload_sha256": "sha256:cd251dca9b5ef4d43eb0027f1c402595dd4448daa9fb63d829f48448b90363ac",
     "protocol_state": "Accession-level technical and condition review complete; ongoing software preservation remains in progress.",
     "record_id": "6529NM.2026.001.COND.04",
     "record_status": "reviewed",

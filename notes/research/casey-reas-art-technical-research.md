@@ -4,7 +4,7 @@
 
 **Research date:** 2026-08-01 UTC.
 
-**Scope:** CENTURY #31, #724, and #401; Pre-Process #63; Phototaxis #308; 923 EMPTY ROOMS #713; and Ex Nihilo (Cosmos) #248. The object numbers below are provisional Museum identifiers for the planned accession lot `6529NM.2026.001`; chain custody, legal title, donor instrument, transfer transaction, and final accession status remain separate records to be completed by the registrar.
+**Scope:** CENTURY #31, #724, and #401; Pre-Process #63; Phototaxis #308; 923 EMPTY ROOMS #713; and Ex Nihilo (Cosmos) #248. The object numbers below began as provisional identifiers and are now the adopted identifiers for accession lot `6529NM.2026.001`. Chain custody, title, donor authorization, transfer, rights, condition, and accession status are controlled by the completed linked dossier rather than by this research note.
 
 ## Dated supersession — 2026-08-01T22:55:00Z
 
@@ -14,8 +14,8 @@ Those statements are superseded only as to current gift status: the common
 seven-transfer receipt is verified and the Museum has issued
 `6529NM.2026.001.GAA-01`, a formally effective Gift Acceptance and Accession
 Authorization under the adopted Art Blocks preapproval and Donation Acceptance
-Policy. The current lot therefore records a formally accepted gift while
-remaining `received_onchain` / `not_complete`.
+Policy. At that timestamp, the lot therefore recorded a formally accepted gift
+while remaining `received_onchain` / `not_complete`.
 
 This supersession does not supply a signed deed, legal title opinion, executed
 title binding, copyright or display grant, condition assessment, preservation
@@ -23,6 +23,20 @@ completion, or independent registrar/technical/curatorial review. The original
 research claims and evidence classes remain historically legible below; current
 acceptance and completion limits are controlled by the linked authorization and
 accession records.
+
+## Dated accession resolution — 2026-08-02T06:30:00Z
+
+The 2026-08-01 intake status above is retained as historical sequence and is no
+longer current. The reviewed accession certificate `6529NM-ACC-2026-001`, title
+and rights determination, curatorial review, technical/condition review, and
+register revision now place the lot and all seven objects in `accessioned`
+state. The Museum owns the seven tokens and the donor's full transferable
+interest; Casey REAS's copyright remains separate; the retained object metadata
+supports the reviewed conditional CC BY-NC 4.0 uses. The technical outcome is
+amber `pass_with_conditions`, with no red accession blocker. Autonomous
+generator/dependency preservation, cross-environment verification, and later
+workflow states remain active stewardship rather than incomplete accession
+decisions.
 
 ## How to read this note
 

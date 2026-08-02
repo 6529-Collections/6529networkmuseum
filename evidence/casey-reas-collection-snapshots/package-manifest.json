@@ -1048,8 +1048,8 @@
       {
         "path": "scripts/bootstrap_validate.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
-        "size": 27239
+        "sha256": "sha256:7b2c9493ed8b4c4967a824625a36085232e2ec70965805b0daf1ed09e1029be1",
+        "size": 28409
       },
       {
         "path": "scripts/build_casey_package_manifest.py",
@@ -1126,8 +1126,8 @@
       {
         "path": "tests/test_control_plane.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:644eea171bab75c4e73010a6ac4d38c2dfbe8de2fc0ca9013e02f54c9d79aab7",
-        "size": 57586
+        "sha256": "sha256:baf14620b1014195f85aa571e0f067bc0adc2255ad1d7d9a45f3821fe5283fae",
+        "size": 59905
       }
     ]
   },

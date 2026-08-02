@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x640bcee36ca1626a228f85763c893d29eecb40b9aa9854d8b2eb6a642de1b9e4"
+      "digest": "0x574d7aa2990c898960dc01ebd149ecf28892811853ca9b0ad4d2c7913f326919"
     },
     "effectiveAt": 1785652200,
     "recordType": "RIGHTS_STATEMENT",
@@ -36,26 +36,29 @@
             "evidence_class": "C",
             "label": "Public rights boundary",
             "observed_at": "2026-08-01T14:58:31.905115Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001"
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001"
           }
         ],
-        "occurred_at": "2026-08-01T14:58:31.905115Z"
+        "occurred_at": "2026-08-01T14:58:31.905115Z",
+        "event_id": "6529NM.2026.001.RIGHTS.07.EVENT.rights_assertion.20260801T145831905115Z"
       },
       {
+        "event_id": "6529NM.2026.001.RIGHTS.07.EVENT.rights_amendment.20260802T063000Z",
         "event_type": "rights_amendment",
         "occurred_at": "2026-08-02T06:30:00Z",
+        "supersedes_event_id": "6529NM.2026.001.RIGHTS.07.EVENT.rights_assertion.20260801T145831905115Z",
         "authority_reference": "6529NM.2026.001.ACCESSION-REVIEW",
         "evidence_refs": [
           {
             "label": "Reviewed title and rights determination",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "C",
             "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
           },
           {
             "label": "Object-specific retained Art Blocks metadata",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "B",
             "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc"
@@ -72,14 +75,14 @@
     "evidence_refs": [
       {
         "label": "Object-specific retained Art Blocks metadata",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "B",
         "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc"
       },
       {
         "label": "Reviewed title and rights determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
         "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
@@ -101,61 +104,61 @@
       "reproduction": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial reproduction and sharing with attribution, license notice/link, change marking, no endorsement, and no additional downstream restrictions."
       },
       "publication": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial collection, scholarly, educational, and public communication with the required attribution and notices."
       },
       "exhibition": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial public display and sharing with attribution, license notice/link, no endorsement, and no additional downstream restrictions."
       },
       "print": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial labels, study prints, conservation references, catalogues, and publications; commercial merchandise is not approved."
       },
       "derivative_use": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial adapted material; modifications and prior modifications must be identified when shared."
       },
       "ai_training": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "To the extent copyright permission is required, CC BY-NC 4.0 permits Museum reproduction or adaptation for noncommercial research, cataloguing, conservation, and analysis; commercial model training is not approved."
       },
       "preservation": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial preservation copies in any medium and technical modifications necessary to exercise the licensed rights."
       },
       "migration_emulation": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits technical modifications and noncommercial adaptations needed for migration and emulation, subject to attribution and change marking when shared."
       },
       "accessibility": {
         "grant_status": "granted_with_conditions",
         "observed_at": "2026-08-02T06:30:00Z",
-        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+        "evidence_ref": "https://github.com/6529-Collections/6529networkmuseum/blob/823586e89c365dff26ef598140ef856f96dcd501/evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
         "basis": "CC BY-NC 4.0 permits noncommercial accessible renditions and adaptations with attribution, license notice/link, and change marking."
       }
     },
     "object_id": "6529NM.2026.001.07",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:0a175f895162dcb1251f6806219738521a9b38d6b2bde7e70829c5c2db9a3955",
+    "payload_sha256": "sha256:5fb9f5facf5f5d609b84002ef7b61dd1bb3244694565fbc21d613fec05e9a12a",
     "record_id": "6529NM.2026.001.RIGHTS.07",
     "record_status": "reviewed",
     "record_type": "RIGHTS_STATEMENT",

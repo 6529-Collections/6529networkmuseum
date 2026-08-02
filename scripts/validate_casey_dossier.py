@@ -369,7 +369,11 @@ def validate_evidence_manifest(root: Path) -> list[str]:
     if len(entry_paths) != len(set(entry_paths)) or set(entry_paths) != expected_paths:
         issues.append("Casey raw-evidence manifest must bind exactly the eleven accession evidence files")
     for entry in entries:
-        path = evidence_root / str(entry["path"])
+        relative = entry.get("path")
+        if not isinstance(relative, str):
+            issues.append(f"Casey evidence manifest entry has no path: {entry!r}")
+            continue
+        path = evidence_root / relative
         valid = (
             path.is_file()
             and entry.get("sha256") == hashlib.sha256(path.read_bytes()).hexdigest()
@@ -511,7 +515,15 @@ def validate_intake_stage_legacy(root: Path = ROOT, history_root: Path | None = 
             issues.append(f"Casey record must retain unsigned Stream placeholders: {path.relative_to(root)}")
         if any(STALE_BRANCH in text for text in nested_strings(record)):
             issues.append(f"Casey record has a mutable construction-branch URL: {path.relative_to(root)}")
-
+        if any(
+            marker in text
+            for text in nested_strings(payload)
+            for marker in (
+                "https://github.com/6529-Collections/6529networkmuseum/blob/main/",
+                "https://github.com/6529-Collections/6529networkmuseum/tree/main/",
+            )
+        ):
+            issues.append(f"Casey payload evidence URL must be commit-pinned: {path.relative_to(root)}")
     lot_record = records.get(CASEY_ID)
     if lot_record is None:
         return issues + ["Casey accession lot record is missing"]
@@ -969,7 +981,7 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         reviewer = payload.get("reviewer")
         if payload.get("record_status") != "reviewed" or payload.get("review_status") != "reviewed" or not isinstance(reviewer, dict):
             issues.append(f"Casey accession record must be substantively reviewed: {path.relative_to(root)}")
-        if reviewer == payload.get("constructor") or reviewer.get("id") == payload.get("constructor", {}).get("id"):
+        elif reviewer == payload.get("constructor") or reviewer.get("id") == payload.get("constructor", {}).get("id"):
             issues.append(f"Casey constructor/reviewer separation is invalid: {path.relative_to(root)}")
         signature_scheme = record.get("envelope", {}).get("signatureScheme")
         signature_digest = record.get("envelope", {}).get("signatureHash", {}).get("digest")
@@ -977,6 +989,15 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey repository record must remain unsigned until on-chain execution: {path.relative_to(root)}")
         if any(STALE_BRANCH in text for text in nested_strings(record)):
             issues.append(f"Casey record has a mutable construction-branch URL: {path.relative_to(root)}")
+        if any(
+            marker in text
+            for text in nested_strings(payload)
+            for marker in (
+                "https://github.com/6529-Collections/6529networkmuseum/blob/main/",
+                "https://github.com/6529-Collections/6529networkmuseum/tree/main/",
+            )
+        ):
+            issues.append(f"Casey payload evidence URL must be commit-pinned: {path.relative_to(root)}")
 
     lot_record = records.get(CASEY_ID)
     accession_record = records.get("6529NM-ACC-2026-001")
@@ -1146,7 +1167,34 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         or "full" not in authorization.get("donor_authority_declaration", {}).get("statement", "").lower()
     ):
         issues.append("Casey gift authorization must record the full gift and its completed accession resolution")
-    for basis in authorization.get("governing_basis", []):
+    governing_basis = authorization.get("governing_basis")
+    expected_basis_identity = [
+        (
+            basis["basis_type"],
+            basis["decision_id"],
+            basis["wave_serial"],
+            basis["drop_id"],
+            basis["source_uri"],
+        )
+        for basis in GOVERNING_BASIS
+    ]
+    actual_basis_identity = [
+        (
+            basis.get("basis_type"),
+            basis.get("decision_id"),
+            basis.get("wave_serial"),
+            basis.get("drop_id"),
+            basis.get("source_uri"),
+        )
+        for basis in governing_basis
+        if isinstance(basis, dict)
+    ] if isinstance(governing_basis, list) else []
+    if actual_basis_identity != expected_basis_identity:
+        issues.append("Casey governing basis must bind exactly decisions 1052156 and 1052812 once each")
+    for basis in governing_basis if isinstance(governing_basis, list) else []:
+        if not isinstance(basis, dict):
+            issues.append("Casey governing basis must contain decision records")
+            continue
         if (
             basis.get("observed_at") != "2026-08-01T15:01:05Z"
             or basis.get("effect_basis") != "reviewed_governance_record"
@@ -1172,7 +1220,9 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         chain = payload.get("chain_identity", {})
         if payload.get("title") != identity.get("title") or chain.get("caip19") != identity.get("caip19") or chain.get("custody_receipt_transaction") != RECEIPT_TRANSACTION:
             issues.append(f"Casey object chain identity is invalid: {object_id}")
-        if payload.get("current_state") != "accessioned" or payload.get("state_history", [])[-1].get("state") != "accessioned":
+        state_history = payload.get("state_history")
+        valid_state_history = isinstance(state_history, list) and bool(state_history) and all(isinstance(entry, dict) for entry in state_history)
+        if payload.get("current_state") != "accessioned" or not valid_state_history or state_history[-1].get("state") != "accessioned":
             issues.append(f"Casey object must end in accessioned state: {object_id}")
         title_binding = payload.get("title_binding", {})
         if title_binding.get("status") != "executed" or title_binding.get("transfer_transaction") != RECEIPT_TRANSACTION or title_binding.get("object_id") != object_id:
