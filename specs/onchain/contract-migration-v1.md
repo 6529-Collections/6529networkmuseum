@@ -426,6 +426,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
 | Governance-executor binding domain | `6529networkmuseum.governance-executor-binding.v1` | `0xc36068b55c238ed7d9935be44bdbe89a03cee1aaacccd5c0b739c1b40f5e5b06` |
+| Initial-authority artifact domain | `6529networkmuseum.initial-authority-artifact.v1` | `0x30f33e8eab225ed59c69940c862e794a4d87ebd05fb31cdbae4b1a8b93b39733` |
 | Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
@@ -1277,11 +1278,13 @@ family revision, family-grant revision, and `authorityRevision` in their audit
 state.
 
 The constructor separately binds a nonzero initial governance executor at
-executor revision 1 and admits/activates the initial authority-provider
-TargetRelease. The executor may be the external Museum Safe; it is an account
-that calls the registry directly, not a TargetRelease, release dependency, or
-runtime-policy target. The constructor does not inspect its code or signer
-list and does not hardcode either. `setGlobalRoleGrant` is thereafter
+executor revision 1 but leaves the registry inert at initialization state `0`.
+The executor may be the external Museum Safe; it is an account that calls the
+registry directly, not a TargetRelease, release dependency, or runtime-policy
+target. The constructor does not inspect its code or signer list and does not
+hardcode either. A one-shot `activateInitialAuthority` call establishes the
+first authority only after the registry address exists and the address-bound
+release attestations have been produced. `setGlobalRoleGrant` is thereafter
 authority-admin controlled by the current executor, append-only by role
 revision, and emits the exact role ID, account, enabled state, authority
 revision, and executor revision. A role grant cannot alter a record-family
@@ -1652,7 +1655,7 @@ poisoning the codehash key.
 Quarantine is also a release-evidence revocation: the authority-admin release
 gate records the affected evidence hash, reason hash, and revocation time in
 its signed audit bundle, and the contract refuses that release ID at every
-subsequent target admission, queue, execution, constructor, and successor
+subsequent target admission, initial activation, queue, execution, and successor
 check. A replacement must use a new release ID, a new conformance-document
 hash, a new evidence bundle, and the exact `previousReleaseId` commitment; the
 old code hash may be reused only after that new row is independently admitted.
@@ -1694,7 +1697,7 @@ and declared EIP-1167, EIP-1967 implementation/beacon/admin-slot, beacon, and
 diamond upgrade patterns. Thus a target has no proxy/delegatecall, creation,
 self-destruct, metamorphic, or arbitrary-call upgrade path.
 
-At admission, queue, execution, constructor activation, and successor storage,
+At admission, initial activation, queue, execution, and successor storage,
 the registry MUST:
 
 1. require nonzero code at the exact `TargetRelease.target`, size at most
@@ -1727,7 +1730,7 @@ the registry MUST:
    human-readable list. Only declared static-call dependencies may support a
    target; the source audit and capability/probe commitments MUST account for
    each one; no undeclared external dependency may be relied on; and
-5. at release admission and again before constructor activation, authority
+5. at release admission and again before initial activation, authority
    use, authority queue/execution, and successor storage, load every persisted
    row, recompute all row/set hashes, require the exact stored purpose ID,
    require nonzero code with unchanged direct `extcodehash`, require the exact
@@ -1898,6 +1901,10 @@ executor address and both revisions and revalidates the active provider's
 executor-bound capability; current-pointer replacement cannot reactivate an
 old executor. The complete current and pending rows are exposed by
 `governanceExecutorBinding()` and `pendingGovernanceExecutor()`.
+Before initial activation, the current view exposes only the constructor-bound
+executor/evidence at revision 1 with zero capability, binding, and authority
+revision; that pre-initialization row authorizes only the one-shot activation
+selector and cannot satisfy either closed global-role check.
 
 `setSuccessor` is a one-way post-freeze transition whose input stores the same
 complete target commitment. It is authorized only by the registry's direct
@@ -2286,6 +2293,30 @@ interface INetworkMuseumRegistryV1 {
         bytes32 supersessionReasonHash;
     }
 
+    struct TargetReleaseInput {
+        uint8 targetKind;
+        address target;
+        bytes32 releaseId;
+        bytes32 codeHash;
+        bytes32 runtimePolicyHash;
+        bytes32 releaseAttestorPolicyHash;
+        bytes32 releaseAttestorSignerSetHash;
+        TargetDependency[] externalDependencies;
+        bytes32 sourceCommit;
+        bytes32 sourceTreeHash;
+        bytes32 artifactHash;
+        bytes32 conformanceDocumentHash;
+        bytes32 signedDocumentHash;
+        address[] releaseAttestors;
+        bytes[] releaseAttestorSignatures;
+        bytes4 requiredInterfaceId;
+        bytes32 expectedModuleVersion;
+        bytes32 protocolVersion;
+        bytes32 streamCompatibilityCommit;
+        bytes32 previousReleaseId;
+        bytes32 supersessionReasonHash;
+    }
+
     struct TransitionTargetInput {
         address target;
         bytes32 expectedCodeHash;
@@ -2391,6 +2422,8 @@ interface INetworkMuseumRegistryV1 {
     function governanceExecutorRevision() external view returns (uint64);
     function governanceExecutorBinding() external view returns (GovernanceExecutorState memory);
     function pendingGovernanceExecutor() external view returns (GovernanceExecutorState memory);
+    function initializationState() external view returns (uint8);
+    function initialAuthorityArtifactCommitment() external view returns (bytes32);
     function releaseAttestorPolicyHash() external view returns (bytes32);
     function releaseAttestorSignerSetHash() external view returns (bytes32);
     function releaseAttestorSigner(uint256 index) external view returns (address);
@@ -2452,6 +2485,8 @@ interface INetworkMuseumRegistryV1 {
         external;
     function recordFamilyGrant(bytes32 familyId, uint8 authorizationClass, address account)
         external view returns (bool enabled, uint64 revision, uint64 authorityRevision);
+    function activateInitialAuthority(TargetReleaseInput calldata release,
+        TransitionTargetInput calldata target) external;
     function setAuthority(TransitionTargetInput calldata target) external;
     function executeAuthority() external;
     function cancelAuthority() external;
@@ -2623,6 +2658,7 @@ implementation cannot accidentally authorize an overload:
 | `0x29f319b0` `recordMuseumRecord((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,uint8,bytes32)` and the payload/by-signature/batch write selectors | `requireRecordWriter(familyId, authorizationClass, signer)` using the record type's unique class and current family revision; `bySig` additionally requires a valid signer and signed class/revision | Subject pollution is prevented by record-type policy: external-asset identity records require a previously registered subject, and every other subject namespace requires an admitted schema/profile. |
 | `0x20f3cc85` `recordMuseumRecordBySig((bytes32,bytes32,(uint16,bytes,bytes32),string,bytes32,bytes32,(uint16,bytes,bytes32),uint64),bytes32,bytes32,bytes32,address,uint8,uint64,uint256,uint64,bytes,uint8,bytes32,bytes)` | Same family writer primitive as direct writes plus valid relayed signature | `authorizationClass` and `familyRevision` are signed and must equal the unique record-type mapping/current family state. |
 | `0xab6627c3` `setGlobalRoleGrant(bytes32,address,bool)` | Direct current governance executor under the closed authority-admin binding and active authority | The role ID is closed-world; the two executor-derived role IDs reject mutation; each ordinary change increments the role revision and records both control revisions. |
+| `0x5e798174` `activateInitialAuthority((uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32),(address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` | Constructor-bound initial governance executor, only at initialization state `0`; no authority-provider call authorizes the caller | Sets state `1` before any external call, verifies the constructor-pinned address-independent artifact commitment and the complete registry/address-bound 2-of-3 release, admits that first release, establishes both authority/executor bindings atomically, sets state `2` last, and can never execute again. |
 | `0x93936f62` `admitTargetRelease(uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor under the closed authority-admin binding and active authority before freeze | The release history is append-only; dependency rows are persisted and ABI-committed; the registry recomputes the release identity and chain/address-bound EIP-712 digest, then requires two sorted governed signers and valid signatures before storing the row. |
 | `0x85968ef0` `targetRelease(uint8,address,bytes32)` / `0x288b2e93` `targetReleaseAtRevision(uint8,address,bytes32,uint64)` / `0xb9bc97a1` `targetReleaseById(bytes32)` / `0x1dcd55b2` `targetReleaseDependencyCount(bytes32)` / `0x1efe53c1` `targetReleaseDependency(bytes32,uint256)` / `0xda6d916f` `quarantineTargetRelease(uint8,address,bytes32,bytes32)` | Historical reads for any caller / quarantine by direct current governance executor under the closed authority-admin binding and active authority before freeze | The historical row and dependency rows are immutable; address A evidence cannot authorize identical code at address B; quarantine is terminal with a nonzero reason and a new governed revision is required. |
 | `0x81a86ff4` `setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))` (`TransitionTargetInput`) | Direct current governance executor under the closed authority-admin binding and active authority | Queues a 48-hour contract-only authority-provider transition with code hash, ERC-165/interface probe, executor-bound capability commitment, predecessor linkage, zero expected module version, evidence hash, authority revision, proposer, and time. |
@@ -2984,6 +3020,12 @@ event TargetReleaseDependencyStored(bytes32 indexed releaseId, uint256 indexed i
 event TargetReleaseQuarantined(uint8 indexed targetKind, address indexed target, bytes32 indexed codeHash,
     bytes32 releaseId, uint64 revision, bytes32 reasonHash,
     uint64 authorityRevision, address actor, address authority);
+event InitialAuthorityActivated(address indexed authority, bytes32 indexed releaseId,
+    address indexed governanceExecutor, bytes32 initialAuthorityArtifactCommitment,
+    bytes32 expectedCodeHash, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
+    bytes32 interfaceProbeHash, bytes32 capabilityCommitment, bytes32 evidenceHash,
+    uint64 authorityRevision, uint64 governanceExecutorRevision,
+    uint64 activatedAt, uint64 activatedBlock);
 event AuthorityChangeQueued(address indexed pendingAuthority, bytes32 expectedCodeHash,
     bytes32 releaseId, bytes32 conformanceDocumentHash, bytes4 requiredInterfaceId,
     bytes32 interfaceProbeHash, bytes32 capabilityCommitment,
@@ -3081,6 +3123,7 @@ redundant audit event are all identified here.
 |---|---|---|---|
 | Canonicalizer is immutable, bounded, and non-proxy | `admitAssetProfile`, `AssetProfile` | governed exact `(profileId, address, extcodehash, conformance-input hash)` allowlist; reviewed source/toolchain evidence; code size, defined executable-region scan, forbidden-opcode scan, mode `0`, zero implementation hash, exact gas/return/input limits, and static canonicalize equality at admission and registration | `AssetProfileAdmitted`, `ExternalAssetRegistered` |
 | Canonicalizer opcode policy is revision-pinned | `AssetProfile.documentHash`, `canonicalizerVersionId` | Cancun opcode table, exact executable region/CBOR treatment, PUSH/JUMPDEST boundary rules, reserved/unknown fail-closed, future revision requires new profile/version/allowlist | `AssetProfileAdmitted` and deployment manifest |
+| Initial authority activation is acyclic and one-shot | `initializationState`, `initialAuthorityArtifactCommitment`, `activateInitialAuthority` | signature/target-address-free constructor; address-independent artifact precommitment; post-deployment registry-bound 2-of-3 release; states `0 -> 1 -> 2`; all other mutators blocked before `2`; full rollback on failure; exact constructor/executor/release/target bindings | `TargetReleaseAdmitted`, dependency events, `InitialAuthorityActivated`, complete authority/executor state |
 | Authority target is accepted only after proof | Target-release row/dependency views, `quarantineTargetRelease`, `setAuthority(TransitionTargetInput)`, `pendingAuthority`, `authorityState()` | canonical evidence schema/JCS hash, 2-of-3 signatures, two availability observations, source SHA-1/tree validation, two-build equality, fixed non-proxy runtime scanner, persisted dependency row/ABI-set recomputation plus code/interface checks, bounded target probes, context-bound `IMuseumAuthorityProviderV1` capability handshake, predecessor/linkage/version/status/evidence checks | `TargetReleaseAdmitted`, `TargetReleaseQuarantined`, `AuthorityChangeQueued`, `AuthorityChangeCancelled`, `RegistryAuthorityUpdated` |
 | Authority execution is safe against target mutation | `executeAuthority` | ETA; repeat every stored target and dependency code/interface/purpose-ID/commitment check plus linkage/probe; atomically refresh both authority/executor cross-bound capability rows | `RegistryAuthorityUpdated`, `GovernanceExecutorAuthorityRebound`; pending state remains on failed execution |
 | Governance executor is separate and replaceable | executor address/revision/current/pending views; `setGovernanceExecutor`, `executeGovernanceExecutor`, `cancelGovernanceExecutor` | direct current caller; closed derived roles; 48-hour ETA; provider capability recomputed over exact new executor/revision and atomically copied to `AuthorityState`; Safe is neither TargetRelease nor dependency | executor transition events and complete current/pending/authority cross-bound state |
@@ -3187,12 +3230,16 @@ present), record hash, generator, and both source commits.
 2. Admit governed record families with exact kind and allowed-class bitmaps;
    map each record type to exactly one class. Shared Stream record types use
    pinned Stream classes; Museum-native types use Museum-only families.
-3. Bind the Museum Safe as the direct governance-executor account, separately
-   admit the immutable authority-provider TargetRelease, and grant any
-   migration operator only its required family classes. The Safe is not a
-   TargetRelease or provider dependency. No migration operator gets artist,
-   owner, rights, governance, or independent-attestor authority by implication.
-4. Record the authority contract/code hash, interface/probe commitment,
+3. Govern the Museum Safe as the constructor-bound direct
+   governance-executor account, pin the address-independent initial-authority
+   artifact commitment and release-attestor policy, and prepare the
+   post-deployment activation package. The Safe is not a TargetRelease or
+   provider dependency. No migration operator gets artist, owner, rights,
+   governance, or independent-attestor authority by implication.
+4. After inert deployment, deploy and verify the provider, collect the
+   registry-bound 2-of-3 release attestations, execute the one-shot activation,
+   then grant any migration operator only its required family classes. Record
+   the authority contract/code hash, interface/probe commitment,
    context-bound capability commitment, role-domain/selector-set hash, active
    `authorityRevision`, and full `authorityState()` in the deployment manifest.
    Rotate providers through append-only events and re-run the capability
@@ -3200,41 +3247,70 @@ present), record hash, generator, and both source commits.
 
 ### Phase 2 — deploy V1
 
-The constructor parameters include the exact separate inputs
+The constructor parameters include the exact separate nonzero inputs
 `address initialGovernanceExecutor`,
 `bytes32 initialGovernanceExecutorEvidenceHash`, and
-`bytes32 initialGovernanceExecutorCapabilityCommitment`, all nonzero, plus the initial authority-kind
-`TargetRelease` row and its fully probed authority-provider target, nonzero
+`bytes32 initialAuthorityArtifactCommitment`; nonzero
 `bytes32 releaseAttestorPolicyHash` plus three strictly increasing
 `address releaseAttestorSigner0..2` inputs from the separately
-governance-approved deployment policy; the constructor derives and stores the
-signer-set commitment, the
-immutable Stream compatibility commit (`bytes32`), `moduleSupersedes` (zero
-for the first deployment), and a zero successor. The executor account is not
-runtime-scanned. The constructor verifies the initial row's exact two EIP-712
-attestor signatures against the predicted deployment address; production
-deployment therefore MUST use a governance-pinned CREATE2 address or another
-deterministically precomputed constructor address. The constructor stores the release row
-before activating authority by calling the one internal, non-reentrant
-`_admitAndValidateTargetReleaseV1` primitive. `admitTargetRelease`,
-`setAuthority`, `setSuccessor`, and constructor activation MUST call that same
-primitive with a transition-context enum; no path may copy only part of its
-checks or call a setter as a weaker substitute. The primitive's
-machine-checkable checklist is exactly:
+governance-approved deployment policy; the immutable Stream compatibility
+commit (`bytes32`); and `moduleSupersedes` (zero for the first deployment).
+The constructor derives and stores the signer-set commitment, binds the
+executor at revision 1 with capability/binding commitments temporarily zero,
+sets initialization state `0` (`UNINITIALIZED`), and stores zero authority and
+successor state. It performs no external call and receives no target address,
+release ID, conformance/signed-document hash, interface probe, capability
+commitment, EIP-712 digest, signature, or signature commitment.
 
-1. validate the closed target kind, nonzero/revision-1 first-row fields,
-   right-aligned source SHA-1, evidence-schema and release-attestor-policy
-   schema hashes, the exact policy JCS and signer-set ABI commitments against
-   the constructor immutables, the registry/chain-bound 2-of-3 EIP-712
-   signatures from that governed
-   set, two availability observations, and the target runtime-policy hash;
+The constructor-pinned artifact commitment is exactly
+`keccak256(abi.encode(MUSEUM_INITIAL_AUTHORITY_ARTIFACT_DOMAIN,
+runtimePolicyHash, sourceCommit, sourceTreeHash, artifactHash,
+requiredInterfaceId, bytes32(0), bytes32(0), bytes32(0), bytes32(0),
+bytes32(0)))`, where the five trailing zero values are respectively the
+authority release's `expectedModuleVersion`, `protocolVersion`,
+`streamCompatibilityCommit`, `previousReleaseId`, and
+`supersessionReasonHash`. It deliberately excludes the target/registry
+addresses, release ID, dependency-address set, evidence-document hashes,
+attestation digest/signatures, probe, and capability commitment. The committed
+runtime artifact therefore MUST be address-independent; an authority runtime
+that embeds the registry address in immutable bytecode is not eligible for
+initial activation. This preimage is completely reproducible before computing
+the registry init-code hash and cannot introduce a CREATE2 fixed-point
+dependency.
+
+After deployment, the initial executor submits one
+`activateInitialAuthority(TargetReleaseInput,TransitionTargetInput)` call. The
+release attestations are produced only after the actual chain ID, registry
+address, and authority-provider address are known. On entry the function MUST
+require `msg.sender == initialGovernanceExecutor`, executor revision 1,
+initialization state `0`, zero authority/authority revision/successor, and
+unchanged constructor immutables. It sets state `1` (`INITIALIZING`) before any
+external call. Reentrancy and every other mutator reject states `0` and `1`;
+a reverting activation atomically restores state `0`, while a successful call
+sets state `2` (`ACTIVE`) only after every release, dependency, target,
+authority, and executor write and event is complete. No function can reset the
+state or invoke activation from state `2`.
+
+`activateInitialAuthority`, ordinary `admitTargetRelease`, `setAuthority`, and
+`setSuccessor` MUST call the same internal, non-reentrant
+`_admitAndValidateTargetReleaseV1` primitive with a transition-context enum; no
+path may copy only part of its checks or call a setter as a weaker substitute.
+The activation primitive's machine-checkable checklist is exactly:
+
+1. recompute the constructor-pinned artifact commitment from the supplied
+   release and require equality; validate authority kind, nonzero/revision-1
+   first-row fields, right-aligned source SHA-1, evidence-schema and
+   release-attestor-policy schema hashes, the exact policy JCS and signer-set
+   ABI commitments against the constructor immutables, the registry/chain-bound
+   2-of-3 EIP-712 signatures from that governed set, two availability
+   observations, and the target runtime-policy hash;
 2. require `artifactHash == extcodehash(target) ==` both independent build
    runtime hashes, code size within 24,576 bytes, and the complete
    `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` scanner result and the exact
    declared dependency rows: validate their order/count/purpose IDs and exact
    dependency runtime-policy hashes, direct code hashes, complete no-proxy
    dependency-policy scans, and ERC-165 interfaces; recompute the ABI row/set
-   commitment and persist the rows by release ID;
+   commitment and stage the rows by release ID;
 3. require the exact required ERC-165 interface and exact return lengths for
    every probe, with `TARGET_PROBE_GAS_LIMIT` and
    `TARGET_PROBE_RETURN_BYTES_LIMIT` enforced per call;
@@ -3243,22 +3319,31 @@ machine-checkable checklist is exactly:
    and `canAuthorize` to equal the initial-row formulas;
 5. recompute `interfaceProbeHash`, the authority and initial-executor
    `capabilityCommitment` values, and
-   `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` from the same stored fields and exact
-   initial executor address/revision; require equality with the supplied
-   initial executor capability commitment and derive its binding commitment;
-6. require `status == 1`, `predecessorRegistry == address(this)`,
+   `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` from the same validated fields, the now
+   known registry address, and the exact initial executor address/revision;
+   require equality with the supplied transition target and derive the
+   executor binding commitment on-chain;
+6. require `status == 1`, `predecessorRegistry == address(this)`, the provider's
    `authorityRevision() == 1`, executor revision 1, and no successor; then
-   store the full row, `AuthorityState`, and `GovernanceExecutorState`. The
-   executor obtains the two closed direct-call roles from that binding; the
-   provider receives no role grant.
+   atomically store the full release/dependency rows, `AuthorityState`, and
+   completed `GovernanceExecutorState`, emit the release and initial-authority
+   events, and set initialization state `2` last. The executor obtains the two
+   closed direct-call roles from that binding; the provider receives no role
+   grant.
 
-The constructor MUST fail atomically if any checklist item fails, and the
-deployed bytecode MUST expose the same checklist through the ordinary
-admission primitive (an implementation may share an internal library but may
-not duplicate or weaken it). It MUST NOT accept an arbitrary caller hash or
-evidence value. No successor target may be set at deployment. The registry is
-not a proxy. A later implementation is a new immutable contract with
-`streamCompatibilityCommit` and `moduleSupersedes` metadata.
+Any checklist failure leaves an inert, retryable deployment with no admitted
+release or authority state; governance may retry only a complete valid package
+or abandon that address. No ordinary mutator, freeze, or successor path is
+available before state `2`. The deployed bytecode MUST expose the same checklist
+through the ordinary admission primitive (an implementation may share an
+internal library but may not duplicate or weaken it), and MUST NOT accept an
+arbitrary caller hash or evidence value. A CREATE2 deployment MUST compute and
+govern the address from signature-free, target-address-free init code, deploy
+the inert registry, deploy/verify the address-bound provider if necessary, and
+only then collect the registry-bound attestations and activate. No successor
+target may be set at deployment. The registry is not a proxy. A later
+implementation is a new immutable contract with `streamCompatibilityCommit`
+and `moduleSupersedes` metadata.
 
 Checklist items 1 and 2 have two explicit inputs: the signed release-evidence
 bundle is validated by the release gate before the transaction, and the
@@ -3856,6 +3941,11 @@ externalDependencyHash = 0x9b07c036f5d4638634e2b73bd0fa079ea1b1e78ede7e9475a952a
 releaseAttestorPolicyHash = 0xf57a8f644ffb7acc960d2aa9b86b8381eda086e6e8ce1300b17fecb30c4f35e8
 releaseAttestorSignerSetHash = 0x4c22201c9dce9842bd7393223caa67d3383f802013b6d3fb6530f9086477046c
 releaseId = 0xdeb8472c3dfa2af9d997baf62026478c0cf5b4b8439ac94cdda47a48ac4b48e0
+EIP712 domain type = EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)
+EIP712 name = 6529NetworkMuseumTargetRelease
+EIP712 version = 1
+EIP712 attestation type = MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)
+release signature set domain = 6529networkmuseum.release-signature-set.v1
 D0ConformanceDocumentHash = 0x8b05f34d37ea7478df221e0e7478df668bf0df5cf3758f096677520003059a6f
 D1SignedDocumentHash = 0x0242d2cb6bbedce063eccbf4ade87df5f255de26e661884ac0c93f44b8d754cc
 releaseAttestationDigest = 0x682aae357582c8d22cd11f69c58abc9d62ef5847e5b1cd916564768a733a688d
@@ -4075,6 +4165,14 @@ below pass and Museum governance explicitly approves the deployment:
 13. **Governance gate:** deployment address, authority provider, write policy,
     migration scope, and non-goals are explicitly adopted; current signer
     names are not hard-coded.
+14. **Initialization/CREATE2 gate:** constructor init code contains no target or
+    registry-address-bound release ID, evidence hash, probe, capability,
+    digest, or signature; the artifact commitment is independently reproduced;
+    the governed CREATE2 address is computed from those inert inputs; all
+    non-activation mutators reject states `0` and `1`; a reentrant or failing
+    activation leaves state `0` and no partial release/dependency/authority
+    storage; and one successful, exact-head, registry-bound activation advances
+    `0 -> 1 -> 2`, emits complete audit events, and rejects every replay.
 
 ## 15. Non-goals
 

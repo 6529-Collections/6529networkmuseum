@@ -568,6 +568,8 @@ $selectorGolden = [ordered]@{
   'governanceExecutorRevision()' = '0x533620f9'
   'governanceExecutorBinding()' = '0x5bcde725'
   'pendingGovernanceExecutor()' = '0x737aa558'
+  'initializationState()' = '0xc6731681'
+  'initialAuthorityArtifactCommitment()' = '0x248d469e'
   'releaseAttestorPolicyHash()' = '0x274ac640'
   'releaseAttestorSignerSetHash()' = '0xd66c61c0'
   'releaseAttestorSigner(uint256)' = '0xbb295d02'
@@ -595,6 +597,7 @@ $selectorGolden = [ordered]@{
   'targetReleaseDependencyCount(bytes32)' = '0x1dcd55b2'
   'targetReleaseDependency(bytes32,uint256)' = '0x1efe53c1'
   'quarantineTargetRelease(uint8,address,bytes32,bytes32)' = '0xda6d916f'
+  'activateInitialAuthority((uint8,address,bytes32,bytes32,bytes32,bytes32,bytes32,(address,bytes32,bytes32,bytes4,bytes32)[],bytes32,bytes32,bytes32,bytes32,bytes32,address[],bytes[],bytes4,bytes32,bytes32,bytes32,bytes32,bytes32),(address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x5e798174'
   'setAuthority((address,bytes32,bytes4,bytes32,bytes32,address,bytes32,bytes32))' = '0x81a86ff4'
   'executeAuthority()' = '0xc9dc7d0d'
   'cancelAuthority()' = '0xf0edf065'
@@ -642,7 +645,11 @@ foreach($signature in $selectorGolden.Keys) {
 }
 ```
 
-The authority capability selector-set hash was recomputed after binding the
+The one-shot `activateInitialAuthority` selector is deliberately outside the
+authority capability selector set: it is available only while no authority
+exists, only to the constructor-bound executor, and closes permanently when
+initialization succeeds. The authority capability selector-set hash was
+recomputed after binding the
 governed target-release admission selector and including both provider-gated
 interface/profile admission selectors plus the direct governance-executor
 mirror-link convergence route. The exact sorted

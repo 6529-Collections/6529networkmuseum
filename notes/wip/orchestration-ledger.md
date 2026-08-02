@@ -901,3 +901,26 @@ one expected Windows named-pipe skip, full validation, deterministic manifest,
 Casey replay (3,300 tokens, 35,088 traits, 79 raw files, 3,327 requests, five
 descriptors), and `codex-diff-check`. A committed exact head and fresh review
 remain required.
+
+## 2026-08-02 - evidence-hash amendment and inert activation design
+
+Append-only amendment: the evidence-schema hash
+`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`
+appearing in an earlier working checkpoint is stale and MUST NOT be used. It is
+superseded by the canonical governed hash
+`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
+This amendment changes no checked manifest or fixture; it only makes the WIP
+history's supersession explicit.
+
+Exact-head review of `5afcbe7` found that constructor verification of
+registry-address-bound EIP-712 signatures is circular when those signature
+bytes are themselves part of CREATE2 init code. That head was not merged. The
+specification now requires a target-address/signature-free inert constructor,
+an address-independent initial-authority artifact commitment, and a one-shot
+post-deployment `activateInitialAuthority` transaction. Initialization states
+`0`, `1`, and `2` are explicit; all other mutators reject states `0` and `1`;
+activation sets state `1` before any external call and state `2` last; and any
+failure rolls all release, dependency, authority, and executor writes back to
+state `0`. The fully registry/chain-bound 2-of-3 release signatures are made
+only after the actual deployment address exists. Fresh regeneration,
+validation, exact-head review, CI, and merge remain required.

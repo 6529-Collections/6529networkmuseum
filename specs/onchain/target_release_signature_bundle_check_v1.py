@@ -57,13 +57,20 @@ def k(value: bytes) -> bytes:
     return digest.digest()
 
 
-EIP712_DOMAIN_TYPEHASH = k(b"EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)")
-EIP712_NAME_HASH = k(b"6529NetworkMuseumTargetRelease")
-EIP712_VERSION_HASH = k(b"1")
-TARGET_RELEASE_ATTESTATION_TYPEHASH = k(
-    b"MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)"
+EIP712_DOMAIN_TYPE = "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+EIP712_NAME = "6529NetworkMuseumTargetRelease"
+EIP712_VERSION = "1"
+TARGET_RELEASE_ATTESTATION_TYPE = (
+    "MuseumTargetReleaseAttestation(bytes32 releaseId,bytes32 conformanceDocumentHash,"
+    "bytes32 signedDocumentHash,bytes32 releaseAttestorPolicyHash,bytes32 releaseAttestorSignerSetHash)"
 )
-RELEASE_SIGNATURE_SET_DOMAIN = k(b"6529networkmuseum.release-signature-set.v1")
+RELEASE_SIGNATURE_SET_DOMAIN_LITERAL = "6529networkmuseum.release-signature-set.v1"
+
+EIP712_DOMAIN_TYPEHASH = k(EIP712_DOMAIN_TYPE.encode("ascii"))
+EIP712_NAME_HASH = k(EIP712_NAME.encode("ascii"))
+EIP712_VERSION_HASH = k(EIP712_VERSION.encode("ascii"))
+TARGET_RELEASE_ATTESTATION_TYPEHASH = k(TARGET_RELEASE_ATTESTATION_TYPE.encode("ascii"))
+RELEASE_SIGNATURE_SET_DOMAIN = k(RELEASE_SIGNATURE_SET_DOMAIN_LITERAL.encode("ascii"))
 
 
 def release_attestation_digest(
@@ -171,6 +178,14 @@ def validate_entry_identity(entries: list[dict[str, str]]) -> None:
 
 def validate_documentation(reference: dict, evidence: dict) -> None:
     spec = SPEC_PATH.read_text(encoding="utf-8")
+    for required_literal in (
+        EIP712_DOMAIN_TYPE,
+        f"EIP712 name = {EIP712_NAME}",
+        f"EIP712 version = {EIP712_VERSION}",
+        TARGET_RELEASE_ATTESTATION_TYPE,
+        RELEASE_SIGNATURE_SET_DOMAIN_LITERAL,
+    ):
+        assert required_literal in spec, required_literal
     blocks = re.findall(
         r"<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_BEGIN -->(.*?)<!-- TARGET_RELEASE_BUNDLE_VECTOR_V1_END -->",
         spec,
