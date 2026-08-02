@@ -81,6 +81,23 @@ the nonce-revocation typehash is
 The EIP-712 domain is name `6529StreamOwnerRecords`, version `1`, chain ID,
 and the satellite address as verifying contract.
 
+Owner-record `subjectId` is mandatory derived identity, not arbitrary input:
+
+```solidity
+bytes32 constant STREAM_SUBJECT_TOKEN_V1 =
+    0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e;
+
+bytes32 subjectId = keccak256(abi.encode(
+    STREAM_SUBJECT_TOKEN_V1,
+    uint256(block.chainid),
+    address(core),
+    uint256(tokenId)
+));
+```
+
+Museum bilateral vectors and any future adapter must recompute this value and
+reject a declared subject that differs.
+
 These are published draft semantics, not proof of an implemented interface.
 The Museum contract specification matches them bilaterally while keeping the
 deployment gate closed until Stream provides source, a deployment, an exact
@@ -95,6 +112,7 @@ round-trip. A synthetic EIP-712 vector cannot satisfy that gate.
 | SHA-256 algorithm | `HASH_SHA256` | `2` |
 | JSON canonicalization | `RFC8785_JCS` | `0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044` |
 | Owner record type | `ACCESSION` | `0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb` |
+| Token subject domain | `6529STREAM_SUBJECT_TOKEN_V1` | `0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e` |
 | Accession schema | `STREAM_ACCESSION_V1` | `0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86` |
 | Record type | `WORK_DESCRIPTION` | `0x3b172fd545b59c0d525256a31f44b4304ca8e7e06892d1ba171dff45a7f1a9e6` |
 | Work-description schema | `STREAM_WORK_DESCRIPTION_V1` | `0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c` |

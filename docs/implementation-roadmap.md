@@ -153,3 +153,8 @@ draft selectors, two typehashes, and a synthetic signing vector while keeping
 the deployment-convergence gate closed. Source-backed implementation,
 deployed-runtime verification, exact stored-hash semantics, read surfaces,
 nonce tests, and direct/relayed write-read rehearsals remain prerequisites.
+
+The owner-record conformance vector additionally derives its token subject from
+the pinned `STREAM_SUBJECT_TOKEN_V1`, chain ID, synthetic Stream Core, and token
+ID. A free-form subject is invalid even when the ABI and EIP-712 digest are
+otherwise internally coherent.

@@ -298,6 +298,12 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
     owner_uri = b"ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq"
     owner = hx("0x000000000000000000000000000000000000dead")
     owner_module = hx("0x0000000000000000000000000000000000002002")
+    owner_stream_core = hx("0x0000000000000000000000000000000000001001")
+    owner_subject_domain = hx("0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e")
+    owner_subject = k(static_words(
+        owner_subject_domain, uint_word(1), address_word(owner_stream_core),
+        uint_word(771_769),
+    ))
     owner_type_string = b"StreamOwnerRecord(address owner,uint256 tokenId,bytes32 subjectId,bytes32 recordType,bytes32 schemaId,uint16 algorithmId,bytes digest,bytes32 canonicalizationId,string uri,bytes payload,uint64 effectiveAt,uint256 nonce,uint64 deadline)"
     owner_type_hash = k(owner_type_string)
     owner_revocation_type_hash = k(b"StreamOwnerRecordRevocation(address owner,uint256 nonce,uint64 deadline)")
@@ -306,7 +312,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
         address_word(owner_module),
     ))
     owner_struct_hash = k(static_words(
-        owner_type_hash, address_word(owner), uint_word(771_769), subject,
+        owner_type_hash, address_word(owner), uint_word(771_769), owner_subject,
         hx("0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb"),
         hx("0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86"),
         uint_word(1), k(owner_content_digest), canonicalization, k(owner_uri),
@@ -416,6 +422,9 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
             "revokeOwnerRecordNonceFor selector": selector("revokeOwnerRecordNonceFor(address,uint256,uint64,bytes)"),
             "STREAM_OWNER_RECORD_TYPEHASH": "0x" + owner_type_hash.hex(),
             "STREAM_OWNER_RECORD_REVOCATION_TYPEHASH": "0x" + owner_revocation_type_hash.hex(),
+            "STREAM_SUBJECT_TOKEN_V1": "0x" + owner_subject_domain.hex(),
+            "streamCore": "0x" + owner_stream_core.hex(),
+            "subjectId": "0x" + owner_subject.hex(),
             "domainSeparator": "0x" + owner_domain_separator.hex(),
             "structHash": "0x" + owner_struct_hash.hex(),
             "digest": "0x" + owner_digest.hex(),
@@ -452,7 +461,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
         "chainHash": "0xd4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49",
         "recordDigest": "0x797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca",
         "revokeDigest": "0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd",
-        "ownerRecordDigest": "0x105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1",
+        "ownerRecordDigest": "0x1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605",
         "assertionHash": "0xfd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a",
         "renewedAssertionHash": "0x757cefc2594290ff8a4fd62b99be6bf050165023c854b50061797dc9cc9f2eb5",
         "batchCommitment": "0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d",

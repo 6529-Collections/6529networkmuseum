@@ -162,6 +162,15 @@ for the exact whitespace-free type string in §13.5, plus
 Its EIP-712 domain is name `6529StreamOwnerRecords`, version `1`, chain ID,
 and the satellite address as verifying contract.
 
+The owner-record `subjectId` is not caller-defined. The pinned Stream draft
+requires token-scoped records to use
+`STREAM_SUBJECT_TOKEN_V1 =
+0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e`
+and derive
+`keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, uint256(chainId),
+address(streamCore), uint256(tokenId)))`. Every bilateral vector and future
+adapter MUST recompute and reject a mismatching subject.
+
 These are real published draft semantics, not an implemented module claim.
 The pinned `smart-contracts/` tree has no corresponding `StreamOwnerRecords`
 source, deployed address/runtime commitment, callable read surface, exact owner
@@ -3340,15 +3349,19 @@ revokeOwnerRecordNonce selector = 0x9d03970a
 revokeOwnerRecordNonceFor selector = 0x50e9829a
 ```
 
-The following deterministic vector uses chain ID `1` and the explicitly
-synthetic satellite address `0x0000000000000000000000000000000000002002`.
-That address is a test input, not a Stream deployment claim. Dynamic EIP-712
-fields are represented by `keccak256(fieldBytes)` in the struct preimage.
+The following deterministic vector uses chain ID `1`, the explicitly synthetic
+Stream Core address `0x0000000000000000000000000000000000001001`, and the
+explicitly synthetic satellite address
+`0x0000000000000000000000000000000000002002`. Those addresses are test
+inputs, not Stream deployment claims. Dynamic EIP-712 fields are represented
+by `keccak256(fieldBytes)` in the struct preimage.
 
 ```text
 owner = 0x000000000000000000000000000000000000dead
 tokenId = 771769
-subjectId = 0x1111111111111111111111111111111111111111111111111111111111111111
+STREAM_SUBJECT_TOKEN_V1 = 0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e
+streamCore = 0x0000000000000000000000000000000000001001
+subjectId = 0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4
 recordType = 0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb
 schemaId = 0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86
 algorithmId = 1
@@ -3365,9 +3378,13 @@ EIP712 version = 1
 STREAM_OWNER_RECORD_TYPEHASH = 0x9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05
 STREAM_OWNER_RECORD_REVOCATION_TYPEHASH = 0x11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c
 domainSeparator = 0x0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5
-structHash = 0x8b8f5a06a5d393c03cf0eb40fe71a9dee1919688df23f06055f2abb432e59d9c
-digest = 0x105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1
+structHash = 0xfb71d60a68e0894166ae306df4fd11238530ee87e5714aa5d8c3e990fb6506f6
+digest = 0x1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605
 ```
+
+The checker derives `subjectId` exactly as
+`keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, uint256(chainId),
+address(streamCore), uint256(tokenId)))`; it is not a free-form fixture value.
 
 Museum-only `payloadMode` and `supersedesRecordHash` remain in the Museum
 record hash. They are not fields of this Stream draft signature envelope, so

@@ -335,10 +335,12 @@ The exact-head review additionally required and resolved:
    positionally ABI-tuple aligned; bilateral equality is limited to named
    shared ontology/profile fields and canonical payload bytes.
 
-8. The §13.5 owner-record vector uses chain ID `1` and an explicitly synthetic
-   satellite address. It recomputes the published selectors, typehashes,
-   domain separator, struct hash, and signing digest; it is not evidence of an
-   implemented Stream write, stored hash, or readback.
+8. The §13.5 owner-record vector uses chain ID `1` plus explicitly synthetic
+   Stream Core and satellite addresses. It derives `subjectId` from the pinned
+   `STREAM_SUBJECT_TOKEN_V1`, chain ID, Core, and token ID before recomputing
+   the published selectors, typehashes, domain separator, struct hash, and
+   signing digest. It is not evidence of an implemented Stream write, stored
+   hash, or readback.
 
 9. Every function selector in the §7 ABI, including the complete
    `TransitionTargetInput`, `RecordInput[]`, `CollectionRecord`, and by-signature
@@ -766,8 +768,10 @@ $manifestRoot = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,
 $expectedManifestRoot = '0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280'
 if ($manifestRoot -ne $expectedManifestRoot) { throw "manifest root mismatch: $manifestRoot" }
 $ownerModule = '0x0000000000000000000000000000000000002002' # synthetic vector input; not a deployment
+$ownerStreamCore = '0x0000000000000000000000000000000000001001' # synthetic vector input; not a deployment
 $ownerAddress = '0x000000000000000000000000000000000000dead'
-$ownerSubject = '0x1111111111111111111111111111111111111111111111111111111111111111'
+$ownerSubjectDomain = '0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e'
+$ownerSubject = cast keccak (cast abi-encode 'f(bytes32,uint256,address,uint256)' $ownerSubjectDomain 1 $ownerStreamCore 771769)
 $ownerRecordType = '0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb'
 $ownerSchema = '0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86'
 $ownerPayloadUtf8Hex = '0x7b227265636f7264223a226f776e6572222c22746f6b656e4964223a22373731373639227d'
@@ -808,6 +812,9 @@ $pathHash
 $payloadBytesHash
 $entryHash
 $manifestRoot
+$ownerSubjectDomain
+$ownerStreamCore
+$ownerSubject
 $ownerTypeHash
 $ownerRevocationTypeHash
 $ownerDomainSeparator
@@ -845,11 +852,14 @@ ownerPayloadUtf8Length=37
 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
 0xfa531a4233206547049d1b83c4b4e3e4d9763effb47227b2fd761ea1846ddfc8
 0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280
+0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e
+0x0000000000000000000000000000000000001001
+0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4
 0x9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05
 0x11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c
 0x0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5
-0x8b8f5a06a5d393c03cf0eb40fe71a9dee1919688df23f06055f2abb432e59d9c
-0x105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1
+0xfb71d60a68e0894166ae306df4fd11238530ee87e5714aa5d8c3e990fb6506f6
+0x1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605
 ```
 
 The EIP-712 preimages are constructed by literal hex concatenation. A
@@ -913,8 +923,11 @@ owner_content_digest = k(owner_payload)
 owner_type = k(b'StreamOwnerRecord(address owner,uint256 tokenId,bytes32 subjectId,bytes32 recordType,bytes32 schemaId,uint16 algorithmId,bytes digest,bytes32 canonicalizationId,string uri,bytes payload,uint64 effectiveAt,uint256 nonce,uint64 deadline)')
 owner_revoke_type = k(b'StreamOwnerRecordRevocation(address owner,uint256 nonce,uint64 deadline)')
 owner_module = bytes.fromhex('00'*18+'2002') # synthetic vector input; not a deployment
+owner_stream_core = bytes.fromhex('00'*18+'1001') # synthetic vector input; not a deployment
+owner_subject_domain = hx('0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e')
+owner_subject = k(abi(['bytes32','uint256','address','uint256'], [owner_subject_domain, 1, owner_stream_core, 771769]))
 owner_domain = k(abi(['bytes32','bytes32','bytes32','uint256','address'], [k(b'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'), k(b'6529StreamOwnerRecords'), k(b'1'), 1, owner_module]))
-owner_struct = k(abi(['bytes32','address','uint256','bytes32','bytes32','bytes32','uint16','bytes32','bytes32','bytes32','bytes32','uint64','uint256','uint64'], [owner_type, bytes.fromhex('00'*18+'dead'), 771769, subject, hx('0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb'), hx('0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86'), 1, k(owner_content_digest), canon, k(b'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq'), k(owner_payload), 1722470400, 7, 1800000000]))
+owner_struct = k(abi(['bytes32','address','uint256','bytes32','bytes32','bytes32','uint16','bytes32','bytes32','bytes32','bytes32','uint64','uint256','uint64'], [owner_type, bytes.fromhex('00'*18+'dead'), 771769, owner_subject, hx('0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb'), hx('0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86'), 1, k(owner_content_digest), canon, k(b'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq'), k(owner_payload), 1722470400, 7, 1800000000]))
 owner_digest = k(b'\x19\x01' + owner_domain + owner_struct)
 batch = k(abi(['bytes32','bytes32','uint64','bytes32[]','bytes32[]','bytes32[]','uint64'], [k(b'6529networkmuseum.batch-commitment.v1'), k(b'MUSEUM_BATCH_VECTOR_V1'), 1, [record_hash], [z], [content_digest], 1]))
 uri2=k(b'https://example.com/archive/6529'); host2=k(b'example.com'); profile2=hx('0x52be64fd2fb1c3795cf8dd6472100377858fd563f16de75584dcaf0f74b3e186'); a1=bytes.fromhex('0000000000000000000000000000000001010101'); a2=bytes.fromhex('0000000000000000000000000000000008080808')
@@ -924,8 +937,8 @@ https_key=k(abi(['bytes32','bytes32','uint64','uint64'],[uri2,profile2,1,1]))
 https_type=k(b'MuseumHTTPSPublicNetworkAssertion(bytes32 uriHash,bytes32 hostHash,bytes32 resolverProfileId,uint64 resolverRevision,bytes32 resolvedAddressSetHash,uint64 assertionRevision,bytes32 previousAssertionHash,uint64 issuedAt,uint64 expiresAt,address attestor,uint256 nonce,uint64 deadline)')
 https_struct=k(abi(['bytes32','bytes32','bytes32','bytes32','uint64','bytes32','uint64','bytes32','uint64','uint64','address','uint256','uint64'],[https_type,uri2,host2,profile2,1,address_set_hash,1,previous,1750000000,1750003600,bytes.fromhex('00'*18+'dead'),9,1750003600]))
 https_digest=k(b'\x19\x01'+domain_separator+https_struct)
-expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1', 'chain':'d4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa', 'write_digest':'797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner_type':'9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05', 'owner_revoke_type':'11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c', 'owner_domain':'0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5', 'owner_struct':'8b8f5a06a5d393c03cf0eb40fe71a9dee1919688df23f06055f2abb432e59d9c', 'owner_digest':'105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1', 'manifest':'8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280', 'batch':'1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d'}
-actual = {'content':content_digest.hex(), 'record':record_hash.hex(), 'chain':chain_hash.hex(), 'write_type':write_type.hex(), 'write_struct':struct_hash.hex(), 'write_digest':digest.hex(), 'nonce_type':nonce_type.hex(), 'nonce_struct':nonce_struct.hex(), 'nonce_digest':nonce_digest.hex(), 'https_hash':https_hash.hex(), 'https_key':https_key.hex(), 'https_type':https_type.hex(), 'https_struct':https_struct.hex(), 'https_digest':https_digest.hex(), 'owner_type':owner_type.hex(), 'owner_revoke_type':owner_revoke_type.hex(), 'owner_domain':owner_domain.hex(), 'owner_struct':owner_struct.hex(), 'owner_digest':owner_digest.hex(), 'manifest':root.hex(), 'batch':batch.hex()}
+expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1', 'chain':'d4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa', 'write_digest':'797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner_subject':'7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4', 'owner_type':'9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05', 'owner_revoke_type':'11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c', 'owner_domain':'0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5', 'owner_struct':'fb71d60a68e0894166ae306df4fd11238530ee87e5714aa5d8c3e990fb6506f6', 'owner_digest':'1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605', 'manifest':'8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280', 'batch':'1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d'}
+actual = {'content':content_digest.hex(), 'record':record_hash.hex(), 'chain':chain_hash.hex(), 'write_type':write_type.hex(), 'write_struct':struct_hash.hex(), 'write_digest':digest.hex(), 'nonce_type':nonce_type.hex(), 'nonce_struct':nonce_struct.hex(), 'nonce_digest':nonce_digest.hex(), 'https_hash':https_hash.hex(), 'https_key':https_key.hex(), 'https_type':https_type.hex(), 'https_struct':https_struct.hex(), 'https_digest':https_digest.hex(), 'owner_subject':owner_subject.hex(), 'owner_type':owner_type.hex(), 'owner_revoke_type':owner_revoke_type.hex(), 'owner_domain':owner_domain.hex(), 'owner_struct':owner_struct.hex(), 'owner_digest':owner_digest.hex(), 'manifest':root.hex(), 'batch':batch.hex()}
 assert actual == expected, (actual, expected)
 for name, value in actual.items(): print(name, '0x' + value)
 '@ | python -

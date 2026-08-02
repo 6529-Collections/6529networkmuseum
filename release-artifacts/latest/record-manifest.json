@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:3485c1f45fde9fbc8625def15c58a94d0eef60bd82b3bb3cf2ca7fa010798f3d",
-      "size": 10800
+      "sha256": "sha256:36ca80cbf213b0f26be989976cf8f9bc350804368facca6e3cbf1432a407042d",
+      "size": 11069
     },
     {
       "path": "docs/onchain-design.md",
@@ -97,8 +97,8 @@
     },
     {
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:2288af40c2a6f4e89fed7d3176398dfb77d96ad6a2f12b251eea697b8d4039aa",
-      "size": 7983
+      "sha256": "sha256:eb6cef016eff08fe5701f94d35b1a04f1c656f012414b56c34eb7b5a4aec403a",
+      "size": 8584
     },
     {
       "path": "governance/github-repository-governance.md",
@@ -652,8 +652,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:12bcae7922f311d121cad824c229dd0c44d7b1d4672f925e99ffd851b617baf4",
-      "size": 225744
+      "sha256": "sha256:008b1cd1ed52a93c47f023ead60be4ad1f8e820439794d766a012ecd7aa00c8f",
+      "size": 226593
     },
     {
       "content_hash": {
@@ -672,8 +672,8 @@
     },
     {
       "path": "specs/onchain/manifest_abi_selector_check_v1.py",
-      "sha256": "sha256:49c37f6cdf62af8079ae18965e9647e88f842f7d160b9ec690815c0837333a61",
-      "size": 39555
+      "sha256": "sha256:ab37a29c680b1c27ec6e6be15ef26aba3d0833afe8d5f68d61726871170f9ec9",
+      "size": 40067
     },
     {
       "content_hash": {
@@ -993,9 +993,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x953ac99ffe28b4ec7bdd2193d01f2e9f8eddc2e23e65ce7e3f35e2789e5277d9"
+    "digest": "0x284f01e7fcfa655905a4bcb30b19f1f65286317f08882d08dc025cb5fa942ff8"
   },
-  "manifest_sha256": "sha256:9e0372a3e83c1a659b3d5d0426ff3e6cf99a50f1b49ab7420131b4f74cb99a33",
+  "manifest_sha256": "sha256:dc2322889674bb6a3801b39bcc9f8a1e69ff0a507c8b1a2537379ec1c4f88636",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

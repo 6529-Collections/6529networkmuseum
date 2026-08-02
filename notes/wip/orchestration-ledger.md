@@ -749,3 +749,26 @@ manifest check passed; the Casey evidence package reproduced 3,300 tokens,
 35,088 traits, 79 raw files, 3,327 request records, and five descriptor
 outputs; and `codex-diff-check` reported no whitespace defects. These local
 results do not substitute for fresh exact-head CI or independent review.
+
+## 2026-08-02 - Stream token-subject derivation remediation
+
+Independent Stream review of pushed head `1f2dc03` confirmed the corrected
+draft-versus-deployment boundary but found that the synthetic owner-record
+EIP-712 vector still supplied a free-form subject. The pinned Stream draft
+requires every token-scoped owner record to derive `subjectId` as
+`keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, chainId, streamCore, tokenId))`.
+
+The local remediation now pins
+`STREAM_SUBJECT_TOKEN_V1 =
+0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e`,
+uses explicitly synthetic Core `0x0000000000000000000000000000000000001001`,
+and derives subject
+`0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4`
+for chain ID `1` and token `771769`. The recomputed owner struct hash is
+`0xfb71d60a68e0894166ae306df4fd11238530ee87e5714aa5d8c3e990fb6506f6`
+and signing digest is
+`0x1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605`.
+The checker, specification, Stream profile, and two independent transcripts
+bind the same derivation. The synthetic addresses remain non-deployment test
+inputs. Regeneration, full validation, a new pushed head, and fresh exact-head
+review are required.
