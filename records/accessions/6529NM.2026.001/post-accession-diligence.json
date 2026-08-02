@@ -4,13 +4,22 @@
   "record_type": "ACCESSION_DILIGENCE",
   "record_control": {
     "revision": 2,
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
       "constructed_at": "2026-08-02T12:22:37Z"
     },
-    "review": null
+    "review": {
+      "actor_id": "codex-review:019fc278-cbf1-75c1-b630-41483c6ae4df",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T12:54:40.157Z",
+      "reviewed_commit": "b89604ef1967579241fa72152cf65d92ef3e6151",
+      "outcome": "approved",
+      "payload_sha256": "sha256:c8ad08661746f5c9f8a0522e2313ea9c6592ea15164520b4f47d0fea497f1513",
+      "scope": "Independent exact-commit review of the revision-two EIP-1898 custody acquisition, all nineteen request/response/transport joins, exact object ownership and approval results, OFAC subject and positive-control closure, amendment history, evidence path safety, manifests, public wording, and fail-closed tests; independently corroborated by control-plane reviewer 019fc278-ccbc-73b0-9bbc-9f333296cb6b.",
+      "finding": "Approved exact constructed commit b89604ef1967579241fa72152cf65d92ef3e6151. Reconstructed all nineteen canonical requests and raw responses; all sixteen contract calls bind finalized block 25,667,060 and hash 0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3 through EIP-1898 with requireCanonical true. ENS and all seven ownerOf results match Museum custody; all seven token-level approvals are zero. The exact OFAC address/role set and CHATEX control, revision-one supersession binding, 22-file manifest, read-only empty-output acquisition guard, raw semantic joins, and symlink/reparse/non-regular controls are correct. No substantive or integrity finding remains."
+    }
   },
   "amendment_history": [
     {

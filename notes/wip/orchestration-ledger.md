@@ -1416,3 +1416,14 @@ manifest is
 `sha256:5ff2fc3f7d312c889fc05c0fe8f1a79a18880ed84da4cd43b4b7b64c0b204510`.
 Revision 2 is intentionally `constructed` pending a new exact-commit
 independent review; no PR #16 approval is reused for the changed evidence.
+
+Independent chain/evidence reviewer Poincare
+(`019fc278-cbf1-75c1-b630-41483c6ae4df`) and independent control-plane
+reviewer Planck (`019fc278-ccbc-73b0-9bbc-9f333296cb6b`) both approved exact
+constructed commit `b89604ef1967579241fa72152cf65d92ef3e6151` at
+`2026-08-02T12:54:40.157Z` and `2026-08-02T12:52:54.647Z`, respectively.
+The primary review envelope binds payload
+`sha256:c8ad08661746f5c9f8a0522e2313ea9c6592ea15164520b4f47d0fea497f1513`.
+Only the review envelope and pending-to-reviewed labels changed after the
+approved construction; no evidence, acquisition method, raw response, object
+result, OFAC observation, conclusion, or substantive control changed.
