@@ -1,0 +1,97 @@
+{
+  "schema_version": "6529nm.casey-ofac-address-screening.v1",
+  "screening_id": "6529NM.2026.001.OFAC-20260802",
+  "subject_id": "6529NM.2026.001",
+  "observed_at": "2026-08-02T10:45:04.683Z",
+  "authority": {
+    "publisher": "United States Department of the Treasury, Office of Foreign Assets Control",
+    "service": "OFAC Sanctions List Service",
+    "service_version_observed": "2.0.0",
+    "ui_uri": "https://sanctionslist.ofac.treas.gov/Home/index.html",
+    "search_api_uri": "https://sanctionslistservice.ofac.treas.gov/api/Search/Search",
+    "method_authority_uri": "https://ofac.treasury.gov/faqs/594"
+  },
+  "method": {
+    "interface": "official_sanctions_list_service_web_ui",
+    "field": "ID #/Digital Currency Address",
+    "matching": "exact_address",
+    "minimum_name_score": 100,
+    "other_filters": "all_or_blank",
+    "result_signal_for_no_match": "Your search has not returned any results.",
+    "control_rule": "A known listed ETH address must return an SDN result before target no-match observations are accepted.",
+    "api_capture_boundary": "The official JSON search endpoint returned transfer-encoded responses. The repository SafeHTTPSFetcher deliberately rejects transfer-coded framing, so this record retains exact structured DOM observations from the official UI rather than claiming retained raw API bytes."
+  },
+  "positive_control": {
+    "address": "0x67d40ee1a85bf4a4bb7ffae16de985e8427b6b45",
+    "observed_at": "2026-08-02T10:45:04.683Z",
+    "result_count": 1,
+    "entity": "CHATEX",
+    "program": "CYBER2",
+    "list": "SDN",
+    "detail_uri": "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=33854",
+    "control_passed": true
+  },
+  "screened_addresses": [
+    {
+      "address": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "role": "donor_and_transfer_source",
+      "observed_at": "2026-08-02T10:44:00.258Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "role": "museum_custody_address",
+      "observed_at": "2026-08-02T10:44:29.661Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "role": "token_contract",
+      "observed_at": "2026-08-02T10:44:30.036Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+      "role": "token_contract",
+      "observed_at": "2026-08-02T10:44:30.410Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+      "role": "token_contract",
+      "observed_at": "2026-08-02T10:44:30.790Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+      "role": "token_contract",
+      "observed_at": "2026-08-02T10:44:31.162Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0x0000000000c2d145a2526bd8c716263bfebe1a72",
+      "role": "common_transfer_transaction_target",
+      "observed_at": "2026-08-02T10:44:31.536Z",
+      "result": "no_exact_match"
+    },
+    {
+      "address": "0x457ee5f723c7606c12a7264b52e285906f91eea6",
+      "role": "project_artist_address_returned_by_contracts",
+      "observed_at": "2026-08-02T10:44:31.912Z",
+      "result": "no_exact_match"
+    }
+  ],
+  "result": {
+    "screened_address_count": 8,
+    "exact_match_count": 0,
+    "positive_control_passed": true,
+    "outcome": "no_exact_ofac_digital_currency_address_match_observed"
+  },
+  "limitations": [
+    "This is a point-in-time exact digital-currency-address screen, not a fuzzy name screen, identity verification, KYC review, legal opinion, or guarantee of future list status.",
+    "The public donor credit punk6529 is pseudonymous; address screening does not establish the donor's civil identity or screen unidentified beneficial owners by name.",
+    "This screen does not perform OFAC's 50 Percent Rule ownership analysis, transaction-exposure tracing, sanctions-program legal analysis, or screening against non-OFAC lists.",
+    "No-match means only that the official service returned no exact result for the submitted address at the recorded time.",
+    "The raw transfer-encoded API response bytes were not retained; the official UI result, control result, query settings, timestamps, and acquisition boundary are retained."
+  ]
+}

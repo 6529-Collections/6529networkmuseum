@@ -84,7 +84,11 @@
             "block_time": {"$ref": "#/$defs/dateTime"},
             "evidence": {"$ref": "#/$defs/receiptEvidence"},
             "evidence_grade": {"type": "string", "enum": ["A", "B", "C", "D", "E"]},
-            "log_indices": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+            "log_indices": {
+              "type": "object",
+              "patternProperties": {"^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$": {"type": "integer", "minimum": 0}},
+              "additionalProperties": false
+            },
             "museum_custody_address": {"$ref": "#/$defs/address"},
             "purpose": {"type": "string", "minLength": 1},
             "receipt_status": {"type": "string", "pattern": "^0x[0-9a-fA-F]+$"},
@@ -102,11 +106,20 @@
         "provenance_limits": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
         "record_control": {
           "type": "object",
-          "additionalProperties": true,
+          "additionalProperties": false,
           "properties": {
-            "constructor": {"type": "object", "required": ["actor_id", "constructed_at", "role"]},
+            "constructor": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "actor_id": {"type": "string", "minLength": 1},
+                "constructed_at": {"$ref": "#/$defs/dateTime"},
+                "role": {"const": "constructor"}
+              },
+              "required": ["actor_id", "constructed_at", "role"]
+            },
             "record_status": {"const": "constructed"},
-            "review": {"type": ["object", "null"]},
+            "review": {"type": "null"},
             "revision": {"type": "integer", "minimum": 1}
           },
           "required": ["constructor", "record_status", "review", "revision"]
@@ -115,7 +128,7 @@
         "record_type": {"const": "transaction_provenance_schedule"},
         "verification_method": {
           "type": "object",
-          "additionalProperties": true,
+          "additionalProperties": false,
           "properties": {
             "chain": {"type": "string", "minLength": 1},
             "chain_id": {"const": 1},

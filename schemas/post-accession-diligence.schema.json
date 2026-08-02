@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/post-accession-diligence/v1",
+  "title": "6529 Network Museum post-accession diligence record",
+  "$defs": {
+    "nonEmpty": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "bytes32": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "address": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+    "stringArray": {"type": "array", "items": {"$ref": "#/$defs/nonEmpty"}},
+    "constructor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "role", "constructed_at"],
+      "properties": {
+        "actor_id": {"$ref": "#/$defs/nonEmpty"},
+        "role": {"const": "constructor"},
+        "constructed_at": {"$ref": "#/$defs/timestamp"}
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_id", "role", "reviewed_at", "reviewed_commit", "outcome", "payload_sha256", "scope", "finding"],
+      "properties": {
+        "actor_id": {"$ref": "#/$defs/nonEmpty"},
+        "role": {"const": "reviewer"},
+        "reviewed_at": {"$ref": "#/$defs/timestamp"},
+        "reviewed_commit": {"$ref": "#/$defs/commit"},
+        "outcome": {"const": "approved"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"},
+        "scope": {"$ref": "#/$defs/nonEmpty"},
+        "finding": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "path", "sha256", "evidence_class"],
+      "properties": {
+        "label": {"$ref": "#/$defs/nonEmpty"},
+        "path": {"type": "string", "pattern": "^[A-Za-z0-9._/-]+$"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "evidence_class": {"enum": ["A", "B", "C", "D", "E"]}
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_id",
+    "record_type",
+    "record_control",
+    "subject_id",
+    "observed_at",
+    "effective_at",
+    "visibility",
+    "scope",
+    "title_and_authority",
+    "custody_verification",
+    "sanctions_screening",
+    "encumbrance_and_control_review",
+    "package",
+    "conclusion",
+    "evidence_refs",
+    "non_claims"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/post-accession-diligence.schema.json"},
+    "record_id": {"const": "6529NM.2026.001.DILIGENCE-01"},
+    "record_type": {"const": "ACCESSION_DILIGENCE"},
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"const": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {"$ref": "#/$defs/constructor"},
+        "review": {"anyOf": [{"$ref": "#/$defs/review"}, {"type": "null"}]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"record_status": {"const": "reviewed"}}, "required": ["record_status"]},
+          "then": {"properties": {"review": {"$ref": "#/$defs/review"}}}
+        },
+        {
+          "if": {"properties": {"record_status": {"const": "constructed"}}, "required": ["record_status"]},
+          "then": {"properties": {"review": {"type": "null"}}}
+        }
+      ]
+    },
+    "subject_id": {"const": "6529NM.2026.001"},
+    "observed_at": {"$ref": "#/$defs/timestamp"},
+    "effective_at": {"$ref": "#/$defs/timestamp"},
+    "visibility": {"const": "public"},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "object_count", "accession_status_before_review", "review_type"],
+      "properties": {
+        "purpose": {"$ref": "#/$defs/nonEmpty"},
+        "object_count": {"const": 7},
+        "accession_status_before_review": {"const": "accessioned"},
+        "review_type": {"const": "post_accession_diligence_and_evidence_enrichment"}
+      }
+    },
+    "title_and_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["determination", "instrument_id", "instrument_path", "instrument_sha256", "acceptance_mode", "determination_text", "copyright_boundary", "restricted_annex_interpretation", "signed_deed_boundary", "accepted_residual_risk"],
+      "properties": {
+        "determination": {"const": "confirmed"},
+        "instrument_id": {"const": "6529NM.2026.001.TITLE-01"},
+        "instrument_path": {"$ref": "#/$defs/nonEmpty"},
+        "instrument_sha256": {"$ref": "#/$defs/sha256"},
+        "acceptance_mode": {"$ref": "#/$defs/nonEmpty"},
+        "determination_text": {"$ref": "#/$defs/nonEmpty"},
+        "copyright_boundary": {"$ref": "#/$defs/nonEmpty"},
+        "restricted_annex_interpretation": {"$ref": "#/$defs/nonEmpty"},
+        "signed_deed_boundary": {"$ref": "#/$defs/nonEmpty"},
+        "accepted_residual_risk": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "custody_verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["determination", "audit_id", "audit_path", "audit_sha256", "chain_id", "block_number", "block_hash", "block_timestamp", "observation_started_at", "custody_address", "custody_ens", "owner_of_result", "ens_result", "token_level_approval_result", "finality_control", "evidence_boundary"],
+      "properties": {
+        "determination": {"const": "verified_at_observed_finalized_state"},
+        "audit_id": {"const": "6529NM.2026.001.CUSTODY-AUDIT-20260802"},
+        "audit_path": {"$ref": "#/$defs/nonEmpty"},
+        "audit_sha256": {"$ref": "#/$defs/sha256"},
+        "chain_id": {"const": 1},
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_hash": {"$ref": "#/$defs/bytes32"},
+        "block_timestamp": {"$ref": "#/$defs/timestamp"},
+        "observation_started_at": {"$ref": "#/$defs/timestamp"},
+        "custody_address": {"$ref": "#/$defs/address"},
+        "custody_ens": {"const": "networkmuseum.6529.eth"},
+        "owner_of_result": {"const": "all_seven_match_museum"},
+        "ens_result": {"const": "resolves_to_museum_address"},
+        "token_level_approval_result": {"const": "all_seven_zero_address"},
+        "finality_control": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_boundary": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "sanctions_screening": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["determination", "screening_id", "screening_path", "screening_sha256", "authority", "method", "screened_address_count", "exact_match_count", "positive_control", "screened_roles", "evidence_boundary"],
+      "properties": {
+        "determination": {"const": "no_exact_address_match_observed"},
+        "screening_id": {"const": "6529NM.2026.001.OFAC-20260802"},
+        "screening_path": {"$ref": "#/$defs/nonEmpty"},
+        "screening_sha256": {"$ref": "#/$defs/sha256"},
+        "authority": {"$ref": "#/$defs/nonEmpty"},
+        "method": {"$ref": "#/$defs/nonEmpty"},
+        "screened_address_count": {"const": 8},
+        "exact_match_count": {"const": 0},
+        "positive_control": {"const": "passed_known_sdn_eth_address_returned_chatex_cyber2_sdn"},
+        "screened_roles": {"$ref": "#/$defs/stringArray"},
+        "evidence_boundary": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "encumbrance_and_control_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["determination", "reviewed_facts", "not_proven", "risk_disposition"],
+      "properties": {
+        "determination": {"const": "pass_with_accepted_limits"},
+        "reviewed_facts": {"$ref": "#/$defs/stringArray"},
+        "not_proven": {"$ref": "#/$defs/stringArray"},
+        "risk_disposition": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "manifest_path", "manifest_sha256", "file_count", "raw_rpc_response_count", "raw_ofac_api_bytes_retained"],
+      "properties": {
+        "path": {"const": "evidence/casey-reas-diligence"},
+        "manifest_path": {"const": "evidence/casey-reas-diligence/manifest.json"},
+        "manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "file_count": {"const": 22},
+        "raw_rpc_response_count": {"const": 19},
+        "raw_ofac_api_bytes_retained": {"const": false}
+      }
+    },
+    "conclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "accession_effect", "accession_status_after_review", "title_status_after_review", "custody_status_after_review", "compliance_status_after_review", "completion_blockers", "standing_actions"],
+      "properties": {
+        "outcome": {"const": "completed_pass_with_documented_limits"},
+        "accession_effect": {"const": "confirmed_no_status_change"},
+        "accession_status_after_review": {"const": "accessioned"},
+        "title_status_after_review": {"const": "executed"},
+        "custody_status_after_review": {"const": "verified_at_observed_finalized_state"},
+        "compliance_status_after_review": {"const": "point_in_time_exact_address_screen_complete"},
+        "completion_blockers": {"type": "array", "maxItems": 0},
+        "standing_actions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonEmpty"}}
+      }
+    },
+    "evidence_refs": {"type": "array", "minItems": 4, "items": {"$ref": "#/$defs/evidenceRef"}},
+    "non_claims": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonEmpty"}}
+  }
+}

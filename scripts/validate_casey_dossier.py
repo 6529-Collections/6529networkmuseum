@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from canonical import canonicalize
+from build_casey_diligence_manifest import build as build_diligence_manifest
 
 ROOT = Path(__file__).resolve().parent.parent
 CASEY_ID = "6529NM.2026.001"
@@ -54,6 +55,9 @@ PRESERVATION_ACTIONS = [
     "retain attributed static and live documentation captures with fixity",
     "assign durable replicas and complete periodic fixity and recovery tests",
 ]
+DILIGENCE_ROOT = Path("evidence/casey-reas-diligence")
+DILIGENCE_RECORD = CASEY_DIR / "post-accession-diligence.json"
+DILIGENCE_PUBLIC = CASEY_DIR / "public/custody-title-and-compliance-diligence.md"
 
 OBJECT_TO_DESCRIPTOR = {
     "6529NM.2026.001.01": "century",
@@ -566,12 +570,141 @@ def validate_receipt_evidence(root: Path) -> tuple[list[dict[str, Any]], list[st
     return sorted(transfers, key=lambda item: item["log"]), issues
 
 
+def validate_post_accession_diligence(root: Path) -> list[str]:
+    """Validate the reviewed title, custody, control, and OFAC evidence enrichment."""
+    issues: list[str] = []
+    package_root = root / DILIGENCE_ROOT
+    manifest_path = package_root / "manifest.json"
+    custody_path = package_root / "custody-audit-2026-08-02.json"
+    ofac_path = package_root / "ofac-address-screening-2026-08-02.json"
+    record_path = root / DILIGENCE_RECORD
+    public_path = root / DILIGENCE_PUBLIC
+    try:
+        actual_manifest = read_json(manifest_path)
+        expected_manifest = build_diligence_manifest(package_root)
+        custody = read_json(custody_path)
+        ofac = read_json(ofac_path)
+        record = read_json(record_path)
+        public_text = public_path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
+        return [f"Casey post-accession diligence package cannot be decoded: {error}"]
+
+    if actual_manifest != expected_manifest:
+        issues.append("Casey post-accession diligence evidence manifest must bind every package file exactly")
+    manifest_sha = sha256(manifest_path)
+    custody_sha = sha256(custody_path)
+    ofac_sha = sha256(ofac_path)
+    control = record.get("record_control") if isinstance(record.get("record_control"), dict) else {}
+    constructor = control.get("constructor") if isinstance(control.get("constructor"), dict) else {}
+    review = control.get("review") if isinstance(control.get("review"), dict) else {}
+    if (
+        record.get("record_id") != f"{CASEY_ID}.DILIGENCE-01"
+        or record.get("record_type") != "ACCESSION_DILIGENCE"
+        or control.get("record_status") != "reviewed"
+        or review.get("outcome") != "approved"
+        or review.get("actor_id") == constructor.get("actor_id")
+        or not review.get("actor_id")
+    ):
+        issues.append("Casey post-accession diligence record must have completed independent review")
+
+    package = record.get("package") if isinstance(record.get("package"), dict) else {}
+    if (
+        package.get("manifest_sha256") != manifest_sha
+        or package.get("file_count") != 22
+        or package.get("raw_rpc_response_count") != 19
+        or package.get("raw_ofac_api_bytes_retained") is not False
+    ):
+        issues.append("Casey diligence record must bind the complete evidence package and its API-capture boundary")
+
+    result = custody.get("result") if isinstance(custody.get("result"), dict) else {}
+    objects = custody.get("objects") if isinstance(custody.get("objects"), list) else []
+    block = custody.get("block") if isinstance(custody.get("block"), dict) else {}
+    expected_object_ids = list(OBJECT_TO_DESCRIPTOR)
+    if (
+        custody.get("audit_id") != f"{CASEY_ID}.CUSTODY-AUDIT-20260802"
+        or [item.get("object_id") for item in objects if isinstance(item, dict)] != expected_object_ids
+        or any(
+            not isinstance(item, dict)
+            or item.get("owner") != MUSEUM_CUSTODY
+            or item.get("owner_matches_museum") is not True
+            or item.get("token_level_approved_operator") != "0x" + "0" * 40
+            or item.get("token_level_approval_is_zero") is not True
+            for item in objects
+        )
+        or result != {
+            "all_owner_of_results_match_museum": True,
+            "all_token_level_approvals_are_zero": True,
+            "ens_resolves_to_museum_at_same_block": True,
+            "finalized_boundary_stable_before_and_after": True,
+            "object_count": 7,
+        }
+        or block.get("number") != 25666454
+        or block.get("hash") != "0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce"
+        or custody.get("custodian", {}).get("address") != MUSEUM_CUSTODY
+        or custody.get("custodian", {}).get("ens") != "networkmuseum.6529.eth"
+    ):
+        issues.append("Casey custody audit must prove the seven owner, ENS, zero token-approval, and stable-finality observations")
+
+    screened = ofac.get("screened_addresses") if isinstance(ofac.get("screened_addresses"), list) else []
+    screened_addresses = [item.get("address") for item in screened if isinstance(item, dict)]
+    if (
+        ofac.get("screening_id") != f"{CASEY_ID}.OFAC-20260802"
+        or ofac.get("positive_control", {}).get("control_passed") is not True
+        or ofac.get("positive_control", {}).get("entity") != "CHATEX"
+        or len(screened) != 8
+        or any(not isinstance(item, dict) or item.get("result") != "no_exact_match" for item in screened)
+        or RECEIPT_FROM not in screened_addresses
+        or MUSEUM_CUSTODY not in screened_addresses
+        or ofac.get("result") != {
+            "screened_address_count": 8,
+            "exact_match_count": 0,
+            "positive_control_passed": True,
+            "outcome": "no_exact_ofac_digital_currency_address_match_observed",
+        }
+        or "raw transfer-encoded API response bytes were not retained" not in " ".join(ofac.get("limitations", []))
+    ):
+        issues.append("Casey OFAC evidence must retain the positive control, eight exact no-match observations, and raw-byte limitation")
+
+    title = record.get("title_and_authority") if isinstance(record.get("title_and_authority"), dict) else {}
+    custody_binding = record.get("custody_verification") if isinstance(record.get("custody_verification"), dict) else {}
+    sanctions_binding = record.get("sanctions_screening") if isinstance(record.get("sanctions_screening"), dict) else {}
+    conclusion = record.get("conclusion") if isinstance(record.get("conclusion"), dict) else {}
+    title_path = root / CASEY_DIR / "public/title-rights-and-accession-review.md"
+    if (
+        title.get("determination") != "confirmed"
+        or title.get("instrument_id") != f"{CASEY_ID}.TITLE-01"
+        or title.get("instrument_sha256") != sha256(title_path)
+        or "does not create an uncompleted title gate" not in title.get("restricted_annex_interpretation", "")
+        or custody_binding.get("audit_sha256") != custody_sha
+        or sanctions_binding.get("screening_sha256") != ofac_sha
+        or conclusion.get("outcome") != "completed_pass_with_documented_limits"
+        or conclusion.get("accession_effect") != "confirmed_no_status_change"
+        or conclusion.get("accession_status_after_review") != "accessioned"
+        or conclusion.get("completion_blockers") != []
+    ):
+        issues.append("Casey diligence determination must confirm title, bind custody and OFAC evidence, and preserve accession status")
+
+    public_markers = (
+        "No fact identified in this review requires a title downgrade",
+        "or create an uncompleted title gate",
+        "every `ownerOf` call returned that Museum address",
+        "every token-specific `getApproved` call returned the zero address",
+        "no exact OFAC digital-currency-address match was observed",
+        "does not identify the civil person behind a pseudonymous address",
+        manifest_sha.removeprefix("sha256:"),
+    )
+    if any(marker.lower() not in public_text.lower() for marker in public_markers):
+        issues.append("Casey public diligence review must state the final title, custody, sanctions, and evidence-boundary findings")
+    return issues
+
+
 def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     """Validate the reviewed, accessioned Casey REAS collection package."""
     source, descriptors, issues = source_package(history_root or root)
     receipt_transfers, receipt_issues = validate_receipt_evidence(root)
     issues.extend(receipt_issues)
     issues.extend(validate_evidence_manifest(root))
+    issues.extend(validate_post_accession_diligence(root))
     rooms_edition_statement, generator_evidence, generator_issues = generator_observations(root)
     issues.extend(generator_issues)
 

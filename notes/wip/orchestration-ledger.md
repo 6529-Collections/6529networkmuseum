@@ -1333,3 +1333,49 @@ These values are retained as an intermediate checkpoint, not the release
 authority. The current commitments are always the values in
 `release-artifacts/latest/record-manifest.json` and must be approved against the
 resulting exact head.
+
+## 2026-08-02 - Post-accession diligence and final completeness remediation
+
+The final audit rejected three forms of apparent completion: a Casey section in
+the on-chain migration specification still described intake-stage gates; the
+live ACCESSION_LOT and WORK_DESCRIPTION schemas admitted undeclared nested
+fields; and one historical control-plane WIP note was omitted from the index
+and still said the canonical register did not exist. The current branch
+corrects those source-of-truth defects rather than treating them as future
+review work.
+
+Casey record `6529NM.2026.001.DILIGENCE-01` now documents the Museum's final
+post-accession title, custody, token-approval, encumbrance, and point-in-time
+exact-address sanctions review. Its twenty-two-file evidence package retains
+nineteen exact JSON-RPC responses and brackets the contract-read window at
+Ethereum finalized block `25,666,454`, hash
+`0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce`.
+All seven owners and the ENS resolution match the Museum address; all seven
+token-specific approvals are zero. The official OFAC UI screen passed a known
+listed-address positive control and returned no exact match for eight
+lot-related addresses. The record preserves the limits: no identity or fuzzy
+name verification, 50 Percent Rule analysis, transaction tracing, legal
+opinion, operator-for-all review, or claim about future state.
+
+The existing public title declaration is treated as the executed institutional
+title instrument for the user-authorized full gift, completed delivery, formal
+acceptance, and accession. No donor-signed deed or private annex is invented.
+The unused optional restricted-annex stub records only that no separate private
+annex exists; it does not reopen title. The original gift and accession dates,
+records, and hashes remain unchanged. Exact final commitments are intentionally
+deferred until independent review, complete local validation, governed PR
+checks, and merge.
+
+Independent substantive reviewer Peirce
+(`019fc237-73ed-7b33-85a2-cd65cbd207a8`) approved the full diligence package
+at `2026-08-02T11:26:53Z`. The reviewer recomputed the twenty-two-file
+manifest at
+`sha256:8770ca3f6a7591c4548a72c18f410bb2e51fa1862d1921d6cd800ffa355b6edd`,
+verified all nineteen raw RPC response digests and the exact custody/approval/
+ENS/finality results, confirmed the eight OFAC no-match observations and
+positive control, and found the title, annex, copyright, and residual-risk
+statements consistent with the accepted full-gift record. No substantive
+correction was required. A separate schema reviewer exhaustively rejected
+unknown-field probes throughout the live accession-lot, object, provenance,
+and diligence structures; its preapproval hold was limited to the then-pending
+review envelope and two now-corrected test-message assertions.

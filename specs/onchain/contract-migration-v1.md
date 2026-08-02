@@ -3415,7 +3415,7 @@ record state plus content-addressed bytes. Event replay is an additional
 check, not the only path. The release is not complete until a third party can
 reproduce the hashes without GitHub, the original operator, or a marketplace.
 
-## 9. Casey donation records
+## 9. Casey REAS completed donation and accession records
 
 The Casey Reas seven-work group donated by punk 6529 is a completed donation
 and has been received on-chain under the Art Blocks preapproval. The canonical
@@ -3425,13 +3425,20 @@ MUST preserve those completed donation and receipt facts; it MUST cite their
 recorded evidence rather than infer either fact merely from a wallet transfer
 or donor attribution.
 
-That receipt is not an accession-complete claim. Formal Gift Acceptance and
-Accession Authorization documentation is being added, and the work-level
-title, rights, condition, preservation, registrar/reviewer, and
-`STREAM_ACCESSION_V1` gates remain incomplete or not yet admitted as applicable.
-The contract specification does not fabricate completion of any of those gates.
+The receipt alone is not an accession-complete claim, but the canonical record
+chain now is. `6529NM.2026.001.GAA-01` formally accepts the full gift;
+`6529NM.2026.001.TITLE-01` and the seven executed title bindings document token
+title; seven rights statements determine the CC BY-NC 4.0 use boundary; seven
+condition reports record pass-with-conditions technical outcomes; an
+independently reviewed accession certificate records the completed Museum
+accession. Post-accession record `6529NM.2026.001.DILIGENCE-01` separately
+binds finalized-state custody, token-specific approval, title interpretation,
+and point-in-time exact-address compliance evidence. Migration MUST preserve
+each record, its evidence boundary, effective time, status, and append-only
+relationship. It MUST NOT infer the completed institutional decision from the
+receipt alone or downcast the completed accession to intake-stage research.
 
-| Stable Museum ID | Received work |
+| Stable Museum ID | Accessioned work |
 |---|---|
 | `6529NM.2026.001.01` | `CENTURY #31` |
 | `6529NM.2026.001.02` | `CENTURY #724` |
@@ -3441,19 +3448,31 @@ The contract specification does not fabricate completion of any of those gates.
 | `6529NM.2026.001.06` | `923 EMPTY ROOMS #713` |
 | `6529NM.2026.001.07` | `Ex Nihilo (Cosmos) #248` |
 
-The migration MAY carry incomplete accession documentation as
-`MUSEUM_RESEARCH_NOTE_V1` records with an explicit in-progress status. It MUST
-NOT relabel the completed donation as proposed, and it MUST NOT write an
-accession-complete object, title binding, rights determination, condition
-assessment, preservation completion, or `STREAM_ACCESSION_V1` assertion before
-the corresponding evidence and approval gate is complete.
+The migration MUST carry the reviewed Museum accession, title, rights,
+condition, object, curatorial, technical, and diligence records under their
+admitted Museum profiles; it MUST NOT substitute `MUSEUM_RESEARCH_NOTE_V1` for
+those completed decisions. It MUST also preserve the stricter states that have
+not been claimed: autonomous software preservation remains active stewardship,
+and the objects are not represented as `preservation_complete` or
+`display_ready`. The existing completed Museum `ACCESSION` certificate uses the
+bilaterally matched `STREAM_ACCESSION_V1` payload profile. What remains
+prohibited until the convergence gate in section 2.1 is a Stream owner-record
+write or `StreamMirrorLink`: those actions require the source-backed Stream
+implementation, deployed module, exact owner-record hash preimage and read
+surface, runtime hash, golden vector, and state-readback round trip. That
+host-side integration gate does not reopen or downgrade the Museum's completed
+accession.
 
-The lot `6529NM.2026.001` and the seven received object records retain their
-native CAIP-19 identities. When each remaining gate is complete, append the
-corresponding evidence-backed title, rights, condition, preservation, review,
-and (where the Stream convergence gate permits it) `STREAM_ACCESSION_V1`
-records. The collection-level curatorial argument does not substitute for
-those object-level records.
+The lot `6529NM.2026.001` and its seven accessioned object records retain their
+native CAIP-19 identities. Migration MUST preserve the existing evidence-backed
+title, rights, condition, curatorial, technical, review, certificate, and
+post-accession diligence records without collapsing them into one assertion.
+Later preservation or display milestones are appended only when their own
+evidence supports those stricter states; where the Stream convergence gate
+permits it, a later Stream owner-record mirror link is likewise additive. The
+collection-level curatorial argument does not substitute for object-level
+records, and a future Stream link does not become the Museum's title or
+accession authority.
 
 ## 10. Future Stream-native Keys and Gates
 

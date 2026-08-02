@@ -1,0 +1,1416 @@
+{
+  "schema_version": "6529nm.casey-custody-audit.v1",
+  "audit_id": "6529NM.2026.001.CUSTODY-AUDIT-20260802",
+  "subject_id": "6529NM.2026.001",
+  "observed_at": "2026-08-02T10:41:45.007Z",
+  "chain": {
+    "chain_id": 1,
+    "caip2": "eip155:1",
+    "finality_tag": "finalized"
+  },
+  "block": {
+    "number": 25666454,
+    "numeric_tag": "0x187a396",
+    "state_tag": "finalized",
+    "hash": "0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce",
+    "timestamp": "2026-08-02T09:58:47Z"
+  },
+  "custodian": {
+    "ens": "networkmuseum.6529.eth",
+    "ens_namehash": "0xf90c6c0dca064bc19c04756dc088ceb60402ce8522ab4623f016d19abbb76394",
+    "resolver": "0xf29100983e058b709f3d539b0c765937b804ac15",
+    "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c"
+  },
+  "objects": [
+    {
+      "object_id": "6529NM.2026.001.01",
+      "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "token_id": "100000031",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.02",
+      "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "token_id": "100000724",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.03",
+      "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "token_id": "100000401",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.04",
+      "contract": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+      "token_id": "383000063",
+      "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.05",
+      "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+      "token_id": "164000308",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.06",
+      "contract": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+      "token_id": "1000713",
+      "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    },
+    {
+      "object_id": "6529NM.2026.001.07",
+      "contract": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+      "token_id": "248",
+      "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "token_level_approval_is_zero": true
+    }
+  ],
+  "result": {
+    "all_owner_of_results_match_museum": true,
+    "all_token_level_approvals_are_zero": true,
+    "ens_resolves_to_museum_at_same_block": true,
+    "finalized_boundary_stable_before_and_after": true,
+    "object_count": 7
+  },
+  "method": {
+    "rpc_endpoints": {
+      "chain_and_finalized_block": "https://1rpc.io/eth",
+      "block_pinned_contract_reads": "https://ethereum-rpc.publicnode.com"
+    },
+    "transport": "scripts/safe_fetch.py",
+    "selectors": {
+      "resolver": "0x0178b8bf",
+      "addr": "0x3b3b57de",
+      "ownerOf": "0x6352211e",
+      "getApproved": "0x081812fc"
+    },
+    "same_block_rule": "ENS resolver, ENS address, ownerOf, and getApproved were evaluated through one provider's finalized tag while a second provider returned the same retained finalized block number and hash before and after the observation window.",
+    "evidence_boundary": "This proves contract state at the retained finalized block. A zero token-level approval is not proof that no operator-for-all approval, private claim, legal encumbrance, key compromise, or later transfer exists."
+  },
+  "requests": {
+    "chain_id": {
+      "sha256": "sha256:1a25b5b295c80a29b39e8379f9ad3250f1a30a1214b77cd7adbdc7c884ac1034",
+      "size": 68,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "finalized_block": {
+      "sha256": "sha256:ed1f522d2f966b4969eb6cbacbc6e96a2a53c932961b568a03b486b49c6d578b",
+      "size": 101,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "ens_resolver": {
+      "sha256": "sha256:1e6c6ffc3c32ad80511d55ab22408113a59da8d41490af4bc15a87f5856541cd",
+      "size": 216,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "ens_address": {
+      "sha256": "sha256:7dd225762a7f26011786d7f511e3b85b572c0bf5427dffb524ef9ab67f7cfe4b",
+      "size": 215,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.01": {
+      "sha256": "sha256:9c83c08f3670a9dd2f51f6c4eca8141ad9ad67cd568020e1e4da5f7a54572fc8",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.01": {
+      "sha256": "sha256:a56fcd913e8cd68297087ea62772df6d1a63a1f28442546da28ae81d36c8cdc7",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.02": {
+      "sha256": "sha256:75b980d829a7ef51bdb14df8fa31ed4fca365dfa5125977a2d3d96bd7f53bf1a",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.02": {
+      "sha256": "sha256:74c260be6282f743a9ffcec8c179ecfbdf400d260ed6893e330d58157b8f4cf5",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.03": {
+      "sha256": "sha256:a6e1c38780ea6b422bdea64d7e152f121c6c3e32dea9c5b7fac458ed2887a83c",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.03": {
+      "sha256": "sha256:e83255b064f0688b4326a61d7feb3f27406b447560a7302ada4b37bf800b3b80",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.04": {
+      "sha256": "sha256:52f674204136e8029fb1c5bb5515f4b29851c994b48dee8f74ca7630f877beeb",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.04": {
+      "sha256": "sha256:6bd63ddad6711674cbc10ef5a4ec479083872cb706bcede6809104fac227f534",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.05": {
+      "sha256": "sha256:e1097e995a226e7a09eadb20f5c0f93b8847dfe9587341156f8c75a5f39eb1b8",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.05": {
+      "sha256": "sha256:5f44aa0fccf51f65b4a433a28754e9c45f0855eaee68453ee9d1a51fbcd25773",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.06": {
+      "sha256": "sha256:873a570342653862873ca935924c61a09b7a9bb2f9e84a1bf4bd1c036d670df3",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.06": {
+      "sha256": "sha256:1f1aff30ebd0f32ddad77648eda2568e105ebffed26e5ef40211a7e3a53f7d90",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "owner:6529NM.2026.001.07": {
+      "sha256": "sha256:652541039a58a1c52b54772928c8e4fcca49880a7dd01e3a471aa7f577855fcf",
+      "size": 228,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "approval:6529NM.2026.001.07": {
+      "sha256": "sha256:bde5c7accb3586efedc610293e0d9ec1e0976698842e2a5e037b420520288eb5",
+      "size": 231,
+      "canonicalization": "sorted-key compact JSON"
+    },
+    "finalized_block_after": {
+      "sha256": "sha256:a2903bec79993100da3d302cb0d3e942bfd8b6478d57f08e47c77da253c745a2",
+      "size": 107,
+      "canonicalization": "sorted-key compact JSON"
+    }
+  },
+  "responses": [
+    {
+      "path": "raw/rpc/sha256-01894b7d447233ed2f6062ceab951fca235f6b23029194d30b9530633f713cdb.json",
+      "sha256": "sha256:01894b7d447233ed2f6062ceab951fca235f6b23029194d30b9530633f713cdb",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-16888d0c663fce824d57d1180703d1ba891e6ce3e823f383fad9ce770d43e88c.json",
+      "sha256": "sha256:16888d0c663fce824d57d1180703d1ba891e6ce3e823f383fad9ce770d43e88c",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5.json",
+      "sha256": "sha256:3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-656161d0d2eb4ed3987fbb7dca0e621f11c2aa18a14c3d67e39433802713e853.json",
+      "sha256": "sha256:656161d0d2eb4ed3987fbb7dca0e621f11c2aa18a14c3d67e39433802713e853",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-68253d39820637b037053294b6a59d82dddccf46e9485e94dcd88ad72b07f773.json",
+      "sha256": "sha256:68253d39820637b037053294b6a59d82dddccf46e9485e94dcd88ad72b07f773",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-7c15ee86677585ba6ab3e0b31e12c4c3bb76ff96e6c336bfaa3985fdc3622771.json",
+      "sha256": "sha256:7c15ee86677585ba6ab3e0b31e12c4c3bb76ff96e6c336bfaa3985fdc3622771",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-86ede73bd39144bef759e28ed8b954afeae8cb8948df4a21cbcdd76f1d1ab867.json",
+      "sha256": "sha256:86ede73bd39144bef759e28ed8b954afeae8cb8948df4a21cbcdd76f1d1ab867",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-88840318af2836f476afd02635f1cbf2d6b0b138412d40fccc544bde82252cea.json",
+      "sha256": "sha256:88840318af2836f476afd02635f1cbf2d6b0b138412d40fccc544bde82252cea",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-9292899db6aa152c2652e3b4194d5c191d59c7c4a3e39e2ae797402c78153f46.json",
+      "sha256": "sha256:9292899db6aa152c2652e3b4194d5c191d59c7c4a3e39e2ae797402c78153f46",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-9efbf4986b9b4bf7e35db3fd0ce7f8b1ac8b04612e093fe6a71688a072938055.json",
+      "sha256": "sha256:9efbf4986b9b4bf7e35db3fd0ce7f8b1ac8b04612e093fe6a71688a072938055",
+      "size": 115,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-a68e3f861ab66623396385ca1af5709905b6395ec78c3b0655a13ac5025a89b8.json",
+      "sha256": "sha256:a68e3f861ab66623396385ca1af5709905b6395ec78c3b0655a13ac5025a89b8",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-afafffe9a77cee3210acc15e913f1686db4ea88eef78c7fdd591edb81bc8667b.json",
+      "sha256": "sha256:afafffe9a77cee3210acc15e913f1686db4ea88eef78c7fdd591edb81bc8667b",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5.json",
+      "sha256": "sha256:b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5",
+      "size": 13131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-c23cf8ab834d935e75871e13ddc95769886adbd047a030b10c70dbe1149673c0.json",
+      "sha256": "sha256:c23cf8ab834d935e75871e13ddc95769886adbd047a030b10c70dbe1149673c0",
+      "size": 116,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-d0ec2de8aaebea1ecc47f478a25e9a2272a6a18319691fa2ccecaf62a9360508.json",
+      "sha256": "sha256:d0ec2de8aaebea1ecc47f478a25e9a2272a6a18319691fa2ccecaf62a9360508",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-de2236a5f092a39aebe08371012d68fb95f59a39628f14f85fa8a093f1a4987a.json",
+      "sha256": "sha256:de2236a5f092a39aebe08371012d68fb95f59a39628f14f85fa8a093f1a4987a",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc.json",
+      "sha256": "sha256:e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc",
+      "size": 48,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526.json",
+      "sha256": "sha256:e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526",
+      "size": 13137,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-ff19afdb03ff28afb6a75ad640bd98cca5e85f3f12a6f9676df52e2666b6986c.json",
+      "sha256": "sha256:ff19afdb03ff28afb6a75ad640bd98cca5e85f3f12a6f9676df52e2666b6986c",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    }
+  ],
+  "safe_fetch_observations": {
+    "chain_id": {
+      "canonical_url": "https://1rpc.io/eth",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.21.77.34",
+        "172.67.204.2"
+      ],
+      "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+      "selected_ip": "104.21.77.34",
+      "peer_ip": "104.21.77.34",
+      "redirect_chain": [
+        "https://1rpc.io/eth"
+      ],
+      "observed_at": "2026-08-02T10:41:46.249Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 48,
+      "byte_sha256": "e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "48"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://1rpc.io/eth",
+          "address_set": [
+            "104.21.77.34",
+            "172.67.204.2"
+          ],
+          "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+          "selected_ip": "104.21.77.34",
+          "peer_ip": "104.21.77.34",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 48,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "48"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:46.249Z"
+        }
+      ]
+    },
+    "finalized_block": {
+      "canonical_url": "https://1rpc.io/eth",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.21.77.34",
+        "172.67.204.2"
+      ],
+      "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+      "selected_ip": "104.21.77.34",
+      "peer_ip": "104.21.77.34",
+      "redirect_chain": [
+        "https://1rpc.io/eth"
+      ],
+      "observed_at": "2026-08-02T10:41:47.391Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 13131,
+      "byte_sha256": "b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "13131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://1rpc.io/eth",
+          "address_set": [
+            "104.21.77.34",
+            "172.67.204.2"
+          ],
+          "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+          "selected_ip": "104.21.77.34",
+          "peer_ip": "104.21.77.34",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 13131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "13131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:47.391Z"
+        }
+      ]
+    },
+    "ens_resolver": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:48.483Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 116,
+      "byte_sha256": "c23cf8ab834d935e75871e13ddc95769886adbd047a030b10c70dbe1149673c0",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "116"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 116,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "116"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:48.483Z"
+        }
+      ]
+    },
+    "ens_address": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:49.570Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 115,
+      "byte_sha256": "9efbf4986b9b4bf7e35db3fd0ce7f8b1ac8b04612e093fe6a71688a072938055",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "115"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 115,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "115"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:49.570Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.01": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:50.666Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "a68e3f861ab66623396385ca1af5709905b6395ec78c3b0655a13ac5025a89b8",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:50.666Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.01": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:51.751Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "01894b7d447233ed2f6062ceab951fca235f6b23029194d30b9530633f713cdb",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:51.751Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.02": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:52.845Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "ff19afdb03ff28afb6a75ad640bd98cca5e85f3f12a6f9676df52e2666b6986c",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:52.845Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.02": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:53.936Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "88840318af2836f476afd02635f1cbf2d6b0b138412d40fccc544bde82252cea",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:53.936Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.03": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:55.022Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "de2236a5f092a39aebe08371012d68fb95f59a39628f14f85fa8a093f1a4987a",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:55.022Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.03": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:56.105Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "68253d39820637b037053294b6a59d82dddccf46e9485e94dcd88ad72b07f773",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:56.105Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.04": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:57.191Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "9292899db6aa152c2652e3b4194d5c191d59c7c4a3e39e2ae797402c78153f46",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:57.191Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.04": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:58.275Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "7c15ee86677585ba6ab3e0b31e12c4c3bb76ff96e6c336bfaa3985fdc3622771",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:58.275Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.05": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:41:59.366Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "16888d0c663fce824d57d1180703d1ba891e6ce3e823f383fad9ce770d43e88c",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:41:59.366Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.05": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:42:00.453Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "afafffe9a77cee3210acc15e913f1686db4ea88eef78c7fdd591edb81bc8667b",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:00.453Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.06": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:42:01.536Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:01.536Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.06": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:42:02.624Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "86ede73bd39144bef759e28ed8b954afeae8cb8948df4a21cbcdd76f1d1ab867",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:02.624Z"
+        }
+      ]
+    },
+    "owner:6529NM.2026.001.07": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:42:03.710Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 128,
+      "byte_sha256": "656161d0d2eb4ed3987fbb7dca0e621f11c2aa18a14c3d67e39433802713e853",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "128"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 128,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "128"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:03.710Z"
+        }
+      ]
+    },
+    "approval:6529NM.2026.001.07": {
+      "canonical_url": "https://ethereum-rpc.publicnode.com/",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.20.24.117",
+        "172.66.150.162"
+      ],
+      "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+      "selected_ip": "104.20.24.117",
+      "peer_ip": "104.20.24.117",
+      "redirect_chain": [
+        "https://ethereum-rpc.publicnode.com/"
+      ],
+      "observed_at": "2026-08-02T10:42:04.797Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 131,
+      "byte_sha256": "d0ec2de8aaebea1ecc47f478a25e9a2272a6a18319691fa2ccecaf62a9360508",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "131"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://ethereum-rpc.publicnode.com/",
+          "address_set": [
+            "104.20.24.117",
+            "172.66.150.162"
+          ],
+          "address_set_sha256": "481939ee286423c09956371ce1fa8bc7f187c867f8dc53f0a5237172276cec16",
+          "selected_ip": "104.20.24.117",
+          "peer_ip": "104.20.24.117",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 131,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "131"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:04.797Z"
+        }
+      ]
+    },
+    "finalized_block_after": {
+      "canonical_url": "https://1rpc.io/eth",
+      "resolver_profile": "system_getaddrinfo",
+      "resolver_revision": "python-socket.getaddrinfo-v1",
+      "address_set": [
+        "104.21.77.34",
+        "172.67.204.2"
+      ],
+      "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+      "selected_ip": "104.21.77.34",
+      "peer_ip": "104.21.77.34",
+      "redirect_chain": [
+        "https://1rpc.io/eth"
+      ],
+      "observed_at": "2026-08-02T10:42:05.892Z",
+      "status": 200,
+      "media_type": "application/json",
+      "byte_length": 13137,
+      "byte_sha256": "e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526",
+      "response_headers": [
+        [
+          "content-type",
+          "application/json"
+        ],
+        [
+          "content-length",
+          "13137"
+        ]
+      ],
+      "hops": [
+        {
+          "canonical_url": "https://1rpc.io/eth",
+          "address_set": [
+            "104.21.77.34",
+            "172.67.204.2"
+          ],
+          "address_set_sha256": "cbc9cf3d67aed9dad086ff94d553ec9eebda6fd2293d306cf3a23ca524bf87c2",
+          "selected_ip": "104.21.77.34",
+          "peer_ip": "104.21.77.34",
+          "status": 200,
+          "media_type": "application/json",
+          "byte_length": 13137,
+          "response_headers": [
+            [
+              "content-type",
+              "application/json"
+            ],
+            [
+              "content-length",
+              "13137"
+            ]
+          ],
+          "observed_at": "2026-08-02T10:42:05.892Z"
+        }
+      ]
+    }
+  }
+}

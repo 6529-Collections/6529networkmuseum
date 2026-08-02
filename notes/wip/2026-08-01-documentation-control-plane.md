@@ -1,7 +1,17 @@
 # Documentation-as-code control plane
 
-Status: WIP implementation note; the validator and schemas are proposed
-repository controls, not adopted Museum policy.
+Status: historical implementation note. The validators, schemas,
+deterministic release manifest, and CI checks described here are active
+repository controls, not adopted Museum policy. Current operation is specified
+in [`docs/control-plane.md`](../../docs/control-plane.md).
+
+Supersession note (2026-08-02): this file preserves the design history of the
+control plane. The repository now contains canonical governance, program,
+collection, and accession records; the operational description in
+[`docs/control-plane.md`](../../docs/control-plane.md), the canonical
+[`INDEX.md`](../../INDEX.md), and the deterministic release manifest supersede
+the implementation-state statements below. The architectural conclusions and
+unresolved Stream/on-chain deployment boundaries remain useful design context.
 
 ## Conclusions
 
@@ -19,9 +29,11 @@ repository controls, not adopted Museum policy.
 - JSON files receive JCS/Keccak commitments and the deterministic release
   inventory receives LF-normalized SHA-256 entries in
   `release-artifacts/latest/record-manifest.json`.
-- No canonical record was invented in this change. Fixtures are explicitly
-  synthetic and are not governed records, even when the control-plane source
-  inventory includes their test bytes.
+- At this historical checkpoint no canonical record was introduced by the
+  control-plane change itself. Canonical records were added later through
+  independently reviewed pull requests. Fixtures remain explicitly synthetic
+  and are not governed records even when the release inventory includes their
+  test bytes.
 - Manifest-authorized raw media is still subject to known credential-shape
   scanning and media/signature checks; this is a known-pattern admission gate,
   not a claim to detect arbitrary steganography.
@@ -48,14 +60,15 @@ compatibility assertion is tested by `test_reviewbot_config_matches_deployed_com
 
 ## Exact-head remediation checkpoint
 
-Independent review of the prior head identified three fail-closed gaps. The
-working remediation now rejects every declared non-text evidence media type
+Independent review of the construction head identified three fail-closed gaps.
+The merged validators reject every declared non-text evidence media type
 outside the structurally parsed PNG profile, scans bounded UTF-16LE/BE
 candidate spans case-insensitively, and rejects `getattr`-mediated access to
 network/process/dynamic-import roots in every Python tree including tests.
-Governance prose now states the exact four-kind automatic production baseline;
-external-media and deploy-actions remain manual specialists, and Stream review
-uses the central head-bound workflow until the production catalog upgrade.
+`.github/6529bot.yml` sets the automatic production baseline to exactly
+`general`, `security`, `privacy-evidence`, and `glm-swarm`. `media-external`
+and `deploy-actions` remain manual specialists. Stream-equivalent contract
+review uses the central head-bound workflow until the production catalog upgrade.
 Focused adversarial tests cover PDF/octet-stream polyglots, uppercase secrets
 in both UTF-16 endiannesses, and aliased `getattr` bypasses.
 
@@ -64,15 +77,22 @@ Evidence fallback now checks the raw bytes and suffix before decoding, so
 executable/container signatures cannot pass merely because they are valid
 UTF-8; non-text evidence must be admitted by an approved raw-byte manifest.
 
-## Unresolved questions
+## Remaining implementation boundaries
 
 - The pinned Stream commit does not publish standalone canonical JSON Schema
-  files for every museum profile. When it does, the Museum schemas need a
-  byte-compatibility comparison and any divergence must be recorded in
-  `docs/stream-interoperability.md` before a live record is published.
-- The repository does not yet contain the pending canonical `records/` register;
-  its first populated release should be created through reviewed record PRs
-  using this control plane.
-- The workflow uses the local Python Keccak implementation dependency for now;
-  a future on-chain migration should add independent cross-language test
-  vectors before deployment.
+  files for every museum profile. When it does, compare the canonical schema
+  bytes and record every divergence in `docs/stream-interoperability.md` before
+  migrating Museum records to that Stream revision.
+- The workflow uses the local Python Keccak implementation dependency. Before
+  contract deployment, add independent cross-language vectors covering every
+  on-chain commitment and canonicalization path.
+
+## Resolved after this note
+
+- The canonical `records/` register is populated through reviewed record pull
+  requests and is covered by the release manifest. In particular,
+  `records/accessions/register.json` records the Casey REAS seven-work gift as
+  accepted and accessioned, while the accession dossier retains the reviewed
+  authorization, lot, certificate, object, rights, condition, visual,
+  curatorial, technical, and public records. Ongoing software preservation is
+  active stewardship, not an incomplete accession decision.
