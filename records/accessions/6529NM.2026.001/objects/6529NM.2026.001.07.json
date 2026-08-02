@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbbbee39561dc495ac525d564de755bd48ab6d62d523a4be164b7fb2f0c6c1e77"
+      "digest": "0x659c1168471d274e84ff29fcf8edd86ad5b8da25ef57d6a3acaf388f8aa11729"
     },
     "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
@@ -74,7 +74,7 @@
       "documentation": "amber",
       "protocol_state": "Accession-level condition review complete; autonomous software preservation remains in progress.",
       "method": "Reviewed chain, metadata, generator, visual-observation, dependency, display, and preservation evidence. Each current official generator route was available and rendered changing output; the absence of a Museum-held autonomous generator package limits reproducibility but does not make the work unavailable.",
-      "narrative": "No red condition is identified. Identity and retained metadata fixity are verified. The live generator routes were functional when observed, while generator packaging, dependency capture, behavior coverage, and cross-environment reproducibility remain amber stewardship priorities.",
+      "narrative": "No red condition is identified. Identity and retained metadata fixity are verified. The live generator routes were functional when observed, while generator packaging, dependency capture, behavior coverage, and cross-environment reproducibility remain amber stewardship priorities. The reviewed generator's lowercase r/b implementation differs from the uppercase R/B platform instructions; the discrepancy is amber and must be retained in display instructions.",
       "observed_at": "2026-08-02T06:30:00Z"
     },
     "constructor": {
@@ -120,7 +120,33 @@
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
       "status": "observation_only",
-      "uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248"
+      "uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "interaction_map": [
+        {
+          "input": "Space",
+          "action": "Generate a new Still Life state."
+        },
+        {
+          "input": "P",
+          "action": "Pause or resume animation."
+        },
+        {
+          "input": "S",
+          "action": "Change speed."
+        },
+        {
+          "input": "G / W",
+          "action": "Toggle the implemented green and white display states."
+        },
+        {
+          "input": "lowercase r / b",
+          "action": "Toggle the implemented red and blue channel states."
+        }
+      ],
+      "interaction_review_status": "source_reviewed_not_exhaustively_exercised",
+      "documentation_discrepancies": [
+        "The reviewed generator compares lowercase r and lowercase b (with duplicated lowercase comparisons); the uppercase R and B controls stated in platform metadata are not implemented as written. This is an amber behavior/documentation discrepancy."
+      ]
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
@@ -142,9 +168,9 @@
     },
     "object_id": "6529NM.2026.001.07",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:75ddc6f9bc06e7bdefd57f801355908ab0b2bbf8e53c10ca93ef5cd2b9904542",
+    "payload_sha256": "sha256:facff36b33673deee0e092ed252bddbca809d5be647f93a798c3112542cdfdcd",
     "preservation": {
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
@@ -292,7 +318,7 @@
       "block_number": 25660311,
       "from": "0x6daa633c23615a29471deafae351727867e7dad1",
       "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "bound_at": "2026-08-01T22:55:00.002Z",
+      "bound_at": "2026-08-01T22:55:00Z",
       "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {
@@ -393,7 +419,8 @@
     },
     "uncertainties": [
       "The exact self-contained generator and complete dependency bundle are not yet retained.",
-      "Cross-environment reproducibility and the full documented interaction set have not yet been verified."
+      "Cross-environment reproducibility and the full documented interaction set have not yet been verified.",
+      "Platform metadata states uppercase R/B controls, while the reviewed generator implements lowercase r/b comparisons; exhibition instructions must follow the tested implementation and disclose the discrepancy."
     ],
     "visibility": "public",
     "visual_observation_record": "6529NM.2026.001.VO-01",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9474f8705c4d42c2865b8dba677bb87ef499499c77a00d673f5e51b10f1ae836"
+      "digest": "0x7005ac17ed3735c61f696efc81890bfe2542f8a496a4bdd8bf53611146947c60"
     },
     "effectiveAt": 1785624900,
     "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
@@ -160,7 +160,11 @@
         "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052156",
         "observed_at": "2026-08-01T15:01:05Z",
         "effect_basis": "reviewed_governance_record",
-        "governance_record_ref": "6529NM-GOV-REGISTER"
+        "governance_record_ref": "6529NM-GOV-REGISTER",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T15:01:05Z",
+        "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API drop_type=WINNER status; rating totals and rater counts are contextual and do not determine effect."
       },
       {
         "basis_type": "wave_governance_decision",
@@ -173,7 +177,11 @@
         "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052812",
         "observed_at": "2026-08-01T15:01:05Z",
         "effect_basis": "reviewed_governance_record",
-        "governance_record_ref": "6529NM-GOV-REGISTER"
+        "governance_record_ref": "6529NM-GOV-REGISTER",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T15:01:05Z",
+        "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API drop_type=WINNER status; rating totals and rater counts are contextual and do not determine effect."
       }
     ],
     "institutional_decision_authority": {
@@ -190,7 +198,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:93058f023736c790dfbbec7a5e97feeaa0925dc3a566ff0444853964fd9a9c08",
+    "payload_sha256": "sha256:369539f00a20f3a2cd49b5dcdffe052118c7929f6f153428b5dc0005dd8a0fc2",
     "permanent_collection_intent": "The Museum formally accepts this seven-object gift for the permanent collection under the adopted donation pathway, subject to the stated completion boundaries, governing controls, and ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.001.GAA-01",
     "record_status": "reviewed",

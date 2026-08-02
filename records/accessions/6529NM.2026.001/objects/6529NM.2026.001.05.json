@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x73f05c2330736f382cf956e07dca73eae0bd607ed5360edabdf36f5872e4431a"
+      "digest": "0x8d9f4d8fb003e8929584dc642041fe3daac2da9040bcf809ad38f9fa233c662e"
     },
     "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
@@ -115,7 +115,27 @@
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
       "status": "observation_only",
-      "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308"
+      "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+      "interaction_map": [
+        {
+          "input": "P",
+          "action": "Pause or resume the simulation."
+        },
+        {
+          "input": "B",
+          "action": "Restart the simulation from the beginning."
+        },
+        {
+          "input": "1–5",
+          "action": "Change magnification."
+        },
+        {
+          "input": "L",
+          "action": "Reveal or hide the simulated light locations."
+        }
+      ],
+      "interaction_review_status": "source_reviewed_not_exhaustively_exercised",
+      "automatic_behavior": "The simulation stops after 1,000 iterations for the initial thumbnail state."
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
@@ -137,9 +157,9 @@
     },
     "object_id": "6529NM.2026.001.05",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:aba96d7629f8546dd406f180856d413411739ca436fbc211bc0696ecc69b90da",
+    "payload_sha256": "sha256:5e76a053abbe0121fd5784912b42eb6f68121d001bdbf534da7d377b84e455a9",
     "preservation": {
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
@@ -288,7 +308,7 @@
       "block_number": 25660311,
       "from": "0x6daa633c23615a29471deafae351727867e7dad1",
       "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "bound_at": "2026-08-01T22:55:00.002Z",
+      "bound_at": "2026-08-01T22:55:00Z",
       "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {

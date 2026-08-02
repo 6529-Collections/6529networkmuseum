@@ -5,7 +5,7 @@
     "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x5cc2da2d4674dddab29f784bdaf895f40318f4b5e75f8ef8626a891e4bd067f6",
+      "digest": "0xefef17efdd76846a19523d84daea0ee60bd5644c6bb173d758fb1d41521a112f",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json",
@@ -40,7 +40,7 @@
     },
     "record_status": "reviewed",
     "review_status": "reviewed",
-    "payload_sha256": "sha256:a059b375545a1c6498ca552e81a45d25b8e8648e8a8ceec2b3d11e0ab54882a4",
+    "payload_sha256": "sha256:fb05b6ae724295ae3f2f7619044b29153b25d76b4f04857c41fdb5b5d21b2dd6",
     "references": [
       "6529NM.2026.001",
       "6529NM.2026.001.GAA-01",
@@ -72,7 +72,7 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
-        "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+        "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
       },
       {
         "label": "Curatorial accession review",
@@ -103,7 +103,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -115,7 +115,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -127,7 +127,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -139,7 +139,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -151,7 +151,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -163,7 +163,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       },
       {
@@ -175,7 +175,7 @@
         "block_number": 25660311,
         "from": "0x6daa633c23615a29471deafae351727867e7dad1",
         "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-        "bound_at": "2026-08-01T22:55:00.002Z",
+        "bound_at": "2026-08-01T22:55:00Z",
         "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
       }
     ],
@@ -227,7 +227,7 @@
       },
       {
         "event_type": "acquisition",
-        "occurred_at": "2026-08-01T22:55:00.001Z",
+        "occurred_at": "2026-08-01T22:55:00Z",
         "authority_reference": "6529NM.2026.001",
         "evidence_refs": [
           {
@@ -240,7 +240,7 @@
       },
       {
         "event_type": "title_passage",
-        "occurred_at": "2026-08-01T22:55:00.002Z",
+        "occurred_at": "2026-08-01T22:55:00Z",
         "authority_reference": "6529NM.2026.001.TITLE-01",
         "evidence_refs": [
           {
@@ -261,7 +261,10 @@
       },
       {
         "event_type": "custody_receipt",
-        "occurred_at": "2026-08-01T22:55:00.003Z",
+        "event_name": "institutional_custody_registration",
+        "occurred_at": "2026-08-02T06:30:00Z",
+        "source_occurred_at": "2026-08-01T13:25:47Z",
+        "event_semantics": "The occurred_at value dates the Museum's reviewed custody registration. The underlying on-chain receipt occurred at source_occurred_at; this record does not redate or replay that transfer.",
         "authority_reference": "6529NM.2026.001.RECEIPT-01",
         "evidence_refs": [
           {
@@ -355,7 +358,7 @@
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "C",
-            "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+            "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
           }
         ]
       }

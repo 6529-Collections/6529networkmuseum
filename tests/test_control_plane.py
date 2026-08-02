@@ -259,11 +259,11 @@ class ControlPlaneTests(unittest.TestCase):
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(f"custody_path.{field} must match" in issue for issue in issues), issues)
 
-    def test_accession_binding_requirements_and_strict_chronology_are_rejected(self) -> None:
+    def test_accession_binding_requirements_and_backwards_chronology_are_rejected(self) -> None:
         mutations = (
             (lambda record: record["payload"]["title_bindings"][0].update(status="pending"), "executed title binding"),
             (lambda record: record["payload"]["events"][3]["instrument"].update(sha256="sha256:" + "d" * 64), "instrument sha256"),
-            (lambda record: record["payload"]["events"][1].update(occurred_at=record["payload"]["events"][0]["occurred_at"]), "strictly increasing"),
+            (lambda record: record["payload"]["events"][1].update(occurred_at="2024-12-31T23:59:59Z"), "moves backwards"),
         )
         for mutate, expected in mutations:
             with self.subTest(expected=expected):

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x819752ecb551ecd8dff1841a8b2aaab75c76fab8f703a21bcc4a02ed450f19f5"
+      "digest": "0x8452f0bb926885dfde2c5f9c3300e117d6d9c8d45a7a395203184740d265afd8"
     },
     "effectiveAt": 1785652200,
     "recordType": "CONDITION_REPORT",
@@ -61,7 +61,7 @@
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
             "observed_at": "2026-08-02T06:30:00Z",
             "evidence_class": "C",
-            "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+            "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
           },
           {
             "label": "Object-specific retained Art Blocks metadata",
@@ -85,7 +85,7 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
-        "sha256": "sha256:dacc372bd1f98c5bc92fecf887cb41ae44fa4b14b3e93429ead8584cda3cc960"
+        "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
       },
       {
         "label": "Object-specific retained Art Blocks metadata",
@@ -105,14 +105,14 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/manifest.json",
         "observed_at": "2026-08-02T06:30:00Z",
         "evidence_class": "C",
-        "sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780"
+        "sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415"
       }
     ],
     "method": "Reviewed synthesis of exact chain receipt and custody joins, retained metadata bytes and fixity, official generator observations, two-frame viewport evidence, documented controls, and preservation-package holdings and omissions.",
     "object_id": "6529NM.2026.001.05",
     "observed_at": "2026-08-02T06:30:00Z",
     "outcome": "pass_with_conditions: no red condition is identified; the work is accessionable and display-ready with documented network/browser, attribution, monitoring, and fallback conditions while autonomous software preservation remains in progress.",
-    "payload_sha256": "sha256:c43e0d1b92867cc7f1338315665c4b5f1efd096e6a17f702e5e2415a6fcc7fea",
+    "payload_sha256": "sha256:a59803f65367b0c220e3754e6f0bf9cf76e43a87b20d5db1c694248ada57866a",
     "protocol_state": "Accession-level technical and condition review complete; ongoing software preservation remains in progress.",
     "record_id": "6529NM.2026.001.COND.05",
     "record_status": "reviewed",

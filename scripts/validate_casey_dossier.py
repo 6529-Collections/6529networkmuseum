@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from canonical import canonicalize
+from finalize_casey_accession import GENERATOR_EVIDENCE, ROOMS_EDITION_STATEMENT
 
 ROOT = Path(__file__).resolve().parent.parent
 CASEY_ID = "6529NM.2026.001"
@@ -1110,6 +1111,17 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     custody_paths = events[4].get("custody_paths", []) if len(events) == 6 and isinstance(events[4], dict) else []
     if [item.get("object_id") for item in custody_paths if isinstance(item, dict)] != expected_object_ids or any(item.get("kind") != "onchain_token" for item in custody_paths if isinstance(item, dict)):
         issues.append("Casey accession certificate must bind one on-chain custody path per object")
+    custody_event = events[4] if len(events) == 6 and isinstance(events[4], dict) else {}
+    if (
+        custody_event.get("event_name") != "institutional_custody_registration"
+        or custody_event.get("occurred_at") != "2026-08-02T06:30:00Z"
+        or custody_event.get("source_occurred_at") != RECEIPT_BLOCK_TIME
+        or "does not redate or replay" not in custody_event.get("event_semantics", "")
+        or events[0].get("occurred_at") != RECEIPT_BLOCK_TIME
+        or any(events[index].get("occurred_at") != "2026-08-01T22:55:00Z" for index in (1, 2, 3))
+        or events[5].get("occurred_at") != "2026-08-02T06:30:00Z"
+    ):
+        issues.append("Casey accession chronology must distinguish on-chain receipt, co-temporal acceptance/acquisition/title, and later custody registration")
 
     authorization = authorization_record["payload"]
     expected_boundary = {
@@ -1135,7 +1147,15 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     ):
         issues.append("Casey gift authorization must record the full gift and its completed accession resolution")
     for basis in authorization.get("governing_basis", []):
-        if basis.get("observed_at") != "2026-08-01T15:01:05Z" or basis.get("effect_basis") != "reviewed_governance_record" or basis.get("governance_record_ref") != "6529NM-GOV-REGISTER":
+        if (
+            basis.get("observed_at") != "2026-08-01T15:01:05Z"
+            or basis.get("effect_basis") != "reviewed_governance_record"
+            or basis.get("governance_record_ref") != "6529NM-GOV-REGISTER"
+            or basis.get("live_api_field") != "drop_type"
+            or basis.get("live_api_status") != "WINNER"
+            or basis.get("live_api_observed_at") != "2026-08-01T15:01:05Z"
+            or "rating totals and rater counts" not in basis.get("governance_effect_basis", "")
+        ):
             issues.append("Casey governing basis must state when and from which reviewed register its effect was observed")
 
     rights_classes = {"reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"}
@@ -1165,6 +1185,18 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey object must state a complete non-red accession condition finding: {object_id}")
         if payload.get("display", {}).get("status") != "ready_with_conditions" or payload.get("preservation", {}).get("status") != "in_progress":
             issues.append(f"Casey object must separate conditional display readiness from active preservation: {object_id}")
+        suffix = object_id.rsplit(".", 1)[1]
+        expected_generator = GENERATOR_EVIDENCE[suffix]
+        generator = payload.get("generator_snapshot") if isinstance(payload.get("generator_snapshot"), dict) else {}
+        if (
+            generator.get("sha256") != expected_generator["response_sha256"]
+            or generator.get("dependency_observed") != expected_generator["dependency"]
+            or generator.get("interaction_map") != expected_generator["interaction_map"]
+            or generator.get("interaction_review_status") != "source_reviewed_not_exhaustively_exercised"
+            or generator.get("automatic_behavior") != expected_generator.get("automatic_behavior")
+            or generator.get("documentation_discrepancies") != expected_generator.get("documentation_discrepancies")
+        ):
+            issues.append(f"Casey generator response, dependency, and complete interaction map are invalid: {object_id}")
         expected_trait = {
             "status": "transparent_linked_descriptors_available",
             "method": "Museum published NextGen-compatible method over the frozen source package; linked descriptors are available and reproducible.",
@@ -1233,7 +1265,20 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     if "**Museum interpretation [E]:** The collection proposes an encounter with an executable image" not in collection_essay:
         issues.append("Casey collection essay must retain the executable-image interpretation boundary")
     rooms = records.get("6529NM.2026.001.06", {}).get("payload", {})
-    if "923 unique rooms/combinations" not in rooms.get("project", {}).get("edition_statement", "") or "924" not in rooms.get("project", {}).get("edition_statement", ""):
+    expected_rooms_structure = {
+        "token_count": 924,
+        "invocation_range": "0–923",
+        "invocation_zero_code": "999999",
+        "sequenced_combination_invocations": "1–923",
+        "reviewed_generator_table_entries": 924,
+        "object_invocation": 713,
+        "object_code": "555536",
+        "interpretive_boundary": "The evidence resolves the count structure but does not establish an artistic interpretation of invocation zero.",
+    }
+    if (
+        rooms.get("project", {}).get("edition_statement") != ROOMS_EDITION_STATEMENT
+        or rooms.get("project", {}).get("combination_structure") != expected_rooms_structure
+    ):
         issues.append("Casey 923 EMPTY ROOMS record must retain the 923-combination / 924-token distinction")
 
     return issues

@@ -1181,3 +1181,50 @@ and SHA-256
 Independent technical review, immutable exact-head URLs,
 PR bots, CI, and maintainer review must target the new committed head; earlier
 approvals do not carry forward.
+
+## 2026-08-02 - Exact technical facts and chronology correction checkpoint
+
+Exact-head registrar review of commit `05eb786b4ed1ac5f8093cff8f038d5f2923b010d`
+rejected two residual contradictions: invented millisecond offsets in the
+accession event chronology and canonical discovery pages that still described
+the superseded intake state. Both are corrected in the next candidate.
+
+The accession certificate now retains the Ethereum receipt at
+`2026-08-01T13:25:47Z`; acceptance, acquisition, and title passage share the
+actual `2026-08-01T22:55:00Z` institutional timestamp; and the later reviewed
+custody registration is dated `2026-08-02T06:30:00Z` while binding the earlier
+source occurrence explicitly. The generic validator permits co-temporal events
+but still rejects time moving backwards. No administrative timestamp is
+presented as the time of the on-chain transfer.
+
+The technical record now binds each exact generator-response SHA-256,
+dependency version, and complete source-reviewed interaction map. For 923 EMPTY
+ROOMS, the retained population and reviewed generator establish 924 invocations
+numbered 0–923, separate invocation-zero code `999999`, the documented 1–923
+combination sequence, and #713 code `555536`; no artistic meaning is assigned to
+invocation zero. For Ex Nihilo (Cosmos), the record preserves the generator's
+lowercase `r`/`b` implementation and duplicated lowercase comparisons against
+the platform's uppercase `R`/`B` instructions as an amber behavior/documentation
+discrepancy. Mutation tests reject changes to hashes, dependency versions,
+controls, automatic behavior, count structure, and discrepancy disclosure.
+
+The top-level README, repository index, standards crosswalk, and collection
+essay now state the completed accession and distinguish it from still-active
+software preservation. The governance basis separately binds the authenticated
+Wave API `drop_type=WINNER` observation to the reviewed governance register and
+states that rating totals do not determine effect.
+
+Local verification after these corrections: Casey dossier validation, bootstrap
+validation over 276 JSON files, full control-plane validation, 48 generic tests,
+and 11 Casey tests pass; the only skip is the expected Windows named-pipe test.
+The finalizer is idempotent.
+The corrected deterministic release manifest commits to Keccak-256
+`0xd9a06e653d2124c93e2ab14f3d8699c7fed2589ed8fa2d8e60592eabb722c37b`
+and SHA-256
+`771414c47e784d2a93a1d484481ad19a0dec8e2448661a63486fad56412f7383`.
+
+A separate durable Codex task, `019fc14e-8e9a-73a3-8213-2f4eddc077bf`, is
+building the Museum section in the 6529 Evolve monorepo from fresh remote main.
+Its scope is a GitHub-release-backed public Museum interface with immutable
+manifest verification and a source adapter designed to switch to Ethereum
+records later, followed by PR bots, maintainer merge, and post-merge validation.

@@ -32,7 +32,10 @@
             "type": "object",
             "properties": {
               "event_type": {"type": "string", "enum": ["receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession"]},
+              "event_name": {"type": "string", "minLength": 1},
               "occurred_at": {"type": "string", "format": "date-time"},
+              "source_occurred_at": {"type": "string", "format": "date-time"},
+              "event_semantics": {"type": "string", "minLength": 1},
               "authority_reference": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
               "evidence_refs": {"type": "array", "minItems": 1, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}, "uniqueItems": true},
               "instrument": {

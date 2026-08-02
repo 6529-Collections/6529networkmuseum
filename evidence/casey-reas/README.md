@@ -5,12 +5,15 @@ byte streams reused from the reviewed Casey snapshot acquisition. The files are
 observation evidence, not the tokenized works and not a preservation or display
 authorization.
 
-The corresponding generator URLs and previously observed response hashes remain
-recorded in the accession lot and object records. A new raw generator capture is
-not claimed here: the repository's pinned safe-fetch policy rejected the live
-responses because their transfer framing is not admitted. Generator capture,
-render comparison, dependency capture, recovery testing, and independent
-technical review remain open preservation gates.
+The corresponding generator URLs, exact observed response hashes, dependency
+versions, and source-reviewed interaction maps are recorded in the object and
+technical records. The accession-level technical review is complete and reaches
+an amber pass-with-conditions finding with no red accession blocker. A new raw
+generator capture is not claimed here: the repository's pinned safe-fetch policy
+rejected the live responses because their transfer framing is not admitted.
+Self-contained generator and dependency capture, cross-environment render and
+interaction testing, and recovery testing remain active collection-care actions;
+they are preservation-completion gates, not unanswered accession reviews.
 
 The package also retains the raw JSON-RPC response body for the common Museum
 receipt transaction and a separate acquisition record binding the endpoint,

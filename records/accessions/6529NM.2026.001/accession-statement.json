@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x47f18c2f18d62df5a9b0e4ba2bce5b4b2ae02ee1abc62e173046fcd21e1bbf21"
+      "digest": "0xeecb8699d72e904f7e4f1925cf8ebcabf374364b20b50cc76b1347b588e573e9"
     },
     "effectiveAt": 1785652200,
     "recordType": "ACCESSION_LOT",
@@ -402,9 +402,9 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:8fcbb2d84a88a45970ae2d9d114dd2af4ce9d5e38037c5dfd68ca8bb5549d0b3",
+    "payload_sha256": "sha256:1b6b09279036a315058664accc72ab47ae3a7cb6298e83294c1c02a755cfe6e3",
     "preservation_manifest": {
-      "manifest_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "manifest_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "objects": [
         {
@@ -474,7 +474,7 @@
       "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "raw_metadata_status": "captured_and_content_addressed",
       "status": "in_progress",
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "active_stewardship_actions": [
         "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
         "complete two-environment render, interaction, timing, and reset verification",
@@ -1216,7 +1216,7 @@
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "evidence_manifest_path": "evidence/casey-reas/manifest.json",
-      "evidence_manifest_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "evidence_manifest_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "source_evidence": [
         "notes/research/casey-reas-onchain-evidence.md",
         "notes/research/casey-reas-art-technical-research.md"

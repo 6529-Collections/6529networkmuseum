@@ -28,11 +28,23 @@ These ratings are deliberately asymmetric. Verified object identity and retained
 
 ## Object-specific findings
 
-- **CENTURY #31, #724, and #401:** the retained metadata and token identity are complete. The observed route uses p5.js 1.0.0 via cdnjs, and the two-frame checks establish changing live output. For `#31`, the artist-documented `1` and `2` controls were not exercised. All three remain amber for behavior, generator capture, and reproducibility.
-- **Pre-Process #63:** the p5.js 1.0.0 official generator rendered and changed across the two observed frames. Before preservation is marked complete, test orientation, restart, mouse and keyboard behavior, frame-rate and duration effects, and whether repeated execution returns to an equivalent initial state.
+- **CENTURY #31, #724, and #401:** the retained metadata and token identity are complete. The observed routes use p5.js 1.0.0 via cdnjs, and the two-frame checks establish changing live output. The reviewed scripts bind `1` to cut/reorder and `2` to restore the ordered composition. Those controls were not exercised in the retained observations. All three remain amber for behavior, generator capture, and reproducibility.
+- **Pre-Process #63:** the p5.js 1.0.0 official generator rendered and changed across the two observed frames. The reviewed interaction map is mouse press to reset; `1`–`8` to select a surface and reset; space to reset; and `P` to pause/resume. Before preservation is marked complete, test orientation, every reset path, frame-rate and duration effects, and whether repeated execution returns to an equivalent initial state.
 - **Phototaxis #308:** the p5.js 1.0.0 official generator rendered and changed. Artist-documented controls (`P`, `B`, `1`–`5`, `L`) and the described 1,000-frame stopping behavior were not exercised in the retained observation, so behavior remains amber.
-- **923 EMPTY ROOMS #713:** the p5.js 1.0.0 official generator rendered and changed. The accession identity is project-encoded token `1000713`, whose invocation component is `713`; the project record must preserve the distinction between 923 unique room combinations and the 924-token release. Script, shader, controls, and state behavior must be captured before preservation completion. No condition defect is inferred from the identity convention.
-- **Ex Nihilo (Cosmos) #248:** the p5.js 1.9.0 official generator rendered and changed. Documented controls (`R`, `G`, `B`, `W`, `S`, `P`, and spacebar) were not exhaustively exercised, and the resulting runtime-state transitions must be characterized. The work is displayable through the current official route with the same network and fallback conditions.
+- **923 EMPTY ROOMS #713:** the p5.js 1.0.0 official generator rendered and changed. The retained population contains 924 invocations numbered `0`–`923`; invocation `0` is separately coded `999999`, while invocations `1`–`923` are the documented combinatorial sequence. The reviewed generator contains the same 924-entry table. Token `1000713` is invocation `713` and maps to `Code=555536`. This resolves the numerical structure but not the artistic meaning of invocation zero. Script, shader, controls, and state behavior remain preservation-completion work, not accession blockers.
+- **Ex Nihilo (Cosmos) #248:** the p5.js 1.9.0 official generator rendered and changed. Space generates a new state; `P` pauses/resumes; `S` changes speed; `G` and `W` toggle implemented display states; and lowercase `r` and `b` toggle the implemented red and blue states. The generator contains duplicated lowercase comparisons, so the uppercase `R` and `B` instructions in platform metadata are not implemented as written. This is an amber behavior/documentation discrepancy, not a red accession defect. Exhibition instructions must follow the tested implementation and disclose the difference.
+
+## Source-reviewed interaction maps
+
+These maps transcribe the reviewed project scripts and artist/platform instructions. They are complete as source documentation at accession; the retained visual observations did not exhaustively exercise them, so behavior remains amber until controlled interaction testing is complete.
+
+| Work | Inputs and actions |
+| --- | --- |
+| CENTURY | `1`: cut and reorder image slices; `2`: restore the ordered composition. |
+| Pre-Process | Mouse press: reset; `1`–`8`: select surface and reset; space: reset; `P`: pause/resume. |
+| Phototaxis | `P`: pause/resume; `B`: restart; `1`–`5`: change magnification; `L`: reveal/hide light locations; automatic stop after 1,000 iterations for the initial thumbnail state. |
+| 923 EMPTY ROOMS | `+`/`-`: scale; `D`: diagram; space: background state; `R`/`G`/`B`: color channels; `1`–`6`: city presets; arrows: depth; `S`: speed; `0`/`9`: line length; `T`: resolution; `P`: save current view. |
+| Ex Nihilo (Cosmos) | Space: new state; `P`: pause/resume; `S`: speed; `G`/`W`: implemented display toggles; lowercase `r`/`b`: implemented red/blue toggles. Platform documentation's uppercase `R`/`B` differs from the reviewed code. |
 
 ## Display specification
 

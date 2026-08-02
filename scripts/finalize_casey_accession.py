@@ -30,6 +30,92 @@ CURATORIAL_REVIEWER = REGISTRAR_REVIEWER
 CANONICALIZATION_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 ACCESSION_SCHEMA_ID = "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86"
 
+ROOMS_EDITION_STATEMENT = (
+    "The retained population snapshot establishes 924 tokens and invocations 0–923. "
+    "Invocation 0 is separately coded 999999; invocations 1–923 follow the documented "
+    "combinatorial sequence. The reviewed generator contains the same 924-entry table. "
+    "Native token #713 is invocation 713 and maps to Code 555536. This resolves the "
+    "numerical structure but does not assign an artistic interpretation to invocation 0."
+)
+
+GENERATOR_EVIDENCE: dict[str, dict[str, Any]] = {
+    "01": {
+        "response_sha256": "sha256:465b45798f14bea109f59986bd2cdcfd6e2eb9050327f52b24af15e159704ae2",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "1", "action": "Cut and reorder image slices."},
+            {"input": "2", "action": "Restore the ordered composition."},
+        ],
+    },
+    "02": {
+        "response_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "1", "action": "Cut and reorder image slices."},
+            {"input": "2", "action": "Restore the ordered composition."},
+        ],
+    },
+    "03": {
+        "response_sha256": "sha256:51ab1073b166701c9379984d9331c14d803dc84e35c8d06b5a8071f4eb895aad",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "1", "action": "Cut and reorder image slices."},
+            {"input": "2", "action": "Restore the ordered composition."},
+        ],
+    },
+    "04": {
+        "response_sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "mouse press", "action": "Reset the composition."},
+            {"input": "1–8", "action": "Select a surface treatment and reset the composition."},
+            {"input": "Space", "action": "Reset the composition."},
+            {"input": "P", "action": "Pause or resume animation."},
+        ],
+    },
+    "05": {
+        "response_sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "P", "action": "Pause or resume the simulation."},
+            {"input": "B", "action": "Restart the simulation from the beginning."},
+            {"input": "1–5", "action": "Change magnification."},
+            {"input": "L", "action": "Reveal or hide the simulated light locations."},
+        ],
+        "automatic_behavior": "The simulation stops after 1,000 iterations for the initial thumbnail state.",
+    },
+    "06": {
+        "response_sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
+        "dependency": "p5.js 1.0.0 via cdnjs",
+        "interaction_map": [
+            {"input": "+ / -", "action": "Increase or decrease scale."},
+            {"input": "D", "action": "Toggle the diagram view."},
+            {"input": "Space", "action": "Change the background state."},
+            {"input": "R / G / B", "action": "Toggle red, green, or blue channels."},
+            {"input": "1–6", "action": "Select a city preset."},
+            {"input": "Arrow keys", "action": "Change depth."},
+            {"input": "S", "action": "Change speed."},
+            {"input": "0 / 9", "action": "Change line length."},
+            {"input": "T", "action": "Change resolution."},
+            {"input": "P", "action": "Save the current view."},
+        ],
+    },
+    "07": {
+        "response_sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
+        "dependency": "p5.js 1.9.0 via cdnjs",
+        "interaction_map": [
+            {"input": "Space", "action": "Generate a new Still Life state."},
+            {"input": "P", "action": "Pause or resume animation."},
+            {"input": "S", "action": "Change speed."},
+            {"input": "G / W", "action": "Toggle the implemented green and white display states."},
+            {"input": "lowercase r / b", "action": "Toggle the implemented red and blue channel states."},
+        ],
+        "documentation_discrepancies": [
+            "The reviewed generator compares lowercase r and lowercase b (with duplicated lowercase comparisons); the uppercase R and B controls stated in platform metadata are not implemented as written. This is an amber behavior/documentation discrepancy."
+        ],
+    },
+}
+
 
 def load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -251,7 +337,7 @@ def finalize_objects(title_sha: str) -> None:
                     "block_number": BLOCK,
                     "from": DONOR_ADDRESS,
                     "to": MUSEUM_ADDRESS,
-                    "bound_at": "2026-08-01T22:55:00.002Z",
+                    "bound_at": ACCEPTED_AT,
                     "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object.",
                 },
                 "rights": grants_by_suffix[suffix],
@@ -301,6 +387,37 @@ def finalize_objects(title_sha: str) -> None:
             "active stewardship action: retain the assembled generator, exact project script, dependencies, "
             "on-chain inputs, and a reproducible render environment"
         )
+        generator_evidence = GENERATOR_EVIDENCE[suffix]
+        payload["generator_snapshot"].update(
+            {
+                "sha256": generator_evidence["response_sha256"],
+                "dependency_observed": generator_evidence["dependency"],
+                "interaction_map": generator_evidence["interaction_map"],
+                "interaction_review_status": "source_reviewed_not_exhaustively_exercised",
+            }
+        )
+        for optional_key in ("automatic_behavior", "documentation_discrepancies"):
+            if optional_key in generator_evidence:
+                payload["generator_snapshot"][optional_key] = generator_evidence[optional_key]
+            else:
+                payload["generator_snapshot"].pop(optional_key, None)
+        if suffix == "06":
+            payload["project"]["edition_statement"] = ROOMS_EDITION_STATEMENT
+            payload["project"]["combination_structure"] = {
+                "token_count": 924,
+                "invocation_range": "0–923",
+                "invocation_zero_code": "999999",
+                "sequenced_combination_invocations": "1–923",
+                "reviewed_generator_table_entries": 924,
+                "object_invocation": 713,
+                "object_code": "555536",
+                "interpretive_boundary": "The evidence resolves the count structure but does not establish an artistic interpretation of invocation zero.",
+            }
+        if suffix == "07":
+            payload["condition"]["narrative"] += " The reviewed generator's lowercase r/b implementation differs from the uppercase R/B platform instructions; the discrepancy is amber and must be retained in display instructions."
+            payload["uncertainties"].append(
+                "Platform metadata states uppercase R/B controls, while the reviewed generator implements lowercase r/b comparisons; exhibition instructions must follow the tested implementation and disclose the discrepancy."
+            )
         observation = payload.get("museum_observations", {})
         if isinstance(observation, dict):
             observation["documentation_surrogate"] = "The initial official static PNG and two full-viewport screenshot hashes document time-specific surrogates. The bytes were not retained in the initial public package; CC BY-NC 4.0 now authorizes noncommercial retention with attribution, and capture is an approved preservation action."
@@ -396,6 +513,10 @@ def finalize_gaa() -> None:
                 "observed_at": "2026-08-01T15:01:05Z",
                 "effect_basis": "reviewed_governance_record",
                 "governance_record_ref": "6529NM-GOV-REGISTER",
+                "live_api_field": "drop_type",
+                "live_api_status": "WINNER",
+                "live_api_observed_at": "2026-08-01T15:01:05Z",
+                "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API drop_type=WINNER status; rating totals and rater counts are contextual and do not determine effect.",
             }
         )
     payload["institutional_decision_authority"].update(
@@ -433,6 +554,8 @@ def finalize_lot() -> None:
             ],
         }
     )
+    evidence_manifest_sha256 = file_sha(EVIDENCE_MANIFEST)
+    payload["source_manifest"]["evidence_manifest_sha256"] = evidence_manifest_sha256
     payload["controlled_decision"].update(
         {
             "completion_status": "complete",
@@ -471,6 +594,8 @@ def finalize_lot() -> None:
         for item in payload["donation_rights_schedule"]["objects"]
     ]
     preservation = payload["preservation_manifest"]
+    preservation["manifest_sha256"] = evidence_manifest_sha256
+    preservation["fixity_sha256"] = evidence_manifest_sha256
     preservation["active_stewardship_actions"] = [
         "capture and retain generator response bytes, project scripts, dependencies, and on-chain inputs",
         "complete two-environment render, interaction, timing, and reset verification",
@@ -513,7 +638,7 @@ def accession_record(title_sha: str) -> dict[str, Any]:
             "block_number": BLOCK,
             "from": DONOR_ADDRESS,
             "to": MUSEUM_ADDRESS,
-            "bound_at": "2026-08-01T22:55:00.002Z",
+            "bound_at": ACCEPTED_AT,
             "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log.",
         }
         for item in schedule
@@ -590,13 +715,13 @@ def accession_record(title_sha: str) -> dict[str, Any]:
             },
             {
                 "event_type": "acquisition",
-                "occurred_at": "2026-08-01T22:55:00.001Z",
+                "occurred_at": ACCEPTED_AT,
                 "authority_reference": "6529NM.2026.001",
                 "evidence_refs": [evidence("Reviewed accession lot", f"{REPO}/blob/main/records/accessions/6529NM.2026.001/accession-statement.json", "C")],
             },
             {
                 "event_type": "title_passage",
-                "occurred_at": "2026-08-01T22:55:00.002Z",
+                "occurred_at": ACCEPTED_AT,
                 "authority_reference": "6529NM.2026.001.TITLE-01",
                 "evidence_refs": [evidence("Institutional title declaration", title_uri, "C", title_sha)],
                 "instrument": {
@@ -609,7 +734,10 @@ def accession_record(title_sha: str) -> dict[str, Any]:
             },
             {
                 "event_type": "custody_receipt",
-                "occurred_at": "2026-08-01T22:55:00.003Z",
+                "event_name": "institutional_custody_registration",
+                "occurred_at": REVIEW_AT,
+                "source_occurred_at": RECEIVED_AT,
+                "event_semantics": "The occurred_at value dates the Museum's reviewed custody registration. The underlying on-chain receipt occurred at source_occurred_at; this record does not redate or replay that transfer.",
                 "authority_reference": "6529NM.2026.001.RECEIPT-01",
                 "evidence_refs": [evidence("Raw Ethereum transaction receipt", receipt_uri, "A", file_sha(RPC_RECEIPT))],
                 "custody_paths": custody_paths,

@@ -35,9 +35,13 @@
         "observed_at": {"type": "string", "format": "date-time"},
         "effect_basis": {"type": "string", "enum": ["reviewed_governance_record", "direct_wave_observation"]},
         "governance_record_ref": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "live_api_field": {"const": "drop_type"},
+        "live_api_status": {"type": "string", "minLength": 1},
+        "live_api_observed_at": {"type": "string", "format": "date-time"},
+        "governance_effect_basis": {"type": "string", "minLength": 1},
         "source_uri": {"type": "string", "pattern": "^https://[^\\s]+$"}
       },
-      "required": ["basis_type", "decision_id", "wave_serial", "drop_id", "title", "observed_wave_status", "governance_effect", "observed_at", "effect_basis", "governance_record_ref", "source_uri"],
+      "required": ["basis_type", "decision_id", "wave_serial", "drop_id", "title", "observed_wave_status", "governance_effect", "observed_at", "effect_basis", "governance_record_ref", "live_api_field", "live_api_status", "live_api_observed_at", "governance_effect_basis", "source_uri"],
       "unevaluatedProperties": false
     },
     "recordAuthorityBasis": {

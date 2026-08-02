@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1a2282b52fb6c82a963ff60b47adba6c23f8c56d7dca3c233eab4820c8c37bae"
+      "digest": "0x7716b1f46921fb054a5b64c04ba704f22e4811b61353302936a9eec71c9cb517"
     },
     "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
@@ -115,7 +115,26 @@
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
       "status": "observation_only",
-      "uri": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063"
+      "uri": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+      "interaction_map": [
+        {
+          "input": "mouse press",
+          "action": "Reset the composition."
+        },
+        {
+          "input": "1–8",
+          "action": "Select a surface treatment and reset the composition."
+        },
+        {
+          "input": "Space",
+          "action": "Reset the composition."
+        },
+        {
+          "input": "P",
+          "action": "Pause or resume animation."
+        }
+      ],
+      "interaction_review_status": "source_reviewed_not_exhaustively_exercised"
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
@@ -137,9 +156,9 @@
     },
     "object_id": "6529NM.2026.001.04",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:d1b720e5bdc36338a24376cdacf1bdfaf8d0483470687a31cf5912ee435f7b3a",
+    "payload_sha256": "sha256:0f838def13b4e717af22f32fd6a74dcef3109a8e345c574cba1e100728d65382",
     "preservation": {
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
@@ -288,7 +307,7 @@
       "block_number": 25660311,
       "from": "0x6daa633c23615a29471deafae351727867e7dad1",
       "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "bound_at": "2026-08-01T22:55:00.002Z",
+      "bound_at": "2026-08-01T22:55:00Z",
       "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {

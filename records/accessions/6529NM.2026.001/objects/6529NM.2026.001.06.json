@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x19f954a96bcad01e6a0c1d64fb866494c868db64946ed3b5080df04e5b10f613"
+      "digest": "0x0a578ca5b85c0c395f15fbb7f10d76ca7dc0f3043f196d4e788ba50055248c18"
     },
     "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
@@ -115,7 +115,50 @@
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
       "status": "observation_only",
-      "uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"
+      "uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "interaction_map": [
+        {
+          "input": "+ / -",
+          "action": "Increase or decrease scale."
+        },
+        {
+          "input": "D",
+          "action": "Toggle the diagram view."
+        },
+        {
+          "input": "Space",
+          "action": "Change the background state."
+        },
+        {
+          "input": "R / G / B",
+          "action": "Toggle red, green, or blue channels."
+        },
+        {
+          "input": "1–6",
+          "action": "Select a city preset."
+        },
+        {
+          "input": "Arrow keys",
+          "action": "Change depth."
+        },
+        {
+          "input": "S",
+          "action": "Change speed."
+        },
+        {
+          "input": "0 / 9",
+          "action": "Change line length."
+        },
+        {
+          "input": "T",
+          "action": "Change resolution."
+        },
+        {
+          "input": "P",
+          "action": "Save the current view."
+        }
+      ],
+      "interaction_review_status": "source_reviewed_not_exhaustively_exercised"
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
@@ -137,9 +180,9 @@
     },
     "object_id": "6529NM.2026.001.06",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:2a47576c05a05cde5c036f2cfd3b61e8f12d3b9e2158c70b5e33a9623a6fb2ea",
+    "payload_sha256": "sha256:3135b4f124993fed7c31ba007a487ceffaeb9ca3d16c15f912f720c2a9914be6",
     "preservation": {
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
@@ -147,13 +190,23 @@
     },
     "project": {
       "edition_size": 924,
-      "edition_statement": "Edition size reported as 924; generative system described as 923 unique rooms/combinations; this object: native token #713. Reviewed sources do not explain the relationship between the two counts.",
+      "edition_statement": "The retained population snapshot establishes 924 tokens and invocations 0–923. Invocation 0 is separately coded 999999; invocations 1–923 follow the documented combinatorial sequence. The reviewed generator contains the same 924-entry table. Native token #713 is invocation 713 and maps to Code 555536. This resolves the numerical structure but does not assign an artistic interpretation to invocation 0.",
       "license_claim_status": "not_a_Museum_grant",
       "name": "923 EMPTY ROOMS",
       "platform": "Art Blocks x Bright Moments",
       "platform_metadata_license_label": "CC BY-NC 4.0",
       "release_year": 2023,
-      "script_type_and_version": "p5@1.0.0"
+      "script_type_and_version": "p5@1.0.0",
+      "combination_structure": {
+        "token_count": 924,
+        "invocation_range": "0–923",
+        "invocation_zero_code": "999999",
+        "sequenced_combination_invocations": "1–923",
+        "reviewed_generator_table_entries": 924,
+        "object_invocation": 713,
+        "object_code": "555536",
+        "interpretive_boundary": "The evidence resolves the count structure but does not establish an artistic interpretation of invocation zero."
+      }
     },
     "record_id": "6529NM.2026.001.06",
     "record_status": "reviewed",
@@ -288,7 +341,7 @@
       "block_number": 25660311,
       "from": "0x6daa633c23615a29471deafae351727867e7dad1",
       "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "bound_at": "2026-08-01T22:55:00.002Z",
+      "bound_at": "2026-08-01T22:55:00Z",
       "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {

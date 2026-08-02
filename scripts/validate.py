@@ -389,9 +389,9 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
             issues.append(str(exc))
             continue
         if previous_time is not None:
-            invalid_order = current_time <= previous_time if record_type == "ACCESSION" else current_time < previous_time
+            invalid_order = current_time < previous_time
             if invalid_order:
-                issues.append(f"{record_type}.events[{index}]: occurred_at must be strictly increasing" if record_type == "ACCESSION" else f"{record_type}.events[{index}]: occurred_at moves backwards")
+                issues.append(f"{record_type}.events[{index}]: occurred_at moves backwards")
         previous_time = current_time
     if record_type == "ACCESSION" and len(events) == len(ACCESSION_EVENT_ORDER):
         acceptance = events[1]

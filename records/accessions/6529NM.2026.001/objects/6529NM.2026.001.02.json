@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbb8e6f4cb521cd87b4d5d5c654b3452983256d7ebb1eef475d01787d1352f638"
+      "digest": "0xc899cfaef14bdc9743c00a7204f4a525e1bb427f24fa5bea9bd6f659af493df5"
     },
     "effectiveAt": 1785652200,
     "recordType": "WORK_DESCRIPTION",
@@ -115,7 +115,18 @@
       "raw_capture_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
       "status": "observation_only",
-      "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"
+      "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "interaction_map": [
+        {
+          "input": "1",
+          "action": "Cut and reorder image slices."
+        },
+        {
+          "input": "2",
+          "action": "Restore the ordered composition."
+        }
+      ],
+      "interaction_review_status": "source_reviewed_not_exhaustively_exercised"
     },
     "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
@@ -137,9 +148,9 @@
     },
     "object_id": "6529NM.2026.001.02",
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:03a2c3f7ebd87ab812cd3ad524d073db9393ed413ebe5eb37659b553b7a1bc48",
+    "payload_sha256": "sha256:28721c6915f05ff25b6bf9cef9bbab7c6df36e93245e4286fd631e67d6421a22",
     "preservation": {
-      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
+      "fixity_sha256": "sha256:ce30bb901a544ca7812f8be0b7dcaa61a183dd93bf21271ddc7025eae3fb6415",
       "observed_at": "2026-08-02T06:30:00Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Official Art Blocks generators rendered in the recorded browser viewport; self-contained generator/dependency packaging and a second independent environment remain active stewardship actions.",
@@ -287,7 +298,7 @@
       "block_number": 25660311,
       "from": "0x6daa633c23615a29471deafae351727867e7dad1",
       "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "bound_at": "2026-08-01T22:55:00.002Z",
+      "bound_at": "2026-08-01T22:55:00Z",
       "basis": "The donor's full-gift declaration, completed token delivery, formal Museum acceptance, and reviewed institutional title declaration transfer and bind the donor's entire token interest to this exact object."
     },
     "trait_analysis": {

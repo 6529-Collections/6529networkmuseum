@@ -211,6 +211,11 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "one on-chain custody path",
             ),
             (
+                "records/accessions/6529NM.2026.001/accession-certificate.json",
+                lambda record: record["payload"]["events"][4].__setitem__("source_occurred_at", "2026-08-01T22:55:00Z"),
+                "distinguish on-chain receipt",
+            ),
+            (
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"].__setitem__("current_state", "received_onchain"),
                 "must end in accessioned state",
@@ -254,6 +259,36 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
                 lambda record: record["payload"]["trait_analysis"]["descriptor"].__setitem__("path", "evidence/casey-reas-collection-snapshots/descriptors/pre-process.json"),
                 "descriptor mapping",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: record["payload"]["generator_snapshot"].__setitem__("dependency_observed", "p5.js latest"),
+                "generator response, dependency, and complete interaction map",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: record["payload"]["generator_snapshot"].__setitem__("sha256", "sha256:" + "0" * 64),
+                "generator response, dependency, and complete interaction map",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json",
+                lambda record: record["payload"]["generator_snapshot"]["interaction_map"].pop(),
+                "generator response, dependency, and complete interaction map",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json",
+                lambda record: record["payload"]["generator_snapshot"].__setitem__("automatic_behavior", "Runs forever."),
+                "generator response, dependency, and complete interaction map",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json",
+                lambda record: record["payload"]["project"]["combination_structure"].__setitem__("invocation_zero_code", "000000"),
+                "923-combination / 924-token distinction",
+            ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json",
+                lambda record: record["payload"]["generator_snapshot"].pop("documentation_discrepancies"),
+                "generator response, dependency, and complete interaction map",
             ),
         )
         for relative, mutation, expected in mutations:
