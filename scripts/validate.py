@@ -529,6 +529,56 @@ def validate_visual_observation(payload: dict[str, Any]) -> list[str]:
     return issues
 
 
+def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
+    """Enforce generic receipt-to-object joins that JSON Schema cannot project."""
+    issues: list[str] = []
+    common = schedule.get("common_receipt")
+    objects = schedule.get("objects")
+    if not isinstance(common, dict) or not isinstance(objects, list) or not all(isinstance(item, dict) for item in objects):
+        return ["transaction provenance common_receipt and objects must be present"]
+    object_ids = [item.get("object_id") for item in objects]
+    chain_objects = [item.get("chain_object", "").lower() if isinstance(item.get("chain_object"), str) else None for item in objects]
+    if len(object_ids) != len(set(object_ids)):
+        issues.append("transaction provenance objects contains duplicate object_id")
+    if len(chain_objects) != len(set(chain_objects)):
+        issues.append("transaction provenance objects contains duplicate chain_object")
+    if common.get("transfer_count") != len(objects):
+        issues.append("transaction provenance common_receipt.transfer_count must equal objects.length")
+    log_indices = common.get("log_indices")
+    if not isinstance(log_indices, dict) or set(log_indices) != set(object_ids):
+        issues.append("transaction provenance common_receipt.log_indices must identify every object exactly once")
+        log_indices = {}
+    receipt_logs: list[Any] = []
+    for item in objects:
+        object_id = item.get("object_id")
+        events = item.get("events")
+        events = events if isinstance(events, list) else []
+        museum_receipts = [event for event in events if isinstance(event, dict) and event.get("kind") == "museum_receipt"]
+        if len(museum_receipts) != 1:
+            issues.append(f"transaction provenance {object_id} must contain exactly one museum_receipt event")
+            continue
+        event = museum_receipts[0]
+        receipt_logs.append(event.get("log"))
+        expected = {
+            "block": common.get("block_number"),
+            "block_hash": common.get("block_hash"),
+            "direct_rpc_verified": True,
+            "from": common.get("transaction_from"),
+            "kind": "museum_receipt",
+            "log": log_indices.get(object_id),
+            "receipt_status": common.get("receipt_status"),
+            "time": common.get("block_time"),
+            "to": common.get("museum_custody_address"),
+            "tx": common.get("transaction_hash"),
+            "verification": "direct_rpc_verified",
+        }
+        if event != expected:
+            issues.append(f"transaction provenance {object_id} museum_receipt must equal common_receipt projection")
+    if len(receipt_logs) != len(set(receipt_logs)):
+        issues.append("transaction provenance museum_receipt log indices must be unique")
+    return issues
+
+
 def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
@@ -592,6 +642,9 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
     issues.extend(inspect_sensitive(payload))
     issues.extend(validate_gift_acceptance_authorization(payload))
     issues.extend(validate_visual_observation(payload))
+    provenance_schedule = payload.get("provenance_schedule") if record_type == "ACCESSION_LOT" else payload if record_type == "transaction_provenance_schedule" else None
+    if isinstance(provenance_schedule, dict):
+        issues.extend(validate_provenance_schedule(provenance_schedule))
     if record_type == "GOVERNANCE_DECISION":
         source_status = source_data.get("status") if isinstance(source_data, dict) else None
         decision_status = payload.get("decision_status")

@@ -129,6 +129,7 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
     record = replace_stale_urls(read_json(path))
     payload = record["payload"]
     record_id = payload["record_id"]
+    evidence_manifest_sha256 = sha256(ROOT / "evidence" / "casey-reas" / "manifest.json")
     if record_id == "6529NM.2026.001":
         payload["source"].pop("casey_collection_snapshot_package_commit", None)
         payload["source"]["casey_collection_snapshot_package_published_source_commit"] = PUBLISHED_SOURCE_COMMIT
@@ -152,6 +153,9 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
         payload["constructor_controls"]["signature_semantics"] = "The zero Stream signatureScheme and signatureHash are constructed-record placeholders only; they do not constitute independent approval, an executed title instrument, completed Stream accession, rights grant, or signed authority."
         payload["trait_analysis"] = trait_analysis(source)
         payload["collection_curatorial_statement"]["trait_analysis"] = trait_analysis(source)
+        payload["preservation_manifest"]["manifest_sha256"] = evidence_manifest_sha256
+        payload["preservation_manifest"]["fixity_sha256"] = evidence_manifest_sha256
+        payload["source_manifest"]["evidence_manifest_sha256"] = evidence_manifest_sha256
     elif record_id in OBJECT_TO_COLLECTION:
         payload["trait_analysis"] = trait_analysis(source, descriptors[OBJECT_TO_COLLECTION[record_id]])
         payload["medium"] = OBJECT_MEDIUM
@@ -169,6 +173,7 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
             + OBJECT_SOURCE_BEHAVIOR_BOUNDARIES[record_id]
         )
         observation["interpretive_boundary"] = "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion."
+        payload["preservation"]["fixity_sha256"] = evidence_manifest_sha256
     payload["payload_sha256"] = casey_payload_sha256(payload)
     record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(payload)).hex()
     write_json(path, record)

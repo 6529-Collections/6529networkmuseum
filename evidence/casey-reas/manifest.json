@@ -66,9 +66,23 @@
       "byte_mode": "raw"
     },
     {
+      "path": "raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+      "sha256": "4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21",
+      "size": 6781,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/receipt-acquisition.json",
+      "sha256": "f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45",
+      "size": 1262,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
       "path": "README.md",
-      "sha256": "87ae7a2f62695909306f6ed4ce394229c4bc2067642009eb894072a3c4b2d24a",
-      "size": 1215,
+      "sha256": "845c1dad99170c0a28bffae6182d31f5197ff2f1f2a8980d9d4f887395c60b28",
+      "size": 1767,
       "media_type": "text/plain",
       "byte_mode": "raw"
     }

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc3e83f7eac7fe6dcfde6c766de93de7b084d56a035b7fb1354b4664582aa63f4"
+      "digest": "0x5890545b532d53c0ba1ab0877fc5df4676f487e638aaf4ad603becdd1a12305f"
     },
     "effectiveAt": 1785624900,
     "recordType": "WORK_DESCRIPTION",
@@ -137,9 +137,9 @@
     },
     "object_id": "6529NM.2026.001.05",
     "observed_at": "2026-08-01T22:55:00Z",
-    "payload_sha256": "sha256:f2c6eaeb9a50a22aa71cf2fc9c77a4823d8e7cc5bf292c97c7fca5b84fc45d3f",
+    "payload_sha256": "sha256:bdf9d36946c68a952f3b6be5a5fd371042075cef8d24cf87442ef5a15dc52e05",
     "preservation": {
-      "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
+      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
       "observed_at": "2026-08-01T14:58:31.905115Z",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "render_environment": "Not yet fixed; generator capture and two-environment render verification remain open.",

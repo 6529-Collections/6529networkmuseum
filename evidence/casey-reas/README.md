@@ -12,6 +12,15 @@ responses because their transfer framing is not admitted. Generator capture,
 render comparison, dependency capture, recovery testing, and independent
 technical review remain open preservation gates.
 
+The package also retains the raw JSON-RPC response body for the common Museum
+receipt transaction and a separate acquisition record binding the endpoint,
+method, parameters, observation time, response path, byte length, and SHA-256.
+The receipt contains nine logs: seven ERC-721 `Transfer` events for the exact
+accessioned token schedule and two `Approval` events. The validator decodes and
+binds only the seven `Transfer` logs. This is one observed provider response,
+not an independent-provider quorum or an identity claim about wallet
+controllers.
+
 The seven raw upstream metadata byte streams are intentionally verbatim. They
 include public artist/collection royalty-routing wallet fields and authenticity
 signatures because source fidelity requires preserving the upstream response;

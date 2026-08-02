@@ -31,7 +31,7 @@ from generate_manifest import (  # noqa: E402
     normalized_bytes,
 )
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
-from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
+from validate import keccak256, load_schemas, validate_provenance_schedule, validate_records, validate_state_machine, validate_vocabularies, validator_for  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -145,6 +145,49 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "governance-decision.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("sensitive field is not allowed" in issue for issue in issues), issues)
+
+    def test_public_inventory_schema_is_not_casey_lot_specific(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(REPO_ROOT)
+        schema = json.loads((REPO_ROOT / "schemas/public-inventory.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        inventory = {
+            "$schema": "../../../schemas/public-inventory.schema.json",
+            "record_control": {
+                "revision": 1,
+                "record_status": "constructed",
+                "constructor": {},
+                "review": None,
+            },
+            "record_id": "6529NM-PUB-TEST",
+            "record_type": "public_inventory",
+            "accession_lot_id": "6529NM.TEST.001",
+            "objects": [{"object_id": "6529NM.TEST.001.01"}],
+        }
+        self.assertEqual([], list(validator.iter_errors(inventory)))
+        self.assertTrue(list(validator.iter_errors({**inventory, "objects": []})))
+        self.assertTrue(list(validator.iter_errors({**inventory, "objects": [{}]})))
+
+    def test_transaction_provenance_schema_is_generic_and_receipt_joins_are_enforced(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(REPO_ROOT)
+        schema = json.loads((REPO_ROOT / "schemas/transaction-provenance.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        lot = json.loads((REPO_ROOT / "records/accessions/6529NM.2026.001/accession-statement.json").read_text(encoding="utf-8"))["payload"]
+        schedule = json.loads(json.dumps(lot["provenance_schedule"]))
+        schedule["$schema"] = "../../../schemas/transaction-provenance.schema.json"
+        first = schedule["objects"][0]
+        schedule["objects"] = [first]
+        schedule["common_receipt"]["transfer_count"] = 1
+        schedule["common_receipt"]["log_indices"] = {
+            first["object_id"]: next(event["log"] for event in first["events"] if event["kind"] == "museum_receipt")
+        }
+        self.assertEqual([], list(validator.iter_errors(schedule)))
+        self.assertEqual([], validate_provenance_schedule(schedule))
+        mismatched_count = json.loads(json.dumps(schedule))
+        mismatched_count["common_receipt"]["transfer_count"] = 2
+        self.assertTrue(any("transfer_count" in issue for issue in validate_provenance_schedule(mismatched_count)))
+        mismatched_log = json.loads(json.dumps(schedule))
+        mismatched_log["common_receipt"]["log_indices"][first["object_id"]] += 1
+        self.assertTrue(any("museum_receipt must equal" in issue for issue in validate_provenance_schedule(mismatched_log)))
 
     def test_unresolved_cross_reference_is_rejected(self) -> None:
         temporary, records = self.make_records_root()

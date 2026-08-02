@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa0ff65236f69e532eab680c0fe3ca098cb33882c6d4edb1c48df30a293bc89f2"
+      "digest": "0x3781fe2bc67a69cbc03d32d425c4145b78f97c6e2f09be91d0b8a09a00c9869f"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -395,9 +395,9 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:47606f060cf2d8f04c57a23d5ec17155da7481b8dcaa744bb0d34540b944f67d",
+    "payload_sha256": "sha256:032adea59c8c14926fab35c3f1c865379066cacd9417d285221e0c00a4ec36c4",
     "preservation_manifest": {
-      "manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
+      "manifest_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
       "objects": [
         {
@@ -475,7 +475,7 @@
       "raw_generator_status": "not_captured_safe_fetch_transfer_framing_rejected",
       "raw_metadata_status": "captured_and_content_addressed",
       "status": "in_progress",
-      "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd"
+      "fixity_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780"
     },
     "provenance_schedule": {
       "accession_lot_id": "6529NM.2026.001",
@@ -483,6 +483,22 @@
         "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
         "block_number": 25660311,
         "block_time": "2026-08-01T13:25:47Z",
+        "evidence": {
+          "acquisition": {
+            "byte_mode": "raw",
+            "media_type": "application/json",
+            "path": "evidence/casey-reas/raw/rpc/receipt-acquisition.json",
+            "sha256": "sha256:f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45",
+            "size": 1262
+          },
+          "response": {
+            "byte_mode": "raw",
+            "media_type": "application/json",
+            "path": "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+            "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21",
+            "size": 6781
+          }
+        },
         "evidence_grade": "A",
         "log_indices": {
           "6529NM.2026.001.01": 60,
@@ -503,6 +519,8 @@
         "verification": "direct_rpc_verified"
       },
       "evidence_refs": [
+        "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+        "evidence/casey-reas/raw/rpc/receipt-acquisition.json",
         "notes/research/casey-reas-onchain-evidence.md",
         "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json",
         "records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.02.json",
@@ -1057,6 +1075,7 @@
         "chain_id": 1,
         "historical_method": "historical transfer discovery is preserved as indexer_observed unless a per-event block/receipt evidence object is retained",
         "primary_evidence": "direct RPC receipt and contract reads retained in the source research note",
+        "rpc_evidence": "Raw eth_getTransactionReceipt response and request/acquisition metadata are retained and content-addressed under evidence/casey-reas/raw/rpc/.",
         "title_boundary": "event lineage and custody observation are not a legal title chain"
       }
     },
@@ -1122,6 +1141,22 @@
       "block_hash": "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f",
       "block_number": 25660311,
       "block_time": "2026-08-01T13:25:47Z",
+      "evidence": {
+        "acquisition": {
+          "byte_mode": "raw",
+          "media_type": "application/json",
+          "path": "evidence/casey-reas/raw/rpc/receipt-acquisition.json",
+          "sha256": "sha256:f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45",
+          "size": 1262
+        },
+        "response": {
+          "byte_mode": "raw",
+          "media_type": "application/json",
+          "path": "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+          "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21",
+          "size": 6781
+        }
+      },
       "ens_semantics": "networkmuseum.6529.eth resolved to the custody address at 2026-08-01T14:58:31.905115Z",
       "evidence_grade": "A",
       "log_indices": {
@@ -1179,7 +1214,7 @@
       "casey_research_head": "9f38bd4ba5f779540eabf2dfce019cc1382561e2",
       "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327",
       "evidence_manifest_path": "evidence/casey-reas/manifest.json",
-      "evidence_manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
+      "evidence_manifest_sha256": "sha256:8732cd641c6ac480f0e57c4358785a4cea36b752ba9c5790e97cdbde45833780",
       "source_evidence": [
         "notes/research/casey-reas-onchain-evidence.md",
         "notes/research/casey-reas-art-technical-research.md"

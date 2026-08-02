@@ -1097,3 +1097,43 @@ Casey dossier-control tests, deterministic-manifest check, and whitespace
 check pass locally. The correction requires a new committed head and complete
 fresh exact-head CI and independent review; no approval of `7893dd9` carries
 forward.
+
+## 2026-08-02 - Casey generic-schema and raw-receipt evidence remediation
+
+Advisory GLM review of `ff8fd6b` found two valid documentation-control issues:
+the Casey control note repeated its immutable-evidence paragraph, and the
+nominally generic public-inventory schema required exactly seven entries. The
+duplicate paragraph is removed. Public-inventory and transaction-provenance
+schemas now accept arbitrary non-empty Museum lots while generic semantic
+checks enforce object uniqueness, transfer-count equality, exact receipt-log
+projection, and one museum-receipt event per object. Behavioral tests exercise
+a valid one-object schedule and reject count and log mismatches.
+
+Independent Einstein review of the same head demonstrated that a Casey object
+record's contract, token ID, and CAIP-19 could be changed coherently and
+recommitted without being compared to the accession lot. It also found that
+the `direct_rpc_verified` receipt assertion retained conclusions but not the
+raw provider response bytes and acquisition metadata. Both findings are
+accepted. The dossier now retains and content-addresses the exact
+`eth_getTransactionReceipt` response for transaction
+`0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498`
+and a separate request/acquisition artifact identifying the provider,
+transport, method, parameter, client, HTTP result, byte hash, and limitation
+that this is one-provider evidence rather than an RPC quorum.
+
+The Casey validator decodes all nine receipt logs, requires seven ERC-721
+`Transfer` logs and two `Approval` logs, and joins every transfer's contract,
+token ID, source, destination, and log index to the accession identity
+schedule. It then joins that schedule bilaterally to the formal gift
+authorization, provenance schedule, seven work records, visual-observation
+record, and public inventory. The raw receipt and acquisition artifacts are
+also bound in the provenance record, preservation manifest, lot, and seven
+object fixity fields. Mutation tests now prove rejection of a coherently
+rewritten object identity, an altered raw transfer token, and altered RPC
+request metadata. The original source limitation remains explicit: the raw
+receipt proves Ethereum event/custody facts, not donor identity, legal title,
+rights, tax treatment, or accession completion.
+
+This remediation invalidates all earlier PR #10 exact-head approvals. Package
+and repository manifests, CI, specialist bots, and independent reviewers must
+all run again on the next committed head before merge.

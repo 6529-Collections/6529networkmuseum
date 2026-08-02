@@ -27,6 +27,10 @@ the common museum receipt is `direct_rpc_verified`.
 
 Raw metadata response bytes are retained under
 [`evidence/casey-reas/manifest.json`](../evidence/casey-reas/manifest.json).
+The same manifest retains the exact
+[`eth_getTransactionReceipt` response](../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json)
+and its separate [request/acquisition record](../evidence/casey-reas/raw/rpc/receipt-acquisition.json).
+This is one observed RPC-provider response, not an independent-provider quorum.
 Generator response bytes, project/dependency capture, render comparison,
 recovery testing, durable replica assignment, and independent technical review
 remain explicit preservation gates. The Ex Nihilo object retains Art Blocks raw
@@ -54,5 +58,3 @@ Transparent linked descriptors are available from the published Casey source pac
 Evidence is intentionally two-level: the artwork-source bytes are anchored by `published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the reviewed package/toolchain release is anchored by `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256 `c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`, and release SHA-256 `d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`. Exact commit URLs and content hashes identify this immutable evidence basis; later current-package revisions must not silently rewrite it.
 
 The controlled visual observation `6529NM.2026.001.VO-01` binds all seven objects to their retained raw-metadata bytes and source image/generator URLs. Static response and live viewport hashes and byte sizes are recorded, but the PNG and screenshot bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will therefore require a future rights-cleared derivative or a controlled restricted copy. Static times are downloaded-file `LastWriteTimeUtc` completion proxies; live times were recorded after both screenshots and hashing. The 1500-millisecond value is a commanded minimum wait, not exact elapsed duration, and per-frame times, browser version, and user-agent remain unknown. This record is evidence class C only—not a condition report, full generator capture, determinism proof, or preservation completion.
-
-Evidence is intentionally two-level: the artwork-source bytes are anchored by `published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the reviewed package/toolchain release is anchored by `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256 `c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`, and release SHA-256 `d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`. Exact commit URLs and content hashes identify this immutable evidence basis; later current-package revisions must not silently rewrite it.

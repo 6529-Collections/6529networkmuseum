@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/casey-accession-control.md",
-      "sha256": "sha256:fd7f725300066b8c02f7e71cb6543681fe7ec0895917c1b8c46cd679809b7a7d",
-      "size": 5511
+      "sha256": "sha256:9078b17229b55fbcefa64f142c799ee5f95ddcce0bb80cba20e38ebd63b8c363",
+      "size": 5344
     },
     {
       "path": "docs/control-plane.md",
@@ -139,11 +139,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd53a1a85940abe335b53b8bfd575f418df3c9f9d864d747a329e8bf0027e02cc"
+        "digest": "0x3c656b1ca9aa4ef5ee77273b02b843736ce3505c9c559236f8d680fa4e5932b5"
       },
       "path": "records/accessions/6529NM.2026.001/accession-statement.json",
-      "sha256": "sha256:9944680f63d32727ef3e64714c2f43aaa8add4dc5b9fbdde0c903d12329fcce1",
-      "size": 69026
+      "sha256": "sha256:92608dd391160e8e6fa647a9b5355fa24a02a22a723b5d336f7b497dcee57fc8",
+      "size": 70839
     },
     {
       "content_hash": {
@@ -159,70 +159,70 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xb03dbe77f34da9ba3842077df2919489ab218020b686f6b3095c3533854e7c0f"
+        "digest": "0xbda8179152e8c4c913764554793d88dd4373d0ef5d8b74878fae96e00ce2438f"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
-      "sha256": "sha256:3a0fc548337d0c4129f14dc25dedf6b4833098d171b396980b81562c6f896dbc",
+      "sha256": "sha256:16c480ce3274a151e4ee518656b527142c5fbbaabe7727c20a6323915b80ead9",
       "size": 20393
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x48cc069f7a38c2b5795f7fb9aded5d835c8f17a86c62e51b505e2f20bb9e172e"
+        "digest": "0x421622b279f7b21d4f5cb45db00fd938003aa1da1792d81c81b86fad4bc0c855"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.02.json",
-      "sha256": "sha256:5ccf0d65c2fa6f34b67c1d4349bbb8573d68b94052e0845b250b54adeb0dbaa6",
+      "sha256": "sha256:4125ea7c4b04cd4ca93c981194f5a312976af96134a441208fafa055400a96a6",
       "size": 20117
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x2801ba4b190af38a282099cffc5c2430e8f6d55f39ab25aedd8bd44926e830b1"
+        "digest": "0xcafa65d7930d08b67124994d509c36cf5ef35a375bd069b3de60b9df6a4f1f32"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json",
-      "sha256": "sha256:48dc3684d2c1570a4fd4f11be0b5f2c6ea385e32868874bc75276763728beab0",
+      "sha256": "sha256:e2e68abc2530374377528a80e384361bf4684e7359c89b06b500459cfa159bae",
       "size": 20224
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe60efe1a4802b3c0a1a03e67d1bd4f7a9ed2ec975fc266c5962710c8335a5514"
+        "digest": "0x946ba19f7e07ed440dcb3cf9e9864223c7448a4eae539aa14d1a01b354adeaac"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json",
-      "sha256": "sha256:22a6a7dbd4af9d80ca551c6d323727ab931372613218071898561aa75f9a7b35",
+      "sha256": "sha256:460b84f3541e932b5d4f80200214f0d6104eeb7e549ae4c5f6200e4321e8c08d",
       "size": 20386
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x11bc6291288f2c104ca6c014bd994f72ccbf8f377eea4d6f314a110383d67626"
+        "digest": "0x62cb04a437e0cc71406c42cfda730e95e6b3ed28c2ab789113bd93dcb4aa48e1"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json",
-      "sha256": "sha256:1a7f462557a90990470e19f0156ba47440c9046b8497b05113639232accaf27b",
+      "sha256": "sha256:595caca09a73bd23abccd898cd8b223acf66fbb7ae83f4ba6b88a5144b7d06e1",
       "size": 20586
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x2b5f220e5ff25deeb50be771015b9d0564326491df97a2a1edb3d701b845441c"
+        "digest": "0x2e5f08e084af1fe7372c4edc0af04db5902e24039dddacacf8ecf9ed02a3dc97"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json",
-      "sha256": "sha256:6ecff83b4dc4306f013954ade5f6d82a43c328d8b013b552902b147d837379f3",
+      "sha256": "sha256:ed5fef3f17c7298e4094a93177475bb346603b40314cafa86fb21f5a76c3ed40",
       "size": 20605
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x7e856cba65ae3f6422f56ee28001af5d1d5f1bcd5e7b2394df9801bea5a05300"
+        "digest": "0x0cfbdc0fc01c8a342da30f77f679af2a17bef394d76bf0d0e01080b183f3a843"
       },
       "path": "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json",
-      "sha256": "sha256:ee1e9ba1f1ab498963448bf62766aa9d367169fe86be9b7d4c986f7106350029",
+      "sha256": "sha256:e18a08eef1a6da9ab45f26253834d6d83e241842770f8bede557cea64506faa0",
       "size": 20536
     },
     {
@@ -272,8 +272,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
-      "sha256": "sha256:d492e4fa8da183d151d508234aebb5f1123d15fae571e861e5cd603eb88f3d04",
-      "size": 2749
+      "sha256": "sha256:39b1ea4f33b7274128cf2ca12108a0c6eb54078fd8ed4975cdeb77e48b29f0d0",
+      "size": 3157
     },
     {
       "content_hash": {
@@ -879,11 +879,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd21e8b95a090bcce630a949f5cd933fb679a0c277a11f4a2e13c1a9757ddacbf"
+        "digest": "0x96a7b56bd83ddb41a183b4a8e32137d34c6ef5a9144c28ac715a40379d9cdb20"
       },
       "path": "schemas/public-inventory.schema.json",
-      "sha256": "sha256:e1f6c22c47a39aeb9f734116d2163d88a02716a36b302099ba4e8d7261c210a8",
-      "size": 734
+      "sha256": "sha256:3a43128db3dbf2cc40d1790acaef0c8cbe9b387e3468c61a82bd145f74c86dd3",
+      "size": 969
     },
     {
       "content_hash": {
@@ -939,11 +939,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x5a552aefd4467feeb2e250e52bcc305e9296f48d7129374cde1aabd8789bbeeb"
+        "digest": "0x16c678c39964bccf674cc24caf56fb32fd29cc3045f94fa31266c4fc5b02e841"
       },
       "path": "schemas/transaction-provenance.schema.json",
-      "sha256": "sha256:76d0f8a2344403e2b422576f2e29a14026405893623a5ba9da533d0b7e57b6f8",
-      "size": 5919
+      "sha256": "sha256:af2c782e8e7e2887aa14fa7d1c004c9e174f505b3ab3476fde674048705b6cac",
+      "size": 6759
     },
     {
       "content_hash": {
@@ -1012,8 +1012,8 @@
     },
     {
       "path": "scripts/refresh_casey_dossier_commitments.py",
-      "sha256": "sha256:29fc0992475ba5a1355c6f5a5331ff403dc223c7b303cdd43f07b1a602ea7fc9",
-      "size": 15399
+      "sha256": "sha256:1f415d349f446b3e9633dc1d271480b8758729cba2a16eb10b9f20d2b91da9fa",
+      "size": 15827
     },
     {
       "path": "scripts/safe_fetch.py",
@@ -1022,13 +1022,13 @@
     },
     {
       "path": "scripts/validate.py",
-      "sha256": "sha256:8d4756e9e109c49fb8938968cc525139ce159b7f79527eeae3807f2730fc7559",
-      "size": 42525
+      "sha256": "sha256:89f3f9f2706eba8e4b276a248e2542ac5fa1c603b1d825e665e603f45e619de6",
+      "size": 45633
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:e305285df6ce40188dbf33ac6ab1b6469f730d1373cfa2de8b863463d55c1fae",
-      "size": 40274
+      "sha256": "sha256:20c5aac8ba3073f1d937708570a2c4d04cd7cc54a072897c6e61136afd2c8912",
+      "size": 54184
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1437,13 +1437,13 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:310615ee88bbc0d0ec708f0c2a9ff0716cd4a3522a6562ba42378e72bde5a758",
-      "size": 16727
+      "sha256": "sha256:7c81a26749c32e3e98f395bd7759b6ffe30bf2250e1632fd1d1746844d68a12a",
+      "size": 19341
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:6276ee63aa04aaf5ca6d0e0e28a54364b6a69673a3183c1ff82f22fbc632ea31",
-      "size": 54901
+      "sha256": "sha256:644eea171bab75c4e73010a6ac4d38c2dfbe8de2fc0ca9013e02f54c9d79aab7",
+      "size": 57586
     }
   ],
   "hash_algorithms": {
@@ -1473,9 +1473,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xc90d47d0d867dcf95c047370aaeb520a8ca6df40977e862654bd3bf792725a37"
+    "digest": "0xaba164d1853d6ea7c49b269af00e61f048caa90e0e67f8f04be7cfd6b84ae84e"
   },
-  "manifest_sha256": "sha256:bb6e056c9f8b272f7b219568ef6d4c5c8b12332fed6848cbe94f7925c3170930",
+  "manifest_sha256": "sha256:ab9c1eb0ebc89e22319b3958c61e6d125dc5d867b9bf54e2bb3b7af0dc38cd65",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

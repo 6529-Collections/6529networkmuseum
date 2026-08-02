@@ -15,6 +15,10 @@ gift is accepted for the permanent collection, with public donor credit to
 **punk6529**, no consideration recorded, and the common receipt transaction
 `0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498` into
 `networkmuseum.6529.eth` / `0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c`.
+The content-addressed [raw RPC receipt](../../../../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json)
+and [request/acquisition record](../../../../evidence/casey-reas/raw/rpc/receipt-acquisition.json)
+are retained for reproducible verification; they are one-provider custody
+evidence, not proof of donor identity or legal title.
 
 **Public status:** The works are verified as received on-chain and are in
 accession processing. Legal title binding, rights scope, condition and

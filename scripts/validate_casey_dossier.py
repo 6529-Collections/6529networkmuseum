@@ -26,6 +26,23 @@ DESCRIPTOR_MANIFEST_SHA256 = "sha256:216bebd2f26e64488e7553a781ac278c18f54b1156c
 REPOSITORY = "https://github.com/6529-Collections/6529networkmuseum"
 PUBLISHED_BLOB = f"{REPOSITORY}/blob/{PUBLISHED_RELEASE_COMMIT}"
 STALE_BRANCH = "codex" + "/casey-reas-accession"
+RECEIPT_TRANSACTION = "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498"
+RECEIPT_BLOCK = 25660311
+RECEIPT_BLOCK_HEX = "0x1878b97"
+RECEIPT_BLOCK_HASH = "0x059428dfd0b8a09d639fd37452ae9f74bc56fbadef31e19a98dc28bb7130297f"
+RECEIPT_BLOCK_TIME = "2026-08-01T13:25:47Z"
+RECEIPT_BLOCK_TIMESTAMP_HEX = "0x6a6df3db"
+RECEIPT_FROM = "0x6daa633c23615a29471deafae351727867e7dad1"
+RECEIPT_TO = "0x0000000000c2d145a2526bd8c716263bfebe1a72"
+MUSEUM_CUSTODY = "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c"
+TRANSFER_TOPIC = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+APPROVAL_TOPIC = "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925"
+RECEIPT_RELATIVE = Path("raw/rpc") / f"eth-get-transaction-receipt-{RECEIPT_TRANSACTION}.json"
+ACQUISITION_RELATIVE = Path("raw/rpc/receipt-acquisition.json")
+RECEIPT_SHA256 = "4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+ACQUISITION_SHA256 = "f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45"
+RECEIPT_SIZE = 6781
+ACQUISITION_SIZE = 1262
 
 OBJECT_TO_DESCRIPTOR = {
     "6529NM.2026.001.01": "century",
@@ -324,23 +341,158 @@ def source_package(history_root: Path) -> tuple[dict[str, Any], dict[str, dict[s
     return source, descriptors, issues
 
 
-def validate_raw_metadata(root: Path) -> list[str]:
+def evidence_reference(relative: Path, digest: str, size: int) -> dict[str, Any]:
+    return {
+        "path": f"evidence/casey-reas/{relative.as_posix()}",
+        "sha256": f"sha256:{digest}",
+        "size": size,
+        "media_type": "application/json",
+        "byte_mode": "raw",
+    }
+
+
+def validate_evidence_manifest(root: Path) -> list[str]:
     issues: list[str] = []
     evidence_root = root / "evidence" / "casey-reas"
     manifest = read_json(evidence_root / "manifest.json")
-    raw_entries = [entry for entry in manifest.get("entries", []) if isinstance(entry, dict) and str(entry.get("path", "")).startswith("raw/metadata/")]
-    expected_paths = {f"raw/metadata/{CASEY_ID}.{suffix}.json" for suffix in ("01", "02", "03", "04", "05", "06", "07")}
-    if {entry.get("path") for entry in raw_entries} != expected_paths:
-        issues.append("Casey raw-evidence manifest must bind exactly the seven public metadata files")
-    for entry in raw_entries:
+    entries = [entry for entry in manifest.get("entries", []) if isinstance(entry, dict)]
+    metadata_paths = {f"raw/metadata/{CASEY_ID}.{suffix}.json" for suffix in ("01", "02", "03", "04", "05", "06", "07")}
+    expected_paths = {
+        "generator-capture-status.md",
+        *metadata_paths,
+        RECEIPT_RELATIVE.as_posix(),
+        ACQUISITION_RELATIVE.as_posix(),
+        "README.md",
+    }
+    entry_paths = [entry.get("path") for entry in entries]
+    if len(entry_paths) != len(set(entry_paths)) or set(entry_paths) != expected_paths:
+        issues.append("Casey raw-evidence manifest must bind exactly the eleven accession evidence files")
+    for entry in entries:
         path = evidence_root / str(entry["path"])
-        if not path.is_file() or entry.get("sha256") != hashlib.sha256(path.read_bytes()).hexdigest() or entry.get("size") != path.stat().st_size:
-            issues.append(f"Casey raw public metadata manifest binding failed: {entry.get('path')}")
+        valid = (
+            path.is_file()
+            and entry.get("sha256") == hashlib.sha256(path.read_bytes()).hexdigest()
+            and entry.get("size") == path.stat().st_size
+            and entry.get("byte_mode") == "raw"
+            and isinstance(entry.get("media_type"), str)
+        )
+        if not valid:
+            label = "raw public metadata manifest binding failed" if entry.get("path") in metadata_paths else "evidence manifest binding failed"
+            issues.append(f"Casey {label}: {entry.get('path')}")
     return issues
+
+
+def validate_receipt_evidence(root: Path) -> tuple[list[dict[str, Any]], list[str]]:
+    """Decode the retained RPC response and return the seven ERC-721 transfers."""
+    issues: list[str] = []
+    evidence_root = root / "evidence" / "casey-reas"
+    response_path = evidence_root / RECEIPT_RELATIVE
+    acquisition_path = evidence_root / ACQUISITION_RELATIVE
+    try:
+        response = read_json(response_path)
+        acquisition = read_json(acquisition_path)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        return [], [f"Casey raw RPC receipt evidence cannot be decoded: {exc}"]
+
+    expected_acquisition = {
+        "schema_version": "6529nm.rpc-evidence-acquisition.v1",
+        "observed_at": "2026-08-02T05:33:55Z",
+        "request": {
+            "transport_method": "POST",
+            "endpoint": "https://ethereum.publicnode.com",
+            "content_type": "application/json",
+            "jsonrpc": "2.0",
+            "id": 1,
+            "rpc_method": "eth_getTransactionReceipt",
+            "params": [RECEIPT_TRANSACTION],
+        },
+        "response": {
+            "path": RECEIPT_RELATIVE.as_posix(),
+            "media_type": "application/json",
+            "byte_mode": "raw",
+            "sha256": RECEIPT_SHA256,
+            "size": RECEIPT_SIZE,
+            "http_status": 200,
+        },
+        "acquisition": {
+            "client": "Windows PowerShell Invoke-WebRequest",
+            "response_body_mode": "OutFile raw response body",
+            "tls_endpoint_observed": "ethereum.publicnode.com",
+        },
+        "limitations": [
+            "This artifact preserves one provider response observed at the stated time; it is not a quorum of independent RPC providers.",
+            "The response authenticates on-chain receipt fields through Ethereum block identity and receipt/log structure, not the off-chain identity of wallet controllers.",
+        ],
+    }
+    if acquisition != expected_acquisition:
+        issues.append("Casey raw RPC receipt acquisition metadata is invalid")
+
+    result = response.get("result") if isinstance(response, dict) else None
+    expected_receipt = {
+        "blockHash": RECEIPT_BLOCK_HASH,
+        "blockNumber": RECEIPT_BLOCK_HEX,
+        "from": RECEIPT_FROM,
+        "status": "0x1",
+        "to": RECEIPT_TO,
+        "transactionHash": RECEIPT_TRANSACTION,
+    }
+    if (
+        not isinstance(result, dict)
+        or response.get("jsonrpc") != "2.0"
+        or response.get("id") != 1
+        or any(result.get(key) != value for key, value in expected_receipt.items())
+    ):
+        issues.append("Casey raw RPC receipt header is invalid")
+        return [], issues
+    logs = result.get("logs")
+    if not isinstance(logs, list) or len(logs) != 9 or not all(isinstance(log, dict) for log in logs):
+        issues.append("Casey raw RPC receipt must retain all nine transaction logs")
+        return [], issues
+
+    transfers: list[dict[str, Any]] = []
+    approval_count = 0
+    malformed = False
+    for log in logs:
+        topics = log.get("topics")
+        if (
+            not isinstance(topics, list)
+            or not topics
+            or log.get("blockHash") != RECEIPT_BLOCK_HASH
+            or log.get("blockNumber") != RECEIPT_BLOCK_HEX
+            or log.get("blockTimestamp") != RECEIPT_BLOCK_TIMESTAMP_HEX
+            or log.get("transactionHash") != RECEIPT_TRANSACTION
+            or log.get("removed") is not False
+            or log.get("data") != "0x"
+        ):
+            malformed = True
+            continue
+        if topics[0] == TRANSFER_TOPIC and len(topics) == 4:
+            try:
+                transfers.append(
+                    {
+                        "contract": str(log["address"]).lower(),
+                        "from": "0x" + str(topics[1])[-40:].lower(),
+                        "to": "0x" + str(topics[2])[-40:].lower(),
+                        "token_id": str(int(str(topics[3]), 16)),
+                        "log": int(str(log["logIndex"]), 16),
+                    }
+                )
+            except (KeyError, TypeError, ValueError):
+                malformed = True
+        elif topics[0] == APPROVAL_TOPIC and len(topics) == 4:
+            approval_count += 1
+        else:
+            malformed = True
+    if malformed or len(transfers) != 7 or approval_count != 2:
+        issues.append("Casey raw RPC receipt log structure is invalid")
+    return sorted(transfers, key=lambda item: item["log"]), issues
 
 
 def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     source, descriptors, issues = source_package(history_root or root)
+    receipt_transfers, receipt_issues = validate_receipt_evidence(root)
+    issues.extend(receipt_issues)
+    issues.extend(validate_evidence_manifest(root))
     records: dict[str, dict[str, Any]] = {}
     for path in sorted((root / CASEY_DIR).rglob("*.json")):
         record = read_json(path)
@@ -389,6 +541,130 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         issues.append("Casey lot governing references must identify the adopted Art Blocks and Donation Acceptance decisions")
     if lot.get("references") != [GIFT_AUTHORIZATION_ID, VISUAL_OBSERVATION_ID]:
         issues.append("Casey lot generic reference graph must link the gift authorization and visual observation record")
+    evidence_manifest_sha256 = sha256(root / "evidence" / "casey-reas" / "manifest.json")
+    if (
+        lot.get("source_manifest", {}).get("evidence_manifest_sha256") != evidence_manifest_sha256
+        or lot.get("preservation_manifest", {}).get("manifest_sha256") != evidence_manifest_sha256
+        or lot.get("preservation_manifest", {}).get("fixity_sha256") != evidence_manifest_sha256
+    ):
+        issues.append("Casey accession lot does not bind the current preservation evidence manifest")
+
+    identity_list = lot.get("object_identities")
+    identity_list = identity_list if isinstance(identity_list, list) and all(isinstance(item, dict) for item in identity_list) else []
+    expected_object_ids = list(OBJECT_TO_DESCRIPTOR)
+    identities = {item.get("object_id"): item for item in identity_list}
+    identity_keys = [
+        (str(item.get("contract", "")).lower(), item.get("token_id"), item.get("custody_receipt_log"))
+        for item in identity_list
+    ]
+    if (
+        [item.get("object_id") for item in identity_list] != expected_object_ids
+        or len(identities) != len(expected_object_ids)
+        or len(identity_keys) != len(set(identity_keys))
+        or any(
+            item.get("caip19") != f"eip155:1/erc721:{str(item.get('contract', '')).lower()}/{item.get('token_id')}"
+            for item in identity_list
+        )
+    ):
+        issues.append("Casey accession identity schedule must contain seven unique, internally consistent chain identities")
+
+    expected_receipt_evidence = {
+        "acquisition": evidence_reference(ACQUISITION_RELATIVE, ACQUISITION_SHA256, ACQUISITION_SIZE),
+        "response": evidence_reference(RECEIPT_RELATIVE, RECEIPT_SHA256, RECEIPT_SIZE),
+    }
+    schedule = lot.get("provenance_schedule")
+    schedule = schedule if isinstance(schedule, dict) else {}
+    common_receipt = schedule.get("common_receipt")
+    common_receipt = common_receipt if isinstance(common_receipt, dict) else {}
+    receipt_summary = lot.get("receipt_summary")
+    receipt_summary = receipt_summary if isinstance(receipt_summary, dict) else {}
+    expected_log_indices = {
+        object_id: identities.get(object_id, {}).get("custody_receipt_log")
+        for object_id in expected_object_ids
+    }
+    expected_common_receipt = {
+        "block_hash": RECEIPT_BLOCK_HASH,
+        "block_number": RECEIPT_BLOCK,
+        "block_time": RECEIPT_BLOCK_TIME,
+        "evidence": expected_receipt_evidence,
+        "evidence_grade": "A",
+        "log_indices": expected_log_indices,
+        "museum_custody_address": MUSEUM_CUSTODY,
+        "purpose": "on-chain receipt into the ENS-resolved Museum custody address; legal title and rights are separate fields",
+        "receipt_status": "0x1",
+        "transaction_from": RECEIPT_FROM,
+        "transaction_hash": RECEIPT_TRANSACTION,
+        "transaction_to": RECEIPT_TO,
+        "transfer_count": 7,
+        "verification": "direct_rpc_verified",
+    }
+    if common_receipt != expected_common_receipt:
+        issues.append("Casey common receipt does not match the retained raw RPC receipt and accession identities")
+    if {key: value for key, value in receipt_summary.items() if key != "ens_semantics"} != expected_common_receipt:
+        issues.append("Casey receipt summary must equal the provenance common-receipt projection")
+    expected_rpc_refs = {
+        f"evidence/casey-reas/{RECEIPT_RELATIVE.as_posix()}",
+        f"evidence/casey-reas/{ACQUISITION_RELATIVE.as_posix()}",
+    }
+    if not expected_rpc_refs.issubset(set(schedule.get("evidence_refs", []))):
+        issues.append("Casey provenance evidence_refs must bind the retained raw RPC response and acquisition metadata")
+
+    expected_transfers = sorted(
+        [
+            {
+                "contract": str(identity.get("contract", "")).lower(),
+                "from": RECEIPT_FROM,
+                "to": MUSEUM_CUSTODY,
+                "token_id": identity.get("token_id"),
+                "log": identity.get("custody_receipt_log"),
+            }
+            for identity in identity_list
+        ],
+        key=lambda item: item["log"] if isinstance(item["log"], int) else -1,
+    )
+    if receipt_transfers != expected_transfers:
+        issues.append("Casey raw RPC receipt transfer schedule does not match the seven accession identities")
+
+    provenance_objects = schedule.get("objects")
+    provenance_objects = provenance_objects if isinstance(provenance_objects, list) else []
+    if [item.get("object_id") for item in provenance_objects if isinstance(item, dict)] != expected_object_ids:
+        issues.append("Casey provenance object schedule must identify the exact seven objects in accession order")
+    for item in provenance_objects:
+        if not isinstance(item, dict):
+            continue
+        object_id = item.get("object_id")
+        identity = identities.get(object_id, {})
+        expected_event = {
+            "block": RECEIPT_BLOCK,
+            "block_hash": RECEIPT_BLOCK_HASH,
+            "direct_rpc_verified": True,
+            "from": RECEIPT_FROM,
+            "kind": "museum_receipt",
+            "log": identity.get("custody_receipt_log"),
+            "receipt_status": "0x1",
+            "time": RECEIPT_BLOCK_TIME,
+            "to": MUSEUM_CUSTODY,
+            "tx": RECEIPT_TRANSACTION,
+            "verification": "direct_rpc_verified",
+        }
+        events = item.get("events") if isinstance(item.get("events"), list) else []
+        museum_events = [event for event in events if isinstance(event, dict) and event.get("kind") == "museum_receipt"]
+        if item.get("chain_object") != identity.get("caip19") or museum_events != [expected_event]:
+            issues.append(f"Casey provenance schedule chain identity/receipt binding is invalid: {object_id}")
+
+    expected_inventory = [
+        {
+            "artist": "Casey REAS",
+            "caip19": identities.get(object_id, {}).get("caip19"),
+            "inventory_number": object_id,
+            "public_page": f"public/{object_id}.md",
+            "status": "received_onchain",
+            "title": identities.get(object_id, {}).get("title"),
+        }
+        for object_id in expected_object_ids
+    ]
+    if lot.get("public_inventory") != expected_inventory:
+        issues.append("Casey public inventory must project the exact seven accession identities")
 
     authorization_record = records.get(GIFT_AUTHORIZATION_ID)
     if authorization_record is None:
@@ -459,7 +735,6 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         issues.append("Casey controlled visual observation record is missing")
     else:
         visual = visual_record["payload"]
-        expected_object_ids = list(OBJECT_TO_DESCRIPTOR)
         if (
             visual.get("accession_lot_id") != CASEY_ID
             or visual.get("observation_kind") != "static_and_live_visual_observation"
@@ -485,7 +760,6 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         ):
             if required not in limitation_text:
                 issues.append(f"Casey visual observation record lacks required timing/retention limitation: {required}")
-        identities = {identity.get("object_id"): identity for identity in lot.get("object_identities", []) if isinstance(identity, dict)}
         observed_objects = visual.get("objects", [])
         if not isinstance(observed_objects, list) or [item.get("object_id") for item in observed_objects if isinstance(item, dict)] != expected_object_ids:
             issues.append("Casey visual observation record object schedule is not exact")
@@ -574,6 +848,30 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey object record is missing: {object_id}")
             continue
         payload = record["payload"]
+        identity = identities.get(object_id, {})
+        chain_identity = payload.get("chain_identity")
+        chain_identity = chain_identity if isinstance(chain_identity, dict) else {}
+        expected_chain_projection = {
+            "caip19": identity.get("caip19"),
+            "chain_id": 1,
+            "contract": identity.get("contract"),
+            "custody_account": f"eip155:1:{MUSEUM_CUSTODY}",
+            "custody_block": RECEIPT_BLOCK,
+            "custody_receipt_block": RECEIPT_BLOCK,
+            "custody_receipt_log": identity.get("custody_receipt_log"),
+            "custody_receipt_transaction": RECEIPT_TRANSACTION,
+            "custody_status": "verified",
+            "token_id": identity.get("token_id"),
+            "token_standard": "ERC-721",
+        }
+        if (
+            payload.get("object_id") != object_id
+            or payload.get("title") != identity.get("title")
+            or any(chain_identity.get(key) != value for key, value in expected_chain_projection.items())
+        ):
+            issues.append(f"Casey object chain identity/provenance binding is invalid: {object_id}")
+        if payload.get("preservation", {}).get("fixity_sha256") != evidence_manifest_sha256:
+            issues.append(f"Casey object preservation evidence-manifest binding is invalid: {object_id}")
         expected_object_trait = {**expected_trait, "descriptor": descriptors.get(descriptor_slug)}
         if payload.get("trait_analysis") != expected_object_trait:
             issues.append(f"Casey object descriptor mapping or claims are invalid: {object_id}")
@@ -646,7 +944,6 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     if "**Museum interpretation [E]:** The collection proposes an encounter with an executable image" not in collection_essay:
         issues.append("Casey collection essay must label executable-image ontology as Museum interpretation [E]")
 
-    issues.extend(validate_raw_metadata(root))
     return issues
 
 

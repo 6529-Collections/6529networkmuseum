@@ -152,6 +152,15 @@ class CaseyDossierControlsTests(unittest.TestCase):
                 lambda record: record["payload"].__setitem__("medium", "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum."),
                 "unverified live-determinism boundary",
             ),
+            (
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda record: (
+                    record["payload"]["chain_identity"].__setitem__("caip19", "eip155:1/erc721:0x0000000000000000000000000000000000000001/1"),
+                    record["payload"]["chain_identity"].__setitem__("contract", "0x0000000000000000000000000000000000000001"),
+                    record["payload"]["chain_identity"].__setitem__("token_id", "1"),
+                ),
+                "object chain identity/provenance binding is invalid",
+            ),
         )
         for relative, mutation, expected in mutations:
             with self.subTest(expected=expected):
@@ -176,6 +185,32 @@ class CaseyDossierControlsTests(unittest.TestCase):
         raw = root / "evidence" / "casey-reas" / "raw" / "metadata" / f"{CASEY_ID}.01.json"
         raw.write_bytes(raw.read_bytes() + b"\n")
         self.assertTrue(any("raw public metadata manifest binding failed" in issue for issue in validate(root, history_root=ROOT)), validate(root, history_root=ROOT))
+
+    def test_raw_receipt_semantically_binds_the_seven_accession_identities(self) -> None:
+        _temporary, root = self.make_copy()
+        relative = "raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json"
+        receipt_path = root / "evidence" / "casey-reas" / relative
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        transfer = next(log for log in receipt["result"]["logs"] if log["topics"][0].startswith("0xddf252"))
+        transfer["topics"][3] = "0x" + format(int(transfer["topics"][3], 16) + 1, "064x")
+        receipt_path.write_text(json.dumps(receipt, separators=(",", ":")) + "\n", encoding="utf-8", newline="\n")
+        manifest_path = root / "evidence" / "casey-reas" / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        entry = next(item for item in manifest["entries"] if item["path"] == relative)
+        entry["sha256"] = hashlib.sha256(receipt_path.read_bytes()).hexdigest()
+        entry["size"] = receipt_path.stat().st_size
+        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate(root, history_root=ROOT)
+        self.assertTrue(any("raw RPC receipt transfer schedule does not match" in issue for issue in issues), issues)
+
+    def test_raw_receipt_acquisition_metadata_is_semantically_bound(self) -> None:
+        _temporary, root = self.make_copy()
+        acquisition_path = root / "evidence" / "casey-reas" / "raw" / "rpc" / "receipt-acquisition.json"
+        acquisition = json.loads(acquisition_path.read_text(encoding="utf-8"))
+        acquisition["request"]["rpc_method"] = "eth_getTransactionByHash"
+        acquisition_path.write_text(json.dumps(acquisition, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate(root, history_root=ROOT)
+        self.assertTrue(any("raw RPC receipt acquisition metadata is invalid" in issue for issue in issues), issues)
 
     def test_historical_release_requires_full_git_history(self) -> None:
         with tempfile.TemporaryDirectory(prefix="casey-history-") as directory:
