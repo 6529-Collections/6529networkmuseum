@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import base64
 import copy
+import hashlib
 import json
 from pathlib import Path
 
@@ -60,6 +61,13 @@ def commit_word(value: str) -> bytes:
     if len(raw) != 20:
         raise ValueError("commit evidence must be exactly 20 bytes")
     return bytes(12) + raw
+
+
+def tree_word(value: str) -> str:
+    """Encode a 40-hex SHA-1 tree OID as the normative right-aligned bytes32."""
+    if len(value) != 40 or any(character not in "0123456789abcdef" for character in value):
+        raise ValueError("tree evidence must be exactly 40 lowercase hex characters")
+    return "0x" + "00" * 12 + value
 
 
 def address_for_scalar(scalar: int) -> str:
@@ -190,7 +198,7 @@ def projection(evidence: dict, stage: str) -> dict:
     del value["detachedSignatureBundle"]
     value["conformanceDocumentHash"] = ZERO_HASH if stage == "D0" else evidence["conformanceDocumentHash"]
     value["signers"]["signedDocumentHash"] = ZERO_HASH
-    value["signers"]["signatureCommitments"] = [ZERO_HASH, ZERO_HASH, ZERO_HASH]
+    value["signers"]["signatureCommitments"] = [ZERO_HASH] * value["signers"]["threshold"]
     return value
 
 
@@ -222,7 +230,7 @@ def build_expected() -> tuple[dict, dict, dict]:
         "externalDependencyHash": dependency_hash(dependencies),
         "sourceCommit": "0123456789abcdef0123456789abcdef01234567",
         "sourceRepository": "6529-Collections/6529networkmuseum",
-        "sourceTreeHash": h(b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_SOURCE_TREE_V1"),
+        "sourceTreeHash": tree_word(hashlib.sha1(b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_SOURCE_TREE_V1").hexdigest()),
         "artifactHash": code_hash,
         "requiredInterfaceId": "0xea450898",
         "expectedModuleVersion": ZERO_HASH,
@@ -238,7 +246,7 @@ def build_expected() -> tuple[dict, dict, dict]:
         ],
         "conformance": {"reportHash": h(b"MUSEUM_NON_DEPLOYMENT_TARGET_PROBE_REPORT_V1"), "vectorBundleHash": h(b"MUSEUM_NON_DEPLOYMENT_TARGET_PROBE_VECTORS_V1"), "runtimePolicyHash": target_policy_hash, "probeGasLimit": 250000, "returnDataBytesLimit": 4096},
         "externalDependencies": dependencies,
-        "signers": {"threshold": 2, "signatureScheme": "EIP-191-KECCAK256-DOCUMENT_V1", "signedDocumentHash": ZERO_HASH, "addresses": [address for address, _ in signer_pairs], "signatureCommitments": [ZERO_HASH, ZERO_HASH, ZERO_HASH]},
+        "signers": {"threshold": 2, "signatureScheme": "EIP-191-KECCAK256-DOCUMENT_V1", "signedDocumentHash": ZERO_HASH, "addresses": [address for address, _ in signer_pairs], "signatureCommitments": [ZERO_HASH, ZERO_HASH]},
         "detachedSignatureBundle": {},
         "availability": [],
         "previousReleaseId": ZERO_HASH,
@@ -249,7 +257,7 @@ def build_expected() -> tuple[dict, dict, dict]:
     evidence["signers"]["signedDocumentHash"] = h(rfc8785.dumps(projection(evidence, "D1")))
     digest = k(b"\x19Ethereum Signed Message:\n32" + hx(evidence["signers"]["signedDocumentHash"]))
     entries = []
-    for address, scalar in signer_pairs:
+    for address, scalar in signer_pairs[:evidence["signers"]["threshold"]]:
         signature = sign_document(scalar, digest)
         assert recover_address(digest, signature) == address
         entries.append({"signer": address, "signature": "0x" + signature.hex(), "signatureCommitment": h(signature)})
@@ -293,6 +301,8 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert all(dependency["runtimePolicyHash"] == policy_hash(DEPENDENCY_POLICY_PATH) for dependency in evidence["externalDependencies"])
     assert evidence["externalDependencyHash"] == dependency_hash(evidence["externalDependencies"])
     assert evidence["releaseId"] == release_id(evidence)
+    assert hx(evidence["sourceTreeHash"])[:12] == bytes(12)
+    assert hx(evidence["sourceTreeHash"])[12:] != bytes(20)
     assert len(evidence["builds"]) == 2
     assert len({row["builderId"] for row in evidence["builds"]}) == 2
     assert len({row["toolchainId"] for row in evidence["builds"]}) == 2
@@ -303,9 +313,14 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert evidence["signers"]["signedDocumentHash"] == h(rfc8785.dumps(projection(evidence, "D1")))
     addresses = evidence["signers"]["addresses"]
     assert len(addresses) == 3 and addresses == sorted(addresses) and len(set(addresses)) == 3
+    assert evidence["signers"]["threshold"] == 2
+    assert len(evidence["signers"]["signatureCommitments"]) == evidence["signers"]["threshold"]
     assert bundle["releaseId"] == evidence["releaseId"]
     assert bundle["signedDocumentHash"] == evidence["signers"]["signedDocumentHash"]
-    assert [entry["signer"] for entry in bundle["entries"]] == addresses
+    bundle_signers = [entry["signer"] for entry in bundle["entries"]]
+    assert len(bundle_signers) == evidence["signers"]["threshold"]
+    assert bundle_signers == sorted(bundle_signers) and len(set(bundle_signers)) == len(bundle_signers)
+    assert set(bundle_signers).issubset(addresses)
     assert [entry["signatureCommitment"] for entry in bundle["entries"]] == evidence["signers"]["signatureCommitments"]
     digest = k(b"\x19Ethereum Signed Message:\n32" + hx(evidence["signers"]["signedDocumentHash"]))
     for entry in bundle["entries"]:
@@ -344,6 +359,8 @@ def validate_mutation(mutated: dict, pristine: dict, bundle: dict, reference: di
             raise EvidenceRejection("DEPENDENCY_RUNTIME_POLICY")
     if mutated["externalDependencyHash"] != dependency_hash(mutated["externalDependencies"]):
         raise EvidenceRejection("DEPENDENCY_SET_HASH")
+    if not mutated["sourceTreeHash"].startswith("0x" + "00" * 12):
+        raise EvidenceRejection("SOURCE_TREE_ENCODING")
     if mutated["signers"]["threshold"] != 2:
         raise EvidenceRejection("SIGNER_THRESHOLD")
     try:
@@ -383,6 +400,10 @@ def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
     mutation = copy.deepcopy(evidence)
     mutation["signers"]["threshold"] = 1
     assert_rejected(mutation, evidence, bundle, reference, "SIGNER_THRESHOLD")
+    mutation = copy.deepcopy(evidence)
+    tree_oid = mutation["sourceTreeHash"][26:]
+    mutation["sourceTreeHash"] = "0x" + tree_oid + "00" * 12
+    assert_rejected(mutation, evidence, bundle, reference, "SOURCE_TREE_ENCODING")
     correction = copy.deepcopy(evidence)
     correction["revision"] = 2
     correction["previousReleaseId"] = evidence["releaseId"]
@@ -427,8 +448,18 @@ def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--emit", action="store_true", help="print the deterministic fixture objects")
+    parser.add_argument("--write", action="store_true", help="rewrite the three deterministic fixture files")
     arguments = parser.parse_args()
     expected_evidence, expected_bundle, expected_reference = build_expected()
+    if arguments.write:
+        for path, value in (
+            (EVIDENCE_PATH, expected_evidence),
+            (BUNDLE_PATH, expected_bundle),
+            (REFERENCE_PATH, expected_reference),
+        ):
+            path.write_text(json.dumps(value, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+        print("wrote deterministic TargetRelease fixtures")
+        return 0
     if arguments.emit:
         for name, value in (("evidence", expected_evidence), ("bundle", expected_bundle), ("reference", expected_reference)):
             print(f"---{name}---")
@@ -447,7 +478,7 @@ def main() -> int:
     print(f"signedDocumentHash={evidence['signers']['signedDocumentHash']}")
     print(f"target={evidence['target']} runtimePolicyHash={evidence['runtimePolicyHash']}")
     print(f"externalDependencyHash={evidence['externalDependencyHash']} dependencies={len(evidence['externalDependencies'])}")
-    print(f"detachedBundleHash={reference['contentHash']} signatureRecovery=3/3")
+    print(f"detachedBundleHash={reference['contentHash']} signatureRecovery=2/3")
     return 0
 
 

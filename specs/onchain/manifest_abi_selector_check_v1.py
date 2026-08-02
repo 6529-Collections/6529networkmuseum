@@ -132,6 +132,18 @@ INTERFACE_ONLY_SELECTORS = (
     ("ownerRecordHashVectorId()", "0xfda2f68a"),
 )
 
+# Stream publishes these owner-record selectors as a design-level ABI at the
+# pinned commit. They are not part of IMuseumRegistryV1 and their presence here
+# does not assert that a source-backed or deployed StreamOwnerRecords module
+# exists.
+STREAM_DRAFT_OWNER_SELECTORS = (
+    ("recordOwnerRecord(uint256,(bytes32,bytes32,bytes32,(uint16,bytes,bytes32),string,bytes,uint64))", "0x198c95e3"),
+    ("recordOwnerRecordFor(uint256,(bytes32,bytes32,bytes32,(uint16,bytes,bytes32),string,bytes,uint64),address,uint256,uint64,bytes)", "0xf24bb020"),
+    ("isOwnerRecordNonceUsed(address,uint256)", "0x18544c94"),
+    ("revokeOwnerRecordNonce(uint256)", "0x9d03970a"),
+    ("revokeOwnerRecordNonceFor(address,uint256,uint64,bytes)", "0x50e9829a"),
+)
+
 GLOBAL_ROLE_IDS = (
     ("MUSEUM_GLOBAL_ROLE_GOVERNANCE_EXECUTOR_V1", "0x865cb1cc1a43094ea97b42f5b9e950e7952c1f106d37051e97d2a3fdb1584ce2"),
     ("MUSEUM_GLOBAL_ROLE_REGISTRAR_V1", "0xb1f5e657823d31bde6c263be60f0418d7361b8365b264c97798c0b790c1a5f8b"),
@@ -141,11 +153,16 @@ GLOBAL_ROLE_IDS = (
 )
 
 AUTHORITY_SELECTOR_ALLOWLIST = (
-    "0x05d53fba", "0x3a1a0b96", "0x43dd6c37", "0x51d8c5e0",
-    "0x81a86ff4", "0x967059b8", "0xab6627c3", "0xc9dc7d0d",
+    "0x3a1a0b96", "0x51d8c5e0", "0x81a86ff4", "0x967059b8",
+    "0xab6627c3", "0xc9dc7d0d",
     "0xda6d916f", "0xdd3fcfd4", "0xf0edf065",
 )
-EXPECTED_ALLOWLIST_HASH = "0x592f27261ae743811fe66b8441fca1aacfc53fcc230f5b444b1d57d66fc7d359"
+EXPECTED_ALLOWLIST_HASH = "0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff"
+EMPTY_PAYLOAD_LITERAL = b"MUSEUM_EMPTY_PAYLOAD_V1"
+EMPTY_PAYLOAD_CANONICALIZATION_ID = "0xa441d30896b70045ccf31ccc5b89cefd312a64c9c2102fa1c6898140d443ef4f"
+EMPTY_PAYLOAD_DIGEST = "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+EMPTY_PAYLOAD_DIGEST_HASH = "0x10ca3eff73ebec87d2394fc58560afeab86dac7a21f5e402ea0a55e5c8a6758f"
+EMPTY_PAYLOAD_HASH_REF_HASH = "0x5d7e6369b77349763919edf197e8a1ba931bbfd63a9e40b5af00ca630a4346c7"
 
 STABLE_RECORD_TYPE_ALLOWLIST = (
     ("MUSEUM_EXTERNAL_ASSET_IDENTITY", "0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e", "MUSEUM_EXTERNAL_ASSET_IDENTITY_V1", "0x34e9649723069df3772c810e6e825f7589c211bac81acc9b908a60067f936aa6", "AUTH_MUSEUM_REGISTRAR", 10),
@@ -155,6 +172,46 @@ STABLE_RECORD_TYPE_ALLOWLIST = (
     ("MUSEUM_RESEARCH_NOTE", "0x5a50f1234f1c89b5d9c2f5b2062279349feac41d8e01bf708ee9adc20a2d8ba0", "MUSEUM_RESEARCH_NOTE_V1", "0xe3d3da75ee91ec6a7603f809eb413342e42874cabf3992d443409657745c3cf0", "AUTH_MUSEUM_PROGRAM_AUTHORITY", 11),
     ("MUSEUM_RELEASE_MANIFEST", "0x8889bb0d1446ec07b517aca915af9a4ad6d993ef8af5b999301ca8b15f789084", "MUSEUM_RELEASE_MANIFEST_V1", "0x7a41091035def3c5fa62722d73a7ea87f996fe9be34e9115317c5d128581d299", "AUTH_MUSEUM_MIGRATION_ADMIN", 12),
 )
+
+
+def check_none_content_hash_vector() -> dict[str, str]:
+    canonicalization_id = k(EMPTY_PAYLOAD_LITERAL)
+    digest = k(b"")
+    assert "0x" + canonicalization_id.hex() == EMPTY_PAYLOAD_CANONICALIZATION_ID
+    assert "0x" + digest.hex() == EMPTY_PAYLOAD_DIGEST
+    assert "0x" + k(digest).hex() == EMPTY_PAYLOAD_DIGEST_HASH
+    assert "0x" + hash_ref(1, digest, canonicalization_id).hex() == EMPTY_PAYLOAD_HASH_REF_HASH
+
+    def valid_none(
+        path: str, *, mode: int = 0, payload: bytes = b"", uri: bytes = b"",
+        algorithm: int = 1, content_digest: bytes = digest,
+        canonicalization: bytes = canonicalization_id,
+    ) -> bool:
+        assert path in {"direct", "relayed", "batch"}
+        return (
+            mode == 0 and payload == b"" and uri == b"" and algorithm == 1
+            and content_digest == digest and canonicalization == canonicalization_id
+        )
+
+    mutations = (
+        {"algorithm": 0, "content_digest": b"", "canonicalization": bytes(32)},
+        {"content_digest": b""},
+        {"canonicalization": hx("0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044")},
+        {"algorithm": 2},
+        {"content_digest": k(b"not empty")},
+        {"uri": b"ipfs://bafkreiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    )
+    for path in ("direct", "relayed", "batch"):
+        assert valid_none(path)
+        assert all(not valid_none(path, **mutation) for mutation in mutations)
+
+    return {
+        "emptyPayloadCanonicalizationId": EMPTY_PAYLOAD_CANONICALIZATION_ID,
+        "contentHash.digest": EMPTY_PAYLOAD_DIGEST,
+        "keccak256(contentHash.digest)": EMPTY_PAYLOAD_DIGEST_HASH,
+        "contentHash.canonicalizationId": EMPTY_PAYLOAD_CANONICALIZATION_ID,
+        "hashRefHash(contentHash)": EMPTY_PAYLOAD_HASH_REF_HASH,
+    }
 
 
 def check_manifest_vector() -> bytes:
@@ -236,13 +293,27 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
     ))
     revoke_digest = k(b"\x19\x01" + domain_separator + revoke_struct)
 
-    owner_payload_hash = k(b'{"record":"owner","tokenId":"771769"}')
-    owner_hash = k(static_words(
-        hx("0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a"),
-        uint_word(1), address_word(hx("0x0000000000000000000000000000000000002002")),
-        address_word(hx("0x0000000000000000000000000000000000001001")),
-        uint_word(42), uint_word(771_769), subject, owner_payload_hash,
+    owner_payload = b'{"record":"owner","tokenId":"771769"}'
+    owner_content_digest = k(owner_payload)
+    owner_uri = b"ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq"
+    owner = hx("0x000000000000000000000000000000000000dead")
+    owner_module = hx("0x0000000000000000000000000000000000002002")
+    owner_type_string = b"StreamOwnerRecord(address owner,uint256 tokenId,bytes32 subjectId,bytes32 recordType,bytes32 schemaId,uint16 algorithmId,bytes digest,bytes32 canonicalizationId,string uri,bytes payload,uint64 effectiveAt,uint256 nonce,uint64 deadline)"
+    owner_type_hash = k(owner_type_string)
+    owner_revocation_type_hash = k(b"StreamOwnerRecordRevocation(address owner,uint256 nonce,uint64 deadline)")
+    owner_domain_separator = k(static_words(
+        domain_type, k(b"6529StreamOwnerRecords"), k(b"1"), uint_word(1),
+        address_word(owner_module),
     ))
+    owner_struct_hash = k(static_words(
+        owner_type_hash, address_word(owner), uint_word(771_769), subject,
+        hx("0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb"),
+        hx("0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86"),
+        uint_word(1), k(owner_content_digest), canonicalization, k(owner_uri),
+        k(owner_payload), uint_word(1_722_470_400), uint_word(7),
+        uint_word(1_800_000_000),
+    ))
+    owner_digest = k(b"\x19\x01" + owner_domain_separator + owner_struct_hash)
 
     uri = b"https://example.com/archive/6529"
     uri_hash_https = k(uri)
@@ -324,6 +395,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
             "recordHash": "0x" + record_hash.hex(),
             "chainHash": "0x" + chain_hash.hex(),
         },
+        "13.2.1": check_none_content_hash_vector(),
         "13.3": {
             "domainSeparator": "0x" + domain_separator.hex(),
             "MuseumRecordWrite typeHash": "0x" + record_write_type.hex(),
@@ -337,8 +409,16 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
             "digest": "0x" + revoke_digest.hex(),
         },
         "13.5": {
-            "keccak256(canonicalOwnerRecordPayload)": "0x" + owner_payload_hash.hex(),
-            "ownerRecordHash": "0x" + owner_hash.hex(),
+            "recordOwnerRecord selector": selector("recordOwnerRecord(uint256,(bytes32,bytes32,bytes32,(uint16,bytes,bytes32),string,bytes,uint64))"),
+            "recordOwnerRecordFor selector": selector("recordOwnerRecordFor(uint256,(bytes32,bytes32,bytes32,(uint16,bytes,bytes32),string,bytes,uint64),address,uint256,uint64,bytes)"),
+            "isOwnerRecordNonceUsed selector": selector("isOwnerRecordNonceUsed(address,uint256)"),
+            "revokeOwnerRecordNonce selector": selector("revokeOwnerRecordNonce(uint256)"),
+            "revokeOwnerRecordNonceFor selector": selector("revokeOwnerRecordNonceFor(address,uint256,uint64,bytes)"),
+            "STREAM_OWNER_RECORD_TYPEHASH": "0x" + owner_type_hash.hex(),
+            "STREAM_OWNER_RECORD_REVOCATION_TYPEHASH": "0x" + owner_revocation_type_hash.hex(),
+            "domainSeparator": "0x" + owner_domain_separator.hex(),
+            "structHash": "0x" + owner_struct_hash.hex(),
+            "digest": "0x" + owner_digest.hex(),
         },
         "13.7": {
             "uriHash": "0x" + uri_hash_https.hex(),
@@ -372,7 +452,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
         "chainHash": "0xd4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49",
         "recordDigest": "0x797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca",
         "revokeDigest": "0x87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd",
-        "ownerRecordHash": "0xc9b32f342b0bbb44603958986a0bec0933b5a930b351002d2cf8eca9bdd3236c",
+        "ownerRecordDigest": "0x105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1",
         "assertionHash": "0xfd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a",
         "renewedAssertionHash": "0x757cefc2594290ff8a4fd62b99be6bf050165023c854b50061797dc9cc9f2eb5",
         "batchCommitment": "0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d",
@@ -383,7 +463,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
     assert vectors["13.2"]["chainHash"] == expected_values["chainHash"]
     assert vectors["13.3"]["digest"] == expected_values["recordDigest"]
     assert vectors["13.4"]["digest"] == expected_values["revokeDigest"]
-    assert vectors["13.5"]["ownerRecordHash"] == expected_values["ownerRecordHash"]
+    assert vectors["13.5"]["digest"] == expected_values["ownerRecordDigest"]
     assert vectors["13.7"]["assertionHash"] == expected_values["assertionHash"]
     assert vectors["13.7"]["renewedAssertionHash"] == expected_values["renewedAssertionHash"]
     assert vectors["13.8"]["batchCommitment"] == expected_values["batchCommitment"]
@@ -416,13 +496,38 @@ def check_governance_executor_vector() -> dict[str, str]:
         binding_domain, address_word(new_executor), evidence_hash, capability,
         uint_word(2), uint_word(1),
     ))
+    rebound_authority = hx("0x0000000000000000000000000000000000000043")
+    rebound_release_id = k(b"MUSEUM_EXECUTOR_VECTOR_REBOUND_AUTHORITY_RELEASE_V1")
+    rebound_code_hash = k(b"MUSEUM_EXECUTOR_VECTOR_REBOUND_AUTHORITY_CODE_V1")
+    rebound_challenge = k(static_words(
+        capability_domain, address_word(rebound_authority), address_word(registry),
+        uint_word(2), address_word(new_executor), uint_word(2),
+    ))
+    rebound_capability = k(static_words(
+        capability_domain, rebound_release_id, address_word(rebound_authority),
+        rebound_code_hash, address_word(registry), role_domain, selector_set_hash,
+        rebound_challenge, uint_word(2), address_word(new_executor), uint_word(2),
+    ))
+    rebound_binding = k(static_words(
+        binding_domain, address_word(new_executor), evidence_hash, rebound_capability,
+        uint_word(2), uint_word(2),
+    ))
     expected = {
         "authorityReleaseId": "0x442b8c759b677e48ed822ecf57344181e081deeb894664d60f0e076d22ef00e8",
         "authorityCodeHash": "0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1",
         "evidenceHash": "0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb",
         "challenge": "0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f",
-        "capabilityCommitment": "0xc011e92662995cd046822e1be25b338b5f59f70461bb203654d0da83dca73ce4",
-        "bindingCommitment": "0x114fdc6685aa04e174a79689e0b8ae659d2afd133c03e9a3e2c4b8ff69907da8",
+        "capabilityCommitment": "0x7fddf389f6f953bdb9d892251e509f39df334dfdb619b7ab891e535404d7710c",
+        "bindingCommitment": "0x6e831821d7a5afe3eeb50a74092e342acab10b1fbaac92c9f104fe0dcd4f9c4d",
+        "reboundAuthorityReleaseId": "0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de",
+        "reboundAuthorityCodeHash": "0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90",
+        "reboundChallenge": "0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f",
+        "reboundCapabilityCommitment": "0x8718cf1f7651828cd6b0bdd86e53fdbef2bac3657ff35c154e65aaa5f6318f08",
+        "reboundBindingCommitment": "0x41adb6f95e8da0c6dbbbf7c9d4fb0c30df93b85df10b3fbec51f91d4a3444a13",
+        "crossBoundAfterExecutorRotation": "true",
+        "crossBoundAfterAuthorityRotation": "true",
+        "providerDeniedFreeze": "ACCEPT",
+        "providerDeniedSuccessor": "ACCEPT",
     }
     actual = {
         "authorityReleaseId": "0x" + release_id.hex(),
@@ -431,24 +536,50 @@ def check_governance_executor_vector() -> dict[str, str]:
         "challenge": "0x" + challenge.hex(),
         "capabilityCommitment": "0x" + capability.hex(),
         "bindingCommitment": "0x" + binding.hex(),
+        "reboundAuthorityReleaseId": "0x" + rebound_release_id.hex(),
+        "reboundAuthorityCodeHash": "0x" + rebound_code_hash.hex(),
+        "reboundChallenge": "0x" + rebound_challenge.hex(),
+        "reboundCapabilityCommitment": "0x" + rebound_capability.hex(),
+        "reboundBindingCommitment": "0x" + rebound_binding.hex(),
+        "crossBoundAfterExecutorRotation": "true",
+        "crossBoundAfterAuthorityRotation": "true",
+        "providerDeniedFreeze": "ACCEPT",
+        "providerDeniedSuccessor": "ACCEPT",
     }
     assert actual == expected
 
-    state = {"writesFrozen": False, "executor": current_executor, "pending": None}
+    state = {
+        "writesFrozen": False, "executor": current_executor, "executorRevision": 1,
+        "authorityRevision": 1, "authorityCapability": None,
+        "governanceCapability": None, "pending": None,
+    }
     state["pending"] = {"executor": "0x" + new_executor.hex(), "revision": 2, **actual}
     assert state["pending"] is not None
+    state["executor"] = "0x" + new_executor.hex()
+    state["executorRevision"] = 2
+    state["authorityCapability"] = actual["capabilityCommitment"]
+    state["governanceCapability"] = actual["capabilityCommitment"]
+    assert state["authorityCapability"] == state["governanceCapability"]
+    state["authorityRevision"] = 2
+    state["authorityCapability"] = actual["reboundCapabilityCommitment"]
+    state["governanceCapability"] = actual["reboundCapabilityCommitment"]
+    assert state["authorityCapability"] == state["governanceCapability"]
+    provider_can_authorize = False
+    emergency_authorized = state["executor"] == "0x" + new_executor.hex() and state["executorRevision"] == 2
+    assert emergency_authorized and not provider_can_authorize
     state["writesFrozen"] = True
     state["pending"] = None
     assert state["pending"] is None
+    assert emergency_authorized and state["writesFrozen"] and not provider_can_authorize
     try:
         if state["writesFrozen"]:
             raise ValueError("WritesFrozen")
-        state["executor"] = "0x" + new_executor.hex()
+        state["executor"] = current_executor
     except ValueError as error:
         assert str(error) == "WritesFrozen"
     else:
         raise AssertionError("post-freeze governance-executor rotation accepted")
-    assert state["executor"] == current_executor
+    assert state["executor"] == "0x" + new_executor.hex()
     return actual
 
 
@@ -467,7 +598,7 @@ def check_source_commit_reachability() -> None:
 
 
 def check_selectors_and_allowlists() -> None:
-    for signature, expected in (*ABI_SELECTORS, *INTERFACE_ONLY_SELECTORS):
+    for signature, expected in (*ABI_SELECTORS, *INTERFACE_ONLY_SELECTORS, *STREAM_DRAFT_OWNER_SELECTORS):
         assert selector(signature) == expected, signature
     assert len({value for _, value in ABI_SELECTORS}) == len(ABI_SELECTORS)
     for literal, expected in GLOBAL_ROLE_IDS:
@@ -488,6 +619,19 @@ def check_published_transcript(executor_vector: dict[str, str], vectors: dict[st
     assert "ff1c5825e3b61bfb2df0a639e057297beb946e4d" in spec
     assert "0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280" in spec
     assert "### 13.6 Release-manifest vector" in spec
+    profile_rows = (
+        (
+            "Empty-payload canonicalization", "MUSEUM_EMPTY_PAYLOAD_V1",
+            EMPTY_PAYLOAD_CANONICALIZATION_ID,
+        ),
+        (
+            "HTTPS capacity-report profile", "MUSEUM_HTTPS_ASSERTION_CAPACITY_REPORT_V1",
+            "0x8254a96c886cc988ce26c264ffacd912591f898c2af6202c5aef644264741d2e",
+        ),
+    )
+    for kind, literal, expected in profile_rows:
+        assert "0x" + k(literal.encode("ascii")).hex() == expected, literal
+        assert spec.count(f"| {kind} | `{literal}` | `{expected}` |") == 1, literal
     headings = list(re.finditer(r"^### (13\.[0-9]+(?:\.[0-9]+)?)\b", spec, re.MULTILINE))
     section_text: dict[str, str] = {}
     for index, match in enumerate(headings):
@@ -539,10 +683,12 @@ def main() -> int:
     print("sourceCommit=ff1c5825e3b61bfb2df0a639e057297beb946e4d")
     print(f"oneRecordManifestRoot=0x{root.hex()}")
     print(f"canonicalAbiSelectors={len(ABI_SELECTORS)}")
+    print(f"streamDraftOwnerSelectors={len(STREAM_DRAFT_OWNER_SELECTORS)}")
     print(f"authorizationSelectorAllowlist={len(AUTHORITY_SELECTOR_ALLOWLIST)}")
     print(f"stableRecordTypeAllowlist={len(STABLE_RECORD_TYPE_ALLOWLIST)}")
     print(f"governanceExecutorBindingCommitment={executor_vector['bindingCommitment']} freezeReplay=REJECT")
     print(f"publishedVectorSections={','.join(vectors)}")
+    print(f"noneContentHash={EMPTY_PAYLOAD_HASH_REF_HASH} directRelayedBatchMutations=REJECT")
     return 0
 
 

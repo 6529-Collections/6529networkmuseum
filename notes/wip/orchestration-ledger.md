@@ -465,7 +465,8 @@ explicit ports without throwing. The HTTPS lifecycle harness proves expiry
 blocks new writes, renewal restores eligibility, and pre-expiry records remain
 readable with their historical assertion. The detached signature-bundle
 fixture has a content-addressed IPFS URI, alternate Arweave-form retrieval
-reference, schema, 3/3 offline recovery check, and an explicit statement that
+reference, schema, then-current 3/3 offline recovery check (superseded by the
+exact-threshold 2-of-3 remediation below), and an explicit statement that
 it is not published release or deployment evidence. Full validation, a fresh
 release manifest, exact-head CI, and independent review remain required before
 any merge; implementation and deployment remain separate authorization gates.
@@ -678,3 +679,73 @@ byte size, and measured SHA-256. The immutable PR #15 publication, reachable
 request/exclusion/warning/population/child-run-manifest bytes remain unchanged.
 The revision is local and unpushed and is not an art-data release, accession
 authority, TargetRelease admission, deployment, or network-write claim.
+
+## 2026-08-02 - PR #2 exact-threshold and emergency-independence remediation
+
+Independent exact-head protocol review found five genuine design
+contradictions after head `2f6517c`: the mutable authority provider could veto
+the claimed emergency path; authority/executor rotations could leave their
+cross-bound capability rows stale; the stated 2-of-3 release policy required
+three valid signatures; the SHA-1 repository tree OID lacked a reproducible
+`bytes32` encoding; and the selector table referred to a forbidden
+governance-executor grant.
+
+The local remediation excludes `freezeWrites` and post-freeze `setSuccessor`
+from the provider selector set. Their authorization now uses only the
+registry-held direct executor address/revision, while successor evidence still
+must have been admitted before freeze. The provider-mediated selector-set hash
+is `0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff`.
+Both rotation directions atomically refresh `AuthorityState` and
+`GovernanceExecutorState`; authority rotation emits the new
+`GovernanceExecutorAuthorityRebound` audit event.
+
+Release evidence now admits three sorted addresses but carries exactly two
+sorted signature entries from that set, both of which must recover. The bundle
+schema hash is
+`0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`;
+the evidence-schema hash is
+`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`.
+The regenerated non-deployment vector has release ID
+`0x7d3cf4d1cc5a540e950b98c52138a6a75d9e747edf365602af12729adda1a522`
+and 837-byte bundle hash
+`0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1`.
+Git commit and tree SHA-1 values now share one exact encoding: decode the
+40 lowercase hex characters and right-align those 20 bytes in `bytes32` with
+12 zero high bytes. The Stream-mirror selector table now names the direct
+executor closed binding and expressly forbids an executor grant row.
+
+The same local pass pins the sole `NONE` content commitment, adds a measurable
+per-URI assertion-capacity deployment gate, and binds the batch-gas checker to
+the specification constants/formula. All seven focused harnesses and their
+optimized-Python rejection controls pass. Full regeneration, full validation,
+fresh exact-head review, CI, and bot disposition remain required. Nothing in
+this entry is a deployment, TargetRelease admission, network write, donation
+acceptance, or accession-completion act.
+
+## 2026-08-02 - Stream draft owner-record evidence correction
+
+Independent review identified an overstatement in the earlier Stream premise.
+At pinned commit `5021c8060950c3fef995271e674ed4b2007fee6d`, Stream's design
+document does publish the `OwnerRecord` shape, five owner-record function
+signatures, the owner-write and nonce-revocation EIP-712 typehashes, and the
+`6529StreamOwnerRecords` domain. The source tree still does not include a
+`StreamOwnerRecords` implementation or deployment, and the design document
+does not pin an exact stored `recordHash` preimage and read surface.
+
+The local specification now matches the real draft ABI and EIP-712 envelope
+bilaterally. Its executable checker recomputes all five selectors, both
+typehashes, and a synthetic domain/struct/signing vector. The synthetic module
+address is explicitly not a deployment claim. The convergence gate remains
+closed pending source, deployed runtime, stored-hash semantics, read ABI,
+nonce behavior, and a successful direct/relayed write-read rehearsal. Full
+regeneration, validation, exact-head review, CI, and bot disposition remain
+required.
+
+The complete local gate subsequently passed on this remediation: bootstrap
+validated 226 JSON files; the network-fetch guard passed; all 79 tests passed
+with the one expected Windows named-pipe skip; schema, reference, state,
+guardrail, and commitment validation passed; the deterministic release
+manifest check passed; the Casey evidence package reproduced 3,300 tokens,
+35,088 traits, 79 raw files, 3,327 request records, and five descriptor
+outputs; and `codex-diff-check` reported no whitespace defects. These local
+results do not substitute for fresh exact-head CI or independent review.

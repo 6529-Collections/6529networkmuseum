@@ -11,7 +11,7 @@ Normative Stream sources at that commit:
 - `docs/collection-metadata-contract.md`
 - `docs/metadata-router-and-renderer.md`
 
-Stream currently implements the generic preservation record envelope and specifies the museum profile semantics. At the pinned commit it does not yet publish standalone canonical JSON Schema files for `STREAM_ACCESSION_V1`, `STREAM_WORK_DESCRIPTION_V1`, `STREAM_RIGHTS_V1`, `STREAM_PREMIS_V3_PROFILE`, or `STREAM_LIDO_PROFILE_V1`. Museum schemas therefore pin the same fields and vocabularies now and must be replaced or proven byte-compatible when Stream publishes those canonical schema documents.
+Stream currently implements the generic preservation record envelope and specifies the museum profile semantics. Its design document also publishes a draft owner-record ABI and EIP-712 envelope, but the pinned source tree does not contain a `StreamOwnerRecords` implementation or a deployed owner-record module. At the pinned commit it does not yet publish standalone canonical JSON Schema files for `STREAM_ACCESSION_V1`, `STREAM_WORK_DESCRIPTION_V1`, `STREAM_RIGHTS_V1`, `STREAM_PREMIS_V3_PROFILE`, or `STREAM_LIDO_PROFILE_V1`. Museum schemas therefore pin the same fields and vocabularies now and must be replaced or proven byte-compatible when Stream publishes those canonical schema documents.
 
 ## Exact on-chain envelope
 
@@ -37,6 +37,55 @@ struct CollectionRecord {
 ```
 
 The Museum must not create a semantically equivalent but field-incompatible envelope.
+
+## Draft owner-record envelope
+
+The pinned Stream design document publishes this design-level ABI:
+
+```solidity
+struct OwnerRecord {
+    bytes32 recordType;
+    bytes32 subjectId;
+    bytes32 schemaId;
+    HashRef contentHash;
+    string uri;
+    bytes payload;
+    uint64 effectiveAt;
+}
+
+function recordOwnerRecord(uint256 tokenId, OwnerRecord calldata record) external;
+function recordOwnerRecordFor(
+    uint256 tokenId,
+    OwnerRecord calldata record,
+    address owner,
+    uint256 nonce,
+    uint64 deadline,
+    bytes calldata signature
+) external;
+function isOwnerRecordNonceUsed(address owner, uint256 nonce) external view returns (bool);
+function revokeOwnerRecordNonce(uint256 nonce) external;
+function revokeOwnerRecordNonceFor(
+    address owner,
+    uint256 nonce,
+    uint64 deadline,
+    bytes calldata signature
+) external;
+```
+
+The corresponding canonical selectors are `0x198c95e3`, `0xf24bb020`,
+`0x18544c94`, `0x9d03970a`, and `0x50e9829a`, in declaration order. The
+write typehash is
+`0x9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05`;
+the nonce-revocation typehash is
+`0x11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c`.
+The EIP-712 domain is name `6529StreamOwnerRecords`, version `1`, chain ID,
+and the satellite address as verifying contract.
+
+These are published draft semantics, not proof of an implemented interface.
+The Museum contract specification matches them bilaterally while keeping the
+deployment gate closed until Stream provides source, a deployment, an exact
+stored-record hash preimage, read surfaces, and a successful write/read
+round-trip. A synthetic EIP-712 vector cannot satisfy that gate.
 
 ## Shared identifiers
 
@@ -111,3 +160,6 @@ Before deploying a Museum contract or publishing a completed accession on Stream
 3. validate Museum → Stream → PREMIS/LIDO export round trips;
 4. regenerate the acquisition packet and object dossier without operator-only data;
 5. reject deployment if any shared field, vocabulary, hash, or subject derivation has drifted.
+6. for owner records, pin the implemented module source and deployment, verify
+   runtime code, confirm the stored-record hash preimage and read ABI, and pass
+   exact direct, relayed, nonce-revocation, and write/read round-trip vectors.

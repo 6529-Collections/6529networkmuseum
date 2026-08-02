@@ -20,6 +20,13 @@ This review used:
 
 The review is design evidence, not a deployed-contract or live-custody claim.
 
+One command runs all seven network-free harnesses and is the required local
+smoke gate:
+
+```powershell
+python -B -m unittest tests.test_control_plane.ControlPlaneTests.test_onchain_conformance_harnesses_pass -v
+```
+
 The current executable conformance artifacts are byte-oriented and are part of
 the remediation transcript: `python -B
 specs/onchain/uri_safety_vectors_v1.py` reports the 1,380-byte profile hash
@@ -39,25 +46,58 @@ non-retroactive validity.
 `python -B specs/onchain/target_release_evidence_check_v1.py` recomputes the
 complete schema-valid non-deployment TargetRelease vector, including the exact
 target address, acyclic release ID/D0/D1 projections, policy/dependency hash,
-two builds, three signer commitments, detached bundle linkage, and availability;
+two builds, two signatures from three admitted addresses, detached bundle
+linkage, and availability;
 `python -B specs/onchain/target_release_signature_bundle_check_v1.py` then
-independently validates its coherent 1,131-byte bundle, content hash
-`0xf97485a4617d8048f74dd21475d37f82ba6ffa634bf692f91ac1aadb8c2e0e85`,
-the `ipfs://bafkreiddwjjnzkdwl7cokq43uec3kngfj3vxmjdmqylt2uasiqaua7v44a` /
-`ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and 3/3
-signature recovery.
-The bundle schema hash is
-`0x5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd`
+independently validates its coherent 837-byte bundle, content hash
+`0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1`,
+the `ipfs://bafkreicggdjcp2fpkqdr7ua5yp7pfxiijgjodpjoo4xlqqqy7g2hemlz3y` /
+`ar://JE9OKl_-dxGWxR_BGEqrC8SmAnuvxwQL3ZuSa2dhNkQ` references, and exact
+2-of-3 signature recovery.
+The exact-threshold 2-of-3 bundle schema hash is
+`0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`
 and the containing evidence-schema hash is
-`0xca1b62e83ef91befe287fbc338ec30ce16dc88c8b7ca787b0a52812108136dcc`.
+`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`.
 JSON Schema cannot enforce uniqueness of one member across otherwise distinct
 objects, so the semantic checker normatively rejects duplicate signers and
-commitments after schema validation.
+commitments after schema validation. The release schemas likewise use a broad
+structural `ipfs://`/`ar://` pattern because ordinary JSON Schema cannot decode
+and canonically re-encode a CIDv1 or Arweave identifier. The normative semantic
+checker applies the exact V1 URI predicate after schema validation and rejects
+CIDv0, malformed identifiers, alternate encodings, userinfo, ports, paths,
+queries, fragments, and uppercase scheme aliases.
 
 HTTPS assertion cardinality is operationally per distinct canonical URI,
 including its path: migration planning counts one assertion, current-pointer
 entry, storage allocation, and renewal stream for every distinct HTTPS URI,
-not one per shared host. The active §13 golden values are recomputed by the
+not one per shared host. The migration gate now requires a signed capacity
+report, bound to the frozen manifest, with measured full-issue and
+maximum-cohort renewal rehearsal, retry allowance, and positive throughput/gas
+headroom before the renewal lead deadline.
+
+`NONE` payloads now have one canonical content commitment rather than a
+caller-selected empty `HashRef`: `MUSEUM_EMPTY_PAYLOAD_V1` identifies
+`keccak256(bytes(""))`, and the resulting `hashRefHash` is
+`0x5d7e6369b77349763919edf197e8a1ba931bbfd63a9e40b5af00ca630a4346c7`.
+The manifest/ABI harness recomputes it and rejects mutated forms on modeled
+direct, relayed, and batch paths.
+
+Emergency control is now independent of mutable provider state:
+`freezeWrites` and post-freeze `setSuccessor` use the registry-held direct
+executor address/revision and never call provider `canAuthorize`. Successor
+release evidence must already be admitted before freeze. Ordinary
+provider-mediated operations use the reduced nine-selector capability set;
+after either authority or executor rotation, both state rows are atomically
+refreshed to the same capability commitment and revision pair, with an explicit
+rebind audit event for authority rotation.
+
+Git SHA-1 commit and tree identifiers use the same ABI rule: decode the exact
+40 lowercase hexadecimal characters and right-align those 20 bytes in
+`bytes32`. This matches this repository's object format and removes the prior
+impossible 32-byte-tree-OID interpretation. The executable release fixture is
+synthetic and non-deployment evidence, but it exercises that exact alignment.
+
+The active §13 golden values are recomputed by the
 offline on-chain checkers and bound back to their exact published prose; the
 manifest/ABI checker independently recomputes and binds every published
 general §13.1--§13.9 hash golden plus the selector/record-type tables, while
@@ -282,24 +322,23 @@ The exact-head review additionally required and resolved:
 
 6. The pinned Stream evidence was checked at commit
    `5021c8060950c3fef995271e674ed4b2007fee6d`: the generic
-   `CollectionRecord` field order is published at
-   `smart-contracts/IStreamPreservationRecords.sol:18-28`; the generic
-   preservation domain literal is at
-   `smart-contracts/StreamPreservationRecords.sol:22-29`; and its generic
-   `abi.encode` preimage is at `smart-contracts/StreamPreservationRecords.sol:210-231`.
-   The pinned source does not publish an owner-record selector, owner-module
-   ABI, or owner-specific preimage. §13.5 is consequently a provisional Museum
-   proposal only and is closed behind the §2.1 convergence gate; no inferred
-   Stream owner behavior is normative.
+   `CollectionRecord` implementation is source-backed, while
+   `docs/collection-metadata-contract.md:3062-3168` publishes a design-level
+   `OwnerRecord` ABI, five owner-record functions, two EIP-712 typehashes, and
+   the owner-record domain. The pinned source tree does not contain a
+   `StreamOwnerRecords` implementation or deployment and the document does not
+   pin the stored `recordHash` preimage/read surface. §13.5 therefore tests the
+   real draft signature envelope but keeps deployment convergence closed.
 
 7. Museum's `payloadMode` and `supersedesRecordHash` are Museum-only hash
    fields. The Museum and pinned Stream preimages are intentionally not
    positionally ABI-tuple aligned; bilateral equality is limited to named
    shared ontology/profile fields and canonical payload bytes.
 
-8. The provisional owner-record vector prints `chainId = 1`; the independent
-   transcript binds the same value through `$ownerChainId = 1` in the ABI
-   preimage. It is still not a Stream compatibility vector.
+8. The §13.5 owner-record vector uses chain ID `1` and an explicitly synthetic
+   satellite address. It recomputes the published selectors, typehashes,
+   domain separator, struct hash, and signing digest; it is not evidence of an
+   implemented Stream write, stored hash, or readback.
 
 9. Every function selector in the §7 ABI, including the complete
    `TransitionTargetInput`, `RecordInput[]`, `CollectionRecord`, and by-signature
@@ -321,13 +360,13 @@ The next exact-head review required and resolved:
 3. HTTPS is enforced on-chain through resolver profiles, bounded TTLs, signed
    assertions, sorted address-array commitments, current URI pointers, and
    record-side assertion hash/revision state. A golden HTTPS vector was added.
-4. External assets, mirror links, and provisional owner-record interface
+4. External assets, mirror links, and Museum owner-record convergence-adapter
    admissions persist and emit their actual global role IDs and authority
    revisions; the new enforceability matrix maps each control to ABI/state,
    checks, and events.
 
 5. The inline fixture was corrected to raw exact UTF-8 bytes (46 bytes), not a
-   shell-parsed JSON value; the payload, record, chain, owner, manifest,
+   shell-parsed JSON value; the payload, record, chain, owner-signature, manifest,
    HTTPS, and batch dependents were recomputed from those bytes by both
    Foundry `cast` and `Crypto.Hash.keccak`/`eth_abi`.
 6. `familyKind` is the closed numeric `uint8` enum `1 = STREAM`, `2 = MUSEUM`,
@@ -577,12 +616,12 @@ foreach($signature in $selectorGolden.Keys) {
 The authority capability selector-set hash was recomputed after adding the
 governed target-release admission and quarantine selectors. The exact sorted
 `bytes4[]` is
-`[0x05d53fba,0x3a1a0b96,0x43dd6c37,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]`:
+`[0x3a1a0b96,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x05d53fba,0x3a1a0b96,0x43dd6c37,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x51d8c5e0,0x81a86ff4,0x967059b8,0xab6627c3,0xc9dc7d0d,0xda6d916f,0xdd3fcfd4,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0x592f27261ae743811fe66b8441fca1aacfc53fcc230f5b444b1d57d66fc7d359') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 
@@ -726,16 +765,22 @@ $generatorHash = cast keccak 'museum-migration/1.0.0'
 $manifestRoot = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,bytes32,uint64,bytes32[])' $manifestRootDomain $sourceCommit $streamCommit $generatorHash 1 "[$entryHash]")
 $expectedManifestRoot = '0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280'
 if ($manifestRoot -ne $expectedManifestRoot) { throw "manifest root mismatch: $manifestRoot" }
-$ownerDomain = cast keccak '6529networkmuseum.stream-owner-record.v0'
-$ownerVector = cast keccak 'STREAM_OWNER_RECORD_HASH_VECTOR_V0'
-$ownerChainId = 1
-$ownerStreamCore = '0x0000000000000000000000000000000000001001'
-$ownerModule = '0x0000000000000000000000000000000000002002'
+$ownerModule = '0x0000000000000000000000000000000000002002' # synthetic vector input; not a deployment
+$ownerAddress = '0x000000000000000000000000000000000000dead'
 $ownerSubject = '0x1111111111111111111111111111111111111111111111111111111111111111'
+$ownerRecordType = '0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb'
+$ownerSchema = '0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86'
 $ownerPayloadUtf8Hex = '0x7b227265636f7264223a226f776e6572222c22746f6b656e4964223a22373731373639227d'
 $ownerPayloadUtf8Length = 37
+$ownerContentDigest = cast keccak $ownerPayloadUtf8Hex
+$ownerContentDigestHash = cast keccak $ownerContentDigest
+$ownerUriHash = cast keccak 'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq'
 $ownerPayloadHash = cast keccak $ownerPayloadUtf8Hex
-$ownerRecordHash = cast keccak (cast abi-encode 'f(bytes32,uint256,address,address,uint256,uint256,bytes32,bytes32)' $ownerDomain $ownerChainId $ownerModule $ownerStreamCore 42 771769 $ownerSubject $ownerPayloadHash)
+$ownerTypeHash = cast keccak 'StreamOwnerRecord(address owner,uint256 tokenId,bytes32 subjectId,bytes32 recordType,bytes32 schemaId,uint16 algorithmId,bytes digest,bytes32 canonicalizationId,string uri,bytes payload,uint64 effectiveAt,uint256 nonce,uint64 deadline)'
+$ownerRevocationTypeHash = cast keccak 'StreamOwnerRecordRevocation(address owner,uint256 nonce,uint64 deadline)'
+$ownerDomainSeparator = cast keccak (cast abi-encode 'f(bytes32,bytes32,bytes32,uint256,address)' $domainTypeHash (cast keccak '6529StreamOwnerRecords') $versionHash 1 $ownerModule)
+$ownerStructHash = cast keccak (cast abi-encode 'f(bytes32,address,uint256,bytes32,bytes32,bytes32,uint16,bytes32,bytes32,bytes32,bytes32,uint64,uint256,uint64)' $ownerTypeHash $ownerAddress 771769 $ownerSubject $ownerRecordType $ownerSchema 1 $ownerContentDigestHash $canon $ownerUriHash $ownerPayloadHash 1722470400 7 1800000000)
+$ownerDigest = cast keccak ('0x1901'+$ownerDomainSeparator.Substring(2)+$ownerStructHash.Substring(2))
   "payloadUtf8Hex=$payloadUtf8Hex"
   "payloadUtf8Length=$payloadUtf8Length"
   "ownerPayloadUtf8Hex=$ownerPayloadUtf8Hex"
@@ -763,10 +808,11 @@ $pathHash
 $payloadBytesHash
 $entryHash
 $manifestRoot
-$ownerDomain
-$ownerVector
-$ownerPayloadHash
-$ownerRecordHash
+$ownerTypeHash
+$ownerRevocationTypeHash
+$ownerDomainSeparator
+$ownerStructHash
+$ownerDigest
 ```
 
 Expected output, in order:
@@ -799,10 +845,11 @@ ownerPayloadUtf8Length=37
 0x3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7
 0xfa531a4233206547049d1b83c4b4e3e4d9763effb47227b2fd761ea1846ddfc8
 0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280
-0x148c88658eea0b57062f88c63dba1f2aa0ffd33da6528e2a1ace1f145cf2b54a
-0x8642db6f4603da6e1d6676bd54b8c64cc5c4f06521236402b75e1b84ab928e3c
-0x869b5e7167f9281b7c232510e776e95500162af0fe1c031f5f7d065bf7014ee7
-0xc9b32f342b0bbb44603958986a0bec0933b5a930b351002d2cf8eca9bdd3236c
+0x9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05
+0x11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c
+0x0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5
+0x8b8f5a06a5d393c03cf0eb40fe71a9dee1919688df23f06055f2abb432e59d9c
+0x105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1
 ```
 
 The EIP-712 preimages are constructed by literal hex concatenation. A
@@ -817,7 +864,8 @@ keeps the relay signature in authorization metadata, as specified above.
 
 The following second implementation uses `Crypto.Hash.keccak` and
 `eth_abi.encode`; it consumes the printed payload hex as bytes and asserts the
-dependent record, chain, EIP-712, owner, manifest, and batch values. It is
+dependent record, chain, EIP-712, Stream draft owner-signature, manifest, and
+batch values. It is
 independent of Foundry `cast` and fails if JSON parsing or shell quoting changes
 any input byte.
 
@@ -861,7 +909,13 @@ entry = k(abi(['bytes32','uint64','bytes32','bytes32','uint8','bytes32'], [entry
 root = k(abi(['bytes32','bytes32','bytes32','bytes32','uint64','bytes32[]'], [root_domain, bytes.fromhex('00'*12+'ff1c5825e3b61bfb2df0a639e057297beb946e4d'), bytes.fromhex('00'*12+'5021c8060950c3fef995271e674ed4b2007fee6d'), k(b'museum-migration/1.0.0'), 1, [entry]]))
 owner_payload = bytes.fromhex('7b227265636f7264223a226f776e6572222c22746f6b656e4964223a22373731373639227d')
 assert len(owner_payload) == 37
-owner_hash = k(abi(['bytes32','uint256','address','address','uint256','uint256','bytes32','bytes32'], [k(b'6529networkmuseum.stream-owner-record.v0'), 1, bytes.fromhex('00'*18+'2002'), bytes.fromhex('00'*18+'1001'), 42, 771769, subject, k(owner_payload)]))
+owner_content_digest = k(owner_payload)
+owner_type = k(b'StreamOwnerRecord(address owner,uint256 tokenId,bytes32 subjectId,bytes32 recordType,bytes32 schemaId,uint16 algorithmId,bytes digest,bytes32 canonicalizationId,string uri,bytes payload,uint64 effectiveAt,uint256 nonce,uint64 deadline)')
+owner_revoke_type = k(b'StreamOwnerRecordRevocation(address owner,uint256 nonce,uint64 deadline)')
+owner_module = bytes.fromhex('00'*18+'2002') # synthetic vector input; not a deployment
+owner_domain = k(abi(['bytes32','bytes32','bytes32','uint256','address'], [k(b'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'), k(b'6529StreamOwnerRecords'), k(b'1'), 1, owner_module]))
+owner_struct = k(abi(['bytes32','address','uint256','bytes32','bytes32','bytes32','uint16','bytes32','bytes32','bytes32','bytes32','uint64','uint256','uint64'], [owner_type, bytes.fromhex('00'*18+'dead'), 771769, subject, hx('0x4dc3a5e33f97bcd06f2d025349086438272d94a398185aca416ae539e36521fb'), hx('0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86'), 1, k(owner_content_digest), canon, k(b'ipfs://bafybeiexd37whdwmbipbf7acxcrll2pg6lwcz6ks7atxc6z4niszkoragq'), k(owner_payload), 1722470400, 7, 1800000000]))
+owner_digest = k(b'\x19\x01' + owner_domain + owner_struct)
 batch = k(abi(['bytes32','bytes32','uint64','bytes32[]','bytes32[]','bytes32[]','uint64'], [k(b'6529networkmuseum.batch-commitment.v1'), k(b'MUSEUM_BATCH_VECTOR_V1'), 1, [record_hash], [z], [content_digest], 1]))
 uri2=k(b'https://example.com/archive/6529'); host2=k(b'example.com'); profile2=hx('0x52be64fd2fb1c3795cf8dd6472100377858fd563f16de75584dcaf0f74b3e186'); a1=bytes.fromhex('0000000000000000000000000000000001010101'); a2=bytes.fromhex('0000000000000000000000000000000008080808')
 address_set=abi(['address[]'],[[a1,a2]]); address_set_hash=k(address_set); https_domain=hx('0x4fcfa708a5b354629d48cb2b96432841b5566b13b7c8f30468d34106b0f7904a'); previous=z
@@ -870,8 +924,8 @@ https_key=k(abi(['bytes32','bytes32','uint64','uint64'],[uri2,profile2,1,1]))
 https_type=k(b'MuseumHTTPSPublicNetworkAssertion(bytes32 uriHash,bytes32 hostHash,bytes32 resolverProfileId,uint64 resolverRevision,bytes32 resolvedAddressSetHash,uint64 assertionRevision,bytes32 previousAssertionHash,uint64 issuedAt,uint64 expiresAt,address attestor,uint256 nonce,uint64 deadline)')
 https_struct=k(abi(['bytes32','bytes32','bytes32','bytes32','uint64','bytes32','uint64','bytes32','uint64','uint64','address','uint256','uint64'],[https_type,uri2,host2,profile2,1,address_set_hash,1,previous,1750000000,1750003600,bytes.fromhex('00'*18+'dead'),9,1750003600]))
 https_digest=k(b'\x19\x01'+domain_separator+https_struct)
-expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1', 'chain':'d4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa', 'write_digest':'797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner':'869b5e7167f9281b7c232510e776e95500162af0fe1c031f5f7d065bf7014ee7', 'owner_record':'c9b32f342b0bbb44603958986a0bec0933b5a930b351002d2cf8eca9bdd3236c', 'manifest':'8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280', 'batch':'1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d'}
-actual = {'content':content_digest.hex(), 'record':record_hash.hex(), 'chain':chain_hash.hex(), 'write_type':write_type.hex(), 'write_struct':struct_hash.hex(), 'write_digest':digest.hex(), 'nonce_type':nonce_type.hex(), 'nonce_struct':nonce_struct.hex(), 'nonce_digest':nonce_digest.hex(), 'https_hash':https_hash.hex(), 'https_key':https_key.hex(), 'https_type':https_type.hex(), 'https_struct':https_struct.hex(), 'https_digest':https_digest.hex(), 'owner':k(owner_payload).hex(), 'owner_record':owner_hash.hex(), 'manifest':root.hex(), 'batch':batch.hex()}
+expected = {'content':'3f29b41d9d595ee7c116a4905fd8f4faf620b5757037db8a8988cd87b9c972a7', 'record':'217e7a966879dd7c379772be42f35fe353b45c113cec0ac76c21dd068bd506d1', 'chain':'d4b722a75d08db3e38afd4cfa1a887ec72915640cd08af54596401e7fa62ac49', 'write_type':'9db358603fafa20478b7907082a0cba6193d6d183e21cb617b78c5f3b35ddbba', 'write_struct':'146b17442eacd5df800066c61aac564531f3e69f18b61ea7d23580b6a9f286fa', 'write_digest':'797c9ee306e88434acb70222d8510ee98bc5e502e3e3be94efeb94423d44dfca', 'nonce_type':'e97842aa32d8e097ebbd7f3ac132b20c38ade8bb2862f2dcda25fb3b4fe51eef', 'nonce_struct':'adf1dd94e8baaec142f9dbd1eb48a0a874d50bf369dd06d1dfd0ab0e374eae13', 'nonce_digest':'87c87440dbee8e7d2313e0be413d6222bea14055b0f324da81e0e9ef8849e4cd', 'https_hash':'fd50c11dda2772e18067aab5b420f82784cec302f5327e459c894f437507b92a', 'https_key':'73b47b012ffa32766331b8ae4c360579931aea1202421bef120b851f83f177fa', 'https_type':'3bf3a1c189f1a79ba1cb192e6bb3295aa74108a14e15a1a9d48d450c22fdb02b', 'https_struct':'13c54d9975522fc40701f92c4642fb3fbfd64ced140ff9ecfdc21a3e98ad2be7', 'https_digest':'baf085c9cb66508ee83f1793c2e10319a15b005ab234bae3c23e0feac9477ecc', 'owner_type':'9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05', 'owner_revoke_type':'11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c', 'owner_domain':'0529e5a05df15f9cb773e9a719e83050647d6252d8658a700154434484f653f5', 'owner_struct':'8b8f5a06a5d393c03cf0eb40fe71a9dee1919688df23f06055f2abb432e59d9c', 'owner_digest':'105e2efb4bea6cb220d64478c50ea5f86f0a07917c42442d4d81f8aa18e645b1', 'manifest':'8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280', 'batch':'1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d'}
+actual = {'content':content_digest.hex(), 'record':record_hash.hex(), 'chain':chain_hash.hex(), 'write_type':write_type.hex(), 'write_struct':struct_hash.hex(), 'write_digest':digest.hex(), 'nonce_type':nonce_type.hex(), 'nonce_struct':nonce_struct.hex(), 'nonce_digest':nonce_digest.hex(), 'https_hash':https_hash.hex(), 'https_key':https_key.hex(), 'https_type':https_type.hex(), 'https_struct':https_struct.hex(), 'https_digest':https_digest.hex(), 'owner_type':owner_type.hex(), 'owner_revoke_type':owner_revoke_type.hex(), 'owner_domain':owner_domain.hex(), 'owner_struct':owner_struct.hex(), 'owner_digest':owner_digest.hex(), 'manifest':root.hex(), 'batch':batch.hex()}
 assert actual == expected, (actual, expected)
 for name, value in actual.items(): print(name, '0x' + value)
 '@ | python -

@@ -30,7 +30,7 @@ EVIDENCE_SCHEMA_PATH = ROOT / "target-release-evidence-v1.schema.json"
 EVIDENCE_PATH = ROOT / "target-release-evidence-v1.fixture.json"
 SPEC_PATH = ROOT / "contract-migration-v1.md"
 
-EXPECTED_SCHEMA_HASH = "5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd"
+EXPECTED_SCHEMA_HASH = "ff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3"
 
 # secp256k1 constants. They are used only to recover public keys from the
 # public test signatures; no private key is retained by this repository.
@@ -102,15 +102,15 @@ def cidv1_raw_sha256(payload: bytes) -> str:
 
 
 def validate_entry_identity(entries: list[dict[str, str]]) -> None:
-    if len(entries) != 3:
+    if len(entries) != 2:
         raise ValueError("ENTRY_COUNT")
     signers = [entry["signer"] for entry in entries]
-    if len(set(signers)) != 3:
+    if len(set(signers)) != 2:
         raise ValueError("DUPLICATE_SIGNER")
     if signers != sorted(signers):
         raise ValueError("SIGNER_ORDER")
     commitments = [entry["signatureCommitment"] for entry in entries]
-    if len(set(commitments)) != 3:
+    if len(set(commitments)) != 2:
         raise ValueError("DUPLICATE_SIGNATURE_COMMITMENT")
 
 
@@ -164,7 +164,8 @@ def main() -> int:
     sign_digest = k(b"\x19Ethereum Signed Message:\n32" + bytes.fromhex(bundle["signedDocumentHash"][2:]))
     entries = bundle["entries"]
     validate_entry_identity(entries)
-    assert [entry["signer"] for entry in entries] == evidence["signers"]["addresses"]
+    assert evidence["signers"]["threshold"] == 2
+    assert set(entry["signer"] for entry in entries).issubset(evidence["signers"]["addresses"])
     assert [entry["signatureCommitment"] for entry in entries] == evidence["signers"]["signatureCommitments"]
     for entry in entries:
         signature = bytes.fromhex(entry["signature"][2:])
@@ -190,12 +191,32 @@ def main() -> int:
     else:
         raise AssertionError("schema-only duplicate signer passed semantic validation")
 
+    for wrong_count in (1, 3):
+        mutation = copy.deepcopy(bundle)
+        if wrong_count == 1:
+            mutation["entries"].pop()
+        else:
+            extra = copy.deepcopy(mutation["entries"][-1])
+            extra["signer"] = evidence["signers"]["addresses"][2]
+            mutation["entries"].append(extra)
+        try:
+            jsonschema.validate(mutation, schema)
+        except jsonschema.ValidationError:
+            pass
+        else:
+            raise AssertionError(f"{wrong_count}-entry bundle passed exact 2-of-3 schema")
+
+    unauthorized = copy.deepcopy(bundle)
+    unauthorized["entries"][1]["signer"] = "0x8000000000000000000000000000000000000000"
+    jsonschema.validate(unauthorized, schema)
+    assert not set(entry["signer"] for entry in unauthorized["entries"]).issubset(evidence["signers"]["addresses"])
+
     print(f"bundleUri={reference['uri']}")
     print(f"bundleContentHash={reference['contentHash']}")
     print(f"bundleBytes={reference['sizeBytes']}")
     print(f"bundleSchemaHash=0x{EXPECTED_SCHEMA_HASH}")
     print(f"signatureDigest=0x{sign_digest.hex()}")
-    print("signatureRecovery=3/3")
+    print("signatureRecovery=2/3")
     return 0
 
 

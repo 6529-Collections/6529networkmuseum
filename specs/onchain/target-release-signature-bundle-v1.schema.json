@@ -1,6 +1,6 @@
 {
   "$id": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
-  "$comment": "Schema uniqueItems distinguishes complete entry objects only. Cross-entry signer and signature-commitment uniqueness, numeric signer ordering, signature recovery, and evidence linkage are mandatory semantic checks in target_release_signature_bundle_check_v1.py; schema-only validation is insufficient.",
+  "$comment": "The bundle contains exactly two signatures from the evidence document's three admitted signer addresses. Schema uniqueItems distinguishes complete entry objects only. Subset membership, cross-entry signer and signature-commitment uniqueness, numeric signer ordering, both signature recoveries, and evidence linkage are mandatory semantic checks in target_release_signature_bundle_check_v1.py; schema-only validation is insufficient.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "version", "releaseId", "signedDocumentHash", "entries"],
@@ -11,8 +11,8 @@
     "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "entries": {
       "type": "array",
-      "minItems": 3,
-      "maxItems": 3,
+      "minItems": 2,
+      "maxItems": 2,
       "uniqueItems": true,
       "items": {
         "type": "object",

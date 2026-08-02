@@ -48,7 +48,7 @@
     "externalDependencyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$", "description": "MUSEUM_TARGET_DEPENDENCY_ABI_SET_V1 commitment over canonical sorted dependency rows; not a JCS hash." },
     "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
     "sourceRepository": { "const": "6529-Collections/6529networkmuseum" },
-    "sourceTreeHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "sourceTreeHash": { "type": "string", "pattern": "^0x000000000000000000000000[0-9a-f]{40}$", "description": "Git SHA-1 tree OID decoded from 40 lowercase hex and right-aligned into bytes32 with 12 zero high bytes." },
     "artifactHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
     "requiredInterfaceId": { "type": "string", "pattern": "^0x[0-9a-f]{8}$" },
     "expectedModuleVersion": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
@@ -121,8 +121,8 @@
         },
         "signatureCommitments": {
           "type": "array",
-          "minItems": 3,
-          "maxItems": 3,
+          "minItems": 2,
+          "maxItems": 2,
           "uniqueItems": true,
           "items": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
         }
@@ -134,7 +134,7 @@
       "required": ["schema", "schemaHash", "version", "uri", "contentHash", "mediaType", "sizeBytes", "availability"],
       "properties": {
         "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
-        "schemaHash": { "const": "0x5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd" },
+        "schemaHash": { "const": "0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3" },
         "version": { "const": 1 },
         "uri": { "type": "string", "pattern": "^(ipfs|ar)://[^?#]+$" },
         "contentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },

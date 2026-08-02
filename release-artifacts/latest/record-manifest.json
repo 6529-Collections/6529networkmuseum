@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:c16073a74da374dc35068493cdd5faef5fef895317fdf96dd814de38787f0f1d",
-      "size": 9465
+      "sha256": "sha256:3485c1f45fde9fbc8625def15c58a94d0eef60bd82b3bb3cf2ca7fa010798f3d",
+      "size": 10800
     },
     {
       "path": "docs/onchain-design.md",
@@ -97,8 +97,8 @@
     },
     {
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:e1132e130381bea300ac13fe8c6312c4dcd6d7fbac77882f64dda77a746575d9",
-      "size": 5873
+      "sha256": "sha256:2288af40c2a6f4e89fed7d3176398dfb77d96ad6a2f12b251eea697b8d4039aa",
+      "size": 7983
     },
     {
       "path": "governance/github-repository-governance.md",
@@ -632,8 +632,8 @@
     },
     {
       "path": "specs/onchain/batch_gas_gate_check_v1.py",
-      "sha256": "sha256:6fcadc4434d534523f18423e5a06cfbe46e00dfb8515cdaf84badea907a87d07",
-      "size": 3297
+      "sha256": "sha256:c4c879045a83474a6c0308dca6ee6b6f7fce9ec243430b0f4c62c16a00a16bbc",
+      "size": 4276
     },
     {
       "path": "specs/onchain/batch_vector_check_v1.py",
@@ -652,8 +652,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:1ef58d8c5c28f73c241ce3f189c55b990f098f924688eaa9484b0a2f39cbe876",
-      "size": 213267
+      "sha256": "sha256:12bcae7922f311d121cad824c229dd0c44d7b1d4672f925e99ffd851b617baf4",
+      "size": 225744
     },
     {
       "content_hash": {
@@ -672,58 +672,58 @@
     },
     {
       "path": "specs/onchain/manifest_abi_selector_check_v1.py",
-      "sha256": "sha256:74d326bfc232a0fc3edaef10b8ab67f5e74a7765f7c1003e861d7ba0dbc3017c",
-      "size": 30776
+      "sha256": "sha256:49c37f6cdf62af8079ae18965e9647e88f842f7d160b9ec690815c0837333a61",
+      "size": 39555
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x28cc491fc9c24d6218573abd644b52f17e5b346234e97c3caad329983d108925"
+        "digest": "0x0d2716cc73cd5ae3dee852b2ebfec9fe61804c964c7f3740511e365bffe1bfed"
       },
       "path": "specs/onchain/target-release-evidence-v1.fixture.json",
-      "sha256": "sha256:abb7c1c6c61699e497640cbb21bb1f6673b4632b6f385f08d2e1a2c971b85a5c",
-      "size": 4915
+      "sha256": "sha256:aa772780e0157acfc09239e473a5fbaf5c886b4c1ec980f02d9d751e454200fa",
+      "size": 4845
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xca1b62e83ef91befe287fbc338ec30ce16dc88c8b7ca787b0a52812108136dcc"
+        "digest": "0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f"
       },
       "path": "specs/onchain/target-release-evidence-v1.schema.json",
-      "sha256": "sha256:a51321a8ba1ee182e0a938e0ed4d8688413c58b92ba7040dedf9e548f1f0783e",
-      "size": 7663
+      "sha256": "sha256:bda2ba5af3f4e9ace08ef60c0ac1af3e500719b971055814509400822fb9aa91",
+      "size": 7810
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xf97485a4617d8048f74dd21475d37f82ba6ffa634bf692f91ac1aadb8c2e0e85"
+        "digest": "0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.fixture.json",
-      "sha256": "sha256:1f432be0058bae8b8b3a136792b722480388cee324d2580e4d3bf37ae3c06292",
-      "size": 1132
+      "sha256": "sha256:51d73e57a318d25fd008e937234dd0ba56869972673d0c45cc640bff293f3a8b",
+      "size": 838
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x57b0b454947ee78f2614680347974d80cb3fc3bdbd8a898d7e06fb66965c5681"
+        "digest": "0x0908c309f1369dd1efdf9864cf7cd604afbd956d0ff69d3180d75b2a41140ed9"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.reference.json",
-      "sha256": "sha256:952364adf38ff3d887400c63032f1dafd570676fae386904cf04f72d463999b4",
-      "size": 858
+      "sha256": "sha256:25f7a9b8585dcabfa97773aea60c5a0e3211b409ad9ee4d2b5046da984c0cb97",
+      "size": 857
     },
     {
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x5d2842e4c847625f9b84cd055d685c1e1fc68e1aa7e211001227cf1428a89abd"
+        "digest": "0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3"
       },
       "path": "specs/onchain/target-release-signature-bundle-v1.schema.json",
-      "sha256": "sha256:353f5f71304d86fc28b677039c4361afbabad5a82944b85e8e0ef177c19aebc3",
-      "size": 1329
+      "sha256": "sha256:7ef4a424bdcf9c109267cd7e0ca74c827cf099894b805882b60f3e4f1a73a7db",
+      "size": 1460
     },
     {
       "content_hash": {
@@ -737,13 +737,13 @@
     },
     {
       "path": "specs/onchain/target_release_evidence_check_v1.py",
-      "sha256": "sha256:a5a2fcad7d43b4732582d604754c7ffcf13dcbca375c8e2c639fa8e40450aa42",
-      "size": 22034
+      "sha256": "sha256:b6da9e0d176a9abcda9286be7e2cdc6c6e505893f421acea90fbb021ef5fce20",
+      "size": 23803
     },
     {
       "path": "specs/onchain/target_release_signature_bundle_check_v1.py",
-      "sha256": "sha256:6a0c5a368b5652262cd73f59cc6bdfe12ac0e99cc4a299db9609379f00eb1eb6",
-      "size": 8450
+      "sha256": "sha256:b63f1204abff62a040b6cee6e53281f0c11f254fbc91ac41d66ab89faea85d00",
+      "size": 9354
     },
     {
       "path": "specs/onchain/uri_safety_vectors_v1.py",
@@ -993,9 +993,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xe41532bf64e8f00ea38929b825bcaae1c12953e6e64c69f6227cd841524895f7"
+    "digest": "0x953ac99ffe28b4ec7bdd2193d01f2e9f8eddc2e23e65ce7e3f35e2789e5277d9"
   },
-  "manifest_sha256": "sha256:9166431209f63d61e7208c7f3b8c0666e6a35adf8825e18e07911343d3c27d3b",
+  "manifest_sha256": "sha256:9e0372a3e83c1a659b3d5d0426ff3e6cf99a50f1b49ab7420131b4f74cb99a33",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
