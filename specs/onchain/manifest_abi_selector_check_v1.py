@@ -69,7 +69,7 @@ ABI_SELECTORS = (
     ("externalAssetSubjectId(bytes32,string)", "0x0b88b5e8"),
     ("registerExternalAsset(bytes32,string,bytes32)", "0x73c0a0b4"),
     ("externalAsset(bytes32)", "0xdb08b0b0"),
-    ("admitAssetProfile(bytes32,bytes32,bytes32,string,address,uint8,bytes32,bytes32,bytes32)", "0xba597a03"),
+    ("admitAssetProfile(bytes32,bytes32,bytes32,string,address,uint8,bytes32,bytes32,bytes32,string)", "0xea2792ce"),
     ("assetProfile(bytes32)", "0x2938cf75"),
     ("admitSchema(bytes32,bytes32,string,bool)", "0x541fd287"),
     ("schema(bytes32)", "0x072b9cf2"),
@@ -135,6 +135,7 @@ INTERFACE_ONLY_SELECTORS = (
     ("ownerRecordHashDomain()", "0xe79efeda"),
     ("ownerRecordHashVectorId()", "0xfda2f68a"),
     ("tokenCollectionIdentity(uint256)", "0xa6b638c9"),
+    ("tokenLifecycle(uint256)", "0x8c46d901"),
 )
 
 # Stream publishes these owner-record selectors as a design-level ABI at the
@@ -147,6 +148,9 @@ STREAM_DRAFT_OWNER_SELECTORS = (
     ("isOwnerRecordNonceUsed(address,uint256)", "0x18544c94"),
     ("revokeOwnerRecordNonce(uint256)", "0x9d03970a"),
     ("revokeOwnerRecordNonceFor(address,uint256,uint64,bytes)", "0x50e9829a"),
+    ("recordChainHash(uint256,bytes32)", "0x9d99a291"),
+    ("payloadPointerCount(uint256)", "0x9a36f48e"),
+    ("payloadPointerAt(uint256,uint256)", "0x6c86be87"),
 )
 
 GLOBAL_ROLE_IDS = (
@@ -168,6 +172,10 @@ EMPTY_PAYLOAD_CANONICALIZATION_ID = "0xa441d30896b70045ccf31ccc5b89cefd312a64c9c
 EMPTY_PAYLOAD_DIGEST = "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
 EMPTY_PAYLOAD_DIGEST_HASH = "0x10ca3eff73ebec87d2394fc58560afeab86dac7a21f5e402ea0a55e5c8a6758f"
 EMPTY_PAYLOAD_HASH_REF_HASH = "0x5d7e6369b77349763919edf197e8a1ba931bbfd63a9e40b5af00ca630a4346c7"
+CANONICALIZER_LIMITS_ID = "0xf66c08f21c02834b2dd294a0556fb5adb7c17b447338ee0ad5ecc1a2198509d3"
+CANONICALIZER_CALL_GAS_LIMIT = 100_000
+MAX_CANONICALIZER_RETURN_DATA_BYTES = 4_096
+MAX_CANONICAL_ASSET_ID_BYTES = 2_048
 
 STABLE_RECORD_TYPE_ALLOWLIST = (
     ("MUSEUM_EXTERNAL_ASSET_IDENTITY", "0xe1c1798f46d210552c5d3924b7059a57b07eedf054640a662eb47bac008b4a8e", "MUSEUM_EXTERNAL_ASSET_IDENTITY_V1", "0x34e9649723069df3772c810e6e825f7589c211bac81acc9b908a60067f936aa6", "AUTH_MUSEUM_REGISTRAR", 10),
@@ -216,6 +224,55 @@ def check_none_content_hash_vector() -> dict[str, str]:
         "keccak256(contentHash.digest)": EMPTY_PAYLOAD_DIGEST_HASH,
         "contentHash.canonicalizationId": EMPTY_PAYLOAD_CANONICALIZATION_ID,
         "hashRefHash(contentHash)": EMPTY_PAYLOAD_HASH_REF_HASH,
+    }
+
+
+def canonicalizer_call_accepts(
+    supplied: bytes,
+    *,
+    call_succeeded: bool = True,
+    gas_used: int = CANONICALIZER_CALL_GAS_LIMIT,
+    return_data_size: int | None = None,
+    abi_well_formed: bool = True,
+    returned: bytes | None = None,
+) -> bool:
+    returned = supplied if returned is None else returned
+    if return_data_size is None:
+        return_data_size = 64 + ((len(returned) + 31) // 32) * 32
+    return (
+        0 < len(supplied) <= MAX_CANONICAL_ASSET_ID_BYTES
+        and call_succeeded
+        and 0 <= gas_used <= CANONICALIZER_CALL_GAS_LIMIT
+        and 0 <= return_data_size <= MAX_CANONICALIZER_RETURN_DATA_BYTES
+        and abi_well_formed
+        and returned == supplied
+    )
+
+
+def check_canonicalizer_execution_limits() -> dict[str, str]:
+    assert "0x" + k(b"MUSEUM_CANONICALIZER_EXECUTION_LIMITS_V1").hex() == CANONICALIZER_LIMITS_ID
+    boundary = b"a" * MAX_CANONICAL_ASSET_ID_BYTES
+    assert canonicalizer_call_accepts(boundary)
+    assert not canonicalizer_call_accepts(b"")
+    assert not canonicalizer_call_accepts(boundary + b"a")
+    assert not canonicalizer_call_accepts(b"asset", call_succeeded=False)
+    assert not canonicalizer_call_accepts(b"asset", gas_used=CANONICALIZER_CALL_GAS_LIMIT + 1)
+    assert not canonicalizer_call_accepts(
+        b"asset", return_data_size=MAX_CANONICALIZER_RETURN_DATA_BYTES + 1
+    )
+    assert not canonicalizer_call_accepts(b"asset", abi_well_formed=False)
+    assert not canonicalizer_call_accepts(b"asset", returned=b"different")
+    return {
+        "limitsId": CANONICALIZER_LIMITS_ID,
+        "callGasLimit": str(CANONICALIZER_CALL_GAS_LIMIT),
+        "maxReturnDataBytes": str(MAX_CANONICALIZER_RETURN_DATA_BYTES),
+        "maxCanonicalAssetIdBytes": str(MAX_CANONICAL_ASSET_ID_BYTES),
+        "boundaryFixedPoint": "ACCEPT",
+        "overGas": "REJECT",
+        "overReturnData": "REJECT",
+        "oversizedInput": "REJECT",
+        "malformedAbi": "REJECT",
+        "outputMismatch": "REJECT",
     }
 
 
@@ -459,6 +516,7 @@ def check_general_vectors() -> dict[str, dict[str, str]]:
             "capabilityCommitment": "0x" + capability.hex(),
             "interfaceProbeHash": "0x" + probe.hex(),
         },
+        "13.9.3": check_canonicalizer_execution_limits(),
     }
     expected_values = {
         "subjectId": "0xa6e5bb8be82a8267e4c7a5398a63d1b1cf8d3c612aa4529349882667e8a2ba78",
@@ -603,7 +661,12 @@ def check_source_commit_reachability() -> None:
         ["git", "config", "--get", "remote.origin.url"], cwd=REPO_ROOT,
         check=True, capture_output=True, text=True,
     ).stdout.strip().replace("\\", "/")
-    assert re.search(r"(?:github\.com[:/])6529-Collections/6529networkmuseum(?:\.git)?$", origin, re.IGNORECASE), origin
+    assert re.fullmatch(
+        r"(?:https://github\.com/|ssh://git@github\.com/|git@github\.com:)"
+        r"6529-Collections/6529networkmuseum(?:\.git)?",
+        origin,
+        re.IGNORECASE,
+    ), origin
     subprocess.run(["git", "cat-file", "-e", f"{source_commit}^{{commit}}"], cwd=REPO_ROOT, check=True)
     subprocess.run(
         ["git", "merge-base", "--is-ancestor", source_commit, "refs/remotes/origin/main"],
@@ -619,6 +682,10 @@ def check_selectors_and_allowlists() -> None:
         assert "0x" + k(literal.encode("ascii")).hex() == expected, literal
     allowlist_words = [hx(value) + bytes(28) for value in AUTHORITY_SELECTOR_ALLOWLIST]
     assert tuple(sorted(AUTHORITY_SELECTOR_ALLOWLIST, key=lambda value: int(value, 16))) == AUTHORITY_SELECTOR_ALLOWLIST
+    declared_selectors = {value for _, value in ABI_SELECTORS}
+    assert set(AUTHORITY_SELECTOR_ALLOWLIST).issubset(declared_selectors), sorted(
+        set(AUTHORITY_SELECTOR_ALLOWLIST) - declared_selectors
+    )
     encoded = uint_word(32) + uint_word(len(allowlist_words)) + b"".join(allowlist_words)
     assert "0x" + k(encoded).hex() == EXPECTED_ALLOWLIST_HASH
     for record_type, expected_type, schema, expected_schema, _, authorization_class in STABLE_RECORD_TYPE_ALLOWLIST:
@@ -681,6 +748,10 @@ def check_published_transcript(executor_vector: dict[str, str], vectors: dict[st
     assert "git merge-base --is-ancestor $sourceCommit $trustedRef" in research
     assert "equality to its current tip is neither" in research
     assert "A state-only auditor MUST dereference `RecordSummary.httpsAssertionHash`" in spec
+    assert "returns exactly the four-byte ERC-1271 magic value `0x1626ba7e`" in spec
+    assert "address[] sortedUniqueAddresses;" in spec
+    assert "uint64 recordTypePolicyRevision;" in spec
+    assert "uint64 grantRevision;" in spec
     for label, value in executor_vector.items():
         assert spec.count(f"{label} = {value}") == 1, label
     assert "freezeClearsPendingExecutor = true" in spec

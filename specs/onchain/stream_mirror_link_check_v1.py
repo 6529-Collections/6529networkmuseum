@@ -34,6 +34,7 @@ OWNER_RECORD_HASH_DOMAIN = "0x" + "33" * 32
 OWNER_RECORD_HASH_VECTOR_ID = "0x" + "44" * 32
 TOKEN_ID = 771769
 COLLECTION_ID = 6529
+STREAM_TOKEN_LIFECYCLE_MINTED = 2
 
 
 def k(value: bytes) -> bytes:
@@ -90,6 +91,10 @@ def validate_link(
         raise MirrorRejection("OWNER_RECORD_VECTOR")
     if readback["coreReturnDataBytes"] != 128:
         raise MirrorRejection("CORE_RETURN_DATA_LENGTH")
+    if readback["coreLifecycleReturnDataBytes"] != 32:
+        raise MirrorRejection("CORE_LIFECYCLE_RETURN_DATA_LENGTH")
+    if readback["coreLifecycle"] != STREAM_TOKEN_LIFECYCLE_MINTED:
+        raise MirrorRejection("TOKEN_NOT_MINTED")
     if not readback["coreMappingExists"] or readback["coreCollectionId"] == 0:
         raise MirrorRejection("TOKEN_COLLECTION_IDENTITY")
     if readback["coreCollectionSerial"] == 0:
@@ -128,6 +133,7 @@ def validate_link(
         "collectionSerial": readback["coreCollectionSerial"],
         "coreMappingExists": readback["coreMappingExists"],
         "coreBurned": readback["coreBurned"],
+        "coreLifecycle": readback["coreLifecycle"],
         "tokenId": token_id,
         "canonicalAssetId": canonical_asset_id,
         "canonicalAssetIdHash": canonical_asset_hash,
@@ -186,6 +192,8 @@ def main() -> int:
         "coreCollectionSerial": 713,
         "coreBurned": False,
         "coreReturnDataBytes": 128,
+        "coreLifecycle": STREAM_TOKEN_LIFECYCLE_MINTED,
+        "coreLifecycleReturnDataBytes": 32,
     }
     link = validate_link(
         admission, external_asset, museum_subject, readback, OWNER_RECORD_HASH
@@ -198,6 +206,10 @@ def main() -> int:
         ("ownerRecordHashDomain", "0x" + "cc" * 32, "OWNER_RECORD_DOMAIN"),
         ("ownerRecordHashVectorId", "0x" + "dd" * 32, "OWNER_RECORD_VECTOR"),
         ("coreReturnDataBytes", 96, "CORE_RETURN_DATA_LENGTH"),
+        ("coreLifecycleReturnDataBytes", 64, "CORE_LIFECYCLE_RETURN_DATA_LENGTH"),
+        ("coreLifecycle", 1, "TOKEN_NOT_MINTED"),
+        ("coreLifecycle", 0, "TOKEN_NOT_MINTED"),
+        ("coreLifecycle", 3, "TOKEN_NOT_MINTED"),
         ("coreMappingExists", False, "TOKEN_COLLECTION_IDENTITY"),
         ("coreCollectionId", 0, "TOKEN_COLLECTION_IDENTITY"),
         ("coreCollectionId", COLLECTION_ID + 1, "COLLECTION_ID"),
@@ -260,8 +272,10 @@ def main() -> int:
         "collectionSerial": str(link["collectionSerial"]),
         "coreMappingExists": str(link["coreMappingExists"]).lower(),
         "coreBurned": str(link["coreBurned"]).lower(),
+        "coreLifecycle": str(link["coreLifecycle"]),
         "tokenId": str(link["tokenId"]),
         "tokenCollectionIdentitySelector": "0x" + k(b"tokenCollectionIdentity(uint256)")[:4].hex(),
+        "tokenLifecycleSelector": "0x" + k(b"tokenLifecycle(uint256)")[:4].hex(),
         "canonicalAssetId": link["canonicalAssetId"],
         "canonicalAssetIdHash": link["canonicalAssetIdHash"],
         "museumSubjectId": link["museumSubjectId"],
@@ -271,6 +285,7 @@ def main() -> int:
         "ownerRecordHashVectorId": link["ownerRecordHashVectorId"],
         "swappedMuseumSubject": "REJECT",
         "substitutedNonzeroAdapterCollectionId": "REJECT",
+        "preparedIncompleteLifecycle": "REJECT",
         "substitutedMuseumAssetCoreModuleCollectionSubjectHashDomainVector": "REJECT",
     }
     assert values == expected

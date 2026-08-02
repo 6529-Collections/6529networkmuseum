@@ -404,6 +404,10 @@ The next exact-head review required and resolved:
    target non-upgradeability policy, which allows state and declared bounded
    `STATICCALL` dependencies but rejects proxy/delegatecall/callcode,
    selfdestruct, creation, and upgrade paths.
+   Its current governed JCS document hash is
+   `0x0c0a10c923084b4861fbf9c4e869302de19ef6b103c2698263915fc56ac3461f`;
+   the same document pins a 100,000-gas call, 4,096-byte return-data cap, and
+   2,048-byte canonical asset-ID cap for both admission and registration.
 
    The literal ID hash for `MUSEUM_TARGET_RUNTIME_NONUPGRADEABILITY_V1` is
    `0x8148bd5ce1f57455106f3425ad39d8c0c80e527c51c51ad350f27028e8c6c367`;
@@ -413,7 +417,10 @@ The next exact-head review required and resolved:
    never the literal ID hash.
    Declared target dependencies use the separate governed
    `MUSEUM_DEPENDENCY_RUNTIME_NONPROXY_V1` document hash
-   `0x41cbb64b18136eb1f00c35e641dcdd0d36a2c2595deaa30beea665bfaeb9ff04`;
+   `0xf8efb731af735014514f4a5b8ad22a6e2007ba23b11b45a9c8845db3f144ee2c`;
+   its empty external capability set rejects calls plus `BALANCE`,
+   `EXTCODESIZE`, `EXTCODECOPY`, and `EXTCODEHASH` rather than leaving an
+   undeclared external-account read path.
    each stored row binds address, direct code hash, runtime policy, ERC-165
    interface, and purpose ID. The direct governance executor (for example,
    the Museum Safe) is categorically outside both TargetRelease and dependency
@@ -571,7 +578,7 @@ $selectorGolden = [ordered]@{
   'externalAssetSubjectId(bytes32,string)' = '0x0b88b5e8'
   'registerExternalAsset(bytes32,string,bytes32)' = '0x73c0a0b4'
   'externalAsset(bytes32)' = '0xdb08b0b0'
-  'admitAssetProfile(bytes32,bytes32,bytes32,string,address,uint8,bytes32,bytes32,bytes32)' = '0xba597a03'
+  'admitAssetProfile(bytes32,bytes32,bytes32,string,address,uint8,bytes32,bytes32,bytes32,string)' = '0xea2792ce'
   'assetProfile(bytes32)' = '0x2938cf75'
   'admitSchema(bytes32,bytes32,string,bool)' = '0x541fd287'
   'schema(bytes32)' = '0x072b9cf2'
@@ -723,7 +730,7 @@ golden vector set for the draft.
 $sourceCommit = 'ff1c5825e3b61bfb2df0a639e057297beb946e4d'
 $trustedRef = 'refs/remotes/origin/main'
 $originUrl = (git config --get remote.origin.url).Replace('\','/')
-if ($originUrl -notmatch '(?i)(?:github\.com[:/])6529-Collections/6529networkmuseum(?:\.git)?$') { throw 'wrong Museum source repository' }
+if ($originUrl -notmatch '(?i)^(?:https://github\.com/|ssh://git@github\.com/|git@github\.com:)6529-Collections/6529networkmuseum(?:\.git)?$') { throw 'wrong Museum source repository' }
 git cat-file -e "$sourceCommit`^{commit}"
 if ($LASTEXITCODE -ne 0) { throw 'Museum release/source baseline is absent' }
 git show-ref --verify --quiet $trustedRef
@@ -1051,3 +1058,24 @@ This review does not claim that any Casey work is accessioned, that any Keys
 and Gates winner is minted or in Museum custody, that a wallet transfer proves
 title, or that a vote total proves governance adoption. Those facts remain
 subject to the repository's evidence and accession rules.
+
+## 2026-08-02 dependency-capability and release-vector amendment
+
+The earlier synthetic TargetRelease values remain historical transcript
+evidence. They are superseded for current V1 conformance because the dependency
+runtime policy now treats its empty `allowExternal` set as closed and rejects
+`BALANCE`, `EXTCODESIZE`, `EXTCODECOPY`, and `EXTCODEHASH` in addition to call
+opcodes. The governed dependency-policy document hash is now
+`0xf8efb731af735014514f4a5b8ad22a6e2007ba23b11b45a9c8845db3f144ee2c`.
+
+That one policy-byte change intentionally regenerates the complete acyclic
+fixture: release ID
+`0xdeb8472c3dfa2af9d997baf62026478c0cf5b4b8439ac94cdda47a48ac4b48e0`,
+D0 `0x8b05f34d37ea7478df221e0e7478df668bf0df5cf3758f096677520003059a6f`,
+D1 `0x0242d2cb6bbedce063eccbf4ade87df5f255de26e661884ac0c93f44b8d754cc`,
+EIP-712 digest
+`0x682aae357582c8d22cd11f69c58abc9d62ef5847e5b1cd916564768a733a688d`,
+and detached-bundle hash
+`0x26f70f9a77520b8210eae127c167edeed42f37e25a34abfbd213b02f6d6c6e09`.
+The bundle remains 1,300 canonical JCS bytes. These are public synthetic
+vectors, not deployment authorization.

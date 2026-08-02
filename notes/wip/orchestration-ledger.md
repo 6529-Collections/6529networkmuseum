@@ -626,8 +626,8 @@ pass and reviewer direction; it must not be pushed yet.
 
 ## 2026-08-01 - PR #2 executor/dependency remediation toolchain amendment
 
-Correction to earlier in-progress wording: commit `8a2e26a` was pushed to PR
-#2 and the PR was marked ready before this follow-up review began. Statements
+Correction to earlier in-progress wording: commit `8a2e26a` was pushed to PR `#2`
+and the PR was marked ready before this follow-up review began. Statements
 above that described the earlier candidate as unpushed/draft remain historical
 status at their observation times. The remediation after `8a2e26a` is local
 and unpushed, and this task does not mark the PR ready, merge it, or push it.
@@ -864,3 +864,40 @@ absent/burned tokens, zero serials, and truncated Core or adapter return data.
 Focused harnesses and the full 79-test/validator/Casey-verifier regression pass
 are green locally. A regenerated exact commit, push, CI, and fresh independent
 reviews are still required; no superseded-head approval counts.
+
+## 2026-08-02 - exact-head control-plane review remediation
+
+CodeRabbit's review of the PR `#2` candidate exposed nine live controls that
+were not waived: complete Stream owner-record event/chain/pointer surfaces;
+exact canonical Git origin matching; one-read Casey package binding;
+canonicalizer gas/input/return bounds; immutable HTTPS address-list evidence;
+exact ERC-1271 magic-value handling; historical record-type/family/grant
+authorization revisions; and a truly closed dependency external-capability
+set. The remediation is in progress and no earlier approval counts.
+
+The dependency policy now rejects `BALANCE`, `EXTCODESIZE`, `EXTCODECOPY`, and
+`EXTCODEHASH`; its JCS hash is
+`0xf8efb731af735014514f4a5b8ad22a6e2007ba23b11b45a9c8845db3f144ee2c`.
+The regenerated non-deployment TargetRelease vector supersedes the earlier
+synthetic values with release ID
+`0xdeb8472c3dfa2af9d997baf62026478c0cf5b4b8439ac94cdda47a48ac4b48e0`,
+attestation digest
+`0x682aae357582c8d22cd11f69c58abc9d62ef5847e5b1cd916564768a733a688d`,
+and bundle hash
+`0x26f70f9a77520b8210eae127c167edeed42f37e25a34abfbd213b02f6d6c6e09`.
+The canonicalizer policy now pins 100,000 gas, 4,096 returned bytes, and a
+2,048-byte canonical asset ID. Exact-head validation, commit, push, CI, bots,
+and independent reviews remain required.
+
+The two independent `d44c559` protocol reviews then converged on one further
+P1: Stream's `tokenCollectionIdentity` exists during
+`PREPARED_INCOMPLETE`, before an ERC-721 exists, and that prepared identity can
+be aborted. The local gate now also calls Core `tokenLifecycle(uint256)`
+(`0x8c46d901`), requires its exact 32-byte ABI result to be `MINTED (2)`, and
+rejects unknown, prepared, burned, and malformed lifecycle results. The
+complete local candidate passes bootstrap over 228 JSON files, fetch guard,
+all nine conformance harnesses and optimized-Python rejection, 79 tests with
+one expected Windows named-pipe skip, full validation, deterministic manifest,
+Casey replay (3,300 tokens, 35,088 traits, 79 raw files, 3,327 requests, five
+descriptors), and `codex-diff-check`. A committed exact head and fresh review
+remain required.

@@ -70,11 +70,48 @@ function revokeOwnerRecordNonceFor(
     uint64 deadline,
     bytes calldata signature
 ) external;
+
+function recordChainHash(uint256 scopeKey, bytes32 recordType)
+    external view returns (bytes32 chainHash, uint64 recordCount);
+function payloadPointerCount(uint256 scopeKey)
+    external view returns (uint256);
+function payloadPointerAt(uint256 scopeKey, uint256 index)
+    external view returns (
+        address pointer,
+        bytes32 payloadFamily,
+        bytes32 contentHash
+    );
+
+event OwnerRecordNonceRevoked(
+    address indexed owner,
+    uint256 indexed nonce,
+    bool relayed,
+    uint16 schemaVersion
+);
+
+event OwnerRecordRecorded(
+    uint256 indexed tokenId,
+    bytes32 indexed recordType,
+    address indexed owner,
+    OwnerRecord record,
+    bytes32 recordHash,
+    bytes32 recordChainHash,
+    bool relayed,
+    uint16 schemaVersion
+);
 ```
 
 The corresponding canonical selectors are `0x198c95e3`, `0xf24bb020`,
 `0x18544c94`, `0x9d03970a`, and `0x50e9829a`, in declaration order. The
-write typehash is
+state-read selectors are `0x9d99a291`, `0x9a36f48e`, and `0x6c86be87`,
+respectively. In the owner-record host, `scopeKey` is the token ID. Each
+`(tokenId, recordType)` lane uses the exact `STREAM_RECORD_CHAIN_V1`
+preimage: domain, chain ID, lane-host address, token ID, record type,
+previous chain hash, record hash, and zero-based record index, ABI-encoded in
+that order. `payloadPointerCount(tokenId)` and
+`payloadPointerAt(tokenId,index)` must enumerate every state-backed owner
+payload pointer, family, and committed content hash without relying on logs.
+The write typehash is
 `0x9c8c4f8b7ec1e8731277f53e36271ebf92fc96425f0c082143042400814c6b05`;
 the nonce-revocation typehash is
 `0x11a07172744cbac614966ef944b190ff3c1b4a7076ab4483c69e48ba2b9ee49c`.
@@ -104,6 +141,14 @@ deployment gate closed until Stream provides source, a deployment, an exact
 stored-record hash preimage, read surfaces, and a successful write/read
 round-trip. A synthetic EIP-712 vector cannot satisfy that gate.
 
+The pinned draft does not yet define the exact `OwnerRecord -> recordHash`
+preimage, a state read for the full immutable owner-record row, or an
+implemented byte-recovery proof for every pointer row. Those are explicit
+deployment blockers. The generic pointer and chain surfaces above are the
+minimum published Stream requirements; they do not let the Museum invent the
+missing hash preimage or claim archival convergence before Stream publishes
+and implements it.
+
 The Museum-side convergence adapter must expose this minimum read interface:
 
 ```solidity
@@ -127,6 +172,7 @@ function tokenCollectionIdentity(uint256 tokenId) external view returns (
     uint256 collectionSerial,
     bool burned
 );
+function tokenLifecycle(uint256 tokenId) external view returns (uint8 lifecycle);
 ```
 
 Governance admits exact Stream Core and adapter addresses, both runtime code
@@ -134,8 +180,10 @@ hashes, the owner-record hash domain/vector, and convergence evidence. A
 Museum mirror-link call supplies only the existing Museum subject, token ID,
 and expected owner-record hash. The registry rechecks both runtimes, reads all
 adapter values and Core token identity with bounded exact-length static calls,
-and requires their collection IDs to match. It derives the Stream subject
-itself. It separately reconstructs the exact lowercase
+requires their collection IDs to match, and independently requires the Core's
+exact lifecycle value `MINTED (2)`. `PREPARED_INCOMPLETE (1)` is not an ERC-721
+and can be aborted, so it is never mirror-linkable. It derives the Stream
+subject itself. It separately reconstructs the exact lowercase
 `eip155:<chainId>/erc721:<core>/<tokenId>` identity and requires the supplied
 Museum subject to be the already registered CAIP-19 external-asset subject for
 that exact string. The caller cannot swap the Museum subject or select a core,
@@ -219,6 +267,8 @@ Before deploying a Museum contract or publishing a completed accession on Stream
 4. regenerate the acquisition packet and object dossier without operator-only data;
 5. reject deployment if any shared field, vocabulary, hash, or subject derivation has drifted.
 6. for owner records, pin the implemented module source and deployment, verify
-   runtime code, confirm the stored-record hash preimage and read ABI, and pass
-   exact direct, relayed, nonce-revocation, write/read round-trip, and
-   Museum-side adapter readback/substitution vectors.
+   runtime code, confirm the stored-record hash preimage, the full immutable
+   record read, `recordChainHash`, `payloadPointerCount`, and
+   `payloadPointerAt`, and pass exact direct, relayed, nonce-revocation,
+   state-only payload recovery, write/read round-trip, and Museum-side adapter
+   readback/substitution vectors.

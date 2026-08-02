@@ -1096,14 +1096,14 @@
       {
         "path": "scripts/verify_casey_snapshot_package.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:a347d07b4a03d04c6cae06cc2329d24d75d1805f55b02ee6331e2e423ddecde2",
-        "size": 75925
+        "sha256": "sha256:2d7bfa3e4fc3ada574035cfcd1e24337788d62fb27056faed7f4b93c1cb82009",
+        "size": 75943
       },
       {
         "path": "tests/casey/test_casey_snapshot_mutations.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:d8df3325418bcd3f0046ed0f0825374616ddfa62b5d8e22711d10b9431815529",
-        "size": 13672
+        "sha256": "sha256:7cf191fc42e7b864d573be3018c64f50dd130b776074d5695082dd9a866a3af6",
+        "size": 13708
       },
       {
         "path": "tests/rarity/fixtures/nextgen-compatibility.expected.json",
@@ -1126,8 +1126,8 @@
       {
         "path": "tests/test_control_plane.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:2c1a9481c69cac76d83be5943b60219b4f342f24381e724fdf04a964eb7f9ffe",
-        "size": 54725
+        "sha256": "sha256:7e2e1f6ccaa059767bbd2ab64327f367b7477f50e03bf0b0dc1ba9df721eb35b",
+        "size": 54269
       }
     ]
   },

@@ -64,6 +64,9 @@ FIXTURE_SCALAR_LABELS = (
     b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_FIXTURE_SIGNER_C_V1",
 )
 EXPECTED_EVIDENCE_SCHEMA_HASH = "0xa54955d0077ad11a6b376b872aeeff758c36fe4c126f777ac3df64c01933a214"
+DEPENDENCY_EXTERNAL_READ_OPCODES = {
+    "BALANCE", "EXTCODESIZE", "EXTCODECOPY", "EXTCODEHASH",
+}
 
 
 def hx(value: str) -> bytes:
@@ -129,6 +132,21 @@ def ar_uri(label: bytes) -> str:
 
 def policy_hash(path: Path) -> str:
     return h(rfc8785.dumps(json.loads(path.read_text(encoding="utf-8"))))
+
+
+def validate_dependency_policy(policy: dict) -> None:
+    assert policy["id"] == "MUSEUM_DEPENDENCY_RUNTIME_NONPROXY_V1"
+    assert policy["version"] == 1
+    assert policy["allowExternal"] == []
+    rejected = set(policy["rejectOpcodes"])
+    assert DEPENDENCY_EXTERNAL_READ_OPCODES.issubset(rejected)
+    assert {"CALL", "STATICCALL", "CALLCODE", "DELEGATECALL"}.issubset(rejected)
+
+
+def load_and_validate_dependency_policy() -> dict:
+    policy = json.loads(DEPENDENCY_POLICY_PATH.read_text(encoding="utf-8"))
+    validate_dependency_policy(policy)
+    return policy
 
 
 def dependency_sort_key(dependency: dict[str, str]) -> tuple[int, bytes, bytes, bytes, bytes]:
@@ -226,6 +244,7 @@ def projection(evidence: dict, stage: str) -> dict:
 
 def build_expected() -> tuple[dict, dict, dict]:
     target_policy_hash = policy_hash(TARGET_POLICY_PATH)
+    load_and_validate_dependency_policy()
     dependency_policy_hash = policy_hash(DEPENDENCY_POLICY_PATH)
     attestor_policy = load_and_validate_policy()
     attestor_policy_hash = release_attestor_policy_hash(attestor_policy)
@@ -256,7 +275,11 @@ def build_expected() -> tuple[dict, dict, dict]:
         "externalDependencyHash": dependency_hash(dependencies),
         "sourceCommit": "0123456789abcdef0123456789abcdef01234567",
         "sourceRepository": "6529-Collections/6529networkmuseum",
-        "sourceTreeHash": tree_word(hashlib.sha1(b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_SOURCE_TREE_V1").hexdigest()),
+        # Git tree OIDs are SHA-1 by definition; this fixture OID is not a security digest.
+        "sourceTreeHash": tree_word(hashlib.sha1(
+            b"MUSEUM_NON_DEPLOYMENT_TARGET_RELEASE_SOURCE_TREE_V1",
+            usedforsecurity=False,
+        ).hexdigest()),
         "artifactHash": code_hash,
         "requiredInterfaceId": "0xea450898",
         "expectedModuleVersion": ZERO_HASH,
@@ -361,6 +384,7 @@ def validate_semantics(evidence: dict, bundle: dict, reference: dict) -> None:
     assert evidence["signers"]["signatureScheme"] == attestor_policy["signatureScheme"]
     assert evidence["signers"]["addresses"] == attestor_policy["addresses"]
     assert evidence["runtimePolicyHash"] == policy_hash(TARGET_POLICY_PATH)
+    load_and_validate_dependency_policy()
     assert evidence["conformance"]["runtimePolicyHash"] == evidence["runtimePolicyHash"]
     validate_dependencies(evidence["externalDependencies"])
     assert all(dependency["runtimePolicyHash"] == policy_hash(DEPENDENCY_POLICY_PATH) for dependency in evidence["externalDependencies"])
@@ -640,6 +664,17 @@ def self_selected_rekey_attack(evidence: dict) -> tuple[dict, dict, dict]:
 
 
 def negative_checks(evidence: dict, bundle: dict, reference: dict) -> None:
+    pristine_dependency_policy = load_and_validate_dependency_policy()
+    for opcode in sorted(DEPENDENCY_EXTERNAL_READ_OPCODES):
+        mutated_policy = copy.deepcopy(pristine_dependency_policy)
+        mutated_policy["rejectOpcodes"].remove(opcode)
+        try:
+            validate_dependency_policy(mutated_policy)
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError(f"dependency external-read opcode accepted: {opcode}")
+
     attestors = [entry["signer"] for entry in bundle["entries"]]
     signatures = [entry["signature"] for entry in bundle["entries"]]
     runtime_result = runtime_admit_release(
