@@ -2,13 +2,20 @@
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
     "revision": 3,
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
       "constructed_at": "2026-08-02T06:30:00Z"
     },
-    "review": null
+    "review": {
+      "actor_id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T08:39:53Z",
+      "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
+      "outcome": "approved",
+      "payload_sha256": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f"
+    }
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
   "snapshot_at": "2026-08-02T06:30:00Z",

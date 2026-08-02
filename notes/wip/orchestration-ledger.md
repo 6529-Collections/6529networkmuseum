@@ -1273,4 +1273,15 @@ and SHA-256
 The CI-equivalent discovery suite passes 96 tests with one expected Windows
 named-pipe skip; full Museum/Casey validation, package verification, fetch
 safety, compilation, deterministic-manifest checking, and whitespace checking
-also pass. Exact-head review remains required after commit.
+also pass. Independent reviewers Turing (`019fc04f-6d34-7242-992f-3de8ff2b6346`)
+and Einstein (`019fc04f-7397-7a30-86b0-65fe1944f27d`) approved exact committed
+head `514cb18aee37b0d04c3eeb59703b411ea34f6bf9`; both recomputed the title and
+visual-observation byte joins and found no release blocker. The register review
+records Turing's documentary-QA approval at `2026-08-02T08:39:53Z`, bound to
+payload SHA-256
+`0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f`.
+Adding that review envelope does not change the reviewed register payload; it
+does produce the final repository release commitments: Keccak-256
+`0x5c9471e01cb0b4b0a84424388df3be3e0214d839ee48db87cfc05f0a3f61d2b2`
+and SHA-256
+`e459c8e3bf4f19263b50cd27c8481078de85dee1a719715491fdd58d0dd5e12b`.
