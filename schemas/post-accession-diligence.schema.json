@@ -54,6 +54,7 @@
     "record_id",
     "record_type",
     "record_control",
+    "amendment_history",
     "subject_id",
     "observed_at",
     "effective_at",
@@ -68,6 +69,24 @@
     "evidence_refs",
     "non_claims"
   ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_control": {
+            "properties": {"revision": {"minimum": 2}},
+            "required": ["revision"]
+          }
+        },
+        "required": ["record_control"]
+      },
+      "then": {
+        "properties": {
+          "amendment_history": {"minItems": 1}
+        }
+      }
+    }
+  ],
   "properties": {
     "$schema": {"const": "../../../schemas/post-accession-diligence.schema.json"},
     "record_id": {"const": "6529NM.2026.001.DILIGENCE-01"},
@@ -77,7 +96,7 @@
       "additionalProperties": false,
       "required": ["revision", "record_status", "constructor", "review"],
       "properties": {
-        "revision": {"const": 1},
+        "revision": {"type": "integer", "minimum": 1},
         "record_status": {"enum": ["constructed", "reviewed"]},
         "constructor": {"$ref": "#/$defs/constructor"},
         "review": {"anyOf": [{"$ref": "#/$defs/review"}, {"type": "null"}]}
@@ -92,6 +111,22 @@
           "then": {"properties": {"review": {"type": "null"}}}
         }
       ]
+    },
+    "amendment_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_review_commit", "reason"],
+        "properties": {
+          "revision": {"type": "integer", "minimum": 1},
+          "superseded_at": {"$ref": "#/$defs/timestamp"},
+          "supersedes": {"$ref": "#/$defs/sha256"},
+          "prior_payload_sha256": {"$ref": "#/$defs/sha256"},
+          "prior_review_commit": {"$ref": "#/$defs/commit"},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
     },
     "subject_id": {"const": "6529NM.2026.001"},
     "observed_at": {"$ref": "#/$defs/timestamp"},

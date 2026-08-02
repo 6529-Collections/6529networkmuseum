@@ -3,10 +3,14 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import shutil
+import stat
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,6 +20,18 @@ import sys
 sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
+from acquire_casey_custody_audit import (  # noqa: E402
+    AuditError,
+    abi_word_address,
+    main as acquire_custody_main,
+    prepare_empty_output,
+)
+from build_casey_diligence_manifest import (  # noqa: E402
+    ManifestError,
+    _checked_info as checked_diligence_info,
+    _files as diligence_files,
+    build as build_diligence_manifest,
+)
 from finalize_casey_accession import REVIEW_AT, prior_event_for_replacement  # noqa: E402
 from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_visual_observation, validator_for  # noqa: E402
 from validate_casey_dossier import (  # noqa: E402
@@ -24,6 +40,8 @@ from validate_casey_dossier import (  # noqa: E402
     OBJECT_TO_DESCRIPTOR,
     VISUAL_OBSERVATION_ID,
     validate,
+    _abi_address,
+    _validate_diligence_rpc_evidence,
     validate_evidence_manifest,
     validate_post_accession_diligence,
 )
@@ -77,6 +95,158 @@ class CaseyDossierControlsTests(unittest.TestCase):
 
         issues = validate_post_accession_diligence(root)
         self.assertTrue(any("evidence manifest must bind every package file exactly" in issue for issue in issues))
+
+    def test_diligence_raw_rpc_semantic_rewrite_is_rejected(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        custody_path = package / "custody-audit-2026-08-02.json"
+        custody = json.loads(custody_path.read_text(encoding="utf-8"))
+        target_id = "owner:6529NM.2026.001.01"
+        reference = next(
+            item
+            for item in custody["responses"]
+            if json.loads((package / item["path"]).read_text(encoding="utf-8"))["id"] == target_id
+        )
+        original = package / reference["path"]
+        response = json.loads(original.read_text(encoding="utf-8"))
+        response["result"] = "0x" + "0" * 64
+        payload = (json.dumps(response, separators=(",", ":")) + "\n").encode("utf-8")
+        digest = hashlib.sha256(payload).hexdigest()
+        replacement = original.with_name(f"sha256-{digest}.json")
+        replacement.write_bytes(payload)
+        original.unlink()
+        reference.update(path=replacement.relative_to(package).as_posix(), sha256=f"sha256:{digest}", size=len(payload))
+        custody["safe_fetch_observations"][target_id]["byte_sha256"] = digest
+        custody["safe_fetch_observations"][target_id]["byte_length"] = len(payload)
+
+        issues = _validate_diligence_rpc_evidence(package, custody)
+        self.assertTrue(any("raw owner/approval response" in issue for issue in issues), issues)
+
+    def test_diligence_eip1898_selector_mutation_is_rejected(self) -> None:
+        package = ROOT / "evidence/casey-reas-diligence"
+        custody = json.loads((package / "custody-audit-2026-08-02.json").read_text(encoding="utf-8"))
+        custody["block"]["state_selector"]["requireCanonical"] = False
+        issues = _validate_diligence_rpc_evidence(package, custody)
+        self.assertTrue(any("request/transport binding" in issue or "exact finalized block hash" in issue for issue in issues), issues)
+
+    def test_diligence_ofac_subject_role_set_is_exact(self) -> None:
+        _, root = self.make_copy()
+        path = root / "evidence/casey-reas-diligence/ofac-address-screening-2026-08-02.json"
+        ofac = json.loads(path.read_text(encoding="utf-8"))
+        ofac["screened_addresses"][0]["role"] = "uncontrolled_role"
+        path.write_text(json.dumps(ofac, indent=2) + "\n", encoding="utf-8", newline="\n")
+        issues = validate_post_accession_diligence(root)
+        self.assertTrue(any("OFAC evidence must retain" in issue for issue in issues), issues)
+
+    def test_diligence_manifest_rejects_symlinked_evidence(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        link = package / "raw/rpc/symlinked-response.json"
+        target = next((package / "raw/rpc").glob("sha256-*.json"))
+        try:
+            os.symlink(target, link)
+        except (OSError, NotImplementedError) as error:
+            self.skipTest(f"filesystem does not permit symlink creation: {error}")
+        with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
+            build_diligence_manifest(package)
+
+    def test_diligence_manifest_rejects_symlinked_directory(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        target = root / "linked-evidence-target"
+        target.mkdir()
+        (target / "response.json").write_text("{}\n", encoding="utf-8")
+        link = package / "raw/linked-directory"
+        try:
+            os.symlink(target, link, target_is_directory=True)
+        except (OSError, NotImplementedError) as error:
+            self.skipTest(f"filesystem does not permit directory symlink creation: {error}")
+        with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
+            build_diligence_manifest(package)
+
+    def test_diligence_manifest_retains_nested_manifest_named_evidence(self) -> None:
+        _, root = self.make_copy()
+        package = root / "evidence/casey-reas-diligence"
+        nested = package / "raw/auxiliary/nested/manifest.json"
+        nested.parent.mkdir(parents=True)
+        nested.write_text("{}\n", encoding="utf-8")
+        manifest = build_diligence_manifest(package)
+        paths = {entry["path"] for entry in manifest["entries"]}
+        self.assertIn("raw/auxiliary/nested/manifest.json", paths)
+
+    def test_diligence_manifest_rejects_windows_reparse_point(self) -> None:
+        package = ROOT / "evidence/casey-reas-diligence"
+        reparse_info = SimpleNamespace(st_mode=stat.S_IFREG, st_file_attributes=0x400)
+        with mock.patch("build_casey_diligence_manifest.os.lstat", return_value=reparse_info):
+            with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
+                checked_diligence_info(package / "raw/rpc/reparse.json", package)
+
+    def test_diligence_manifest_rejects_non_regular_entry(self) -> None:
+        package = ROOT / "evidence/casey-reas-diligence"
+        directory_info = SimpleNamespace(st_mode=stat.S_IFDIR, st_file_attributes=0)
+        pipe_info = SimpleNamespace(st_mode=stat.S_IFIFO, st_file_attributes=0)
+        with (
+            mock.patch("build_casey_diligence_manifest.os.walk", return_value=[(str(package), [], ["pipe"])]),
+            mock.patch("build_casey_diligence_manifest.os.lstat", side_effect=[directory_info, directory_info, pipe_info]),
+        ):
+            with self.assertRaisesRegex(ManifestError, "non-regular file"):
+                diligence_files(package)
+
+    def test_custody_acquisition_refuses_non_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-output-") as temporary:
+            output = Path(temporary)
+            (output / "existing.json").write_text("{}\n", encoding="utf-8")
+            with self.assertRaisesRegex(AuditError, "output directory must be empty"):
+                prepare_empty_output(output)
+
+    def test_custody_acquisition_creates_new_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-parent-") as temporary:
+            output = Path(temporary) / "new-output"
+            prepare_empty_output(output)
+            self.assertTrue(output.is_dir())
+            self.assertEqual(list(output.iterdir()), [])
+
+    def test_custody_acquisition_accepts_existing_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-output-") as temporary:
+            output = Path(temporary)
+            prepare_empty_output(output)
+            self.assertEqual(list(output.iterdir()), [])
+
+    def test_custody_acquisition_refuses_symlinked_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-parent-") as temporary:
+            parent = Path(temporary)
+            target = parent / "target"
+            target.mkdir()
+            output = parent / "linked-output"
+            try:
+                os.symlink(target, output, target_is_directory=True)
+            except (OSError, NotImplementedError) as error:
+                self.skipTest(f"filesystem does not permit directory symlink creation: {error}")
+            with self.assertRaisesRegex(AuditError, "symlink or reparse point"):
+                prepare_empty_output(output)
+
+    def test_custody_acquisition_requires_output_argument(self) -> None:
+        with mock.patch("sys.stderr"):
+            with self.assertRaises(SystemExit) as error:
+                acquire_custody_main([])
+        self.assertEqual(error.exception.code, 2)
+
+    def test_abi_address_decoders_reject_non_zero_left_padding(self) -> None:
+        malformed = "0x" + "1" * 24 + "2" * 40
+        self.assertIsNone(_abi_address(malformed))
+        with self.assertRaisesRegex(AuditError, "non-zero left padding"):
+            abi_word_address(malformed)
+
+    def test_revision_two_schema_requires_amendment_history_entry(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(ROOT)
+        schema = json.loads((ROOT / "schemas/post-accession-diligence.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        record = json.loads(
+            (ROOT / "records/accessions/6529NM.2026.001/post-accession-diligence.json").read_text(encoding="utf-8")
+        )
+        record["amendment_history"] = []
+        errors = list(validator.iter_errors(record))
+        self.assertTrue(any("should be non-empty" in error.message for error in errors), errors)
 
     def test_live_accession_schemas_reject_undeclared_nested_fields(self) -> None:
         _vocabularies, _envelope, store = load_schemas(ROOT)

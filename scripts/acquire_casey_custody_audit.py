@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Acquire a finalized-state custody audit for the Casey REAS accession.
+"""Acquire an exact-finalized-block custody audit for the Casey accession.
 
 The acquisition uses the repository's fail-closed HTTPS transport, retains the
-exact JSON-RPC response bytes, and evaluates ENS resolution, ``ownerOf`` and
-token-level ``getApproved`` inside one bracketed finalized-state window. It does not make
+exact JSON-RPC response bytes, obtains one finalized Ethereum block, and then
+evaluates ENS resolution, ``ownerOf`` and token-level ``getApproved`` against
+that exact block hash through EIP-1898 on a second provider. It does not make
 legal-title, sanctions, valuation, or off-chain-encumbrance conclusions.
 """
 
@@ -13,7 +14,9 @@ import argparse
 from datetime import UTC, datetime, timedelta
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
 import time
 from typing import Any
@@ -22,7 +25,6 @@ from safe_fetch import FetchPolicyError, SafeHTTPSFetcher
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "evidence" / "casey-reas-diligence"
 HEAD_RPC_URL = "https://1rpc.io/eth"
 CALL_RPC_URL = "https://ethereum-rpc.publicnode.com"
 USER_AGENT = "6529-Network-Museum/casey-custody-audit-v1"
@@ -50,6 +52,24 @@ OBJECTS = (
 
 class AuditError(RuntimeError):
     """Raised when an exact, internally consistent audit cannot be emitted."""
+
+
+def prepare_empty_output(output: Path) -> None:
+    """Create or admit only an explicit empty, non-linked output directory."""
+    if os.path.lexists(output):
+        info = os.lstat(output)
+        is_reparse = bool(
+            getattr(info, "st_file_attributes", 0)
+            & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
+        )
+        if stat.S_ISLNK(info.st_mode) or is_reparse:
+            raise AuditError("output directory cannot be a symlink or reparse point")
+        if not stat.S_ISDIR(info.st_mode):
+            raise AuditError("output path is not a directory")
+        if any(output.iterdir()):
+            raise AuditError("output directory must be empty; evidence replacement is a separate governed operation")
+    else:
+        output.mkdir(parents=True, exist_ok=False)
 
 
 def canonical_json(value: Any) -> bytes:
@@ -107,6 +127,8 @@ def abi_word_address(value: str) -> str:
         raise AuditError("ABI address result is not one 32-byte word")
     if any(character not in "0123456789abcdefABCDEF" for character in value[2:]):
         raise AuditError("ABI address result is not hexadecimal")
+    if value[2:26] != "0" * 24:
+        raise AuditError("ABI address result has non-zero left padding")
     return "0x" + value[-40:].lower()
 
 
@@ -154,13 +176,17 @@ def call_rpc(
         )
     except AuditError as error:
         raise AuditError(f"{request_id}: {error}") from error
-    row = by_id(decoded).get(request_id)
+    try:
+        row = by_id(decoded).get(request_id)
+    except AuditError as error:
+        raise AuditError(f"{request_id}: {error}") from error
     if row is None:
         raise AuditError(f"JSON-RPC response omitted request identifier: {request_id}")
     return request, row, raw_ref(output, "rpc", fetched["body"]), fetched["observation"]
 
 
 def acquire(output: Path) -> dict[str, Any]:
+    prepare_empty_output(output)
     fetcher = SafeHTTPSFetcher()
     observed_at = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
@@ -193,14 +219,17 @@ def acquire(output: Path) -> dict[str, Any]:
         raise AuditError("finalized block identity is incomplete")
     block_number = int(block_tag, 16)
     block_time = datetime.fromtimestamp(int(block_timestamp, 16), UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
-    state_tag = "finalized"
+    # Bind every state read to the exact finalized block hash through EIP-1898.
+    # A moving ``finalized`` tag would prove only a window, not that all calls
+    # were evaluated at the retained block/hash.
+    state_selector = {"blockHash": block_hash, "requireCanonical": True}
 
     resolver_request, resolver_row, resolver_raw, resolver_observation = call_rpc(
         fetcher,
         output,
         "ens-resolver",
         "eth_call",
-        [{"to": ENS_REGISTRY, "data": calldata(SELECTORS["resolver"], ENS_NAMEHASH)}, state_tag],
+        [{"to": ENS_REGISTRY, "data": calldata(SELECTORS["resolver"], ENS_NAMEHASH)}, state_selector],
         CALL_RPC_URL,
     )
     raw_entries.append(resolver_raw)
@@ -215,7 +244,7 @@ def acquire(output: Path) -> dict[str, Any]:
         output,
         "ens-address",
         "eth_call",
-        [{"to": resolver_address, "data": calldata(SELECTORS["addr"], ENS_NAMEHASH)}, state_tag],
+        [{"to": resolver_address, "data": calldata(SELECTORS["addr"], ENS_NAMEHASH)}, state_selector],
         CALL_RPC_URL,
     )
     raw_entries.append(ens_raw)
@@ -232,7 +261,7 @@ def acquire(output: Path) -> dict[str, Any]:
             output,
             f"owner:{object_id}",
             "eth_call",
-            [{"to": contract, "data": calldata(SELECTORS["ownerOf"], token_id)}, state_tag],
+            [{"to": contract, "data": calldata(SELECTORS["ownerOf"], token_id)}, state_selector],
             CALL_RPC_URL,
         )
         approval_request, approval_row, approval_raw, approval_observation = call_rpc(
@@ -240,7 +269,7 @@ def acquire(output: Path) -> dict[str, Any]:
             output,
             f"approval:{object_id}",
             "eth_call",
-            [{"to": contract, "data": calldata(SELECTORS["getApproved"], token_id)}, state_tag],
+            [{"to": contract, "data": calldata(SELECTORS["getApproved"], token_id)}, state_selector],
             CALL_RPC_URL,
         )
         raw_entries.extend([owner_raw, approval_raw])
@@ -282,7 +311,7 @@ def acquire(output: Path) -> dict[str, Any]:
         "subject_id": "6529NM.2026.001",
         "observed_at": observed_at,
         "chain": {"chain_id": 1, "caip2": "eip155:1", "finality_tag": "finalized"},
-        "block": {"number": block_number, "numeric_tag": block_tag, "state_tag": state_tag, "hash": block_hash.lower(), "timestamp": block_time},
+        "block": {"number": block_number, "numeric_tag": block_tag, "state_selector": state_selector, "hash": block_hash.lower(), "timestamp": block_time},
         "custodian": {"ens": ENS_NAME, "ens_namehash": "0x" + ENS_NAMEHASH, "resolver": resolver_address, "address": ens_address},
         "objects": objects,
         "result": {
@@ -293,11 +322,11 @@ def acquire(output: Path) -> dict[str, Any]:
             "object_count": len(objects),
         },
         "method": {
-            "rpc_endpoints": {"chain_and_finalized_block": HEAD_RPC_URL, "block_pinned_contract_reads": CALL_RPC_URL},
+            "rpc_endpoints": {"chain_and_finalized_block": HEAD_RPC_URL, "eip1898_block_hash_contract_reads": CALL_RPC_URL},
             "transport": "scripts/safe_fetch.py",
             "selectors": {name: "0x" + value for name, value in SELECTORS.items()},
-            "same_block_rule": "ENS resolver, ENS address, ownerOf, and getApproved were evaluated through one provider's finalized tag while a second provider returned the same retained finalized block number and hash before and after the observation window.",
-                "evidence_boundary": "This proves contract state at the retained finalized block. A zero token-level approval is not proof that no operator-for-all approval, private claim, legal encumbrance, key compromise, or later transfer exists.",
+            "same_block_rule": "One provider returned the retained finalized block number and hash before and after the observation window; every ENS resolver, ENS address, ownerOf, and getApproved call on the second provider used an EIP-1898 selector containing that exact blockHash with requireCanonical true.",
+            "evidence_boundary": "This proves the queried contract state at the retained finalized block. A zero token-level approval is not proof that no operator-for-all approval, private claim, legal encumbrance, key compromise, or later transfer exists.",
         },
         "requests": request_refs,
         "responses": sorted(raw_entries, key=lambda item: item["path"]),
@@ -335,10 +364,10 @@ def acquire(output: Path) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output-dir", type=Path, required=True, help="new or empty destination; never a tracked package in place")
     args = parser.parse_args(argv)
     try:
-        print(json.dumps(acquire(args.output_dir.resolve()), ensure_ascii=False, indent=2))
+        print(json.dumps(acquire(args.output_dir.absolute()), ensure_ascii=False, indent=2))
     except (AuditError, FetchPolicyError, OSError, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1

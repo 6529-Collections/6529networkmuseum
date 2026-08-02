@@ -6,7 +6,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
 from typing import Any
 
@@ -38,14 +40,50 @@ def entry(package: Path, path: Path) -> dict[str, Any]:
     }
 
 
-def build(package: Path) -> dict[str, Any]:
-    package = package.resolve()
-    if not package.is_dir():
-        raise ManifestError(f"package directory does not exist: {package}")
-    files = sorted(
-        (path for path in package.rglob("*") if path.is_file() and path.name != "manifest.json"),
-        key=lambda path: path.relative_to(package).as_posix(),
+def _is_reparse_point(info: os.stat_result) -> bool:
+    return bool(
+        getattr(info, "st_file_attributes", 0)
+        & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
     )
+
+
+def _checked_info(path: Path, package: Path) -> os.stat_result:
+    try:
+        info = os.lstat(path)
+    except OSError as error:
+        raise ManifestError(f"cannot inspect evidence path: {path}") from error
+    relative = "." if path == package else path.relative_to(package).as_posix()
+    if stat.S_ISLNK(info.st_mode) or _is_reparse_point(info):
+        raise ManifestError(f"symlink or reparse point is not allowed: {relative}")
+    return info
+
+
+def _files(package: Path) -> list[Path]:
+    root_info = _checked_info(package, package)
+    if not stat.S_ISDIR(root_info.st_mode):
+        raise ManifestError(f"package directory does not exist: {package}")
+    found: list[Path] = []
+    for directory, directory_names, file_names in os.walk(package, topdown=True, followlinks=False):
+        directory_path = Path(directory)
+        _checked_info(directory_path, package)
+        for name in sorted(directory_names):
+            child = directory_path / name
+            info = _checked_info(child, package)
+            if not stat.S_ISDIR(info.st_mode):
+                raise ManifestError(f"evidence tree contains a non-directory entry: {child.relative_to(package)}")
+        for name in sorted(file_names):
+            child = directory_path / name
+            info = _checked_info(child, package)
+            if not stat.S_ISREG(info.st_mode):
+                raise ManifestError(f"evidence tree contains a non-regular file: {child.relative_to(package)}")
+            if child.relative_to(package) != Path("manifest.json"):
+                found.append(child)
+    return sorted(found, key=lambda path: path.relative_to(package).as_posix())
+
+
+def build(package: Path) -> dict[str, Any]:
+    package = package.absolute()
+    files = _files(package)
     if not files:
         raise ManifestError("diligence evidence package is empty")
     entries = [entry(package, path) for path in files]
@@ -77,7 +115,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args(argv)
     try:
-        package = args.package.resolve()
+        package = args.package.absolute()
         expected = build(package)
         manifest_path = package / "manifest.json"
         if args.check:

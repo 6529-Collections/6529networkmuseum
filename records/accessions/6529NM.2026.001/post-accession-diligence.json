@@ -3,27 +3,37 @@
   "record_id": "6529NM.2026.001.DILIGENCE-01",
   "record_type": "ACCESSION_DILIGENCE",
   "record_control": {
-    "revision": 1,
+    "revision": 2,
     "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
-      "constructed_at": "2026-08-02T10:46:00Z"
+      "constructed_at": "2026-08-02T12:22:37Z"
     },
     "review": {
-      "actor_id": "codex-review:019fc237-73ed-7b33-85a2-cd65cbd207a8",
+      "actor_id": "codex-review:019fc278-cbf1-75c1-b630-41483c6ae4df",
       "role": "reviewer",
-      "reviewed_at": "2026-08-02T11:35:27Z",
-      "reviewed_commit": "ffd2cf34b66571a9617dc273037e3cf7bc8670c0",
+      "reviewed_at": "2026-08-02T12:54:40.157Z",
+      "reviewed_commit": "b89604ef1967579241fa72152cf65d92ef3e6151",
       "outcome": "approved",
-      "payload_sha256": "sha256:19474419d1c706865fc9d3dc1cfdaf0fca087185fe7d2450fe6cd346d0f23f20",
-      "scope": "Independent substantive and exact-commit review of Casey post-accession title, custody, token-level approval, finalized-state, OFAC exact-address, evidence-fixity, limitation, public-record, schema-closure, and migration-state conclusions.",
-      "finding": "Approved. Exact constructed commit ffd2cf34b66571a9617dc273037e3cf7bc8670c0 preserves the reviewed substantive package. Recomputed manifest and entry SHA-256 values match 22 files and 19 raw RPC responses; all seven ownerOf results match Museum custody, all seven token-specific getApproved results are zero, the finalized block boundary is stable, ENS resolves to the Museum, and the eight OFAC no-match observations are supported by a passing positive control. Title, annex, copyright, residual-risk, schema-closure, and Stream-integration statements accurately match the accepted full-gift accession record and preserve stated evidentiary limits."
+      "payload_sha256": "sha256:c8ad08661746f5c9f8a0522e2313ea9c6592ea15164520b4f47d0fea497f1513",
+      "scope": "Independent exact-commit review of the revision-two EIP-1898 custody acquisition, all nineteen request/response/transport joins, exact object ownership and approval results, OFAC subject and positive-control closure, amendment history, evidence path safety, manifests, public wording, and fail-closed tests; independently corroborated by control-plane reviewer 019fc278-ccbc-73b0-9bbc-9f333296cb6b.",
+      "finding": "Approved exact constructed commit b89604ef1967579241fa72152cf65d92ef3e6151. Reconstructed all nineteen canonical requests and raw responses; all sixteen contract calls bind finalized block 25,667,060 and hash 0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3 through EIP-1898 with requireCanonical true. ENS and all seven ownerOf results match Museum custody; all seven token-level approvals are zero. The exact OFAC address/role set and CHATEX control, revision-one supersession binding, 22-file manifest, read-only empty-output acquisition guard, raw semantic joins, and symlink/reparse/non-regular controls are correct. No substantive or integrity finding remains."
     }
   },
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-02T12:19:54.358Z",
+      "supersedes": "sha256:19474419d1c706865fc9d3dc1cfdaf0fca087185fe7d2450fe6cd346d0f23f20",
+      "prior_payload_sha256": "sha256:19474419d1c706865fc9d3dc1cfdaf0fca087185fe7d2450fe6cd346d0f23f20",
+      "prior_review_commit": "ffd2cf34b66571a9617dc273037e3cf7bc8670c0",
+      "reason": "Superseded the bracketed moving-finalized-tag custody observation with a fresh EIP-1898 exact-block-hash acquisition and added raw-response semantic, exact OFAC-subject/control, and unsafe-path validation."
+    }
+  ],
   "subject_id": "6529NM.2026.001",
-  "observed_at": "2026-08-02T10:46:00Z",
-  "effective_at": "2026-08-02T10:46:00Z",
+  "observed_at": "2026-08-02T12:19:54.358Z",
+  "effective_at": "2026-08-02T12:19:54.358Z",
   "visibility": "public",
   "scope": {
     "purpose": "Close the post-accession evidentiary review of title documentation, current custody, token-level approval state, and point-in-time exact-address sanctions screening without redating the original gift, title passage, or accession decision.",
@@ -47,19 +57,19 @@
     "determination": "verified_at_observed_finalized_state",
     "audit_id": "6529NM.2026.001.CUSTODY-AUDIT-20260802",
     "audit_path": "evidence/casey-reas-diligence/custody-audit-2026-08-02.json",
-    "audit_sha256": "sha256:dea94d2a73719c919b0092208afc64456735dffda7a2493bf3404faa43ed20ae",
+    "audit_sha256": "sha256:ed6483d632cbe8c5c72cd395395d698f4e2100e5fb90b242ef39c4efca31b76e",
     "chain_id": 1,
-    "block_number": 25666454,
-    "block_hash": "0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce",
-    "block_timestamp": "2026-08-02T09:58:47Z",
-    "observation_started_at": "2026-08-02T10:41:45.007Z",
+    "block_number": 25667060,
+    "block_hash": "0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3",
+    "block_timestamp": "2026-08-02T12:00:23Z",
+    "observation_started_at": "2026-08-02T12:19:54.358Z",
     "custody_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
     "custody_ens": "networkmuseum.6529.eth",
     "owner_of_result": "all_seven_match_museum",
     "ens_result": "resolves_to_museum_address",
     "token_level_approval_result": "all_seven_zero_address",
-    "finality_control": "A second provider returned the same finalized block number and hash before and after the contract-read window.",
-    "evidence_boundary": "The retained observations establish contract state during the bracketed finalized window. They do not establish later custody, rule out approval-for-all operators, prove key security, or determine legal title by themselves."
+    "finality_control": "One provider returned the same finalized block number and hash before and after the observation window; every contract read on the second provider used an EIP-1898 selector containing that exact block hash with requireCanonical true.",
+    "evidence_boundary": "The retained observations establish the queried contract state at the exact retained finalized block. They do not establish later custody, rule out approval-for-all operators, prove key security, or determine legal title by themselves."
   },
   "sanctions_screening": {
     "determination": "no_exact_address_match_observed",
@@ -98,7 +108,7 @@
   "package": {
     "path": "evidence/casey-reas-diligence",
     "manifest_path": "evidence/casey-reas-diligence/manifest.json",
-    "manifest_sha256": "sha256:8770ca3f6a7591c4548a72c18f410bb2e51fa1862d1921d6cd800ffa355b6edd",
+    "manifest_sha256": "sha256:5ff2fc3f7d312c889fc05c0fe8f1a79a18880ed84da4cd43b4b7b64c0b204510",
     "file_count": 22,
     "raw_rpc_response_count": 19,
     "raw_ofac_api_bytes_retained": false
@@ -121,7 +131,7 @@
     {
       "label": "Casey accession diligence evidence manifest",
       "path": "evidence/casey-reas-diligence/manifest.json",
-      "sha256": "sha256:8770ca3f6a7591c4548a72c18f410bb2e51fa1862d1921d6cd800ffa355b6edd",
+      "sha256": "sha256:5ff2fc3f7d312c889fc05c0fe8f1a79a18880ed84da4cd43b4b7b64c0b204510",
       "evidence_class": "C"
     },
     {

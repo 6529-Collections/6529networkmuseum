@@ -1380,3 +1380,53 @@ correction was required. A separate schema reviewer exhaustively rejected
 unknown-field probes throughout the live accession-lot, object, provenance,
 and diligence structures; its preapproval hold was limited to the then-pending
 review envelope and two now-corrected test-message assertions.
+
+## 2026-08-02 exact-block evidence correction
+
+PR #16 merged as `b161938bceb80b3c14309e9b0ef6606eff51e63a` at
+`2026-08-02T12:07:44Z`. When completed reviewer tasks were closed after merge,
+an earlier adversarial report surfaced a real contradiction inside the raw
+custody-audit JSON: contract calls had used a second provider's moving
+`finalized` tag, while two raw fields described the reads as block-pinned and
+same-block. The public Museum note and governed diligence record had already
+limited the conclusion to a bracketed finalized window, but the raw evidence
+overclaimed its method. Website production briefly refreshed to the 199-entry
+`b161938...` manifest; final sign-off was immediately withheld.
+
+Construction moved to `codex/casey-exact-block-evidence`. A fresh read-only
+acquisition now anchors finalized block `25,667,060`, hash
+`0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3`,
+timestamp `2026-08-02T12:00:23Z`. The head provider returned that same
+finalized number and hash before and after the observation window. Every ENS,
+`ownerOf`, and `getApproved` read on the call provider used an EIP-1898 block
+selector containing the exact hash with `requireCanonical: true`. The new
+custody-audit SHA-256 is
+`sha256:ed6483d632cbe8c5c72cd395395d698f4e2100e5fb90b242ef39c4efca31b76e`;
+all seven owners and ENS still match Museum custody and all seven token-level
+approvals remain zero.
+
+The correction also adds independent reconstruction of all nineteen canonical
+request digests, exact raw-response IDs and bytes, safe-fetch byte bindings,
+EIP-1898 selectors, block responses, ABI address words, CAIP-19 identities,
+owners, approvals, and summaries. OFAC validation now pins all eight exact
+address/role pairs plus the complete CHATEX/CYBER2/SDN positive control and
+detail ID 33854. Diligence manifest traversal now rejects symlinks, Windows
+reparse points, and non-regular entries. The replacement twenty-two-file
+manifest is
+`sha256:5ff2fc3f7d312c889fc05c0fe8f1a79a18880ed84da4cd43b4b7b64c0b204510`.
+Revision 2 is intentionally `constructed` pending a new exact-commit
+independent review; no PR #16 approval is reused for the changed evidence.
+
+Independent chain/evidence reviewer Poincare
+(`019fc278-cbf1-75c1-b630-41483c6ae4df`) and independent control-plane
+reviewer Planck (`019fc278-ccbc-73b0-9bbc-9f333296cb6b`) both approved exact
+constructed commit `b89604ef1967579241fa72152cf65d92ef3e6151` at
+`2026-08-02T12:54:40.157Z` and `2026-08-02T12:52:54.647Z`, respectively.
+The primary review envelope binds payload
+`sha256:c8ad08661746f5c9f8a0522e2313ea9c6592ea15164520b4f47d0fea497f1513`.
+After the approved construction, the review envelope and pending-to-reviewed
+labels changed, followed by PR-review hardening of ABI padding validation,
+nested-manifest inventory, amendment-history schema enforcement, unsafe-path
+and CLI tests, runtime declaration, validator error clarity, and exact-block
+index wording. No acquired evidence, RPC method or selector, raw response,
+object result, OFAC observation, or museum conclusion changed.

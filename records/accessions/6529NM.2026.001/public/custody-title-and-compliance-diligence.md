@@ -10,7 +10,7 @@ Collection status: accessioned; no status change
 
 ## Determination
 
-The 6529 Network Museum confirms the Casey REAS accession. No fact identified in this review requires a title downgrade, custody hold, deaccession review, or new display restriction. The seven exact tokens remain registered to the Museum in the reviewed finalized-state observation; the Museum's public title instrument remains executed; and the official OFAC Sanctions List Service returned no exact digital-currency-address match for the eight addresses screened.
+The 6529 Network Museum confirms the Casey REAS accession. No fact identified in the reviewed revision requires a title downgrade, custody hold, deaccession review, or new display restriction. The seven exact tokens remain registered to the Museum in the exact-finalized-block observation; the Museum's public title instrument remains executed; and the official OFAC Sanctions List Service returned no exact digital-currency-address match for the eight addresses screened.
 
 This is a post-accession diligence record. It supplements the original receipt, gift acceptance, title, rights, technical, curatorial, and accession records. It does not redate the gift, replay title passage, or imply that the accession had remained incomplete pending this review.
 
@@ -30,7 +30,7 @@ Public chain evidence and the donor declaration cannot disprove every possible p
 
 The Museum ran the reproducible [custody audit](../../../../evidence/casey-reas-diligence/custody-audit-2026-08-02.json) through the repository's fail-closed HTTPS transport. It retained 19 exact JSON-RPC response files and their transport observations.
 
-The observation was bracketed by Ethereum finalized block `25,666,454`, hash `0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce`, timestamped `2026-08-02T09:58:47Z`. One provider returned that same finalized block number and hash before and after the contract-read window. During the window a second provider evaluated the ENS resolver, ENS address, seven ERC-721 `ownerOf(uint256)` calls, and seven token-specific `getApproved(uint256)` calls through its `finalized` tag.
+The observation is bound to Ethereum finalized block `25,667,060`, hash `0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3`, timestamped `2026-08-02T12:00:23Z`. One provider returned that same finalized block number and hash before and after the observation window. Every ENS resolver, ENS address, ERC-721 `ownerOf(uint256)`, and token-specific `getApproved(uint256)` call on the second provider used an EIP-1898 selector containing that exact block hash with `requireCanonical: true`.
 
 The results are unambiguous:
 
@@ -38,7 +38,7 @@ The results are unambiguous:
 - every `ownerOf` call returned that Museum address; and
 - every token-specific `getApproved` call returned the zero address.
 
-These facts prove the observed ERC-721 and ENS contract state in the bracketed finalized window. They do not prove future custody, key security, the absence of approval-for-all operators, or the absence of private legal claims. A zero token-specific approval is a useful control result, not a universal non-encumbrance certificate. Standing custody monitoring therefore remains part of ordinary stewardship.
+These facts prove the queried ERC-721 and ENS contract state at the retained finalized block. They do not prove future custody, key security, the absence of approval-for-all operators, or the absence of private legal claims. A zero token-specific approval is a useful control result, not a universal non-encumbrance certificate. Standing custody monitoring therefore remains part of ordinary stewardship.
 
 ## Exact-address sanctions screening
 
@@ -58,4 +58,4 @@ The review cannot establish the absence of every approval-for-all operator, priv
 
 The registrar should reverify custody before any transfer, loan, exhibition that depends on live token control, or material catalogue refresh. Sanctions and counterparty diligence should be repeated for future acquisitions or transfers and whenever a new material fact appears. Any title claim, sanctions match, unexpected approval, custody mismatch, or key-security concern should trigger immediate registrar review.
 
-The complete evidence package is fixed by [manifest.json](../../../../evidence/casey-reas-diligence/manifest.json), SHA-256 `8770ca3f6a7591c4548a72c18f410bb2e51fa1862d1921d6cd800ffa355b6edd`. The custody acquisition and manifest builder are public, deterministic, and non-transactional. They do not transfer assets, grant approvals, or sign with a wallet.
+The complete evidence package is fixed by [manifest.json](../../../../evidence/casey-reas-diligence/manifest.json), SHA-256 `5ff2fc3f7d312c889fc05c0fe8f1a79a18880ed84da4cd43b4b7b64c0b204510`. The custody acquisition, raw-response semantic verifier, and manifest builder are public, deterministic, and non-transactional. They do not transfer assets, grant approvals, or sign with a wallet.
