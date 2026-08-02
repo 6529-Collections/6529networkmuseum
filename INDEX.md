@@ -50,6 +50,9 @@ Status vocabulary:
 | [`records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md`](records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md) | reviewed public curatorial essay | Collection-level reading of rule, behavior, room, and cosmos with static/live documentation boundary |
 | [`records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md`](records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md) | public human-readable authorization | Full-gift acceptance, exact governing basis, completed accession resolution, and continuing nonblocking stewardship duties |
 | [`records/accessions/6529NM.2026.001/accession-certificate.json`](records/accessions/6529NM.2026.001/accession-certificate.json) | reviewed `ACCESSION` certificate | Executed seven-object title bindings, real receipt chronology, institutional custody registration, completed review outcomes, and Stream-aligned event/evidence structure |
+| [`records/accessions/6529NM.2026.001/post-accession-diligence.json`](records/accessions/6529NM.2026.001/post-accession-diligence.json) | reviewed post-accession diligence record | Finalized-state owner, ENS, and token-level approval verification; executed-title interpretation; point-in-time OFAC exact-address screening; residual-risk disposition; and immutable evidence bindings |
+| [`records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md`](records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md) | reviewed public diligence note | Human-readable title, custody, encumbrance, sanctions-screening, limitations, and standing-action conclusions for the accessioned lot |
+| [`evidence/casey-reas-diligence/manifest.json`](evidence/casey-reas-diligence/manifest.json) | content-addressed post-accession evidence package | Twenty-two-file package retaining nineteen exact JSON-RPC responses, the custody audit, the point-in-time official OFAC UI screening transcript, and package documentation |
 
 ## Working standards and architecture
 
@@ -77,6 +80,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-01-external-works-registry.md`](notes/wip/2026-08-01-external-works-registry.md) | WIP analysis | Options and recommended boundary for externally minted works |
 | [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | superseded WIP analysis | Historical multi-object numbering and proposed deliverables from the supplied accession draft; the completed accession dossier and register supersede its intake-stage gates |
 | [`notes/wip/2026-08-01-nextgen-rarity-analysis.md`](notes/wip/2026-08-01-nextgen-rarity-analysis.md) | WIP analysis | Authoritative source pins, algorithm conclusions, implementation status, and unresolved questions |
+| [`notes/wip/2026-08-01-documentation-control-plane.md`](notes/wip/2026-08-01-documentation-control-plane.md) | historical implementation note | Construction rationale, fail-closed remediation history, and remaining Stream/cross-language boundaries for the active documentation-as-code controls; current operation is in [`docs/control-plane.md`](docs/control-plane.md) |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, and next actions |
 
 ## Generative analysis tooling
@@ -118,6 +122,8 @@ Status vocabulary:
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
 | [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments over the closed governed release inventory |
+| [`scripts/acquire_casey_custody_audit.py`](scripts/acquire_casey_custody_audit.py) | reproducible evidence acquisition | Bracketed finalized-state ENS, `ownerOf`, and token-level `getApproved` observations with exact JSON-RPC response retention and stable block-hash enforcement |
+| [`scripts/build_casey_diligence_manifest.py`](scripts/build_casey_diligence_manifest.py) | active CI control | Complete-inventory raw-byte manifest builder and idempotence check for the Casey post-accession diligence evidence package |
 | [`specs/onchain/`](specs/onchain/) | active design conformance | Offline-only contract-migration vectors for batch eligibility, URI canonical identity, HTTPS assertion lifecycle, address-bound TargetRelease evidence/signatures, and ABI/allowlist reconstruction; never deployment evidence |
 | [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |

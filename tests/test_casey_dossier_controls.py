@@ -18,7 +18,15 @@ sys.path.insert(0, str(SCRIPTS))
 from canonical import canonicalize  # noqa: E402
 from finalize_casey_accession import REVIEW_AT, prior_event_for_replacement  # noqa: E402
 from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_visual_observation, validator_for  # noqa: E402
-from validate_casey_dossier import CASEY_ID, GIFT_AUTHORIZATION_ID, OBJECT_TO_DESCRIPTOR, VISUAL_OBSERVATION_ID, validate, validate_evidence_manifest  # noqa: E402
+from validate_casey_dossier import (  # noqa: E402
+    CASEY_ID,
+    GIFT_AUTHORIZATION_ID,
+    OBJECT_TO_DESCRIPTOR,
+    VISUAL_OBSERVATION_ID,
+    validate,
+    validate_evidence_manifest,
+    validate_post_accession_diligence,
+)
 
 
 class CaseyDossierControlsTests(unittest.TestCase):
@@ -45,6 +53,84 @@ class CaseyDossierControlsTests(unittest.TestCase):
 
     def test_published_descriptor_dossier_is_valid(self) -> None:
         self.assertEqual(validate(ROOT), [])
+
+    def test_post_accession_diligence_is_valid(self) -> None:
+        self.assertEqual(validate_post_accession_diligence(ROOT), [])
+
+    def test_post_accession_diligence_fails_closed(self) -> None:
+        _, root = self.make_copy()
+        path = root / "records/accessions/6529NM.2026.001/post-accession-diligence.json"
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["title_and_authority"]["determination"] = "pending"
+        record["conclusion"]["completion_blockers"] = ["future reviewer"]
+        path.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+        issues = validate_post_accession_diligence(root)
+        self.assertTrue(any("must confirm title, bind custody and OFAC evidence" in issue for issue in issues))
+
+    def test_post_accession_diligence_detects_evidence_mutation(self) -> None:
+        _, root = self.make_copy()
+        path = root / "evidence/casey-reas-diligence/custody-audit-2026-08-02.json"
+        evidence = json.loads(path.read_text(encoding="utf-8"))
+        evidence["custody_address"] = "0x0000000000000000000000000000000000000000"
+        path.write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+        issues = validate_post_accession_diligence(root)
+        self.assertTrue(any("evidence manifest must bind every package file exactly" in issue for issue in issues))
+
+    def test_live_accession_schemas_reject_undeclared_nested_fields(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(ROOT)
+        cases = (
+            (
+                "accession-lot.schema.json",
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda payload: payload["controlled_decision"].__setitem__("unreviewed_magic", True),
+            ),
+            (
+                "object-record.schema.json",
+                "records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json",
+                lambda payload: payload["artist"].__setitem__("unreviewed_magic", True),
+            ),
+            (
+                "accession-lot.schema.json",
+                "records/accessions/6529NM.2026.001/accession-statement.json",
+                lambda payload: payload["provenance_schedule"]["verification_method"].__setitem__("unreviewed_magic", True),
+            ),
+        )
+        for schema_name, record_path, mutation in cases:
+            with self.subTest(schema=schema_name):
+                schema = json.loads((ROOT / "schemas" / schema_name).read_text(encoding="utf-8"))
+                validator = validator_for(schema, store)
+                record = json.loads((ROOT / record_path).read_text(encoding="utf-8"))
+                payload = copy.deepcopy(record["payload"])
+                self.assertEqual([], list(validator.iter_errors(payload)))
+                mutation(payload)
+                errors = list(validator.iter_errors(payload))
+                self.assertTrue(errors)
+                self.assertTrue(any("unreviewed_magic" in error.message for error in errors), errors)
+
+    def test_live_accession_schemas_contain_no_open_object_nodes(self) -> None:
+        def open_nodes(value: object, path: str = "$") -> list[str]:
+            found: list[str] = []
+            if isinstance(value, dict):
+                if value.get("type") == "object" and value.get("additionalProperties") is True:
+                    found.append(path)
+                for key, child in value.items():
+                    found.extend(open_nodes(child, f"{path}.{key}"))
+            elif isinstance(value, list):
+                for index, child in enumerate(value):
+                    found.extend(open_nodes(child, f"{path}[{index}]"))
+            return found
+
+        for schema_name in (
+            "accession-lot.schema.json",
+            "object-record.schema.json",
+            "post-accession-diligence.schema.json",
+            "transaction-provenance.schema.json",
+        ):
+            with self.subTest(schema=schema_name):
+                schema = json.loads((ROOT / "schemas" / schema_name).read_text(encoding="utf-8"))
+                self.assertEqual([], open_nodes(schema))
 
     def test_finished_accession_decisions_fail_closed(self) -> None:
         mutations = (

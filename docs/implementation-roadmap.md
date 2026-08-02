@@ -170,3 +170,25 @@ CAIP-19 identity for the exact chain/Core/token tuple. A retained offline
 checker rejects swapped Museum subjects and nonzero collection substitutions
 as well as each other substituted value. This remains a conformance design until a source-backed Stream adapter
 and deployment satisfy the convergence gate.
+
+## 2026-08-02 - Final custody, title, compliance, and schema-closure pass
+
+The completed Casey accession now has a separate post-accession diligence
+record and content-addressed evidence package. It brackets nineteen retained
+JSON-RPC responses inside one stable Ethereum finalized block, verifies ENS
+and all seven `ownerOf` results against the Museum address, and records all
+seven token-specific `getApproved` results as the zero address. A dated OFAC
+Sanctions List Service exact-address screen includes a known listed positive
+control and eight no-match observations, while expressly excluding identity,
+fuzzy-name, 50 Percent Rule, transaction-exposure, and legal-opinion claims.
+The title review confirms the executed public institutional title instrument
+for the authorized full-gift mode and explains that the unused optional
+restricted-annex stub is not an uncompleted title gate.
+
+This pass also removes stale intake-stage Casey instructions from the migration
+specification, indexes and supersedes the omitted historical control-plane WIP
+note, and closes the live ACCESSION_LOT and WORK_DESCRIPTION nested schemas
+against undeclared fields. Focused mutation tests make those controls fail
+closed. The final release commitments and exact reviewed head are recorded only
+after independent review, CI, and merge; values written earlier in this roadmap
+remain historical checkpoints, not release authority.

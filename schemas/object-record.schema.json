@@ -4,6 +4,185 @@
   "$defs": {
     "address": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
     "hash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "nonEmpty": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "stringArray": {"type": "array", "items": {"$ref": "#/$defs/nonEmpty"}},
+    "sourceHeads": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["casey_research_head", "control_plane_head"],
+      "properties": {
+        "casey_research_head": {"$ref": "#/$defs/commit"},
+        "control_plane_head": {"$ref": "#/$defs/commit"}
+      }
+    },
+    "artist": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_type", "evidence_class", "preferred_name", "source_refs"],
+      "properties": {
+        "claim_type": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_class": {"enum": ["A", "B", "C", "D", "E"]},
+        "preferred_name": {"$ref": "#/$defs/nonEmpty"},
+        "source_refs": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "combinationStructure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token_count", "invocation_range", "invocation_zero_code", "sequenced_combination_invocations", "reviewed_generator_table_entries", "object_invocation", "object_code", "interpretive_boundary"],
+      "properties": {
+        "token_count": {"type": "integer", "minimum": 0},
+        "invocation_range": {"$ref": "#/$defs/nonEmpty"},
+        "invocation_zero_code": {"$ref": "#/$defs/nonEmpty"},
+        "sequenced_combination_invocations": {"$ref": "#/$defs/nonEmpty"},
+        "reviewed_generator_table_entries": {"type": "integer", "minimum": 0},
+        "object_invocation": {"type": "integer", "minimum": 0},
+        "object_code": {"$ref": "#/$defs/nonEmpty"},
+        "interpretive_boundary": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edition_size", "license_claim_status", "name", "platform", "platform_metadata_license_label", "release_year", "script_type_and_version"],
+      "properties": {
+        "edition_size": {"type": "integer", "minimum": 0},
+        "edition_logic": {"$ref": "#/$defs/nonEmpty"},
+        "date_conflict": {"$ref": "#/$defs/nonEmpty"},
+        "edition_statement": {"$ref": "#/$defs/nonEmpty"},
+        "license_claim_status": {"$ref": "#/$defs/nonEmpty"},
+        "name": {"$ref": "#/$defs/nonEmpty"},
+        "platform": {"$ref": "#/$defs/nonEmpty"},
+        "platform_metadata_license_label": {"$ref": "#/$defs/nonEmpty"},
+        "release_year": {"type": "integer", "minimum": 1900, "maximum": 3000},
+        "script_type_and_version": {"$ref": "#/$defs/nonEmpty"},
+        "combination_structure": {"$ref": "#/$defs/combinationStructure"}
+      }
+    },
+    "metadataSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fixity_scope", "keccak256", "metadata_token_name", "observed_at", "raw_capture_path", "raw_capture_sha256", "sha256"],
+      "properties": {
+        "fixity_scope": {"$ref": "#/$defs/nonEmpty"},
+        "keccak256": {"$ref": "#/$defs/hash"},
+        "metadata_token_name": {"$ref": "#/$defs/nonEmpty"},
+        "observed_at": {"$ref": "#/$defs/timestamp"},
+        "raw_capture_path": {"$ref": "#/$defs/nonEmpty"},
+        "raw_capture_sha256": {"$ref": "#/$defs/sha256"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["input", "action"],
+      "properties": {"input": {"$ref": "#/$defs/nonEmpty"}, "action": {"$ref": "#/$defs/nonEmpty"}}
+    },
+    "observationTranscript": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "sha256", "reviewed_commit", "raw_response_bytes_retained"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "reviewed_commit": {"$ref": "#/$defs/commit"},
+        "raw_response_bytes_retained": {"type": "boolean"}
+      }
+    },
+    "generatorSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dependency_observed", "preservation_gate", "raw_capture_status", "sha256", "status", "uri", "interaction_map", "interaction_review_status", "observation_transcript"],
+      "properties": {
+        "dependency_observed": {"$ref": "#/$defs/nonEmpty"},
+        "preservation_gate": {"$ref": "#/$defs/nonEmpty"},
+        "raw_capture_status": {"$ref": "#/$defs/nonEmpty"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "status": {"$ref": "#/$defs/nonEmpty"},
+        "uri": {"type": "string", "format": "uri"},
+        "interaction_map": {"type": "array", "items": {"$ref": "#/$defs/interaction"}},
+        "interaction_review_status": {"$ref": "#/$defs/nonEmpty"},
+        "automatic_behavior": {"$ref": "#/$defs/nonEmpty"},
+        "documentation_discrepancies": {"$ref": "#/$defs/stringArray"},
+        "observation_transcript": {"$ref": "#/$defs/observationTranscript"}
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artist_statement", "documented_fact", "evidence_class", "museum_interpretation", "technical_observation"],
+      "properties": {
+        "artist_statement": {"$ref": "#/$defs/nonEmpty"},
+        "documented_fact": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_class": {"$ref": "#/$defs/nonEmpty"},
+        "museum_interpretation": {"$ref": "#/$defs/nonEmpty"},
+        "technical_observation": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "fileRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "uri", "sha256"],
+      "properties": {"path": {"$ref": "#/$defs/nonEmpty"}, "uri": {"type": "string", "format": "uri"}, "sha256": {"$ref": "#/$defs/sha256"}}
+    },
+    "publicationRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["published_release_commit", "path", "uri", "sha256", "scope"],
+      "properties": {
+        "published_release_commit": {"$ref": "#/$defs/commit"},
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "uri": {"type": "string", "format": "uri"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "scope": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "packageCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bound_files", "raw_files", "derived_files", "descriptor_results", "source_tokens", "trait_rows"],
+      "properties": {
+        "bound_files": {"type": "integer", "minimum": 0}, "raw_files": {"type": "integer", "minimum": 0},
+        "derived_files": {"type": "integer", "minimum": 0}, "descriptor_results": {"type": "integer", "minimum": 0},
+        "source_tokens": {"type": "integer", "minimum": 0}, "trait_rows": {"type": "integer", "minimum": 0}
+      }
+    },
+    "descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["collection", "path", "uri", "descriptor_sha256", "result_sha256", "source_token_count", "trait_row_count"],
+      "properties": {
+        "collection": {"$ref": "#/$defs/nonEmpty"}, "path": {"$ref": "#/$defs/nonEmpty"}, "uri": {"type": "string", "format": "uri"},
+        "descriptor_sha256": {"$ref": "#/$defs/sha256"}, "result_sha256": {"$ref": "#/$defs/sha256"},
+        "source_token_count": {"type": "integer", "minimum": 0}, "trait_row_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "traitSourcePackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["published_source_commit", "publication_semantics", "publication_release", "path", "package_manifest", "descriptor_manifest", "counts", "descriptors", "integrity_note"],
+      "properties": {
+        "published_source_commit": {"$ref": "#/$defs/commit"}, "publication_semantics": {"$ref": "#/$defs/nonEmpty"},
+        "publication_release": {"$ref": "#/$defs/publicationRelease"}, "path": {"$ref": "#/$defs/nonEmpty"},
+        "package_manifest": {"$ref": "#/$defs/fileRef"}, "descriptor_manifest": {"$ref": "#/$defs/fileRef"},
+        "counts": {"$ref": "#/$defs/packageCounts"}, "descriptors": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/descriptor"}},
+        "integrity_note": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "traitAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "method", "marketplace_metrics", "non_claims", "source_package", "descriptor"],
+      "properties": {
+        "status": {"const": "transparent_linked_descriptors_available"}, "method": {"$ref": "#/$defs/nonEmpty"},
+        "marketplace_metrics": {"const": "not_used"}, "non_claims": {"$ref": "#/$defs/stringArray"},
+        "source_package": {"$ref": "#/$defs/traitSourcePackage"}, "descriptor": {"$ref": "#/$defs/descriptor"}
+      }
+    },
     "titleBinding": {
       "type": "object",
       "properties": {
@@ -177,11 +356,12 @@
         "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
         "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-        "artist": {"type": "object", "additionalProperties": true},
-        "project": {"type": "object", "additionalProperties": true},
-        "metadata_snapshot": {"type": "object", "additionalProperties": true},
-        "generator_snapshot": {"type": "object", "additionalProperties": true},
-        "claims": {"type": "object", "additionalProperties": true},
+        "source": {"$ref": "#/$defs/sourceHeads"},
+        "artist": {"$ref": "#/$defs/artist"},
+        "project": {"$ref": "#/$defs/project"},
+        "metadata_snapshot": {"$ref": "#/$defs/metadataSnapshot"},
+        "generator_snapshot": {"$ref": "#/$defs/generatorSnapshot"},
+        "claims": {"$ref": "#/$defs/claims"},
         "museum_observations": {
           "type": "object",
           "properties": {
@@ -196,12 +376,13 @@
           "unevaluatedProperties": false
         },
         "visual_observation_record": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.VO-\\d{2}$"},
-        "trait_analysis": {"type": "object", "additionalProperties": true},
+        "trait_analysis": {"$ref": "#/$defs/traitAnalysis"},
         "evidence_grade": {"type": "string", "minLength": 1},
         "uncertainties": {"type": "array", "minItems": 1, "items": {"type": "string"}},
         "source_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
       },
       "required": ["object_id", "accession_lot_id", "title", "creator", "medium", "credit_line", "chain_identity", "title_binding", "rights", "condition", "current_state", "state_history", "state_history_semantics", "preservation", "display"]
     }
-  ]
+  ],
+  "unevaluatedProperties": false
 }

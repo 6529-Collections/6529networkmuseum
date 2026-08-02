@@ -1,0 +1,169 @@
+{
+  "manifest_type": "6529NM_CASEY_ACCESSION_DILIGENCE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "subject_id": "6529NM.2026.001",
+  "observed_at": "2026-08-02T10:41:45.007Z",
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "status": "complete",
+  "inventory": {
+    "file_count": 22,
+    "raw_rpc_response_count": 19
+  },
+  "entries": [
+    {
+      "path": "README.md",
+      "sha256": "a0fe994da9d4ee16d5a9209fbdc3f2ffecb94ef39083fa728092fbb609285107",
+      "size": 2322,
+      "media_type": "text/plain",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "custody-audit-2026-08-02.json",
+      "sha256": "dea94d2a73719c919b0092208afc64456735dffda7a2493bf3404faa43ed20ae",
+      "size": 46678,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "ofac-address-screening-2026-08-02.json",
+      "sha256": "299caf4f814ddeed0adc79e04703207494c72e7dc6173034d9e253571e1bc6de",
+      "size": 4355,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-01894b7d447233ed2f6062ceab951fca235f6b23029194d30b9530633f713cdb.json",
+      "sha256": "01894b7d447233ed2f6062ceab951fca235f6b23029194d30b9530633f713cdb",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-16888d0c663fce824d57d1180703d1ba891e6ce3e823f383fad9ce770d43e88c.json",
+      "sha256": "16888d0c663fce824d57d1180703d1ba891e6ce3e823f383fad9ce770d43e88c",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5.json",
+      "sha256": "3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-656161d0d2eb4ed3987fbb7dca0e621f11c2aa18a14c3d67e39433802713e853.json",
+      "sha256": "656161d0d2eb4ed3987fbb7dca0e621f11c2aa18a14c3d67e39433802713e853",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-68253d39820637b037053294b6a59d82dddccf46e9485e94dcd88ad72b07f773.json",
+      "sha256": "68253d39820637b037053294b6a59d82dddccf46e9485e94dcd88ad72b07f773",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-7c15ee86677585ba6ab3e0b31e12c4c3bb76ff96e6c336bfaa3985fdc3622771.json",
+      "sha256": "7c15ee86677585ba6ab3e0b31e12c4c3bb76ff96e6c336bfaa3985fdc3622771",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-86ede73bd39144bef759e28ed8b954afeae8cb8948df4a21cbcdd76f1d1ab867.json",
+      "sha256": "86ede73bd39144bef759e28ed8b954afeae8cb8948df4a21cbcdd76f1d1ab867",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-88840318af2836f476afd02635f1cbf2d6b0b138412d40fccc544bde82252cea.json",
+      "sha256": "88840318af2836f476afd02635f1cbf2d6b0b138412d40fccc544bde82252cea",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-9292899db6aa152c2652e3b4194d5c191d59c7c4a3e39e2ae797402c78153f46.json",
+      "sha256": "9292899db6aa152c2652e3b4194d5c191d59c7c4a3e39e2ae797402c78153f46",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-9efbf4986b9b4bf7e35db3fd0ce7f8b1ac8b04612e093fe6a71688a072938055.json",
+      "sha256": "9efbf4986b9b4bf7e35db3fd0ce7f8b1ac8b04612e093fe6a71688a072938055",
+      "size": 115,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-a68e3f861ab66623396385ca1af5709905b6395ec78c3b0655a13ac5025a89b8.json",
+      "sha256": "a68e3f861ab66623396385ca1af5709905b6395ec78c3b0655a13ac5025a89b8",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-afafffe9a77cee3210acc15e913f1686db4ea88eef78c7fdd591edb81bc8667b.json",
+      "sha256": "afafffe9a77cee3210acc15e913f1686db4ea88eef78c7fdd591edb81bc8667b",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5.json",
+      "sha256": "b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5",
+      "size": 13131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-c23cf8ab834d935e75871e13ddc95769886adbd047a030b10c70dbe1149673c0.json",
+      "sha256": "c23cf8ab834d935e75871e13ddc95769886adbd047a030b10c70dbe1149673c0",
+      "size": 116,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-d0ec2de8aaebea1ecc47f478a25e9a2272a6a18319691fa2ccecaf62a9360508.json",
+      "sha256": "d0ec2de8aaebea1ecc47f478a25e9a2272a6a18319691fa2ccecaf62a9360508",
+      "size": 131,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-de2236a5f092a39aebe08371012d68fb95f59a39628f14f85fa8a093f1a4987a.json",
+      "sha256": "de2236a5f092a39aebe08371012d68fb95f59a39628f14f85fa8a093f1a4987a",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc.json",
+      "sha256": "e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc",
+      "size": 48,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526.json",
+      "sha256": "e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526",
+      "size": 13137,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-ff19afdb03ff28afb6a75ad640bd98cca5e85f3f12a6f9676df52e2666b6986c.json",
+      "sha256": "ff19afdb03ff28afb6a75ad640bd98cca5e85f3f12a6f9676df52e2666b6986c",
+      "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    }
+  ]
+}

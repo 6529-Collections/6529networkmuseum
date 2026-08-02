@@ -47,6 +47,11 @@ that need the whole repository or need to compare values:
   an explicit rights status (`granted`, `denied`, or `not_applicable` are all
   decisions; this gate does not grant rights), condition assessment,
   preservation evidence, and a distinct reviewer;
+- the Casey post-accession diligence record must independently pass review,
+  bind the complete twenty-two-file evidence package, reproduce all seven
+  finalized-state owners and token-level approvals, retain a stable finalized
+  block boundary and ENS resolution, and preserve the OFAC positive control,
+  eight exact-address no-match observations, and their express limitations;
 - a `WINNER` governance observation is adopted, while a `PARTICIPATORY`
   observation cannot be marked adopted;
 - constructor and reviewer IDs differ;

@@ -27,8 +27,8 @@
     },
     {
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:9e3955dc9cb89f588bb51e90b63bd25852e9dbe48b055a1a8ff9d4fedffca68c",
-      "size": 2751
+      "sha256": "sha256:d60e28310a293960ad4d6242d0392723be6b203d8c0fea145a22e15487e9a259",
+      "size": 2958
     },
     {
       "path": ".gitignore",
@@ -42,13 +42,13 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:ebede4a13d8460d78e8a8b99aab56196403ff54f6e89b8a7bffffae5442d694d",
-      "size": 17794
+      "sha256": "sha256:677596bc6c5fc0f32dce96dec28bd57ec26caff6af8092764c9ba3d0488b4426",
+      "size": 19740
     },
     {
       "path": "README.md",
-      "sha256": "sha256:0bd5237407c1fe78cc97cfdc1f18ad890e32078dd27057052f25290c173cf682",
-      "size": 5494
+      "sha256": "sha256:534c72285bbae56e46330d174c4454e8989af4005636129d44fd59ddddeb26b3",
+      "size": 5663
     },
     {
       "path": "docs/accession-standard.md",
@@ -57,13 +57,13 @@
     },
     {
       "path": "docs/casey-accession-control.md",
-      "sha256": "sha256:c9288d37e420d8424b9efd66e2adeab9597b1ba6563e814178d80bbeb7ee01c3",
-      "size": 6004
+      "sha256": "sha256:ee4fcaeb27161ff04ccc9c2d5035305738322fec5c09c64d16dd966091edfd1c",
+      "size": 7526
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:7b30d391612a3563c615cbace47098c2df97261181bcd1f2118e142015682cd1",
-      "size": 9894
+      "sha256": "sha256:d3e1e014d4dc1f37ba4c40517372b1dd4d1971071000981d1cb052da265ac47d",
+      "size": 10275
     },
     {
       "path": "docs/external-works-registry.md",
@@ -77,8 +77,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:cd5397ee4051b773016f8518bb5c7019ae3fdf9e9d3538db4adfd3895f0ccc93",
-      "size": 11912
+      "sha256": "sha256:5e1ca547c7f8fc19f31b0bb83c5307de4f2352133717a619062d3b1d60f67949",
+      "size": 13329
     },
     {
       "path": "docs/onchain-design.md",
@@ -236,6 +236,16 @@
       "size": 26645
     },
     {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x5c81a596cfad46c84544d3e6a105209c36076f09697380d4693c6ad549e4b6c4"
+      },
+      "path": "records/accessions/6529NM.2026.001/post-accession-diligence.json",
+      "sha256": "sha256:861badc16ae655045b6dbcb2c14fab7a7bff0759d545133cde93f3e782760579",
+      "size": 10423
+    },
+    {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md",
       "sha256": "sha256:b84cd7e565f496c31d8e20b243ee9f53daab8b3ec4a4528bb2d675f5977d8c19",
       "size": 4810
@@ -289,6 +299,11 @@
       "path": "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
       "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615",
       "size": 8180
+    },
+    {
+      "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
+      "sha256": "sha256:6c2142ba2cf8c0de2c6a7eb843457cc5bffbdb9602d6017e1fcafa046fefeea4",
+      "size": 7871
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
@@ -689,11 +704,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x798b3287e874160ba8bbe23f943e695cb78153a7e633d987934bb90a3be307c9"
+        "digest": "0x0ed97f2233f5c1be89c64a06e1a648b1506317fc642c160a6ef40e14f22b91e9"
       },
       "path": "schemas/accession-lot.schema.json",
-      "sha256": "sha256:1cd0fb289c158f121c843afea45aef432f9bb4aac6c3edd76e647287538c6df2",
-      "size": 4484
+      "sha256": "sha256:93af874be77ba33fd06eb402fe952fe0b148ba2f1671fe8bfe6882bb0f94d295",
+      "size": 18513
     },
     {
       "content_hash": {
@@ -869,11 +884,21 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xda0fc4114126120dbd7e4ee717ebcdec0665f6166787fc61ec66ca523511719c"
+        "digest": "0x7b5fbd7c8710a19215984f8ec0ec72c560025b32e36319e533571e237dcd66a9"
       },
       "path": "schemas/object-record.schema.json",
-      "sha256": "sha256:385bd196af1b8de9fd4434ebf140cb464c2dd082f5ffd1c37cdccc618d5f9e64",
-      "size": 12232
+      "sha256": "sha256:c3eb7ed8a78abcc1730dce88c1b71407f5e878a07b75c56f6b8f1592c23fdff5",
+      "size": 21204
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x13a1d30708323ef214a601263e0f09cf8247e4afc4e5b086b1706667b0a4d458"
+      },
+      "path": "schemas/post-accession-diligence.schema.json",
+      "sha256": "sha256:014dac411fd99311821712b412d75012a14871bf006506b2a9613bbc4e9f55c1",
+      "size": 9723
     },
     {
       "content_hash": {
@@ -969,11 +994,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x16c678c39964bccf674cc24caf56fb32fd29cc3045f94fa31266c4fc5b02e841"
+        "digest": "0xb85e0ca929a006cf3ba2939398e1fd8dcc2d24ffd31b66641489cc48494500d3"
       },
       "path": "schemas/transaction-provenance.schema.json",
-      "sha256": "sha256:af2c782e8e7e2887aa14fa7d1c004c9e174f505b3ab3476fde674048705b6cac",
-      "size": 6759
+      "sha256": "sha256:ae5e4eaa037723b64f389db0d30ae0454d18017feec77b39e27520317732dd0a",
+      "size": 7183
     },
     {
       "content_hash": {
@@ -991,9 +1016,19 @@
       "size": 33645
     },
     {
+      "path": "scripts/acquire_casey_custody_audit.py",
+      "sha256": "sha256:6f005a8831c8178145416c2131e1e7d16fdc3793fcb907dab083e3a129d525ab",
+      "size": 15365
+    },
+    {
       "path": "scripts/bootstrap_validate.py",
       "sha256": "sha256:2fa70c1e5d84f315eb9faa504d88c8d798c859000c2314f7ef1e88793d2330a9",
       "size": 29644
+    },
+    {
+      "path": "scripts/build_casey_diligence_manifest.py",
+      "sha256": "sha256:bf03b2b9a06a362bad0ed53f4a0731e404a8d00fa616790217ebe0a871676453",
+      "size": 4193
     },
     {
       "path": "scripts/build_casey_package_manifest.py",
@@ -1062,8 +1097,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:e454c4e9b974a96cfe75908a8cbc7c7301d04134d2cfcc17d3075c4ee1210dea",
-      "size": 62238
+      "sha256": "sha256:cd7c62b29c1f1ff6dbd9e83c13a03ca0df91f845b6b60a0ccd04ea95cc10654c",
+      "size": 69863
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1127,8 +1162,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:83531abe18b5139c70d2f5cfe9e55e80579e3a5126dadbfc2903f9af8c7db8dc",
-      "size": 255589
+      "sha256": "sha256:1f791b388a4e93950cd9cf60233ade4b4b83b6f036b70b1e4f7000b9e1b5e8c3",
+      "size": 257027
     },
     {
       "content_hash": {
@@ -1472,8 +1507,8 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:85a3a818255677caae037dd586e40e05127a002b97481453747c768609a1760f",
-      "size": 27573
+      "sha256": "sha256:c167984847a7a72eb6bd7c63c4445766ae03f6f4551f1c76487a86c7dc142476",
+      "size": 31823
     },
     {
       "path": "tests/test_control_plane.py",
@@ -1508,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x4004101974748da1886396dadfd18f6e6cf8239ac9fb4ef7236a3663f013c8fc"
+    "digest": "0xf75356b64ab78bfb755644039b732671e181316644edc73156cd8b4ac5627a4e"
   },
-  "manifest_sha256": "sha256:c49207bee4789e5c45a984233434fa502616d3fcc0d3dd97ded1eac1c271aa66",
+  "manifest_sha256": "sha256:463494e331aead12bea3ee83f783d2bb0dffa94025fdadabfc669cb817b86c8e",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

@@ -1,6 +1,313 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://6529networkmuseum.org/schemas/accession-lot-v1.json",
+  "$defs": {
+    "nonEmpty": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "address": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+    "bytes32": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "stringArray": {"type": "array", "items": {"$ref": "#/$defs/nonEmpty"}},
+    "sourceHeads": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["casey_research_head", "control_plane_head", "casey_collection_snapshot_package_published_source_commit"],
+      "properties": {
+        "casey_research_head": {"$ref": "#/$defs/commit"},
+        "control_plane_head": {"$ref": "#/$defs/commit"},
+        "casey_collection_snapshot_package_published_source_commit": {"$ref": "#/$defs/commit"}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_type", "evidence_class", "source_refs", "text"],
+      "properties": {
+        "claim_type": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_class": {"enum": ["A", "B", "C", "D", "E"]},
+        "source_refs": {"$ref": "#/$defs/stringArray"},
+        "text": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "fileRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "uri", "sha256"],
+      "properties": {
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "uri": {"type": "string", "format": "uri"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "publicationRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["published_release_commit", "path", "uri", "sha256", "scope"],
+      "properties": {
+        "published_release_commit": {"$ref": "#/$defs/commit"},
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "uri": {"type": "string", "format": "uri"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "scope": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "packageCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bound_files", "raw_files", "derived_files", "descriptor_results", "source_tokens", "trait_rows"],
+      "properties": {
+        "bound_files": {"type": "integer", "minimum": 0},
+        "raw_files": {"type": "integer", "minimum": 0},
+        "derived_files": {"type": "integer", "minimum": 0},
+        "descriptor_results": {"type": "integer", "minimum": 0},
+        "source_tokens": {"type": "integer", "minimum": 0},
+        "trait_rows": {"type": "integer", "minimum": 0}
+      }
+    },
+    "descriptor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["collection", "path", "uri", "descriptor_sha256", "result_sha256", "source_token_count", "trait_row_count"],
+      "properties": {
+        "collection": {"$ref": "#/$defs/nonEmpty"},
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "uri": {"type": "string", "format": "uri"},
+        "descriptor_sha256": {"$ref": "#/$defs/sha256"},
+        "result_sha256": {"$ref": "#/$defs/sha256"},
+        "source_token_count": {"type": "integer", "minimum": 0},
+        "trait_row_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "traitSourcePackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["published_source_commit", "publication_semantics", "publication_release", "path", "package_manifest", "descriptor_manifest", "counts", "descriptors", "integrity_note"],
+      "properties": {
+        "published_source_commit": {"$ref": "#/$defs/commit"},
+        "publication_semantics": {"$ref": "#/$defs/nonEmpty"},
+        "publication_release": {"$ref": "#/$defs/publicationRelease"},
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "package_manifest": {"$ref": "#/$defs/fileRef"},
+        "descriptor_manifest": {"$ref": "#/$defs/fileRef"},
+        "counts": {"$ref": "#/$defs/packageCounts"},
+        "descriptors": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/descriptor"}},
+        "integrity_note": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "traitAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "method", "marketplace_metrics", "non_claims", "source_package"],
+      "properties": {
+        "status": {"const": "transparent_linked_descriptors_available"},
+        "method": {"$ref": "#/$defs/nonEmpty"},
+        "marketplace_metrics": {"const": "not_used"},
+        "non_claims": {"$ref": "#/$defs/stringArray"},
+        "source_package": {"$ref": "#/$defs/traitSourcePackage"}
+      }
+    },
+    "controlledDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["acceptance_date_semantics", "basis", "completion_status", "current_state", "decision_authority", "outcome", "rationale", "accession_status"],
+      "properties": {
+        "acceptance_date_semantics": {"$ref": "#/$defs/nonEmpty"},
+        "basis": {"$ref": "#/$defs/stringArray"},
+        "completion_status": {"enum": ["complete", "not_complete"]},
+        "current_state": {"$ref": "#/$defs/nonEmpty"},
+        "decision_authority": {"$ref": "#/$defs/nonEmpty"},
+        "outcome": {"$ref": "#/$defs/nonEmpty"},
+        "rationale": {"$ref": "#/$defs/nonEmpty"},
+        "accession_status": {"enum": ["complete", "not_complete"]}
+      }
+    },
+    "collectionCuratorialStatement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artist_statement", "museum_interpretation", "policy_application", "rationale", "public_materials", "status", "trait_analysis", "review_outcome", "review_record", "reviewed_at", "reviewer", "institutional_author", "decision_authority", "documentation_role"],
+      "properties": {
+        "artist_statement": {"$ref": "#/$defs/claim"},
+        "museum_interpretation": {"$ref": "#/$defs/claim"},
+        "policy_application": {"$ref": "#/$defs/claim"},
+        "rationale": {"$ref": "#/$defs/stringArray"},
+        "public_materials": {"$ref": "#/$defs/stringArray"},
+        "status": {"$ref": "#/$defs/nonEmpty"},
+        "trait_analysis": {"$ref": "#/$defs/traitAnalysis"},
+        "review_outcome": {"$ref": "#/$defs/nonEmpty"},
+        "review_record": {"$ref": "#/$defs/nonEmpty"},
+        "reviewed_at": {"$ref": "#/$defs/timestamp"},
+        "reviewer": {"$ref": "#/$defs/nonEmpty"},
+        "institutional_author": {"$ref": "#/$defs/nonEmpty"},
+        "decision_authority": {"$ref": "#/$defs/nonEmpty"},
+        "documentation_role": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "objectIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["caip19", "contract", "custody_receipt_log", "object_id", "title", "token_id"],
+      "properties": {
+        "caip19": {"$ref": "#/$defs/nonEmpty"},
+        "contract": {"$ref": "#/$defs/address"},
+        "custody_receipt_log": {"type": "integer", "minimum": 0},
+        "object_id": {"$ref": "#/$defs/nonEmpty"},
+        "title": {"$ref": "#/$defs/nonEmpty"},
+        "token_id": {"type": "string", "pattern": "^[0-9]+$"}
+      }
+    },
+    "rawEvidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byte_mode", "media_type", "path", "sha256", "size"],
+      "properties": {
+        "byte_mode": {"const": "raw"},
+        "media_type": {"$ref": "#/$defs/nonEmpty"},
+        "path": {"$ref": "#/$defs/nonEmpty"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size": {"type": "integer", "minimum": 0}
+      }
+    },
+    "receiptSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block_hash", "block_number", "block_time", "evidence", "ens_semantics", "evidence_grade", "log_indices", "museum_custody_address", "purpose", "receipt_status", "transaction_from", "transaction_hash", "transaction_to", "transfer_count", "verification"],
+      "properties": {
+        "block_hash": {"$ref": "#/$defs/bytes32"},
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_time": {"$ref": "#/$defs/timestamp"},
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["acquisition", "response"],
+          "properties": {"acquisition": {"$ref": "#/$defs/rawEvidenceRef"}, "response": {"$ref": "#/$defs/rawEvidenceRef"}}
+        },
+        "ens_semantics": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_grade": {"enum": ["A", "B", "C", "D", "E"]},
+        "log_indices": {"type": "object", "patternProperties": {"^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$": {"type": "integer", "minimum": 0}}, "additionalProperties": false},
+        "museum_custody_address": {"$ref": "#/$defs/address"},
+        "purpose": {"$ref": "#/$defs/nonEmpty"},
+        "receipt_status": {"type": "string", "pattern": "^0x[01]$"},
+        "transaction_from": {"$ref": "#/$defs/address"},
+        "transaction_hash": {"$ref": "#/$defs/bytes32"},
+        "transaction_to": {"$ref": "#/$defs/address"},
+        "transfer_count": {"type": "integer", "minimum": 1},
+        "verification": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "donationObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["donation_status", "object_id", "rights_status", "title", "rights_record"],
+      "properties": {
+        "donation_status": {"$ref": "#/$defs/nonEmpty"},
+        "object_id": {"$ref": "#/$defs/nonEmpty"},
+        "rights_status": {"$ref": "#/$defs/nonEmpty"},
+        "title": {"$ref": "#/$defs/nonEmpty"},
+        "rights_record": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "restrictedInstrumentRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content_hash", "custodian", "hash_algorithm", "note", "public_reference", "status"],
+      "properties": {
+        "content_hash": {"$ref": "#/$defs/sha256"},
+        "custodian": {"$ref": "#/$defs/nonEmpty"},
+        "hash_algorithm": {"const": "sha256"},
+        "note": {"$ref": "#/$defs/nonEmpty"},
+        "public_reference": {"$ref": "#/$defs/nonEmpty"},
+        "status": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "rightsMatrixEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basis", "grant_status", "license", "object_id", "rights_record"],
+      "properties": {
+        "basis": {"$ref": "#/$defs/nonEmpty"},
+        "grant_status": {"$ref": "#/$defs/nonEmpty"},
+        "license": {"$ref": "#/$defs/nonEmpty"},
+        "object_id": {"$ref": "#/$defs/nonEmpty"},
+        "rights_record": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "donationRightsSchedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objects", "policy_basis", "public_summary", "restricted_instrument_ref", "rights_matrix"],
+      "properties": {
+        "objects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/donationObject"}},
+        "policy_basis": {"$ref": "#/$defs/stringArray"},
+        "public_summary": {"$ref": "#/$defs/nonEmpty"},
+        "restricted_instrument_ref": {"$ref": "#/$defs/restrictedInstrumentRef"},
+        "rights_matrix": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/rightsMatrixEntry"}}
+      }
+    },
+    "preservationObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generator_raw_status", "generator_sha256", "generator_uri", "metadata_raw_path", "metadata_sha256", "metadata_uri", "object_id"],
+      "properties": {
+        "generator_raw_status": {"$ref": "#/$defs/nonEmpty"},
+        "generator_sha256": {"$ref": "#/$defs/sha256"},
+        "generator_uri": {"type": "string", "format": "uri"},
+        "metadata_raw_path": {"$ref": "#/$defs/nonEmpty"},
+        "metadata_sha256": {"$ref": "#/$defs/sha256"},
+        "metadata_uri": {"type": "string", "format": "uri"},
+        "object_id": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "publicInventoryItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artist", "caip19", "inventory_number", "public_page", "status", "title"],
+      "properties": {
+        "artist": {"$ref": "#/$defs/nonEmpty"},
+        "caip19": {"$ref": "#/$defs/nonEmpty"},
+        "inventory_number": {"$ref": "#/$defs/nonEmpty"},
+        "public_page": {"$ref": "#/$defs/nonEmpty"},
+        "status": {"$ref": "#/$defs/nonEmpty"},
+        "title": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "restrictedAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content", "instrument_sha256", "instrument_status", "purpose", "record_id", "visibility"],
+      "properties": {
+        "content": {"type": "null"},
+        "instrument_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "instrument_status": {"$ref": "#/$defs/nonEmpty"},
+        "purpose": {"$ref": "#/$defs/nonEmpty"},
+        "record_id": {"$ref": "#/$defs/nonEmpty"},
+        "visibility": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "stewardshipAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "status", "priority"],
+      "properties": {
+        "action": {"$ref": "#/$defs/nonEmpty"},
+        "status": {"$ref": "#/$defs/nonEmpty"},
+        "priority": {"$ref": "#/$defs/nonEmpty"}
+      }
+    },
+    "sourceManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["casey_research_head", "control_plane_head", "evidence_manifest_path", "evidence_manifest_sha256", "source_evidence", "casey_collection_snapshot_package"],
+      "properties": {
+        "casey_research_head": {"$ref": "#/$defs/commit"},
+        "control_plane_head": {"$ref": "#/$defs/commit"},
+        "evidence_manifest_path": {"$ref": "#/$defs/nonEmpty"},
+        "evidence_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "source_evidence": {"$ref": "#/$defs/stringArray"},
+        "casey_collection_snapshot_package": {"$ref": "#/$defs/traitSourcePackage"}
+      }
+    }
+  },
   "allOf": [
     {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
     {
@@ -21,19 +328,20 @@
         "formal_acceptance_date": {"type": "string", "format": "date-time"},
         "gift_acceptance_authorization_record": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "accession_status": {"type": "string", "enum": ["not_complete", "complete"]},
-        "controlled_decision": {"type": "object", "additionalProperties": true},
-        "collection_curatorial_statement": {"type": "object", "additionalProperties": true},
-        "object_identities": {"type": "array", "minItems": 7, "items": {"type": "object", "additionalProperties": true}},
-        "receipt_summary": {"type": "object", "additionalProperties": true},
+        "source": {"$ref": "#/$defs/sourceHeads"},
+        "controlled_decision": {"$ref": "#/$defs/controlledDecision"},
+        "collection_curatorial_statement": {"$ref": "#/$defs/collectionCuratorialStatement"},
+        "object_identities": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/objectIdentity"}},
+        "receipt_summary": {"$ref": "#/$defs/receiptSummary"},
         "provenance_schedule": {"$ref": "https://6529.network/museum/schemas/transaction-provenance/v1#/$defs/provenanceSchedule"},
-        "donation_rights_schedule": {"type": "object", "additionalProperties": true},
+        "donation_rights_schedule": {"$ref": "#/$defs/donationRightsSchedule"},
         "preservation_manifest": {
           "type": "object",
           "additionalProperties": false,
           "properties": {
             "manifest_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
             "manifest_uri": {"type": "string", "format": "uri"},
-            "objects": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": true}},
+            "objects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/preservationObject"}},
             "raw_generator_status": {"type": "string", "minLength": 1},
             "raw_metadata_status": {"type": "string", "minLength": 1},
             "status": {"type": "string", "enum": ["not_started", "in_progress", "complete", "superseded"]},
@@ -47,17 +355,17 @@
           },
           "required": ["manifest_sha256", "manifest_uri", "objects", "raw_generator_status", "raw_metadata_status", "status", "fixity_sha256", "active_stewardship_actions"]
         },
-        "public_inventory": {"type": "array", "minItems": 7, "items": {"type": "object", "additionalProperties": true}},
-        "restricted_registrar_annex": {"type": "object", "additionalProperties": true},
-        "constructor_controls": {"type": "object", "additionalProperties": true},
-        "trait_analysis": {"type": "object", "additionalProperties": true},
+        "public_inventory": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/publicInventoryItem"}},
+        "restricted_registrar_annex": {"$ref": "#/$defs/restrictedAnnex"},
+        "trait_analysis": {"$ref": "#/$defs/traitAnalysis"},
         "remaining_gates": {"type": "array", "items": {"type": "string"}},
-        "ongoing_stewardship_actions": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+        "ongoing_stewardship_actions": {"type": "array", "items": {"$ref": "#/$defs/stewardshipAction"}},
         "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string"}},
-        "source_manifest": {"type": "object", "additionalProperties": true},
+        "source_manifest": {"$ref": "#/$defs/sourceManifest"},
         "evidence_grade": {"type": "string", "minLength": 1}
       },
       "required": ["accession_number", "acquisition_method", "acceptance_date", "object_ids", "governing_references"]
     }
-  ]
+  ],
+  "unevaluatedProperties": false
 }

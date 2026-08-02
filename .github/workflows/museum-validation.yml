@@ -56,6 +56,9 @@ jobs:
       - name: Verify Casey snapshot and descriptor package
         run: python scripts/verify_casey_snapshot_package.py
 
+      - name: Check Casey post-accession diligence evidence manifest
+        run: python scripts/build_casey_diligence_manifest.py --check
+
   deterministic:
     name: deterministic-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -85,4 +88,5 @@ jobs:
           python scripts/check_fetch_guard.py
           python -m unittest discover -s tests -v
           python scripts/validate_full_with_casey.py
+          python scripts/build_casey_diligence_manifest.py --check
           python scripts/generate_manifest.py --check
