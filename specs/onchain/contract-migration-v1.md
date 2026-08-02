@@ -187,7 +187,18 @@ interface IMuseumStreamOwnerRecordConvergenceAdapterV1 {
     function ownerRecordHashDomain() external pure returns (bytes32);
     function ownerRecordHashVectorId() external pure returns (bytes32);
 }
+
+interface IStreamCoreCollectionView {
+    function tokenCollectionIdentity(uint256 tokenId) external view returns (
+        bool mappingExists, uint256 collectionId,
+        uint256 collectionSerial, bool burned);
+}
 ```
+
+The Core read is published at the pinned Stream commit and has canonical
+selector `0xa6b638c9`. The Museum registry calls it directly on the admitted
+Core; it never accepts collection identity solely from the convergence
+adapter.
 
 External asset profiles use an admitted immutable, non-proxy canonicalizer
 with the following read-only contract surface. The registry MUST accept a
@@ -279,15 +290,22 @@ JUMPDEST targets, the exact hash is rejected. The scan is performed at
 admission and on every external-asset registration; an unscannable, changed,
 proxy-like, or non-allowlisted runtime is not admitted.
 
-The exact bilateral reference carries `ownerRecordModule`, `streamCore`,
-`collectionId`, `tokenId`, `streamSubjectId`, `ownerRecordHash`,
+The exact bilateral reference carries the Museum CAIP-19 external-asset
+identity, `ownerRecordModule`, `streamCore`, `collectionId`, `collectionSerial`,
+`tokenId`, `streamSubjectId`, `ownerRecordHash`,
 `ownerRecordHashDomain`, and `ownerRecordHashVectorId`. The admitted adapter
-MUST return every value other than the Museum subject and token ID: its
+returns the collection, Stream subject, and owner-record hash: its
 `streamCore()` binds the deployment, and `ownerRecordBinding(tokenId)` returns
-the collection, stored Stream subject, and current owner-record hash in one
-bounded read. The Museum registry independently recomputes the subject from
+those three fields in one bounded read. The Museum registry independently
+reads `tokenCollectionIdentity(tokenId)` from the admitted Core and requires a
+present, unburned mapping with nonzero collection and serial whose collection
+equals the adapter result. It independently recomputes the Stream subject from
 `STREAM_SUBJECT_TOKEN_V1`, `block.chainid`, the admitted core, and `tokenId`,
-and rejects any disagreement. V1 does not invent a record hash from the
+and rejects any disagreement. It also reconstructs the exact lowercase
+`eip155:<chainId>/erc721:<streamCore>/<tokenId>` CAIP-19 string, requires the
+existing Museum `ExternalAsset` row to use `MUSEUM_ASSET_PROFILE_CAIP19_V1`
+and that exact string/hash, recomputes its Museum external subject, and
+requires the caller's Museum subject to equal it. V1 does not invent a record hash from the
 published EIP-712 authorization typehash: the authorization digest and stored
 owner `recordHash` are distinct commitments.
 
@@ -313,7 +331,9 @@ view for every prior admission; the zero revision is absent and MUST revert.
 Each revision binds one exact Stream Core address/runtime hash and one exact
 adapter address/runtime hash. Admission rechecks both direct `extcodehash`
 values and requires bounded exact-length adapter reads whose `streamCore()`,
-hash domain, and vector ID equal the supplied values. Every mirror write
+hash domain, and vector ID equal the supplied values, plus source-backed
+evidence for the Core's `tokenCollectionIdentity(uint256)` selector and return
+shape. Every mirror write
 repeats those runtime and readback checks, so a changed core, adapter, domain,
 or vector cannot use an earlier admission.
 
@@ -2129,6 +2149,7 @@ interface INetworkMuseumRegistryV1 {
         address streamCore;
         address ownerRecordModule;
         uint256 collectionId;
+        uint256 collectionSerial;
         uint256 tokenId;
         bytes32 streamSubjectId;
         bytes32 ownerRecordHash;
@@ -2546,7 +2567,7 @@ implementation cannot accidentally authorize an overload:
 | Selector | Caller requirement | Additional anti-pollution rule |
 |---|---|---|
 | `0x73c0a0b4` `registerExternalAsset(bytes32,string,bytes32)` | Enabled `MUSEUM_GLOBAL_ROLE_REGISTRAR_V1` or `MUSEUM_GLOBAL_ROLE_MIGRATION_ADMIN_V1` grant for `msg.sender`; never an open/public or family-grant caller | `assetProfileId` MUST be admitted; the profile canonicalizer/runtime checks MUST pass; `expectedSubjectId` MUST equal the deterministic subject; an existing subject never overwrites or aliases another asset. |
-| `0xc1713cf2` `setStreamMirrorLink(bytes32,uint256,bytes32)` | Enabled global registrar or migration-admin grant, or the direct current governance-executor closed binding during the convergence-gate action; never a governance-executor grant row | The Museum subject MUST already exist; the link is write-once; core/module/collection/subject/hash-domain/vector values are runtime-checked and read back, and the expected owner-record hash is only a substitution guard. |
+| `0xc1713cf2` `setStreamMirrorLink(bytes32,uint256,bytes32)` | Enabled global registrar or migration-admin grant, or the direct current governance-executor closed binding during the convergence-gate action; never a governance-executor grant row | The Museum subject MUST be the registered CAIP-19 identity for the exact chain/Core/token tuple; the link is write-once; Core and adapter independently agree on collection identity, while module/subject/hash/domain/vector values are runtime-checked and read back. |
 | `0x51b648fd` `admitStreamOwnerRecordInterface(address,bytes32,address,bytes32,bytes32,bytes32,bytes32)` | Direct current governance executor plus active authority/provider capability | The evidence hash, exact Stream core and adapter addresses/runtime hashes, owner-record domain/vector, and pinned Stream commit are recorded before any mirror link can be set. |
 | `0xaf2fb948` `admitHttpsResolverProfile(bytes32,bytes32,address,uint64,uint64)` | Direct current governance executor under the closed authority-admin binding plus active authority/provider capability | Profile ID is write-once; attestor, TTL bounds, profile revision, and authority revision are stored before any assertion. |
 | `0x1e0c9fe6` `recordHttpsAssertionBySig(string,bytes32,bytes32,uint64,bytes32,uint64,bytes32,uint64,uint64,address,uint256,uint64,address[],bytes)` | Valid EIP-712 signature from the resolver profile's attestor with enabled HTTPS-attestor role | Canonical URI/host, current resolver revision, signer nonce/deadline, monotone assertion revision/predecessor, sorted bounded ABI address-set hash, routability, TTL, assertion hash, and signature commitment are recomputed on-chain. |
@@ -2600,21 +2621,37 @@ actual enabled global role ID used by `msg.sender` and the active
 `authorityRevision`; a later role rotation never rewrites this registration.
 
 `setStreamMirrorLink` is also not an untrusted assertion channel. It requires
-an existing Museum subject and an admitted `streamOwnerRecordInterface` whose
+an existing Museum external-asset subject and an admitted
+`streamOwnerRecordInterface` whose
 convergence evidence is anchored to the pinned Stream compatibility commit.
 The caller supplies only that Museum subject, the Stream token ID, and an
 `expectedOwnerRecordHash` substitution guard. The contract loads the admitted
 core/module/domain/vector, rechecks both direct runtime hashes, and performs
 bounded exact-length staticcalls to `streamCore()`,
 `ownerRecordHashDomain()`, `ownerRecordHashVectorId()`, and
-`ownerRecordBinding(tokenId)`. It requires the adapter's core/domain/vector to
-equal the admitted row, derives
+`ownerRecordBinding(tokenId)` on the adapter and
+`tokenCollectionIdentity(tokenId)` directly on the Core. It requires the
+adapter's core/domain/vector to equal the admitted row; the Core call to return
+exactly 128 bytes, `mappingExists == true`, `burned == false`, and nonzero
+collection ID and collection serial; and the adapter's 96-byte binding return
+to contain that exact Core-read collection ID. It derives
 `keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, uint256(block.chainid),
 streamCore, uint256(tokenId)))`, and requires the adapter-returned subject to
-equal that derivation. The returned collection ID and owner-record hash must
-be nonzero, and the hash must equal the caller's expected value. The registry
-stores only these checked/read-back values; no Stream core, module,
-collection, subject, hash domain, or vector is caller-selected.
+equal that derivation.
+
+The registry also reconstructs the exact ASCII external-asset identity
+`eip155:<block.chainid>/erc721:<40-lowercase-hex-streamCore>/<tokenId>` using
+canonical decimal integers without leading zeroes. It requires the stored
+`ExternalAsset` row for `subjectId` to use
+`MUSEUM_ASSET_PROFILE_CAIP19_V1`, contain that exact string and its
+`keccak256(bytes(...))`, and have
+`subjectId == externalAssetSubjectId(MUSEUM_ASSET_PROFILE_CAIP19_V1,
+canonicalAssetId)`. This is an equality check against the already registered
+identity, not a second registration or caller-provided alias. The owner-record
+hash must be nonzero and equal the caller's expected value. The registry stores
+only these independently checked/read-back values; no Museum subject, Stream
+core, module, collection, Stream subject, hash domain, or vector is
+caller-selected.
 
 The link is immutable and one-per-subject in V1; the contract MUST NOT
 silently replace it after a source transfer or owner-record revision. A later
@@ -2622,8 +2659,10 @@ source revision is a new Museum evidence record, not a mutation of this link.
 The state and event MUST persist the actual enabled global role ID used by
 `msg.sender` and the active `authorityRevision`. Negative conformance vectors
 MUST reject substituted core/module code, collection, derived subject,
-owner-record hash, domain, vector, expected hash, truncated return data, and a
-changed readback between admission and link creation.
+owner-record hash, domain, vector, expected hash, swapped Museum subject or
+CAIP-19 identity, absent/burned Core token identity, zero collection serial,
+truncated adapter/Core return data, and a changed readback between admission
+and link creation.
 
 `admitHttpsResolverProfile` is authority-controlled and append-only. It MUST
 reject a zero attestor, zero or inverted TTL bounds, and a profile ID already
@@ -2756,7 +2795,7 @@ error WritesFrozen();
 error InvalidSuccessor(address successor);
 error SuccessorAlreadySet(address successor);
 error InvalidStreamMirrorLink(bytes32 subjectId, address streamCore, address ownerRecordModule,
-    uint256 collectionId, uint256 tokenId);
+    uint256 collectionId, uint256 collectionSerial, uint256 tokenId);
 error StreamMirrorRuntimeMismatch(address target, bytes32 expected, bytes32 actual);
 error StreamMirrorReadbackMismatch(uint256 tokenId, bytes32 field, bytes32 expected, bytes32 actual);
 error StreamMirrorReturnDataInvalid(address module, bytes4 selector, uint256 actualLength);
@@ -2835,7 +2874,8 @@ event RecordFamilyGrantUpdated(bytes32 indexed familyId, uint8 indexed authoriza
     address indexed account, bool enabled, uint64 revision, uint64 authorityRevision,
     address authority);
 event StreamMirrorLinkSet(bytes32 indexed subjectId, address indexed streamCore,
-    address indexed ownerRecordModule, uint256 collectionId, uint256 tokenId,
+    address indexed ownerRecordModule, uint256 collectionId, uint256 collectionSerial,
+    uint256 tokenId,
     bytes32 streamSubjectId, bytes32 ownerRecordHash, bytes32 ownerRecordHashDomain,
     bytes32 ownerRecordHashVectorId, uint64 revision, bytes32 authorizationRoleId,
     uint64 authorityRevision, address authority);
@@ -3545,23 +3585,34 @@ named-field crosswalk plus source-backed stored-hash and readback vectors.
 
 This synthetic, non-deployment vector exercises the closed mirror-link gate.
 The registry admits exact core and adapter addresses plus both runtime hashes,
-then reads the adapter's core/domain/vector and the complete token binding. It
-derives the subject from the admitted core and token ID. The executable
-checker rejects substitutions of the core, adapter, collection, subject,
-owner-record hash, hash domain, vector, return-data length, or caller expected
-hash before any link can be stored.
+then reads the adapter's core/domain/vector/binding and the Core's independent
+token-collection identity. It derives both the Stream subject and the Museum
+CAIP-19 external-asset subject from the admitted core and token ID. The
+executable checker rejects a swapped Museum subject or canonical asset,
+nonzero adapter collection substitution, and substitutions of the core,
+adapter, Stream subject, owner-record hash, hash domain, vector, return-data
+length, or caller expected hash before any link can be stored.
 
 <!-- STREAM_MIRROR_LINK_VECTOR_V1_BEGIN -->
 ```text
 streamCore = 0x0000000000000000000000000000000000001001
 ownerRecordModule = 0x0000000000000000000000000000000000002002
 collectionId = 6529
+collectionSerial = 713
+coreMappingExists = true
+coreBurned = false
 tokenId = 771769
+tokenCollectionIdentitySelector = 0xa6b638c9
+canonicalAssetId = eip155:1/erc721:0x0000000000000000000000000000000000001001/771769
+canonicalAssetIdHash = 0x90b7a82bdf2c1cb3873489133de2fa3acf8e8d8d6322970ce9d24c2d1be0610f
+museumSubjectId = 0xfdcb969005c2ac59498f282a4a95b19c7a186392e8f5224db12e249fd72a541d
 streamSubjectId = 0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4
 ownerRecordHash = 0xfa797ba9f4ce165b23b56b09a245ca0776764c4043725b15b75397783abbc0b0
 ownerRecordHashDomain = 0x3333333333333333333333333333333333333333333333333333333333333333
 ownerRecordHashVectorId = 0x4444444444444444444444444444444444444444444444444444444444444444
-substitutedCoreModuleCollectionSubjectHashDomainVector = REJECT
+swappedMuseumSubject = REJECT
+substitutedNonzeroAdapterCollectionId = REJECT
+substitutedMuseumAssetCoreModuleCollectionSubjectHashDomainVector = REJECT
 ```
 <!-- STREAM_MIRROR_LINK_VECTOR_V1_END -->
 
@@ -3844,11 +3895,14 @@ freeze/successor recovery when the active provider returns
 `canAuthorize == false`.
 
 Stream mirror conformance MUST reject a changed core or adapter runtime,
-adapter core/domain/vector readback mismatch, non-exact return-data length,
-zero or substituted collection ID, a subject not derived from the admitted
-core/chain/token tuple, zero or substituted owner-record hash, and a mismatch
-with the caller's expected-hash guard. The registry MUST persist no partial
-link state on any rejection.
+adapter core/domain/vector readback mismatch, non-exact adapter or Core
+return-data length, absent/burned Core mapping, zero collection serial,
+zero or nonzero-substituted adapter collection ID relative to the direct Core
+read, a Stream subject not derived from the admitted core/chain/token tuple, a
+Museum subject or stored CAIP-19 identity not derived from that same tuple,
+zero or substituted owner-record hash, and a mismatch with the caller's
+expected-hash guard. The registry MUST persist no partial link state on any
+rejection.
 
 It MUST also prove that:
 

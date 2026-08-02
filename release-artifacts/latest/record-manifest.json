@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:66b8385086b95a40be74a06ee89dc767f06401dd3702227099515d6ae57fadb0",
-      "size": 11661
+      "sha256": "sha256:cd5397ee4051b773016f8518bb5c7019ae3fdf9e9d3538db4adfd3895f0ccc93",
+      "size": 11912
     },
     {
       "path": "docs/onchain-design.md",
@@ -97,8 +97,8 @@
     },
     {
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:1c630b275f95f97a0d22bb56ca10851102426b1ee0d00b01f57accf968ca1f61",
-      "size": 9762
+      "sha256": "sha256:e8841b229763f44c68087cc2979291fc593f654dfd96d210c16358eaf7f29aab",
+      "size": 10307
     },
     {
       "path": "governance/github-repository-governance.md",
@@ -652,8 +652,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:dc073163295c6dbe314cfd6991ad11adf12ad17d45d02ba70bf8ed360125e039",
-      "size": 239786
+      "sha256": "sha256:ab81bbae6fa56899e31c424a7435a5bbdfa5fb35104eda7c8baab3f44b22804b",
+      "size": 242847
     },
     {
       "content_hash": {
@@ -672,8 +672,8 @@
     },
     {
       "path": "specs/onchain/manifest_abi_selector_check_v1.py",
-      "sha256": "sha256:279019bbe957df695a0eccce65b215574e3c72f097e32195511db8ec85746e9f",
-      "size": 40325
+      "sha256": "sha256:28c1bfc5a08d9cb1906435c4566153920c8b75d93eb62590687ca106ac031af6",
+      "size": 40381
     },
     {
       "content_hash": {
@@ -702,8 +702,8 @@
     },
     {
       "path": "specs/onchain/stream_mirror_link_check_v1.py",
-      "sha256": "sha256:ab747e6d50e01ad53647673baa20a958537aad9827cfe04b1e266f4e5002fb00",
-      "size": 6490
+      "sha256": "sha256:34eb3ac624f34522920484aad933509269b72e39f23081ec62e722604b365175",
+      "size": 11417
     },
     {
       "content_hash": {
@@ -1023,9 +1023,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x5401a3c8e87e1bcc1107b771f03c9f6ce625fd9b8240db315781e2d43b46cb7b"
+    "digest": "0x7865e12dfea581cf2564036ea7f4f41f29066f1c040ac47377edc5d3bc6af19c"
   },
-  "manifest_sha256": "sha256:b87b35eaadb6576cbe62a422e11489029db398c28410d828e7aae6dfa99cf9dc",
+  "manifest_sha256": "sha256:ace83d8c2fc4fe1a34bdb5f46ba278c3a8afba9c75923612f79455629d972253",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

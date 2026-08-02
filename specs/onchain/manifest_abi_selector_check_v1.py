@@ -134,6 +134,7 @@ INTERFACE_ONLY_SELECTORS = (
     ("ownerRecordBinding(uint256)", "0x814e950a"),
     ("ownerRecordHashDomain()", "0xe79efeda"),
     ("ownerRecordHashVectorId()", "0xfda2f68a"),
+    ("tokenCollectionIdentity(uint256)", "0xa6b638c9"),
 )
 
 # Stream publishes these owner-record selectors as a design-level ABI at the

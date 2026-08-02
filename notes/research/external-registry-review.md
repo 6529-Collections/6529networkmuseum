@@ -75,6 +75,15 @@ checker applies the exact V1 URI predicate after schema validation and rejects
 CIDv0, malformed identifiers, alternate encodings, userinfo, ports, paths,
 queries, fragments, and uppercase scheme aliases.
 
+`python -B specs/onchain/stream_mirror_link_check_v1.py` models the closed
+Stream mirror gate. It requires the caller's Museum subject to be the existing
+CAIP-19 subject derived from the exact chain/Core/token identity, compares the
+adapter collection to the independent 128-byte Core
+`tokenCollectionIdentity(tokenId)` read, and rejects subject swaps, nonzero
+collection substitutions, changed runtimes/readbacks, burned or absent token
+identity, and truncated return data. Its synthetic values are conformance
+fixtures, not deployed Stream facts.
+
 HTTPS assertion cardinality is operationally per distinct canonical URI,
 including its path: migration planning counts one assertion, current-pointer
 entry, storage allocation, and renewal stream for every distinct HTTPS URI,

@@ -827,8 +827,11 @@ Stream interface admission now binds exact Core and adapter addresses plus
 both runtime hashes, domain, vector, and evidence. Mirror-link creation accepts
 only the Museum subject, token ID, and expected-hash guard; it rechecks both
 runtimes and reads the adapter's Core, domain, vector, collection, derived
-subject, and owner-record hash with exact-length bounded calls. A new ninth
-network-free checker rejects substitution of every readback field. The three
+subject, and owner-record hash with exact-length bounded calls. It independently
+reads Core token-collection identity and requires the Museum subject to be the
+registered CAIP-19 identity for the exact chain/Core/token. A new ninth
+network-free checker rejects swapped Museum subjects, nonzero adapter collection
+substitution, and substitution of every other readback field. The three
 changed governed selectors produce closed selector-set hash
 `0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5`
 and therefore new executor binding commitment
@@ -838,3 +841,26 @@ Focused conformance scripts pass locally. Full regeneration, repository-wide
 validation, a new exact head, fresh CI, and fresh independent/bot review remain
 required. Nothing in this entry authorizes deployment, a network write, or a
 completed accession.
+
+## 2026-08-02 - Museum-subject and Core-collection mirror binding
+
+Exact-head reviews of `eff5811` agreed that release-attestation enforcement
+was closed but found two remaining Stream mirror gaps. A valid Stream token
+could be linked to the wrong already registered Museum subject, and the model
+treated any nonzero adapter collection ID as valid instead of comparing it to
+an independent source. That head was not merged.
+
+The local remediation now reconstructs the exact lowercase
+`eip155:<chainId>/erc721:<streamCore>/<tokenId>` string, checks its hash and
+`MUSEUM_ASSET_PROFILE_CAIP19_V1` row, recomputes the Museum external subject,
+and requires equality with the caller's `subjectId`. It also calls the pinned
+Stream Core `tokenCollectionIdentity(uint256)` selector `0xa6b638c9` directly,
+requires an existing unburned mapping with nonzero collection and serial, and
+requires the adapter's independently returned collection ID to equal the Core
+result. The retained vector now rejects a wrong existing Museum subject, a
+changed token/canonical asset, nonzero adapter/Core collection disagreement,
+absent/burned tokens, zero serials, and truncated Core or adapter return data.
+
+Focused harnesses and the full 79-test/validator/Casey-verifier regression pass
+are green locally. A regenerated exact commit, push, CI, and fresh independent
+reviews are still required; no superseded-head approval counts.

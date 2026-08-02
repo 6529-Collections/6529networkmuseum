@@ -163,7 +163,10 @@ Later exact-head review closed the Museum mirror side as well. Interface
 admission now binds exact Stream Core and adapter addresses, both runtime code
 hashes, and the owner-record hash domain/vector. Link creation accepts only a
 Museum subject, token ID, and expected-hash guard; it reads back the adapter's
-core, collection, derived subject, owner-record hash, domain, and vector under
-bounded exact-length calls. A retained offline checker rejects each substituted
-value. This remains a conformance design until a source-backed Stream adapter
+core, collection, derived subject, owner-record hash, domain, and vector and
+independently reads the Core's token-collection identity under bounded
+exact-length calls. It also requires the Museum subject to be the registered
+CAIP-19 identity for the exact chain/Core/token tuple. A retained offline
+checker rejects swapped Museum subjects and nonzero collection substitutions
+as well as each other substituted value. This remains a conformance design until a source-backed Stream adapter
 and deployment satisfy the convergence gate.

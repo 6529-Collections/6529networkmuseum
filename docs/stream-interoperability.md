@@ -117,14 +117,30 @@ function ownerRecordHashDomain() external view returns (bytes32);
 function ownerRecordHashVectorId() external view returns (bytes32);
 ```
 
+The registry also uses the pinned Core read directly, independently of the
+adapter:
+
+```solidity
+function tokenCollectionIdentity(uint256 tokenId) external view returns (
+    bool mappingExists,
+    uint256 collectionId,
+    uint256 collectionSerial,
+    bool burned
+);
+```
+
 Governance admits exact Stream Core and adapter addresses, both runtime code
 hashes, the owner-record hash domain/vector, and convergence evidence. A
 Museum mirror-link call supplies only the existing Museum subject, token ID,
 and expected owner-record hash. The registry rechecks both runtimes, reads all
-adapter values with bounded exact-length static calls, derives the Stream
-subject itself, and stores only the returned and verified binding. The caller
-cannot select a core, module, collection, Stream subject, hash domain, or
-vector. The executable synthetic readback and substitution vectors are in
+adapter values and Core token identity with bounded exact-length static calls,
+and requires their collection IDs to match. It derives the Stream subject
+itself. It separately reconstructs the exact lowercase
+`eip155:<chainId>/erc721:<core>/<tokenId>` identity and requires the supplied
+Museum subject to be the already registered CAIP-19 external-asset subject for
+that exact string. The caller cannot swap the Museum subject or select a core,
+module, collection, Stream subject, hash domain, or vector. The executable
+synthetic readback and substitution vectors are in
 `specs/onchain/stream_mirror_link_check_v1.py`; they do not open the deployment
 gate.
 
