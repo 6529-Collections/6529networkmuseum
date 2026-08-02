@@ -134,6 +134,8 @@ PREMIS object roles distinguish source capture, source/edit/print masters, displ
 
 Keep on-chain transfer history, legal-title history, and marketplace history separate. Record rights under `STREAM_RIGHTS_V1`, including basis and an explicit grant status for reproduction, publication, exhibition, print, derivative use, and AI training. Unknown rights are recorded as `unspecified`, not omitted.
 
+The controlled lifecycle state `acquired` records an approved administrative acquisition decision. It never, by itself, establishes legal title; `title_binding` requires its own evidence and may remain `pending` after custody receipt and formal gift acceptance.
+
 The curatorial section carries significance, selection rationale, collection relationships, context, bibliography, exhibition/publication history, research notes, authorship, and dates.
 
 ## Evidence classes

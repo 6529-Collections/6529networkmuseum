@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7901b915e441763a910c2f63f345ef4dff55780a7f856654feafec5d53a990d3"
+      "digest": "0xe8dafe39bc9f0033205393dbd5b7f66c7b3d4497a6f7ac03bbf8c76ceecf639e"
     },
-    "effectiveAt": 1785596311,
+    "effectiveAt": 1785596657,
     "recordType": "RIGHTS_STATEMENT",
     "schemaId": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
     "signatureHash": {
@@ -19,14 +19,14 @@
     "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.02.json"
   },
   "payload": {
-    "basis": "No public donation deed, license, or other rights instrument is recorded. Custody and platform metadata do not grant rights.",
+    "basis": "Retained Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated rights instrument is recorded. The metadata label is source evidence, not by itself a Museum grant. Registrar review of scope, applicability, attribution, and permitted uses remains pending.",
     "constructor": {
       "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "observed_at": "2026-08-01T14:58:31.905115Z",
       "role": "constructor"
     },
     "created_at": "2026-08-01T14:58:31.905115Z",
-    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "effective_at": "2026-08-01T15:04:17Z",
     "events": [
       {
         "authority_reference": "6529NM.2026.001",
@@ -54,6 +54,12 @@
         "label": "Casey art and technical research",
         "observed_at": "2026-08-01T14:58:31.905115Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/9f38bd4ba5f779540eabf2dfce019cc1382561e2/notes/research/casey-reas-art-technical-research.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Retained Art Blocks token metadata",
+        "observed_at": "2026-08-01T15:04:17Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json"
       },
       {
         "evidence_class": "C",
@@ -95,8 +101,8 @@
       }
     },
     "object_id": "6529NM.2026.001.02",
-    "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:668a7c2febf8eb63867eff85f28cf10561dd8b1adfbc079a5ce5d774273d2c7d",
+    "observed_at": "2026-08-01T15:04:17Z",
+    "payload_sha256": "sha256:fbc0d3b7f5f9cd5331c8527cff4789a259e883032fc49ee8565f2bd5669b9520",
     "record_id": "6529NM.2026.001.RIGHTS.02",
     "record_status": "constructed",
     "record_type": "RIGHTS_STATEMENT",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7856423ca5ad0905dbc345aac594b97990a9ea5733984fe8b0c1d1ba647e6966"
+      "digest": "0xb96dca3307333684755d80974b7d6ff9165e7a7da33cf06e026a6ae1c5fd92bb"
     },
     "effectiveAt": 1785624900,
     "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
@@ -147,7 +147,7 @@
       },
       {
         "label": "Common seven-transfer receipt evidence",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/notes/research/casey-reas-onchain-evidence.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/notes/research/casey-reas-onchain-evidence.md",
         "observed_at": "2026-08-01T22:55:00Z",
         "evidence_class": "A",
         "notes": "Transaction and log schedule are independently recorded; legal title is a separate pending question."
@@ -191,7 +191,7 @@
     ],
     "observed_at": "2026-08-01T22:55:00Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:c1ffeaa6b2675ef740258c2d3f9f44b528c7fc5bcadb3822f16226dc2db25374",
+    "payload_sha256": "sha256:1ca53e82cb2b2a2cc38791845a4b62db434073e8e90cb9bd044e1a98e68ca3f1",
     "permanent_collection_intent": "The Museum formally accepts this seven-object gift for the permanent collection under the adopted donation pathway, subject to the stated completion boundaries, governing controls, and ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.001.GAA-01",
     "record_status": "constructed",

@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x84dfdf12e3b99691acd9c8d2d6674608b1a93f13271e2c92d507f45f33f564e3"
+      "digest": "0xfe0673ca65c39d3584dd32f4283ba62b35e0ce60e198c7ab359d8aebd257e40b"
     },
-    "effectiveAt": 1785596311,
+    "effectiveAt": 1785624900,
     "recordType": "WORK_DESCRIPTION",
     "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
     "signatureHash": {
@@ -87,7 +87,7 @@
       "observed_at": "2026-08-01T14:58:31.905115Z",
       "status": "not_assessed"
     },
-    "effective_at": "2026-08-01T14:58:31.905115Z",
+    "effective_at": "2026-08-01T22:55:00Z",
     "evidence_grade": "A for custody; B for artist/platform statements; C for technical observation.",
     "evidence_refs": [
       {
@@ -136,8 +136,8 @@
       "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5"
     },
     "object_id": "6529NM.2026.001.02",
-    "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:1274b11d9a9a9568210a173d5b376252013bf27eb69d6a36d63f8d3decbb5f43",
+    "observed_at": "2026-08-01T22:55:00Z",
+    "payload_sha256": "sha256:935a0c8451c39a5375c3e21b761f046adb255e875e3dc5776c36e3b519f40fde",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -165,32 +165,32 @@
     "reviewer": null,
     "rights": {
       "ai_training": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       },
       "derivative_use": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       },
       "exhibition": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       },
       "print": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       },
       "publication": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       },
       "reproduction": {
-        "basis": "No public donation instrument or license grant is recorded; registrar review pending.",
+        "basis": "Art Blocks metadata asserts CC BY-NC 4.0; no donation-specific or independently adjudicated grant is recorded, and registrar review is pending.",
         "grant_status": "unspecified",
         "observed_at": "2026-08-01T14:58:31.905115Z"
       }
@@ -210,28 +210,28 @@
         "evidence_refs": [
           "6529NM.2026.001"
         ],
-        "observed_at": "2026-08-01T12:00:00Z",
+        "observed_at": "2026-08-01T13:25:47Z",
         "state": "offered"
       },
       {
         "evidence_refs": [
-          "6529NM.2026.001"
+          "6529NM.2026.001.GAA-01"
         ],
-        "observed_at": "2026-08-01T12:05:00Z",
+        "observed_at": "2026-08-01T22:55:00Z",
         "state": "authorized"
       },
       {
         "evidence_refs": [
-          "6529NM.2026.001"
+          "6529NM.2026.001.GAA-01"
         ],
-        "observed_at": "2026-08-01T12:15:00Z",
+        "observed_at": "2026-08-01T22:55:00Z",
         "state": "acquired"
       },
       {
         "evidence_refs": [
-          "6529NM.2026.001"
+          "6529NM.2026.001.GAA-01"
         ],
-        "observed_at": "2026-08-01T13:25:47Z",
+        "observed_at": "2026-08-01T22:55:00Z",
         "state": "received_onchain"
       }
     ],
@@ -349,7 +349,8 @@
       "On-chain custody is not a legal title opinion.",
       "Historical events without retained per-event receipt evidence are indexer_observed.",
       "HTTP metadata and generator routes may change.",
-      "No display, reproduction, copyright, or preservation grant is asserted."
+      "No display, reproduction, copyright, or preservation grant is asserted.",
+      "The controlled state acquired records the Museum's formally accepted administrative acquisition decision; it is not an executed title instrument, and title_binding remains pending."
     ],
     "visibility": "public",
     "visual_observation_record": "6529NM.2026.001.VO-01"

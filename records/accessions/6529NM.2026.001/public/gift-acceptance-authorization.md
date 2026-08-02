@@ -16,6 +16,12 @@ gift is accepted for the permanent collection, with public donor credit to
 `0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498` into
 `networkmuseum.6529.eth` / `0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c`.
 
+**Public status:** The works are verified as received on-chain and are in
+accession processing. Legal title binding, rights scope, condition and
+preservation assessment, technical verification, and independent registrar
+and curatorial review remain pending. This is not a completed
+`STREAM_ACCESSION_V1` accession.
+
 ## Basis
 
 The authorization applies the adopted Art Blocks donation preapproval
