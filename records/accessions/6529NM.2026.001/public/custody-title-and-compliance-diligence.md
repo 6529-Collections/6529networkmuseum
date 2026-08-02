@@ -1,8 +1,11 @@
 # Casey REAS donation: custody, title, and compliance diligence
 
-Record: `6529NM.2026.001.DILIGENCE-01`  
-Accession: `6529NM.2026.001`  
-Review outcome: completed; pass with documented limits  
+Record: `6529NM.2026.001.DILIGENCE-01`
+
+Accession: `6529NM.2026.001`
+
+Review outcome: completed; pass with documented limits
+
 Collection status: accessioned; no status change
 
 ## Determination
