@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/gift-acceptance-authorization-v1.json",
+  "$defs": {
+    "chainReference": {"type": "string", "minLength": 1},
+    "asset": {
+      "type": "object",
+      "properties": {
+        "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
+        "title": {"type": "string", "minLength": 1},
+        "caip19": {"type": "string", "pattern": "^[a-z0-9][a-z0-9+.-]*:[^\\s]+$"},
+        "contract": {"$ref": "#/$defs/chainReference"},
+        "token_id": {"type": "string", "minLength": 1},
+        "custody_receipt_log": {"type": "integer", "minimum": 0}
+      },
+      "required": ["object_id", "title", "caip19", "contract", "token_id", "custody_receipt_log"],
+      "unevaluatedProperties": false
+    },
+    "governingBasis": {
+      "oneOf": [
+        {"$ref": "#/$defs/waveGovernanceBasis"},
+        {"$ref": "#/$defs/recordAuthorityBasis"}
+      ]
+    },
+    "waveGovernanceBasis": {
+      "type": "object",
+      "properties": {
+        "basis_type": {"const": "wave_governance_decision"},
+        "decision_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "wave_serial": {"type": "integer", "minimum": 1},
+        "drop_id": {"type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"},
+        "title": {"type": "string", "minLength": 1},
+        "observed_wave_status": {"type": "string", "minLength": 1},
+        "governance_effect": {"type": "string", "enum": ["adopted", "superseded", "revoked", "unknown"]},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "effect_basis": {"type": "string", "enum": ["reviewed_governance_record", "direct_wave_observation"]},
+        "governance_record_ref": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "live_api_field": {"const": "drop_type"},
+        "live_api_status": {"type": "string", "minLength": 1},
+        "live_api_observed_at": {"type": "string", "format": "date-time"},
+        "governance_effect_basis": {"type": "string", "minLength": 1},
+        "source_uri": {"type": "string", "pattern": "^https://[^\\s]+$"}
+      },
+      "required": ["basis_type", "decision_id", "wave_serial", "drop_id", "title", "observed_wave_status", "governance_effect", "observed_at", "effect_basis", "governance_record_ref", "live_api_field", "live_api_status", "live_api_observed_at", "governance_effect_basis", "source_uri"],
+      "unevaluatedProperties": false
+    },
+    "recordAuthorityBasis": {
+      "type": "object",
+      "properties": {
+        "basis_type": {"type": "string", "enum": ["policy_record", "delegated_authority_record"]},
+        "record_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "title": {"type": "string", "minLength": 1},
+        "authority_effect": {"type": "string", "enum": ["governs_acceptance", "authorizes_acceptance", "delegates_acceptance_authority"]},
+        "effective_at": {"type": "string", "format": "date-time"},
+        "source_uri": {"type": "string", "pattern": "^https://[^\\s]+$"}
+      },
+      "required": ["basis_type", "record_id", "title", "authority_effect", "effective_at", "source_uri"],
+      "unevaluatedProperties": false
+    },
+    "receipt": {
+      "type": "object",
+      "properties": {
+        "transaction_hash": {"$ref": "#/$defs/chainReference"},
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_time": {"type": "string", "format": "date-time"},
+        "from": {"$ref": "#/$defs/chainReference"},
+        "to": {"$ref": "#/$defs/chainReference"},
+        "custody_ens": {"type": "string", "minLength": 1},
+        "transfer_count": {"type": "integer", "minimum": 1},
+        "receipt_status": {"const": "0x1"}
+      },
+      "required": ["transaction_hash", "block_number", "block_time", "from", "to", "custody_ens", "transfer_count", "receipt_status"],
+      "unevaluatedProperties": false
+    },
+    "authorityDeclaration": {
+      "type": "object",
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "user_supplied_donor_and_authority_fact",
+            "signed_donor_declaration",
+            "executed_gift_instrument",
+            "verified_wallet_control_declaration",
+            "authorized_representative_declaration"
+          ]
+        },
+        "statement": {"type": "string", "minLength": 1},
+        "authentication": {"type": "string", "minLength": 1},
+        "limitations": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}}
+      },
+      "required": ["source_type", "statement", "authentication", "limitations"],
+      "unevaluatedProperties": false
+    },
+    "completionBoundary": {
+      "type": "object",
+      "properties": {
+        "current_state": {"type": "string", "enum": ["received_onchain", "accessioned"]},
+        "accession_status": {"type": "string", "enum": ["not_complete", "complete"]},
+        "external_work_accession_certificate": {"type": "string", "enum": ["pending", "executed"]},
+        "title_binding": {"type": "string", "enum": ["pending", "executed"]},
+        "rights": {"type": "string", "enum": ["pending", "reviewed_with_conditions"]},
+        "condition": {"type": "string", "enum": ["pending", "reviewed_pass_with_conditions"]},
+        "preservation": {"type": "string", "enum": ["pending", "in_progress", "complete"]},
+        "independent_review": {"type": "string", "enum": ["pending", "reviewed"]}
+      },
+      "required": ["current_state", "accession_status", "external_work_accession_certificate", "title_binding", "rights", "condition", "preservation", "independent_review"],
+      "unevaluatedProperties": false
+    },
+    "institutionalDecisionAuthority": {
+      "type": "object",
+      "properties": {
+        "decision_status": {"const": "formally_accepted"},
+        "authority_basis": {
+          "type": "string",
+          "enum": [
+            "user_authorized_institutional_decision",
+            "adopted_governance_decision",
+            "delegated_accession_authority",
+            "registrar_authority"
+          ]
+        },
+        "effective_at": {"type": "string", "format": "date-time"},
+        "documentation_qa_status": {"type": "string", "enum": ["pending_independent_review", "reviewed"]},
+        "publication_semantics": {"type": "string", "minLength": 1}
+      },
+      "required": ["decision_status", "authority_basis", "effective_at", "documentation_qa_status", "publication_semantics"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "GIFT_ACCEPTANCE_AUTHORIZATION"},
+        "schema_id": {"const": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c"},
+        "record_status": {"enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"enum": ["pending_independent_review", "reviewed", "superseded"]},
+        "authorization_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.GAA-\\d{2}$"},
+        "authorization_kind": {"const": "gift_acceptance_and_accession_authorization"},
+        "authorization_status": {"const": "formally_accepted"},
+        "outcome": {"const": "formally_accepted_gift_and_accession_authorization"},
+        "formal_acceptance_date": {"type": "string", "format": "date-time"},
+        "acquisition_method": {"const": "donation"},
+        "donor_public_credit": {"type": "string", "minLength": 1},
+        "permanent_collection_intent": {"type": "string", "minLength": 1},
+        "consideration": {
+          "type": "object",
+          "properties": {
+            "status": {"const": "none"},
+            "statement": {"type": "string", "minLength": 1}
+          },
+          "required": ["status", "statement"],
+          "unevaluatedProperties": false
+        },
+        "donor_authority_declaration": {"$ref": "#/$defs/authorityDeclaration"},
+        "governing_basis": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/governingBasis"}},
+        "custody_receipt": {"$ref": "#/$defs/receipt"},
+        "assets": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/asset"}},
+        "institutional_decision_authority": {"$ref": "#/$defs/institutionalDecisionAuthority"},
+        "completion_boundary": {"$ref": "#/$defs/completionBoundary"},
+        "completion_blockers": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      },
+      "required": ["authorization_id", "authorization_kind", "authorization_status", "outcome", "formal_acceptance_date", "acquisition_method", "donor_public_credit", "permanent_collection_intent", "consideration", "donor_authority_declaration", "governing_basis", "custody_receipt", "assets", "institutional_decision_authority", "completion_boundary", "completion_blockers", "non_claims", "payload_sha256"]
+    }
+  ],
+  "unevaluatedProperties": false
+}

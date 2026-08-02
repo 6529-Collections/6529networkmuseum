@@ -1,7 +1,9 @@
 # Casey multi-object accession working plan
 
-Status: WIP planning input; no chain identity, title, custody, or accession fact verified
+Status: superseded planning input; completed by accession `6529NM.2026.001` on 2026-08-02
 Date: 2026-08-01 UTC
+
+Resolution: the final dossier verified all seven chain identities and the common custody receipt, accepted the donor's full gift, separated token title from Casey REAS's copyright, reviewed the object-specific CC BY-NC 4.0 terms, completed curatorial and technical decisions, and accessioned the lot. The final object identifiers use zero-padded suffixes `.01` through `.07`. This note remains unchanged below as the pre-verification plan; the controlling records are in [`records/accessions/6529NM.2026.001`](../../records/accessions/6529NM.2026.001/).
 
 The supplied accession-design draft proposes treating seven Casey REAS works as one accession lot with seven individual object records.
 

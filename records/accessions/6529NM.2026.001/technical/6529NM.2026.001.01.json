@@ -1,0 +1,160 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xd724195163573c681230069d58999aff7f3fbd8af94597b0f93b31f9ea3ab9ff"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "CONDITION_REPORT",
+    "schemaId": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5bc56576b64dd6d3f0fd97b900bce3c0489a47cdcd8bbe3460cd0d4d535a50cf",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json"
+  },
+  "payload": {
+    "assessments": {
+      "chain_identity": "green",
+      "metadata_retrieval": "green",
+      "generator_retrieval": "amber",
+      "dependencies": "amber",
+      "render": "amber",
+      "behavior": "amber",
+      "documentation": "amber",
+      "preservation": "amber",
+      "display": "amber"
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "observed_at": "2026-08-01T14:58:31.905115Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-01T14:58:31.905115Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "events": [
+      {
+        "authority_reference": "6529NM.2026.001",
+        "event_type": "condition_assessment",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Technical condition boundary",
+            "observed_at": "2026-08-01T14:58:31.905115Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/951f5afb95c511adaf879d017c662046ff6365b5/records/accessions/6529NM.2026.001"
+          }
+        ],
+        "occurred_at": "2026-08-01T14:58:31.905115Z",
+        "event_id": "6529NM.2026.001.COND.01.EVENT.condition_assessment.20260801T145831905115Z"
+      },
+      {
+        "event_id": "6529NM.2026.001.COND.01.EVENT.condition_reassessment.20260802T063000Z",
+        "event_type": "condition_reassessment",
+        "occurred_at": "2026-08-02T06:30:00Z",
+        "supersedes_event_id": "6529NM.2026.001.COND.01.EVENT.condition_assessment.20260801T145831905115Z",
+        "authority_reference": "6529NM.2026.001.TECHNICAL-REVIEW",
+        "evidence_refs": [
+          {
+            "label": "Reviewed technical and condition determination",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
+          },
+          {
+            "label": "Object-specific retained Art Blocks metadata",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/evidence/casey-reas/raw/metadata/6529NM.2026.001.01.json",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "B",
+            "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74"
+          },
+          {
+            "label": "Controlled visual observation",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/9ba2ea711e8701f14069fbc2fff8db82d40b055f",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:962a2cac987b81dc5c9d9bdf84f712a2465ad1b6f281b310132d11eebe07f9dd"
+          },
+          {
+            "label": "Independent generator observation transcript",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/3ee605d909aa4ffd8eac77ee1aab5cb13dfc3b70",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:a2e6a2295ffdbee3332fdeec7cd9e044d4bc5313cd63f9d6e5b67e01c3ac79da",
+            "notes": "Hash-bound exact-head review evidence; raw generator response bytes remain an active preservation action."
+          }
+        ]
+      }
+    ],
+    "evidence_refs": [
+      {
+        "label": "Reviewed technical and condition determination",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
+      },
+      {
+        "label": "Object-specific retained Art Blocks metadata",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/951f5afb95c511adaf879d017c662046ff6365b5/evidence/casey-reas/raw/metadata/6529NM.2026.001.01.json",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "B",
+        "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74"
+      },
+      {
+        "label": "Controlled visual observation",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/9ba2ea711e8701f14069fbc2fff8db82d40b055f",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:962a2cac987b81dc5c9d9bdf84f712a2465ad1b6f281b310132d11eebe07f9dd"
+      },
+      {
+        "label": "Independent generator observation transcript",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/3ee605d909aa4ffd8eac77ee1aab5cb13dfc3b70",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:a2e6a2295ffdbee3332fdeec7cd9e044d4bc5313cd63f9d6e5b67e01c3ac79da",
+        "notes": "Hash-bound exact-head review evidence; raw generator response bytes remain an active preservation action."
+      },
+      {
+        "label": "Preservation evidence manifest",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/b0d2655f6ef38a0df55588dab02bae1ea7d32dd9",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215"
+      }
+    ],
+    "method": "Reviewed synthesis of exact chain receipt and custody joins, retained metadata bytes and fixity, official generator observations, two-frame viewport evidence, documented controls, and preservation-package holdings and omissions.",
+    "object_id": "6529NM.2026.001.01",
+    "observed_at": "2026-08-02T06:30:00Z",
+    "outcome": "pass_with_conditions: no red condition is identified; the work is accessionable and display-ready with documented network/browser, attribution, monitoring, and fallback conditions while autonomous software preservation remains in progress.",
+    "payload_sha256": "sha256:c0efecef65ebe60146260d553ebb09b66be1d801287f362cd5b138cd30665e3a",
+    "protocol_state": "Accession-level technical and condition review complete; ongoing software preservation remains in progress.",
+    "record_id": "6529NM.2026.001.COND.01",
+    "record_status": "reviewed",
+    "record_type": "CONDITION_REPORT",
+    "record_version": "1.1.0",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.01"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
+    "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "source": {
+      "casey_research_head": "951f5afb95c511adaf879d017c662046ff6365b5",
+      "control_plane_head": "7193bfb9a0a6ead1871180b931aced755676b327"
+    },
+    "subject_id": "6529NM.2026.001.COND.01",
+    "visibility": "public"
+  }
+}

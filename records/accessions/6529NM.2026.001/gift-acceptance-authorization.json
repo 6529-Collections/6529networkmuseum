@@ -1,0 +1,226 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x7005ac17ed3735c61f696efc81890bfe2542f8a496a4bdd8bf53611146947c60"
+    },
+    "effectiveAt": 1785624900,
+    "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "schemaId": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xef4ce375d5a22b02b63dbfd18bfcf377f17bdf69d513a1d3f9f2bbdad03d203b",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/records/accessions/6529NM.2026.001/gift-acceptance-authorization.json"
+  },
+  "payload": {
+    "acquisition_method": "donation",
+    "assets": [
+      {
+        "object_id": "6529NM.2026.001.01",
+        "title": "CENTURY #31",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "token_id": "100000031",
+        "custody_receipt_log": 60
+      },
+      {
+        "object_id": "6529NM.2026.001.02",
+        "title": "CENTURY #724",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "token_id": "100000724",
+        "custody_receipt_log": 59
+      },
+      {
+        "object_id": "6529NM.2026.001.03",
+        "title": "CENTURY #401",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "token_id": "100000401",
+        "custody_receipt_log": 52
+      },
+      {
+        "object_id": "6529NM.2026.001.04",
+        "title": "Pre-Process #63",
+        "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+        "contract": "0x99a9b7c1116f9ceeb1652de04d5969cce509b069",
+        "token_id": "383000063",
+        "custody_receipt_log": 56
+      },
+      {
+        "object_id": "6529NM.2026.001.05",
+        "title": "Phototaxis #308",
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+        "contract": "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270",
+        "token_id": "164000308",
+        "custody_receipt_log": 53
+      },
+      {
+        "object_id": "6529NM.2026.001.06",
+        "title": "923 EMPTY ROOMS #713",
+        "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+        "contract": "0x145789247973c5d612bf121e9e4eef84b63eb707",
+        "token_id": "1000713",
+        "custody_receipt_log": 58
+      },
+      {
+        "object_id": "6529NM.2026.001.07",
+        "title": "Ex Nihilo (Cosmos) #248",
+        "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+        "contract": "0x0000000c687daed0fba60d1dba4e5f6149e8b894",
+        "token_id": "248",
+        "custody_receipt_log": 54
+      }
+    ],
+    "authorization_id": "6529NM.2026.001.GAA-01",
+    "authorization_kind": "gift_acceptance_and_accession_authorization",
+    "authorization_status": "formally_accepted",
+    "completion_blockers": [],
+    "completion_boundary": {
+      "current_state": "accessioned",
+      "accession_status": "complete",
+      "external_work_accession_certificate": "executed",
+      "title_binding": "executed",
+      "rights": "reviewed_with_conditions",
+      "condition": "reviewed_pass_with_conditions",
+      "preservation": "in_progress",
+      "independent_review": "reviewed"
+    },
+    "consideration": {
+      "status": "none",
+      "statement": "No consideration is recorded for this intentional gift. This record makes no valuation, tax, accounting, or legal characterization claim."
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "observed_at": "2026-08-01T22:55:00Z"
+    },
+    "created_at": "2026-08-01T22:55:00Z",
+    "custody_receipt": {
+      "transaction_hash": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+      "block_number": 25660311,
+      "block_time": "2026-08-01T13:25:47Z",
+      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_ens": "networkmuseum.6529.eth",
+      "transfer_count": 7,
+      "receipt_status": "0x1"
+    },
+    "donor_authority_declaration": {
+      "source_type": "user_supplied_donor_and_authority_fact",
+      "statement": "The Museum accepts the user's declaration that punk6529 made a full, intentional gift of the seven scheduled tokens and the donor's entire transferable interest in them, without consideration or retained donor interest.",
+      "authentication": "The declaration is recorded as the donor-and-authority fact supplied to the Museum and is corroborated by exact on-chain delivery and formal Museum acceptance.",
+      "limitations": [
+        "The full gift transfers token title and donor-held transferable interests; it does not assign Casey REAS's copyright.",
+        "Public blockchain evidence cannot disclose every possible private claim, incapacity, or off-chain dispute; the Museum reviewed and accepted that residual risk.",
+        "Commercial copyright use is not included; the reviewed Museum uses depend on CC BY-NC 4.0 or an applicable legal exception or limitation."
+      ]
+    },
+    "donor_public_credit": "punk6529",
+    "effective_at": "2026-08-01T22:55:00Z",
+    "evidence_refs": [
+      {
+        "label": "Adopted Art Blocks donation preapproval",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052156",
+        "observed_at": "2026-08-01T22:55:00Z",
+        "evidence_class": "B",
+        "notes": "Wave #1052156, adopted WINNER; collection-specific preapproval."
+      },
+      {
+        "label": "Adopted Donation Acceptance Policy",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052812",
+        "observed_at": "2026-08-01T22:55:00Z",
+        "evidence_class": "B",
+        "notes": "Wave #1052812, adopted WINNER; donation acceptance pathway."
+      },
+      {
+        "label": "Common seven-transfer receipt evidence",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68/notes/research/casey-reas-onchain-evidence.md",
+        "observed_at": "2026-08-01T22:55:00Z",
+        "evidence_class": "A",
+        "notes": "Transaction and log schedule are independently recorded. The completed accession certificate and reviewed institutional title declaration resolve legal title to the seven tokens."
+      }
+    ],
+    "formal_acceptance_date": "2026-08-01T22:55:00Z",
+    "governing_basis": [
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-GOV-1052156",
+        "wave_serial": 1052156,
+        "drop_id": "2e88273f-013c-4fdd-bea3-7de5451098e8",
+        "title": "Art Blocks donation preapproval",
+        "observed_wave_status": "WINNER",
+        "governance_effect": "adopted",
+        "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052156",
+        "observed_at": "2026-08-01T15:01:05Z",
+        "effect_basis": "reviewed_governance_record",
+        "governance_record_ref": "6529NM-GOV-REGISTER",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T15:01:05Z",
+        "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API drop_type=WINNER status; rating totals and rater counts are contextual and do not determine effect."
+      },
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-GOV-1052812",
+        "wave_serial": 1052812,
+        "drop_id": "86e43beb-b55d-42f0-9eea-a3c115b08abc",
+        "title": "Donation Acceptance Policy",
+        "observed_wave_status": "WINNER",
+        "governance_effect": "adopted",
+        "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052812",
+        "observed_at": "2026-08-01T15:01:05Z",
+        "effect_basis": "reviewed_governance_record",
+        "governance_record_ref": "6529NM-GOV-REGISTER",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T15:01:05Z",
+        "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API drop_type=WINNER status; rating totals and rater counts are contextual and do not determine effect."
+      }
+    ],
+    "institutional_decision_authority": {
+      "authority_basis": "user_authorized_institutional_decision",
+      "decision_status": "formally_accepted",
+      "documentation_qa_status": "reviewed",
+      "effective_at": "2026-08-01T22:55:00Z",
+      "publication_semantics": "The formal gift acceptance remains effective from 2026-08-01T22:55:00Z under direct Museum-authorized collection authority. The reviewed accession certificate records the completed title, rights, curatorial, condition, technical, and registrar determinations. Constructor and reviewer identifiers record documentary production and quality review; they do not replace or exercise the Museum's institutional decision authority."
+    },
+    "non_claims": [
+      "Token title does not transfer Casey REAS's copyright; the Museum relies on the object-specific CC BY-NC 4.0 license for approved noncommercial uses.",
+      "Commercial use, valuation, tax treatment, aesthetic ranking, and marketplace rarity are not determined by this authorization.",
+      "Ongoing software preservation and provenance enrichment are stewardship duties, not uncompleted accession decisions."
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "outcome": "formally_accepted_gift_and_accession_authorization",
+    "payload_sha256": "sha256:369539f00a20f3a2cd49b5dcdffe052118c7929f6f153428b5dc0005dd8a0fc2",
+    "permanent_collection_intent": "The Museum formally accepts this seven-object gift for the permanent collection under the adopted donation pathway, subject to the stated completion boundaries, governing controls, and ordinary collection stewardship responsibilities.",
+    "record_id": "6529NM.2026.001.GAA-01",
+    "record_status": "reviewed",
+    "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "record_version": "1.1.0",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM-ACC-2026-001"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
+    "schema_id": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "source": {
+      "governance_register": "records/governance/decisions.json",
+      "policy": "policies/donation-acceptance.md",
+      "user_authorized_instruction_observed_at": "2026-08-01T22:55:00Z"
+    },
+    "subject_id": "6529NM.2026.001",
+    "visibility": "public"
+  }
+}

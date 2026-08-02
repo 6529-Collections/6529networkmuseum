@@ -1,0 +1,374 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION",
+    "subjectId": "0x02addf77af16f7c3f8a1b77ea89ddbfdb594d858cb613e0343ce69a9769f7ddc",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xb68c504e9d09c27e0d31378a202a96574979a021bb642bddeb5ed8b0c5e5fa0b",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1785652200
+  },
+  "payload": {
+    "record_id": "6529NM-ACC-2026-001",
+    "record_type": "ACCESSION",
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "subject_id": "6529NM-ACC-2026-001",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-02T06:30:00Z",
+    "observed_at": "2026-08-02T06:30:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "role": "constructor",
+      "observed_at": "2026-08-02T06:30:00Z"
+    },
+    "reviewer": {
+      "id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-02T06:30:00Z"
+    },
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:97aff3ebd69e6d96c57097810db361dc4cb070a0bd00e27b9459e43edd0d8816",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.GAA-01",
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "evidence_refs": [
+      {
+        "label": "Raw Ethereum transaction receipt",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/feb5c7997a8cc25785206526a18015dccc68494b",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "A",
+        "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+      },
+      {
+        "label": "Title, rights, and accession review",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/6f4b354e46f3d7a9153e2ed6fdd3525562410e94",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
+      },
+      {
+        "label": "Technical and condition review",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/e6c166296f21bd3f72c76281a4fcc246a3b8cfc1",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
+      },
+      {
+        "label": "Curatorial accession review",
+        "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/7ab2688b63f1dceaea29971ba3105d218144596f",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "evidence_class": "C",
+        "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615"
+      }
+    ],
+    "accession_number": "6529NM.2026.001",
+    "acquiring_institution": "6529 Network Museum",
+    "object_ids": [
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "title_bindings": [
+      {
+        "object_id": "6529NM.2026.001.01",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.02",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.03",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.04",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.05",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.06",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      },
+      {
+        "object_id": "6529NM.2026.001.07",
+        "status": "executed",
+        "instrument_sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+        "block_number": 25660311,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-08-01T22:55:00Z",
+        "basis": "Full donor gift, completed delivery, formal Museum acceptance, and reviewed institutional title declaration bound to this exact token identity and transfer log."
+      }
+    ],
+    "acquisition_method": "donation",
+    "acceptance_date": "2026-08-01T22:55:00Z",
+    "review_outcomes": {
+      "institutional_authority": "effective_direct_museum_authorization_recorded_in_6529NM.2026.001.GAA-01",
+      "identity_and_custody": "pass",
+      "title": "pass_with_accepted_residual_private_claim_risk",
+      "rights": "pass_with_cc_by_nc_4_0_conditions",
+      "provenance": "pass_for_accession",
+      "curatorial": "approved_for_permanent_collection",
+      "condition_and_technical": "pass_with_conditions",
+      "display": "ready_with_conditions",
+      "preservation": "in_progress_nonblocking"
+    },
+    "ongoing_stewardship_actions": [
+      "Retain attributed static/live documentation and self-contained generator/dependency packages.",
+      "Complete two-environment render and interaction testing.",
+      "Maintain redundant replicas, fixity/recovery tests, custody checks, and provenance enrichment."
+    ],
+    "events": [
+      {
+        "event_type": "receipt",
+        "occurred_at": "2026-08-01T13:25:47Z",
+        "authority_reference": "ethereum-mainnet:25660311",
+        "evidence_refs": [
+          {
+            "label": "Raw Ethereum transaction receipt",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/feb5c7997a8cc25785206526a18015dccc68494b",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "A",
+            "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+          }
+        ]
+      },
+      {
+        "event_type": "acceptance",
+        "occurred_at": "2026-08-01T22:55:00Z",
+        "authority_reference": "6529NM.2026.001.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Gift Acceptance and Accession Authorization",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/0c70a2568cd8823c07cdf77e554468767df69a36",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:7aa55fa14306d530a2657a223b92821bb73328e85bf1535836435a9b237aeaba"
+          }
+        ]
+      },
+      {
+        "event_type": "acquisition",
+        "occurred_at": "2026-08-01T22:55:00Z",
+        "authority_reference": "6529NM.2026.001",
+        "evidence_refs": [
+          {
+            "label": "Reviewed accession lot",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/9a32bbe137286c24c4d2437e0ee9fea70e03438b",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:56eaabd78697202e20d24777a164e88d931b3ac0f873f43c4c3caf7483f754ec",
+            "notes": "Immutable Git blob URI and raw-file SHA-256 identify the exact reviewed accession-lot bytes used by this certificate."
+          }
+        ]
+      },
+      {
+        "event_type": "title_passage",
+        "occurred_at": "2026-08-01T22:55:00Z",
+        "authority_reference": "6529NM.2026.001.TITLE-01",
+        "evidence_refs": [
+          {
+            "label": "Institutional title declaration",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/6f4b354e46f3d7a9153e2ed6fdd3525562410e94",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5"
+          }
+        ],
+        "instrument": {
+          "kind": "institutional_gift_title_declaration",
+          "reference": "6529NM.2026.001.TITLE-01",
+          "sha256": "sha256:aab01e90b585b7722b2b0e2af6df0e04290406523369a540c94dece09ff700d5",
+          "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/6f4b354e46f3d7a9153e2ed6fdd3525562410e94",
+          "custodian_reference": "networkmuseum.6529.eth"
+        }
+      },
+      {
+        "event_type": "custody_receipt",
+        "event_name": "institutional_custody_registration",
+        "occurred_at": "2026-08-02T06:30:00Z",
+        "source_occurred_at": "2026-08-01T13:25:47Z",
+        "event_semantics": "The occurred_at value dates the Museum's reviewed custody registration. The underlying on-chain receipt occurred at source_occurred_at; this record does not redate or replay that transfer.",
+        "authority_reference": "6529NM.2026.001.RECEIPT-01",
+        "evidence_refs": [
+          {
+            "label": "Raw Ethereum transaction receipt",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/feb5c7997a8cc25785206526a18015dccc68494b",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "A",
+            "sha256": "sha256:4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21"
+          }
+        ],
+        "custody_paths": [
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.01",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.02",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.03",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.04",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.05",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.06",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.001.07",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth",
+            "instrument_reference": "6529NM.2026.001.TITLE-01"
+          }
+        ]
+      },
+      {
+        "event_type": "accession",
+        "occurred_at": "2026-08-02T06:30:00Z",
+        "authority_reference": "6529NM-ACC-2026-001",
+        "evidence_refs": [
+          {
+            "label": "Public accession certificate",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/af508ce4dbcfd707938d558ad4f2c263f982381e",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:ee7377431304041a5b510fceae15f7ac33e47fcdb2167bdd795a2912d70e45c5"
+          },
+          {
+            "label": "Curatorial accession review",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/7ab2688b63f1dceaea29971ba3105d218144596f",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615"
+          },
+          {
+            "label": "Technical and condition review",
+            "uri": "https://api.github.com/repos/6529-Collections/6529networkmuseum/git/blobs/e6c166296f21bd3f72c76281a4fcc246a3b8cfc1",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "evidence_class": "C",
+            "sha256": "sha256:4cdb47d57df5c3a50f088584fca6f6481e8e89aaa93fd51e60a5c2e195c3632c"
+          }
+        ]
+      }
+    ],
+    "source": {
+      "lot_record": "records/accessions/6529NM.2026.001/accession-statement.json",
+      "provenance_ontology": "Stream-compatible event/evidence/title/custody structure for externally minted works"
+    }
+  }
+}

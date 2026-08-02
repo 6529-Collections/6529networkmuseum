@@ -31,7 +31,7 @@ from generate_manifest import (  # noqa: E402
     normalized_bytes,
 )
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
-from validate import keccak256, validate_records, validate_state_machine, validate_vocabularies  # noqa: E402
+from validate import keccak256, load_schemas, validate_provenance_schedule, validate_records, validate_state_machine, validate_vocabularies, validator_for  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -146,6 +146,49 @@ class ControlPlaneTests(unittest.TestCase):
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("sensitive field is not allowed" in issue for issue in issues), issues)
 
+    def test_public_inventory_schema_is_not_casey_lot_specific(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(REPO_ROOT)
+        schema = json.loads((REPO_ROOT / "schemas/public-inventory.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        inventory = {
+            "$schema": "../../../schemas/public-inventory.schema.json",
+            "record_control": {
+                "revision": 1,
+                "record_status": "constructed",
+                "constructor": {},
+                "review": None,
+            },
+            "record_id": "6529NM-PUB-TEST",
+            "record_type": "public_inventory",
+            "accession_lot_id": "6529NM.TEST.001",
+            "objects": [{"object_id": "6529NM.TEST.001.01"}],
+        }
+        self.assertEqual([], list(validator.iter_errors(inventory)))
+        self.assertTrue(list(validator.iter_errors({**inventory, "objects": []})))
+        self.assertTrue(list(validator.iter_errors({**inventory, "objects": [{}]})))
+
+    def test_transaction_provenance_schema_is_generic_and_receipt_joins_are_enforced(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(REPO_ROOT)
+        schema = json.loads((REPO_ROOT / "schemas/transaction-provenance.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        lot = json.loads((REPO_ROOT / "records/accessions/6529NM.2026.001/accession-statement.json").read_text(encoding="utf-8"))["payload"]
+        schedule = json.loads(json.dumps(lot["provenance_schedule"]))
+        schedule["$schema"] = "../../../schemas/transaction-provenance.schema.json"
+        first = schedule["objects"][0]
+        schedule["objects"] = [first]
+        schedule["common_receipt"]["transfer_count"] = 1
+        schedule["common_receipt"]["log_indices"] = {
+            first["object_id"]: next(event["log"] for event in first["events"] if event["kind"] == "museum_receipt")
+        }
+        self.assertEqual([], list(validator.iter_errors(schedule)))
+        self.assertEqual([], validate_provenance_schedule(schedule))
+        mismatched_count = json.loads(json.dumps(schedule))
+        mismatched_count["common_receipt"]["transfer_count"] = 2
+        self.assertTrue(any("transfer_count" in issue for issue in validate_provenance_schedule(mismatched_count)))
+        mismatched_log = json.loads(json.dumps(schedule))
+        mismatched_log["common_receipt"]["log_indices"][first["object_id"]] += 1
+        self.assertTrue(any("museum_receipt must equal" in issue for issue in validate_provenance_schedule(mismatched_log)))
+
     def test_unresolved_cross_reference_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)
@@ -154,6 +197,16 @@ class ControlPlaneTests(unittest.TestCase):
         self.save_record(records, "accession-lot.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unresolved record reference" in issue for issue in issues), issues)
+
+    def test_direct_reference_self_cycle_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "accession-lot.json")
+        record["payload"]["references"] = [record["payload"]["record_id"]]
+        self.refresh_content_hash(record)
+        self.save_record(records, "accession-lot.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("references must not point to the record itself" in issue for issue in issues), issues)
 
     def test_self_supersession_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
@@ -185,11 +238,11 @@ class ControlPlaneTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         record = self.load_record(records, "accession.json")
         record["payload"]["events"][1]["event_type"] = "acquisition"
-        record["payload"]["events"][4]["custody_path"]["instrument_reference"] = "6529NM-INSTR-2026-999"
+        record["payload"]["events"][4]["custody_paths"][0]["kind"] = "non_token_off_chain"
         self.save_record(records, "accession.json", record)
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("ACCESSION.events must contain" in issue for issue in issues), issues)
-        self.assertTrue(any("instrument_reference must match" in issue for issue in issues), issues)
+        self.assertTrue(any("custody_path.kind must be onchain_token" in issue for issue in issues), issues)
 
     def test_accession_custody_path_is_bound_to_executed_title_binding(self) -> None:
         for field, value in (
@@ -201,16 +254,16 @@ class ControlPlaneTests(unittest.TestCase):
                 temporary, records = self.make_records_root()
                 self.addCleanup(temporary.cleanup)
                 record = self.load_record(records, "accession.json")
-                record["payload"]["events"][4]["custody_path"][field] = value
+                record["payload"]["events"][4]["custody_paths"][0][field] = value
                 self.save_record(records, "accession.json", record)
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(f"custody_path.{field} must match" in issue for issue in issues), issues)
 
-    def test_accession_binding_requirements_and_strict_chronology_are_rejected(self) -> None:
+    def test_accession_binding_requirements_and_backwards_chronology_are_rejected(self) -> None:
         mutations = (
             (lambda record: record["payload"]["title_bindings"][0].update(status="pending"), "executed title binding"),
             (lambda record: record["payload"]["events"][3]["instrument"].update(sha256="sha256:" + "d" * 64), "instrument sha256"),
-            (lambda record: record["payload"]["events"][1].update(occurred_at=record["payload"]["events"][0]["occurred_at"]), "strictly increasing"),
+            (lambda record: record["payload"]["events"][1].update(occurred_at="2024-12-31T23:59:59Z"), "moves backwards"),
         )
         for mutate, expected in mutations:
             with self.subTest(expected=expected):
@@ -221,6 +274,27 @@ class ControlPlaneTests(unittest.TestCase):
                 self.save_record(records, "accession.json", record)
                 issues = validate_records(Path(temporary.name))
                 self.assertTrue(any(expected in issue for issue in issues), issues)
+
+    def test_accession_and_provenance_malformed_identity_projections_do_not_abort(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        accession = self.load_record(records, "accession.json")
+        accession["payload"]["object_ids"][0] = ["malformed"]
+        accession["payload"]["events"][4]["custody_paths"][0]["object_id"] = ["malformed"]
+        self.save_record(records, "accession.json", accession)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("ACCESSION custody_path must identify exactly one executed title binding by object_id" in issue for issue in issues), issues)
+
+        schedule = json.loads(
+            (REPO_ROOT / "records" / "accessions" / "6529NM.2026.001" / "accession-statement.json").read_text(encoding="utf-8")
+        )["payload"]["provenance_schedule"]
+        schedule["objects"][0]["object_id"] = ["malformed"]
+        schedule["objects"][1]["object_id"] = ["malformed"]
+        next(event for event in schedule["objects"][0]["events"] if event.get("kind") == "museum_receipt")["log"] = ["malformed"]
+        next(event for event in schedule["objects"][1]["events"] if event.get("kind") == "museum_receipt")["log"] = ["malformed"]
+        provenance_issues = validate_provenance_schedule(schedule)
+        self.assertTrue(any("duplicate object_id" in issue for issue in provenance_issues), provenance_issues)
+        self.assertTrue(any("log indices must be unique" in issue for issue in provenance_issues), provenance_issues)
 
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)
@@ -242,6 +316,31 @@ class ControlPlaneTests(unittest.TestCase):
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("RIGHTS_STATEMENT.events must begin" in issue for issue in issues), issues)
         self.assertTrue(any("CONDITION_REPORT.events must begin" in issue for issue in issues), issues)
+
+    def test_rights_and_condition_event_lineage_is_unique_and_resolvable(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        rights = self.load_record(records, "rights-statement.json")
+        first = rights["payload"]["events"][0]
+        rights["payload"]["events"].append(
+            {
+                "event_id": first["event_id"],
+                "event_type": "rights_amendment",
+                "occurred_at": "2026-08-02T00:00:00Z",
+                "supersedes_event_id": "missing-rights-event",
+                "authority_reference": "rights-holder:example-artist",
+                "evidence_refs": first["evidence_refs"],
+            }
+        )
+        self.save_record(records, "rights-statement.json", rights)
+
+        condition = self.load_record(records, "condition-report.json")
+        condition["payload"]["events"][0].pop("event_id")
+        self.save_record(records, "condition-report.json", condition)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("RIGHTS_STATEMENT.events[1]: event_id must be unique" in issue for issue in issues), issues)
+        self.assertTrue(any("RIGHTS_STATEMENT.events[1]: supersedes_event_id must identify a unique earlier event" in issue for issue in issues), issues)
+        self.assertTrue(any("CONDITION_REPORT.events[0]: event_id is required" in issue for issue in issues), issues)
 
     def test_private_network_envelope_uri_is_rejected(self) -> None:
         for uri in (
@@ -590,6 +689,36 @@ class ControlPlaneTests(unittest.TestCase):
         with patch.object(bootstrap_validate, "ROOT", Path(temporary.name)):
             with self.assertRaises(SystemExit):
                 bootstrap_validate.check_public_record_safety()
+
+    def test_amendment_history_is_complete_timezone_aware_and_chronological(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-amendment-chronology-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        path = root / "records" / "accessions" / "register.json"
+        path.parent.mkdir(parents=True)
+        source = REPO_ROOT / "records" / "accessions" / "register.json"
+        cases = (
+            ("current revision predates supersession", "current revision predates its latest supersession", lambda record: record["record_control"]["constructor"].__setitem__("constructed_at", "2026-08-01T22:55:00Z")),
+            ("history missing", "revision requires a complete amendment history", lambda record: record.pop("amendment_history")),
+            ("history empty", "revision requires a complete amendment history", lambda record: record.__setitem__("amendment_history", [])),
+            ("timezone missing", "timezone-less revision 1 supersession timestamp", lambda record: record["amendment_history"][0].__setitem__("superseded_at", "2026-08-01T22:55:00")),
+            ("supersession timestamps reversed", "supersession timestamps must be ordered by revision", lambda record: (
+                record["amendment_history"][0].__setitem__("superseded_at", "2026-08-02T06:30:00Z"),
+                record["amendment_history"][1].__setitem__("superseded_at", "2026-08-01T22:55:00Z"),
+            )),
+        )
+        def raise_failure(message: str) -> None:
+            raise ValueError(message)
+
+        for label, expected, mutate in cases:
+            with self.subTest(label=label):
+                record = json.loads(source.read_text(encoding="utf-8"))
+                mutate(record)
+                record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
+                path.write_text(json.dumps(record), encoding="utf-8")
+                with patch.object(bootstrap_validate, "ROOT", root), patch.object(bootstrap_validate, "fail", side_effect=raise_failure):
+                    with self.assertRaisesRegex(ValueError, expected):
+                        bootstrap_validate.check_record_controls({path: record})
 
     @staticmethod
     def make_png(extra: bytes = b"") -> bytes:

@@ -31,7 +31,25 @@ Status vocabulary:
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | active CI | Required `Museum validation` foundation/full checks plus Ubuntu/Windows deterministic matrix on every PR and main push |
 | [`records/programs/6529NM-AP-01/program.json`](records/programs/6529NM-AP-01/program.json) | canonical constructed program record | Keys and Gates rules, source provenance, undecided mint topology, and registrar gates |
 | [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
-| [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed register | Casey Reas donation received; seven-work accession documentation in progress |
+| [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed current-view register | Casey REAS seven-work gift accepted and accessioned; title, rights, curatorial, and technical decisions complete; software preservation remains active stewardship |
+
+## Casey Reas accession dossier
+
+| File | Status | Contents |
+|---|---|---|
+| [`records/accessions/6529NM.2026.001/accession-statement.json`](records/accessions/6529NM.2026.001/accession-statement.json) | reviewed `ACCESSION_LOT` control-plane record | Completed permanent-collection accession with the exact seven-object identity/receipt schedule, curatorial determination, immutable evidence binding, reviewed rights, amber technical condition, and active preservation duties |
+| [`records/accessions/6529NM.2026.001/gift-acceptance-authorization.json`](records/accessions/6529NM.2026.001/gift-acceptance-authorization.json) | reviewed `GIFT_ACCEPTANCE_AUTHORIZATION` | Executed full-gift acceptance under the adopted Art Blocks and donation-policy decisions, with authenticated Wave-status basis and completed title/accession resolution |
+| [`records/accessions/6529NM.2026.001/visual-observation-record.json`](records/accessions/6529NM.2026.001/visual-observation-record.json) | reviewed `VISUAL_OBSERVATION` | Seven-object raw-metadata/source-URL binding, static-response and full-viewport screenshot fixity, canvas geometry, timing proxies, non-retention, and explicit observation limits |
+| [`records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json`](records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json) | reviewed `RIGHTS_STATEMENT` | Per-object CC BY-NC 4.0 determination covering nine noncommercial Museum use classes with attribution, notice, change-marking, endorsement, and downstream-restriction conditions; sibling files cover all seven objects |
+| [`records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json`](records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json) | reviewed `CONDITION_REPORT` | Per-object amber pass-with-conditions review with exact generator hash, dependency, interaction map, display conditions, and nonblocking preservation actions; sibling files cover all seven objects |
+| [`evidence/casey-reas/manifest.json`](evidence/casey-reas/manifest.json) | content-addressed preservation evidence package | Seven retained raw metadata response byte streams, exact chain receipt, accession-level technical evidence, and an explicit boundary between completed review and unfinished autonomous generator preservation |
+| [`docs/casey-accession-control.md`](docs/casey-accession-control.md) | active accession control note | Payload-hash basis, immutable Casey publication boundary, cross-file invariants, custody/title boundary, evidence grading, preservation gates, and reviewer boundary |
+| [`records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json`](records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json) | reviewed object record | CENTURY #31 machine-readable object record; sibling files cover the other six objects |
+| [`records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md`](records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md) | reviewed public page | Public object page for CENTURY #31; sibling pages cover the other six objects |
+| [`records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md`](records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md) | reviewed public curatorial profile | Sourced artist biography, practice arc, pedagogy/tool-building/publishing context, and institutional exhibition/collection context |
+| [`records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md`](records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md) | reviewed public curatorial essay | Collection-level reading of rule, behavior, room, and cosmos with static/live documentation boundary |
+| [`records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md`](records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md) | public human-readable authorization | Full-gift acceptance, exact governing basis, completed accession resolution, and continuing nonblocking stewardship duties |
+| [`records/accessions/6529NM.2026.001/accession-certificate.json`](records/accessions/6529NM.2026.001/accession-certificate.json) | reviewed `ACCESSION` certificate | Executed seven-object title bindings, real receipt chronology, institutional custody registration, completed review outcomes, and Stream-aligned event/evidence structure |
 
 ## Working standards and architecture
 
@@ -57,7 +75,7 @@ Status vocabulary:
 |---|---|---|
 | [`notes/wip/2026-08-01-stream-coverage-and-gaps.md`](notes/wip/2026-08-01-stream-coverage-and-gaps.md) | WIP analysis | What Stream covers, strengths, implementation caveat, Museum gaps |
 | [`notes/wip/2026-08-01-external-works-registry.md`](notes/wip/2026-08-01-external-works-registry.md) | WIP analysis | Options and recommended boundary for externally minted works |
-| [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | WIP analysis | Multi-object numbering and proposed deliverables from the supplied accession draft |
+| [`notes/wip/2026-08-01-casey-accession-working-plan.md`](notes/wip/2026-08-01-casey-accession-working-plan.md) | superseded WIP analysis | Historical multi-object numbering and proposed deliverables from the supplied accession draft; the completed accession dossier and register supersede its intake-stage gates |
 | [`notes/wip/2026-08-01-nextgen-rarity-analysis.md`](notes/wip/2026-08-01-nextgen-rarity-analysis.md) | WIP analysis | Authoritative source pins, algorithm conclusions, implementation status, and unresolved questions |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, and next actions |
 
@@ -79,7 +97,7 @@ Status vocabulary:
 | [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
 | [`notes/research/external-registry-review.md`](notes/research/external-registry-review.md) | research input | Stream boundary analysis and synchronized, non-deployment V1 registry/hash/URI/release-bundle vectors |
 | [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
-| [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | research input | Primary-source art-historical, technical, display, and preservation research for seven donated works |
+| [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | research input | Primary-source art-historical, technical, display, and preservation research for seven donated works, with dated gift-status supersession note |
 | [`notes/research/casey-reas-onchain-evidence.md`](notes/research/casey-reas-onchain-evidence.md) | research input | ENS resolution, seven token identities, common donation transaction, custody, metadata, and transfer evidence |
 | [`notes/research/keys-and-gates-evidence.md`](notes/research/keys-and-gates-evidence.md) | research input | Full program rule, voting, artist statement, selected-work, CC0/consent, and unminted-status evidence inventory |
 
@@ -88,7 +106,7 @@ Status vocabulary:
 | File | Status | Contents |
 |---|---|---|
 | [`evidence/waves/museum-wave/README.md`](evidence/waves/museum-wave/README.md) | immutable evidence index | Complete authenticated 2026-08-01 Museum Wave snapshot, rendered history, source index, proposals, and SHA-256 digests |
-| [`evidence/casey-reas-collection-snapshots/README.md`](evidence/casey-reas-collection-snapshots/README.md) | constructed acquisition and descriptor evidence package | Full Art Blocks Hasura/tokenURI observations, reconstructed request provenance, 17 explicit cross-check exclusions, closed-scope/no-follow root manifest, direct PR #4 byte recomputation, and transparent descriptors for the five Casey REAS projects in lot `6529NM.2026.001`; outputs await independent review |
+| [`evidence/casey-reas-collection-snapshots/README.md`](evidence/casey-reas-collection-snapshots/README.md) | reviewed acquisition and descriptor evidence package | Full Art Blocks Hasura/tokenURI observations, reconstructed request provenance, 17 explicit cross-check exclusions, closed-scope/no-follow root manifest, direct PR #4 byte recomputation, and independently reviewed transparent descriptors for the five Casey REAS projects in lot `6529NM.2026.001` |
 
 ## Integrity tooling
 

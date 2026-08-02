@@ -4,7 +4,39 @@
 
 **Research date:** 2026-08-01 UTC.
 
-**Scope:** CENTURY #31, #724, and #401; Pre-Process #63; Phototaxis #308; 923 EMPTY ROOMS #713; and Ex Nihilo (Cosmos) #248. The object numbers below are provisional Museum identifiers for the planned accession lot `6529NM.2026.001`; chain custody, legal title, donor instrument, transfer transaction, and final accession status remain separate records to be completed by the registrar.
+**Scope:** CENTURY #31, #724, and #401; Pre-Process #63; Phototaxis #308; 923 EMPTY ROOMS #713; and Ex Nihilo (Cosmos) #248. The object numbers below began as provisional identifiers and are now the adopted identifiers for accession lot `6529NM.2026.001`. Chain custody, title, donor authorization, transfer, rights, condition, and accession status are controlled by the completed linked dossier rather than by this research note.
+
+## Dated supersession — 2026-08-01T22:55:00Z
+
+This research note retains its original 2026-08-01 research date and the
+historical wording below about a proposed donation or the absence of a donation.
+Those statements are superseded only as to current gift status: the common
+seven-transfer receipt is verified and the Museum has issued
+`6529NM.2026.001.GAA-01`, a formally effective Gift Acceptance and Accession
+Authorization under the adopted Art Blocks preapproval and Donation Acceptance
+Policy. At that timestamp, the lot therefore recorded a formally accepted gift
+while remaining `received_onchain` / `not_complete`.
+
+This supersession does not supply a signed deed, legal title opinion, executed
+title binding, copyright or display grant, condition assessment, preservation
+completion, or independent registrar/technical/curatorial review. The original
+research claims and evidence classes remain historically legible below; current
+acceptance and completion limits are controlled by the linked authorization and
+accession records.
+
+## Dated accession resolution — 2026-08-02T06:30:00Z
+
+The 2026-08-01 intake status above is retained as historical sequence and is no
+longer current. The reviewed accession certificate `6529NM-ACC-2026-001`, title
+and rights determination, curatorial review, technical/condition review, and
+register revision now place the lot and all seven objects in `accessioned`
+state. The Museum owns the seven tokens and the donor's full transferable
+interest; Casey REAS's copyright remains separate; the retained object metadata
+supports the reviewed conditional CC BY-NC 4.0 uses. The technical outcome is
+amber `pass_with_conditions`, with no red accession blocker. Autonomous
+generator/dependency preservation, cross-environment verification, and later
+workflow states remain active stewardship rather than incomplete accession
+decisions.
 
 ## How to read this note
 
@@ -37,7 +69,7 @@ For the Art Blocks V3 projects in this schedule, Art Blocks documents the token-
 | `6529NM.2026.001.06` | 923 EMPTY ROOMS #713 | `0x145789247973c5d612bf121e9e4eef84b63eb707` | project 1 / `1000713` | p5.js 1.0.0 via cdnjs | `2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0` |
 | `6529NM.2026.001.07` | Ex Nihilo (Cosmos) #248 | `0x0000000c687daed0fba60d1dba4e5f6149e8b894` | project 0 / token `248` / invocation `248` | p5.js 1.9.0 via cdnjs | `17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9` |
 
-**Technical caution.** The current generator response exposes a p5.js CDN script, but that is a snapshot of the present generator route. The accession package must also capture the token hash, project script, dependency metadata, contract state, generator HTML, and a local render test. Art Blocks’ own documentation explains that the generator assembles the artist script, token hash, and dependencies; it does not make the Museum’s one-time retrieval hash a permanent claim about future gateway behavior.
+**Technical caution.** The current generator responses expose p5.js CDN URLs, but those URLs describe the present delivery route rather than the complete preservation topology. Art Blocks documents an on-chain generator that can assemble artist scripts, token hashes, and registered dependencies from Ethereum; it specifically lists p5.js 1.0.0 as fully on-chain. That distinction is material for the six proposed works currently returning p5.js 1.0.0, while Ex Nihilo currently returns p5.js 1.9.0 and requires separate dependency verification. In every case the accession package must capture contract state, token hash, project script, dependency-registry evidence, generator HTML, and local render tests. Browser versions, gateways, current CDN routes, WebGL behavior, and Museum display equipment remain mutable even when the constitutive inputs can be reconstructed from chain.
 
 ### Token metadata snapshot [A/C]
 
@@ -69,9 +101,11 @@ The Museum also retrieved the current `projects_metadata.script` values from Art
 
 The static triage scan found no project-specific external image, audio, network, or file-loading calls in these retrieved scripts. That is not a security or semantic audit and does not eliminate browser, CDN, p5.js, shader, WebGL, timing, or contract-dependency preservation requirements. The media-proxy PNGs were reviewed as preliminary reference stills only, not as complete manifestations of the works.
 
-## CENTURY (2021)
+## CENTURY (body begun 2012; donated Art Blocks project 2021)
 
 ### Documented work identity and conception [A/B]
+
+Reas has developed the wider CENTURY body since 2012. The works proposed here belong to the distinct Art Blocks CENTURY project released in 2021; the accession must preserve both dates rather than backdate the tokens or collapse a decade-long body into one release.
 
 Art Blocks identifies CENTURY as a 1/1/1,000 generative project released 2021-06-25. The artist’s project record describes it as a response to twentieth-century painting and drawing, especially the cut-and-reassembled works Ellsworth Kelly made in the 1950s. The artist’s contemporary Art Blocks interview further identifies George Rickey as a reference for motion and chance, and describes the project’s compositional core as slicing and recomposing an image.
 
@@ -92,7 +126,7 @@ The labels above are retained as project metadata, not converted into claims abo
 
 ### Runtime and display expectations [B/C]
 
-The artist describes the work as intended to be experienced in motion rather than as a single still. The live view can be left running and the `1` key exposes the cut-and-recompose interaction described in the artist’s interview. The browser generator provides the practical screen manifestation; no authoritative installation specification for monitor size, projector calibration, orientation, or viewing duration was found in this pass.
+The artist describes the work as intended to be experienced in motion rather than as a single still. The live view can be left running; the artist’s Art Blocks interview documents the `1` key for cut-and-recompose and the `2` key for restoring the base composition. The Museum’s two-frame observation did not activate those controls and cannot establish the captured interaction state. The browser generator provides the practical screen manifestation; no authoritative installation specification for monitor size, projector calibration, orientation, or viewing duration was found in this pass.
 
 **Accession preservation requirement:** retain the live generator HTML, token hash, project script, p5.js dependency reference, a static capture, a short interaction recording, and a display note distinguishing the still capture from the live work. Verify whether current behavior remains deterministic under repeated reloads and whether external CDN access is required by the returned HTML.
 
@@ -163,13 +197,13 @@ Phototaxis brings an artificial-life lineage into the proposed group. Its visual
 
 Art Blocks identifies 923 EMPTY ROOMS as a 2023 Art Blocks × Bright Moments project. Bright Moments presents it as an evolution of the LACMA-commissioned *An Empty Room*. The official Bright Moments record assigns six fundamental colorforms to six galleries/cities: Sun/Tokyo, Shard/Berlin, Cargo/London, Hive/New York, Pyramid/Mexico City, and Moon/Los Angeles.
 
-The Bright Moments record describes a six-day release and in-person reveal across those cities. Art Blocks identifies the fixed project edition as 924 unique artworks and gives the project-level release date as 2023-08-19. Bright Moments separately lists edition size 924, 923 combinations, release dates 2023-08-14 through 2023-08-19 at 12:00 EDT, and CDMX on 2023-08-18. Token #713 is identified as City CDMX and its token metadata records a 2023-08-18 16:57:59 UTC mint. This supports placing the mint within the documented six-day schedule, but it does not establish the semantic relationship between the token timestamp and the project-level release date; preserve both observations and mark that relationship unresolved rather than calling the mint pre-release. LACMA’s official Art + Technology record places *An Empty Room* within the exhibition *Coded: Art Enters the Computer Age, 1952–1982* and describes the project as a software response to Victor Vasarely’s unrealized 1967–71 proposal for a grid-based machine capable of producing many permutations of colored forms. This is the authoritative institutional context for the relationship between *An Empty Room* and the later *923 EMPTY ROOMS* release; it does not make #713 an LACMA-commissioned work.
+The Bright Moments record describes a six-day release and in-person reveal across those cities. Art Blocks identifies the fixed project edition as 924 unique artworks and gives the project-level release date as 2023-08-19. Bright Moments separately lists edition size 924, 923 combinations, release dates 2023-08-14 through 2023-08-19 at 12:00 EDT, and CDMX on 2023-08-18. The retained population snapshot establishes 924 invocations numbered `0`–`923`; invocation zero is separately coded `999999`, invocations `1`–`923` form the documented combinatorial sequence, and the reviewed generator carries the same 924-entry table. Token #713 is invocation 713, maps to `Code=555536`, is identified as City CDMX, and records a 2023-08-18 16:57:59 UTC mint. This resolves the numerical structure but not the artistic meaning of invocation zero. It also supports placing the mint within the documented six-day schedule without treating the project-level date as the token's mint time. LACMA’s official Art + Technology record places *An Empty Room* within the exhibition *Coded: Art Enters the Computer Age, 1952–1982* and describes the project as a software response to Victor Vasarely’s unrealized 1967–71 proposal for a grid-based machine capable of producing many permutations of colored forms. This is the authoritative institutional context for the relationship between *An Empty Room* and the later *923 EMPTY ROOMS* release; it does not make #713 an LACMA-commissioned work.
 
 ### Medium, algorithm, and output logic
 
 - **Medium [B/C]:** browser-based generative software presented through an Ethereum token and a multi-city exhibition/reveal format. The current Art Blocks generator response for #713 loads p5.js 1.0.0.
 - **System [B]:** six colorforms are combined using a combination-with-replacement approach. Bright Moments describes the full mint as the set of possible combinations, and says the release order begins with simpler combinations and proceeds through more complex ones. That is a project release rule, not a Museum or marketplace rarity metric.
-- **Edition and discrepancy [A/B]:** The authoritative project size for accession metadata is 924 unique artworks/tokens, as reported by both Art Blocks and Bright Moments. The generative system is separately described as 923 unique rooms/combinations. The accession record may claim “fixed edition: 924 unique artworks/tokens; generative system: 923 unique rooms/combinations; this object: native token #713.” It should not call the object one of 923 tokens or call a 924th token an extra room unless token-level evidence supports that narrower claim. The invocation manifest still needs to be preserved and checked; no theory about a special starting/terminal output is adopted here.
+- **Edition structure [A/B/C]:** Art Blocks and Bright Moments both report an edition size of 924, while the project descriptions refer to 923 rooms or combinations. The retained population evidence establishes invocations `0`–`923`; invocation zero is separately coded `999999`; invocations `1`–`923` follow the documented combination sequence; and the reviewed generator contains the same 924-entry table. This is a factual reconciliation of the count structure, not an interpretation of why invocation zero exists or what it means.
 - **#713 project metadata [A/B]:** Art Blocks currently records `Red=false`, `Blue=false`, `Green=true`, `City=CDMX`, `Code=555536`, `# Suns=0`, `# Hives=0`, `# Moons=1`, `# Cargos=1`, `# Shapes=6`, `# Shards=0`, `# Pyramids=4`, `Background=Gray`, and `Primary Form=Pyramid`. The code and counts should be preserved as source metadata; they should not be converted into a third-party rarity score.
 
 ### Runtime and display expectations [B/C]
@@ -186,20 +220,20 @@ The Museum should preserve #713 as both a token-specific state and a member of a
 
 ### Documented work identity and conception [A/B]
 
-The artist’s NFT register identifies Ex Nihilo (Cosmos) as a 1/1/256 Ethereum work released 2026-03-10 through Art Blocks × Feral File. Art Blocks’ official project record calls it the latest work in the Still Life series and identifies the dodecahedron as its subject within the five Platonic solids. The same record maps the series’ solid/form associations and states that future works will address the remaining solids.
+The artist’s NFT register identifies Ex Nihilo (Cosmos) as a 1/1/256 Ethereum work released 2026-03-10 through Art Blocks × Feral File. Art Blocks’ official project record calls it the latest work in the Still Life series, which Reas began in 2016, and identifies the dodecahedron as its subject within the five Platonic solids. The same record maps the series’ solid/form associations and states that future works will address the remaining solids.
 
-The project description links the title to the generation of images from code rather than physical materials. It describes the solid as being decomposed into pixels, with pixel values translated into lines whose positions and colors produce a continuing visual field. The artist’s official taxonomy and bitforms’ exhibition record place this work in a longer Still Life investigation of simulation, geometry, pixels, and the relationship between software and traditional pictorial forms.
+The project description links the title to the generation of images from code rather than physical materials. It describes the solid as being decomposed into pixels, with pixel values translated into lines whose positions and colors produce a continuing visual field. The artist’s official taxonomy and bitforms’ 2023–24 exhibition record place this work in a longer Still Life investigation of simulation, geometry, pixels, and the relationship between software and traditional pictorial forms. That earlier exhibition is historical series evidence; Art Blocks and Feral File are the documented 2026 co-presenters of Ex Nihilo (Cosmos).
 
 ### Medium, algorithm, and output logic
 
 - **Medium [A/B/C]:** browser-based, color, silent, long-form generative software registered as an Ethereum token. The current Art Blocks generator response for #248 loads p5.js 1.9.0.
 - **System [B]:** the dodecahedral source is not displayed as a stable three-dimensional object. The stated process transforms pixel information into line positions and colors, producing a field that moves between geometric structure and visual dissolution.
-- **Edition [A/B]:** 256 unique artworks; Art Blocks and Feral File presented the work in March 2026 through a ranked auction/settlement format. The auction mechanism is provenance/release history, not evidence of artistic quality or a Museum selection criterion.
+- **Edition [A/B]:** 256 unique artworks. Art Blocks’ release page states that 255 of 256 were released through its ranked auction with settlement; separately, the page identifies Art Blocks and Feral File as co-presenters. The auction mechanism is distribution/provenance history, not evidence of artistic quality or a Museum selection criterion, and co-presentation is not treated as evidence that Feral File operated the sale.
 - **#248 project metadata [A/B]:** Art Blocks currently records `engine_type=studio`, `project_id=0`, `tokenID=248`, `RGB=false`, `CHUNK=3`, `0000FF=false`, `00FF00=false`, `FF0000=false`, `FFFFFF=true`, and `# COSMOS=3`. This is a V3.2.4 Studio deployment, so the documented V3 token-ID structure decodes the raw token ID as project 0, invocation 248 (`248 = (0 × 1,000,000) + 248`). Retain `engine_type`, `project_id`, `tokenID`, and decoded `invocation` as separate source fields; the technical decoding is not a custody, title, or accession claim.
 
 ### Runtime and display expectations [B/C]
 
-Art Blocks’ official record documents live controls: `R`, `G`, and `B` toggle channels; `W` changes the display to white; `S` adjusts speed; `P` pauses; and the spacebar generates a new Still Life state. The work is described as designed to run continuously and not repeat. Because the live state can be changed by the viewer, a static image must be catalogued as a capture or documentation surrogate rather than as the whole manifestation.
+Art Blocks’ official record documents live controls: uppercase `R`, `G`, and `B` toggle channels; `W` changes the display to white; `S` adjusts speed; `P` pauses; and the spacebar generates a new Still Life state. The reviewed generator implements space, `P`, `S`, `G`, and `W`, but its red and blue checks use duplicated lowercase `r` and lowercase `b` comparisons. Uppercase `R` and `B` are therefore not implemented as the platform record states. This is retained as an amber documentation/behavior discrepancy rather than silently normalizing either source. The work is described as designed to run continuously and not repeat. Because the live state can be changed by the viewer, a static image must be catalogued as a capture or documentation surrogate rather than as the whole manifestation.
 
 **Accession preservation requirement:** preserve the #248 generator response, token hash, project script, p5.js 1.9.0 dependency reference, static output, live recording, interaction instructions, and a note explaining which state is used for display. The Museum should test whether “new Still Life” is seeded solely by the token/program state or introduces another runtime state; this is a technical verification question, not an assumption.
 
@@ -260,34 +294,43 @@ The token-level feature fields transcribed here come from Art Blocks’ own proj
 
 ## Source register
 
-All URLs were retrieved or checked on **2026-08-01 UTC**. Source-quality notes use the Museum’s evidence vocabulary: **A** = directly chain/platform-verifiable or live technical response; **B** = artist, issuer, presenting platform, or commissioning-institution authority; **C** = Museum observation/inference; **E** = Museum interpretation.
+All URLs were retrieved or checked on **2026-08-01 UTC**. A final direct access check returned HTTP 200 for the biography and institutional sources added below. An independent publication review had earlier received HTTP 503 from `https://reas.com/info`; that transient access failure is retained as a reproducibility caution, and the same core biographical facts are available through the artist-controlled gray archive and UCLA. Source-quality notes use the Museum’s evidence vocabulary: **A** = directly chain/platform-verifiable or live technical response; **B** = artist, issuer, presenting platform, or commissioning-institution authority; **C** = Museum observation/inference; **E** = Museum interpretation.
 
 ### Artist-authored and artist-controlled sources
 
-- [CENTURY project record](https://www.gray.reas.com/century_s/) — **B**. Artist-controlled project database entry; establishes the homage, Kelly reference, transaction-hash relationship, and 2021 release statement.
+- [Artist information archive](https://www.gray.reas.com/information) — **B**. Artist-controlled biography and curriculum-vitae archive; establishes birth year/place, Los Angeles location, education, UCLA role, Processing co-foundation, media range, and artist-reported public-collection context. Access checked 2026-08-01 UTC.
+- [Current artist information page](https://reas.com/info) — **B**. Current artist-controlled biography; corroborates education, Los Angeles location, practice media, Processing/Processing Foundation, Feral File, and UCLA Social Software. An independent review received HTTP 503 earlier on 2026-08-01; a later direct check returned HTTP 200, so the gray archive and UCLA remain explicit corroborating access paths.
+- [Artist books page](https://reas.com/books) — **B**. Artist-controlled publishing history; distinguishes collaborative educational books supporting creative-coding pedagogy from later artist’s books documenting studio bodies of work. Access checked 2026-08-01 UTC.
+- [CENTURY project record](https://www.gray.reas.com/century_s/) — **B**. Artist-controlled project database entry; establishes the homage, Kelly reference, transaction-hash relationship, and 2021 release statement. Access checked 2026-08-01 UTC.
 - [CENTURY project overview](https://reas.com/century) — **B**. Current artist-site synthesis of the broader CENTURY body of work; useful contextual source, with retrospective editorial framing.
-- [Artist interview on CENTURY](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-century) — **B**. Artist-authored statements published by the presenting platform in 2021; strongest source here for motion, slicing, parameter variation, and display interaction.
-- [Pre-Process project record](https://www.gray.reas.com/pre_process/) — **B**. Artist-controlled project entry; establishes medium, date, origin story, Element 1, and display orientation.
-- [Process / Pre-Process overview](https://reas.com/process) — **B**. Current artist-site account of Process and Pre-Process; establishes the 8 × 3 × 5 permutation logic, with retrospective editorial framing.
-- [Artist interview on Pre-Process](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-pre-process) — **B**. Artist interview published by Art Blocks in 2022; establishes the 100-Element system, permutation logic, and unfinished 2005 history.
-- [Phototaxis project record](https://www.gray.reas.com/phototaxis/) — **B**. Artist-controlled project entry; establishes the machine types, artificial-life framing, and controls.
-- [Artist technical note on Phototaxis](https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8) — **B**. Artist-authored technical note dated 2021-09-18; strongest source for code lineage, iteration behavior, controls, and edition scope.
+- [Pre-Process project record](https://www.gray.reas.com/pre_process/) — **B**. Artist-controlled project entry; establishes medium, date, origin story, Element 1, and display orientation. Access checked 2026-08-01 UTC.
+- [Process / Pre-Process overview](https://reas.com/process) — **B**. Current artist-site account of Process and Pre-Process; establishes the four Element behaviors—including changing direction on contact and moving away from an overlapping Element—and the 8 × 3 × 5 permutation logic, with retrospective editorial framing. Access checked 2026-08-01 UTC.
+- [Phototaxis project record](https://www.gray.reas.com/phototaxis/) — **B**. Artist-controlled project entry; establishes the machine types, artificial-life framing, and controls. Access checked 2026-08-01 UTC.
+- [Artist technical note on Phototaxis](https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8) — **B**. Artist-authored technical note dated 2021-09-18; establishes the code lineage, 1,000-iteration thumbnail boundary, `P`, `B`, `1`–`5`, and `L` controls, and edition scope. Access checked 2026-08-01 UTC.
 - [MicroImage project context](https://reas.com/microimage) — **B**. Current artist-site synthesis of the MicroImage/Phototaxis lineage; useful for long-term context, not treated as independent technical verification.
-- [Atomism project overview](https://reas.com/atomism) — **B**. Current artist-site synthesis; establishes the relationship among Still Life, An Empty Room, 923 EMPTY ROOMS, and pixel/element recomposition, with retrospective editorial framing.
+- [Atomism project overview](https://reas.com/atomism) — **B**. Artist-site synthesis used for the relationship among Still Life, An Empty Room, 923 EMPTY ROOMS, and pixel/element recomposition, with retrospective editorial framing. The URL returned HTTP 503 during the 2026-08-01 verification pass, so it is not used as sole support; accession completion requires a retained, hash-pinned copy or replacement corroboration.
 - [Artist NFT register](https://reas.com/nfts) — **B**. Artist-controlled list of project dates, edition structures, chains, and platforms; used for the 1/1/N descriptions and Ex Nihilo release record.
 
 ### Platform, presenter, and institutional sources
 
+- [UCLA Design Media Arts faculty profile](https://dma.ucla.edu/people/casey-reas) — **B**. Employer/institutional biography; establishes the professorship since 2003, degrees, studio media, Processing and Processing Foundation roles, Feral File date, UCLA Social Software role, and institutional exhibition context. Access checked 2026-08-01 UTC.
+- [Whitney *Programmed* artist page](https://whitney.org/exhibitions/programmed/art?section=1&subsection=14) — **B**. Commissioning and exhibiting institution record for *{Software} Structure #003 A* and *#003 B*; establishes the natural-language instruction, JavaScript manifestations, changing display behavior, dates, and Whitney commission. Access checked 2026-08-01 UTC.
+- [Whitney artport *{Software} Structures* archive](https://artport.whitney.org/commissions/software-structures/text.html) — **B**. Original commissioning-project archive; attributes the broad project and text to Reas and identifies Jared Tarbell, Robert Hodgin, and William Ngan as commissioned implementers of *Software Structure #003* in Processing, ActionScript, and C++. Access checked 2026-08-01 UTC.
+- [SFMOMA Casey Reas collection page](https://www.sfmoma.org/artist/Casey_Reas/) — **B**. Collecting institution’s artist record; documents two named 2015 works in the collection. Access checked 2026-08-01 UTC.
+- [Centre Pompidou Casey Reas record](https://www.centrepompidou.fr/en/ressources/personne/cikbBn) — **B**. Collecting institution’s artist record; documents Reas and links collection records for *Process 8* and *Process 13*. Access checked 2026-08-01 UTC.
+- [Feral File institutional history](https://feralfile.com/learn/about) — **B**. Platform self-history; identifies Casey Reas and Sean Moss-Pultz as 2020 co-founders and traces Feral File to the 2019 a2p artist-to-artist exchange experiment. Access checked 2026-08-01 UTC.
+- [CENTURY interview](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-century) — **B**. Art Blocks platform interview by Jeff Davis containing first-person statements by Reas; strongest source here for motion, slicing, parameter variation, the `1` cut/recompose and `2` restore controls, studio/Processing/teaching relations, and the a2p-to-Feral File account. Published 2021-06-21; access checked 2026-08-01 UTC.
+- [Pre-Process interview](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-pre-process) — **B**. Art Blocks platform interview by Jordan Kantor containing first-person statements by Reas; establishes the 100-Element system, 8 × 3 × 5 permutation logic, unfinished 2005 history, and relation to *Software Structures*. Published 2022-11-28; access checked 2026-08-01 UTC.
 - [Art Blocks CENTURY collection](https://www.artblocks.io/collection/century-by-casey-reas) — **A/B**. Platform-authoritative project identity, edition size, and release date.
 - [Art Blocks Pre-Process collection](https://www.artblocks.io/collection/pre-process-by-casey-reas) — **A/B**. Platform-authoritative project identity, edition size, and release date.
 - [Art Blocks Phototaxis collection](https://www.artblocks.io/collection/phototaxis-by-casey-reas) — **A/B**. Platform-authoritative project identity, edition size, and release date.
-- [Bright Moments 923 Empty Rooms archive](https://www.brightmoments.io/923emptyrooms) — **B**. Co-presenter’s official release and exhibition record; authoritative for colorforms, cities, schedule, combination logic, and the stated 923/924 figures.
-- [Art Blocks 923 EMPTY ROOMS collection](https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas) — **A/B**. Platform-authoritative project identity, edition size, release date, and current project metadata.
+- [Bright Moments 923 Empty Rooms archive](https://www.brightmoments.io/923emptyrooms) — **B**. Co-presenter’s official release and exhibition record; authoritative for colorforms, cities, schedule, combination logic, and the stated 923/924 figures. Access checked 2026-08-01 UTC.
+- [Art Blocks 923 EMPTY ROOMS collection](https://www.artblocks.io/collection/923-empty-rooms-by-casey-reas) — **A/B**. Platform-authoritative project identity, edition size, release date, and current project metadata. Access checked 2026-08-01 UTC.
 - [LACMA project record](https://www.lacma.org/zh/node/42726) — **B**. Commissioning institution’s official record for *METAVASARELY* and *An Empty Room*; establishes the Vasarely/LACMA context and separation between the two components.
 - [LACMA Art + Technology interview with Reas](https://unframed.lacma.org/2023/02/13/introducing-metavasarely-and-empty-room-two-part-digital-work-casey-reas) — **B**. Institutional publication containing Reas’s interview responses; used for the artist’s account of simulating rather than fabricating Vasarely’s proposed machine and for the CENTURY/LACMA relationship.
-- [Art Blocks Ex Nihilo (Cosmos) release record](https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase) — **A/B**. Platform and co-presenter release record; establishes Still Life context, dodecahedron/COSMOS, 256-output release, continuous behavior, controls, and March 2026 presentation.
+- [Art Blocks Ex Nihilo (Cosmos) release record](https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase) — **A/B**. Platform release and co-presentation record; establishes Still Life context, dodecahedron/COSMOS, 256 outputs, continuous behavior, controls, and March 2026 presentation. It states that 255 of 256 artworks were released through an Art Blocks ranked auction with settlement and separately identifies Art Blocks and Feral File as co-presenters; those sale mechanics are provenance context only. Access checked 2026-08-01 UTC.
 - [Feral File Casey Reas artist/exhibition page](https://feralfile.com/exhibitions/artist/casey-reas-nsa) — **B**. Presenting platform record for the Ex Nihilo exhibition and the artist’s related work; useful corroboration of the 2026 exhibition context.
-- [bitforms Still Life exhibition record](https://www.bitforms.art/exhibition/casey-reas/) — **B**. Gallery exhibition and checklist record; used for Still Life medium, live display, series chronology, and the geometric/pixel context. It is not used as chain or ownership evidence.
+- [bitforms Still Life exhibition record](https://www.bitforms.art/exhibition/casey-reas/) — **B**. Gallery exhibition and checklist record for the 2023-11-30 through 2024-01-20 exhibition; used for the series’ 2016 origin, medium, live display, chronology, and geometric/pixel context. It is not a 2026 Ex Nihilo presentation record and is not used as chain or ownership evidence.
 
 ### Technical platform sources and token records
 
@@ -296,13 +339,13 @@ All URLs were retrieved or checked on **2026-08-01 UTC**. Source-quality notes u
 - [Art Blocks Core Contract V3](https://docs.artblocks.io/developer/core-contract/) — **A/B**. Official contract documentation for project scripts, token hashes, dependency variants, the V3 contract coverage of Studio, Curated, and Engine projects, and the encoded token-ID rule; used here for the #248 project/invocation decoding.
 - [Art Blocks token and generator APIs](https://docs.artblocks.io/developer/token-and-generator-apis/) — **A/B**. Official URL patterns and API guidance for live views, static media, and authoritative token/project data.
 - [Art Blocks GraphQL reference](https://docs.artblocks.io/developer/graphql/) — **A/B**. Official field reference for project scripts, script versions, token hashes, invocation, mint time, feature fields, and render URLs.
-- [CENTURY #31 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
-- [CENTURY #724 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
-- [CENTURY #401 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
-- [Pre-Process #63 token record](https://www.artblocks.io/token/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063) — **A/B**. Art Blocks token page; used for the `Growth`, `Origin`, and `Surface` feature assertions.
-- [Phototaxis #308 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308) — **A/B**. Art Blocks token page; used for project-generated feature assertions.
-- [923 EMPTY ROOMS #713 token record](https://www.artblocks.io/token/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713) — **A/B**. Art Blocks token page; used for project-generated feature assertions and token ID mapping.
-- [Ex Nihilo (Cosmos) #248 token record](https://www.artblocks.io/token/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248) — **A/B**. Art Blocks token page; used for project-generated feature assertions and token ID mapping.
+- [CENTURY #31 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, token hash, project identity, and project-generated feature assertions.
+- [CENTURY #724 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, token hash, project identity, and project-generated feature assertions.
+- [CENTURY #401 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, token hash, project identity, and project-generated feature assertions.
+- [Pre-Process #63 token record](https://www.artblocks.io/token/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, token hash, and the `Growth`, `Origin`, and `Surface` feature assertions.
+- [Phototaxis #308 token record](https://www.artblocks.io/token/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, token hash, and project-generated feature assertions.
+- [923 EMPTY ROOMS #713 token record](https://www.artblocks.io/token/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity and the raw `City=CDMX`, `Primary Form=Pyramid`, and `Code=555536` assertions. The code is retained without semantic interpretation.
+- [Ex Nihilo (Cosmos) #248 token record](https://www.artblocks.io/token/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248) — **A/B**. Art Blocks token page; retrieved 2026-08-01 UTC for token identity, Studio project/invocation mapping, and project-generated feature assertions.
 - [CENTURY #31 generator response](https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031), [#724](https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724), and [#401](https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401) — **A/C**. Live Art Blocks generator responses observed 2026-08-01; used for current p5.js 1.0.0 dependency observations and retrieval hashes.
 - [Pre-Process #63 generator response](https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063), [Phototaxis #308](https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308), and [923 EMPTY ROOMS #713](https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713) — **A/C**. Live generator responses observed 2026-08-01; used for current p5.js 1.0.0 dependency observations and retrieval hashes.
 - [Ex Nihilo (Cosmos) #248 generator response](https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248) — **A/C**. Live generator response observed 2026-08-01; used for current p5.js 1.9.0 dependency observation and retrieval hash.

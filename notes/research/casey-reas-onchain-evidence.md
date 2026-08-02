@@ -332,3 +332,18 @@ Ex Nihilo (Cosmos) #248  Art Blocks Studio | 92 / project 0 / token 248
 ```
 
 Their current ERC-721 owner is the address resolved by `networkmuseum.6529.eth`, and the seven inbound custody events are in one successful transaction at block `25,660,311`. The report is sufficient as the on-chain evidence layer of a provisional accession dossier, but not as the complete accession itself.
+
+## Accession resolution — 2026-08-02
+
+The preceding uncertainty section records the boundary of this on-chain research at the time it was written. The completed accession dossier resolves those accession questions as follows and leaves the original research text intact as a historical audit trail:
+
+- The donor's full-gift declaration, exact delivery, formal Museum acceptance, and institutional title declaration establish title to the seven tokens and the donor's entire transferable interest, subject to the expressly accepted residual risk of undisclosed private claims. They do not transfer Casey REAS's copyright.
+- The public donor credit is punk6529. The chain record separately preserves `0x6DAA...` as the transfer source without using the wallet label as proof of a legal identity.
+- Current custody and the receipt event are fixed to transaction, block, log, contract, token ID, destination, and retained raw receipt. Custody remains subject to periodic verification as ordinary collection care.
+- Artist attribution is accepted from mutually consistent artist, Art Blocks, project, issuer-metadata, and contract project-artist sources. No contradictory attribution evidence was found; an additional artist-signed statement is not required for accession.
+- All seven raw metadata responses are retained with fixity. Generator, script, dependency, and independent render-environment capture remain active technical-conservation actions rather than unanswered accession decisions.
+- The Ex Nihilo proxy implementation remains a technical-provenance enrichment item; no identity, custody, rights, or display conflict was found that would make it an accession blocker.
+- Marketplace labels and rarity metrics are excluded. The Museum's transparent descriptors make no sale, value, rarity, ranking, or quality claim.
+- The lot and all seven objects are `accessioned`. `technically_verified`, `preservation_complete`, and unconditional `display_ready` remain later, stricter lifecycle states.
+
+The controlling current determinations are the [accession certificate](../../records/accessions/6529NM.2026.001/public/accession-certificate.md), [title and rights review](../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md), and [technical and condition review](../../records/accessions/6529NM.2026.001/public/technical-and-condition-review.md).

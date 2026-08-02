@@ -34,6 +34,24 @@ The living evidentiary record for one artwork: identity, chain facts, title/cust
 
 The revisable explanation of why a group belongs together. It does not substitute for individual object records or alter the legal accession act.
 
+## Limited gift authorization before accession completion
+
+A Museum may record a dated **Gift Acceptance and Accession Authorization**
+when it formally accepts an identified gift through an adopted collection and
+donation pathway. This is a limited administrative record, not a
+`STREAM_ACCESSION_V1` certificate. It must bind the exact object schedule,
+receipt, donor credit, consideration, governing decisions, and a public
+statement of the authority evidence and its limitations. It must also state
+permanent-collection intent without implying an unrestricted right to display,
+publish, reproduce, preserve, or transfer the work.
+
+Formal gift acceptance does not alone prove legal title, execute a
+`TITLE_BINDING`, complete condition or preservation work, authorize display,
+or move an object lifecycle state to `accessioned`. Until the executable
+Stream-equivalent accession certificate is evidence-backed, the lot and its
+objects remain `received_onchain` / `not_complete`; the record must name the
+specific completion blockers and retain independent reviewer fields as pending.
+
 ## Accession statement minimum
 
 - Museum and governing-entity reference;
@@ -102,6 +120,8 @@ Assess token, metadata, script, dependencies, rendering, behavior, and documenta
 
 Condition reports must use `STREAM_CONDITION_REPORT_V1` where applicable and include reproducible protocol state, fixity coverage, render-verification method/outcome, recovery lineage, narrative, and optional hash-committed captures.
 
+Visual documentation that does not meet the condition-report or preservation-package standard must use the local `VISUAL_OBSERVATION` profile. Record exact source URLs from retained metadata, byte fixity and size, viewport/canvas geometry, observation-completion timing semantics, commanded minimum waits, changed/unchanged outcome, and render-environment gaps. If capture bytes are not retained, say so and explain why. Never convert a post-save file timestamp into HTTP server timing, a post-hash completion time into a frame timestamp, or a minimum commanded wait into exact elapsed duration.
+
 ### Display and preservation
 
 Record live/static/video manifestation status, aspect/orientation/resolution, hardware, light/sound/interaction, duration, restart/network behavior, fallback, credit, and interpretation. A still is a documentation surrogate unless the artist/project authorizes it as a manifestation.
@@ -113,6 +133,8 @@ PREMIS object roles distinguish source capture, source/edit/print masters, displ
 ### Provenance, rights, and curatorial record
 
 Keep on-chain transfer history, legal-title history, and marketplace history separate. Record rights under `STREAM_RIGHTS_V1`, including basis and an explicit grant status for reproduction, publication, exhibition, print, derivative use, and AI training. Unknown rights are recorded as `unspecified`, not omitted.
+
+The controlled lifecycle state `acquired` records an approved administrative acquisition decision. It never, by itself, establishes legal title; `title_binding` requires its own evidence and may remain `pending` after custody receipt and formal gift acceptance.
 
 The curatorial section carries significance, selection rationale, collection relationships, context, bibliography, exhibition/publication history, research notes, authorship, and dates.
 

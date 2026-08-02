@@ -1,0 +1,1 @@
+Generator response capture status: not captured in this package. The live Art Blocks generator endpoints were probed through the repository safe-fetch policy on 2026-08-01; each response was rejected because transfer-encoded framing is not admitted by the pinned policy. No generator bytes or conservation completion are claimed.

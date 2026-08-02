@@ -213,9 +213,43 @@ therefore closed over `.github/`, policies, records, schemas, docs, governance,
 specs, templates, scripts, tests, and six named root control files. A formal
 `specs/README.md` defines the admission boundary. Tests pin the exact roots and
 files, prove that real and future specification files are inventoried, and
-reject missing or linked configured roots and files. Evidence, WIP notes, Git internals, and the
-self-referential release-artifact directory retain explicit separate treatment.
+reject missing or linked configured roots and files. Evidence, WIP notes, Git
+internals, and the self-referential release-artifact directory retain explicit
+separate treatment.
 
+## 2026-08-01 - Casey accession exact-head synchronization
+
+PR #10 was rebased once onto current `origin/main` at `ab4ec5e1193382133aa09677fbfb32dbbe51725f`, preserving the merged Casey research and this ledger checkpoint. The dossier now ends at `4b75ece88b354c534137e2f6306965f541a38faa`. Local bootstrap validation, whitespace checks, and the refreshed mandatory Museum validation pass. The PR remains draft and unmerged; no constructor self-review or accession-completion claim is made.
+
+## 2026-08-01 - Casey accession synchronization after PR #8
+
+`origin/main` advanced to `956ca06ba9c4563c844422c400ccb0bd37c94357` after the independently approved templates/crosswalk PR #8. PR #10 was rebased once onto that exact main. The Casey dossier records and schemas are byte-for-byte unchanged from the pre-sync head `ae42e16f5e93a169c30ce0b111fe992fddd59652`, and the approved main templates/crosswalk remain unchanged. The synchronized dossier head is `8435faf858ec4dc807487a618e75baa3f1d0f229`; local bootstrap and whitespace checks pass, and mandatory Museum validation run `30708569720` / job `91391853135` passed. PR #10 remains open, draft, and unmerged for independent integration review; no merge or accession-completion claim is made.
+
+## 2026-08-01 - Hold Casey remediation for PR #7 integration
+
+`origin/main` advanced to `a821eeadd3193f010dd5d27184ec3cf7dc90500f` after independently approved PR #6 merged the Keys and Gates selected-unminted records. PR #7 remains open and is the controlling dependency for the Casey fail-closed control-plane integration, so no rebase or dossier/schema remediation was applied in this checkpoint. PR #10 remains draft at `353858d46c2d2530381bc7664efd77e3abd21bba`; its accession payload is untouched. When synchronization resumes, preserve every `records/programs/6529NM-AP-01/**` payload byte-for-byte against the `a821eea` main-tree baseline while resolving only the required integration conflicts and review findings.
+
+## 2026-08-01 - Casey dossier migrated to merged control plane
+
+`origin/main` was synchronized once at the user-specified PR #7 merge `7193bfb9a0a6ead1871180b931aced755676b327`. The Casey lot is now represented by one enforced `ACCESSION_LOT`, seven `WORK_DESCRIPTION` object records, seven `RIGHTS_STATEMENT` records, and seven `CONDITION_REPORT` records, with public pages and a content-addressed preservation evidence manifest. The seven-token receipt remains custody evidence and the lot remains `received_onchain`/`not_complete`; intake processing is not formal acceptance, title, rights, condition, curatorial, preservation, or display approval. Historical events are classified per-event, `.07` retains raw Studio fields, and every Casey payload has a self-excluding canonical SHA-256 commitment. Reviewer fields remain null for independent review. Bootstrap, fetch guard, and the full 57-test suite pass at this working checkpoint; final manifest/CI and draft-PR head binding remain to be completed.
+
+## 2026-08-01 - post-migration release-inventory synchronization
+
+Main subsequently advanced to `13578fe13a9638e497e96b26b5ce8c4a863543ab` through PR #14, which closes the governed release inventory over `.github/`, policies, records, schemas, docs, governance, specs, templates, scripts, tests, and named root controls. PR #10 was rebased onto that current main so the release manifest and mandatory validation use the merged tooling; Casey payloads and evidence boundaries remain substantive work in this draft. The draft remains open, unmerged, and independent-reviewer metadata remains null.
+
+## 2026-08-01 - Casey final merged-main validation checkpoint
+
+The closed manifest was regenerated at the PR #14 boundary with 146 governed entries and commitments `keccak256:0x2eeacfa36a8f8ddd32df4ddd4e22859848487dfb76133775354dce005754415a` / `sha256:603e6fae89122f6a023483a0f6c3197551287b2897ea05908e3ea6deff9509ba`. Bootstrap, fetch guard, full validator, manifest idempotence, whitespace checks, and the complete 60-test merged-main suite pass (one platform skip). Targeted mutations of a token ID, receipt transfer count, and `received_onchain` state were each rejected after canonical commitments were refreshed. Casey remains `received_onchain`/`not_complete`; reviewer metadata remains null pending the same independent reviewer’s exact-head re-review.
+
+## 2026-08-01 - Casey exact-head review remediation
+
+The same independent reviewer requested changes at `cb1e822b2221cdbcd614dc4b20478ae066223874`. The remediation replaces the dangling provenance evidence path with all seven canonical rights records, removes the nested provenance `$schema` marker, and routes the nested schedule through the accession schema's authoritative transaction-provenance `$defs` reference. Validation now resolves Casey evidence path/record targets and rejects dangling references or malformed nested events. The raw upstream metadata bytes remain unchanged and the public boundary explicitly documents verbatim royalty-routing wallet fields, authenticity signatures, and historical counterparty wallets as source-fidelity/provenance data only, without donor-identity, title, rights, or payment inference.
+
+The evidence manifest was refreshed in declared raw-byte mode; all nine entry hashes/sizes validate, and the seven raw metadata streams remain byte-identical. Its current file SHA-256 is `sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd`, bound into the lot source/preservation fields and all seven object preservation records. Zero Stream signatures and reviewer-null constructed records are explicitly unsigned placeholders; validator mutations for signed-authority, formal-acceptance, completed-accession, and premature-review interpretations fail closed. The regenerated closed release manifest is `keccak256:0xd97f5d597a5a4dbb94b7453e1a9d74b4835d68e341ba6660bb2accc7c27f42a3` / `sha256:593bb1107c7507748c13df05974c0a6cf333d55a08979e7dcefbc56fa7381c00`. Bootstrap, fetch guard, full validator, manifest idempotence, whitespace checks, and the complete 62-test suite pass (one platform skip). The draft remains `received_onchain`/`not_complete`, open, and pending independent re-review.
+
+## 2026-08-01 - nested preservation manifest hash remediation
+
+The independent exact-head review found one remaining stale field: `preservation_manifest.manifest_sha256` still carried the pre-disclosure `sha256:4091651e...` while the raw evidence manifest and other fixity bindings carried `sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd`. The nested field is now bound to the actual manifest bytes; `scripts/validate.py` cross-checks it alongside the lot/source and seven object fixity references, and a hash-refreshed targeted mutation rejects divergence. Raw metadata remains unchanged. Bootstrap, fetch guard, full validator, manifest generation/idempotence, whitespace checks, and the complete 63-test suite pass (one platform skip). New release commitments are `keccak256:0x2ff70eadf76e8c82d44f76a780fd22f82c309ee4ee242c1d5b8213af8972e8b0` / `sha256:ccd16b1d03ceebf4cc659a1d5a1421eeb2c4a4002aecdceb5e02c73b2a9a65f5`; the draft remains `received_onchain`/`not_complete` pending re-review.
 ## 2026-08-01 - Casey full-collection acquisition checkpoint
 
 The follow-on acquisition branch is `codex/casey-reas-collection-snapshots`,
@@ -447,6 +481,29 @@ Review and curatorial metadata remain null; no title/rights/accession
 acceptance is claimed. PR #13 remains draft pending the same independent
 exact-head review.
 
+## 2026-08-01 - PR #10 Casey dossier package integration checkpoint
+
+PR #10 merged the exact draft head `ec6493ee48ffa155c8c923a669c8ff7a1ad4dba8`
+with `origin/main` `9700e842d0c991280b476cc67849d966221a742a` in the isolated
+PR worktree. The Casey lot now binds the merged source package at
+`evidence/casey-reas-collection-snapshots`, package-manifest SHA-256
+`fdaddda0989c34a7b9c1cef4c79faee3eba5d1382d68ed06b4f519ba5a1fc70f`, and
+the complete descriptor manifest. Each object maps to its required descriptor:
+CENTURY `.01`/`.02`/`.03`, Pre-Process `.04`, Phototaxis `.05`, 923 EMPTY
+ROOMS `.06`, and Ex Nihilo (Cosmos) `.07`.
+
+The public and machine records now call the descriptors transparent, linked,
+available, and reproducible, anchored by package and descriptor hashes. They
+make no OpenSea/marketplace, aesthetic, quality, value, or ranking claim. URLs
+are transitional `tree/main` or `blob/main` publication locators only; no
+future merge pin is asserted. The seven raw public metadata files remain
+byte-identical and keep their raw-byte evidence-manifest binding.
+
+This integration does not change the accession decision: the lot and every
+object remain `received_onchain` / `not_complete`; formal acceptance, title,
+rights, condition, preservation, and independent registrar/curatorial review
+remain incomplete. The draft remains open and must receive independent
+exact-head review after validation.
 ## 2026-08-01 — PR #2 deterministic remediation checkpoint
 
 The PR #2 branch merged `origin/main` at
@@ -512,6 +569,75 @@ unittest suite, and `codex-diff-check`. All passed; 75 tests ran with the one
 expected Windows named-pipe skip, and the package verifier reproduced 3,300
 tokens, 35,088 traits, 79 raw files, and five descriptor outputs.
 
+## 2026-08-01 - PR #10 immutable Casey publication-boundary correction
+
+This append-only checkpoint supersedes the mutable-locator assertion in the
+earlier PR #10 package-integration checkpoint. The accession evidence is
+two-level: artwork-source bytes are bound to reachable
+`published_source_commit` `9700e842d0c991280b476cc67849d966221a742a`; the
+reviewed Casey package/toolchain publication is bound to immutable release
+commit `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`,
+and release-manifest SHA-256
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+Construction commit OIDs remain provenance labels only.
+
+The accession records use exact `blob/bf70ba3fd888d2d1b8add90fe56e913102f8aa68`
+links for release-bound package, descriptor-manifest, and descriptor evidence;
+`main` links are reserved for deliberately mutable living documentation. The
+dossier refresher and fail-closed validator retrieve and hash the published
+bytes with fixed-argument Git history calls, require complete reachable
+history, and do not rebind this dossier if a future current package changes.
+Tests reject wrong release commits or hashes and mutable `blob/main` links in
+release-bound fields. The seven raw public metadata bytes remain separately
+bound and unchanged. Formal state remains `received_onchain` / `not_complete`,
+with reviewer and authority fields null; no acceptance, title, rights,
+condition, preservation, or registrar decision is asserted.
+
+## 2026-08-01 - Casey formal gift authorization and curatorial integration
+
+This checkpoint adds a limited, effective Gift Acceptance and Accession
+Authorization for lot `6529NM.2026.001`. It records the user-authorized
+institutional decision to formally accept the seven verified gifts under the
+adopted Art Blocks preapproval (`6529NM-GOV-1052156`, Wave `#1052156`, drop
+`2e88273f-013c-4fdd-bea3-7de5451098e8`) and Donation Acceptance Policy
+(`6529NM-GOV-1052812`, Wave `#1052812`, drop
+`86e43beb-b55d-42f0-9eea-a3c115b08abc`). The authorization is formally
+accepted and effective; its constructed record status and pending independent
+review describe documentation QA only, not a provisional institutional
+decision. The public donor/authority declaration is expressly user-supplied
+and is neither a cryptographic signature nor an executed deed.
+
+The generic Gift Acceptance and Accession Authorization schema is reusable:
+it requires one or more assets and closed evidence structures but does not
+hard-code this donor, custody name, transfer count, or seven-asset schedule.
+Casey-specific semantic checks bind those facts, the shared receipt, exact
+CAIP-19 assets, governing records, and the pending completion boundary.
+
+The lot therefore remains `received_onchain` / `not_complete`. The pending
+gates are the Stream-equivalent completion certificate and title binding,
+rights, condition, preservation, registrar review, and independent exact-head
+review. No title, copyright assignment, unrestricted display or publication
+right, legal opinion, preservation completion, technical completion, signed
+authority, or `accessioned` lifecycle transition is asserted.
+
+The public dossier now includes a sourced Casey Reas artist/practice profile,
+a collection essay, and dated object-specific static/live observations on all
+seven object pages. These distinguish documented fact, artist or platform
+statement, time-specific static documentation surrogate, live generator
+observation, and Museum interpretation. The seven raw public metadata files
+remain byte-identical to the pre-change Casey branch and retain their manifest
+binding. The immutable source/publication evidence remains bound to source
+commit `9700e842d0c991280b476cc67849d966221a742a`, publication commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, package SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`,
+and release SHA-256
+`sha256:d05f75c65c0af0172a0a2f2207693e4211d5c0f4f69fad8d4907ebd90e12470e`.
+
+Before local commit, regenerate the governed manifest and run fetch guard,
+complete validation, package verification, and the diff check. The full
+discovered unittest suite has already passed: 80 tests, one expected Windows
+named-pipe skip.
 ## 2026-08-01 - PR #2 post-PR #15 Casey-pin integration checkpoint
 
 PR #15 is merged on `origin/main` as
@@ -924,3 +1050,286 @@ failure rolls all release, dependency, authority, and executor writes back to
 state `0`. The fully registry/chain-bound 2-of-3 release signatures are made
 only after the actual deployment address exists. Fresh regeneration,
 validation, exact-head review, CI, and merge remain required.
+
+## 2026-08-02 - PR #10 post-protocol-foundation sync checkpoint
+
+The Casey accession branch merged the independently reviewed protocol
+foundation from `origin/main` at
+`67d8528511917bd6b06a2c9c4bfe4a0b7445034d`. The append-only PR #10 and PR #2
+WIP histories were both preserved; generated Casey package and repository
+release manifests are being regenerated from the merged source bytes rather
+than selecting either stale side of the merge.
+
+The formal Gift Acceptance and Accession Authorization remains bound to the
+seven exact CAIP-19 identities, their shared receipt transaction and log
+indices, adopted Art Blocks donation preapproval, adopted Donation Acceptance
+Policy, donor credit `punk6529`, no consideration, and permanent-collection
+intent. The accession lot and all seven objects remain `received_onchain` /
+`not_complete`: this sync does not create a title instrument, copyright or
+display-right grant, legal conclusion, condition conclusion, preservation
+completion, registrar sign-off, independent review, or
+`STREAM_ACCESSION_V1` completion event.
+
+The artist/practice profile, five-project collection essay, and seven distinct
+object pages remain the current curatorial construction. Their claim-level
+source boundaries, immutable-versus-mutable technical distinctions,
+923-combinations/924-artworks distinction, 2021/2022 Phototaxis source
+conflict, transparent non-market descriptors, and no-rarity/no-value posture
+remain unchanged. Full package regeneration, validation, commit, push, exact
+CI, specialist review, and independent exact-head approval remain required.
+
+## 2026-08-02 - 923 EMPTY ROOMS edition-language correction
+
+Independent exact-head curatorial review of `7893dd9` found that the machine
+object record's phrase “Public edition: 924 unique artworks/tokens” exceeded
+the source boundary already enforced in the research dossier and public
+scholarship. Art Blocks and Bright Moments report an edition size of 924 and,
+separately, describe 923 unique rooms or combinations; the reviewed sources do
+not explain the relationship between those figures. The object record now
+preserves those two source statements separately, identifies the accessioned
+work only as native token `#713`, and adopts no reconciliation theory. The
+exact checker has been updated to require that source-limited formulation.
+
+The object payload SHA-256, envelope Keccak content commitment, and governed
+release manifest were regenerated after the correction. Targeted Casey
+validation, commitment refresh check, full Museum/Casey validation, all eight
+Casey dossier-control tests, deterministic-manifest check, and whitespace
+check pass locally. The correction requires a new committed head and complete
+fresh exact-head CI and independent review; no approval of `7893dd9` carries
+forward.
+
+## 2026-08-02 - Casey generic-schema and raw-receipt evidence remediation
+
+Advisory GLM review of `ff8fd6b` found two valid documentation-control issues:
+the Casey control note repeated its immutable-evidence paragraph, and the
+nominally generic public-inventory schema required exactly seven entries. The
+duplicate paragraph is removed. Public-inventory and transaction-provenance
+schemas now accept arbitrary non-empty Museum lots while generic semantic
+checks enforce object uniqueness, transfer-count equality, exact receipt-log
+projection, and one museum-receipt event per object. Behavioral tests exercise
+a valid one-object schedule and reject count and log mismatches.
+
+Independent Einstein review of the same head demonstrated that a Casey object
+record's contract, token ID, and CAIP-19 could be changed coherently and
+recommitted without being compared to the accession lot. It also found that
+the `direct_rpc_verified` receipt assertion retained conclusions but not the
+raw provider response bytes and acquisition metadata. Both findings are
+accepted. The dossier now retains and content-addresses the exact
+`eth_getTransactionReceipt` response for transaction
+`0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498`
+and a separate request/acquisition artifact identifying the provider,
+transport, method, parameter, client, HTTP result, byte hash, and limitation
+that this is one-provider evidence rather than an RPC quorum.
+
+The Casey validator decodes all nine receipt logs, requires seven ERC-721
+`Transfer` logs and two `Approval` logs, and joins every transfer's contract,
+token ID, source, destination, and log index to the accession identity
+schedule. It then joins that schedule bilaterally to the formal gift
+authorization, provenance schedule, seven work records, visual-observation
+record, and public inventory. The raw receipt and acquisition artifacts are
+also bound in the provenance record, preservation manifest, lot, and seven
+object fixity fields. Mutation tests now prove rejection of a coherently
+rewritten object identity, an altered raw transfer token, and altered RPC
+request metadata. The original source limitation remains explicit: the raw
+receipt proves Ethereum event/custody facts, not donor identity, legal title,
+rights, tax treatment, or accession completion.
+
+This remediation invalidates all earlier PR #10 exact-head approvals. Package
+and repository manifests, CI, specialist bots, and independent reviewers must
+all run again on the next committed head before merge.
+
+## 2026-08-02 - Casey accession substantive finalization checkpoint
+
+The Casey lot is no longer represented as an intake dossier awaiting a future
+reviewer. The current candidate makes and records the Museum's decisions:
+title to the seven tokens and the donor's full transferable interest is
+accepted; Casey REAS's copyright remains separate; the object-specific Art
+Blocks metadata supports the complete conditional CC BY-NC 4.0 Museum-use
+matrix; the seven objects and lot are accessioned; and the curatorial,
+registrar, condition, technical, display, and preservation findings are stated
+in final public and machine-readable records.
+
+The technical conclusion is `pass_with_conditions`. Exact token/custody
+identity and retained metadata fixity are green. The official generator routes
+were available and all seven produced changing output, so generator, render,
+dependency, behavior, documentation, and preservation findings are amber
+rather than red. They are not green because the Museum has not yet retained
+self-contained generator/dependency packages, complete interaction evidence,
+or two-environment reproducibility. Those are concrete active collection-care
+actions; `technically_verified`, `preservation_complete`, and unconditional
+`display_ready` remain later stricter states without reopening accession.
+
+The package now includes an accession certificate, title/rights determination,
+technical/condition review, curatorial decision, lot-level rights schedule,
+seven reviewed rights statements, seven reviewed condition reports, executed
+object-level title bindings, exact on-chain custody paths, a research-note
+resolution addendum, and a deterministic finalization script. The finalizer is
+idempotent and `--help` is non-mutating. Generic validators now fail closed on
+multi-object custody joins, malformed duplicate projections, malformed visual
+frames, and retention contradictions. Casey-specific controls reject any
+reversion to intake status, unspecified rights, placeholder title material,
+or a pending preservation list.
+
+Local verification at this checkpoint is green: full Museum/Casey validation,
+bootstrap validation over 276 JSON files, fetch guard, deterministic manifest,
+whitespace check, Python compilation, and 59 unit tests with one expected
+Windows named-pipe skip. After final record generation, the deterministic
+release manifest commits to Keccak-256
+`0x6480dbc430cf80f2f499fd1898892d1597918913ea3b2f0027a57e7340cb28f9`
+and SHA-256
+`5bf026405e3c6de8755ad1331151c56d0f18e3ff9417f6d7087f0593db2df37a`.
+Independent technical review, immutable exact-head URLs,
+PR bots, CI, and maintainer review must target the new committed head; earlier
+approvals do not carry forward.
+
+## 2026-08-02 - Exact technical facts and chronology correction checkpoint
+
+Exact-head registrar review of commit `05eb786b4ed1ac5f8093cff8f038d5f2923b010d`
+rejected two residual contradictions: invented millisecond offsets in the
+accession event chronology and canonical discovery pages that still described
+the superseded intake state. Both are corrected in the next candidate.
+
+The accession certificate now retains the Ethereum receipt at
+`2026-08-01T13:25:47Z`; acceptance, acquisition, and title passage share the
+actual `2026-08-01T22:55:00Z` institutional timestamp; and the later reviewed
+custody registration is dated `2026-08-02T06:30:00Z` while binding the earlier
+source occurrence explicitly. The generic validator permits co-temporal events
+but still rejects time moving backwards. No administrative timestamp is
+presented as the time of the on-chain transfer.
+
+The technical record now binds each exact generator-response SHA-256,
+dependency version, and complete source-reviewed interaction map. For 923 EMPTY
+ROOMS, the retained population and reviewed generator establish 924 invocations
+numbered 0–923, separate invocation-zero code `999999`, the documented 1–923
+combination sequence, and #713 code `555536`; no artistic meaning is assigned to
+invocation zero. For Ex Nihilo (Cosmos), the record preserves the generator's
+lowercase `r`/`b` implementation and duplicated lowercase comparisons against
+the platform's uppercase `R`/`B` instructions as an amber behavior/documentation
+discrepancy. Mutation tests reject changes to hashes, dependency versions,
+controls, automatic behavior, count structure, and discrepancy disclosure.
+
+The top-level README, repository index, standards crosswalk, and collection
+essay now state the completed accession and distinguish it from still-active
+software preservation. The governance basis separately binds the authenticated
+Wave API `drop_type=WINNER` observation to the reviewed governance register and
+states that rating totals do not determine effect.
+
+Local verification after these corrections: Casey dossier validation, bootstrap
+validation over 276 JSON files, full control-plane validation, 48 generic tests,
+and 11 Casey tests pass; the only skip is the expected Windows named-pipe test.
+The finalizer is idempotent.
+The corrected deterministic release manifest commits to Keccak-256
+`0xd9a06e653d2124c93e2ab14f3d8699c7fed2589ed8fa2d8e60592eabb722c37b`
+and SHA-256
+`771414c47e784d2a93a1d484481ad19a0dec8e2448661a63486fad56412f7383`.
+
+A separate durable Codex task, `019fc14e-8e9a-73a3-8213-2f4eddc077bf`, is
+building the Museum section in the 6529 Evolve monorepo from fresh remote main.
+Its scope is a GitHub-release-backed public Museum interface with immutable
+manifest verification and a source adapter designed to switch to Ethereum
+records later, followed by PR bots, maintainer merge, and post-merge validation.
+
+## 2026-08-02 - Immutable and append-only release-hardening checkpoint
+
+The candidate now pins every GitHub evidence URI inside committed Casey record
+payloads to exact source commit `823586e89c365dff26ef598140ef856f96dcd501`;
+only envelope discovery URIs remain live. The final validator rejects mutable
+`blob/main` and `tree/main` payload evidence links. Rights amendments,
+condition reassessments, and object state transitions are append-only,
+deterministically identified, and linked to the assertions they supersede.
+The completed accession cannot be rewritten by the legacy intake commitment
+refresher; that tool now refuses the operation and directs maintainers to the
+reviewed finalizer and full validator.
+
+The accession register finalizer is revision-generic and idempotent. It creates
+a successor only for a material payload change, preserves prior amendment
+history, records the real `2026-08-02T06:30:00Z` revision-three construction
+time, and leaves an existing review intact when the payload is unchanged. A
+generic control rejects current revisions constructed before their latest
+supersession and rejects incomplete or unordered revision histories.
+
+The Casey authority validator now requires exactly the adopted Art Blocks
+preapproval `1052156` and Donation Acceptance Policy `1052812`, once each,
+including their decision, drop, serial, and source identities. Mutation tests
+prove that substitution with another valid Wave winner, omission, and
+duplication all fail closed. Additional malformed-input tests cover missing
+evidence paths, null reviewers, empty object histories, mutable evidence URLs,
+and unhashable accession/provenance identities without validator crashes.
+
+The public collection essay, canonical repository index, and dated research
+record now distinguish the historical intake state from the completed
+accession. The rebuilt 175-file Casey package commits at
+`sha256:e76f18901101efda51361bda30ce22b57a87b9d60e1c21bd4ed2c66c1b41a22d`.
+The final hardening pass additionally binds the reviewed title instrument bytes
+across the lot, certificate, title-passage event, seven object records, and
+seven rights records; binds every condition report to the controlled visual
+observation bytes; rejects malformed stewardship-action entries; makes public
+page finalization assert the completed state; and removes the obsolete
+intake-stage validator and its dormant test corpus. The deterministic Museum
+release therefore commits at Keccak-256
+`0x072e076dad777042af9bae7569ce3035cd0abeb892d6623949333e6e1deb4eea`
+and SHA-256
+`217b2597f2a687c8c00b9fcde6fda99402f838e277f327597b0eab3251d00fdd`.
+The CI-equivalent discovery suite passes 96 tests with one expected Windows
+named-pipe skip; full Museum/Casey validation, package verification, fetch
+safety, compilation, deterministic-manifest checking, and whitespace checking
+also pass. Independent reviewers Turing (`019fc04f-6d34-7242-992f-3de8ff2b6346`)
+and Einstein (`019fc04f-7397-7a30-86b0-65fe1944f27d`) approved exact committed
+head `514cb18aee37b0d04c3eeb59703b411ea34f6bf9`; both recomputed the title and
+visual-observation byte joins and found no release blocker. The register review
+records Turing's documentary-QA approval at `2026-08-02T08:39:53Z`, bound to
+payload SHA-256
+`0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f`.
+Adding that review envelope does not change the reviewed register payload; it
+does produce the final repository release commitments: Keccak-256
+`0x5c9471e01cb0b4b0a84424388df3be3e0214d839ee48db87cfc05f0a3f61d2b2`
+and SHA-256
+`e459c8e3bf4f19263b50cd27c8481078de85dee1a719715491fdd58d0dd5e12b`.
+
+## 2026-08-02 - Final factual-integrity remediation checkpoint
+
+Luna's exact-head variance review identified seven remaining documentary
+integrity defects after the earlier approvals: custody had been mislabeled as
+an offer; one certificate link did not bind the current accession-lot bytes;
+the descriptor ledger still said review was pending; INDEX statuses
+contradicted reviewed records; preservation actions admitted null entries;
+generator findings came from finalizer constants rather than an independent
+evidence object; and records retained a research head superseded by the
+923/924 correction.
+
+The next candidate resolves all seven in substance. Object lifecycle histories
+now begin offered only when the donor declaration substantiates the offer, at
+`2026-08-01T22:55:00Z`; the earlier Ethereum receipt remains a separately dated
+custody fact. The acquisition certificate binds the exact accession-statement
+bytes by immutable Git blob URI and SHA-256. The descriptor ledger is
+`complete_reviewed`, records two exact-head reviewers and five per-output
+approvals, and is enforced by the dossier validator. INDEX labels now match the
+reviewed records. The accession-lot schema closes and types the preservation
+manifest, and Casey validation requires the exact four substantive stewardship
+actions, so null or placeholder substitution fails closed.
+
+Generator findings now originate in the separately retained,
+manifest-bound `evidence/casey-reas/generator-observations.json` transcript.
+The finalizer and validator load it independently; the validator also pins its
+reviewed SHA-256 and requires every object and condition report to bind that
+exact transcript. The transcript expressly preserves the absence of raw
+generator bytes and therefore does not overstate autonomous preservation.
+Corrected art-technical and on-chain research bytes are hash-bound at commit
+`951f5afb95c511adaf879d017c662046ff6365b5`; superseded head
+`9f38bd4ba5f779540eabf2dfce019cc1382561e2` is rejected in canonical payloads.
+
+Focused negative controls now cover false offered chronology, an unhashable
+accession-lot citation, null preservation actions, mutated generator evidence,
+and a cleared descriptor review. Sixty-five focused tests pass with one
+expected Windows named-pipe skip; the 175-file Casey package verifies with
+SHA-256
+`2b2e7ce8897688fa8fde9137cf8f0c361e420d0799b6fbb9b6bfb5fa4d7c6299`.
+The candidate deterministic release before the final Git-blob URI hardening
+committed at Keccak-256
+`0xe5325c93e7bc12910909af1399551c95e3d2829a6b7ee5b0bfc03795694cd3cf`
+and SHA-256
+`36e069cbb1e9c20b000922605f8093907c9a8db560006b3c179fb43c13174471`.
+These values are retained as an intermediate checkpoint, not the release
+authority. The current commitments are always the values in
+`release-artifacts/latest/record-manifest.json` and must be approved against the
+resulting exact head.

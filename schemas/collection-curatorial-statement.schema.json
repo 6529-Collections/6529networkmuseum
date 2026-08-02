@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/collection-curatorial-statement/v1",
+  "title": "6529 Network Museum collection-level curatorial statement",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "artist_statement", "museum_interpretation", "trait_analysis_policy"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "collection_curatorial_statement"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "artist_statement": {"type": "object", "required": ["claim_type", "text", "source_refs"]},
+    "museum_interpretation": {"type": "object", "required": ["claim_type", "text", "source_refs"]},
+    "trait_analysis_policy": {"type": "object", "required": ["status", "linked_deliverable"]}
+  }
+}

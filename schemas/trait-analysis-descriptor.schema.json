@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/trait-analysis-descriptor/v1",
+  "title": "6529 Network Museum transparent generative trait descriptor",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["$schema", "record_control", "record_id", "record_type", "status", "source_package", "non_claims"],
+  "properties": {
+    "$schema": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "record_type": {"const": "trait_analysis_descriptor"},
+    "record_control": {"type": "object", "required": ["revision", "record_status", "constructor", "review"]},
+    "status": {"const": "transparent_linked_descriptors_available"},
+    "source_package": {"type": "object", "required": ["merged_source_package_commit", "path", "package_manifest", "descriptor_manifest", "counts", "descriptors"]},
+    "non_claims": {"type": "array", "minItems": 1}
+  }
+}

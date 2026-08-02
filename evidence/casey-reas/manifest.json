@@ -1,0 +1,101 @@
+{
+  "manifest_type": "6529NM_CASEY_PRESERVATION_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "source_heads": {
+    "casey_snapshot_source": "bdc8b946dd41bb0f5df7bac445f364182fcc3a6d",
+    "casey_research": "951f5afb95c511adaf879d017c662046ff6365b5"
+  },
+  "source_hashes": {
+    "casey_art_technical_research_sha256": "sha256:284f25c7405059f3de499c8720229f3b94c3ed6a93cf22a167c3bdd755f5affe",
+    "casey_onchain_research_sha256": "sha256:0b3daa8ebf3b008c341867724a05709a1439d534837f1869e15f1351533d1db9"
+  },
+  "status": "incomplete_generator_capture_pending",
+  "entries": [
+    {
+      "path": "generator-capture-status.md",
+      "sha256": "d70aa168f11c8d06d58924cf6e255d280e161a92a90ea99faa3679f83e458091",
+      "size": 330,
+      "media_type": "text/plain",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "generator-observations.json",
+      "sha256": "a2e6a2295ffdbee3332fdeec7cd9e044d4bc5313cd63f9d6e5b67e01c3ac79da",
+      "size": 7148,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.01.json",
+      "sha256": "e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+      "size": 3232,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.02.json",
+      "sha256": "3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+      "size": 3229,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.03.json",
+      "sha256": "7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+      "size": 3231,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.04.json",
+      "sha256": "581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+      "size": 4360,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.05.json",
+      "sha256": "b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+      "size": 3029,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.06.json",
+      "sha256": "a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+      "size": 3748,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/metadata/6529NM.2026.001.07.json",
+      "sha256": "60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+      "size": 4224,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json",
+      "sha256": "4a73a7b84bb11c5a857dd93d20f8ab6027ca5472d6e2f9878fece458ad35dd21",
+      "size": 6781,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/receipt-acquisition.json",
+      "sha256": "f143ba2d832b27ef9c3a11369fd5c183283e28e778b63e78a57d89d6e1e97f45",
+      "size": 1262,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "README.md",
+      "sha256": "44240188812a981b48b85257dc33f2cf09ddfa527053fda8669ce746ed7bbd2c",
+      "size": 2158,
+      "media_type": "text/plain",
+      "byte_mode": "raw"
+    }
+  ]
+}

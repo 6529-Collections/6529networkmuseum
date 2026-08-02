@@ -2,8 +2,10 @@
 
 Status: acquisition package and collection-level statistical descriptors were
 constructed on 2026-08-01 UTC after the independent approval and merge of
-Museum PR #4. Outputs remain pending independent review. This package does
-not accept title, rights, accession, or curatorial-significance claims.
+Museum PR #4. The five outputs completed exact-head independent review on
+2026-08-02 and are approved as reproducible documentary aids. This package
+does not accept title, rights, accession, rarity, quality, value, ranking, or
+curatorial-significance claims.
 
 This package is the source-and-acquisition layer for the five Art Blocks
 projects represented by accession lot `6529NM.2026.001`:
@@ -73,8 +75,10 @@ price, or floor field is requested, imported, cited, or preserved.
   internally consistent. `latest-run.json` is a pointer and is excluded from
   the inventory to avoid a self-reference cycle.
 - `pending-descriptors.json` - dependency and review ledger for the emitted
-  descriptors; it remains `complete_pending_review` with reviewer fields null.
-  It is not a quality claim or marketplace result.
+  descriptors. Its historical filename is retained for stable package paths;
+  its current state is `complete_reviewed`, with the exact reviewed commit,
+  reviewers, scope, and per-output approvals. It is not a quality claim or
+  marketplace result.
 
 ## Attribute materialization boundary
 

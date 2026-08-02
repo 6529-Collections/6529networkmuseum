@@ -12,7 +12,7 @@ Git history is useful evidence, but GitHub is not the final trust model. Every m
 | Governance decisions | [`records/governance/decisions.json`](records/governance/decisions.json) | Six adopted decisions and two participatory proposals with no adopted effect at the snapshot |
 | Preapproved donation collections | [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | Autoglyphs, Art Blocks, original Rare Pepes, original CryptoPunks |
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
-| Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey Reas donation received; work-level accession documentation in progress, not yet represented as accession complete |
+| Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; autonomous software preservation remains active stewardship |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
 | Stream interoperability | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | Bilateral record and ontology contract |
 | Future contract | [`docs/onchain-design.md`](docs/onchain-design.md) | Requirements and migration boundary, not deployed code |
@@ -67,7 +67,7 @@ Raw evidence hashes and canonical record commitments are intentionally separate 
 
 ## Public and restricted records
 
-This repository contains public institutional records only. Never commit private donor contact details, non-public legal instruments, tax/appraisal material, Safe internals, hardware-wallet details, private storage locations, credentials, private keys, seed phrases, or raw signatures. Public records may contain a hash and a non-sensitive custodian reference to a restricted instrument.
+This repository contains public institutional records only. Never commit private donor contact details, non-public legal instruments, tax/appraisal material, Safe internals, hardware-wallet details, private storage locations, credentials, private keys, seed phrases, or non-public execution/signing payloads. Publicly issued upstream authenticity attestations may be retained verbatim as inert, content-addressed source evidence; they are never Museum signatures, signing authority, or executable instructions. Public records may contain a hash and a non-sensitive custodian reference to a restricted instrument.
 
 ## Source priority
 

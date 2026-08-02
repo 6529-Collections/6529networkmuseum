@@ -1,0 +1,121 @@
+{
+  "schema_version": "6529nm.generator-observation-transcript.v1",
+  "evidence_kind": "independently_reviewed_observation_transcript",
+  "subject": "Casey REAS accession lot 6529NM.2026.001",
+  "review_completed_at": "2026-08-02T08:39:53Z",
+  "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
+  "reviewers": [
+    "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
+    "codex-review:019fc14c-6208-7861-b3b6-52e1fb02677d"
+  ],
+  "method": "Independent exact-head reviewers inspected the seven official Art Blocks generator responses, recomputed the reported response-body SHA-256 digests, reviewed dependency declarations and implemented controls, and compared their findings with the accession records.",
+  "hash_semantics": "Each response_sha256 is an independently reviewed digest of the official generator HTTP response body observed during technical review. The response bytes were not retained because their transfer framing was rejected by the repository safe-fetch policy; these hashes are therefore attested observations, not substitutes for autonomous software preservation.",
+  "raw_response_bytes_retained": false,
+  "preservation_boundary": "The transcript makes the reviewed technical findings reproducible from a source independent of the record constructor. It does not make the generator byte streams reproducible; exact generator, project-script, dependency, and render-environment capture remains active stewardship.",
+  "rooms_edition_statement": "The retained population snapshot establishes 924 tokens and invocations 0–923. Invocation 0 is separately coded 999999; invocations 1–923 follow the documented combinatorial sequence. The reviewed generator contains the same 924-entry table. Native token #713 is invocation 713 and maps to Code 555536. This resolves the numerical structure but does not assign an artistic interpretation to invocation 0.",
+  "objects": [
+    {
+      "suffix": "01",
+      "object_id": "6529NM.2026.001.01",
+      "title": "CENTURY #31",
+      "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+      "response_sha256": "sha256:465b45798f14bea109f59986bd2cdcfd6e2eb9050327f52b24af15e159704ae2",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "1", "action": "Cut and reorder image slices."},
+        {"input": "2", "action": "Restore the ordered composition."}
+      ]
+    },
+    {
+      "suffix": "02",
+      "object_id": "6529NM.2026.001.02",
+      "title": "CENTURY #724",
+      "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "response_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "1", "action": "Cut and reorder image slices."},
+        {"input": "2", "action": "Restore the ordered composition."}
+      ]
+    },
+    {
+      "suffix": "03",
+      "object_id": "6529NM.2026.001.03",
+      "title": "CENTURY #401",
+      "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+      "response_sha256": "sha256:51ab1073b166701c9379984d9331c14d803dc84e35c8d06b5a8071f4eb895aad",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "1", "action": "Cut and reorder image slices."},
+        {"input": "2", "action": "Restore the ordered composition."}
+      ]
+    },
+    {
+      "suffix": "04",
+      "object_id": "6529NM.2026.001.04",
+      "title": "Pre-Process #63",
+      "generator_uri": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+      "response_sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "mouse press", "action": "Reset the composition."},
+        {"input": "1–8", "action": "Select a surface treatment and reset the composition."},
+        {"input": "Space", "action": "Reset the composition."},
+        {"input": "P", "action": "Pause or resume animation."}
+      ]
+    },
+    {
+      "suffix": "05",
+      "object_id": "6529NM.2026.001.05",
+      "title": "Phototaxis #308",
+      "generator_uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+      "response_sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "P", "action": "Pause or resume the simulation."},
+        {"input": "B", "action": "Restart the simulation from the beginning."},
+        {"input": "1–5", "action": "Change magnification."},
+        {"input": "L", "action": "Reveal or hide the simulated light locations."}
+      ],
+      "automatic_behavior": "The simulation stops after 1,000 iterations for the initial thumbnail state."
+    },
+    {
+      "suffix": "06",
+      "object_id": "6529NM.2026.001.06",
+      "title": "923 EMPTY ROOMS #713",
+      "generator_uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "response_sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
+      "dependency": "p5.js 1.0.0 via cdnjs",
+      "interaction_map": [
+        {"input": "+ / -", "action": "Increase or decrease scale."},
+        {"input": "D", "action": "Toggle the diagram view."},
+        {"input": "Space", "action": "Change the background state."},
+        {"input": "R / G / B", "action": "Toggle red, green, or blue channels."},
+        {"input": "1–6", "action": "Select a city preset."},
+        {"input": "Arrow keys", "action": "Change depth."},
+        {"input": "S", "action": "Change speed."},
+        {"input": "0 / 9", "action": "Change line length."},
+        {"input": "T", "action": "Change resolution."},
+        {"input": "P", "action": "Save the current view."}
+      ]
+    },
+    {
+      "suffix": "07",
+      "object_id": "6529NM.2026.001.07",
+      "title": "Ex Nihilo (Cosmos) #248",
+      "generator_uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "response_sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
+      "dependency": "p5.js 1.9.0 via cdnjs",
+      "interaction_map": [
+        {"input": "Space", "action": "Generate a new Still Life state."},
+        {"input": "P", "action": "Pause or resume animation."},
+        {"input": "S", "action": "Change speed."},
+        {"input": "G / W", "action": "Toggle the implemented green and white display states."},
+        {"input": "lowercase r / b", "action": "Toggle the implemented red and blue channel states."}
+      ],
+      "documentation_discrepancies": [
+        "The reviewed generator compares lowercase r and lowercase b (with duplicated lowercase comparisons); the uppercase R and B controls stated in platform metadata are not implemented as written. This is an amber behavior/documentation discrepancy."
+      ]
+    }
+  ]
+}

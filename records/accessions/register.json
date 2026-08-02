@@ -1,31 +1,51 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 1,
+    "revision": 3,
     "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
       "role": "constructor",
-      "constructed_at": "2026-08-01T15:13:00Z"
+      "constructed_at": "2026-08-02T06:30:00Z"
     },
     "review": {
-      "actor_id": "codex-task:019fbdd6-8eb7-7663-8f51-2fd0e33e9f6c",
+      "actor_id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
       "role": "reviewer",
-      "reviewed_at": "2026-08-01T15:42:12.081Z",
-      "reviewed_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
+      "reviewed_at": "2026-08-02T08:39:53Z",
+      "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
       "outcome": "approved",
-      "payload_sha256": "sha256:b45b4ddf1d1cb81f63d9174d8a3928de9fa72a6899395f62e26d5a9c9838b76f"
+      "payload_sha256": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f"
     }
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-01T14:58:31.905115Z",
+  "snapshot_at": "2026-08-02T06:30:00Z",
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-01T22:55:00Z",
+      "prior_payload_sha256": "sha256:b45b4ddf1d1cb81f63d9174d8a3928de9fa72a6899395f62e26d5a9c9838b76f",
+      "prior_review_commit": "63eb40c39644559ab435b7fd8a2d75f9a6c30204",
+      "reason": "Superseded current-view register entry to record the user-authorized formal gift acceptance separately from pending Stream accession completion; the reviewed revision-one commitment remains identified here.",
+      "supersedes": "sha256:b45b4ddf1d1cb81f63d9174d8a3928de9fa72a6899395f62e26d5a9c9838b76f"
+    },
+    {
+      "revision": 2,
+      "superseded_at": "2026-08-02T06:30:00Z",
+      "supersedes": "sha256:ec046435a6e33e5d0e5290d72cc2344b9087bef6ac2f4ed0e51c5b3594327149",
+      "prior_payload_sha256": "sha256:ec046435a6e33e5d0e5290d72cc2344b9087bef6ac2f4ed0e51c5b3594327149",
+      "prior_review_commit": "1abf5a81a080f3fdbc7f74fcf06647ed12336170",
+      "reason": "Replaced the intake-stage view with the completed Casey REAS accession, reviewed title and rights determinations, technical and curatorial decisions, and concrete continuing stewardship actions."
+    }
+  ],
   "lots": [
     {
       "accession_lot_id": "6529NM.2026.001",
       "preferred_title": "Casey Reas donation from punk6529",
       "object_count": 7,
-      "donation_status": "received",
-      "accession_status": "documentation_in_progress",
+      "donation_status": "formally_accepted",
+      "accession_status": "accessioned",
+      "formal_acceptance_status": "formally_accepted",
+      "gift_acceptance_authorization_record": "6529NM.2026.001.GAA-01",
       "donor_public_credit": "Gift of punk6529",
       "custody": {
         "ens": "networkmuseum.6529.eth",
@@ -41,17 +61,23 @@
         "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
         "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
         "transfer_count": 7,
-        "receipt_status": "success",
+        "receipt_status": "0x1",
         "evidence_class": "A"
       },
       "evidence_refs": [
-        "notes/research/casey-reas-onchain-evidence.md",
-        "notes/research/casey-reas-art-technical-research.md"
+        "records/accessions/6529NM.2026.001/accession-certificate.json",
+        "records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md",
+        "records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
+        "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
+        "notes/research/casey-reas-onchain-evidence.md"
       ],
-      "completion_limits": [
-        "Work-level accession records are in construction.",
-        "Custody does not by itself establish legal title, copyright, display rights, donor authority, or curatorial acceptance.",
-        "The public donor instrument summary and restricted-instrument hash have not yet been recorded."
+      "completion_limits": [],
+      "accession_certificate_record": "6529NM-ACC-2026-001",
+      "ongoing_stewardship_actions": [
+        "Self-contained generator and dependency capture",
+        "Two-environment render and interaction verification",
+        "Rights-compliant documentation-byte retention",
+        "Replica, fixity, recovery, custody, and provenance maintenance"
       ]
     }
   ]

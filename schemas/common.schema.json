@@ -16,7 +16,7 @@
       "unevaluatedProperties": false
     },
     "reviewer": {
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "id": {"$ref": "#/$defs/id"},
         "role": {"type": "string", "const": "reviewer"},
@@ -52,12 +52,16 @@
         "effective_at": {"$ref": "#/$defs/dateTime"},
         "constructor": {"$ref": "#/$defs/actor"},
         "reviewer": {"$ref": "#/$defs/reviewer"},
+        "record_status": {"type": "string", "enum": ["constructed", "review_pending", "reviewed", "superseded"]},
+        "review_status": {"type": "string", "enum": ["pending_independent_review", "reviewed", "superseded"]},
+        "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "source": {"type": "object", "additionalProperties": true},
         "references": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
         "supersedes": {"$ref": "#/$defs/id"},
         "supersession_reason": {"type": "string", "minLength": 1},
         "evidence_refs": {"type": "array", "items": {"$ref": "#/$defs/evidenceRef"}, "uniqueItems": true}
       },
-      "required": ["record_id", "record_type", "schema_id", "subject_id", "visibility", "record_version", "created_at", "observed_at", "effective_at", "constructor", "reviewer"],
+      "required": ["record_id", "record_type", "schema_id", "subject_id", "visibility", "record_version", "created_at", "observed_at", "effective_at", "constructor", "reviewer", "record_status", "review_status", "payload_sha256"],
       "allOf": [
         {
           "if": {"required": ["supersedes"]},

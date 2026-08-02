@@ -82,8 +82,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/README.md",
         "role": "package-documentation",
-        "sha256": "sha256:74c27465078d7fabdc420c54c743e79a17cfa0c2790402bc8cc749bda20ab3ee",
-        "size": 9592
+        "sha256": "sha256:32c244e2ef2ac051d26297c03a87cf099d7a2c8efcca5d21f7f9039e96ea60f2",
+        "size": 9824
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/collection-sources.json",
@@ -142,8 +142,8 @@
       {
         "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
         "role": "review-ledger",
-        "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
-        "size": 2867
+        "sha256": "sha256:729ca5de4c86d42811d027dd50bee71abe15b84c365f4b6b8871ee28c964b13f",
+        "size": 3953
       },
       {
         "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-085e9f5971535185a237a43fcfa4f826f8498187921283eca2838b34e90735c3.json",
@@ -1048,8 +1048,8 @@
       {
         "path": "scripts/bootstrap_validate.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:43da3f1480db42d93f245d33fda88842fe20adaafe8a3eb12016f9899b75a490",
-        "size": 27239
+        "sha256": "sha256:2fa70c1e5d84f315eb9faa504d88c8d798c859000c2314f7ef1e88793d2330a9",
+        "size": 29644
       },
       {
         "path": "scripts/build_casey_package_manifest.py",
@@ -1126,8 +1126,8 @@
       {
         "path": "tests/test_control_plane.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:db8ed716825f586f9707930dd92c8858bee462c36592bf781061f53482d4615e",
-        "size": 54317
+        "sha256": "sha256:59271c4ba73780c5011655f0eb09bfeadae791f852e3f50743b35382cd7e70ca",
+        "size": 62806
       }
     ]
   },
@@ -1149,8 +1149,8 @@
     },
     "pending_review_ledger": {
       "path": "evidence/casey-reas-collection-snapshots/pending-descriptors.json",
-      "sha256": "sha256:ec65cb495f13b4fd999952746af36f4adf6bce0227f679ff57c676c1bd441bd0",
-      "size": 2867
+      "sha256": "sha256:729ca5de4c86d42811d027dd50bee71abe15b84c365f4b6b8871ee28c964b13f",
+      "size": 3953
     },
     "request_provenance": {
       "path": "evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/derived/provenance/sha256-19ccce67e70b2ba9d8c5ee8e1877f0ce080e8c4cdf9ea361d9924a7598885f34.json",

@@ -42,7 +42,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Run full schema and semantic validation
-        run: python scripts/validate.py
+        run: python scripts/validate_full_with_casey.py
 
       - name: Check deterministic release manifest
         run: python scripts/generate_manifest.py --check
@@ -84,5 +84,5 @@ jobs:
           python scripts/bootstrap_validate.py
           python scripts/check_fetch_guard.py
           python -m unittest discover -s tests -v
-          python scripts/validate.py
+          python scripts/validate_full_with_casey.py
           python scripts/generate_manifest.py --check

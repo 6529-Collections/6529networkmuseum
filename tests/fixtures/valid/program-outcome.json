@@ -5,7 +5,7 @@
     "subjectId": "0xfea2d0aa645c68bd45e5dad80391a91c004266fcf650234de5a53788e9810f30",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xda080f1c9010cf383c4ee77b429d193970afa327406955583188e43f5ab7d343",
+      "digest": "0xb442a15b72a7521e1eb7c6e6be5f41787a4a39b6684f870ba6ddf29fb093ed9a",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5exampleoutcome",
@@ -28,12 +28,23 @@
     "created_at": "2026-08-01T00:00:00Z",
     "observed_at": "2026-08-01T00:00:00Z",
     "effective_at": "2026-08-01T00:00:00Z",
-    "constructor": {"id": "program-authority", "role": "program_authority", "observed_at": "2026-08-01T00:00:00Z"},
-    "reviewer": {"id": "outcome-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
+    "constructor": {
+      "id": "program-authority",
+      "role": "program_authority",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "outcome-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
     "program_id": "6529NM-AP-01",
     "outcome_id": "6529NM-AP-01-OUT-001",
     "outcome_status": "selected",
     "selection_evidence": "Program outcome recorded by the program authority and independently reviewed.",
-    "acquisition_state": "authorized"
+    "acquisition_state": "authorized",
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:08e79e6aad2127191c0a9fffb32c80556e680fb15872f7af6cc6f12b07920a22"
   }
 }

@@ -50,6 +50,7 @@ RECORD_REFERENCE_KEYS = {
     "references",
     "supersedes",
     "approval_decision_id",
+    "decision_id",
     "program_id",
     "object_id",
     "object_ids",
@@ -59,6 +60,13 @@ RECORD_REFERENCE_KEYS = {
     "amendment_ids",
 }
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
+
+
+def frozen_projection(value: Any) -> str:
+    """Return a stable, hashable representation of JSON-derived untrusted data."""
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+
+
 SENSITIVE_KEY_PARTS = {
     "api_key",
     "apikey",
@@ -381,16 +389,30 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
     if record_type == "ACCESSION" and all(isinstance(event_type, str) for event_type in event_types) and len(event_types) != len(set(event_types)):
         issues.append("ACCESSION.events must not repeat an event_type")
     previous_time = None
+    prior_event_ids: set[str] = set()
     for index, event in enumerate(events):
+        if record_type in {"RIGHTS_STATEMENT", "CONDITION_REPORT"}:
+            current_event_id = event.get("event_id")
+            if not isinstance(current_event_id, str) or not current_event_id:
+                issues.append(f"{record_type}.events[{index}]: event_id is required")
+            elif current_event_id in prior_event_ids:
+                issues.append(f"{record_type}.events[{index}]: event_id must be unique")
+            supersedes_event_id = event.get("supersedes_event_id")
+            if supersedes_event_id is not None and (
+                not isinstance(supersedes_event_id, str) or supersedes_event_id not in prior_event_ids
+            ):
+                issues.append(f"{record_type}.events[{index}]: supersedes_event_id must identify a unique earlier event")
+            if isinstance(current_event_id, str) and current_event_id:
+                prior_event_ids.add(current_event_id)
         try:
             current_time = parse_time(event["occurred_at"], f"{record_type}.events[{index}].occurred_at")
         except (KeyError, ValueError) as exc:
             issues.append(str(exc))
             continue
         if previous_time is not None:
-            invalid_order = current_time <= previous_time if record_type == "ACCESSION" else current_time < previous_time
+            invalid_order = current_time < previous_time
             if invalid_order:
-                issues.append(f"{record_type}.events[{index}]: occurred_at must be strictly increasing" if record_type == "ACCESSION" else f"{record_type}.events[{index}]: occurred_at moves backwards")
+                issues.append(f"{record_type}.events[{index}]: occurred_at moves backwards")
         previous_time = current_time
     if record_type == "ACCESSION" and len(events) == len(ACCESSION_EVENT_ORDER):
         acceptance = events[1]
@@ -399,14 +421,18 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
         title_event = events[3]
         custody_event = events[4]
         instrument = title_event.get("instrument") if isinstance(title_event.get("instrument"), dict) else {}
-        custody_path = custody_event.get("custody_path") if isinstance(custody_event.get("custody_path"), dict) else {}
+        custody_paths = custody_event.get("custody_paths")
+        custody_paths = custody_paths if isinstance(custody_paths, list) and all(isinstance(path, dict) for path in custody_paths) else []
         object_ids = payload.get("object_ids")
         bindings = payload.get("title_bindings")
         if isinstance(object_ids, list) and isinstance(bindings, list):
             binding_ids = [binding.get("object_id") for binding in bindings if isinstance(binding, dict)]
             if not all(isinstance(object_id, str) for object_id in object_ids + binding_ids):
                 issues.append("ACCESSION title_bindings must identify every object_id")
-            elif len(binding_ids) != len(set(binding_ids)) or set(binding_ids) != set(object_ids):
+            elif (
+                len(binding_ids) != len(set(map(frozen_projection, binding_ids)))
+                or set(map(frozen_projection, binding_ids)) != set(map(frozen_projection, object_ids))
+            ):
                 issues.append("ACCESSION must contain exactly one title binding per object_id")
             if any(not isinstance(binding, dict) or binding.get("status") != "executed" for binding in bindings):
                 issues.append("ACCESSION must require an executed title binding for every object_id")
@@ -415,22 +441,177 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
                     issues.append("ACCESSION title_passage instrument sha256 must match every title binding")
                 if isinstance(binding, dict) and instrument.get("custodian_reference") and binding.get("custodian_reference") != instrument.get("custodian_reference"):
                     issues.append("ACCESSION title_passage custodian_reference must match every title binding")
-        if instrument.get("kind") != "off_chain_instrument":
-            issues.append("ACCESSION title_passage must identify an off_chain_instrument")
-        if custody_path.get("kind") != "non_token_off_chain":
-            issues.append("ACCESSION custody_receipt must identify a non_token_off_chain custody path")
-        if instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
-            issues.append("ACCESSION custody_receipt instrument_reference must match title_passage instrument.reference")
+        if instrument.get("kind") not in {"off_chain_instrument", "institutional_gift_title_declaration"}:
+            issues.append("ACCESSION title_passage must identify a supported title instrument")
         executed_bindings = [binding for binding in bindings if isinstance(binding, dict) and binding.get("status") == "executed"] if isinstance(bindings, list) else []
-        path_object_id = custody_path.get("object_id")
-        matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == path_object_id]
-        if len(matching_bindings) != 1:
-            issues.append("ACCESSION custody_path must identify exactly one executed title binding by object_id")
-        else:
+        path_ids = [path.get("object_id") for path in custody_paths]
+        object_ids = payload.get("object_ids") if isinstance(payload.get("object_ids"), list) else []
+        if (
+            not custody_paths
+            or len(path_ids) != len(set(map(frozen_projection, path_ids)))
+            or set(map(frozen_projection, path_ids)) != set(map(frozen_projection, object_ids))
+        ):
+            issues.append("ACCESSION custody_paths must identify exactly one path per object_id")
+        for custody_path in custody_paths:
+            matching_bindings = [binding for binding in executed_bindings if binding.get("object_id") == custody_path.get("object_id")]
+            if len(matching_bindings) != 1:
+                issues.append("ACCESSION custody_path must identify exactly one executed title binding by object_id")
+                continue
             binding = matching_bindings[0]
+            expected_kind = "onchain_token" if binding.get("transfer_transaction") else "non_token_off_chain"
+            if custody_path.get("kind") != expected_kind:
+                issues.append(f"ACCESSION custody_path.kind must be {expected_kind} for its title binding")
+            if expected_kind == "non_token_off_chain" and instrument.get("reference") and custody_path.get("instrument_reference") != instrument.get("reference"):
+                issues.append("ACCESSION off-chain custody_path.instrument_reference must match title_passage instrument.reference")
             for field in ("from", "to", "custodian_reference"):
                 if custody_path.get(field) != binding.get(field):
                     issues.append(f"ACCESSION custody_path.{field} must match the executed title binding")
+    return issues
+
+
+def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]:
+    """Enforce cross-item GAA invariants that JSON Schema cannot project."""
+    if payload.get("record_type") != "GIFT_ACCEPTANCE_AUTHORIZATION":
+        return []
+    issues: list[str] = []
+    assets = payload.get("assets")
+    receipt = payload.get("custody_receipt")
+    if not isinstance(assets, list) or not all(isinstance(asset, dict) for asset in assets):
+        return ["GIFT_ACCEPTANCE_AUTHORIZATION.assets must be an array of objects"]
+    receipt = receipt if isinstance(receipt, dict) else {}
+    projections: tuple[tuple[str, Any], ...] = (
+        ("object_id", lambda asset: asset.get("object_id")),
+        ("caip19", lambda asset: asset.get("caip19", "").lower() if isinstance(asset.get("caip19"), str) else None),
+        (
+            "contract+token_id",
+            lambda asset: (
+                asset.get("contract", "").lower() if isinstance(asset.get("contract"), str) else None,
+                asset.get("token_id"),
+            ),
+        ),
+        ("custody_receipt_log", lambda asset: asset.get("custody_receipt_log")),
+    )
+    for label, projection in projections:
+        values = [projection(asset) for asset in assets]
+        frozen = [json.dumps(value, sort_keys=True, separators=(",", ":"), default=str) for value in values]
+        if len(frozen) != len(set(frozen)):
+            issues.append(f"GIFT_ACCEPTANCE_AUTHORIZATION.assets contains duplicate {label}")
+    if receipt.get("transfer_count") != len(assets):
+        issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
+    return issues
+
+
+def validate_visual_observation(payload: dict[str, Any]) -> list[str]:
+    """Enforce generic source/capture relationships for visual observations."""
+    if payload.get("record_type") != "VISUAL_OBSERVATION":
+        return []
+    issues: list[str] = []
+    objects = payload.get("objects")
+    if not isinstance(objects, list) or not all(isinstance(item, dict) for item in objects):
+        return ["VISUAL_OBSERVATION.objects must be an array of objects"]
+    object_ids = [item.get("object_id") for item in objects]
+    caip19s = [item.get("caip19", "").lower() if isinstance(item.get("caip19"), str) else None for item in objects]
+    if len(object_ids) != len(set(map(frozen_projection, object_ids))):
+        issues.append("VISUAL_OBSERVATION.objects contains duplicate object_id")
+    if len(caip19s) != len(set(caip19s)):
+        issues.append("VISUAL_OBSERVATION.objects contains duplicate caip19")
+    capture_scope = payload.get("capture_scope")
+    capture_scope = capture_scope if isinstance(capture_scope, dict) else {}
+    if capture_scope.get("static_capture_order") != object_ids:
+        issues.append("VISUAL_OBSERVATION.capture_scope.static_capture_order must equal objects order")
+    for index, item in enumerate(objects):
+        prefix = f"VISUAL_OBSERVATION.objects[{index}]"
+        raw = item.get("raw_metadata_source")
+        static = item.get("static_capture")
+        live = item.get("live_capture")
+        raw = raw if isinstance(raw, dict) else {}
+        static = static if isinstance(static, dict) else {}
+        live = live if isinstance(live, dict) else {}
+        if static.get("source_url") != raw.get("image_url"):
+            issues.append(f"{prefix}.static_capture.source_url must equal raw_metadata_source.image_url")
+        if live.get("source_url") != raw.get("generator_url"):
+            issues.append(f"{prefix}.live_capture.source_url must equal raw_metadata_source.generator_url")
+        frames = live.get("frames")
+        if not isinstance(frames, list) or len(frames) != 2 or not all(isinstance(frame, dict) for frame in frames):
+            issues.append(f"{prefix}.live_capture.frames must contain exactly two frame objects")
+        else:
+            if [frame.get("frame_index") for frame in frames] != [1, 2]:
+                issues.append(f"{prefix}.live_capture.frames must be ordered 1, 2")
+            captured_times = [frame.get("captured_at") for frame in frames]
+            if all(isinstance(value, str) for value in captured_times):
+                try:
+                    first = parse_time(captured_times[0], f"{prefix}.live_capture.frames[0].captured_at")
+                    second = parse_time(captured_times[1], f"{prefix}.live_capture.frames[1].captured_at")
+                    minimum_wait = live.get("minimum_wait_between_frames_ms")
+                    if not isinstance(minimum_wait, int) or int((second - first).total_seconds() * 1000) < minimum_wait:
+                        issues.append(f"{prefix}.live_capture frame timestamps must span at least minimum_wait_between_frames_ms")
+                except ValueError as exc:
+                    issues.append(str(exc))
+            elif captured_times != [None, None]:
+                issues.append(f"{prefix}.live_capture frame timestamps must be both known or both null")
+            hashes_differ = frames[0].get("screenshot_sha256") != frames[1].get("screenshot_sha256")
+            if live.get("changed") != hashes_differ:
+                issues.append(f"{prefix}.live_capture.changed must equal screenshot hash inequality")
+        for capture_name, capture in (("static_capture", static), ("live_capture", live)):
+            retention = capture.get("retention")
+            if not isinstance(retention, dict):
+                continue
+            retained = retention.get("bytes_retained_in_public_repository")
+            status = retention.get("status")
+            if retained is True and status != "retained":
+                issues.append(f"{prefix}.{capture_name}.retention status must be retained when bytes are retained")
+            if retained is False and status == "retained":
+                issues.append(f"{prefix}.{capture_name}.retention status cannot be retained when bytes are absent")
+    return issues
+
+
+def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
+    """Enforce generic receipt-to-object joins that JSON Schema cannot project."""
+    issues: list[str] = []
+    common = schedule.get("common_receipt")
+    objects = schedule.get("objects")
+    if not isinstance(common, dict) or not isinstance(objects, list) or not all(isinstance(item, dict) for item in objects):
+        return ["transaction provenance common_receipt and objects must be present"]
+    object_ids = [item.get("object_id") for item in objects]
+    chain_objects = [item.get("chain_object", "").lower() if isinstance(item.get("chain_object"), str) else None for item in objects]
+    if len(object_ids) != len(set(map(frozen_projection, object_ids))):
+        issues.append("transaction provenance objects contains duplicate object_id")
+    if len(chain_objects) != len(set(chain_objects)):
+        issues.append("transaction provenance objects contains duplicate chain_object")
+    if common.get("transfer_count") != len(objects):
+        issues.append("transaction provenance common_receipt.transfer_count must equal objects.length")
+    log_indices = common.get("log_indices")
+    if not isinstance(log_indices, dict) or set(map(frozen_projection, log_indices)) != set(map(frozen_projection, object_ids)):
+        issues.append("transaction provenance common_receipt.log_indices must identify every object exactly once")
+        log_indices = {}
+    receipt_logs: list[Any] = []
+    for item in objects:
+        object_id = item.get("object_id")
+        events = item.get("events")
+        events = events if isinstance(events, list) else []
+        museum_receipts = [event for event in events if isinstance(event, dict) and event.get("kind") == "museum_receipt"]
+        if len(museum_receipts) != 1:
+            issues.append(f"transaction provenance {object_id} must contain exactly one museum_receipt event")
+            continue
+        event = museum_receipts[0]
+        receipt_logs.append(event.get("log"))
+        expected = {
+            "block": common.get("block_number"),
+            "block_hash": common.get("block_hash"),
+            "direct_rpc_verified": True,
+            "from": common.get("transaction_from"),
+            "kind": "museum_receipt",
+            "log": log_indices.get(object_id) if isinstance(object_id, str) else None,
+            "receipt_status": common.get("receipt_status"),
+            "time": common.get("block_time"),
+            "to": common.get("museum_custody_address"),
+            "tx": common.get("transaction_hash"),
+            "verification": "direct_rpc_verified",
+        }
+        if event != expected:
+            issues.append(f"transaction provenance {object_id} museum_receipt must equal common_receipt projection")
+    if len(receipt_logs) != len(set(map(frozen_projection, receipt_logs))):
+        issues.append("transaction provenance museum_receipt log indices must be unique")
     return issues
 
 
@@ -488,12 +669,18 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
     reviewer = reviewer_data.get("id") if isinstance(reviewer_data, dict) else None
     if constructor == reviewer:
         issues.append("constructor/reviewer separation: constructor.id and reviewer.id must differ")
-    try:
-        if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
-            issues.append("reviewer.reviewed_at must not precede created_at")
-    except (KeyError, ValueError) as exc:
-        issues.append(str(exc))
+    if isinstance(reviewer_data, dict):
+        try:
+            if parse_time(reviewer_data["reviewed_at"], "reviewer.reviewed_at") < parse_time(payload["created_at"], "created_at"):
+                issues.append("reviewer.reviewed_at must not precede created_at")
+        except (KeyError, ValueError) as exc:
+            issues.append(str(exc))
     issues.extend(inspect_sensitive(payload))
+    issues.extend(validate_gift_acceptance_authorization(payload))
+    issues.extend(validate_visual_observation(payload))
+    provenance_schedule = payload.get("provenance_schedule") if record_type == "ACCESSION_LOT" else payload if record_type == "transaction_provenance_schedule" else None
+    if isinstance(provenance_schedule, dict):
+        issues.extend(validate_provenance_schedule(provenance_schedule))
     if record_type == "GOVERNANCE_DECISION":
         source_status = source_data.get("status") if isinstance(source_data, dict) else None
         decision_status = payload.get("decision_status")
@@ -593,6 +780,15 @@ def validate_records(root: Path) -> list[str]:
                     issues.append(f"{relative}: duplicate record_id {record_id}; first seen at {record_ids[record_id].relative_to(root).as_posix()}")
                 else:
                     record_ids[record_id] = path
+            if record.get("record_set_id") == "6529NM-GOV-REGISTER" and isinstance(record.get("records"), list):
+                for row in record["records"]:
+                    embedded_id = row.get("decision_id") if isinstance(row, dict) else None
+                    if not isinstance(embedded_id, str):
+                        continue
+                    if embedded_id in record_ids:
+                        issues.append(f"{relative}: duplicate embedded decision_id {embedded_id}; first seen at {record_ids[embedded_id].relative_to(root).as_posix()}")
+                    else:
+                        record_ids[embedded_id] = path
             records.append((path, record, None))
             continue
 
@@ -633,6 +829,10 @@ def validate_records(root: Path) -> list[str]:
         for reference in iter_reference_values(payload):
             if reference not in record_ids:
                 issues.append(f"{relative}: unresolved record reference {reference}")
+        for field in ("references", "governing_references"):
+            direct_references = payload.get(field, [])
+            if isinstance(direct_references, list) and payload.get("record_id") in direct_references:
+                issues.append(f"{relative}: {field} must not point to the record itself")
         supersedes = payload.get("supersedes")
         if supersedes:
             if supersedes == payload.get("record_id"):

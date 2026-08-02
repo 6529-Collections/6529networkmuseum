@@ -5,7 +5,7 @@
     "subjectId": "0x110fcf42c67ba3f2c93772246ee760d212fd621efcef9062f011884db180465d",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xa7e8293193548288109520135c44742b0ab33da13b345caec7b184a8c103beff",
+      "digest": "0x2cb12584d344ad89df340ee61c7776fe713204ea5da226b9c4c2cb002659eb3a",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "ipfs://bafybeigdyrzt5examplecondition",
@@ -28,21 +28,46 @@
     "created_at": "2026-08-01T00:00:00Z",
     "observed_at": "2026-08-01T00:00:00Z",
     "effective_at": "2026-08-01T00:00:00Z",
-    "constructor": {"id": "registrar", "role": "registrar", "observed_at": "2026-08-01T00:00:00Z"},
-    "reviewer": {"id": "museum-reviewer", "role": "reviewer", "reviewed_at": "2026-08-01T00:00:00Z"},
-    "references": ["6529NM.2026.001.1"],
+    "constructor": {
+      "id": "registrar",
+      "role": "registrar",
+      "observed_at": "2026-08-01T00:00:00Z"
+    },
+    "reviewer": {
+      "id": "museum-reviewer",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-01T00:00:00Z"
+    },
+    "references": [
+      "6529NM.2026.001.1"
+    ],
     "object_id": "6529NM.2026.001.1",
     "protocol_state": "Ethereum mainnet at block 12345678",
-    "assessments": {"token": "green", "metadata": "green", "script": "green"},
+    "assessments": {
+      "token": "green",
+      "metadata": "green",
+      "script": "green"
+    },
     "method": "Independent retrieval and deterministic render verification",
     "outcome": "All assessed components were retrievable and rendered as expected.",
     "events": [
       {
+        "event_id": "6529NM-COND-2026-001.EVENT.condition_assessment.20260801T000000Z",
         "event_type": "condition_assessment",
         "occurred_at": "2026-08-01T00:00:00Z",
         "authority_reference": "museum:conservator",
-        "evidence_refs": [{"label": "Condition protocol", "uri": "ipfs://bafybeigdyrzt5examplecondition", "observed_at": "2026-08-01T00:00:00Z", "evidence_class": "C"}]
+        "evidence_refs": [
+          {
+            "label": "Condition protocol",
+            "uri": "ipfs://bafybeigdyrzt5examplecondition",
+            "observed_at": "2026-08-01T00:00:00Z",
+            "evidence_class": "C"
+          }
+        ]
       }
-    ]
+    ],
+    "record_status": "reviewed",
+    "review_status": "reviewed",
+    "payload_sha256": "sha256:706a40aa0d15336734afe167492cd22351a1a43838cab7db5267ec0c6103dcac"
   }
 }
