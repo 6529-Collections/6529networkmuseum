@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6c72e9948112b5c088f00a0fdf2a272eb3f4f4da58f2929fa9a3fcba4dc42c1e"
+      "digest": "0x84dfdf12e3b99691acd9c8d2d6674608b1a93f13271e2c92d507f45f33f564e3"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -117,13 +117,14 @@
       "status": "observation_only",
       "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724"
     },
-    "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
-      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
-      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
-      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
-      "observed_at": "2026-08-01T22:55:00Z",
-      "static_visual_observation": "Museum observation: open rust/cream field with broad dark partitions."
+      "documentation_surrogate": "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy.",
+      "interpretive_boundary": "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion.",
+      "live_behavior_observation": "The official generator observation completed at 2026-08-01T23:34:27.653Z; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial.",
+      "observed_at": "2026-08-01T23:34:27.653Z",
+      "static_visual_observation": "Museum observation of the captured surrogate: large cream ground, rust semicircles, and sparse dark partitions concentrated in the lower field.",
+      "observation_record": "6529NM.2026.001.VO-01"
     },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
@@ -136,7 +137,7 @@
     },
     "object_id": "6529NM.2026.001.02",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:9621ba3017e2e5cdf8ff590b49a5f4a6769301ab2c90cd2c0b0823ed89b90220",
+    "payload_sha256": "sha256:1274b11d9a9a9568210a173d5b376252013bf27eb69d6a36d63f8d3decbb5f43",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -158,9 +159,7 @@
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM.2026.001",
-      "6529NM.2026.001.RIGHTS.02",
-      "6529NM.2026.001.COND.02"
+      "6529NM.2026.001.VO-01"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
@@ -352,6 +351,7 @@
       "HTTP metadata and generator routes may change.",
       "No display, reproduction, copyright, or preservation grant is asserted."
     ],
-    "visibility": "public"
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.001.VO-01"
   }
 }

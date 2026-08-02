@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1b78305d560590783167dec921ce91a42ddd8b9907f277651dc2e256dad14434"
+      "digest": "0xa51605195133da2ca8c01abfb1bc3bea6864723022ea0eacd685e922f056ca4d"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -122,13 +122,14 @@
       "status": "observation_only",
       "uri": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248"
     },
-    "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
-      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
-      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
-      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
-      "observed_at": "2026-08-01T22:55:00Z",
-      "static_visual_observation": "Museum observation: black field with granular white lines and unstable polygonal/dodecahedral suggestions."
+      "documentation_surrogate": "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy.",
+      "interpretive_boundary": "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion.",
+      "live_behavior_observation": "The official generator observation completed at 2026-08-01T23:34:48.596Z; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial. Artist/platform source [B] documents `R`, `G`, `B`, `W`, `S`, `P`, and spacebar controls; those controls were not activated.",
+      "observed_at": "2026-08-01T23:34:48.596Z",
+      "static_visual_observation": "Museum observation of the captured surrogate: black field with granular white lines and unstable polygonal or dodecahedral suggestions.",
+      "observation_record": "6529NM.2026.001.VO-01"
     },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
@@ -141,7 +142,7 @@
     },
     "object_id": "6529NM.2026.001.07",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:6ae15af3bbbc894b07793075db945f21f1facd2477b8da2acd1586b43409871a",
+    "payload_sha256": "sha256:f9bef643d7ceb15334ede61ca74950d5b2fe4ac67d68c9981af8d40fb3564d7b",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -163,9 +164,7 @@
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM.2026.001",
-      "6529NM.2026.001.RIGHTS.07",
-      "6529NM.2026.001.COND.07"
+      "6529NM.2026.001.VO-01"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
@@ -357,6 +356,7 @@
       "HTTP metadata and generator routes may change.",
       "No display, reproduction, copyright, or preservation grant is asserted."
     ],
-    "visibility": "public"
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.001.VO-01"
   }
 }

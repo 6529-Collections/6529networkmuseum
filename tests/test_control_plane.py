@@ -143,6 +143,16 @@ class ControlPlaneTests(unittest.TestCase):
         issues = validate_records(Path(temporary.name))
         self.assertTrue(any("unresolved record reference" in issue for issue in issues), issues)
 
+    def test_direct_reference_self_cycle_is_rejected(self) -> None:
+        temporary, records = self.make_records_root()
+        self.addCleanup(temporary.cleanup)
+        record = self.load_record(records, "accession-lot.json")
+        record["payload"]["references"] = [record["payload"]["record_id"]]
+        self.refresh_content_hash(record)
+        self.save_record(records, "accession-lot.json", record)
+        issues = validate_records(Path(temporary.name))
+        self.assertTrue(any("references must not point to the record itself" in issue for issue in issues), issues)
+
     def test_self_supersession_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
         self.addCleanup(temporary.cleanup)

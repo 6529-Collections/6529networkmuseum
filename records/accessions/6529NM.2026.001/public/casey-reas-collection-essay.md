@@ -4,7 +4,7 @@
 
 This seven-work group enters the permanent collection through a formally accepted gift authorization, but not yet through a completed Stream-equivalent accession certificate. Its curatorial value is therefore stated separately from title, rights, condition, preservation, and display determinations.
 
-The collection proposes an encounter with an executable image: an image whose identity cannot be reduced to a token, a screenshot, or a file because it is formed by instructions carried out over time. Across CENTURY, Pre-Process, Phototaxis, 923 EMPTY ROOMS, and Ex Nihilo (Cosmos), Casey Reas makes systems legible as color, line, motion, density, and space. The group is bounded rather than comprehensive: three CENTURY works supply comparative states, not a triptych; five project lines do not constitute a retrospective.
+**Museum interpretation [E]:** The collection proposes an encounter with an executable image: an image whose identity cannot be reduced to a token, a screenshot, or a file because it is formed by instructions carried out over time. This executable-image ontology is the Museum's curatorial frame, not a sourced artist or platform fact. Across CENTURY, Pre-Process, Phototaxis, 923 EMPTY ROOMS, and Ex Nihilo (Cosmos), the frame attends to how systems become legible as color, line, motion, density, and space. The group is bounded rather than comprehensive: three CENTURY works supply comparative states, not a triptych; five project lines do not constitute a retrospective.
 
 ## Rule
 
@@ -26,7 +26,7 @@ Ex Nihilo (Cosmos) moves the vocabulary of units and fields into Still Life's do
 
 ## A collection of changing states
 
-At 2026-08-01T22:55:00Z, the Museum's live browser check found that all seven official generator canvases changed over 1.5-second intervals. This limited technical observation confirms a behavioral boundary for documentation: each official static PNG can be catalogued as a time-specific surrogate but cannot stand in for the full live work. It does not settle determinism, render reproducibility, technical condition, preservation, or display readiness.
+The controlled [visual-observation record](../visual-observation-record.json) fixes the source URLs, response and screenshot hashes, byte sizes, viewport/canvas geometry, and per-object completion proxies. For every official generator, two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds had different hashes. The supplied live timestamp was recorded only after both screenshots and hashing; exact per-frame times and elapsed duration are unavailable. Each official static PNG timestamp is likewise the downloaded file's `LastWriteTimeUtc`, an observation-completion proxy rather than a server or request timestamp. The PNG and screenshot bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will therefore require a future rights-cleared derivative or a controlled restricted copy. These limited observations do not settle determinism, render reproducibility, technical condition, preservation, or display readiness.
 
 The permanent-collection intent of the gift is thus joined to a stewardship obligation. The Museum will need to retain the relation among object identity, source code, dependencies, live behavior, still documentation, and public interpretation—not simply accumulate seven images. No marketplace metric, rarity score, aesthetic ranking, quality conclusion, or value claim is used in this essay.
 

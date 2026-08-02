@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa5d2539702833434e888b147381d37bc630cdf4d84950f0a8ccb7be454aa5736"
+      "digest": "0xa0ff65236f69e532eab680c0fe3ca098cb33882c6d4edb1c48df30a293bc89f2"
     },
     "effectiveAt": 1785596311,
     "recordType": "ACCESSION_LOT",
@@ -316,7 +316,8 @@
     "formal_acceptance_status": "formally_accepted",
     "gift_acceptance_authorization_record": "6529NM.2026.001.GAA-01",
     "governing_references": [
-      "6529NM.2026.001"
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052812"
     ],
     "intake_status": "received_onchain",
     "non_claims": [
@@ -394,7 +395,7 @@
       "6529NM.2026.001.07"
     ],
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:f78abc8cf6725f8ba996db373007cc4f1d0fd2d93823b308defe6258f03bd42b",
+    "payload_sha256": "sha256:47606f060cf2d8f04c57a23d5ec17155da7481b8dcaa744bb0d34540b944f67d",
     "preservation_manifest": {
       "manifest_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/tree/main/evidence/casey-reas",
@@ -1145,7 +1146,10 @@
     "record_status": "constructed",
     "record_type": "ACCESSION_LOT",
     "record_version": "1.0.0",
-    "references": [],
+    "references": [
+      "6529NM.2026.001.GAA-01",
+      "6529NM.2026.001.VO-01"
+    ],
     "remaining_gates": [
       "Create an evidence-backed Stream-equivalent ACCESSION completion certificate and bind an executed title instrument to the exact seven identities and receipt.",
       "Complete donor-authority, provenance, sanctions, dispute, and encumbrance diligence.",

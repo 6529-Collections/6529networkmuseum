@@ -120,6 +120,8 @@ Assess token, metadata, script, dependencies, rendering, behavior, and documenta
 
 Condition reports must use `STREAM_CONDITION_REPORT_V1` where applicable and include reproducible protocol state, fixity coverage, render-verification method/outcome, recovery lineage, narrative, and optional hash-committed captures.
 
+Visual documentation that does not meet the condition-report or preservation-package standard must use the local `VISUAL_OBSERVATION` profile. Record exact source URLs from retained metadata, byte fixity and size, viewport/canvas geometry, observation-completion timing semantics, commanded minimum waits, changed/unchanged outcome, and render-environment gaps. If capture bytes are not retained, say so and explain why. Never convert a post-save file timestamp into HTTP server timing, a post-hash completion time into a frame timestamp, or a minimum commanded wait into exact elapsed duration.
+
 ### Display and preservation
 
 Record live/static/video manifestation status, aspect/orientation/resolution, hardware, light/sound/interaction, duration, restart/network behavior, fallback, credit, and interpretation. A still is a documentation surrogate unless the artist/project authorizes it as a manifestation.

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/visual-observation-v1.json",
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1}
+      },
+      "required": ["width", "height"],
+      "unevaluatedProperties": false
+    },
+    "retention": {
+      "type": "object",
+      "properties": {
+        "bytes_retained_in_public_repository": {"type": "boolean"},
+        "status": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_retained_pending_rights_and_preservation_review",
+            "not_retained_other_documented_reason"
+          ]
+        },
+        "statement": {"type": "string", "minLength": 1}
+      },
+      "required": ["bytes_retained_in_public_repository", "status", "statement"],
+      "unevaluatedProperties": false
+    },
+    "rawMetadataSource": {
+      "type": "object",
+      "properties": {
+        "path": {"type": "string", "pattern": "^[A-Za-z0-9._/-]+\\.json$"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "byte_size": {"type": "integer", "minimum": 1},
+        "image_field": {"type": "string", "minLength": 1},
+        "image_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "generator_field": {"type": "string", "minLength": 1},
+        "generator_url": {"type": "string", "pattern": "^https://[^\\s]+$"}
+      },
+      "required": ["path", "sha256", "byte_size", "image_field", "image_url", "generator_field", "generator_url"],
+      "unevaluatedProperties": false
+    },
+    "staticCapture": {
+      "type": "object",
+      "properties": {
+        "local_response_file_written_at": {"type": "string", "format": "date-time"},
+        "timing_semantics": {"const": "local_file_last_write_utc_observation_completion_proxy"},
+        "source_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "media_type": {"type": "string", "pattern": "^image/[A-Za-z0-9.+-]+$"},
+        "capture_method": {"const": "exact_http_response_bytes"},
+        "response_sha256": {"$ref": "#/$defs/sha256"},
+        "byte_size": {"type": "integer", "minimum": 1},
+        "retention": {"$ref": "#/$defs/retention"}
+      },
+      "required": ["local_response_file_written_at", "timing_semantics", "source_url", "media_type", "capture_method", "response_sha256", "byte_size", "retention"],
+      "unevaluatedProperties": false
+    },
+    "renderEnvironment": {
+      "type": "object",
+      "properties": {
+        "browser_version": {"type": ["string", "null"], "minLength": 1},
+        "user_agent": {"type": ["string", "null"], "minLength": 1},
+        "completeness": {"type": "string", "enum": ["complete", "partial"]},
+        "missing_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      },
+      "required": ["browser_version", "user_agent", "completeness", "missing_fields"],
+      "unevaluatedProperties": false
+    },
+    "frame": {
+      "type": "object",
+      "properties": {
+        "frame_index": {"type": "integer", "minimum": 1},
+        "captured_at": {"type": ["string", "null"], "format": "date-time"},
+        "screenshot_scope": {"const": "full_viewport"},
+        "screenshot_sha256": {"$ref": "#/$defs/sha256"},
+        "byte_size": {"type": "integer", "minimum": 1}
+      },
+      "required": ["frame_index", "captured_at", "screenshot_scope", "screenshot_sha256", "byte_size"],
+      "unevaluatedProperties": false
+    },
+    "liveCapture": {
+      "type": "object",
+      "properties": {
+        "source_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "capture_method": {"const": "full_viewport_screenshot_pair"},
+        "observation_completed_at": {"type": "string", "format": "date-time"},
+        "viewport_css_pixels": {"$ref": "#/$defs/dimensions"},
+        "canvas_css_pixels": {"$ref": "#/$defs/dimensions"},
+        "canvas_backing_store_pixels": {"$ref": "#/$defs/dimensions"},
+        "minimum_wait_between_frames_ms": {"type": "integer", "minimum": 1},
+        "changed": {"type": "boolean"},
+        "render_environment": {"$ref": "#/$defs/renderEnvironment"},
+        "frames": {"type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/frame"}},
+        "retention": {"$ref": "#/$defs/retention"}
+      },
+      "required": ["source_url", "capture_method", "observation_completed_at", "viewport_css_pixels", "canvas_css_pixels", "canvas_backing_store_pixels", "minimum_wait_between_frames_ms", "changed", "render_environment", "frames", "retention"],
+      "unevaluatedProperties": false
+    },
+    "objectObservation": {
+      "type": "object",
+      "properties": {
+        "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
+        "caip19": {"type": "string", "pattern": "^[a-z0-9][a-z0-9+.-]*:[^\\s]+$"},
+        "evidence_class": {"const": "C"},
+        "raw_metadata_source": {"$ref": "#/$defs/rawMetadataSource"},
+        "static_capture": {"$ref": "#/$defs/staticCapture"},
+        "live_capture": {"$ref": "#/$defs/liveCapture"},
+        "static_visual_observation": {"type": "string", "minLength": 1},
+        "technical_boundary": {"type": "string", "minLength": 1}
+      },
+      "required": ["object_id", "caip19", "evidence_class", "raw_metadata_source", "static_capture", "live_capture", "static_visual_observation", "technical_boundary"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "VISUAL_OBSERVATION"},
+        "schema_id": {"const": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4"},
+        "record_status": {"const": "constructed"},
+        "review_status": {"const": "pending_independent_review"},
+        "observation_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.VO-\\d{2}$"},
+        "observation_kind": {"const": "static_and_live_visual_observation"},
+        "accession_lot_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"},
+        "objects": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/objectObservation"}},
+        "capture_scope": {
+          "type": "object",
+          "properties": {
+            "static_capture_order": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"}},
+            "static_capture_method": {"const": "exact_media_response_bytes"},
+            "live_capture_method": {"const": "two_full_viewport_screenshots_per_generator"}
+          },
+          "required": ["static_capture_order", "static_capture_method", "live_capture_method"],
+          "unevaluatedProperties": false
+        },
+        "limitations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "payload_sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "required": ["observation_id", "observation_kind", "accession_lot_id", "objects", "capture_scope", "limitations", "payload_sha256"]
+    }
+  ],
+  "unevaluatedProperties": false
+}

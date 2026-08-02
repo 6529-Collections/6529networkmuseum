@@ -50,6 +50,7 @@ RECORD_REFERENCE_KEYS = {
     "references",
     "supersedes",
     "approval_decision_id",
+    "decision_id",
     "program_id",
     "object_id",
     "object_ids",
@@ -434,6 +435,100 @@ def validate_event_history(payload: dict[str, Any]) -> list[str]:
     return issues
 
 
+def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]:
+    """Enforce cross-item GAA invariants that JSON Schema cannot project."""
+    if payload.get("record_type") != "GIFT_ACCEPTANCE_AUTHORIZATION":
+        return []
+    issues: list[str] = []
+    assets = payload.get("assets")
+    receipt = payload.get("custody_receipt")
+    if not isinstance(assets, list) or not all(isinstance(asset, dict) for asset in assets):
+        return ["GIFT_ACCEPTANCE_AUTHORIZATION.assets must be an array of objects"]
+    receipt = receipt if isinstance(receipt, dict) else {}
+    projections: tuple[tuple[str, Any], ...] = (
+        ("object_id", lambda asset: asset.get("object_id")),
+        ("caip19", lambda asset: asset.get("caip19", "").lower() if isinstance(asset.get("caip19"), str) else None),
+        (
+            "contract+token_id",
+            lambda asset: (
+                asset.get("contract", "").lower() if isinstance(asset.get("contract"), str) else None,
+                asset.get("token_id"),
+            ),
+        ),
+        ("custody_receipt_log", lambda asset: asset.get("custody_receipt_log")),
+    )
+    for label, projection in projections:
+        values = [projection(asset) for asset in assets]
+        if len(values) != len(set(values)):
+            issues.append(f"GIFT_ACCEPTANCE_AUTHORIZATION.assets contains duplicate {label}")
+    if receipt.get("transfer_count") != len(assets):
+        issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
+    return issues
+
+
+def validate_visual_observation(payload: dict[str, Any]) -> list[str]:
+    """Enforce generic source/capture relationships for visual observations."""
+    if payload.get("record_type") != "VISUAL_OBSERVATION":
+        return []
+    issues: list[str] = []
+    objects = payload.get("objects")
+    if not isinstance(objects, list) or not all(isinstance(item, dict) for item in objects):
+        return ["VISUAL_OBSERVATION.objects must be an array of objects"]
+    object_ids = [item.get("object_id") for item in objects]
+    caip19s = [item.get("caip19", "").lower() if isinstance(item.get("caip19"), str) else None for item in objects]
+    if len(object_ids) != len(set(object_ids)):
+        issues.append("VISUAL_OBSERVATION.objects contains duplicate object_id")
+    if len(caip19s) != len(set(caip19s)):
+        issues.append("VISUAL_OBSERVATION.objects contains duplicate caip19")
+    capture_scope = payload.get("capture_scope")
+    capture_scope = capture_scope if isinstance(capture_scope, dict) else {}
+    if capture_scope.get("static_capture_order") != object_ids:
+        issues.append("VISUAL_OBSERVATION.capture_scope.static_capture_order must equal objects order")
+    for index, item in enumerate(objects):
+        prefix = f"VISUAL_OBSERVATION.objects[{index}]"
+        raw = item.get("raw_metadata_source")
+        static = item.get("static_capture")
+        live = item.get("live_capture")
+        raw = raw if isinstance(raw, dict) else {}
+        static = static if isinstance(static, dict) else {}
+        live = live if isinstance(live, dict) else {}
+        if static.get("source_url") != raw.get("image_url"):
+            issues.append(f"{prefix}.static_capture.source_url must equal raw_metadata_source.image_url")
+        if live.get("source_url") != raw.get("generator_url"):
+            issues.append(f"{prefix}.live_capture.source_url must equal raw_metadata_source.generator_url")
+        frames = live.get("frames")
+        if not isinstance(frames, list) or len(frames) != 2 or not all(isinstance(frame, dict) for frame in frames):
+            continue
+        if [frame.get("frame_index") for frame in frames] != [1, 2]:
+            issues.append(f"{prefix}.live_capture.frames must be ordered 1, 2")
+        captured_times = [frame.get("captured_at") for frame in frames]
+        if all(isinstance(value, str) for value in captured_times):
+            try:
+                first = parse_time(captured_times[0], f"{prefix}.live_capture.frames[0].captured_at")
+                second = parse_time(captured_times[1], f"{prefix}.live_capture.frames[1].captured_at")
+                minimum_wait = live.get("minimum_wait_between_frames_ms")
+                if not isinstance(minimum_wait, int) or int((second - first).total_seconds() * 1000) < minimum_wait:
+                    issues.append(f"{prefix}.live_capture frame timestamps must span at least minimum_wait_between_frames_ms")
+            except ValueError as exc:
+                issues.append(str(exc))
+        elif captured_times != [None, None]:
+            issues.append(f"{prefix}.live_capture frame timestamps must be both known or both null")
+        hashes_differ = frames[0].get("screenshot_sha256") != frames[1].get("screenshot_sha256")
+        if live.get("changed") != hashes_differ:
+            issues.append(f"{prefix}.live_capture.changed must equal screenshot hash inequality")
+        for capture_name, capture in (("static_capture", static), ("live_capture", live)):
+            retention = capture.get("retention")
+            if not isinstance(retention, dict):
+                continue
+            retained = retention.get("bytes_retained_in_public_repository")
+            status = retention.get("status")
+            if retained is True and status != "retained":
+                issues.append(f"{prefix}.{capture_name}.retention status must be retained when bytes are retained")
+            if retained is False and status == "retained":
+                issues.append(f"{prefix}.{capture_name}.retention status cannot be retained when bytes are absent")
+    return issues
+
+
 def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
@@ -495,6 +590,8 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
         except (KeyError, ValueError) as exc:
             issues.append(str(exc))
     issues.extend(inspect_sensitive(payload))
+    issues.extend(validate_gift_acceptance_authorization(payload))
+    issues.extend(validate_visual_observation(payload))
     if record_type == "GOVERNANCE_DECISION":
         source_status = source_data.get("status") if isinstance(source_data, dict) else None
         decision_status = payload.get("decision_status")
@@ -594,6 +691,15 @@ def validate_records(root: Path) -> list[str]:
                     issues.append(f"{relative}: duplicate record_id {record_id}; first seen at {record_ids[record_id].relative_to(root).as_posix()}")
                 else:
                     record_ids[record_id] = path
+            if record.get("record_set_id") == "6529NM-GOV-REGISTER" and isinstance(record.get("records"), list):
+                for row in record["records"]:
+                    embedded_id = row.get("decision_id") if isinstance(row, dict) else None
+                    if not isinstance(embedded_id, str):
+                        continue
+                    if embedded_id in record_ids:
+                        issues.append(f"{relative}: duplicate embedded decision_id {embedded_id}; first seen at {record_ids[embedded_id].relative_to(root).as_posix()}")
+                    else:
+                        record_ids[embedded_id] = path
             records.append((path, record, None))
             continue
 
@@ -634,6 +740,10 @@ def validate_records(root: Path) -> list[str]:
         for reference in iter_reference_values(payload):
             if reference not in record_ids:
                 issues.append(f"{relative}: unresolved record reference {reference}")
+        for field in ("references", "governing_references"):
+            direct_references = payload.get(field, [])
+            if isinstance(direct_references, list) and payload.get("record_id") in direct_references:
+                issues.append(f"{relative}: {field} must not point to the record itself")
         supersedes = payload.get("supersedes")
         if supersedes:
             if supersedes == payload.get("record_id"):

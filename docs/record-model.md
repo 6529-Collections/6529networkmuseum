@@ -21,6 +21,8 @@ GitHub is the Museum's transitional publication and review layer. The repository
 - Program outcome: `6529NM-AP-<NN>-OUT-<NNN>`
 - Accession lot: `6529NM.<year>.<sequence>`
 - Object within an accession: `6529NM.<year>.<sequence>.<item>`
+- Gift acceptance authorization: `6529NM.<year>.<sequence>.GAA-<NN>`
+- Visual observation set: `6529NM.<year>.<sequence>.VO-<NN>`
 - Associated documentation: append `-MD01`, `-IMG01`, `-VID01`, `-TECH01`, `-TX01`, or another registered suffix.
 
 Accession numbers identify Museum records. Chain, artist, and collection information belongs in separate typed fields.
@@ -38,6 +40,14 @@ Every material assertion must state who made it, when it was observed, and what 
 | E | Curatorial interpretation | significance, visual analysis, collection relationship |
 
 Evidence classes describe epistemic status, not importance. Marketplace-derived data must never be presented as if it were chain state.
+
+## Visual observation records
+
+`VISUAL_OBSERVATION` is a reusable, closed evidence-class-C record for static-response and live-render observations. It binds each Museum object to the retained raw-metadata source bytes, the image and generator URLs extracted from those bytes, capture fixity and byte size, viewport/canvas geometry, render-environment completeness, and explicit retention status. Cross-field validation requires source/capture URL agreement, ordered object scope, coherent screenshot-pair state, and projected object/CAIP identity uniqueness.
+
+Timing fields must name what was actually measured. A downloaded file's local `LastWriteTimeUtc` is an observation-completion proxy, not a server `Date` or independently instrumented request timestamp. A command to wait between screenshots records a minimum wait, not exact elapsed time when screenshot and hashing overhead are unmeasured. Unknown frame times, browser versions, and user agents remain `null`; they are never reconstructed from a completion timestamp.
+
+A digest can fix bytes that are not publicly retained, but it cannot make those bytes recoverable. Non-retention and its rights/preservation reason must be explicit. A visual observation is not a condition report, full generator capture, determinism proof, preservation completion, or display-readiness decision.
 
 ## Append-only corrections
 

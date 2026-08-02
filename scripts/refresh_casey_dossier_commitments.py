@@ -39,6 +39,43 @@ NON_CLAIMS = [
     "No aesthetic, quality, value, or ranking claim is made.",
 ]
 
+VISUAL_OBSERVATION_ID = "6529NM.2026.001.VO-01"
+GOVERNING_REFERENCES = ["6529NM-GOV-1052156", "6529NM-GOV-1052812"]
+OBJECT_LIVE_OBSERVED_AT = {
+    "6529NM.2026.001.01": "2026-08-01T23:34:23.137Z",
+    "6529NM.2026.001.02": "2026-08-01T23:34:27.653Z",
+    "6529NM.2026.001.03": "2026-08-01T23:34:32.225Z",
+    "6529NM.2026.001.04": "2026-08-01T23:34:36.244Z",
+    "6529NM.2026.001.05": "2026-08-01T23:34:40.079Z",
+    "6529NM.2026.001.06": "2026-08-01T23:34:44.143Z",
+    "6529NM.2026.001.07": "2026-08-01T23:34:48.596Z",
+}
+
+OBJECT_MEDIUM = (
+    "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. "
+    "Determinism of live behavior has not yet been independently verified."
+)
+
+OBJECT_STATIC_OBSERVATIONS = {
+    "6529NM.2026.001.01": "Museum observation of the captured surrogate: dark blue-charcoal circular field with cream semicircles, diagonal fragments, and conspicuous vertical slice divisions.",
+    "6529NM.2026.001.02": "Museum observation of the captured surrogate: large cream ground, rust semicircles, and sparse dark partitions concentrated in the lower field.",
+    "6529NM.2026.001.03": "Museum observation of the captured surrogate: grayscale field with black bands, gray planes, and intersecting white lines. Grayscale describes this captured surrogate only, not the full range of possible live states.",
+    "6529NM.2026.001.04": "Museum observation of the captured surrogate: rows of circular masses, repeated axes, and translucent sweeps and overlaps.",
+    "6529NM.2026.001.05": "Museum observation of the captured surrogate: a blue-gray ovoid of paths, with a dense lower-central knot and looser lines rising and dispersing.",
+    "6529NM.2026.001.06": "Museum observation of the captured surrogate: a bright green and dark, finely stippled perspectival field whose converging planes appear room-like.",
+    "6529NM.2026.001.07": "Museum observation of the captured surrogate: black field with granular white lines and unstable polygonal or dodecahedral suggestions.",
+}
+
+OBJECT_SOURCE_BEHAVIOR_BOUNDARIES = {
+    "6529NM.2026.001.01": " Artist/platform source [B] documents the `1` key for cut-and-recompose and the `2` key for restore; those controls were not activated, and the captures cannot establish the interaction state.",
+    "6529NM.2026.001.02": "",
+    "6529NM.2026.001.03": "",
+    "6529NM.2026.001.04": "",
+    "6529NM.2026.001.05": " Artist source [B] documents a 1,000-iteration initial thumbnail and `P`, `B`, `1` through `5`, and `L` controls; those controls were not activated.",
+    "6529NM.2026.001.06": "",
+    "6529NM.2026.001.07": " Artist/platform source [B] documents `R`, `G`, `B`, `W`, `S`, `P`, and spacebar controls; those controls were not activated.",
+}
+
 
 def read_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as handle:
@@ -103,6 +140,8 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
         payload["formal_acceptance_date"] = "2026-08-01T22:55:00Z"
         payload["acceptance_date"] = "2026-08-01T22:55:00Z"
         payload["gift_acceptance_authorization_record"] = "6529NM.2026.001.GAA-01"
+        payload["governing_references"] = copy.deepcopy(GOVERNING_REFERENCES)
+        payload["references"] = ["6529NM.2026.001.GAA-01", VISUAL_OBSERVATION_ID]
         payload["intake_status"] = "received_onchain"
         payload["controlled_decision"]["acceptance_date_semantics"] = "formal gift/accession authorization timestamp; not a Stream-equivalent accession completion certificate or title passage"
         payload["controlled_decision"]["outcome"] = "formally_accepted_gift_and_accession_authorization"
@@ -115,21 +154,41 @@ def refresh_record(path: Path, source: dict[str, Any], descriptors: dict[str, di
         payload["collection_curatorial_statement"]["trait_analysis"] = trait_analysis(source)
     elif record_id in OBJECT_TO_COLLECTION:
         payload["trait_analysis"] = trait_analysis(source, descriptors[OBJECT_TO_COLLECTION[record_id]])
+        payload["medium"] = OBJECT_MEDIUM
+        payload["visual_observation_record"] = VISUAL_OBSERVATION_ID
+        payload["references"] = [VISUAL_OBSERVATION_ID]
+        observation_completed_at = OBJECT_LIVE_OBSERVED_AT[record_id]
+        observation = payload["museum_observations"]
+        observation["observed_at"] = observation_completed_at
+        observation["observation_record"] = VISUAL_OBSERVATION_ID
+        observation["documentation_surrogate"] = "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy."
+        observation["static_visual_observation"] = OBJECT_STATIC_OBSERVATIONS[record_id]
+        observation["live_behavior_observation"] = (
+            f"The official generator observation completed at {observation_completed_at}; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. "
+            "Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial."
+            + OBJECT_SOURCE_BEHAVIOR_BOUNDARIES[record_id]
+        )
+        observation["interpretive_boundary"] = "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion."
     payload["payload_sha256"] = casey_payload_sha256(payload)
     record["envelope"]["contentHash"]["digest"] = "0x" + keccak256(canonicalize(payload)).hex()
     write_json(path, record)
 
 
 def refresh_public_pages(descriptors: dict[str, dict[str, Any]]) -> None:
+    visual_audit_sentence = "Independent visual audit of the unretained captures will require a future rights-cleared derivative or a controlled restricted copy."
     for object_id, collection in OBJECT_TO_COLLECTION.items():
         page = CASEY_DIR / "public" / f"{object_id}.md"
         text = page.read_text(encoding="utf-8")
+        text = text.replace(f"{visual_audit_sentence} {visual_audit_sentence}", visual_audit_sentence)
         old = "Trait analysis is a [typed pending deliverable](https://github.com/6529-Collections/6529networkmuseum/tree/ff1c5825e3b61bfb2df0a639e057297beb946e4d/scripts/rarity); no marketplace metrics are used."
         descriptor = descriptors[collection]
         new = (
             f"A [transparent linked descriptor]({descriptor['uri']}) is available from the published source package and reproducible from its published frozen snapshot and hashes. "
             "It makes no OpenSea or other marketplace-metric, aesthetic, quality, value, or ranking claim. "
-            "The formal gift/accession authorization is complete; the dossier remains `received_onchain` / `not_complete`: completion certificate, title, rights, condition, preservation, and registrar review remain pending."
+            "The dossier remains `received_onchain` / `not_complete`. "
+            "The Gift Acceptance and Accession Authorization was issued and formally accepts the gift; it does not complete accession. "
+            "Title, rights, condition, preservation, and registrar review remain pending. "
+            + visual_audit_sentence
         )
         if old in text:
             updated = text.replace(old, new)

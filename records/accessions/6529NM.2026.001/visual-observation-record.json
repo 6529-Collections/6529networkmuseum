@@ -1,0 +1,635 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xf22dbd67adbe2a01cde4ba331a5179c45fd1e3791461a83c12afe565375cbc0b"
+    },
+    "effectiveAt": 1785627288,
+    "recordType": "VISUAL_OBSERVATION",
+    "schemaId": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x995951cc796c7de538132bf83378fb0e3e30cc250cf41894ba36cbca601a9203",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+  },
+  "payload": {
+    "accession_lot_id": "6529NM.2026.001",
+    "capture_scope": {
+      "live_capture_method": "two_full_viewport_screenshots_per_generator",
+      "static_capture_method": "exact_media_response_bytes",
+      "static_capture_order": [
+        "6529NM.2026.001.01",
+        "6529NM.2026.001.02",
+        "6529NM.2026.001.03",
+        "6529NM.2026.001.04",
+        "6529NM.2026.001.05",
+        "6529NM.2026.001.06",
+        "6529NM.2026.001.07"
+      ]
+    },
+    "constructor": {
+      "id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "observed_at": "2026-08-01T23:34:48.596Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-01T23:34:48.596Z",
+    "effective_at": "2026-08-01T23:34:48.596Z",
+    "limitations": [
+      "The static PNG response bytes and live viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+      "Each static timestamp is the downloaded file's LastWriteTimeUtc after the response bytes were saved; it is an observation-completion proxy, not a server Date header or an independently instrumented request start or end.",
+      "The recorded hashes fix the observed response and screenshot bytes but do not constitute a condition report.",
+      "The commanded 1500-millisecond minimum wait excludes screenshot overhead and is not an exact elapsed-time measurement. The two frames are not a full generator capture or a determinism proof.",
+      "The observation does not establish preservation completion, technical completion, or display readiness.",
+      "Browser version and user-agent were not captured, so the render environment is partial.",
+      "Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy because the static PNG and live viewport screenshot bytes are not retained in the public repository."
+    ],
+    "objects": [
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 1440
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 720
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 57237,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:0087ae3a7ca50354185cca6a3f059a519ceab4bb9b439838dd80d618cef09bc6"
+            },
+            {
+              "byte_size": 57188,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:bf3d9a6cf3a0951c536d35ac5f7cdd8ae25531525e0c8ec028c1ef12df89929d"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:23.137Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.01",
+        "raw_metadata_source": {
+          "byte_size": 3232,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.01.json",
+          "sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74"
+        },
+        "static_capture": {
+          "byte_size": 429843,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:48:39.777Z",
+          "response_sha256": "sha256:2769e41b8ea77a39b53103e31e1eaa52c04031c400062d309f7bf547792ba5da",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Dark blue-charcoal circular field with cream semicircles, diagonal fragments, and conspicuous vertical slice divisions.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 1440
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 720
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 31108,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:53630f32f5acde1a1f33f8d3d09c4c5db9f8c91a90a14fdabd79bae7c8ed56ab"
+            },
+            {
+              "byte_size": 30918,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:547716a08826f6aa70c0091f8fc17aef44e0c6d2bc44d8b51ca7d2626943ecff"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:27.653Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.02",
+        "raw_metadata_source": {
+          "byte_size": 3229,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.02.json",
+          "sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5"
+        },
+        "static_capture": {
+          "byte_size": 256912,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:48:41.026Z",
+          "response_sha256": "sha256:e13ec3c6506e8f5942859af6068e2c677724aed9f1855c6eec970a64f16bc556",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Open rust and cream field with broad dark partitions.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 1440
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 720
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 40889,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:21086a07ce20552727669d32ed4de18a09f40eba99fbe1b228cc9d243cdee595"
+            },
+            {
+              "byte_size": 40986,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:75c393b3fa43cd888b8b045c72c0d1d89b4ce595198aee8c9af6f2f7e3b95ec8"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:32.225Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.03",
+        "raw_metadata_source": {
+          "byte_size": 3231,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.03.json",
+          "sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81"
+        },
+        "static_capture": {
+          "byte_size": 370117,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:48:42.588Z",
+          "response_sha256": "sha256:416bedf30696ca410ed2dc84aa8f57c6e752c21671dc42b20c32d2ad2e234e06",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Grayscale field with black bands, gray planes, and intersecting white lines.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1080,
+            "width": 1920
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 1280
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 10585,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:c3f185dbcbdb9c872fa71f0e9a4ef9ac127ef344ae60634a93dbacc59fa51afe"
+            },
+            {
+              "byte_size": 15333,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:bdff46e49e6f266aa7ddff12b6f2db271e937134806da0324346a17dbcc81a84"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:36.244Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.04",
+        "raw_metadata_source": {
+          "byte_size": 4360,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.04.json",
+          "sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5"
+        },
+        "static_capture": {
+          "byte_size": 2100837,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:48:50.970Z",
+          "response_sha256": "sha256:8b02640589888c3fd086a8208dab79dfb083c76e7fc9060848f1fe9f0e00acf2",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Rows of circular masses, repeated axes, and translucent sweeps and overlaps.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 2560
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 1280
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 64886,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:2a06f425bc5fe835a01e37956bf75e18cd030a38bdf08550ef5886b293502ddf"
+            },
+            {
+              "byte_size": 92786,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:ce0f2b0007546f1bb6a2b62b36f81a8cd990294cb424ecf647f6e40d6ff15939"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:40.079Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.05",
+        "raw_metadata_source": {
+          "byte_size": 3029,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.05.json",
+          "sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573"
+        },
+        "static_capture": {
+          "byte_size": 3905978,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:49:05.999Z",
+          "response_sha256": "sha256:8f370bc60848959def351197cce7accd0b88474e997bae6e52459ef0d30c60dd",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Blue-gray central and lower knot with trajectories rising and dispersing.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 2560
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 1280
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 387720,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:b85c1030b8057d29b808ce6bd5209eccd9ec679883d8437d5322f9c33fe8854b"
+            },
+            {
+              "byte_size": 386006,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:050db3c3cd61f894e25841abc435e56193609b542627817cf67956aca03d452b"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:44.143Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.06",
+        "raw_metadata_source": {
+          "byte_size": 3748,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.06.json",
+          "sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd"
+        },
+        "static_capture": {
+          "byte_size": 750358,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:49:09.075Z",
+          "response_sha256": "sha256:c4e1bf468e1c632e429aa743c8b72999c4bad0e1063c9cee7b02031908972e2c",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Bright green and dark room-like perspectival field.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      },
+      {
+        "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+        "evidence_class": "C",
+        "live_capture": {
+          "canvas_backing_store_pixels": {
+            "height": 1440,
+            "width": 2560
+          },
+          "canvas_css_pixels": {
+            "height": 720,
+            "width": 1280
+          },
+          "capture_method": "full_viewport_screenshot_pair",
+          "changed": true,
+          "frames": [
+            {
+              "byte_size": 210478,
+              "captured_at": null,
+              "frame_index": 1,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:97d2c726792d007f1a2dd4581f231fa6ad3be11066fb50775c9cbc2299a146d5"
+            },
+            {
+              "byte_size": 209731,
+              "captured_at": null,
+              "frame_index": 2,
+              "screenshot_scope": "full_viewport",
+              "screenshot_sha256": "sha256:7c083418582dcc184b36cd112ed2d14ca69c07d7fed69796c0508caf4f828478"
+            }
+          ],
+          "minimum_wait_between_frames_ms": 1500,
+          "observation_completed_at": "2026-08-01T23:34:48.596Z",
+          "render_environment": {
+            "browser_version": null,
+            "completeness": "partial",
+            "missing_fields": [
+              "browser_version",
+              "user_agent"
+            ],
+            "user_agent": null
+          },
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The full-viewport screenshot bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "viewport_css_pixels": {
+            "height": 720,
+            "width": 1280
+          }
+        },
+        "object_id": "6529NM.2026.001.07",
+        "raw_metadata_source": {
+          "byte_size": 4224,
+          "generator_field": "generator_url",
+          "generator_url": "https://generator.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+          "image_field": "image",
+          "image_url": "https://media-proxy.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248.png",
+          "path": "evidence/casey-reas/raw/metadata/6529NM.2026.001.07.json",
+          "sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc"
+        },
+        "static_capture": {
+          "byte_size": 1067736,
+          "capture_method": "exact_http_response_bytes",
+          "media_type": "image/png",
+          "local_response_file_written_at": "2026-08-01T22:49:13.379Z",
+          "response_sha256": "sha256:11724ce22525a6ec161af480cf8c60a3fb1519ea2c3d3e3f805827bde43398f8",
+          "retention": {
+            "bytes_retained_in_public_repository": false,
+            "statement": "The exact media-proxy PNG response bytes are not retained in the public repository pending rights and preservation review.",
+            "status": "not_retained_pending_rights_and_preservation_review"
+          },
+          "source_url": "https://media-proxy.artblocks.io/1/0x0000000c687daed0fba60d1dba4e5f6149e8b894/248.png",
+          "timing_semantics": "local_file_last_write_utc_observation_completion_proxy"
+        },
+        "static_visual_observation": "Black field with granular white lines and unstable polygonal and dodecahedral suggestions.",
+        "technical_boundary": "The changed screenshot hashes document two observed viewport states only; they do not prove determinism, condition, or preservation completion."
+      }
+    ],
+    "observation_id": "6529NM.2026.001.VO-01",
+    "observation_kind": "static_and_live_visual_observation",
+    "observed_at": "2026-08-01T23:34:48.596Z",
+    "payload_sha256": "sha256:de0187681f2e73b1be1ce3f37d0bd711cf35e4d89f80e93fe6a2b3f2e5d7b4ed",
+    "record_id": "6529NM.2026.001.VO-01",
+    "record_status": "constructed",
+    "record_type": "VISUAL_OBSERVATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x37818b5a6529a9ddebbe870f7e77f4dab634a9829be4420b2f6ae82b6c1bf4a4",
+    "source": {
+      "capture_facts": "Independent curatorial review supplied exact static-response and live-frame observations.",
+      "raw_metadata_manifest": "evidence/casey-reas/manifest.json"
+    },
+    "subject_id": "6529NM.2026.001",
+    "visibility": "public"
+  }
+}

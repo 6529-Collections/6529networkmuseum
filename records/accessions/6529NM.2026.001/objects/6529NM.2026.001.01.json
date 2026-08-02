@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x29b1bde770e686ea9f2967ebc0da9c9287d707dedd5689e8954f00a59f220edc"
+      "digest": "0x5e14e6b2e30456a9c22fea3c9e66371b222353b0ea364cef7c36e87f6149d4ba"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -117,13 +117,14 @@
       "status": "observation_only",
       "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031"
     },
-    "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
-      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
-      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
-      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
-      "observed_at": "2026-08-01T22:55:00Z",
-      "static_visual_observation": "Museum observation: dark blue-charcoal circular field with cream semicircles, diagonal fragments, and conspicuous vertical slice divisions."
+      "documentation_surrogate": "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy.",
+      "interpretive_boundary": "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion.",
+      "live_behavior_observation": "The official generator observation completed at 2026-08-01T23:34:23.137Z; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial. Artist/platform source [B] documents the `1` key for cut-and-recompose and the `2` key for restore; those controls were not activated, and the captures cannot establish the interaction state.",
+      "observed_at": "2026-08-01T23:34:23.137Z",
+      "static_visual_observation": "Museum observation of the captured surrogate: dark blue-charcoal circular field with cream semicircles, diagonal fragments, and conspicuous vertical slice divisions.",
+      "observation_record": "6529NM.2026.001.VO-01"
     },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
@@ -136,7 +137,7 @@
     },
     "object_id": "6529NM.2026.001.01",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:17acf914a02e1525e36eda61c0d84ff2339fdebd18b4a2561b6dec5188a01752",
+    "payload_sha256": "sha256:e9f277cca8c9191fddc99c3d312261853ba8e400351ff270809b16fc54da448b",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -158,9 +159,7 @@
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM.2026.001",
-      "6529NM.2026.001.RIGHTS.01",
-      "6529NM.2026.001.COND.01"
+      "6529NM.2026.001.VO-01"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
@@ -352,6 +351,7 @@
       "HTTP metadata and generator routes may change.",
       "No display, reproduction, copyright, or preservation grant is asserted."
     ],
-    "visibility": "public"
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.001.VO-01"
   }
 }

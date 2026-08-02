@@ -1,8 +1,11 @@
 # Gift Acceptance and Accession Authorization
 
-**Lot:** `6529NM.2026.001`  
-**Authorization:** `6529NM.2026.001.GAA-01`  
-**Effective:** 2026-08-01T22:55:00Z  
+**Lot:** `6529NM.2026.001`
+
+**Authorization:** `6529NM.2026.001.GAA-01`
+
+**Effective:** 2026-08-01T22:55:00Z
+
 **Outcome:** formally accepted gift and accession authorization
 
 The 6529 Network Museum has formally accepted as a gift the seven exact

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd0cfc1c7a2730ace3e135466bfa693843450bf5baa7180911f76378b7da02472"
+      "digest": "0xf5655694b4a0bf85f0ee946e8ba4fdd81beaa9e93faf179d5a75d302b2b02b1b"
     },
     "effectiveAt": 1785596311,
     "recordType": "WORK_DESCRIPTION",
@@ -117,13 +117,14 @@
       "status": "observation_only",
       "uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"
     },
-    "medium": "On-chain generative software art; deterministic token-hash output; ERC-721 token on Ethereum.",
+    "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",
     "museum_observations": {
-      "documentation_surrogate": "The official static PNG is a time-specific documentation surrogate, not the full live work.",
-      "interpretive_boundary": "This is a Museum observation of a documented visual state, not an artist-intent claim or a condition conclusion.",
-      "live_behavior_observation": "At 2026-08-01T22:55:00Z, the official generator canvas changed over 1.5-second intervals; no ephemeral screenshot hash is used as a preservation commitment.",
-      "observed_at": "2026-08-01T22:55:00Z",
-      "static_visual_observation": "Museum observation: bright green/dark room-like perspectival field."
+      "documentation_surrogate": "The official static PNG and two full-viewport screenshots are time-specific documentation surrogates. Their exact hashes are recorded, but the bytes are not retained in the public repository pending rights and preservation review. Independent visual audit will require a future rights-cleared derivative or a controlled restricted copy.",
+      "interpretive_boundary": "This Museum technical observation fixes two observed states; it is not an artist-intent claim, condition report, full generator capture, determinism proof, or preservation-completion conclusion.",
+      "live_behavior_observation": "The official generator observation completed at 2026-08-01T23:34:44.143Z; two full-viewport screenshots taken with a commanded minimum wait of 1500 milliseconds produced different hashes. Exact per-frame timestamps, browser version, and user-agent were not captured, so the render environment is partial.",
+      "observed_at": "2026-08-01T23:34:44.143Z",
+      "static_visual_observation": "Museum observation of the captured surrogate: a bright green and dark, finely stippled perspectival field whose converging planes appear room-like.",
+      "observation_record": "6529NM.2026.001.VO-01"
     },
     "metadata_snapshot": {
       "fixity_scope": "retrieved HTTP response bytes; mutable endpoint",
@@ -136,7 +137,7 @@
     },
     "object_id": "6529NM.2026.001.06",
     "observed_at": "2026-08-01T14:58:31.905115Z",
-    "payload_sha256": "sha256:0f5b16afa7a3e2c2edc2b4eb1406f97672c2381241166aca10345deff04c784e",
+    "payload_sha256": "sha256:bd0cf70de116dede069c61e60ea38f949ad2f68312d4bd1b4b028cc20d305eaa",
     "preservation": {
       "fixity_sha256": "sha256:98848849d43b808cf231a289f2dada7e760bedbdb486a77648711ab8995160bd",
       "observed_at": "2026-08-01T14:58:31.905115Z",
@@ -159,9 +160,7 @@
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM.2026.001",
-      "6529NM.2026.001.RIGHTS.06",
-      "6529NM.2026.001.COND.06"
+      "6529NM.2026.001.VO-01"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
@@ -353,6 +352,7 @@
       "HTTP metadata and generator routes may change.",
       "No display, reproduction, copyright, or preservation grant is asserted."
     ],
-    "visibility": "public"
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.001.VO-01"
   }
 }

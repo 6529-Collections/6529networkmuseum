@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd917fa4292a975d2b2e333ed1a7ec9e5a7e5d312739c9aeac2d7f1097203a37c"
+      "digest": "0x7856423ca5ad0905dbc345aac594b97990a9ea5733984fe8b0c1d1ba647e6966"
     },
     "effectiveAt": 1785624900,
     "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
@@ -156,6 +156,7 @@
     "formal_acceptance_date": "2026-08-01T22:55:00Z",
     "governing_basis": [
       {
+        "basis_type": "wave_governance_decision",
         "decision_id": "6529NM-GOV-1052156",
         "wave_serial": 1052156,
         "drop_id": "2e88273f-013c-4fdd-bea3-7de5451098e8",
@@ -165,6 +166,7 @@
         "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?divider=1052156"
       },
       {
+        "basis_type": "wave_governance_decision",
         "decision_id": "6529NM-GOV-1052812",
         "wave_serial": 1052812,
         "drop_id": "86e43beb-b55d-42f0-9eea-a3c115b08abc",
@@ -189,7 +191,7 @@
     ],
     "observed_at": "2026-08-01T22:55:00Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:37772e7c2d75ec69841fc2f84594e79aa8163ffb2e60407f2f7a4e5900332455",
+    "payload_sha256": "sha256:c1ffeaa6b2675ef740258c2d3f9f44b528c7fc5bcadb3822f16226dc2db25374",
     "permanent_collection_intent": "The Museum formally accepts this seven-object gift for the permanent collection under the adopted donation pathway, subject to the stated completion boundaries, governing controls, and ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.001.GAA-01",
     "record_status": "constructed",
