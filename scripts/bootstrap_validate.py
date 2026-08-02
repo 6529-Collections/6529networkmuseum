@@ -15,6 +15,8 @@ from pathlib import Path, PurePosixPath
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
+from promote_casey_publications import mismatches as casey_publication_mismatches
+
 
 ROOT = Path(__file__).resolve().parents[1]
 GOVERNED_DIRS = ("policies", "records", "docs", "governance", "schemas", "specs")
@@ -553,6 +555,10 @@ def check_governance_references(loaded: dict[Path, object]) -> None:
 
 
 def main() -> None:
+    stale_publications = casey_publication_mismatches()
+    if stale_publications:
+        paths = ", ".join(str(path.relative_to(ROOT)) for path in stale_publications)
+        fail(f"Casey publication promotion is stale: {paths}")
     loaded = load_json_files()
     check_local_markdown_links()
     evidence_entries = check_evidence_manifests(loaded)

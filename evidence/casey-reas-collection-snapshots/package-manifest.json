@@ -1048,8 +1048,8 @@
       {
         "path": "scripts/bootstrap_validate.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:2fa70c1e5d84f315eb9faa504d88c8d798c859000c2314f7ef1e88793d2330a9",
-        "size": 29644
+        "sha256": "sha256:db13369f11d883a3af3824bd08bd0b41bcef72c049679d8b7fa9c701ddd9d675",
+        "size": 29959
       },
       {
         "path": "scripts/build_casey_package_manifest.py",

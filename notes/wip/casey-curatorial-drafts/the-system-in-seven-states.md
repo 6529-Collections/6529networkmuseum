@@ -1,3 +1,17 @@
+---
+title: "The System in Seven States: Casey Reas in the 6529 Network Museum"
+publication_id: "6529NM.PUB.CASEY.COLLECTION"
+version: "1.1.0"
+status: "completed_publication_manuscript"
+institutional_author: "6529 Network Museum"
+publication_date: "2026-08-02"
+research_cutoff: "2026-08-02"
+accession_ref: "6529NM.2026.001"
+supersedes_for_publication:
+  - "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"
+supersession_scope: "visitor-facing interpretation of the seven-work group only; canonical accession and object records remain controlling"
+---
+
 # The System in Seven States
 
 ## Casey Reas in the 6529 Network Museum
@@ -152,16 +166,16 @@ The system is not behind these images like a secret answer. It is active in thei
 
 ## Notes
 
-[^1]: 6529 Network Museum, accession `6529NM.2026.001`, especially the [accession statement](../../../../records/accessions/6529NM.2026.001/accession-statement.json), [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), and file-by-file object links in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts). No artist-selection or artist-endorsement evidence is present in the accession package.
+[^1]: 6529 Network Museum, accession `6529NM.2026.001`, especially the [accession statement](../../../records/accessions/6529NM.2026.001/accession-statement.json), [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), and file-by-file object links in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts). No artist-selection or artist-endorsement evidence is present in the accession package.
 [^2]: Casey Reas, “CENTURY,” <https://reas.com/century>; Art Blocks, “In Conversation with Casey Reas on CENTURY,” <https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-century>.
 [^3]: Casey Reas, “Process,” <https://reas.com/process>; Art Blocks, “In Conversation with Casey Reas on Pre-Process,” <https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-pre-process>.
 [^4]: Casey Reas, “MicroImage,” <https://reas.com/microimage>; Valentino Braitenberg, *Vehicles: Experiments in Synthetic Psychology* (Cambridge, MA: MIT Press, 1984).
 [^5]: Casey Reas, “Notes on Phototaxis,” 2021, <https://medium.com/@REAS/notes-on-phototaxis-db7aa7641ad8>; Casey Reas, “NFTs,” <https://reas.com/nfts>.
-[^6]: Bright Moments, “923 EMPTY ROOMS,” <https://www.brightmoments.io/923emptyrooms>; Casey Reas, “Atomism,” <https://reas.com/atomism>; 6529 Network Museum, [923 project descriptor](../../../../evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json), [retained snapshot](../../../../evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/923-empty-rooms/snapshot.json), and [object 06 record](../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json).
+[^6]: Bright Moments, “923 EMPTY ROOMS,” <https://www.brightmoments.io/923emptyrooms>; Casey Reas, “Atomism,” <https://reas.com/atomism>; 6529 Network Museum, [923 project descriptor](../../../evidence/casey-reas-collection-snapshots/descriptors/923-empty-rooms.json), [retained snapshot](../../../evidence/casey-reas-collection-snapshots/runs/20260801T172252532Z/snapshots/923-empty-rooms/snapshot.json), and [object 06 record](../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json).
 [^7]: Art Blocks, “Ex Nihilo (Cosmos) by Casey Reas,” 2026, <https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase>; Casey Reas, “Atomism.”
 [^8]: Casey Reas, *{Software} Structures*, Whitney Artport, 2004, <https://artport.whitney.org/commissions/software-structures/text.html>; Whitney Museum of American Art, [*Programmed: Rules, Codes, and Choreographies in Art, 1965–2018*](https://whitney.org/exhibitions/programmed/art?section=1&subsection=14).
-[^9]: 6529 Network Museum, [raw delivery receipt](../../../../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json), [receipt acquisition record](../../../../evidence/casey-reas/raw/rpc/receipt-acquisition.json), [gift acceptance authorization](../../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), and [title and rights review](../../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md).
-[^10]: 6529 Network Museum, [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), [visual-observation record](../../../../records/accessions/6529NM.2026.001/visual-observation-record.json), and file-by-file links to all seven rights and all seven technical-condition records in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts).
+[^9]: 6529 Network Museum, [raw delivery receipt](../../../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json), [receipt acquisition record](../../../evidence/casey-reas/raw/rpc/receipt-acquisition.json), [gift acceptance authorization](../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), and [title and rights review](../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md).
+[^10]: 6529 Network Museum, [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), [visual-observation record](../../../records/accessions/6529NM.2026.001/visual-observation-record.json), and file-by-file links to all seven rights and all seven technical-condition records in [source and chronology matrix §2](source-and-chronology-matrix.md#2-canonical-accession-facts).
 
 ## Selected bibliography
 
@@ -172,7 +186,7 @@ The system is not behind these images like a secret answer. It is active in thei
 - Reas, Casey. “MicroImage.” <https://reas.com/microimage>.
 - Reas, Casey. “Process.” <https://reas.com/process>.
 - Reas, Casey. “Digital art is a kind of performance.” Interview, LACMA *Unframed*, 13 November 2024. <https://unframed.lacma.org/node/3771>.
-- 6529 Network Museum. [Accession statement](../../../../records/accessions/6529NM.2026.001/accession-statement.json), [gift acceptance authorization](../../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../../records/accessions/6529NM.2026.001/accession-certificate.json), [title and rights review](../../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md), and [visual-observation record](../../../../records/accessions/6529NM.2026.001/visual-observation-record.json) for `6529NM.2026.001`.
+- 6529 Network Museum. [Accession statement](../../../records/accessions/6529NM.2026.001/accession-statement.json), [gift acceptance authorization](../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json), [accession certificate](../../../records/accessions/6529NM.2026.001/accession-certificate.json), [title and rights review](../../../records/accessions/6529NM.2026.001/public/title-rights-and-accession-review.md), and [visual-observation record](../../../records/accessions/6529NM.2026.001/visual-observation-record.json) for `6529NM.2026.001`.
 
 ## Publication metadata and revision history
 
