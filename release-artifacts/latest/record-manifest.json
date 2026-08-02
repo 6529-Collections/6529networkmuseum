@@ -36,11 +36,6 @@
       "size": 41
     },
     {
-      "path": ".python-version",
-      "sha256": "sha256:5b703ca38d3fd391f3e889f7ba893f94b921ff9e7b7e5d8d6622d5f7daca7049",
-      "size": 8
-    },
-    {
       "path": "AGENTS.md",
       "sha256": "sha256:ed2733e39329933323a7f45e797c51bf2960b26bbe095dce8f2892966243ecbd",
       "size": 2161
@@ -52,8 +47,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "sha256:e4ec122aa2fac8f52b92553c45a8a75bb01bca8c3f7ef5dbd7b34b354f449fca",
-      "size": 5792
+      "sha256": "sha256:445e6630425b85335e4652a99c95584324648bae9acd8ae2f59d33a95c8a5e2e",
+      "size": 5751
     },
     {
       "path": "docs/accession-standard.md",
@@ -1062,8 +1057,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:e3c513057aae52b19462dc269a84b27fff6f2bb64962d72ae7105030702e9f9a",
-      "size": 8308
+      "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
+      "size": 8285
     },
     {
       "path": "scripts/harden_casey_snapshot_package.py",
@@ -1517,8 +1512,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:15a34ea8db027f73b91611726e2ab40a51f99419575041973904c922f8dd0239",
-      "size": 62825
+      "sha256": "sha256:59271c4ba73780c5011655f0eb09bfeadae791f852e3f50743b35382cd7e70ca",
+      "size": 62806
     }
   ],
   "hash_algorithms": {
@@ -1526,7 +1521,6 @@
     "sha256": 2
   },
   "inventory_files": [
-    ".python-version",
     ".gitattributes",
     ".gitignore",
     "AGENTS.md",
@@ -1549,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x179fcc2293f429177644de441e81bc0891e802de5c4b766814ead7fad247a288"
+    "digest": "0xfd24dd7a70be4175c1dac97c8eadf451f81c1f2d5361516a7cf8253c1b2b3f42"
   },
-  "manifest_sha256": "sha256:e698942a6a03c954edb4f968dac80b518b064f07100c917c51a34cc8a80bb0ee",
+  "manifest_sha256": "sha256:3a756de6ef89e391ef7a5a50f825ff3870e7c2fadf86e12e69261b0c8d4bf2b2",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

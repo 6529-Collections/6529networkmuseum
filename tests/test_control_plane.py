@@ -1008,7 +1008,7 @@ class ControlPlaneTests(unittest.TestCase):
             manifest["inventory_roots"],
         )
         self.assertEqual(
-            [".python-version", ".gitattributes", ".gitignore", "AGENTS.md", "INDEX.md", "README.md", "requirements-dev.txt"],
+            [".gitattributes", ".gitignore", "AGENTS.md", "INDEX.md", "README.md", "requirements-dev.txt"],
             manifest["inventory_files"],
         )
         self.assertTrue(all((REPO_ROOT / root).is_dir() for root in INVENTORY_ROOTS))

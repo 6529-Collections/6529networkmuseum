@@ -28,8 +28,8 @@ A work can be held by a Museum wallet without being accessioned. A Wave `WINNER`
 
 ## Integrity and validation
 
-Local control-plane runs require Python 3.11 or newer; `.python-version` pins
-the same Python 3.12.10 patch release used by CI.
+Local control-plane runs require Python 3.11 or newer. CI is pinned to Python
+3.12.10.
 
 The active required check is `Museum validation`; it runs the foundation
 bootstrap and full control-plane checks on every pull request and main push.

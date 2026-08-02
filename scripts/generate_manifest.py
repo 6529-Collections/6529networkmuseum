@@ -31,7 +31,6 @@ INVENTORY_ROOTS = (
     "tests",
 )
 INVENTORY_FILES = (
-    ".python-version",
     ".gitattributes",
     ".gitignore",
     "AGENTS.md",
