@@ -35,6 +35,18 @@ from validate import keccak256, validate_records, validate_state_machine, valida
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
+ONCHAIN_CONFORMANCE_HARNESSES = (
+    "uri_safety_vectors_v1.py",
+    "batch_vector_check_v1.py",
+    "batch_gas_gate_check_v1.py",
+    "https_expiry_renewal_check_v1.py",
+    "stream_mirror_link_check_v1.py",
+    "release_attestor_policy_check_v1.py",
+    "target_release_signature_bundle_check_v1.py",
+    "target_release_evidence_check_v1.py",
+    "initial_authority_activation_check_v1.py",
+    "manifest_abi_selector_check_v1.py",
+)
 
 
 class ControlPlaneTests(unittest.TestCase):
@@ -1028,6 +1040,31 @@ class ControlPlaneTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
+    def test_onchain_conformance_harnesses_pass(self) -> None:
+        for name in ONCHAIN_CONFORMANCE_HARNESSES:
+            with self.subTest(name=name):
+                result = subprocess.run(
+                    [sys.executable, "-B", str(REPO_ROOT / "specs" / "onchain" / name)],
+                    cwd=REPO_ROOT,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+
+    def test_onchain_conformance_harnesses_reject_optimized_python(self) -> None:
+        for name in ONCHAIN_CONFORMANCE_HARNESSES:
+            with self.subTest(name=name):
+                result = subprocess.run(
+                    [sys.executable, "-O", "-B", str(REPO_ROOT / "specs" / "onchain" / name)],
+                    cwd=REPO_ROOT,
+                    capture_output=True,
+                    text=True,
+                    check=False,
+                )
+                self.assertNotEqual(0, result.returncode, result.stdout + result.stderr)
+                self.assertIn("optimized Python disables conformance checks", result.stdout + result.stderr)
 
 
 if __name__ == "__main__":

@@ -56,3 +56,117 @@ CI enforces structural separation. Governance determines who is authorized to fi
 4. Work on the earliest incomplete phase whose prerequisites are met.
 5. Save research to `notes/research/` or `notes/wip/` before it can be lost to task compaction.
 6. Update the index, run validation, obtain independent review, and publish through a pull request.
+
+## 2026-08-01 — PR #2 remediation checkpoint
+
+The V1 on-chain migration specification remains a non-deployment working
+standard. Its current remediation completes the full-width
+`MUSEUM_BATCH_VECTOR_V1` ID and dependent commitment, strict executable URI
+grammar vectors, an offline HTTPS expiry/renewal/history lifecycle check, and
+a detached content-addressed TargetRelease signature-bundle fixture with
+schema, retrieval reference, and public-key recovery validation. The branch
+contains `origin/main` at `9700e842d0c991280b476cc67849d966221a742a` through
+merge commit `4329953d66360037122691023b1d0d4da42e9ecd`.
+
+Required next gates are the complete local validation/manifest suite, exact
+head CI, independent protocol/security review, governance approval, a real
+release-evidence retrieval rehearsal, and a separately reviewed implementation
+and audit. No test URI, fixture signer, signature, TargetRelease, or vector
+authorizes deployment, admission, custody, accession, or a network write.
+
+## 2026-08-01 — PR #2 post-PR #15 integration checkpoint
+
+PR #15 merged as `bf70ba3fd888d2d1b8add90fe56e913102f8aa68`, preserving the
+Casey acquisition construction commit while adding the reachable public
+`published_source_commit` `9700e842d0c991280b476cc67849d966221a742a` for
+fresh-clone verification. PR #2 merges that new mainline before exact-head
+review. Because its governed control-plane test is one of the Casey package's
+closed external inventory inputs, the package manifest and its pointer are
+regenerated without changing raw observations, snapshots, descriptor results,
+or accession/curatorial status.
+
+This integration does not alter the V1 boundary: the Museum wrapper/registry,
+TargetRelease signature bundle, URI lifecycle, batch vectors, and Stream
+bilateral ontology requirements remain design and conformance material only.
+They are not a deployed contract, published TargetRelease, migration, Stream
+owner-record write, accession assertion, or network-write authorization.
+
+## 2026-08-01 — historical offline conformance-checker checkpoint (superseded)
+
+The design now has an offline checker for the active one-record release vector
+and canonical ABI/authorization transcript, and it explicitly binds state-only
+HTTPS reconstruction to the stored assertion row rather than a mutable current
+pointer. The checker is test-only and does not query a network, admit a target,
+deploy a contract, migrate data, or create accession authority.
+
+At this historical checkpoint the candidate remained draft and unpushed while
+independent protocol review resolved two potential design contradictions:
+whether the mandated
+worst-case batch benchmark corpus is rejected by the pre-write gas formula,
+and whether the shared immutable-target opcode policy forbids storage/calls a
+usable authority provider or successor registry needs. Resolve those claims
+from exact review evidence before final validation or publication. The
+consolidated remediation below supersedes this status.
+
+## 2026-08-01 - PR #2 consolidated protocol remediation
+
+The confirmed batch contradiction is closed in the design: the explicit
+eligibility formula accepts the 64-record/262,144-byte worst corpus at
+base `requiredGas` `12,124,304`; adding the `50,000` caller reserve equals
+`12,174,304`, under the `13,000,000` caller gate. The separate measured
+deployment threshold remains `9,000,000`, or `9,050,000` with that reserve.
+This is a testable eligibility envelope, not a measured-gas claim.
+
+Canonicalizer purity is now a separate policy from target non-upgradeability.
+The target policy permits state and declared bounded static dependencies for a
+stateful successor or immutable authority provider, while a separately bound
+direct governance-executor account (for example, the Museum Safe) remains
+outside the TargetRelease/dependency runtime policy; the policy still rejects proxy,
+delegatecall/callcode, creation, self-destruct, and recognized upgrade paths.
+Target-release evidence binds the exact address, policy document hash,
+dependency commitment, source/build evidence, and an acyclic globally unique
+release ID. The complete synthetic fixture and its detached bundle are
+schema-valid but expressly non-deployment material. V1 designates a successor;
+record import is intentionally deferred to a required V2 interface revision.
+
+Head `8a2e26a` was subsequently pushed and PR #2 marked ready for exact-head
+review. Later exact-head review identified three final control improvements:
+one canonical `NONE` content commitment, a measurable per-URI assertion
+capacity gate, and executable binding of gas-corpus constants/formula to the
+specification. A subsequent independent review also required provider-
+independent emergency freeze/successor authorization, atomic authority/executor
+cross-binding refresh in both rotation directions, a genuinely exact-threshold
+2-of-3 release bundle, right-aligned SHA-1 tree-OID encoding, and removal of a
+forbidden executor-grant reference. Those controls are part of the current
+remediation and require fresh exact-head CI/reviewer disposition after
+regeneration. Nothing in these
+vectors, fixtures, policies, or tests is deployment, accession, custody, or
+network-write evidence.
+
+## 2026-08-02 - Stream owner-record evidence correction
+
+The pinned Stream design document publishes a draft owner-record ABI and
+EIP-712 signature envelope; the pinned source tree does not contain the
+corresponding implementation or deployment and does not establish the stored
+record-hash/readback behavior. The Museum V1 design now reproduces the five
+draft selectors, two typehashes, and a synthetic signing vector while keeping
+the deployment-convergence gate closed. Source-backed implementation,
+deployed-runtime verification, exact stored-hash semantics, read surfaces,
+nonce tests, and direct/relayed write-read rehearsals remain prerequisites.
+
+The owner-record conformance vector additionally derives its token subject from
+the pinned `STREAM_SUBJECT_TOKEN_V1`, chain ID, synthetic Stream Core, and token
+ID. A free-form subject is invalid even when the ABI and EIP-712 digest are
+otherwise internally coherent.
+
+Later exact-head review closed the Museum mirror side as well. Interface
+admission now binds exact Stream Core and adapter addresses, both runtime code
+hashes, and the owner-record hash domain/vector. Link creation accepts only a
+Museum subject, token ID, and expected-hash guard; it reads back the adapter's
+core, collection, derived subject, owner-record hash, domain, and vector and
+independently reads the Core's token-collection identity under bounded
+exact-length calls. It also requires the Museum subject to be the registered
+CAIP-19 identity for the exact chain/Core/token tuple. A retained offline
+checker rejects swapped Museum subjects and nonzero collection substitutions
+as well as each other substituted value. This remains a conformance design until a source-backed Stream adapter
+and deployment satisfy the convergence gate.

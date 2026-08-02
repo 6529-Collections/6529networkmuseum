@@ -504,6 +504,29 @@ object remain `received_onchain` / `not_complete`; formal acceptance, title,
 rights, condition, preservation, and independent registrar/curatorial review
 remain incomplete. The draft remains open and must receive independent
 exact-head review after validation.
+## 2026-08-01 — PR #2 deterministic remediation checkpoint
+
+The PR #2 branch merged `origin/main` at
+`9700e842d0c991280b476cc67849d966221a742a` through
+`4329953d66360037122691023b1d0d4da42e9ecd`. The V1 specification now pins the
+full `keccak256("MUSEUM_BATCH_VECTOR_V1")` value
+`0xa4713265f6f293e83885203722026053a888831af3f829e81b6aaed0d5d1d70b`
+and batch commitment
+`0x1c1c8c0c0c71816b08183589eaca344e6cd6b0ba1bc784c2d5a84337c377fc8d`.
+The one-record manifest vector remains
+`0x8bb17fc4361cbfe29c586218e716d0c4789973b222ee7a403f9d22f6f483a280`.
+
+The URI harness rejects malformed percent escapes, CGNAT/private/reserved
+literals, overlong CIDv1 varints, non-ASCII path characters, and malformed or
+explicit ports without throwing. The HTTPS lifecycle harness proves expiry
+blocks new writes, renewal restores eligibility, and pre-expiry records remain
+readable with their historical assertion. The detached signature-bundle
+fixture has a content-addressed IPFS URI, alternate Arweave-form retrieval
+reference, schema, then-current 3/3 offline recovery check (superseded by the
+exact-threshold 2-of-3 remediation below), and an explicit statement that
+it is not published release or deployment evidence. Full validation, a fresh
+release manifest, exact-head CI, and independent review remain required before
+any merge; implementation and deployment remain separate authorization gates.
 
 ## 2026-08-01 - Post-merge fresh-clone publication-pin correction
 
@@ -615,3 +638,442 @@ Before local commit, regenerate the governed manifest and run fetch guard,
 complete validation, package verification, and the diff check. The full
 discovered unittest suite has already passed: 80 tests, one expected Windows
 named-pipe skip.
+## 2026-08-01 - PR #2 post-PR #15 Casey-pin integration checkpoint
+
+PR #15 is merged on `origin/main` as
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`. Its reachable publication
+boundary stays `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a`; the historical Casey construction
+provenance remains immutable. PR #2 merges that exact mainline before its
+independent exact-head review.
+
+PR #2 changes the governed `tests/test_control_plane.py`, which is deliberately
+one of the Casey package's closed external inventory inputs. The reproducible
+package builder therefore regenerates only the package inventory and
+`latest-run.json` pointer to bind that new test byte. It does not change the
+79 raw observations, five snapshots, five descriptor outputs, 3,300-token
+population, 35,088 traits, source/canonical ordering, exclusions, warnings,
+review-null state, or accession/rights/curatorial status.
+
+The V1 contract specification remains a non-deployment design. Its
+TargetRelease signature fixture, URI lifecycle harness, vectors, Stream
+bilateral compatibility gate, and immutable wrapper/registry requirements do
+not constitute a deployed contract, released TargetRelease, Stream
+owner-record mutation, accession, or authorization for a network write. The
+next gates remain final local validation, exact-head CI and independent
+protocol review, governance approval, a release-evidence rehearsal, and a
+separately reviewed implementation and audit.
+
+## 2026-08-01 - PR #2 current Casey toolchain-manifest revision
+
+The immutable historical PR #15 publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+It is not rewritten by this branch. Its reachable
+`published_source_commit` remains
+`9700e842d0c991280b476cc67849d966221a742a`.
+
+PR #2's governed `tests/test_control_plane.py` evolves the current verification
+toolchain. The Casey package therefore has a new current toolchain-manifest
+revision, SHA-256
+`sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`,
+with a regenerated `latest-run.json` pointer. This revision binds the evolved
+toolchain input; it is not an art-data, accession-authority, or historical
+release rewrite.
+
+The integration proof is a closed evidence-path diff against
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68`: only
+`package-manifest.json` and the excluded `latest-run.json` pointer may differ
+under `evidence/casey-reas-collection-snapshots/`. Thus every raw observation,
+snapshot, descriptor and result, reconstructed request, exclusion, warning,
+population, and child run-manifest byte remains unchanged. The Casey verifier
+also checks the preserved raw bytes, snapshots, and child manifest against the
+reachable publication commit and recomputes all five descriptor outputs.
+
+## 2026-08-01 - PR #2 offline vector/ABI checker toolchain amendment
+
+The immutable historical PR #15 publication remains
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with Casey package-manifest
+SHA-256 `sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+Its `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a` remains unchanged. This amendment
+does not rewrite that publication.
+
+PR #2 adds an offline active-manifest/ABI-selector checker and wires it into
+the governed control-plane test. The resulting current Casey toolchain-manifest
+revision is `sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`.
+It supersedes only this branch's current toolchain pointer, not any historical
+art-data release or accession authority. The closed Casey evidence-path diff
+continues to allow only `package-manifest.json` and excluded `latest-run.json`
+to differ from `bf70ba3...`; raw observations, snapshots, descriptors/results,
+requests, exclusions, warnings, populations, and child run manifest remain
+byte-identical.
+
+The new checker is offline and independently recomputes the active §13.6
+`ff1c5825...` / `0x8bb17fc4...` vector plus the canonical ABI and authorization
+allowlists. The state-only HTTPS audit rule is clarified without adding any
+network, target-admission, deployment, accession, or migration behavior.
+Independent protocol review is still evaluating potential batch-gas and
+immutable-target-policy contradictions; this candidate must remain unpushed
+and draft pending its exact evidence and disposition.
+
+## 2026-08-01 - PR #2 consolidated protocol-remediation toolchain amendment
+
+The immutable PR #15 Casey publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`.
+Its reachable `published_source_commit` remains
+`9700e842d0c991280b476cc67849d966221a742a`. It is historical release
+evidence and is not rewritten.
+
+The current PR #2 toolchain-manifest revision is
+`sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`.
+It is a governed test/toolchain evolution that binds the expanded offline
+control-plane checks; it is not a new art-data release, accession authority,
+or deployment claim. The only Casey evidence-tree differences from the
+historical PR #15 baseline are `package-manifest.json` and the excluded
+`latest-run.json` pointer. Every raw observation, snapshot, descriptor,
+descriptor result, reconstructed request, exclusion, warning, population, and
+child run-manifest byte remains unchanged; the verifier reproduces 3,300
+tokens, 35,088 traits, 79 raw files, and five descriptor outputs from the
+reachable publication boundary.
+
+The local, unpushed protocol remediation now makes the batch caller gate
+internally satisfiable without calling it a measured gas bound; separates
+strict canonicalizer purity from stateful-target non-upgradeability; binds
+TargetRelease evidence and identity to the exact target address; derives
+release identity before D0/D1 projections; admits exact predecessor/reason
+commitments; rejects URI textual aliases; and scopes successor import to a
+future V2 interface. The complete TargetRelease fixture is explicitly
+non-deployment conformance evidence. Casey remains a completed, received
+donation with accession documentation in progress, not an accession-complete
+claim. This candidate remains local and draft pending the final validation
+pass and reviewer direction; it must not be pushed yet.
+
+## 2026-08-01 - PR #2 executor/dependency remediation toolchain amendment
+
+Correction to earlier in-progress wording: commit `8a2e26a` was pushed to PR `#2`
+and the PR was marked ready before this follow-up review began. Statements
+above that described the earlier candidate as unpushed/draft remain historical
+status at their observation times. The remediation after `8a2e26a` is local
+and unpushed, and this task does not mark the PR ready, merge it, or push it.
+
+The immutable PR #15 publication remains main commit
+`bf70ba3fd888d2d1b8add90fe56e913102f8aa68` with package-manifest SHA-256
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`
+and reachable `published_source_commit`
+`9700e842d0c991280b476cc67849d966221a742a`. It is not rewritten.
+
+The complete current-pointer lineage is explicit:
+
+Supersedes (toolchain pointer only):
+`sha256:c08749355ea12c2948efdfdeb232675ab4bf693976a94c6ebb4ce24b0b5d08ab`
+-> `sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`.
+
+Supersedes (toolchain pointer only):
+`sha256:fd2da3c8227e8077a22a651507d5537c01915e61d58c9e71488dcb1203929d72`
+-> `sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`.
+
+Supersedes (toolchain pointer only):
+`sha256:76fe8e967ca9e4da87497b063c3873effa5b85a1d838a222a4bb9560e5f81842`
+-> `sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`.
+
+Supersedes (toolchain pointer only):
+`sha256:443c412cde107af915c1719e4d2bd2c767ae8fdf9e597cd6e2b8210a7fe654bb`
+-> `sha256:2b41d542c71d7c2517611efbbd2ad363686a24e223f955fb9f685da3f75718a1`.
+
+The new 65,519-byte package manifest is a governed test/toolchain revision for
+the executor/dependency, URI, TargetRelease, Casey-pointer, and optimized-mode
+checks. The only Casey evidence-tree differences from the immutable PR #15
+baseline remain `package-manifest.json` and the excluded `latest-run.json`
+pointer. Every raw observation, snapshot, descriptor, descriptor result,
+reconstructed request, exclusion, warning, population, and child run-manifest
+byte remains unchanged. This is not a new art-data release, accession
+authority, TargetRelease admission, deployment, or network-write claim.
+
+## 2026-08-02 - PR #2 Casey pointer-verifier test amendment
+
+Supersedes (toolchain pointer only):
+`sha256:2b41d542c71d7c2517611efbbd2ad363686a24e223f955fb9f685da3f75718a1`
+-> `sha256:fc8d7c19f1831edfc274fa35a4c98ebe6aa4774156c03b6ec9981c40bd8010ba`.
+
+This final 65,519-byte toolchain-manifest revision factors the
+`latest-run.json` package pointer check into a directly mutation-tested
+verifier function. It requires the exact `package-manifest.json` path, measured
+byte size, and measured SHA-256. The immutable PR #15 publication, reachable
+`published_source_commit`, and all art/source/snapshot/descriptor/result/
+request/exclusion/warning/population/child-run-manifest bytes remain unchanged.
+The revision is local and unpushed and is not an art-data release, accession
+authority, TargetRelease admission, deployment, or network-write claim.
+
+## 2026-08-02 - PR #2 exact-threshold and emergency-independence remediation
+
+Independent exact-head protocol review found five genuine design
+contradictions after head `2f6517c`: the mutable authority provider could veto
+the claimed emergency path; authority/executor rotations could leave their
+cross-bound capability rows stale; the stated 2-of-3 release policy required
+three valid signatures; the SHA-1 repository tree OID lacked a reproducible
+`bytes32` encoding; and the selector table referred to a forbidden
+governance-executor grant.
+
+The local remediation excludes `freezeWrites` and post-freeze `setSuccessor`
+from the provider selector set. Their authorization now uses only the
+registry-held direct executor address/revision, while successor evidence still
+must have been admitted before freeze. The provider-mediated selector-set hash
+is `0xe4b26f95f96aa2744535537bbd3c6769693127a9315162ca1d63bffe2fa6a5ff`.
+Both rotation directions atomically refresh `AuthorityState` and
+`GovernanceExecutorState`; authority rotation emits the new
+`GovernanceExecutorAuthorityRebound` audit event.
+
+Release evidence now admits three sorted addresses but carries exactly two
+sorted signature entries from that set, both of which must recover. The bundle
+schema hash is
+`0xff21eb38d2c75ee54155020e7ed88fb1b952963cd8c889b6bb771b9366fb29a3`;
+the evidence-schema hash is
+`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`.
+The regenerated non-deployment vector has release ID
+`0x7d3cf4d1cc5a540e950b98c52138a6a75d9e747edf365602af12729adda1a522`
+and 837-byte bundle hash
+`0x76db1ca68ab4561ad0e6b193d85e853494ea3984010ace8de8369a685efb74c1`.
+Git commit and tree SHA-1 values now share one exact encoding: decode the
+40 lowercase hex characters and right-align those 20 bytes in `bytes32` with
+12 zero high bytes. The Stream-mirror selector table now names the direct
+executor closed binding and expressly forbids an executor grant row.
+
+The same local pass pins the sole `NONE` content commitment, adds a measurable
+per-URI assertion-capacity deployment gate, and binds the batch-gas checker to
+the specification constants/formula. All seven focused harnesses and their
+optimized-Python rejection controls pass. Full regeneration, full validation,
+fresh exact-head review, CI, and bot disposition remain required. Nothing in
+this entry is a deployment, TargetRelease admission, network write, donation
+acceptance, or accession-completion act.
+
+## 2026-08-02 - Stream draft owner-record evidence correction
+
+Independent review identified an overstatement in the earlier Stream premise.
+At pinned commit `5021c8060950c3fef995271e674ed4b2007fee6d`, Stream's design
+document does publish the `OwnerRecord` shape, five owner-record function
+signatures, the owner-write and nonce-revocation EIP-712 typehashes, and the
+`6529StreamOwnerRecords` domain. The source tree still does not include a
+`StreamOwnerRecords` implementation or deployment, and the design document
+does not pin an exact stored `recordHash` preimage and read surface.
+
+The local specification now matches the real draft ABI and EIP-712 envelope
+bilaterally. Its executable checker recomputes all five selectors, both
+typehashes, and a synthetic domain/struct/signing vector. The synthetic module
+address is explicitly not a deployment claim. The convergence gate remains
+closed pending source, deployed runtime, stored-hash semantics, read ABI,
+nonce behavior, and a successful direct/relayed write-read rehearsal. Full
+regeneration, validation, exact-head review, CI, and bot disposition remain
+required.
+
+The complete local gate subsequently passed on this remediation: bootstrap
+validated 226 JSON files; the network-fetch guard passed; all 79 tests passed
+with the one expected Windows named-pipe skip; schema, reference, state,
+guardrail, and commitment validation passed; the deterministic release
+manifest check passed; the Casey evidence package reproduced 3,300 tokens,
+35,088 traits, 79 raw files, 3,327 request records, and five descriptor
+outputs; and `codex-diff-check` reported no whitespace defects. These local
+results do not substitute for fresh exact-head CI or independent review.
+
+## 2026-08-02 - Stream token-subject derivation remediation
+
+Independent Stream review of pushed head `1f2dc03` confirmed the corrected
+draft-versus-deployment boundary but found that the synthetic owner-record
+EIP-712 vector still supplied a free-form subject. The pinned Stream draft
+requires every token-scoped owner record to derive `subjectId` as
+`keccak256(abi.encode(STREAM_SUBJECT_TOKEN_V1, chainId, streamCore, tokenId))`.
+
+The local remediation now pins
+`STREAM_SUBJECT_TOKEN_V1 =
+0x1e576f27850d12bc1ec9255ca277dbecfbc84fb3a9a34c474640dfca89811d7e`,
+uses explicitly synthetic Core `0x0000000000000000000000000000000000001001`,
+and derives subject
+`0x7839d73dfe2384e7818fa90691f4ffa27260eb4af0cfe50f8d1615f8bf6db5b4`
+for chain ID `1` and token `771769`. The recomputed owner struct hash is
+`0xfb71d60a68e0894166ae306df4fd11238530ee87e5714aa5d8c3e990fb6506f6`
+and signing digest is
+`0x1fe370911b6eda46ee6153458ffeac7bdc2c0c7fd7e9fb0af6d7385e66df2605`.
+The checker, specification, Stream profile, and two independent transcripts
+bind the same derivation. The synthetic addresses remain non-deployment test
+inputs. Regeneration, full validation, a new pushed head, and fresh exact-head
+review are required.
+
+## 2026-08-02 - closed authority selectors and governed release attestors
+
+An exact-head adversarial review found two additional protocol contradictions
+after CI was green. First, `admitStreamOwnerRecordInterface` and
+`admitHttpsResolverProfile` normatively required active provider capability but
+were absent from the closed selector commitment. Second, the release evidence
+proved 2-of-3 only over addresses declared by the evidence itself; substituting
+three attacker-controlled keys and recomputing signatures remained valid under
+the old checker and retained the same release ID.
+
+The remediation makes both trust boundaries explicit. The closed authority set
+now includes the two required admission selectors and the new attestor-bound
+`admitTargetRelease` selector. The independent release-attestor policy artifact
+has a schema, exact 2-of-3 signer list, governance-approved deployment-manifest
+authority source, and new-registry-only rotation rule. Its JCS policy hash and
+ABI signer-set hash are immutable constructor commitments, public registry
+getters, TargetRelease row fields, and inputs to `releaseId`. Evidence and
+bundle checkers must equal the external policy, not merely a self-declared
+address array; key/policy/set substitutions are negative tests. The checked
+file is explicitly a public non-deployment fixture. A real deployment must
+replace it with a governance-approved production policy and bind the resulting
+commitments in both constructor and release manifest.
+
+## 2026-08-02 - runtime attestation and Stream readback closure
+
+Exact-head independent review of `cf6ff24` found two substantive remaining
+gaps, so that head was not merged. First, the 2-of-3 release review existed in
+the evidence package but was not unavoidable inside `admitTargetRelease`.
+Second, a mirror-link caller could still supply a Stream subject and
+owner-record hash without a mandatory adapter readback tying both to the
+admitted Stream deployment.
+
+The local remediation makes release approval a registry-enforced EIP-712 gate.
+The domain binds chain ID and registry address; the exact struct binds release
+ID, D0 conformance hash, D1 signed-document hash, and the immutable policy and
+signer-set commitments. Admission accepts exactly two sorted governed signer
+addresses and their 65-byte canonical signatures, recovers both on-chain, and
+stores the digest, signer addresses, signature commitments, and signature-set
+commitment. The deterministic vector now has release ID
+`0x118d59bded209701cb211f4515fff0935c96fa4d2aa50d42e0a749d45c0eca85`,
+attestation digest
+`0xac389ba1bd808d6bb58087be65d31fcbe9ce9593d503a1a267f1aa0d80be5bc3`,
+and signature-set hash
+`0x8a1d8004d16e0b3de6f7d242a3cfad1e40740d517003d9ab827697e7452db555`.
+Its 1,300-byte detached bundle hash is
+`0xbc553ca1ffb482755bea510253a73b941dd81b5c313dce82267f6915ca75f70b`.
+The executable runtime model rejects missing, duplicate, out-of-order, or
+unauthorized signers; altered signatures; changed release/document/policy
+fields; and cross-chain or cross-registry replay.
+
+Stream interface admission now binds exact Core and adapter addresses plus
+both runtime hashes, domain, vector, and evidence. Mirror-link creation accepts
+only the Museum subject, token ID, and expected-hash guard; it rechecks both
+runtimes and reads the adapter's Core, domain, vector, collection, derived
+subject, and owner-record hash with exact-length bounded calls. It independently
+reads Core token-collection identity and requires the Museum subject to be the
+registered CAIP-19 identity for the exact chain/Core/token. A new ninth
+network-free checker rejects swapped Museum subjects, nonzero adapter collection
+substitution, and substitution of every other readback field. The three
+changed governed selectors produce closed selector-set hash
+`0x4c2a05297ef36555d0bd199b80df1463d02702f6bd1bde9444960279d15957e5`
+and therefore new executor binding commitment
+`0x40a3c47c9686f82852e14e2b503ff9e02cdbed30d556db7347112bec4061e3f9`.
+
+Focused conformance scripts pass locally. Full regeneration, repository-wide
+validation, a new exact head, fresh CI, and fresh independent/bot review remain
+required. Nothing in this entry authorizes deployment, a network write, or a
+completed accession.
+
+## 2026-08-02 - Museum-subject and Core-collection mirror binding
+
+Exact-head reviews of `eff5811` agreed that release-attestation enforcement
+was closed but found two remaining Stream mirror gaps. A valid Stream token
+could be linked to the wrong already registered Museum subject, and the model
+treated any nonzero adapter collection ID as valid instead of comparing it to
+an independent source. That head was not merged.
+
+The local remediation now reconstructs the exact lowercase
+`eip155:<chainId>/erc721:<streamCore>/<tokenId>` string, checks its hash and
+`MUSEUM_ASSET_PROFILE_CAIP19_V1` row, recomputes the Museum external subject,
+and requires equality with the caller's `subjectId`. It also calls the pinned
+Stream Core `tokenCollectionIdentity(uint256)` selector `0xa6b638c9` directly,
+requires an existing unburned mapping with nonzero collection and serial, and
+requires the adapter's independently returned collection ID to equal the Core
+result. The retained vector now rejects a wrong existing Museum subject, a
+changed token/canonical asset, nonzero adapter/Core collection disagreement,
+absent/burned tokens, zero serials, and truncated Core or adapter return data.
+
+Focused harnesses and the full 79-test/validator/Casey-verifier regression pass
+are green locally. A regenerated exact commit, push, CI, and fresh independent
+reviews are still required; no superseded-head approval counts.
+
+## 2026-08-02 - exact-head control-plane review remediation
+
+CodeRabbit's review of the PR `#2` candidate exposed nine live controls that
+were not waived: complete Stream owner-record event/chain/pointer surfaces;
+exact canonical Git origin matching; one-read Casey package binding;
+canonicalizer gas/input/return bounds; immutable HTTPS address-list evidence;
+exact ERC-1271 magic-value handling; historical record-type/family/grant
+authorization revisions; and a truly closed dependency external-capability
+set. The remediation is in progress and no earlier approval counts.
+
+The dependency policy now rejects `BALANCE`, `EXTCODESIZE`, `EXTCODECOPY`, and
+`EXTCODEHASH`; its JCS hash is
+`0xf8efb731af735014514f4a5b8ad22a6e2007ba23b11b45a9c8845db3f144ee2c`.
+The regenerated non-deployment TargetRelease vector supersedes the earlier
+synthetic values with release ID
+`0xdeb8472c3dfa2af9d997baf62026478c0cf5b4b8439ac94cdda47a48ac4b48e0`,
+attestation digest
+`0x682aae357582c8d22cd11f69c58abc9d62ef5847e5b1cd916564768a733a688d`,
+and bundle hash
+`0x26f70f9a77520b8210eae127c167edeed42f37e25a34abfbd213b02f6d6c6e09`.
+The canonicalizer policy now pins 100,000 gas, 4,096 returned bytes, and a
+2,048-byte canonical asset ID. Exact-head validation, commit, push, CI, bots,
+and independent reviews remain required.
+
+The two independent `d44c559` protocol reviews then converged on one further
+P1: Stream's `tokenCollectionIdentity` exists during
+`PREPARED_INCOMPLETE`, before an ERC-721 exists, and that prepared identity can
+be aborted. The local gate now also calls Core `tokenLifecycle(uint256)`
+(`0x8c46d901`), requires its exact 32-byte ABI result to be `MINTED (2)`, and
+rejects unknown, prepared, burned, and malformed lifecycle results. The
+complete local candidate passes bootstrap over 228 JSON files, fetch guard,
+all nine conformance harnesses and optimized-Python rejection, 79 tests with
+one expected Windows named-pipe skip, full validation, deterministic manifest,
+Casey replay (3,300 tokens, 35,088 traits, 79 raw files, 3,327 requests, five
+descriptors), and `codex-diff-check`. A committed exact head and fresh review
+remain required.
+
+## 2026-08-02 - evidence-hash amendment and inert activation design
+
+Append-only amendment: the evidence-schema hash
+`0x57027a81db3fea11b211564ba7381273f6171df37d3621ceb6ab3959e27f996f`
+appearing in an earlier working checkpoint is stale and MUST NOT be used. It is
+superseded by the canonical governed hash
+`0xff380ff5d024aa7bf60a067141efa6302e679a448054b3109bd05ac8ea5623ce`.
+This amendment changes no checked manifest or fixture; it only makes the WIP
+history's supersession explicit.
+
+Exact-head review of `5afcbe7` found that constructor verification of
+registry-address-bound EIP-712 signatures is circular when those signature
+bytes are themselves part of CREATE2 init code. That head was not merged. The
+specification now requires a target-address/signature-free inert constructor,
+an address-independent initial-authority artifact commitment, and a one-shot
+post-deployment `activateInitialAuthority` transaction. Initialization states
+`0`, `1`, and `2` are explicit; all other mutators reject states `0` and `1`;
+activation sets state `1` before any external call and state `2` last; and any
+failure rolls all release, dependency, authority, and executor writes back to
+state `0`. The fully registry/chain-bound 2-of-3 release signatures are made
+only after the actual deployment address exists. Fresh regeneration,
+validation, exact-head review, CI, and merge remain required.
+
+## 2026-08-02 - PR #10 post-protocol-foundation sync checkpoint
+
+The Casey accession branch merged the independently reviewed protocol
+foundation from `origin/main` at
+`67d8528511917bd6b06a2c9c4bfe4a0b7445034d`. The append-only PR #10 and PR #2
+WIP histories were both preserved; generated Casey package and repository
+release manifests are being regenerated from the merged source bytes rather
+than selecting either stale side of the merge.
+
+The formal Gift Acceptance and Accession Authorization remains bound to the
+seven exact CAIP-19 identities, their shared receipt transaction and log
+indices, adopted Art Blocks donation preapproval, adopted Donation Acceptance
+Policy, donor credit `punk6529`, no consideration, and permanent-collection
+intent. The accession lot and all seven objects remain `received_onchain` /
+`not_complete`: this sync does not create a title instrument, copyright or
+display-right grant, legal conclusion, condition conclusion, preservation
+completion, registrar sign-off, independent review, or
+`STREAM_ACCESSION_V1` completion event.
+
+The artist/practice profile, five-project collection essay, and seven distinct
+object pages remain the current curatorial construction. Their claim-level
+source boundaries, immutable-versus-mutable technical distinctions,
+923-combinations/924-artworks distinction, 2021/2022 Phototaxis source
+conflict, transparent non-market descriptors, and no-rarity/no-value posture
+remain unchanged. Full package regeneration, validation, commit, push, exact
+CI, specialist review, and independent exact-head approval remain required.

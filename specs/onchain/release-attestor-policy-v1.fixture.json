@@ -1,0 +1,19 @@
+{
+  "schema": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1",
+  "version": 1,
+  "policyId": "MUSEUM_RELEASE_ATTESTOR_POLICY_V1",
+  "policyScope": "NON_DEPLOYMENT_CONFORMANCE_FIXTURE",
+  "signatureScheme": "EIP-712-MUSEUM-TARGET-RELEASE-V1",
+  "threshold": 2,
+  "addresses": [
+    "0x3f839160d2b2e593fb624b3744d051ded823a32d",
+    "0x6d745c052bbfd06c617fd291b501eeb0cd2bf2c3",
+    "0xfaee7c80a5ef539135f7476151e48633452633d6"
+  ],
+  "authoritySource": {
+    "kind": "governance-approved-deployment-manifest",
+    "policyHashBinding": "immutable-constructor",
+    "signerSetHashBinding": "immutable-constructor",
+    "rotationRule": "new-registry-deployment"
+  }
+}

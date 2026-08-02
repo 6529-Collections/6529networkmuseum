@@ -1,0 +1,35 @@
+{
+  "$id": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1",
+  "$comment": "The bundle contains exactly two signatures from the evidence document's three admitted signer addresses. Schema uniqueItems distinguishes complete entry objects only. Subset membership, cross-entry signer and signature-commitment uniqueness, numeric signer ordering, both signature recoveries, and evidence linkage are mandatory semantic checks in target_release_signature_bundle_check_v1.py; schema-only validation is insufficient.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "version", "chainId", "registryAddress", "releaseId", "conformanceDocumentHash", "signedDocumentHash", "releaseAttestorPolicyHash", "releaseAttestorSignerSetHash", "releaseAttestationDigest", "entries"],
+  "properties": {
+    "schema": { "const": "MUSEUM_TARGET_RELEASE_SIGNATURE_BUNDLE_V1" },
+    "version": { "const": 1 },
+    "chainId": { "type": "integer", "minimum": 1 },
+    "registryAddress": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+    "releaseId": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "conformanceDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "signedDocumentHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "releaseAttestorPolicyHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "releaseAttestorSignerSetHash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "releaseAttestationDigest": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" },
+    "entries": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signer", "signature", "signatureCommitment"],
+        "properties": {
+          "signer": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+          "signature": { "type": "string", "pattern": "^0x[0-9a-f]{130}$" },
+          "signatureCommitment": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" }
+        }
+      }
+    }
+  }
+}

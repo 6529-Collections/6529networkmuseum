@@ -60,6 +60,9 @@ Status vocabulary:
 | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
+| [`specs/onchain/contract-migration-v1.md`](specs/onchain/contract-migration-v1.md) | working standard | V1 immutable registry migration design, active-vector/ABI-selector conformance, Stream bilateral-convergence and release gates, and no-deployment status |
+| [`specs/onchain/dependency-runtime-nonproxy-v1.json`](specs/onchain/dependency-runtime-nonproxy-v1.json) | governed policy | Exact no-proxy/no-external-call runtime policy for bounded TargetRelease dependency rows; distinct from the direct governance executor |
+| [`specs/onchain/release-attestor-policy-v1.fixture.json`](specs/onchain/release-attestor-policy-v1.fixture.json) | non-deployment conformance fixture | Schema-checked synthetic 2-of-3 release-attestor policy whose JCS policy and ABI signer-set commitments demonstrate immutable governance binding; never production authority |
 | [`specs/README.md`](specs/README.md) | working standard | Boundary and admission requirements for implementation-ready protocol specifications |
 | [`docs/generative-trait-analysis.md`](docs/generative-trait-analysis.md) | working standard | Pinned NextGen-compatible trait prevalence analysis; not quality or curatorial significance |
 | [`docs/implementation-roadmap.md`](docs/implementation-roadmap.md) | active working plan | Durable phased build, constructor/reviewer rules, unresolved decisions, and handoff procedure |
@@ -92,6 +95,7 @@ Status vocabulary:
 | [`notes/research/museum-standards-crosswalk.md`](notes/research/museum-standards-crosswalk.md) | research input | Foundation source register and public-practice research retained as background to the current operational crosswalk |
 | [`notes/research/museum-standards-crosswalk-luna.md`](notes/research/museum-standards-crosswalk-luna.md) | research addendum | Template-alignment delta: exact record-control payload-hash semantics and current Casey/Keys and Gates states |
 | [`notes/research/repository-ci-architecture.md`](notes/research/repository-ci-architecture.md) | research input | Proposed canonical-record, schema, status-gate, manifest, CI, and release architecture |
+| [`notes/research/external-registry-review.md`](notes/research/external-registry-review.md) | research input | Stream boundary analysis and synchronized, non-deployment V1 registry/hash/URI/release-bundle vectors |
 | [`notes/research/nextgen-rarity-method.md`](notes/research/nextgen-rarity-method.md) | research input | Exact production NextGen trait-measure archaeology and reproducibility requirements |
 | [`notes/research/casey-reas-art-technical-research.md`](notes/research/casey-reas-art-technical-research.md) | research input | Primary-source art-historical, technical, display, and preservation research for seven donated works, with dated gift-status supersession note |
 | [`notes/research/casey-reas-onchain-evidence.md`](notes/research/casey-reas-onchain-evidence.md) | research input | ENS resolution, seven token identities, common donation transaction, custody, metadata, and transfer evidence |
@@ -114,6 +118,7 @@ Status vocabulary:
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |
 | [`scripts/validate.py`](scripts/validate.py) | working standard | JSON Schema, semantic, secret, cross-reference, state, status, and commitment validation |
 | [`scripts/generate_manifest.py`](scripts/generate_manifest.py) | working standard | Deterministic SHA-256 and JCS/Keccak release commitments over the closed governed release inventory |
+| [`specs/onchain/`](specs/onchain/) | active design conformance | Offline-only contract-migration vectors for batch eligibility, URI canonical identity, HTTPS assertion lifecycle, address-bound TargetRelease evidence/signatures, and ABI/allowlist reconstruction; never deployment evidence |
 | [`tests/`](tests/) | working standard | Valid record chain and negative control-plane fixtures |
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
 | [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
