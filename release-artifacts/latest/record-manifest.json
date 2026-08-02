@@ -42,8 +42,8 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:677596bc6c5fc0f32dce96dec28bd57ec26caff6af8092764c9ba3d0488b4426",
-      "size": 19740
+      "sha256": "sha256:4d2ff405d6cceaf3835a13b558ec3dc77b3c3209524212e26238e06a688e60ca",
+      "size": 19781
     },
     {
       "path": "README.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/casey-accession-control.md",
-      "sha256": "sha256:ee4fcaeb27161ff04ccc9c2d5035305738322fec5c09c64d16dd966091edfd1c",
-      "size": 7526
+      "sha256": "sha256:4230cb02a5c8d0a40d3604a70a9b333ff6295f05fb5bb61ef550b240a239736a",
+      "size": 7681
     },
     {
       "path": "docs/control-plane.md",
@@ -302,8 +302,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
-      "sha256": "sha256:0e83b0f8206c47ab445181b359b89bec4d53c386cbb130596da5281dd0af82cd",
-      "size": 7915
+      "sha256": "sha256:30bceb1e15b5b5aece2f67e3275df96f616f6212729b74fbe8447cad0f967971",
+      "size": 8014
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
@@ -1017,8 +1017,8 @@
     },
     {
       "path": "scripts/acquire_casey_custody_audit.py",
-      "sha256": "sha256:05547ee0af23559074110cd1b260fd29e6b8ce04c7c5e9e58844266e75956244",
-      "size": 15890
+      "sha256": "sha256:f435ba7a75e24f51206382276fcd3567d880b814673a13f221f8dc3c6fc9c3fc",
+      "size": 16750
     },
     {
       "path": "scripts/bootstrap_validate.py",
@@ -1097,8 +1097,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:a9f59996130959d184e3749b6016ed6d9ca1e3ad3702d40b51a9e55b7470a502",
-      "size": 82240
+      "sha256": "sha256:c0ba76991b2b0ecd0bf865fe49e203d49f51ed49152bc0ca216b96b861dfc16d",
+      "size": 82268
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1507,8 +1507,8 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:f3f633fa73af68685c81e445f5eb2d04f1b60c7daf3bea7b69046fda90cd6934",
-      "size": 35095
+      "sha256": "sha256:59c64a3baa601f5e5f432a3e8f1f5aa55a46fd9554e5b8063fa88eaa2132cbb0",
+      "size": 36906
     },
     {
       "path": "tests/test_control_plane.py",
@@ -1543,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x39980b7b087270efebb8d7995d4fa43b37b1b715267a305db42f8343c48b0417"
+    "digest": "0xb9b6a14f3d15b94e95bf87948e8a91485a07672f8a1136348a3071f2be168f33"
   },
-  "manifest_sha256": "sha256:7f9cfdf3f671af8674102824365aa082d469ced144650b180e185c5080767102",
+  "manifest_sha256": "sha256:39331eb790ce7039bf54d1adec6c5d0bd88026fe8b6f9278266ce5546de08e5e",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

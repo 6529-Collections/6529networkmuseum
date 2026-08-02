@@ -14,7 +14,9 @@ import argparse
 from datetime import UTC, datetime, timedelta
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
 import time
 from typing import Any
@@ -23,7 +25,6 @@ from safe_fetch import FetchPolicyError, SafeHTTPSFetcher
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT = ROOT / "evidence" / "casey-reas-diligence"
 HEAD_RPC_URL = "https://1rpc.io/eth"
 CALL_RPC_URL = "https://ethereum-rpc.publicnode.com"
 USER_AGENT = "6529-Network-Museum/casey-custody-audit-v1"
@@ -51,6 +52,24 @@ OBJECTS = (
 
 class AuditError(RuntimeError):
     """Raised when an exact, internally consistent audit cannot be emitted."""
+
+
+def prepare_empty_output(output: Path) -> None:
+    """Create or admit only an explicit empty, non-linked output directory."""
+    if os.path.lexists(output):
+        info = os.lstat(output)
+        is_reparse = bool(
+            getattr(info, "st_file_attributes", 0)
+            & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)
+        )
+        if stat.S_ISLNK(info.st_mode) or is_reparse:
+            raise AuditError("output directory cannot be a symlink or reparse point")
+        if not stat.S_ISDIR(info.st_mode):
+            raise AuditError("output path is not a directory")
+        if any(output.iterdir()):
+            raise AuditError("output directory must be empty; evidence replacement is a separate governed operation")
+    else:
+        output.mkdir(parents=True, exist_ok=False)
 
 
 def canonical_json(value: Any) -> bytes:
@@ -165,6 +184,7 @@ def call_rpc(
 
 
 def acquire(output: Path) -> dict[str, Any]:
+    prepare_empty_output(output)
     fetcher = SafeHTTPSFetcher()
     observed_at = datetime.now(UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
 
@@ -342,10 +362,10 @@ def acquire(output: Path) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output-dir", type=Path, required=True, help="new or empty destination; never a tracked package in place")
     args = parser.parse_args(argv)
     try:
-        print(json.dumps(acquire(args.output_dir.resolve()), ensure_ascii=False, indent=2))
+        print(json.dumps(acquire(args.output_dir.absolute()), ensure_ascii=False, indent=2))
     except (AuditError, FetchPolicyError, OSError, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1

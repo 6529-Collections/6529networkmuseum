@@ -5,9 +5,12 @@ import hashlib
 import json
 import os
 import shutil
+import stat
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +20,13 @@ import sys
 sys.path.insert(0, str(SCRIPTS))
 
 from canonical import canonicalize  # noqa: E402
-from build_casey_diligence_manifest import ManifestError, build as build_diligence_manifest  # noqa: E402
+from acquire_casey_custody_audit import AuditError, prepare_empty_output  # noqa: E402
+from build_casey_diligence_manifest import (  # noqa: E402
+    ManifestError,
+    _checked_info as checked_diligence_info,
+    _files as diligence_files,
+    build as build_diligence_manifest,
+)
 from finalize_casey_accession import REVIEW_AT, prior_event_for_replacement  # noqa: E402
 from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_visual_observation, validator_for  # noqa: E402
 from validate_casey_dossier import (  # noqa: E402
@@ -134,6 +143,31 @@ class CaseyDossierControlsTests(unittest.TestCase):
             self.skipTest(f"filesystem does not permit symlink creation: {error}")
         with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
             build_diligence_manifest(package)
+
+    def test_diligence_manifest_rejects_windows_reparse_point(self) -> None:
+        package = ROOT / "evidence/casey-reas-diligence"
+        reparse_info = SimpleNamespace(st_mode=stat.S_IFREG, st_file_attributes=0x400)
+        with mock.patch("build_casey_diligence_manifest.os.lstat", return_value=reparse_info):
+            with self.assertRaisesRegex(ManifestError, "symlink or reparse point"):
+                checked_diligence_info(package / "raw/rpc/reparse.json", package)
+
+    def test_diligence_manifest_rejects_non_regular_entry(self) -> None:
+        package = ROOT / "evidence/casey-reas-diligence"
+        directory_info = SimpleNamespace(st_mode=stat.S_IFDIR, st_file_attributes=0)
+        pipe_info = SimpleNamespace(st_mode=stat.S_IFIFO, st_file_attributes=0)
+        with (
+            mock.patch("build_casey_diligence_manifest.os.walk", return_value=[(str(package), [], ["pipe"])]),
+            mock.patch("build_casey_diligence_manifest.os.lstat", side_effect=[directory_info, directory_info, pipe_info]),
+        ):
+            with self.assertRaisesRegex(ManifestError, "non-regular file"):
+                diligence_files(package)
+
+    def test_custody_acquisition_refuses_non_empty_output(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="casey-custody-output-") as temporary:
+            output = Path(temporary)
+            (output / "existing.json").write_text("{}\n", encoding="utf-8")
+            with self.assertRaisesRegex(AuditError, "output directory must be empty"):
+                prepare_empty_output(output)
 
     def test_live_accession_schemas_reject_undeclared_nested_fields(self) -> None:
         _vocabularies, _envelope, store = load_schemas(ROOT)

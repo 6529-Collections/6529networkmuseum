@@ -924,7 +924,7 @@ def validate_post_accession_diligence(root: Path) -> list[str]:
         issues.append("Casey diligence determination must confirm title, bind custody and OFAC evidence, and preserve accession status")
 
     public_markers = (
-        "No fact identified in this review requires a title downgrade",
+        "requires a title downgrade, custody hold, deaccession review, or new display restriction",
         "or create an uncompleted title gate",
         "every `ownerOf` call returned that Museum address",
         "every token-specific `getApproved` call returned the zero address",

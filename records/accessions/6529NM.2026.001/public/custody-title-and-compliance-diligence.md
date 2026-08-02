@@ -4,13 +4,13 @@ Record: `6529NM.2026.001.DILIGENCE-01`
 
 Accession: `6529NM.2026.001`
 
-Review outcome: completed; pass with documented limits
+Review outcome: revision 2 constructed; independent exact-commit review pending
 
 Collection status: accessioned; no status change
 
 ## Determination
 
-The 6529 Network Museum confirms the Casey REAS accession. No fact identified in this review requires a title downgrade, custody hold, deaccession review, or new display restriction. The seven exact tokens remain registered to the Museum in the reviewed finalized-state observation; the Museum's public title instrument remains executed; and the official OFAC Sanctions List Service returned no exact digital-currency-address match for the eight addresses screened.
+The revision-two construction supports confirmation of the Casey REAS accession, subject to its pending exact-commit review. No fact identified in the constructed review requires a title downgrade, custody hold, deaccession review, or new display restriction. The seven exact tokens remain registered to the Museum in the exact-finalized-block observation; the Museum's public title instrument remains executed; and the official OFAC Sanctions List Service returned no exact digital-currency-address match for the eight addresses screened.
 
 This is a post-accession diligence record. It supplements the original receipt, gift acceptance, title, rights, technical, curatorial, and accession records. It does not redate the gift, replay title passage, or imply that the accession had remained incomplete pending this review.
 
