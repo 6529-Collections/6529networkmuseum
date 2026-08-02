@@ -652,8 +652,8 @@
     },
     {
       "path": "specs/onchain/contract-migration-v1.md",
-      "sha256": "sha256:30097dc30a3106b11e620dee3006bf789060620fb10b271b797e3f53525f0d01",
-      "size": 230130
+      "sha256": "sha256:6887d72633fcd8a89f3b082ffef7e2dc9b88ca309cec230f3afaf46a20e1c982",
+      "size": 230170
     },
     {
       "content_hash": {
@@ -672,8 +672,8 @@
     },
     {
       "path": "specs/onchain/manifest_abi_selector_check_v1.py",
-      "sha256": "sha256:40c28c4dc38455f065aeea799ffcc4bc58f129ae0997305f28735c2145765642",
-      "size": 40216
+      "sha256": "sha256:9daf3e0643843eb24dc8b8c3f8aff37b02aa9175d0639e9f93a1a61a92d9d7ad",
+      "size": 40230
     },
     {
       "content_hash": {
@@ -1018,9 +1018,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xc718239f08c11a9fd964877a05d1ef35edf85d8faa261b987027104c3d9f46a7"
+    "digest": "0xf8881ecd6639e44e96eb8ff35f398f6f11d3a74e71dad917480344e3e93149a2"
   },
-  "manifest_sha256": "sha256:026bb238ae4ab11c6d7c3d0d5348add2fd2bed12c59401af5fee2313155b691a",
+  "manifest_sha256": "sha256:76f4c2039cd21f2c46d8de0b629730bcc71fdf1ff6fc59d01c5c946066eaa23f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

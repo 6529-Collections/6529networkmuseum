@@ -155,11 +155,11 @@ GLOBAL_ROLE_IDS = (
 )
 
 AUTHORITY_SELECTOR_ALLOWLIST = (
-    "0x3a1a0b96", "0x4070473d", "0x51d8c5e0", "0x75c75961",
+    "0x3a1a0b96", "0x4070473d", "0x49c44b5c", "0x51d8c5e0", "0x75c75961",
     "0x81a86ff4", "0x967059b8", "0xab6627c3", "0xaf2fb948",
     "0xc9dc7d0d", "0xda6d916f", "0xf0edf065",
 )
-EXPECTED_ALLOWLIST_HASH = "0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0"
+EXPECTED_ALLOWLIST_HASH = "0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e"
 EMPTY_PAYLOAD_LITERAL = b"MUSEUM_EMPTY_PAYLOAD_V1"
 EMPTY_PAYLOAD_CANONICALIZATION_ID = "0xa441d30896b70045ccf31ccc5b89cefd312a64c9c2102fa1c6898140d443ef4f"
 EMPTY_PAYLOAD_DIGEST = "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
@@ -528,13 +528,13 @@ def check_governance_executor_vector() -> dict[str, str]:
         "authorityCodeHash": "0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1",
         "evidenceHash": "0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb",
         "challenge": "0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f",
-        "capabilityCommitment": "0xd9e7e6495b40d0aee7f09f391f1f3eaad0105b69e9d1f51bb9104eb98820b73d",
-        "bindingCommitment": "0x73a8043c53593e1a6a61d140d9e116e578a8fcc33fe140d736bb235878e401bb",
+        "capabilityCommitment": "0x6e526c58f808d6504923b3726c420d60cbb3eca35a454ea7f516841688afbbd4",
+        "bindingCommitment": "0xbffcd2ef4501434a5acb2a72b9172b21b71d2ddd30ad6da15ab2a80f24e53d10",
         "reboundAuthorityReleaseId": "0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de",
         "reboundAuthorityCodeHash": "0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90",
         "reboundChallenge": "0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f",
-        "reboundCapabilityCommitment": "0xe3f0a4fad677fe0e1ce5ed96e703a7923e1a28c7c9123090de7a62b23a6811e5",
-        "reboundBindingCommitment": "0x194c63d683912414673e3651d8929e50d9ef0786d1bb66d7cff0d3229933915b",
+        "reboundCapabilityCommitment": "0x9ee25386cec2873435d4051f2faf3db92210ef43e33d125faa23a26433db5ae2",
+        "reboundBindingCommitment": "0x18ab8656e5a832fd2d8cc1e0ca89d661bfca9cae58d408e0d64359c6aad9a4b9",
         "crossBoundAfterExecutorRotation": "true",
         "crossBoundAfterAuthorityRotation": "true",
         "providerDeniedFreeze": "ACCEPT",

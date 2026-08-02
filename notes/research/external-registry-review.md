@@ -627,14 +627,15 @@ foreach($signature in $selectorGolden.Keys) {
 
 The authority capability selector-set hash was recomputed after binding the
 governed target-release admission selector and including both provider-gated
-interface/profile admission selectors. The exact sorted
+interface/profile admission selectors plus the direct governance-executor
+mirror-link convergence route. The exact sorted
 `bytes4[]` is
-`[0x3a1a0b96,0x4070473d,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
+`[0x3a1a0b96,0x4070473d,0x49c44b5c,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]`. Emergency `freezeWrites` and post-freeze `setSuccessor` are excluded so a mutable authority provider cannot veto the direct executor recovery path:
 
 ```powershell
-$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x4070473d,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
+$selectorSetAbi = cast abi-encode 'f(bytes4[])' '[0x3a1a0b96,0x4070473d,0x49c44b5c,0x51d8c5e0,0x75c75961,0x81a86ff4,0x967059b8,0xab6627c3,0xaf2fb948,0xc9dc7d0d,0xda6d916f,0xf0edf065]'
 $selectorSetHash = cast keccak $selectorSetAbi
-if ($selectorSetHash -ne '0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0') { throw 'selector-set hash mismatch' }
+if ($selectorSetHash -ne '0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e') { throw 'selector-set hash mismatch' }
 $selectorSetHash
 ```
 

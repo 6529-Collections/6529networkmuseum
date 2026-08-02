@@ -365,7 +365,7 @@ These constants are new Museum identifiers and do not redefine a Stream ID:
 | Authority role domain | `MUSEUM_AUTHORITY_ROLE_DOMAIN_V1` | `0x5509945d050bff1c25739ca8055ca317188c749980e0e568fcca64f86ab3ceef` |
 | Authority capability domain | `MUSEUM_AUTHORITY_CAPABILITY_DOMAIN` | `0x560a68b3805ede9cc4ce0392157e0f258fa8a17fe9b645807781464e1eb3ba7b` |
 | Governance-executor binding domain | `6529networkmuseum.governance-executor-binding.v1` | `0xc36068b55c238ed7d9935be44bdbe89a03cee1aaacccd5c0b739c1b40f5e5b06` |
-| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0` |
+| Authority capability selector-set hash | `MUSEUM_AUTHORITY_SELECTOR_SET_HASH` | `0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e` |
 | Transition target probe domain | `6529networkmuseum.target-probe.v1` | `0x122d724a712544b8c62e62a557b68492224acd31feabb1b39b05d778ab04336a` |
 | Successor capability domain | `6529networkmuseum.successor-capability.v1` | `0x95cc8014d6585c06b5ef08da6faaa308466d830923f3aab6503afc261a5e4ad3` |
 | Authority-provider interface | `IMuseumAuthorityProviderV1` | `0xea450898` |
@@ -1673,14 +1673,14 @@ booleans, addresses, revision, commitment, and `canAuthorize` value; a
 malformed or reverting call fails the gate. This handshake covers the actual
 required selector set and registry/role domain; it is not a marker-only probe
 and grants no arbitrary call capability. The selector set is the strictly increasing numeric
-`bytes4[]` `[0x3a1a0b96, 0x4070473d, 0x51d8c5e0, 0x75c75961,
+`bytes4[]` `[0x3a1a0b96, 0x4070473d, 0x49c44b5c, 0x51d8c5e0, 0x75c75961,
 0x81a86ff4, 0x967059b8, 0xab6627c3, 0xaf2fb948, 0xc9dc7d0d,
 0xda6d916f, 0xf0edf065]`, ABI-encoded as `address`-independent `bytes4[]`
 and hashed to
-`0x7209a11a39a9aeb29dd47042c2137737970cbabf04ae9d8c4e77d130fbdba3c0`. It
+`0x00d6558978e4819a814e07534558f64b2f942f3249ba54fc36577a015f86dc7e`. It
 binds authority, governance-executor, target-release admission/quarantine,
-global-role, Stream owner-record-interface admission, HTTPS resolver-profile
-admission, execute, and cancel capabilities only. `freezeWrites` and
+global-role, Stream owner-record-interface admission and mirror-link convergence,
+HTTPS resolver-profile admission, execute, and cancel capabilities only. `freezeWrites` and
 post-freeze `setSuccessor` are deliberately excluded because their emergency
 authorization is the registry's direct executor binding, independent of a
 mutable provider's `canAuthorize` state. It queues one complete target
@@ -3634,14 +3634,14 @@ authorityReleaseId = 0x442b8c759b677e48ed822ecf57344181e081deeb894664d60f0e076d2
 authorityCodeHash = 0x17e02f491227b715d8167c6ee64b87a3c70d51345ab5cb63c23b003fccd44fa1
 evidenceHash = 0xb87be17166140c2103b87cadde72103d5673422df7e2a8fb0b0745e1e865f6fb
 challenge = 0x369583a21a48e0cb37b85e373ffcce219434789d2d4c536ae16a1a683c43729f
-capabilityCommitment = 0xd9e7e6495b40d0aee7f09f391f1f3eaad0105b69e9d1f51bb9104eb98820b73d
-bindingCommitment = 0x73a8043c53593e1a6a61d140d9e116e578a8fcc33fe140d736bb235878e401bb
+capabilityCommitment = 0x6e526c58f808d6504923b3726c420d60cbb3eca35a454ea7f516841688afbbd4
+bindingCommitment = 0xbffcd2ef4501434a5acb2a72b9172b21b71d2ddd30ad6da15ab2a80f24e53d10
 crossBoundAfterExecutorRotation = true
 reboundAuthorityReleaseId = 0xc7a2f5889fb4663ad2269ab003b5c32fe16ec960aeaf09f7255b4fe9adf998de
 reboundAuthorityCodeHash = 0x86d7cb2cdbcff163f6f0ee294587f8cec673905c2e4d077024a09f3529455f90
 reboundChallenge = 0xa858dee6314a072796ced21f2446e1324b27d61c97b2e437a0d639e8828bc15f
-reboundCapabilityCommitment = 0xe3f0a4fad677fe0e1ce5ed96e703a7923e1a28c7c9123090de7a62b23a6811e5
-reboundBindingCommitment = 0x194c63d683912414673e3651d8929e50d9ef0786d1bb66d7cff0d3229933915b
+reboundCapabilityCommitment = 0x9ee25386cec2873435d4051f2faf3db92210ef43e33d125faa23a26433db5ae2
+reboundBindingCommitment = 0x18ab8656e5a832fd2d8cc1e0ca89d661bfca9cae58d408e0d64359c6aad9a4b9
 crossBoundAfterAuthorityRotation = true
 providerDeniedFreeze = ACCEPT
 providerDeniedSuccessor = ACCEPT
