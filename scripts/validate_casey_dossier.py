@@ -7,11 +7,12 @@ import hashlib
 import json
 import subprocess
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Iterable
 
 from canonical import canonicalize
-from build_casey_diligence_manifest import build as build_diligence_manifest
+from build_casey_diligence_manifest import ManifestError, build as build_diligence_manifest
 
 ROOT = Path(__file__).resolve().parent.parent
 CASEY_ID = "6529NM.2026.001"
@@ -58,6 +59,25 @@ PRESERVATION_ACTIONS = [
 DILIGENCE_ROOT = Path("evidence/casey-reas-diligence")
 DILIGENCE_RECORD = CASEY_DIR / "post-accession-diligence.json"
 DILIGENCE_PUBLIC = CASEY_DIR / "public/custody-title-and-compliance-diligence.md"
+DILIGENCE_HEAD_RPC = "https://1rpc.io/eth"
+DILIGENCE_CALL_RPC = "https://ethereum-rpc.publicnode.com/"
+DILIGENCE_ENS_REGISTRY = "0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e"
+DILIGENCE_ENS_NAMEHASH = "f90c6c0dca064bc19c04756dc088ceb60402ce8522ab4623f016d19abbb76394"
+DILIGENCE_SELECTORS = {
+    "resolver": "0178b8bf",
+    "addr": "3b3b57de",
+    "ownerOf": "6352211e",
+    "getApproved": "081812fc",
+}
+DILIGENCE_OBJECTS = (
+    ("6529NM.2026.001.01", "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", 100000031),
+    ("6529NM.2026.001.02", "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", 100000724),
+    ("6529NM.2026.001.03", "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", 100000401),
+    ("6529NM.2026.001.04", "0x99a9b7c1116f9ceeb1652de04d5969cce509b069", 383000063),
+    ("6529NM.2026.001.05", "0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", 164000308),
+    ("6529NM.2026.001.06", "0x145789247973c5d612bf121e9e4eef84b63eb707", 1000713),
+    ("6529NM.2026.001.07", "0x0000000c687daed0fba60d1dba4e5f6149e8b894", 248),
+)
 
 OBJECT_TO_DESCRIPTOR = {
     "6529NM.2026.001.01": "century",
@@ -570,6 +590,206 @@ def validate_receipt_evidence(root: Path) -> tuple[list[dict[str, Any]], list[st
     return sorted(transfers, key=lambda item: item["log"]), issues
 
 
+def _rpc_request(method: str, request_id: str, params: list[Any]) -> bytes:
+    return json.dumps(
+        {"jsonrpc": "2.0", "id": request_id, "method": method, "params": params},
+        ensure_ascii=False,
+        allow_nan=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+
+def _calldata(selector: str, value: int | str) -> str:
+    encoded = f"{value:064x}" if isinstance(value, int) else value.removeprefix("0x").lower().rjust(64, "0")
+    return "0x" + selector + encoded
+
+
+def _abi_address(value: Any) -> str | None:
+    if not isinstance(value, str) or len(value) != 66 or not value.startswith("0x"):
+        return None
+    if any(character not in "0123456789abcdefABCDEF" for character in value[2:]):
+        return None
+    return "0x" + value[-40:].lower()
+
+
+def _validate_diligence_rpc_evidence(package_root: Path, custody: dict[str, Any]) -> list[str]:
+    """Reconstruct every request and decode every retained custody response."""
+    issues: list[str] = []
+    block = custody.get("block") if isinstance(custody.get("block"), dict) else {}
+    block_hash = block.get("hash")
+    block_number = block.get("numeric_tag")
+    state_selector = {"blockHash": block_hash, "requireCanonical": True}
+    expected_ids = {
+        "chain-id",
+        "finalized-block",
+        "finalized-block-after",
+        "ens-resolver",
+        "ens-address",
+        *(f"owner:{object_id}" for object_id, _contract, _token_id in DILIGENCE_OBJECTS),
+        *(f"approval:{object_id}" for object_id, _contract, _token_id in DILIGENCE_OBJECTS),
+    }
+    response_refs = custody.get("responses") if isinstance(custody.get("responses"), list) else []
+    rows: dict[str, dict[str, Any]] = {}
+    response_digests: dict[str, str] = {}
+    response_sizes: dict[str, int] = {}
+    try:
+        if len(response_refs) != 19:
+            raise ValueError("response reference count")
+        for reference in response_refs:
+            if not isinstance(reference, dict):
+                raise ValueError("response reference shape")
+            relative = Path(str(reference.get("path", "")))
+            candidate = (package_root / relative).resolve()
+            if package_root.resolve() not in candidate.parents or relative.parts[:2] != ("raw", "rpc"):
+                raise ValueError("response path escapes raw/rpc")
+            payload = candidate.read_bytes()
+            digest = hashlib.sha256(payload).hexdigest()
+            if (
+                reference.get("sha256") != f"sha256:{digest}"
+                or reference.get("size") != len(payload)
+                or candidate.name != f"sha256-{digest}.json"
+                or reference.get("media_type") != "application/json"
+                or reference.get("byte_mode") != "raw"
+            ):
+                raise ValueError("response reference fixity")
+            row = json.loads(payload.decode("utf-8"))
+            request_id = row.get("id") if isinstance(row, dict) else None
+            if (
+                not isinstance(request_id, str)
+                or request_id in rows
+                or row.get("jsonrpc") != "2.0"
+                or "error" in row
+            ):
+                raise ValueError("response JSON-RPC envelope")
+            rows[request_id] = row
+            response_digests[request_id] = digest
+            response_sizes[request_id] = len(payload)
+        if set(rows) != expected_ids:
+            raise ValueError("response identifier set")
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, TypeError, ValueError) as error:
+        return [f"Casey diligence raw RPC responses are incomplete or malformed: {error}"]
+
+    resolver_word = rows["ens-resolver"].get("result")
+    resolver = _abi_address(resolver_word)
+    if resolver is None:
+        return ["Casey diligence raw RPC resolver response is not one ABI address word"]
+    expected_requests: dict[str, tuple[str, list[Any]]] = {
+        "chain-id": ("eth_chainId", []),
+        "finalized-block": ("eth_getBlockByNumber", ["finalized", False]),
+        "finalized-block-after": ("eth_getBlockByNumber", ["finalized", False]),
+        "ens-resolver": (
+            "eth_call",
+            [{"to": DILIGENCE_ENS_REGISTRY, "data": _calldata(DILIGENCE_SELECTORS["resolver"], DILIGENCE_ENS_NAMEHASH)}, state_selector],
+        ),
+        "ens-address": (
+            "eth_call",
+            [{"to": resolver, "data": _calldata(DILIGENCE_SELECTORS["addr"], DILIGENCE_ENS_NAMEHASH)}, state_selector],
+        ),
+    }
+    for object_id, contract, token_id in DILIGENCE_OBJECTS:
+        expected_requests[f"owner:{object_id}"] = (
+            "eth_call",
+            [{"to": contract, "data": _calldata(DILIGENCE_SELECTORS["ownerOf"], token_id)}, state_selector],
+        )
+        expected_requests[f"approval:{object_id}"] = (
+            "eth_call",
+            [{"to": contract, "data": _calldata(DILIGENCE_SELECTORS["getApproved"], token_id)}, state_selector],
+        )
+
+    request_refs = custody.get("requests") if isinstance(custody.get("requests"), dict) else {}
+    safe_observations = custody.get("safe_fetch_observations") if isinstance(custody.get("safe_fetch_observations"), dict) else {}
+    request_key_for_id = {
+        "chain-id": "chain_id",
+        "finalized-block": "finalized_block",
+        "finalized-block-after": "finalized_block_after",
+        "ens-resolver": "ens_resolver",
+        "ens-address": "ens_address",
+        **{request_id: request_id for request_id in expected_ids if request_id.startswith(("owner:", "approval:"))},
+    }
+    if set(request_refs) != set(request_key_for_id.values()) or set(safe_observations) != set(request_key_for_id.values()):
+        issues.append("Casey diligence request and safe-fetch observation sets must match all 19 RPC calls")
+    for request_id, (method, params) in expected_requests.items():
+        payload = _rpc_request(method, request_id, params)
+        reference = request_refs.get(request_key_for_id[request_id], {})
+        observation = safe_observations.get(request_key_for_id[request_id], {})
+        expected_url = DILIGENCE_HEAD_RPC if request_id in {"chain-id", "finalized-block", "finalized-block-after"} else DILIGENCE_CALL_RPC
+        if (
+            reference != {
+                "sha256": f"sha256:{hashlib.sha256(payload).hexdigest()}",
+                "size": len(payload),
+                "canonicalization": "sorted-key compact JSON",
+            }
+            or not isinstance(observation, dict)
+            or observation.get("canonical_url") != expected_url
+            or observation.get("status") != 200
+            or observation.get("byte_sha256") != response_digests[request_id]
+            or observation.get("byte_length") != response_sizes[request_id]
+        ):
+            issues.append(f"Casey diligence RPC request/transport binding is invalid: {request_id}")
+
+    first_block = rows["finalized-block"].get("result")
+    last_block = rows["finalized-block-after"].get("result")
+    try:
+        first_timestamp = int(first_block["timestamp"], 16) if isinstance(first_block, dict) else -1
+        last_timestamp = int(last_block["timestamp"], 16) if isinstance(last_block, dict) else -2
+        retained_number = int(block_number, 16)
+        retained_timestamp = datetime.fromtimestamp(first_timestamp, UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
+    except (KeyError, OSError, OverflowError, TypeError, ValueError):
+        first_timestamp = -1
+        last_timestamp = -2
+        retained_number = -1
+        retained_timestamp = ""
+    if (
+        rows["chain-id"].get("result") != "0x1"
+        or not isinstance(first_block, dict)
+        or not isinstance(last_block, dict)
+        or first_block.get("number") != block_number
+        or last_block.get("number") != block_number
+        or not isinstance(block_hash, str)
+        or not isinstance(first_block.get("hash"), str)
+        or not isinstance(last_block.get("hash"), str)
+        or first_block["hash"].lower() != block_hash
+        or last_block["hash"].lower() != block_hash
+        or first_timestamp != last_timestamp
+        or block.get("number") != retained_number
+        or block.get("timestamp") != retained_timestamp
+    ):
+        issues.append("Casey diligence raw block responses must bind one stable finalized block")
+    if _abi_address(rows["ens-address"].get("result")) != MUSEUM_CUSTODY:
+        issues.append("Casey diligence raw ENS responses must resolve the Museum custody address")
+    for object_id, contract, token_id in DILIGENCE_OBJECTS:
+        owner = _abi_address(rows[f"owner:{object_id}"].get("result"))
+        approval = _abi_address(rows[f"approval:{object_id}"].get("result"))
+        summaries = custody.get("objects") if isinstance(custody.get("objects"), list) else []
+        summary = next(
+            (item for item in summaries if isinstance(item, dict) and item.get("object_id") == object_id),
+            {},
+        )
+        if (
+            owner != MUSEUM_CUSTODY
+            or approval != "0x" + "0" * 40
+            or summary.get("contract") != contract
+            or summary.get("token_id") != str(token_id)
+            or summary.get("caip19") != f"eip155:1/erc721:{contract}/{token_id}"
+            or summary.get("owner") != owner
+            or summary.get("token_level_approved_operator") != approval
+        ):
+            issues.append(f"Casey diligence raw owner/approval response does not match its exact object: {object_id}")
+    method = custody.get("method") if isinstance(custody.get("method"), dict) else {}
+    if (
+        block.get("state_selector") != state_selector
+        or method.get("rpc_endpoints") != {
+            "chain_and_finalized_block": DILIGENCE_HEAD_RPC.rstrip("/"),
+            "eip1898_block_hash_contract_reads": DILIGENCE_CALL_RPC.rstrip("/"),
+        }
+        or "EIP-1898" not in method.get("same_block_rule", "")
+        or "requireCanonical true" not in method.get("same_block_rule", "")
+    ):
+        issues.append("Casey diligence custody method must bind every contract read to the exact finalized block hash")
+    return issues
+
+
 def validate_post_accession_diligence(root: Path) -> list[str]:
     """Validate the reviewed title, custody, control, and OFAC evidence enrichment."""
     issues: list[str] = []
@@ -586,11 +806,12 @@ def validate_post_accession_diligence(root: Path) -> list[str]:
         ofac = read_json(ofac_path)
         record = read_json(record_path)
         public_text = public_path.read_text(encoding="utf-8")
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
+    except (ManifestError, OSError, UnicodeDecodeError, json.JSONDecodeError, KeyError, TypeError, ValueError) as error:
         return [f"Casey post-accession diligence package cannot be decoded: {error}"]
 
     if actual_manifest != expected_manifest:
         issues.append("Casey post-accession diligence evidence manifest must bind every package file exactly")
+    issues.extend(_validate_diligence_rpc_evidence(package_root, custody))
     manifest_sha = sha256(manifest_path)
     custody_sha = sha256(custody_path)
     ofac_sha = sha256(ofac_path)
@@ -638,23 +859,41 @@ def validate_post_accession_diligence(root: Path) -> list[str]:
             "finalized_boundary_stable_before_and_after": True,
             "object_count": 7,
         }
-        or block.get("number") != 25666454
-        or block.get("hash") != "0x03f4728f9ae5949d30d0b3217a4934f3a6bfa64145ac8b97a10ff809e0365cce"
+        or block.get("number") != 25667060
+        or block.get("hash") != "0x01dc7575349d0893386928c218b64a11b8d71e42015b1995bafa7d65e05084e3"
         or custody.get("custodian", {}).get("address") != MUSEUM_CUSTODY
         or custody.get("custodian", {}).get("ens") != "networkmuseum.6529.eth"
     ):
         issues.append("Casey custody audit must prove the seven owner, ENS, zero token-approval, and stable-finality observations")
 
     screened = ofac.get("screened_addresses") if isinstance(ofac.get("screened_addresses"), list) else []
-    screened_addresses = [item.get("address") for item in screened if isinstance(item, dict)]
+    expected_screened = [
+        ("0x6daa633c23615a29471deafae351727867e7dad1", "donor_and_transfer_source"),
+        ("0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c", "museum_custody_address"),
+        ("0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270", "token_contract"),
+        ("0x99a9b7c1116f9ceeb1652de04d5969cce509b069", "token_contract"),
+        ("0x145789247973c5d612bf121e9e4eef84b63eb707", "token_contract"),
+        ("0x0000000c687daed0fba60d1dba4e5f6149e8b894", "token_contract"),
+        ("0x0000000000c2d145a2526bd8c716263bfebe1a72", "common_transfer_transaction_target"),
+        ("0x457ee5f723c7606c12a7264b52e285906f91eea6", "project_artist_address_returned_by_contracts"),
+    ]
+    observed_screened = [
+        (item.get("address"), item.get("role"))
+        for item in screened
+        if isinstance(item, dict)
+    ]
+    positive_control = ofac.get("positive_control") if isinstance(ofac.get("positive_control"), dict) else {}
     if (
         ofac.get("screening_id") != f"{CASEY_ID}.OFAC-20260802"
-        or ofac.get("positive_control", {}).get("control_passed") is not True
-        or ofac.get("positive_control", {}).get("entity") != "CHATEX"
-        or len(screened) != 8
+        or positive_control.get("control_passed") is not True
+        or positive_control.get("address") != "0x67d40ee1a85bf4a4bb7ffae16de985e8427b6b45"
+        or positive_control.get("result_count") != 1
+        or positive_control.get("entity") != "CHATEX"
+        or positive_control.get("program") != "CYBER2"
+        or positive_control.get("list") != "SDN"
+        or positive_control.get("detail_uri") != "https://sanctionssearch.ofac.treas.gov/Details.aspx?id=33854"
+        or observed_screened != expected_screened
         or any(not isinstance(item, dict) or item.get("result") != "no_exact_match" for item in screened)
-        or RECEIPT_FROM not in screened_addresses
-        or MUSEUM_CUSTODY not in screened_addresses
         or ofac.get("result") != {
             "screened_address_count": 8,
             "exact_match_count": 0,

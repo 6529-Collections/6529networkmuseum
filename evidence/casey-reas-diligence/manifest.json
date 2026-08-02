@@ -2,7 +2,7 @@
   "manifest_type": "6529NM_CASEY_ACCESSION_DILIGENCE_EVIDENCE",
   "manifest_version": "1.0.0",
   "subject_id": "6529NM.2026.001",
-  "observed_at": "2026-08-02T10:41:45.007Z",
+  "observed_at": "2026-08-02T12:19:54.358Z",
   "hash_algorithm": "sha256",
   "byte_mode": "raw",
   "status": "complete",
@@ -13,15 +13,15 @@
   "entries": [
     {
       "path": "README.md",
-      "sha256": "a0fe994da9d4ee16d5a9209fbdc3f2ffecb94ef39083fa728092fbb609285107",
-      "size": 2322,
+      "sha256": "e433ae785ed82418a617f6dd77f14707909f9086085893c1835461c765144124",
+      "size": 2411,
       "media_type": "text/plain",
       "byte_mode": "raw"
     },
     {
       "path": "custody-audit-2026-08-02.json",
-      "sha256": "dea94d2a73719c919b0092208afc64456735dffda7a2493bf3404faa43ed20ae",
-      "size": 46678,
+      "sha256": "ed6483d632cbe8c5c72cd395395d698f4e2100e5fb90b242ef39c4efca31b76e",
+      "size": 46869,
       "media_type": "application/json",
       "byte_mode": "raw"
     },
@@ -50,6 +50,13 @@
       "path": "raw/rpc/sha256-3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5.json",
       "sha256": "3fda1cad83a5a37b2cde00f758ec89bfddef6a2c361055e4d6f3614836198ad5",
       "size": 128,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "raw/rpc/sha256-64361dfdfdfe8148f1af6cdcb529392c364ad15890376d18db5550b3b6e0f462.json",
+      "sha256": "64361dfdfdfe8148f1af6cdcb529392c364ad15890376d18db5550b3b6e0f462",
+      "size": 46373,
       "media_type": "application/json",
       "byte_mode": "raw"
     },
@@ -117,9 +124,9 @@
       "byte_mode": "raw"
     },
     {
-      "path": "raw/rpc/sha256-b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5.json",
-      "sha256": "b2fcfd7ad720eebd98641d6e22737075c10cd9fc2ed079b32b2d217ba0dba5b5",
-      "size": 13131,
+      "path": "raw/rpc/sha256-b86fdf57b3c04953561982ec854854eb52d5c6a4c44953395696bffda0b1cf76.json",
+      "sha256": "b86fdf57b3c04953561982ec854854eb52d5c6a4c44953395696bffda0b1cf76",
+      "size": 46379,
       "media_type": "application/json",
       "byte_mode": "raw"
     },
@@ -148,13 +155,6 @@
       "path": "raw/rpc/sha256-e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc.json",
       "sha256": "e303f9dabc5f4aa37439a733cd04b90bfbf33b210c2a7a2e435432e3233559bc",
       "size": 48,
-      "media_type": "application/json",
-      "byte_mode": "raw"
-    },
-    {
-      "path": "raw/rpc/sha256-e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526.json",
-      "sha256": "e51977567fdcaed1726bf59e05dfdeadd63737ba65376b7595bb6071bbbf5526",
-      "size": 13137,
       "media_type": "application/json",
       "byte_mode": "raw"
     },

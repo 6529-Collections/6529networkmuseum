@@ -239,11 +239,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x5c81a596cfad46c84544d3e6a105209c36076f09697380d4693c6ad549e4b6c4"
+        "digest": "0xaabb1e1be44121e148eb8cd87ba22ab58fb48da38c442b145a637e8196ce85aa"
       },
       "path": "records/accessions/6529NM.2026.001/post-accession-diligence.json",
-      "sha256": "sha256:861badc16ae655045b6dbcb2c14fab7a7bff0759d545133cde93f3e782760579",
-      "size": 10423
+      "sha256": "sha256:e7602559ff61351767ac2a38a369c801246154d50336de4c84ae6c10ef3cd381",
+      "size": 9911
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md",
@@ -302,8 +302,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
-      "sha256": "sha256:6c2142ba2cf8c0de2c6a7eb843457cc5bffbdb9602d6017e1fcafa046fefeea4",
-      "size": 7871
+      "sha256": "sha256:0e83b0f8206c47ab445181b359b89bec4d53c386cbb130596da5281dd0af82cd",
+      "size": 7915
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
@@ -894,11 +894,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x13a1d30708323ef214a601263e0f09cf8247e4afc4e5b086b1706667b0a4d458"
+        "digest": "0xe316e22b2996b592f28b9a2b28b58a45f0e3da32b85f64c1a8a8edb97b53f94e"
       },
       "path": "schemas/post-accession-diligence.schema.json",
-      "sha256": "sha256:014dac411fd99311821712b412d75012a14871bf006506b2a9613bbc4e9f55c1",
-      "size": 9723
+      "sha256": "sha256:879b9e8371e1caa96d1dd062a6eb742834ff535b9193592357725087fbf87b01",
+      "size": 10417
     },
     {
       "content_hash": {
@@ -1017,8 +1017,8 @@
     },
     {
       "path": "scripts/acquire_casey_custody_audit.py",
-      "sha256": "sha256:6f005a8831c8178145416c2131e1e7d16fdc3793fcb907dab083e3a129d525ab",
-      "size": 15365
+      "sha256": "sha256:05547ee0af23559074110cd1b260fd29e6b8ce04c7c5e9e58844266e75956244",
+      "size": 15890
     },
     {
       "path": "scripts/bootstrap_validate.py",
@@ -1027,8 +1027,8 @@
     },
     {
       "path": "scripts/build_casey_diligence_manifest.py",
-      "sha256": "sha256:bf03b2b9a06a362bad0ed53f4a0731e404a8d00fa616790217ebe0a871676453",
-      "size": 4193
+      "sha256": "sha256:19a0b99bc42bdb0f221ea2ccf103fea57c9c7e503d3f2f8b347b65d1927ecc15",
+      "size": 5768
     },
     {
       "path": "scripts/build_casey_package_manifest.py",
@@ -1097,8 +1097,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:cd7c62b29c1f1ff6dbd9e83c13a03ca0df91f845b6b60a0ccd04ea95cc10654c",
-      "size": 69863
+      "sha256": "sha256:a9f59996130959d184e3749b6016ed6d9ca1e3ad3702d40b51a9e55b7470a502",
+      "size": 82240
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1507,8 +1507,8 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:c167984847a7a72eb6bd7c63c4445766ae03f6f4551f1c76487a86c7dc142476",
-      "size": 31823
+      "sha256": "sha256:f3f633fa73af68685c81e445f5eb2d04f1b60c7daf3bea7b69046fda90cd6934",
+      "size": 35095
     },
     {
       "path": "tests/test_control_plane.py",
@@ -1543,9 +1543,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xf75356b64ab78bfb755644039b732671e181316644edc73156cd8b4ac5627a4e"
+    "digest": "0x39980b7b087270efebb8d7995d4fa43b37b1b715267a305db42f8343c48b0417"
   },
-  "manifest_sha256": "sha256:463494e331aead12bea3ee83f783d2bb0dffa94025fdadabfc669cb817b86c8e",
+  "manifest_sha256": "sha256:7f9cfdf3f671af8674102824365aa082d469ced144650b180e185c5080767102",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
