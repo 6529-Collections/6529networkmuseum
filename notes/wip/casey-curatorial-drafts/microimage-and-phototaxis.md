@@ -1,6 +1,6 @@
 # A line remembers: MicroImage and *Phototaxis*
 
-- **Final publication copy:** version 2.0.1
+- **Final publication copy:** version 2.1.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -19,15 +19,15 @@ In *Phototaxis*, Casey Reas turns the movement of simple simulated agents into a
 
 **Casey Reas, *Phototaxis* #308, 2021.** Browser-based generative artwork; Art Blocks Playground, edition of 1,000. A pale cyan field loops around a dense, dark center, with a smaller convergence above and long paths escaping vertically. The image is the residue of simulated movement: each line records an agent’s route through an environment of lights and rules. Reas developed this visual grammar across *Path*, *Tissue*, and *MicroImage* before returning to it for the Art Blocks edition. A static view can reveal the density of the drawing, while the live work unfolds over time. The Museum preserves the distinction between that changing performance and its documentation.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 
 ## The image after the agent has gone
 
-The first thing one sees in *Phototaxis* #308 is not an animal, a light, or a diagram of a rule. It is an ovoid weather system: pale cyan and gray trajectories circulate around a dark, congested knot below the center; a second, looser convergence hangs above it; several lines peel away vertically as if the field could not hold them. The image has the poised, slightly retrospective authority of a drawing. Yet it is the residue of movements that have already happened. The line does not stand for a creature. It is the creature’s remembered route.
+*Phototaxis #308* presents an ovoid weather system. Pale cyan and gray trajectories circulate around a dark, congested knot below center; a second, looser convergence hangs above it; several lines peel away vertically as though the field could no longer hold them. The image carries the authority of a finished drawing while preserving movements that have already occurred. Each line is the remembered route of a simulated creature.
 
-That distinction gives *Phototaxis* its force. Casey Reas’s project is often introduced through its technical premise—simple machines, lights, four behavioral types, an Art Blocks release. That description can make the picture seem like an illustration of artificial-life research. *Phototaxis* instead turns explanation into afterimage: behavior becomes graphic density, color, rhythm, and delay. Its subject is the conversion of local action into a field that can be looked at, remembered, and misread.
+Reas's technical premise—simple machines, lights, four behavioral types—becomes graphic density, color, rhythm, and delay. The work converts local action into a field available for looking, memory, and projection.
 
-*Phototaxis* functions as a twenty-year retrospective instrument. Reas returns to the rule systems that animated *Path*, *Tissue*, and *MicroImage* in the early 2000s and changes their runtime, scale of circulation, and public distribution. The migration from C++ through Processing and Java to p5.js lets the same artistic problem pass through prints, projections, software environments, and browser-based token editions. Continuity becomes a question: when an image is made from behavior, what survives when the apparatus that performs the behavior changes?
+The project also measures twenty years of artistic and technical return. Reas revisits the systems behind *Path*, *Tissue*, and *MicroImage*, moving them from C++ through Processing and Java to p5.js. Prints, projections, software environments, and browser-based token editions carry the same artistic problem through different apparatuses, each altering how behavior becomes image.
 
 ## From a thought experiment to a drawing system
 

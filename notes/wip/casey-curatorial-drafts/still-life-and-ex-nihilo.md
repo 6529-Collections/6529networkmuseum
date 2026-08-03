@@ -1,6 +1,6 @@
 # An ideal form cannot hold still: Still Life and *Ex Nihilo (Cosmos)*
 
-- **Final publication copy:** version 2.0.1
+- **Final publication copy:** version 2.1.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -17,15 +17,15 @@ In *Ex Nihilo (Cosmos)*, a dodecahedron never fully arrives. Museum object #248 
 
 **Casey Reas, *Ex Nihilo (Cosmos)* #248, 2026.** Browser-based generative artwork; Art Blocks and Feral File. Segmented white lines cross a black field, sometimes aligning into the edges of a dodecahedron and sometimes dissolving into granular depth. The work belongs to Reas’s Still Life series, which uses the five Platonic solids to test how code, pixels, color systems, and time alter an ideal form. *Cosmos* is a continuous, non-repeating display: a viewer can pause a formation, but no single frame exhausts the work. Its stillness lies in concentrated looking, not in a fixed image.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 
 ## The form that refuses completion
 
-At first glance, *Ex Nihilo (Cosmos)* #248 seems nearly to deny its title. Against a black field, fine white segmented traces gather, fracture, and scatter. Some runs suggest edges of a polygon; others break before they can become contour. A larger dodecahedral implication appears for a moment in the relation among slanting lines, then dissolves into a particulate atmosphere. The eye wants a solid. The image supplies only the labor of making one.
+Against the black field of *Ex Nihilo (Cosmos) #248*, segmented white traces gather, fracture, and scatter. Some runs suggest polygonal edges; others break before contour can form. Slanting lines briefly imply a dodecahedron, then disperse into particulate atmosphere. The eye labors to assemble a solid.
 
-This productive incompletion is the central achievement of Casey Reas’s Still Life series. The project takes the most stable objects available to Western geometry—the five Platonic solids—and makes their ideality visible only through technical contingency: pixels, color channels, shaders, display buffers, screens, time, and changing state. The result is not an illustration of Plato for the age of code. It is an argument against the fantasy that a mathematical form appears whole once it has been calculated. In Reas’s work, form must be performed. It appears through a sequence of partial material decisions and remains vulnerable to the conditions of that performance.
+Reas's Still Life series subjects the five Platonic solids to pixels, color channels, shaders, display buffers, screens, and time. Mathematical form appears through a sequence of material and technical decisions. Calculation supplies structure; performance determines appearance.
 
-*Ex Nihilo (Cosmos)* makes this argument especially clearly because it is continuous. A still life is conventionally a composition arranged to hold for looking: objects remain while a painter attends to them. Reas’s “still lifes” move, reroute, and never repeat. The title therefore stages a contradiction rather than a genre revival. The work keeps the promise of the still life—concentrated attention to relation, surface, balance, and objecthood—while removing the stability that makes the genre’s objects available for possession. The dodecahedron is not set on a table. It is decomposed into operations that will not allow it to settle.
+*Ex Nihilo (Cosmos)* sharpens this proposition through continuous change. Traditional still life offers objects arranged for prolonged inspection. Reas retains that concentrated attention to relation, surface, balance, and objecthood while setting every composition in motion. The dodecahedron persists as a possibility carried by operations that continually rearrange it.
 
 ## From geometry to a live picture
 

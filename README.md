@@ -1,16 +1,21 @@
 # 6529 Network Museum
 
-This repository is the transitional system of record for the 6529 Network Museum while the network designs durable on-chain storage. It stores the Museum's governing sources, adopted decisions, approved donation collections, accession-program outcomes, accession register, record schemas, and on-chain design.
+This repository is the 6529 Network Museum's transitional system of record. It
+contains the Museum's governing sources, adopted decisions, approved donation
+collections, accession-program outcomes, accession register, record schemas,
+and on-chain design.
 
-Git history is useful evidence, but GitHub is not the final trust model. Every machine-readable release is deterministically manifested so it can later be committed to decentralized storage and an on-chain record chain.
+Each machine-readable release carries a deterministic manifest. These
+commitments prepare the record for content-addressed storage and an append-only
+on-chain history.
 
 ## An open museum, built in public
 
-This repository is not only available for inspection. It is the Museum's
-shared working record during the transition to an on-chain system: anyone can
-read its sources and revision history, make a copy, and propose a correction,
-new evidence, stronger scholarship, improved accessibility, or better
-technical and preservation documentation through a pull request.
+This repository is the Museum's shared working record during the transition to
+an on-chain system. Anyone can read its sources and revision history, make a
+copy, and propose a correction, new evidence, stronger scholarship, improved
+accessibility, or better technical and preservation documentation through a
+pull request.
 
 The published record changes only after evidence review, deterministic
 repository validation, and maintainer approval. That preserves institutional
@@ -23,9 +28,9 @@ Our Fall 2026 goal is for every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
 and later corrections—to have an on-chain commitment and append-only lineage
 in a custom contract. Larger documents and media can remain on
-content-addressed storage. The website remains a replaceable display and
-interpretation layer, separate from the Museum's durable record. The contract
-is being designed; it has not yet been deployed or activated. See
+content-addressed storage. The website presents and interprets the collection
+from that durable record. Contract design is in progress; deployment and
+activation remain pending. See
 [`From public repository to on-chain Museum record`](docs/onchain-transition.md).
 
 ## Canonical areas
@@ -48,13 +53,18 @@ is being designed; it has not yet been deployed or activated. See
 | Future contract | [`docs/onchain-design.md`](docs/onchain-design.md) | Requirements and migration boundary, not deployed code |
 | Externally minted works | [`docs/external-works-registry.md`](docs/external-works-registry.md) | Token-agnostic registry design; no wrapping/reminting |
 
-## Status is deliberate
+## Collection status
 
-These states are not synonyms:
+For chain-native objects, the Museum records each stage separately:
 
 `offered` → `authorized` → `acquired` → `received_onchain` → `accessioned` → `catalogued` → `technically_verified` → `preservation_complete` → `display_ready`
 
-A work can be held by a Museum wallet without being accessioned. A Wave `WINNER` can be selected without having been minted, purchased, transferred, rights-cleared, or accessioned. The records preserve those distinctions.
+For non-token and hybrid objects, the applicable off-chain receipt, title, and
+custody events replace `received_onchain`.
+
+Wallet custody records receipt. Accession requires its own reviewed act. A Wave
+`WINNER` records selection; minting, purchase, transfer, rights clearance, and
+accession each require separate evidence.
 
 ## Integrity and validation
 

@@ -42,18 +42,18 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "sha256:3243a6ea690c9fae2c7658e469161f15766220ed193aadedc3ab2eedd037fcc5",
-      "size": 8001
+      "sha256": "sha256:11a0b9501dc528304ac50eb9971152e212595f8f8d0672f01b203a79e3b0ede4",
+      "size": 7850
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:a6891c37997dfdac9078e749574ca9ebee7813414b98cc99ad8df604c663bdb5",
-      "size": 22948
+      "sha256": "sha256:7bfe4a92169fb50082cd484a238c7742c15f1c69cfeac7a892bd03003a7e6c1c",
+      "size": 23232
     },
     {
       "path": "README.md",
-      "sha256": "sha256:38e9f3b303c4f6aa9ac862091d2ac4ebf53f9abe8b59c670282985b07b46347d",
-      "size": 8288
+      "sha256": "sha256:b7c027d38a4a72cb1c7ea3711d33727a5f438b46ccda75bbd03d1ffa4b1a7fc5",
+      "size": 8241
     },
     {
       "path": "RIGHTS.md",
@@ -77,8 +77,8 @@
     },
     {
       "path": "docs/curatorial-publication-standard.md",
-      "sha256": "sha256:5b9589f5ec72546e937265c6db48bbb3a7dc4624887585e7af11becae1df4787",
-      "size": 17839
+      "sha256": "sha256:17bd3894386284c33141087adc6abe01c3f3c4d68272246bc0dfe82006a97c68",
+      "size": 17432
     },
     {
       "path": "docs/external-works-registry.md",
@@ -102,13 +102,13 @@
     },
     {
       "path": "docs/onchain-transition.md",
-      "sha256": "sha256:9fee5243bfee4d4a4a80e4b5e1cce5b0e187373e93fd6d61071941e35cc7ff57",
-      "size": 5270
+      "sha256": "sha256:162964c4685d165e39466be51f36959aaaa5febcd219eeca81a5f87e577cab4f",
+      "size": 5969
     },
     {
       "path": "docs/open-museum.md",
-      "sha256": "sha256:1a64f394692884609658d8ff628748500eab62a7142540456c1ef86b291a8195",
-      "size": 4447
+      "sha256": "sha256:016f7e284e0cd3414ede2fdfd3d49b8d024b3ba49205e1da041fcbc35f987434",
+      "size": 4127
     },
     {
       "path": "docs/programs/keys-and-gates.md",
@@ -277,38 +277,38 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md",
-      "sha256": "sha256:99baadf0643c5594eb0d726a5c7b4ddb1a26077a9cb979ac94c15691c7ae70de",
-      "size": 10757
+      "sha256": "sha256:ad02922fb1914d8467fdd8bcd19fa8b14b8af26ee9c5ed9cc8395b6df18fca84",
+      "size": 10531
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.02.md",
-      "sha256": "sha256:70e8c47a68ad067af2b35de18654249a8a30bd25f1729ba884b79025fe7fbd48",
-      "size": 11111
+      "sha256": "sha256:4cef687d77a11785af8fb4f5ed16305a1e55a6c7487811050e7695a3987417b4",
+      "size": 11017
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.03.md",
-      "sha256": "sha256:8c3d862f0d7bc0b2096a5f9f64c31e5f10cbf148f920c50a37c932a513a545d4",
-      "size": 11061
+      "sha256": "sha256:ecf1cb018c1b7ecad11a436ad2eb475c931e3b93cd8b57e67ba42579e30e4d2c",
+      "size": 11026
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.04.md",
-      "sha256": "sha256:4528e952ddc46ba6901d1d64ebb290ba0418cf84a1731dd3ca81b93c0f9a3cf5",
-      "size": 11729
+      "sha256": "sha256:36ffcbc2fc7c0bfa68e32934a3fa997f487e0911c51d18ac7d8e4b94b025ec51",
+      "size": 11847
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md",
-      "sha256": "sha256:869aa0bf022a7424c0e6fefdea043a2f7954d5f3160059231357b1e0f6b5ef4d",
-      "size": 12277
+      "sha256": "sha256:228648aaeb83e6e5550a7b623bcf3b9b05713e68096994b7fc59b01a080a68b7",
+      "size": 12229
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.06.md",
-      "sha256": "sha256:83244d4a0a353ddf4c29d40a49a1c11cc86628a53c377da328b1a2aa125ccfd8",
-      "size": 12386
+      "sha256": "sha256:5faf528b1d1e6561b5cfb9b7445d76bf072b77f8345728fc7ac9e883c3380be4",
+      "size": 12347
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.07.md",
-      "sha256": "sha256:d832130da3d5375bb723368bb4bcc3a4f176b771e63c6460f16a0c1f27001220",
-      "size": 12947
+      "sha256": "sha256:76dca31dc62a455eaaaaf69bd8ad59c2d01760b44bc1e76e5ec56523bae4d5af",
+      "size": 13034
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/accession-certificate.md",
@@ -317,18 +317,18 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md",
-      "sha256": "sha256:89dc24d35aaeb0001eb807901e1dfa6f92fcf62097cda80a0951ea6afe7cac97",
-      "size": 98484
+      "sha256": "sha256:6d3e07ca18d17c88ca84a02a94f0ba213690468669bfa22e0ad954102c7c4f48",
+      "size": 97272
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md",
-      "sha256": "sha256:3370e6247e601a8e4dbf7bbc7892fb936b11532ebaab329a145c2667e0d00ce4",
-      "size": 30799
+      "sha256": "sha256:0f4273d292f8d8b268d4264644dfe60f4917af165ec5590178f74a2affc6b533",
+      "size": 30351
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
-      "sha256": "sha256:28964e502d909944a7047c5774008149ae2137fb20ace8d4dc4d78fdfb2f9615",
-      "size": 8180
+      "sha256": "sha256:fc1b881f9b0e53c5d4619c7d40876011bf3477f0453e284a2e966054c8e424b0",
+      "size": 8091
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
@@ -337,38 +337,38 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
-      "sha256": "sha256:17d7c9ee9de89ac4b38cd48b164a5c02ef424d32e3310d73b2513c9f802307fb",
-      "size": 3241
+      "sha256": "sha256:cda3df09ed0174a237bfa98762c988e27e8d0f9c8daa6bfeafc11d4c7291fd47",
+      "size": 3387
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-into-public-trust.md",
-      "sha256": "sha256:760be7b9eb5e185fadfc11edb3e0f8c640cbb99e6f6d2068424380740a0244a0",
-      "size": 23192
+      "sha256": "sha256:cb57d57cc849016ec40f34cb9fee33933c9f8378736e258263ef81c6cb18e119",
+      "size": 22201
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/atomism-and-923-empty-rooms.md",
-      "sha256": "sha256:cfdc55ae613f2a0706d9eb74de3dca7eda321201c36698ee0ec9eb5862a63e66",
-      "size": 21346
+      "sha256": "sha256:e385e6452b16e14eab4a15fdbc52950fe34fa4362cca92046db9e9ce8a2c401c",
+      "size": 20677
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/century.md",
-      "sha256": "sha256:c2d10476faeeb345b67331836829162b1fd94556df054bc441c30d67fa1c06c6",
-      "size": 24109
+      "sha256": "sha256:d8a7b04edbbd8e1e09593d1a29a35308fde1e6e6b1ecd12c3906b9bf12bd3095",
+      "size": 23913
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/microimage-and-phototaxis.md",
-      "sha256": "sha256:6bafb63f3c238d7f6af984fa2f12ad2a2f51b70531cad54a36e5b5972692a11e",
-      "size": 23068
+      "sha256": "sha256:38e98a8a78cb112c0139b169eb646d795671d3d18bef55840e7700613008f5ff",
+      "size": 22612
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/process-and-pre-process.md",
-      "sha256": "sha256:e9d656e419696b9beacbf5e9ee28d56a2d9052c61c4ceef073a05d4971081d65",
-      "size": 26456
+      "sha256": "sha256:63821bf8a16bc958832f3334cd0ab2f7dc8b4750bf7610982ae46504414f9d6f",
+      "size": 25845
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/still-life-and-ex-nihilo.md",
-      "sha256": "sha256:58834e527845aca440b09822a784e1c7e751b910b4deb09357a58c3f95dad71c",
-      "size": 20876
+      "sha256": "sha256:bed6a01e6c39dc4e9bfce268c8bf7dfd5b429e12ff00de6ceb434cd24471fcb3",
+      "size": 20178
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/source-and-chronology-matrix.md",
@@ -1615,9 +1615,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9e3eb6b11197c67ad4c92106213568e0af33018b8bd9fd312f2b5376c0d399c4"
+    "digest": "0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3"
   },
-  "manifest_sha256": "sha256:a403df4d775def50abf22e45829c4c47f8c239f98adb72a0375e589425f4c2cf",
+  "manifest_sha256": "sha256:02c0c65f48017156094221aed490915c853dbbcac12b713b43d8aebece2da0fa",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

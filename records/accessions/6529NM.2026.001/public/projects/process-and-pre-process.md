@@ -1,8 +1,8 @@
 # Pre-Process: An Unfinished Origin in Motion
 
 **6529 Network Museum — project essay**
-**Version:** 2.0.0
-**Publication status:** First-release publication copy
+**Version:** 2.1.0
+**Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
 **Research cutoff:** 2026-08-02
@@ -24,11 +24,11 @@ This distinction is particularly important for #63. It is one exact token-bound 
 
 ## From instruction to execution—and back again
 
-To see why *Pre-Process* matters, it is useful to begin with Reas’s earlier engagement with instruction-based art, but not to turn that engagement into a simple lineage. In 2001 Christiane Paul invited Reas to make *{Software} Structures* for the Whitney’s Artport. The resulting structures began as texts describing dynamic relations among elements and were realized in multiple software implementations.[^4] Reas has explained that he looked closely at Sol LeWitt’s wall drawings, where written instructions originate a drawing later executed on the wall. His own English-language descriptions made a system available before it was fixed in programming syntax; their ambiguity created room for interpretation, even as software made a particular execution possible.[^5]
+*Pre-Process* emerges from Reas's engagement with instruction-based art. In 2001 Christiane Paul invited him to create *{Software} Structures* for the Whitney's Artport. Reas began with texts describing dynamic relations among elements, then realized them through multiple software implementations.[^4] Sol LeWitt's wall drawings supplied a decisive precedent: written instructions originate works whose execution remains contingent on people, materials, and architecture. Reas's English descriptions likewise preserve interpretive latitude, while software specifies operations at a different degree of precision and speed.[^5]
 
-The comparison with LeWitt is often stated too quickly. A LeWitt instruction is not code in disguise, and Reas’s software is not merely a more efficient wall drawing. LeWitt’s textual propositions authorize realizations by people, under material and architectural conditions that remain part of the work’s history. Reas’s descriptions can likewise travel across media, but an executable program specifies operations at a different level of precision and speed. The computer does not eliminate interpretation: someone writes the code, selects an implementation, establishes a runtime, and chooses a display. Nor does an English instruction become less important because it is later encoded. It changes the viewer’s access to the system, naming its situation before the screen turns that situation into a changing image.
+Computer execution redistributes interpretation across the writing of code, the chosen implementation, the runtime, and the display. The English instruction remains the viewer's first access to the system; the screen turns that situation into a changing image.
 
-The Whitney’s 2018 presentation of *{Software} Structure #003 A* and *B* makes the distinction tangible. The same hundred moving circles yield one image of instantaneous intersections and another cumulative image that compresses changing intersections into a continually revised field.[^6] A rule can be stated with great economy, but its execution can be dense enough that no viewer grasps it at once. *Pre-Process* inherits that lesson. Its elements are plain enough to describe—circles with movement, boundary, contact, and anti-overlap behaviors—but their aggregate is not a pedagogical diagram. It makes the viewer feel the difference between knowing the rules and seeing their consequences.
+The Whitney's 2018 presentation of *{Software} Structure #003 A* and *B* makes this relation tangible. The same hundred moving circles produce one image of instantaneous intersections and another cumulative field of continually revised contact.[^6] *Pre-Process* inherits the gap between an economical rule and consequences too dense to grasp at once. Its circles and behaviors can be named plainly; their aggregate must be encountered.
 
 This is also where Reas’s relation to conceptual art diverges from a dematerialized ideal. In the 2022 Art Blocks interview, he situates his work between conceptual systems and the visual histories of painting and drawing, while describing a desire for unexpected aesthetic experience beyond personal bias.[^7] Meredith Hoy, writing about Reas’s earlier work, argues that this practice unsettles the apparent opposition between conceptual procedure and painterly surface. Her term “painting as programming” is not a claim that a screen becomes a canvas. It identifies a practice in which the visual richness of the result is inseparable from computational operations, rather than a decorative veil placed over them.[^8]
 
@@ -106,7 +106,7 @@ To encounter #63 well is to recognize that “pre” does not mean lesser. It na
 
 [^3]: 6529 Network Museum, *Pre-Process* #63, 2022, [object record](../../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json) and [public record](../../../../../records/accessions/6529NM.2026.001/public/6529NM.2026.001.04.md), accessed 2026-08-02.
 
-[^4]: Whitney Museum of American Art, “Casey Reas: Software Structures,” accessed 2026-08-02, https://whitney.org/exhibitions/software-structures.
+[^4]: Casey Reas, “Process,” REAS.com, accessed 2026-08-03, https://reas.com/process, for Christiane Paul's 2001 invitation and the creation of *{Software} Structures*; Whitney Museum of American Art, “Casey Reas: Software Structures,” accessed 2026-08-02, https://whitney.org/exhibitions/software-structures, for the project's 2004 public launch.
 
 [^5]: Whitney Museum of American Art, “Casey Reas, {Software} Structures #003 A and B, 2004,” 28 September 2018, https://whitney.org/media/39184.
 
@@ -163,4 +163,5 @@ To encounter #63 well is to recognize that “pre” does not mean lesser. It na
 
 ## Revision note
 
-This first-release project essay adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object record.
+- **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
+- **2.0.0 — 2 August 2026:** Initial completed project essay. It adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object record.

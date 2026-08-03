@@ -1,6 +1,6 @@
 # The room is an algorithm: Atomism and *923 EMPTY ROOMS*
 
-- **Final publication copy:** version 2.0.1
+- **Final publication copy:** version 2.1.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -17,15 +17,15 @@
 
 **Casey Reas, *923 EMPTY ROOMS* #713, 2023.** Browser-based generative artwork; Art Blocks, edition of 924. Acid-green diagonal marks sweep across a charcoal field, breaking around voids that can look like a corner, a wall, or an opening. A bright lower ledge and narrow luminous seam at right create depth, then undo it. #713 belongs to a project built from six colorforms and presented through six cities. The work’s “room” is not a fixed architecture but a perceptual event: a viewer makes and remakes space from a finite grammar of units, color, and movement.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 
 ## A room made from relations
 
-*923 EMPTY ROOMS* begins by withholding the thing its title appears to promise. The work does not give the viewer a furnished interior, an architectural plan, or a stable chamber that can be entered and surveyed. In #713, acid-green diagonal marks swarm across a dark field, then break around charcoal voids that suggest a corner, a wall, or an aperture. A bright ledge gathers at the lower edge; at right, a narrow vertical seam glows with a peculiar insistence. The eye tries to convert these cues into perspective, but the picture does not settle. It pulses between room and raster, depth and flatness, screen glow and imaginary architecture.
+Acid-green diagonal marks swarm across the dark field of *923 EMPTY ROOMS #713*, breaking around charcoal voids that suggest a corner, wall, or aperture. A bright ledge gathers at the lower edge; a narrow vertical seam glows at right. These cues repeatedly produce and dissolve an interior. The image pulses between room and raster, depth and flatness, screen glow and imaginary architecture.
 
-That instability is the point. *923 EMPTY ROOMS* turns the room from a container into a relation. A “room” is not an enclosed volume already waiting to be represented. It is an event produced by six colorforms, a combinatorial ordering, a software display, six geographically distributed presentations, and a viewer attempting to organize a visual field. Casey Reas’s project therefore does not use computation merely to multiply possible interiors. It asks what happens when an architectural experience is made from a system of recombinable units whose limits are perceptual before they are physical.
+Reas constructs the room as an event among six colorforms, a combinatorial order, a software display, six geographically distributed presentations, and a viewer organizing the field. Architecture begins in perception before it acquires physical enclosure.
 
-The project continues Reas’s long engagement with modernist abstraction through operations rather than style. It begins with Victor Vasarely’s unrealized proposal for LACMA’s Art and Technology Program, which imagined a grid-based machine producing many permutations from a limited vocabulary of forms and colors. Reas’s 2023 LACMA project, *METAVASARELY and An Empty Room*, tested that historical proposal and then departed from it. *923 EMPTY ROOMS* carries the departure into a distributed edition and six-city exhibition, challenging the fantasy that a rational system can make visual experience fully predictable.
+The project extends Reas's engagement with modernist abstraction as a set of operations. Victor Vasarely's unrealized proposal for LACMA's Art and Technology Program imagined a grid-based machine generating many permutations from a limited vocabulary of form and color. Reas tested that historical proposal in *METAVASARELY and An Empty Room* and carried its unresolved questions into a distributed edition and six-city exhibition.
 
 ## Vasarely’s unrealized machine and Reas’s refusal of automation
 

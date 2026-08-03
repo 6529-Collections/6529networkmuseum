@@ -6,11 +6,11 @@
 
 ## 1. The Museum publishes arguments about art
 
-The 6529 Network Museum's public writing exists to help people see, experience, and understand works of art. Its first obligation is not to expose the Museum's internal process. It is to make a specific work, practice, collection, or historical problem newly intelligible.
+The 6529 Network Museum publishes writing that helps people see, experience, and understand works of art. Each text should make a specific work, practice, collection, or historical problem newly intelligible.
 
-A text is not Museum-caliber because it is accurate, lengthy, cited, or approved. Those conditions matter, but they do not create criticism or art history. A publishable text must have an argument, look closely, distinguish media, establish historical relations, and make judgments it can support.
+Accuracy, citation, and review are prerequisites. Museum publication must also advance an argument, look closely, distinguish media, establish historical relations, and support its judgments.
 
-The Museum therefore treats curatorial writing as a primary cultural output. It is not explanatory material added after accession. The collection becomes publicly meaningful through the relation among artworks, display, scholarship, provenance, conservation, and encounter.
+Curatorial writing is one of the Museum's primary cultural forms. The collection becomes publicly meaningful through the relation among artworks, display, scholarship, provenance, conservation, and encounter.
 
 ## 2. What every publication must achieve
 
@@ -24,9 +24,9 @@ Every publication must do five things:
 
 If a text could be attached unchanged to another artist by replacing names and titles, it fails.
 
-## 3. Evidence is the support, not the subject
+## 3. Evidence supports the argument
 
-The Museum's control plane correctly distinguishes chain evidence, artist statements, platform records, Museum observations, and interpretation. Public scholarship must preserve those distinctions without forcing readers through the machinery of evidence management.
+The Museum's records distinguish chain evidence, artist statements, platform records, Museum observations, and interpretation. Public scholarship preserves those distinctions while giving the artwork and the argument priority.
 
 The body of an essay should be fluent and direct. Notes carry most factual attribution. A caveat belongs in the body only when it changes the meaning of the work—for example, when a still image cannot represent a continuous software performance, when an unresolved date changes chronology, or when a work widely described as autonomous depends on a mutable service.
 
@@ -238,7 +238,7 @@ It should explain:
 - why acceptance serves the Museum's mission;
 - what obligations acceptance creates.
 
-A gift is not important merely because it is first, large, expensive, or associated with a prominent donor. Its significance must be argued through the art and the institution's public purpose.
+The significance of a gift rests on the art and on what its acceptance makes possible for the public.
 
 ## 10. Writing about artists as builders of tools and institutions
 
@@ -255,7 +255,7 @@ Ask instead:
 - Does a platform alter exhibition, ownership, peer exchange, or preservation?
 - Is this institution-building itself part of the practice, or merely adjacent professional activity?
 
-Distinction is essential. Processing is not one of Casey Reas's artworks. Feral File is not interchangeable with his studio output. Both may nevertheless be central to understanding how he extends systems thinking beyond individual objects.
+Processing and Feral File belong to distinct parts of Casey Reas's practice. Together they show how he has extended systems thinking beyond individual artworks into tools, pedagogy, exhibition, and circulation.
 
 ## 11. Technical and preservation writing in its proper place
 
