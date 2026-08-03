@@ -1008,7 +1008,16 @@ class ControlPlaneTests(unittest.TestCase):
             manifest["inventory_roots"],
         )
         self.assertEqual(
-            [".gitattributes", ".gitignore", "AGENTS.md", "INDEX.md", "README.md", "requirements-dev.txt"],
+            [
+                ".gitattributes",
+                ".gitignore",
+                "AGENTS.md",
+                "CONTRIBUTING.md",
+                "INDEX.md",
+                "README.md",
+                "RIGHTS.md",
+                "requirements-dev.txt",
+            ],
             manifest["inventory_files"],
         )
         self.assertTrue(all((REPO_ROOT / root).is_dir() for root in INVENTORY_ROOTS))
@@ -1026,6 +1035,10 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertIn(".github/workflows/museum-validation.yml", paths)
         self.assertIn("specs/README.md", paths)
         self.assertIn("README.md", paths)
+        self.assertIn("CONTRIBUTING.md", paths)
+        self.assertIn("RIGHTS.md", paths)
+        self.assertIn("docs/open-museum.md", paths)
+        self.assertIn("docs/onchain-transition.md", paths)
         self.assertIn("requirements-dev.txt", paths)
         self.assertIn("scripts/rarity/nextgen_compat.py", paths)
         self.assertIn("tests/rarity/test_nextgen_compat.py", paths)

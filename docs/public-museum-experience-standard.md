@@ -622,6 +622,46 @@ The frontend must consume a source-neutral publication interface. During the tra
 
 The publication projection must preserve source record IDs, payload commitments, media commitments, and schema versions so that a source migration does not break public URLs or silently change meaning.
 
+### 8.6 Open Museum and per-page source colophon
+
+The public repository is an institutional feature, not backend trivia. During
+the transitional phase, visitors must be able to understand that the Museum
+record is publicly inspectable, cloneable, and group-editable through pull
+requests. They must also understand the boundary: anyone may propose an
+improvement, while review and deterministic validation protect the published
+record.
+
+The About page and source/research apparatus must publish the complete
+three-layer account defined in `docs/open-museum.md` and
+`docs/onchain-transition.md`:
+
+1. the public repository is the current shared review and publication record;
+2. the Fall 2026 goal is on-chain commitments and append-only lineage for every
+   admitted Museum record, with large payloads on content-addressed storage;
+   and
+3. the frontend is a replaceable display and interpretation layer, not the sole
+   location of institutional memory.
+
+The home page should carry a concise art-first version after the initial
+collection encounter. It must not lead with GitHub, governance process, or
+contract architecture.
+
+Every Museum page family must end with a quiet source colophon. The colophon
+must identify that the page comes from the public Museum record and provide:
+
+- an immutable link to the exact reviewed source commit and validated source
+  path;
+- a contribution action targeting the canonical editable source path;
+- a link to the governed contribution guide; and
+- the short source commit as a machine-verifiable citation where useful.
+
+Source and contribution paths must come from the validated publication model,
+not arbitrary Markdown or route input. Exact-source and editable targets are
+different links: an immutable commit can be inspected but is never presented
+as directly editable. The contribution invitation must remain subordinate to
+the art and scholarship and use the native 6529 visual grammar rather than a
+generic process card.
+
 ## 9. Media and IIIF standard
 
 ### 9.1 Immediate Casey requirement
@@ -715,6 +755,12 @@ The frontend should fetch the catalog first, validate it, then fetch only the do
 At ingestion time, the adapter must resolve `main` once to a full Git commit SHA and fetch the release manifest, publication catalog, documents, and declared assets only from that immutable commit. It must never assemble a visitor response from files fetched across different moving-branch states. The accepted snapshot records repository, commit SHA, manifest SHA-256, manifest Keccak commitment, publication-catalog commitment, accepted paths, file digests, byte sizes, and build time.
 
 All required publication entities and their declared source records must validate atomically before a new snapshot becomes active. A later delivery failure for one derivative may fall back to another approved presentation, but it must not create a mixed or partially verified canonical snapshot.
+
+The Open Museum statement, on-chain transition statement, and contribution
+guide are required publication documents. A snapshot that omits any of them,
+cannot bind them to the active source commit, or cannot map a public page to its
+declared source path must fail closed rather than rendering a hollow
+participation invitation.
 
 ### 10.2 Fail-closed integrity, graceful public behavior
 

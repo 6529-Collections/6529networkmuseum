@@ -4,6 +4,29 @@ This repository is the transitional system of record for the 6529 Network Museum
 
 Git history is useful evidence, but GitHub is not the final trust model. Every machine-readable release is deterministically manifested so it can later be committed to decentralized storage and an on-chain record chain.
 
+## An open museum, built in public
+
+This repository is not only available for inspection. It is the Museum's
+shared working record during the transition to an on-chain system: anyone can
+read its sources and revision history, make a copy, and propose a correction,
+new evidence, stronger scholarship, improved accessibility, or better
+technical and preservation documentation through a pull request.
+
+The published record changes only after review and deterministic validation.
+That preserves institutional integrity while giving the network a practical
+way to improve its Museum. Start with
+[`CONTRIBUTING.md`](CONTRIBUTING.md), or read
+[`The record outlives the interface`](docs/open-museum.md).
+
+Our Fall 2026 goal is for every admitted Museum record—from governance
+decisions and policies to accessions, provenance, rights, preservation events,
+and later corrections—to have an on-chain commitment and append-only lineage
+in a custom contract. Larger documents and media can remain on
+content-addressed storage. The website remains a replaceable display and
+interpretation layer, separate from the Museum's durable record. The contract
+is being designed; it has not yet been deployed or activated. See
+[`From public repository to on-chain Museum record`](docs/onchain-transition.md).
+
 ## Canonical areas
 
 | Area | Canonical location | Current state |
@@ -16,6 +39,10 @@ Git history is useful evidence, but GitHub is not the final trust model. Every m
 | Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
+| Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
+| On-chain transition | [`docs/onchain-transition.md`](docs/onchain-transition.md) | Visitor-facing Fall 2026 target, contract/content-addressed boundary, and explicit non-deployment status |
+| Contributing | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution paths, evidence expectations, correction rules, validation, and safety boundary |
+| Rights map | [`RIGHTS.md`](RIGHTS.md) | CC0 default for Museum-authored public material and explicit limits for artworks, media, evidence, and other third-party material |
 | Stream interoperability | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | Bilateral record and ontology contract |
 | Future contract | [`docs/onchain-design.md`](docs/onchain-design.md) | Requirements and migration boundary, not deployed code |
 | Externally minted works | [`docs/external-works-registry.md`](docs/external-works-registry.md) | Token-agnostic registry design; no wrapping/reminting |

@@ -41,14 +41,24 @@
       "size": 2161
     },
     {
+      "path": "CONTRIBUTING.md",
+      "sha256": "sha256:c5a6225a9bb08f9e936690f206087d833a7a96e2af02fae8465da664f6e31def",
+      "size": 7743
+    },
+    {
       "path": "INDEX.md",
-      "sha256": "sha256:3bc9d35c4ebf5604aff629981286fa53efba80f9e5312a54a6f76eb42156c69c",
-      "size": 21773
+      "sha256": "sha256:a6891c37997dfdac9078e749574ca9ebee7813414b98cc99ad8df604c663bdb5",
+      "size": 22948
     },
     {
       "path": "README.md",
-      "sha256": "sha256:3023ea5c21d6c35e23a416950343a4a90af553bee47a692f110120021cdc62e5",
-      "size": 6274
+      "sha256": "sha256:19e2b17521f3419241ecb2e37a82bc7800e6287ce2c5c1a91f8dbb3a05d113e3",
+      "size": 8246
+    },
+    {
+      "path": "RIGHTS.md",
+      "sha256": "sha256:4460a05b70dd2aad6fef702b78da5b054267f64b153ea5da5347911b13027bc7",
+      "size": 2194
     },
     {
       "path": "docs/accession-standard.md",
@@ -62,8 +72,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:d3e1e014d4dc1f37ba4c40517372b1dd4d1971071000981d1cb052da265ac47d",
-      "size": 10275
+      "sha256": "sha256:5fde4d0f4449c141b66b810ab1e0b0925c358fef430f51a0ab08dbc78b88a981",
+      "size": 10307
     },
     {
       "path": "docs/curatorial-publication-standard.md",
@@ -87,8 +97,18 @@
     },
     {
       "path": "docs/onchain-design.md",
-      "sha256": "sha256:a68466f21632589823ff936c9a770eb81930aa45618bb23684ddbc0346e2d338",
-      "size": 3638
+      "sha256": "sha256:3a91e54e5aeceb70c9c7e6a167250aba4c31812b10b66dab20d09603b9e51cfd",
+      "size": 4129
+    },
+    {
+      "path": "docs/onchain-transition.md",
+      "sha256": "sha256:8c881057845ee2c5ab2f73beedc3ee9032957c9c748c5d88381d839fa3a75439",
+      "size": 4945
+    },
+    {
+      "path": "docs/open-museum.md",
+      "sha256": "sha256:ffa5811242721790e94aac32b665edaa1b600c02e9ab9c3beae59bc5dafe3e68",
+      "size": 4143
     },
     {
       "path": "docs/programs/keys-and-gates.md",
@@ -97,8 +117,8 @@
     },
     {
       "path": "docs/public-museum-experience-standard.md",
-      "sha256": "sha256:0f0fef87001f546bbefa77c598fb1a0fbe47ef74f9224261f29ebc8b0a6d7c8f",
-      "size": 73024
+      "sha256": "sha256:4a40e4c39475b7c8654643fdc547d7ed3e752670fb392defaa2b8570fd9f58d2",
+      "size": 75323
     },
     {
       "path": "docs/record-model.md",
@@ -1102,8 +1122,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:41bd86dd83368f42df5f621cbe1f30929e72335e8181d18b1b5dbb8ab4d3e0fa",
-      "size": 8285
+      "sha256": "sha256:0e0946d1c349c522f852d86ca52727375cd1e88f2de4fbcb1be8496e41d5a18c",
+      "size": 8325
     },
     {
       "path": "scripts/harden_casey_snapshot_package.py",
@@ -1562,8 +1582,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:59271c4ba73780c5011655f0eb09bfeadae791f852e3f50743b35382cd7e70ca",
-      "size": 62806
+      "sha256": "sha256:6ed8242ebe40b44751238e5c121690d5c8eeffdcf9e942d8c8b13575b71e03a8",
+      "size": 63182
     }
   ],
   "hash_algorithms": {
@@ -1574,8 +1594,10 @@
     ".gitattributes",
     ".gitignore",
     "AGENTS.md",
+    "CONTRIBUTING.md",
     "INDEX.md",
     "README.md",
+    "RIGHTS.md",
     "requirements-dev.txt"
   ],
   "inventory_roots": [
@@ -1593,9 +1615,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xd86907c2483765d69ac47e08debbd2d13ecf7b0f2b04e2df08f0218006266f5f"
+    "digest": "0xeb447d6cb80e473022229e3a1d5d9759c5ad55a951ba8911507f59378c151e55"
   },
-  "manifest_sha256": "sha256:82affd01a3571c225678f5bb34cbce43c366e4ccaf9d70bfd5c1592564d1c06b",
+  "manifest_sha256": "sha256:b86e843c790520d26e2e2f8ac55f33f86409b03878a289b47b1fd8e9b1dc614f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }
