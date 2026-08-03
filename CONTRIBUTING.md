@@ -1,12 +1,12 @@
 # Contributing to the 6529 Network Museum
 
-The 6529 Network Museum is built in public. Its policies, collection records,
-accession documents, provenance, technical research, and curatorial writing are
-open for the network to inspect and improve.
+The 6529 Network Museum publishes its policies, collection records, accession
+documents, provenance, technical research, and curatorial writing in public.
+The network can inspect and improve this work.
 
-You do not need to be a maintainer to contribute. A useful contribution can be
-as small as a corrected date or stronger citation, or as substantial as a new
-piece of object research, visual analysis, preservation evidence, or tooling.
+Everyone may contribute. A useful proposal can be as focused as a corrected
+date or stronger citation, or as substantial as new object research, visual
+analysis, preservation evidence, or tooling.
 
 ## Ways to contribute
 
@@ -27,24 +27,22 @@ If you are unsure where a contribution belongs,
 describing what you found and the evidence available. A maintainer can help
 identify the right record.
 
-## The published record is shared, not unreviewed
+## Pull requests are published proposals
 
-This repository is group-editable through pull requests. Anyone may fork it,
-propose a change, and participate in the visible revision history. A proposal
-does not become the Museum's published record until it has passed evidence
-review, repository validation, and maintainer approval.
+Anyone may fork the repository, propose a change, and participate in its visible
+revision history. Evidence review, repository validation, and maintainer
+approval determine which proposals enter the Museum's published record.
 
-This distinction keeps the Museum open without making its institutional record
-arbitrary. Every accepted contribution remains attributable through its commit
-and pull-request history. When a contribution materially changes published
-scholarship or evidence, the relevant record will also name the contributor or
-cite the pull request. Pseudonymous credit is welcome.
+Every accepted contribution remains attributable through its commit and
+pull-request history. A material change to scholarship or evidence also names
+the contributor in the relevant record or cites the pull request. Pseudonymous
+credit is welcome.
 
 ## Choose the right kind of change
 
 ### Correcting a published fact
 
-Do not silently replace a historical assertion. Explain:
+A published assertion retains its lineage. A correction should explain:
 
 1. what the current record says;
 2. what should change;
@@ -68,15 +66,15 @@ claims, and marketplace rarity scores.
 Use CAIP-19-shaped citations for on-chain objects. Record the chain, contract,
 token, transaction, block, observation time, method, and finality assumptions.
 Preserve title, custody, copyright, display rights, and preservation rights as
-separate facts. Never infer accession from wallet custody, a transfer, an
-airdrop, or a Wave `WINNER` label.
+separate facts. Accession requires its own reviewed record; wallet custody,
+transfers, airdrops, and Wave `WINNER` labels establish other facts.
 
 ### Improving accessibility
 
-Describe what a visitor needs to perceive or operate without reducing the work
-to metadata. Alt text should identify the visual structure that matters; longer
-descriptions can explain behavior, motion, interaction, or variation. Do not
-invent sensory details that were not observed.
+Describe what a visitor needs to perceive or operate. Alt text should identify
+the visual structure that matters; longer descriptions can explain behavior,
+motion, interaction, or variation. Base every sensory detail on direct
+observation.
 
 ## Repository map
 
@@ -131,9 +129,9 @@ If your change intentionally alters the governed release inventory, regenerate
 the release manifest with `python scripts/generate_manifest.py`, inspect the
 diff, and rerun the manifest check.
 
-If you cannot run the validation suite locally, you may still open a pull
-request and say so. CI will report the results, and maintainers can help with
-schema and manifest mechanics.
+Contributors who cannot run the validation suite locally may open a pull
+request and identify the omitted checks. CI will report the results, and
+maintainers can help with schema and manifest mechanics.
 
 All pull requests run the same strict Museum validation and deterministic
 Ubuntu/Windows suites. Review bots may add security, privacy/evidence, media,
@@ -147,14 +145,14 @@ signer or hardware-wallet details, private storage locations, credentials,
 private keys, seed phrases, or non-public signing payloads.
 
 Public records may refer to a restricted instrument by a content hash and a
-non-sensitive custodian reference. They must not reproduce the restricted
-material.
+non-sensitive custodian reference. The restricted material remains outside the
+public record.
 
 ## Rights and attribution
 
 Only contribute text, data, or media that you have the right to submit. State
-the source and applicable license. A token owner's rights are not assumed to
-include copyright or unrestricted reproduction rights.
+the source and applicable license. Token ownership and copyright are separate;
+record the reproduction rights supplied by the applicable license or grant.
 
 By submitting a pull request, you confirm that you have the right to contribute
 the material and agree that an accepted contribution may be published,
@@ -171,8 +169,8 @@ corrections—to have an on-chain commitment and append-only lineage in a custom
 contract. Larger documents and media can remain on content-addressed storage
 while their identity, hash, authority, and history are committed on-chain.
 
-The contract is being designed; it has not yet been deployed or activated.
-Accepted published records are intended to migrate with their cited sources,
-authority, and append-only record lineage intact. Git commits and pull-request
-discussions remain part of the transitional public archive; the contract does
-not claim to reproduce every GitHub event.
+Contract design is in progress; deployment and activation remain pending.
+Accepted records will migrate with their cited sources, authority, and
+append-only lineage. Git commits and pull-request discussions remain part of
+the transitional public archive. Admitted Museum publications define the
+contract record; Git history retains the repository's broader activity.

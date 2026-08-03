@@ -16,21 +16,21 @@ supersession_scope: "visitor-facing interpretation of the seven-work group only;
 
 ## Casey Reas in the 6529 Network Museum
 
-**Standfirst.** Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and a geometry continually emerging from black: the seven Casey Reas works given by punk6529 to the 6529 Network Museum do not summarize a career. They do something more exact. They show how one artist has repeatedly made systems visible through radically different kinds of image. Recent as tokens but deep in artistic lineage, the group reaches from code begun in 2003 to a work released in 2026. Seen together, the works argue that variation is not a decorative consequence of Reas's practice. It is his means of thinking about authorship, history, duration, and the unstable life of an image.
+**Standfirst.** Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and a geometry continually emerging from black form the Museum's seven-work study of Casey Reas. The group shows how radically different images can disclose the operations of an artistic system. Recent as tokens and deep in artistic lineage, the works reach from code begun in 2003 to a project released in 2026. Across them, variation becomes Reas's method for thinking about authorship, history, duration, and the unstable life of an image.
 
 ## I. A collection begins with difference
 
 The three *CENTURY* works establish the terms of the group. *CENTURY #31* is dense and pressurized: slate, saturated blue, cream, and pale salmon are compressed inside a circular boundary, then broken by a tight succession of vertical slices. *CENTURY #724* opens the same system into broad cream intervals crossed by rust-red arcs and sparse lines. *CENTURY #401* turns it grayscale, using black uprights, white diagonals, and translucent curved forms to create an architecture whose planes refuse to settle.
 
-Nothing in the project grammar requires one of these pictures to be treated as primary and the others as variants around it. They are three decisions made by the same system under different token-specific conditions. Their relation is not sameness but controlled difference.
+Nothing in the project grammar requires one of these pictures to be treated as primary and the others as variants around it. They are three decisions made by the same system under different token-specific conditions. Controlled difference binds the three works.
 
 That proposition extends across the accession. *Pre-Process #63* replaces slicing with a population of Elements whose actions build a panoramic field. *Phototaxis #308* converts the movement of simulated machines into pale trajectories. *923 EMPTY ROOMS #713* constructs an apparent interior through broken colorforms and optical contradiction. *Ex Nihilo (Cosmos) #248* lets segmented white lines gather into unstable solids against black.
 
 Each work offers a different answer to a common question: how does an authored rule become an image the author has not individually placed? Casey Reas does not answer by retreating from composition. He changes its scale. He chooses the entities, actions, limits, probabilities, source material, interfaces, and presentation through which a work can occur. The local event may surprise him; the world in which it happens is constructed.
 
-The seven works were not selected by Reas as a suite, and the Museum has no evidence that he endorsed the grouping. The three *CENTURY* tokens are not an artist-designated triptych. The donor did not provide a personal selection thesis that the Museum can safely retell. This essay's argument is curatorial: the works, once given and accessioned together, sustain a strong comparison that should be made without converting institutional interpretation into artist intention.[^1]
+Donation and accession formed this Museum group. The record contains no artist selection or endorsement, artist-designated triptych, or donor selection thesis. The comparison advanced here is curatorial and does not attribute the Museum's interpretation to Reas or punk6529.[^1]
 
-That restraint does not diminish the collection. Museums continually form relations among objects that were not conceived as ensembles. The legitimacy of those relations depends on the quality of evidence and looking. Here the relation is unusually productive because Reas's practice already moves among systems, implementations, manifestations, and returns. The collection is best understood not as seven masterpieces extracted from a ranked population, but as seven states through which the system itself becomes available.
+Museums continually form relations among objects that were not conceived as ensembles. The strength of those relations depends on evidence and looking. Here the comparison is unusually productive because Reas's practice already moves among systems, implementations, manifestations, and returns. The collection presents seven states through which Reas's systems become available for study.
 
 ## II. Three ways to cut a century
 
@@ -54,9 +54,9 @@ The result is spatial but not perspectivally coherent. A black upright can read 
 
 Together, the three pictures refuse the idea that generative art is best represented by an average output. #31, #724, and #401 disclose a range through contrast. Density becomes legible beside openness; color becomes legible beside grayscale; numerous slices become legible beside fewer. None can stand for the population, but each makes the population more thinkable.
 
-This is why rarity is the wrong interpretive instrument. A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Marketplace rarity ranks scarcity; a museum must judge form.
+Rarity is the wrong interpretive instrument. A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Marketplace rarity ranks scarcity; a museum must judge form.
 
-The live generators add duration to this comparison. The official static outputs permit exact scrutiny of one state. Execution allows the slices to move and the composition to renegotiate itself. Neither state is false. Stillness makes relation inspectable; movement makes contingency visible. The works inhabit both.
+The live generators add duration to this comparison. The official static outputs permit exact scrutiny of one state. Execution allows the slices to move and the composition to renegotiate itself. Stillness makes relation inspectable; movement makes contingency visible. The works inhabit both modes.
 
 ## III. Behavior becomes drawing
 
@@ -70,7 +70,7 @@ The width changes the work's temporality. In a square composition, the eye might
 
 The picture does not depict one hundred agents as characters. It condenses their relations into density. Collision appears as darkening or blockage; continued movement appears as an arc; repeated passage produces a ghosted surface. Like long-exposure photography, the still gathers duration, but unlike a photograph it records a world composed through rules rather than light reflected from an external event.
 
-The return to early code is itself part of the work. *Pre-Process* is not simply a 2003 piece released nineteen years late, nor a wholly new 2022 project wearing an archival style. A mature artist revisited an unresolved system, selected what remained generative, and gave it a finished public structure. The work turns software history into material.
+The return to early code is itself part of the work. In 2022, Reas revisited an unresolved 2003 system, selected what remained generative, and gave it a finished public structure. *Pre-Process* turns software history into material.
 
 *Phototaxis #308* reaches back even further in conceptual lineage. Reas's early *Path*, *Tissue*, and *MicroImage* works drew on Valentino Braitenberg's *Vehicles: Experiments in Synthetic Psychology*. Braitenberg imagined simple machines whose sensor-motor connections produce behavior that human observers interpret as attraction, fear, aggression, or curiosity. Reas used related artificial agents as drawing machines: movement through a field became line.[^4]
 
@@ -191,6 +191,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** completed the `8 × 3 × 5` *Pre-Process* combinatorics; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; explicitly identified the *Ex Nihilo* title argument as a Museum reading; and replaced generic evidence references with direct URLs and exact repository links.
 - **Version 1.0.0 — 2 August 2026:** completed publication manuscript superseding the prior visitor-facing collection essay within the stated scope.
 

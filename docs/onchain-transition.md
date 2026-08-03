@@ -3,10 +3,10 @@
 Status: working public migration statement; not deployment or activation
 evidence
 
-## The goal
+## Purpose
 
-The 6529 Network Museum's institutional memory should not depend on GitHub, a
-single website, or a single operator.
+The 6529 Network Museum requires a durable institutional memory that can be
+read independently of GitHub, the current website, and its original operators.
 
 Our Fall 2026 goal is for every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
@@ -16,14 +16,12 @@ what it accepted, how an object entered the collection, which evidence
 supports its identity and history, and how later corrections relate to what
 came before.
 
-The contract is being designed. It has not yet been deployed, audited,
-activated, or populated. This document describes the intended transition, not
-a completed technical state.
+Status: contract design in progress. Audit, deployment, activation, and record
+migration remain pending.
 
-The contract will not make curatorial or governance decisions. It will
-preserve who made an authorized assertion, what was asserted, when it took
-effect, which evidence it commits to, and how it relates to the records that
-came before.
+Curatorial and governance decisions remain institutional acts. The contract
+will preserve each authorized assertion: its author, content, effective time,
+evidence commitment, and place in the record's history.
 
 ## What moves on-chain
 
@@ -40,20 +38,17 @@ entry that commits to:
 
 Governance decisions, policies, approved collections, acquisition programs,
 selected outcomes, accessions, work descriptions, rights statements,
-provenance, preservation events, and corrections have different authorities
-and meanings. The contract must preserve those differences rather than flatten
-them into generic notes.
+provenance, preservation events, and corrections retain their distinct
+authorities and meanings.
 
-Restricted donor, legal, custody-security, and personal information does not
-move into public contract state, public content-addressed storage, or the
-public repository. Public records may commit to a restricted instrument by
-hash and non-sensitive custodian reference without exposing its contents.
+Restricted donor, legal, custody-security, and personal information remains in
+the restricted registrar record. A public record may cite a restricted
+instrument by hash and non-sensitive custodian reference.
 
-## What does not need to live in contract storage
+## Content-addressed documents and media
 
-Putting the Museum record on-chain does not mean forcing every essay, image,
-video, software package, or conservation dossier into expensive contract
-storage.
+Essays, images, video, software packages, and conservation dossiers can remain
+outside contract storage.
 
 Large public-safe payloads can live on durable content-addressed storage. The
 contract commits to the payload's identity, schema, hash, URI, authority,
@@ -61,22 +56,21 @@ effective time, and lineage. A third party can retrieve the payload and verify
 that its bytes are exactly those admitted under the stated schema. Availability
 and the truth of the underlying assertion remain separate questions.
 
-The artwork itself also remains where its canonical identity places it. The
-Museum registry records institutional claims about a work; it does not wrap,
-remint, or replace an externally minted token.
+An externally minted artwork retains its canonical token identity. The Museum
+registry records the institution's claims about that work while leaving its
+contract and token unchanged.
 
-## Why the frontend stays separate
+## Exhibition and interpretation
 
-The public website is a display and interpretation layer. It should lead with
-art, make scholarship readable, and let visitors move naturally into rights,
-provenance, technical, and source material.
+The public website presents the collection. It leads with art, makes
+scholarship readable, and gives readers a clear path into rights, provenance,
+technical documentation, and sources.
 
-It should not be the sole custodian of the Museum's decisions or history. A new
-website, exhibition interface, research tool, or independent community client
-should be able to reconstruct the same institutional record from the contract
-and its committed payloads.
+Future exhibitions, research tools, and community publications will draw on
+the same institutional record preserved by the contract and its committed
+documents.
 
-This separation produces a durable division of responsibility:
+The responsibilities are divided as follows:
 
 | Layer | Responsibility |
 |---|---|
@@ -84,8 +78,9 @@ This separation produces a durable division of responsibility:
 | Museum record | Decisions, accession, provenance, rights, preservation, evidence commitments, authority, and revision lineage |
 | Public display | Exhibition, interpretation, discovery, accessibility, and interaction |
 
-The display can improve continuously without silently changing the record. The
-record can acquire new evidence or corrections without erasing its history.
+The public presentation may change with new exhibitions and forms of access.
+New evidence and corrections enter the Museum record as attributable,
+append-only revisions.
 
 ## The transition from GitHub
 
@@ -99,12 +94,12 @@ The public repository provides the bridge:
 4. payloads and schemas are published to content-addressed storage;
 5. the custom contract admits the records with their authority and lineage;
 6. public indexes are regenerated from chain state and committed payloads;
-7. the website switches source adapters without changing Museum identities or
-   visitor URLs.
+7. the website begins reading from the contract without changing Museum
+   identities or visitor addresses.
 
-Migration is complete only when an independent third party can reproduce the
-record hashes and public exports without relying on GitHub, the original
-operator, or a marketplace.
+Migration will be complete when an independent third party can reproduce the
+record hashes and public exports directly from contract state and committed
+payloads.
 
 ## Follow the work
 

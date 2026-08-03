@@ -13,10 +13,15 @@ The [raw RPC receipt](../../../../evidence/casey-reas/raw/rpc/eth-get-transactio
 
 The authorization was the first-stage acceptance record. The later [accession certificate](accession-certificate.md) completes the institutional decision and binds an executed title declaration, rights review, curatorial judgment, condition and technical review, provenance schedule, and each exact transfer. The lot and seven objects are now `accessioned`; no accession blocker remains.
 
-The Museum owns the tokens, not Casey REAS's copyright. Each retained Art Blocks metadata response states `CC BY-NC 4.0`. The [title and rights review](title-rights-and-accession-review.md) approves the Museum's noncommercial exhibition, documentation, publication, print, adaptation, preservation, migration/emulation, accessibility, and internal computational-research uses subject to attribution and license conditions. Commercial use is not approved.
+The Museum owns the tokens; Casey Reas retains copyright. Each retained Art Blocks metadata response states `CC BY-NC 4.0`. The [title and rights review](title-rights-and-accession-review.md) approves the Museum's noncommercial exhibition, documentation, publication, print, adaptation, preservation, migration/emulation, accessibility, and internal computational-research uses subject to attribution and license conditions. Commercial use is not approved.
 
 The [technical and condition review](technical-and-condition-review.md) passes the lot with conditions: chain identity and retained metadata fixity are green; generator packaging, dependencies, cross-environment rendering, behavior coverage, documentation-byte retention, and autonomous preservation are amber active stewardship areas. The [curatorial review](curatorial-accession-review.md), [artist profile](casey-reas-artist-practice.md), and [collection essay](casey-reas-collection-essay.md) complete the scholarly case.
 
-Institutional authority for the gift acceptance and accession is the direct Museum-authorized collection decision recorded in the machine authorization and accession certificate. Constructor and reviewer identifiers preserve authorship and independent documentary QA; they are not substitutes for, and do not exercise, the Museum's collection authority.
+Collection authority resides in the direct Museum decision recorded in the machine authorization and accession certificate. Constructor and reviewer identifiers record authorship and independent documentary review only.
 
 No valuation, tax treatment, commercial license, OpenSea or marketplace rarity metric, aesthetic ranking, or claim of comprehensive representation of the artist's practice is made.
+
+## Revision history
+
+- **1.1.0 — 3 August 2026:** Copy-edited the public authorization for directness and institutional voice; the acceptance, accession, rights, and evidentiary assertions are unchanged.
+- **1.0.0 — 2 August 2026:** Initial completed public authorization.

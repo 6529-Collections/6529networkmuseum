@@ -1,8 +1,8 @@
 # CENTURY: The Cut That Keeps Happening
 
 **6529 Network Museum — project essay**
-**Version:** 2.0.0
-**Publication status:** First-release publication copy
+**Version:** 2.1.0
+**Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
 **Research cutoff:** 2026-08-02
@@ -20,7 +20,7 @@ That distinction changes the relation between precedent and contemporary work. *
 
 This is why *CENTURY* belongs to a longer Reas practice without collapsing into a career summary. From the early 2000s onward, Reas has made works in which instructions, code, and perceptible visual consequences sit in uneasy proximity. In the *{Software} Structures* and *Process* works, a natural-language score and a running program offered different ways of encountering the same system. The score made a rule legible before a screen could make it visible; the screen made the rule temporal, contingent, and visually dense.[^2] *CENTURY* transfers that problem to a different historical vocabulary: modernist abstraction’s economy of color, line, interval, and partition. Yet it retains the earlier conviction that an image is most alive when a viewer can sense the gap between the rule and the event it produces.
 
-Meredith Hoy’s account of Reas is clarifying here. Rather than deciding whether the work belongs on the conceptual side of a conceptual/aesthetic divide or on the painterly side of an algorithmic one, Hoy identifies the friction between coded process and visual surface as Reas’s productive terrain.[^3] *CENTURY* intensifies that friction. Its colors are not merely outputs of a process; they establish pressure, weight, and temperature. Its lines do not disclose the code transparently; they make an optical field in which the code’s operations are felt as interruptions and reattachments. The project asks a viewer to look at a composition and to remain aware that composition is only one state in a field of possible states.
+Meredith Hoy locates Reas's productive terrain in the friction between coded process and visual surface.[^3] *CENTURY* intensifies that friction. Color establishes pressure, weight, and temperature; line turns computational operations into interruption and reattachment. The viewer encounters a composition while remaining aware of the field of possible states around it.
 
 ## A twentieth-century title for a twenty-first-century procedure
 
@@ -139,4 +139,5 @@ That proposition changes the seven-work accession as a whole. *CENTURY* is the g
 
 ## Revision note
 
-This first-release project essay adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object records.
+- **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
+- **2.0.0 — 2 August 2026:** Initial completed project essay. It adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object records.

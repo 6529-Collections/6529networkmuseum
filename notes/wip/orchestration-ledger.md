@@ -1672,3 +1672,34 @@ by PR review, merge, rendered review, staging E2E, production deployment,
 production E2E, and the final rendered-product polish sweep. Both lanes bind to
 the same reviewed source state; frontend qualification does not imply contract
 deployment or migration.
+
+### 2026-08-03 Museum publication copy-desk checkpoint
+
+The public Museum corpus has completed a sentence-level copy edit across the
+Open Museum statement, on-chain transition, contributor guide, curatorial
+publication standard, Casey Reas artist and collection essays, gift narrative,
+five project essays, seven object entries, curatorial review, and public gift
+authorization. The edit removes repeated synthetic antithesis, process
+narration, and software-product language while preserving evidence, citations,
+rights, provenance, accession status, technical condition, and deployment
+boundaries. Adopted policy transcriptions remain verbatim.
+
+The retained Casey manuscripts and sixteen promoted public publications are
+reproducible and pass the publication promotion check. Local validation passes
+119 unit tests with one intentional Windows skip, the fetch guard, 301-record
+bootstrap validation, Casey snapshot verification, diligence manifest check,
+full Museum validation, and deterministic manifest verification. The candidate
+release remains 213 entries with SHA-256
+`sha256:0534cdbe0ffac082c9a37ae3fcf95eb9eea46aa36511bb48978afb22f5cbc246`
+and Keccak-256
+`0x39fc02bbf1f66fd60adea9ca54b0ee8e079cade31dc69e1e796544ab34dd8cce`.
+These values remain candidates until the governed source pull request merges.
+
+The frontend copy edit is implemented in a separate focused branch. About now
+leads with mission, governed manuscripts carry their own argument, source and
+revision information is treated as a quiet colophon, and the Methods page
+presents adopted policies, standards, research methods, on-chain designs, and
+technical specifications as a curated source index. Complete technical sources
+remain public without being reproduced as visitor-facing essays. Frontend
+focused tests, changed lint and typecheck, diff checks, and React Doctor 100/100
+pass before source activation and release qualification.

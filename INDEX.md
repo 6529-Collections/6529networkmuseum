@@ -91,6 +91,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-01-documentation-control-plane.md`](notes/wip/2026-08-01-documentation-control-plane.md) | historical implementation note | Construction rationale, fail-closed remediation history, and remaining Stream/cross-language boundaries for the active documentation-as-code controls; current operation is in [`docs/control-plane.md`](docs/control-plane.md) |
 | [`notes/wip/2026-08-02-curatorial-writing-redo.md`](notes/wip/2026-08-02-curatorial-writing-redo.md) | active WIP analysis | Third-lane diagnosis and replacement scope for Casey Reas monograph, project essays, seven-work collection essay, gift narrative, object entries, and reusable Museum writing standard |
 | [`notes/wip/2026-08-03-open-museum-public-record.md`](notes/wip/2026-08-03-open-museum-public-record.md) | active implementation plan | Public, group-editable repository phase; Fall 2026 custom-contract target; frontend/record separation; contribution and exact-source UX contract; release gates |
+| [`notes/wip/2026-08-03-publication-copy-edit.md`](notes/wip/2026-08-03-publication-copy-edit.md) | active editorial review | Museum publication voice standard, scope, diagnosis, preservation rules, and completion criteria for the institutional, curatorial, and frontend copy edit |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
 ## Generative analysis tooling

@@ -15,7 +15,7 @@ supersession_scope: "new visitor-facing acquisition and accession narrative; can
 
 ## The Casey Reas Accession
 
-**Standfirst.** On 1 August 2026, punk6529 gave the 6529 Network Museum seven works by Casey Reas spanning five projects and a quarter-century of artistic inquiry. The gift entered the permanent collection the following day as `6529NM.2026.001`. Its importance lies not in the movement of seven tokens from one wallet to another, but in what that transfer makes possible: sustained public comparison of a major artist's systems, preservation of works whose lives exceed their static images, and a collecting program accountable to evidence, scholarship, and access. This is the record of how a private holding became a public responsibility.
+**Standfirst.** On 1 August 2026, punk6529 gave the 6529 Network Museum seven works by Casey Reas spanning five projects and a quarter-century of artistic inquiry. The gift entered the permanent collection the following day as `6529NM.2026.001`. The transfer placed seven software artworks in permanent public stewardship, where they can be studied together, preserved as executable works, and documented through an accountable accession record. This is the record of a private holding becoming a public responsibility.
 
 ## I. The gift
 
@@ -43,7 +43,7 @@ These identifiers establish exact objects. They are not a substitute for titles,
 
 ## II. Why these works belong together
 
-The accession is not an artist-selected suite, and the Museum has no evidence that Reas endorsed it as one. The three *CENTURY* works are not a triptych. No donor statement establishes a private collecting thesis that can be attributed to punk6529. The significance of the group rests on what the works demonstrably make available when studied together.
+Donation and accession formed this seven-work Museum study group. The record contains no artist endorsement, artist-designated suite or triptych, or donor selection thesis. The group's significance rests on what the works make available when studied together.
 
 Reas has spent more than twenty-five years examining the interval between instruction and event. He creates systems of agents, behaviors, shapes, images, channels, cuts, and probabilities; software executes them; images emerge through time. The artist authors the conditions but does not place every visible event. His work makes control and surprise coexist.
 
@@ -51,29 +51,29 @@ The seven tokens are recent, but the artistic histories they carry are not. *Pho
 
 This recursive chronology is the group's first curatorial strength. It establishes technical and artistic continuity relevant to preservation through a history of artist-directed return. Code moves from C++ to Processing/Java to p5.js. An unresolved early system receives a later public form. A body made across media becomes a long-form generative edition. Each return changes the conditions of execution, distribution, and reception.
 
-The second strength is formal comparison. The three *CENTURY* works use one project grammar to produce markedly different visual experiences. #31 compresses blue, slate, cream, and salmon into a densely spliced circle. #724 opens into cream space crossed by rust arcs and sparse diagonals. #401 uses grayscale and transparency to create shallow, unstable architecture. Together, they show that variation is not a trait count. It is a difference in pictorial structure.
+The second strength is formal comparison. The three *CENTURY* works use one project grammar to produce markedly different visual experiences. #31 compresses blue, slate, cream, and salmon into a densely spliced circle. #724 opens into cream space crossed by rust arcs and sparse diagonals. #401 uses grayscale and transparency to create shallow, unstable architecture. Together, they establish variation as a difference in pictorial structure.
 
 The remaining four works change the unit through which a system becomes visible. In *Pre-Process #63*, populations and collisions accumulate across a panoramic black-and-white field. In *Phototaxis #308*, artificial agents leave pale trajectories that condense duration into loops, knots, and escapes. In *923 EMPTY ROOMS #713*, an acid-green raster breaks around charcoal voids until an impossible room appears. In *Ex Nihilo #248*, segmented white traces nearly assemble geometric solids against black and then release them.
 
-Trace, slice, void, and segment are four ways to make relation visible. The group does not illustrate one style. It demonstrates the persistence of an artistic problem across changing forms.
+Trace, slice, void, and segment are four ways to make relation visible. Across these changing forms, one artistic problem persists.
 
-## III. What the gift does not claim
+## III. The scope of the gift
 
 A responsible accession narrative must resist retrospective inflation. Seven works cannot represent the full practice of Casey Reas. The group contains no early *Path*, *Tissue*, or *MicroImage* print or installation; no *{Software} Structures* implementation; no principal *Process* work; no source-image work from *Signal to Noise* or *ULTRACONCENTRATED*; no *Compressed Cinema* or *In Silico* work; and no book, mural, woodblock, plotter drawing, or other physical translation.
 
-Those absences matter because Reas is not simply an on-chain generative artist. He co-initiated Processing with Ben Fry in 2001, has taught at UCLA since 2003, has made software, prints, installations, moving images, public works, and books, and co-founded Feral File. His practice has moved between internally generated systems and existing images, between screen and matter, and between individual studio work and shared cultural infrastructure.[^6]
+Those absences matter because Reas's practice extends far beyond on-chain generative art. He co-initiated Processing with Ben Fry in 2001, has taught at UCLA since 2003, has made software, prints, installations, moving images, public works, and books, and co-founded Feral File. His practice has moved between internally generated systems and existing images, between screen and matter, and between individual studio work and shared cultural infrastructure.[^6]
 
-The gift is therefore neither a retrospective nor a claim to canonical completeness. It is a focused, high-quality study group of on-chain works. Its limits identify future research and collecting priorities rather than defects to conceal.
+The gift forms a focused study group of seven on-chain works. Its limits identify future research and collecting priorities.
 
 The Museum likewise does not claim that feature scarcity determines importance. It has rejected OpenSea and marketplace rarity metrics as inadmissible. Project features can be analyzed through open, reproducible methods to understand an edition's distribution. They cannot replace close looking or establish an object's quality. The three *CENTURY* works matter together because of what their differences reveal, not because one is statistically rarer.
 
 Nor does chain evidence answer every historical question. The project and artist sources disagree on the date attached to *Phototaxis*: Art Blocks and Reas's contemporary technical note support a 2021 release, while the artist's current NFT register lists 2022. The Museum preserves the discrepancy. For *923 EMPTY ROOMS*, the artistic title and documented sequence refer to 923 rooms, while the retained release population contains 924 invocations numbered 0 through 923; invocation 0 has the separate code `999999`. The record states both facts and invents no theory to reconcile them.[^7]
 
-Accuracy is not timidity. It is the foundation from which strong interpretation can proceed.
+Preserving these distinctions supports stronger interpretation.
 
 ## IV. From ownership to obligation
 
-The gift's institutional importance begins where transfer ends. Before accession, the seven works were privately owned tokens. After accession, they became part of a permanent collection held for public benefit. The change is not metaphysical: the works do not look different because the custody address changed. It is a change in obligation.
+The transfer changed the works' institutional life. Once privately held, they now form part of a permanent collection maintained for public benefit. Accession created a continuing obligation to document, preserve, interpret, and exhibit them.
 
 The Museum must maintain exact identity, title history, custody evidence, rights information, and technical records. It must preserve the difference among token, code, live generator, official static output, and Museum-created documentation. It must exhibit the works at a scale and duration adequate to their behavior. It must disclose when a fallback image or video is a surrogate rather than the complete live work. It must revise errors through visible amendments rather than quietly rewriting the past.
 
@@ -81,31 +81,31 @@ This responsibility is particularly demanding because the works are executable. 
 
 The accession's technical outcome was therefore “pass with conditions.” Tested official generator routes supported display, and no red technical blocker prevented accession. The package does not claim that autonomous preservation is complete. Self-contained capture of generators and dependencies, wider browser and rendering tests, monitoring, and documented fallback states remain active stewardship work.[^8]
 
-Such work should not be hidden in a technical appendix no visitor encounters. It can deepen interpretation. *Phototaxis* has lived through C++, Processing/Java, and p5.js; understanding migration helps a viewer see the work as a maintained behavior rather than an eternal image. A *CENTURY* still and moving execution reveal different aspects of the same token-specific work. *Ex Nihilo #248* makes continuous non-repetition central; a screenshot is valuable precisely when its limitation is stated.
+Conservation can deepen interpretation. *Phototaxis* has lived through C++, Processing/Java, and p5.js; understanding migration reveals the work as maintained behavior across technical generations. A *CENTURY* still and moving execution disclose different aspects of the same token-specific work. *Ex Nihilo #248* makes continuous non-repetition central, giving a screenshot value as a record of one passing state.
 
-Conservation also includes the continued exercise of the works. Software that is never run can fail silently. Regular, documented execution reveals changes and sustains institutional knowledge. Exhibition is not merely the reward for successful preservation. It is one way preservation learns what matters.
+Conservation also requires the continued exercise of the works. Software left dormant can fail silently. Regular, documented execution reveals changes and sustains institutional knowledge. Exhibition tests preservation and teaches the Museum which properties matter.
 
 ## V. A founding accession
 
-`6529NM.2026.001` is the first completed accession package of the 6529 Network Museum. “First” should not be confused with greatest or most important. Its significance is that it establishes what the institution believes a chain-native accession should contain from the beginning: exact object identity, verifiable delivery, independent acceptance, title and rights review, provenance, technical condition, preservation obligations, curatorial interpretation, and public disclosure of unresolved facts.
+`6529NM.2026.001` is the first completed accession package of the 6529 Network Museum. “First” records sequence alone. The package establishes the Museum's standard for chain-native accession: exact object identity, verifiable delivery, independent acceptance, title and rights review, provenance, technical condition, preservation obligations, curatorial interpretation, and public disclosure of unresolved facts.
 
-The rigor is not administrative theater. It protects the art from predictable distortions. Without identity control, a token can be separated from the wrong image. Without rights analysis, ownership can be misrepresented as copyright. Without technical review, a live work can be presented as a static asset. Without close looking, metadata can replace judgment. Without historical research, blockchain can be mistaken for the origin of a practice that preceded it by decades.
+Each control answers a known risk. Identity control keeps the token attached to the correct work. Rights analysis preserves the distinction between ownership and copyright. Technical review prevents live software from being catalogued as a static asset. Close looking keeps metadata subordinate to judgment. Historical research places blockchain within an artistic practice that preceded it by decades.
 
-The accession also establishes a model for gifts already minted elsewhere. The Museum did not mint these works, direct their original release, or create their provenance. It entered their histories later. Its role is to document that continuity, accept custody and preservation responsibly, and add a public chapter without pretending to be the source.
+The accession also establishes a model for works minted elsewhere. The Museum entered an existing history and assumed responsibility for documenting its continuity, preserving the works, and opening a new public chapter.
 
-That modesty is compatible with ambition. A decentralized museum can aspire to the standards of major collecting institutions while using chain-native evidence those institutions have not consistently integrated. It can make provenance reproducible, publication versioned, technical dependencies inspectable, and corrections public. But these methods matter only if they support serious encounters with art.
+A decentralized museum can pair the standards of a major collecting institution with chain-native evidence: reproducible provenance, versioned publication, inspectable technical dependencies, and public corrections. These methods earn their place by supporting sustained encounters with art.
 
 The Casey Reas gift offers that encounter. The group can be shown as a comparison rather than a row of assets. Visitors can move among three states of *CENTURY*, follow behavior becoming line, enter an optical room, and watch geometry struggle into existence. They can inspect evidence without having the artwork buried beneath it. They can understand both why the seven belong together and why they do not complete the story.
 
 ## VI. Public trust as a continuing act
 
-A gift to a museum is often described as though public value were created at the moment of acceptance. Acceptance creates the duty, not the accomplishment. The collection becomes public through repeated acts: preserving, exhibiting, interpreting, researching, lending where appropriate, supporting accessibility, correcting records, and allowing future viewers to ask questions the accession team did not anticipate.
+A gift to a museum begins a continuing institutional duty. The collection becomes public through repeated acts: preserving, exhibiting, interpreting, researching, lending where appropriate, supporting accessibility, correcting records, and allowing future viewers to ask questions the accession team did not anticipate.
 
 For these seven works, the most immediate public task is to let the images act. #31's fractured circle should be large enough for its seams to register. #724's negative space should not collapse into a thumbnail. #401's translucent planes require tonal fidelity. *Pre-Process #63* needs width. *Phototaxis #308* needs time as well as its official 1,000-iteration thumbnail state. #713's room depends on optical scale. #248's geometry needs continuous execution and an honest still fallback.
 
-The second task is to build scholarship around the group without converting uncertainty into vagueness. The career can be narrated with art-historical specificity: Braitenberg and artificial life; LeWitt, instruction, and implementation; Kelly, seriality, and kinetic art; Shannon, pixels, and channels; Vasarely and optical space; experimental film and machine learning. These are not name-drops around technology. They are histories through which Reas's formal decisions become more exact.
+The second task is to build scholarship around the group while preserving uncertainty where the evidence requires it. Braitenberg and artificial life; LeWitt, instruction, and implementation; Kelly, seriality, and kinetic art; Shannon, pixels, and channels; Vasarely and optical space; experimental film and machine learning: these histories bring Reas's formal decisions into sharper focus.
 
-The third task is to keep the gift open to disagreement. Museum publication should not certify every work as equally successful or treat technological novelty as quality. Reas's systems can produce visual exhaustion as well as intensity; transparency of rule can coexist with opacity of experience; multimedia integration can fail. Serious care includes criticism because public trust is not promotional custody.
+The third task is to keep the gift open to disagreement. Museum publication should not certify every work as equally successful or treat technological novelty as quality. Reas's systems can produce visual exhaustion as well as intensity; transparency of rule can coexist with opacity of experience; multimedia integration can fail. Public trust requires criticism as well as care.
 
 Punk6529's gift created the conditions for this work to begin. The Museum can accurately say what was transferred and when. It cannot invent a donor motive, artist endorsement, or final verdict. Its strongest claim is also its most demanding: seven privately held works have entered a collection that intends to keep them identifiable, executable, debatable, and available for sustained public study.
 
@@ -136,6 +136,7 @@ Punk6529's gift created the conditions for this work to begin. The Museum can ac
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.2.0 — 3 August 2026:** Copy-edited the published narrative for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** replaced an overbroad preservation equation with “technical and artistic continuity relevant to preservation”; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; and added exact links to the receipt, gift authorization, accession certificate, title bindings, seven rights records, and seven technical-condition reports.
 - **Version 1.0.0 — 2 August 2026:** initial completed publication manuscript.
 

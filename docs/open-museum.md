@@ -2,10 +2,10 @@
 
 Status: working public operating statement; not an adopted governance policy
 
-## An open museum, built in public
+## A museum made in public
 
-The 6529 Network Museum is not only a collection that people can visit. It is a
-collection people can help make more accurate, more legible, and more useful.
+The 6529 Network Museum is a public collection and a shared body of knowledge.
+Its records are open to study, correction, and extension.
 
 The Museum's public-safe collection records, accession documents, research,
 policies, and curatorial texts are maintained in the public
@@ -15,21 +15,21 @@ propose a correction, new evidence, a stronger interpretation, improved
 accessibility, or better technical and preservation documentation through a
 pull request.
 
-Restricted donor, legal, custody-security, and personal information does not
-belong in the public repository, public content-addressed storage, or public
-contract state. The [contribution boundary](../CONTRIBUTING.md) and
-[rights map](../RIGHTS.md) explain what may be submitted and reused.
+Public access has a defined boundary. Restricted donor, legal,
+custody-security, and personal information remains outside the repository,
+public content-addressed storage, and public contract state. The
+[contribution guide](../CONTRIBUTING.md) and [rights map](../RIGHTS.md) set out
+what may be submitted and reused.
 
-This is more than transparency after the fact. It gives the network a practical
-way to participate in the quality of its Museum.
+Open publication gives the network a practical role in the Museum's
+intellectual life.
 
-## Open to improvement, responsible to the record
+## Revision as a public act
 
-Anyone can propose an edit; no one can quietly rewrite what the Museum has
-published. Accepted changes enter as reviewed, attributable revisions after
-their evidence and meaning have been examined and the records have passed
-deterministic validation. Pull requests keep the source, discussion,
-authorship, and path of change visible to everyone.
+Every pull request is a proposal. Accepted changes become attributable
+revisions after editorial and evidence review, deterministic validation, and
+maintainer approval. The repository preserves the source, discussion,
+authorship, and sequence of each published change.
 
 Contributors can improve many kinds of Museum work:
 
@@ -41,21 +41,21 @@ Contributors can improve many kinds of Museum work:
 - a schema, validator, or reproducible research method.
 
 The contribution guide explains how to
-[propose an improvement](../CONTRIBUTING.md). Published corrections retain
-lineage instead of quietly erasing the record they replace.
+[propose an improvement](../CONTRIBUTING.md). A published correction cites the
+record it supersedes and carries its history forward.
 
-## Three layers, one Museum
+## Publication, memory, encounter
 
-The Museum is being built in three deliberately separate layers.
+The Museum's public life currently takes three connected forms.
 
-### Public record
+### Published catalogue
 
-Today, the repository is the intermediate public system of record. It is
-inspectable, cloneable, group-editable through pull requests, and released with
-deterministic file and manifest commitments. It lets a visitor move from an
-artwork or essay to the exact material from which the page was published.
+During this transition, the repository is the Museum's authoritative public
+catalogue. Readers can inspect its sources, follow its revisions, and propose
+amendments through reviewed pull requests. Cryptographic commitments fix each
+edition and link every artwork and essay to its published source.
 
-### On-chain memory
+### Permanent record
 
 Our Fall 2026 goal is for every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
@@ -65,30 +65,27 @@ preservation files can live on content-addressed storage while the contract
 records their identity, schema, hash, location, authority, effective time, and
 append-only history.
 
-The contract is being designed. It has not yet been deployed or activated, and
-the repository must not be mistaken for evidence that migration has occurred.
+Contract design is in progress; deployment and activation remain pending. The
+repository will continue to carry the published record until independent
+readback from the contract and its committed payloads has been verified.
 
-### Open display
+### Public encounter
 
-The website is where the public encounters the art. It should be beautiful,
-fast, accessible, and generous with scholarship. But a website is still an
-interface: designs change, software is replaced, and domains or hosting systems
-can fail.
+The website presents the art and its scholarship. It is designed for close
+looking, reading, accessibility, and discovery. The published catalogue
+supplies the authority behind each page.
 
-Museum decisions, historical records, provenance, and citations should not
-disappear with a frontend. The site therefore reads from the published Museum
-record instead of treating the interface itself as the authority. Today that
-record comes from a committed GitHub release; in the intended future it will
-be resolved from on-chain commitments and content-addressed payloads without
-changing the artwork's Museum identity or public URL.
+The current site draws on a fixed edition of the public repository. In time,
+the same records will be read from the contract and its content-addressed
+documents. Exhibitions and software may change; accession, provenance, and
+publication histories will remain continuous.
 
 ## A museum the network can carry forward
 
-The result is neither a website with an opaque database behind it nor a chain
-of hashes without a meaningful public experience. It is a Museum whose art can
-be encountered directly, whose claims can be examined, whose scholarship can
-be improved, and whose institutional memory can survive any single team or
-interface.
+Together, the catalogue, permanent record, and public presentation support a
+Museum whose art can be encountered directly, whose claims can be examined,
+whose scholarship can be improved, and whose institutional memory can pass
+from one team and interface to the next.
 
 Explore the
 [public record](https://github.com/6529-Collections/6529networkmuseum), read
