@@ -86,7 +86,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-01-nextgen-rarity-analysis.md`](notes/wip/2026-08-01-nextgen-rarity-analysis.md) | WIP analysis | Authoritative source pins, algorithm conclusions, implementation status, and unresolved questions |
 | [`notes/wip/2026-08-01-documentation-control-plane.md`](notes/wip/2026-08-01-documentation-control-plane.md) | historical implementation note | Construction rationale, fail-closed remediation history, and remaining Stream/cross-language boundaries for the active documentation-as-code controls; current operation is in [`docs/control-plane.md`](docs/control-plane.md) |
 | [`notes/wip/2026-08-02-curatorial-writing-redo.md`](notes/wip/2026-08-02-curatorial-writing-redo.md) | active WIP analysis | Third-lane diagnosis and replacement scope for Casey Reas monograph, project essays, seven-work collection essay, gift narrative, object entries, and reusable Museum writing standard |
-| [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, and next actions |
+| [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
 ## Generative analysis tooling
 
