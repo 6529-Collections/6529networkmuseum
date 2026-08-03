@@ -1583,10 +1583,10 @@ These remain candidate values until governed merge to canonical `main`.
 ### 2026-08-03 production Museum frontend release checkpoint
 
 The art-first rescue and its second publication sweep are now merged and live
-in `6529-Collections/6529seize-frontend`. The rescue PR #3550 merged as
-`bd0983475802c8a742a1f52416fe480285ab1960`. The second-sweep PR #3551 merged
-as production main `5acf2f5f85531a0970cd6ba1fd8988f762923865`; its final
-reviewed head was `b42e30880aee2792f2b133635d42ed368a3cd997`.
+in `6529-Collections/6529seize-frontend`. [Rescue PR #3550](https://github.com/6529-Collections/6529seize-frontend/pull/3550)
+merged as `bd0983475802c8a742a1f52416fe480285ab1960`. [Second-sweep PR #3551](https://github.com/6529-Collections/6529seize-frontend/pull/3551)
+merged as production main `5acf2f5f85531a0970cd6ba1fd8988f762923865`;
+its final reviewed head was `b42e30880aee2792f2b133635d42ed368a3cd997`.
 
 The second sweep publishes the canonical gift narrative, five project essays,
 and the visitor-facing *Casey Reas: Sources and chronology* research record as
@@ -1598,35 +1598,40 @@ makes source-matrix section projection ignore heading-like text inside Markdown
 fences and fail closed when its exact public boundaries are not unique.
 
 Staging composition `156e2d0c3134d96d78a14b110f5006b57873268d`
-embedded the exact production candidate. Staging deploy run `30779714023`
-passed exact HTTP-version verification; automatic manifest-bound staging E2E
-run `30780357100` passed; and the retained Museum staging sweep passed 14/14
-desktop/mobile routes, all 390-pixel overflow checks, governed media, source
-links, dossier disclosure, and live-recovery behavior.
+embedded the exact production candidate. [Staging deploy run 30779714023](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30779714023)
+passed exact HTTP-version verification; automatic manifest-bound [staging E2E
+run 30780357100](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30780357100)
+passed; and the retained Museum staging sweep passed 14/14 desktop/mobile
+routes, all 390-pixel overflow checks, governed media, source links, dossier
+disclosure, and live-recovery behavior.
 
-Production deploy run `30780811939` completed successfully for exact main
-`5acf2f5f85531a0970cd6ba1fd8988f762923865`. Production `/api/version`
-matched that SHA three consecutive times with `stale:false`. Exact detached-
-main live validation passed all 11 declared production packs (73 tests), core
-smoke 14/14, WCAG/i18n 6/6, and the retained Museum sweep 14/14 including
+[Production deploy run 30780811939](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30780811939)
+completed successfully for exact main
+`5acf2f5f85531a0970cd6ba1fd8988f762923865` and produced release
+`fe-production-20260803T030417Z-5acf2f5f8553`. Production `/api/version`
+matched that SHA three consecutive times with `stale:false`. Exact detached-main
+live validation passed all 11 declared production packs (73 tests), core smoke
+14/14, WCAG/i18n 6/6, and the retained Museum sweep 14/14 including
 desktop/mobile routes, 390-pixel no-overflow, governed art, immutable source
-link, dossier, and live recovery. Durable local evidence is under:
-
-- `C:\Users\Administrator\.codex\artifacts\museum-sweep-two\production-pack-evidence-5acf2f5f\summary.json`;
-- `C:\Users\Administrator\.codex\artifacts\museum-sweep-two\production-companion-evidence-5acf2f5f\summary.json`;
-- `C:\Users\Administrator\.codex\artifacts\museum-sweep-two\production-5acf2f5f\report.json`.
+link, dossier, and live recovery. The validation bundles uploaded with the
+release are identified as `production-pack-evidence-5acf2f5f`,
+`production-companion-evidence-5acf2f5f`, and `production-5acf2f5f`; the
+approved S3 copies were read back with SHA-256 metadata.
 
 The current `PRODUCTION: OFF` serialized manual-fallback path has no sanctioned
 automatic Production E2E trigger: the manifest-bound workflow is Release-Bus-
 only and rejects invented train inputs. The exact detached-main packs above are
 the truthful production E2E substitute for this release. The exact
 `test:e2e:surface-matrix` command also passed with 26 tests green, 22 intentional
-project skips, and zero failures.
+project skips, and zero failures. This disposition is release-specific and does
+not create a fallback precedent for later Museum releases.
 
 Final sign-off passed after the deployment manifest's mandatory 30-minute
-post-deploy watch. Thirty-three consecutive observations from 03:40:17 through
-03:56:18 UTC retained the exact served and announced frontend SHA, returned no
-stale response, and kept the Museum route healthy. Final atomic readback found
+release-captain checkpoint from 03:26:15 through 03:56:18 UTC. The final sixteen
+minutes included thirty-three consecutive polling observations from 03:40:17
+through 03:56:18 UTC; every observation retained the exact served and announced
+frontend SHA, returned no stale response, and kept the Museum route healthy.
+Final atomic readback found
 frontend main and live production at `5acf2f5f85531a0970cd6ba1fd8988f762923865`,
 canonical Museum main at `04856bc3d137cc2a74a8cf15f068e02d3d026038`,
 all seven representative Museum routes at HTTP 200, zero active release actors,
