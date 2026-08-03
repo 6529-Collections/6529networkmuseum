@@ -52,8 +52,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "sha256:6ddde158876ae46013e54b77ef8eeee356a5ce1d4df1591a7683f680fff40315",
-      "size": 8092
+      "sha256": "sha256:b7c027d38a4a72cb1c7ea3711d33727a5f438b46ccda75bbd03d1ffa4b1a7fc5",
+      "size": 8241
     },
     {
       "path": "RIGHTS.md",
@@ -102,13 +102,13 @@
     },
     {
       "path": "docs/onchain-transition.md",
-      "sha256": "sha256:f953432b824b87458c2f81fbdffbac478b574f415f30e8c7ac92da3b6450effd",
-      "size": 4831
+      "sha256": "sha256:162964c4685d165e39466be51f36959aaaa5febcd219eeca81a5f87e577cab4f",
+      "size": 5969
     },
     {
       "path": "docs/open-museum.md",
-      "sha256": "sha256:0f6ea0908b92ac2b2732f5b4a42afdec5d978a58d45a107dd3b17c7b0310a308",
-      "size": 4109
+      "sha256": "sha256:016f7e284e0cd3414ede2fdfd3d49b8d024b3ba49205e1da041fcbc35f987434",
+      "size": 4127
     },
     {
       "path": "docs/programs/keys-and-gates.md",
@@ -282,8 +282,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.02.md",
-      "sha256": "sha256:e914f3114c3e6af3a51a2bc92acac17a9588cab822c2ddbaf252a5aeff67837f",
-      "size": 11014
+      "sha256": "sha256:4cef687d77a11785af8fb4f5ed16305a1e55a6c7487811050e7695a3987417b4",
+      "size": 11017
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.03.md",
@@ -297,8 +297,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md",
-      "sha256": "sha256:2a14580808ebe9a9df06a7e2444bc24db04682f9d197a119900f9594665cf377",
-      "size": 12222
+      "sha256": "sha256:228648aaeb83e6e5550a7b623bcf3b9b05713e68096994b7fc59b01a080a68b7",
+      "size": 12229
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.06.md",
@@ -327,8 +327,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
-      "sha256": "sha256:2f1850102ecb396624808ed6b91364484920585073408509db9842aa15ed1466",
-      "size": 8000
+      "sha256": "sha256:fc1b881f9b0e53c5d4619c7d40876011bf3477f0453e284a2e966054c8e424b0",
+      "size": 8091
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
@@ -342,8 +342,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-into-public-trust.md",
-      "sha256": "sha256:ef3a01501f9d1d0a1f57d62b8626afe8ef155d3d231b4d4f4cd865c4c6637828",
-      "size": 22097
+      "sha256": "sha256:cb57d57cc849016ec40f34cb9fee33933c9f8378736e258263ef81c6cb18e119",
+      "size": 22201
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/atomism-and-923-empty-rooms.md",
@@ -362,8 +362,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/process-and-pre-process.md",
-      "sha256": "sha256:c1ab8116d1e4b032816688b77fbe374046ab7e17153c6ecc0535513324ec7377",
-      "size": 25640
+      "sha256": "sha256:63821bf8a16bc958832f3334cd0ab2f7dc8b4750bf7610982ae46504414f9d6f",
+      "size": 25845
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/still-life-and-ex-nihilo.md",
@@ -1615,9 +1615,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x39fc02bbf1f66fd60adea9ca54b0ee8e079cade31dc69e1e796544ab34dd8cce"
+    "digest": "0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3"
   },
-  "manifest_sha256": "sha256:0534cdbe0ffac082c9a37ae3fcf95eb9eea46aa36511bb48978afb22f5cbc246",
+  "manifest_sha256": "sha256:02c0c65f48017156094221aed490915c853dbbcac12b713b43d8aebece2da0fa",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

@@ -106,7 +106,7 @@ To encounter #63 well is to recognize that “pre” does not mean lesser. It na
 
 [^3]: 6529 Network Museum, *Pre-Process* #63, 2022, [object record](../../../../../records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json) and [public record](../../../../../records/accessions/6529NM.2026.001/public/6529NM.2026.001.04.md), accessed 2026-08-02.
 
-[^4]: Whitney Museum of American Art, “Casey Reas: Software Structures,” accessed 2026-08-02, https://whitney.org/exhibitions/software-structures.
+[^4]: Casey Reas, “Process,” REAS.com, accessed 2026-08-03, https://reas.com/process, for Christiane Paul's 2001 invitation and the creation of *{Software} Structures*; Whitney Museum of American Art, “Casey Reas: Software Structures,” accessed 2026-08-02, https://whitney.org/exhibitions/software-structures, for the project's 2004 public launch.
 
 [^5]: Whitney Museum of American Art, “Casey Reas, {Software} Structures #003 A and B, 2004,” 28 September 2018, https://whitney.org/media/39184.
 

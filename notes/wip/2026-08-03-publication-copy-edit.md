@@ -1,6 +1,6 @@
 # Museum publication copy edit
 
-Status: implementation and release validation in progress
+Status: copy edit and exact-head source validation complete; governed release pending
 
 ## Purpose
 
@@ -12,8 +12,9 @@ specific, assured, economical, attentive to artworks, and candid about status.
 This review covers the working Open Museum statements, contributor material,
 website labels and framing, and the Museum-authored Casey Reas scholarship.
 Adopted proposal text and source transcriptions remain verbatim. Machine records
-change only when an editorial correction is necessary to keep a public text and
-its declared title or status in agreement.
+change only through an append-only amendment carrying `supersedes` when an
+editorial correction is necessary to keep a public text and its declared title
+or status in agreement.
 
 ## Editorial standard
 

@@ -1703,3 +1703,30 @@ technical specifications as a curated source index. Complete technical sources
 remain public without being reproduced as visitor-facing essays. Frontend
 focused tests, changed lint and typecheck, diff checks, and React Doctor 100/100
 pass before source activation and release qualification.
+
+### 2026-08-03 Museum publication exact-head review follow-up
+
+The source copy edit is complete. Exact-head review added five precision
+corrections before release: the on-chain transition now defines the
+`6529NM_RECORD_MANIFEST` inventory, canonicalization, hashing, ordering, and
+contract-export invariant; machine-record copy corrections require an
+append-only amendment carrying `supersedes`; chain-native and off-chain receipt
+paths are distinguished; the *{Software} Structures* chronology cites Reas for
+the 2001 invitation and the Whitney for the 2004 public launch; and generative
+trait analysis is bound to the Museum's published NextGen-compatible method,
+source snapshot, configuration, and deterministic result set. Four leading
+token numbers were recast as normal paragraph prose without changing their
+identifiers. Governed release remains pending the refreshed manifest,
+exact-head validation, and review readback.
+
+The corrected source tree then passed manuscript promotion parity, bootstrap
+validation across 301 JSON files, 119 unit tests with one intentional Windows
+named-pipe skip, the network fetch guard, Casey snapshot verification, the
+22-file diligence inventory, full Museum validation, deterministic manifest
+verification, and the Windows-safe diff check. The refreshed 213-entry
+candidate manifest has SHA-256
+`sha256:02c0c65f48017156094221aed490915c853dbbcac12b713b43d8aebece2da0fa`
+and Keccak-256
+`0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3`.
+These commitments remain candidates until the reviewed source pull request
+merges.

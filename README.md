@@ -55,9 +55,12 @@ activation remain pending. See
 
 ## Collection status
 
-The Museum records each stage separately:
+For chain-native objects, the Museum records each stage separately:
 
 `offered` → `authorized` → `acquired` → `received_onchain` → `accessioned` → `catalogued` → `technically_verified` → `preservation_complete` → `display_ready`
+
+For non-token and hybrid objects, the applicable off-chain receipt, title, and
+custody events replace `received_onchain`.
 
 Wallet custody records receipt. Accession requires its own reviewed act. A Wave
 `WINNER` records selection; minting, purchase, transfer, rights clearance, and

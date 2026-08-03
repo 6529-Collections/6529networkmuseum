@@ -53,7 +53,8 @@ The Museum's public life currently takes three connected forms.
 During this transition, the repository is the Museum's authoritative public
 catalogue. Readers can inspect its sources, follow its revisions, and propose
 amendments through reviewed pull requests. Cryptographic commitments fix each
-edition and link every artwork and essay to its published source.
+edition and bind it to the complete governed inventory from which it was
+published.
 
 ### Permanent record
 

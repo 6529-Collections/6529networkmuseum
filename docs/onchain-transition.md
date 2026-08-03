@@ -101,6 +101,27 @@ Migration will be complete when an independent third party can reproduce the
 record hashes and public exports directly from contract state and committed
 payloads.
 
+### Release and export invariant
+
+The repository release format is `6529NM_RECORD_MANIFEST`, version `1.0.0`.
+Its governed inventory is the exact union of `inventory_roots` and
+`inventory_files` declared in the manifest. The generator rejects symbolic
+links, reparse points, duplicate JSON keys, missing configured paths, and
+non-regular inventory entries. It writes POSIX-style relative paths in
+lexicographic order.
+
+Each entry contains `path`, LF-normalized byte `size`, and SHA-256 over those
+normalized bytes. JSON entries also contain Keccak-256 over RFC 8785 JCS using
+the `museum-i-json-v1` profile and canonicalization ID
+`0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044`.
+The manifest's SHA-256 and Keccak-256 commitments cover the same JCS-encoded
+manifest body before either commitment field is added.
+
+Contract readback exports must reproduce this schema, inventory ordering,
+hash rules, record identities, and append-only lineage from contract state and
+committed payloads. A Git commit may document the repository edition that
+preceded migration; it is not required to verify a contract-derived export.
+
 ## Follow the work
 
 - [Open Museum statement](open-museum.md)

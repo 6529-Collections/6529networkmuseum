@@ -40,7 +40,7 @@ The group also advances the Museum's broader collection purpose. A decentralized
 - **923 EMPTY ROOMS #713 (`6529NM.2026.001.06`)** is accepted for its unstable room-like field and its relation to questions of generated space, perspective, and absence. The accession fixes the chain identity as project-encoded token `1000713`; source-display conventions are preserved separately.
 - **Ex Nihilo (Cosmos) #248 (`6529NM.2026.001.07`)** is accepted for its continuously changing construction of line, polygonal suggestion, and darkness, and for the way its controls and ongoing display make manifestation rather than a single image the object of care.
 
-These observations are Museum interpretations grounded in the recorded outputs and cited artist, platform, and institutional sources. They make no claim to artist intent, aesthetic ranking, rarity, or valuation. The transparent collection descriptors support reproducible distribution study and exclude OpenSea and marketplace rarity metrics.
+These observations are Museum interpretations grounded in the recorded outputs and cited artist, platform, and institutional sources. They make no claim to artist intent, aesthetic ranking, rarity, or valuation. Any generative-trait analysis must use the Museum's published NextGen-compatible methodology, a cited source snapshot and configuration, and a deterministic result set. OpenSea and marketplace rarity metrics are excluded.
 
 ## Scope, strengths, and limits
 
