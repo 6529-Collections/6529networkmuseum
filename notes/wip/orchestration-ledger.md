@@ -1666,6 +1666,9 @@ frontend lane will add the complete idea to About and Sources, a concise
 version to the home experience, and a quiet exact-source/contribution colophon
 to every Museum page family. Exact-source links bind the active immutable
 source commit; contribution actions target only validated canonical repository
-paths. Both lanes are authorized through PR review, merge, staging E2E,
-production deployment, production E2E, and a final rendered-product polish
-sweep.
+paths. The repository lane is gated by PR review, merge, manifest, bootstrap,
+fetch-guard, unit-test, and full-validator checks. The frontend lane is gated
+by PR review, merge, rendered review, staging E2E, production deployment,
+production E2E, and the final rendered-product polish sweep. Both lanes bind to
+the same reviewed source state; frontend qualification does not imply contract
+deployment or migration.

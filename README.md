@@ -12,9 +12,10 @@ read its sources and revision history, make a copy, and propose a correction,
 new evidence, stronger scholarship, improved accessibility, or better
 technical and preservation documentation through a pull request.
 
-The published record changes only after review and deterministic validation.
-That preserves institutional integrity while giving the network a practical
-way to improve its Museum. Start with
+The published record changes only after evidence review, deterministic
+repository validation, and maintainer approval. That preserves institutional
+integrity while giving the network a practical way to improve its Museum.
+Start with
 [`CONTRIBUTING.md`](CONTRIBUTING.md), or read
 [`The record outlives the interface`](docs/open-museum.md).
 

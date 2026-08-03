@@ -65,10 +65,11 @@ claims, and marketplace rarity scores.
 
 ### Adding chain or technical evidence
 
-Record the chain, contract, token, transaction, block, observation time, method,
-and finality assumptions. Preserve title, custody, copyright, display rights,
-and preservation rights as separate facts. A wallet transfer alone is never
-proof of accession.
+Use CAIP-19-shaped citations for on-chain objects. Record the chain, contract,
+token, transaction, block, observation time, method, and finality assumptions.
+Preserve title, custody, copyright, display rights, and preservation rights as
+separate facts. Never infer accession from wallet custody, a transfer, an
+airdrop, or a Wave `WINNER` label.
 
 ### Improving accessibility
 
@@ -100,10 +101,12 @@ changing governed records.
 2. Change the smallest coherent set of records and documentation.
 3. Add the source, observation date, and evidence class for material factual
    claims where the record model requires them.
-4. Update `INDEX.md` when adding a canonical document or a durable research
+4. For governance status, record the live API status and observation time. Do
+   not infer adoption from a vote total.
+5. Update `INDEX.md` when adding a canonical document or a durable research
    note.
-5. Run the validation commands below.
-6. Open a pull request explaining the issue, the proposed improvement, its
+6. Run the validation commands below.
+7. Open a pull request explaining the issue, the proposed improvement, its
    evidence, and any uncertainty that remains.
 
 The canonical repository is
@@ -118,6 +121,7 @@ python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
+python scripts/verify_casey_snapshot_package.py
 python scripts/validate.py
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check

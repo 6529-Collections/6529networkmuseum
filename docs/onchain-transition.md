@@ -27,8 +27,8 @@ came before.
 
 ## What moves on-chain
 
-Each admitted institutional record should have a state-readable entry that
-commits to:
+Each admitted public-safe institutional record should have a state-readable
+entry that commits to:
 
 - a stable subject and record type;
 - the schema that gives the record meaning;
@@ -44,17 +44,22 @@ provenance, preservation events, and corrections have different authorities
 and meanings. The contract must preserve those differences rather than flatten
 them into generic notes.
 
+Restricted donor, legal, custody-security, and personal information does not
+move into public contract state, public content-addressed storage, or the
+public repository. Public records may commit to a restricted instrument by
+hash and non-sensitive custodian reference without exposing its contents.
+
 ## What does not need to live in contract storage
 
 Putting the Museum record on-chain does not mean forcing every essay, image,
 video, software package, or conservation dossier into expensive contract
 storage.
 
-Large payloads can live on durable content-addressed storage. The contract
-commits to the payload's identity, schema, hash, URI, authority, effective
-time, and lineage. A third party can retrieve the payload and verify that its
-bytes are exactly those admitted under the stated schema. Availability and the
-truth of the underlying assertion remain separate questions.
+Large public-safe payloads can live on durable content-addressed storage. The
+contract commits to the payload's identity, schema, hash, URI, authority,
+effective time, and lineage. A third party can retrieve the payload and verify
+that its bytes are exactly those admitted under the stated schema. Availability
+and the truth of the underlying assertion remain separate questions.
 
 The artwork itself also remains where its canonical identity places it. The
 Museum registry records institutional claims about a work; it does not wrap,

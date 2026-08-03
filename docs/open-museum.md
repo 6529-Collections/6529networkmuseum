@@ -7,13 +7,18 @@ Status: working public operating statement; not an adopted governance policy
 The 6529 Network Museum is not only a collection that people can visit. It is a
 collection people can help make more accurate, more legible, and more useful.
 
-The Museum's collection records, accession documents, research, policies, and
-curatorial texts are maintained in the public
+The Museum's public-safe collection records, accession documents, research,
+policies, and curatorial texts are maintained in the public
 [`6529-Collections/6529networkmuseum`](https://github.com/6529-Collections/6529networkmuseum)
 repository. Anyone can read the sources and revision history, make a copy, or
 propose a correction, new evidence, a stronger interpretation, improved
 accessibility, or better technical and preservation documentation through a
 pull request.
+
+Restricted donor, legal, custody-security, and personal information does not
+belong in the public repository, public content-addressed storage, or public
+contract state. The [contribution boundary](../CONTRIBUTING.md) and
+[rights map](../RIGHTS.md) explain what may be submitted and reused.
 
 This is more than transparency after the fact. It gives the network a practical
 way to participate in the quality of its Museum.
