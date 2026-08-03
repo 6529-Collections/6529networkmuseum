@@ -1639,3 +1639,36 @@ and both Release Bus lanes deliberately `OFF` and changeable under the recorded
 fallback controls. The completed manifest validates with no holds or warnings;
 its redacted evidence, release report, and watch record were written to the
 approved S3 release prefix and read back with SHA-256 metadata.
+
+### 2026-08-03 Open Museum public-record implementation directive
+
+The founder directed the Museum to make a foundational operating idea visible
+on the public site: the GitHub repository is not only inspectable but publicly
+cloneable and group-editable through pull requests. Anyone should be able to
+read the source and revision history and propose a correction, stronger
+evidence, deeper scholarship, improved accessibility, or technical and
+preservation work. Review and deterministic validation protect the published
+record without closing its construction to the network.
+
+This repository phase is explicitly intermediate. Our Fall 2026 goal is for
+every admitted Museum record—from governance decisions and policies to
+accessions, provenance, rights, preservation events, and later corrections—to
+have an on-chain commitment and append-only lineage in a custom contract, with
+large documents and media on content-addressed storage. The website remains a
+replaceable display and interpretation layer rather than the sole location of
+institutional memory. The target is not evidence that a contract is
+implemented, audited, deployed, activated, or migrated.
+
+The implementation contract is retained in
+`notes/wip/2026-08-03-open-museum-public-record.md`. The Museum repository lane
+will publish a governed human-readable statement and contribution guide. The
+frontend lane will add the complete idea to About and Sources, a concise
+version to the home experience, and a quiet exact-source/contribution colophon
+to every Museum page family. Exact-source links bind the active immutable
+source commit; contribution actions target only validated canonical repository
+paths. The repository lane is gated by PR review, merge, manifest, bootstrap,
+fetch-guard, unit-test, and full-validator checks. The frontend lane is gated
+by PR review, merge, rendered review, staging E2E, production deployment,
+production E2E, and the final rendered-product polish sweep. Both lanes bind to
+the same reviewed source state; frontend qualification does not imply contract
+deployment or migration.

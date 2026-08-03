@@ -65,6 +65,10 @@ Status vocabulary:
 | [`docs/accession-standard.md`](docs/accession-standard.md) | working standard | Accession statement, object record, curatorial statement, completion gates |
 | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
 | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | replacement product and implementation standard | Art-first public Museum rebuild: information architecture, page and media requirements, Casey and Keys and Gates exemplars, publication adapter, accessibility, security, performance, and release gates |
+| [`docs/open-museum.md`](docs/open-museum.md) | working public operating statement | Public, cloneable, group-editable repository phase; reviewed contribution model; separation of durable record and replaceable display |
+| [`docs/onchain-transition.md`](docs/onchain-transition.md) | working public migration statement | Fall 2026 custom-contract target, on-chain/content-addressed boundary, migration sequence, and explicit non-deployment status |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | active contributor guide | Contribution types, evidence and correction rules, repository map, validation commands, review path, public/restricted boundary, and migration context |
+| [`RIGHTS.md`](RIGHTS.md) | active repository rights map | CC0 default for Museum-authored public material; exclusions for artworks, media, evidence, and other third-party material; contribution terms |
 | [`docs/onchain-design.md`](docs/onchain-design.md) | working standard | General repository-to-chain migration target |
 | [`docs/external-works-registry.md`](docs/external-works-registry.md) | WIP analysis | Recommended on-chain registry for donations minted outside Stream |
 | [`specs/onchain/contract-migration-v1.md`](specs/onchain/contract-migration-v1.md) | working standard | V1 immutable registry migration design, active-vector/ABI-selector conformance, Stream bilateral-convergence and release gates, and no-deployment status |
@@ -86,6 +90,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-01-nextgen-rarity-analysis.md`](notes/wip/2026-08-01-nextgen-rarity-analysis.md) | WIP analysis | Authoritative source pins, algorithm conclusions, implementation status, and unresolved questions |
 | [`notes/wip/2026-08-01-documentation-control-plane.md`](notes/wip/2026-08-01-documentation-control-plane.md) | historical implementation note | Construction rationale, fail-closed remediation history, and remaining Stream/cross-language boundaries for the active documentation-as-code controls; current operation is in [`docs/control-plane.md`](docs/control-plane.md) |
 | [`notes/wip/2026-08-02-curatorial-writing-redo.md`](notes/wip/2026-08-02-curatorial-writing-redo.md) | active WIP analysis | Third-lane diagnosis and replacement scope for Casey Reas monograph, project essays, seven-work collection essay, gift narrative, object entries, and reusable Museum writing standard |
+| [`notes/wip/2026-08-03-open-museum-public-record.md`](notes/wip/2026-08-03-open-museum-public-record.md) | active implementation plan | Public, group-editable repository phase; Fall 2026 custom-contract target; frontend/record separation; contribution and exact-source UX contract; release gates |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
 ## Generative analysis tooling

@@ -34,8 +34,10 @@ INVENTORY_FILES = (
     ".gitattributes",
     ".gitignore",
     "AGENTS.md",
+    "CONTRIBUTING.md",
     "INDEX.md",
     "README.md",
+    "RIGHTS.md",
     "requirements-dev.txt",
 )
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"

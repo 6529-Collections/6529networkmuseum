@@ -150,8 +150,9 @@ files receive an LF-normalized SHA-256 digest. The manifest itself commits its
 canonical body with both Keccak/JCS and SHA-256. Its closed directory inventory
 covers `.github/`, `policies/`, `records/`, `schemas/`, `docs/`, `governance/`,
 `specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
-files `.gitattributes`, `.gitignore`, `AGENTS.md`, `INDEX.md`, `README.md`, and
-`requirements-dev.txt`. Entries use sorted repository-relative POSIX paths.
+files `.gitattributes`, `.gitignore`, `AGENTS.md`, `CONTRIBUTING.md`, `INDEX.md`,
+`README.md`, `RIGHTS.md`, and `requirements-dev.txt`. Entries use sorted
+repository-relative POSIX paths.
 Generation fails closed if any configured root or named control file is missing,
 linked, a reparse point, or not the expected regular-file/directory type.
 Non-regular entries inside governed directories, including pipes, sockets, and

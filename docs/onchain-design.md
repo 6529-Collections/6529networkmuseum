@@ -2,6 +2,14 @@
 
 This document defines the migration target; it is not a deployed-contract claim.
 
+Delivery goal: by Fall 2026, every admitted Museum record—from governance
+decisions and policies to accessions, provenance, rights, preservation events,
+and later corrections—should have an on-chain commitment and append-only
+lineage in the custom registry described here. The goal is a delivery target,
+not evidence that implementation, audit, deployment, authority activation, or
+migration has occurred. The visitor-facing account is
+[`onchain-transition.md`](onchain-transition.md).
+
 ## Architecture
 
 Use a small append-only registry, not a monolithic museum database. Rich payloads live as canonical JSON or standard archival packages on content-addressed storage; the contract records identity, schema, hash, URI, authority, effective time, and chain lineage.
