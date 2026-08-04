@@ -1,0 +1,310 @@
+# Adjacent practice: platforms, archives, festivals, and chain-native systems
+
+- **Status:** public scholarship
+- **Version:** 1.0.0
+- **Publication date:** 2026-08-04
+- **Research cutoff:** 2026-08-04
+- **Primary-source register:** [source-register.md](source-register.md) (placeholder companion register for this edition)
+
+The word “museum” does too much work around digital and blockchain art. A
+platform may publish an artwork without owning it. A marketplace may record a
+sale without establishing provenance. A festival may distribute a work without
+collecting it. A DAO may coordinate participation without holding legal
+authority. A token may identify an edition without preserving its runtime,
+rights, or public history. This essay therefore classifies each precedent by
+what its public work demonstrates, not by the institution’s preferred label.
+Official pages establish what an organization says and publishes; they do not,
+without further evidence, establish custody, title, preservation, or public
+authority.
+
+This is not a ranking. The selected practices answer different Museum
+problems. Feral File and Art Blocks are useful for exhibition interfaces and
+technical identity. Bright Moments and Verse document event, release, and
+market mechanisms. DAM and MoRE are more useful for artist records, collection
+scope, rights, and public scholarship. DiMoDA and the Museum of Other Realities
+show native-runtime presentation. MOCA, Furtherfield, and The Wrong document
+community and distributed programs without proving decentralized collection
+governance. DATALAND documents a dynamic AI/data exhibition, while 0xCollection
+shows how a private experiential initiative can make non-documentation part of
+its curatorial position.
+
+## Classification by demonstrated function
+
+| Candidate | Actual institutional type in this comparison | Included lesson and exclusion |
+|---|---|---|
+| Feral File | Online gallery, exhibition and commissioning body, digital-art platform, technology company | Exhibition/object/protocol layers; not public accession or conservation authority |
+| Art Blocks | Generative-art protocol, creator platform, marketplace, white-label infrastructure | Deterministic technical identity; not complete preservation, title, or rights |
+| Bright Moments | Gallery, live-minting producer, event program, community DAO | Event and participation records; not collection governance |
+| Verse | Marketplace, sales infrastructure, gallery and exhibition host | Named selection and contract boundaries; not provenance or preservation authority |
+| DAM | Online digital-art resource associated with DAM Projects GmbH | Artist histories and scholarly publication; not an open public collection |
+| MoRE | Online museum, archive, research and publishing body | Collection scope, donation, rights, and exhibition separation |
+| DiMoDA / Museum of Other Realities | Virtual commissioning project and social-VR museum/platform | Native-runtime and downloadable-experience records; not complete registrarial systems |
+| MOCA | Self-described community museum and NFT-linked collection/spatial interface | Collection-category and member-exhibition distinctions; not proof of permanence or custody |
+| Furtherfield / The Wrong | Artist-led organization, research network, gallery, biennial and festival | Distributed program nodes and participation; not decentralized accession authority |
+| DATALAND | Artist-led physical museum and AI/data ecosystem | Dynamic system, dataset, consent, and retention documentation; not decentralized custody |
+| 0xCollection | Private experiential collection, exhibition, research and education initiative | Exhibition and intentional non-documentation boundary; not evidence of public registrarial practice |
+
+## Platforms and chain-native systems
+
+### Feral File
+
+Feral File describes itself as a cultural institution and technology company.
+Its [“Curator’s Note | FF1”](https://feralfile.com/retrospective/ff1/curators-note/)
+is dated 9 June 2023 and presents exhibitions as persistent online
+publications. [“One to Zero”](https://feralfile.com/exhibitions/shows/one-to-zero-bti)
+places a curator’s note beside artist, title, year, series, medium,
+dimensions, duration, generative or interactive fields, and smart-contract
+information. The [Feral File documentation](https://docs.feralfile.com/)
+publishes DP-1 protocol and API material. Its [“How to Collect Digital
+Art”](https://feralfile.com/learn/how-to-collect-digital-art) guide separates
+the token from artwork files, rights agreements, hashes, storage, and
+dependencies.
+
+The prose moves from curatorial premise to concise object record. That is a
+useful public catalogue pattern, but the reviewed pages do not provide a
+public Museum accession, condition, title, or custody system. “Preservation”
+and “stewarded collections” remain institutional descriptions unless supported
+by public recovery, intervention, and service-dependency records.
+
+The Museum should adopt a curator’s note as an interpretive layer and keep
+exhibition, artist, artwork, edition, contract, rights, and technical
+dependency records distinct. It should not treat platform publication,
+collector ownership, pricing, or the persistence of a URL as accession,
+provenance, or preservation. Art Computer, Art Panel, collector workflows, and
+platform fees are commercially specific.
+
+### Art Blocks
+
+[“About Art Blocks”](https://www.artblocks.io/articles/about-art-blocks) is
+dated 27 November 2020. It describes a platform in which purchasing a token
+triggers execution of an artist’s generative code. The [protocol
+overview](https://docs.artblocks.io/protocol/overview/), [“Core Contract
+(V3)”](https://docs.artblocks.io/developer/core-contract/), and [GraphQL
+reference](https://docs.artblocks.io/developer/graphql/) expose project IDs,
+scripts, token hashes, dependencies, royalties, contract controls, and
+queryable entities. [“PostParams”](https://docs.artblocks.io/protocol/postparams/)
+documents mutable token parameters and live-data behavior. [“NFT Metadata
+Storage at Art Blocks”](https://docs.artblocks.io/protocol/on-chain-storage/)
+also states limitations involving blockchain continuity and future access.
+
+Art Blocks writes primarily as technical documentation. It explains how a work
+is generated, identified, rendered, configured, sold, and queried. The Museum
+should adopt that precision: record contract, token, chain, mint transaction,
+script or seed hash, dependency source and version, renderer, runtime,
+external assets, mutable parameters, administrative authority, upgradeability,
+and reproducibility results.
+
+The technical limit is decisive. On-chain code and contract data do not
+automatically preserve browsers, operating systems, hardware, external assets,
+APIs, artist documentation, legal rights, or public access. Platform tiers,
+royalties, primary sales, and white-label Engine licensing are commercial
+infrastructure. Determinism is an evidence-bearing property of a work, not a
+conclusion that preservation is complete.
+
+### Bright Moments
+
+Bright Moments describes itself as producing live, on-chain, in-person art
+experiences and as being organized as a DAO through CryptoCitizens on its
+[“About” page](https://www.brightmoments.io/about). Its [“Where Art is
+Born” archive](https://www.brightmoments.io/archive) records city programs,
+artists, algorithmic collections, and live minting. Its [historical
+documentation](https://docs.brightmoments.io/bright-moments/history) and
+[“Mint Pass Policy”](https://docs.brightmoments.io/policies/mint-pass-policy)
+describe event and participation mechanics.
+
+Its publication style is event-driven: history pages, artist lists, city
+narratives, FAQs, and participation policies. The archive can help reconstruct
+where and when a work was minted or revealed, but it is not object-level
+scholarship or condition documentation. The Museum should create separate
+records for event, city, venue, producer or curator, artist, algorithm,
+contract, mint/reveal conditions, visitor access, and documentation state.
+
+A live mint is an event, not an accession. A CryptoCitizen token is a
+membership or identity instrument, not evidence of Museum authority or legal
+title. Token-gated access, city membership, and event revenue should not be
+copied as institutional practice.
+
+### Verse
+
+[Verse Documentation](https://docs.verse.works/) describes release, collection,
+contract, sale, access-control, API, and GraphQL models. The [curatorial
+board](https://verse.works/board) identifies named curatorial participants.
+[“This Is Tomorrow: Part III”](https://verse.works/exhibitions/this-is-tomorrow-part-3)
+presents curator-selected works with artist, nominator, edition, price, and
+descriptive prose. [“Contract Basics”](https://docs.verse.works/contract/basics/)
+distinguishes artist-owned contracts from temporary Verse mint permissions.
+The official [“Terms”](https://verse.works/terms) frame Verse as a centralized
+marketplace and set limits around authenticity, provenance, and intellectual
+property.
+
+Verse’s writing is a hybrid of exhibition essay and sales catalogue. The
+selection chain is visible because curators and nominators are named, but
+price, edition, release, and purchase remain central. The Museum should record
+who selected, nominated, commissioned, minted, sold, or held a work and should
+separate exhibition interpretation from sale data.
+
+A listing, price, edition, or secondary sale is not accession evidence. A
+marketplace’s legal disclaimer is not a Museum provenance policy. Custodial
+wallets, payment rails, and secondary-market data are platform functions, not
+condition or preservation records.
+
+## Archives, publication bodies, and native-runtime presentation
+
+### DAM — Digital Art Museum
+
+DAM is an online digital-art resource associated with DAM Projects GmbH; its
+[imprint](https://dam.org/museum/dam/imprint/) identifies the publisher and
+warns that the site is not necessarily complete or current. The [Vera Molnar
+record](https://dam.org/museum/artists_ui/artists/molnar-vera/) combines series,
+biography, artist statement, references, publications, exhibitions, and
+chronology. The [Casey Reas record](https://dam.org/museum/artists_ui/artists/reas-casey/)
+distinguishes instructions, systems, source code, executable form, and
+manifestation. The [“Frieder Nake Reflects on 60 Years of Algorithmic
+Art”](https://dam.org/museum/essays_ui/essays/frieder-nake-wolf-lieser-60-years-of-algorithmic-art/)
+essay is dated 11 November 2025.
+
+DAM offers a useful artist-centered publication model. The Museum should
+retain primary artist language, series chronology, references, and the
+distinction between an artwork’s system and a particular manifestation. DAM
+does not provide chain custody or public accession evidence, and its
+copyright and commercial relationship mean that its material should not be
+assumed openly reusable.
+
+### MoRE — Museum of the unrealised
+
+MoRE’s [“About” page](https://www.moremuseum.org/omeka/about) defines a
+collection scope—unrealized or refused projects—and separates collection,
+archive, temporary exhibition, research, and critical intervention. It
+describes digital donations in which artists retain specified interests and
+may later realize a project. The [project search](https://www.moremuseum.org/omeka/items/search)
+exposes title, creator, date, contributor, format, identifier, rights holder,
+collection, tags, and citation. An example is [Cesare Pietroiusti, “Progetti
+per una mostra retrospettiva”](https://moremuseum.org/omeka/items/show/44).
+
+MoRE is the clearest precedent here for separating collection scope, donation,
+rights, archive, exhibition, and critical writing. 6529 should adopt that
+separation and make later realization, provisional status, and rights
+retention explicit. MoRE’s object type and legal arrangements are different
+from token custody, so its exact terms should not be copied without a
+Museum-specific instrument.
+
+### DiMoDA and Museum of Other Realities
+
+[DiMoDA](https://dimoda.art/) describes itself as a virtual institution
+dedicated to commissioning, preserving, and exhibiting VR artworks. Its
+[DiMoDA 3.0 exhibition page](https://dimoda.art/current-exhibition) identifies
+artists, curators, physical installations, and downloadable experiences. The
+[Museum of Other Realities collection](https://www.museumor.com/collection)
+indexes VR works by artist, year, and tool.
+
+Their concrete lesson is native-runtime documentation: hardware, software,
+downloadable package, installation instructions, version, and manifestation.
+The platform limit is equally concrete. VR hardware, Steam distribution,
+application updates, and downloadable files create dependencies. The reviewed
+pages do not expose complete accession, title, rights, or condition systems.
+
+## Communities, festivals, and distributed programs
+
+### MOCA
+
+MOCA’s [manifesto](https://museumofcryptoart.com/manifesto), [collections
+interface](https://museumofcryptoart.com/collections), and [rooms
+interface](https://museumofcryptoart.com/rooms) present a community-curated,
+NFT-linked collection and spatial exhibition model with categories such as
+Genesis, Permanent, Fundraiser, and Rooms.
+
+MOCA publishes primarily through manifesto and interface. Claims about
+decentralization, collective ownership, and permanence are normative rather
+than demonstrated registrarial facts. The Museum may borrow the explicit
+separation of collection categories and member-created exhibitions. It should
+not treat token ownership, room ownership, AI-generated lore, “owned by no
+one,” or “kept forever” as evidence of preservation, provenance, or authority.
+
+### Furtherfield and The Wrong Biennale
+
+[Furtherfield’s “About Us”](https://www.furtherfield.org/about-us/about-us/)
+documents DIWO, DAOWO workshops, participatory grantmaking, and CultureStake.
+[The Wrong Biennale’s “About” page](https://thewrong.org/About) documents
+editions, pavilions, embassies, online projects, and distributed curatorial
+nodes.
+
+These are precedents for program records, not collection governance. 6529
+should record edition, node, pavilion or embassy, curator, selection method,
+artists, venue, dates, archive state, and any voting or participation
+mechanism. A pavilion, grant, or community vote does not establish accession,
+custody, or rights.
+
+## Artist-led data museum and private experiential collection
+
+### DATALAND
+
+DATALAND describes itself as a museum and digital ecosystem on its
+[“About” page](https://dataland.art/about). Its [“Dataland: Living
+Museum”](https://www.dataland.art/blog/dataland-living-museum/) article is
+dated 20 July 2026. The [“Machine Dreams: Rainforest” exhibition
+record](https://www.dataland.art/exhibitions/machine-dreams-rainforest)
+documents datasets, model behavior, live feeds, permissions, visitor sensing,
+retention, deletion, tools, partners, tokenized interaction memory, and
+centralized Connectome infrastructure. The [“Living
+Encyclopedia”](https://www.dataland.art/about/living-encyclopedia) exposes a
+commercial product layer.
+
+The exhibition record is a useful dossier for dynamic work. 6529 should record
+dataset source and license, model and dependency versions, live-feed behavior,
+visitor agency, personal-data exposure, consent, retention, deletion, technical
+partners, and failure modes.
+
+The limit is authority. “Living museum,” “ethical data,” and “comprehensive
+collection” are stated intentions, not substitutes for public acquisition,
+conservation, licensing, or audit records. Proprietary AI infrastructure and
+biosensing should not be adopted without strict controls.
+
+### 0xCollection
+
+The official [0xCollection site](https://0xcollection.org/) describes a private
+initiative established in 2023 for collection, display, research, education,
+and preservation of digital and experiential art. Its current page records the
+15–20 June 2026 *Cosmic Knots* exhibition and says that one performance would
+not be livestreamed or comprehensively documented.
+
+The useful lesson is that deliberate non-documentation should be recorded as a
+curatorial condition rather than left as an unexplained gap. The public page
+reviewed does not expose accession, title, custody, rights, or condition
+records, so it should not be used as evidence of public registrarial practice.
+
+## What the Museum should implement
+
+The comparative material supports a narrow set of concrete changes:
+
+1. **Classify relations before interpreting them.** Use distinct relation types
+   for accession, donation, commission, exhibition, platform publication,
+   sale, mint/reveal event, community selection, archive capture, technical
+   dependency, and rights instrument.
+2. **Add a chain-native technical layer.** Record CAIP-19-shaped identity,
+   contract, token or edition, mint evidence, script or seed hash, dependency
+   versions, renderer, runtime, external assets, mutable parameters, authority,
+   upgradeability, and reproducibility results.
+3. **Keep authority layers separate.** Token identity, transfer history, legal
+   title, custody, copyright, display rights, preservation rights, and Museum
+   accession are different assertions.
+4. **Publish in layers.** A stable object record should lead to a curatorial
+   essay, provenance and rights history, technical and condition records,
+   bibliography, machine-readable data, and a correction route.
+5. **Record program conditions.** For live, distributed, or native-runtime
+   work, record venue, device, software, event, curator, selection method,
+   access state, documentation limits, and failure mode.
+6. **State limitations where they change meaning.** “On-chain,” “permanent,”
+   “decentralized,” “living,” and “preserved” must be tied to the specific
+   component and evidence that supports the term.
+
+These lessons extend the existing Museum standards without changing their
+authority rules. A platform page can open a research path; it cannot replace
+the accession record. A protocol can expose technical identity; it cannot
+replace a condition report. A festival can preserve program history; it cannot
+convert participation into title. A token can identify an edition; it cannot
+carry the whole work’s rights, runtime, or institutional memory.
+
+## Revision history
+
+- 1.0.0 — 2026-08-04: initial comparative essay; public scholarship with a
+  2026-08-04 research cutoff and primary-source register placeholder.
