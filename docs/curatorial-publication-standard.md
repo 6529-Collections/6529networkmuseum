@@ -463,6 +463,32 @@ qualified relation. Neither should become a mannerism.
 Delete adjectives, adverbs, and metaphors that do not add evidenced information
 or clarify the work.
 
+### 12.10 Match the prose to its publication genre
+
+An object label identifies. An object record organizes evidence. An essay
+argues. A conservation case follows condition, evidence, decision,
+intervention, and result. An archive record establishes scope, order, survival,
+and loss. A technical record specifies a system. A policy assigns
+responsibility. Preserve these differences.
+
+A short label should not impersonate a monograph. An essay should not hide an
+unresolved technical state in metaphor. A conservation note should not turn a
+treatment decision into an account of the work's entire significance. Connect
+the genres with stable links and typed relationships so each can do its own
+work.
+
+### 12.11 Give uncertainty an exact state
+
+Use a controlled state when the evidence permits one: `documented`, `inferred`,
+`provisional`, `disputed`, `reconstructed`, `superseded`, `unavailable`, or
+`unknown`. Name the evidence that supports the state and the evidence that is
+missing or in conflict. Do not repeat a vague disclaimer through an essay when
+one exact record and a short consequence will do.
+
+Keep dates in their proper roles. Work date, mint date, transfer date,
+observation date, capture date, intervention date, record date, publication
+date, and access date describe different events.
+
 ## 13. Notes, bibliography, and research boundary
 
 Every long-form publication includes:
@@ -482,6 +508,13 @@ whether derived data has been modified. Open access does not make every public
 assertion equally approved.
 
 Sources should be cited near the claim they support. A bibliography cannot rescue unsourced prose. Links must point directly to the relevant page or retained source, not a search result.
+
+Comparative institutional research also maintains the deterministic
+[institutional source inventory](institutional-source-inventory.json).
+The inventory records exact URLs, citation labels, and every manuscript using
+them. Individual profiles retain the displayed title, date shown, access date,
+and evidentiary use; the inventory prevents a silently untracked citation from
+entering the published corpus.
 
 ## 14. Revision and supersession
 
@@ -516,6 +549,8 @@ Before publication, answer yes to all of the following:
   record, bibliography, and immutable edition?
 - Has repetitive contrast syntax and institutional self-description been
   removed?
+- Does each section use the right publication genre for its evidence?
+- Are uncertainty and every consequential date given exact roles?
 - Does the exact Museum holding matter to the text?
 - Are technical and registrar details proportionate?
 - Does the prose read as finished publication, not a plan for someone else to finish?

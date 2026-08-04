@@ -13,7 +13,7 @@
 The 2012 conference *transmediale Unarchived* made the archive itself a
 program subject. Its public account brings together a 25-year institutional
 history, archive digitization, online dissemination, and the question of how
-curators can “unarchive” material rather than merely place it in a database.
+curators can return archival material to interpretation and circulation.
 [transmediale Unarchived](https://archive.transmediale.de/content/transmediale-unarchived)
 
 This is a useful starting point for the Museum because transmediale's archive

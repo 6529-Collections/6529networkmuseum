@@ -7,7 +7,7 @@ Date: `2026-08-04`
 This standard describes the evidence, documentation, preservation, and public
 publication required for software, generative, time-based, interactive,
 networked, and other digital or hybrid artworks. It is derived from the
-demonstrated practices cited in [§15](#15-primary-source-basis).
+demonstrated practices cited in [§9](#9-primary-source-basis).
 
 This standard does not claim that the Museum has adopted the requirements, that
 any implementation is complete, that any package is preserved, or that any
@@ -534,7 +534,15 @@ standard. Dates are publication, record, or programme dates when displayed;
 - [Guggenheim, “The Conserving Computer-Based Art Initiative”](https://www.guggenheim.org/conservation/the-conserving-computer-based-art-initiative), date not shown; [“Conservation Department Iteration Report”](https://www.guggenheim.org/wp-content/uploads/2015/11/guggenheim-conservation-iteration-report-2012.pdf), 2012; [“Brandon: credits and restoration”](https://brandon.guggenheim.org/credits/), restoration project 2016–2017. These establish identity/iteration separation, source analysis, disk imaging, code annotation, version control, artist consultation, and treatment reporting.
 - [Tate, “Intermedia Art Microsite”](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1%2F9&src=CalmView.Catalog), record 2008–2012 with archive capture November 2019–February 2020; [“Net Art Commissions”](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog), record 1999–2021; [“Reshaping the Collectible”](https://www.tate.org.uk/research/reshaping-the-collectible), programme 2018–2022. These establish recovery, capture scope, explicit loss, and changing net-art records.
 - [Rhizome, “About ArtBase”](https://artbase.rhizome.org/wiki/About), date not shown; [“My Boyfriend Came Back From the War”](https://artbase.rhizome.org/wiki/Q3933), date not shown; [“The Making of Net Art Anthology”](https://old.rhizome.org/editorial/2019/jan/28/the-making-of-net-art-anthology-rhizome-and-google-arts-culture/), 2019; [Conifer “Twilight Webinar”](https://blog.conifer.rhizome.org/2026/05/06/twilight-webinar.html), 2026-05-06; [“Webinar Recap”](https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html), 2026-05-22. These establish variant records, preservation matrices, browser/archive conditions, and service-exit documentation.
-- [LI-MA, “Documentation”](https://li-ma.nl/article/documentation/), date not shown; [“What Are the Basics of Preserving Digital Art?”](https://li-ma.nl/article/preservation-introduction/), date not shown; [“Artwork Documentation Tool”](https://li-ma.nl/article/artwork-documentation-tool-1/), date not shown; [“Storing Digital and Analogue Art Safely”](https://li-ma.nl/article/storage), date not shown. These establish artist-first documentation, versions and iterations, dependency inventories, storage monitoring, virtual servers, and LTO.
+- [LI-MA, “Documentation”](https://li-ma.nl/article/documentation), date not
+  shown; [“What Are the Basics of Preserving Digital
+  Art?”](https://li-ma.nl/article/preservation-introduction/), date not shown;
+  [“Artwork Documentation
+  Tool”](https://li-ma.nl/article/artwork-documentation-tool/), date not shown;
+  [“Storing Digital and Analogue Art
+  Safely”](https://li-ma.nl/article/storage/), date not shown. These establish
+  artist-first documentation, versions and iterations, dependency inventories,
+  storage monitoring, virtual servers, and LTO.
 - [Smithsonian, “Time-based Media & Digital Art”](https://tbma.si.edu/), date not shown; [“Forms and Documentation”](https://tbma.si.edu/forms-and-documentation), date not shown; [“Iteration Report”](https://tbma.si.edu/resource/iteration-report), date not shown; [“Digital Preservation”](https://tbma.si.edu/resources/forms-documentation), date not shown; [“Handling Digital Assets in Time-Based Media Art”](https://siarchives.si.edu/blog/handling-digital-assets-time-based-media-art), 2014. These establish adaptable work-specific forms, installation-level reports, DAMS resources, and granular digital-preservation policy.
 - [Matters in Media Art, “Matters in Media Art”](https://www.moma.org/research/conservation/matters-in-media-art), project milestones 2003, 2004, and 2007; [“Acquiring Media Art”](https://mattersinmediaart.org/acquiring-time-based-media-art.html), © 2015; [“Lending Media Art”](https://mattersinmediaart.org/lending-time-based-media.html), © 2015; [“Documenting Media Art”](https://mattersinmediaart.org/assessing-time-based-media-art.html), date not shown. These establish acquisition, loan, installation, artist-interview, condition, and documentation workflows.
 - [Variable Media Network, “Variable Media Network”](https://www.variablemedia.net/e/welcome.html), date not shown; [“Variable Media Publication: Permanence Through Change”](https://www.variablemedia.net/e/preserving/html/var_pub_index.html), date not shown. These establish behavior, environment, interaction, significant-property, storage, emulation, migration, and reinterpretation vocabulary.

@@ -8,7 +8,7 @@
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](source-register.md)
-- **Related study:** [Adjacent chain-native practice][adjacent-chain-native-practice]
+- **Related study:** [Adjacent chain-native practice](adjacent-chain-native-practice.md)
 
 ## Contents
 
@@ -36,8 +36,8 @@ The study follows four connected questions:
 4. Which parts of a method depend on specific labor, rights, budgets, or
    technical infrastructure?
 
-The profiles are arranged by question rather than institutional status. The
-order establishes a reading path; it carries no claim about reputation, scale,
+The profiles follow the operational questions they answer. The order
+establishes a reading path; it carries no claim about reputation, scale,
 quality, chronology, or comparative rank.
 
 ## Selection method
@@ -83,16 +83,16 @@ center of gravity for the edition.
 - [Whitney Museum of American Art](profiles/whitney.md)
 - [Rhizome and the New Museum](profiles/rhizome-new-museum.md)
 - [Serpentine Arts Technologies](profiles/serpentine-arts-technologies.md)
-- [HEK][profile-hek]
-- [LI-MA][profile-li-ma]
-- [V2_][profile-v2]
-- [transmediale][profile-transmediale]
-- [ACMI][profile-acmi]
-- [M+][profile-m-plus]
-- [Nam June Paik Art Center][profile-nam-june-paik]
-- [NTT ICC][profile-ntt-icc]
-- [Centro Multimedia][profile-centro-multimedia]
-- [Laboratorio Arte Alameda][profile-laboratorio-arte-alameda]
+- [HEK](profiles/hek-basel.md)
+- [LI-MA](profiles/li-ma.md)
+- [V2_](profiles/v2.md)
+- [transmediale](profiles/transmediale.md)
+- [ACMI](profiles/acmi.md)
+- [M+](profiles/m-plus.md)
+- [Nam June Paik Art Center](profiles/nam-june-paik-art-center.md)
+- [NTT ICC](profiles/ntt-icc.md)
+- [Centro Multimedia](profiles/centro-multimedia.md)
+- [Laboratorio Arte Alameda](profiles/laboratorio-arte-alameda.md)
 
 ### 2. Preservation, reconstruction, and technical care
 
@@ -124,9 +124,9 @@ collection development, public programming, and the institutional conditions
 that make a record possible.
 
 - [Los Angeles County Museum of Art](profiles/lacma.md)
-- [Dia][profile-dia]
-- [Walker Art Center][profile-walker]
-- [Museum of Contemporary Art Chicago][profile-mca-chicago]
+- [Dia](profiles/dia.md)
+- [Walker Art Center](profiles/walker-art-center.md)
+- [Museum of Contemporary Art Chicago](profiles/mca-chicago.md)
 
 ## Working lessons
 
@@ -185,11 +185,13 @@ as a comparative study without turning it into a directory.
 - **Encounter and access:** [Whitney](profiles/whitney.md),
   [Rhizome and the New Museum](profiles/rhizome-new-museum.md),
   [Serpentine Arts Technologies](profiles/serpentine-arts-technologies.md),
-  [HEK][profile-hek], [LI-MA][profile-li-ma], [V2_][profile-v2],
-  [transmediale][profile-transmediale], [ACMI][profile-acmi],
-  [M+][profile-m-plus], [Nam June Paik Art Center][profile-nam-june-paik],
-  [NTT ICC][profile-ntt-icc], [Centro Multimedia][profile-centro-multimedia],
-  [Laboratorio Arte Alameda][profile-laboratorio-arte-alameda].
+  [HEK](profiles/hek-basel.md), [LI-MA](profiles/li-ma.md),
+  [V2_](profiles/v2.md), [transmediale](profiles/transmediale.md),
+  [ACMI](profiles/acmi.md), [M+](profiles/m-plus.md),
+  [Nam June Paik Art Center](profiles/nam-june-paik-art-center.md),
+  [NTT ICC](profiles/ntt-icc.md),
+  [Centro Multimedia](profiles/centro-multimedia.md),
+  [Laboratorio Arte Alameda](profiles/laboratorio-arte-alameda.md).
 - **Care and change:** [Tate](profiles/tate.md),
   [Guggenheim](profiles/guggenheim.md), [ZKM](profiles/zkm.md),
   [Victoria and Albert Museum](profiles/v-and-a.md),
@@ -197,20 +199,24 @@ as a comparative study without turning it into a directory.
 - **Records and archives:** [The Metropolitan Museum of Art](profiles/met.md),
   [Getty](profiles/getty.md), [MoMA](profiles/moma.md),
   [Ars Electronica](profiles/ars-electronica.md).
-- **Institutional context:** [LACMA](profiles/lacma.md), [Dia][profile-dia],
-  [Walker Art Center][profile-walker],
-  [Museum of Contemporary Art Chicago][profile-mca-chicago].
+- **Institutional context:** [LACMA](profiles/lacma.md),
+  [Dia](profiles/dia.md), [Walker Art Center](profiles/walker-art-center.md),
+  [Museum of Contemporary Art Chicago](profiles/mca-chicago.md).
 
 ## Related research
 
-- [Adjacent chain-native practice][adjacent-chain-native-practice]
+- [Adjacent chain-native practice](adjacent-chain-native-practice.md)
 - [Primary-source register](source-register.md)
+- [Deterministic source inventory](../../docs/institutional-source-inventory.json)
 - [Curatorial publication standard](../../docs/curatorial-publication-standard.md)
+- [Digital art stewardship standard](../../docs/digital-art-stewardship-standard.md)
 
-The source register records the primary evidence used in the study. The
-adjacent chain-native-practice study follows the same evidence discipline for
-technical, institutional, and collection records that sit beside this
-comparative publication.
+The source register explains the research apparatus and retains the detailed
+first-edition register. Every second-edition profile carries its own exact
+source notes; the deterministic inventory reconciles all 236 cited web sources
+to the manuscripts in which they appear. The adjacent chain-native-practice
+study applies the same evidence discipline to technical, institutional, and
+collection records that sit beside this comparative publication.
 
 ## Revision history
 
@@ -218,18 +224,3 @@ comparative publication.
   opening, explicit case selection, four digital-art-weighted pathways,
   concrete working lessons, grouped links for twenty-seven profiles, the
   adjacent chain-native-practice study, and the primary-source register.
-
-[adjacent-chain-native-practice]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/adjacent-chain-native-practice.md
-[profile-hek]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/hek.md
-[profile-li-ma]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/li-ma.md
-[profile-v2]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/v2_.md
-[profile-transmediale]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/transmediale.md
-[profile-acmi]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/acmi.md
-[profile-m-plus]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/m-plus.md
-[profile-nam-june-paik]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/nam-june-paik-art-center.md
-[profile-ntt-icc]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/ntt-icc.md
-[profile-centro-multimedia]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/centro-multimedia.md
-[profile-laboratorio-arte-alameda]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/laboratorio-arte-alameda.md
-[profile-dia]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/dia.md
-[profile-walker]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/walker.md
-[profile-mca-chicago]: https://github.com/6529-Collections/6529networkmuseum/blob/main/records/institutional-practice/profiles/mca-chicago.md

@@ -43,8 +43,9 @@ activation remain pending. See
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
 | Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; post-accession title, finalized-state custody, token-approval, and exact-address compliance diligence complete; autonomous software preservation remains active stewardship |
 | Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
-| Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Comparative essay, fourteen primary-source profiles, and a claim-level source register for institutions the Museum studies |
+| Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Digital-art-weighted comparative essay, twenty-seven primary-source profiles, a classified chain-native adjacent-practice study, detailed source notes, and [deterministic citation inventory](docs/institutional-source-inventory.json) |
 | Scholarship and editorial standard | [`docs/curatorial-publication-standard.md`](docs/curatorial-publication-standard.md) | Research substance, close looking, evidence, publication architecture, digital-art scholarship, and Museum prose style |
+| Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
@@ -83,6 +84,7 @@ python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
 python scripts/validate.py
+python scripts/generate_institutional_source_inventory.py --check
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check
 ```

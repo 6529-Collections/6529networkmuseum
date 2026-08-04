@@ -24,8 +24,7 @@ Susannah Schouweiler's ["Collecting Performance"](https://www.walkerart.org/read
 developers, performers, presenters, archivists, curators, and videographers.
 Its questions are concrete: what is collected and tagged; who controls
 documentation; how do ownership, authorship, and profit-sharing differ; and how
-can an archive offer a meaningful public experience rather than a bare
-accounting.
+can an archive make the traces of performance encounterable to a public.
 
 The essay reports a distinction that matters for 6529: a commissioning or
 collecting institution may hold documentation or a public commitment without
@@ -61,7 +60,8 @@ be versioned, attributed, and linked to the accession or commission it informs.
 
 ## What the Museum should adopt
 
-- Model live works as linked manifestations rather than one flattened object.
+- Model live works as linked manifestations. A stable work record connects the
+  events without flattening them into one object state.
 - Preserve the distinction between ownership, documentation, archive, and
   public presentation.
 - Record artist instructions, training, future-stage guidance, and the authority

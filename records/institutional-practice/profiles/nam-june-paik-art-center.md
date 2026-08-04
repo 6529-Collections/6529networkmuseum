@@ -28,7 +28,12 @@ The [Interview Project](https://njpart.ggcf.kr/pages/interview) records intervie
 
 ### 4. Readers address specific preservation questions
 
-NJP Reader #13 addresses outdoor media installations, acquisition, presentation, documentation, preservation, and the relation between authenticity and change. Earlier, [NJP Reader #1 — *Contributions to an Artistic Anthropology*](https://njpart.ggcf.kr/books/31), published 18 December 2009, positioned a reader as a scholarly extension of exhibition and research rather than as a general institutional statement.
+NJP Reader #13 addresses outdoor media installations, acquisition,
+presentation, documentation, preservation, and the relation between
+authenticity and change. Earlier, [NJP Reader #1 — *Contributions to an
+Artistic Anthropology*](https://njpart.ggcf.kr/books/31), published 18 December
+2009, extended exhibition and research through a dedicated scholarly
+publication.
 
 ## Publication and scholarship
 

@@ -8,13 +8,21 @@
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
 
-ICC is a media-art collection and research center. Its 2025 case [*Restoring Media Art Works: A Case Study of “World, Membrane and the Dismembered Body”*](https://www.ntticc.or.jp/en/archive/works/restoring-media-art-works-a-case-study-of-world-membrane-and-the-dismembered-body/) links a collection work to investigation, restoration, re-creation, and exhibition. The case is valuable because the restoration is published as a work-specific event rather than as a general claim about digital preservation.
+ICC is a media-art collection and research center. Its 2025 case [*Restoring
+Media Art Works: A Case Study of “World, Membrane and the Dismembered
+Body”*](https://www.ntticc.or.jp/en/archive/works/restoring-media-art-works-a-case-study-of-world-membrane-and-the-dismembered-body/)
+links a collection work to investigation, restoration, re-creation, and
+exhibition. ICC publishes the restoration as a work-specific event, with the
+collection and exhibition histories attached.
 
 ## Demonstrated practices
 
 ### 1. Collection policy is tied to communication media
 
-ICC's [Collection](https://www.ntticc.or.jp/en/about/collection/) describes works that explore communication media and states the aim of preserving them. The page provides a collection route for media-art works rather than treating technology as an incidental display feature.
+ICC's [Collection](https://www.ntticc.or.jp/en/about/collection/) describes
+works concerned with communication media and states the aim of preserving
+them. Media technology enters the collection remit and the description of the
+work itself.
 
 ### 2. HIVE preserves institutional program history
 
@@ -24,7 +32,10 @@ The [HIVE archive](https://www.ntticc.or.jp/en/hive/) therefore records public r
 
 ### 3. Education and research are archived as future evidence
 
-ICC's [Educational Activities](https://www.ntticc.or.jp/en/about/education/) connects gallery tours, workshops, seminars, artists, researchers, universities, and external organizations to public documentation. The institution's research activity becomes a reusable record rather than an event that disappears after presentation.
+ICC's [Educational Activities](https://www.ntticc.or.jp/en/about/education/)
+connects gallery tours, workshops, seminars, artists, researchers,
+universities, and external organizations to public documentation. The archive
+keeps that research available after the event.
 
 ### 4. Publication connects theory and technical practice
 

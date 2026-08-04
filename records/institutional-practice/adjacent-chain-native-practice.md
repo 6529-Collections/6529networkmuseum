@@ -1,10 +1,12 @@
 # Adjacent practice: platforms, archives, festivals, and chain-native systems
 
 - **Status:** public scholarship
+- **Institutional author:** 6529 Network Museum
 - **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
-- **Primary-source register:** [source-register.md](source-register.md) (placeholder companion register for this edition)
+- **Research apparatus:** [source register](source-register.md) ·
+  [deterministic source inventory](../../docs/institutional-source-inventory.json)
 
 The word “museum” does too much work around digital and blockchain art. A
 platform may publish an artwork without owning it. A marketplace may record a
@@ -17,8 +19,8 @@ Official pages establish what an organization says and publishes; they do not,
 without further evidence, establish custody, title, preservation, or public
 authority.
 
-This is not a ranking. The selected practices answer different Museum
-problems. Feral File and Art Blocks are useful for exhibition interfaces and
+Selection confers no rank. The practices answer different Museum problems.
+Feral File and Art Blocks are useful for exhibition interfaces and
 technical identity. Bright Moments and Verse document event, release, and
 market mechanisms. DAM and MoRE are more useful for artist records, collection
 scope, rights, and public scholarship. DiMoDA and the Museum of Other Realities
@@ -107,10 +109,10 @@ Bright Moments describes itself as producing live, on-chain, in-person art
 experiences and as being organized as a DAO through CryptoCitizens on its
 [“About” page](https://www.brightmoments.io/about). Its [“Where Art is
 Born” archive](https://www.brightmoments.io/archive) records city programs,
-artists, algorithmic collections, and live minting. Its [historical
-documentation](https://docs.brightmoments.io/bright-moments/history) and
-[“Mint Pass Policy”](https://docs.brightmoments.io/policies/mint-pass-policy)
-describe event and participation mechanics.
+artists, algorithmic collections, and live minting. Its [retrospective
+site](https://www.brightmoments.io/) and [“Mint Pass
+Policy”](https://docs.brightmoments.io/policies/mint-pass-policy) describe the
+project's history and participation mechanics.
 
 Its publication style is event-driven: history pages, artist lists, city
 narratives, FAQs, and participation policies. The archive can help reconstruct
@@ -267,10 +269,9 @@ and preservation of digital and experiential art. Its current page records the
 15–20 June 2026 *Cosmic Knots* exhibition and says that one performance would
 not be livestreamed or comprehensively documented.
 
-The useful lesson is that deliberate non-documentation should be recorded as a
-curatorial condition rather than left as an unexplained gap. The public page
-reviewed does not expose accession, title, custody, rights, or condition
-records, so it should not be used as evidence of public registrarial practice.
+Deliberate non-documentation should be named as a curatorial condition. The
+public page reviewed does not expose accession, title, custody, rights, or
+condition records, so it cannot establish public registrarial practice.
 
 ## What the Museum should implement
 
@@ -306,5 +307,6 @@ carry the whole work’s rights, runtime, or institutional memory.
 
 ## Revision history
 
-- 1.0.0 — 2026-08-04: initial comparative essay; public scholarship with a
-  2026-08-04 research cutoff and primary-source register placeholder.
+- `1.0.0` — 2026-08-04: initial classified study of chain-native platforms,
+  archives, festivals, communities, virtual presentation systems,
+  marketplaces, and self-described museums.

@@ -1,0 +1,2308 @@
+{
+  "schema": "museum:institutional-source-inventory:v1",
+  "research_cutoff": "2026-08-04",
+  "source_count": 236,
+  "sources": [
+    {
+      "url": "https://0xcollection.org/",
+      "labels": [
+        "0xCollection site"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://api.moma.org/",
+      "labels": [
+        "MoMA API",
+        "“MoMA API”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://archive.rhizome.org/digest/?msg=00082",
+      "labels": [
+        "https://archive.rhizome.org/digest/?msg=00082",
+        "Rhizome's own archive"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1%2F9&src=CalmView.Catalog",
+      "labels": [
+        "Intermedia Art Microsite record",
+        "Tate, “Intermedia Art Microsite”",
+        "“Intermedia Art Microsite”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/tate.md"
+      ]
+    },
+    {
+      "url": "https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog",
+      "labels": [
+        "series record",
+        "Tate Public Records catalogue",
+        "“Net Art Commissions”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/tate.md"
+      ]
+    },
+    {
+      "url": "https://archive.transmediale.de/",
+      "labels": [
+        "https://archive.transmediale.de/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://archive.transmediale.de/archive",
+      "labels": [
+        "Archive overview",
+        "https://archive.transmediale.de/archive"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://archive.transmediale.de/content/across-and-beyond-post-digital-practices-concepts-and-institutions",
+      "labels": [
+        "Across and Beyond",
+        "https://archive.transmediale.de/content/across-and-beyond-post-digital-practices-concepts-and-institutions"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://archive.transmediale.de/content/transmediale-unarchived",
+      "labels": [
+        "https://archive.transmediale.de/content/transmediale-unarchived",
+        "transmediale Unarchived"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://archive.transmediale.de/journal/articles",
+      "labels": [
+        "https://archive.transmediale.de/journal/articles",
+        "Journal"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://archivoaudiovisualcmm.omeka.net/",
+      "labels": [
+        "Audiovisual Archive of Centro Multimedia",
+        "“Audiovisual Archive of Centro Multimedia”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centro-multimedia.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/about/en/",
+      "labels": [
+        "About Ars Electronica",
+        "“About Ars Electronica”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/about/en/organization/",
+      "labels": [
+        "Organization",
+        "“Organization”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/archive/en/",
+      "labels": [
+        "Ars Electronica Archive",
+        "“Ars Electronica Archive”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/archive/en/about/",
+      "labels": [
+        "About the Ars Electronica Archive",
+        "“About the Ars Electronica Archive”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/archive/en/websites/",
+      "labels": [
+        "Websites",
+        "“Websites”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/center/en/researching-the-future/",
+      "labels": [
+        "Researching the Future",
+        "“Researching the Future”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/futurelab/en/",
+      "labels": [
+        "Ars Electronica Futurelab",
+        "“ARS ELECTRONICA FUTURELAB”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/futurelab/en/about/history/",
+      "labels": [
+        "History – Ars Electronica Futurelab",
+        "“History”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://ars.electronica.art/futurelab/en/projects-spaxels/",
+      "labels": [
+        "Spaxels",
+        "“Spaxels”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ars-electronica.md"
+      ]
+    },
+    {
+      "url": "https://artbase.rhizome.org/wiki/About",
+      "labels": [
+        "ArtBase About page",
+        "ArtBase account of its own history",
+        "https://artbase.rhizome.org/wiki/About",
+        "Rhizome, “About ArtBase”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://artbase.rhizome.org/wiki/Q3933",
+      "labels": [
+        "*My Boyfriend Came Back From the War*",
+        "https://artbase.rhizome.org/wiki/Q3933",
+        "“My Boyfriend Came Back From the War”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://artport.whitney.org/v2/about.shtml",
+      "labels": [
+        "artport historical architecture",
+        "“artport historical architecture”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://blog.conifer.rhizome.org/2025/12/15/twilight-announcement.html",
+      "labels": [
+        "https://blog.conifer.rhizome.org/2025/12/15/twilight-announcement.html",
+        "“Conifer Twilight Announcement”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://blog.conifer.rhizome.org/2026/05/06/twilight-webinar.html",
+      "labels": [
+        "6 May 2026 process notice",
+        "Conifer “Twilight Webinar”",
+        "https://blog.conifer.rhizome.org/2026/05/06/twilight-webinar.html"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html",
+      "labels": [
+        "22 May webinar recap",
+        "https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html",
+        "“Webinar Recap”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://brandon.guggenheim.org/credits/",
+      "labels": [
+        "*Brandon* credits and restoration page",
+        "“Brandon: credits and restoration”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/guggenheim.md"
+      ]
+    },
+    {
+      "url": "https://cenart.gob.mx/2024/09/el-centro-multimedia-del-cenart-celebra-30-anos-de-vanguardia-en-arte-y-tecnologia/",
+      "labels": [
+        "“El Centro Multimedia del CENART celebra 30 años de vanguardia en arte y tecnología”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centro-multimedia.md"
+      ]
+    },
+    {
+      "url": "https://cmm.cenart.gob.mx/acercaDe.php",
+      "labels": [
+        "Centro Multimedia profile",
+        "Virtual Library",
+        "“Centro Multimedia”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centro-multimedia.md"
+      ]
+    },
+    {
+      "url": "https://cms.hek.ch/files/downloads/CaseStudy-Communimage.pdf",
+      "labels": [
+        "Communimage case study",
+        "https://cms.hek.ch/files/downloads/CaseStudy-Communimage.pdf"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://conifer.rhizome.org/",
+      "labels": [
+        "Conifer landing page",
+        "https://conifer.rhizome.org/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://d37zoqglehb9o7.cloudfront.net/uploads/2020/05/Serpentine-Legal-Lab-Paper_Art-Collaborations-NFTs-FINAL-copy.pdf",
+      "labels": [
+        "*The Legal Ambiguities of Art Collaborations and their Compatibility with NFTs*",
+        "https://d37zoqglehb9o7.cloudfront.net/uploads/2020/05/Serpentine-Legal-Lab-Paper_Art-Collaborations-NFTs-FINAL-copy.pdf"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://dam.org/museum/artists_ui/artists/molnar-vera/",
+      "labels": [
+        "Vera Molnar record"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://dam.org/museum/artists_ui/artists/reas-casey/",
+      "labels": [
+        "Casey Reas record"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://dam.org/museum/dam/imprint/",
+      "labels": [
+        "imprint"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://dam.org/museum/essays_ui/essays/frieder-nake-wolf-lieser-60-years-of-algorithmic-art/",
+      "labels": [
+        "“Frieder Nake Reflects on 60 Years of Algorithmic Art”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://data.getty.edu/",
+      "labels": [
+        "“Getty API Documentation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://data.getty.edu/museum/collection/docs/",
+      "labels": [
+        "Getty Museum Collection API Documentation",
+        "“Getty Museum Collection API Documentation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://data.getty.edu/provenance/docs/",
+      "labels": [
+        "“Getty Provenance Index API Documentation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://dataland.art/about",
+      "labels": [
+        "“About” page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://dimoda.art/",
+      "labels": [
+        "DiMoDA"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://dimoda.art/current-exhibition",
+      "labels": [
+        "DiMoDA 3.0 exhibition page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.artblocks.io/developer/core-contract/",
+      "labels": [
+        "“Core Contract (V3)”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.artblocks.io/developer/graphql/",
+      "labels": [
+        "GraphQL reference"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.artblocks.io/protocol/on-chain-storage/",
+      "labels": [
+        "“NFT Metadata Storage at Art Blocks”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.artblocks.io/protocol/overview/",
+      "labels": [
+        "protocol overview"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.artblocks.io/protocol/postparams/",
+      "labels": [
+        "“PostParams”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.brightmoments.io/policies/mint-pass-policy",
+      "labels": [
+        "“Mint Pass Policy”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.feralfile.com/",
+      "labels": [
+        "Feral File documentation"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.verse.works/",
+      "labels": [
+        "Verse Documentation"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://docs.verse.works/contract/basics/",
+      "labels": [
+        "“Contract Basics”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://feralfile.com/exhibitions/shows/one-to-zero-bti",
+      "labels": [
+        "“One to Zero”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://feralfile.com/learn/how-to-collect-digital-art",
+      "labels": [
+        "“How to Collect Digital Art”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://feralfile.com/retrospective/ff1/curators-note/",
+      "labels": [
+        "“Curator’s Note | FF1”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://futureartecosystems.org/briefing/fae3/",
+      "labels": [
+        "*Future Art Ecosystems: Art x Decentralised Tech (FAE3)*",
+        "https://futureartecosystems.org/briefing/fae3/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://github.com/MuseumofModernArt/collection",
+      "labels": [
+        "MoMA collection data",
+        "“Museum of Modern Art (MoMA) collection data”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://github.com/metmuseum/openaccess",
+      "labels": [
+        "Open Access dataset",
+        "“Open Access dataset”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/collection/",
+      "labels": [
+        "Collection",
+        "https://hek.ch/en/collection/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/collection/artworks/concretionx144x160-3/",
+      "labels": [
+        "*ConcretionX144X160 #3*",
+        "https://hek.ch/en/collection/artworks/concretionx144x160-3/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/collection/research-and-restauration/",
+      "labels": [
+        "https://hek.ch/en/collection/research-and-restauration/",
+        "Research and Restauration"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/collection/research-and-restauration/conservation-case-study-tracenoizer-by-lan/",
+      "labels": [
+        "Conservation case study: TraceNoizer by LAN",
+        "https://hek.ch/en/collection/research-and-restauration/conservation-case-study-tracenoizer-by-lan/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/collection/research-and-restauration/fallstudie-digitales-archiv-hek/",
+      "labels": [
+        "From a manual to an automated digital archive at HEK",
+        "https://hek.ch/en/collection/research-and-restauration/fallstudie-digitales-archiv-hek/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://hek.ch/en/projects/",
+      "labels": [
+        "https://hek.ch/en/projects/",
+        "Projects"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://iiif.io/api/presentation/3.0/",
+      "labels": [
+        "IIIF, “Presentation API 3.0”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://inba.gob.mx/prensa/22177/laboratorio-arte-alameda-presentara-el-libro-practicas-artisticas-posconceptualismo-electronico-y-transmodernidad",
+      "labels": [
+        "“Laboratorio Arte Alameda presentará el libro…”",
+        "“Prácticas artísticas, posconceptualismo electrónico y transmodernidad”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://inba.gob.mx/recinto/32",
+      "labels": [
+        "INBA profile",
+        "“Laboratorio Arte Alameda”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://incca.org/incca-guide-good-practice-artists-interviews-2002",
+      "labels": [
+        "INCCA, “INCCA Guide to Good Practice Artists Interviews”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://incca.org/project-artists-documentation-program-adp",
+      "labels": [
+        "“Artists Documentation Program”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://incca.org/sites/default/files/field_attachments/2002_incca_guide_to_good_practice_artists_interviews.pdf/2002_incca_guide_to_good_practice_artists_interviews.pdf",
+      "labels": [
+        "PDF"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://interfaz.cenart.gob.mx/",
+      "labels": [
+        "“Interfaz”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centro-multimedia.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/arthost-research/",
+      "labels": [
+        "ArtHost research",
+        "https://li-ma.nl/article/arthost-research/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/artwork-documentation-tool/",
+      "labels": [
+        "Artwork Documentation Tool",
+        "https://li-ma.nl/article/artwork-documentation-tool/",
+        "“Artwork Documentation Tool”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/collaborative-infrastructure-for-digital-art/",
+      "labels": [
+        "Collaborative Infrastructure for Digital Art",
+        "https://li-ma.nl/article/collaborative-infrastructure-for-digital-art/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/digitisation-migration-and-emulation/",
+      "labels": [
+        "https://li-ma.nl/article/digitisation-migration-and-emulation/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/documentation",
+      "labels": [
+        "https://li-ma.nl/article/documentation",
+        "LI-MA, “Documentation”",
+        "The importance of documentation in art preservation"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/preservation-introduction/",
+      "labels": [
+        "https://li-ma.nl/article/preservation-introduction/",
+        "What Are the Basics of Preserving Digital Art?",
+        "“What Are the Basics of Preserving Digital Art?”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/storage/",
+      "labels": [
+        "https://li-ma.nl/article/storage/",
+        "Storage",
+        "“Storing Digital and Analogue Art Safely”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://li-ma.nl/article/unfold/",
+      "labels": [
+        "https://li-ma.nl/article/unfold/",
+        "UNFOLD"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/li-ma.md"
+      ]
+    },
+    {
+      "url": "https://mattersinmediaart.org/acquiring-time-based-media-art.html",
+      "labels": [
+        "“Acquiring Media Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://mattersinmediaart.org/assessing-time-based-media-art.html",
+      "labels": [
+        "“Documenting Media Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://mattersinmediaart.org/lending-time-based-media.html",
+      "labels": [
+        "“Lending Media Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/Exhibitions/2018/I-Was-Raised-On-The-Internet",
+      "labels": [
+        "\"I Was Raised on the Internet\" exhibition",
+        "*I Was Raised on the Internet* exhibition"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/art-artists/collection/",
+      "labels": [
+        "\"Collection Explorer\"",
+        "Collection Explorer"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/art-artists/collection/cinaedus-table-mdcclxxv/",
+      "labels": [
+        "\"Cinaedus Table MDCCLXXV\"",
+        "*Cinaedus Table MDCCLXXV*"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/publications/books",
+      "labels": [
+        "\"Books\"",
+        "books catalogue"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/publications/websites",
+      "labels": [
+        "\"Websites\"",
+        "websites page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://mcachicago.org/publications/websites/i-was-raised-on-the-internet",
+      "labels": [
+        "\"I Was Raised on the Internet\"",
+        "*I Was Raised on the Internet* website"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/mca-chicago.md"
+      ]
+    },
+    {
+      "url": "https://moc.hek.ch/",
+      "labels": [
+        "*minds of concern*",
+        "https://moc.hek.ch/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/hek-basel.md"
+      ]
+    },
+    {
+      "url": "https://modosdeoir.inba.gob.mx/",
+      "labels": [
+        "Modos de Oír",
+        "“Modos de Oír — Prácticas de arte y sonido en México”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://moremuseum.org/omeka/items/show/44",
+      "labels": [
+        "Cesare Pietroiusti, “Progetti per una mostra retrospettiva”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://museumofcryptoart.com/collections",
+      "labels": [
+        "collections interface"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://museumofcryptoart.com/manifesto",
+      "labels": [
+        "manifesto"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://museumofcryptoart.com/rooms",
+      "labels": [
+        "rooms interface"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://netflag.guggenheim.org/html/about.html",
+      "labels": [
+        "“About net.flag”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/guggenheim.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/books/31",
+      "labels": [
+        "NJP Reader #1 — *Contributions to an Artistic Anthropology*",
+        "“NJP Reader #1 — Contributions to an Artistic Anthropology”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/books/51",
+      "labels": [
+        "NJP Reader #13 — *Nam June Paik's Transmission: journey over two centuries*",
+        "“NJP Reader #13 — Nam June Paik's Transmission: journey over two centuries”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/collections",
+      "labels": [
+        "Collection",
+        "“Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/pages/archive",
+      "labels": [
+        "Archives",
+        "“Archives”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/pages/interview",
+      "labels": [
+        "Interview Project",
+        "“Interview Project”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://njpart.ggcf.kr/pages/videoarchive",
+      "labels": [
+        "Video Archive",
+        "“Video Archive”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/nam-june-paik-art-center.md"
+      ]
+    },
+    {
+      "url": "https://ocfl.io/",
+      "labels": [
+        "OCFL Specifications"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://old.rhizome.org/editorial/2019/jan/28/the-making-of-net-art-anthology-rhizome-and-google-arts-culture/",
+      "labels": [
+        "*Making of Net Art Anthology* essay",
+        "https://old.rhizome.org/editorial/2019/jan/28/the-making-of-net-art-anthology-rhizome-and-google-arts-culture/",
+        "“The Making of Net Art Anthology: New from Rhizome and Google Arts & Culture”",
+        "“The Making of Net Art Anthology”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://revistas.inah.gob.mx/index.php/digitales/article/view/4637",
+      "labels": [
+        "“Conservación del acervo documental del Laboratorio Arte Alameda”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://rhizome.org/",
+      "labels": [
+        "current site",
+        "https://rhizome.org/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://rhizome.org/FAQ/",
+      "labels": [
+        "FAQ",
+        "https://rhizome.org/FAQ/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://siarchives.si.edu/blog/handling-digital-assets-time-based-media-art",
+      "labels": [
+        "“Handling Digital Assets in Time-Based Media Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+      "labels": [
+        "C2PA, “Content Credentials: C2PA Technical Specification”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://tbma.si.edu/",
+      "labels": [
+        "Smithsonian, “Time-based Media & Digital Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://tbma.si.edu/forms-and-documentation",
+      "labels": [
+        "“Forms and Documentation”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://tbma.si.edu/resource/iteration-report",
+      "labels": [
+        "“Iteration Report”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://tbma.si.edu/resources/forms-documentation",
+      "labels": [
+        "“Digital Preservation”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://thewrong.org/About",
+      "labels": [
+        "The Wrong Biennale’s “About” page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://transmediale.de/de/organisation",
+      "labels": [
+        "https://transmediale.de/de/organisation",
+        "Organization"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://transmediale.de/en/history",
+      "labels": [
+        "History",
+        "https://transmediale.de/en/history"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/transmediale.md"
+      ]
+    },
+    {
+      "url": "https://unframed.lacma.org/2023/02/13/introducing-metavasarely-and-empty-room-two-part-digital-work-casey-reas",
+      "labels": [
+        "“Introducing METAVASARELY and An Empty Room, A Two-Part Digital Work by Casey Reas”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/lacma.md"
+      ]
+    },
+    {
+      "url": "https://unframed.lacma.org/node/3597",
+      "labels": [
+        "“Examining the Life and Times of Media Art at LACMA’s First-Ever Time-Based Media Colloquium”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/lacma.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/archive",
+      "labels": [
+        "archive route",
+        "https://v2.nl/archive"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/articles/about-40-years-of-archiving-unstable-media-art/",
+      "labels": [
+        "About 40 years of Archiving Unstable Media Art",
+        "https://v2.nl/articles/about-40-years-of-archiving-unstable-media-art/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/articles/about-the-archive/",
+      "labels": [
+        "About the Archive",
+        "https://v2.nl/articles/about-the-archive/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/blog/our-community-has-spoken-the-most-iconic-works-of-40-years-of-v2_",
+      "labels": [
+        "https://v2.nl/blog/our-community-has-spoken-the-most-iconic-works-of-40-years-of-v2_"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/blog/v2_-part-of-network-for-the-archiving-of-design-and-digital-culture",
+      "labels": [
+        "https://v2.nl/blog/v2_-part-of-network-for-the-archiving-of-design-and-digital-culture",
+        "V2_ part of Network for the Archiving of Design and Digital Culture"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/search/all/catalogue",
+      "labels": [
+        "Catalogue",
+        "https://v2.nl/search/all/catalogue"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://v2.nl/works/capturing-unstable-media/",
+      "labels": [
+        "Capturing Unstable Media",
+        "https://v2.nl/works/capturing-unstable-media/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v2.md"
+      ]
+    },
+    {
+      "url": "https://verse.works/board",
+      "labels": [
+        "curatorial board"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://verse.works/exhibitions/this-is-tomorrow-part-3",
+      "labels": [
+        "“This Is Tomorrow: Part III”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://verse.works/terms",
+      "labels": [
+        "“Terms”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://webmedia.mplus.org.hk/documents/collections_management_policy_2025_en.pdf",
+      "labels": [
+        "M+ Collections Management Policy 2025",
+        "“M+ Collections Management Policy 2025”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/about/history",
+      "labels": [
+        "“History of the Whitney”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/about/website/api",
+      "labels": [
+        "API",
+        "“API”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/artport/",
+      "labels": [
+        "artport",
+        "“artport”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/artport/douglas-davis",
+      "labels": [
+        "Douglas Davis, *The World's First Collaborative Sentence*",
+        "“Douglas Davis: The World's First Collaborative Sentence”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/collection/works",
+      "labels": [
+        "Collection",
+        "“Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/conservation",
+      "labels": [
+        "Conservation",
+        "“Conservation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/conservation/mpi",
+      "labels": [
+        "Media Preservation Initiative",
+        "“Media Preservation Initiative”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://whitney.org/open-access",
+      "labels": [
+        "Open Access",
+        "“Open Access”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/whitney.md"
+      ]
+    },
+    {
+      "url": "https://www.acmi.net.au/collection-preservation/",
+      "labels": [
+        "“Collections & Preservation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/acmi.md"
+      ]
+    },
+    {
+      "url": "https://www.acmi.net.au/collection-preservation/commissions/microgame/",
+      "labels": [
+        "Microgames Commission",
+        "“Microgames Commission”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/acmi.md"
+      ]
+    },
+    {
+      "url": "https://www.acmi.net.au/collection-preservation/strategy/",
+      "labels": [
+        "ACMI Collection Strategy 2024–2029",
+        "“ACMI Collection Strategy 2024–2029”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/acmi.md"
+      ]
+    },
+    {
+      "url": "https://www.acmi.net.au/education/school-program-and-resources/exhibiting-preservation-and-conservation-of-time-based-media-art/",
+      "labels": [
+        "time-based media preservation resource",
+        "“Exhibiting, preservation and conservation of time-based media art”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/acmi.md"
+      ]
+    },
+    {
+      "url": "https://www.acmi.net.au/works/119969--play-it-again-2-preserving-australian-videogames/",
+      "labels": [
+        "*Play It Again 2: Preserving Australian Videogames*",
+        "“Play It Again 2: Preserving Australian Videogames”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/acmi.md"
+      ]
+    },
+    {
+      "url": "https://www.artblocks.io/articles/about-art-blocks",
+      "labels": [
+        "“About Art Blocks”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.brightmoments.io/",
+      "labels": [
+        "retrospective site"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.brightmoments.io/about",
+      "labels": [
+        "“About” page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.brightmoments.io/archive",
+      "labels": [
+        "“Where Art is Born” archive"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/centre-pompidou/organisation/divisions-and-departments",
+      "labels": [
+        "organisational page",
+        "“Divisions and departments”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/collection/film-and-new-media",
+      "labels": [
+        "Film and New media collection overview",
+        "“Film and New media”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/offer-to-professionals/scientific-research/zapping-zone-chris-marker",
+      "labels": [
+        "research and restoration page for Chris Marker's *Zapping Zone*",
+        "“Zapping Zone, Chris Marker”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/pompidou",
+      "labels": [
+        "Pompidou+",
+        "“Pompidou+”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/pompidou-plus/magazine/article/erreur-404-une-histoire-de-lexposition-artistique-en-ligne",
+      "labels": [
+        "“Erreur 404: une histoire de l'exposition artistique en ligne”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/pompidou-plus/magazine/rubrique/research",
+      "labels": [
+        "research index"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.centrepompidou.fr/en/ressources/oeuvre/cxx9ErA",
+      "labels": [
+        "object record for Vera Molnar's *Sans titre*",
+        "“Sans titre” — Vera Molnar"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.dataland.art/about/living-encyclopedia",
+      "labels": [
+        "“Living Encyclopedia”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.dataland.art/blog/dataland-living-museum/",
+      "labels": [
+        "“Dataland: Living Museum”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.dataland.art/exhibitions/machine-dreams-rainforest",
+      "labels": [
+        "“Machine Dreams: Rainforest” exhibition record"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/about/contact-information",
+      "labels": [
+        "\"Contact Information\""
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/about/historyofdia",
+      "labels": [
+        "\"History of Dia\"",
+        "history page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/collection/collection/smithson-robert-spiral-jetty-1970-1999-014",
+      "labels": [
+        "\"Spiral Jetty | Collection | Art | Dia\"",
+        "collection record"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/collection/spiraljettyaerials",
+      "labels": [
+        "\"Spiral Jetty Aerial Documentation\"",
+        "aerial documentation index"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/exhibition/exhibitions-projects/robert-smithson-spiral-jetty-site/",
+      "labels": [
+        "\"Robert Smithson, Spiral Jetty\"",
+        "project page for *Spiral Jetty*"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.diaart.org/shop/dia-publications",
+      "labels": [
+        "\"Dia Publications\"",
+        "publication page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/dia.md"
+      ]
+    },
+    {
+      "url": "https://www.furtherfield.org/about-us/about-us/",
+      "labels": [
+        "Furtherfield’s “About Us”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.getty.edu/art/collection/object/103REK",
+      "labels": [
+        "Hunting on the Lagoon (recto); Letter Rack (verso)",
+        "“Hunting on the Lagoon (recto); Letter Rack (verso)”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://www.getty.edu/museum/provenance/",
+      "labels": [
+        "Research on Museum Collection Provenance",
+        "“Research on Museum Collection Provenance”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://www.getty.edu/publications/getty-research-journal/",
+      "labels": [
+        "“Getty Research Journal”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://www.getty.edu/publications/osci-report/",
+      "labels": [
+        "*Museum Catalogues in the Digital Age*",
+        "“Museum Catalogues in the Digital Age”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://www.getty.edu/research/tools/vocabularies/index.html",
+      "labels": [
+        "Getty Vocabularies",
+        "“Getty Vocabularies”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/getty.md"
+      ]
+    },
+    {
+      "url": "https://www.gob.mx/cultura/prensa/el-centro-multimedia-del-cenart-inicia-2026-con-actividades-formativas-expositivas-y-de-exploracion-tecnologica?idiom=es-MX",
+      "labels": [
+        "“El Centro Multimedia del CENART inicia 2026 con actividades formativas, expositivas y de exploración tecnológica”",
+        "“El Centro Multimedia del CENART inicia 2026…”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/centro-multimedia.md"
+      ]
+    },
+    {
+      "url": "https://www.gob.mx/cultura/prensa/el-laboratorio-arte-alameda-inaugurara-su-centro-de-documentacion-priamo-lozada",
+      "labels": [
+        "Príamo Lozada Documentation Center",
+        "“El Laboratorio Arte Alameda inaugurará su Centro de Documentación Priamo Lozada”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://www.gob.mx/cultura/prensa/laboratorio-arte-alameda-presenta-nuevo-ciclo-expositivo-que-explora-la-memoria-y-lo-residual",
+      "labels": [
+        "“Laboratorio Arte Alameda presenta nuevo ciclo expositivo…”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://www.guggenheim.org/conservation/the-conserving-computer-based-art-initiative",
+      "labels": [
+        "Guggenheim, “The Conserving Computer-Based Art Initiative”",
+        "“The Conserving Computer-Based Art Initiative”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/guggenheim.md"
+      ]
+    },
+    {
+      "url": "https://www.guggenheim.org/exhibition/seeing-double-emulation-in-theory-and-practice",
+      "labels": [
+        "“Seeing Double: Emulation in Theory and Practice”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/guggenheim.md"
+      ]
+    },
+    {
+      "url": "https://www.guggenheim.org/wp-content/uploads/2015/11/guggenheim-conservation-iteration-report-2012.pdf",
+      "labels": [
+        "“Conservation Department Iteration Report”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.lacma.org/lab",
+      "labels": [
+        "“Welcome to the Art + Tech Lab”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/lacma.md"
+      ]
+    },
+    {
+      "url": "https://www.lacma.org/press/lacma-acquires-largest-collection-blockchain-artworks",
+      "labels": [
+        "“LACMA Acquires Largest Collection of Blockchain Artworks”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/lacma.md"
+      ]
+    },
+    {
+      "url": "https://www.loc.gov/standards/premis/index.html",
+      "labels": [
+        "Library of Congress, “PREMIS”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf",
+      "labels": [
+        "“PREMIS Data Dictionary for Preservation Metadata: Version 3.0”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/436243",
+      "labels": [
+        "Salvator Mundi",
+        "“Salvator Mundi”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://www.metmuseum.org/art/collection/search/900397",
+      "labels": [
+        "Everything #4",
+        "“Everything #4”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://www.metmuseum.org/essays/timeline-of-art-history",
+      "labels": [
+        "Heilbrunn Timeline of Art History",
+        "“Heilbrunn Timeline of Art History”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://www.metmuseum.org/met-publications",
+      "labels": [
+        "MetPublications",
+        "“MetPublications”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://www.metmuseum.org/perspectives/margareta-haverman-vase-of-flowers-digital-conservation",
+      "labels": [
+        "“After Three Hundred Years of Fading, a Dutch Masterpiece Is Digitally Restored”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/met.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/about/curatorial-departments/media-performance",
+      "labels": [
+        "Media and Performance",
+        "“Media and Performance”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/calendar/about/exhibition-history",
+      "labels": [
+        "About our exhibition history",
+        "“About our exhibition history”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/collection/about/",
+      "labels": [
+        "About the Collection",
+        "“About the Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/collection/works/442077",
+      "labels": [
+        "Refik Anadol, *Unsupervised — Machine Hallucinations — MoMA*",
+        "“Refik Anadol. *Unsupervised — Machine Hallucinations — MoMA*. 2021–2023”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/explore/inside_out/2015/03/24/what-does-a-media-conservator-do/",
+      "labels": [
+        "What Does a Media Conservator Do?",
+        "“What Does a Media Conservator Do?”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/explore/inside_out/2015/05/20/preserving-the-technical-history-of-media-works/",
+      "labels": [
+        "MoMA, “Preserving the Technical History of Media Works”",
+        "Preserving the Technical History of Media Works",
+        "“Preserving the Technical History of Media Works”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/explore/inside_out/2015/05/25/moma-org-turns-20-archiving-two-decades-of-exhibition-sites/",
+      "labels": [
+        "“MoMA.org Turns 20: Archiving Two Decades of Exhibition Sites”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moma.org/research/conservation/matters-in-media-art",
+      "labels": [
+        "Matters in Media Art",
+        "Matters in Media Art, “Matters in Media Art”",
+        "“Matters in Media Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/moma.md"
+      ]
+    },
+    {
+      "url": "https://www.moremuseum.org/omeka/about",
+      "labels": [
+        "“About” page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.moremuseum.org/omeka/items/search",
+      "labels": [
+        "project search"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.mplus.org.hk/en/about-the-collection/",
+      "labels": [
+        "About the Collection",
+        "“About the Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://www.mplus.org.hk/en/about-the-collection/m-collection/",
+      "labels": [
+        "M+ Collection",
+        "“M+ Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://www.mplus.org.hk/en/magazine/an-introduction-to-the-m-collection-archives/",
+      "labels": [
+        "“An Introduction to the M+ Collection Archives”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://www.mplus.org.hk/en/mediatheque/",
+      "labels": [
+        "Mediatheque",
+        "“Mediatheque”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://www.mplus.org.hk/en/research-centre/research-centre-guidelines/",
+      "labels": [
+        "Research Centre Guidelines",
+        "“Research Centre Guidelines”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/m-plus.md"
+      ]
+    },
+    {
+      "url": "https://www.museumor.com/collection",
+      "labels": [
+        "Museum of Other Realities collection"
+      ],
+      "cited_by": [
+        "records/institutional-practice/adjacent-chain-native-practice.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/about/collection/",
+      "labels": [
+        "Collection",
+        "“Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/about/education/",
+      "labels": [
+        "Educational Activities",
+        "“Educational Activities”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/about/publication/inter-communication/",
+      "labels": [
+        "*InterCommunication*",
+        "“ICC Quarterly: InterCommunication”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/archive/works/restoring-media-art-works-a-case-study-of-world-membrane-and-the-dismembered-body/",
+      "labels": [
+        "*Restoring Media Art Works: A Case Study of “World, Membrane and the Dismembered Body”*",
+        "“Restoring Media Art Works: A Case Study of ‘World, Membrane and the Dismembered Body’”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/hive/",
+      "labels": [
+        "HIVE archive",
+        "“HIVE”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.ntticc.or.jp/en/hive/about/",
+      "labels": [
+        "About HIVE",
+        "“About HIVE”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/ntt-icc.md"
+      ]
+    },
+    {
+      "url": "https://www.rfc-editor.org/info/rfc8493/",
+      "labels": [
+        "RFC 8493, “The BagIt File Packaging Format”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/arts-technologies/blockchain/",
+      "labels": [
+        "Blockchain programme page",
+        "https://www.serpentinegalleries.org/arts-technologies/blockchain/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/watch/future-art-ecosystems-3-art-x-decentralised-tech-report-launch/",
+      "labels": [
+        "https://www.serpentinegalleries.org/watch/future-art-ecosystems-3-art-x-decentralised-tech-report-launch/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/whats-on/future-art-ecosystems-3-live-art-x-decentralised-tech-launch/",
+      "labels": [
+        "FAE3 launch page",
+        "https://www.serpentinegalleries.org/whats-on/future-art-ecosystems-3-live-art-x-decentralised-tech-launch/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/whats-on/future-art-ecosystems/",
+      "labels": [
+        "Future Art Ecosystems page",
+        "https://www.serpentinegalleries.org/whats-on/future-art-ecosystems/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/whats-on/i-didnt-realise-you-thought-like-that/",
+      "labels": [
+        "*I DIDNT REALISE YOU THOUGHT LIKE THAT*",
+        "https://www.serpentinegalleries.org/whats-on/i-didnt-realise-you-thought-like-that/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.serpentinegalleries.org/whats-on/legal-lab/",
+      "labels": [
+        "https://www.serpentinegalleries.org/whats-on/legal-lab/"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/serpentine-arts-technologies.md"
+      ]
+    },
+    {
+      "url": "https://www.sfmoma.org/artists-artworks/media-arts/",
+      "labels": [
+        "Media Arts",
+        "“Media Arts”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/sfmoma.md"
+      ]
+    },
+    {
+      "url": "https://www.sfmoma.org/artwork/2010.45.A-EEEEEEEE/",
+      "labels": [
+        "*Learning to Love You More* collection record",
+        "Harrell Fletcher and Miranda July; Yuri Ono and web designer, *Learning to Love You More*, 2002–2009",
+        "“Harrell Fletcher and Miranda July; Yuri Ono and web designer Learning to Love You More, 2002-2009”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/sfmoma.md"
+      ]
+    },
+    {
+      "url": "https://www.sfmoma.org/read/matters-in-media-art/",
+      "labels": [
+        "“Matters in Media Art”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/sfmoma.md"
+      ]
+    },
+    {
+      "url": "https://www.sfmoma.org/read/team-media-action-contemplation/",
+      "labels": [
+        "“Team Media: In Action, in Contemplation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/sfmoma.md"
+      ]
+    },
+    {
+      "url": "https://www.tate.org.uk/research/reshaping-the-collectible",
+      "labels": [
+        "“Reshaping the Collectible”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.tate.org.uk/research/reshaping-the-collectible#the-lives-of-net-art",
+      "labels": [
+        "Reshaping the Collectible: The Lives of Net Art",
+        "“Reshaping the Collectible: The Lives of Net Art”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/tate.md"
+      ]
+    },
+    {
+      "url": "https://www.tate.org.uk/research/reshaping-the-collectible/net-art-dusty-navigational-pathways",
+      "labels": [
+        "“Net Art: Dusty Navigational Pathways”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/tate.md"
+      ]
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/digital/redesigning-the-vas-collections-online",
+      "labels": [
+        "“Redesigning the V&A’s collections online”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v-and-a.md"
+      ]
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/digital/why-things-fail-and-why-it-matters-some-challenges-for-digital-collecting-today-part-2",
+      "labels": [
+        "“Why things fail and why it matters: some challenges for digital collecting today – Part 2”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v-and-a.md"
+      ]
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/projects/what-does-conserving-the-digital-look-like",
+      "labels": [
+        "“What does conserving the digital look like?”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/v-and-a.md"
+      ]
+    },
+    {
+      "url": "https://www.variablemedia.net/e/preserving/html/var_pub_index.html",
+      "labels": [
+        "“Variable Media Publication: Permanence Through Change”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.variablemedia.net/e/welcome.html",
+      "labels": [
+        "Variable Media Network, “Variable Media Network”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.w3.org/TR/prov-o/",
+      "labels": [
+        "W3C, “PROV-O: The PROV Ontology”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://www.walkerart.org/art-artists/library-and-archives/",
+      "labels": [
+        "\"Library and Archives\""
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://www.walkerart.org/art-artists/visual-arts/walker-collection/",
+      "labels": [
+        "\"Walker Collection\"",
+        "Walker Collection"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://www.walkerart.org/interdisciplinary-initiative/",
+      "labels": [
+        "\"Interdisciplinary Initiative\"",
+        "Interdisciplinary Initiative",
+        "Living Collections Catalogue"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://www.walkerart.org/reader/collecting-performance/",
+      "labels": [
+        "\"Collecting Performance\""
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://www.walkerart.org/walker-publishing/print-publications/",
+      "labels": [
+        "\"Walker Publishing\"",
+        "publishing page"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/de/werk/wipe-cycle",
+      "labels": [
+        "Wipe Cycle",
+        "ZKM, “Wipe Cycle”",
+        "“Wipe Cycle”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/development-philosophy",
+      "labels": [
+        "Development & Philosophy",
+        "“Development & Philosophy”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/founding-history",
+      "labels": [
+        "Founding & History",
+        "“Founding & History”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/laboratory-for-antiquated-video-systems",
+      "labels": [
+        "Laboratory for Antiquated Video Systems",
+        "“Laboratory for Antiquated Video Systems”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/publications/digital-art-conservation",
+      "labels": [
+        "Digital Art Conservation",
+        "“Digital Art Conservation”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/restoration-of-electronic-and-digital-art",
+      "labels": [
+        "Restoration of Electronic and Digital Art",
+        "“Restoration of Electronic and Digital Art”"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md",
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/the-zkm-collection",
+      "labels": [
+        "The ZKM Collection",
+        "“The ZKM Collection”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    },
+    {
+      "url": "https://zkm.de/en/wissen",
+      "labels": [
+        "Wissen",
+        "“Wissen”"
+      ],
+      "cited_by": [
+        "records/institutional-practice/profiles/zkm.md"
+      ]
+    }
+  ]
+}

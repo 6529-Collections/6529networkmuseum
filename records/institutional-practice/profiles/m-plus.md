@@ -28,7 +28,12 @@ The magazine article [“An Introduction to the M+ Collection Archives”](https
 
 ### 4. Public access has rights boundaries
 
-The [Research Centre Guidelines](https://www.mplus.org.hk/en/research-centre/research-centre-guidelines/) state that collection-archive and library material may require permission from M+ and rights holders before publication. The [Mediatheque](https://www.mplus.org.hk/en/mediatheque/) provides mediated moving-image access through playlists, filtering, and an Interactive Media Room rather than presenting every item as an unrestricted download.
+The [Research Centre Guidelines](https://www.mplus.org.hk/en/research-centre/research-centre-guidelines/)
+state that collection-archive and library material may require permission from
+M+ and rights holders before publication. The
+[Mediatheque](https://www.mplus.org.hk/en/mediatheque/) provides mediated
+moving-image access through playlists, filtering, and an Interactive Media
+Room. It does not offer every item as an unrestricted download.
 
 ## Publication and scholarship
 
@@ -38,9 +43,11 @@ M+ publishes in layers: collection pages establish identity and scope; archive e
 
 - Create separate relationships for artwork, collection archive, library, related material, documentation, and display.
 - Record rights and access at work or material level, including on-site, restricted, licensed, unavailable, and online states.
-- Link technical-care notes to the exact work rather than relying on a general digital-art policy.
+- Link technical-care notes to the exact work. A general policy supplies
+  context, not work-level evidence.
 - Preserve the distinction between an institution's collection, its research holdings, and its public interface.
-- Provide regional-language source paths and identify when translation is editorial rather than institutional.
+- Provide regional-language source paths and identify the author and status of
+  every translation.
 
 ## Where the analogy ends
 

@@ -8,7 +8,13 @@
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
 
-Centro Multimedia is a research, production, training, and documentation center rather than a collecting museum. Its [Virtual Library](https://cmm.cenart.gob.mx/acercaDe.php) gathers catalogues, essays, exhibition booklets, augmented-reality stories, and files produced by the Center. The library makes program history part of the public record while leaving production support, research, and collection custody as separate questions.
+Centro Multimedia is a research, production, training, and documentation
+center. No collecting remit was found in the sources reviewed. Its [Virtual
+Library](https://cmm.cenart.gob.mx/acercaDe.php) gathers catalogues, essays,
+exhibition booklets, augmented-reality stories, and files produced by the
+Center. The library makes program history part of the public record while
+leaving production support, research, and collection custody as separate
+questions.
 
 ## Demonstrated practices
 
@@ -28,7 +34,12 @@ The [Audiovisual Archive of Centro Multimedia](https://archivoaudiovisualcmm.ome
 
 ### 4. The program remains active
 
-The Mexican government announcement [“El Centro Multimedia del CENART inicia 2026…”](https://www.gob.mx/cultura/prensa/el-centro-multimedia-del-cenart-inicia-2026-con-actividades-formativas-expositivas-y-de-exploracion-tecnologica?idiom=es-MX), dated 13 January 2026, records continuing workshops, seminars, exhibitions, talks, and exploration across transmedia, videogames, animation, philosophy, digital image, and editorial practice. The current program provides a dated continuation of the archive rather than a closed historical snapshot.
+The Mexican government announcement [“El Centro Multimedia del CENART inicia
+2026…”](https://www.gob.mx/cultura/prensa/el-centro-multimedia-del-cenart-inicia-2026-con-actividades-formativas-expositivas-y-de-exploracion-tecnologica?idiom=es-MX),
+dated 13 January 2026, records continuing workshops, seminars, exhibitions,
+talks, and exploration across transmedia, videogames, animation, philosophy,
+digital image, and editorial practice. The dated program extends the
+institutional history beyond the archive's earlier holdings.
 
 ## Publication and scholarship
 

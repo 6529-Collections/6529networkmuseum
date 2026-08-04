@@ -36,18 +36,18 @@ created through research.
 
 The decisive editorial practice is separation of genres. A label fixes identity
 and discovery. A microsite gathers a research argument, works, context, credits,
-rights, and public access. A book can preserve a further scholarly record: the
-MCA's [book page for *I Was Raised on the Internet*](https://mcachicago.org/publications/books/i-was-raised-on-the-internet)
-(2018) describes critical essays, provocations, and art-and-technology studies
-around the exhibition.
+rights, and public access. A book can preserve a further scholarly record. MCA's
+[books catalogue](https://mcachicago.org/publications/books) includes *I Was
+Raised on the Internet* among the publications that extend its exhibitions and
+collection through sustained scholarship.
 
 For the 6529 Network Museum, every public microsite or digital publication
 should carry its own publication record: title, publication date, research
 cutoff, scope, contributors, production system or CMS when relevant, rights,
 current status, known missing content, volatile links, archive or snapshot
 route, and suggested citation. The collection record should link to that
-publication rather than duplicate its claims. A correction or missing-content
-report should produce a dated revision entry.
+publication and leave the publication's argument intact. A correction or
+missing-content report should produce a dated revision entry.
 
 ## What the Museum should adopt
 
@@ -68,7 +68,7 @@ publication practice. They do not present a dedicated conservation dossier or
 evidence of a complete digital-preservation workflow. The warning that links may
 disappear is an access limitation, not proof of successful preservation. The
 Museum should adopt MCA's genre separation, credits, link-status disclosure,
-and correction route without describing the model as digital conservation.
+and correction route while keeping the limits of that evidence clear.
 
 ## Sources
 
@@ -76,7 +76,7 @@ and correction route without describing the model as digital conservation.
 2. Museum of Contemporary Art Chicago, ["Cinaedus Table MDCCLXXV"](https://mcachicago.org/art-artists/collection/cinaedus-table-mdcclxxv/), work 2007; page date not shown.
 3. Museum of Contemporary Art Chicago, ["I Was Raised on the Internet"](https://mcachicago.org/publications/websites/i-was-raised-on-the-internet), exhibition and website 2018.
 4. Museum of Contemporary Art Chicago, ["Websites"](https://mcachicago.org/publications/websites), page date not shown.
-5. Museum of Contemporary Art Chicago, ["I Was Raised on the Internet" book](https://mcachicago.org/publications/books/i-was-raised-on-the-internet), 2018.
+5. Museum of Contemporary Art Chicago, ["Books"](https://mcachicago.org/publications/books), including *I Was Raised on the Internet*, 2018.
 6. Museum of Contemporary Art Chicago, ["I Was Raised on the Internet" exhibition](https://mcachicago.org/Exhibitions/2018/I-Was-Raised-On-The-Internet), 2018.
 
 ## Revision history

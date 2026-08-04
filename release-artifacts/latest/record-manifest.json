@@ -27,8 +27,8 @@
     },
     {
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:d60e28310a293960ad4d6242d0392723be6b203d8c0fea145a22e15487e9a259",
-      "size": 2958
+      "sha256": "sha256:244517d01115251c72503ae2e1cf799e281e8fd97364a44aae5d938aa0bc6943",
+      "size": 3165
     },
     {
       "path": ".gitignore",
@@ -47,13 +47,13 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:81a1c28c699c99c9049dd6754c8d2002fe551cc9b3b867d2a597c8262fec2bb3",
-      "size": 24548
+      "sha256": "sha256:eb9952f3d9d135890b73d931786598053dc824352805663eaf3ba1451c16b1f0",
+      "size": 26158
     },
     {
       "path": "README.md",
-      "sha256": "sha256:d86313092e91a4e1d486697b9874665ebd2731288c0f75e8f8078016405c8054",
-      "size": 8711
+      "sha256": "sha256:6bedf691c75a294d1d03f2800151c73e0bfbe56983746b1ec713913c51ea4ecf",
+      "size": 9170
     },
     {
       "path": "RIGHTS.md",
@@ -77,8 +77,13 @@
     },
     {
       "path": "docs/curatorial-publication-standard.md",
-      "sha256": "sha256:3118b41e5654324353ef0d7ac885380a6af740088f707bb5890f093faa835670",
-      "size": 26046
+      "sha256": "sha256:c3f19984cf85e81c0c1d8800d40af170301bf31deaac9a951baf42df1e1e95c6",
+      "size": 27894
+    },
+    {
+      "path": "docs/digital-art-stewardship-standard.md",
+      "sha256": "sha256:bba0a86ead536bc607d7f77a1c38a2d10c4f1cf1925d5aaee6ee4599c7b76143",
+      "size": 31231
     },
     {
       "path": "docs/external-works-registry.md",
@@ -94,6 +99,16 @@
       "path": "docs/implementation-roadmap.md",
       "sha256": "sha256:5e1ca547c7f8fc19f31b0bb83c5307de4f2352133717a619062d3b1d60f67949",
       "size": 13329
+    },
+    {
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x6609ba92ba6956f9129dfa28a448007e338504229c3c70062027eac1ed67d29e"
+      },
+      "path": "docs/institutional-source-inventory.json",
+      "sha256": "sha256:f1983d07e02f0005e7b32b3a2dfe41d27059f6fafba15157765bfe71c89c0cae",
+      "size": 67827
     },
     {
       "path": "docs/onchain-design.md",
@@ -567,8 +582,18 @@
     },
     {
       "path": "records/institutional-practice/a-field-of-practice.md",
-      "sha256": "sha256:dad4ced98e9b81640d96fa7324730c1cfe31c42cff6bad90f71432d39a328c0b",
-      "size": 9585
+      "sha256": "sha256:4c93c798f7bd2f4e30f510b0b4b2e71b72761dfe495f228ab91a98b33a107f99",
+      "size": 10557
+    },
+    {
+      "path": "records/institutional-practice/adjacent-chain-native-practice.md",
+      "sha256": "sha256:dc2534d9d14162747b37787bed514610bf8c3fb09d082e85a256a3245c5f7bc2",
+      "size": 18594
+    },
+    {
+      "path": "records/institutional-practice/profiles/acmi.md",
+      "sha256": "sha256:89665fd42f3b515050cf80f4d5e84d76c7dc6bd46475a6280c0468e09d9eac79",
+      "size": 6490
     },
     {
       "path": "records/institutional-practice/profiles/ars-electronica.md",
@@ -581,6 +606,16 @@
       "size": 6907
     },
     {
+      "path": "records/institutional-practice/profiles/centro-multimedia.md",
+      "sha256": "sha256:6b164987fba7661f4561a1ae085c255b8e760f0878fc2f3b6ec4635389aaef46",
+      "size": 5738
+    },
+    {
+      "path": "records/institutional-practice/profiles/dia.md",
+      "sha256": "sha256:d39aa542553e9646aa9f922f943c338acdb6bd0930cd3e949de48ffeed7a5f85",
+      "size": 5606
+    },
+    {
       "path": "records/institutional-practice/profiles/getty.md",
       "sha256": "sha256:bd28c5c65b430dba37f587bbd126dec5f4e96db551e1237a3b6288e882682c48",
       "size": 11565
@@ -591,9 +626,34 @@
       "size": 4922
     },
     {
+      "path": "records/institutional-practice/profiles/hek-basel.md",
+      "sha256": "sha256:e1879e9209e5c8e67336c518bc17a90bebbccde010104156c6e6018b80b9dd3a",
+      "size": 7529
+    },
+    {
+      "path": "records/institutional-practice/profiles/laboratorio-arte-alameda.md",
+      "sha256": "sha256:a0b95844846533d2c22945dc83fa341ba9868dc831deb039e69af46ed036caf7",
+      "size": 6769
+    },
+    {
       "path": "records/institutional-practice/profiles/lacma.md",
       "sha256": "sha256:1ac70c990aafd12f956f9697fb823c97b5f39d0ae393104e6db3c4c903b6258d",
       "size": 6324
+    },
+    {
+      "path": "records/institutional-practice/profiles/li-ma.md",
+      "sha256": "sha256:6f4ceabdcdaf8a8dfded80b0c8999e25a8c975ec8b8a9aa37a0276118095d779",
+      "size": 7079
+    },
+    {
+      "path": "records/institutional-practice/profiles/m-plus.md",
+      "sha256": "sha256:ff7fc5fc1e10957f405ed0b7488b7062abe2e664bec997c44021b4dbe0ef1fee",
+      "size": 5886
+    },
+    {
+      "path": "records/institutional-practice/profiles/mca-chicago.md",
+      "sha256": "sha256:7f540a574f7a2d6a19bd301f6b9a825a1f38c36871ae3dbd5a0e93fbe89218c7",
+      "size": 5242
     },
     {
       "path": "records/institutional-practice/profiles/met.md",
@@ -604,6 +664,16 @@
       "path": "records/institutional-practice/profiles/moma.md",
       "sha256": "sha256:ce0af9756421ec0e8f8a220fad80c05160f93f694563e5dd06fb2dca95c2542b",
       "size": 9583
+    },
+    {
+      "path": "records/institutional-practice/profiles/nam-june-paik-art-center.md",
+      "sha256": "sha256:24368ea93b69a737a703c9a0d0d1c3b06a81eeb960e8a6a29ede078164723e89",
+      "size": 5552
+    },
+    {
+      "path": "records/institutional-practice/profiles/ntt-icc.md",
+      "sha256": "sha256:0dc79b241baf488e04f4859170651f00c337aff9c6cca38397c01f3267f85f93",
+      "size": 5335
     },
     {
       "path": "records/institutional-practice/profiles/rhizome-new-museum.md",
@@ -626,9 +696,24 @@
       "size": 5661
     },
     {
+      "path": "records/institutional-practice/profiles/transmediale.md",
+      "sha256": "sha256:d2f8bd0edce7f439b0e7623e82d75f49c878345772dd324fc320f1777d1996c4",
+      "size": 6084
+    },
+    {
       "path": "records/institutional-practice/profiles/v-and-a.md",
       "sha256": "sha256:277670f6588752caea094c57a7686eeb40125d22a8ef5c40796b41490ff84c6c",
       "size": 5217
+    },
+    {
+      "path": "records/institutional-practice/profiles/v2.md",
+      "sha256": "sha256:ca0ab05689be733bfba275d0f0931051855fbadf0844cd07e7768840a137d89e",
+      "size": 6504
+    },
+    {
+      "path": "records/institutional-practice/profiles/walker-art-center.md",
+      "sha256": "sha256:51718896881592b3483c234380230855a12378566f0b5f34917940906f319b1a",
+      "size": 5541
     },
     {
       "path": "records/institutional-practice/profiles/whitney.md",
@@ -642,8 +727,8 @@
     },
     {
       "path": "records/institutional-practice/source-register.md",
-      "sha256": "sha256:737fe852338de95e2ee77f26dddcf3a25998d830db5af6e1619ea55809695abd",
-      "size": 29055
+      "sha256": "sha256:e1484246ad58cbca6a9e372dacc141aae59f07bca126599b7b5fcaab00de8084",
+      "size": 29711
     },
     {
       "content_hash": {
@@ -1201,6 +1286,11 @@
       "size": 59144
     },
     {
+      "path": "scripts/generate_institutional_source_inventory.py",
+      "sha256": "sha256:d29b6426541692c176c196aa839ed6a69998b7696b9ec0db1b1ddf5903146bba",
+      "size": 2968
+    },
+    {
       "path": "scripts/generate_manifest.py",
       "sha256": "sha256:0e0946d1c349c522f852d86ca52727375cd1e88f2de4fbcb1be8496e41d5a18c",
       "size": 8325
@@ -1667,8 +1757,8 @@
     },
     {
       "path": "tests/test_institutional_practice.py",
-      "sha256": "sha256:e7b042a55be7211bc970416264bf08f1128d51423b805a9e967326f331b1a1e3",
-      "size": 6824
+      "sha256": "sha256:345eb9946459cd9cf50a5e29e5b90f431ccf6773265f078ef66a5fb3809a339b",
+      "size": 9366
     }
   ],
   "hash_algorithms": {
@@ -1700,9 +1790,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c"
+    "digest": "0x48e475c5ff45f183f69b1aa28b3b7d6b1fb50269757d51902b4ade68252eca7c"
   },
-  "manifest_sha256": "sha256:7ae561a27b5c3494d3bc81035af506ba5c49501ebb5c73a5535a3a2898c1b416",
+  "manifest_sha256": "sha256:15056aa38c28ef5662063fd9193d211a59dd03797d543fed57a0b82c497c03d5",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

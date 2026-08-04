@@ -2,11 +2,18 @@
 
 - **Status:** public research register
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.1
+- **Version:** 2.0.0
 - **Publication date:** 2026-08-04
 - **Access date for all web sources:** 2026-08-04
 
 This register binds the comparative study to primary institutional evidence.
+The tables below retain the 114-source detailed register from the first
+edition. Every second-edition profile and related study carries an exact source
+note beside its argument: displayed title, date when shown, access date, and
+evidentiary use. The deterministic [source inventory](../../docs/institutional-source-inventory.json)
+reconciles every cited HTTPS URL to the manuscripts that use it and fails CI
+when the committed projection is stale.
+
 Every row gives the source's displayed title, publication or program date when
 the page shows one, source type, and the claim for which it was used. “Not
 shown” means the page exposed no publication date during review. All URLs were
@@ -199,6 +206,9 @@ These sources support the two profiles and the aggregate publication standard.
 
 ## Revision history
 
+- `2.0.0` — 2026-08-04: retained the detailed first-edition register, bound
+  second-edition source notes to a deterministic 236-source manuscript
+  inventory, and documented the no-duplication apparatus.
 - `1.0.1` — 2026-08-04: pre-publication review corrected the Tate microsite
   chronology and distinguished Conifer's May subscription closure, June
   replacement plan, and current service notice.
