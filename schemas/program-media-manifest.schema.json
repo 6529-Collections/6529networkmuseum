@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/program-media-manifest/v1",
+  "title": "6529 Network Museum program media delivery manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "program_id",
+    "generated_at",
+    "source_observed_at",
+    "transform",
+    "delivery",
+    "rights_boundary",
+    "items"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../../schemas/program-media-manifest.schema.json"
+    },
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": { "const": 1 },
+        "record_status": { "const": "constructed" },
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": { "type": "string", "minLength": 1 },
+            "role": { "const": "constructor" },
+            "constructed_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "review": { "const": null }
+      }
+    },
+    "record_type": { "const": "PROGRAM_MEDIA_MANIFEST" },
+    "schema_profile": { "const": "6529NM_PROGRAM_MEDIA_MANIFEST_V1" },
+    "program_id": { "const": "6529NM-AP-01" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "source_observed_at": { "type": "string", "format": "date-time" },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "implementation",
+        "format",
+        "quality",
+        "method",
+        "widths",
+        "resize_filter",
+        "upscale",
+        "orientation",
+        "colour_management",
+        "metadata"
+      ],
+      "properties": {
+        "profile": { "const": "6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6" },
+        "implementation": { "const": "Pillow 12.3.0" },
+        "format": { "const": "image/webp" },
+        "quality": { "const": 82 },
+        "method": { "const": 6 },
+        "widths": {
+          "const": [640, 1280, 2400]
+        },
+        "resize_filter": { "const": "Lanczos" },
+        "upscale": { "const": false },
+        "orientation": { "const": "EXIF transpose before resize" },
+        "colour_management": {
+          "const": "embedded profiles converted to sRGB; untagged sources treated as sRGB; sRGB profile embedded in derivatives"
+        },
+        "metadata": {
+          "const": "source EXIF/XMP stripped; output sRGB ICC profile retained"
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cdn_base_url", "cache_control", "key_profile", "overwrite_policy"],
+      "properties": {
+        "cdn_base_url": {
+          "const": "https://d3lqz0a4bldqgf.cloudfront.net"
+        },
+        "cache_control": {
+          "const": "public, max-age=31536000, immutable"
+        },
+        "key_profile": {
+          "const": "museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp"
+        },
+        "overwrite_policy": {
+          "const": "fail if an existing key does not contain the declared bytes"
+        }
+      }
+    },
+    "rights_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "status", "non_claims"],
+      "properties": {
+        "purpose": {
+          "const": "Technical presentation surrogates for the existing public Keys and Gates program display"
+        },
+        "status": {
+          "const": "Each outcome's recorded rights-effective status remains controlling; this manifest does not activate CC0 or grant reuse rights"
+        },
+        "non_claims": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record_id", "source", "presentation"],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "pattern": "^6529NM-AP-01-OUT-[0-9]{3}$"
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "role",
+              "url",
+              "mime_type",
+              "sha256",
+              "byte_size",
+              "pixel_width",
+              "pixel_height",
+              "exif_orientation_applied",
+              "colour_profile_status",
+              "retention_status",
+              "rights_effective_status"
+            ],
+            "properties": {
+              "role": { "const": "submitted_high_resolution_source" },
+              "url": {
+                "type": "string",
+                "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/"
+              },
+              "mime_type": { "enum": ["image/jpeg", "image/png"] },
+              "sha256": { "$ref": "#/$defs/sha256" },
+              "byte_size": { "type": "integer", "minimum": 1 },
+              "pixel_width": { "type": "integer", "minimum": 2400 },
+              "pixel_height": { "type": "integer", "minimum": 1 },
+              "exif_orientation_applied": { "type": "boolean" },
+              "colour_profile_status": {
+                "enum": [
+                  "embedded_profile_converted_to_srgb",
+                  "untagged_assumed_srgb"
+                ]
+              },
+              "retention_status": {
+                "const": "source bytes fixity-checked during derivation but not retained in this repository"
+              },
+              "rights_effective_status": { "type": "string", "minLength": 1 }
+            }
+          },
+          "presentation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["role", "alt_text", "alt_text_status", "derivatives"],
+            "properties": {
+              "role": { "const": "web_presentation_surrogate" },
+              "alt_text": { "type": "string", "minLength": 20 },
+              "alt_text_status": {
+                "const": "constructed_visual_description_pending_independent_review"
+              },
+              "derivatives": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "width",
+                    "height",
+                    "mime_type",
+                    "sha256",
+                    "byte_size",
+                    "repository_path",
+                    "url",
+                    "cache_control"
+                  ],
+                  "properties": {
+                    "width": { "enum": [640, 1280, 2400] },
+                    "height": { "type": "integer", "minimum": 1 },
+                    "mime_type": { "const": "image/webp" },
+                    "sha256": { "$ref": "#/$defs/sha256" },
+                    "byte_size": { "type": "integer", "minimum": 1 },
+                    "repository_path": {
+                      "type": "string",
+                      "pattern": "^media/programs/6529NM-AP-01/.+\\.webp$"
+                    },
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/museum/programs/6529NM-AP-01/.+\\.webp$"
+                    },
+                    "cache_control": {
+                      "const": "public, max-age=31536000, immutable"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}

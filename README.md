@@ -46,6 +46,7 @@ Contract design is in progress; deployment and activation remain pending. See
 | Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
+| Program media delivery | [`docs/program-media-delivery.md`](docs/program-media-delivery.md) | Deterministic responsive derivatives, source fixity, immutable CDN keys, high-resolution access, rights boundaries, and verification |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
 | On-chain transition | [`docs/onchain-transition.md`](docs/onchain-transition.md) | Visitor-facing Fall 2026 target, contract/content-addressed boundary, and explicit non-deployment status |
 | Contributing | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution paths, evidence expectations, correction rules, validation, and safety boundary |
@@ -83,6 +84,7 @@ python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
 python scripts/validate.py
 python scripts/generate_institutional_source_inventory.py --check
+python scripts/generate_program_media.py --check
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check
 ```

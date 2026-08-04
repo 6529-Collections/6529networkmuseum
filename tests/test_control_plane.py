@@ -1000,6 +1000,7 @@ class ControlPlaneTests(unittest.TestCase):
                 "schemas",
                 "docs",
                 "governance",
+                "media",
                 "specs",
                 "templates",
                 "scripts",
@@ -1039,6 +1040,7 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertIn("RIGHTS.md", paths)
         self.assertIn("docs/open-museum.md", paths)
         self.assertIn("docs/onchain-transition.md", paths)
+        self.assertIn("media/programs/6529NM-AP-01/accessibility.json", paths)
         self.assertIn("requirements-dev.txt", paths)
         self.assertIn("scripts/rarity/nextgen_compat.py", paths)
         self.assertIn("tests/rarity/test_nextgen_compat.py", paths)
@@ -1062,13 +1064,16 @@ class ControlPlaneTests(unittest.TestCase):
         cache.mkdir(parents=True)
         source = docs / "example.md"
         specification = specs / "protocol.md"
+        media = root / "media" / "example.webp"
         source.write_bytes(b"first\r\nsecond\rthird\n")
         specification.write_bytes(b"governed\r\nspec\r")
+        media.write_bytes(b"RIFF\r\nraw-webp-test")
         (notes / "working.md").write_text("not release authority\n", encoding="utf-8")
         (root / "README.md").write_bytes(b"first\r\nsecond\rthird\n")
         (cache / "example.pyc").write_bytes(b"cache")
         self.assertEqual(b"first\nsecond\nthird\n", normalized_bytes(source))
         self.assertEqual(b"governed\nspec\n", normalized_bytes(specification))
+        self.assertEqual(b"RIFF\r\nraw-webp-test", normalized_bytes(media))
         first = make_manifest(root)
         second = make_manifest(root)
         self.assertEqual(first, second)
@@ -1076,6 +1081,9 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertIn("docs/example.md", paths)
         self.assertIn("specs/protocol.md", paths)
         self.assertIn("README.md", paths)
+        self.assertIn("media/example.webp", paths)
+        media_entry = next(entry for entry in first["entries"] if entry["path"] == "media/example.webp")
+        self.assertEqual("raw", media_entry["byte_mode"])
         self.assertNotIn("notes/wip/working.md", paths)
         self.assertNotIn("scripts/__pycache__/example.pyc", paths)
         specification.write_text("changed specification\n", encoding="utf-8")

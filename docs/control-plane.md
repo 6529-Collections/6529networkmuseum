@@ -72,6 +72,10 @@ that need the whole repository or need to compare values:
   profile/revision, address set and hash, selected and peer IPs, redirect
   chain, time, status, media type, actual byte length/hash, and relevant
   response headers.
+- `scripts/generate_program_media.py --check` verifies that the Keys and Gates
+  media manifest joins exactly to all sixteen selected outcomes, that every
+  declared WebP exists with the committed raw-byte hash, size, geometry, and
+  sRGB profile, and that no undeclared derivative is present.
 
 The bootstrap layer additionally verifies that governance decisions reproduce
 the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,
@@ -145,11 +149,12 @@ The release profile is RFC 8785-compatible constrained I-JSON:
   is covered by golden vectors for negative zero, exponent cutovers, precision,
   and subnormal values.
 
-JSON entries receive a Stream-shaped Keccak/JCS `content_hash` and all governed
-files receive an LF-normalized SHA-256 digest. The manifest itself commits its
+JSON entries receive a Stream-shaped Keccak/JCS `content_hash`. Museum-authored
+text receives an LF-normalized SHA-256 digest, while declared WebP media receives
+a raw-byte SHA-256 digest. Every entry names its byte mode. The manifest itself commits its
 canonical body with both Keccak/JCS and SHA-256. Its closed directory inventory
 covers `.github/`, `policies/`, `records/`, `schemas/`, `docs/`, `governance/`,
-`specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
+`media/`, `specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
 files `.gitattributes`, `.gitignore`, `AGENTS.md`, `CONTRIBUTING.md`, `INDEX.md`,
 `README.md`, `RIGHTS.md`, and `requirements-dev.txt`. Entries use sorted
 repository-relative POSIX paths.
@@ -163,6 +168,10 @@ source bytes are never silently normalized. `notes/` is the indexed WIP and
 research notebook, not a release authority. `release-artifacts/` is excluded to
 avoid a self-referential manifest; Git internals are never inventoried.
 
+The program-media verifier separately parses every WebP and reconciles its raw
+bytes with the constructed program media manifest. Binary media is never passed
+through line-ending normalization.
+
 ## Local commands
 
 From the repository root:
@@ -172,6 +181,7 @@ python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
+python scripts/generate_program_media.py --check
 python scripts/validate.py
 python scripts/generate_manifest.py
 python scripts/generate_manifest.py --check

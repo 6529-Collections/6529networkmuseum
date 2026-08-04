@@ -1902,3 +1902,37 @@ Markdown, attributed a live-software capability to artist documentation, added
 two omitted profile revision notes, and reconciled the 236-URL availability
 pass with the later 237-source inventory. Forty-one focused tests and full
 Museum, promotion, source-inventory, and manifest checks pass on the follow-up.
+
+### 2026-08-04 Keys and Gates responsive media delivery
+
+The active source and frontend branches were created from the latest remote
+`main` revisions in clean worktrees; unrelated dirty checkouts were preserved.
+The live Keys and Gates Wave was re-read through authenticated 6529 tooling.
+The latest direct program update still identifies Stream contract work as the
+main blocker, while later chat is forward-looking and supplies no primary mint,
+purchase, title, custody, or accession evidence. The sixteen outcomes therefore
+remain `selected_unminted`.
+
+All sixteen public submission objects were downloaded from their existing CDN
+origin into an untracked local staging area and fixity-checked. They total
+233,601,493 bytes and range from 4.1 MB to 46.7 MB. The new deterministic
+`6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6` pipeline applies EXIF orientation,
+converts embedded profiles to sRGB, strips source metadata except for the output
+sRGB profile, preserves the complete uncropped frame, and emits 640, 1280, and
+2400 pixel WebP variants without upscaling. The forty-eight governed
+derivatives total 16,103,634 bytes.
+
+The constructed media manifest keeps submitted source, web presentation
+surrogate, and any future preservation object distinct. It joins source fixity,
+recorded rights status, constructed visual descriptions, derivative fixity,
+repository paths, and immutable CDN paths to all sixteen outcome IDs. It does
+not activate CC0, establish a preservation master, or alter mint/acquisition/
+accession state. The source originals are not committed; their existing public
+URLs remain the explicit high-resolution route.
+
+The CDN publication uses a new content-addressed namespace and additive writes
+with `image/webp`, inline disposition, one-year immutable caching, stored
+SHA-256 metadata, and S3 SHA-256 checksums. Existing source objects are not
+overwritten. Repository validation, release-manifest regeneration, frontend
+integration, bot review, merge, staging E2E, and production E2E remain the
+active gates.

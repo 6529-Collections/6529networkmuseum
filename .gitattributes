@@ -3,6 +3,7 @@
 *.md text eol=lf
 *.py text eol=lf
 *.yml text eol=lf
+*.webp binary
 
 # Preserve authenticated evidence snapshots byte-for-byte, including upstream
 # line endings, BOMs, and whitespace. Human-authored indexes remain text.
