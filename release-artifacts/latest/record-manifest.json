@@ -47,13 +47,13 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:7bfe4a92169fb50082cd484a238c7742c15f1c69cfeac7a892bd03003a7e6c1c",
-      "size": 23232
+      "sha256": "sha256:81a1c28c699c99c9049dd6754c8d2002fe551cc9b3b867d2a597c8262fec2bb3",
+      "size": 24548
     },
     {
       "path": "README.md",
-      "sha256": "sha256:b7c027d38a4a72cb1c7ea3711d33727a5f438b46ccda75bbd03d1ffa4b1a7fc5",
-      "size": 8241
+      "sha256": "sha256:d86313092e91a4e1d486697b9874665ebd2731288c0f75e8f8078016405c8054",
+      "size": 8711
     },
     {
       "path": "RIGHTS.md",
@@ -77,8 +77,8 @@
     },
     {
       "path": "docs/curatorial-publication-standard.md",
-      "sha256": "sha256:17bd3894386284c33141087adc6abe01c3f3c4d68272246bc0dfe82006a97c68",
-      "size": 17432
+      "sha256": "sha256:3118b41e5654324353ef0d7ac885380a6af740088f707bb5890f093faa835670",
+      "size": 26046
     },
     {
       "path": "docs/external-works-registry.md",
@@ -564,6 +564,86 @@
       "path": "records/governance/decisions.json",
       "sha256": "sha256:860a1593e4ee7c1539ec8c394ef0f726ce21d5abfd592004b863e03b6cc39914",
       "size": 6387
+    },
+    {
+      "path": "records/institutional-practice/a-field-of-practice.md",
+      "sha256": "sha256:dad4ced98e9b81640d96fa7324730c1cfe31c42cff6bad90f71432d39a328c0b",
+      "size": 9585
+    },
+    {
+      "path": "records/institutional-practice/profiles/ars-electronica.md",
+      "sha256": "sha256:ff83146ff24fcd35af12ba0555ee16876046f3fb287f5907684e40238017c922",
+      "size": 5986
+    },
+    {
+      "path": "records/institutional-practice/profiles/centre-pompidou.md",
+      "sha256": "sha256:d6f09086f7f88097e589207f8d86b176e3649a50f32b8685231d9224033a96cf",
+      "size": 6907
+    },
+    {
+      "path": "records/institutional-practice/profiles/getty.md",
+      "sha256": "sha256:bd28c5c65b430dba37f587bbd126dec5f4e96db551e1237a3b6288e882682c48",
+      "size": 11565
+    },
+    {
+      "path": "records/institutional-practice/profiles/guggenheim.md",
+      "sha256": "sha256:42f44990b57678dd5fe1b5e46d37bf72e6177fbd9200fb43121b473280f62266",
+      "size": 4922
+    },
+    {
+      "path": "records/institutional-practice/profiles/lacma.md",
+      "sha256": "sha256:1ac70c990aafd12f956f9697fb823c97b5f39d0ae393104e6db3c4c903b6258d",
+      "size": 6324
+    },
+    {
+      "path": "records/institutional-practice/profiles/met.md",
+      "sha256": "sha256:fc57028d7a68fec2ad3834916001f844b7fafb160209d5728f62ba507b47bc65",
+      "size": 9818
+    },
+    {
+      "path": "records/institutional-practice/profiles/moma.md",
+      "sha256": "sha256:ce0af9756421ec0e8f8a220fad80c05160f93f694563e5dd06fb2dca95c2542b",
+      "size": 9583
+    },
+    {
+      "path": "records/institutional-practice/profiles/rhizome-new-museum.md",
+      "sha256": "sha256:e44e6b5daacd5e8acaab88749f1c2a9387b3702b1776810d53c479d1fcf13f88",
+      "size": 12407
+    },
+    {
+      "path": "records/institutional-practice/profiles/serpentine-arts-technologies.md",
+      "sha256": "sha256:3ae30e5c129c26f41d5074868cb25dd569843a5749c4141b53d68fb44c1f6705",
+      "size": 12613
+    },
+    {
+      "path": "records/institutional-practice/profiles/sfmoma.md",
+      "sha256": "sha256:67375297e6f9cbbeace5eab24eee41c16e45affd91860d114f7027b179c06313",
+      "size": 5396
+    },
+    {
+      "path": "records/institutional-practice/profiles/tate.md",
+      "sha256": "sha256:063f6a099290aa85cbf1de00bf1c23e44e0d5389f4716828a134b5ebdd987cc8",
+      "size": 5661
+    },
+    {
+      "path": "records/institutional-practice/profiles/v-and-a.md",
+      "sha256": "sha256:277670f6588752caea094c57a7686eeb40125d22a8ef5c40796b41490ff84c6c",
+      "size": 5217
+    },
+    {
+      "path": "records/institutional-practice/profiles/whitney.md",
+      "sha256": "sha256:074a8ae21ed91e946d358d89fecc4b7e09f11393be9058033dcb7c970cac42a5",
+      "size": 9127
+    },
+    {
+      "path": "records/institutional-practice/profiles/zkm.md",
+      "sha256": "sha256:336a66bc2c2e92cb3ccc6dc099bb602db88527cc137dfcf212eeeb3c7c8e2307",
+      "size": 5624
+    },
+    {
+      "path": "records/institutional-practice/source-register.md",
+      "sha256": "sha256:737fe852338de95e2ee77f26dddcf3a25998d830db5af6e1619ea55809695abd",
+      "size": 29055
     },
     {
       "content_hash": {
@@ -1584,6 +1664,11 @@
       "path": "tests/test_control_plane.py",
       "sha256": "sha256:6ed8242ebe40b44751238e5c121690d5c8eeffdcf9e942d8c8b13575b71e03a8",
       "size": 63182
+    },
+    {
+      "path": "tests/test_institutional_practice.py",
+      "sha256": "sha256:e7b042a55be7211bc970416264bf08f1128d51423b805a9e967326f331b1a1e3",
+      "size": 6824
     }
   ],
   "hash_algorithms": {
@@ -1615,9 +1700,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3"
+    "digest": "0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c"
   },
-  "manifest_sha256": "sha256:02c0c65f48017156094221aed490915c853dbbcac12b713b43d8aebece2da0fa",
+  "manifest_sha256": "sha256:7ae561a27b5c3494d3bc81035af506ba5c49501ebb5c73a5535a3a2898c1b416",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

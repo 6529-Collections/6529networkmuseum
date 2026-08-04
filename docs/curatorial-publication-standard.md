@@ -1,8 +1,9 @@
-# 6529 Network Museum curatorial publication standard
+# 6529 Network Museum scholarship and editorial standard
 
 - **Status:** active editorial and implementation standard
-- **Applies to:** artist profiles and monographs, project and collection essays, artwork entries, acquisition and gift narratives, exhibition texts, labels, and public research features
+- **Applies to:** artist profiles and monographs, project and collection essays, artwork entries, acquisition and gift narratives, exhibition texts, labels, public research features, institutional histories, conservation studies, and technical scholarship
 - **Initial reference package:** Casey Reas accession `6529NM.2026.001`
+- **Comparative research base:** [`records/institutional-practice/a-field-of-practice.md`](../records/institutional-practice/a-field-of-practice.md) and its [primary-source register](../records/institutional-practice/source-register.md)
 
 ## 1. The Museum publishes arguments about art
 
@@ -12,9 +13,12 @@ Accuracy, citation, and review are prerequisites. Museum publication must also a
 
 Curatorial writing is one of the Museum's primary cultural forms. The collection becomes publicly meaningful through the relation among artworks, display, scholarship, provenance, conservation, and encounter.
 
-## 2. What every publication must achieve
+## 2. What substantive scholarship must achieve
 
-Every publication must do five things:
+Every curatorial essay, profile, or research publication should do five things.
+Short labels, technical records, and event pages meet the requirements proper to
+their form while preserving exact identity, attribution, status, and source
+control.
 
 1. **Name its subject precisely.** Identify the artist, work, project, event, and time period actually under discussion.
 2. **Advance a thesis.** Make a claim that organizes the text and could be debated, refined, or rejected.
@@ -39,6 +43,36 @@ Avoid prose such as:
 - technical qualifications inserted before the reader has encountered the artwork.
 
 Use notes, source registers, rights statements, condition reports, and provenance records for those functions. The essay should synthesize their consequences.
+
+### 3.1 Publish in layers
+
+One page should not force every reader through every kind of evidence at once.
+A layered catalogue assigns distinct jobs to related views:
+
+- a stable object identity and concise label;
+- an extended entry or essay that advances an argument;
+- provenance, rights, exhibition, condition, and preservation histories;
+- bibliography, notes, primary documents, and related works;
+- machine-readable records and reusable research data;
+- a visible route for correction or further evidence.
+
+Each layer must agree on identity and status. Repetition across layers should be
+limited to the facts needed for orientation. A concise label identifies and
+opens the work; a condition report records material and technical state; an
+essay advances an interpretation. The public interface should let a visitor
+begin with the work and a researcher continue into the complete record.
+
+### 3.2 State the condition of knowledge
+
+Authority increases when its limits are legible. Publish whether a factual
+record is admitted, provisional, incomplete, disputed, reconstructed, or
+superseded. Name a known defect that changes access or interpretation. When an
+archive or chronology has been rebuilt, identify the recovered sources, the
+person or method that imposed the present order, and the gaps that remain.
+
+Do not turn institutional confidence into false completeness. Do not scatter
+generic caveats through fluent prose. Put each uncertainty where it changes the
+reader's understanding, and bind the full account to the relevant record.
 
 ## 4. Research before prose
 
@@ -72,7 +106,8 @@ For a project or series, establish:
 For an object, establish:
 
 - exact identity and title history;
-- medium as experienced and constituted, not merely token standard;
+- medium as experienced and constituted, including any role played by token
+  standard;
 - scale, duration, behavior, interaction, sound, orientation, and environment;
 - the difference among live work, artist-authorized manifestation, Museum display, and documentation surrogate;
 - project position and object-specific variation;
@@ -184,7 +219,10 @@ A substantial artist text needs:
 - the Museum collection in context;
 - notes, chronology, and bibliography.
 
-For a major mature practice, 12,000-20,000 words may be appropriate. Length must follow the argument; it is not an acceptance criterion by itself.
+A major mature practice may require substantial length. The appropriate scale
+depends on the phases, works, technical systems, and historical questions the
+argument must establish. Length follows the argument and is never an acceptance
+criterion by itself.
 
 ### 9.2 Project or series essay
 
@@ -200,7 +238,8 @@ A project essay should normally contain:
 - reception;
 - the Museum object's position.
 
-The project is not merely context for a token. In long-form generative art, the project often defines the possibility space within which each token is one realization.
+In long-form generative art, a project essay should explain the possibility
+space within which each token is one realization.
 
 ### 9.3 Collection or accession essay
 
@@ -259,7 +298,9 @@ Processing and Feral File belong to distinct parts of Casey Reas's practice. Tog
 
 ## 11. Technical and preservation writing in its proper place
 
-Technical constitution can be aesthetically and historically significant. Browser behavior, code migration, dependency, emulation, and display are not clerical details for software art. But they should enter a curatorial text where they illuminate material or meaning.
+Technical constitution can be aesthetically and historically significant.
+Browser behavior, code migration, dependency, emulation, and display enter a
+curatorial text when they illuminate material or meaning.
 
 Examples:
 
@@ -271,7 +312,7 @@ Examples:
 
 Detailed hashes, capture timestamps, viewport geometry, compliance screening, and release commitments belong in technical and registrar records unless the argument directly depends on them.
 
-## 12. Editorial voice
+## 12. Editorial voice and style
 
 The Museum's voice should be informed, exact, lucid, and willing to make judgments.
 
@@ -296,7 +337,131 @@ Avoid:
 - repetitive “not X but Y” formulas;
 - process announcements about future reviewers, governance, or planned research.
 
-The reader should feel the writer has spent time with the work and has something at stake in the interpretation.
+The prose should demonstrate sustained attention through exact description,
+specific evidence, and an argument that could not be made from metadata alone.
+
+### 12.1 Begin with the subject, not the institution
+
+Open on a work, an observed formal problem, a historical event, a material
+fact, or a question the essay will answer. Do not begin with the Museum's
+process, a statement of importance, or a summary of what the page “explores.”
+Institutional context should enter when it changes the meaning of the art or
+the public act under discussion.
+
+For an object entry, the first paragraph should let the reader encounter the
+object before it explains the database around it. For a conservation study,
+state the work and the failure, risk, or intervention. For an acquisition
+narrative, state what entered the collection and what the exact group makes
+possible.
+
+### 12.2 Build paragraphs around claims
+
+A paragraph should normally make one claim, develop it through description or
+evidence, and show why it matters. Metadata can anchor a paragraph, but should
+not become a sentence-by-sentence inventory. A quotation must be interpreted;
+a name must do analytical work; a technical fact must alter the account of the
+work.
+
+Use transitions to move the argument:
+
+- from one observed property to another;
+- from an individual state to the project's possibility space;
+- from source evidence to a measured inference;
+- from a historical operation to the difference introduced here;
+- from an accession fact to its public or preservation consequence.
+
+Do not use headings to disguise paragraphs that do not connect.
+
+### 12.3 Prefer verbs that identify action
+
+“Explores,” “engages,” “interrogates,” “reflects,” and “speaks to” are useful
+only when the sentence names how. Prefer the actual operation: cuts, samples,
+reorders, trains, repeats, withholds, compresses, redraws, migrates, delegates,
+records, projects, accumulates, or fails.
+
+When using an evaluative term, state the observable consequence or evidence
+that warrants it. If a method was technically consequential, say what it made
+possible. If a work changed a field, identify the later practice, institution,
+tool, or argument in which the change can be observed.
+
+### 12.4 Use contrast sparingly
+
+A contrast earns its place when the distinction is necessary to the argument.
+Repeated “not X but Y,” “more than,” and “rather than” constructions produce a
+mechanical voice and make the rejected term carry the sentence. State the
+positive claim directly whenever it can stand on its own.
+
+Weak:
+
+> The token is not merely a certificate but a new form of cultural memory.
+
+Stronger:
+
+> The token fixes an edition and transfer history. The Museum's accession,
+> provenance, rights, and preservation records supply the institutional memory
+> that the token does not contain.
+
+### 12.5 Keep institutional language proportionate
+
+Avoid announcing that the Museum is transparent, rigorous, decentralized,
+world-class, community-led, or innovative. Show the source, method, decision,
+record, and public consequence that would justify the description. “We” is
+appropriate for an institutional commitment or a disclosed interpretation; it
+should not become a substitute for evidence.
+
+Governance vocabulary belongs where authority affects a record. Elsewhere use
+the substantive noun: donor, artist, registrar, curator, conservator,
+maintainer, contract, vote, accession, exhibition, or correction. A reader
+should understand what happened before being told how roles were organized.
+
+### 12.6 Distinguish voices
+
+Artist statement, Museum interpretation, donor account, platform description,
+technical observation, and conservation decision have different authority.
+Preserve that difference through attribution and document design. Do not make
+an artist's statement carry the Museum's judgment. Do not convert platform
+promotion into artist intent. Do not hide an institutional decision in passive
+voice.
+
+First person can be appropriate in a signed observation, interview, or
+practitioner case study. Institutional prose should identify its author or
+institutional authorship and retain the sources from which a later editor can
+reconstruct the claim.
+
+### 12.7 Write technical scholarship from a case
+
+Public conservation writing should begin with an exact work and a
+consequential problem. It tells the reader:
+
+- what the work did before intervention;
+- which component, dependency, behavior, or access path failed or was at risk;
+- what evidence was examined;
+- which alternatives were considered;
+- what changed, who authorized it, and who performed it;
+- what remained unresolved;
+- how the intervention altered—or did not alter—the public encounter.
+
+Publish enough detail for another qualified person to understand the decision.
+Put commands, hashes, inventories, and complete dependency graphs in linked
+technical records when they would interrupt the argument.
+
+### 12.8 Finish without a slogan
+
+An ending should return to the work, sharpen the thesis, disclose a remaining
+problem, or establish the collection consequence. Do not end with a universal
+claim about art and technology, a promise of future innovation, or a restatement
+of the Museum's mission.
+
+### 12.9 Edit for the audible sentence
+
+Read finished prose aloud. Remove stacked abstractions, repeated sentence
+shapes, throat-clearing, symmetrical triads that add no meaning, and clauses
+that merely announce the next clause. Vary length in service of thought. A
+short sentence can fix a judgment; a longer sentence can hold a sequence or a
+qualified relation. Neither should become a mannerism.
+
+Delete adjectives, adverbs, and metaphors that do not add evidenced information
+or clarify the work.
 
 ## 13. Notes, bibliography, and research boundary
 
@@ -309,6 +474,12 @@ Every long-form publication includes:
 - a selected bibliography divided where useful into primary sources, scholarship, criticism, and technical records;
 - a link to the applicable Museum source and accession records;
 - a revision history.
+
+For public web scholarship, also provide a stable source path, immutable
+edition link, and suggested citation. Machine-readable exports should identify
+the record's authority and status, disclose known incomplete fields, and state
+whether derived data has been modified. Open access does not make every public
+assertion equally approved.
 
 Sources should be cited near the claim they support. A bibliography cannot rescue unsourced prose. Links must point directly to the relevant page or retained source, not a search result.
 
@@ -336,6 +507,15 @@ Before publication, answer yes to all of the following:
 - Does the writing include recent work and reception?
 - Are facts sourced and interpretations argued?
 - Has generic or promotional language been removed?
+- Does the opening begin with the subject rather than institutional process?
+- Does each paragraph develop a claim instead of restating metadata?
+- Are artist, donor, Museum, platform, and technical voices attributed
+  correctly?
+- Are known defects, reconstructions, and consequential uncertainties visible?
+- Can a reader move from the public argument to the complete supporting
+  record, bibliography, and immutable edition?
+- Has repetitive contrast syntax and institutional self-description been
+  removed?
 - Does the exact Museum holding matter to the text?
 - Are technical and registrar details proportionate?
 - Does the prose read as finished publication, not a plan for someone else to finish?

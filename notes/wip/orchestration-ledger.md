@@ -1730,3 +1730,76 @@ and Keccak-256
 `0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3`.
 These commitments remain candidates until the reviewed source pull request
 merges.
+
+### 2026-08-04 institutional-practice source package
+
+The Museum has completed the research and editorial draft for *A field of
+practice*, a comparative study of fourteen institutions and institutional
+systems: the Met, Getty, MoMA, the Whitney, Tate, Centre Pompidou, SFMOMA, the
+Guggenheim, ZKM, Ars Electronica, Rhizome/New Museum, Serpentine Arts
+Technologies, the V&A, and LACMA. The package contains an introductory essay,
+fourteen profiles, a primary-source register, and a revised Museum scholarship
+and editorial standard.
+
+An adversarial factual and prose audit materially changed the first draft.
+Every profile now carries primary-source links beside factual claims, examines
+a named work or project and a longer research or conservation source, separates
+institutional self-description from demonstrated practice, and ends with
+specific Museum requirements and limits. The audit corrected MoMA's
+exhibition-history completeness claim, Rhizome's May–June 2026 Conifer service
+transition, and a Centre Pompidou URL that resolved to a different artwork. It
+also removed comparative rankings, prestige language, repetitive antithesis,
+and generic technology rhetoric.
+
+The source register records displayed titles, dates shown, source types, access
+date, and evidentiary use. Its current 114 unique links pass the local hard-link
+audit with no HTTP 404 or server-error response. The package test enforces exact
+profile inventory, common publication control, named cases, claim-level links,
+profile-to-register source reconciliation, direct HTTPS sources, and selected
+editorial prohibitions. Full repository validation, manifest generation,
+governed source review, and frontend publication remain pending.
+
+### 2026-08-04 institutional-practice PR #22 review correction
+
+The governed source review correctly found that the comparative essay's link
+to Centre Pompidou's *Icône* object record was absent from the source register.
+The record was reverified as Vera Molnar, *Icône*, 1964, and registered with
+the exact catalogue functions for which the essay cites it. Source
+reconciliation now covers the comparative essay and all fourteen profiles;
+the register invariant is exactly 114 unique primary-source URLs. Profile
+publication dates now validate as ISO dates so later additions do not inherit
+the first release date. Rhizome's historical editorial path and archive root
+were separately rechecked at HTTP 200. Serpentine's `1.1.0` version remains
+correct because its revision history records a substantive hostile-audit
+revision after the initial draft.
+
+### 2026-08-04 institutional-practice PR #22 second review correction
+
+The second exact-head review separated four dates and states that had been
+compressed in the draft: Tate's Intermedia Art microsite dates (2008–2012),
+its Conifer capture dates (November 2019–February 2020), Conifer's completed
+May 2026 subscription closure, and its planned June platform replacement. The
+current Conifer landing-page notice remains separately cited. A Met grammar
+defect was corrected. The publication validator now extracts HTTP as well as
+HTTPS Markdown links and rejects any registered public source that is not
+HTTPS.
+
+The review request for self-declared immutable edition URLs was not adopted.
+The canonical frontend already constructs each exact-commit GitHub source URL
+from the verified publication identity. Writing a future merge SHA into its
+own manuscript would be circular and would immediately stale on correction.
+Pre-publication changes are recorded in this append-only ledger and manuscript
+revision histories; they do not fabricate `supersedes` relationships to
+versions that were never publicly released.
+
+Status amendment: this paragraph supersedes the pending-validation statement
+in the initial 2026-08-04 institutional-practice entry above. The corrected
+tree passed the six institutional-publication tests, bootstrap
+validation across 301 JSON files, full Museum validation, the network fetch
+guard, Casey dossier validation, and the current twenty-two-file Casey
+diligence inventory. Deterministic regeneration produced a 230-entry candidate
+manifest with SHA-256
+`sha256:7ae561a27b5c3494d3bc81035af506ba5c49501ebb5c73a5535a3a2898c1b416`
+and Keccak-256
+`0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c`.
+The values remain candidates until governed PR #22 merges.
