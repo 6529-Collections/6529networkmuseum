@@ -101,6 +101,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-03-publication-copy-edit.md`](notes/wip/2026-08-03-publication-copy-edit.md) | active editorial review | Museum publication voice standard, scope, diagnosis, preservation rules, and completion criteria for the institutional, curatorial, and frontend copy edit |
 | [`notes/wip/2026-08-04-institutional-benchmarks.md`](notes/wip/2026-08-04-institutional-benchmarks.md) | active publication ledger | Research questions, selected field, editorial-audit decisions, and remaining frontend publication boundary |
 | [`notes/wip/2026-08-04-expanded-institutional-practice.md`](notes/wip/2026-08-04-expanded-institutional-practice.md) | active research and publication ledger | Digital-weighted expansion mandate, six parallel research lanes, fixed editorial requirements, baseline, decisions, and release boundary |
+| [`notes/wip/2026-08-04-rendered-publication-copy-desk.md`](notes/wip/2026-08-04-rendered-publication-copy-desk.md) | active rendered editorial checkpoint | Curatorial, registrarial, technical-methodology, and institutional-practice register review; release-blocking production labels and process narration; remaining qualification work |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
 ## Generative analysis tooling

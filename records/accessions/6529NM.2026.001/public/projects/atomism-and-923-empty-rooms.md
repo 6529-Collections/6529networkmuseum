@@ -1,6 +1,6 @@
 # The room is an algorithm: Atomism and *923 EMPTY ROOMS*
 
-- **Final publication copy:** version 2.3.0
+- **Final publication copy:** version 2.4.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -9,15 +9,13 @@
 - **Research cutoff:** 2026-08-02
 **Scope note:** This essay is a visitor-facing project study. It does not supersede the accession, rights, condition, custody, or preservation records.
 
-## Standfirst
-
 *923 EMPTY ROOMS* makes a room from relations rather than walls. In #713, acid-green marks, charcoal voids, and a luminous seam repeatedly suggest an interior without allowing it to settle. Casey Reas extends a Vasarely-related combinatorial problem into an artwork distributed across colorforms, screens, cities, and viewers.
 
 ## Gallery label
 
 **Casey Reas, *923 EMPTY ROOMS* #713, 2023.** Browser-based generative artwork; Art Blocks, edition of 924. Acid-green diagonal marks sweep across a charcoal field, breaking around voids that can look like a corner, a wall, or an opening. A bright lower ledge and narrow luminous seam at right create depth, then undo it. #713 belongs to a project built from six colorforms and presented through six cities. The work’s “room” is a perceptual event: a viewer makes and remakes space from a finite grammar of units, color, and movement.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — completed the publication copy desk and recast distributed exhibition as a medium condition.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — completed the publication copy desk and recast distributed exhibition as a medium condition; v2.4.0, 2026-08-04 — removed the production-stage heading from the published opening without changing the interpretation or evidence.
 
 ## A room made from relations
 

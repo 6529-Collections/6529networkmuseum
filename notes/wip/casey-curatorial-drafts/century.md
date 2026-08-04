@@ -1,14 +1,12 @@
 # CENTURY: The Cut That Keeps Happening
 
 **6529 Network Museum — project essay**
-**Version:** 2.3.0
+**Version:** 2.4.0
 **Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
 **Research cutoff:** 2026-08-02
 **Museum works discussed:** *CENTURY* #31, #724, and #401 (Casey REAS, 2021), accessioned as 6529NM.2026.001.01–.03
-
-## First-release standfirst / label
 
 In *CENTURY*, Casey Reas takes one decisive operation of twentieth-century abstraction—the cut—and submits it to an image that can keep changing. The three works in the 6529 Network Museum turn that operation into a small, exact comparative field. #31 makes cutting feel like pressure within a dense circular mass; #724 makes it a device for holding open a nearly vacant ground; #401 makes it a tonal interruption that unsettles shallow, architectural depth. Together they distribute a compositional problem across time, code, and distinct states of attention.
 
@@ -139,6 +137,7 @@ That proposition changes the seven-work accession as a whole. *CENTURY* is the g
 
 ## Revision note
 
+- **2.4.0 — 4 August 2026:** Removed the production-stage heading from the published opening; the project interpretation and evidence are unchanged.
 - **2.3.0 — 4 August 2026:** Completed the publication copy desk and recast installation guidance as a description of the work's medium and public encounter.
 - **2.2.0 — 4 August 2026:** Deep copy-edited the public interpretation for curatorial cadence and directness without changing its facts or evidence.
 - **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.

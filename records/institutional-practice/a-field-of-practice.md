@@ -4,7 +4,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.1.0
+- **Version:** 1.1.2
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](source-register.md)
@@ -22,7 +22,7 @@ links, and malformed Korean characters. Rhizome's record of [*My Boyfriend Came
 Back From the War*](profiles/rhizome-new-museum.md) asks a related question at
 the level of the browser: nested frames divide the screen, clicking changes the
 composition, and variant history records the access environment. These cases
-establish the editorial starting point for this edition: a digital artwork
+establish the study's starting point: a digital artwork
 requires a record of what it does, where it runs, which state a reader
 encounters, and what changed during care.
 
@@ -42,8 +42,7 @@ quality, chronology, or comparative rank.
 
 ## Selection method
 
-This edition retains the fourteen published cases and adds thirteen profiles,
-for twenty-seven case files in total. Selection is case-based. A profile enters
+The study comprises twenty-seven case files. Selection is case-based. A profile enters
 when public primary institutional material documents a work, project, record,
 archive, conservation action, technical tool, commission, or research
 publication that bears directly on digital art or on a transferable museum
@@ -220,6 +219,8 @@ collection records that sit beside this comparative publication.
 
 ## Revision history
 
+- `1.1.2` — 2026-08-04: removed release-process language from the public
+  overview while preserving its twenty-seven-case scope and selection method.
 - `1.1.1` — 2026-08-04: corrected the public source-inventory count and
   completed the release copy desk without changing the study's scope.
 - `1.1.0` — 2026-08-04: expanded the living study with a work-led

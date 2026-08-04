@@ -2,7 +2,7 @@
 
 ## Casey Reas in the 6529 Network Museum
 
-**Standfirst.** Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and geometry emerging from black form the Museum's seven-work study of Casey Reas. Together they disclose an artistic system through markedly different images. The tokens are recent; their lineages reach from code begun in 2003 to a project released in 2026. Across the group, variation becomes Reas's way of thinking about authorship, history, duration, and the unstable life of an image.
+Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and geometry emerging from black form the Museum's seven-work study of Casey Reas. Together they disclose an artistic system through markedly different images. The tokens are recent; their lineages reach from code begun in 2003 to a project released in 2026. Across the group, variation becomes Reas's way of thinking about authorship, history, duration, and the unstable life of an image.
 
 ## I. A collection begins with difference
 
@@ -177,6 +177,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.5.0 — 4 August 2026:** Removed an internal production label from the published opening; the interpretation and evidence are unchanged.
 - **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk, clarified title and chain-history boundaries, and attributed the project's non-repetition claim.
 - **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
