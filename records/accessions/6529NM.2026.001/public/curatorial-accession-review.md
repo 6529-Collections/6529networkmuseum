@@ -9,7 +9,7 @@
 
 ## Curatorial judgment
 
-The 6529 Network Museum approves this seven-work gift for the permanent collection as a coherent study of Casey REAS's mature generative practice. Reas occupies a foundational place in the history the Museum is charged to preserve. As an artist, educator, and co-initiator with Ben Fry of Processing, he helped establish one of the principal environments through which artists have learned to think and work in code. His studio practice has sustained a rigorous inquiry into systems, instructions, emergence, image, and behavior across software, prints, installations, moving image, machine learning, and blockchain-based generative art.
+The 6529 Network Museum approves this seven-work gift for the permanent collection as a coherent study of Casey REAS’s mature generative practice. As an artist and educator, Reas co-initiated Processing with Ben Fry in 2001, an environment through which artists have learned to make and think in code. His studio practice has sustained a rigorous inquiry into systems, instructions, emergence, image, and behavior across software, prints, installations, moving image, machine learning, and blockchain-based generative art.
 
 The case for accession rests on the works and their relationships. Three distinct *CENTURY* outputs permit sustained comparison within one long-form system. *Pre-Process #63* and *Phototaxis #308* extend the group into different models of rule, movement, iteration, and image formation. *923 EMPTY ROOMS #713* and *Ex Nihilo (Cosmos) #248* carry the inquiry into perspectival space, continuous display, and unstable form. Together, the seven objects show how Reas makes variability, duration, and the conditions of seeing integral to an executable artwork.
 
@@ -28,7 +28,7 @@ The [collection essay](casey-reas-collection-essay.md) identifies four reasons f
 3. **Continuity across technical generations.** The group links REAS's long interest in instruction and autonomous behavior to Art Blocks' token hash, project script, generator, and distribution structure.
 4. **Institutional responsibility.** The Museum must preserve ownership records together with source evidence, dependencies, render environments, interaction, documentation surrogates, and rights conditions. Each layer must remain distinguishable and reproducible.
 
-The group also advances the Museum's broader collection purpose. A decentralized museum should preserve the cultural and technical history of networked digital art in forms that can be independently examined. These works reward that approach because their meaning and continued intelligibility depend on relationships among artist-authored systems, platform infrastructure, blockchain state, browser execution, and visible output.
+These seven works require the Museum to preserve networked digital art as both cultural and executable material. Their continued intelligibility depends on relationships among artist-authored systems, platform infrastructure, blockchain state, browser execution, and visible output.
 
 ## Object-level findings
 
@@ -44,7 +44,7 @@ These observations are Museum interpretations grounded in the recorded outputs a
 
 ## Scope, strengths, and limits
 
-The accession's principal strengths are the artist's historical significance; the coherence of five related but distinct projects; the three-work comparative depth within *CENTURY*; verified object and custody identity; unusually strong source and technical documentation for an initial digital accession; and rights terms that support noncommercial exhibition, scholarship, adaptation, and preservation.
+The accession joins five named projects in seven exact objects. Its documented strengths are the three-work comparison within *CENTURY*, verified object and custody identity, object-level source and technical records, and rights terms that support noncommercial exhibition, scholarship, adaptation, and preservation.
 
 The group's limits shape future collecting and conservation priorities. It contains no early *Process* print or installation, no physical component, and no representative example from every phase of Reas's practice. It is a focused study rather than a retrospective or comprehensive survey. Its live software manifestations remain dependent on browsers and, at present, on parts of the Art Blocks serving environment.
 
@@ -54,5 +54,6 @@ The curatorial case is complete. All seven objects are approved for the permanen
 
 ## Revision history
 
+- **1.2.0 — 4 August 2026:** Reworked visitor-facing curatorial prose for directness; accession decision, object findings, rights, provenance, technical condition, and evidentiary basis unchanged.
 - **1.1.0 — 3 August 2026:** Copy-edited the completed review for directness and institutional voice; the accession decision and its evidentiary basis are unchanged.
 - **1.0.0 — 2 August 2026:** Initial completed curatorial accession review.

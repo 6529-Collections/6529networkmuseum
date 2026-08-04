@@ -26,7 +26,7 @@ The accession consists of:
 | `6529NM.2026.001.06` | *923 EMPTY ROOMS #713* | `eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713` |
 | `6529NM.2026.001.07` | *Ex Nihilo (Cosmos) #248* | `eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248` |
 
-These identifiers establish exact objects. They are not a substitute for titles, artistic histories, or images. The Museum records each layer because an artwork can be misidentified even when an image looks right, and poorly interpreted even when its token number is correct.
+These identifiers establish exact objects. The Museum records titles, artistic histories, and images separately because token identity alone cannot carry those layers. An image can look right while the object is misidentified; a correct token number can still support a poor interpretation.
 
 ## II. Why these works belong together
 
@@ -46,15 +46,15 @@ Trace, slice, void, and segment are four ways to make relation visible. Across t
 
 ## III. The scope of the gift
 
-A responsible accession narrative must resist retrospective inflation. Seven works cannot represent the full practice of Casey Reas. The group contains no early *Path*, *Tissue*, or *MicroImage* print or installation; no *{Software} Structures* implementation; no principal *Process* work; no source-image work from *Signal to Noise* or *ULTRACONCENTRATED*; no *Compressed Cinema* or *In Silico* work; and no book, mural, woodblock, plotter drawing, or other physical translation.
+Seven works form a focused study of Casey Reas; they do not represent the full practice. The group contains no early *Path*, *Tissue*, or *MicroImage* print or installation; no *{Software} Structures* implementation; no principal *Process* work; no source-image work from *Signal to Noise* or *ULTRACONCENTRATED*; no *Compressed Cinema* or *In Silico* work; and no book, mural, woodblock, plotter drawing, or other physical translation.
 
 Those absences matter because Reas's practice extends far beyond on-chain generative art. He co-initiated Processing with Ben Fry in 2001, has taught at UCLA since 2003, has made software, prints, installations, moving images, public works, and books, and co-founded Feral File. His practice has moved between internally generated systems and existing images, between screen and matter, and between individual studio work and shared cultural infrastructure.[^6]
 
 The gift forms a focused study group of seven on-chain works. Its limits identify future research and collecting priorities.
 
-The Museum likewise does not claim that feature scarcity determines importance. OpenSea and marketplace rarity metrics are inadmissible. Project features may be studied only through the Museum's published NextGen-compatible methodology, with a cited source snapshot and configuration and a deterministic result set. Such analysis describes an edition's distribution; it cannot replace close looking or establish an object's quality. The three *CENTURY* works matter together because of what their differences reveal, not because one is statistically rarer.
+Feature scarcity is not an importance criterion. OpenSea and marketplace rarity metrics are inadmissible. Project features may be studied only through the Museum's published NextGen-compatible methodology, with a cited source snapshot and configuration and a deterministic result set. Such analysis describes an edition's distribution; it cannot replace close looking or establish an object's quality. The three *CENTURY* works matter together because of what their differences reveal, not because one is statistically rarer.
 
-Nor does chain evidence answer every historical question. The project and artist sources disagree on the date attached to *Phototaxis*: Art Blocks and Reas's contemporary technical note support a 2021 release, while the artist's current NFT register lists 2022. The Museum preserves the discrepancy. For *923 EMPTY ROOMS*, the artistic title and documented sequence refer to 923 rooms, while the retained release population contains 924 invocations numbered 0 through 923; invocation 0 has the separate code `999999`. The record states both facts and invents no theory to reconcile them.[^7]
+Chain evidence establishes the accession transfer; it does not answer every historical question. The project and artist sources disagree on the date attached to *Phototaxis*: Art Blocks and Reas's contemporary technical note support a 2021 release, while the artist's current NFT register lists 2022. The Museum preserves the discrepancy. For *923 EMPTY ROOMS*, the artistic title and documented sequence refer to 923 rooms, while the retained release population contains 924 invocations numbered 0 through 923; invocation 0 has the separate code `999999`. The record states both facts and invents no theory to reconcile them.[^7]
 
 Preserving these distinctions supports stronger interpretation.
 
@@ -66,7 +66,7 @@ The Museum must maintain exact identity, title history, custody evidence, rights
 
 This responsibility is particularly demanding because the works are executable. A durable token does not make a browser runtime durable. Source code may depend on libraries, network routes, fonts, color behavior, or hardware assumptions. A generator can remain reachable while its output changes. A still can survive while the capacity for movement and interaction disappears.
 
-The accession's technical outcome was therefore “pass with conditions.” Tested official generator routes supported display, and no red technical blocker prevented accession. The package does not claim that autonomous preservation is complete. Self-contained capture of generators and dependencies, wider browser and rendering tests, monitoring, and documented fallback states remain active stewardship work.[^8]
+The accession's technical outcome was therefore “pass with conditions.” Tested official generator routes supported display, and no red technical blocker prevented accession. Autonomous preservation remains incomplete. Self-contained capture of generators and dependencies, wider browser and rendering tests, monitoring, and documented fallback states remain active stewardship work.[^8]
 
 Conservation can deepen interpretation. *Phototaxis* has lived through C++, Processing/Java, and p5.js; understanding migration reveals the work as maintained behavior across technical generations. A *CENTURY* still and moving execution disclose different aspects of the same token-specific work. *Ex Nihilo #248* makes continuous non-repetition central, giving a screenshot value as a record of one passing state.
 
@@ -80,9 +80,9 @@ Each control answers a known risk. Identity control keeps the token attached to 
 
 The accession also establishes a model for works minted elsewhere. The Museum entered an existing history and assumed responsibility for documenting its continuity, preserving the works, and opening a new public chapter.
 
-A decentralized museum can pair the standards of a major collecting institution with chain-native evidence: reproducible provenance, versioned publication, inspectable technical dependencies, and public corrections. These methods earn their place by supporting sustained encounters with art.
+This package pairs chain-native evidence with reproducible provenance, versioned publication, inspectable technical dependencies, and public corrections. These methods earn their place by supporting sustained encounters with art.
 
-The Casey Reas gift offers that encounter. The group can be shown as a comparison rather than a row of assets. Visitors can move among three states of *CENTURY*, follow behavior becoming line, enter an optical room, and watch geometry struggle into existence. They can inspect evidence without having the artwork buried beneath it. They can understand both why the seven belong together and why they do not complete the story.
+The Casey Reas gift offers that encounter. The public presentation should let visitors compare the group as art. They can move among three states of *CENTURY*, follow behavior becoming line, enter an optical room, and watch geometry struggle into existence. They can inspect evidence without having the artwork buried beneath it. They can understand both why the seven belong together and why they do not complete the story.
 
 ## VI. Public trust as a continuing act
 
@@ -123,6 +123,7 @@ Punk6529's gift created the conditions for this work to begin. The Museum can ac
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.3.0 — 4 August 2026:** Reworked visitor-facing accession prose for directness and removed repeated procedural contrasts; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published narrative for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** replaced an overbroad preservation equation with “technical and artistic continuity relevant to preservation”; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; and added exact links to the receipt, gift authorization, accession certificate, title bindings, seven rights records, and seven technical-condition reports.
 - **Version 1.0.0 — 2 August 2026:** initial completed publication manuscript.
