@@ -1,14 +1,14 @@
 # From public repository to on-chain Museum record
 
-Status: working public migration statement; not deployment or activation
-evidence
+Status: working public migration statement. Contract design is in progress;
+audit, deployment, activation, and record migration remain pending.
 
 ## Purpose
 
-The 6529 Network Museum requires a durable institutional memory that can be
-read independently of GitHub, the current website, and its original operators.
+The Museum needs records that remain readable and verifiable beyond GitHub,
+the current website, and its original operators.
 
-Our Fall 2026 goal is for every admitted Museum record—from governance
+The stated Fall 2026 goal is for every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
 and later corrections—to have an on-chain commitment and append-only lineage
 in a custom contract. This includes the record of what the Museum decided,
@@ -16,16 +16,12 @@ what it accepted, how an object entered the collection, which evidence
 supports its identity and history, and how later corrections relate to what
 came before.
 
-Status: contract design in progress. Audit, deployment, activation, and record
-migration remain pending.
-
-Curatorial and governance decisions remain institutional acts. The contract
-will preserve each authorized assertion: its author, content, effective time,
-evidence commitment, and place in the record's history.
+The contract will record each authorized assertion with its author, content,
+effective time, evidence commitment, and place in the record's history.
 
 ## What moves on-chain
 
-Each admitted public-safe institutional record should have a state-readable
+Each admitted public-safe institutional record receives a state-readable
 entry that commits to:
 
 - a stable subject and record type;
@@ -36,10 +32,10 @@ entry that commits to:
 - its append-only position and any superseded record;
 - the release from which the record was migrated.
 
-Governance decisions, policies, approved collections, acquisition programs,
-selected outcomes, accessions, work descriptions, rights statements,
-provenance, preservation events, and corrections retain their distinct
-authorities and meanings.
+The registry keeps governance decisions, policies, approved collections,
+acquisition programs, selected outcomes, accessions, work descriptions, rights
+statements, provenance, preservation events, and corrections as separate
+record types with their own authorities and meanings.
 
 Restricted donor, legal, custody-security, and personal information remains in
 the restricted registrar record. A public record may cite a restricted
@@ -62,13 +58,10 @@ contract and token unchanged.
 
 ## Exhibition and interpretation
 
-The public website presents the collection. It leads with art, makes
-scholarship readable, and gives readers a clear path into rights, provenance,
-technical documentation, and sources.
-
-Future exhibitions, research tools, and community publications will draw on
-the same institutional record preserved by the contract and its committed
-documents.
+The public website presents the collection and links each work to rights,
+provenance, technical documentation, and sources. Future exhibitions, research
+tools, and community publications will draw on the same institutional record
+preserved by the contract and its committed documents.
 
 The responsibilities are divided as follows:
 
@@ -78,13 +71,13 @@ The responsibilities are divided as follows:
 | Museum record | Decisions, accession, provenance, rights, preservation, evidence commitments, authority, and revision lineage |
 | Public display | Exhibition, interpretation, discovery, accessibility, and interaction |
 
-The public presentation may change with new exhibitions and forms of access.
+Public presentation may change with new exhibitions and forms of access.
 New evidence and corrections enter the Museum record as attributable,
 append-only revisions.
 
 ## The transition from GitHub
 
-The public repository provides the bridge:
+Before migration, the repository is the public review and release layer:
 
 1. records are written and reviewed in public;
 2. automated validation checks their schemas, relationships, evidence

@@ -2,7 +2,7 @@
 
 Status: working public operating statement; not an adopted governance policy
 
-## A museum made in public
+## A public collection and its record
 
 The 6529 Network Museum is a public collection and a shared body of knowledge.
 Its records are open to study, correction, and extension.
@@ -21,15 +21,14 @@ public content-addressed storage, and public contract state. The
 [contribution guide](../CONTRIBUTING.md) and [rights map](../RIGHTS.md) set out
 what may be submitted and reused.
 
-Open publication gives the network a practical role in the Museum's
-intellectual life.
+Public access lets the network inspect, cite, correct, and extend the Museum's
+work.
 
 ## Revision as a public act
 
-Every pull request is a proposal. Accepted changes become attributable
-revisions after editorial and evidence review, deterministic validation, and
-maintainer approval. The repository preserves the source, discussion,
-authorship, and sequence of each published change.
+Every pull request proposes a revision. Accepted changes retain their source,
+discussion, authorship, and place in the published sequence after editorial
+and evidence review, deterministic validation, and maintainer approval.
 
 Contributors can improve many kinds of Museum work:
 
@@ -41,12 +40,12 @@ Contributors can improve many kinds of Museum work:
 - a schema, validator, or reproducible research method.
 
 The contribution guide explains how to
-[propose an improvement](../CONTRIBUTING.md). A published correction cites the
-record it supersedes and carries its history forward.
+[propose an improvement](../CONTRIBUTING.md). A correction identifies the
+record it supersedes and carries that record's history forward.
 
-## Publication, memory, encounter
+## Catalogue, permanent record, and public encounter
 
-The Museum's public life currently takes three connected forms.
+The Museum currently presents its work through three layers.
 
 ### Published catalogue
 
@@ -58,11 +57,11 @@ published.
 
 ### Permanent record
 
-Our Fall 2026 goal is for every admitted Museum record—from governance
+The stated Fall 2026 goal is for every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
 and later corrections—to have an on-chain commitment and append-only lineage
 in a custom contract. Larger essays, images, software packages, and
-preservation files can live on content-addressed storage while the contract
+preservation files may remain on content-addressed storage while the contract
 records their identity, schema, hash, location, authority, effective time, and
 append-only history.
 
@@ -81,12 +80,10 @@ the same records will be read from the contract and its content-addressed
 documents. Exhibitions and software may change; accession, provenance, and
 publication histories will remain continuous.
 
-## A museum the network can carry forward
+## Continuity
 
-Together, the catalogue, permanent record, and public presentation support a
-Museum whose art can be encountered directly, whose claims can be examined,
-whose scholarship can be improved, and whose institutional memory can pass
-from one team and interface to the next.
+The catalogue, permanent record, and website keep the collection available for
+study as people and interfaces change.
 
 Explore the
 [public record](https://github.com/6529-Collections/6529networkmuseum), read

@@ -2,11 +2,10 @@
 
 The 6529 Network Museum publishes its policies, collection records, accession
 documents, provenance, technical research, and curatorial writing in public.
-The network can inspect and improve this work.
+Anyone may inspect this material and propose an improvement.
 
-Everyone may contribute. A useful proposal can be as focused as a corrected
-date or stronger citation, or as substantial as new object research, visual
-analysis, preservation evidence, or tooling.
+Contributions range from a corrected date or stronger citation to new object
+research, visual analysis, preservation evidence, or tooling.
 
 ## Ways to contribute
 
@@ -27,7 +26,7 @@ If you are unsure where a contribution belongs,
 describing what you found and the evidence available. A maintainer can help
 identify the right record.
 
-## Pull requests are published proposals
+## Pull requests preserve attribution
 
 Anyone may fork the repository, propose a change, and participate in its visible
 revision history. Evidence review, repository validation, and maintainer
@@ -42,23 +41,19 @@ credit is welcome.
 
 ### Correcting a published fact
 
-A published assertion retains its lineage. A correction should explain:
-
-1. what the current record says;
-2. what should change;
-3. why the change is needed;
-4. which evidence supports it; and
-5. whether an append-only amendment or `supersedes` record is required.
+A correction preserves the published assertion's lineage. It names the current
+statement, proposed replacement, reason for the change, supporting evidence,
+and whether an append-only amendment or `supersedes` record is required.
 
 Conflicting sources can coexist with attribution until review determines which
 statement, if any, should supersede another.
 
 ### Improving scholarship
 
-Curatorial writing should make a specific, supportable argument about the art.
+Curatorial writing makes a specific, supportable argument about the art.
 Distinguish documented fact, artist or platform statements, technical
 observation, and Museum interpretation. Cite sources close to the claims they
-support. Avoid promotional language, market framing, unsupported importance
+support. Exclude promotional language, market framing, unsupported importance
 claims, and marketplace rarity scores.
 
 ### Adding chain or technical evidence
@@ -95,17 +90,12 @@ changing governed records.
 
 ## Make a pull request
 
-1. Fork the repository and create a focused branch.
-2. Change the smallest coherent set of records and documentation.
-3. Add the source, observation date, and evidence class for material factual
-   claims where the record model requires them.
-4. For governance status, record the live API status and observation time. Do
-   not infer adoption from a vote total.
-5. Update `INDEX.md` when adding a canonical document or a durable research
-   note.
-6. Run the validation commands below.
-7. Open a pull request explaining the issue, the proposed improvement, its
-   evidence, and any uncertainty that remains.
+A pull request starts with a focused branch and the smallest coherent set of
+records and documentation. Include sources, observation dates, and evidence
+classes where the record model requires them; use live API status and
+observation time for governance claims; update `INDEX.md` when adding a
+canonical document or durable research note; run the validation commands; then
+explain the issue, proposed change, evidence, and remaining uncertainty.
 
 The canonical repository is
 [`6529-Collections/6529networkmuseum`](https://github.com/6529-Collections/6529networkmuseum).
@@ -122,6 +112,7 @@ python scripts/check_fetch_guard.py
 python scripts/verify_casey_snapshot_package.py
 python scripts/validate.py
 python scripts/build_casey_diligence_manifest.py --check
+python scripts/generate_institutional_source_inventory.py --check
 python scripts/generate_manifest.py --check
 ```
 
@@ -162,7 +153,7 @@ third-party source material remain subject to their own stated rights.
 
 ## Where the record is going
 
-GitHub is the Museum's intermediate public review and publication layer. Our
+GitHub is the Museum's intermediate public review and publication layer. The stated
 Fall 2026 goal is for every admitted Museum record—from governance decisions
 and policies to accessions, provenance, rights, preservation events, and later
 corrections—to have an on-chain commitment and append-only lineage in a custom

@@ -1,49 +1,285 @@
-# Keys and Gates — Accession Program 01
+# Keys and Gates — photographs of access, control, and exit
 
-Status: program selection complete; acquisition, minting, custody, rights verification, and accession remain unresolved.
+## 6529 Network Museum Accession Program 01
+
+**Current status:** selection complete. The Museum records sixteen outcomes as
+`selected_unminted`: selected by the Keys and Gates program, not yet recorded as
+minted or accessioned. Minting, acquisition, custody, rights verification, and
+accession remain unverified.
 
 Program ID: `6529NM-AP-01`
 
-Program Wave: [`4ff022b3-aa17-4a0a-ba78-58f64ff1d427`](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427)
+Program Wave: [Keys and Gates](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427)
 
-Description drop: `71c798bc-629d-46f2-8610-507a91be4f57` / serial `972000`
+Description drop: [serial 972000](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=71c798bc-629d-46f2-8610-507a91be4f57)
 
-## Registrar status
+A gate can be an object, a law, a reservation, a password, a body, or a story
+about who may pass. Keys and Gates brings together sixteen selected
+photographic submissions that look at those conditions: a figure before a
+luminous door; a bathtub moving against traffic; a herd directed across open
+land; a former wall whose control survives in memory; a key inside a ruined
+room; a path stopped by a small sign. Together, the photographs follow access
+as it is granted, priced, watched, inherited, withheld, or quietly refused.
 
-The live API returned 16 selected submissions as `WINNER`. This repository records each as `selected_unminted`: a program outcome, not an accession or object record. A `WINNER` label is selection evidence only. It does not establish a mint, purchase, title passage, legal rights grant, custody receipt, token identity, technical verification, or accession.
+The program sought original 1/1 photographs about access, exclusion,
+permission, surveillance, custody, autonomy, and exit. The selected works
+remain program outcomes. They are not holdings until the Museum completes the
+separate acquisition, rights, custody, technical, preservation, and accession
+records required for a collection object.
 
-The canonical index is [`records/programs/6529NM-AP-01/selected-works.json`](../../records/programs/6529NM-AP-01/selected-works.json). Each outcome has an individual registrar-grade record under [`records/programs/6529NM-AP-01/outcomes/`](../../records/programs/6529NM-AP-01/outcomes/) with the verbatim artist submission, source media URL and MIME type, selection evidence, CC0/consent representation, source fixity, and unresolved acquisition fields.
+## The program
 
-## Fixed program rules
+The [formal program note](https://keysandgates_thememes.ar.io/) describes a
+sixty-day open call for original 1/1 photographs. Artists could submit up to
+three works. Each submission was to include the photograph, title, year and
+location or a withheld location, a 75–150 word caption, a technical note, a CC0
+declaration, and—when people were depicted—confirmation that written consent
+documentation existed and could be provided on request.
 
-The public program note defines a 60-day open call for original 1/1 photographs about access, exclusion, permission, surveillance, custody, autonomy, and exit. An artist may submit up to three works. The submission package includes the photograph, title/year/location, a 75–150 word caption, a technical note, a CC0 declaration, and consent confirmation where people are depicted. Identifiable minors and submissions exposing sensitive personal data or vulnerable situations are excluded.
+The subject is sovereignty as lived experience. The program looks at doors,
+checkpoints, borders, queues, badges, permits, cameras, paywalls, waiting
+rooms, repair routes, informal systems, self-custody, and the right to leave.
+The photograph must carry the argument: the formal selection standards name
+photographic strength and craft, clarity of the control or access theme,
+distinct voice, long-horizon value as document and image, documentation
+quality, and suitability for permanent CC0 accession.
 
-The program is CC0-only. Written consent is required for depicted people, and consent documentation must be available on request. The budget is based on Meme Card mints; the program note states a purchase price of `0.5 ETH` per acquired work and quantity determined by the number of Meme Cards minted. The planned custody reference is `networkmuseum.6529.eth`. If a selected work is unavailable or fails the terms at acquisition, the allocation rolls to the next eligible work by rank.
+The program is CC0-only. Written consent is required when people are depicted;
+identifiable minors are excluded, as are submissions that expose sensitive
+personal data, doxxing vectors, or vulnerable situations. An artist’s
+conditional CC0 statement is preserved in the source record, but it is not by
+itself an effective Museum rights grant.
 
-The live Wave configuration observed on 2026-08-01 used `TDH` with `WAVE` scope. The voting period ended at `2026-07-09T12:00:00Z`. The formal note and Wave do not authorize a conclusion that the selected works have been acquired.
+The benefit work is a Meme Card. The program terms state a purchase price of
+`0.5 ETH` per acquired work and a total quantity determined by the number of
+Meme Cards minted. The program note says that, if a selected work is
+unavailable or does not meet the terms at acquisition, the allocation rolls to
+the next eligible work in rank order. If a program fact differs between the
+program note and the Meme Card, the program note says that the Meme Card
+controls.
 
-## Mint topology decision state
+## What the selection means
 
-The mint topology is deliberately unresolved between:
+On the Museum’s 2026-08-01 observation, the live program Wave returned sixteen
+submissions as `WINNER`, with selection places 1 through 16 and a voting cutoff
+of `2026-07-09T12:00:00Z`. The current Museum record retains those outcomes as
+`selected_unminted`.
 
-- a dedicated 6529Stream instance; and
-- a subcollection on main 6529Stream.
+`WINNER` is selection evidence only. It does not establish a mint, purchase,
+title passage, legal rights grant, custody receipt, token identity, technical
+verification, preservation completion, display readiness, or accession.
 
-Until that decision and the implementation are evidenced, every outcome leaves contract address, deployment transaction, chain/network, token standard, token ID, CAIP-19 citation, mint transaction, payment transaction, custody wallet, transfer transaction, title binding, accession number, and accession statement ID as `null` or explicitly unverified. The program’s custody reference is a planned/reference field, not proof of receipt.
+The mint route remains undecided between a dedicated 6529Stream instance and a
+subcollection on the main 6529Stream deployment. The current outcome records
+therefore do not publish a contract address, deployment transaction, token ID,
+CAIP-19 citation, or custody receipt.
 
-## Rights and consent handling
+The order below follows the recorded selection place. It is not a statement of
+artistic value. The descriptions are editorial summaries; the [individual
+outcome records](../../records/programs/6529NM-AP-01/outcomes/) preserve each
+artist submission verbatim, together with its source media reference,
+selection evidence, rights and consent representation, source fixity, and
+unresolved acquisition fields.
 
-The individual records preserve each artist’s CC0 declaration verbatim and distinguish it from an effective rights grant. The records also preserve the artist’s representation about consent without treating the representation as independently verified. Where a submission says written consent or model releases exist, the public record records that claim and leaves the restricted instrument unsupplied; where a submission does not state consent, the record says so and requires follow-up if people are depicted.
+## Selected photographs
 
-No artist statement that mentions permanent accession changes the Museum’s accession status. Accession requires a separate acceptance record, title binding, chain and custody evidence, rights review, technical and preservation records, and second-person review.
+### 01 — *Take the Key!* — GulYildiz
 
-## Source fixity
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-001.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=c3283930-101e-4e3a-b921-57d81649ca81)
 
-The program and institutional notes were fetched on 2026-08-01 and hashed over the UTF-8 bytes of their HTTP response bodies:
+A solitary figure stands before a light-filled, patterned door in a dark stone
+interior. The image places an old architecture of restricted knowledge beside
+the idea of a personal digital key. Light promises passage; the walls retain
+the weight of authority. The submission connects the threshold to ownership
+and responsibility: a key can move control toward the individual, but it also
+removes the excuse of the gatekeeper.
 
-| Source | SHA-256 |
-|---|---|
-| [`keysandgates_thememes.ar.io`](https://keysandgates_thememes.ar.io/) | `sha256:0dbb79439224de8c86359a164f4777c81a70c3bc2eb852127a2ec54ae467a441` |
-| [`6529networkmuseum_thememes.ar.io`](https://6529networkmuseum_thememes.ar.io/) | `sha256:75889ed25b623fde356129e39ba5330d4c0c2b38de0f3a7d94355282ff28b8d4` |
+### 02 — *the Artist in teh Open Sea* — HugoFaz
 
-The full evidence log, API observation timestamps, vote table, operational chat context, and unresolved questions are in [`notes/research/keys-and-gates-evidence.md`](../../notes/research/keys-and-gates-evidence.md).
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-002.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9)
+
+A man rows a bathtub through rush-hour traffic. His small, slow vessel cuts
+across a system built for speed and shared lanes. The absurd object becomes a
+picture of an artist moving through a market that rewards volume and direction:
+he is the only person in the scene visibly choosing his route.
+
+### 03 — *Managed Freedom* — nasimghanizadeh
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-003.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=b47b7d58-6276-45ba-b707-ec0f623e39e2)
+
+A herd of horses moves across the open landscape of Kayseri. No fence appears,
+but riders, training, hierarchy, and collective movement shape the route. The
+empty field becomes a borderland where freedom is negotiated rather than
+given. The photograph links movement across the land to migration, refusal,
+shelter, and the quiet act of leaving.
+
+### 04 — *No Key, Only Light* — intrepid
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-004.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=57c49f95-7854-4a2a-ba2c-d448bc7827fc)
+
+Two children stand in the dungeon at Fort Frederick, Grenada, facing the white
+opening of a doorway. The photograph follows four months of pandemic lockdown
+aboard a sailboat and the eventual permission to step ashore. A private release
+meets a fort built for surveillance and confinement, then marked by revolution,
+invasion, and the violence of competing powers.
+
+### 05 — *Residual Barrier* — ikertje
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-005.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52631c54-fcce-46e7-b88c-5100de46734c)
+
+A concrete wall in Berlin no longer closes a passage, but its surface still
+holds the memory of the division it enforced. Graffiti accumulates over the
+barrier, turning an instrument of state separation into an informal archive of
+presence. The threshold has opened; the structure has not become neutral.
+
+### 06 — *The Hostile Gate* — GIANT
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-006.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=73ecf8fc-9bde-492d-a624-39d0dd547587)
+
+A refrigerator door becomes a gate in the artist’s account of appetite, weight,
+and the daily management of the body. Opening it means surrendering control;
+leaving it shut prolongs the struggle. The ordinary appliance becomes a private
+cage and a threshold governed by survival rather than architecture.
+
+### 07 — *the cost of open* — priyanka
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-007.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=f24313f0-b335-4c16-9052-3a689f82f188)
+
+Moraine Lake remains a public landscape, but access is now mediated by
+reservations, ticketing, and scheduled shuttles after years of congestion and
+environmental strain. The photograph sits inside that policy change: a gate
+used to protect a common place can also make the visit depend on money, time,
+and a place in the system.
+
+### 08 — *Dichotomy.* — Rakesh
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-008.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=aa257b16-4309-48b6-9033-1e3d7fb9016d)
+
+An aerial line separates an ordered palm garden inside a jail from a residential
+neighbourhood beyond. One side is cultivated confinement; the other is
+unplanned movement. The photograph asks whether custody can look like order
+and freedom like a different kind of enclosure.
+
+### 09 — *Now Is Our Time* — pandelic
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-009.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=a9e1af00-7ac7-4b7d-a39e-31c7a662ee28)
+
+The words “NOW IS OUR TIME” remain on a wall at Berlin’s RAW-Gelände. The
+photograph records the site during its autonomous-cultural period, before later
+commercialization began to change the place. The sentence is both declaration
+and trace: a temporary claim to a site survives after the conditions that made
+it possible begin to disappear.
+
+### 10 — *Checkpoint* — Minalisa
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-010.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=d68542bc-f05e-4f23-ae8b-fac730cd4b7b)
+
+The submission treats the body as a checkpoint. Law, fabric, and public gaze
+decide where a woman may go and how she may be seen. The location is withheld.
+The photograph names the moment when a private boundary retreats and an
+experience that has been managed by others becomes visible.
+
+### 11 — *Sina Beizavi in Brazil* — HugoFaz
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-011.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52b6f536-3ebc-4bf5-b7da-2ed775df7ad3)
+
+In São Paulo, the portrait shows an artist resting at Casa NUA, wearing a
+welcome gift in Brazilian colours. The ordinary afternoon is held in the
+fabric, the reclining pose, and the stillness of the room. The image is
+presented under the linked consent and rights record.
+
+### 12 — *Rusted* — Teyhu
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-012.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=7d3a31f8-41bf-4fc5-8756-ed67eccdcc96)
+
+A solitary figure holding keys stands inside a ruined interior in Iran. Openings
+multiply through crumbling walls; the keys suggest entry, approval, or a way
+out. The artist calls them rusted rather than golden, shifting the image from
+triumph to fatigue and the decision to leave structures that exhaust and
+exclude.
+
+### 13 — *Nowhere To Esc.* — arsonic
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-013.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=51982d19-395a-4eaa-866c-8e89aa952cbb)
+
+An ant is enclosed inside the key marked Esc. The button promises cancel,
+leave, stop, and go back, but the trapped body cannot use it. The photograph
+brings a digital command into the physical world and makes an exit visible
+while withholding its function.
+
+### 14 — *Morning Glory* — Zoku
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-014.json) ·
+[Wave submission](https://6529.io/waves/4ff0223b-aa17-4a0a-ba78-58f64ff1d427?drop=dc75fe32-f3c2-49db-9069-d9975b5964f3)
+
+At San Roque Dam in Córdoba, a spillway opens automatically when the reservoir
+rises. The photograph attends to a system that controls pressure without a
+person opening a gate. Its subject is infrastructure whose restraint is also
+care: release prevents flood, stores water, and keeps a region inhabitable.
+
+### 15 — *মুক্তিযুদ্ধ - Fight for Freedom* — shamspranto
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-015.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=8ac2b1b8-64f9-48ef-b41b-04ee3a9ba3ab)
+
+Two women look through separate train windows. Between them, the carriage is
+civic machinery—ticketed, timed, and tracked—while a torn poster recalls the
+Bangladesh Liberation War. Freedom appears in a narrow opening: the threshold
+is neither private interior nor public outside, and leaning through it becomes
+a daily claim.
+
+### 16 — *No Access* — Veerendra
+
+[Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-016.json) ·
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=13407a59-3b86-4a04-b68e-87e818ed3766)
+
+A handmade miniature house rests beneath an open night sky. A narrow path leads
+toward it, then stops at a simple gate and warning sign. The small scale turns
+restriction into a quiet arrangement: distance, suggestion, and a sign are
+enough to make a landscape feel controlled. Focus stacking preserves the
+constructed world’s tactile depth.
+
+## Before a work can enter the collection
+
+A selected photograph can become a Museum object only after the Museum can
+identify the work, confirm the artist’s authority and CC0/consent basis,
+document the acquisition and custody path, resolve rights and title, complete
+technical and preservation review, and create a separate accession record.
+Those steps are not complete in the current Keys and Gates record.
+
+The planned custody reference is `networkmuseum.6529.eth`; it is a reference in
+the program terms, not evidence that any selected work is held there. The
+current records also do not establish a contract, token, mint transaction,
+purchase transaction, title binding, custody receipt, or accession number for
+any selected work.
+
+## Records and source limits
+
+- [Program record](../../records/programs/6529NM-AP-01/program.json) — rules,
+  curatorial frame, selection evidence, acquisition terms, and registrar gates.
+- [Selected-work index](../../records/programs/6529NM-AP-01/selected-works.json) —
+  sixteen outcomes retained as `selected_unminted`.
+- [Individual outcome records](../../records/programs/6529NM-AP-01/outcomes/) —
+  verbatim artist submissions, source media URLs, selection evidence, rights
+  and consent representations, fixity, and unresolved fields.
+- [Research evidence inventory](../../notes/research/keys-and-gates-evidence.md)
+  — source observations, Wave configuration, direct-drop evidence, and status
+  boundaries.
+
+The outcome records preserve each submitted media URL and MIME type. The
+current Museum record does not claim that the image bytes are archived in this
+repository. A source URL is not a Museum preservation copy, and a live source
+page is not evidence of minting, custody, or accession.

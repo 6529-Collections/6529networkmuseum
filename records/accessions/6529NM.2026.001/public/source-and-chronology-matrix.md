@@ -1,7 +1,7 @@
 # Casey Reas: shared source, chronology, and factual-boundary matrix
 
 - **Status:** final public research instrument; promoted 2026-08-02 and open only to source-backed correction through append-only amendment
-- **Version:** 1.1.1
+- **Version:** 1.1.2
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Research cutoff:** 2026-08-02
@@ -9,15 +9,12 @@
 - **Purpose:** common factual spine for the artist monograph, five project essays, seven object entries, seven-work collection essay, and gift narrative
 - **Authority:** this matrix does not alter the reviewed accession records; where it conflicts with a canonical machine record, the canonical record controls until a source-backed amendment is issued
 
-## 1. How all writing lanes should use this file
+## 1. Public use of this matrix
 
-1. Use the exact identities and accession facts below. Do not restate them from memory.
-2. Cite the source that has authority for the claim being made. An artist page is strong for the artist's conception; it is not chain evidence. A contract record is strong for token identity; it is not evidence of artistic intent.
-3. Treat interpretation as argument. Do not attach `[E]` to every interpretive sentence in publication prose.
-4. Preserve the named conflicts and limits. Do not resolve them for narrative neatness.
-5. Do not use OpenSea, marketplace rarity, floor price, auction estimate, or collector prestige as evidence of artistic significance.
-6. Distinguish live software, token-specific state, static documentation, and physical manifestation.
-7. Use this matrix to prevent factual drift, not to turn essays into compliance reports.
+This matrix records the identities, accession facts, sources, conflicts, and
+limits used by the linked public publications. It distinguishes artist
+statements, chain evidence, interpretation, and technical observation, and
+retains conflicts rather than resolving them for narrative neatness.
 
 ## 2. Canonical accession facts
 
@@ -267,7 +264,7 @@ Use the institution's own account: Feral File grew from the 2019 a2p exchange an
 
 ### 9.9 Token, artwork, image, code
 
-- The token is a chain-native identity, ownership, edition, and provenance layer.
+- The token records chain identity, edition, and transfer history; title, copyright, accession, and interpretation are recorded separately.
 - The script and token hash are constitutive inputs for these Art Blocks works.
 - The generator executes the work in a browser/runtime environment.
 - The static PNG is a project-authorized or platform-generated documentation state, not the whole live work.
@@ -339,18 +336,11 @@ These absences are future collecting opportunities and interpretive limits. They
 - A selected bibliography should separate primary sources, criticism/scholarship, and Museum records.
 - State `Research cutoff: 2026-08-02` in each manuscript.
 
-## 13. Handoff to project and object writers
+## 13. Corrections to this matrix
 
-Project writers own the five public project essays. Object writers own the seven extended entries. They should draw identity and sources from this matrix, then produce independent arguments and close readings. They should not copy the monograph's prose or use this file as a substitute for observing their exact works.
-
-Any new factual correction discovered by another lane should be added here with:
-
-- the claim being corrected;
-- previous wording;
-- new wording;
-- source and access date;
-- affected manuscript paths;
-- whether a canonical accession amendment is required.
+To report a factual correction, identify the current claim, proposed wording,
+source and access date, affected manuscript paths, and whether a canonical
+accession amendment is required.
 
 ## 14. Append-only research amendments
 
@@ -383,6 +373,9 @@ Any new factual correction discovered by another lane should be added here with:
 
 ## Revision history
 
+- **1.1.2 — 2026-08-04:** replaced internal workflow language with a public
+  account of the matrix, clarified the boundary between chain history and
+  legal title, and retained the append-only correction method.
 - **1.1.1 — 2026-08-02:** promoted the matrix to final public status and added institutional-author metadata; no research claim or canonical accession record changed.
 - **1.1.0 — 2026-08-02:** added exact accession and scholarship links; established the visual-capture retention boundary; replaced unsupported canonical-state terminology; corrected and enumerated the six-city schedule; completed the `8 × 3 × 5` Pre-Process statement; downgraded unresolved recent-work leads; and recorded amendments 14.1–14.3.
 - **1.0.0 — 2026-08-02:** initial release-candidate shared source and chronology matrix.

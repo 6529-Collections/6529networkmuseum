@@ -9,28 +9,26 @@ Each machine-readable release carries a deterministic manifest. These
 commitments prepare the record for content-addressed storage and an append-only
 on-chain history.
 
-## An open museum, built in public
+## Public record and contribution
 
-This repository is the Museum's shared working record during the transition to
-an on-chain system. Anyone can read its sources and revision history, make a
-copy, and propose a correction, new evidence, stronger scholarship, improved
-accessibility, or better technical and preservation documentation through a
-pull request.
+This repository is the Museum's shared record during the transition to an
+on-chain system. Anyone can read its sources and revision history, clone the
+repository, or propose a correction, new evidence, stronger scholarship,
+improved accessibility, or better technical and preservation documentation
+through a pull request.
 
-The published record changes only after evidence review, deterministic
-repository validation, and maintainer approval. That preserves institutional
-integrity while giving the network a practical way to improve its Museum.
-Start with
+Changes enter the published record after evidence review, deterministic
+validation, and maintainer approval. The process keeps each revision
+attributable and gives the network a direct way to improve the Museum. Start with
 [`CONTRIBUTING.md`](CONTRIBUTING.md), or read
 [`The record outlives the interface`](docs/open-museum.md).
 
-Our Fall 2026 goal is for every admitted Museum record—from governance
+The stated Fall 2026 goal is to give every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
-and later corrections—to have an on-chain commitment and append-only lineage
-in a custom contract. Larger documents and media can remain on
-content-addressed storage. The website presents and interprets the collection
-from that durable record. Contract design is in progress; deployment and
-activation remain pending. See
+and later corrections—an on-chain commitment and append-only lineage in a
+custom contract. Larger documents and media may remain on content-addressed
+storage. The website will present the collection from that durable record.
+Contract design is in progress; deployment and activation remain pending. See
 [`From public repository to on-chain Museum record`](docs/onchain-transition.md).
 
 ## Canonical areas
@@ -43,8 +41,9 @@ activation remain pending. See
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
 | Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; post-accession title, finalized-state custody, token-approval, and exact-address compliance diligence complete; autonomous software preservation remains active stewardship |
 | Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
-| Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Comparative essay, fourteen primary-source profiles, and a claim-level source register for institutions the Museum studies |
+| Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Digital-art-weighted comparative essay, twenty-seven primary-source profiles, a classified chain-native adjacent-practice study, detailed source notes, and [deterministic citation inventory](docs/institutional-source-inventory.json) |
 | Scholarship and editorial standard | [`docs/curatorial-publication-standard.md`](docs/curatorial-publication-standard.md) | Research substance, close looking, evidence, publication architecture, digital-art scholarship, and Museum prose style |
+| Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
@@ -64,9 +63,9 @@ For chain-native objects, the Museum records each stage separately:
 For non-token and hybrid objects, the applicable off-chain receipt, title, and
 custody events replace `received_onchain`.
 
-Wallet custody records receipt. Accession requires its own reviewed act. A Wave
+Wallet custody records receipt. A reviewed accession act is separate. A Wave
 `WINNER` records selection; minting, purchase, transfer, rights clearance, and
-accession each require separate evidence.
+accession each require their own evidence.
 
 ## Integrity and validation
 
@@ -83,6 +82,7 @@ python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
 python scripts/validate.py
+python scripts/generate_institutional_source_inventory.py --check
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check
 ```

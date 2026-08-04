@@ -66,8 +66,8 @@ matrix gives each work a status and notes, leaving “archived” as a condition
 that still requires explanation.
 
 The article is a historical account of a 2019 project, not a guarantee that
-every tool or service remains unchanged. Its demonstrated method is the
-important part: publish the access route, the preservation decision, and the
+every tool or service remains unchanged. Its demonstrated method is specific:
+publish the access route, the preservation decision, and the
 toolchain together.
 
 ### 4. A hosted-service exit is documented as an operational and access event

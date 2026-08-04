@@ -1,9 +1,28 @@
-# 6529 Network Museum scholarship and editorial standard
+# Writing the 6529 Network Museum
 
 - **Status:** active editorial and implementation standard
+- **Institutional author:** 6529 Network Museum
+- **Subtitle:** Scholarship and editorial standard
+- **Version:** 1.1.0
+- **Initial publication:** 2026-08-03
+- **Publication date:** 2026-08-04
+- **Research cutoff:** 2026-08-04
 - **Applies to:** artist profiles and monographs, project and collection essays, artwork entries, acquisition and gift narratives, exhibition texts, labels, public research features, institutional histories, conservation studies, and technical scholarship
 - **Initial reference package:** Casey Reas accession `6529NM.2026.001`
-- **Comparative research base:** [`records/institutional-practice/a-field-of-practice.md`](../records/institutional-practice/a-field-of-practice.md) and its [primary-source register](../records/institutional-practice/source-register.md)
+- **Comparative research base:** [`records/institutional-practice/a-field-of-practice.md`](../records/institutional-practice/a-field-of-practice.md), [adjacent practice](../records/institutional-practice/adjacent-chain-native-practice.md), and the [primary-source register](../records/institutional-practice/source-register.md)
+- **Digital stewardship standard:** [`digital-art-stewardship-standard.md`](digital-art-stewardship-standard.md)
+- **Public contribution route:** [`CONTRIBUTING.md`](../CONTRIBUTING.md)
+
+This standard describes how the Museum studies, describes, and publishes art.
+It began with the Casey Reas accession and was tested against the collection,
+publication, conservation, and digital-art practices documented in the
+Museum's comparative institutional study. The standard is public so that a
+reader can judge the Museum's scholarship and a contributor can improve it.
+
+The standard protects variation among authors while requiring a common
+discipline of close looking, exact attribution, evidence, technical accuracy,
+and finished prose. Its purpose is practical: every public text should reward
+attention to the artwork and remain strong enough to support later research.
 
 ## 1. The Museum publishes arguments about art
 
@@ -73,6 +92,27 @@ person or method that imposed the present order, and the gaps that remain.
 Do not turn institutional confidence into false completeness. Do not scatter
 generic caveats through fluent prose. Put each uncertainty where it changes the
 reader's understanding, and bind the full account to the relevant record.
+
+### 3.3 Forms demonstrated in the comparative study
+
+The comparative study identifies publication forms that have proved useful in
+practice. They supply structure and evidence discipline. The Museum writes in
+its own voice and applies each form to the exact work and record at hand.
+
+| Form | Demonstrated practice | Museum application |
+|---|---|---|
+| Object label and record | The Met separates overview, catalogue entries, technical notes, provenance, exhibitions, references, and open-data paths on [*Salvator Mundi*](https://www.metmuseum.org/art/collection/search/436243). Getty connects provenance, bibliography, exhibitions, identifiers, and API access on [*Hunting on the Lagoon*](https://www.getty.edu/art/collection/object/103REK). | Identify the exact object, then give typed routes to interpretation, provenance, rights, conservation, exhibition history, related works, data, and correction. |
+| Artist text | DAM brings series, biography, artist statement, references, publications, and exhibitions together in its [Casey Reas](https://dam.org/museum/artists_ui/artists/reas-casey/) and [Vera Molnar](https://dam.org/museum/artists_ui/artists/molnar-vera/) records. The Met places artist instruction inside its account of [*Everything #4*](https://www.metmuseum.org/art/collection/search/900397). | Begin with works and methods. Attribute artist language and distinguish it from biography, Museum interpretation, and technical observation. |
+| Collection essay | The Met's [Heilbrunn Timeline](https://www.metmuseum.org/essays/timeline-of-art-history) links object records to historical arguments; [MetPublications](https://www.metmuseum.org/met-publications) and Getty's [Online Scholarly Catalogue Initiative report](https://www.getty.edu/publications/osci-report/) treat catalogues as durable, updateable scholarship. | State the grouping argument, identify each object's contribution, and record whether the group was formed by the artist, donor, curator, or collection history. |
+| Exhibition history | [MoMA's exhibition history](https://www.moma.org/calendar/about/exhibition-history), the [Ars Electronica Archive](https://ars.electronica.art/archive/en/about/), and [Whitney artport](https://whitney.org/artport/) expose dated programs, works, documents, and known gaps. | Model exhibitions as dated relations among works, artists, venues, documents, access states, and surviving evidence. |
+| Conservation case study | The Guggenheim's [Computer-Based Art Initiative](https://www.guggenheim.org/conservation/the-conserving-computer-based-art-initiative), the V&A's [*Shaping Form* study](https://www.vam.ac.uk/blog/projects/what-does-conserving-the-digital-look-like), ZKM's [*Wipe Cycle* record](https://zkm.de/de/werk/wipe-cycle), and the Met's [digital restoration account](https://www.metmuseum.org/perspectives/margareta-haverman-vase-of-flowers-digital-conservation) publish intervention evidence and limits. | Name the work, trigger, evidence, alternatives, intervention, participants, result, residual uncertainty, and next action. |
+| Public data note | Getty's [Collection API](https://data.getty.edu/museum/collection/docs/), the Met's [Open Access dataset](https://github.com/metmuseum/openaccess), Whitney's [API](https://whitney.org/about/website/api), and MoMA's [collection data](https://github.com/MuseumofModernArt/collection) disclose scope, reuse, updates, or incomplete fields. | State the dataset boundary, snapshot or update state, incomplete fields, rights, reuse terms, and whether the endpoint is authoritative or derived. |
+| Uncertainty | The Met's restoration account, Tate's [Net Art records](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog), Rhizome's [Conifer transition](https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html), and Getty's API documentation keep gaps and changing states visible. | Type the uncertainty as missing evidence, reconstruction, service loss, unresolved rights, or technical variance, then state its consequence for interpretation or access. |
+| Credits and revisions | Guggenheim's [*Brandon* credits](https://brandon.guggenheim.org/credits/), Serpentine's [commission credits](https://www.serpentinegalleries.org/whats-on/i-didnt-realise-you-thought-like-that/), LACMA's [time-based-media colloquium](https://unframed.lacma.org/node/3597), and Rhizome's [service notices](https://blog.conifer.rhizome.org/2025/12/15/twilight-announcement.html) identify roles, dates, transitions, and changes in access. | Credit functional roles, version the publication, retain prior states, and explain material changes. |
+| Chain-native work | Feral File separates tokens, rights, files, and storage in its [collecting guide](https://feralfile.com/learn/how-to-collect-digital-art). Art Blocks exposes scripts, dependencies, parameters, and contract controls in its [Core Contract documentation](https://docs.artblocks.io/developer/core-contract/). | Keep token identity, transfer history, legal title, custody, rights, runtime, external data, and preservation evidence as separately supported assertions. |
+
+The editorial note or research record should name the precedent used where a
+publication adopts a particular structure. “Best practice” is not a source.
 
 ## 4. Research before prose
 
@@ -463,6 +503,32 @@ qualified relation. Neither should become a mannerism.
 Delete adjectives, adverbs, and metaphors that do not add evidenced information
 or clarify the work.
 
+### 12.10 Match the prose to its publication genre
+
+An object label identifies. An object record organizes evidence. An essay
+argues. A conservation case follows condition, evidence, decision,
+intervention, and result. An archive record establishes scope, order, survival,
+and loss. A technical record specifies a system. A policy assigns
+responsibility. Preserve these differences.
+
+A short label should not impersonate a monograph. An essay should not hide an
+unresolved technical state in metaphor. A conservation note should not turn a
+treatment decision into an account of the work's entire significance. Connect
+the genres with stable links and typed relationships so each can do its own
+work.
+
+### 12.11 Give uncertainty an exact state
+
+Use a controlled state when the evidence permits one: `documented`, `inferred`,
+`provisional`, `disputed`, `reconstructed`, `superseded`, `unavailable`, or
+`unknown`. Name the evidence that supports the state and the evidence that is
+missing or in conflict. Do not repeat a vague disclaimer through an essay when
+one exact record and a short consequence will do.
+
+Keep dates in their proper roles. Work date, mint date, transfer date,
+observation date, capture date, intervention date, record date, publication
+date, and access date describe different events.
+
 ## 13. Notes, bibliography, and research boundary
 
 Every long-form publication includes:
@@ -482,6 +548,13 @@ whether derived data has been modified. Open access does not make every public
 assertion equally approved.
 
 Sources should be cited near the claim they support. A bibliography cannot rescue unsourced prose. Links must point directly to the relevant page or retained source, not a search result.
+
+Comparative institutional research also maintains the deterministic
+[institutional source inventory](institutional-source-inventory.json).
+The inventory records exact URLs, citation labels, and every manuscript using
+them. Individual profiles retain the displayed title, date shown, access date,
+and evidentiary use; the inventory prevents a silently untracked citation from
+entering the published corpus.
 
 ## 14. Revision and supersession
 
@@ -516,8 +589,19 @@ Before publication, answer yes to all of the following:
   record, bibliography, and immutable edition?
 - Has repetitive contrast syntax and institutional self-description been
   removed?
+- Does each section use the right publication genre for its evidence?
+- Are uncertainty and every consequential date given exact roles?
 - Does the exact Museum holding matter to the text?
 - Are technical and registrar details proportionate?
 - Does the prose read as finished publication, not a plan for someone else to finish?
 
 If any answer is no, the text is not ready.
+
+## Revision history
+
+- `1.1.0` — 2026-08-04: expanded the standard through the Museum's
+  twenty-seven-profile institutional study; added publication genres,
+  controlled knowledge states, sentence-level editorial rules, technical-case
+  writing, and public source requirements.
+- `1.0.0` — 2026-08-03: initial standard developed for the Casey Reas
+  accession publication package.

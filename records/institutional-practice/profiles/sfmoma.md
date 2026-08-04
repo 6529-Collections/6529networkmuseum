@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -82,7 +82,7 @@ uncertainties, and revision history in linked practitioner essays.
 
 SFMOMA’s Team Media account presupposes a staffed museum with registrars,
 conservators, technicians, rights staff, and digital staff who can meet
-regularly. A decentralized museum must name equivalent roles, fund outside
+regularly. The Museum must name equivalent roles, fund outside
 partners where needed, and record responsibility in each object file. The
 downloadable form does not settle artist-specific rights or significant
 properties; those remain work-level decisions.
@@ -96,4 +96,7 @@ properties; those remain work-level decisions.
 
 ## Revision history
 
+- `1.0.1` — 2026-08-04: removed an unsupported institutional analogy and
+  narrowed the lesson to role definition, media conservation, and work-level
+  authority for this Museum.
 - `1.0.0` — 2026-08-04: initial profile.

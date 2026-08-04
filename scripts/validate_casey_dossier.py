@@ -1402,7 +1402,12 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey public document retains an intake-stage placeholder: {page.name}")
     for object_id in expected_object_ids:
         page = (root / CASEY_DIR / "public" / f"{object_id}.md").read_text(encoding="utf-8")
-        for marker in ("**Status:** `accessioned`", "The work is `accessioned`", "no OpenSea or marketplace rarity", "Museum interpretation [E]"):
+        for marker in (
+            "**Status:** `accessioned`",
+            "permanent-collection object in `6529NM.2026.001`",
+            "no OpenSea or marketplace rarity",
+            "Museum interpretation [E]",
+        ):
             if marker.lower() not in page.lower():
                 issues.append(f"Casey public object page lacks a finished state or interpretive boundary: {object_id}")
                 break
@@ -1416,8 +1421,8 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
     if any(marker.lower() not in artist_profile.lower() for marker in artist_boundary):
         issues.append("Casey artist profile must retain the token/software interpretation boundary")
     collection_boundary = (
-        "no single layer is the whole work",
-        "a *CENTURY* still can be closely read as a composition and still remain a state of moving software",
+        "the layers have different roles",
+        "a *CENTURY* still can be read as a composition while remaining a state of moving software",
     )
     if any(marker.lower() not in collection_essay.lower() for marker in collection_boundary):
         issues.append("Casey collection essay must retain the executable-image interpretation boundary")

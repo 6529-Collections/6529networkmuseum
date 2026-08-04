@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import json
 import re
 import unittest
 from pathlib import Path
+
+from scripts.generate_institutional_source_inventory import build_inventory
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +13,9 @@ PACKAGE = ROOT / "records" / "institutional-practice"
 INTRODUCTION = PACKAGE / "a-field-of-practice.md"
 SOURCE_REGISTER = PACKAGE / "source-register.md"
 STYLE_STANDARD = ROOT / "docs" / "curatorial-publication-standard.md"
+STEWARDSHIP_STANDARD = ROOT / "docs" / "digital-art-stewardship-standard.md"
+ADJACENT_STUDY = PACKAGE / "adjacent-chain-native-practice.md"
+SOURCE_INVENTORY = ROOT / "docs" / "institutional-source-inventory.json"
 
 PROFILE_SLUGS = (
     "met",
@@ -26,6 +32,19 @@ PROFILE_SLUGS = (
     "serpentine-arts-technologies",
     "v-and-a",
     "lacma",
+    "acmi",
+    "centro-multimedia",
+    "dia",
+    "hek-basel",
+    "laboratorio-arte-alameda",
+    "li-ma",
+    "m-plus",
+    "mca-chicago",
+    "nam-june-paik-art-center",
+    "ntt-icc",
+    "transmediale",
+    "v2",
+    "walker-art-center",
 )
 
 MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
@@ -56,6 +75,19 @@ REQUIRED_CASES = {
     "serpentine-arts-technologies": ("I DIDNT REALISE YOU THOUGHT LIKE THAT", "Future Art Ecosystems"),
     "v-and-a": ("Shaping Form", "collections online"),
     "lacma": ("METAVASARELY", "Examining the Life and Times of Media Art"),
+    "acmi": ("Microgames", "Play It Again 2"),
+    "centro-multimedia": ("Virtual Library", "Audiovisual Archive"),
+    "dia": ("Spiral Jetty", "Aerial Documentation"),
+    "hek-basel": ("minds of concern", "TraceNoizer"),
+    "laboratorio-arte-alameda": ("Modos de", "Documentation Center"),
+    "li-ma": ("ArtHost", "Artwork Documentation Tool"),
+    "m-plus": ("M+ Collection", "Mediatheque"),
+    "mca-chicago": ("Cinaedus Table", "I Was Raised on the Internet"),
+    "nam-june-paik-art-center": ("Video Archive", "NJP Reader #13"),
+    "ntt-icc": ("HIVE", "Restoring Media Art Works"),
+    "transmediale": ("Unarchived", "Across and Beyond"),
+    "v2": ("Capturing Unstable Media", "About the Archive"),
+    "walker-art-center": ("Collecting Performance", "Interdisciplinary Initiative"),
 }
 
 
@@ -79,7 +111,10 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
         for slug in PROFILE_SLUGS:
             self.assertIn(f"(profiles/{slug}.md)", text)
         self.assertIn("(source-register.md)", text)
+        self.assertIn("../../docs/institutional-source-inventory.json", text)
+        self.assertIn("(adjacent-chain-native-practice.md)", text)
         self.assertIn("../../docs/curatorial-publication-standard.md", text)
+        self.assertIn("../../docs/digital-art-stewardship-standard.md", text)
 
     def test_profiles_carry_publication_control_and_analysis(self) -> None:
         required_metadata = (
@@ -131,20 +166,38 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
         self.assertNotIn("https://cdn.rhizome.org/about/", text)
         self.assertIn("- **Access date for all web sources:** 2026-08-04", text)
 
-    def test_every_publication_source_is_reconciled_to_the_register(self) -> None:
-        register_links = set(PUBLIC_LINK.findall(SOURCE_REGISTER.read_text(encoding="utf-8")))
-        publication_files = (INTRODUCTION,) + tuple(
-            PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS
+    def test_source_inventory_is_deterministic_and_complete(self) -> None:
+        committed = json.loads(SOURCE_INVENTORY.read_text(encoding="utf-8"))
+        self.assertEqual(build_inventory(), committed)
+        self.assertEqual(len(committed["sources"]), committed["source_count"])
+        self.assertTrue(
+            all(source["url"].startswith("https://") for source in committed["sources"])
         )
+        self.assertTrue(all(source["cited_by"] for source in committed["sources"]))
+        self.assertTrue(all(source["labels"] for source in committed["sources"]))
+
+    def test_every_publication_source_is_reconciled_to_the_inventory(self) -> None:
+        inventory_links = {
+            source["url"]
+            for source in json.loads(SOURCE_INVENTORY.read_text(encoding="utf-8"))[
+                "sources"
+            ]
+        }
+        publication_files = (
+            INTRODUCTION,
+            ADJACENT_STUDY,
+            STEWARDSHIP_STANDARD,
+            STYLE_STANDARD,
+        ) + tuple(PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS)
         for publication_file in publication_files:
             with self.subTest(publication=publication_file.name):
                 text = publication_file.read_text(encoding="utf-8")
                 self.assert_https_external_links(text)
                 publication_links = set(PUBLIC_LINK.findall(text))
                 self.assertFalse(
-                    publication_links - register_links,
-                    "unregistered publication sources: "
-                    f"{sorted(publication_links - register_links)}",
+                    publication_links - inventory_links,
+                    "uninventoried publication sources: "
+                    f"{sorted(publication_links - inventory_links)}",
                 )
 
     def test_style_standard_binds_comparative_study(self) -> None:
@@ -153,6 +206,10 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
         self.assertIn("../records/institutional-practice/source-register.md", text)
         self.assertIn("### 12.7 Write technical scholarship from a case", text)
         self.assertIn("### 12.9 Edit for the audible sentence", text)
+        self.assertIn("institutional-source-inventory.json", text)
+        stewardship = STEWARDSHIP_STANDARD.read_text(encoding="utf-8")
+        self.assertIn("## 2. Record architecture", stewardship)
+        self.assertIn("## 9. Primary source basis", stewardship)
 
 
 if __name__ == "__main__":
