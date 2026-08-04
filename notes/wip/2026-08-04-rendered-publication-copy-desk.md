@@ -57,3 +57,13 @@ and Keccak-256
 `0x9f6706921e1bb20e20c608e2d80a00db9845c3afb6113563c94bc7709ddc21f2`.
 This amendment records completion of the source-validation task; merge,
 frontend qualification, and production release remain the active boundary.
+
+## Post-merge rendered amendment
+
+Pull request #24 merged as canonical source commit
+`72bf603ad63d60cfc00d6d875c6d191d83a6fdf5`; post-merge Museum validation
+run `30920325981` passed on Ubuntu and Windows. The production-built frontend
+then exposed one residual phrase, “for the edition,” in the first thematic
+pathway of *A field of practice*. Version 1.1.3 replaces it with “for the
+study,” preserving the pathway and every substantive claim while keeping the
+publication's public identity as one living study.

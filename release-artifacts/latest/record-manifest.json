@@ -582,8 +582,8 @@
     },
     {
       "path": "records/institutional-practice/a-field-of-practice.md",
-      "sha256": "sha256:6052b8d9904010993a77de512e8ef545cc1ed5a8ecd2b3bdfcc620aff948c97e",
-      "size": 10964
+      "sha256": "sha256:397b7536bcb9892d49052c81967dcb2ebcbf3fa9ad3f7b45e847502f48f0eb46",
+      "size": 11087
     },
     {
       "path": "records/institutional-practice/adjacent-chain-native-practice.md",
@@ -1790,9 +1790,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9f6706921e1bb20e20c608e2d80a00db9845c3afb6113563c94bc7709ddc21f2"
+    "digest": "0xcdab557dacba52ab6752096436c01bba3b6c0c0afcd0c7e94a904ba1d492b5e3"
   },
-  "manifest_sha256": "sha256:b4e810f45576d0c3b03733b5d399dc8ff1323281460bbfdf040eb185bb3bb90a",
+  "manifest_sha256": "sha256:71458b77d145bd3592e4f0ee0a2d8c1c49c96a71782ab200d9430f36b4dcad8b",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

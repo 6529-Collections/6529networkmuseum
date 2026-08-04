@@ -4,7 +4,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.1.2
+- **Version:** 1.1.3
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](source-register.md)
@@ -77,7 +77,7 @@ the institution as a whole.
 These cases begin with what a reader, visitor, or participant encounters: an
 interface, a browser, a game, a network, a screen, a moving image, a sound
 environment, or a changing technical state. They establish the digital-art
-center of gravity for the edition.
+center of gravity for the study.
 
 - [Whitney Museum of American Art](profiles/whitney.md)
 - [Rhizome and the New Museum](profiles/rhizome-new-museum.md)
@@ -218,6 +218,9 @@ study applies the same evidence discipline to technical, institutional, and
 collection records that sit beside this comparative publication.
 
 ## Revision history
+
+- `1.1.3` — 2026-08-04: replaced a residual edition-production reference
+  with the study's permanent public description.
 
 - `1.1.2` — 2026-08-04: removed release-process language from the public
   overview while preserving its twenty-seven-case scope and selection method.
