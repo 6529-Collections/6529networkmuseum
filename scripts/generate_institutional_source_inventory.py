@@ -1,3 +1,5 @@
+"""Generate the deterministic source inventory for institutional scholarship."""
+
 from __future__ import annotations
 
 import argparse
@@ -16,6 +18,7 @@ WHITESPACE = re.compile(r"\s+")
 
 
 def publication_paths() -> tuple[Path, ...]:
+    """Return the complete, ordered institutional-publication corpus."""
     paths = [
         PACKAGE / "a-field-of-practice.md",
         PACKAGE / "adjacent-chain-native-practice.md",
@@ -27,6 +30,7 @@ def publication_paths() -> tuple[Path, ...]:
 
 
 def build_inventory() -> dict[str, object]:
+    """Project normalized citation labels and manuscript paths by source URL."""
     citations: dict[str, dict[str, set[str]]] = defaultdict(
         lambda: {"labels": set(), "cited_by": set()}
     )
@@ -42,7 +46,9 @@ def build_inventory() -> dict[str, object]:
     sources = [
         {
             "url": url,
-            "labels": sorted(values["labels"], key=str.casefold),
+            "labels": sorted(
+                values["labels"], key=lambda label: (label.casefold(), label)
+            ),
             "cited_by": sorted(values["cited_by"]),
         }
         for url, values in sorted(citations.items())
@@ -57,10 +63,12 @@ def build_inventory() -> dict[str, object]:
 
 
 def serialized_inventory() -> str:
+    """Serialize the inventory with stable UTF-8 JSON formatting."""
     return json.dumps(build_inventory(), ensure_ascii=False, indent=2) + "\n"
 
 
 def main() -> int:
+    """Write the inventory or fail when the committed bytes are stale."""
     parser = argparse.ArgumentParser(
         description="Build the deterministic institutional-practice source inventory."
     )

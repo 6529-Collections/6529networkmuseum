@@ -82,7 +82,7 @@ uncertainties, and revision history in linked practitioner essays.
 
 SFMOMA’s Team Media account presupposes a staffed museum with registrars,
 conservators, technicians, rights staff, and digital staff who can meet
-regularly. A decentralized museum must name equivalent roles, fund outside
+regularly. The Museum must name equivalent roles, fund outside
 partners where needed, and record responsibility in each object file. The
 downloadable form does not settle artist-specific rights or significant
 properties; those remain work-level decisions.

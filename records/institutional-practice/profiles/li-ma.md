@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -109,4 +109,4 @@ Access date for every source below: **2026-08-04**.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: published a case-led LI-MA profile with claim-level sources, preservation workflow transfer, and explicit service-infrastructure boundary.
+- `1.0.0` — 2026-08-04: initial case-led profile of LI-MA's documentation, preservation workflow, storage, and service infrastructure.

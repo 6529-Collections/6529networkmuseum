@@ -19,7 +19,7 @@ In *Phototaxis*, Casey Reas turns the movement of simple simulated agents into a
 
 **Casey Reas, *Phototaxis* #308, 2021.** Browser-based generative artwork; Art Blocks Playground, edition of 1,000. A pale cyan field loops around a dense, dark center, with a smaller convergence above and long paths escaping vertically. The image is the residue of simulated movement: each line records an agent’s route through an environment of lights and rules. Reas developed this visual grammar across *Path*, *Tissue*, and *MicroImage* before returning to it for the Art Blocks edition. A static view reveals the density of the drawing; the live work unfolds over time. The Museum records both the changing performance and its documentation.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the living-edition essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
 
 ## The image after the agent has gone
 

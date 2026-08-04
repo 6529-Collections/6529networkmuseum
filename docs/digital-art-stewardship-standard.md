@@ -42,7 +42,8 @@ The following are separate facts and require separate evidence:
 
 | Fact | Meaning | Does not mean |
 |---|---|---|
-| Chain identity | Contract, token, network, token ID, seed/hash, and CAIP-19-shaped reference | Legal title, artistic identity, or preservation completeness |
+| Chain identity | Contract, token, network, token ID, and CAIP-19-shaped reference | Legal title, artistic identity, generation state, or preservation completeness |
+| Generation state | Seed, generation hash, parameters, prompt, model state, or other inputs that determine an output | Chain identity, legal title, or a permanent claim when mutable inputs change |
 | Custody | Receipt or control of an asset at an observed chain state or approved physical/digital location | Accession or title |
 | Legal title | Title instrument and its binding to the relevant transfer or receipt | Copyright, display rights, or preservation rights |
 | Rights | Explicit grant or restriction for reproduction, publication, exhibition, print, derivative use, preservation, migration, or AI training | Title or custody |
@@ -373,10 +374,17 @@ Restricted records may contain:
 
 - source bytes and unpublished technical material;
 - private legal instruments and donor or artist contact details;
-- private storage locations and security architecture;
-- credentials, signing material, secrets, or operational access details;
+- non-secret storage references, named custodians, access basis, and retention
+  decisions;
 - restricted interviews, personal data, appraisal material, or rights analysis;
-- sensitive failure or vulnerability information.
+- vulnerability findings whose handling and disclosure are separately
+  authorized.
+
+Credentials, private keys, signing material, tokens, recovery phrases, and
+other secret values must never be retained in Museum records. When operational
+access must be evidenced, record only a non-secret credential-store reference,
+custodian, access basis, fingerprint where safe, retention decision, and
+review date.
 
 Public records may point to restricted material using a content hash and
 non-sensitive custodian reference. Restricted status does not remove the
@@ -471,7 +479,8 @@ known limitations, and a correction or supersession path.
 
 ## 6. Review gates
 
-Before a work is marked `technically_verified`, the Museum should have:
+Before a work is marked `technically_verified`, its reviewed record set must
+contain:
 
 - a completed or explicitly limited identity record;
 - a component and dependency inventory;
@@ -480,18 +489,23 @@ Before a work is marked `technically_verified`, the Museum should have:
 - documented unresolved conditions and access restrictions;
 - a second-person review.
 
-Before `preservation_complete`, the Museum should have:
+Before `preservation_complete`, its reviewed record set must contain:
 
 - an applicable SIP/AIP/DIP package record;
 - retained components within the declared preservation scope;
 - fixity manifests with byte mode and canonicalization;
-- at least two independently recoverable copies or a documented exception;
+- at least two independently recoverable copies;
 - a successful restore or recovery test;
 - intervention and technical-provenance events;
 - artist documentation or an explicit unavailable/declined record;
 - service-exit assessment where external infrastructure is material;
 - public and restricted views;
 - a second-person review and dated next-review condition.
+
+If any applicable requirement in either gate is unmet, the preservation
+package must remain `complete_with_conditions` or `blocked`, and the accession
+lifecycle must not advance to `technically_verified` or
+`preservation_complete`, respectively.
 
 Before `display_ready`, the Museum should have a documented manifestation,
 display environment, rights basis, condition outcome, restart/fallback plan,
@@ -550,7 +564,11 @@ standard. Dates are publication, record, or programme dates when displayed;
 - [ZKM, “Wipe Cycle”](https://zkm.de/de/werk/wipe-cycle), date not shown; [“Restoration of Electronic and Digital Art”](https://zkm.de/en/restoration-of-electronic-and-digital-art), date not shown. These establish technical constitution, reconstruction, equipment, software, and interdisciplinary restoration documentation.
 - [MoMA, “Preserving the Technical History of Media Works”](https://www.moma.org/explore/inside_out/2015/05/20/preserving-the-technical-history-of-media-works/), 2015-05-20. This establishes structured process history for device models, serial numbers, settings, and migration.
 - [Library of Congress, “PREMIS”](https://www.loc.gov/standards/premis/index.html) and [“PREMIS Data Dictionary for Preservation Metadata: Version 3.0”](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf). These establish preservation Objects, Events, Agents, and Rights.
-- [OCFL Specifications](https://ocfl.io/), current specification 1.1. This establishes transparent, versioned, software-independent object storage.
+- [OCFL Specifications](https://ocfl.io/), specification series 1.1; the
+  [OCFL release notes](https://ocfl.io/news/) identify 1.1.1 as the current
+  patch at the research cutoff. Any implementation must pin the exact 1.1.x
+  text it claims to follow. This establishes transparent, versioned,
+  software-independent object storage.
 - [RFC 8493, “The BagIt File Packaging Format”](https://www.rfc-editor.org/info/rfc8493/), 2018-10. This establishes package transfer and manifest fixity.
 - [IIIF, “Presentation API 3.0”](https://iiif.io/api/presentation/3.0/), version 3.0.0. This establishes public presentation, manifest, temporal, and spatial structures.
 - [W3C, “PROV-O: The PROV Ontology”](https://www.w3.org/TR/prov-o/), Recommendation 2013-04-30. This establishes entity, activity, agent, derivation, and association vocabulary.

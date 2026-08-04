@@ -155,3 +155,21 @@ candidate manifest has SHA-256
 and Keccak-256
 `0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c`.
 These commitments remain candidates until PR #22 merges.
+
+## Expanded-study handoff
+
+The unpublished expansion brings the living study to twenty-seven profiles,
+with particular attention to digital-art institutions, preservation services,
+archives, research centers, and contemporary museums whose public practice
+offers a concrete control case. It adds a separately classified study of
+chain-native platforms and communities, a working digital-art stewardship
+standard, and a deterministic inventory that binds every cited URL to its
+labels and manuscript paths. The overview is organized by questions of
+encounter, technical care, public records, and institutional context; the
+selection remains a field of evidence, not a ranking.
+
+Open release questions are limited to governed review of the final source
+commit and exact commitments, atomic admission of the expanded study by the
+existing website publication adapter, and staging and production qualification
+of the restrained Stories & Research presentation. No `supersedes` target is
+assigned because this entry records an unpublished revision in progress.

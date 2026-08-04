@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -90,4 +90,4 @@ not claim equivalent staffing or preservation capacity.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: initial contemporary-scholarship control profile; added case-led analysis of performance collecting, Living Collections Catalogue practice, publication apparatus, Museum transfer, and evidence limits.
+- `1.0.0` — 2026-08-04: initial profile of performance collecting, the Living Collections Catalogue, and the Walker's publication apparatus.

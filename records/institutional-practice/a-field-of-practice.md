@@ -4,7 +4,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.1.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](source-register.md)
@@ -212,7 +212,7 @@ as a comparative study without turning it into a directory.
 - [Digital art stewardship standard](../../docs/digital-art-stewardship-standard.md)
 
 The source register explains the research apparatus and retains the detailed
-first-edition register. Every second-edition profile carries its own exact
+original register. Every new profile carries its own exact
 source notes; the deterministic inventory reconciles all 236 cited web sources
 to the manuscripts in which they appear. The adjacent chain-native-practice
 study applies the same evidence discipline to technical, institutional, and
@@ -220,7 +220,11 @@ collection records that sit beside this comparative publication.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition overview organized around a work-led
+- `1.1.0` — 2026-08-04: expanded the living study with a work-led
   opening, explicit case selection, four digital-art-weighted pathways,
   concrete working lessons, grouped links for twenty-seven profiles, the
   adjacent chain-native-practice study, and the primary-source register.
+- `1.0.1` — 2026-08-04: pre-publication review distinguished Conifer's May
+  subscription closure from its planned June platform replacement and current
+  service notice.
+- `1.0.0` — 2026-08-04: initial comparative study.

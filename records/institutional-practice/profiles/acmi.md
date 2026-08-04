@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -58,4 +58,4 @@ ACMI's source-code deposit is an agreement-specific archive arrangement, not pro
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added collection-status, commission, videogame-preservation, and technical-publication analysis.
+- `1.0.0` — 2026-08-04: initial profile of collection status, commissioning, videogame preservation, and technical publication.

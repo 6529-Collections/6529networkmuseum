@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -67,4 +67,4 @@ The INAH conservation article concerns documentary holdings, not necessarily the
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added research/documentation-center classification, documentary conservation case, repository practice, and regional publication analysis.
+- `1.0.0` — 2026-08-04: initial profile of the research and documentation center, its conservation casework, repository, and publications.

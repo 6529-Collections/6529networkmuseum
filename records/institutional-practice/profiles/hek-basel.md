@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -61,8 +61,8 @@ HEK's *ConcretionX144X160 #3* page identifies three acquired works from a
 114-part generative NFT series, the work's Game Boy-like format, four-color
 palette, animation, online/NFT form, fxhash link, and the three collection
 iterations. The page supplies a concrete object record while keeping the token
-page from standing in for the institutional record. [*ConcretionX144X160
-#3*](https://hek.ch/en/collection/artworks/concretionx144x160-3/)
+page from standing in for the institutional record.
+[*ConcretionX144X160 #3*](https://hek.ch/en/collection/artworks/concretionx144x160-3/)
 
 HEK also documents public software and network programs through [Projects](https://hek.ch/en/projects/),
 including HEK Net Works from March 2020 and Net Encounters from January to
@@ -114,4 +114,4 @@ Access date for every source below: **2026-08-04**.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: published a case-led HEK Basel profile with claim-level sources, technical-preservation transfer, and explicit analogy boundary.
+- `1.0.0` — 2026-08-04: initial case-led profile of HEK Basel's collection, conservation research, and public technical record.

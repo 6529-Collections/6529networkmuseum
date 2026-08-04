@@ -1,7 +1,7 @@
 ---
 title: "The System in Seven States: Casey Reas in the 6529 Network Museum"
 publication_id: "6529NM.PUB.CASEY.COLLECTION"
-version: "1.1.0"
+version: "1.3.0"
 status: "completed_publication_manuscript"
 institutional_author: "6529 Network Museum"
 publication_date: "2026-08-02"
@@ -16,13 +16,13 @@ supersession_scope: "visitor-facing interpretation of the seven-work group only;
 
 ## Casey Reas in the 6529 Network Museum
 
-**Standfirst.** Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and a geometry continually emerging from black form the Museum's seven-work study of Casey Reas. The group shows how radically different images can disclose the operations of an artistic system. Recent as tokens and deep in artistic lineage, the works reach from code begun in 2003 to a project released in 2026. Across them, variation becomes Reas's method for thinking about authorship, history, duration, and the unstable life of an image.
+**Standfirst.** Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and geometry emerging from black form the Museum's seven-work study of Casey Reas. Together they disclose an artistic system through markedly different images. The tokens are recent; their lineages reach from code begun in 2003 to a project released in 2026. Across the group, variation becomes Reas's way of thinking about authorship, history, duration, and the unstable life of an image.
 
 ## I. A collection begins with difference
 
 The three *CENTURY* works establish the terms of the group. *CENTURY #31* is dense and pressurized: slate, saturated blue, cream, and pale salmon are compressed inside a circular boundary, then broken by a tight succession of vertical slices. *CENTURY #724* opens the same system into broad cream intervals crossed by rust-red arcs and sparse lines. *CENTURY #401* turns it grayscale, using black uprights, white diagonals, and translucent curved forms to create an architecture whose planes refuse to settle.
 
-Nothing in the project grammar requires one of these pictures to be treated as primary and the others as variants around it. They are three decisions made by the same system under different token-specific conditions. Controlled difference binds the three works.
+The project grammar gives no reason to treat one picture as primary and the others as variants. They are three decisions made by the same system under different token-specific conditions. Their relation lies in controlled difference.
 
 That proposition extends across the accession. *Pre-Process #63* replaces slicing with a population of Elements whose actions build a panoramic field. *Phototaxis #308* converts the movement of simulated machines into pale trajectories. *923 EMPTY ROOMS #713* constructs an apparent interior through broken colorforms and optical contradiction. *Ex Nihilo (Cosmos) #248* lets segmented white lines gather into unstable solids against black.
 
@@ -30,31 +30,31 @@ Each work offers a different answer to a common question: how does an authored r
 
 Donation and accession formed this Museum group. The record contains no artist selection or endorsement, artist-designated triptych, or donor selection thesis. The comparison advanced here is curatorial and does not attribute the Museum's interpretation to Reas or punk6529.[^1]
 
-Museums continually form relations among objects that were not conceived as ensembles. The strength of those relations depends on evidence and looking. Here the comparison is unusually productive because Reas's practice already moves among systems, implementations, manifestations, and returns. The collection presents seven states through which Reas's systems become available for study.
+Museums form relations among objects that were not conceived as ensembles. Those relations stand or fall through evidence and looking. Here the comparison has force because Reas's practice moves among systems, implementations, manifestations, and returns. The collection presents seven states through which those systems become available for study.
 
 ## II. Three ways to cut a century
 
 The wider *CENTURY* body began in 2012. The Museum's three works belong to the 1,000-work Art Blocks project released in 2021. Reas developed the body in conversation with twentieth-century abstraction, especially Ellsworth Kelly's acts of selection and recomposition and the motion of kinetic artists including George Rickey. In the software, a composition is divided into vertical strips that are recombined over time. Modernist operations become executable.[^2]
 
-The slicing does not merely decorate a complete picture. It establishes a contest between two possible wholes. One is the composition before the cut, recoverable only in fragments; the other is the temporary arrangement formed by the strips. A curve that appears continuous across one seam breaks at the next. A colored mass can be read as one form interrupted or several forms briefly aligned. The eye alternates between repair and acceptance.
+Slicing turns a complete picture into a contest between two possible wholes. One is the composition before the cut, recoverable only in fragments; the other is the temporary arrangement formed by the strips. A curve that appears continuous across one seam breaks at the next. A colored mass can read as one interrupted form or several forms briefly aligned. The eye alternates between repair and acceptance.
 
 In *CENTURY #31*, sixteen slices and seventeen lines intensify that contest. The circular boundary gives the composition a tondo-like integrity, but the interior is repeatedly spliced. Large cream curves are visible enough to imply an underlying structure and buried enough to prevent its recovery. Blue areas shift between ground and object. Pale diagonals seem to cross the system faster than the vertical cuts, only to be displaced at their seams.
 
 The picture rewards slow attention to small discontinuities. A line that appears forceful at normal size reveals itself as a sequence of near-alignments. Cream fragments gather around the center without becoming a single body. The circle contains this traffic and makes it feel centrifugal: every interruption presses against an edge it cannot cross.
 
-The recorded feature labels—Palette A, line count 17, slice count 16, Oculi true—describe conditions of generation. They are useful evidence, but they are not a ready-made interpretation. “Oculi” cannot substitute for asking how circular forms behave. Nor does a larger slice count make #31 objectively more complex or valuable. Complexity is an experienced relation among density, interval, color, and interruption, not a trait total.
+The recorded feature labels—Palette A, line count 17, slice count 16, Oculi true—describe conditions of generation. They are evidence, not interpretation. “Oculi” cannot answer how the circular forms behave, and a larger slice count does not make #31 more complex or more valuable. Complexity is an experienced relation among density, interval, color, and interruption, not a trait total.
 
-*CENTURY #724* makes that distinction visible. It has eleven lines and seven slices, but its relative sparseness is not a reduced version of #31. A broad cream field permits rust-red arcs and charcoal diagonals to act across longer intervals. An upper band carries weight without closing the composition; a dark crescent at lower right anchors an area otherwise exposed to drift. Several short vertical elements near the bottom seem to have become detached from a larger structure.
+*CENTURY #724* makes the point visible. It has eleven lines and seven slices; its relative sparseness is not a reduced version of #31. A broad cream field permits rust-red arcs and charcoal diagonals to act across longer intervals. An upper band carries weight without closing the composition; a dark crescent at lower right anchors an area otherwise exposed to drift. Several short vertical elements near the bottom seem detached from a larger structure.
 
-The token's “Janky” label records a project feature, yet the output's instability must be located rather than named. It lies in the unequal balance between a heavily marked upper region and the open lower field; in diagonals that traverse space without locking it; in forms that look cut loose rather than carefully centered. The work appears suspended between arrangement and dispersal. Its openness is active.
+The token's “Janky” label records a project feature; the output's instability has to be located in the image. It lies in the unequal balance between a heavily marked upper region and the open lower field, in diagonals that traverse space without locking it, and in forms that look cut loose rather than carefully centered. The work hangs between arrangement and dispersal. Its openness is active.
 
 *CENTURY #401* makes opacity the central event. A gray field contains black vertical columns, white diagonals, and translucent arcs. Ten slices interrupt the composition, while the recorded Alpha feature allows layers to pass through one another. Without strong hue differences, value and overlap carry the image.
 
 The result is spatial but not perspectivally coherent. A black upright can read as a column, a strip placed over the surface, or a cut into it. A white diagonal seems to pass in front before an overlap pushes it behind. Translucent circles resemble diagrams of volumes, but their edges never secure an architectural object. The work proposes shallow depth and withdraws it.
 
-Together, the three pictures refuse the idea that generative art is best represented by an average output. #31, #724, and #401 disclose a range through contrast. Density becomes legible beside openness; color becomes legible beside grayscale; numerous slices become legible beside fewer. None can stand for the population, but each makes the population more thinkable.
+Together, the three pictures reject the average output as a sufficient account of generative art. #31, #724, and #401 disclose a range through contrast. Density becomes legible beside openness; color beside grayscale; numerous slices beside fewer. None stands for the population, but each makes the population more thinkable.
 
-Rarity is the wrong interpretive instrument. A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Marketplace rarity ranks scarcity; a museum must judge form.
+Rarity is the wrong interpretive instrument. A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Marketplace rarity ranks scarcity; a museum judges form.
 
 The live generators add duration to this comparison. The official static outputs permit exact scrutiny of one state. Execution allows the slices to move and the composition to renegotiate itself. Stillness makes relation inspectable; movement makes contingency visible. The works inhabit both modes.
 
@@ -62,15 +62,15 @@ The live generators add duration to this comparison. The official static outputs
 
 If *CENTURY* begins with a composition and cuts it apart, *Pre-Process* begins with entities and lets their behavior produce the composition. The system originated in 2003, appeared in unresolved form in the 2005 exhibition *Process/Drawing*, and was completed as a 120-work Art Blocks project in 2022. Reas has described it as a “Rosetta Stone” for the mature *Process* works because its simple grammar makes their later logic easier to recognize.[^3]
 
-The 120 works realize every significant permutation of eight surfaces, three origins, and five growth configurations: `8 × 3 × 5 = 120`. Every work contains one hundred Elements. These conditions structure the field, but they do not predetermine a single visible arrangement. Elements move, collide, avoid, and accumulate; the image records the resulting history.
+The 120 works realize every significant permutation of eight surfaces, three origins, and five growth configurations: `8 × 3 × 5 = 120`. Every work contains one hundred Elements. These conditions structure the field without predetermining a single visible arrangement. Elements move, collide, avoid, and accumulate; the image records the resulting history.
 
-*Pre-Process #63* is unusually wide, with a recorded aspect ratio of 1.78. Its three horizontal registers evoke a score, a filmstrip, or a scientific instrument. Dark circular masses attach to strong axes while translucent arcs sweep around them. Some forms have the blunt certainty of mechanical components; others appear as afterimages left by repeated passage.
+*Pre-Process #63* is wide, with a recorded aspect ratio of 1.78. Its three horizontal registers evoke a score, a filmstrip, or a scientific instrument. Dark circular masses attach to strong axes while translucent arcs sweep around them. Some forms have the blunt certainty of mechanical components; others appear as afterimages left by repeated passage.
 
 The width changes the work's temporality. In a square composition, the eye might search for a center. Here it travels laterally from one zone of activity to another. The repeated horizontal bands offer order, but events exceed their compartments. Arcs cross local boundaries; black masses interrupt flow; pale repetitions suggest that a form has occupied several positions.
 
 The picture does not depict one hundred agents as characters. It condenses their relations into density. Collision appears as darkening or blockage; continued movement appears as an arc; repeated passage produces a ghosted surface. Like long-exposure photography, the still gathers duration, but unlike a photograph it records a world composed through rules rather than light reflected from an external event.
 
-The return to early code is itself part of the work. In 2022, Reas revisited an unresolved 2003 system, selected what remained generative, and gave it a finished public structure. *Pre-Process* turns software history into material.
+The return to early code is part of the work. In 2022, Reas revisited an unresolved 2003 system, selected what remained generative, and gave it a finished public structure. *Pre-Process* turns software history into material.
 
 *Phototaxis #308* reaches back even further in conceptual lineage. Reas's early *Path*, *Tissue*, and *MicroImage* works drew on Valentino Braitenberg's *Vehicles: Experiments in Synthetic Psychology*. Braitenberg imagined simple machines whose sensor-motor connections produce behavior that human observers interpret as attraction, fear, aggression, or curiosity. Reas used related artificial agents as drawing machines: movement through a field became line.[^4]
 
@@ -98,7 +98,7 @@ The strongest effect comes from simultaneous recession and vibration. Parallel d
 
 Code and diagram can explain how the state was generated. They cannot replace the event of seeing a room gather from absence. The work's emptiness is not lack of content. It is an engineered interval into which perception enters.
 
-*Ex Nihilo (Cosmos)* extends the *Still Life* and *Atomism* lineages in 2026. Its 256 works use code, line, channel, and changing geometry to create continuous, non-repeating displays. The Museum reads the title—“from nothing”—as a productive contradiction for a computational work: every state depends on code, libraries, token hash, runtime, hardware, and display. This is a curatorial interpretation, not an assertion of the artist's stated intention. Blackness appears empty because its conditions recede from view.[^7]
+*Ex Nihilo (Cosmos)* extends the *Still Life* and *Atomism* lineages in 2026. Its 256 works use code, line, channel, and changing geometry to create continuous, non-repeating displays. The Museum reads the title—“from nothing”—as a tension within a computational work: every state depends on code, libraries, token hash, runtime, hardware, and display. This is a curatorial interpretation, not an assertion of the artist's stated intention. Blackness appears empty because its conditions recede from view.[^7]
 
 In #248, segmented white traces cross black. Several alignments suggest polygonal faces and dodecahedral structures, but line breaks prevent a single solid from closing. One scale seems nested inside another; a diagonal can belong to multiple possible planes. The eye completes edges that the image withholds.
 
@@ -126,7 +126,7 @@ Reas's own history offers a model of responsible change, but not a blanket autho
 
 ## VI. What seven works cannot say
 
-The collection is strong enough to make its limits productive. It contains no early *Path*, *Tissue*, or *MicroImage* print or software installation. It contains no realization of *{Software} Structures* and no principal *Process* text, print, or installation. It lacks the broadcast and source-image works of *Signal to Noise* and *ULTRACONCENTRATED*, the public scale of *A Mathematical Theory of Communication*, the film and machine-learning work of *Compressed Cinema* and *In Silico*, and every physical drawing, woodblock, book, sculpture, and mural.
+The collection's limits are part of its argument. It contains no early *Path*, *Tissue*, or *MicroImage* print or software installation. It contains no realization of *{Software} Structures* and no principal *Process* text, print, or installation. It lacks the broadcast and source-image works of *Signal to Noise* and *ULTRACONCENTRATED*, the public scale of *A Mathematical Theory of Communication*, the film and machine-learning work of *Compressed Cinema* and *In Silico*, and every physical drawing, woodblock, book, sculpture, and mural.
 
 These absences prevent the Museum from presenting the group as a retrospective or complete survey. They also protect Reas from being flattened into an on-chain artist whose earlier career merely anticipated tokens. Processing, teaching, publishing, physical translation, source imagery, cinema, and institution-building are not side notes to the seven works. They are major parts of the practice.
 
@@ -142,13 +142,13 @@ Punk6529 delivered the seven works to `networkmuseum.6529.eth` in one transactio
 
 Those facts establish title and provenance. They do not establish the group's cultural value. That value must be produced through exhibition, scholarship, preservation, and public use.
 
-The accession's most important institutional effect is to turn private possession into a durable study group. Viewers should be able to compare the three *CENTURY* works at meaningful scale, execute live states when technically and legally possible, inspect the difference between still and behavior, read the project's histories, and understand what evidence supports each claim. The works should not appear as seven cards whose main content is token number and owner.
+The accession turns private possession into a durable study group. Viewers should be able to compare the three *CENTURY* works at meaningful scale, execute live states when technically and legally possible, inspect the difference between still and behavior, read the project's histories, and see what evidence supports each claim. The works should not appear as seven cards whose main content is token number and owner.
 
 Public trust also imposes an obligation to preserve uncertainty honestly. The retained metadata states CC BY-NC 4.0; the Museum can undertake noncommercial exhibition, publication, documentation, adaptation, preservation, migration or emulation, accessibility work, and internal noncommercial computational research subject to the license conditions. Commercial use is not approved. Technical condition passed with conditions, not with a declaration of permanent autonomy. Official generators were tested, but self-contained dependency capture and broader rendering tests remain active work.[^10]
 
 These qualifications are not reasons to hide the art behind process language. They are reasons to show it well. A live software work deserves duration, scale, and controls. A still deserves close looking and an accurate surrogate label. Chain provenance should be available without dominating interpretation. Conservation detail should deepen the encounter rather than replace it.
 
-The seven-work group is valuable because it supports argument at several scales. Within *CENTURY*, three states reveal how difference makes a system visible. Across *Pre-Process* and *Phototaxis*, behavior becomes trace. Across *923* and *Ex Nihilo*, absence becomes space. Across all seven, a recent token can contain an older artistic history without becoming identical to it.
+The seven-work group supports argument at several scales. Within *CENTURY*, three states reveal how difference makes a system visible. Across *Pre-Process* and *Phototaxis*, behavior becomes trace. Across *923* and *Ex Nihilo*, absence becomes space. Across all seven, a recent token can contain an older artistic history without becoming identical to it.
 
 The system is not behind these images like a secret answer. It is active in their seams, paths, voids, and interruptions. To see the collection well is to move between knowledge and perception: from code to color, from identifier to duration, from the exact fact of a gift to the open work of public interpretation.
 
@@ -191,6 +191,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** completed the `8 × 3 × 5` *Pre-Process* combinatorics; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; explicitly identified the *Ex Nihilo* title argument as a Museum reading; and replaced generic evidence references with direct URLs and exact repository links.
 - **Version 1.0.0 — 2 August 2026:** completed publication manuscript superseding the prior visitor-facing collection essay within the stated scope.

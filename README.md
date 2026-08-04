@@ -9,28 +9,26 @@ Each machine-readable release carries a deterministic manifest. These
 commitments prepare the record for content-addressed storage and an append-only
 on-chain history.
 
-## An open museum, built in public
+## Public record and contribution
 
-This repository is the Museum's shared working record during the transition to
-an on-chain system. Anyone can read its sources and revision history, make a
-copy, and propose a correction, new evidence, stronger scholarship, improved
-accessibility, or better technical and preservation documentation through a
-pull request.
+This repository is the Museum's shared record during the transition to an
+on-chain system. Anyone can read its sources and revision history, clone the
+repository, or propose a correction, new evidence, stronger scholarship,
+improved accessibility, or better technical and preservation documentation
+through a pull request.
 
-The published record changes only after evidence review, deterministic
-repository validation, and maintainer approval. That preserves institutional
-integrity while giving the network a practical way to improve its Museum.
-Start with
+Changes enter the published record after evidence review, deterministic
+validation, and maintainer approval. The process keeps each revision
+attributable and gives the network a direct way to improve the Museum. Start with
 [`CONTRIBUTING.md`](CONTRIBUTING.md), or read
 [`The record outlives the interface`](docs/open-museum.md).
 
-Our Fall 2026 goal is for every admitted Museum record—from governance
+The stated Fall 2026 goal is to give every admitted Museum record—from governance
 decisions and policies to accessions, provenance, rights, preservation events,
-and later corrections—to have an on-chain commitment and append-only lineage
-in a custom contract. Larger documents and media can remain on
-content-addressed storage. The website presents and interprets the collection
-from that durable record. Contract design is in progress; deployment and
-activation remain pending. See
+and later corrections—an on-chain commitment and append-only lineage in a
+custom contract. Larger documents and media may remain on content-addressed
+storage. The website will present the collection from that durable record.
+Contract design is in progress; deployment and activation remain pending. See
 [`From public repository to on-chain Museum record`](docs/onchain-transition.md).
 
 ## Canonical areas
@@ -65,9 +63,9 @@ For chain-native objects, the Museum records each stage separately:
 For non-token and hybrid objects, the applicable off-chain receipt, title, and
 custody events replace `received_onchain`.
 
-Wallet custody records receipt. Accession requires its own reviewed act. A Wave
+Wallet custody records receipt. A reviewed accession act is separate. A Wave
 `WINNER` records selection; minting, purchase, transfer, rights clearance, and
-accession each require separate evidence.
+accession each require their own evidence.
 
 ## Integrity and validation
 

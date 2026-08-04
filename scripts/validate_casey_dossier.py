@@ -1402,7 +1402,12 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
             issues.append(f"Casey public document retains an intake-stage placeholder: {page.name}")
     for object_id in expected_object_ids:
         page = (root / CASEY_DIR / "public" / f"{object_id}.md").read_text(encoding="utf-8")
-        for marker in ("**Status:** `accessioned`", "The work is `accessioned`", "no OpenSea or marketplace rarity", "Museum interpretation [E]"):
+        for marker in (
+            "**Status:** `accessioned`",
+            "permanent-collection object in `6529NM.2026.001`",
+            "no OpenSea or marketplace rarity",
+            "Museum interpretation [E]",
+        ):
             if marker.lower() not in page.lower():
                 issues.append(f"Casey public object page lacks a finished state or interpretive boundary: {object_id}")
                 break

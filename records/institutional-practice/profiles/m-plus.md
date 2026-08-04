@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -64,4 +64,4 @@ M+'s policy demonstrates roles and intended practice; it does not establish a pu
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added digital collection scope, archive separation, policy roles, and access-rights analysis.
+- `1.0.0` — 2026-08-04: initial profile of digital collection scope, archive separation, policy roles, and access rights.

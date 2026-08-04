@@ -122,8 +122,8 @@ The 6529 Network Museum should use the same separation:
 
 ## Where the analogy ends
 
-MoMA's collection scale, archives, departments, and conservation resources are
-not available to a small decentralized museum. Its open data is metadata, not a
+MoMA's collection scale, archives, departments, and conservation resources
+exceed the Museum's present scale. Its open data is metadata, not a
 complete public image repository; its API is not currently an open public
 service; and its historical conservation essays describe particular workflows,
 not a guarantee that every media work has the same documentation depth.

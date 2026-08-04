@@ -103,8 +103,8 @@ def render(publication: Publication) -> str:
         descriptor = OBJECT_DESCRIPTORS[object_id]
         record_section = f"""## Museum record and research
 
-- **Status:** `accessioned`. The work is `accessioned`. It forms part of the permanent collection.
-- **Interpretive boundary:** This entry is Museum interpretation [E]. The official still documents one state; it is not a substitute for the executable software work.
+- **Status:** `accessioned`; permanent-collection object in `6529NM.2026.001`.
+- **Interpretive boundary:** Museum interpretation [E] of one documented state. The official still documents one state of the executable software work.
 - **Rights and condition:** See the [title and rights review](title-rights-and-accession-review.md). Technical condition passes with amber preservation conditions documented in the object-specific condition record.
 - **Open research:** The [transparent linked descriptor](../../../../evidence/casey-reas-collection-snapshots/descriptors/{descriptor}.json) publishes the Museum's reproducible project-level feature analysis. It uses no OpenSea or marketplace rarity metric and makes no claim that feature frequency determines artistic quality.
 - **Further context:** Read the [artist and practice profile](casey-reas-artist-practice.md), [collection essay](casey-reas-collection-essay.md), and [visual-observation record](../visual-observation-record.json).

@@ -183,9 +183,12 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
                 "sources"
             ]
         }
-        publication_files = (INTRODUCTION, ADJACENT_STUDY, STEWARDSHIP_STANDARD) + tuple(
-            PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS
-        )
+        publication_files = (
+            INTRODUCTION,
+            ADJACENT_STUDY,
+            STEWARDSHIP_STANDARD,
+            STYLE_STANDARD,
+        ) + tuple(PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS)
         for publication_file in publication_files:
             with self.subTest(publication=publication_file.name):
                 text = publication_file.read_text(encoding="utf-8")

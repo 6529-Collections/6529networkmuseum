@@ -163,6 +163,6 @@ To encounter #63 is to recognize what “pre” names: the moment before a metho
 
 ## Revision note
 
-- **2.2.0 — 4 August 2026:** Deep copy-edited the living-edition interpretation for curatorial cadence and directness without changing its facts or evidence.
+- **2.2.0 — 4 August 2026:** Deep copy-edited the public interpretation for curatorial cadence and directness without changing its facts or evidence.
 - **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 - **2.0.0 — 2 August 2026:** Initial completed project essay. It adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object record.

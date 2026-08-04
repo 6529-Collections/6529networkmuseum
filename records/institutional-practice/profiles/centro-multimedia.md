@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -67,4 +67,4 @@ Public evidence reviewed does not establish a Centro Multimedia accession or dig
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added research-center classification, laboratory structure, publication archive, audiovisual archive, and lifecycle transfer.
+- `1.0.0` — 2026-08-04: initial profile of the research center, its laboratories, publications, audiovisual archive, and lifecycle practice.

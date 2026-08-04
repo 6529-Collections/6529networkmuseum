@@ -17,7 +17,7 @@ In *Ex Nihilo (Cosmos)*, a dodecahedron never fully arrives. Museum object #248 
 
 **Casey Reas, *Ex Nihilo (Cosmos)* #248, 2026.** Browser-based generative artwork; Art Blocks and Feral File. Segmented white lines cross a black field, sometimes aligning into the edges of a dodecahedron and sometimes dissolving into granular depth. The work belongs to Reas’s Still Life series, which uses the five Platonic solids to test how code, pixels, color systems, and time alter an ideal form. *Cosmos* is a continuous, non-repeating display: a viewer can pause a formation, but no single frame exhausts the work. Its stillness lies in concentrated looking, not in a fixed image.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the living-edition essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
 
 ## The form that refuses completion
 

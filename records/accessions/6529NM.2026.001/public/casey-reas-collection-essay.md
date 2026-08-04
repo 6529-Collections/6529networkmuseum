@@ -177,7 +177,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
-- **Version 1.3.0 — 4 August 2026:** Deep copy-edited the living-edition essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
+- **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** completed the `8 × 3 × 5` *Pre-Process* combinatorics; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; explicitly identified the *Ex Nihilo* title argument as a Museum reading; and replaced generic evidence references with direct URLs and exact repository links.
 - **Version 1.0.0 — 2 August 2026:** completed publication manuscript superseding the prior visitor-facing collection essay within the stated scope.

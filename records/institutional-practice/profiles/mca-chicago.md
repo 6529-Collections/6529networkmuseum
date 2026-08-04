@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -72,6 +72,8 @@ and correction route while keeping the limits of that evidence clear.
 
 ## Sources
 
+All web sources accessed 2026-08-04.
+
 1. Museum of Contemporary Art Chicago, ["Collection Explorer"](https://mcachicago.org/art-artists/collection/), page date not shown.
 2. Museum of Contemporary Art Chicago, ["Cinaedus Table MDCCLXXV"](https://mcachicago.org/art-artists/collection/cinaedus-table-mdcclxxv/), work 2007; page date not shown.
 3. Museum of Contemporary Art Chicago, ["I Was Raised on the Internet"](https://mcachicago.org/publications/websites/i-was-raised-on-the-internet), exhibition and website 2018.
@@ -81,4 +83,4 @@ and correction route while keeping the limits of that evidence clear.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: initial contemporary-scholarship control profile; added case-led analysis of MCA's collection labels, exhibition microsites, publication apparatus, Museum transfer, and evidence limits.
+- `1.0.0` — 2026-08-04: initial profile of MCA's collection labels, exhibition microsites, and publication apparatus.

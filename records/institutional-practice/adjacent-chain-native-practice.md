@@ -46,6 +46,22 @@ its curatorial position.
 | DATALAND | Artist-led physical museum and AI/data ecosystem | Dynamic system, dataset, consent, and retention documentation; not decentralized custody |
 | 0xCollection | Private experiential collection, exhibition, research and education initiative | Exhibition and intentional non-documentation boundary; not evidence of public registrarial practice |
 
+### Classification source notes
+
+| Candidate | Exact classification source | Page date | Access | Evidentiary use |
+|---|---|---|---|---|
+| Feral File | [“Curator’s Note \| FF1”](https://feralfile.com/retrospective/ff1/curators-note/) and [Feral File documentation](https://docs.feralfile.com/) | 9 June 2023; documentation date not shown | 4 August 2026 | Institutional and technology roles; exhibition and protocol functions |
+| Art Blocks | [“About Art Blocks”](https://www.artblocks.io/articles/about-art-blocks) and [protocol overview](https://docs.artblocks.io/protocol/overview/) | 27 November 2020; documentation date not shown | 4 August 2026 | Generative-art platform and protocol functions |
+| Bright Moments | [“About”](https://www.brightmoments.io/about) and [“Where Art is Born” archive](https://www.brightmoments.io/archive) | Not shown | 4 August 2026 | Gallery, live-minting, event, and DAO descriptions |
+| Verse | [“Terms”](https://verse.works/terms) and [Verse Documentation](https://docs.verse.works/) | Not shown | 4 August 2026 | Marketplace, gallery, contract, release, and sales functions |
+| DAM | [DAM imprint](https://dam.org/museum/dam/imprint/) | Not shown | 4 August 2026 | Publisher identity, commercial association, and completeness boundary |
+| MoRE | [“About”](https://www.moremuseum.org/omeka/about) | Not shown | 4 August 2026 | Museum, collection, archive, research, exhibition, and donation descriptions |
+| DiMoDA / Museum of Other Realities | [DiMoDA](https://dimoda.art/) and [Museum of Other Realities collection](https://www.museumor.com/collection) | Not shown | 4 August 2026 | Virtual commissioning, preservation, exhibition, and social-VR collection functions |
+| MOCA | [Manifesto](https://museumofcryptoart.com/manifesto) and [Collections](https://museumofcryptoart.com/collections) | Not shown | 4 August 2026 | Self-described museum, community, and NFT-linked collection claims |
+| Furtherfield / The Wrong | [Furtherfield, “About Us”](https://www.furtherfield.org/about-us/about-us/) and [The Wrong Biennale, “About”](https://thewrong.org/About) | Not shown | 4 August 2026 | Artist-led organization, research network, gallery, biennial, and distributed-festival functions |
+| DATALAND | [“About”](https://dataland.art/about) | Not shown | 4 August 2026 | Artist-led physical museum and AI/data ecosystem description |
+| 0xCollection | [0xCollection](https://0xcollection.org/) | Not shown; current exhibition dated 15–20 June 2026 | 4 August 2026 | Private collection, exhibition, research, education, and preservation description |
+
 ## Platforms and chain-native systems
 
 ### Feral File
@@ -75,6 +91,15 @@ collector ownership, pricing, or the persistence of a URL as accession,
 provenance, or preservation. Art Computer, Art Panel, collector workflows, and
 platform fees are commercially specific.
 
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [“Curator’s Note \| FF1”](https://feralfile.com/retrospective/ff1/curators-note/) | 9 June 2023 | 4 August 2026 | Exhibition as persistent online publication; institutional description |
+| [“One to Zero”](https://feralfile.com/exhibitions/shows/one-to-zero-bti) | Not shown | 4 August 2026 | Public exhibition and object fields |
+| [Feral File documentation](https://docs.feralfile.com/) | Not shown | 4 August 2026 | DP-1 protocol and API documentation |
+| [“How to Collect Digital Art”](https://feralfile.com/learn/how-to-collect-digital-art) | Not shown | 4 August 2026 | Distinction among token, artwork files, rights, storage, and dependencies |
+
 ### Art Blocks
 
 [“About Art Blocks”](https://www.artblocks.io/articles/about-art-blocks) is
@@ -96,12 +121,23 @@ script or seed hash, dependency source and version, renderer, runtime,
 external assets, mutable parameters, administrative authority, upgradeability,
 and reproducibility results.
 
-The technical limit is decisive. On-chain code and contract data do not
+The technical boundary is specific. On-chain code and contract data do not
 automatically preserve browsers, operating systems, hardware, external assets,
 APIs, artist documentation, legal rights, or public access. Platform tiers,
 royalties, primary sales, and white-label Engine licensing are commercial
 infrastructure. Determinism is an evidence-bearing property of a work, not a
 conclusion that preservation is complete.
+
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [“About Art Blocks”](https://www.artblocks.io/articles/about-art-blocks) | 27 November 2020 | 4 August 2026 | Platform history and mint-time generation account |
+| [Protocol overview](https://docs.artblocks.io/protocol/overview/) | Not shown | 4 August 2026 | Protocol architecture and project identity |
+| [“Core Contract (V3)”](https://docs.artblocks.io/developer/core-contract/) | Not shown | 4 August 2026 | Core contract fields and controls |
+| [GraphQL reference](https://docs.artblocks.io/developer/graphql/) | Not shown | 4 August 2026 | Queryable protocol entities |
+| [“PostParams”](https://docs.artblocks.io/protocol/postparams/) | Not shown | 4 August 2026 | Mutable parameters and live-data behavior |
+| [“NFT Metadata Storage at Art Blocks”](https://docs.artblocks.io/protocol/on-chain-storage/) | Not shown | 4 August 2026 | Storage design and stated continuity limitations |
 
 ### Bright Moments
 
@@ -125,6 +161,15 @@ A live mint is an event, not an accession. A CryptoCitizen token is a
 membership or identity instrument, not evidence of Museum authority or legal
 title. Token-gated access, city membership, and event revenue should not be
 copied as institutional practice.
+
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [“About”](https://www.brightmoments.io/about) | Not shown | 4 August 2026 | Institutional description, DAO structure, and live-minting practice |
+| [“Where Art is Born” archive](https://www.brightmoments.io/archive) | Not shown | 4 August 2026 | City programs, artists, collections, and event history |
+| [Bright Moments retrospective](https://www.brightmoments.io/) | Not shown | 4 August 2026 | Project chronology and retrospective framing |
+| [“Mint Pass Policy”](https://docs.brightmoments.io/policies/mint-pass-policy) | Not shown | 4 August 2026 | Participation and mint-pass mechanics |
 
 ### Verse
 
@@ -150,6 +195,16 @@ marketplace’s legal disclaimer is not a Museum provenance policy. Custodial
 wallets, payment rails, and secondary-market data are platform functions, not
 condition or preservation records.
 
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [Verse Documentation](https://docs.verse.works/) | Not shown | 4 August 2026 | Release, collection, contract, sale, access-control, and API models |
+| [Curatorial board](https://verse.works/board) | Not shown | 4 August 2026 | Named curatorial participants |
+| [“This Is Tomorrow: Part III”](https://verse.works/exhibitions/this-is-tomorrow-part-3) | Not shown | 4 August 2026 | Exhibition authorship, nomination, edition, and sales fields |
+| [“Contract Basics”](https://docs.verse.works/contract/basics/) | Not shown | 4 August 2026 | Artist ownership and temporary mint permissions |
+| [“Terms”](https://verse.works/terms) | Not shown | 4 August 2026 | Marketplace role and stated authenticity, provenance, and intellectual-property limits |
+
 ## Archives, publication bodies, and native-runtime presentation
 
 ### DAM — Digital Art Museum
@@ -172,23 +227,40 @@ does not provide chain custody or public accession evidence, and its
 copyright and commercial relationship mean that its material should not be
 assumed openly reusable.
 
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [DAM imprint](https://dam.org/museum/dam/imprint/) | Not shown | 4 August 2026 | Publisher identity, completeness warning, and rights context |
+| [Vera Molnar](https://dam.org/museum/artists_ui/artists/molnar-vera/) | Not shown | 4 August 2026 | Artist record structure and chronology |
+| [Casey Reas](https://dam.org/museum/artists_ui/artists/reas-casey/) | Not shown | 4 August 2026 | Distinction among instructions, system, code, executable form, and manifestation |
+| [“Frieder Nake Reflects on 60 Years of Algorithmic Art”](https://dam.org/museum/essays_ui/essays/frieder-nake-wolf-lieser-60-years-of-algorithmic-art/) | 11 November 2025 | 4 August 2026 | Dated scholarly essay and historical framing |
+
 ### MoRE — Museum of the unrealised
 
 MoRE’s [“About” page](https://www.moremuseum.org/omeka/about) defines a
-collection scope—unrealized or refused projects—and separates collection,
+collection scope—unrealised or refused projects—and separates collection,
 archive, temporary exhibition, research, and critical intervention. It
 describes digital donations in which artists retain specified interests and
-may later realize a project. The [project search](https://www.moremuseum.org/omeka/items/search)
+may later realise a project. The [project search](https://www.moremuseum.org/omeka/items/search)
 exposes title, creator, date, contributor, format, identifier, rights holder,
 collection, tags, and citation. An example is [Cesare Pietroiusti, “Progetti
 per una mostra retrospettiva”](https://moremuseum.org/omeka/items/show/44).
 
-MoRE is the clearest precedent here for separating collection scope, donation,
+MoRE provides a direct precedent here for separating collection scope, donation,
 rights, archive, exhibition, and critical writing. 6529 should adopt that
-separation and make later realization, provisional status, and rights
+separation and make later realisation, provisional status, and rights
 retention explicit. MoRE’s object type and legal arrangements are different
 from token custody, so its exact terms should not be copied without a
 Museum-specific instrument.
+
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [“About”](https://www.moremuseum.org/omeka/about) | Not shown | 4 August 2026 | Collection scope, donation model, archive, exhibition, and research distinctions |
+| [Project search](https://www.moremuseum.org/omeka/items/search) | Not shown | 4 August 2026 | Public record fields and search structure |
+| [Cesare Pietroiusti, “Progetti per una mostra retrospettiva”](https://moremuseum.org/omeka/items/show/44) | Not shown | 4 August 2026 | Example project record, rights, identifiers, and citation |
 
 ### DiMoDA and Museum of Other Realities
 
@@ -204,6 +276,14 @@ downloadable package, installation instructions, version, and manifestation.
 The platform limit is equally concrete. VR hardware, Steam distribution,
 application updates, and downloadable files create dependencies. The reviewed
 pages do not expose complete accession, title, rights, or condition systems.
+
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [DiMoDA](https://dimoda.art/) | Not shown | 4 August 2026 | Institutional mission and virtual commissioning model |
+| [DiMoDA 3.0](https://dimoda.art/current-exhibition) | Not shown | 4 August 2026 | Artists, curators, installations, and downloadable experiences |
+| [Museum of Other Realities collection](https://www.museumor.com/collection) | Not shown | 4 August 2026 | VR collection index by artist, year, and tool |
 
 ## Communities, festivals, and distributed programs
 
@@ -222,6 +302,14 @@ separation of collection categories and member-created exhibitions. It should
 not treat token ownership, room ownership, AI-generated lore, “owned by no
 one,” or “kept forever” as evidence of preservation, provenance, or authority.
 
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [Manifesto](https://museumofcryptoart.com/manifesto) | Not shown | 4 August 2026 | Public institutional claims and community framing |
+| [Collections](https://museumofcryptoart.com/collections) | Not shown | 4 August 2026 | Collection categories and NFT-linked interface |
+| [Rooms](https://museumofcryptoart.com/rooms) | Not shown | 4 August 2026 | Member-created spatial exhibitions |
+
 ### Furtherfield and The Wrong Biennale
 
 [Furtherfield’s “About Us”](https://www.furtherfield.org/about-us/about-us/)
@@ -235,6 +323,13 @@ should record edition, node, pavilion or embassy, curator, selection method,
 artists, venue, dates, archive state, and any voting or participation
 mechanism. A pavilion, grant, or community vote does not establish accession,
 custody, or rights.
+
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [Furtherfield, “About Us”](https://www.furtherfield.org/about-us/about-us/) | Not shown | 4 August 2026 | DIWO, DAOWO, participatory grantmaking, and CultureStake |
+| [The Wrong Biennale, “About”](https://thewrong.org/About) | Not shown | 4 August 2026 | Editions, pavilions, embassies, and distributed curatorial nodes |
 
 ## Artist-led data museum and private experiential collection
 
@@ -261,6 +356,15 @@ collection” are stated intentions, not substitutes for public acquisition,
 conservation, licensing, or audit records. Proprietary AI infrastructure and
 biosensing should not be adopted without strict controls.
 
+#### Source notes
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [“About”](https://dataland.art/about) | Not shown | 4 August 2026 | Institutional and ecosystem description |
+| [“Dataland: Living Museum”](https://www.dataland.art/blog/dataland-living-museum/) | 20 July 2026 | 4 August 2026 | Dated account of the museum model |
+| [“Machine Dreams: Rainforest”](https://www.dataland.art/exhibitions/machine-dreams-rainforest) | Not shown | 4 August 2026 | Dataset, model, sensing, retention, deletion, partner, and infrastructure disclosures |
+| [“Living Encyclopedia”](https://www.dataland.art/about/living-encyclopedia) | Not shown | 4 August 2026 | Commercial product layer |
+
 ### 0xCollection
 
 The official [0xCollection site](https://0xcollection.org/) describes a private
@@ -272,6 +376,12 @@ not be livestreamed or comprehensively documented.
 Deliberate non-documentation should be named as a curatorial condition. The
 public page reviewed does not expose accession, title, custody, rights, or
 condition records, so it cannot establish public registrarial practice.
+
+#### Source note
+
+| Source | Page date | Access | Evidentiary use |
+|---|---|---|---|
+| [0xCollection](https://0xcollection.org/) | Not shown; exhibition dated 15–20 June 2026 | 4 August 2026 | Institutional description, exhibition record, and stated documentation boundary |
 
 ## What the Museum should implement
 

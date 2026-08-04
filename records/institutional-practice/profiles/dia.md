@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -80,6 +80,8 @@ custodial assumptions.
 
 ## Sources
 
+All web sources accessed 2026-08-04.
+
 1. Dia Art Foundation, ["Spiral Jetty | Collection | Art | Dia"](https://www.diaart.org/collection/collection/smithson-robert-spiral-jetty-1970-1999-014), work 1970; collection record date not shown.
 2. Dia Art Foundation, ["Robert Smithson, Spiral Jetty"](https://www.diaart.org/exhibition/exhibitions-projects/robert-smithson-spiral-jetty-site/), page date not shown.
 3. Dia Art Foundation, ["Spiral Jetty Aerial Documentation"](https://www.diaart.org/collection/spiraljettyaerials), documentation 2012–2026.
@@ -89,4 +91,4 @@ custodial assumptions.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: initial contemporary-scholarship control profile; added case-led analysis of *Spiral Jetty*, serial site documentation, publication genres, Museum transfer, and evidence limits.
+- `1.0.0` — 2026-08-04: initial profile of *Spiral Jetty*, serial site documentation, publication genres, and the limits of the comparison.

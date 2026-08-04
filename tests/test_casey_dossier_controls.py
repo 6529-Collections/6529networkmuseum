@@ -546,7 +546,7 @@ class CaseyDossierControlsTests(unittest.TestCase):
             page = (ROOT / "records" / "accessions" / CASEY_ID / "public" / f"{object_id}.md").read_text(encoding="utf-8")
             self.assertIn("transparent linked descriptor", page)
             self.assertIn(f"descriptors/{slug}.json", page)
-            self.assertIn("The work is `accessioned`.", page)
+            self.assertIn("permanent-collection object in `6529NM.2026.001`", page)
             self.assertIn("title and rights review", page)
             self.assertIn("Technical condition passes with amber preservation conditions", page)
             self.assertIn("no OpenSea or marketplace rarity", page)

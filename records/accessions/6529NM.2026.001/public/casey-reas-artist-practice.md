@@ -485,7 +485,7 @@ The result is not technical mastery but a precise, sustained uncertainty. A line
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
-- **Version 2.3.0 — 4 August 2026:** Deep copy-edited the living-edition manuscript for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
+- **Version 2.3.0 — 4 August 2026:** Deep copy-edited the public manuscript for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 2.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 2.1.0 — 2 August 2026:** corrected the initial visual-capture retention boundary, the *Phototaxis* 1,000-iteration terminology, the complete `8 × 3 × 5` *Pre-Process* combinatorics, and the *923 EMPTY ROOMS* city schedule; substantially expanded independent reception of *Process*, Processing, *Compressed Cinema*, and Reas's on-chain practice; recast repetitive corrective negations; and replaced vague citations with direct URLs or exact repository links.
 - **Version 2.0.0 — 2 August 2026:** completed publication manuscript superseding the prior visitor-facing artist-practice essay within the stated scope.

@@ -1,4 +1,4 @@
-# Institutional practice, second-edition research synthesis
+# Institutional practice, expanded research synthesis
 
 Status: reviewed research input for public scholarship. This document records
 selection and editorial judgment; it is not Museum policy and does not rank
@@ -8,13 +8,13 @@ Research cutoff: 2026-08-04
 
 ## Research judgment
 
-The first edition established a credible comparative method: begin with an
+The initial study established a credible comparative method: begin with an
 inspectable record, work, archive, conservation case, dataset, or publication;
 separate an institution's stated ambition from demonstrated practice; retain
 limits; and connect each observation to a change the 6529 Network Museum can
 make in its own records.
 
-The second edition keeps that evidence architecture and changes the field of
+The expanded study keeps that evidence architecture and changes the field of
 view. Its center is the digital artwork as a changing technical and social
 arrangement: source, behavior, interface, runtime, network, display, rights,
 documentation, manifestation, and intervention. Conventional collecting

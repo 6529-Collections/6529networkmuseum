@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -96,4 +96,4 @@ Access date for every source below: **2026-08-04**.
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: published a case-led transmediale profile with claim-level sources, archive/publication transfer, and explicit custody boundary.
+- `1.0.0` — 2026-08-04: initial case-led profile of transmediale's archive, publications, and festival history.

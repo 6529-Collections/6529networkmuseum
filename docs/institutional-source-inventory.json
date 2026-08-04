@@ -1,11 +1,12 @@
 {
   "schema": "museum:institutional-source-inventory:v1",
   "research_cutoff": "2026-08-04",
-  "source_count": 236,
+  "source_count": 237,
   "sources": [
     {
       "url": "https://0xcollection.org/",
       "labels": [
+        "0xCollection",
         "0xCollection site"
       ],
       "cited_by": [
@@ -47,11 +48,13 @@
     {
       "url": "https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog",
       "labels": [
+        "Net Art records",
         "series record",
         "Tate Public Records catalogue",
         "“Net Art Commissions”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "docs/digital-art-stewardship-standard.md",
         "records/institutional-practice/profiles/tate.md"
       ]
@@ -149,9 +152,11 @@
       "url": "https://ars.electronica.art/archive/en/about/",
       "labels": [
         "About the Ars Electronica Archive",
+        "Ars Electronica Archive",
         "“About the Ars Electronica Archive”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/ars-electronica.md"
       ]
     },
@@ -244,9 +249,11 @@
       "url": "https://blog.conifer.rhizome.org/2025/12/15/twilight-announcement.html",
       "labels": [
         "https://blog.conifer.rhizome.org/2025/12/15/twilight-announcement.html",
+        "service notices",
         "“Conifer Twilight Announcement”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/rhizome-new-museum.md"
       ]
     },
@@ -266,10 +273,12 @@
       "url": "https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html",
       "labels": [
         "22 May webinar recap",
+        "Conifer transition",
         "https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html",
         "“Webinar Recap”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "docs/digital-art-stewardship-standard.md",
         "records/institutional-practice/profiles/rhizome-new-museum.md"
       ]
@@ -277,10 +286,12 @@
     {
       "url": "https://brandon.guggenheim.org/credits/",
       "labels": [
+        "*Brandon* credits",
         "*Brandon* credits and restoration page",
         "“Brandon: credits and restoration”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "docs/digital-art-stewardship-standard.md",
         "records/institutional-practice/profiles/guggenheim.md"
       ]
@@ -338,24 +349,29 @@
     {
       "url": "https://dam.org/museum/artists_ui/artists/molnar-vera/",
       "labels": [
+        "Vera Molnar",
         "Vera Molnar record"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/adjacent-chain-native-practice.md"
       ]
     },
     {
       "url": "https://dam.org/museum/artists_ui/artists/reas-casey/",
       "labels": [
+        "Casey Reas",
         "Casey Reas record"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/adjacent-chain-native-practice.md"
       ]
     },
     {
       "url": "https://dam.org/museum/dam/imprint/",
       "labels": [
+        "DAM imprint",
         "imprint"
       ],
       "cited_by": [
@@ -383,10 +399,12 @@
     {
       "url": "https://data.getty.edu/museum/collection/docs/",
       "labels": [
+        "Collection API",
         "Getty Museum Collection API Documentation",
         "“Getty Museum Collection API Documentation”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/getty.md"
       ]
     },
@@ -402,6 +420,7 @@
     {
       "url": "https://dataland.art/about",
       "labels": [
+        "“About”",
         "“About” page"
       ],
       "cited_by": [
@@ -420,6 +439,7 @@
     {
       "url": "https://dimoda.art/current-exhibition",
       "labels": [
+        "DiMoDA 3.0",
         "DiMoDA 3.0 exhibition page"
       ],
       "cited_by": [
@@ -429,9 +449,11 @@
     {
       "url": "https://docs.artblocks.io/developer/core-contract/",
       "labels": [
+        "Core Contract documentation",
         "“Core Contract (V3)”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/adjacent-chain-native-practice.md"
       ]
     },
@@ -456,6 +478,7 @@
     {
       "url": "https://docs.artblocks.io/protocol/overview/",
       "labels": [
+        "Protocol overview",
         "protocol overview"
       ],
       "cited_by": [
@@ -519,15 +542,18 @@
     {
       "url": "https://feralfile.com/learn/how-to-collect-digital-art",
       "labels": [
+        "collecting guide",
         "“How to Collect Digital Art”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/adjacent-chain-native-practice.md"
       ]
     },
     {
       "url": "https://feralfile.com/retrospective/ff1/curators-note/",
       "labels": [
+        "“Curator’s Note \\| FF1”",
         "“Curator’s Note | FF1”"
       ],
       "cited_by": [
@@ -547,10 +573,12 @@
     {
       "url": "https://github.com/MuseumofModernArt/collection",
       "labels": [
+        "collection data",
         "MoMA collection data",
         "“Museum of Modern Art (MoMA) collection data”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/moma.md"
       ]
     },
@@ -561,6 +589,7 @@
         "“Open Access dataset”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
@@ -895,6 +924,7 @@
     {
       "url": "https://museumofcryptoart.com/collections",
       "labels": [
+        "Collections",
         "collections interface"
       ],
       "cited_by": [
@@ -904,6 +934,7 @@
     {
       "url": "https://museumofcryptoart.com/manifesto",
       "labels": [
+        "Manifesto",
         "manifesto"
       ],
       "cited_by": [
@@ -913,6 +944,7 @@
     {
       "url": "https://museumofcryptoart.com/rooms",
       "labels": [
+        "Rooms",
         "rooms interface"
       ],
       "cited_by": [
@@ -992,6 +1024,15 @@
       "url": "https://ocfl.io/",
       "labels": [
         "OCFL Specifications"
+      ],
+      "cited_by": [
+        "docs/digital-art-stewardship-standard.md"
+      ]
+    },
+    {
+      "url": "https://ocfl.io/news/",
+      "labels": [
+        "OCFL release notes"
       ],
       "cited_by": [
         "docs/digital-art-stewardship-standard.md"
@@ -1096,6 +1137,7 @@
     {
       "url": "https://thewrong.org/About",
       "labels": [
+        "The Wrong Biennale, “About”",
         "The Wrong Biennale’s “About” page"
       ],
       "cited_by": [
@@ -1134,9 +1176,11 @@
     {
       "url": "https://unframed.lacma.org/node/3597",
       "labels": [
+        "time-based-media colloquium",
         "“Examining the Life and Times of Media Art at LACMA’s First-Ever Time-Based Media Colloquium”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/lacma.md"
       ]
     },
@@ -1212,6 +1256,7 @@
     {
       "url": "https://verse.works/board",
       "labels": [
+        "Curatorial board",
         "curatorial board"
       ],
       "cited_by": [
@@ -1262,6 +1307,7 @@
         "“API”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/whitney.md"
       ]
     },
@@ -1269,9 +1315,11 @@
       "url": "https://whitney.org/artport/",
       "labels": [
         "artport",
+        "Whitney artport",
         "“artport”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/whitney.md"
       ]
     },
@@ -1386,6 +1434,7 @@
     {
       "url": "https://www.brightmoments.io/",
       "labels": [
+        "Bright Moments retrospective",
         "retrospective site"
       ],
       "cited_by": [
@@ -1395,6 +1444,7 @@
     {
       "url": "https://www.brightmoments.io/about",
       "labels": [
+        "“About”",
         "“About” page"
       ],
       "cited_by": [
@@ -1499,6 +1549,7 @@
     {
       "url": "https://www.dataland.art/exhibitions/machine-dreams-rainforest",
       "labels": [
+        "“Machine Dreams: Rainforest”",
         "“Machine Dreams: Rainforest” exhibition record"
       ],
       "cited_by": [
@@ -1567,6 +1618,7 @@
     {
       "url": "https://www.furtherfield.org/about-us/about-us/",
       "labels": [
+        "Furtherfield, “About Us”",
         "Furtherfield’s “About Us”"
       ],
       "cited_by": [
@@ -1576,10 +1628,12 @@
     {
       "url": "https://www.getty.edu/art/collection/object/103REK",
       "labels": [
+        "*Hunting on the Lagoon*",
         "Hunting on the Lagoon (recto); Letter Rack (verso)",
         "“Hunting on the Lagoon (recto); Letter Rack (verso)”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/getty.md"
       ]
     },
@@ -1606,9 +1660,11 @@
       "url": "https://www.getty.edu/publications/osci-report/",
       "labels": [
         "*Museum Catalogues in the Digital Age*",
+        "Online Scholarly Catalogue Initiative report",
         "“Museum Catalogues in the Digital Age”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/getty.md"
       ]
     },
@@ -1654,10 +1710,12 @@
     {
       "url": "https://www.guggenheim.org/conservation/the-conserving-computer-based-art-initiative",
       "labels": [
+        "Computer-Based Art Initiative",
         "Guggenheim, “The Conserving Computer-Based Art Initiative”",
         "“The Conserving Computer-Based Art Initiative”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "docs/digital-art-stewardship-standard.md",
         "records/institutional-practice/profiles/guggenheim.md"
       ]
@@ -1719,30 +1777,36 @@
     {
       "url": "https://www.metmuseum.org/art/collection/search/436243",
       "labels": [
+        "*Salvator Mundi*",
         "Salvator Mundi",
         "“Salvator Mundi”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
     {
       "url": "https://www.metmuseum.org/art/collection/search/900397",
       "labels": [
+        "*Everything #4*",
         "Everything #4",
         "“Everything #4”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
     {
       "url": "https://www.metmuseum.org/essays/timeline-of-art-history",
       "labels": [
+        "Heilbrunn Timeline",
         "Heilbrunn Timeline of Art History",
         "“Heilbrunn Timeline of Art History”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
@@ -1753,15 +1817,18 @@
         "“MetPublications”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
     {
       "url": "https://www.metmuseum.org/perspectives/margareta-haverman-vase-of-flowers-digital-conservation",
       "labels": [
+        "digital restoration account",
         "“After Three Hundred Years of Fading, a Dutch Masterpiece Is Digitally Restored”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/met.md"
       ]
     },
@@ -1779,9 +1846,11 @@
       "url": "https://www.moma.org/calendar/about/exhibition-history",
       "labels": [
         "About our exhibition history",
+        "MoMA's exhibition history",
         "“About our exhibition history”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/moma.md"
       ]
     },
@@ -1851,6 +1920,7 @@
     {
       "url": "https://www.moremuseum.org/omeka/about",
       "labels": [
+        "“About”",
         "“About” page"
       ],
       "cited_by": [
@@ -1860,6 +1930,7 @@
     {
       "url": "https://www.moremuseum.org/omeka/items/search",
       "labels": [
+        "Project search",
         "project search"
       ],
       "cited_by": [
@@ -2036,9 +2107,11 @@
       "url": "https://www.serpentinegalleries.org/whats-on/i-didnt-realise-you-thought-like-that/",
       "labels": [
         "*I DIDNT REALISE YOU THOUGHT LIKE THAT*",
+        "commission credits",
         "https://www.serpentinegalleries.org/whats-on/i-didnt-realise-you-thought-like-that/"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/serpentine-arts-technologies.md"
       ]
     },
@@ -2139,9 +2212,11 @@
     {
       "url": "https://www.vam.ac.uk/blog/projects/what-does-conserving-the-digital-look-like",
       "labels": [
+        "*Shaping Form* study",
         "“What does conserving the digital look like?”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "records/institutional-practice/profiles/v-and-a.md"
       ]
     },
@@ -2224,11 +2299,13 @@
     {
       "url": "https://zkm.de/de/werk/wipe-cycle",
       "labels": [
+        "*Wipe Cycle* record",
         "Wipe Cycle",
         "ZKM, “Wipe Cycle”",
         "“Wipe Cycle”"
       ],
       "cited_by": [
+        "docs/curatorial-publication-standard.md",
         "docs/digital-art-stewardship-standard.md",
         "records/institutional-practice/profiles/zkm.md"
       ]

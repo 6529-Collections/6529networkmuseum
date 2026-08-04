@@ -79,8 +79,8 @@ the governing source and propose a correction?
 
 The V&A’s *Shaping Form* account is one documented case, and the article says
 source-code access depended on support from the artist. Its public writing also
-describes digital-care workflows as newly established. A decentralized museum
-should not assume that source, hardware, or third-party service access will be
+describes digital-care workflows as newly established. The Museum should not
+assume that source, hardware, or third-party service access will be
 available; it should record those absences, rights limits, and unresolved
 dependencies at accession.
 

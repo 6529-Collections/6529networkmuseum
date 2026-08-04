@@ -17,7 +17,7 @@
 
 **Casey Reas, *923 EMPTY ROOMS* #713, 2023.** Browser-based generative artwork; Art Blocks, edition of 924. Acid-green diagonal marks sweep across a charcoal field, breaking around voids that can look like a corner, a wall, or an opening. A bright lower ledge and narrow luminous seam at right create depth, then undo it. #713 belongs to a project built from six colorforms and presented through six cities. The work’s “room” is a perceptual event: a viewer makes and remakes space from a finite grammar of units, color, and movement.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the living-edition essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
 
 ## A room made from relations
 

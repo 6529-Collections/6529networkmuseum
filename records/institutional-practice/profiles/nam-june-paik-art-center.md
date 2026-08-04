@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -45,7 +45,7 @@ The Center combines finding aids, format inventories, oral histories, exhibition
 - Record format, physical support, source relationship, and digitization or analysis event.
 - Treat artist and collaborator interviews as identified evidence with date and role.
 - Publish conservation essays around exact works and decisions about authenticity, change, and reconstruction.
-- State whether research access is on site, appointment-only, digitally available, restricted, or temporarily unavailable.
+- State whether research access is on-site, appointment-only, digitally available, restricted, or temporarily unavailable.
 
 ## Where the analogy ends
 
@@ -62,4 +62,4 @@ The Center's archive is materially specific to Paik's estate, studio, and analog
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added collection/archive separation, carrier-level evidence, oral history, and preservation scholarship.
+- `1.0.0` — 2026-08-04: initial profile of collection and archive practice, carrier-level evidence, oral history, and preservation scholarship.

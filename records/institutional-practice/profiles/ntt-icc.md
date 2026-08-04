@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 2.0.0
+- **Version:** 1.0.0
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -68,4 +68,4 @@ ICC's NTT operating structure, physical gallery, and Japanese-language archive a
 
 ## Revision history
 
-- `2.0.0` — 2026-08-04: second-edition profile; added collection, HIVE, publication, education, and restoration relationships.
+- `1.0.0` — 2026-08-04: initial profile of the collection, HIVE archive, publications, education, and restoration.

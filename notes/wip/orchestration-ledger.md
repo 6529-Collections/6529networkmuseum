@@ -1804,7 +1804,7 @@ and Keccak-256
 `0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c`.
 The values remain candidates until governed PR #22 merges.
 
-### 2026-08-04 institutional-practice second edition
+### 2026-08-04 expanded institutional-practice study
 
 Production was verified before work began: runtime
 `88a4f19885f9ff70a1632bda7255b8091263ee86`, `stale:false`, with the overview,
@@ -1814,7 +1814,7 @@ museum scholarship, digital conservation, chain-native adjacent practice, and
 editorial/web structure. The orchestrator retained source, selection, prose,
 test, and release responsibility.
 
-The source draft now contains twenty-seven profiles, a second-edition *A field
+The source draft now contains twenty-seven profiles, an expanded *A field
 of practice* overview, a classified adjacent-chain-native-practice essay, an
 expanded curatorial publication standard, and a detailed digital-art
 stewardship standard. The deterministic institutional source inventory binds
@@ -1825,7 +1825,7 @@ in CI.
 Selection is evidence-based and confers no ranking. HEK, LI-MA, V2_,
 transmediale, ACMI, M+, Nam June Paik Art Center, NTT ICC, Centro Multimedia,
 Laboratorio Arte Alameda, Dia, Walker Art Center, and MCA Chicago join the
-first-edition field. Platforms, marketplaces, festivals, archives, communities,
+original fourteen profiles. Platforms, marketplaces, festivals, archives, communities,
 private collections, and self-described museums remain separately classified;
 no mint, sale, vote, exhibition, wallet transfer, or platform publication is
 treated as accession, title, rights, or preservation.
@@ -1846,3 +1846,31 @@ and Keccak-256
 `0x48e475c5ff45f183f69b1aa28b3b7d6b1fb50269757d51902b4ade68252eca7c`.
 The values remain candidates until governed PR review and merge. The website
 remains a subsequent atomic publication and release phase.
+
+### 2026-08-04 living-study and public-corpus editorial checkpoint
+
+The same living institutional-practice study now comprises twenty-seven
+profiles, the comparative overview, the adjacent-practice study, the public
+scholarship and editorial standard, and the source register. No “second
+edition” identity is asserted. Review corrections increased the deterministic
+inventory to 237 cited HTTPS sources and kept claim-level source notes in the
+public manuscripts.
+
+The editorial standard was applied across the Open Museum statements, Casey
+Reas artist and collection scholarship, five project essays, seven object
+entries, the gift and curatorial accession narratives, Keys and Gates, and the
+institutional-practice corpus. Adopted and historical policy transcriptions
+remain unchanged. The Casey retained drafts and promoted public pages are again
+byte-reproducible through `scripts/promote_casey_publications.py`; its finished
+status and interpretation markers were restated in direct Museum prose without
+weakening the validation boundary.
+
+Local qualification passes the 126-test repository suite with one intentional
+Windows named-pipe skip, deterministic Casey publication promotion, bootstrap
+and full Museum validation, fetch guard, snapshot/package verification,
+diligence-manifest verification, and institutional-source reconciliation. The
+current 247-entry candidate manifest has SHA-256
+`sha256:754acbdc27c5b13beb20cf460c95b0a595d9cdeab6f5ee8ad40395db4319c796`
+and Keccak-256
+`0xe583d775ff1feb724db2187451d290b167f9155b0f2074983d1f7c5ed72e1204`.
+These commitments remain candidates until the governed source PR merges.
