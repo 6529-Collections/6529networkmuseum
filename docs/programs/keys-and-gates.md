@@ -194,11 +194,10 @@ experience that has been managed by others becomes visible.
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-011.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52b6f536-3ebc-4bf5-b7da-2ed775df7ad3)
 
-In São Paulo, the portrait shows a queer artist resting at Casa NUA, wearing a
-welcome gift in Brazilian colours and holding the passport from the life he
-left behind. The image places migration, welcome, and the right to live openly
-inside an ordinary afternoon. Its public presentation should follow the
-consent and rights record.
+In São Paulo, the portrait shows an artist resting at Casa NUA, wearing a
+welcome gift in Brazilian colours. The ordinary afternoon is held in the
+fabric, the reclining pose, and the stillness of the room. The image is
+presented under the linked consent and rights record.
 
 ### 12 — *Rusted* — Teyhu
 
@@ -248,7 +247,7 @@ a daily claim.
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=13407a59-3b86-4a04-b68e-87e818ed3766)
 
 A handmade miniature house rests beneath an open night sky. A narrow path leads
-toward it, then stops at a simple gate and warning. The small scale turns
+toward it, then stops at a simple gate and warning sign. The small scale turns
 restriction into a quiet arrangement: distance, suggestion, and a sign are
 enough to make a landscape feel controlled. Focus stacking preserves the
 constructed world’s tactile depth.

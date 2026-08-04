@@ -1890,7 +1890,15 @@ byte-for-byte. The complete 126-test suite passes with one intentional Windows
 named-pipe skip; full Museum validation, publication promotion, the 237-source
 inventory, and manifest checks pass. The resulting 247-entry candidate manifest
 has SHA-256
-`sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04`
+`sha256:40065c69a864377d92ed48106c48c2abfd72e2ffd3d1b02f9097a4e08a87393f`
 and Keccak-256
-`0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3`.
+`0x63a97f876a08a18fa8062df8e60798bde45598962a483318d9289a71eb9e011c`.
 These commitments remain candidates until the governed source PR merges.
+
+The review-bot follow-up added the institutional source-inventory command to
+the contributor path, removed consent-sensitive biographical detail from the
+Keys and Gates public essay, disambiguated token-number paragraph openings for
+Markdown, attributed a live-software capability to artist documentation, added
+two omitted profile revision notes, and reconciled the 236-URL availability
+pass with the later 237-source inventory. Forty-one focused tests and full
+Museum, promotion, source-inventory, and manifest checks pass on the follow-up.

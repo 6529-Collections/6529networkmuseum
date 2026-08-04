@@ -42,8 +42,8 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "sha256:87e8625f61b15fd4ac210313de8bc944ce758b81a3365f91bc2b352762916804",
-      "size": 7610
+      "sha256": "sha256:1c21f0858a0dc3df992f4ecdd963863bed7216be05f448de7b9a31731c123702",
+      "size": 7676
     },
     {
       "path": "INDEX.md",
@@ -127,8 +127,8 @@
     },
     {
       "path": "docs/programs/keys-and-gates.md",
-      "sha256": "sha256:e188284838cc6c06fa303163fc4b76721add0649f4da57144cf66b327cc20560",
-      "size": 15366
+      "sha256": "sha256:304282531a7a1bbdee585e47f521b8d0d9b96ddb2e429981db4c3b1a26e24d3c",
+      "size": 15311
     },
     {
       "path": "docs/public-museum-experience-standard.md",
@@ -302,13 +302,13 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.03.md",
-      "sha256": "sha256:ec24d7c025b33f92047143fe8712fde52efe08749c2fad25956add7cffedc7e8",
-      "size": 11258
+      "sha256": "sha256:5c2579e72414643c9614356b9dd00fd74ea79c1ce07ef6fa6a9921702027ecb5",
+      "size": 11307
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.04.md",
-      "sha256": "sha256:bfbc89db9366f4ae243e1d6ca4d645830cd0158b0b6dc47d4be8d0a1c08ed294",
-      "size": 12245
+      "sha256": "sha256:7506f4a751bd851d3fecd9a59d1ed29fd1f4959826d44f67ab5735092344df71",
+      "size": 12252
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md",
@@ -317,8 +317,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.06.md",
-      "sha256": "sha256:a273acdf0a0db9d6af77d35e0cacf980e3532d70cf90eeeadd98e6ccf7754a89",
-      "size": 12002
+      "sha256": "sha256:c87e8ead0dd3dee6d127373d8c1491ba4f51299724cc4db7a307ec3f72364b41",
+      "size": 12004
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.07.md",
@@ -367,8 +367,8 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/century.md",
-      "sha256": "sha256:d450481486325dc7b36c579d0f78f33ad1e74b05e9085266d8aa1ca9ab9544b7",
-      "size": 22828
+      "sha256": "sha256:038c2eb0c778f3ecb83864b2edd641af7729fba4900d993acc0b4f04caa27280",
+      "size": 22833
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/microimage-and-phototaxis.md",
@@ -377,13 +377,13 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/process-and-pre-process.md",
-      "sha256": "sha256:acabc21067b9fb8213c6a0df3e560fcac4fd800dc560957b267b70f61fccb026",
-      "size": 25438
+      "sha256": "sha256:4e69632ac3096508dabbc187009539a64ff696b6da39300ad856bd3230c69edf",
+      "size": 25442
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/still-life-and-ex-nihilo.md",
-      "sha256": "sha256:470e956fe76ba12a3ac4fb25d1d21bfe4813e67bfed51b909d4286b60c388e53",
-      "size": 19608
+      "sha256": "sha256:f101ace328a6df59d97a8b4a3debde2c86325a79cb055ba2da47f6391286d8da",
+      "size": 19615
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/source-and-chronology-matrix.md",
@@ -687,8 +687,8 @@
     },
     {
       "path": "records/institutional-practice/profiles/sfmoma.md",
-      "sha256": "sha256:e2a421abb4b887e160fd73784e8a2b2f32c4cb4bcb8c1788aa651bdc9135c37d",
-      "size": 5384
+      "sha256": "sha256:4938e954230e62ddfd56343aacabf96a44adaa2d531bcd246ea7b29de7928202",
+      "size": 5565
     },
     {
       "path": "records/institutional-practice/profiles/tate.md",
@@ -702,8 +702,8 @@
     },
     {
       "path": "records/institutional-practice/profiles/v-and-a.md",
-      "sha256": "sha256:bb456f34dd0950678ed97afd785208917a3c61e71b67a7cf15426b0618cf9534",
-      "size": 5205
+      "sha256": "sha256:69695f0eeb52de86127ae5f5373ed104b7053944f48b2597cf29626d6544b16e",
+      "size": 5388
     },
     {
       "path": "records/institutional-practice/profiles/v2.md",
@@ -1747,8 +1747,8 @@
     },
     {
       "path": "tests/test_casey_dossier_controls.py",
-      "sha256": "sha256:bd78597c31b35f0926d4ffebcc97befae4e9192d921338c2c8a19486385eef25",
-      "size": 40787
+      "sha256": "sha256:23164d37e6c3cbc918e028f5c55a83a246d71603ce3b1c26048033912d6de28c",
+      "size": 40909
     },
     {
       "path": "tests/test_control_plane.py",
@@ -1790,9 +1790,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3"
+    "digest": "0x63a97f876a08a18fa8062df8e60798bde45598962a483318d9289a71eb9e011c"
   },
-  "manifest_sha256": "sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04",
+  "manifest_sha256": "sha256:40065c69a864377d92ed48106c48c2abfd72e2ffd3d1b02f9097a4e08a87393f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

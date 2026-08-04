@@ -89,9 +89,9 @@ inventory, bootstrap validator across 302 JSON files, full 126-test suite, full
 Museum validator, Casey snapshot/package checks, and diligence-inventory check
 pass. Deterministic regeneration produced a 247-entry candidate manifest with
 SHA-256
-`sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04`
+`sha256:40065c69a864377d92ed48106c48c2abfd72e2ffd3d1b02f9097a4e08a87393f`
 and Keccak-256
-`0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3`.
+`0x63a97f876a08a18fa8062df8e60798bde45598962a483318d9289a71eb9e011c`.
 The values remain candidates until governed source review and merge.
 
 A final independent copy-desk audit then reviewed every visitor-facing Museum
@@ -101,11 +101,15 @@ chain identity and transfer history from legal title, copyright, and accession,
 attributed the *Ex Nihilo (Cosmos)* non-repetition claim, removed internal
 workflow language from public source records, and tightened the remaining
 Casey prose. Retained drafts and promoted pages remain reproducible. The full
-126-test suite passes with one intentional Windows named-pipe skip.
+126-test suite passes with one intentional Windows named-pipe skip. The final
+review follow-up also passes the 41 focused Casey and institutional-publication
+tests, full Museum validation, source reconciliation, and manifest checks.
 
-All 237 inventory URLs were observed on 2026-08-04. A concurrent HEAD pass
-returned 198 HTTP 200 responses, thirteen 403 responses, five 429 responses,
-seven 404 responses, and thirteen transport failures. The 403/429 results were
+The availability pass covered the then-current 236 inventory URLs on
+2026-08-04. It returned 198 HTTP 200 responses, thirteen 403 responses, five
+429 responses, seven 404 responses, and thirteen transport failures. A later
+source correction increased the reconciled inventory to 237; the added official
+source was opened and verified during that correction. The 403/429 results were
 bot or rate controls. GET rechecks showed that five of the seven apparent 404s
 were HEAD-only behavior; the two stale citations were replaced with current
 official Bright Moments and MCA Chicago pages. The transport set comprises

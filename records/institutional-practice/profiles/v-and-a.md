@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -92,4 +92,7 @@ dependencies at accession.
 
 ## Revision history
 
+- `1.0.1` — 2026-08-04: narrowed the recommendations to responsibilities this
+  Museum can adopt and retained source, hardware, and service availability as
+  work-level conditions.
 - `1.0.0` — 2026-08-04: initial profile.
