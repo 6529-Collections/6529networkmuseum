@@ -1,16 +1,14 @@
 # Pre-Process: An Unfinished Origin in Motion
 
 **6529 Network Museum — project essay**
-**Version:** 2.3.0
+**Version:** 2.4.0
 **Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
 **Research cutoff:** 2026-08-02
 **Museum work discussed:** *Pre-Process* #63 (Casey REAS, originated 2003; completed and released 2022), accessioned as 6529NM.2026.001.04
 
-## First-release standfirst / label
-
-*Pre-Process* returns to an unfinished 2003 system after nearly two decades in which Casey Reas tested what its rules could do. The 2022 edition makes that return public through 120 finite permutations; its central subject remains unresolved behavior: one hundred circles move, collide, turn away from overlap, and never arrive at equilibrium. In the 6529 Network Museum’s #63, the resulting black-and-white field reads as a score under pressure. Its rows, axes, translucent sweeps, and collisions make an early grammar of Reas’s practice visible.
+*Pre-Process* returns to an unfinished 2003 system after nearly two decades in which Casey Reas tested what its rules could do. The 2022 edition makes that return public through 120 finite permutations; its central subject remains unresolved behavior: one hundred circles move, collide, turn away from overlap, and never arrive at equilibrium. In the 6529 Network Museum's #63, the resulting black-and-white field reads as a score under pressure. Its rows, axes, translucent sweeps, and collisions make an early grammar of Reas's practice visible.
 
 ## An origin that had to wait
 
@@ -163,6 +161,7 @@ To encounter #63 is to recognize what “pre” names: the moment before a metho
 
 ## Revision note
 
+- **2.4.0 — 4 August 2026:** Removed the production-stage heading from the published opening; the project interpretation and evidence are unchanged.
 - **2.3.0 — 4 August 2026:** Completed the publication copy desk and replaced a schematic opposition with a direct account of the edition's bounded configurations and temporal history.
 - **2.2.0 — 4 August 2026:** Deep copy-edited the public interpretation for curatorial cadence and directness without changing its facts or evidence.
 - **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.

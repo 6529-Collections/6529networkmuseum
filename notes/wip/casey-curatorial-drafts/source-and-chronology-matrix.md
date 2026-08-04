@@ -1,7 +1,7 @@
-# Casey Reas: shared source, chronology, and factual-boundary matrix
+# Casey Reas: Sources and chronology
 
 - **Status:** final public research instrument; promoted 2026-08-02 and open only to source-backed correction through append-only amendment
-- **Version:** 1.1.2
+- **Version:** 1.1.3
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Research cutoff:** 2026-08-02
@@ -373,6 +373,9 @@ accession amendment is required.
 
 ## Revision history
 
+- **1.1.3 — 2026-08-04:** replaced the working matrix title with a public
+  research title; the source classes, chronology, factual boundaries, and
+  correction record are unchanged.
 - **1.1.2 — 2026-08-04:** replaced internal workflow language with a public
   account of the matrix, clarified the boundary between chain history and
   legal title, and retained the append-only correction method.

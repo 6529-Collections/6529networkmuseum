@@ -2,7 +2,7 @@
 
 ## The Casey Reas Accession
 
-**Standfirst.** On 1 August 2026, punk6529 gave the 6529 Network Museum seven works by Casey Reas spanning five projects and a quarter-century of artistic inquiry. The gift entered the permanent collection the following day as `6529NM.2026.001`. Seven software artworks thereby became a public study group: to be preserved as executable works, examined together, and documented through an accession record. This narrative follows a private holding into public stewardship.
+On 1 August 2026, punk6529 gave the 6529 Network Museum seven works by Casey Reas spanning five projects and a quarter-century of artistic inquiry. The gift entered the permanent collection the following day as `6529NM.2026.001`. Seven software artworks thereby became a public study group: to be preserved as executable works, examined together, and documented through an accession record. This narrative follows a private holding into public stewardship.
 
 ## I. The gift
 
@@ -123,6 +123,7 @@ Punk6529's gift created the conditions for this work to begin. The Museum can ac
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.5.0 — 4 August 2026:** Removed an internal production label from the published opening; the gift, accession, rights, and custody facts are unchanged.
 - **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk and distinguished regular execution from preservation work.
 - **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public narrative for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published narrative for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.

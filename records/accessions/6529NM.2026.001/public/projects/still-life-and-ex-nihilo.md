@@ -1,6 +1,6 @@
 # An ideal form cannot hold still: Still Life and *Ex Nihilo (Cosmos)*
 
-- **Final publication copy:** version 2.3.0
+- **Final publication copy:** version 2.4.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -9,15 +9,13 @@
 - **Research cutoff:** 2026-08-02
 **Scope note:** This essay is a visitor-facing project study. It does not supersede the accession, rights, condition, custody, or preservation records.
 
-## Standfirst
-
 In *Ex Nihilo (Cosmos)*, a dodecahedron never fully arrives. Museum object #248 uses segmented white traces on black to make a Platonic solid appear, fracture, and recede. Casey Reas’s continuously changing Still Life series turns ideal geometry into a screen-based event, asking how a form can remain exact in concept while unstable in view.
 
 ## Gallery label
 
 **Casey Reas, *Ex Nihilo (Cosmos)* #248, 2026.** Browser-based generative artwork; Art Blocks and Feral File. Segmented white lines cross a black field, sometimes aligning into the edges of a dodecahedron and sometimes dissolving into granular depth. The work belongs to Reas's Still Life series, which uses the five Platonic solids to test how code, pixels, color systems, and time alter an ideal form. Art Blocks and Reas describe *Cosmos* as a continuous, non-repeating display: a viewer can pause a formation, but no single frame exhausts the work. Its stillness lies in concentrated looking, not in a fixed image.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — attributed the continuous, non-repeating-display claim to Art Blocks and Reas.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — attributed the continuous, non-repeating-display claim to Art Blocks and Reas; v2.4.0, 2026-08-04 — removed the production-stage heading from the published opening without changing the interpretation or evidence.
 
 ## The form that refuses completion
 
