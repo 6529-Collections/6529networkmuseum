@@ -182,3 +182,8 @@ the selection method unchanged. The correction follows the rendered copy-desk
 review recorded in `notes/wip/2026-08-04-rendered-publication-copy-desk.md` and
 the corresponding orchestration-ledger entry; the earlier ledger entries
 remain part of the unpublished working history.
+
+Version 1.1.3 completes that rendered correction by changing the residual
+phrase “for the edition” to “for the study” in the first thematic pathway. The
+twenty-seven cases, pathway structure, evidence, and selection method are
+unchanged.
