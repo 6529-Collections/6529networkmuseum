@@ -76,7 +76,6 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
             "- **Series:** A field of practice",
             "- **Status:** public scholarship",
             "- **Institutional author:** 6529 Network Museum",
-            "- **Publication date:** 2026-08-04",
             "- **Research cutoff:** 2026-08-04",
             "- **Research apparatus:** [primary-source register](../source-register.md)",
         )
@@ -91,6 +90,7 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
                 text = (PACKAGE / "profiles" / f"{slug}.md").read_text(encoding="utf-8")
                 for marker in (*required_metadata, *required_sections):
                     self.assertIn(marker, text)
+                self.assertRegex(text, r"- \*\*Publication date:\*\* \d{4}-\d{2}-\d{2}")
                 self.assertRegex(text, r"- \*\*Version:\*\* \d+\.\d+\.\d+")
                 self.assertGreaterEqual(len(HTTPS_LINK.findall(text)), 3)
                 body = text.split("## Sources", maxsplit=1)[0]
@@ -108,21 +108,26 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
     def test_source_register_uses_primary_https_links(self) -> None:
         text = SOURCE_REGISTER.read_text(encoding="utf-8")
         links = HTTPS_LINK.findall(text)
-        self.assertGreaterEqual(len(links), 50)
+        self.assertEqual(len(links), len(set(links)))
+        self.assertEqual(114, len(links))
         self.assertNotIn("google.com/search", text)
         self.assertNotIn("bing.com/search", text)
         self.assertNotIn("https://cdn.rhizome.org/about/", text)
         self.assertIn("- **Access date for all web sources:** 2026-08-04", text)
 
-    def test_every_profile_source_is_reconciled_to_the_register(self) -> None:
+    def test_every_publication_source_is_reconciled_to_the_register(self) -> None:
         register_links = set(HTTPS_LINK.findall(SOURCE_REGISTER.read_text(encoding="utf-8")))
-        for slug in PROFILE_SLUGS:
-            with self.subTest(profile=slug):
-                text = (PACKAGE / "profiles" / f"{slug}.md").read_text(encoding="utf-8")
-                profile_links = set(HTTPS_LINK.findall(text))
+        publication_files = (INTRODUCTION,) + tuple(
+            PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS
+        )
+        for publication_file in publication_files:
+            with self.subTest(publication=publication_file.name):
+                text = publication_file.read_text(encoding="utf-8")
+                publication_links = set(HTTPS_LINK.findall(text))
                 self.assertFalse(
-                    profile_links - register_links,
-                    f"unregistered profile sources: {sorted(profile_links - register_links)}",
+                    publication_links - register_links,
+                    "unregistered publication sources: "
+                    f"{sorted(publication_links - register_links)}",
                 )
 
     def test_style_standard_binds_comparative_study(self) -> None:

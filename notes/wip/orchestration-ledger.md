@@ -1758,3 +1758,17 @@ profile inventory, common publication control, named cases, claim-level links,
 profile-to-register source reconciliation, direct HTTPS sources, and selected
 editorial prohibitions. Full repository validation, manifest generation,
 governed source review, and frontend publication remain pending.
+
+### 2026-08-04 institutional-practice PR #22 review correction
+
+The governed source review correctly found that the comparative essay's link
+to Centre Pompidou's *Icône* object record was absent from the source register.
+The record was reverified as Vera Molnar, *Icône*, 1964, and registered with
+the exact catalogue functions for which the essay cites it. Source
+reconciliation now covers the comparative essay and all fourteen profiles;
+the register invariant is exactly 114 unique primary-source URLs. Profile
+publication dates now validate as ISO dates so later additions do not inherit
+the first release date. Rhizome's historical editorial path and archive root
+were separately rechecked at HTTP 200. Serpentine's `1.1.0` version remains
+correct because its revision history records a substantive hostile-audit
+revision after the initial draft.

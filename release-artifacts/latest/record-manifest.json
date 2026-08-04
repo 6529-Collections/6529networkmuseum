@@ -642,8 +642,8 @@
     },
     {
       "path": "records/institutional-practice/source-register.md",
-      "sha256": "sha256:b29d98445cd910a59ab8cc5e5ed1a6ceb8c4bad5edbf67f1b3e98ce539fda28b",
-      "size": 28501
+      "sha256": "sha256:e185d26663edd263f0eeba7068f99f71a585a7c1be61dd12061152edeb476671",
+      "size": 28781
     },
     {
       "content_hash": {
@@ -1667,8 +1667,8 @@
     },
     {
       "path": "tests/test_institutional_practice.py",
-      "sha256": "sha256:aeeba6b1ca6f49651aeda7c39e11e236dbd5272a67f7ccc0e3f939a01ef3c67e",
-      "size": 5794
+      "sha256": "sha256:d220cc39fb8702ae31d3060f4b3cd59334c9db2b66808c0e5bfb76665aececd2",
+      "size": 6077
     }
   ],
   "hash_algorithms": {
@@ -1700,9 +1700,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9c1235bf459e6b1b97b412f53faab99edf89c0ba652d83b2a0c09dde3381c186"
+    "digest": "0x7c8a2e7c0af28ef2964fa69e0e2e8cf384c22bc79738f54d814b1faede03efff"
   },
-  "manifest_sha256": "sha256:ad5dcb2f890da08145ab7d53b8aa17be3ce50845763a5b879bf4997568cb5435",
+  "manifest_sha256": "sha256:03b7115319e6d4c5029223057e6dbf3ddfb48f4309742e817c8e73c02c26c371",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

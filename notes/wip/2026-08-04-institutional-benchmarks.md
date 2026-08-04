@@ -108,3 +108,17 @@ places. The following corrections are release requirements:
 - image and logo rights: no institutional mark or third-party image will be
   copied merely to decorate a profile;
 - update cadence and append-only correction method for changing programs.
+
+## Governed review checkpoint
+
+Source pull request #22 opened from signed head `84175969cdfb`. The first
+automated evidence review identified a real reconciliation gap: the
+comparative essay cited Centre Pompidou's record for Vera Molnar's *Icône*,
+while the source register carried the separate *Sans titre* record used by the
+profile. The *Icône* page was reverified as the 1964 work, added to the source
+register with its exact evidentiary use, and the test was widened from profile
+reconciliation to every public publication in the package. The register now
+contains exactly 114 unique sources. Publication dates are validated as dates
+rather than frozen to the first release day. Rhizome's historical editorial
+URL and archive root both returned HTTP 200 on recheck. Serpentine's `1.1.0`
+version is intentional and is explained by its hostile-audit revision entry.
