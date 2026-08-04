@@ -2,7 +2,7 @@
 
 - **Status:** public research register
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Publication date:** 2026-08-04
 - **Access date for all web sources:** 2026-08-04
 
@@ -50,7 +50,7 @@ technical resources demonstrate practice.
 | Exact source | Date shown | Source type | Evidence used |
 |---|---|---|---|
 | [Net Art Commissions, 1999–2021](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog) | 1999–2021 | Archive catalogue record | Accidental record loss; reconstruction sources, artificial order, method, and gaps. |
-| [Intermedia Art microsite](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1%2F9&src=CalmView.Catalog) | Captured 2017 | Preserved web record | Conifer capture, WARC structure, external-link boundary, emulation, and failed content. |
+| [Intermedia Art microsite](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1%2F9&src=CalmView.Catalog) | Microsite 2008–2012; captured November 2019–February 2020 | Archive catalogue record for a preserved website | Conifer capture, WARC structure, external-link boundary, emulation, and failed content. |
 | [Reshaping the Collectible](https://www.tate.org.uk/research/reshaping-the-collectible) | 2018–2022 | Research project | Research into mutable, networked, performative, and social works. |
 | [Reshaping the Collectible: The Lives of Net Art](https://www.tate.org.uk/research/reshaping-the-collectible#the-lives-of-net-art) | 2021 | Research-project section | Named net-art case-study cluster within the wider project. |
 | [Net Art: Dusty Navigational Pathways](https://www.tate.org.uk/research/reshaping-the-collectible/net-art-dusty-navigational-pathways) | 2021 | Research case study | Net-art preservation and historical access. |
@@ -199,4 +199,7 @@ These sources support the two profiles and the aggregate publication standard.
 
 ## Revision history
 
+- `1.0.1` — 2026-08-04: pre-publication review corrected the Tate microsite
+  chronology and distinguished Conifer's May subscription closure, June
+  replacement plan, and current service notice.
 - `1.0.0` — 2026-08-04: initial source register.

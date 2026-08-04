@@ -28,7 +28,8 @@ PROFILE_SLUGS = (
     "lacma",
 )
 
-HTTPS_LINK = re.compile(r"\[[^\]]+\]\((https://[^)]+)\)")
+MARKDOWN_LINK = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+PUBLIC_LINK = re.compile(r"\[[^\]]+\]\((https?://[^)]+)\)")
 FORBIDDEN_EDITORIAL_PHRASES = (
     "strongest examples",
     "best catalogues",
@@ -59,6 +60,15 @@ REQUIRED_CASES = {
 
 
 class InstitutionalPracticePublicationTests(unittest.TestCase):
+    def assert_https_external_links(self, text: str) -> None:
+        external_links = [
+            target for target in MARKDOWN_LINK.findall(text) if "://" in target
+        ]
+        self.assertTrue(
+            all(target.startswith("https://") for target in external_links),
+            f"non-HTTPS external links: {external_links}",
+        )
+
     def test_profile_inventory_is_exact_and_complete(self) -> None:
         profile_directory = PACKAGE / "profiles"
         actual = tuple(sorted(path.stem for path in profile_directory.glob("*.md")))
@@ -92,10 +102,11 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
                     self.assertIn(marker, text)
                 self.assertRegex(text, r"- \*\*Publication date:\*\* \d{4}-\d{2}-\d{2}")
                 self.assertRegex(text, r"- \*\*Version:\*\* \d+\.\d+\.\d+")
-                self.assertGreaterEqual(len(HTTPS_LINK.findall(text)), 3)
+                self.assert_https_external_links(text)
+                self.assertGreaterEqual(len(PUBLIC_LINK.findall(text)), 3)
                 body = text.split("## Sources", maxsplit=1)[0]
                 self.assertGreaterEqual(
-                    len(HTTPS_LINK.findall(body)),
+                    len(PUBLIC_LINK.findall(body)),
                     2,
                     "factual analysis must carry claim-level links before the bibliography",
                 )
@@ -107,23 +118,29 @@ class InstitutionalPracticePublicationTests(unittest.TestCase):
 
     def test_source_register_uses_primary_https_links(self) -> None:
         text = SOURCE_REGISTER.read_text(encoding="utf-8")
-        links = HTTPS_LINK.findall(text)
+        self.assert_https_external_links(text)
+        links = PUBLIC_LINK.findall(text)
         self.assertEqual(len(links), len(set(links)))
         self.assertEqual(114, len(links))
+        self.assertTrue(
+            all(link.startswith("https://") for link in links),
+            "the public source register must not contain plaintext HTTP links",
+        )
         self.assertNotIn("google.com/search", text)
         self.assertNotIn("bing.com/search", text)
         self.assertNotIn("https://cdn.rhizome.org/about/", text)
         self.assertIn("- **Access date for all web sources:** 2026-08-04", text)
 
     def test_every_publication_source_is_reconciled_to_the_register(self) -> None:
-        register_links = set(HTTPS_LINK.findall(SOURCE_REGISTER.read_text(encoding="utf-8")))
+        register_links = set(PUBLIC_LINK.findall(SOURCE_REGISTER.read_text(encoding="utf-8")))
         publication_files = (INTRODUCTION,) + tuple(
             PACKAGE / "profiles" / f"{slug}.md" for slug in PROFILE_SLUGS
         )
         for publication_file in publication_files:
             with self.subTest(publication=publication_file.name):
                 text = publication_file.read_text(encoding="utf-8")
-                publication_links = set(HTTPS_LINK.findall(text))
+                self.assert_https_external_links(text)
+                publication_links = set(PUBLIC_LINK.findall(text))
                 self.assertFalse(
                     publication_links - register_links,
                     "unregistered publication sources: "

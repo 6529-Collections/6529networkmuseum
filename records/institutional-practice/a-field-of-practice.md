@@ -3,7 +3,7 @@
 - **Subtitle:** Institutions the 6529 Network Museum studies
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 
@@ -69,9 +69,14 @@ A migrated or emulated work requires an account of intervention. Tate's
 [reconstruction of its Net Art Commission records](https://archive.tate.org.uk/Record.aspx?id=TG+100%2F1&src=CalmView.Catalog)
 discloses loss, recovered sources, interviews, archival order, and remaining
 gaps. Rhizome's *Net Art Anthology* published preservation matrices and used
-web-archiving and emulation tools; its hosted Conifer capture service ceased
-capture and editing in May 2026 and now directs users toward export and
-migration options. The Guggenheim's identity and iteration reports distinguish
+web-archiving and emulation tools. Rhizome's [May 2026 service
+notice](https://blog.conifer.rhizome.org/2026/05/06/twilight-webinar.html)
+records the end of paid Conifer subscriptions; its published transition plan
+scheduled replacement of the platform with a read-only tombstone application
+in June. The current [Conifer service
+notice](https://conifer.rhizome.org/) reports that creating and modifying
+collections was disabled before discontinuation and directs users to the
+transition record. The Guggenheim's identity and iteration reports distinguish
 the work's enduring properties from a particular technical realization. These
 accounts let the public inspect changes, decisions, and supporting evidence.
 
@@ -160,4 +165,7 @@ this study. The resulting requirements are incorporated into the Museum's
 
 ## Revision history
 
+- `1.0.1` — 2026-08-04: pre-publication review distinguished Conifer's May
+  subscription closure from its planned June platform replacement and current
+  service notice.
 - `1.0.0` — 2026-08-04: initial comparative study.

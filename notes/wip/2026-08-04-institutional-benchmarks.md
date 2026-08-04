@@ -122,3 +122,36 @@ contains exactly 114 unique sources. Publication dates are validated as dates
 rather than frozen to the first release day. Rhizome's historical editorial
 URL and archive root both returned HTTP 200 on recheck. Serpentine's `1.1.0`
 version is intentional and is explained by its hostile-audit revision entry.
+
+## Pre-publication factual review, second pass
+
+The second governed review found two chronology compressions and one copy
+defect. Tate's archive catalogue dates the Intermedia Art microsite to
+2008–2012 and the Conifer capture to November 2019–February 2020; an earlier
+source-register label incorrectly called it a 2017 capture. Rhizome's public
+notices distinguish the closure of new accounts and subscriptions in December
+2025, the end of paid subscriptions in May 2026, a planned June replacement by
+a read-only tombstone application, and the service's current landing-page
+notice. The study, profile, and register now preserve those events separately.
+The Met profile's opening description was also copy-edited for grammar without
+changing its claim.
+
+The link validator now discovers both HTTP and HTTPS Markdown links and fails
+unless every registered public source uses HTTPS. This closes the previous
+blind spot in which an HTTP link would have escaped the test altogether.
+Pre-publication corrections are recorded here and in manuscript revision
+histories; no retroactive `supersedes` assertion was invented for drafts that
+were never released. Immutable edition URLs remain a property of the website's
+exact-commit source strip, because a manuscript cannot truthfully name its own
+future merge commit.
+
+Status amendment: this paragraph supersedes the earlier statement that full
+repository validation and manifest generation remained pending. After these
+corrections, the institutional test, bootstrap validator, full
+Museum validator, fetch guard, Casey dossier validator, diligence inventory,
+and deterministic manifest generation all passed. The resulting 230-entry
+candidate manifest has SHA-256
+`sha256:7ae561a27b5c3494d3bc81035af506ba5c49501ebb5c73a5535a3a2898c1b416`
+and Keccak-256
+`0xe71d1d744b2bccf1e2c724ab907a5bcc8e53bbf9befdc8f93b21ff89e76dd93c`.
+These commitments remain candidates until PR #22 merges.

@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -94,4 +94,6 @@ dependencies.
 
 ## Revision history
 
+- 1.0.1 — 2026-08-04: pre-publication review distinguished the microsite's
+  2008–2012 record dates from its November 2019–February 2020 Conifer capture.
 - 1.0.0 — 2026-08-04: revised to public scholarship with direct first-party claim links, a record close reading, research/conservation context, and explicit evidence limits.

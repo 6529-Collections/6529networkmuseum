@@ -3,7 +3,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.1.0
+- **Version:** 1.1.1
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](../source-register.md)
@@ -76,9 +76,9 @@ Rhizome announced in [“Conifer Twilight Announcement”](https://blog.conifer.
 (15 December 2025) that the hosted capture-and-editing service would be
 discontinued in June 2026. Its [6 May 2026 process
 notice](https://blog.conifer.rhizome.org/2026/05/06/twilight-webinar.html) records
-that new accounts had already closed in December 2025, paid subscriptions
-would stop in May, and the full platform was to be replaced in June by a
-read-only “tombstone” application. The [22 May webinar
+that new accounts and subscriptions had closed in December 2025 and that paid
+subscriptions stopped in May 2026. At that date, replacement of the platform
+with a read-only “tombstone” application remained scheduled for June. The [22 May webinar
 recap](https://blog.conifer.rhizome.org/2026/05/22/webinar-recap.html) describes a
 beta tombstone app, default access to existing collections, WACZ export,
 Browsertrix transfer, self-hosting, redirects, and deletion. It also names
@@ -149,4 +149,7 @@ Access date for every source below: **2026-08-04**.
 
 ## Revision history
 
+- `1.1.1` — 2026-08-04: pre-publication review separated the completed May
+  subscription closure from the June platform-replacement plan and retained
+  the current service notice as a distinct source.
 - `1.1.0` — 2026-08-04: hostile audit revision; corrected New Museum relationship, replaced the stale About link, added claim-level sources, close readings, and the May/June 2026 Conifer exit and migration state.
