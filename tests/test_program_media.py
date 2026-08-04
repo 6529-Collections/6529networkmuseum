@@ -8,7 +8,7 @@ from contextlib import ExitStack
 from pathlib import Path
 from unittest.mock import patch
 
-from PIL import Image
+from PIL import Image, ImageCms
 
 TESTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = TESTS_DIR.parent
@@ -107,6 +107,18 @@ class ProgramMediaTests(unittest.TestCase):
         self.assertEqual(first_bytes, second_bytes)
         self.assertEqual(3, count)
         self.assertGreater(total_bytes, 0)
+
+    def test_srgb_profile_is_fixed_and_hash_bound(self) -> None:
+        first_profile, first_bytes = media.fixed_srgb_profile()
+        second_profile, second_bytes = media.fixed_srgb_profile()
+
+        self.assertEqual(first_bytes, second_bytes)
+        self.assertEqual(media.SRGB_ICC_SHA256, media.sha256_bytes(first_bytes))
+        self.assertEqual(588, len(first_bytes))
+        self.assertEqual(
+            ImageCms.getProfileDescription(first_profile),
+            ImageCms.getProfileDescription(second_profile),
+        )
 
     def test_fixity_check_rejects_changed_derivative(self) -> None:
         with self.patched_paths():

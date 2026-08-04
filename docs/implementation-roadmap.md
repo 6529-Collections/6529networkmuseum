@@ -200,7 +200,7 @@ CloudFront objects and fixity-checked before conversion. They total 233,601,493
 bytes. The constructed delivery manifest now binds each source URL, SHA-256,
 byte size, MIME type, oriented dimensions, colour-profile treatment, recorded
 rights status, visual description, and three deterministic uncropped WebP
-presentation derivatives. Forty-eight derivatives total 16,103,634 bytes and
+presentation derivatives. Forty-eight derivatives total 16,093,924 bytes and
 use new source-digest and transform-version paths with one-year immutable cache
 headers. Submitted high-resolution sources remain separately available.
 

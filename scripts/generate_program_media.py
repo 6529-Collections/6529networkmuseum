@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import io
 import json
@@ -24,8 +25,8 @@ MANIFEST_PATH = REPO_ROOT / "records" / "programs" / PROGRAM_ID / "media-manifes
 MEDIA_ROOT = REPO_ROOT / "media" / "programs" / PROGRAM_ID
 CDN_BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net"
 CDN_KEY_PREFIX = f"museum/programs/{PROGRAM_ID}"
-TRANSFORM_PROFILE = "6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6"
-TRANSFORM_PATH = "webp-v1-q82-m6"
+TRANSFORM_PROFILE = "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
+TRANSFORM_PATH = "webp-v2-q82-m6-fixed-icc"
 WIDTHS = (640, 1280, 2400)
 QUALITY = 82
 METHOD = 6
@@ -33,6 +34,20 @@ CACHE_CONTROL = "public, max-age=31536000, immutable"
 EXPECTED_OUTCOME_COUNT = 16
 SHA256_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 RECORD_ID_PATTERN = re.compile(r"^6529NM-AP-01-OUT-[0-9]{3}$")
+SRGB_ICC_SHA256 = "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
+SRGB_ICC_BASE64 = (
+    "AAACTGxjbXMEQAAAbW50clJHQiBYWVogB+oACAAEAAAAAAAAYWNzcE1TRlQAAAAAAAAAAAAAAAAA"
+    "AAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1sY21zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    "AAAAAAAAAAAAAAAAAAAAAAALZGVzYwAAAQgAAAA2Y3BydAAAAUAAAABMd3RwdAAAAYwAAAAUY2hh"
+    "ZAAAAaAAAAAsclhZWgAAAcwAAAAUYlhZWgAAAeAAAAAUZ1hZWgAAAfQAAAAUclRSQwAAAggAAAAg"
+    "Z1RSQwAAAggAAAAgYlRSQwAAAggAAAAgY2hybQAAAigAAAAkbWx1YwAAAAAAAAABAAAADGVuVVMA"
+    "AAAaAAAAHABzAFIARwBCACAAYgB1AGkAbAB0AC0AaQBuAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAA"
+    "ADAAAAAcAE4AbwAgAGMAbwBwAHkAcgBpAGcAaAB0ACwAIAB1AHMAZQAgAGYAcgBlAGUAbAB5WFla"
+    "IAAAAAAAAPbWAAEAAAAA0y1zZjMyAAAAAAABDEIAAAXe///zJQAAB5MAAP2Q///7of///aIAAAPc"
+    "AADAblhZWiAAAAAAAABvoAAAOPUAAAOQWFlaIAAAAAAAACSfAAAPhAAAtsNYWVogAAAAAAAAYpcA"
+    "ALeHAAAY2XBhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbY2hybQAAAAAAAwAAAACj1wAA"
+    "VHsAAEzNAACZmgAAJmYAAA9c"
+)
 
 Image.MAX_IMAGE_PIXELS = 100_000_000
 warnings.simplefilter("error", Image.DecompressionBombWarning)
@@ -149,9 +164,19 @@ def has_alpha(image: Image.Image) -> bool:
     )
 
 
+def fixed_srgb_profile() -> tuple[ImageCms.ImageCmsProfile, bytes]:
+    try:
+        profile_bytes = base64.b64decode(SRGB_ICC_BASE64, validate=True)
+        if sha256_bytes(profile_bytes) != SRGB_ICC_SHA256:
+            raise ProgramMediaError("fixed sRGB ICC profile hash does not match")
+        profile = ImageCms.ImageCmsProfile(io.BytesIO(profile_bytes))
+    except (OSError, ValueError) as exc:
+        raise ProgramMediaError(f"fixed sRGB ICC profile is invalid: {exc}") from exc
+    return profile, profile_bytes
+
+
 def normalize_colour(image: Image.Image, source_icc: bytes | None) -> tuple[Image.Image, str, bytes]:
-    output_profile = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB"))
-    output_icc = output_profile.tobytes()
+    output_profile, output_icc = fixed_srgb_profile()
     alpha = image.convert("RGBA").getchannel("A") if has_alpha(image) else None
     rgb = image.convert("RGB")
     status = "untagged_assumed_srgb"
@@ -339,6 +364,7 @@ def generate_manifest(
             "upscale": False,
             "orientation": "EXIF transpose before resize",
             "colour_management": "embedded profiles converted to sRGB; untagged sources treated as sRGB; sRGB profile embedded in derivatives",
+            "icc_profile_sha256": SRGB_ICC_SHA256,
             "metadata": "source EXIF/XMP stripped; output sRGB ICC profile retained",
         },
         "delivery": {
@@ -406,6 +432,8 @@ def verify_manifest() -> tuple[int, int]:
         raise ProgramMediaError("media manifest transform profile does not match the implementation")
     if transform.get("implementation") != f"Pillow {Image.__version__}":
         raise ProgramMediaError("media manifest Pillow version does not match the pinned runtime")
+    if transform.get("icc_profile_sha256") != SRGB_ICC_SHA256:
+        raise ProgramMediaError("media manifest sRGB ICC profile hash does not match")
     manifest_ids = {
         require_string(item.get("record_id"), "media manifest record_id")
         for item in items

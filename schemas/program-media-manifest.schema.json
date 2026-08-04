@@ -60,10 +60,13 @@
         "upscale",
         "orientation",
         "colour_management",
+        "icc_profile_sha256",
         "metadata"
       ],
       "properties": {
-        "profile": { "const": "6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6" },
+        "profile": {
+          "const": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
+        },
         "implementation": { "const": "Pillow 12.3.0" },
         "format": { "const": "image/webp" },
         "quality": { "const": 82 },
@@ -76,6 +79,9 @@
         "orientation": { "const": "EXIF transpose before resize" },
         "colour_management": {
           "const": "embedded profiles converted to sRGB; untagged sources treated as sRGB; sRGB profile embedded in derivatives"
+        },
+        "icc_profile_sha256": {
+          "const": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
         },
         "metadata": {
           "const": "source EXIF/XMP stripped; output sRGB ICC profile retained"

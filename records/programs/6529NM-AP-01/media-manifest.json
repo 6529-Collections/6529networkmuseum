@@ -6,17 +6,17 @@
     "constructor": {
       "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
       "role": "constructor",
-      "constructed_at": "2026-08-04T21:50:30Z"
+      "constructed_at": "2026-08-04T22:52:51Z"
     },
     "review": null
   },
   "record_type": "PROGRAM_MEDIA_MANIFEST",
   "schema_profile": "6529NM_PROGRAM_MEDIA_MANIFEST_V1",
   "program_id": "6529NM-AP-01",
-  "generated_at": "2026-08-04T21:50:30Z",
+  "generated_at": "2026-08-04T22:52:51Z",
   "source_observed_at": "2026-08-04T21:50:30Z",
   "transform": {
-    "profile": "6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6",
+    "profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
     "implementation": "Pillow 12.3.0",
     "format": "image/webp",
     "quality": 82,
@@ -30,6 +30,7 @@
     "upscale": false,
     "orientation": "EXIF transpose before resize",
     "colour_management": "embedded profiles converted to sRGB; untagged sources treated as sRGB; sRGB profile embedded in derivatives",
+    "icc_profile_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
     "metadata": "source EXIF/XMP stripped; output sRGB ICC profile retained"
   },
   "delivery": {
@@ -72,30 +73,30 @@
             "width": 640,
             "height": 960,
             "mime_type": "image/webp",
-            "sha256": "sha256:95d12315ba8d69c9a7830e75b141108f94f47be1ce4f9c0b25b31c0bd05f1b40",
-            "byte_size": 126888,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/640.webp",
+            "sha256": "sha256:3e20417e312f145184476d3c122992754899a136313359e72294eb8f781d59f0",
+            "byte_size": 126768,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1920,
             "mime_type": "image/webp",
-            "sha256": "sha256:e67d92d04ae87a61eead69f921964726c1efcc57d32d6d23203d487dffed6ca1",
-            "byte_size": 510752,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/1280.webp",
+            "sha256": "sha256:d28e89b7ca58647ce0b7a0979ca8138d4213c3c0b4080d76b7f154b522612b04",
+            "byte_size": 510514,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 3600,
             "mime_type": "image/webp",
-            "sha256": "sha256:9f2415639b5daa24a78aefc568954d7bdcd97565322d3449adbbd1676e271e78",
-            "byte_size": 1617042,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v1-q82-m6/2400.webp",
+            "sha256": "sha256:a2c571eeec02f38b9408820769766897522e3697ceceed32d167e86706046696",
+            "byte_size": 1617734,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -125,30 +126,30 @@
             "width": 640,
             "height": 427,
             "mime_type": "image/webp",
-            "sha256": "sha256:e9fc6faa3ae9320d895dc7b16da408fa8828d08ce653679b2f2c61e5e016c138",
+            "sha256": "sha256:fc6d063ce1587e44ec90a58c3e4ad86574c88be98fcb32d67a14d361967f3a38",
             "byte_size": 53848,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 853,
             "mime_type": "image/webp",
-            "sha256": "sha256:1733b2b0c638b7ed3be4d94d171309ece284bbaf16b7d861dcf11477297baefd",
+            "sha256": "sha256:3d67ee66b9000bc4c461bf3e4f2a792b210eef107cdc8dda48e86ad32748425e",
             "byte_size": 196224,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1600,
             "mime_type": "image/webp",
-            "sha256": "sha256:32862929ef6bfe144640bc06c87be63a4a2dbc8d39a94fcf0e0597f7db009911",
+            "sha256": "sha256:27be835c3c03027164944bfc914025f7eada3f6909cede05690bb27746fb5269",
             "byte_size": 659890,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -178,30 +179,30 @@
             "width": 640,
             "height": 427,
             "mime_type": "image/webp",
-            "sha256": "sha256:183942baad2b026a8be116a709ad69a35cdb6a6c625620107316d810e4b0914e",
-            "byte_size": 21502,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/640.webp",
+            "sha256": "sha256:c45f68c1907ac9475cea8f15288a96887e502567f61e35ee9ac09aa53ffa6461",
+            "byte_size": 21572,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 853,
             "mime_type": "image/webp",
-            "sha256": "sha256:b070a945bb577bc3be6b4556bcdccb7a6ab0f043b107a4086bc7fde4522f8ebc",
-            "byte_size": 57896,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/1280.webp",
+            "sha256": "sha256:58d70f550e2ea17f6e727db7214f49ff52376917fbc6fb5260554cd39cf3749b",
+            "byte_size": 57990,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1600,
             "mime_type": "image/webp",
-            "sha256": "sha256:35f6b0b430a2af64b371dda01e404839d66030a9264d1c6bee6da87bdfb2ca79",
-            "byte_size": 154324,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v1-q82-m6/2400.webp",
+            "sha256": "sha256:2e5f3c80266181f1d7f0cfb0ae235a243828063fd958ea9ff6ef62b5ba7a0db9",
+            "byte_size": 154486,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -231,30 +232,30 @@
             "width": 640,
             "height": 640,
             "mime_type": "image/webp",
-            "sha256": "sha256:d7db3759abf649ac9a8bde25da093df60a6a3264b5f3a1d2235c90e2af31babf",
+            "sha256": "sha256:8e0915b020965a6090c868ba29397c03ee8322d84ebca32fe3714f0537d96987",
             "byte_size": 45202,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1280,
             "mime_type": "image/webp",
-            "sha256": "sha256:d0225edf6df1b7d5954f8df9e55c3ef3969e5a8b47255e80262bc32982211e32",
+            "sha256": "sha256:18bb9cadc9c91a36518da2d5650cfaa3a9c398bebb4a283275a1b538bce48ad1",
             "byte_size": 145438,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 2400,
             "mime_type": "image/webp",
-            "sha256": "sha256:9a72eabc68239fee7e6d50809ec127e08c332dd32801a2e7d62b5eecc8eab169",
+            "sha256": "sha256:73c4e5dbf469c3c2757ac2368409974e6b6b2c7a508b0ec4db9425252666108c",
             "byte_size": 390994,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -284,30 +285,30 @@
             "width": 640,
             "height": 415,
             "mime_type": "image/webp",
-            "sha256": "sha256:ed2832d07cb148dfa120561e63999a4a4ddfd5ec9f77e18abee2bafa50d95135",
-            "byte_size": 65412,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/640.webp",
+            "sha256": "sha256:5f0a87f5fbae6f0622578e4a60701da4f0b2c89fe7caa0303efff13ab9db5f0a",
+            "byte_size": 65508,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 830,
             "mime_type": "image/webp",
-            "sha256": "sha256:bc472d291d1a8d12f2cd5f1c982743092d2f60e975998480c3a43c0ff64d6212",
-            "byte_size": 264658,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/1280.webp",
+            "sha256": "sha256:ad1dbefd5c47533b03ffdd1cf5ca451406c88ed8331cb332ca95c79ea1af47cc",
+            "byte_size": 264520,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1557,
             "mime_type": "image/webp",
-            "sha256": "sha256:7ae43b7627525238481debdd4939d98b6d3db77e8a8c071ae3a0e9cce186edcd",
-            "byte_size": 839982,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v1-q82-m6/2400.webp",
+            "sha256": "sha256:b1f87960960fd00b23b4496dded66fa2b5751f068ff8e0ee689558522be51537",
+            "byte_size": 840050,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -337,30 +338,30 @@
             "width": 640,
             "height": 427,
             "mime_type": "image/webp",
-            "sha256": "sha256:eec0fe30a661a19a08e581c7f7ca5d3bda5cfc8a808fe7e18b6f070a28fb0d02",
+            "sha256": "sha256:ffa94eec90c5ce8240f50cf3ec733298f83373ff4f7b5d349c658a301e506bbe",
             "byte_size": 39400,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 853,
             "mime_type": "image/webp",
-            "sha256": "sha256:7268f8bfcb1d0a45de70337a3b09a37ec9538572912b36c59bef536d32910e86",
-            "byte_size": 158114,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/1280.webp",
+            "sha256": "sha256:d6c7f8b8ba024647cef1e3f96a99d12c837429a32e04b5cb27032ba981d0d4f9",
+            "byte_size": 158136,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1600,
             "mime_type": "image/webp",
-            "sha256": "sha256:4c100c05dc4c1f249106b6dd4d09753879123c279e8c31e58371e40285ce393a",
-            "byte_size": 862000,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v1-q82-m6/2400.webp",
+            "sha256": "sha256:fa68ea818c28e615c377fd521d779ce810417b6fc60fc4424d65b478ece98460",
+            "byte_size": 862290,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -390,30 +391,30 @@
             "width": 640,
             "height": 360,
             "mime_type": "image/webp",
-            "sha256": "sha256:2293e54f3ae5732f5c60d63c4cce66d3902aae1c7159e602cd7aa5b4f8cbe2a9",
+            "sha256": "sha256:52c1e505385117bd0339667ee61c70b19879714a48b48ca3256cd92fec02d90e",
             "byte_size": 36326,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 720,
             "mime_type": "image/webp",
-            "sha256": "sha256:0ee422e19b133b9e45e647d37f5815a646b8129377b9771d8be523fd2faf27e3",
+            "sha256": "sha256:4f91f726853c4e98a3025c4edecfff8051545246d7139d907a13d22a0639ea11",
             "byte_size": 174120,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1350,
             "mime_type": "image/webp",
-            "sha256": "sha256:6f679e6b101a14f1f1f0721a0ca81109f9b4cb9a188de105432127e943cffc92",
+            "sha256": "sha256:4997f1f53f9a3bc11562d8901bd72ee8710f0c3ce742f4c3cead13a70b227a82",
             "byte_size": 755382,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -443,30 +444,30 @@
             "width": 640,
             "height": 843,
             "mime_type": "image/webp",
-            "sha256": "sha256:a6684811d5998c8c98307d092101784bc76d13f14f063a6855607f8273c02fc2",
-            "byte_size": 212852,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/640.webp",
+            "sha256": "sha256:655726c8c546d3e3d4b823f1b2d823343773a89fdd7ea3c69de3e60fd6181c6b",
+            "byte_size": 212956,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1686,
             "mime_type": "image/webp",
-            "sha256": "sha256:5485a66fc575b4090c17281332968ee929f2208c823e41c6f81f9498124b7307",
-            "byte_size": 736470,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/1280.webp",
+            "sha256": "sha256:e3d10c47ab3efab2a3dcb7e9be3ae36343e10a82af5a114b5446d0817bcab9ac",
+            "byte_size": 736308,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 3161,
             "mime_type": "image/webp",
-            "sha256": "sha256:483adc0d72885ccc037468714cdb46ce118ba1ae2d565a1876da7495933fe09f",
-            "byte_size": 2214652,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v1-q82-m6/2400.webp",
+            "sha256": "sha256:c15ab20d4174349fe31fd675ba20a83e2ce73f12ae1fc55a5cd05573044b7f21",
+            "byte_size": 2204002,
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -496,30 +497,30 @@
             "width": 640,
             "height": 426,
             "mime_type": "image/webp",
-            "sha256": "sha256:db04aabc24b7965d9881cfb79417fb2a22b02103cc59dc282aabd574d1dab1de",
+            "sha256": "sha256:72e55121d2828efa102b9fa7878ec54f282ff7e703fe7e1fe8f02b31c6825275",
             "byte_size": 23152,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 851,
             "mime_type": "image/webp",
-            "sha256": "sha256:0eeaac86837911fcd29b1d44599276adb7af966dfac336c7d79fe06a6735ce21",
+            "sha256": "sha256:8b7b0be05829428a7a355524cd88187e5a87ab4c2a176456396c8d137f1ff7b6",
             "byte_size": 146068,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1596,
             "mime_type": "image/webp",
-            "sha256": "sha256:7a6fbdf8b5d1c4a42df7218a4e8142693ff2e03465ee276ca57f4f96fee305eb",
+            "sha256": "sha256:d453986c8708a416bbf2bcfb87eb107b06e76396de14786539397d2307fae144",
             "byte_size": 823260,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -549,30 +550,30 @@
             "width": 640,
             "height": 960,
             "mime_type": "image/webp",
-            "sha256": "sha256:24c57912717b393a67911245e617d9a7252d7ee31c540c015c777290a6982113",
+            "sha256": "sha256:0ef30e4f2e5b96edeb33f78ca906ba0352331fa1448dbdd8a627b0845ae12f17",
             "byte_size": 8080,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1920,
             "mime_type": "image/webp",
-            "sha256": "sha256:64e215c53146c3eaff889c821eab4904c3ea07ba55f0d45000530e392a4d6da0",
+            "sha256": "sha256:6c9668a3547732a853288008ac60774a8c66d1f9e65a7cb90c197cca2e63731d",
             "byte_size": 21378,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 3600,
             "mime_type": "image/webp",
-            "sha256": "sha256:286532b21904ac46b45034cc0f648d2fd87f07532927f10bef23eb3a660272ec",
+            "sha256": "sha256:51791ac9835858bf7e7cd06fdfe018ba0f2d986b9e90481e0a7e7419d19f072c",
             "byte_size": 65456,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -602,30 +603,30 @@
             "width": 640,
             "height": 427,
             "mime_type": "image/webp",
-            "sha256": "sha256:093bd9df5cba252a501ad2849447f46e84b0164361d3ec7c2985cdf211f69efc",
+            "sha256": "sha256:14eea8754ea08d39dd5fe39d93f2f69dbce8e18e9f550a10f7e76bc6ec3fc784",
             "byte_size": 15306,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 853,
             "mime_type": "image/webp",
-            "sha256": "sha256:b19822cb549273008e62a75f158727848da5ba21c3a901745f5176f5509b622d",
+            "sha256": "sha256:00f3ff73be1cfff57a5ddf3ae9890cd9a49e1de547c5883cd1ac405bcda6f985",
             "byte_size": 43850,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1600,
             "mime_type": "image/webp",
-            "sha256": "sha256:7d2325969e053f333c256b2ad003e07d6a1096ad2e2641b847dce251fdb8e89f",
+            "sha256": "sha256:c704956b390385b6c8f2c9158455292618b8237aa3355ff6b0a2615b3f62c251",
             "byte_size": 104860,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -655,30 +656,30 @@
             "width": 640,
             "height": 452,
             "mime_type": "image/webp",
-            "sha256": "sha256:af1ed56e1df0a2fee1968c104a843bd8547623225dbed2a77c31e7bd7df0e97c",
+            "sha256": "sha256:33d7d68bdd19ec14b018d4da3cc47fdc614dfb1a4d325e3cc6ff3c00b26bea2d",
             "byte_size": 91810,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 904,
             "mime_type": "image/webp",
-            "sha256": "sha256:48abf4f626cd5ac0ebaa16b6835a708a5a12514418a913370229856f1a775c5e",
+            "sha256": "sha256:0a5ad28fd5f5861f04fc275c779dc24f4c20f2d5a024e8f72f21aaa2e7cedb20",
             "byte_size": 303892,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1694,
             "mime_type": "image/webp",
-            "sha256": "sha256:7f7d919f170f1dcaa4ad19a190a4d37124343041ce8af1dba6381dc028c53696",
+            "sha256": "sha256:aee6a534b76098d92cd1f8d3070a6fe188efc19cb8c13b45208a34fddc4633f8",
             "byte_size": 995600,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -708,30 +709,30 @@
             "width": 640,
             "height": 640,
             "mime_type": "image/webp",
-            "sha256": "sha256:9dd7552111917ac097ac698a54e344ac1cf7b83fc85758d3ccb22571598c16f9",
+            "sha256": "sha256:98422b16afc8a18d59ec229cbf613405f1368f1607e8547daff2cf15094b76b2",
             "byte_size": 14192,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1280,
             "mime_type": "image/webp",
-            "sha256": "sha256:254d20133735e93e754623ca84cb2529f18c76d8f2f18729b2c702dbfd6697b8",
+            "sha256": "sha256:e61d70d1613f809acc5b004a6d9769640237b25e23c76e38c77e6a2c20bc3732",
             "byte_size": 52782,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 2400,
             "mime_type": "image/webp",
-            "sha256": "sha256:b93ce10cf99376f5973e0d07498826cda7d84a6c2fc5920d6262c4e4f7af5b51",
+            "sha256": "sha256:d3c5d998f2790e043b5b2883e7cbe25fcbb03ef34d04850758d8aa05064b4959",
             "byte_size": 144246,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -761,30 +762,30 @@
             "width": 640,
             "height": 450,
             "mime_type": "image/webp",
-            "sha256": "sha256:27a414abfce23105631e1a4545e15d4b3ffadcd09d47e644f1d925f1c15508c0",
+            "sha256": "sha256:6d823740d55efbb5b372297e7a13dd9e66a4e44f3b8ec3dfe9af8c19ebca5c45",
             "byte_size": 36502,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 900,
             "mime_type": "image/webp",
-            "sha256": "sha256:b0edde7d70864e746608f79ecac2bbad8ab5f21de887a9693ea4825790e8b336",
+            "sha256": "sha256:9f76888d88d583be54d4a283fac16543cb4ef6c816978035a38320c83afb927e",
             "byte_size": 126870,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1688,
             "mime_type": "image/webp",
-            "sha256": "sha256:7e45d5c93eaed3145df99fe7407f580d852a8302a19b2b07ec796571f1185353",
+            "sha256": "sha256:2d64c95288438aa6fbab43b5c75a0eac9d9871f5e98c10bc87d4c726c3f5299a",
             "byte_size": 641796,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -814,30 +815,30 @@
             "width": 640,
             "height": 914,
             "mime_type": "image/webp",
-            "sha256": "sha256:4e17bd98a4b0d2acdc497e82259a45719c5df2cf7c860ce26d23126ae8a9c2c7",
+            "sha256": "sha256:848332c688bdce2a24c6e5482b8e13d48651f53b9cce941a745eff8435798c72",
             "byte_size": 56190,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1829,
             "mime_type": "image/webp",
-            "sha256": "sha256:8e436d9209faac9d98a684b3a139a64f3d0ac42ef90de740d44345b44c99f6d0",
+            "sha256": "sha256:d01bc25cd64b7a7433514965942d9870887ff7e44c0cee6db300670402593df7",
             "byte_size": 281082,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 3429,
             "mime_type": "image/webp",
-            "sha256": "sha256:8c0c5a17fcec14183d74087b82a9ffbfaf07f7f896b73368832e6fe44d8f46e7",
+            "sha256": "sha256:5a904e0b374a324d075ba1e525844f6de9332ec4524d6070e4cb5b4b34344537",
             "byte_size": 1271516,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -867,30 +868,30 @@
             "width": 640,
             "height": 512,
             "mime_type": "image/webp",
-            "sha256": "sha256:a46b2d79d4b3e65b5451975519696c2a3257415fde7fbfb0c9f2fcef613500cc",
+            "sha256": "sha256:3e67afb1dd61d7fd5ead222637ca0c435d7db680e70a4c485377aa13b047a65f",
             "byte_size": 24194,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/640.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 1280,
             "height": 1024,
             "mime_type": "image/webp",
-            "sha256": "sha256:7850764872c53130a46789d0f98e0a40f8e02d7ec7687aa7353a678a29115a4f",
+            "sha256": "sha256:057c40778d9428e6b1469e3e72c995fb9a43ca02d3b9aab07991b9c09ddf4996",
             "byte_size": 114054,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/1280.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp",
             "cache_control": "public, max-age=31536000, immutable"
           },
           {
             "width": 2400,
             "height": 1920,
             "mime_type": "image/webp",
-            "sha256": "sha256:48da836d7d85873f917e5cf5fa3f039edfa6204f5d7bda817efd5616a192316d",
+            "sha256": "sha256:24271a75f11bef7e0a531af4e7fbd52796b6d07a11d86bdc4ff2fae1d7783a9f",
             "byte_size": 358130,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v1-q82-m6/2400.webp",
+            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/2400.webp",
+            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]

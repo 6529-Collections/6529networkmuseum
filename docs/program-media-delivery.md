@@ -36,7 +36,7 @@ separately.
 
 ## Deterministic transform
 
-Profile: `6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6`.
+Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 
 - implementation: Pillow 12.3.0;
 - output: lossy WebP, quality 82, encoder method 6;
@@ -45,6 +45,11 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V1_Q82_M6`.
 - orientation: apply the source EXIF orientation before measuring or resizing;
 - colour: convert embedded profiles to sRGB; treat untagged files as sRGB;
 - metadata: remove source EXIF/XMP and retain only the output sRGB ICC profile;
+- colour-profile determinism: embed the repository-pinned 588-byte sRGB ICC
+  profile with SHA-256
+  `4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86`;
+  do not create a fresh LittleCMS profile at generation time because its
+  header contains a wall-clock creation timestamp;
 - naming: include the complete source SHA-256 and transform profile in every
   repository and CDN path.
 

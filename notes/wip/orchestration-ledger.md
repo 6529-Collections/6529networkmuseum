@@ -1936,3 +1936,22 @@ SHA-256 metadata, and S3 SHA-256 checksums. Existing source objects are not
 overwritten. Repository validation, release-manifest regeneration, frontend
 integration, bot review, merge, staging E2E, and production E2E remain the
 active gates.
+
+### 2026-08-04 Keys and Gates media determinism amendment
+
+Museum PR #26's first Linux CI run exposed that a newly created LittleCMS sRGB
+profile contains a wall-clock creation timestamp. Two otherwise identical
+WebP conversions could therefore differ when they crossed a one-second
+boundary. The v1 derivative record above remains the historical construction
+checkpoint; it is superseded for publication by
+`6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
+
+The v2 generator embeds one repository-pinned 588-byte sRGB profile with
+SHA-256
+`4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86`
+instead of generating a profile at runtime. The new forty-eight derivatives
+total 16,093,924 bytes, occupy a separate immutable transform namespace, and
+were regenerated twice in separate processes with identical bytes. All v2 CDN
+objects were then fetched and checked against the manifest for SHA-256, byte
+size, WebP MIME type, and immutable cache headers. The uploaded v1 objects were
+not overwritten and are not referenced by the amended manifest.
