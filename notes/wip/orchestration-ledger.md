@@ -1730,3 +1730,31 @@ and Keccak-256
 `0x9c276bcbfcc142e6933aa3c3f337425398b3e2c1fde059351f6221debad7a4e3`.
 These commitments remain candidates until the reviewed source pull request
 merges.
+
+### 2026-08-04 institutional-practice source package
+
+The Museum has completed the research and editorial draft for *A field of
+practice*, a comparative study of fourteen institutions and institutional
+systems: the Met, Getty, MoMA, the Whitney, Tate, Centre Pompidou, SFMOMA, the
+Guggenheim, ZKM, Ars Electronica, Rhizome/New Museum, Serpentine Arts
+Technologies, the V&A, and LACMA. The package contains an introductory essay,
+fourteen profiles, a primary-source register, and a revised Museum scholarship
+and editorial standard.
+
+An adversarial factual and prose audit materially changed the first draft.
+Every profile now carries primary-source links beside factual claims, examines
+a named work or project and a longer research or conservation source, separates
+institutional self-description from demonstrated practice, and ends with
+specific Museum requirements and limits. The audit corrected MoMA's
+exhibition-history completeness claim, Rhizome's May–June 2026 Conifer service
+transition, and a Centre Pompidou URL that resolved to a different artwork. It
+also removed comparative rankings, prestige language, repetitive antithesis,
+and generic technology rhetoric.
+
+The source register records displayed titles, dates shown, source types, access
+date, and evidentiary use. Its current 114 unique links pass the local hard-link
+audit with no HTTP 404 or server-error response. The package test enforces exact
+profile inventory, common publication control, named cases, claim-level links,
+profile-to-register source reconciliation, direct HTTPS sources, and selected
+editorial prohibitions. Full repository validation, manifest generation,
+governed source review, and frontend publication remain pending.
