@@ -120,6 +120,14 @@ class ProgramMediaTests(unittest.TestCase):
             ImageCms.getProfileDescription(second_profile),
         )
 
+    def test_srgb_profile_hash_mismatch_keeps_specific_error(self) -> None:
+        with patch.object(media, "SRGB_ICC_SHA256", "sha256:" + "0" * 64):
+            with self.assertRaisesRegex(
+                media.ProgramMediaError,
+                r"^fixed sRGB ICC profile hash does not match$",
+            ):
+                media.fixed_srgb_profile()
+
     def test_fixity_check_rejects_changed_derivative(self) -> None:
         with self.patched_paths():
             manifest = self.generate()
@@ -127,6 +135,19 @@ class ProgramMediaTests(unittest.TestCase):
             derivative = next(self.media_root.rglob("*.webp"))
             derivative.write_bytes(derivative.read_bytes() + b"changed")
             with self.assertRaisesRegex(media.ProgramMediaError, "fixity mismatch"):
+                media.verify_manifest()
+
+    def test_fixity_check_rejects_cross_variant_aspect_ratio_change(self) -> None:
+        with self.patched_paths():
+            manifest = self.generate()
+            derivatives = manifest["items"][0]["presentation"]["derivatives"]
+            self.assertEqual(
+                [(640, 320), (1280, 640), (2400, 1200)],
+                [(item["width"], item["height"]) for item in derivatives],
+            )
+            derivatives[0]["height"] = 511
+            media.write_json(self.manifest_path, manifest)
+            with self.assertRaisesRegex(media.ProgramMediaError, "aspect ratio differs"):
                 media.verify_manifest()
 
 

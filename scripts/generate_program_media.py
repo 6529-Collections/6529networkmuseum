@@ -167,11 +167,11 @@ def has_alpha(image: Image.Image) -> bool:
 def fixed_srgb_profile() -> tuple[ImageCms.ImageCmsProfile, bytes]:
     try:
         profile_bytes = base64.b64decode(SRGB_ICC_BASE64, validate=True)
-        if sha256_bytes(profile_bytes) != SRGB_ICC_SHA256:
-            raise ProgramMediaError("fixed sRGB ICC profile hash does not match")
         profile = ImageCms.ImageCmsProfile(io.BytesIO(profile_bytes))
     except (OSError, ValueError) as exc:
         raise ProgramMediaError(f"fixed sRGB ICC profile is invalid: {exc}") from exc
+    if sha256_bytes(profile_bytes) != SRGB_ICC_SHA256:
+        raise ProgramMediaError("fixed sRGB ICC profile hash does not match")
     return profile, profile_bytes
 
 
@@ -461,6 +461,15 @@ def verify_manifest() -> tuple[int, int]:
         source_sha256 = require_string(source.get("sha256"), f"{record_id} source sha256")
         if SHA256_PATTERN.fullmatch(source_sha256) is None:
             raise ProgramMediaError(f"{record_id} source sha256 is malformed")
+        source_width = source.get("pixel_width")
+        source_height = source.get("pixel_height")
+        if (
+            not isinstance(source_width, int)
+            or not isinstance(source_height, int)
+            or source_width <= 0
+            or source_height <= 0
+        ):
+            raise ProgramMediaError(f"{record_id} source dimensions are invalid")
         if presentation.get("alt_text") != alt_texts[record_id]:
             raise ProgramMediaError(f"{record_id} alt text differs from the accessibility source")
         derivatives = presentation.get("derivatives")
@@ -477,6 +486,11 @@ def verify_manifest() -> tuple[int, int]:
             )
             if not isinstance(width, int) or not isinstance(height, int):
                 raise ProgramMediaError(f"{record_id} derivative dimensions are invalid")
+            expected_height = max(1, round(source_height * width / source_width))
+            if height != expected_height:
+                raise ProgramMediaError(
+                    f"{record_id} derivative aspect ratio differs from its source at width {width}"
+                )
             expected_path = Path(
                 "media", "programs", PROGRAM_ID, record_id, digest, TRANSFORM_PATH, f"{width}.webp"
             ).as_posix()

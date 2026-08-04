@@ -1955,3 +1955,15 @@ were regenerated twice in separate processes with identical bytes. All v2 CDN
 objects were then fetched and checked against the manifest for SHA-256, byte
 size, WebP MIME type, and immutable cache headers. The uploaded v1 objects were
 not overwritten and are not referenced by the amended manifest.
+
+### 2026-08-04 Keys and Gates media review hardening
+
+Automated PR review identified that ICC-profile hash failures were being
+re-wrapped by the generic invalid-profile handler. The hash comparison now
+runs outside that handler and a regression test preserves the specific
+integrity error. Review also reported a possible aspect-ratio mismatch for the
+OUT-009 640-pixel derivative. Direct Pillow inspection confirmed the committed
+variants are 640x426, 1280x851, and 2400x1596 and are the uncropped products of
+the recorded 6016x4000 source. The validator now independently derives every
+declared height from its recorded oriented source dimensions, and a mutation
+test rejects a cross-variant ratio change before fixity or geometry checks.
