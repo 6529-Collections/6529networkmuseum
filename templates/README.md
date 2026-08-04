@@ -16,6 +16,7 @@ These templates are the operational layer below the governing working standard [
 | [`provenance-chain-history.md`](provenance-chain-history.md) | Keep on-chain history, legal title, custody, and historical provenance distinct | Object-level provenance and chain schedule |
 | [`rights-donor-transfer.md`](rights-donor-transfer.md) | Record donor/transfer terms, title binding, rights, restrictions, and credit | Lot-level instrument plus object-level rights matrix |
 | [`preservation-dossier.md`](preservation-dossier.md) | Define what is preserved, how it is packaged, and how it is verified and recovered | Object or shared-lot preservation package |
+| [`generative-system-dossier.md`](generative-system-dossier.md) | Reconstruct and interpret identity, randomness, state, interaction, collection topology, causal counterfactuals, and conservation for a generative system | Project-level research dossier linked to exact Museum objects; not yet a governed record family |
 | [`public-inventory.md`](public-inventory.md) | Prepare the public checklist/inventory and publication decision | Public-safe projection of governed records |
 | [`restricted-annex-reference.md`](restricted-annex-reference.md) | Point to restricted registrar material without publishing it | Public reference only; never the private annex itself |
 | [`attestations.md`](attestations.md) | Capture constructor, technical, curatorial, registrar, and independent review attestations | Sign-off and accountability block |
@@ -47,7 +48,16 @@ Use this shared pathway vocabulary in both the lot record and gate worksheet: `[
 
 ### Completed Casey Reas donation
 
-The completed Casey Reas donation is a multi-object donation scenario for this packet. Its current lot state is `donation_status: received` and `accession_status: documentation_in_progress` (accession-in-progress), not accession-complete. Do not infer `acceptance_status` from those two register fields; record acceptance only from its own authority, date, and decision evidence. Use one accession lot with one object record per donated work/token, a lot-level donor/transfer record, and object-level technical, condition, provenance, rights, preservation, and public-inventory entries. The templates intentionally contain no Casey object facts and do not replace or edit the actual Casey records. When filling them, copy verified values from the canonical records and bind the title evidence to the specific transfer for each object.
+The completed Casey Reas donation is a multi-object donation scenario for this
+packet. The reviewed accession package, not this template, establishes its
+accepted and accessioned state. Use one accession lot with one object record
+per donated work/token, a lot-level donor/transfer record, and object-level
+technical, condition, provenance, rights, preservation, and public-inventory
+entries. The templates intentionally contain no Casey object facts and do not
+replace or edit the actual Casey records. When filling them, copy verified
+values from the canonical records and bind the title evidence to the specific
+transfer for each object. Never infer an acceptance or accession state from a
+wallet transfer, receipt status, or template example.
 
 ### Unminted Keys and Gates selections
 

@@ -47,13 +47,13 @@
     },
     {
       "path": "INDEX.md",
-      "sha256": "sha256:52beb21820ed895ad3b4d09b9646d3d4af3a6b3a0b8e73aacfff4e71e004bf43",
-      "size": 26455
+      "sha256": "sha256:d99f02b73c3025e8bc0e81841c4964b2d2000c7664e96c7d7cbe8e7800ec2450",
+      "size": 27909
     },
     {
       "path": "README.md",
-      "sha256": "sha256:4244f5757d6334413ca36a84f0cb4afc51c045e3866dbc1d7edc253bd96fa132",
-      "size": 9149
+      "sha256": "sha256:e3c1e7a176bbc01b9455839c8cee6829b95da676bdb647123797d20cfe412f85",
+      "size": 9260
     },
     {
       "path": "RIGHTS.md",
@@ -72,8 +72,8 @@
     },
     {
       "path": "docs/control-plane.md",
-      "sha256": "sha256:5fde4d0f4449c141b66b810ab1e0b0925c358fef430f51a0ab08dbc78b88a981",
-      "size": 10307
+      "sha256": "sha256:0d6377e78919496c345191cb7d9f41077772f0a163fed47f514b9d6a81d0aebe",
+      "size": 10513
     },
     {
       "path": "docs/curatorial-publication-standard.md",
@@ -91,14 +91,19 @@
       "size": 10801
     },
     {
+      "path": "docs/generative-system-analysis.md",
+      "sha256": "sha256:4efd3ae9e7e4879a1cd4c528c4ac9ed5a7d9ed016e28eae5baab1752c1597117",
+      "size": 24337
+    },
+    {
       "path": "docs/generative-trait-analysis.md",
       "sha256": "sha256:55ef3f72953e0a4c657b325d01f877213614f26397e5f236848bc31b2fda1d59",
       "size": 13552
     },
     {
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:5e1ca547c7f8fc19f31b0bb83c5307de4f2352133717a619062d3b1d60f67949",
-      "size": 13329
+      "sha256": "sha256:e1f2e1b144c68123f0366ed06594e73f60415922a947815f2c881979aee7ee6b",
+      "size": 22319
     },
     {
       "content_hash": {
@@ -147,8 +152,8 @@
     },
     {
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:bb216e1562300c2f48fc2e291f620d02c1feb4ac38264a2e19d1bb072d00c3dd",
-      "size": 12989
+      "sha256": "sha256:e6657e7b284570bd9407664ded4f3508228c2b5798e5b5681c7d07c8486d825e",
+      "size": 13717
     },
     {
       "path": "governance/github-repository-governance.md",
@@ -159,6 +164,41 @@
       "path": "governance/pull-request-review-policy.md",
       "sha256": "sha256:d6f69774caf1189c2fcda8f84f46ae76d04aadbcbe95bd38b7851fbc32515aca",
       "size": 5505
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/923-empty-rooms.md",
+      "sha256": "sha256:362d41bbb3efff11940d40329c8242e02ff50ccb343fb2b2bad37660754b1aa1",
+      "size": 26447
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/README.md",
+      "sha256": "sha256:2b44ef742bd97797d6e48c1f6d408f4eef093656cb4ff760d3cfe52e84c92e8c",
+      "size": 3908
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/century.md",
+      "sha256": "sha256:0ac94e038726f75b2a98bfc641143365b916552b726eac360d60a711b6b0e336",
+      "size": 37215
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/comparative-study.md",
+      "sha256": "sha256:3fa56d8adf81db10fbe83d17e85bdfa40662c359284e4c8acb6c69936ba7ce2d",
+      "size": 20919
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/ex-nihilo-cosmos.md",
+      "sha256": "sha256:d85076d4f6aa1d11fe9e23c4e83072d2e8dcae4cae191423df3d1fed8051b367",
+      "size": 27492
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/phototaxis.md",
+      "sha256": "sha256:5ab0ca4f327ecefaacc17c852d6d6e606830a242e8cecd0f816f6ec43fdcfd4a",
+      "size": 41858
+    },
+    {
+      "path": "notes/research/generative-systems/casey-reas/pre-process.md",
+      "sha256": "sha256:a92c0f0f8f8ce1ca0018ece91dc0be43d696c7e26986145880d52214b32d4b12",
+      "size": 40926
     },
     {
       "path": "policies/README.md",
@@ -1292,8 +1332,8 @@
     },
     {
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:0e0946d1c349c522f852d86ca52727375cd1e88f2de4fbcb1be8496e41d5a18c",
-      "size": 8325
+      "sha256": "sha256:98f77fe2cdeedcd68f75d4a4d5f6386b667831a2596e4235f55504bdee9d77c7",
+      "size": 8377
     },
     {
       "path": "scripts/harden_casey_snapshot_package.py",
@@ -1537,8 +1577,8 @@
     },
     {
       "path": "templates/README.md",
-      "sha256": "sha256:199381ad7fb216bc1cc056ff51349084e0632822d60545de911f187beb649b3f",
-      "size": 8853
+      "sha256": "sha256:3173055e52c63edfcd964ec580610f3191afa2a6d0cddb6ce5680830992e9821",
+      "size": 9086
     },
     {
       "path": "templates/accession-lot.md",
@@ -1554,6 +1594,11 @@
       "path": "templates/attestations.md",
       "sha256": "sha256:81a63e9e86ccf01b789bb983f2036a8e0db2c98ea39e86de0398e218fa06cc3f",
       "size": 4580
+    },
+    {
+      "path": "templates/generative-system-dossier.md",
+      "sha256": "sha256:bb9f3854e25d0e9759c618f663feb6ab661822a6c4a8c229345e34e9aaf268fe",
+      "size": 9906
     },
     {
       "path": "templates/object-record.md",
@@ -1752,8 +1797,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:6ed8242ebe40b44751238e5c121690d5c8eeffdcf9e942d8c8b13575b71e03a8",
-      "size": 63182
+      "sha256": "sha256:6289469515e8d3a4191f2236aa727111d453f06787c7b175d6c1f4cef034fd2b",
+      "size": 63544
     },
     {
       "path": "tests/test_institutional_practice.py",
@@ -1785,14 +1830,15 @@
     "specs",
     "templates",
     "scripts",
-    "tests"
+    "tests",
+    "notes/research/generative-systems/casey-reas"
   ],
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xcdab557dacba52ab6752096436c01bba3b6c0c0afcd0c7e94a904ba1d492b5e3"
+    "digest": "0xcceeca18916b9966f3f46c0d2f61d9d2a4fff2609f038ed5bd764c528b99d444"
   },
-  "manifest_sha256": "sha256:71458b77d145bd3592e4f0ee0a2d8c1c49c96a71782ab200d9430f36b4dcad8b",
+  "manifest_sha256": "sha256:e9de58b961f9cdafed8ea33fd2e042c8b4f82e9699be1ecff3fe3a3b0e6a499a",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

@@ -29,6 +29,7 @@ INVENTORY_ROOTS = (
     "templates",
     "scripts",
     "tests",
+    "notes/research/generative-systems/casey-reas",
 )
 INVENTORY_FILES = (
     ".gitattributes",

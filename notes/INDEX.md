@@ -6,12 +6,16 @@ This index is the durable entry point for research, alternatives, and implementa
 
 - [`wip/2026-08-01-casey-accession-working-plan.md`](wip/2026-08-01-casey-accession-working-plan.md) — superseded planning input. The controlling result is the completed accession package at [`records/accessions/6529NM.2026.001`](../records/accessions/6529NM.2026.001/).
 - [`research/casey-reas-art-technical-research.md`](research/casey-reas-art-technical-research.md) — retained source and claim-boundary research for the artist, five projects, and seven works.
+- [`research/generative-systems/casey-reas/README.md`](research/generative-systems/casey-reas/README.md) — constructed art-first five-project dossier set and seven-work comparative study under [`docs/generative-system-analysis.md`](../docs/generative-system-analysis.md); curatorial argument leads and research controls follow at the end.
 - [`research/casey-reas-onchain-evidence.md`](research/casey-reas-onchain-evidence.md) — retained chain, custody, metadata, and provenance research with a dated accession-resolution addendum.
 - [`wip/2026-08-01-nextgen-rarity-analysis.md`](wip/2026-08-01-nextgen-rarity-analysis.md) — superseded design history for the transparent, non-marketplace distribution method now documented in [`docs/generative-trait-analysis.md`](../docs/generative-trait-analysis.md).
+- [`wip/2026-08-04-generative-systems-analysis-standard.md`](wip/2026-08-04-generative-systems-analysis-standard.md) — retained source-backed design history for the working generative-system analysis standard and Casey pilots, including unresolved rights/evidence questions.
+- [`wip/2026-08-04-generative-system-frontend-experience.md`](wip/2026-08-04-generative-system-frontend-experience.md) — implemented frontend review candidate for project-owned **Inside the System** studies: all five Casey visualizer forms, token-specific placement and shareable deep links, gift/story integration, future-acquisition behavior, verification, and the remaining publication/adoption boundary.
 
 ## Governance, standards, and repository controls
 
 - [`research/governance-decision-evidence.md`](research/governance-decision-evidence.md) — Wave decision evidence and interpretation boundaries.
+- [`wip/2026-08-04-homepage-network-museum-proposition.md`](wip/2026-08-04-homepage-network-museum-proposition.md) — production implementation of the homepage proposition and full institutional page, including PR/bot-review history, exact staging and production release evidence, responsive verification, screenshots, no-bold body-prose guard, present-state claim boundaries, and the publication/adoption distinction.
 - [`research/museum-standards-crosswalk.md`](research/museum-standards-crosswalk.md) — principal museum, digital-preservation, provenance, rights, and interoperability research.
 - [`research/museum-standards-crosswalk-luna.md`](research/museum-standards-crosswalk-luna.md) — retained independent research variant; not adopted policy.
 - [`research/repository-ci-architecture.md`](research/repository-ci-architecture.md) — design history for schemas, validators, generated indexes, manifests, review separation, and CI.
@@ -20,6 +24,7 @@ This index is the durable entry point for research, alternatives, and implementa
 ## Programs and on-chain design
 
 - [`research/keys-and-gates-evidence.md`](research/keys-and-gates-evidence.md) — source evidence for Keys and Gates; the current institutional record is [`docs/programs/keys-and-gates.md`](../docs/programs/keys-and-gates.md) and its linked program records.
+- [`wip/2026-08-04-keys-and-gates-media-delivery.md`](wip/2026-08-04-keys-and-gates-media-delivery.md) — implementation-ready WIP architecture for responsive CloudFront derivatives, rights-gated retained high-resolution masters, IIIF access, and the current live-page performance diagnosis.
 - [`wip/2026-08-01-stream-coverage-and-gaps.md`](wip/2026-08-01-stream-coverage-and-gaps.md) — early Stream comparison retained as design history.
 - [`wip/2026-08-01-external-works-registry.md`](wip/2026-08-01-external-works-registry.md) — early external-work registry design retained as history.
 - [`research/external-registry-review.md`](research/external-registry-review.md) — review evidence for the current external-work on-chain specification.

@@ -1004,6 +1004,7 @@ class ControlPlaneTests(unittest.TestCase):
                 "templates",
                 "scripts",
                 "tests",
+                "notes/research/generative-systems/casey-reas",
             ],
             manifest["inventory_roots"],
         )
@@ -1042,9 +1043,17 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertIn("requirements-dev.txt", paths)
         self.assertIn("scripts/rarity/nextgen_compat.py", paths)
         self.assertIn("tests/rarity/test_nextgen_compat.py", paths)
+        dossier_prefix = "notes/research/generative-systems/casey-reas/"
+        self.assertIn(f"{dossier_prefix}README.md", paths)
+        self.assertIn(f"{dossier_prefix}century.md", paths)
         self.assertFalse(any("__pycache__" in path or path.endswith((".pyc", ".pyo")) for path in paths))
         self.assertNotIn("release-artifacts/latest/record-manifest.json", paths)
-        self.assertFalse(any(path.startswith("notes/") for path in paths))
+        self.assertTrue(
+            all(
+                not path.startswith("notes/") or path.startswith(dossier_prefix)
+                for path in paths
+            )
+        )
         self.assertRegex(manifest["manifest_commitment"]["digest"], r"^0x[0-9a-f]{64}$")
         self.assertRegex(manifest["manifest_sha256"], r"^sha256:[0-9a-f]{64}$")
         self.assertEqual(manifest, make_manifest(REPO_ROOT))

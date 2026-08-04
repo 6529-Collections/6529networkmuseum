@@ -192,3 +192,151 @@ against undeclared fields. Focused mutation tests make those controls fail
 closed. The final release commitments and exact reviewed head are recorded only
 after independent review, CI, and merge; values written earlier in this roadmap
 remain historical checkpoints, not release authority.
+
+## 2026-08-04 - Casey generative-system dossier construction
+
+The Museum now has a working generative-system analysis standard and a reusable
+documentation template. The method joins exact source/seed reconstruction,
+algorithmic score, time and interaction semantics, collection topology,
+exact-object close reading, causal counterfactuals, and conservation. It keeps
+the existing NextGen-compatible population descriptor separate from rarity,
+quality, value, and curatorial significance.
+
+The standard has been applied in constructed research to all five Casey Reas
+projects represented by the seven works in accession `6529NM.2026.001`:
+*CENTURY*, *Pre-Process*, *Phototaxis*, *923 EMPTY ROOMS*, and *Ex Nihilo
+(Cosmos)*. A comparative study treats the image respectively as mutable
+adjacency, a surface over behavior, accumulated path history, a displacement
+instrument, and temporal memory. Project dossiers contain source locks,
+reconstructible algorithms, formal edition topology where available,
+token-specific analysis, claim registers, causal-atlas specifications, and
+display/preservation requirements.
+
+The package is not a governed accession amendment or a public-release claim.
+Required next gates are independent technical replay, independent curatorial
+review, source/trace retention where rights permit, rights and accessibility
+review for every analytical artifact, cross-environment behavior tests, and
+explicit disposition of the published open questions. No current generator
+response bytes or derived images were added by this research construction.
+
+User editorial review rejected the initial apparatus-first presentation as
+unreadable for an art audience. The working standard, template, package index,
+comparative study, and all five dossiers now lead with artistic proposition
+and close-looking stakes. Record status, rights limitations, preservation
+caveats, method vocabulary, and review controls remain intact but appear in a
+research apparatus at the end. This art-first order is now a standard
+requirement rather than a Casey-only copy edit.
+
+## 2026-08-04 - Generative-system frontend experience direction
+
+The recommended public architecture makes the project, not the acquisition,
+the permanent owner of generative-system analysis. A project hub links to an
+art-first **Inside the System** study; each collection object receives a compact
+token-specific position and deep link; a gift page explains only why its
+particular works entered together. Later acquisitions from the same project
+therefore enrich one continuing study without rewriting an earlier gift.
+
+The defining digital feature is a typed possibility-space visualizer that can
+represent exhaustive lattices, finite combinatorial fields, explicitly sampled
+edition fields, or dynamic state spaces. Museum-held works are an overlay on
+that field, never the definition of it, and non-held outputs remain research
+subjects rather than collection objects. The first recommended production
+pilot is *Pre-Process* because its exact `8 × 3 × 5` topology provides a finite
+and reviewable field; the three-work *CENTURY* comparison follows as the first
+demonstration of a project study enriched by multiple Museum holdings.
+
+The full route, page, responsive, accessibility, publication-model, and Casey
+rollout recommendation is retained in
+`notes/wip/2026-08-04-generative-system-frontend-experience.md`. This is
+experience direction, not a frontend implementation or public-release claim.
+
+## 2026-08-04 - Inside the System frontend implementation candidate
+
+The complete five-project experience is now implemented for local review in
+the isolated frontend worktree `C:\w\museum-inside-system-fe` on branch
+`codex/museum-inside-system`, based on `origin/main` commit
+`aa77ddf836c3c83cc680054e40247f7e4a78a18d`. Every relevant project page now
+opens an art-first **Inside the System** study; object pages locate their exact
+accession in that study; and the Casey gift and Stories pages expose the five
+projects as a continuing research series.
+
+The implementation provides four reusable visualizer types across the five
+Casey projects: the exact 120-position *Pre-Process* lattice, finite
+combinatorial structure for *923 EMPTY ROOMS* and *Ex Nihilo (Cosmos)*, an
+explicitly observed edition field for *CENTURY*, and a causal dynamic-state
+view for *Phototaxis*. Each view has a semantic table alternative, keyboard and
+reduced-motion treatment, non-color Museum markers, exact-position selection,
+and shareable object-to-study links. The typed study definition belongs to the
+project, so a later accession can add a held position without rewriting the
+earlier gift.
+
+Changed-file formatting, strict typecheck, lint, 23 focused tests, React Doctor
+100/100, desktop browser inspection, keyboard navigation, horizontal-overflow
+inspection, and the Next.js production build pass. The branch is not committed,
+pushed, merged, deployed, or adopted as a governed publication. Its study data
+is a source-neutral frontend research bundle; later promotion into the remote
+Museum publication should use optional atomic study groups rather than adding
+unavailable study files to the adapter's current all-or-nothing required path
+set. The existing exact-seven Casey publication overlay must also become
+acquisition-extensible before a later accession is published through it.
+
+## 2026-08-04 - Keys and Gates media delivery design
+
+Live inspection of `/museum/network/programs/6529NM-AP-01` and frontend remote
+`main` `11c91ab0576dd69ee3bc4dec671702dbc0d0bf69` established that the selected
+work files are already on CloudFront, but the frontend bypasses optimization
+and sends full camera originals into small cards. The sixteen sources total
+233,601,493 bytes; the first nine observed card loads alone total 148,516,331
+bytes. Current outcome records correctly identify only an observed upstream
+URL, with no retained binary or SHA-256.
+
+The recommended build separates upstream submission evidence, a rights-gated
+Museum-retained master, and deterministic responsive/IIIF derivatives. It uses
+a private versioned S3 origin behind CloudFront OAC, immutable digest-addressed
+paths, pre-generated AVIF/WebP/JPEG variants and deep-zoom tiles, a separate
+`MEDIA_RESOURCE` inventory, and an atomic publication-catalog projection.
+High-resolution access belongs on the outcome detail page behind explicit user
+activation, file-size/rights disclosure, and reviewed public-use authority; the
+grid never requests a master. The full design, rollout, budgets, and unresolved
+rights/CDN/IIIF choices are retained in
+`notes/wip/2026-08-04-keys-and-gates-media-delivery.md`. No infrastructure,
+media, record, or frontend change is claimed by this checkpoint.
+
+## 2026-08-04 - Inside the System comparison instrument
+
+The frontend review candidate now implements the scalable comparison contract
+proposed for any generative project: a fixed Museum accession at left and, at
+right, any minted output by invocation/token ID, random or trait-filtered
+minted selection, or an explicitly labeled project-specific counterfactual or
+session manifestation. All five Casey projects now use distinct SVG-native
+visual grammars rather than one generic chart.
+
+Compact indexes generated from the pinned complete project snapshots support
+3,299 minted works across the five projects. Deterministic suggested
+comparisons expose structural neighbors, complements, and uncommon published
+trait combinations without marketplace rarity. This remains a local,
+uncommitted review candidate. Before public release, the project-study content
+and indexes must move into optional atomic governed publication groups.
+
+## 2026-08-04 - Inside the System release-boundary amendment
+
+This checkpoint supersedes only the public-release gate in the preceding
+**Inside the System comparison instrument** checkpoint. Version 1 may ship the
+study definitions and compact indexes as a versioned frontend display package.
+The canonical research evidence remains the pinned snapshots, reviewed
+descriptors, and project dossiers in this repository; the frontend package is
+a derived interpretive access layer, not a new accession record or source of
+record.
+
+The release package contains 3,300 indexed edition records across the five
+projects, including *923 EMPTY ROOMS* invocation 0. Official artwork leads each
+study. Every synthetic view is persistently labeled **Museum model**. Minted
+lookup and filtering use the pinned complete snapshots, and **less often seen**
+uses the reviewed NextGen-compatible edition descriptor rather than marketplace
+data or an in-browser rarity calculation.
+
+Project-owned atomic publication groups remain the target for a future remote
+record profile, especially before acquisitions extend beyond the present gift.
+That promotion is no longer a blocker for this derived display release. This
+amendment does not claim artist approval, governance adoption, completed
+accession QA, or any change to the underlying Museum records.
