@@ -1,6 +1,6 @@
 # A line remembers: MicroImage and *Phototaxis*
 
-- **Final publication copy:** version 2.2.0
+- **Final publication copy:** version 2.3.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -19,7 +19,7 @@ In *Phototaxis*, Casey Reas turns the movement of simple simulated agents into a
 
 **Casey Reas, *Phototaxis* #308, 2021.** Browser-based generative artwork; Art Blocks Playground, edition of 1,000. A pale cyan field loops around a dense, dark center, with a smaller convergence above and long paths escaping vertically. The image is the residue of simulated movement: each line records an agent’s route through an environment of lights and rules. Reas developed this visual grammar across *Path*, *Tissue*, and *MicroImage* before returning to it for the Art Blocks edition. A static view reveals the density of the drawing; the live work unfolds over time. The Museum records both the changing performance and its documentation.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — clarified dating, repeatability, and source boundaries after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — completed the publication copy desk and clarified the relation between token identity and changing display.
 
 ## The image after the agent has gone
 
@@ -79,7 +79,7 @@ The available controls make the difference concrete. The reviewed object record 
 
 The token can preserve the relation of a numbered work to its project and provide a durable public reference for the object the Museum holds. It cannot, by itself, preserve a browser dependency, a display’s luminance, a visitor’s interval of attention, or the live accumulation that turns agents into drawing. The work remains materially dispersed across code, rendering, hardware, records, and looking.
 
-That dispersion gives #308 historical density. *Phototaxis* looks backward to early artificial-life experiments while entering a contemporary editioning infrastructure; it also raises the practical question of how a public collection can preserve a work whose image is an event. The stable identifier and changing display answer different needs. The identifier lets the Museum name its exact object; the changing display explains why that object remains an artwork rather than a database entry. In the blue-gray image, the delayed trace is also a model for accession: a way of holding a history that can be documented, seen, and revisited without claiming that its performance has stopped.
+That dispersion gives #308 historical density. *Phototaxis* looks backward to early artificial-life experiments while entering a contemporary editioning infrastructure; it also raises the practical question of how a public collection can preserve a work whose image is an event. The stable identifier names the object; the changing display shows why its state cannot be reduced to a catalogue image. In the blue-gray image, the delayed trace is also a model for accession: a way of holding a history that can be documented, seen, and revisited without claiming that its performance has stopped.
 
 ## The Museum object
 

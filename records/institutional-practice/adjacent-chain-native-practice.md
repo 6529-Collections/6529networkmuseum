@@ -22,8 +22,8 @@ authority.
 Selection confers no rank. The practices answer different Museum problems.
 Feral File and Art Blocks are useful for exhibition interfaces and
 technical identity. Bright Moments and Verse document event, release, and
-market mechanisms. DAM and MoRE are more useful for artist records, collection
-scope, rights, and public scholarship. DiMoDA and the Museum of Other Realities
+market mechanisms. DAM and MoRE address artist records, collection scope,
+rights, and public scholarship. DiMoDA and the Museum of Other Realities
 show native-runtime presentation. MOCA, Furtherfield, and The Wrong document
 community and distributed programs without proving decentralized collection
 governance. DATALAND documents a dynamic AI/data exhibition, while 0xCollection

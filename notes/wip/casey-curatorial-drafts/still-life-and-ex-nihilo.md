@@ -1,6 +1,6 @@
 # An ideal form cannot hold still: Still Life and *Ex Nihilo (Cosmos)*
 
-- **Final publication copy:** version 2.2.0
+- **Final publication copy:** version 2.3.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -15,9 +15,9 @@ In *Ex Nihilo (Cosmos)*, a dodecahedron never fully arrives. Museum object #248 
 
 ## Gallery label
 
-**Casey Reas, *Ex Nihilo (Cosmos)* #248, 2026.** Browser-based generative artwork; Art Blocks and Feral File. Segmented white lines cross a black field, sometimes aligning into the edges of a dodecahedron and sometimes dissolving into granular depth. The work belongs to Reas’s Still Life series, which uses the five Platonic solids to test how code, pixels, color systems, and time alter an ideal form. *Cosmos* is a continuous, non-repeating display: a viewer can pause a formation, but no single frame exhausts the work. Its stillness lies in concentrated looking, not in a fixed image.
+**Casey Reas, *Ex Nihilo (Cosmos)* #248, 2026.** Browser-based generative artwork; Art Blocks and Feral File. Segmented white lines cross a black field, sometimes aligning into the edges of a dodecahedron and sometimes dissolving into granular depth. The work belongs to Reas's Still Life series, which uses the five Platonic solids to test how code, pixels, color systems, and time alter an ideal form. Art Blocks and Reas describe *Cosmos* as a continuous, non-repeating display: a viewer can pause a formation, but no single frame exhausts the work. Its stillness lies in concentrated looking, not in a fixed image.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — reduced registrar detail and clarified the documentation limit after cross-review; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — attributed the continuous, non-repeating-display claim to Art Blocks and Reas.
 
 ## The form that refuses completion
 
@@ -43,7 +43,7 @@ The official description of *Ex Nihilo (Cosmos)* makes Plato’s Theory of Forms
 
 *Ex Nihilo* carries geometry through incompatible representational systems. The project description says pixels are translated into lines of varying position and color, producing fields that oscillate between structure and dissolution.[^5] The verb “translated” is important: model, pixel value, line, screen, and visual inference each produce loss and possibility. The viewer encounters the difficulty of holding an ideal form through changing material signs.
 
-Platonic solids matter because their regularity supplies a rigorous test for Reas’s visual system. They are useful precisely because one believes one knows what they should be. The work makes that expectation active, then denies it the comfort of completion. In the Still Life series, Reas also inherits the problems of modern abstraction: how can an image organize a field without representing an object in ordinary space? His contribution is to make the underlying operation executable and temporal. A line is generated rather than simply placed; its relation to another line may change before the viewer has finished reading it.
+Platonic solids matter because their regularity supplies a rigorous test for Reas's visual system. They are useful precisely because one believes one knows what they should be. The work activates that expectation, then prevents the form from settling. In the Still Life series, Reas also inherits the problems of modern abstraction: how can an image organize a field without representing an object in ordinary space? His contribution is to make the underlying operation executable and temporal. A line is generated rather than simply placed; its relation to another line may change before the viewer has finished reading it.
 
 Nora N. Khan’s phrase “disconcerting software paintings,” written of Reas’s 2016 work, remains useful as critical pressure.[^6] The disturbance is not technological novelty alone. The Still Lifes give viewers enough formal coherence to invite comparison with painting—balance, mass, chromatic counterpoint, layered depth—then make that coherence unstable. They require a viewer to remain with an object that is becoming different while it is being seen.
 

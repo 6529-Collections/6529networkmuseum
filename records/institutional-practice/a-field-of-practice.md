@@ -213,13 +213,15 @@ as a comparative study without turning it into a directory.
 
 The source register explains the research apparatus and retains the detailed
 original register. Every new profile carries its own exact
-source notes; the deterministic inventory reconciles all 236 cited web sources
+source notes; the deterministic inventory reconciles all 237 cited web sources
 to the manuscripts in which they appear. The adjacent chain-native-practice
 study applies the same evidence discipline to technical, institutional, and
 collection records that sit beside this comparative publication.
 
 ## Revision history
 
+- `1.1.1` — 2026-08-04: corrected the public source-inventory count and
+  completed the release copy desk without changing the study's scope.
 - `1.1.0` — 2026-08-04: expanded the living study with a work-led
   opening, explicit case selection, four digital-art-weighted pathways,
   concrete working lessons, grouped links for twenty-seven profiles, the

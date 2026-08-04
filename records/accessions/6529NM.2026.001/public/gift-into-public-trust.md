@@ -36,7 +36,7 @@ Reas has spent more than twenty-five years examining the interval between instru
 
 The seven tokens are recent, but the artistic histories they carry are not. *Phototaxis* returns to simulated drawing machines derived from work Reas began around 2001. *Pre-Process* completes a system initiated in 2003 and shown in unresolved form in 2005. The wider *CENTURY* body began in 2012 before entering a 1,000-work Art Blocks edition in 2021. *923 EMPTY ROOMS* develops the spatial inquiry of *An Empty Room* in 2023. *Ex Nihilo (Cosmos)* extends the *Still Life* lineage in 2026.[^5]
 
-This recursive chronology supplies the first curatorial relation. It establishes technical and artistic continuity relevant to preservation through a history of artist-directed return. Code moves from C++ to Processing/Java to p5.js. An unresolved early system receives a later public form. A body made across media becomes a long-form generative edition. Each return changes the conditions of execution, distribution, and reception.
+The first connection among the works is their history of artist-directed return. It establishes technical and artistic continuity relevant to preservation. Code moves from C++ to Processing/Java to p5.js. An unresolved early system receives a later public form. A body made across media becomes a long-form generative edition. Each return changes the conditions of execution, distribution, and reception.
 
 The second relation is formal. The three *CENTURY* works use one project grammar to produce markedly different visual experiences. #31 compresses blue, slate, cream, and salmon into a densely spliced circle. #724 opens into cream space crossed by rust arcs and sparse diagonals. #401 uses grayscale and transparency to create shallow, unstable architecture. Together, they make variation visible as a difference in pictorial structure.
 
@@ -70,7 +70,7 @@ The accession's technical outcome was therefore “pass with conditions.” Test
 
 Conservation can deepen interpretation. *Phototaxis* has lived through C++, Processing/Java, and p5.js; understanding that migration reveals the work as maintained behavior across technical generations. A *CENTURY* still and moving execution disclose different aspects of the same token-specific work. *Ex Nihilo #248* makes continuous non-repetition central, giving a screenshot value as a record of one passing state.
 
-Conservation also requires the continued exercise of the works. Software left dormant can fail silently. Regular, documented execution reveals changes and sustains institutional knowledge. Exhibition tests preservation and teaches the Museum which properties matter.
+Software left dormant can fail silently. Regular, documented execution provides monitoring evidence and helps the Museum evaluate which properties matter; it does not replace preservation work.
 
 ## V. A founding accession
 
@@ -123,6 +123,7 @@ Punk6529's gift created the conditions for this work to begin. The Museum can ac
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk and distinguished regular execution from preservation work.
 - **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public narrative for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published narrative for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** replaced an overbroad preservation equation with “technical and artistic continuity relevant to preservation”; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; and added exact links to the receipt, gift authorization, accession certificate, title bindings, seven rights records, and seven technical-condition reports.

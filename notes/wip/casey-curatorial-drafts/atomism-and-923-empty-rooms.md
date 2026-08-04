@@ -1,6 +1,6 @@
 # The room is an algorithm: Atomism and *923 EMPTY ROOMS*
 
-- **Final publication copy:** version 2.2.0
+- **Final publication copy:** version 2.3.0
 - **Institutional author:** 6529 Network Museum
 - **Publication date:** 2026-08-02
 - **Release status:** final editorial copy, revised after cross-review
@@ -17,7 +17,7 @@
 
 **Casey Reas, *923 EMPTY ROOMS* #713, 2023.** Browser-based generative artwork; Art Blocks, edition of 924. Acid-green diagonal marks sweep across a charcoal field, breaking around voids that can look like a corner, a wall, or an opening. A bright lower ledge and narrow luminous seam at right create depth, then undo it. #713 belongs to a project built from six colorforms and presented through six cities. The work’s “room” is a perceptual event: a viewer makes and remakes space from a finite grammar of units, color, and movement.
 
-**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence.
+**Revision history:** v2.0.0, 2026-08-02 — completed for first publication release; v2.0.1, 2026-08-02 — corrected the Los Angeles colorform mapping and reframed the city-distribution analysis as Museum interpretation; v2.1.0, 2026-08-03 — copy-edited the published interpretation for directness and cadence without changing its facts or evidence; v2.2.0, 2026-08-04 — deep copy-edited the public essay for curatorial cadence without changing its facts or evidence; v2.3.0, 2026-08-04 — completed the publication copy desk and recast distributed exhibition as a medium condition.
 
 ## A room made from relations
 
@@ -73,7 +73,7 @@ One can therefore understand *923 EMPTY ROOMS* as an architectural work without 
 
 ## The city is a display condition
 
-The project’s six-city presentation makes the word “distributed” more demanding than a synonym for online. Bright Moments organized the colorforms through Tokyo, Berlin, London, New York, Mexico City, and Los Angeles on a six-day sequence.[^5] No one room contained every possible relation. A city supplied a present condition within a larger combinatorial program. This is consequential for #713, which belongs to the Mexico City/colorform context in the project’s published account: its city affiliation locates a work in an exhibition structure without converting the green and charcoal image into a symbolic portrait of a place.[^8]
+The six-city presentation makes “distributed” a term for scheduled, place-specific encounters as well as online release. Bright Moments organized the colorforms through Tokyo, Berlin, London, New York, Mexico City, and Los Angeles on a six-day sequence.[^5] No one room contained every possible relation. A city supplied a present condition within a larger combinatorial program. This is consequential for #713, which belongs to the Mexico City/colorform context in the project's published account: its city affiliation locates a work in an exhibition structure without converting the green and charcoal image into a symbolic portrait of a place.[^8]
 
 Two simplifications should be avoided. The project is not “global” merely because it appeared in several locations, and the colorforms do not carry a coded civic essence. Reas’s operation is more material. The six sites, scheduled events, screens, and bodies in rooms create changing circumstances in which a finite visual grammar is encountered. Distribution helps establish the scale at which the grammar can be compared, remembered, and argued over.
 
@@ -81,7 +81,7 @@ The number structure intensifies this pressure. The public account distinguishes
 
 The Museum’s reading therefore retains a counter-pressure. A staged sequence, numbered release, and finite list can suggest that the system has mastered all difference. #713 resists that conclusion. Its visual field reveals no clean hierarchy of parts and repeatedly lets a room form and collapse. The presentation creates conditions for access and comparison without compelling a single perception. The viewer still has to make depth from a flat image, decide whether the luminous seam is an edge or a breach, and accept that the answer will not stabilize. The project’s social scale gives that perceptual uncertainty a public setting.
 
-For a museum, this means that “distributed exhibition” should not be treated as supplementary provenance or as a reason to substitute a website for a gallery encounter. It is a medium condition to be disclosed and staged. A record can name the six cities and the 923/924 structure; a display can make #713’s difficult space available for sustained looking. The two activities are related, but neither completes the other. The room is an algorithm only insofar as an algorithm is allowed to remain a visual event rather than a solved inventory.
+Distributed exhibition is a medium condition to disclose and stage. A record names the six cities and the 923/924 structure; a display makes #713's difficult space available for sustained looking. These are related but distinct forms of access, and the visual event should not be reduced to an inventory.
 
 ## The Museum object and the public collection
 

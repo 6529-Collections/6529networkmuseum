@@ -38,7 +38,7 @@ The results are unambiguous:
 - every `ownerOf` call returned that Museum address; and
 - every token-specific `getApproved` call returned the zero address.
 
-These facts prove the queried ERC-721 and ENS contract state at the retained finalized block. They do not prove future custody, key security, the absence of approval-for-all operators, or the absence of private legal claims. A zero token-specific approval is a useful control result, not a universal non-encumbrance certificate. Standing custody monitoring therefore remains part of ordinary stewardship.
+These facts establish the queried ERC-721 and ENS contract state at the retained finalized block. They do not prove future custody, key security, the absence of approval-for-all operators, or the absence of private legal claims. A zero token-specific approval is a useful control result, not a universal non-encumbrance certificate. Standing custody monitoring therefore remains part of ordinary stewardship.
 
 ## Exact-address sanctions screening
 

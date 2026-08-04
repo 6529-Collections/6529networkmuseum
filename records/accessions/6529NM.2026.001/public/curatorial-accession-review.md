@@ -9,7 +9,7 @@
 
 ## Curatorial judgment
 
-The 6529 Network Museum approves this seven-work gift for the permanent collection as a coherent study of Casey REAS’s mature generative practice. As an artist and educator, Reas co-initiated Processing with Ben Fry in 2001, an environment through which artists have learned to make and think in code. His studio practice has sustained a rigorous inquiry into systems, instructions, emergence, image, and behavior across software, prints, installations, moving image, machine learning, and blockchain-based generative art.
+The 6529 Network Museum approves this seven-work gift for the permanent collection as a coherent study of Casey REAS’s generative practice. Across software, prints, installations, moving image, machine learning, and blockchain-based work, the practice repeatedly tests systems, instructions, emergence, image, and behavior.
 
 The case for accession rests on the works and their relationships. Three distinct *CENTURY* outputs permit sustained comparison within one long-form system. *Pre-Process #63* and *Phototaxis #308* extend the group into different models of rule, movement, iteration, and image formation. *923 EMPTY ROOMS #713* and *Ex Nihilo (Cosmos) #248* carry the inquiry into perspectival space, continuous display, and unstable form. Together, the seven objects show how Reas makes variability, duration, and the conditions of seeing integral to an executable artwork.
 

@@ -1,7 +1,7 @@
 # Pre-Process: An Unfinished Origin in Motion
 
 **6529 Network Museum — project essay**
-**Version:** 2.2.0
+**Version:** 2.3.0
 **Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
@@ -40,7 +40,7 @@ Reas describes each *Pre-Process* realization as a system of one hundred circle 
 
 The 120 edition states make this field visible through a rigorous combinatorics: eight surfaces multiplied by three origins and five growth configurations. Reas describes the origins as center, horizontal line, and random positions; the surfaces change how elements are rendered; the growth configurations alter relative sizes. The count is structural rather than market-driven. It has the force of a musical constraint or a printmaker’s state: a limited set of conditions makes comparison possible without dictating what a viewer must see.
 
-The selected permutations are exhaustive, while performance remains temporally open. #63’s token metadata records one base relation among surface, origin, and growth; the live program then produces successive frames, and its documented controls can restart the run or select another rendered surface for the session. Neither action changes the token’s identity or its recorded base configuration. The edition sets two kinds of finitude against one another: a bounded list of configurations and a visual history that unfolds through motion and encounter. Reas’s phrase about authorship being the creation of potential for variation and difference becomes more precise here: he composes the conditions under which difference will become perceptible.[^10]
+The selected permutations are exhaustive, while performance remains temporally open. #63's token metadata records one base relation among surface, origin, and growth; the live program then produces successive frames, and its documented controls can restart the run or select another rendered surface for the session. Neither action changes the token's identity or its recorded base configuration. The edition combines a bounded list of configurations with a visual history that unfolds through motion and encounter. Reas's phrase about authorship being the creation of potential for variation and difference becomes more precise here: he composes the conditions under which difference will become perceptible.[^10]
 
 The word “process” does not promise transparency. A process can be described and still overwhelm the means of description. The rules of *Pre-Process* remain only partly legible in any particular image. The field gives evidence of motion, contact, and dispersal without turning a viewer into a debugger. The work makes its procedures available as pressure, rhythm, congestion, and release.
 
@@ -163,6 +163,7 @@ To encounter #63 is to recognize what “pre” names: the moment before a metho
 
 ## Revision note
 
+- **2.3.0 — 4 August 2026:** Completed the publication copy desk and replaced a schematic opposition with a direct account of the edition's bounded configurations and temporal history.
 - **2.2.0 — 4 August 2026:** Deep copy-edited the public interpretation for curatorial cadence and directness without changing its facts or evidence.
 - **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 - **2.0.0 — 2 August 2026:** Initial completed project essay. It adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object record.

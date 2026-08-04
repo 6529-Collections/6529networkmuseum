@@ -89,10 +89,19 @@ inventory, bootstrap validator across 302 JSON files, full 126-test suite, full
 Museum validator, Casey snapshot/package checks, and diligence-inventory check
 pass. Deterministic regeneration produced a 247-entry candidate manifest with
 SHA-256
-`sha256:754acbdc27c5b13beb20cf460c95b0a595d9cdeab6f5ee8ad40395db4319c796`
+`sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04`
 and Keccak-256
-`0xe583d775ff1feb724db2187451d290b167f9155b0f2074983d1f7c5ed72e1204`.
+`0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3`.
 The values remain candidates until governed source review and merge.
+
+A final independent copy-desk audit then reviewed every visitor-facing Museum
+manuscript. Its accepted corrections clarified technical and display gates,
+restored the noncommercial boundary around computational research, separated
+chain identity and transfer history from legal title, copyright, and accession,
+attributed the *Ex Nihilo (Cosmos)* non-repetition claim, removed internal
+workflow language from public source records, and tightened the remaining
+Casey prose. Retained drafts and promoted pages remain reproducible. The full
+126-test suite passes with one intentional Windows named-pipe skip.
 
 All 237 inventory URLs were observed on 2026-08-04. A concurrent HEAD pass
 returned 198 HTTP 200 responses, thirteen 403 responses, five 429 responses,

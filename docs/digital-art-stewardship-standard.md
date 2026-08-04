@@ -502,15 +502,15 @@ Before `preservation_complete`, its reviewed record set must contain:
 - public and restricted views;
 - a second-person review and dated next-review condition.
 
-If any applicable requirement in either gate is unmet, the preservation
-package must remain `complete_with_conditions` or `blocked`, and the accession
-lifecycle must not advance to `technically_verified` or
-`preservation_complete`, respectively.
+If a requirement for `technically_verified` is unmet, the accession lifecycle
+must not advance to that state. If a requirement for `preservation_complete`
+is unmet, the preservation package must remain `complete_with_conditions` or
+`blocked`, and the lifecycle must not advance to `preservation_complete`.
 
-Before `display_ready`, the Museum should have a documented manifestation,
-display environment, rights basis, condition outcome, restart/fallback plan,
-credit, and approved public encounter. Display readiness remains separate from
-preservation completeness.
+Before `display_ready`, its reviewed record set must contain a documented
+manifestation, display environment, rights basis, condition outcome,
+restart/fallback plan, credit, and approved public encounter. Display readiness
+remains separate from preservation completeness.
 
 ## 7. Corrections and supersession
 

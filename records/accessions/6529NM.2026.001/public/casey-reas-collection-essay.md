@@ -84,7 +84,7 @@ The strongest effect comes from simultaneous recession and vibration. Parallel d
 
 Code and diagram can explain how the state was generated. They cannot replace the event of seeing a room gather from absence. The work's emptiness is not lack of content. It is an engineered interval into which perception enters.
 
-*Ex Nihilo (Cosmos)* extends the *Still Life* and *Atomism* lineages in 2026. Its 256 works use code, line, channel, and changing geometry to create continuous, non-repeating displays. The Museum reads the title—“from nothing”—as a tension within a computational work: every state depends on code, libraries, token hash, runtime, hardware, and display. This is a curatorial interpretation, not an assertion of the artist's stated intention. Blackness appears empty because its conditions recede from view.[^7]
+*Ex Nihilo (Cosmos)* extends the *Still Life* and *Atomism* lineages in 2026. Art Blocks and Reas describe its 256 works as continuous, non-repeating displays made through code, line, channel, and changing geometry. The Museum reads the title—“from nothing”—as a tension within a computational work: every state depends on code, libraries, token hash, runtime, hardware, and display. This is a curatorial interpretation, not an assertion of the artist's stated intention. Blackness appears empty because its conditions recede from view.[^7]
 
 In #248, segmented white traces cross black. Several alignments suggest polygonal faces and dodecahedral structures, but line breaks prevent a single solid from closing. One scale seems nested inside another; a diagonal can belong to multiple possible planes. The eye completes edges that the image withholds.
 
@@ -94,17 +94,17 @@ The work runs continuously. Pausing produces a state for scrutiny; changing spee
 
 Together, #713 and #248 show Reas using absence at two scales. One solicits an interior large enough to enter; the other solicits a geometric body small or cosmic enough to evade measure. The room and cosmos are not opposites. Both are provisional orders composed across gaps.
 
-## V. An architecture of return
+## V. A history of return
 
 The chronology of the seven works is deceptively recent: 2021, 2022, 2023, and 2026. Their artistic chronology is much longer. *Phototaxis* revisits the artificial-life drawing of the early 2000s. *Pre-Process* completes a system begun in 2003. The wider *CENTURY* body began in 2012. *923 EMPTY ROOMS* develops a spatial inquiry around *An Empty Room*. *Ex Nihilo* extends *Still Life*, developed from 2015 and publicly presented in 2016.
 
-The group is therefore an architecture of return. Reas does not preserve his past by keeping an old technical object untouched. He rewrites, migrates, editions, and reframes. Each return asks what can change while a work remains connected to its lineage.
+The group therefore records a history of return. Reas rewrites, migrates, editions, and reframes earlier systems. Each return asks what can change while a work remains connected to its lineage.
 
 That question was already present in his 2004 Whitney commission *{Software} Structures*. Reas wrote natural-language instructions, implemented them in software, and invited other programmers to create interpretations. The project distributed identity among concept, text, language, code, execution, and appearance. Later restoration made the historical environment part of the problem.[^8]
 
-The seven Art Blocks works add token and chain provenance to that distributed identity. A contract and token number establish which work is owned. A token hash helps determine its state. Source code and runtime execute it. A platform supplies generator and metadata routes. A screen manifests it. Documentation preserves observations about it. No single layer is dispensable in every context, and no single layer is the whole work.
+The layers have different roles. The contract and token number identify the chain object; the title record establishes the Museum's interest in it. The token hash helps determine its project state. Source code and runtime execute it. A platform supplies generator and metadata routes. A screen manifests it. Documentation records observations about it.
 
-This is not a bureaucratic complication imposed on the art. It is one of the collection's central aesthetic facts. A *CENTURY* still can be closely read as a composition and still remain a state of moving software. *Phototaxis #308* can be identified by its token and still depend on a browser environment to continue drawing. *Ex Nihilo #248* can have durable chain identity while its experience changes with speed, screen, and execution.
+These distinctions are part of the work's condition. A *CENTURY* still can be read as a composition while remaining a state of moving software. *Phototaxis #308* can be identified by its token while depending on a browser environment to continue drawing. *Ex Nihilo #248* can have durable chain identity while its experience changes with speed, screen, and execution.
 
 The works make preservation a form of interpretation. Migrating code may preserve behavior while altering timing or rendering. Recording video may preserve duration while removing interaction. A screenshot may preserve an exact state while losing movement. The Museum must retain multiple forms of evidence and state what each one can and cannot do.
 
@@ -116,23 +116,23 @@ The collection's limits are part of its argument. It contains no early *Path*, *
 
 These absences prevent the Museum from presenting the group as a retrospective or complete survey. They also protect Reas from being flattened into an on-chain artist whose earlier career merely anticipated tokens. Processing, teaching, publishing, physical translation, source imagery, cinema, and institution-building are not side notes to the seven works. They are major parts of the practice.
 
-The accession instead offers a precise collecting proposition: recent on-chain works can carry long artistic lineages without replacing the earlier manifestations through which those lineages developed. The seven are excellent entry points and incomplete representatives.
+The accession offers a precise collecting proposition: recent on-chain works can carry long artistic lineages without replacing the earlier manifestations through which those lineages developed. The seven provide an entry point while leaving most of the practice outside the group.
 
 Future collecting should follow the omissions that matter most intellectually, not pursue a checklist. An early behavior-based print or software work would clarify how image and execution diverged before current screens. A *Process* work would make instruction central rather than retrospective. A source-image or *Compressed Cinema* work would interrupt the misleading path from pure abstraction to long-form generation. A material translation would demonstrate that software, paper, wood, wall, and machine trace are not interchangeable outputs.
 
-The Museum should also resist collecting by marketplace feature rank. If it acquires additional works from a generative edition, selection should begin with a curatorial question and use open, reproducible distribution analysis only as supporting evidence. The aim is not to own the rarest state. It is to build the most revealing relation.
+Future acquisitions from generative editions should begin with a curatorial question. Open, reproducible distribution analysis can support that inquiry; visual and historical judgment determines which relations matter.
 
 ## VII. Into public study
 
 Punk6529 delivered the seven works to `networkmuseum.6529.eth` in one transaction on 1 August 2026. The Museum formally accepted the full gift later that day and accessioned the group as `6529NM.2026.001` on 2 August. The public credit is “Gift of punk6529.” The transfer conveyed the tokens and the donor's full transferable interest; it did not transfer copyright.[^9]
 
-Those facts establish title and provenance. They do not establish the group's cultural value. That value must be produced through exhibition, scholarship, preservation, and public use.
+Those records establish exact identity, transfer, custody, title, rights, and accession. The group's cultural significance will develop through exhibition, scholarship, preservation, and public encounter.
 
 The accession turns private possession into a durable study group. Viewers should be able to compare the three *CENTURY* works at meaningful scale, execute live states when technically and legally possible, inspect the difference between still and behavior, read the project's histories, and see what evidence supports each claim. The works should not appear as seven cards whose main content is token number and owner.
 
 Public trust also imposes an obligation to preserve uncertainty honestly. The retained metadata states CC BY-NC 4.0; the Museum can undertake noncommercial exhibition, publication, documentation, adaptation, preservation, migration or emulation, accessibility work, and internal noncommercial computational research subject to the license conditions. Commercial use is not approved. Technical condition passed with conditions, not with a declaration of permanent autonomy. Official generators were tested, but self-contained dependency capture and broader rendering tests remain active work.[^10]
 
-These qualifications are not reasons to hide the art behind process language. They are reasons to show it well. A live software work deserves duration, scale, and controls. A still deserves close looking and an accurate surrogate label. Chain provenance should be available without dominating interpretation. Conservation detail should deepen the encounter rather than replace it.
+The art deserves full presentation: live software with duration, scale, and controls; stills with close looking and accurate surrogate labels. Chain history and conservation detail deepen the encounter when each appears in proportion.
 
 The seven-work group supports argument at several scales. Within *CENTURY*, three states reveal how difference makes a system visible. Across *Pre-Process* and *Phototaxis*, behavior becomes trace. Across *923* and *Ex Nihilo*, absence becomes space. Across all seven, a recent token can contain an older artistic history without becoming identical to it.
 
@@ -177,6 +177,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk, clarified title and chain-history boundaries, and attributed the project's non-repetition claim.
 - **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.1.0 — 2 August 2026:** completed the `8 × 3 × 5` *Pre-Process* combinatorics; replaced unsupported canonical-state language with “official 1,000-iteration thumbnail state”; explicitly identified the *Ex Nihilo* title argument as a Museum reading; and replaced generic evidence references with direct URLs and exact repository links.

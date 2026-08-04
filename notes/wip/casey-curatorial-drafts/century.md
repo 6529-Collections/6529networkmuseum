@@ -1,7 +1,7 @@
 # CENTURY: The Cut That Keeps Happening
 
 **6529 Network Museum — project essay**
-**Version:** 2.2.0
+**Version:** 2.3.0
 **Publication status:** Revised publication copy
 **Publication date:** 2026-08-02
 **Institutional authorship:** 6529 Network Museum
@@ -64,11 +64,11 @@ The three-work comparison earns its place through a question more exact than pal
 
 ## The screen is a condition, not a neutral window
 
-*CENTURY* needs more than a row of static squares with an animation icon. Its medium includes a custom browser program, p5.js runtime, hash-derived token state, screen, moving image, and viewer controls; the ERC-721 token supplies the identity and edition layer of that event.[^12] A saved image can show the palette, partition, and initial balance of a state. It cannot show the duration through which those relations become unsettled, nor the difference between leaving the program to run and actively triggering a recomposition.
+*CENTURY* includes a custom browser program, p5.js runtime, hash-derived token state, screen, moving image, and viewer controls; the ERC-721 token supplies the identity and edition layer of that event.[^12] A saved image shows one state, while the live work adds duration and the possibility of recomposition.
 
 The three works make a clear exhibition argument. They should be given enough viewing space to permit comparison without forcing synchrony. Identical monitor dimensions and aligned horizons would make their different visual pressures legible, while a rigidly synchronized loop would falsify the project’s interest in independent, continuing behavior. A darkened room has its own costs: it would intensify #31’s central mass and #401’s value shifts while making #724’s cream field less like an interval held in ambient space. An installation should therefore treat brightness, viewing distance, and the relation between the three screens as interpretive decisions, documented as such rather than mistaken for neutral delivery.
 
-The keyboard control introduces a second display problem. It turns the viewer into a participant in a recomposition, while the base image remains a token-specific state and the intervention stays within the artist’s programmed limits. A public presentation might offer two modes: an unattended live mode that preserves the work’s duration, and a clearly marked interactive session in which visitors can use the documented controls. Keeping them distinct preserves *CENTURY*’s difference between watching a system perform and acting within one of its permitted operations.
+The keyboard control makes the viewer a participant in recomposition. A public presentation can distinguish unattended live duration from a marked interactive session, while both remain within the programmed limits.
 
 The display question also resists a familiar digital-art shorthand: if code is knowable, the work must be transparent. Reas has repeatedly made systems that offer an intelligible premise but not an immediately decipherable visual result. The Whitney’s presentation of *{Software} Structure #003 B* is instructive: it describes a changing, cumulative image as something like a long-exposure record, an image in which duration is compressed rather than made simple.[^13] *CENTURY* is less diagrammatic and more chromatically assertive, but it shares the insight that a rule can be stated clearly while its visual consequences remain excessive, slow, or unresolved.
 
@@ -139,6 +139,7 @@ That proposition changes the seven-work accession as a whole. *CENTURY* is the g
 
 ## Revision note
 
+- **2.3.0 — 4 August 2026:** Completed the publication copy desk and recast installation guidance as a description of the work's medium and public encounter.
 - **2.2.0 — 4 August 2026:** Deep copy-edited the public interpretation for curatorial cadence and directness without changing its facts or evidence.
 - **2.1.0 — 3 August 2026:** Copy-edited the published interpretation for directness and cadence without changing its facts or evidence.
 - **2.0.0 — 2 August 2026:** Initial completed project essay. It adds project-level context and does not supersede the accession, title, rights, technical, preservation, or existing short public object records.

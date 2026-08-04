@@ -1,7 +1,7 @@
 ---
 title: "Casey Reas: The Conditions for an Image"
 publication_id: "6529NM.PUB.CASEY.MONOGRAPH"
-version: "2.3.0"
+version: "2.4.0"
 status: "completed_publication_manuscript"
 institutional_author: "6529 Network Museum"
 publication_date: "2026-08-02"
@@ -32,7 +32,7 @@ The outcome exceeds foresight without becoming arbitrary. A local rule may be tr
 
 That tension keeps the art from becoming a demonstration of algorithmic cleverness. The system is never only an explanation for the image. It produces images whose density, rhythm, scale, color, duration, or difficulty exceed explanation. The viewer moves between two forms of knowledge: understanding what a work does and confronting what it feels like while doing it.
 
-Computational art is often interpreted through a choice between mystification and disclosure. One account treats the machine as an autonomous creator whose outputs amaze because their source is obscure. Another insists that revealing code dissolves the mystery into procedure. Reas refuses both. His systems are frequently accompanied by texts, diagrams, interviews, books, and accessible software. Transparency does not exhaust them. A visible rule can still create an image that resists possession.
+His systems are accompanied by texts, diagrams, interviews, books, and accessible software. Those materials make the procedures inspectable without exhausting the images, which can still resist possession.
 
 Six domains organize the career: behavioral drawing; instruction as executable score; emergent systems; images made from other images; geometry broken into digital atoms; and the institutions through which software is learned, exhibited, owned, and preserved. The Museum's seven works trace a concentrated route through them. Five project lines return to questions Reas formulated in 2001 and 2003, while *Ex Nihilo (Cosmos)* carries them into 2026. The group reveals continuity through revision.
 
@@ -40,7 +40,7 @@ Six domains organize the career: behavioral drawing; instruction as executable s
 
 Casey Edwin Barker Reas was born in Troy, Ohio, in 1972. He studied design at the University of Cincinnati's College of Design, Architecture, Art, and Planning, completing a Bachelor of Science in 1996, and received a Master of Science in Media Arts and Sciences from MIT in 2001. He taught at the Interaction Design Institute Ivrea from 2001 to 2003 and joined UCLA Design Media Arts in 2003, where he has remained an artist and educator.[^1]
 
-The more consequential formation joins drawing, rhythm, design, and the construction of tools. Reas drew and played drums before software became his central medium. Around 1999, he began learning to code because he wanted to make drawings unavailable to his hand alone. In later accounts, the move appears as the discovery that a line could be given behavior. A drawn mark could move, sense, respond, remember, and accumulate. The artist could compose a picture together with the conditions through which further pictures emerged.[^2]
+The practice grew from a combination of drawing, rhythm, design, and tool-making. Reas drew and played drums before software became his central medium. Around 1999, he began learning to code because he wanted to make drawings unavailable to his hand alone. In later accounts, the move appears as the discovery that a line could be given behavior. A drawn mark could move, sense, respond, remember, and accumulate. The artist could compose a picture together with the conditions through which further pictures emerged.[^2]
 
 At MIT, Reas worked in the environment of the Aesthetics and Computation Group, founded by John Maeda. The group's name joined terms that design and engineering cultures often separated. Computation became a mode of visual inquiry, and aesthetics entered the technical work at the level of structure. Maeda's insistence on making one's own tools offered an alternative to commercial software, whose interfaces and assumptions predefine what counts as an operation. Reas could work at the level of behavior beyond the menu choices supplied by someone else.
 
@@ -56,7 +56,7 @@ For evaluating Reas's own work, technical exclusivity is beside the point. He co
 
 ## III. From instruction to execution
 
-The history of twentieth-century art offered Reas a way to understand this distributed identity. Sol LeWitt's wall drawings begin with instructions that other people may realize in different places and at different times. The written score is constitutive, but it is not identical with a particular drawing. John Cage similarly used scores and chance operations to redistribute compositional decision across rule, performer, event, and listening. Reas did not discover that art could be instructed when he learned to program. He discovered that software changed what instruction could become.
+The history of twentieth-century art offered Reas a way to understand this distributed identity. Sol LeWitt's wall drawings begin with instructions that other people may realize in different places and at different times. The written score is constitutive, but it is not identical with a particular drawing. John Cage similarly used scores and chance operations to redistribute compositional decision across rule, performer, event, and listening. Programming changed what instruction could become: a written score could be implemented across languages, runtimes, and displays, with each implementation carrying new decisions.
 
 His 2004 Whitney artport commission *{Software} Structures* made that difference explicit. Reas wrote three natural-language “Structures” describing dynamic relations among elements, then developed software interpretations and invited Jared Tarbell, Robert Hodgin, and William Ngan to interpret one structure in Processing, ActionScript, and C++. The project exposed several gaps at once: between idea and text, text and implementation, one language and another, artist and invited programmer, code and behavior, behavior and display.[^5]
 
@@ -218,11 +218,11 @@ Selection is central. The mythology of machine learning often imagines an autono
 
 The body also changes how his earlier work can be seen. *Process* begins with explicit behaviors; *Compressed Cinema* begins with learned distributions that are harder to summarize in a sentence. The work moves from rule transparency toward statistical opacity. Yet the central question persists: what is the relation between a constructed system and an event that exceeds the artist's local control?
 
-Independent writers have pushed this body beyond a studio history of changing GAN architectures. In *laFuga*, Diego Gómez-Venegas reads *Compressed Cinema* through Bernard Stiegler's concept of arche-cinema: film as a technical organization of individual and collective memory. Reas's learned images complicate that account because their “retention” occurs in machine-processed symbol systems. The source film is neither replayed nor simply remembered; its statistical organization enters a circuit in which human recollection meets a model's alien mode of storing relations.[^32]
+Independent writers have pushed this body beyond a studio history of changing GAN architectures. In *laFuga*, Diego Gómez-Venegas reads *Compressed Cinema* through Bernard Stiegler's concept of arche-cinema: film as a technical organization of individual and collective memory. Reas's learned images complicate that account because their “retention” occurs in machine-processed symbol systems. The source film is reorganized statistically rather than replayed; human recollection meets a model's unfamiliar way of storing relations.[^32]
 
 Holly Willis places Reas's work within a broader change in the relation between archive and moving image. Her account of machine-learning cinema treats datasets and image collections as porous, processual archives whose ordering can generate new views rather than guarantee stable historical recovery. That framework clarifies both the force and the risk of *Compressed Cinema*. A source film becomes available as a field of latent relations, but the operation can detach appearance from scene, performer, sequence, and labor. The resulting dreamlike intensity deserves scrutiny precisely because its softness may conceal how aggressively a model has reorganized the archive.[^33]
 
-This reception reframes “compression” as more than shortened duration. The works compress several agencies into one surface: filmmakers and performers in the source; Reas's choices of corpus, model, training, sample, and sequence; St. Werner's sonic structures; and the viewer's effort to recognize fragments that never regain narrative identity. Their mature achievement lies in making that layered memory perceptible. Their unresolved question is whether the source histories remain legible enough to resist becoming generalized atmosphere.
+Here “compression” names the movement of several agencies onto one surface: filmmakers and performers in the source; Reas's corpus, model, training, sample, and sequence; St. Werner's sonic structures; and the viewer's effort to recognize fragments that never regain narrative identity. Their mature achievement lies in making that layered memory perceptible. Their unresolved question is whether the source histories remain legible enough to resist becoming generalized atmosphere.
 
 Recent works grouped as *In Silico* bring that question into relation with botanical photography and the long history of artists using plants as forms of classification, symbol, and projection.[^20] “In silico” names experiments performed through computation, by analogy with “in vivo” and “in vitro.” The phrase marks distance from the living specimen while retaining the language of life. A generated flower is not a plant, but it activates the visual conventions through which plants have been made available to science, commerce, and art.
 
@@ -240,7 +240,7 @@ On screen, the slices can change position. Motion does not animate an otherwise 
 
 This operation connects *CENTURY* to montage, but the cut is spatial and ongoing rather than fixed in an edited sequence. It also connects to serial modernism, concrete art, and kinetic art. Max Bill's systematic variation, Jesús Rafael Soto's optical activation, and Rickey's motion offer relevant historical coordinates. Yet software changes seriality. A sequence no longer needs to be fabricated as separate objects; it can be performed within one work and differentiated across many token-specific works.
 
-The 2021 Art Blocks edition made that difference public at scale. Each token hash establishes a particular composition and parameter state within the project's rule set. One thousand works allow viewers to compare the grammar across outputs. The edition is neither one image repeated nor one thousand unrelated images. It is a population whose differences make the system perceptible.
+Each token hash in the 2021 Art Blocks edition establishes a particular composition and parameter state within the project's rule set. One thousand works form a population whose differences make the project's grammar perceptible.
 
 That population should not be reduced to traits. Feature labels such as palette, line count, slice count, Oculi, Alpha, or Janky record aspects of generation. They can support transparent distribution analysis, but they are not aesthetic verdicts. A low-frequency feature does not confer formal success; a common feature does not diminish it. The work must still be seen.
 
@@ -370,7 +370,7 @@ The collection provides seven states of a larger proposition: an image is a thin
 
 The Museum did not receive evidence that Reas selected or endorsed this grouping, and donor choice cannot be converted into artist intention. A donor's private rationale remains unknown. The defensible claim is institutional and visual: once offered as a full gift, the seven works were accepted because together they sustain study of Reas's practice.[^28]
 
-Their accession into public trust changes the horizon of that study. The works are no longer only assets in an individual wallet or entries on platform pages. They become objects for continuing exhibition, research, preservation, and disagreement. Public ownership does not guarantee public value; the Museum must produce that value through care and interpretation.
+The Museum's ownership of the seven tokens changes the horizon of that study. The works are held for continuing exhibition, research, preservation, and disagreement; copyright remains with Casey Reas under the recorded CC BY-NC 4.0 terms.
 
 ## XVI. Conserving behavior
 
@@ -386,7 +386,7 @@ Migration must be documented as interpretation. When *Phototaxis* moved from C++
 
 The Museum's accession condition is appropriately “pass with conditions,” rather than “preserved.” The official generator routes were tested, and no red blocker prevented accession. Self-contained capture of generators and dependencies, broader render testing, and continuing monitoring remain active obligations. A public record should make that incompleteness visible without presenting the works as fragile curiosities.
 
-Display is one form of preservation because unexercised software can fail unnoticed. Regular execution across documented environments produces evidence, reveals drift, and keeps institutional knowledge alive. Display can also damage interpretation if the work is reduced to a thumbnail, an autoplaying decoration, or a screenshot presented as complete. The preservation plan and the exhibition plan must inform one another.
+Regular, documented execution can provide monitoring evidence because unexercised software can fail unnoticed; it does not replace preservation work. Display can also damage interpretation if the work is reduced to a thumbnail, an autoplaying decoration, or a screenshot presented as complete. The preservation plan and the exhibition plan must inform one another.
 
 Rights are part of this care. The Museum owns the seven tokens and the donor's full transferable interest, but copyright was not transferred. The retained metadata states CC BY-NC 4.0. That license supports noncommercial exhibition, documentation, publication, adaptation, preservation, migration or emulation, accessibility, and internal noncommercial computational research when its conditions are observed; commercial use is not approved. Rights clarity makes responsible access possible; it does not turn the images into unrestricted raw material.
 
@@ -400,7 +400,7 @@ Across twenty-five years, Reas has returned to a stubborn proposition: an image 
 
 Reas is, above all, a maker of pictures with formal intensity. His systems become specific arrangements of line, color, density, rhythm, scale, interruption, and duration. Conceptual availability alone cannot redeem an unconvincing image. The pictures must hold.
 
-That intensity invites criticism: density can harden into manner, technical histories can be mistaken for artistic arguments, and institutional innovation can be celebrated without asking whom it serves. The strongest works sustain that scrutiny; their formal relations remain available to be seen and tested.
+That intensity invites criticism: density can harden into manner, technical histories can be mistaken for artistic arguments, and institutional innovation can be celebrated without asking whom it serves. The formal relations remain available to be seen and tested against that scrutiny.
 
 Reas's authorship resides in the chosen rule, excluded possibility, source image, code revision, parameter range, material translation, sequence, interface, edition, and display. He relinquishes local command while retaining responsibility, building structures whose events can exceed his foresight.
 
@@ -412,7 +412,7 @@ What they cannot show is equally important. Reas's physical translations, source
 
 The title of this essay—*The Conditions for an Image*—names both an artistic method and a museum obligation. Reas composes conditions under which images happen. The institution must preserve enough of those conditions for the images to keep happening, document what changes, and create encounters in which viewers can see more than proof of ownership.
 
-The result is not technical mastery but a precise, sustained uncertainty. A line can be understood as an instruction and encountered as a trace; a room can be specified by a code and remain spatially irresolvable; an ideal solid can be mathematically defined and visually unstable. The system is available. The image is still happening.
+The system remains available for inspection while the image continues to change. A line can be read as an instruction and encountered as a trace; a room can be specified by code and remain spatially unresolved; an ideal solid can be defined mathematically and remain visually unstable.
 
 ## Notes
 
@@ -499,6 +499,7 @@ The result is not technical mastery but a precise, sustained uncertainty. A line
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 2.4.0 — 4 August 2026:** Completed the publication copy desk, clarified token ownership and copyright, and separated software monitoring from preservation work.
 - **Version 2.3.0 — 4 August 2026:** Deep copy-edited the public manuscript for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 2.2.0 — 3 August 2026:** Copy-edited the published essay for directness, cadence, and institutional voice; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 2.1.0 — 2 August 2026:** corrected the initial visual-capture retention boundary, the *Phototaxis* 1,000-iteration terminology, the complete `8 × 3 × 5` *Pre-Process* combinatorics, and the *923 EMPTY ROOMS* city schedule; substantially expanded independent reception of *Process*, Processing, *Compressed Cinema*, and Reas's on-chain practice; recast repetitive corrective negations; and replaced vague citations with direct URLs or exact repository links.

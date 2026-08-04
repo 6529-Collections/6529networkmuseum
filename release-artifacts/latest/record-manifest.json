@@ -82,8 +82,8 @@
     },
     {
       "path": "docs/digital-art-stewardship-standard.md",
-      "sha256": "sha256:8677ad84185e91ffc8d3b464418312d6d790caa564c67610721518e4a501351e",
-      "size": 32189
+      "sha256": "sha256:67694605328b92249e55355b559072490fbcf8a6d40fa97f1a7330dcb6c83f6f",
+      "size": 32263
     },
     {
       "path": "docs/external-works-registry.md",
@@ -292,38 +292,38 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.01.md",
-      "sha256": "sha256:0253d04ee5ce64b224c122c7d6082e4cf4c571e50f915d0c0e49983ba60650b9",
-      "size": 10509
+      "sha256": "sha256:8f928a72be24f59f7763a878f4fb3fc78ad13731f1dc4153e2328ac745a43153",
+      "size": 10799
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.02.md",
-      "sha256": "sha256:8d51f840bc979d7d2ecd3e792ae3ff58f3879f9e400d0d86fdb0c7edcead50d7",
-      "size": 11031
+      "sha256": "sha256:9424fe71a4d676c2a7052c822299c3858a1a82a4415ac69a0526540da4738070",
+      "size": 11323
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.03.md",
-      "sha256": "sha256:be91727055d12a969b5e143ed32dbc3f7815c784eee071de064698effac1688d",
-      "size": 10977
+      "sha256": "sha256:ec24d7c025b33f92047143fe8712fde52efe08749c2fad25956add7cffedc7e8",
+      "size": 11258
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.04.md",
-      "sha256": "sha256:6758a05d026f081b68ac3f90a717f82acb1b48b0ab119aa0dfdd6f13e3a37eab",
-      "size": 11966
+      "sha256": "sha256:bfbc89db9366f4ae243e1d6ca4d645830cd0158b0b6dc47d4be8d0a1c08ed294",
+      "size": 12245
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.05.md",
-      "sha256": "sha256:d2f65d2f0e0fb6e8339c77a91d6d6fe3e2b637187626f0a3ace51305b34de99a",
-      "size": 12191
+      "sha256": "sha256:94fdc66d0663dc6f1dd6eac27dc39d8511d5e1a447417cf0b97f531b2ebe122c",
+      "size": 12474
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.06.md",
-      "sha256": "sha256:5549c43d00250aa05575fe958f8b44f726094f3d035a7dc5b3a2b8fdb21cc4c7",
-      "size": 12109
+      "sha256": "sha256:a273acdf0a0db9d6af77d35e0cacf980e3532d70cf90eeeadd98e6ccf7754a89",
+      "size": 12002
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/6529NM.2026.001.07.md",
-      "sha256": "sha256:54bd56c2a0376c58dde546cd0163b3849d0cce3dc21d7fcc4365c9e32a92a5ea",
-      "size": 12911
+      "sha256": "sha256:225a8c737802107383b0cf147d1f95c8c3df71db7a6d57f7a2967c2b978b37d5",
+      "size": 12933
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/accession-certificate.md",
@@ -332,63 +332,63 @@
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/casey-reas-artist-practice.md",
-      "sha256": "sha256:86a1545df692feda31b42dab9c54e4ab2e507e00b57540d43380e65e2b9dcf65",
-      "size": 95878
+      "sha256": "sha256:54ac1b294f2955212b66b738670b6c982e3f1e75212eb609f46cb4ede6677603",
+      "size": 95260
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md",
-      "sha256": "sha256:afbdddc8f4047c9cbccce12d0160dfe5252a106f73cbf547bc7ef4779f943bb1",
-      "size": 30131
+      "sha256": "sha256:2a44bdfff7a6d2369b6e536cac337e95a9c65b540abb991e47a4d7e377c779bd",
+      "size": 29879
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md",
-      "sha256": "sha256:281b5fe5e4b0f9ee4350dcfd0c247ea3471a42d1213df01b329955ef9480eb9e",
-      "size": 7941
+      "sha256": "sha256:bff2a4516520fac78b714518d123764453403f683a38dc35a879674eb9185efb",
+      "size": 7742
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/custody-title-and-compliance-diligence.md",
-      "sha256": "sha256:12b9162a99d9aaa54b638c1f7e6d8caea6c77e6bafdad51eddef7746bb1f27ae",
-      "size": 7922
+      "sha256": "sha256:0c6a694a4b14b10a3fd4873d478b322e8b6f7d55c19afaf7b497170fec546ad1",
+      "size": 7926
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-acceptance-authorization.md",
-      "sha256": "sha256:cda3df09ed0174a237bfa98762c988e27e8d0f9c8daa6bfeafc11d4c7291fd47",
-      "size": 3387
+      "sha256": "sha256:50524f8136ad27198672490c27eded830d5ce1aed5036d8bf506339214051192",
+      "size": 3402
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/gift-into-public-trust.md",
-      "sha256": "sha256:1d4791af04bd60b0b730a178b65cb84bbde3905db1cd44b29afc5a0f682e1c59",
-      "size": 22156
+      "sha256": "sha256:aa64cc31d492300d7b4921e0098ff2e4d2632333ab9e6a15d4c4526b443dc5c4",
+      "size": 22189
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/atomism-and-923-empty-rooms.md",
-      "sha256": "sha256:3de6149b9d3af0cd31fe9d4d8801dbba48356684f5a0f294e960f5d9fd9653b9",
-      "size": 19649
+      "sha256": "sha256:e9deaa03ae8e9a684a6892bf73e4cb587408f4682c4c59b12169d683392aee36",
+      "size": 19530
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/century.md",
-      "sha256": "sha256:7e848b96e3a4da66c0328a4a888b1beedc3590447a3465581b9bb0a69b23c0c8",
-      "size": 23252
+      "sha256": "sha256:d450481486325dc7b36c579d0f78f33ad1e74b05e9085266d8aa1ca9ab9544b7",
+      "size": 22828
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/microimage-and-phototaxis.md",
-      "sha256": "sha256:1f3583ee8f7f341764dcd0c037a0765b462a1f2ba90aea6e4aad698d28dfbe17",
-      "size": 20833
+      "sha256": "sha256:7c22d7f13dd4840c9351463627b1749824d330f7cef9b062ffa44e6583841fd2",
+      "size": 20869
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/process-and-pre-process.md",
-      "sha256": "sha256:4e139ea41a247de7ad2bb0176cf5f765e99716c2f3aa1f14175d9e7a7dfaf444",
-      "size": 25295
+      "sha256": "sha256:acabc21067b9fb8213c6a0df3e560fcac4fd800dc560957b267b70f61fccb026",
+      "size": 25438
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/projects/still-life-and-ex-nihilo.md",
-      "sha256": "sha256:f335c25f44b715852935d0122e40bdd331d6b3cec2ec08457ccb834e3d9b577a",
-      "size": 19488
+      "sha256": "sha256:470e956fe76ba12a3ac4fb25d1d21bfe4813e67bfed51b909d4286b60c388e53",
+      "size": 19608
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/source-and-chronology-matrix.md",
-      "sha256": "sha256:d2cf945f2182e63181e244be36f71a7b6a260002cd0e20d8eac99372685f515c",
-      "size": 54193
+      "sha256": "sha256:c3af85faf31eba8cd644c4616f5bca34aa984e1e75c37f35b0f10cdcc1aaf54f",
+      "size": 53498
     },
     {
       "path": "records/accessions/6529NM.2026.001/public/technical-and-condition-review.md",
@@ -582,13 +582,13 @@
     },
     {
       "path": "records/institutional-practice/a-field-of-practice.md",
-      "sha256": "sha256:1f5766a76b7d036fb403322c805f5c8d87f49b1c5ab2ee70d507bd6f316f956a",
-      "size": 10757
+      "sha256": "sha256:fe4c898a56780bc86cb0e1737b1fe30f8f070b2ae85803c9fae1512c9f752f89",
+      "size": 10901
     },
     {
       "path": "records/institutional-practice/adjacent-chain-native-practice.md",
-      "sha256": "sha256:6cf40830ab7e114c15d68f204fc4449d1dc91eed0e1a3bc9d222751eae0b2994",
-      "size": 28330
+      "sha256": "sha256:79b51e30fc86ab78a9113c8303ae21da4b0c5badc0b6be20662b5be296ce8e95",
+      "size": 28318
     },
     {
       "path": "records/institutional-practice/profiles/acmi.md",
@@ -727,8 +727,8 @@
     },
     {
       "path": "records/institutional-practice/source-register.md",
-      "sha256": "sha256:4cb834b04ef8fb5732d7cc7d32267eedad7c6d98ee073df9a238d148f018870a",
-      "size": 29693
+      "sha256": "sha256:0df4f0b86ba2338c6a6f7ef428a501a901aa67bab5174eb3c0404464e1ec8b63",
+      "size": 29707
     },
     {
       "content_hash": {
@@ -1337,8 +1337,8 @@
     },
     {
       "path": "scripts/validate_casey_dossier.py",
-      "sha256": "sha256:458e665a7e2aedc9cbe7717a7862e034ba3e2390187f38247a669bc098f6ec18",
-      "size": 82934
+      "sha256": "sha256:d4db9a5ce4c8a618506d1643ce31417740cf93c7bc06e0d476342ac009082cc9",
+      "size": 82923
     },
     {
       "path": "scripts/validate_full_with_casey.py",
@@ -1790,9 +1790,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xe583d775ff1feb724db2187451d290b167f9155b0f2074983d1f7c5ed72e1204"
+    "digest": "0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3"
   },
-  "manifest_sha256": "sha256:754acbdc27c5b13beb20cf460c95b0a595d9cdeab6f5ee8ad40395db4319c796",
+  "manifest_sha256": "sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

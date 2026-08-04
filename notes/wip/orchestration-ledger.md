@@ -1874,3 +1874,23 @@ current 247-entry candidate manifest has SHA-256
 and Keccak-256
 `0xe583d775ff1feb724db2187451d290b167f9155b0f2074983d1f7c5ed72e1204`.
 These commitments remain candidates until the governed source PR merges.
+
+### 2026-08-04 final public copy desk
+
+Two independent editorial reviews audited the exact integrated source tree.
+Accepted corrections removed residual formulaic contrasts and internal workflow
+language, attributed the *Ex Nihilo (Cosmos)* non-repetition claim, restored
+`noncommercial` to the computational-research rights statement, separated
+chain identity and transfer history from legal title, copyright, and accession,
+and corrected the `technically_verified`, `preservation_complete`, and
+`display_ready` gate language. The study remains one living publication.
+
+The Casey retained drafts regenerate all sixteen promoted public manuscripts
+byte-for-byte. The complete 126-test suite passes with one intentional Windows
+named-pipe skip; full Museum validation, publication promotion, the 237-source
+inventory, and manifest checks pass. The resulting 247-entry candidate manifest
+has SHA-256
+`sha256:50310bea590488ae836d35a77c7713a5361da1e441da35a1e19cb775c9bf3d04`
+and Keccak-256
+`0x9bb2a7884e0c072d29848382283f94f140f846a4e93833666a8ba96967b5cdb3`.
+These commitments remain candidates until the governed source PR merges.
