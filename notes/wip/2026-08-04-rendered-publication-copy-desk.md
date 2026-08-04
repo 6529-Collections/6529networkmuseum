@@ -44,3 +44,16 @@ source and frontend validators have passed.
    registrarial, institutional, and methodology routes.
 4. Qualify the exact frontend head through PR review, staging, and production.
 
+## Source validation completion amendment
+
+The first item above is complete for pull request #24 at source head
+`7b91e925a716cdbd1d9b364c4b99c27769ce890f`. The 126-test control-plane
+suite, bootstrap validator, complete Museum validator, Casey dossier
+validator, institutional-source inventory, publication promotion check, and
+deterministic Ubuntu and Windows workflows passed. The governed candidate
+manifest contains 247 entries. Its pre-review commitments were SHA-256
+`sha256:b4e810f45576d0c3b03733b5d399dc8ff1323281460bbfdf040eb185bb3bb90a`
+and Keccak-256
+`0x9f6706921e1bb20e20c608e2d80a00db9845c3afb6113563c94bc7709ddc21f2`.
+This amendment records completion of the source-validation task; merge,
+frontend qualification, and production release remain the active boundary.

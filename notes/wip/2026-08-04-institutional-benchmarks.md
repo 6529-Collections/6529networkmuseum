@@ -173,3 +173,12 @@ commit and exact commitments, atomic admission of the expanded study by the
 existing website publication adapter, and staging and production qualification
 of the restrained Stories & Research presentation. No `supersedes` target is
 assigned because this entry records an unpublished revision in progress.
+
+## Rendered-copy amendment
+
+Version 1.1.2 of *A field of practice* removes release-process narration from
+the public overview. It states the twenty-seven-case scope directly and leaves
+the selection method unchanged. The correction follows the rendered copy-desk
+review recorded in `notes/wip/2026-08-04-rendered-publication-copy-desk.md` and
+the corresponding orchestration-ledger entry; the earlier ledger entries
+remain part of the unpublished working history.
