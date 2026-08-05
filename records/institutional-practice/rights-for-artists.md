@@ -102,6 +102,15 @@ State what a token holder receives. Useful terms may address personal display,
 public display, lending, resale listings, social media, commercial use,
 preservation access, and transfer of holder-specific rights with the token.
 
+A museum or collector will ordinarily understand the acquisition of an
+artwork to include faithful display in the form for which it was made. If the
+work needs a particular screen, browser, live endpoint, wallet state, source
+file, or installation sequence, describe it as part of the work. If you intend
+to limit ordinary display, collection documentation, or technical
+preservation, say so expressly before the sale. Silence creates uncertainty
+about the boundary of stewardship; it should never operate as a hidden ban on
+showing the acquired work.
+
 The public license and holder rights can coexist. A CC license grants rights to
 everyone. A holder license grants additional rights to the current token owner.
 The documents should say how holder rights begin, end, and follow a transfer.
@@ -193,6 +202,8 @@ accurately.
 
 ## Revision history
 
-- `1.0.0` — 2026-08-05: initial guide to component-level rights, public and
+- `1.1.0`: 2026-08-05. Added practical guidance on faithful display,
+  collection documentation, and preservation expectations for acquired work.
+- `1.0.0`: 2026-08-05. Initial guide to component-level rights, public and
   holder licenses, Creative Commons choices, durable rights metadata,
   preservation permission, credit lines, and the artist's rights packet.

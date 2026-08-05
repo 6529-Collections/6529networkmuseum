@@ -16,7 +16,8 @@ institution can own a painting while reproduction rights remain with the
 artist or estate.
 
 The distinction does not diminish the collection object. Ownership can carry
-authenticity, scarcity, provenance, access, display possibilities, and the
+authenticity, scarcity, provenance, access, the ordinary ability to display
+the acquired work, and the
 right to transfer the object. Copyright controls a separate set of acts, such
 as reproducing the image, publishing an adaptation, or authorizing another
 person to do so.
@@ -64,11 +65,28 @@ and transaction records provide stronger evidence.
 
 ## Display
 
-Personal display in a home or on a device may be addressed by holder terms.
-Public display in a gallery, office, event, website, or social feed can involve
-copyright rights and platform conditions. Check whether the applicable public
-or holder license covers the setting, whether the use is commercial, and
-whether a live generator depends on a third-party service.
+Displaying a lawfully acquired artwork is an ordinary part of ownership and
+collecting. A painting can hang on a wall even while the artist retains its
+copyright. A digital work can be shown on a collector's screen, installed in
+an exhibition, and presented through the technical environment in which it
+was issued. Artist instructions, mint terms, loan agreements, and local law
+may define the authentic display or set a contrary limit, so keep them with
+the work.
+
+An NFT deserves a practical reading. Token ownership alone does not transfer
+copyright, while the artist's sale of a work intended for screen or browser
+display ordinarily carries an expectation that its holder can see and show
+the acquired work. Record the canonical media, generator, contract, and
+display instructions. The case for faithful display is strongest when the
+presentation follows those sources. Public remixes, merchandise, advertising,
+image licensing, and downloadable substitute files are different uses and may
+need broader rights.
+
+A collection page may identify and discuss the work with a proportionate,
+faithful view. Museums routinely publish such records as part of cataloguing,
+scholarship, and public access. The exact image, size, context, jurisdiction,
+and any contrary terms still matter, especially for high-resolution downloads
+or uses detached from interpretation.
 
 Credit the artist and retain the title, date, edition, project, license, and
 change information. Good labels strengthen the work's history even when the
@@ -86,9 +104,8 @@ and notices. NC limits the public grant to noncommercial uses. ND withholds
 permission to share adaptations. SA applies the same or compatible license to
 shared adaptations.
 
-Linking to an official Museum or artist page usually avoids making and
-distributing another copy of the artwork, while still directing viewers to the
-work and its context.
+Linking to an official Museum or artist page is useful when a full reproduction
+is unnecessary, while still directing viewers to the work and its context.
 
 ## Preservation
 
@@ -179,6 +196,8 @@ correct with each transfer.
 
 ## Revision history
 
-- `1.0.0` — 2026-08-05: initial guide to the distinction between ownership
+- `1.1.0`: 2026-08-05. Revised display, collection-page, publication, and
+  preservation guidance around ordinary museum and collector practice.
+- `1.0.0`: 2026-08-05. Initial guide to the distinction between ownership
   and copyright, public-domain collecting, rights evidence, display,
   publication, preservation, lending, donation, resale, and transfer.
