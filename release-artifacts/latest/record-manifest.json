@@ -116,8 +116,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/caip-19.md",
-      "sha256": "sha256:eb4e7e95cbe65dbac26d0abe50c08f75ca8906a0413a75ef2916b7cf885827b3",
-      "size": 5676
+      "sha256": "sha256:d838bf065226d886d0e71c6cb66fccf2508677143d9540dbdbd723ce71145660",
+      "size": 5690
     },
     {
       "byte_mode": "lf-normalized",
@@ -139,8 +139,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/cidoc-crm.md",
-      "sha256": "sha256:dbd313085792495c1a602cb4a7fa2e006decc3a76a0102ff9ad0b6f0792bc6e5",
-      "size": 9244
+      "sha256": "sha256:47f2f2698be8b0a9b2a75fbee058f3a0239d4348c18b132cd056a94905e1a282",
+      "size": 9246
     },
     {
       "byte_mode": "lf-normalized",
@@ -163,14 +163,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/ocfl.md",
-      "sha256": "sha256:2777893b2c2338efd8e253379a1d5eda9d9530883604f11a662a25decf34f475",
-      "size": 5977
+      "sha256": "sha256:f99414ecd99c9acecacf79b850aaf52243085bf0f7860c144df778f2e3f96463",
+      "size": 5975
     },
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/premis.md",
-      "sha256": "sha256:738afb2154b01944c0b1724bab4518dcf92df5d1bc89f80dc8a99eaab02587b5",
-      "size": 8576
+      "sha256": "sha256:e1778d60462824da728c4b5c8b50464d30f30b9c439064b50b2fb8ca529949b5",
+      "size": 8595
     },
     {
       "byte_mode": "lf-normalized",
@@ -186,8 +186,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/prov-o.md",
-      "sha256": "sha256:3f86d8301b3f6532ae851da3d442635ce252957d42fc7cdab09ec6a62a90fec0",
-      "size": 9239
+      "sha256": "sha256:9963cb1dd9f0a3c6c49fef85d36b9785b67c2d7705765ced6cd3e95bcb69d124",
+      "size": 9238
     },
     {
       "byte_mode": "lf-normalized",
@@ -2672,9 +2672,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9ccca279ca25f1d0b65b2430168dd192a87dee77b682f63db25de44fc899ea26"
+    "digest": "0x448617dcc43e783ec64490dfc0269de6e1d6147a0f20fc000ff64116c123742e"
   },
-  "manifest_sha256": "sha256:258a2aa6a970cc84d036de511902cbc1d5fbb5141067cc146fe83ac879d20544",
+  "manifest_sha256": "sha256:ec1f0eaad58529073a2f92a045b86256828002694ee46ca2c28721904251e8df",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
