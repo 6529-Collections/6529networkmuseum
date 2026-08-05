@@ -23,7 +23,6 @@ This index is the durable entry point for research, alternatives, and implementa
 ## Programs and on-chain design
 
 - [`research/keys-and-gates-evidence.md`](research/keys-and-gates-evidence.md) — source evidence for Keys and Gates; the current institutional record is [`docs/programs/keys-and-gates.md`](../docs/programs/keys-and-gates.md) and its linked program records.
-- [`wip/2026-08-04-keys-and-gates-media-delivery.md`](wip/2026-08-04-keys-and-gates-media-delivery.md) — implementation-ready WIP architecture for responsive CloudFront derivatives, rights-gated retained high-resolution masters, IIIF access, and the current live-page performance diagnosis.
 - [`wip/2026-08-01-stream-coverage-and-gaps.md`](wip/2026-08-01-stream-coverage-and-gaps.md) — early Stream comparison retained as design history.
 - [`wip/2026-08-01-external-works-registry.md`](wip/2026-08-01-external-works-registry.md) — early external-work registry design retained as history.
 - [`research/external-registry-review.md`](research/external-registry-review.md) — review evidence for the current external-work on-chain specification.
