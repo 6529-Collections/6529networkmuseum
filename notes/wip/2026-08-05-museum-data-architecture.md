@@ -78,7 +78,7 @@ implementers.
   manifest path binding, and primary-validator integration. Eight focused tests,
   the architecture validator, the full Museum/Casey validator, manifest check,
   and whitespace check pass.
-- Current candidate manifest after reconciliation with the rights handbook: 346
+- Current candidate manifest after reconciliation with the rights handbook: 345
   entries; SHA-256
   `sha256:258a2aa6a970cc84d036de511902cbc1d5fbb5141067cc146fe83ac879d20544`;
   Keccak-256
