@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:1a0117773e963b97f56eed85515e79c7360e67bbbf67a08f10726d90f2b99333",
-      "size": 28731
+      "sha256": "sha256:6b62beed766752009ebcbcd86d7111ded777ec7701bca817efb09288f298b8f1",
+      "size": 28687
     },
     {
       "byte_mode": "lf-normalized",
@@ -122,8 +122,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:843ba6796afbe08835ca6f0451dbfaa81f8da6e65db77e23bfdc6f476294447e",
-      "size": 23448
+      "sha256": "sha256:484d041ed12da66eadd4f46485bb07e1fb98ccabbcdff03c04648b1780a2bb23",
+      "size": 24870
     },
     {
       "byte_mode": "lf-normalized",
@@ -2432,9 +2432,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xad0ca6ff2ec585a4283627044a015b1458885b38d7931c901155725118ea7e54"
+    "digest": "0x3195f6a65c511a0859bc6d9e9766799daa55329d6be55a811f97ba58629da65c"
   },
-  "manifest_sha256": "sha256:69f9f0b87904d7c4344694294baed034891cec31546890e49d170de9d3e60a5e",
+  "manifest_sha256": "sha256:5685ee52289481eedf27989c92fb2854a8c2d74deac6691f1195702c24f13308",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
