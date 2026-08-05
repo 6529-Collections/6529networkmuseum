@@ -11,14 +11,17 @@ The standard is museum-rigorous, chain-native, and reproducible by a third party
 
 ## Standards base
 
-- Spectrum 5.1 for acquisition/accessioning, inventory, custody, and audit;
-- Getty CDWA and CDWA Lite/LIDO for art-historical description and exchange;
-- ICOM Object ID for minimum identifying documentation;
-- PREMIS v3 for preservation Objects, Events, Agents, and Rights;
-- IIIF Presentation 3 for visual-resource manifests;
-- BagIt and OCFL mapping for portable dossiers and versioned repository ingest;
-- time-based/software-art conservation practice for behavior, dependencies, environment, and artist intent;
-- 6529Stream for chain identity, record envelopes, title binding, rights, preservation, dossier, and acquisition-packet semantics.
+The controlling profile is [How the Museum knows and cares for
+art](data-architecture.md). It assigns a distinct role to Spectrum 5.1, CIDOC
+CRM 7.1.3, LIDO 1.1, PREMIS 3.0, PROV-O, Getty AAT/ULAN, IIIF Presentation 3,
+C2PA 2.4, BagIt, OCFL 1.1, and CAIP-19. ICOM Object ID and time-based/software-
+art conservation practice continue to inform minimum identification, behavior,
+dependencies, environment, and artist intent.
+
+6529Stream is a downstream on-chain interoperability target. Its exact envelope
+and hash semantics apply when a Museum record is exported to Stream-compatible
+infrastructure. Stream does not control the Museum's collections semantics,
+implementation states, or local ontology extensions.
 
 ## Three linked records
 
@@ -48,7 +51,7 @@ publish, reproduce, preserve, or transfer the work.
 Formal gift acceptance does not alone prove legal title, execute a
 `TITLE_BINDING`, complete condition or preservation work, authorize display,
 or move an object lifecycle state to `accessioned`. Until the executable
-Stream-equivalent accession certificate is evidence-backed, the lot and its
+control-plane accession certificate is evidence-backed, the lot and its
 objects remain `received_onchain` / `not_complete`; the record must name the
 specific completion blockers and retain independent reviewer fields as pending.
 
@@ -82,7 +85,7 @@ Token ownership, legal title, copyright, display rights, and preservation rights
 - accession/object number, object name, classification, record status, curator, creator/reviewer, revision history;
 - preferred artist name and authority identifiers;
 - project, token title, series, date, mint/release dates, platform, edition/project size, medium;
-- title, creator, creation date/range, medium/format, dimensions/duration, edition statement, and credit line compatible with `STREAM_WORK_DESCRIPTION_V1` and LIDO.
+- title, creator, creation date/range, medium/format, dimensions/duration, edition statement, and credit line suitable for the Museum profile and a later LIDO 1.1 public exchange record.
 
 The medium describes the work, not merely its token. For example: “On-chain generative software; JavaScript; deterministic token-hash output; ERC-721 token on Ethereum.”
 

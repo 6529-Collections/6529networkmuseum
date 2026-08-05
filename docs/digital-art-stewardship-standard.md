@@ -64,19 +64,18 @@ No status in this standard may be used to infer another fact. In particular:
 - a hash proves the bytes that were hashed, not the recovery of bytes that were
   never retained.
 
-### 1.3 Existing Museum and Stream records remain authoritative
+### 1.3 Museum data architecture and downstream interoperability
 
-This standard supplements, and does not replace, the [accession
-standard](accession-standard.md), [record model](record-model.md), [Stream
-interoperability contract](stream-interoperability.md), and [curatorial
-publication standard](curatorial-publication-standard.md).
+This standard supplements the [Museum data architecture](data-architecture.md),
+[accession standard](accession-standard.md), [record model](record-model.md),
+and [curatorial publication standard](curatorial-publication-standard.md).
 
-The existing accession model remains authoritative for accession statements,
+The Museum data architecture and accession model remain authoritative for accession statements,
 individual object records, title binding, rights, chain identity, custody,
-condition, preservation, display, and lifecycle states. The existing Stream
-model remains authoritative for exact envelopes, `HashRef`, record types,
-schema IDs, subject derivation, record-chain commitments, and bilateral
-ontology profiles.
+condition, preservation, display, lifecycle states, ontology mappings, and
+implementation status. The Stream profile remains authoritative only for its
+own exact envelopes, `HashRef`, schema IDs, subject derivation, and record-chain
+commitments when the Museum targets Stream-compatible infrastructure.
 
 This document uses descriptive record parts such as `WORK_IDENTITY`,
 `COMPONENT`, `ARTIST_DOCUMENTATION`, `MANIFESTATION`, `TECHNICAL_EVENT`,
@@ -85,20 +84,19 @@ working document terms, not new canonical Stream schema IDs. A future schema
 or on-chain record must be assigned and reviewed through the repository's
 normal control plane.
 
-For Stream-compatible records:
+For Museum records:
 
-- use the exact Stream envelope rather than a semantically equivalent local
-  envelope;
-- map preservation objects, events, agents, and rights through
-  `STREAM_PREMIS_V3_PROFILE`;
-- map work description through `STREAM_WORK_DESCRIPTION_V1` and
-  `STREAM_LIDO_PROFILE_V1` where applicable;
-- map rights through `STREAM_RIGHTS_V1`;
-- use the Museum's bilateral BagIt/OCFL and IIIF profiles where applicable;
+- map preservation objects, events, agents, and permissions through the
+  Museum PREMIS 3.0 profile;
+- map provenance through the Museum PROV-O and CIDOC CRM profiles;
+- map public work description through the Museum LIDO 1.1 profile;
+- use the Museum's BagIt, OCFL, and IIIF profiles where applicable;
 - keep optional C2PA references hash-committed and validation-status-bearing;
-- use the existing CAIP-19-shaped citation for chain identity;
-- do not claim Stream convergence, owner-record deployment, or on-chain
-  preservation merely because a local dossier is complete.
+- use the Museum CAIP-19 profile for chain identity.
+
+A later Stream adapter must preserve those meanings while using Stream's exact
+envelope. A complete local dossier does not establish Stream convergence,
+owner-record deployment, or on-chain preservation.
 
 ## 2. Record architecture
 
@@ -534,9 +532,10 @@ instruments, or accession authority by itself.
 
 When implementation begins, the Museum should first map these record parts to
 closed JSON Schemas, controlled vocabularies, evidence-manifest rules,
-cross-file references, and release-manifest inventory. Any new Stream-facing
-schema must be proven byte-compatible with the published bilateral profile or
-explicitly kept Museum-local until Stream publishes the canonical schema.
+cross-file references, and release-manifest inventory. Any Stream-facing schema
+or adapter must be tested against the Museum profile and the exact active Stream
+envelope. Unavoidable differences are recorded explicitly rather than changing
+the Museum semantics to fit an unimplemented Stream profile.
 
 ## 9. Primary source basis
 

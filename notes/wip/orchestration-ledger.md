@@ -2184,3 +2184,47 @@ across acquisitions; object pages locate individual holdings; gift pages retain
 their historical acquisition scope. A future work from one of these projects
 adds an object reading and held-position overlay without being made part of
 the Casey gift.
+
+## 2026-08-05 Museum data architecture construction checkpoint
+
+The Museum-native profile now treats Stream as a later interoperability target
+instead of the source of Museum semantics. `6529NM_DATA_ARCHITECTURE_V1`
+registers eleven complementary standards: Spectrum 5.1, CIDOC CRM 7.1.3, LIDO
+1.1, PREMIS 3.0, PROV-O, Getty AAT/ULAN, IIIF Presentation 3.0, C2PA 2.4,
+BagIt/RFC 8493, OCFL 1.1 with its 1.1.1 patch context, and CAIP-19 with its
+Review/Draft caveat.
+
+The public publication contains one integrated introduction, eleven standard
+profiles, and a Casey Reas implementation audit. Every standard page opens with
+the question it answers and a collection example before presenting authority,
+version, classes or structures, Museum extensions, serialization, validation,
+scope, and implementation state. The closed JSON profile and JSON Schema require
+exactly eleven unique documents and preserve the five-state distinction among
+conceptual mapping, source fields, serialization, validation, and operation.
+
+Four primary-source research lanes and four independent review lanes were used.
+The review pass corrected CIDOC physical-domain and software-agent mistakes,
+LIDO resource-rights granularity, PREMIS conformance wording, PROV Bundle
+typing, IIIF minimum structure and rights URI, C2PA assertion provenance, OCFL
+inventory optionality, and recurring standards-engineering prose.
+
+The final Casey audit found no literal data mismatch and strengthened the
+control plane. A closed machine schedule now binds every object to title,
+CAIP-19 identity, custody log, retained metadata digest, observed generator
+digest, accession state, preservation state, and the explicit non-retention of
+generator response bytes. The full Museum validator invokes the data-
+architecture validator, which also binds exact standard-document paths and the
+complete architecture publication to the deterministic release manifest.
+
+Before the correction pass, the complete local control plane passed 139 tests
+with one Windows capability skip, plus bootstrap, fetch guard, full validation,
+institutional inventory, program media, Casey diligence, and the 3,300-token
+snapshot verifier. After correction, eight focused tests, the dedicated data-
+architecture validator, the full Museum/Casey validator, manifest check, and
+whitespace check passed. The final exact-tree CI-equivalent run then passed in
+461.1 seconds: 141 tests with one expected Windows capability skip, bootstrap,
+fetch guard, program-media and institutional-source inventory checks, full
+Museum/Casey validation, deterministic manifest verification, NextGen
+compatibility, all Casey mutation controls, the 3,300-token snapshot verifier,
+the diligence manifest, and whitespace validation. Pull request, bot review,
+merge, website adapter, staging, and production remain active gates.

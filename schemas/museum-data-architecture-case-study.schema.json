@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/museum-data-architecture-case-study-v1.json",
+  "title": "6529 Network Museum data architecture Casey Reas machine schedule",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "const": "../../schemas/museum-data-architecture-case-study.schema.json"
+    },
+    "profile_id": {
+      "const": "6529NM_DATA_ARCHITECTURE_V1"
+    },
+    "accession_lot_id": {
+      "const": "6529NM.2026.001"
+    },
+    "custody_transaction": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "custody_block": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evidence_manifest_path": {
+      "const": "evidence/casey-reas/manifest.json"
+    },
+    "metadata_digest_scope": {
+      "const": "retained raw metadata response bytes"
+    },
+    "generator_digest_scope": {
+      "const": "recorded generator observation; generator response bytes were not retained"
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "$ref": "#/$defs/object"
+      }
+    }
+  },
+  "required": [
+    "$schema",
+    "profile_id",
+    "accession_lot_id",
+    "custody_transaction",
+    "custody_block",
+    "evidence_manifest_path",
+    "metadata_digest_scope",
+    "generator_digest_scope",
+    "objects"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "object": {
+      "type": "object",
+      "properties": {
+        "object_id": {
+          "type": "string",
+          "pattern": "^6529NM\\.2026\\.001\\.0[1-7]$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caip19": {
+          "type": "string",
+          "pattern": "^eip155:1/erc721:0x[0-9a-f]{40}/(0|[1-9][0-9]*)$"
+        },
+        "custody_receipt_log": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "metadata_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "generator_observation_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "generator_bytes_retained": {
+          "const": false
+        },
+        "accession_state": {
+          "const": "accessioned"
+        },
+        "preservation_state": {
+          "const": "in_progress"
+        }
+      },
+      "required": [
+        "object_id",
+        "title",
+        "caip19",
+        "custody_receipt_log",
+        "metadata_sha256",
+        "generator_observation_sha256",
+        "generator_bytes_retained",
+        "accession_state",
+        "preservation_state"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "../../schemas/museum-data-architecture-profile.schema.json",
+  "profile_id": "6529NM_DATA_ARCHITECTURE_V1",
+  "profile_version": "1.0.0",
+  "status": "working_standard",
+  "observed_on": "2026-08-05",
+  "title": "How the Museum knows and cares for art",
+  "source_document": "docs/data-architecture.md",
+  "implementation_states": [
+    "conceptual_mapping",
+    "source_fields_present",
+    "serialized",
+    "validated",
+    "operational"
+  ],
+  "standards": [
+    {
+      "slug": "spectrum",
+      "name": "Spectrum 5.1",
+      "category": "collections_management_procedures",
+      "human_question": "Did the Museum receive, evaluate, acquire, accession, locate, check, and audit the object properly?",
+      "authority": "Collections Trust",
+      "version": "5.1",
+      "authority_status": "current",
+      "official_url": "https://collectionstrust.org.uk/spectrum/",
+      "document_path": "docs/data-architecture/spectrum.md",
+      "casey_state": "operational"
+    },
+    {
+      "slug": "cidoc-crm",
+      "name": "CIDOC CRM",
+      "category": "cultural_heritage_ontology",
+      "human_question": "What happened, to what, when, where, and through whose action?",
+      "authority": "CIDOC CRM Special Interest Group",
+      "version": "7.1.3",
+      "authority_status": "official_iso_correspondence",
+      "official_url": "https://cidoc-crm.org/versions-of-the-cidoc-crm",
+      "document_path": "docs/data-architecture/cidoc-crm.md",
+      "casey_state": "source_fields_present"
+    },
+    {
+      "slug": "lido",
+      "name": "LIDO",
+      "category": "public_catalogue_exchange_schema",
+      "human_question": "How can another catalogue receive and display a coherent public object record?",
+      "authority": "ICOM-CIDOC LIDO Working Group",
+      "version": "1.1",
+      "authority_status": "current",
+      "official_url": "https://lido-schema.org/schema/latest/lido.html",
+      "document_path": "docs/data-architecture/lido.md",
+      "casey_state": "source_fields_present"
+    },
+    {
+      "slug": "premis",
+      "name": "PREMIS",
+      "category": "digital_preservation_data_model",
+      "human_question": "Which files, programs, environments, actions, agents, and permissions keep the work usable?",
+      "authority": "PREMIS Editorial Committee and Library of Congress",
+      "version": "3.0",
+      "authority_status": "current",
+      "official_url": "https://www.loc.gov/standards/premis/v3/",
+      "document_path": "docs/data-architecture/premis.md",
+      "casey_state": "source_fields_present"
+    },
+    {
+      "slug": "prov-o",
+      "name": "PROV-O",
+      "category": "general_provenance_ontology",
+      "human_question": "Which entity was produced, used, revised, or derived through which activity and agent?",
+      "authority": "World Wide Web Consortium",
+      "version": "W3C Recommendation 2013-04-30",
+      "authority_status": "recommendation",
+      "official_url": "https://www.w3.org/TR/prov-o/",
+      "document_path": "docs/data-architecture/prov-o.md",
+      "casey_state": "source_fields_present"
+    },
+    {
+      "slug": "getty-aat-ulan",
+      "name": "Getty AAT and ULAN",
+      "category": "controlled_vocabularies_and_authority_records",
+      "human_question": "Are names for artists, materials, techniques, and work types consistent and linkable?",
+      "authority": "Getty Research Institute",
+      "version": "continuously maintained",
+      "authority_status": "current_service",
+      "official_url": "https://www.getty.edu/research/tools/vocabularies/",
+      "document_path": "docs/data-architecture/getty-aat-ulan.md",
+      "casey_state": "conceptual_mapping"
+    },
+    {
+      "slug": "iiif",
+      "name": "IIIF Presentation API",
+      "category": "presentation_api",
+      "human_question": "How should images, sound, video, time, sequence, and annotation be presented to a viewer?",
+      "authority": "IIIF Consortium",
+      "version": "3.0.0",
+      "authority_status": "latest_stable",
+      "official_url": "https://iiif.io/api/presentation/3.0/",
+      "document_path": "docs/data-architecture/iiif.md",
+      "casey_state": "conceptual_mapping"
+    },
+    {
+      "slug": "c2pa",
+      "name": "C2PA Content Credentials",
+      "category": "signed_media_provenance",
+      "human_question": "Who signed an assertion about a media file, what did they assert, and does the binding validate?",
+      "authority": "Coalition for Content Provenance and Authenticity",
+      "version": "2.4",
+      "authority_status": "current",
+      "official_url": "https://spec.c2pa.org/specifications/specifications/2.4/",
+      "document_path": "docs/data-architecture/c2pa.md",
+      "casey_state": "conceptual_mapping"
+    },
+    {
+      "slug": "bagit",
+      "name": "BagIt",
+      "category": "transfer_package_format",
+      "human_question": "Did a transfer package arrive with every declared file intact?",
+      "authority": "RFC Editor",
+      "version": "1.0 / RFC 8493",
+      "authority_status": "informational_rfc",
+      "official_url": "https://www.rfc-editor.org/info/rfc8493",
+      "document_path": "docs/data-architecture/bagit.md",
+      "casey_state": "conceptual_mapping"
+    },
+    {
+      "slug": "ocfl",
+      "name": "OCFL",
+      "category": "versioned_preservation_storage",
+      "human_question": "Can every version of a preserved digital object be reconstructed from storage?",
+      "authority": "OCFL Editors",
+      "version": "1.1.1 patch update; object and storage declarations remain 1.1",
+      "authority_status": "latest_release",
+      "official_url": "https://ocfl.io/1.1/spec/",
+      "document_path": "docs/data-architecture/ocfl.md",
+      "casey_state": "conceptual_mapping"
+    },
+    {
+      "slug": "caip-19",
+      "name": "CAIP-19",
+      "category": "chain_asset_identity",
+      "human_question": "Which exact asset on which chain does this record cite?",
+      "authority": "Chain Agnostic Standards Alliance",
+      "version": "CAIP-19",
+      "authority_status": "review",
+      "official_url": "https://standards.chainagnostic.org/CAIPs/caip-19",
+      "document_path": "docs/data-architecture/caip-19.md",
+      "casey_state": "source_fields_present"
+    }
+  ],
+  "case_study_path": "docs/data-architecture/casey-reas-implementation.md",
+  "case_study_data_path": "docs/data-architecture/casey-reas-machine-schedule.json",
+  "stream_convergence": {
+    "normative_for_profile": false,
+    "status": "deferred_until_museum_profile_release",
+    "document_path": "docs/stream-interoperability.md"
+  }
+}
