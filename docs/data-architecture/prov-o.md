@@ -55,7 +55,7 @@ Direct relations answer common questions:
 - `prov:hadMember`: membership in a collection Entity.
 
 Qualified relations add a role, time, or other context to a relation. The
-Museum uses them when a simple edge would lose material meaning—for example,
+Museum uses them when a simple edge would lose material meaning. For example,
 when the same file serves as token input in one activity and comparison
 evidence in another.
 

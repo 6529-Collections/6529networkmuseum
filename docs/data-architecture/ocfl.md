@@ -8,7 +8,7 @@ Status: working Museum application profile; the cited standard remains authorita
 
 If a corrected metadata file, a new migration, or an expanded dossier silently
 replaces the earlier state, the preservation record loses its history.
-OCFL—the Oxford Common File Layout—defines a transparent storage layout for
+OCFL, the Oxford Common File Layout, defines a transparent storage layout for
 versioned digital objects. Its inventories connect content digests to stored
 files and connect each version to the logical paths visible in that version, so
 the repository can reconstruct an earlier state after a later one becomes

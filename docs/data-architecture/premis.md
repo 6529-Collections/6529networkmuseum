@@ -20,10 +20,10 @@ digital material.
 ## In the Casey Reas accession
 
 For Casey Reas's *CENTURY #31*, the Museum has a checksum for the retained
-metadata bytes—a test that those exact bytes have not changed. It can also
-identify the artwork, its external token, an observed generator, the p5.js
-environment, and documentation stills. Those are different preservation
-objects.
+metadata bytes. That checksum tests whether those exact bytes have changed. The
+record can also identify the artwork, its external token, an observed generator,
+the p5.js environment, and documentation stills. Those are different
+preservation objects.
 
 The live generator rendered when it was examined. A complete, self-contained
 generator and dependency package has not yet been retained. PREMIS lets the

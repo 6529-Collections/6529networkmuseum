@@ -35,9 +35,9 @@ support one public chronology.
 
 ## What CIDOC CRM contributes
 
-CIDOC CRM names the kinds of things a cultural-heritage record may need—objects,
+CIDOC CRM names the kinds of things a cultural-heritage record may need: objects,
 events, people and organizations, places, periods, documents, rights,
-conditions, and assessments—and defines the relationships among them.
+conditions, and assessments. It also defines the relationships among them.
 
 Its event-centred design is especially useful when:
 

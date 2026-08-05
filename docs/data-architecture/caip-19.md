@@ -8,8 +8,8 @@ Status: working Museum application profile; the cited standard remains authorita
 
 “Token 42” is ambiguous. Thousands of contracts can issue a token 42, and the
 same contract address can exist on different chains. CAIP-19 combines a chain
-identifier, asset namespace, contract or asset reference, and—where
-applicable—an individual token identifier.
+identifier, asset namespace, and contract or asset reference. Where applicable,
+it also includes an individual token identifier.
 
 For *CENTURY #31*, the Museum records:
 
