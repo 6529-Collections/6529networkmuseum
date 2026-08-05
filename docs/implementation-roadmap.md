@@ -340,3 +340,20 @@ record profile, especially before acquisitions extend beyond the present gift.
 That promotion is no longer a blocker for this derived display release. This
 amendment does not claim artist approval, governance adoption, completed
 accession QA, or any change to the underlying Museum records.
+## 2026-08-04 — Keys and Gates media delivery
+
+The sixteen selected submission sources were re-read from their existing public
+CloudFront objects and fixity-checked before conversion. They total 233,601,493
+bytes. The constructed delivery manifest now binds each source URL, SHA-256,
+byte size, MIME type, oriented dimensions, colour-profile treatment, recorded
+rights status, visual description, and three deterministic uncropped WebP
+presentation derivatives. Forty-eight derivatives total 16,093,924 bytes and
+use new source-digest and transform-version paths with one-year immutable cache
+headers. Submitted high-resolution sources remain separately available.
+
+This closes the immediate browser-delivery gap without changing program state.
+All sixteen works remain `selected_unminted`; no contract, token, purchase,
+title, custody, accession, preservation master, or effective CC0 claim has been
+added. Independent review of the constructed media manifest and accessibility
+descriptions remains open. The frontend publication, pull-request review,
+staging validation, and production validation are the next release gates.
