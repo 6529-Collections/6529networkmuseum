@@ -25,6 +25,7 @@ INVENTORY_ROOTS = (
     "schemas",
     "docs",
     "governance",
+    "media",
     "specs",
     "templates",
     "scripts",
@@ -76,6 +77,8 @@ def prefixed(name: str, data: bytes) -> str:
 
 def normalized_bytes(path: Path) -> bytes:
     raw = path.read_bytes()
+    if path.suffix.lower() == ".webp":
+        return raw
     return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
@@ -145,6 +148,7 @@ def file_entry(root: Path, path: Path) -> dict[str, Any]:
         "path": relative,
         "size": len(normalized),
         "sha256": prefixed("sha256", hashlib.sha256(normalized).digest()),
+        "byte_mode": "raw" if path.suffix.lower() == ".webp" else "lf-normalized",
     }
     if path.suffix.lower() == ".json":
         with path.open("r", encoding="utf-8") as handle:
@@ -160,7 +164,7 @@ def file_entry(root: Path, path: Path) -> dict[str, Any]:
 def manifest_body(root: Path) -> dict[str, Any]:
     return {
         "manifest_type": "6529NM_RECORD_MANIFEST",
-        "manifest_version": "1.0.0",
+        "manifest_version": "1.1.0",
         "inventory_roots": list(INVENTORY_ROOTS),
         "inventory_files": list(INVENTORY_FILES),
         "hash_algorithms": {"keccak256": 1, "sha256": 2},

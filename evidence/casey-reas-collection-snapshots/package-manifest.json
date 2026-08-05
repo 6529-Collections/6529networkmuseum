@@ -1126,8 +1126,8 @@
       {
         "path": "tests/test_control_plane.py",
         "role": "executable-or-test-source",
-        "sha256": "sha256:6ed8242ebe40b44751238e5c121690d5c8eeffdcf9e942d8c8b13575b71e03a8",
-        "size": 63182
+        "sha256": "sha256:bda5d11ad22057e8aa3e2981c3e44a7a26dbe33adf6ef38a6aa42716c07606dc",
+        "size": 63676
       }
     ]
   },
