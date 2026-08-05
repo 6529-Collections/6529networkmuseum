@@ -16,6 +16,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from promote_casey_publications import mismatches as casey_publication_mismatches
+from proposed_gifts import proposed_gift_issues
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -566,6 +567,9 @@ def main() -> None:
     check_keys_and_gates_duplicate_keys()
     check_declared_schemas(loaded)
     check_record_controls(loaded)
+    proposed_issues = proposed_gift_issues(ROOT, loaded)
+    if proposed_issues:
+        fail("proposed-gift validation failure: " + "; ".join(proposed_issues[:8]))
     check_governance_references(loaded)
     print(f"Museum bootstrap validation passed ({len(loaded)} JSON files checked).")
 

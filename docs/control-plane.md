@@ -183,6 +183,7 @@ From the repository root:
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
+python scripts/build_proposed_gift_dossiers.py --check
 python scripts/check_fetch_guard.py
 python scripts/generate_program_media.py --check
 python scripts/validate.py
@@ -190,7 +191,9 @@ python scripts/generate_manifest.py
 python scripts/generate_manifest.py --check
 ```
 
-Run the generator after changing a policy, canonical record, schema,
+Run `python scripts/build_proposed_gift_dossiers.py` after changing a proposed
+gift's Storm source parts, then run its `--check` mode. Run the release-manifest
+generator after changing a policy, canonical record, schema,
 governance or control-plane document, protocol specification, template,
 repository control, tool, or test. Commit the resulting
 `release-artifacts/latest/record-manifest.json` with the change.

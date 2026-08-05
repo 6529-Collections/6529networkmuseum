@@ -2324,3 +2324,37 @@ source build. Required remaining gates are final manifest regeneration, both
 pull-request review cycles, exact-source frontend build and visual review,
 staging deployment and E2E, production deployment and E2E, and a release note
 to the Dev Team Chat subwave using the `punk6529bot` identity.
+## 2026-08-05 proposed gifts in the Museum Wave
+
+The first proposed-gift package uses the Museum Wave rather than a standing
+website gallery. One seven-part Storm holds the exact resolution, five
+image-led work entries, case, countercase, public chain provenance, rights and
+technical limits, and the governed source edition. The parent drop remains the
+single TDH voting object. An unselected proposal stays in its decision context
+as **closed without selection** and is not exhibited beside artists or Museum
+holdings.
+
+Constructed candidate `6529NM-PG-2026-001` schedules Magnum Photos 75 tokens
+`127`, `145`, `97`, `44`, and `104` as one complete gift offered by punk6529.
+Magnum Photos 75 is not in the adopted preapproved-collection register, so the
+current donation policy already requires Museum Wave authorization. A future
+policy amendment is still required before exact-gift Wave review can be stated
+as adopted for preapproved collections.
+
+The package records all five tokenURI values, metadata/image fixity, dimensions,
+three-event transfer histories, and owner/approval state at finalized Ethereum
+block `25,690,178`, hash
+`0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c`.
+It also records contract administration and token-URI mutability. The public
+record makes no donor-identity binding, title, rights, transfer, custody,
+acceptance, or accession claim.
+
+`scripts/build_proposed_gift_dossiers.py` deterministically composes the voter
+dossier from Storm source parts. Bootstrap validation now rejects path escape,
+part reordering, missing/duplicate works, object-image mismatch, stale dossier,
+status drift, partial chain observations, broken provenance continuity,
+repeated transfer hashes, media/credit drift, noncanonical document topology,
+reparse-point paths, and disagreement between the opening and closing
+resolutions. The focused mutation suite contains thirteen passing tests.
+The donor will submit the finished Storm manually; no automation account has
+posted, voted, transferred, or transacted.

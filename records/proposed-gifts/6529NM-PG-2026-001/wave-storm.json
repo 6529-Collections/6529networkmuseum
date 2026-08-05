@@ -1,0 +1,128 @@
+{
+  "$schema": "../../../schemas/proposed-gift-wave-package.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
+      "role": "constructor",
+      "constructed_at": "2026-08-05T17:34:39.310Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_GIFT_WAVE_PACKAGE",
+  "schema_profile": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1",
+  "proposal_id": "6529NM-PG-2026-001",
+  "status": "not_submitted",
+  "target_wave": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "wave_type": "APPROVE",
+    "credit_type": "TDH",
+    "credit_scope": "DROP"
+  },
+  "single_voting_object": true,
+  "parts": [
+    {
+      "part_number": 1,
+      "role": "resolution",
+      "title": "Proposed gift: five works from Magnum Photos 75",
+      "markdown_path": "public/wave-storm/01-resolution.md",
+      "media": []
+    },
+    {
+      "part_number": 2,
+      "role": "work",
+      "title": "David Seymour — Magnum 75 #127",
+      "markdown_path": "public/wave-storm/02-david-seymour-127.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+      "media": [
+        {
+          "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+          "media_type": "image/jpeg",
+          "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
+          "credit_line": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 3,
+      "role": "work",
+      "title": "Larry Towell — Magnum 75 #145",
+      "markdown_path": "public/wave-storm/03-larry-towell-145.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+      "media": [
+        {
+          "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
+          "credit_line": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 4,
+      "role": "work",
+      "title": "Micha Bar-Am — Magnum 75 #97",
+      "markdown_path": "public/wave-storm/04-micha-bar-am-97.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+      "media": [
+        {
+          "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
+          "credit_line": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 5,
+      "role": "work",
+      "title": "Moisés Saman — Magnum 75 #44",
+      "markdown_path": "public/wave-storm/05-moises-saman-44.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+      "media": [
+        {
+          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
+          "credit_line": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 6,
+      "role": "work",
+      "title": "Lorenzo Meloni — Magnum 75 #104",
+      "markdown_path": "public/wave-storm/06-lorenzo-meloni-104.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+      "media": [
+        {
+          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+          "media_type": "image/jpeg",
+          "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
+          "credit_line": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 7,
+      "role": "synthesis",
+      "title": "The five photographs together",
+      "markdown_path": "public/wave-storm/07-case-and-decision.md",
+      "media": []
+    }
+  ],
+  "submission_notes": [
+    "Submit all seven parts as one Storm drop so the parent drop remains the single TDH voting object.",
+    "Attach the exact source image named in each work part; do not upload a marketplace screenshot or substitute crop.",
+    "Retain each visible credit line and All Rights Reserved label.",
+    "Before submission, replace the draft source edition with the merged immutable Git commit and update the finalized-block chain observation.",
+    "Do not post this package through an automation account; the donor stated that the donor will submit the proposal."
+  ]
+}

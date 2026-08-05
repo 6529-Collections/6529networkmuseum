@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/proposed-gift/v1",
+  "title": "6529 Network Museum proposed-gift record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "title",
+    "status",
+    "status_as_of",
+    "offer",
+    "preapproval",
+    "wave_authority",
+    "contract_observation",
+    "resolution",
+    "objects",
+    "documents",
+    "rights_summary",
+    "technical_summary",
+    "non_claims"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/proposed-gift.schema.json"},
+    "record_control": {"$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"},
+    "record_type": {"const": "PROPOSED_GIFT"},
+    "schema_profile": {"const": "6529NM_PROPOSED_GIFT_V1"},
+    "proposal_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}$"},
+    "title": {"type": "string", "minLength": 1},
+    "subtitle": {"type": ["string", "null"]},
+    "status": {
+      "enum": [
+        "draft",
+        "not_submitted",
+        "open",
+        "selected_for_accession_processing",
+        "closed_without_selection",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "status_as_of": {"type": "string", "format": "date-time"},
+    "offer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["donor_public_credit", "acquisition_method", "scope", "object_count", "decision_unit", "conditions"],
+      "properties": {
+        "donor_public_credit": {"type": "string", "minLength": 1},
+        "acquisition_method": {"const": "donation"},
+        "scope": {"const": "full_gift"},
+        "object_count": {"type": "integer", "minimum": 1},
+        "decision_unit": {"const": "exact_scheduled_group"},
+        "conditions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "preapproval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["collection_name", "collection_preapproved", "register_path", "checked_at", "policy_consequence"],
+      "properties": {
+        "collection_name": {"type": "string", "minLength": 1},
+        "collection_preapproved": {"type": "boolean"},
+        "register_path": {"const": "records/collections/approved-collections.json"},
+        "checked_at": {"type": "string", "format": "date-time"},
+        "policy_consequence": {"type": "string", "minLength": 1}
+      }
+    },
+    "wave_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wave_id",
+        "wave_name",
+        "wave_url",
+        "wave_type",
+        "credit_type",
+        "credit_scope",
+        "winning_threshold",
+        "winning_threshold_min_duration_ms",
+        "observed_at",
+        "proposal_drop"
+      ],
+      "properties": {
+        "wave_id": {"type": "string", "format": "uuid"},
+        "wave_name": {"const": "6529 Network Museum"},
+        "wave_url": {"type": "string", "format": "uri"},
+        "wave_type": {"const": "APPROVE"},
+        "credit_type": {"const": "TDH"},
+        "credit_scope": {"const": "DROP"},
+        "winning_threshold": {"type": "integer", "minimum": 1},
+        "winning_threshold_min_duration_ms": {"type": "integer", "minimum": 0},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "proposal_drop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["drop_id", "serial_no", "status", "status_observed_at"],
+          "properties": {
+            "drop_id": {"type": ["string", "null"], "format": "uuid"},
+            "serial_no": {"type": ["integer", "null"], "minimum": 1},
+            "status": {"enum": ["not_submitted", "PARTICIPATORY", "WINNER", "WITHDRAWN", "UNKNOWN"]},
+            "status_observed_at": {"type": "string", "format": "date-time"}
+          }
+        }
+      }
+    },
+    "contract_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "block_number",
+        "block_hash",
+        "block_timestamp",
+        "observed_at",
+        "contract_owner",
+        "admins",
+        "implementation",
+        "proxy_upgrade_path",
+        "token_uri_mutability",
+        "extensions",
+        "royalty_amount_at_10000"
+      ],
+      "properties": {
+        "block_number": {"type": "integer", "minimum": 0},
+        "block_hash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "block_timestamp": {"type": "string", "format": "date-time"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "contract_owner": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+        "admins": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"}
+        },
+        "implementation": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+        "proxy_upgrade_path": {"const": "constructor_set_implementation_no_public_upgrade_path_observed"},
+        "token_uri_mutability": {"const": "owner_or_admin_can_change_token_uri_or_base_uri"},
+        "extensions": {"type": "array", "maxItems": 0},
+        "royalty_amount_at_10000": {"const": 0}
+      }
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "threshold_cleared_effect", "threshold_not_cleared_effect", "later_required_events"],
+      "properties": {
+        "question": {"type": "string", "minLength": 1},
+        "threshold_cleared_effect": {"const": "selects_the_exact_scheduled_gift_for_accession_processing"},
+        "threshold_not_cleared_effect": {"const": "proposal_closes_without_selection"},
+        "later_required_events": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["identity_verification", "donor_authority", "title_review", "rights_review", "technical_review", "transfer", "custody_receipt", "formal_acceptance", "accession"]}
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/object"}
+    },
+    "documents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["voter_dossier", "wave_storm_package", "wave_resolution"],
+      "properties": {
+        "voter_dossier": {"type": "string", "minLength": 1},
+        "wave_storm_package": {"type": "string", "minLength": 1},
+        "wave_resolution": {"type": "string", "minLength": 1}
+      }
+    },
+    "rights_summary": {"type": "string", "minLength": 1},
+    "technical_summary": {"type": "string", "minLength": 1},
+    "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_object_id",
+        "caip19",
+        "chain_id",
+        "contract",
+        "token_id",
+        "artist",
+        "title",
+        "date",
+        "location",
+        "country",
+        "archive_number",
+        "edition",
+        "curation",
+        "metadata",
+        "image",
+        "rights",
+        "provenance",
+        "chain_observation"
+      ],
+      "properties": {
+        "candidate_object_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}\\.OBJ-[0-9]{3}$"},
+        "caip19": {"type": "string", "pattern": "^eip155:1/erc721:0x[0-9a-f]{40}/[0-9]+$"},
+        "chain_id": {"const": "eip155:1"},
+        "contract": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+        "token_id": {"type": "string", "pattern": "^(0|[1-9][0-9]*)$"},
+        "artist": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "date": {"type": "integer", "minimum": 1800, "maximum": 2100},
+        "location": {"type": "string", "minLength": 1},
+        "country": {"type": ["string", "null"]},
+        "archive_number": {"type": "string", "minLength": 1},
+        "source_notes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+        "edition": {"const": "1 of 1"},
+        "curation": {"enum": ["1/3", "2/3", "3/3"]},
+        "metadata": {"$ref": "#/$defs/fixedResource"},
+        "image": {"$ref": "#/$defs/fixedImageResource"},
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["copyright_notice", "license", "copyright_holder", "token_transfer_rights_effect"],
+          "properties": {
+            "copyright_notice": {"type": "string", "minLength": 1},
+            "license": {"const": "All Rights Reserved"},
+            "copyright_holder": {"type": "string", "minLength": 1},
+            "token_transfer_rights_effect": {"const": "no_copyright_or_reproduction_grant_asserted"}
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["transfers"],
+          "properties": {
+            "transfers": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["role", "tx_hash", "block_number", "from", "to", "receipt_status"],
+                "properties": {
+                  "role": {"enum": ["mint", "foundation_market_escrow", "current_owner_transfer"]},
+                  "tx_hash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+                  "block_number": {"type": "integer", "minimum": 0},
+                  "from": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+                  "to": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+                  "receipt_status": {"const": "success"}
+                }
+              }
+            }
+          }
+        },
+        "chain_observation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "block_number", "block_hash", "observed_at", "owner", "token_uri", "approval"],
+          "properties": {
+            "status": {"enum": ["pending_finalized_block_observation", "verified_at_finalized_block"]},
+            "block_number": {"type": ["integer", "null"], "minimum": 0},
+            "block_hash": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{64}$"},
+            "observed_at": {"type": "string", "format": "date-time"},
+            "owner": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{40}$"},
+            "token_uri": {"type": ["string", "null"], "format": "uri"},
+            "approval": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{40}$"}
+          }
+        }
+      }
+    },
+    "fixedResource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "sha256", "bytes", "observed_at"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "observed_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "fixedImageResource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "sha256", "bytes", "observed_at", "media_type", "width", "height", "preservation_status"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "media_type": {"const": "image/jpeg"},
+        "width": {"type": "integer", "minimum": 1},
+        "height": {"type": "integer", "minimum": 1},
+        "preservation_status": {"const": "upstream_not_retained"}
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/proposed-gift-wave-package/v1",
+  "title": "6529 Network Museum proposed-gift Wave Storm package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "status",
+    "target_wave",
+    "single_voting_object",
+    "parts",
+    "submission_notes"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/proposed-gift-wave-package.schema.json"},
+    "record_control": {"$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"},
+    "record_type": {"const": "PROPOSED_GIFT_WAVE_PACKAGE"},
+    "schema_profile": {"const": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1"},
+    "proposal_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}$"},
+    "status": {
+      "enum": [
+        "draft",
+        "not_submitted",
+        "open",
+        "selected_for_accession_processing",
+        "closed_without_selection",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "target_wave": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wave_id", "wave_name", "wave_type", "credit_type", "credit_scope"],
+      "properties": {
+        "wave_id": {"type": "string", "format": "uuid"},
+        "wave_name": {"const": "6529 Network Museum"},
+        "wave_type": {"const": "APPROVE"},
+        "credit_type": {"const": "TDH"},
+        "credit_scope": {"const": "DROP"}
+      }
+    },
+    "single_voting_object": {"const": true},
+    "parts": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["part_number", "role", "title", "markdown_path", "media"],
+        "properties": {
+          "part_number": {"type": "integer", "minimum": 1},
+          "role": {"enum": ["resolution", "work", "synthesis"]},
+          "title": {"type": "string", "minLength": 1},
+          "markdown_path": {"type": "string", "pattern": "^public/wave-storm/[0-9]{2}-[a-z0-9-]+\\.md$"},
+          "candidate_object_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}\\.OBJ-[0-9]{3}$"},
+          "media": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "media_type", "alt_text", "credit_line", "rights_label"],
+              "properties": {
+                "uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/"},
+                "media_type": {"const": "image/jpeg"},
+                "alt_text": {"type": "string", "minLength": 1},
+                "credit_line": {"type": "string", "minLength": 1},
+                "rights_label": {"const": "All Rights Reserved"}
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"role": {"const": "work"}}},
+            "then": {"required": ["candidate_object_id"], "properties": {"media": {"minItems": 1}}}
+          },
+          {
+            "if": {"properties": {"role": {"enum": ["resolution", "synthesis"]}}},
+            "then": {"properties": {"media": {"maxItems": 0}}}
+          }
+        ]
+      }
+    },
+    "submission_notes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}

@@ -35,6 +35,9 @@ jobs:
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
 
+      - name: Check proposed-gift voter dossiers
+        run: python scripts/build_proposed_gift_dossiers.py --check
+
       - name: Check network fetch guard
         run: python scripts/check_fetch_guard.py
 
@@ -96,6 +99,7 @@ jobs:
       - name: Run portable validation suite
         run: |
           python scripts/bootstrap_validate.py
+          python scripts/build_proposed_gift_dossiers.py --check
           python scripts/check_fetch_guard.py
           python -m unittest discover -s tests -v
           python scripts/validate_rights_handbook.py
