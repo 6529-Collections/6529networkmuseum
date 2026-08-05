@@ -100,6 +100,50 @@ class RightsHandbookValidationTests(unittest.TestCase):
         self.mutate_registry(mutate)
         self.assertNotEqual(validate(self.root), [])
 
+    def test_no_public_license_cannot_become_a_display_ban(self) -> None:
+        def mutate(registry: dict) -> None:
+            expression = next(
+                item for item in registry["expressions"]
+                if item["id"] == "in-copyright-no-public-license"
+            )
+            expression["museum_practice_matrix"]["display_the_work"]["status"] = "separate_basis"
+
+        self.mutate_registry(mutate)
+        self.assertTrue(any(
+            "practice posture drifted" in issue for issue in validate(self.root)
+        ))
+
+    def test_status_uncertainty_cannot_suppress_collection_documentation(self) -> None:
+        def mutate(registry: dict) -> None:
+            expression = next(
+                item for item in registry["expressions"]
+                if item["id"] == "rightsstatements-cne"
+            )
+            expression["museum_practice_matrix"]["publish_online"]["status"] = "separate_basis"
+
+        self.mutate_registry(mutate)
+        self.assertTrue(any(
+            "blanket bar" in issue for issue in validate(self.root)
+        ))
+
+    def test_practical_readings_cannot_collapse_to_generic_copy(self) -> None:
+        def mutate(registry: dict) -> None:
+            first = registry["expressions"][0]["museum_practice_matrix"]
+            first["publish_online"]["note"] = first["display_the_work"]["note"]
+
+        self.mutate_registry(mutate)
+        self.assertTrue(any(
+            "specific rather than repeated" in issue for issue in validate(self.root)
+        ))
+
+    def test_public_copy_rejects_em_dashes(self) -> None:
+        guide = self.root / "records/institutional-practice/rights-for-collectors.md"
+        guide.write_text(
+            guide.read_text(encoding="utf-8") + "\nAn em dash — here.\n",
+            encoding="utf-8",
+        )
+        self.assertTrue(any("contains an em dash" in issue for issue in validate(self.root)))
+
 
 if __name__ == "__main__":
     unittest.main()

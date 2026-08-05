@@ -45,6 +45,21 @@ EXPECTED_RIGHTS_STATEMENTS = {
 EXPECTED_CASEY_OBJECTS = {
     f"6529NM.2026.001.{index:02d}" for index in range(1, 8)
 }
+RIGHTS_ACTIONS = (
+    "display_the_work",
+    "publish_online",
+    "publish_in_print",
+    "make_preservation_copies",
+    "share_an_adaptation",
+    "make_commercial_use",
+)
+PRACTICE_STATUSES = {
+    "ordinary",
+    "ordinary_with_terms",
+    "purpose_limited",
+    "contextual",
+    "separate_basis",
+}
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -102,6 +117,82 @@ def validate(root: Path = ROOT) -> list[str]:
     for required_id in ("cc0-1.0", "public-domain-mark-1.0", "in-copyright-no-public-license", "custom-license"):
         if required_id not in by_id:
             issues.append(f"registry is missing required expression {required_id}")
+
+    practice_notes: list[str] = []
+    for expression_id, expression in by_id.items():
+        matrix = expression.get("museum_practice_matrix")
+        if not isinstance(matrix, dict):
+            continue
+        for action in RIGHTS_ACTIONS:
+            reading = matrix.get(action)
+            if not isinstance(reading, dict):
+                continue
+            status = reading.get("status")
+            note = reading.get("note")
+            if status not in PRACTICE_STATUSES:
+                issues.append(f"{expression_id}: invalid Museum-practice status for {action}")
+            if isinstance(note, str):
+                practice_notes.append(note)
+                if "—" in note:
+                    issues.append(f"{expression_id}: Museum-practice note for {action} contains an em dash")
+    if len(practice_notes) != 22 * len(RIGHTS_ACTIONS):
+        issues.append("each rights expression must contain six Museum-practice readings")
+    elif len(practice_notes) != len(set(practice_notes)):
+        issues.append("Museum-practice readings must be specific rather than repeated generic copy")
+
+    expected_practice_statuses = {
+        "in-copyright-no-public-license": (
+            "ordinary", "ordinary", "contextual", "ordinary", "separate_basis", "separate_basis"
+        ),
+        "cc0-1.0": ("ordinary",) * 6,
+        "public-domain-mark-1.0": ("ordinary",) * 6,
+        "cc-by-4.0": ("ordinary_with_terms",) * 6,
+        "cc-by-sa-4.0": ("ordinary_with_terms",) * 6,
+        "cc-by-nd-4.0": (
+            "ordinary_with_terms", "ordinary_with_terms", "ordinary_with_terms",
+            "ordinary_with_terms", "separate_basis", "ordinary_with_terms"
+        ),
+        "cc-by-nc-4.0": (
+            "ordinary_with_terms", "ordinary_with_terms", "ordinary_with_terms",
+            "ordinary_with_terms", "ordinary_with_terms", "separate_basis"
+        ),
+        "cc-by-nc-sa-4.0": (
+            "ordinary_with_terms", "ordinary_with_terms", "ordinary_with_terms",
+            "ordinary_with_terms", "ordinary_with_terms", "separate_basis"
+        ),
+        "cc-by-nc-nd-4.0": (
+            "ordinary_with_terms", "ordinary_with_terms", "ordinary_with_terms",
+            "ordinary_with_terms", "separate_basis", "separate_basis"
+        ),
+    }
+    for expression_id, expected in expected_practice_statuses.items():
+        expression = by_id.get(expression_id, {})
+        matrix = expression.get("museum_practice_matrix", {})
+        actual = tuple(
+            matrix.get(action, {}).get("status")
+            if isinstance(matrix.get(action), dict) else None
+            for action in RIGHTS_ACTIONS
+        ) if isinstance(matrix, dict) else ()
+        if actual != expected:
+            issues.append(f"{expression_id}: Museum-practice posture drifted from the reviewed model")
+
+    for expression_id in (
+        "rightsstatements-inc",
+        "rightsstatements-inc-ow-eu",
+        "rightsstatements-inc-edu",
+        "rightsstatements-inc-nc",
+        "rightsstatements-inc-ruu",
+        "rightsstatements-cne",
+        "rightsstatements-und",
+        "rightsstatements-nkc",
+    ):
+        matrix = by_id.get(expression_id, {}).get("museum_practice_matrix", {})
+        if isinstance(matrix, dict) and any(
+            isinstance(matrix.get(action), dict)
+            and matrix[action].get("status") == "separate_basis"
+            for action in ("display_the_work", "publish_online", "make_preservation_copies")
+        ):
+            issues.append(f"{expression_id}: status uncertainty cannot become a blanket bar on display, documentation, or preservation")
 
     declared_legal_paths: set[str] = set()
     for expression_id, expression in by_id.items():
@@ -196,6 +287,8 @@ def validate(root: Path = ROOT) -> list[str]:
         text = path.read_text(encoding="utf-8")
         if not text.startswith(expected_title + "\n"):
             issues.append(f"{relative.as_posix()}: expected title {expected_title!r}")
+        if "—" in text:
+            issues.append(f"{relative.as_posix()}: public guide contains an em dash")
     return issues
 
 
