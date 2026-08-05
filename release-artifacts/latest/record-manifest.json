@@ -1797,8 +1797,8 @@
     },
     {
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:6289469515e8d3a4191f2236aa727111d453f06787c7b175d6c1f4cef034fd2b",
-      "size": 63544
+      "sha256": "sha256:d380b8ed3e3bbf7c1ead991a68b464f0d6dbf33a89b4a17dcace41c65e97d0da",
+      "size": 66097
     },
     {
       "path": "tests/test_institutional_practice.py",
@@ -1836,9 +1836,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xcceeca18916b9966f3f46c0d2f61d9d2a4fff2609f038ed5bd764c528b99d444"
+    "digest": "0xb2886cb875bb66398c909e0492a31a2ee3e2b382815e7ca18b4a2093ccfdcb28"
   },
-  "manifest_sha256": "sha256:e9de58b961f9cdafed8ea33fd2e042c8b4f82e9699be1ecff3fe3a3b0e6a499a",
+  "manifest_sha256": "sha256:8308453eebd2bb5a2235ac3e3a21ce1f734c7d1d973e0be4af2e3732e59271b3",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.0.0"
 }

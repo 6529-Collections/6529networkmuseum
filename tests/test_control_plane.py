@@ -1092,6 +1092,57 @@ class ControlPlaneTests(unittest.TestCase):
         self.assertNotEqual(first["manifest_commitment"], changed["manifest_commitment"])
         self.assertNotEqual(first["manifest_sha256"], changed["manifest_sha256"])
 
+    def test_published_dossier_subtree_is_closed_and_other_notes_stay_excluded(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-dossier-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
+        dossier = root / "notes" / "research" / "generative-systems" / "casey-reas"
+        page = dossier / "century.md"
+        page.write_bytes(b"first\r\nsecond\rthird\n")
+        outside = root / "notes" / "wip" / "working.md"
+        outside.parent.mkdir(parents=True)
+        outside.write_text("not release authority\n", encoding="utf-8")
+
+        baseline = make_manifest(root)
+        entries = {entry["path"]: entry for entry in baseline["entries"]}
+        dossier_path = "notes/research/generative-systems/casey-reas/century.md"
+        self.assertIn(dossier_path, entries)
+        self.assertEqual(len(b"first\nsecond\nthird\n"), entries[dossier_path]["size"])
+        self.assertNotIn("notes/wip/working.md", entries)
+
+        outside.write_text("still not release authority\n", encoding="utf-8")
+        self.assertEqual(baseline, make_manifest(root))
+
+        added = dossier / "new-study.md"
+        added.write_text("new governed study\n", encoding="utf-8")
+        with_addition = make_manifest(root)
+        self.assertNotEqual(baseline["manifest_commitment"], with_addition["manifest_commitment"])
+        self.assertIn(
+            "notes/research/generative-systems/casey-reas/new-study.md",
+            {entry["path"] for entry in with_addition["entries"]},
+        )
+        added.unlink()
+        page.unlink()
+        self.assertNotEqual(baseline["manifest_commitment"], make_manifest(root)["manifest_commitment"])
+
+    def test_published_dossier_subtree_rejects_symlinks(self) -> None:
+        temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-dossier-link-")
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        self.scaffold_manifest_root(root)
+        dossier = root / "notes" / "research" / "generative-systems" / "casey-reas"
+        external = root / "external.md"
+        external.write_text("outside\n", encoding="utf-8")
+        try:
+            os.symlink(external, dossier / "linked-study.md")
+        except (OSError, NotImplementedError) as exc:
+            if os.name == "nt":
+                self.skipTest(f"Windows symlink privilege unavailable: {exc}")
+            raise
+        with self.assertRaises(ManifestUnsafePathError):
+            make_manifest(root)
+
     def test_manifest_rejects_file_and_directory_symlinks(self) -> None:
         temporary = tempfile.TemporaryDirectory(prefix="museum-manifest-links-")
         self.addCleanup(temporary.cleanup)
