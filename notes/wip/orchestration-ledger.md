@@ -2266,3 +2266,61 @@ and Keccak-256
 `0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025`.
 Frontend integration, staged qualification, and production qualification are
 the remaining release gates.
+
+## 2026-08-05 rights education production closeout
+
+The remaining gates are complete. Museum PR #29 merged the rights corpus as
+`11c79489e0ae65d9a296577c44c881c3f79267d6`; frontend PR #3627 merged the
+public experience as `d448d4c282c034fa2a1d5d1d95ce90fc85561e54`.
+
+Staging deploy run `31043258638` and automatic staging E2E run `31044289420`
+passed. Production deploy run `31045606678` and automatic production E2E run
+`31046152675` passed on exact frontend main. Independent staging and production
+checks passed the six focused rights journeys; the final production sweep also
+passed all twenty-two expression routes, both audience guides, the Casey
+object-to-rights path, exact legal-text access, desktop and 390-pixel rendering,
+and version/source identity checks.
+
+Canonical Museum main subsequently advanced through additive PR #30 to
+`ad8ea4338659e0825dc5a79295e824eadec876e6`. Its 345-entry manifest commits to
+SHA-256 `sha256:258a2aa6a970cc84d036de511902cbc1d5fbb5141067cc146fe83ac879d20544`
+and Keccak-256
+`0x9ccca279ca25f1d0b65b2430168dd192a87dee77b682f63db25de44fc899ea26`.
+At production qualification, the live frontend had refreshed to that exact
+source commit; PR #30 did not change the rights corpus. This append-only
+closeout changes the repository release commitment again without changing the
+public rights corpus. The rights publication is live and no product or release
+gate remains open.
+
+## 2026-08-05 rights practice and editorial redesign
+
+The public detail page was reopened after product review. The six-use display
+looked like a generic software dashboard, and the no-public-license entry made
+ordinary museum display appear exceptional. Four independent research lanes
+reviewed museum display and fair-use practice, Creative Commons and public
+domain terms, all twelve RightsStatements.org expressions, and the frontend's
+visual language.
+
+The source branch now carries registry version 1.1.0 with a second,
+action-specific Museum-practice matrix for all twenty-two expressions. The
+original instrument-permission matrix remains intact. Public manuscripts now
+state directly that lawful acquisition supports faithful display, collection
+documentation, scholarship, and care, while copyright ownership remains with
+the artist unless transferred. Tests prevent a no-license or uncertain-status
+entry from becoming a blanket display, documentation, or preservation ban.
+
+The frontend branch replaces status chips, colored state coding, rounded
+dashboard cells, metadata pills, and the boxed visitor note with a ruled
+editorial register and quiet metadata. The public component reads the new
+Museum-practice matrix and keeps the exact license text and instrument record
+available below it. A no-em-dash control applies to the revised public rights
+copy.
+
+Local source validation is complete: 151 tests passed with one intentional
+platform skip, together with every deterministic validation and package gate
+used by hosted Museum CI. The frontend passed 158 Museum regression tests,
+changed-file lint and typecheck, and React Doctor 100/100 before its exact
+source build. Required remaining gates are final manifest regeneration, both
+pull-request review cycles, exact-source frontend build and visual review,
+staging deployment and E2E, production deployment and E2E, and a release note
+to the Dev Team Chat subwave using the `punk6529bot` identity.

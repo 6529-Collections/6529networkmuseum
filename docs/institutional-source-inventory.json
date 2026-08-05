@@ -1,7 +1,7 @@
 {
   "schema": "museum:institutional-source-inventory:v1",
   "research_cutoff": "2026-08-04",
-  "source_count": 250,
+  "source_count": 255,
   "sources": [
     {
       "url": "https://0xcollection.org/",
@@ -1126,6 +1126,15 @@
       ]
     },
     {
+      "url": "https://rightsstatements.org/en/2018/12/where-statements-apply.html",
+      "labels": [
+        "RightsStatements.org, where statements apply"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
       "url": "https://rightsstatements.org/en/documentation/",
       "labels": [
         "RightsStatements.org, Documentation"
@@ -1456,6 +1465,15 @@
       ]
     },
     {
+      "url": "https://wiki.creativecommons.org/wiki/NonCommercial_interpretation",
+      "labels": [
+        "Creative Commons, NonCommercial interpretation"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
       "url": "https://www.acmi.net.au/collection-preservation/",
       "labels": [
         "“Collections & Preservation”"
@@ -1611,6 +1629,15 @@
       ]
     },
     {
+      "url": "https://www.collegeart.org/programs/caa-fair-use/best-practices",
+      "labels": [
+        "College Art Association, Code of Best Practices in Fair Use for the Visual Arts"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
       "url": "https://www.copyright.gov/circs/circ01.pdf",
       "labels": [
         "U.S. Copyright Office, Copyright Basics"
@@ -1628,6 +1655,15 @@
         "records/institutional-practice/rights-and-licenses.md",
         "records/institutional-practice/rights-for-artists.md",
         "records/institutional-practice/rights-for-collectors.md"
+      ]
+    },
+    {
+      "url": "https://www.copyright.gov/title17/92chap1.html",
+      "labels": [
+        "United States Copyright Act, section 109(c)"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
       ]
     },
     {
@@ -1807,6 +1843,15 @@
       ],
       "cited_by": [
         "records/institutional-practice/profiles/laboratorio-arte-alameda.md"
+      ]
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/copyright-notice-public-exhibition-of-copyright-works",
+      "labels": [
+        "UK Intellectual Property Office, public exhibition of copyright works"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
       ]
     },
     {

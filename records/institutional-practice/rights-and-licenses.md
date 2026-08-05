@@ -106,7 +106,10 @@ A Creative Commons license supplies public permission under stated
 conditions. CC0 is a dedication and fallback license. The Public Domain Mark
 reports a status. RightsStatements.org terms help cultural institutions report
 copyright and reuse status; they are not licenses. A custom agreement must be
-read on its own terms. Silence supplies no public license.
+read on its own terms. Silence supplies no public license to the world. It does
+not prevent the lawful owner of a work from collecting, displaying,
+documenting, studying, and caring for it in the ordinary course of museum
+practice.
 
 ### What else remains?
 
@@ -120,14 +123,14 @@ exceptions untouched.
 Creative Commons offers six current 4.0 International licenses. Their names
 state the conditions:
 
-- **BY — Attribution.** Credit the creator, retain supplied notices, link to
+- **BY: Attribution.** Credit the creator, retain supplied notices, link to
   the license, and identify changes.
-- **SA — ShareAlike.** A shared adaptation must use the same or a compatible
+- **SA: ShareAlike.** A shared adaptation must use the same or a compatible
   license.
-- **NC — NonCommercial.** The licensed use must not be primarily directed
+- **NC: NonCommercial.** The licensed use must not be primarily directed
   toward commercial advantage or monetary compensation. The user's nonprofit
   status does not settle the character of the use.
-- **ND — NoDerivatives.** Unadapted material may be shared. Adapted material
+- **ND: NoDerivatives.** Unadapted material may be shared. Adapted material
   may be made privately, but the license does not permit it to be shared.
 
 The six combinations are CC BY, CC BY-SA, CC BY-ND, CC BY-NC, CC BY-NC-SA,
@@ -160,13 +163,33 @@ license. The mark follows a copyright determination; it does not create one.
 ## When no public license is stated
 
 The Museum treats a protected work with no identified public license as an
-in-copyright work. Display, publication, copying, preservation, or adaptation
-then rests on a permission held by the Museum, ownership of the relevant
-right, or an applicable exception or limitation in the governing law.
+in-copyright work. That classification concerns copyright ownership and public
+reuse. The work remains available for collection display and study.
 
-Professional museum practice guides how a work is credited, handled,
-documented, and interpreted. It does not itself supply copyright permission.
-The Museum records the legal and evidentiary basis for each use.
+A lawfully acquired artwork belongs in the collection. Museums ordinarily
+display such works, publish collection records with faithful identification
+views, reproduce them where necessary for criticism and scholarship, and make
+controlled copies needed for preservation. In the United States, ownership of
+a lawfully made physical copy carries a statutory right to display that copy
+to viewers present at its location. In the United Kingdom, public exhibition
+of an artistic work is generally outside the acts restricted by copyright.
+Online documentation, scholarship, and digital preservation draw on licenses,
+agreements, fair use or fair dealing, statutory exceptions, and the
+professional practices developed by museums for their public mission.
+
+Digital and NFT works require the same separation of questions. The token does
+not transfer copyright by itself. Yet a network-native work was made to be
+seen through code, files, and public network references. Its acquisition,
+artist instructions, mint terms, canonical presentation, and ordinary mode of
+viewing form part of the Museum's basis for faithful display. The Museum
+records those facts as evidence for presentation, scholarship, and care.
+
+The closer review belongs at the edge of ordinary museum use. Public remixes,
+merchandise, advertising, image licensing, endorsement, high-resolution
+substitute files, and uses governed by a contrary artist, donor, lender, or
+acquisition agreement each require their own basis. Faithful technical
+migration for conservation is recorded as stewardship; a new artistic work is
+treated as an adaptation.
 
 ## Rights statements used by cultural institutions
 
@@ -176,6 +199,14 @@ outside copyright with remaining limits or a jurisdictional boundary, and
 three describe unresolved status. They give visitors a concise status signal
 and a stable URI. The detailed Museum rights record remains the place for the
 underlying evidence, permissions, restrictions, and component-level detail.
+
+These statements are descriptive metadata. They do not operate as a row of
+red lights. “In Copyright” already assumes that the institution has a basis
+for making the item available. “Copyright Not Evaluated” and “Copyright
+Undetermined” describe the state of research. “No Known Copyright” records a
+reasoned conclusion without presenting it as certainty. In each case the
+Museum pairs the statement with the practical basis for display,
+documentation, scholarship, preservation, and any broader reuse.
 
 The rights registry in this repository contains all twelve statements and
 links to their official definitions. A rights statement should appear close
@@ -206,8 +237,13 @@ Primary sources:
 - [U.S. Copyright Office, Copyright Basics](https://www.copyright.gov/circs/circ01.pdf)
 - [U.S. Copyright Office, What is Copyright?](https://copyright.gov/what-is-copyright/)
 - [U.S. Copyright Office and USPTO, Non-Fungible Token Study](https://www.copyright.gov/policy/nft-study/)
+- [College Art Association, Code of Best Practices in Fair Use for the Visual Arts](https://www.collegeart.org/programs/caa-fair-use/best-practices)
+- [United States Copyright Act, section 109(c)](https://www.copyright.gov/title17/92chap1.html)
+- [UK Intellectual Property Office, public exhibition of copyright works](https://www.gov.uk/government/publications/copyright-notice-public-exhibition-of-copyright-works)
 - [Creative Commons, About CC Licenses](https://creativecommons.org/share-your-work/use-remix/cc-licenses/)
+- [Creative Commons, NonCommercial interpretation](https://wiki.creativecommons.org/wiki/NonCommercial_interpretation)
 - [Creative Commons, CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 - [Creative Commons, Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/)
 - [RightsStatements.org, Documentation](https://rightsstatements.org/en/documentation/)
 - [RightsStatements.org, Usage Guidelines](https://rightsstatements.org/en/documentation/usage_guidelines)
+- [RightsStatements.org, where statements apply](https://rightsstatements.org/en/2018/12/where-statements-apply.html)

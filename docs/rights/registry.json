@@ -1,8 +1,8 @@
 {
   "$schema": "../../schemas/rights-expression-registry.schema.json",
   "registry_type": "6529NM_RIGHTS_EXPRESSION_REGISTRY",
-  "registry_version": "1.0.0",
-  "published_at": "2026-08-05T17:01:32Z",
+  "registry_version": "1.1.0",
+  "published_at": "2026-08-05T21:30:00Z",
   "actions": [
     "display_the_work",
     "publish_online",
@@ -12,11 +12,11 @@
     "make_commercial_use"
   ],
   "use_status_definitions": {
-    "allowed": "The instrument supplies the needed copyright permission without a license condition, although other laws and rights may still apply.",
-    "allowed_with_conditions": "The instrument supplies the copyright permission when its stated conditions are followed.",
-    "not_licensed": "This instrument does not supply permission for the use. A separate permission or a legal exception may still apply.",
-    "status_only": "This is information about rights status, not a license. Read the object record before using the work.",
-    "case_by_case": "The label alone does not answer the question. The Museum must rely on permission, ownership of the relevant right, or an applicable legal exception."
+    "allowed": "The named instrument supplies permission for the use without a copyright condition.",
+    "allowed_with_conditions": "The named instrument supplies permission when its attribution, purpose, sharing, or integrity conditions are followed.",
+    "not_licensed": "The named instrument does not supply permission for the use. Permission, an exception, or another legal basis may still support it.",
+    "status_only": "The statement describes copyright status or an institutional permission. The detailed record supplies the basis for the Museum's own use.",
+    "case_by_case": "The named instrument alone does not settle the use. The work, purpose, scale, terms, and jurisdiction determine the answer."
   },
   "sources": {
     "creative_commons_data_repository": "https://github.com/creativecommons/cc-legal-tools-data",
@@ -24,12 +24,18 @@
     "creative_commons_license_guide": "https://creativecommons.org/share-your-work/use-remix/cc-licenses/",
     "rightsstatements_documentation": "https://rightsstatements.org/en/documentation/",
     "rightsstatements_usage_guidelines": "https://rightsstatements.org/en/documentation/usage_guidelines",
-    "observed_at": "2026-08-05T16:45:00Z"
+    "observed_at": "2026-08-05T16:45:00Z",
+    "college_art_association_fair_use": "https://www.collegeart.org/programs/caa-fair-use/best-practices",
+    "us_public_display_law": "https://www.copyright.gov/title17/92chap1.html",
+    "uk_public_exhibition_guidance": "https://www.gov.uk/government/publications/copyright-notice-public-exhibition-of-copyright-works",
+    "us_nft_intellectual_property_study": "https://www.copyright.gov/policy/nft-study/Joint-USPTO-USCO-Report-on-NFTs-and-Intellectual-Property.pdf",
+    "creative_commons_noncommercial_guidance": "https://wiki.creativecommons.org/wiki/NonCommercial_interpretation",
+    "rightsstatements_layer_guidance": "https://rightsstatements.org/en/2018/12/where-statements-apply.html"
   },
   "expressions": [
     {
       "id": "in-copyright-no-public-license",
-      "label": "In copyright — no public license stated",
+      "label": "In copyright: no public license stated",
       "short_label": "No public license stated",
       "group": "copyright_case",
       "instrument_kind": "no_public_license",
@@ -37,19 +43,19 @@
       "spdx_id": null,
       "canonical_uri": null,
       "legal_code": null,
-      "summary": "The work is treated as protected by copyright and no general permission for reuse has been identified.",
+      "summary": "The work remains protected by copyright and carries no public reuse license. Lawful acquisition still supports ordinary museum display, collection documentation, scholarship, and care.",
       "museum_can": [
-        "Display, reproduce, preserve, or publish the work when the Museum holds the needed permission or an applicable legal exception supports the use.",
-        "Describe the work, its history, and its place in the collection in the Museum's own words.",
-        "Make a separate, documented decision for each proposed use rather than treating possession of the token as copyright ownership."
+        "Display the acquired work faithfully in the Museum and present it with its collection record, credit, provenance, and interpretation.",
+        "Publish proportionate views in collection documentation and scholarship, applying the legal and professional basis appropriate to the use.",
+        "Make controlled preservation copies, record dependencies, and migrate formats needed to keep the work accessible."
       ],
       "conditions": [],
       "boundaries": [
-        "Owning an NFT does not by itself transfer copyright or grant a public license.",
-        "Ordinary museum practice is a professional approach, not a source of copyright permission.",
-        "Fair use, fair dealing, preservation exceptions, and similar rules vary by jurisdiction and by the facts of the use."
+        "Owning an NFT or physical object does not transfer copyright, but copyright ownership and ordinary museum presentation are separate questions.",
+        "A public remix, merchandise line, advertising use, image-licensing program, or implied endorsement requires its own analysis.",
+        "Artist instructions, lender terms, privacy, publicity, cultural obligations, and local law may change the result for a particular work."
       ],
-      "visitor_note": "You may look at and link to the Museum page. Reusing the artwork itself may require permission unless the law independently allows the use.",
+      "visitor_note": "The Museum may display, document, study, and care for this lawfully acquired work in the ordinary course of its mission. The absence of a public license mainly matters when someone wants to republish, adapt, merchandise, or commercially exploit the artwork.",
       "use_matrix": {
         "display_the_work": "case_by_case",
         "publish_online": "case_by_case",
@@ -57,6 +63,32 @@
         "make_preservation_copies": "case_by_case",
         "share_an_adaptation": "not_licensed",
         "make_commercial_use": "not_licensed"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "A lawfully acquired work belongs in the collection and may be displayed in the form the Museum acquired, subject to artist instructions and any contrary agreement."
+        },
+        "publish_online": {
+          "status": "ordinary",
+          "note": "A faithful view of the work may accompany its collection record, credit, provenance, and interpretation. For a network-native work, the public on-chain or artist-published presentation is the natural reference point."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "A proportionate reproduction tied to cataloguing, criticism, scholarship, or education is normal museum publishing. Covers, decorative uses, and substitute-quality reproductions receive closer review."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "The Museum may make controlled copies, record dependencies, and migrate formats as needed to keep the work accessible, with the original and every material intervention documented."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "Faithful technical migration and conservation remain part of stewardship. Publishing a remix or a new artistic adaptation calls for permission or a legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Merchandise, image licensing, advertising, and implied endorsement call for permission or another clear legal basis. Admission, fundraising, and ordinary museum operations do not by themselves turn collection display into merchandise."
+        }
       }
     },
     {
@@ -94,6 +126,32 @@
         "make_preservation_copies": "allowed",
         "share_an_adaptation": "allowed",
         "make_commercial_use": "allowed"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "The Museum may display the dedicated material in any suitable physical or digital setting. Credit remains part of sound cataloguing even though CC0 does not require it."
+        },
+        "publish_online": {
+          "status": "ordinary",
+          "note": "The Museum may publish faithful or transformed views online, provide downloads, and connect the material to its record, source, and history."
+        },
+        "publish_in_print": {
+          "status": "ordinary",
+          "note": "The Museum may reproduce the material in catalogues, criticism, education, and other print publications, including paid editions."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "The Museum may copy, inspect, migrate, emulate, and restore the material as conservation requires, while recording changes and retaining originals."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary",
+          "note": "The Museum may publish remixes, translations, restorations, and other adaptations. Accurate credit and change notes remain good scholarly practice."
+        },
+        "make_commercial_use": {
+          "status": "ordinary",
+          "note": "The Museum may use the material in commercial publications, products, and services, subject to trademark, privacy, publicity, moral-rights, and other non-copyright rules."
+        }
       }
     },
     {
@@ -134,6 +192,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "allowed_with_conditions",
         "make_commercial_use": "allowed_with_conditions"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Display is permitted in physical and digital settings. Give the required credit, retain supplied notices, link the license where practical, and identify material changes."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "Online collection pages, full views, and downloads are permitted with attribution, notices, a license link, and a clear account of any changes."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Print reproduction is permitted, including in paid publications, when the attribution and notice requirements travel with the image."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Copying, format migration, emulation, and conservation work are permitted. Retain provenance, source files, notices, and a record of changes."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "Adaptations may be published for any purpose. Credit the source, link the license, retain notices, and state that the work was changed."
+        },
+        "make_commercial_use": {
+          "status": "ordinary_with_terms",
+          "note": "Commercial publications, products, and services are permitted with the same attribution, notice, license-link, and change requirements."
+        }
       }
     },
     {
@@ -173,6 +257,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "allowed_with_conditions",
         "make_commercial_use": "allowed_with_conditions"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Display is permitted with attribution, retained notices, and a license link. Merely including an unchanged work in an exhibition does not place the whole exhibition under ShareAlike."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "Online publication is permitted with the required credit and notices. ShareAlike applies when the Museum publishes an adaptation, rather than a faithful copy."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Print reproduction is permitted, including in paid catalogues. An adapted image must carry CC BY-SA 4.0 or an approved compatible license."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Preservation copies and private conservation changes are permitted. ShareAlike applies only when adapted material is shared publicly."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "A shared adaptation must be credited, identify its changes, and use CC BY-SA 4.0 or an approved compatible license without added restrictions."
+        },
+        "make_commercial_use": {
+          "status": "ordinary_with_terms",
+          "note": "Commercial use is permitted. Shared adaptations remain subject to attribution and ShareAlike; faithful copies require attribution and notices."
+        }
       }
     },
     {
@@ -212,6 +322,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "not_licensed",
         "make_commercial_use": "allowed_with_conditions"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Faithful display is permitted, including in commercial settings, with attribution, notices, and a license link. Necessary technical changes do not automatically create an adaptation."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "The Museum may publish and stream the unadapted work online with credit and notices, including through a different file format when the change is purely technical."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "An unchanged reproduction may appear in print, including paid scholarship. Crops, edits, translations, and other creative changes need separate analysis."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Private copying, migration, and conservation work are permitted. Keep the original and document whether a public access version changes the work's expression."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "The license withholds permission to share adapted material. A public translation, remix, substantial crop, or other adaptation needs permission or a legal exception."
+        },
+        "make_commercial_use": {
+          "status": "ordinary_with_terms",
+          "note": "Commercial use of the unadapted work is permitted with attribution and notices. An adapted commercial use needs a separate basis."
+        }
       }
     },
     {
@@ -252,6 +388,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "allowed_with_conditions",
         "make_commercial_use": "not_licensed"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Ordinary collection display is generally compatible with the noncommercial grant. Give full credit and assess the purpose of any presentation built chiefly around sponsorship or sales."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "A collection page, interpretive essay, and educational stream are generally compatible with the noncommercial grant when credited and directed toward access, study, or scholarship."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Noncommercial scholarship and educational print use are permitted with attribution. Paid publishing receives a purpose-specific NonCommercial review."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Controlled copying, migration, and conservation are permitted when undertaken for collection care rather than commercial exploitation, with attribution and change records retained."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "Noncommercial adaptations may be shared with attribution and a change notice. The purpose of the particular publication determines whether the NC condition is met."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Merchandise, image licensing, advertising, and uses primarily directed toward commercial advantage need permission or another legal basis. The Museum's nonprofit status alone does not decide the question."
+        }
       }
     },
     {
@@ -292,6 +454,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "allowed_with_conditions",
         "make_commercial_use": "not_licensed"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Ordinary collection display is generally compatible with the noncommercial grant when the work is credited and the presentation serves access, study, or scholarship."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "A credited collection page or educational stream is generally permitted. A published adaptation must use CC BY-NC-SA 4.0 or an approved compatible license."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Noncommercial scholarship and education are permitted in print with attribution. Adapted material also carries ShareAlike; paid publishing receives a purpose-specific review."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Controlled copies and private conservation changes are permitted for noncommercial stewardship. ShareAlike matters when an adaptation is published."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "A noncommercial adaptation may be shared with credit, a change notice, and CC BY-NC-SA 4.0 or an approved compatible license."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "The institutional permission stops at noncommercial use. Merchandise, advertising, image licensing, and uses primarily directed toward commercial advantage need permission or another legal basis."
+        }
       }
     },
     {
@@ -332,6 +520,32 @@
         "make_preservation_copies": "allowed_with_conditions",
         "share_an_adaptation": "not_licensed",
         "make_commercial_use": "not_licensed"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Faithful collection display is generally compatible with the noncommercial grant. Give the required credit and retain supplied notices and the license link."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "A faithful collection-page image or stream is generally permitted when noncommercial and properly credited. Purely technical format changes remain possible."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "An unchanged image may support noncommercial scholarship and education in print. Paid publishing and creative alterations receive separate review."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Private copying, migration, and conservation work are permitted for noncommercial stewardship. Keep originals and document any access-file changes."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "The license withholds permission to share adaptations. A public translation, remix, substantial crop, or other adapted version needs permission or a legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial publishing, merchandise, advertising, and image licensing need permission or another legal basis. The institution's tax status does not settle whether a use is commercial."
+        }
       }
     },
     {
@@ -355,7 +569,7 @@
         "It does not clear trademark, privacy, publicity, cultural heritage, contractual, or other non-copyright restrictions.",
         "It does not place a copyrighted work into the public domain; CC0 is the Creative Commons tool for a rights holder seeking that result."
       ],
-      "visitor_note": "The mark reports public-domain status rather than granting a license. You may usually reuse the work, but should still check non-copyright restrictions and the Museum's evidence.",
+      "visitor_note": "The mark records a worldwide public-domain finding. The work may ordinarily be displayed, copied, adapted, and reused, including commercially, while separate rights in a modern photograph, edition, person, mark, or agreement still deserve attention.",
       "use_matrix": {
         "display_the_work": "status_only",
         "publish_online": "status_only",
@@ -363,6 +577,32 @@
         "make_preservation_copies": "status_only",
         "share_an_adaptation": "status_only",
         "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "The marked work may be displayed as part of the public domain, with an accurate credit and a link to the Museum's supporting rights evidence."
+        },
+        "publish_online": {
+          "status": "ordinary",
+          "note": "The Museum may publish the work online and offer useful access copies, while identifying the mark as a status finding rather than a license."
+        },
+        "publish_in_print": {
+          "status": "ordinary",
+          "note": "The work may be reproduced in scholarship, education, and paid print publications. Check whether a modern photograph, scan, or edition carries separate rights."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "The Museum may copy, migrate, restore, and emulate the work. Preserve the evidence supporting the worldwide public-domain conclusion."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary",
+          "note": "The work may be translated, remixed, and otherwise adapted. Credit the source and distinguish the adaptation from the historical work."
+        },
+        "make_commercial_use": {
+          "status": "ordinary",
+          "note": "Commercial reuse is available on the copyright record, subject to any trademark, privacy, publicity, cultural, contractual, or other non-copyright limits."
+        }
       }
     },
     {
@@ -376,15 +616,52 @@
       "canonical_uri": "https://rightsstatements.org/vocab/InC/1.0/",
       "legal_code": null,
       "summary": "The institution has determined that the item is in copyright and has a basis for making it available, such as ownership, permission, or a copyright exception.",
-      "museum_can": ["Use the statement beside an in-copyright item while the detailed record identifies the Museum's actual basis for display and reuse."],
+      "museum_can": [
+        "Use the statement beside an in-copyright item while the detailed record identifies the Museum's actual basis for display and reuse."
+      ],
       "conditions": [],
-      "boundaries": ["This statement gives the public information about status; it does not give the public a license to reuse the item."],
-      "visitor_note": "The item is in copyright. Follow the detailed rights note or seek permission before reusing it, unless a legal exception applies.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "boundaries": [
+        "This statement gives the public information about status; it does not give the public a license to reuse the item."
+      ],
+      "visitor_note": "The item remains in copyright, and the institution has recorded a basis for making it available. Ordinary museum display and collection documentation may proceed within that basis; public reuse follows the detailed rights note.",
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "This statement already records that the institution has a basis for making the item available. Display may proceed within that recorded basis and any artist or lender instructions."
+        },
+        "publish_online": {
+          "status": "ordinary",
+          "note": "A collection page and faithful identification view may be published under the institution's recorded permission, ownership, or copyright exception. The page should describe that basis."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "A proportionate image tied to criticism, cataloguing, or scholarship is common museum publishing. Full-page, cover, decorative, and commercial reproductions receive closer review."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "Controlled preservation copies and migrations are part of collection care when supported by the recorded permission, applicable law, or the institution's stewardship responsibility."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "The statement does not authorize a public remix or new artistic adaptation. Use permission or a specific legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Merchandise, advertising, image licensing, and implied endorsement need permission or another clear legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-inc-ow-eu",
-      "label": "In Copyright — EU Orphan Work",
+      "label": "In Copyright: EU Orphan Work",
       "short_label": "EU Orphan Work",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -393,15 +670,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/InC-OW-EU/1.0/",
       "legal_code": null,
       "summary": "The underlying work has been identified and registered as an orphan work under the European Union Orphan Works Directive by an eligible institution.",
-      "museum_can": ["Use the statement only when the work, institution, diligent search, and EUIPO registration satisfy the Directive."],
-      "conditions": ["The statement is limited to the works and beneficiary institutions covered by the Directive."],
-      "boundaries": ["It is not a general label for a work whose rights holder is merely difficult to find, and the Directive excludes photography and visual art from its covered categories."],
+      "museum_can": [
+        "Use the statement only when the work, institution, diligent search, and EUIPO registration satisfy the Directive."
+      ],
+      "conditions": [
+        "The statement is limited to the works and beneficiary institutions covered by the Directive."
+      ],
+      "boundaries": [
+        "It is not a general label for a work whose rights holder is merely difficult to find, and the Directive excludes photography and visual art from its covered categories."
+      ],
       "visitor_note": "The item remains in copyright. Its orphan-work status supports uses allowed by the EU Directive, not unrestricted public reuse.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "purpose_limited",
+          "note": "A qualifying institution may present a registered orphan work within the public-interest purposes allowed by the EU regime. The statement is unsuitable for photography and visual art excluded by that regime."
+        },
+        "publish_online": {
+          "status": "purpose_limited",
+          "note": "A qualifying institution may make the registered work available online for cultural and educational purposes within the Directive, with the diligent-search and EUIPO record retained."
+        },
+        "publish_in_print": {
+          "status": "purpose_limited",
+          "note": "Public-interest cataloguing and scholarship may fit the orphan-work regime. Commercial publishing and uses beyond the registered scope receive separate review."
+        },
+        "make_preservation_copies": {
+          "status": "purpose_limited",
+          "note": "Digitisation, indexing, cataloguing, preservation, and restoration are central permitted purposes for a qualifying institution under the EU regime."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "The orphan-work regime supplies no general permission for a public remix or derivative work."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial exploitation falls outside ordinary orphan-work use, apart from cost recovery allowed by the regime."
+        }
+      }
     },
     {
       "id": "rightsstatements-inc-edu",
-      "label": "In Copyright — Educational Use Permitted",
+      "label": "In Copyright: Educational Use Permitted",
       "short_label": "Educational Use Permitted",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -410,15 +726,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/InC-EDU/1.0/",
       "legal_code": null,
       "summary": "The item is in copyright, and the institution is the rights holder or has authority to let third parties use it for educational purposes without asking first.",
-      "museum_can": ["Tell educators that educational use is permitted, while providing the specific conditions and scope in the detailed object record."],
-      "conditions": ["Apply the statement only when the Museum owns the relevant right or has explicit authority from the rights holder."],
-      "boundaries": ["The statement is not a Creative Commons license and does not by itself define every educational use, adaptation, distribution, or commercial boundary."],
+      "museum_can": [
+        "Tell educators that educational use is permitted, while providing the specific conditions and scope in the detailed object record."
+      ],
+      "conditions": [
+        "Apply the statement only when the Museum owns the relevant right or has explicit authority from the rights holder."
+      ],
+      "boundaries": [
+        "The statement is not a Creative Commons license and does not by itself define every educational use, adaptation, distribution, or commercial boundary."
+      ],
       "visitor_note": "Educational use is permitted within the conditions recorded by the Museum. Other reuse may still need permission.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "purpose_limited",
+          "note": "Educational exhibition and interpretation may proceed within the institution's stated permission. The detailed record should identify the audience, setting, and any conditions."
+        },
+        "publish_online": {
+          "status": "purpose_limited",
+          "note": "An educational collection page or teaching presentation may proceed within the stated permission. Public download and unrelated republication remain separate questions."
+        },
+        "publish_in_print": {
+          "status": "purpose_limited",
+          "note": "Educational and scholarly reproduction may proceed within the stated permission. Commercial-press, cover, and decorative uses receive separate review."
+        },
+        "make_preservation_copies": {
+          "status": "contextual",
+          "note": "Educational permission may leave preservation unaddressed. The Museum may still rely on collection-care terms, applicable law, or a separate conservation permission."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "A public remix or adaptation needs express coverage in the educational permission or another legal basis."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Advertising, merchandise, image licensing, and other commercial exploitation need permission or another legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-inc-nc",
-      "label": "In Copyright — Non-Commercial Use Permitted",
+      "label": "In Copyright: Non-Commercial Use Permitted",
       "short_label": "Non-Commercial Use Permitted",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -427,15 +782,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/InC-NC/1.0/",
       "legal_code": null,
       "summary": "The item is in copyright, and the institution is the rights holder or has authority to let third parties make noncommercial uses without asking first.",
-      "museum_can": ["Tell visitors that noncommercial use is permitted and publish the specific conditions in the detailed object record."],
-      "conditions": ["Apply the statement only when the Museum owns the relevant right or has explicit authority from the rights holder."],
-      "boundaries": ["The statement is not a Creative Commons license and does not supply the detailed attribution, adaptation, or downstream terms of one."],
+      "museum_can": [
+        "Tell visitors that noncommercial use is permitted and publish the specific conditions in the detailed object record."
+      ],
+      "conditions": [
+        "Apply the statement only when the Museum owns the relevant right or has explicit authority from the rights holder."
+      ],
+      "boundaries": [
+        "The statement is not a Creative Commons license and does not supply the detailed attribution, adaptation, or downstream terms of one."
+      ],
       "visitor_note": "Noncommercial use is permitted within the Museum's stated conditions. Commercial reuse needs permission or another legal basis.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "purpose_limited",
+          "note": "Ordinary noncommercial collection display may proceed within the institution's stated permission. Credit and any object-specific conditions remain part of the presentation."
+        },
+        "publish_online": {
+          "status": "purpose_limited",
+          "note": "A noncommercial collection page and faithful preview may proceed within the stated permission. The purpose of the particular use determines the boundary."
+        },
+        "publish_in_print": {
+          "status": "purpose_limited",
+          "note": "Genuinely noncommercial scholarship and education may proceed within the institution's conditions. Paid publishing receives a purpose-specific review."
+        },
+        "make_preservation_copies": {
+          "status": "purpose_limited",
+          "note": "Controlled preservation and migration may proceed when they fall within the noncommercial permission or another collection-care basis."
+        },
+        "share_an_adaptation": {
+          "status": "purpose_limited",
+          "note": "A noncommercial adaptation may proceed only if the institution's stated conditions cover adaptations and all other relevant rights are respected."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Merchandise, advertising, image licensing, and uses primarily directed toward commercial advantage need permission or another legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-inc-ruu",
-      "label": "In Copyright — Rights-holder(s) Unlocatable or Unidentifiable",
+      "label": "In Copyright: Rights-holder(s) Unlocatable or Unidentifiable",
       "short_label": "Rights holder unlocatable",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -444,15 +838,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/InC-RUU/1.0/",
       "legal_code": null,
       "summary": "The institution has reasonably determined that the item is in copyright but could not identify or locate the rights holder after investigation.",
-      "museum_can": ["Report the unresolved rights-holder search accurately and retain the search evidence with the object record."],
-      "conditions": ["Use only after a reasonable investigation and only when the work is believed to remain in copyright."],
-      "boundaries": ["The statement does not grant permission, extinguish copyright, or replace the EU orphan-work statement where that regime applies."],
-      "visitor_note": "The work is believed to be in copyright and no rights holder could be found. Reuse may carry risk and generally needs a separate legal basis.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "museum_can": [
+        "Report the unresolved rights-holder search accurately and retain the search evidence with the object record."
+      ],
+      "conditions": [
+        "Use only after a reasonable investigation and only when the work is believed to remain in copyright."
+      ],
+      "boundaries": [
+        "The statement does not grant permission, extinguish copyright, or replace the EU orphan-work statement where that regime applies."
+      ],
+      "visitor_note": "The work is believed to remain in copyright and its rights holder could not be found. The Museum may still display, document, study, and preserve it on a recorded professional and legal basis; public adaptation and commercial reuse receive separate review.",
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "contextual",
+          "note": "The Museum may display a lawfully acquired work after documenting its search and the basis for presentation. The missing rights holder does not require the work to disappear from view."
+        },
+        "publish_online": {
+          "status": "contextual",
+          "note": "A collection record and proportionate identification view may be published after a documented risk review, with a contact and correction route and controlled high-resolution access where appropriate."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "Museum scholarship may use a proportionate image when permission, fair use, fair dealing, or another exception supports it. Unlocatability alone supplies no reuse permission."
+        },
+        "make_preservation_copies": {
+          "status": "contextual",
+          "note": "The Museum may undertake lawful controlled preservation and retain the search record, technical evidence, and rationale with the object."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "A public remix or new adaptation calls for permission or a specific legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial image use calls for permission or a strong independent legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-noc-cr",
-      "label": "No Copyright — Contractual Restrictions",
+      "label": "No Copyright: Contractual Restrictions",
       "short_label": "Contractual Restrictions",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -461,16 +894,55 @@
       "canonical_uri": "https://rightsstatements.org/vocab/NoC-CR/1.0/",
       "legal_code": null,
       "summary": "The item is in the public domain, but a contract binding the institution requires restrictions on third-party use.",
-      "museum_can": ["State that copyright has expired or does not apply while linking directly to the contractual restrictions that affect reuse of the available item."],
-      "conditions": ["Provide a public link to the actual contractual restrictions."],
-      "boundaries": ["The restriction comes from contract, not copyright, and the statement should not imply that the contract binds everyone in every setting."],
+      "museum_can": [
+        "State that copyright has expired or does not apply while linking directly to the contractual restrictions that affect reuse of the available item."
+      ],
+      "conditions": [
+        "Provide a public link to the actual contractual restrictions."
+      ],
+      "boundaries": [
+        "The restriction comes from contract, not copyright, and the statement should not imply that the contract binds everyone in every setting."
+      ],
       "visitor_note": "The work is not under copyright, but the Museum is subject to stated contractual restrictions. Read those terms before reusing the available file.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Copyright does not bar display. The Museum follows the acquisition, donor, digitisation, cultural, or other contract that remains binding."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "Online presentation may proceed within the contract's scope, with the restriction explained and the detailed record linked."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Print use follows the contract. The public-domain status of the underlying work does not erase an agreement binding the Museum."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Preservation may proceed within the contract's copying, access, security, and duration terms, with any limits recorded in the preservation package."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "Copyright may allow adaptation, while the contract may limit what the Museum can publish. Follow the recorded agreement."
+        },
+        "make_commercial_use": {
+          "status": "ordinary_with_terms",
+          "note": "Commercial use follows the recorded contract and any other applicable rights. The Museum should state the restriction without calling the underlying work copyrighted."
+        }
+      }
     },
     {
       "id": "rightsstatements-noc-nc",
-      "label": "No Copyright — Non-Commercial Use Only",
-      "short_label": "No Copyright — Non-Commercial",
+      "label": "No Copyright: Non-Commercial Use Only",
+      "short_label": "No Copyright: Non-Commercial",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
       "version": "1.0",
@@ -478,15 +950,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/NoC-NC/1.0/",
       "legal_code": null,
       "summary": "The underlying work is in the public domain, but a public-private digitization agreement limits commercial use of the digital representation.",
-      "museum_can": ["Distinguish the public-domain work from the contractual limit attached to the specific digital representation."],
-      "conditions": ["Use only for a qualifying digitization partnership and describe the applicable agreement."],
-      "boundaries": ["This is a narrow cultural-heritage status, not a way to impose new copyright on a public-domain work."],
+      "museum_can": [
+        "Distinguish the public-domain work from the contractual limit attached to the specific digital representation."
+      ],
+      "conditions": [
+        "Use only for a qualifying digitization partnership and describe the applicable agreement."
+      ],
+      "boundaries": [
+        "This is a narrow cultural-heritage status, not a way to impose new copyright on a public-domain work."
+      ],
       "visitor_note": "The underlying work is not under copyright. Commercial use of this digital file may be restricted by the identified digitization agreement.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "purpose_limited",
+          "note": "Noncommercial Museum display may proceed under the terms attached to the digitised object, with an accurate public-domain statement for the underlying work."
+        },
+        "publish_online": {
+          "status": "purpose_limited",
+          "note": "A noncommercial collection page and access copy may proceed under the recorded terms. The purpose of the particular use sets the boundary."
+        },
+        "publish_in_print": {
+          "status": "purpose_limited",
+          "note": "Noncommercial scholarship and education may proceed in print under the recorded terms. Paid publishing receives a purpose-specific review."
+        },
+        "make_preservation_copies": {
+          "status": "purpose_limited",
+          "note": "Controlled noncommercial copying and migration may proceed under the recorded terms, with the public-domain source and digitisation history preserved."
+        },
+        "share_an_adaptation": {
+          "status": "purpose_limited",
+          "note": "Noncommercial adaptation may proceed when the recorded terms allow it. Credit the source and identify the new work clearly."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial exploitation of the restricted digital object needs permission or another basis, even though copyright has ended in the underlying work."
+        }
+      }
     },
     {
       "id": "rightsstatements-noc-oklr",
-      "label": "No Copyright — Other Known Legal Restrictions",
+      "label": "No Copyright: Other Known Legal Restrictions",
       "short_label": "Other Legal Restrictions",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -495,15 +1006,54 @@
       "canonical_uri": "https://rightsstatements.org/vocab/NoC-OKLR/1.0/",
       "legal_code": null,
       "summary": "The item is in the public domain, but a known non-copyright law restricts reuse, such as a cultural-heritage or traditional-cultural-expression protection.",
-      "museum_can": ["Identify the public-domain status and link to the specific law or restriction that still governs use."],
-      "conditions": ["Name and link to the known legal restriction."],
-      "boundaries": ["A general concern or customary preference is not enough; the statement is for a known legal restriction."],
+      "museum_can": [
+        "Identify the public-domain status and link to the specific law or restriction that still governs use."
+      ],
+      "conditions": [
+        "Name and link to the known legal restriction."
+      ],
+      "boundaries": [
+        "A general concern or customary preference is not enough; the statement is for a known legal restriction."
+      ],
       "visitor_note": "Copyright does not restrict the work, but another identified law does. Read that restriction before reusing the work.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "contextual",
+          "note": "Copyright does not bar display. The Museum identifies and follows the privacy, publicity, cultural, data-protection, trademark, export, or other legal restriction that remains."
+        },
+        "publish_online": {
+          "status": "contextual",
+          "note": "A collection page and preview may be published when the named non-copyright restriction permits it, with that restriction explained to visitors."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "Scholarly and print use may proceed when the identified law permits it or an exception applies. Copyright clearance itself is unnecessary."
+        },
+        "make_preservation_copies": {
+          "status": "contextual",
+          "note": "The Museum may preserve the work while respecting confidentiality, cultural, security, data-protection, and export limits."
+        },
+        "share_an_adaptation": {
+          "status": "contextual",
+          "note": "Adaptation is available on copyright grounds, subject to the specific non-copyright restriction recorded for the work."
+        },
+        "make_commercial_use": {
+          "status": "contextual",
+          "note": "Commercial reuse needs no copyright clearance, yet the named privacy, publicity, cultural, trademark, contract, or other restriction may still control it."
+        }
+      }
     },
     {
       "id": "rightsstatements-noc-us",
-      "label": "No Copyright — United States",
+      "label": "No Copyright: United States",
       "short_label": "No Copyright in the United States",
       "group": "rights_statement",
       "instrument_kind": "descriptive_status",
@@ -512,11 +1062,50 @@
       "canonical_uri": "https://rightsstatements.org/vocab/NoC-US/1.0/",
       "legal_code": null,
       "summary": "The institution has determined that the work is free of copyright under United States law; copyright may still apply elsewhere.",
-      "museum_can": ["Communicate a US-specific public-domain determination without presenting it as a worldwide conclusion."],
-      "conditions": ["Base the statement on an actual US copyright-status review."],
-      "boundaries": ["A person outside the United States must consider the law where the reuse occurs, and the statement is not intended for orphan works."],
+      "museum_can": [
+        "Communicate a US-specific public-domain determination without presenting it as a worldwide conclusion."
+      ],
+      "conditions": [
+        "Base the statement on an actual US copyright-status review."
+      ],
+      "boundaries": [
+        "A person outside the United States must consider the law where the reuse occurs, and the statement is not intended for orphan works."
+      ],
       "visitor_note": "The work is free of copyright in the United States. Reuse elsewhere may be governed by a different copyright term.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "The work may be displayed in the United States on the stated copyright record, subject to contract and other rights. Foreign presentations receive a jurisdiction check."
+        },
+        "publish_online": {
+          "status": "contextual",
+          "note": "The Museum may publish a collection page with the United States limitation stated plainly. Global delivery and downloadable files receive a jurisdiction-aware review."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "United States scholarship and print reproduction may proceed on the copyright record. Worldwide distribution receives a foreign-rights check."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "Preservation and migration may proceed on the United States copyright record, subject to contract and other non-copyright restrictions."
+        },
+        "share_an_adaptation": {
+          "status": "contextual",
+          "note": "Adaptation is generally available in the United States on copyright grounds. Publication elsewhere receives a jurisdiction and other-rights review."
+        },
+        "make_commercial_use": {
+          "status": "contextual",
+          "note": "Commercial reuse may proceed in the United States on the copyright record, subject to other rights. It should never be described as worldwide public domain."
+        }
+      }
     },
     {
       "id": "rightsstatements-cne",
@@ -529,11 +1118,50 @@
       "canonical_uri": "https://rightsstatements.org/vocab/CNE/1.0/",
       "legal_code": null,
       "summary": "The institution has not yet investigated the copyright status of the item.",
-      "museum_can": ["Tell visitors plainly that no copyright review has been completed."],
-      "conditions": ["Replace the statement when a reliable status determination becomes available."],
-      "boundaries": ["It does not mean that the work is in copyright, out of copyright, safe to reuse, or prohibited from reuse."],
-      "visitor_note": "The copyright status has not been evaluated. Do not treat the absence of a conclusion as permission.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "museum_can": [
+        "Tell visitors plainly that no copyright review has been completed."
+      ],
+      "conditions": [
+        "Replace the statement when a reliable status determination becomes available."
+      ],
+      "boundaries": [
+        "It does not mean that the work is in copyright, out of copyright, safe to reuse, or prohibited from reuse."
+      ],
+      "visitor_note": "Copyright has not yet been evaluated. The label records unfinished research rather than a ban on display. The Museum uses a proportionate presentation while it preserves the work and develops the rights record.",
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "contextual",
+          "note": "Copyright has not yet been evaluated. The Museum may display a lawfully acquired work after recording the acquisition basis, artist instructions, and a proportionate risk decision."
+        },
+        "publish_online": {
+          "status": "contextual",
+          "note": "Metadata and a faithful identification view may accompany the collection record after a proportionate review. Full-resolution downloads and substitute-quality access wait for deeper assessment."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "A proportionate image may support criticism, cataloguing, and scholarship where fair use, fair dealing, permission, or another exception applies."
+        },
+        "make_preservation_copies": {
+          "status": "contextual",
+          "note": "The Museum may begin lawful internal preservation and document the uncertainty, source files, dependencies, and every intervention."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "A public remix or adaptation waits for a rights assessment, permission, or a specific legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial exploitation has no implied clearance and needs a documented legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-und",
@@ -546,11 +1174,50 @@
       "canonical_uri": "https://rightsstatements.org/vocab/UND/1.0/",
       "legal_code": null,
       "summary": "The institution investigated the item's copyright status but could not reach a reliable conclusion because essential facts are missing or unresolved.",
-      "museum_can": ["Publish the unresolved determination and the limits of the completed research."],
-      "conditions": ["Record the investigation and the facts that prevent a conclusion."],
-      "boundaries": ["It does not grant permission and should not be used when no investigation has occurred."],
-      "visitor_note": "The Museum investigated but could not determine the copyright status. Reuse needs a separate risk and permission assessment.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "museum_can": [
+        "Publish the unresolved determination and the limits of the completed research."
+      ],
+      "conditions": [
+        "Record the investigation and the facts that prevent a conclusion."
+      ],
+      "boundaries": [
+        "It does not grant permission and should not be used when no investigation has occurred."
+      ],
+      "visitor_note": "The Museum investigated the copyright and could not reach a firm conclusion. Display, documentation, scholarship, and preservation may still proceed after a recorded, proportionate review.",
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "contextual",
+          "note": "The Museum has investigated without reaching a firm conclusion. Ordinary display may proceed when the recorded acquisition basis and risk assessment support it."
+        },
+        "publish_online": {
+          "status": "contextual",
+          "note": "Metadata and a proportionate identification view may accompany the collection record. High-resolution or substitute-quality access receives separate review."
+        },
+        "publish_in_print": {
+          "status": "contextual",
+          "note": "Museum scholarship may use a proportionate image when permission, fair use, fair dealing, or another exception supports it."
+        },
+        "make_preservation_copies": {
+          "status": "contextual",
+          "note": "Controlled preservation may proceed on the applicable legal or contractual basis, with the unresolved determination retained in the record."
+        },
+        "share_an_adaptation": {
+          "status": "separate_basis",
+          "note": "A public remix or adaptation needs permission or a specific legal exception."
+        },
+        "make_commercial_use": {
+          "status": "separate_basis",
+          "note": "Commercial image use needs permission or another clear legal basis."
+        }
+      }
     },
     {
       "id": "rightsstatements-nkc",
@@ -563,11 +1230,50 @@
       "canonical_uri": "https://rightsstatements.org/vocab/NKC/1.0/",
       "legal_code": null,
       "summary": "The institution has reasonable grounds to believe that copyright and related rights no longer cover the work, but cannot make a conclusive public-domain determination.",
-      "museum_can": ["Report that no copyright is known after investigation while preserving the uncertainty in the object record."],
-      "conditions": ["Use only after a reasonable effort to establish status and when no clearer statement applies."],
-      "boundaries": ["It is not a license, a warranty, a conclusive public-domain mark, or an orphan-work statement."],
-      "visitor_note": "No copyright is known, but the conclusion is not certain. Consider the remaining uncertainty before reuse.",
-      "use_matrix": {"display_the_work": "status_only", "publish_online": "status_only", "publish_in_print": "status_only", "make_preservation_copies": "status_only", "share_an_adaptation": "status_only", "make_commercial_use": "status_only"}
+      "museum_can": [
+        "Report that no copyright is known after investigation while preserving the uncertainty in the object record."
+      ],
+      "conditions": [
+        "Use only after a reasonable effort to establish status and when no clearer statement applies."
+      ],
+      "boundaries": [
+        "It is not a license, a warranty, a conclusive public-domain mark, or an orphan-work statement."
+      ],
+      "visitor_note": "The Museum found no known copyright after review. Ordinary display, publication, preservation, and adaptation may proceed while the statement remains an evidence-based finding rather than a conclusive worldwide public-domain declaration.",
+      "use_matrix": {
+        "display_the_work": "status_only",
+        "publish_online": "status_only",
+        "publish_in_print": "status_only",
+        "make_preservation_copies": "status_only",
+        "share_an_adaptation": "status_only",
+        "make_commercial_use": "status_only"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary",
+          "note": "Ordinary display may proceed where the Museum's review found no known copyright and no contract or other-rights flag remains. The status should be stated accurately."
+        },
+        "publish_online": {
+          "status": "ordinary",
+          "note": "A normal collection page and useful access copy may be published with credit, the No Known Copyright statement, and the evidence supporting the Museum's review."
+        },
+        "publish_in_print": {
+          "status": "ordinary",
+          "note": "Scholarship and print reproduction may proceed with attribution. High-value or worldwide publication may justify a fresh jurisdiction and other-rights check."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary",
+          "note": "Preservation, migration, emulation, and restoration may proceed, subject to any non-copyright terms and with changes documented."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary",
+          "note": "Adaptation may proceed where no other right or restriction applies. Credit the source and identify the new work or intervention."
+        },
+        "make_commercial_use": {
+          "status": "contextual",
+          "note": "Commercial reuse may proceed after a proportionate jurisdiction and other-rights check. Describe the record as No Known Copyright rather than a conclusive public-domain finding."
+        }
+      }
     },
     {
       "id": "custom-license",
@@ -584,7 +1290,9 @@
         "Use the work only within the permissions supplied by the exact terms, together with any rights the Museum holds independently.",
         "Preserve the complete text, version, source, effective date, and evidence that the terms apply to the specific object and components."
       ],
-      "conditions": ["Follow the exact custom terms and do not summarize them as equivalent to a Creative Commons license unless they are legally identical."],
+      "conditions": [
+        "Follow the exact custom terms and do not summarize them as equivalent to a Creative Commons license unless they are legally identical."
+      ],
       "boundaries": [
         "A platform label, artist statement, or token description may omit important conditions; the complete operative text controls.",
         "Different components of one digital work may carry different terms."
@@ -597,6 +1305,32 @@
         "make_preservation_copies": "case_by_case",
         "share_an_adaptation": "case_by_case",
         "make_commercial_use": "case_by_case"
+      },
+      "museum_practice_matrix": {
+        "display_the_work": {
+          "status": "ordinary_with_terms",
+          "note": "Display follows the exact custom terms and any artist instructions. Where those terms are silent, lawful acquisition carries the Museum's ordinary presumption of faithful collection display."
+        },
+        "publish_online": {
+          "status": "ordinary_with_terms",
+          "note": "Online presentation follows the custom terms. Silence on collection documentation is read alongside the work's network-native publication, acquisition context, and ordinary museum practice."
+        },
+        "publish_in_print": {
+          "status": "ordinary_with_terms",
+          "note": "Print use follows the exact terms, with proportionate scholarship distinguished from cover, decorative, licensing, and merchandise uses."
+        },
+        "make_preservation_copies": {
+          "status": "ordinary_with_terms",
+          "note": "Preservation follows the custom terms and the Museum's duty of care. Any migration, emulation, or alteration is documented against the acquired version."
+        },
+        "share_an_adaptation": {
+          "status": "ordinary_with_terms",
+          "note": "A public adaptation follows the exact terms. Faithful technical conservation remains distinct from a remix or new artistic work."
+        },
+        "make_commercial_use": {
+          "status": "ordinary_with_terms",
+          "note": "Commercial image and product use follows the exact terms, especially provisions concerning merchandise, advertising, endorsement, revenue, and holder status."
+        }
       }
     }
   ],
@@ -651,5 +1385,12 @@
       "effective_status": "conditional_not_yet_effective",
       "explanation": "Keys and Gates selected outcomes are intended for CC0 release, but the works are unminted. No outcome is presented as an accessioned CC0 object until primary mint evidence and the effective rights statement exist."
     }
-  ]
+  ],
+  "museum_practice_status_definitions": {
+    "ordinary": "Ordinary museum practice for a lawfully acquired work.",
+    "ordinary_with_terms": "Ordinary when the recorded license, agreement, and credit terms are followed.",
+    "purpose_limited": "Ordinary within the stated educational, noncommercial, territorial, or institutional purpose.",
+    "contextual": "A proportionate museum use after reviewing purpose, scale, jurisdiction, and any contrary terms.",
+    "separate_basis": "Beyond ordinary collection use and supported by permission or a specific legal exception."
+  }
 }
