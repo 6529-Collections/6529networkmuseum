@@ -15,7 +15,6 @@ This index is the durable entry point for research, alternatives, and implementa
 ## Governance, standards, and repository controls
 
 - [`research/governance-decision-evidence.md`](research/governance-decision-evidence.md) — Wave decision evidence and interpretation boundaries.
-- [`wip/2026-08-04-homepage-network-museum-proposition.md`](wip/2026-08-04-homepage-network-museum-proposition.md) — production implementation of the homepage proposition and full institutional page, including PR/bot-review history, exact staging and production release evidence, responsive verification, screenshots, no-bold body-prose guard, present-state claim boundaries, and the publication/adoption distinction.
 - [`research/museum-standards-crosswalk.md`](research/museum-standards-crosswalk.md) — principal museum, digital-preservation, provenance, rights, and interoperability research.
 - [`research/museum-standards-crosswalk-luna.md`](research/museum-standards-crosswalk-luna.md) — retained independent research variant; not adopted policy.
 - [`research/repository-ci-architecture.md`](research/repository-ci-architecture.md) — design history for schemas, validators, generated indexes, manifests, review separation, and CI.
