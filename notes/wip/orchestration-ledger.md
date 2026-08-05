@@ -2141,3 +2141,46 @@ variants are 640x426, 1280x851, and 2400x1596 and are the uncropped products of
 the recorded 6016x4000 source. The validator now independently derives every
 declared height from its recorded oriented source dimensions, and a mutation
 test rejects a cross-variant ratio change before fixity or geometry checks.
+
+## 2026-08-05 Inside the System production closeout
+
+Canonical generative-system standards, the Casey comparative study, and all
+five project dossiers merged through Museum PR
+[`#27`](https://github.com/6529-Collections/6529networkmuseum/pull/27) at
+`2304497e343197fa0324d3f110255fedbb1e6fa8`. Frontend PR
+[`#3594`](https://github.com/6529-Collections/6529seize-frontend/pull/3594)
+merged the production experience at
+`5b03302719b306b29582d43f6910fd1a843de1f7`; stabilization PR
+[`#3602`](https://github.com/6529-Collections/6529seize-frontend/pull/3602)
+produced the final production revision
+`a36a5a437e68d03c886471caefe0bf01afc3827c`.
+
+The public route family is live for *CENTURY*, *Pre-Process*, *Phototaxis*,
+*923 EMPTY ROOMS*, and *Ex Nihilo (Cosmos)*. It provides official art first,
+the Museum holding against any minted output, full-edition lookup and filters,
+deterministic neighbor/complement/less-often-seen suggestions, and explicitly
+labeled project-specific Museum models. All 3,300 minted records in the pinned
+snapshots are represented.
+
+Editorial/no-LLM-smell, museum-design, and collector-fun adversarial reviews
+all returned **SHIP**. Required frontend CI, security, accessibility,
+internationalization, and Museum gates passed. Staging deployment
+[`30977518490`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30977518490)
+and E2E
+[`30978079115`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30978079115)
+passed all 14 packs, including Museum 70/70 and Inside the System 8/8.
+Production artifact
+[`30977459534`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30977459534),
+deployment
+[`30978958753`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30978958753),
+and E2E
+[`30979315540`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30979315540)
+passed all 13 packs, again including Museum 70/70 and Inside the System 8/8.
+Direct production verification also passed the focused 8-test desktop/mobile
+suite, and `/api/version` matched the exact revision.
+
+The continuing ownership rule is now implemented: project scholarship persists
+across acquisitions; object pages locate individual holdings; gift pages retain
+their historical acquisition scope. A future work from one of these projects
+adds an object reading and held-position overlay without being made part of
+the Casey gift.

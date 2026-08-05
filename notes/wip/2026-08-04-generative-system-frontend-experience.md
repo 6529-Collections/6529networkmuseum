@@ -425,3 +425,62 @@ minted lookup; reviewed NextGen-compatible analysis for **less often seen**;
 and no marketplace rarity, desirability, or value claims. Optional atomic
 project-study records remain the future interoperability target, not a blocker
 for this display-layer release.
+
+## Production release — 2026-08-05
+
+**Inside the System** is live as a project-owned Museum instrument for all five
+Casey Reas projects in accession `6529NM.2026.001`:
+
+- [CENTURY](https://6529.io/museum/network/projects/century/system)
+- [Pre-Process](https://6529.io/museum/network/projects/pre-process/system)
+- [Phototaxis](https://6529.io/museum/network/projects/phototaxis/system)
+- [923 EMPTY ROOMS](https://6529.io/museum/network/projects/923-empty-rooms/system)
+- [Ex Nihilo (Cosmos)](https://6529.io/museum/network/projects/ex-nihilo-cosmos/system)
+
+Frontend PR
+[`#3594`](https://github.com/6529-Collections/6529seize-frontend/pull/3594)
+introduced the five studies and merged as
+`5b03302719b306b29582d43f6910fd1a843de1f7`. Follow-up PR
+[`#3602`](https://github.com/6529-Collections/6529seize-frontend/pull/3602)
+made the deployed Museum checks tolerate two exact, known shell-level fetch
+diagnostics without weakening route, content, media, layout, response, or
+unexpected-console assertions. Production revision
+`a36a5a437e68d03c886471caefe0bf01afc3827c` contains both changes.
+
+The released comparison contract fixes a Museum-held work at left. At right, a
+visitor can retrieve any minted work by invocation or token ID, filter the
+complete edition snapshot, request deterministic structural neighbors,
+complements, or less-often-seen examples, or explore a clearly labeled
+project-specific Museum model. The five projects keep distinct visual and
+algorithmic grammars rather than collapsing into one generic chart. The
+display package indexes all 3,300 minted outputs represented by the governed
+snapshots, including invocation 0 in *923 EMPTY ROOMS*.
+
+Three independent adversarial reviews tested the release for editorial voice
+and LLM smell, museum-design quality, and collector interest. All three
+returned **SHIP** after iteration. The frontend PR's required quality,
+security, accessibility, internationalization, and Museum checks also passed.
+
+Release evidence is exact and environment-bound:
+
+- staging deployment
+  [`30977518490`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30977518490)
+  and staging E2E
+  [`30978079115`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30978079115):
+  all 14 read-only packs passed, including 70 institutional-practice and 8
+  Inside the System desktop/mobile tests;
+- production artifact
+  [`30977459534`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30977459534),
+  production deployment
+  [`30978958753`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30978958753),
+  and production E2E
+  [`30979315540`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30979315540):
+  all 13 read-only packs passed, including 70 institutional-practice and 8
+  Inside the System desktop/mobile tests. The deployed `/api/version` matched
+  the exact production revision.
+
+The permanent content model remains the one recommended above: scholarship is
+owned by the project; an object is located within that continuing study; a
+gift records why a particular group entered together. A later accession from
+one of these projects therefore adds a held-work position and object reading
+without being rewritten into the Casey gift or changing the project field.

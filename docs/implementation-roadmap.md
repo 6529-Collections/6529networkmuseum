@@ -357,3 +357,29 @@ title, custody, accession, preservation master, or effective CC0 claim has been
 added. Independent review of the constructed media manifest and accessibility
 descriptions remains open. The frontend publication, pull-request review,
 staging validation, and production validation are the next release gates.
+
+## 2026-08-05 - Inside the System production release
+
+The five Casey project studies and the reusable held-work comparison
+instrument are live in production. Frontend PR
+[`#3594`](https://github.com/6529-Collections/6529seize-frontend/pull/3594)
+merged the experience; exact shell-diagnostic stabilization followed in PR
+[`#3602`](https://github.com/6529-Collections/6529seize-frontend/pull/3602).
+Production serves revision
+`a36a5a437e68d03c886471caefe0bf01afc3827c`.
+
+The release passed three independent adversarial reviews for natural editorial
+voice, museum-design quality, and collector interest. Exact staging and
+production gates passed the complete selected read-only suites: 14 staging
+packs and 13 production packs, with 70 institutional-practice tests and 8
+Inside the System desktop/mobile tests in each environment. Production deploy
+and E2E evidence are retained in GitHub Actions runs
+[`30978958753`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30978958753)
+and
+[`30979315540`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/30979315540).
+
+Future acquisitions from a represented project extend its held-position
+overlay and receive their own object reading. They do not alter the historical
+Casey gift. Optional atomic remote project-study records remain the next data-
+interoperability improvement; they are not required for the live derived
+display package.
