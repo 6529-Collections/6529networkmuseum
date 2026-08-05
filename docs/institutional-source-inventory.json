@@ -1,7 +1,7 @@
 {
   "schema": "museum:institutional-source-inventory:v1",
   "research_cutoff": "2026-08-04",
-  "source_count": 237,
+  "source_count": 250,
   "sources": [
     {
       "url": "https://0xcollection.org/",
@@ -306,6 +306,15 @@
       ]
     },
     {
+      "url": "https://chooser-beta.creativecommons.org/",
+      "labels": [
+        "Creative Commons License Chooser"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-for-artists.md"
+      ]
+    },
+    {
       "url": "https://cmm.cenart.gob.mx/acercaDe.php",
       "labels": [
         "Centro Multimedia profile",
@@ -334,6 +343,42 @@
       ],
       "cited_by": [
         "records/institutional-practice/profiles/rhizome-new-museum.md"
+      ]
+    },
+    {
+      "url": "https://copyright.gov/what-is-copyright/",
+      "labels": [
+        "U.S. Copyright Office, What is Copyright?"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
+      "url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "labels": [
+        "Creative Commons, Public Domain Mark 1.0"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "labels": [
+        "Creative Commons, CC0 1.0"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
+      "url": "https://creativecommons.org/share-your-work/use-remix/cc-licenses/",
+      "labels": [
+        "Creative Commons, About CC Licenses"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
       ]
     },
     {
@@ -1081,6 +1126,25 @@
       ]
     },
     {
+      "url": "https://rightsstatements.org/en/documentation/",
+      "labels": [
+        "RightsStatements.org, Documentation"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md",
+        "records/institutional-practice/rights-for-collectors.md"
+      ]
+    },
+    {
+      "url": "https://rightsstatements.org/en/documentation/usage_guidelines",
+      "labels": [
+        "RightsStatements.org, Usage Guidelines"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
       "url": "https://siarchives.si.edu/blog/handling-digital-assets-time-based-media-art",
       "labels": [
         "“Handling Digital Assets in Time-Based Media Art”"
@@ -1374,6 +1438,24 @@
       ]
     },
     {
+      "url": "https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Considerations_for_licensees",
+      "labels": [
+        "Creative Commons, considerations for licensees"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-for-collectors.md"
+      ]
+    },
+    {
+      "url": "https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Considerations_for_licensors",
+      "labels": [
+        "Creative Commons, Considerations for licensors"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-for-artists.md"
+      ]
+    },
+    {
       "url": "https://www.acmi.net.au/collection-preservation/",
       "labels": [
         "“Collections & Preservation”"
@@ -1526,6 +1608,26 @@
       ],
       "cited_by": [
         "records/institutional-practice/profiles/centre-pompidou.md"
+      ]
+    },
+    {
+      "url": "https://www.copyright.gov/circs/circ01.pdf",
+      "labels": [
+        "U.S. Copyright Office, Copyright Basics"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
+      ]
+    },
+    {
+      "url": "https://www.copyright.gov/policy/nft-study/",
+      "labels": [
+        "U.S. Copyright Office and USPTO, Non-Fungible Token Study"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md",
+        "records/institutional-practice/rights-for-artists.md",
+        "records/institutional-practice/rights-for-collectors.md"
       ]
     },
     {
@@ -2294,6 +2396,24 @@
       ],
       "cited_by": [
         "records/institutional-practice/profiles/walker-art-center.md"
+      ]
+    },
+    {
+      "url": "https://www.wipo.int/en/web/copyright/faq-copyright",
+      "labels": [
+        "WIPO, Copyright FAQ"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-for-artists.md"
+      ]
+    },
+    {
+      "url": "https://www.wipo.int/en/web/treaties/ip/berne/summary_berne",
+      "labels": [
+        "WIPO, summary of the Berne Convention"
+      ],
+      "cited_by": [
+        "records/institutional-practice/rights-and-licenses.md"
       ]
     },
     {

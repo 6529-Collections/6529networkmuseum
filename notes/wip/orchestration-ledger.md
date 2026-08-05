@@ -2228,3 +2228,32 @@ Museum/Casey validation, deterministic manifest verification, NextGen
 compatibility, all Casey mutation controls, the 3,300-token snapshot verifier,
 the diligence manifest, and whitespace validation. Pull request, bot review,
 merge, website adapter, staging, and production remain active gates.
+
+## 2026-08-05 rights education and expression registry
+
+The source corpus for the Museum's public rights learning room is complete.
+It joins a closed twenty-two-entry registry to three public manuscripts, seven
+exact English Creative Commons legal-code snapshots, and the reviewed rights
+records for all seven Casey Reas accessioned objects. The public-domain and
+collector guidance states directly that possession of a token or artwork
+usually does not transfer copyright, and that copyright expiration places a
+large part of art history in the public domain for study, publication, and new
+work.
+
+The registry preserves the distinction among a public license, CC0
+dedication, Public Domain Mark, RightsStatements.org status term, absence of a
+public license, and bespoke terms. Keys and Gates retains its announced CC0
+intention as `conditional_not_yet_effective` because the selected works remain
+unminted. The Stream-compatible object rights records are unchanged; the new
+registry supplies a linked external vocabulary without silently extending the
+Stream schema.
+
+Source validation passed the complete Museum and Casey controls, 138 Python
+tests with one intentional skip, program-media and diligence-manifest checks,
+and deterministic release-manifest regeneration. The current source release
+commitments are SHA-256
+`sha256:b6b1d5ddf19c88335b752bc610a1d4020236a3eb4a86a13d52182a29aa22ffb1`
+and Keccak-256
+`0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025`.
+Frontend integration, staged qualification, and production qualification are
+the remaining release gates.

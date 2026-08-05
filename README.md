@@ -42,6 +42,8 @@ Contract design is in progress; deployment and activation remain pending. See
 | Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; post-accession title, finalized-state custody, token-approval, and exact-address compliance diligence complete; autonomous software preservation remains active stewardship |
 | Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
 | Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Digital-art-weighted comparative essay, twenty-seven primary-source profiles, a classified chain-native adjacent-practice study, detailed source notes, and [deterministic citation inventory](docs/institutional-source-inventory.json) |
+| Rights education | [`records/institutional-practice/rights-and-licenses.md`](records/institutional-practice/rights-and-licenses.md) | Public copyright introduction, artist and collector guides, all six CC 4.0 licenses, CC0, the Public Domain Mark, cultural-heritage rights statements, and practical Museum use |
+| Rights registry and legal texts | [`docs/rights/`](docs/rights/) | Machine-readable 22-term registry, seven exact Creative Commons legal-code snapshots, object assignments, source pins, fixity, and deterministic validation |
 | Scholarship and editorial standard | [`docs/curatorial-publication-standard.md`](docs/curatorial-publication-standard.md) | Research substance, close looking, evidence, publication architecture, digital-art scholarship, and Museum prose style |
 | Museum data architecture | [`docs/data-architecture.md`](docs/data-architecture.md) | Plain-language and machine-readable profile for Spectrum, CIDOC CRM, LIDO, PREMIS, PROV-O, Getty vocabularies, IIIF, C2PA, BagIt, OCFL, and CAIP-19, with the Casey Reas implementation audit and exact seven-object machine schedule |
 | Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
@@ -83,6 +85,8 @@ python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
 python scripts/check_fetch_guard.py
+python scripts/validate_rights_handbook.py
+python scripts/sync_rights_legal_texts.py
 python scripts/validate.py
 python scripts/generate_institutional_source_inventory.py --check
 python scripts/generate_program_media.py --check

@@ -298,6 +298,28 @@ Before deploying a Museum contract or publishing a completed accession on Stream
    state-only payload recovery, write/read round-trip, and Museum-side adapter
    readback/substitution vectors.
 
+## External rights vocabulary
+
+The Museum's [`docs/rights/registry.json`](rights/registry.json) records
+Creative Commons licenses and tools, RightsStatements.org terms, a no-public-
+license case, and custom terms. These are external legal instruments or public
+status labels. The Museum preserves their canonical URIs and meanings.
+
+The registry does not change `STREAM_RIGHTS_V1`. The Stream-compatible
+`RIGHTS_STATEMENT` remains the object-specific determination: who is understood
+to hold the relevant right, the evidence for that conclusion, and the practical
+grant status for Museum uses. A separate object assignment connects that
+reviewed record to an external expression. This keeps three facts distinct:
+
+- the external license or status term;
+- the Museum's evidence that the term applies to a particular object;
+- the use-by-use determination in the Stream-compatible rights record.
+
+A future bilateral Stream field should carry the canonical external URI and
+the component to which it applies. Until Stream publishes and pins that field,
+the Museum registry remains an off-chain publication vocabulary and must not be
+inserted into the shared envelope under an invented extension.
+
 ## Temporary generative-study display divergence
 
 The first **Inside the System** release packages project study definitions and
