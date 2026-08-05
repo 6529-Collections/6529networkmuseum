@@ -75,7 +75,7 @@ class DataArchitectureProfileTests(unittest.TestCase):
 
         for standard in self.profile["standards"]:
             self.assertIn(f"data-architecture/{standard['slug']}.md", landing)
-            self.assertIn(standard["name"].split(" ")[0], case_study)
+            self.assertIn(standard["name"], case_study)
 
     def test_only_spectrum_is_operational_for_casey(self) -> None:
         operational = [

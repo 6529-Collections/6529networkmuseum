@@ -122,8 +122,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/data-architecture/casey-reas-implementation.md",
-      "sha256": "sha256:de12c5c1420639f739678a4075d12bc5d112fca7e086dab5929f3405e65f24b6",
-      "size": 10773
+      "sha256": "sha256:34d954d69609b95134593a313ba6d1105a031b4e8c207ff080af970135b7f367",
+      "size": 10801
     },
     {
       "byte_mode": "lf-normalized",
@@ -2619,8 +2619,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_data_architecture.py",
-      "sha256": "sha256:82836abaf040f9049aa3720719f15a5fde618d109fed06d1703912bcca876762",
-      "size": 6362
+      "sha256": "sha256:6b2aa5af9cb12a72143eea7b0483b1ec3c8132f5ad8ced38b98402d0476dd70e",
+      "size": 6348
     },
     {
       "byte_mode": "lf-normalized",
@@ -2672,9 +2672,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xeb782b173965b75e7e447698d00c3a81b63ac44bf0fe48b85577da895617cd06"
+    "digest": "0x9ccca279ca25f1d0b65b2430168dd192a87dee77b682f63db25de44fc899ea26"
   },
-  "manifest_sha256": "sha256:1c8008392f7f8ff0aacce68482744589d3bdc2125856f34fcfa155509670d97a",
+  "manifest_sha256": "sha256:258a2aa6a970cc84d036de511902cbc1d5fbb5141067cc146fe83ac879d20544",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

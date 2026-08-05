@@ -78,19 +78,30 @@ implementers.
   manifest path binding, and primary-validator integration. Eight focused tests,
   the architecture validator, the full Museum/Casey validator, manifest check,
   and whitespace check pass.
-- Current candidate manifest: 329 entries; SHA-256
-  `sha256:f755a9f8e6299078595178fb9034223ed094aa6ab47a806ed3260e9c53e9abd6`;
+- Current candidate manifest after reconciliation with the rights handbook: 346
+  entries; SHA-256
+  `sha256:258a2aa6a970cc84d036de511902cbc1d5fbb5141067cc146fe83ac879d20544`;
   Keccak-256
-  `0xcbadff959cdf663b053b35576e03b30f2541b285fb6e1ad563ff8523c4010dbf`.
+  `0x9ccca279ca25f1d0b65b2430168dd192a87dee77b682f63db25de44fc899ea26`.
 - Final exact-tree full CI-equivalent rerun: passed in 461.1 seconds. The
   complete suite ran 141 tests with one expected Windows capability skip;
   bootstrap, fetch guard, program-media fixity, institutional-source inventory,
   full Museum/Casey validation, manifest verification, NextGen compatibility,
   Casey mutation controls, the 3,300-token snapshot verifier, the diligence
   manifest, and whitespace checks all passed.
-- Museum repository PR: pending.
+- Museum repository PR #30: exact-head follow-up validation in progress.
 - Frontend PR: pending.
 - Staging and production qualification: pending.
+
+### Review follow-up
+
+PR #30 reconciled cleanly with the concurrent rights-handbook release. All
+three hosted Museum jobs passed on the reconciled head. A head-bound 6529bot
+follow-up review returned no findings and verified the schema, semantic
+validator, manifest, and Casey one-to-one schedule controls. Its one
+non-blocking coverage observation was adopted: the Casey audit and test now
+require all eleven full canonical standard names rather than accepting a
+first-word match.
 
 ## Deferred to the next compatibility phase
 

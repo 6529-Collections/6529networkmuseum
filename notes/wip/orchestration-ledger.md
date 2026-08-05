@@ -2229,6 +2229,15 @@ compatibility, all Casey mutation controls, the 3,300-token snapshot verifier,
 the diligence manifest, and whitespace validation. Pull request, bot review,
 merge, website adapter, staging, and production remain active gates.
 
+PR #30 was reconciled with Museum main after the rights-handbook merge. The
+combined semantic validators and deterministic manifest passed. Hosted Museum
+validation and the Ubuntu/Windows deterministic jobs all passed on exact head
+`490adda4dd48fdc0e7d23b066b5c98c8ba91cf00`. Because the synchronized webhook
+did not enqueue its configured follow-up, central head-bound review job
+`31035730573` ran the documented 6529bot fallback and returned no findings. Its
+one non-blocking coverage observation was adopted by requiring the Casey audit
+to contain all eleven complete profile names.
+
 ## 2026-08-05 rights education and expression registry
 
 The source corpus for the Museum's public rights learning room is complete.
