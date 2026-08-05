@@ -1,5 +1,20 @@
 # 6529Stream interoperability
 
+## Relationship to the Museum data architecture
+
+The Museum's normative semantic profile is [How the Museum knows and cares for
+art](data-architecture.md) and its machine-readable
+[`6529NM_DATA_ARCHITECTURE_V1`](data-architecture/profile.json) register. That
+profile is defined independently of Stream and controls Museum meanings,
+extension terms, implementation states, and conformance claims.
+
+This document governs downstream compatibility with Stream's exact envelopes,
+hash references, subject derivation, and deployed contract surfaces. After the
+Museum profile is released, a separate field-by-field review will map Stream to
+it in both directions. A Stream term that does not preserve the Museum meaning
+requires an adapter or an explicit divergence; it does not silently redefine
+the Museum record.
+
 ## Pinned source
 
 This profile is aligned to `6529-Collections/6529Stream` `origin/main` commit `5021c8060950c3fef995271e674ed4b2007fee6d`, observed 2026-08-01 UTC.

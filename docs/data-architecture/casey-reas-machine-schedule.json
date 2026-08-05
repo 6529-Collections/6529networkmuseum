@@ -1,0 +1,89 @@
+{
+  "$schema": "../../schemas/museum-data-architecture-case-study.schema.json",
+  "profile_id": "6529NM_DATA_ARCHITECTURE_V1",
+  "accession_lot_id": "6529NM.2026.001",
+  "custody_transaction": "0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498",
+  "custody_block": 25660311,
+  "evidence_manifest_path": "evidence/casey-reas/manifest.json",
+  "metadata_digest_scope": "retained raw metadata response bytes",
+  "generator_digest_scope": "recorded generator observation; generator response bytes were not retained",
+  "objects": [
+    {
+      "object_id": "6529NM.2026.001.01",
+      "title": "CENTURY #31",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031",
+      "custody_receipt_log": 60,
+      "metadata_sha256": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+      "generator_observation_sha256": "sha256:465b45798f14bea109f59986bd2cdcfd6e2eb9050327f52b24af15e159704ae2",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.02",
+      "title": "CENTURY #724",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000724",
+      "custody_receipt_log": 59,
+      "metadata_sha256": "sha256:3516518aa0c83b1d746c124a7df70fe4812c95f387cb251cfe6e3b3b4fcec7a5",
+      "generator_observation_sha256": "sha256:1dfd3f2205e8c4a33f85d2c0efce35b019d2ea21e424e5d750bc86c3890c3b3e",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.03",
+      "title": "CENTURY #401",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401",
+      "custody_receipt_log": 52,
+      "metadata_sha256": "sha256:7feffd29bf5134065aeeacc7eeb6895287ec9a02f9c804d065085df0069cdd81",
+      "generator_observation_sha256": "sha256:51ab1073b166701c9379984d9331c14d803dc84e35c8d06b5a8071f4eb895aad",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.04",
+      "title": "Pre-Process #63",
+      "caip19": "eip155:1/erc721:0x99a9b7c1116f9ceeb1652de04d5969cce509b069/383000063",
+      "custody_receipt_log": 56,
+      "metadata_sha256": "sha256:581bb33a3d97b9c411483523fb1272ea605064d9bcbc3dd7d42815a681bccbc5",
+      "generator_observation_sha256": "sha256:8cbf3ee01db1a864163eeb5b30776372917256b9246b255e0f514cf03b64505b",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.05",
+      "title": "Phototaxis #308",
+      "caip19": "eip155:1/erc721:0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/164000308",
+      "custody_receipt_log": 53,
+      "metadata_sha256": "sha256:b6c5bc8b64a2274f9941de3219e7284916f873a4f3092b7934d57e5c12a86573",
+      "generator_observation_sha256": "sha256:b3d7c39954beabf85cb6213eff3d57e3b1f7670c6763c663bc426a9c918bcaf3",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.06",
+      "title": "923 EMPTY ROOMS #713",
+      "caip19": "eip155:1/erc721:0x145789247973c5d612bf121e9e4eef84b63eb707/1000713",
+      "custody_receipt_log": 58,
+      "metadata_sha256": "sha256:a63ba254e97c6ec64f3fcffdbc38f6464dd9682be6dfed6226e32f47c2fa9fcd",
+      "generator_observation_sha256": "sha256:2d722fe294710e3b443802baecc1f445b94cf00bf9dbdfbebbb08d4d6d3529e0",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    },
+    {
+      "object_id": "6529NM.2026.001.07",
+      "title": "Ex Nihilo (Cosmos) #248",
+      "caip19": "eip155:1/erc721:0x0000000c687daed0fba60d1dba4e5f6149e8b894/248",
+      "custody_receipt_log": 54,
+      "metadata_sha256": "sha256:60431bea0bce5d3b95989ed017e9aea3f41f8d8e748a5bf25345c9e2138376dc",
+      "generator_observation_sha256": "sha256:17402c7259ac4af1e93894eb74b36a5796a6a058ea0fb0e56d2f55101a3c84f9",
+      "generator_bytes_retained": false,
+      "accession_state": "accessioned",
+      "preservation_state": "in_progress"
+    }
+  ]
+}

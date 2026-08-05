@@ -73,8 +73,12 @@ Status vocabulary:
 | File | Status | Contents |
 |---|---|---|
 | [`docs/record-model.md`](docs/record-model.md) | working standard | Record domains, identifiers, evidence classes, correction model |
+| [`docs/data-architecture.md`](docs/data-architecture.md) | working standard | Public introduction to the Museum's eleven-part collections, ontology, catalogue, provenance, preservation, presentation, packaging, storage, vocabulary, media-authenticity, and chain-identity architecture |
+| [`docs/data-architecture/profile.json`](docs/data-architecture/profile.json) | machine-readable working profile | Closed eleven-standard register with authority/version pins, document paths, Casey implementation states, and the Stream-deferred boundary |
+| [`docs/data-architecture/casey-reas-implementation.md`](docs/data-architecture/casey-reas-implementation.md) | public implementation audit | Standard-by-standard account of what accession `6529NM.2026.001` already supplies and which serializations, packages, and validators remain to be built |
+| [`docs/data-architecture/casey-reas-machine-schedule.json`](docs/data-architecture/casey-reas-machine-schedule.json) | machine-readable implementation audit | Exact seven-object title, chain identity, custody-log, metadata-digest, generator-observation-digest, accession-state, preservation-state, and retention-boundary schedule checked against canonical records |
 | [`docs/accession-standard.md`](docs/accession-standard.md) | working standard | Accession statement, object record, curatorial statement, completion gates |
-| [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | working standard | Exact Stream envelope, identifiers, museum ontologies, convergence gate |
+| [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | downstream interoperability standard | Exact Stream envelope and identifiers; future field-by-field convergence against the Museum-native data architecture |
 | [`docs/generative-system-analysis.md`](docs/generative-system-analysis.md) | working standard | Art-first generative-system dossier method: encounter, thesis, and close looking before source/seed reconstruction, causal analysis, conservation, evidence, and review apparatus |
 | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | replacement product and implementation standard | Art-first public Museum rebuild: information architecture, page and media requirements, Casey and Keys and Gates exemplars, publication adapter, accessibility, security, performance, and release gates |
 | [`docs/program-media-delivery.md`](docs/program-media-delivery.md) | active technical profile | Keys and Gates source/surrogate separation, WebP transform, immutable CloudFront delivery, high-resolution access, rights boundary, and update procedure |
@@ -112,6 +116,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-04-rendered-publication-copy-desk.md`](notes/wip/2026-08-04-rendered-publication-copy-desk.md) | active rendered editorial checkpoint | Curatorial, registrarial, technical-methodology, and institutional-practice register review; release-blocking production labels and process narration; remaining qualification work |
 | [`notes/wip/2026-08-04-generative-systems-analysis-standard.md`](notes/wip/2026-08-04-generative-systems-analysis-standard.md) | WIP design history | Source-backed proposal and Casey pilot reasoning retained behind the working standard and constructed five-project dossier set, including unresolved evidence/rights questions |
 | [`notes/wip/2026-08-04-generative-system-frontend-experience.md`](notes/wip/2026-08-04-generative-system-frontend-experience.md) | live production instrument and release record | Project-owned Inside the System route, five Casey-specific visualizers, complete minted lookup/filter indexes, side-by-side Museum models, reviewed descriptor-backed suggestions, accession deep links, exact staging/production evidence, and the acquisition-extensible derived-display boundary |
+| [`notes/wip/2026-08-05-museum-data-architecture.md`](notes/wip/2026-08-05-museum-data-architecture.md) | active construction and release ledger | Museum-native eleven-standard data architecture, two-level public/technical publication structure, Casey implementation crosswalk, Stream-deferred convergence boundary, and release state |
 | [`notes/wip/2026-08-05-rights-handbook.md`](notes/wip/2026-08-05-rights-handbook.md) | active implementation ledger | Public rights handbook, standard-license registry, retained legal texts, practical Museum-use explanations, object links, validation, and release boundary |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
@@ -151,7 +156,7 @@ Status vocabulary:
 
 | File | Status | Contents |
 |---|---|---|
-| [`schemas/`](schemas/) | active working standard | Bootstrap governance/collection/accession schemas plus controlled vocabularies and Stream-compatible profiles |
+| [`schemas/`](schemas/) | active working standard | Bootstrap governance/collection/accession schemas, the closed Museum data-architecture profile, controlled vocabularies, and downstream Stream-compatible profiles |
 | [`scripts/bootstrap_validate.py`](scripts/bootstrap_validate.py) | active CI control | Source-derived governance, raw evidence manifest, record-control, local-link, and public-safety checks |
 | [`scripts/safe_fetch.py`](scripts/safe_fetch.py) | active CI control | Pinned HTTPS fetch primitive with IDNA/endpoint filtering, IP pinning, strict framing/headers, bounded JSON POST/GET requests, redirect rechecks, streamed caps, and observations |
 | [`scripts/check_fetch_guard.py`](scripts/check_fetch_guard.py) | active CI control | Alias/import-aware AST guard rejecting unmediated network, dynamic-import, and command-line fetch implementations across all Python, including tests |

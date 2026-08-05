@@ -45,15 +45,16 @@ Contract design is in progress; deployment and activation remain pending. See
 | Rights education | [`records/institutional-practice/rights-and-licenses.md`](records/institutional-practice/rights-and-licenses.md) | Public copyright introduction, artist and collector guides, all six CC 4.0 licenses, CC0, the Public Domain Mark, cultural-heritage rights statements, and practical Museum use |
 | Rights registry and legal texts | [`docs/rights/`](docs/rights/) | Machine-readable 22-term registry, seven exact Creative Commons legal-code snapshots, object assignments, source pins, fixity, and deterministic validation |
 | Scholarship and editorial standard | [`docs/curatorial-publication-standard.md`](docs/curatorial-publication-standard.md) | Research substance, close looking, evidence, publication architecture, digital-art scholarship, and Museum prose style |
+| Museum data architecture | [`docs/data-architecture.md`](docs/data-architecture.md) | Plain-language and machine-readable profile for Spectrum, CIDOC CRM, LIDO, PREMIS, PROV-O, Getty vocabularies, IIIF, C2PA, BagIt, OCFL, and CAIP-19, with the Casey Reas implementation audit and exact seven-object machine schedule |
 | Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
-| Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native, Stream-aligned profile |
+| Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native profile governed by the Museum data architecture |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Program media delivery | [`docs/program-media-delivery.md`](docs/program-media-delivery.md) | Deterministic responsive derivatives, source fixity, immutable CDN keys, high-resolution access, rights boundaries, and verification |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
 | On-chain transition | [`docs/onchain-transition.md`](docs/onchain-transition.md) | Visitor-facing Fall 2026 target, contract/content-addressed boundary, and explicit non-deployment status |
 | Contributing | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution paths, evidence expectations, correction rules, validation, and safety boundary |
 | Rights map | [`RIGHTS.md`](RIGHTS.md) | CC0 default for Museum-authored public material and explicit limits for artworks, media, evidence, and other third-party material |
-| Stream interoperability | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | Bilateral record and ontology contract |
+| Stream interoperability | [`docs/stream-interoperability.md`](docs/stream-interoperability.md) | Downstream envelope and contract compatibility; field-by-field ontology convergence follows the Museum profile |
 | Future contract | [`docs/onchain-design.md`](docs/onchain-design.md) | Requirements and migration boundary, not deployed code |
 | Externally minted works | [`docs/external-works-registry.md`](docs/external-works-registry.md) | Token-agnostic registry design; no wrapping/reminting |
 
@@ -95,7 +96,7 @@ python scripts/generate_manifest.py --check
 
 The documentation-as-code control plane is specified in
 [`docs/control-plane.md`](docs/control-plane.md). It validates JSON Schema,
-controlled vocabularies, Stream envelope compatibility, canonical payload
+controlled vocabularies, Museum data-profile invariants, Stream envelope compatibility, canonical payload
 commitments, cross-references, append-only state transitions,
 constructor/reviewer separation, and public-record sensitive-field guardrails.
 The pull-request workflow runs these checks on every PR.
@@ -107,8 +108,8 @@ and named root control files. The exact closed inventory is documented in
 authenticated by raw-byte evidence manifests. Indexed WIP and research notes
 remain outside the release authority except for the published Casey Reas
 generative-system dossiers under
-`notes/research/generative-systems/casey-reas/`. The manifest uses the 6529Stream
-conventions:
+`notes/research/generative-systems/casey-reas/`. The manifest uses deterministic
+content and hash conventions that also remain compatible with 6529Stream:
 
 - repository-relative POSIX paths;
 - `sha256:` file digests over LF-normalized Museum-authored text;

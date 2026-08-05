@@ -23,6 +23,7 @@ This roadmap is the durable handoff for the build. A new constructor or reviewer
 | 2 | Keys and Gates program and sixteen selected-work records | Every work remains `selected_unminted` unless later primary evidence proves otherwise; mint architecture decision is unresolved |
 | 3 | Accession and donation operating standards, templates, schemas, constructor/reviewer controls, validation, and CI | Invalid status transitions, broken identifiers, role conflicts, and non-deterministic manifests fail CI |
 | 4 | Casey Reas accession lot `6529NM.2026.001` | Donation, token identity, custody, provenance, rights, technical dependencies, condition, preservation, and interpretation are recorded with explicit evidence grades |
+| 4A | Museum-native data architecture and public education | Eleven standards have pinned authorities and versions, public explanations, machine constraints, Casey implementation states, and tests; Stream remains a later interoperability mapping |
 | 5 | Transparent generative trait analysis | NextGen compatibility is demonstrated by conformance fixtures; every result is reproducible and explicitly not an aesthetic judgment |
 | 6 | On-chain migration specification | Implementable interface, canonical payload rules, authority model, correction semantics, privacy boundary, deployment gates, and Stream bilateral compatibility are complete |
 | 7 | Independent review and release | Curatorial, registrar, technical, provenance, rights, security, and governance checks pass; releases are deterministically manifested |

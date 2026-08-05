@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/museum-data-architecture-profile-v1.json",
+  "title": "6529 Network Museum data architecture profile",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "const": "../../schemas/museum-data-architecture-profile.schema.json"
+    },
+    "profile_id": {
+      "const": "6529NM_DATA_ARCHITECTURE_V1"
+    },
+    "profile_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "enum": ["working_standard", "adopted_standard", "superseded"]
+    },
+    "observed_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_document": {
+      "const": "docs/data-architecture.md"
+    },
+    "implementation_states": {
+      "const": [
+        "conceptual_mapping",
+        "source_fields_present",
+        "serialized",
+        "validated",
+        "operational"
+      ]
+    },
+    "standards": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {
+        "$ref": "#/$defs/standard"
+      }
+    },
+    "case_study_path": {
+      "const": "docs/data-architecture/casey-reas-implementation.md"
+    },
+    "case_study_data_path": {
+      "const": "docs/data-architecture/casey-reas-machine-schedule.json"
+    },
+    "stream_convergence": {
+      "type": "object",
+      "properties": {
+        "normative_for_profile": {
+          "const": false
+        },
+        "status": {
+          "const": "deferred_until_museum_profile_release"
+        },
+        "document_path": {
+          "const": "docs/stream-interoperability.md"
+        }
+      },
+      "required": ["normative_for_profile", "status", "document_path"],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "profile_id",
+    "profile_version",
+    "status",
+    "observed_on",
+    "title",
+    "source_document",
+    "implementation_states",
+    "standards",
+    "case_study_path",
+    "case_study_data_path",
+    "stream_convergence"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "standard": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "enum": [
+            "spectrum",
+            "cidoc-crm",
+            "lido",
+            "premis",
+            "prov-o",
+            "getty-aat-ulan",
+            "iiif",
+            "c2pa",
+            "bagit",
+            "ocfl",
+            "caip-19"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]+$"
+        },
+        "human_question": {
+          "type": "string",
+          "minLength": 20
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority_status": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]+$"
+        },
+        "official_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "document_path": {
+          "type": "string",
+          "pattern": "^docs/data-architecture/[a-z0-9-]+\\.md$"
+        },
+        "casey_state": {
+          "enum": [
+            "conceptual_mapping",
+            "source_fields_present",
+            "serialized",
+            "validated",
+            "operational"
+          ]
+        }
+      },
+      "required": [
+        "slug",
+        "name",
+        "category",
+        "human_question",
+        "authority",
+        "version",
+        "authority_status",
+        "official_url",
+        "document_path",
+        "casey_state"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
