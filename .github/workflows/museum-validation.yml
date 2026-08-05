@@ -41,6 +41,11 @@ jobs:
       - name: Run control-plane tests
         run: python -m unittest discover -s tests -v
 
+      - name: Verify rights handbook and legal texts
+        run: |
+          python scripts/validate_rights_handbook.py
+          python scripts/sync_rights_legal_texts.py
+
       - name: Check Keys and Gates media derivatives
         run: python scripts/generate_program_media.py --check
 
@@ -93,6 +98,8 @@ jobs:
           python scripts/bootstrap_validate.py
           python scripts/check_fetch_guard.py
           python -m unittest discover -s tests -v
+          python scripts/validate_rights_handbook.py
+          python scripts/sync_rights_legal_texts.py
           python scripts/generate_program_media.py --check
           python scripts/generate_institutional_source_inventory.py --check
           python scripts/validate_full_with_casey.py

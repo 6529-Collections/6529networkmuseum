@@ -28,6 +28,13 @@ Object ownership, token custody, copyright, display permission, preservation
 permission, and reuse rights are separate facts. Consult the relevant record
 and source before reusing material.
 
+The public [Rights in digital art](records/institutional-practice/rights-and-licenses.md)
+handbook explains copyright, the public domain, NFT ownership, standard
+licenses, and the Museum's practical reading of each term. Its
+[rights-expression registry](docs/rights/registry.json) supplies stable terms,
+official URIs, retained legal texts, and object-level links. A handbook entry
+does not replace the evidence and determination in an object's rights record.
+
 ## Contributions
 
 By submitting a contribution, you confirm that you have the right to provide

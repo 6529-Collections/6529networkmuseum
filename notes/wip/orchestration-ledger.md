@@ -2184,3 +2184,32 @@ across acquisitions; object pages locate individual holdings; gift pages retain
 their historical acquisition scope. A future work from one of these projects
 adds an object reading and held-position overlay without being made part of
 the Casey gift.
+
+## 2026-08-05 rights education and expression registry
+
+The source corpus for the Museum's public rights learning room is complete.
+It joins a closed twenty-two-entry registry to three public manuscripts, seven
+exact English Creative Commons legal-code snapshots, and the reviewed rights
+records for all seven Casey Reas accessioned objects. The public-domain and
+collector guidance states directly that possession of a token or artwork
+usually does not transfer copyright, and that copyright expiration places a
+large part of art history in the public domain for study, publication, and new
+work.
+
+The registry preserves the distinction among a public license, CC0
+dedication, Public Domain Mark, RightsStatements.org status term, absence of a
+public license, and bespoke terms. Keys and Gates retains its announced CC0
+intention as `conditional_not_yet_effective` because the selected works remain
+unminted. The Stream-compatible object rights records are unchanged; the new
+registry supplies a linked external vocabulary without silently extending the
+Stream schema.
+
+Source validation passed the complete Museum and Casey controls, 138 Python
+tests with one intentional skip, program-media and diligence-manifest checks,
+and deterministic release-manifest regeneration. The current source release
+commitments are SHA-256
+`sha256:3ba0d6e3f232fcd91f9dafe8fd59ad4dcaf510f331cbec0c62b8481896b54e25`
+and Keccak-256
+`0x9ad0fe1a8612043397b273984c49d4eda28f23cd33decaef6b03be7adb06a0b3`.
+Frontend integration, staged qualification, and production qualification are
+the remaining release gates.
