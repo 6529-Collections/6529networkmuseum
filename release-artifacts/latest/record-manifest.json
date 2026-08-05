@@ -32,8 +32,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:c71b66227b4599aaeaea021d1a76e5761ce849f85bb7f60286899db278354427",
-      "size": 3340
+      "sha256": "sha256:403919b457f07e03121d5fb49d784f443833f9c50d9afe1dd3dfc1e0bce5cc3b",
+      "size": 3619
     },
     {
       "byte_mode": "lf-normalized",
@@ -56,20 +56,20 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:6b62beed766752009ebcbcd86d7111ded777ec7701bca817efb09288f298b8f1",
-      "size": 28687
+      "sha256": "sha256:3764176886906cdc6a9af394fcec97ba044672a70d1115bce44f290e69b83a30",
+      "size": 30884
     },
     {
       "byte_mode": "lf-normalized",
       "path": "README.md",
-      "sha256": "sha256:edbfef152a5e69b4ee642668c5851ed81b59b02c30d4ae4a890a90dc584dfbbf",
-      "size": 9540
+      "sha256": "sha256:92515467244367a350740be77d3b72306de44201a56fe0e0d9ae0eeef8a60325",
+      "size": 10166
     },
     {
       "byte_mode": "lf-normalized",
       "path": "RIGHTS.md",
-      "sha256": "sha256:4460a05b70dd2aad6fef702b78da5b054267f64b153ea5da5347911b13027bc7",
-      "size": 2194
+      "sha256": "sha256:e7475261996caeb7994b06555376d9a1352df3640076583b324c45cd00a4f1d0",
+      "size": 2655
     },
     {
       "byte_mode": "lf-normalized",
@@ -130,11 +130,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd85e1a8fe9b95f8147d047eb65e4dbcf1a2b0a7f75b3d9e66d67e3194f3050cb"
+        "digest": "0x9235cb2b8166fd0088d5639c2d168282db41191cceaaf195da5fb9156ffe453f"
       },
       "path": "docs/institutional-source-inventory.json",
-      "sha256": "sha256:b79ac7eb4e836ece729ba3845307abdcb10bf1277dbf7e28d8a8fc5b619f4af6",
-      "size": 70646
+      "sha256": "sha256:770e652bb3976f8c1b76d45e9c6d69b1b30277fc2f9c9d0b1a938b9b0523de42",
+      "size": 74181
     },
     {
       "byte_mode": "lf-normalized",
@@ -180,6 +180,65 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/README.md",
+      "sha256": "sha256:21d9cf57a87838032e1786317685c9a79045c6381abcea9b92c3df9c03367a18",
+      "size": 1216
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-4.0.txt",
+      "sha256": "sha256:9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "size": 18657
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-nc-4.0.txt",
+      "sha256": "sha256:41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0",
+      "size": 19347
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-nc-nd-4.0.txt",
+      "sha256": "sha256:38762e3777f4ec00a6f769062a7c3f704fb78ce08303ecff88558da4c49cf9ea",
+      "size": 19127
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-nc-sa-4.0.txt",
+      "sha256": "sha256:e66c269d4819aaab34b49ef5220c4ddab6756f21bb5180761a4eb8561f2b7bbd",
+      "size": 20850
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-nd-4.0.txt",
+      "sha256": "sha256:9cc97638cf0185884ac800144b6246c7772f94ff2cc70686afa9574aaea4fa2b",
+      "size": 18438
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc-by-sa-4.0.txt",
+      "sha256": "sha256:28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+      "size": 20138
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "docs/rights/legal-texts/cc0-1.0.txt",
+      "sha256": "sha256:a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "size": 7048
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x331c3cf37eb0bf8a221b80c1400fde21f843439e8a0cd6ac1b654d0c6f7001f3"
+      },
+      "path": "docs/rights/registry.json",
+      "sha256": "sha256:4da4133eab5532399a4550991b03d3e52cd1a3041235979f68e4cc6661e49c9d",
+      "size": 42507
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "docs/standards-crosswalk.md",
       "sha256": "sha256:68dab6670957551201f38e4c80fa58f923ebcfcdf4ebf8eeca482477b700d2b4",
       "size": 22430
@@ -187,8 +246,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:e6657e7b284570bd9407664ded4f3508228c2b5798e5b5681c7d07c8486d825e",
-      "size": 13717
+      "sha256": "sha256:455711949220ac705b1b53ea1e5e564bf69e81010f00f84d792f272adb9d7893",
+      "size": 14911
     },
     {
       "byte_mode": "lf-normalized",
@@ -1194,6 +1253,24 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "records/institutional-practice/rights-and-licenses.md",
+      "sha256": "sha256:9425288ca07e810afd27a093e80c472e3546d99f7eb3d71dc762deb209599040",
+      "size": 10942
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/institutional-practice/rights-for-artists.md",
+      "sha256": "sha256:0175e7ff62d82fc444cea37922f4f09f427990a03c0363b07bd76fbc0d6d5000",
+      "size": 8738
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/institutional-practice/rights-for-collectors.md",
+      "sha256": "sha256:35628b7df28ac12cd50acfb0be2c6cc8c776a1e94bb60aac8235046f7ddf7fda",
+      "size": 8432
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "records/institutional-practice/source-register.md",
       "sha256": "sha256:0df4f0b86ba2338c6a6f7ef428a501a901aa67bab5174eb3c0404464e1ec8b63",
       "size": 29707
@@ -1732,6 +1809,17 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x86736867541c882bedeebe79cdce61edcc7874c31498376f2bb7192c7cdc7930"
+      },
+      "path": "schemas/rights-expression-registry.schema.json",
+      "sha256": "sha256:ce5b44ec97065ec8b0bcad137dfbdf25f60bb50121434cf614b9d707dbe6004f",
+      "size": 6552
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
         "digest": "0x1c5b64652c68a9b32159d5150b307b82403f9b767bf8d2f7249fa387a34c7358"
       },
       "path": "schemas/rights-statement.schema.json",
@@ -1839,8 +1927,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/generate_institutional_source_inventory.py",
-      "sha256": "sha256:73b432f2a09c9f3fb93368083d3d8d51ec151e1027c4d9dd53aa51b772484d43",
-      "size": 3404
+      "sha256": "sha256:689ca3f4682ba2db0b45338b27ad237c39e1810d413cd067a5af8531e8557392",
+      "size": 3537
     },
     {
       "byte_mode": "lf-normalized",
@@ -1898,6 +1986,12 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "scripts/sync_rights_legal_texts.py",
+      "sha256": "sha256:6f1d3a697ffff16de5d2537e2ab83ee30ea4e99d43eadd65d981b481b4e9f5fb",
+      "size": 4567
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "scripts/validate.py",
       "sha256": "sha256:a0eb1327299ef3a4292c9e316f4136f58d83c38e4eb4e28fbaa9dbdd4dfd0bd1",
       "size": 48005
@@ -1913,6 +2007,12 @@
       "path": "scripts/validate_full_with_casey.py",
       "sha256": "sha256:fa628172c309fec666862a5b8e20bc9245674f5212d882ccdd64a6380f8f9784",
       "size": 714
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "scripts/validate_rights_handbook.py",
+      "sha256": "sha256:22b8f16facc657e66d6331b6617542a760eead7f25b0d60029104abd8a0d69be",
+      "size": 9633
     },
     {
       "byte_mode": "lf-normalized",
@@ -2399,6 +2499,12 @@
       "path": "tests/test_program_media.py",
       "sha256": "sha256:6523d7682ed602a036ab4c0a48408f7e1ba5b3d0ce53e37afa56390ae680a1cf",
       "size": 6512
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "tests/test_rights_handbook.py",
+      "sha256": "sha256:c39a74f18569843b79b369fbe819f024e6486f0005921130ea2bafc43351efff",
+      "size": 3890
     }
   ],
   "hash_algorithms": {
@@ -2432,9 +2538,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x3195f6a65c511a0859bc6d9e9766799daa55329d6be55a811f97ba58629da65c"
+    "digest": "0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025"
   },
-  "manifest_sha256": "sha256:5685ee52289481eedf27989c92fb2854a8c2d74deac6691f1195702c24f13308",
+  "manifest_sha256": "sha256:b6b1d5ddf19c88335b752bc610a1d4020236a3eb4a86a13d52182a29aa22ffb1",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

@@ -22,6 +22,9 @@ def publication_paths() -> tuple[Path, ...]:
     paths = [
         PACKAGE / "a-field-of-practice.md",
         PACKAGE / "adjacent-chain-native-practice.md",
+        PACKAGE / "rights-and-licenses.md",
+        PACKAGE / "rights-for-artists.md",
+        PACKAGE / "rights-for-collectors.md",
         ROOT / "docs" / "curatorial-publication-standard.md",
         ROOT / "docs" / "digital-art-stewardship-standard.md",
     ]
