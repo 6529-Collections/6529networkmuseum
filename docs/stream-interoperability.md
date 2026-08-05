@@ -282,3 +282,16 @@ Before deploying a Museum contract or publishing a completed accession on Stream
    `payloadPointerAt`, and pass exact direct, relayed, nonce-revocation,
    state-only payload recovery, write/read round-trip, and Museum-side adapter
    readback/substitution vectors.
+
+## Temporary generative-study display divergence
+
+The first **Inside the System** release packages project study definitions and
+compact edition indexes in the versioned frontend. This is a derived display
+layer backed by pinned Museum evidence, not a Stream record envelope and not a
+source of accession, title, custody, rights, or governance assertions.
+
+The convergence target is an optional atomic project-study profile that can be
+extended when later acquisitions from the same project arrive. Until that
+profile exists, the frontend package must retain exact source snapshot and
+reviewed descriptor identities, label synthetic views **Museum model**, and
+must not be promoted or interpreted as a canonical Stream record.

@@ -155,7 +155,9 @@ a raw-byte SHA-256 digest. Every entry names its byte mode. The manifest itself 
 canonical body with both Keccak/JCS and SHA-256. Its closed directory inventory
 covers `.github/`, `policies/`, `records/`, `schemas/`, `docs/`, `governance/`,
 `media/`, `specs/`, `templates/`, `scripts/`, and `tests/`. It also covers the root control
-files `.gitattributes`, `.gitignore`, `AGENTS.md`, `CONTRIBUTING.md`, `INDEX.md`,
+files and the published Casey Reas generative-system dossier directory at
+`notes/research/generative-systems/casey-reas/`. The root control files are
+`.gitattributes`, `.gitignore`, `AGENTS.md`, `CONTRIBUTING.md`, `INDEX.md`,
 `README.md`, `RIGHTS.md`, and `requirements-dev.txt`. Entries use sorted
 repository-relative POSIX paths.
 Generation fails closed if any configured root or named control file is missing,
@@ -164,8 +166,9 @@ Non-regular entries inside governed directories, including pipes, sockets, and
 devices, are also rejected rather than silently omitted.
 
 Evidence remains in separately governed raw-byte manifests so authenticated
-source bytes are never silently normalized. `notes/` is the indexed WIP and
-research notebook, not a release authority. `release-artifacts/` is excluded to
+source bytes are never silently normalized. Outside the explicitly governed
+Casey Reas dossier directory, `notes/` is the indexed WIP and research notebook,
+not a release authority. `release-artifacts/` is excluded to
 avoid a self-referential manifest; Git internals are never inventoried.
 
 The program-media verifier separately parses every WebP and reconciles its raw

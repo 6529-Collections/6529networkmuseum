@@ -56,14 +56,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:11ab101523b2927450d64798ccd0365b4e94b91b22912b3c85c370f40eea5581",
-      "size": 27277
+      "sha256": "sha256:1a0117773e963b97f56eed85515e79c7360e67bbbf67a08f10726d90f2b99333",
+      "size": 28731
     },
     {
       "byte_mode": "lf-normalized",
       "path": "README.md",
-      "sha256": "sha256:aa951c084d1c0fea1995669271441bb27cf725e05234ba9679f3a3c17956f674",
-      "size": 9429
+      "sha256": "sha256:edbfef152a5e69b4ee642668c5851ed81b59b02c30d4ae4a890a90dc584dfbbf",
+      "size": 9540
     },
     {
       "byte_mode": "lf-normalized",
@@ -86,8 +86,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/control-plane.md",
-      "sha256": "sha256:79ea0075380bce4531ffd88b285fb8d279ec4a97bb1d152c72900053c08b29e8",
-      "size": 10950
+      "sha256": "sha256:da2a70f59ac001a8305bdb886464610ea392478821603e76344afaeff3f599d1",
+      "size": 11156
     },
     {
       "byte_mode": "lf-normalized",
@@ -109,6 +109,12 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "docs/generative-system-analysis.md",
+      "sha256": "sha256:4efd3ae9e7e4879a1cd4c528c4ac9ed5a7d9ed016e28eae5baab1752c1597117",
+      "size": 24337
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "docs/generative-trait-analysis.md",
       "sha256": "sha256:55ef3f72953e0a4c657b325d01f877213614f26397e5f236848bc31b2fda1d59",
       "size": 13552
@@ -116,8 +122,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:0f9eae43e053e013c7bb4c797d6b4def422e0ad4b6088689c5ffae11dd2d961f",
-      "size": 14459
+      "sha256": "sha256:843ba6796afbe08835ca6f0451dbfaa81f8da6e65db77e23bfdc6f476294447e",
+      "size": 23448
     },
     {
       "byte_mode": "lf-normalized",
@@ -181,8 +187,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/stream-interoperability.md",
-      "sha256": "sha256:bb216e1562300c2f48fc2e291f620d02c1feb4ac38264a2e19d1bb072d00c3dd",
-      "size": 12989
+      "sha256": "sha256:e6657e7b284570bd9407664ded4f3508228c2b5798e5b5681c7d07c8486d825e",
+      "size": 13717
     },
     {
       "byte_mode": "lf-normalized",
@@ -494,6 +500,48 @@
       "path": "media/programs/6529NM-AP-01/accessibility.json",
       "sha256": "sha256:62bcf67437a29f2745654c6de24480fb7cee22eeffd29a970407633c08919abb",
       "size": 2914
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/923-empty-rooms.md",
+      "sha256": "sha256:362d41bbb3efff11940d40329c8242e02ff50ccb343fb2b2bad37660754b1aa1",
+      "size": 26447
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/README.md",
+      "sha256": "sha256:2b44ef742bd97797d6e48c1f6d408f4eef093656cb4ff760d3cfe52e84c92e8c",
+      "size": 3908
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/century.md",
+      "sha256": "sha256:0ac94e038726f75b2a98bfc641143365b916552b726eac360d60a711b6b0e336",
+      "size": 37215
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/comparative-study.md",
+      "sha256": "sha256:3fa56d8adf81db10fbe83d17e85bdfa40662c359284e4c8acb6c69936ba7ce2d",
+      "size": 20919
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/ex-nihilo-cosmos.md",
+      "sha256": "sha256:d85076d4f6aa1d11fe9e23c4e83072d2e8dcae4cae191423df3d1fed8051b367",
+      "size": 27492
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/phototaxis.md",
+      "sha256": "sha256:5ab0ca4f327ecefaacc17c852d6d6e606830a242e8cecd0f816f6ec43fdcfd4a",
+      "size": 41858
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "notes/research/generative-systems/casey-reas/pre-process.md",
+      "sha256": "sha256:a92c0f0f8f8ce1ca0018ece91dc0be43d696c7e26986145880d52214b32d4b12",
+      "size": 40926
     },
     {
       "byte_mode": "lf-normalized",
@@ -1797,8 +1845,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/generate_manifest.py",
-      "sha256": "sha256:359a541db6454cc70cf5742f96e319ad9fa4190bc8e7c92d8ef7f502dd1c3bbc",
-      "size": 8479
+      "sha256": "sha256:4476dde094cc03958bac8c9e5ef12ad9bd377901a3cfe3a55b88b10fc2e2ed78",
+      "size": 8531
     },
     {
       "byte_mode": "lf-normalized",
@@ -2085,8 +2133,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "templates/README.md",
-      "sha256": "sha256:199381ad7fb216bc1cc056ff51349084e0632822d60545de911f187beb649b3f",
-      "size": 8853
+      "sha256": "sha256:3173055e52c63edfcd964ec580610f3191afa2a6d0cddb6ce5680830992e9821",
+      "size": 9086
     },
     {
       "byte_mode": "lf-normalized",
@@ -2105,6 +2153,12 @@
       "path": "templates/attestations.md",
       "sha256": "sha256:81a63e9e86ccf01b789bb983f2036a8e0db2c98ea39e86de0398e218fa06cc3f",
       "size": 4580
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "templates/generative-system-dossier.md",
+      "sha256": "sha256:bb9f3854e25d0e9759c618f663feb6ab661822a6c4a8c229345e34e9aaf268fe",
+      "size": 9906
     },
     {
       "byte_mode": "lf-normalized",
@@ -2331,8 +2385,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_control_plane.py",
-      "sha256": "sha256:bda5d11ad22057e8aa3e2981c3e44a7a26dbe33adf6ef38a6aa42716c07606dc",
-      "size": 63676
+      "sha256": "sha256:1c88b881abdc3b3a999ca5df705e554b5a0da9a8adac02fef22d7b6ca2d24a72",
+      "size": 66591
     },
     {
       "byte_mode": "lf-normalized",
@@ -2372,14 +2426,15 @@
     "specs",
     "templates",
     "scripts",
-    "tests"
+    "tests",
+    "notes/research/generative-systems/casey-reas"
   ],
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x6e503d39e15d3e7f267eb05056d1ee8481bcb261ad770e9147c26a89444fbf77"
+    "digest": "0xad0ca6ff2ec585a4283627044a015b1458885b38d7931c901155725118ea7e54"
   },
-  "manifest_sha256": "sha256:fd5d0adadef99d63eb70bea17641e168a8f7f7018d847a9a786eb42667ddc1fc",
+  "manifest_sha256": "sha256:69f9f0b87904d7c4344694294baed034891cec31546890e49d170de9d3e60a5e",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

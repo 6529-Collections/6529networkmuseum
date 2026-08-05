@@ -100,8 +100,10 @@ The generated release manifest covers the governed records, governance and
 review controls, protocol specifications, templates, validation source, tests,
 and named root control files. The exact closed inventory is documented in
 [`docs/control-plane.md`](docs/control-plane.md). Evidence remains separately
-authenticated by raw-byte evidence manifests, while indexed WIP and research
-notes remain outside the release authority. The manifest uses the 6529Stream
+authenticated by raw-byte evidence manifests. Indexed WIP and research notes
+remain outside the release authority except for the published Casey Reas
+generative-system dossiers under
+`notes/research/generative-systems/casey-reas/`. The manifest uses the 6529Stream
 conventions:
 
 - repository-relative POSIX paths;

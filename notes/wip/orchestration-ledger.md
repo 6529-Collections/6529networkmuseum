@@ -1902,6 +1902,180 @@ Markdown, attributed a live-software capability to artist documentation, added
 two omitted profile revision notes, and reconciled the 236-URL availability
 pass with the later 237-source inventory. Forty-one focused tests and full
 Museum, promotion, source-inventory, and manifest checks pass on the follow-up.
+## 2026-08-04 generative-systems analysis checkpoint
+
+The user set a world-class algorithm-analysis ambition for the five Casey Reas
+projects in accession `6529NM.2026.001` and directed that the result establish
+a reusable standard for any generative-art collection. The durable proposal is
+indexed at
+`notes/wip/2026-08-04-generative-systems-analysis-standard.md`. It separates
+the existing NextGen-compatible trait-prevalence layer from a new generative-
+system dossier covering identity, genotype, initial phenotype, performance,
+participation, encounter, exact source/seed reconstruction, algorithmic score,
+collection topology, causal counterfactuals, conservation, publication, and
+reproducibility.
+
+The Casey pilot identifies project-specific analytical cores: *CENTURY* as an
+off-screen composition made topologically mutable through continuing slice
+state; *Pre-Process* as an exact `8 x 3 x 5` traversal whose 120 combinations
+occur once each and whose 100 circles expose one behavior through eight
+surfaces; *Phototaxis* as a Braitenberg-derived sensor-motion system whose
+accumulated path drawing records speed and permits escape beyond the nominal
+world; *923 EMPTY ROOMS* as a 923-state combination-with-replacement system
+whose colorform field is converted through RGB displacement into a line-built
+room; and *Ex Nihilo (Cosmos)* as dodecahedral geometry translated through
+colored edges, temporal raster memory, channel displacement, and projected
+line fields.
+
+Read-only retrieval on 2026-08-04 confirmed that all seven official generator
+response lengths and SHA-256 digests still match the independently reviewed
+values in `evidence/casey-reas/generator-observations.json`. No generator bytes
+were retained or added in this checkpoint. Source preservation, feature-script
+reconstruction, rights clearance for annotated code and counterfactual images,
+instrumented trace tooling, cross-environment tests, and independent review
+remain open. The proposal is WIP analysis, not adopted policy and not an
+accession amendment.
+
+### Five-project dossier construction
+
+The user approved applying the method to every Casey project in the gift. The
+proposal is now implemented as the working standard
+`docs/generative-system-analysis.md`, the reusable template
+`templates/generative-system-dossier.md`, and a constructed research package
+at `notes/research/generative-systems/casey-reas/`. The package contains five
+project dossiers covering all seven works, a comparative study, and a package
+index. It is explicitly pending independent technical, curatorial, rights,
+accessibility, and conservation review and has not been promoted into the
+reviewed accession publications.
+
+The construction/reconciliation pass materially corrected the initial WIP
+analysis. The xorshift projects parse a 16-character slice of an `0x`-prefixed
+hash, hence fourteen hash digits before JavaScript bitwise coercion.
+*Pre-Process* and *Ex Nihilo* each discard 500,000 values from each of two
+`sfc32` streams, one million calls total, rather than one million per stream.
+*923 EMPTY ROOMS* invocation 0 dispatches no implemented colorform but retains
+the gradient and line-field render path; #713 retains default symmetric depth
+while the CDMX special depth applies only to invocation 617. The 256-token *Ex
+Nihilo* replay establishes that #248's published `CHUNK=3` maps operationally
+to runtime `metaCHUNK=4`, while the unretained feature script leaves the reason
+for that semantic mapping unresolved.
+
+Further source-level findings now carried as reviewable claims include the
+*Pre-Process* Chinese-remainder inverse and reset/pause-latch caveats;
+*Phototaxis* #308's exact three-light field, balanced four-type population,
+unbounded active movement, dormant death/rebirth paths, and single-frame
+advance when lights are toggled during pause; and *Ex Nihilo*'s partial pause,
+which freezes rotation while temporal feedback continues to accumulate.
+
+`python scripts/bootstrap_validate.py` passes with 301 JSON files,
+`python scripts/validate.py` passes the full schema/semantic/commitment suite,
+the 22-file Casey diligence manifest check passes, and `codex-diff-check`
+passes for the complete construction. The public release-manifest check was
+run and correctly reports stale because the working standard, template, and
+root index change governed release inventory. The manifest was not regenerated
+against this unreviewed research construction and the concurrently dirty
+homepage WIP; release generation belongs after substantive review and an exact
+release-scope freeze.
+
+### Art-first editorial correction
+
+The user rejected the constructed dossiers' initial apparatus-first reading
+order: an art connoisseur should not have to cross record status, rights
+limitations, preservation caveats, or method vocabulary before reaching the
+work. The correction is applied across the Casey package. All five project
+dossiers now open with their curatorial proposition; the comparative study and
+package index open with the seven-work argument; and research status and
+control boundaries appear at the end.
+
+The working standard and reusable template now make this a general rule for
+future collections: encounter, thesis, close looking, artistic argument, and
+intelligible system first; evidence, rights, conservation, governance status,
+and review apparatus last. The change preserves controls while refusing to
+make bureaucracy the reader's entrance to the art.
+
+## 2026-08-04 generative-system frontend study
+
+The user clarified two enduring product requirements. First, the Museum should
+analyze a generative project as it accessions work while allowing later
+acquisitions from the same project to join that analysis. Second, the public
+experience should eventually visualize the project as a whole and show where a
+particular token falls within it.
+
+The resulting WIP recommendation is indexed at
+`notes/wip/2026-08-04-generative-system-frontend-experience.md`. It assigns the
+permanent study to the project, token-specific interpretation to object pages,
+and acquisition-group interpretation to gift pages. The public label is
+**Inside the System**, with a project child route for the immersive study and a
+compact **In the system** module on each relevant object page.
+
+The proposed visualizer supports four evidence-honest forms: exhaustive
+lattice, finite combinatorial field, sampled field, and dynamic state space.
+Museum holdings appear as exact-identity overlays, so a later accession adds a
+new marker and close reading without changing the historical gift or treating
+non-held project outputs as collection objects. *Pre-Process* is the preferred
+first complete-field pilot; *CENTURY* is the preferred first multi-holding
+comparison. The recommendation was checked against the live Museum home at
+desktop and 390-pixel mobile widths and the current frontend project, object,
+gift, story, shell, and publication-domain source. No frontend files were
+changed in this study.
+
+## 2026-08-04 Inside the System implementation checkpoint
+
+The five Casey project studies are implemented for local review in
+`C:\w\museum-inside-system-fe` on branch `codex/museum-inside-system`, based on
+remote-main commit `aa77ddf836c3c83cc680054e40247f7e4a78a18d`. The build adds
+the canonical project child route, art-first study pages, reusable typed study
+definitions, a narrow interactive possibility-space island, object-page
+position modules, a five-project gift directory, and the Stories/Research
+entry point.
+
+All four evidence-honest visualization modes are live. *Pre-Process* exposes
+its complete 120-position `8 × 3 × 5` lattice; *923 EMPTY ROOMS* and *Ex Nihilo
+(Cosmos)* expose finite combinatorial structure; *CENTURY* exposes an observed
+edition field and compares all three Museum works; and *Phototaxis* exposes a
+causal dynamic-state sequence with its exact held-token light positions. A
+semantic table accompanies every map, and exact accession selection is
+shareable through a validated `work` query and object deep link.
+
+Verification passes: formatting, changed-file typecheck and lint, 23 focused
+tests, React Doctor 100/100, production build, desktop visual inspection,
+keyboard grid movement, and zero-horizontal-overflow inspection. The branch is
+uncommitted, unpushed, unmerged, undeployed, and not a public-release claim.
+The constructed study definitions remain frontend-bundled until the governed
+publication adapter supports optional atomic study groups. A separate future
+fix must remove the frontend's exact-seven Casey overlay assumption before a
+later acquisition can enter the live publication safely.
+
+## 2026-08-04 Inside the System comparison instrument checkpoint
+
+The frontend review candidate in `C:\w\museum-inside-system-fe` now keeps the
+Museum accession fixed at left and lets visitors place any minted project work,
+a trait-filtered/random minted work, or a project-specific analytical
+counterfactual/session manifestation at right. Piece-specific SVG renderers are
+implemented for all five Casey projects, backed by compact indexes for all
+3,299 minted project works in the pinned complete snapshots.
+
+Suggested structural neighbor, complement, and uncommon examples are derived
+deterministically from published project traits and explicitly reject
+marketplace rarity. Exhaustively minted starting grammars use session or
+presentation language rather than implying nonexistent tokens. The branch is
+still uncommitted, unpushed, unmerged, undeployed, and not an adopted Museum
+publication; governed optional project-study envelopes remain the release gate.
+
+## 2026-08-04 Inside the System release-boundary amendment
+
+This checkpoint supersedes only the final release-gate sentence in the
+preceding comparison-instrument checkpoint. Version 1 may ship a versioned
+frontend display package derived from the repository's pinned snapshots,
+reviewed descriptors, and project dossiers. It includes 3,300 edition records,
+with *923 EMPTY ROOMS* invocation 0 retained explicitly. The package is an
+interpretive access layer, not an accession or governance record.
+
+Release conditions are official art first, persistent **Museum model** labels,
+snapshot-backed minted lookup, reviewed NextGen-compatible **less often seen**
+selection, and no marketplace or value ranking. Optional atomic remote
+project-study records remain future work and are not a blocker for this
+display-layer release. No deployment is asserted by this checkpoint.
 
 ### 2026-08-04 Keys and Gates responsive media delivery
 
