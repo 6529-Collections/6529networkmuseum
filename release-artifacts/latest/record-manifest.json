@@ -1260,14 +1260,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/institutional-practice/rights-for-artists.md",
-      "sha256": "sha256:30ec1f735fa2c830f908a31d4a467f011ac7a9a28a06993a054105b697c50f46",
-      "size": 8495
+      "sha256": "sha256:0175e7ff62d82fc444cea37922f4f09f427990a03c0363b07bd76fbc0d6d5000",
+      "size": 8738
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/institutional-practice/rights-for-collectors.md",
-      "sha256": "sha256:79efc207401f6de90827f3cfd27a8acb68b4588c4c6fc48c9feb20c1a007cf57",
-      "size": 8194
+      "sha256": "sha256:35628b7df28ac12cd50acfb0be2c6cc8c776a1e94bb60aac8235046f7ddf7fda",
+      "size": 8432
     },
     {
       "byte_mode": "lf-normalized",
@@ -2011,8 +2011,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/validate_rights_handbook.py",
-      "sha256": "sha256:7a873d66ba498ab211ea0b25ab3dc702fd62ff70d9cf09328e0b118c7c55b10a",
-      "size": 9612
+      "sha256": "sha256:22b8f16facc657e66d6331b6617542a760eead7f25b0d60029104abd8a0d69be",
+      "size": 9633
     },
     {
       "byte_mode": "lf-normalized",
@@ -2503,8 +2503,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_rights_handbook.py",
-      "sha256": "sha256:c4dde83e1597b5198d4b548fa55776953a57b241770895906572bc7d8a1224b5",
-      "size": 3012
+      "sha256": "sha256:c39a74f18569843b79b369fbe819f024e6486f0005921130ea2bafc43351efff",
+      "size": 3890
     }
   ],
   "hash_algorithms": {
@@ -2538,9 +2538,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x9ad0fe1a8612043397b273984c49d4eda28f23cd33decaef6b03be7adb06a0b3"
+    "digest": "0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025"
   },
-  "manifest_sha256": "sha256:3ba0d6e3f232fcd91f9dafe8fd59ad4dcaf510f331cbec0c62b8481896b54e25",
+  "manifest_sha256": "sha256:b6b1d5ddf19c88335b752bc610a1d4020236a3eb4a86a13d52182a29aa22ffb1",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

@@ -70,6 +70,29 @@ class RightsHandbookValidationTests(unittest.TestCase):
         )
         self.assertTrue(any("must match reviewed CC BY-NC 4.0" in issue for issue in validate(self.root)))
 
+    def test_rights_record_cannot_escape_accession_tree(self) -> None:
+        rogue_path = self.root / "records/institutional-practice/rogue-rights.json"
+        source_path = next(
+            (self.root / "records/accessions/6529NM.2026.001/rights").glob("*.json")
+        )
+        shutil.copy2(source_path, rogue_path)
+        self.mutate_registry(
+            lambda registry: registry["object_assignments"][0].update(
+                {
+                    "rights_record_path":
+                        "records/accessions/6529NM.2026.001/rights/../../../institutional-practice/rogue-rights.json"
+                }
+            )
+        )
+        issues = validate(self.root)
+        self.assertTrue(
+            any(
+                "rights record is missing or escapes records/" in issue
+                for issue in issues
+            ),
+            issues,
+        )
+
     def test_keys_and_gates_cannot_be_marked_effective_before_mint(self) -> None:
         def mutate(registry: dict) -> None:
             registry["program_notes"][0]["effective_status"] = "effective"

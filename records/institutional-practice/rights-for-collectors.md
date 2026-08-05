@@ -176,3 +176,9 @@ correct with each transfer.
 - [U.S. Copyright Office and USPTO, Non-Fungible Token Study](https://www.copyright.gov/policy/nft-study/)
 - [Creative Commons, considerations for licensees](https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Considerations_for_licensees)
 - [RightsStatements.org, Documentation](https://rightsstatements.org/en/documentation/)
+
+## Revision history
+
+- `1.0.0` — 2026-08-05: initial guide to the distinction between ownership
+  and copyright, public-domain collecting, rights evidence, display,
+  publication, preservation, lending, donation, resale, and transfer.

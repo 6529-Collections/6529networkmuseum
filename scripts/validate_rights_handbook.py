@@ -159,8 +159,8 @@ def validate(root: Path = ROOT) -> list[str]:
         if not isinstance(rights_path_value, str):
             continue
         rights_path = (root / rights_path_value).resolve()
-        records_root = (root / "records").resolve()
-        if not rights_path.is_relative_to(records_root) or not rights_path.is_file():
+        accessions_root = (root / "records" / "accessions").resolve()
+        if not rights_path.is_relative_to(accessions_root) or not rights_path.is_file():
             issues.append(f"{object_id}: rights record is missing or escapes records/: {rights_path_value}")
             continue
         try:

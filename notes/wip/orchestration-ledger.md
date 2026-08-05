@@ -2208,8 +2208,8 @@ Source validation passed the complete Museum and Casey controls, 138 Python
 tests with one intentional skip, program-media and diligence-manifest checks,
 and deterministic release-manifest regeneration. The current source release
 commitments are SHA-256
-`sha256:3ba0d6e3f232fcd91f9dafe8fd59ad4dcaf510f331cbec0c62b8481896b54e25`
+`sha256:b6b1d5ddf19c88335b752bc610a1d4020236a3eb4a86a13d52182a29aa22ffb1`
 and Keccak-256
-`0x9ad0fe1a8612043397b273984c49d4eda28f23cd33decaef6b03be7adb06a0b3`.
+`0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025`.
 Frontend integration, staged qualification, and production qualification are
 the remaining release gates.

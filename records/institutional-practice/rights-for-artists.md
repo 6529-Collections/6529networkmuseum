@@ -190,3 +190,9 @@ accurately.
 - [Creative Commons, Considerations for licensors](https://wiki.creativecommons.org/wiki/Considerations_for_licensors_and_licensees#Considerations_for_licensors)
 - [WIPO, Copyright FAQ](https://www.wipo.int/en/web/copyright/faq-copyright)
 - [U.S. Copyright Office and USPTO, Non-Fungible Token Study](https://www.copyright.gov/policy/nft-study/)
+
+## Revision history
+
+- `1.0.0` — 2026-08-05: initial guide to component-level rights, public and
+  holder licenses, Creative Commons choices, durable rights metadata,
+  preservation permission, credit lines, and the artist's rights packet.
