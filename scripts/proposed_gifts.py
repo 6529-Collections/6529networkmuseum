@@ -3,13 +3,31 @@
 
 from __future__ import annotations
 
+import hashlib
+import re
 import stat
+import struct
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 
 REGISTER_PATH = Path("records/proposed-gifts/register.json")
-MAX_WAVE_PART_CHARACTERS = 25_000
+MAX_WAVE_PART_UTF16_CODE_UNITS = 25_000
+MAX_WAVE_PART_UTF8_BYTES = 65_535
+MAX_WAVE_STORM_UTF16_CODE_UNITS = 50_000
+MAX_WAVE_STORM_MEDIA_FILES = 8
+WAVE_COVER_DIMENSION = 1_600
+MARKDOWN_LIST_OR_TABLE_LINE = re.compile(r"^(?:\s*(?:[-+*]|\d+[.)])\s+|\s*\|)")
+
+
+def utf16_code_units(value: str) -> int:
+    """Return the JavaScript string length used by the Wave clients and API."""
+    return len(value.encode("utf-16-le")) // 2
+
+
+def utf8_byte_length(value: str) -> int:
+    """Return the UTF-8 transport size of an exact Wave part."""
+    return len(value.encode("utf-8"))
 
 
 def safe_relative_path(value: object) -> PurePosixPath | None:
@@ -39,6 +57,54 @@ def markdown_section(content: str, heading: str) -> str | None:
     return section or None
 
 
+def markdown_has_ambiguous_soft_break(content: str) -> bool:
+    """Return true when public Wave prose relies on an ambiguous soft break."""
+    previous: str | None = None
+    in_fence = False
+    for line in content.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            in_fence = not in_fence
+            previous = None
+            continue
+        if in_fence or not stripped:
+            previous = None
+            continue
+        if previous is not None:
+            previous_is_list_or_table = bool(MARKDOWN_LIST_OR_TABLE_LINE.match(previous))
+            current_is_list_or_table = bool(MARKDOWN_LIST_OR_TABLE_LINE.match(line))
+            if not (previous_is_list_or_table and current_is_list_or_table):
+                return True
+        previous = line
+    return False
+
+
+def png_profile(path: Path) -> tuple[int, int, int, int, bool]:
+    """Read the PNG IHDR and report whether an embedded sRGB profile exists."""
+    content = path.read_bytes()
+    if len(content) < 33 or content[:8] != b"\x89PNG\r\n\x1a\n" or content[12:16] != b"IHDR":
+        raise ValueError("not a PNG")
+    width, height, bit_depth, color_type, compression, filtering, interlace = struct.unpack(
+        ">IIBBBBB", content[16:29]
+    )
+    if compression != 0 or filtering != 0 or interlace not in {0, 1}:
+        raise ValueError("unsupported PNG header")
+    offset = 8
+    chunks: set[bytes] = set()
+    while offset + 12 <= len(content):
+        length = struct.unpack(">I", content[offset : offset + 4])[0]
+        end = offset + 12 + length
+        if end > len(content):
+            raise ValueError("truncated PNG chunk")
+        chunks.add(content[offset + 4 : offset + 8])
+        offset = end
+        if b"IEND" in chunks:
+            break
+    if b"IEND" not in chunks:
+        raise ValueError("missing PNG end marker")
+    return width, height, bit_depth, color_type, bool({b"iCCP", b"sRGB"} & chunks)
+
+
 def path_has_reparse_point(base: Path, relative: PurePosixPath) -> bool:
     current = base
     for part in relative.parts:
@@ -50,6 +116,19 @@ def path_has_reparse_point(base: Path, relative: PurePosixPath) -> bool:
         if current.is_symlink() or attributes & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0):
             return True
     return False
+
+
+def resolve_candidate_file(candidate_dir: Path, value: object) -> Path | None:
+    relative = safe_relative_path(value)
+    if relative is None or path_has_reparse_point(candidate_dir, relative):
+        return None
+    try:
+        target = (candidate_dir / Path(*relative.parts)).resolve()
+    except (OSError, ValueError):
+        return None
+    if not target.is_relative_to(candidate_dir.resolve()) or not target.is_file():
+        return None
+    return target
 
 
 def compose_voter_dossier(candidate_dir: Path, package: dict[str, Any]) -> str:
@@ -95,7 +174,7 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
         "draft": "not_submitted",
         "not_submitted": "not_submitted",
         "open": "open",
-        "selected_for_accession_processing": "selected",
+        "selected": "selected",
         "closed_without_selection": "closed_without_selection",
         "withdrawn": "withdrawn",
         "superseded": "withdrawn",
@@ -130,10 +209,10 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
         offer = proposal.get("offer")
         objects = proposal.get("objects")
         if not isinstance(offer, dict) or not isinstance(objects, list):
-            issues.append(f"{proposal_id}: proposal lacks offer or object schedule")
+            issues.append(f"{proposal_id}: proposal lacks offer or object list")
             continue
         if row.get("object_count") != len(objects) or offer.get("object_count") != len(objects):
-            issues.append(f"{proposal_id}: object count does not join across register, offer, and schedule")
+            issues.append(f"{proposal_id}: object count does not join across register, offer, and object list")
         if row.get("donor_public_credit") != offer.get("donor_public_credit"):
             issues.append(f"{proposal_id}: donor public credit mismatch")
         expected_wave_status = wave_status_by_record_status.get(proposal.get("status"))
@@ -155,7 +234,7 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
             issues.append(f"{proposal_id}: missing contract observation")
         for obj in objects:
             if not isinstance(obj, dict):
-                issues.append(f"{proposal_id}: object schedule contains a non-object entry")
+                issues.append(f"{proposal_id}: object list contains a non-object entry")
                 continue
             object_id = obj.get("candidate_object_id")
             object_ids.append(object_id)
@@ -221,7 +300,7 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
         if len(object_ids) != len(set(object_ids)):
             issues.append(f"{proposal_id}: duplicate candidate object ID")
         if len(token_keys) != len(set(token_keys)):
-            issues.append(f"{proposal_id}: duplicate chain object in schedule")
+            issues.append(f"{proposal_id}: duplicate chain object in object list")
         if proposal.get("status") not in {"draft", "not_submitted"} and any(
             state != "verified_at_finalized_block" for state in chain_states
         ):
@@ -255,7 +334,7 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                 "draft": "not_submitted",
                 "not_submitted": "not_submitted",
                 "open": "PARTICIPATORY",
-                "selected_for_accession_processing": "WINNER",
+                "selected": "WINNER",
                 "closed_without_selection": "PARTICIPATORY",
                 "withdrawn": "WITHDRAWN",
                 "superseded": "WITHDRAWN",
@@ -305,6 +384,8 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
             issues.append(f"{proposal_id}: Wave Storm package proposal ID mismatch")
         if package.get("status") != proposal.get("status"):
             issues.append(f"{proposal_id}: Wave Storm package status does not match proposal status")
+        if package.get("drop_title") != proposal.get("title"):
+            issues.append(f"{proposal_id}: Wave Storm drop title does not match the proposed gift title")
         target_wave = package.get("target_wave")
         if not isinstance(target_wave, dict) or any(
             target_wave.get(field) != wave_authority.get(field)
@@ -326,11 +407,17 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
         work_ids: list[object] = []
         source_paths: list[Path] = []
         resolution_sections: list[str] = []
+        total_storm_utf16_code_units = 0
+        total_storm_utf8_bytes = 0
+        total_storm_media_files = 0
+        computed_part_metrics: list[dict[str, int]] = []
         for part in parts:
             if not isinstance(part, dict):
                 issues.append(f"{proposal_id}: Wave Storm contains a non-object part")
                 continue
             role = part.get("role")
+            part_utf16_code_units: int | None = None
+            part_utf8_bytes: int | None = None
             relative = safe_relative_path(part.get("markdown_path"))
             if relative is None:
                 issues.append(f"{proposal_id}: invalid Storm markdown path")
@@ -347,9 +434,36 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                     issues.append(f"{proposal_id}: missing or escaping Storm markdown source {relative}")
                 else:
                     source_paths.append(source)
-                    content = source.read_text(encoding="utf-8")
-                    if len(content) > MAX_WAVE_PART_CHARACTERS:
-                        issues.append(f"{proposal_id}: Storm part {part.get('part_number')} exceeds {MAX_WAVE_PART_CHARACTERS} characters")
+                    source_bytes = source.read_bytes()
+                    try:
+                        content = source_bytes.decode("utf-8")
+                    except UnicodeDecodeError:
+                        issues.append(f"{proposal_id}: Storm part {part.get('part_number')} is not valid UTF-8")
+                        content = ""
+                    if source_bytes.startswith(b"\xef\xbb\xbf"):
+                        issues.append(f"{proposal_id}: Storm part {part.get('part_number')} contains a UTF-8 byte-order mark")
+                    if b"\r" in source_bytes:
+                        issues.append(f"{proposal_id}: Storm part {part.get('part_number')} does not use LF-only line endings")
+                    if not source_bytes.endswith(b"\n"):
+                        issues.append(f"{proposal_id}: Storm part {part.get('part_number')} lacks the required final LF")
+                    part_utf16_code_units = utf16_code_units(content)
+                    part_utf8_bytes = len(source_bytes)
+                    total_storm_utf16_code_units += part_utf16_code_units
+                    total_storm_utf8_bytes += part_utf8_bytes
+                    if part_utf16_code_units > MAX_WAVE_PART_UTF16_CODE_UNITS:
+                        issues.append(
+                            f"{proposal_id}: Storm part {part.get('part_number')} exceeds "
+                            f"{MAX_WAVE_PART_UTF16_CODE_UNITS} UTF-16 code units"
+                        )
+                    if part_utf8_bytes > MAX_WAVE_PART_UTF8_BYTES:
+                        issues.append(
+                            f"{proposal_id}: Storm part {part.get('part_number')} exceeds "
+                            f"{MAX_WAVE_PART_UTF8_BYTES} UTF-8 bytes"
+                        )
+                    if markdown_has_ambiguous_soft_break(content):
+                        issues.append(
+                            f"{proposal_id}: Storm part {part.get('part_number')} contains an ambiguous Markdown soft break"
+                        )
                     if role in {"resolution", "synthesis"}:
                         section = markdown_section(content, "Resolution")
                         if section is None:
@@ -357,12 +471,25 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                         else:
                             resolution_sections.append(section)
             media = part.get("media")
+            if isinstance(media, list):
+                total_storm_media_files += len(media)
+                if part_utf16_code_units is not None and part_utf8_bytes is not None:
+                    computed_part_metrics.append(
+                        {
+                            "part_number": part.get("part_number"),
+                            "utf16_code_units": part_utf16_code_units,
+                            "utf8_bytes": part_utf8_bytes,
+                            "media_count": len(media),
+                        }
+                    )
+            else:
+                issues.append(f"{proposal_id}: Storm part {part.get('part_number')} media is not a list")
             if role == "work":
                 object_id = part.get("candidate_object_id")
                 work_ids.append(object_id)
                 obj = objects_by_id.get(object_id)
                 if not isinstance(obj, dict):
-                    issues.append(f"{proposal_id}: Storm work part references an unscheduled object")
+                    issues.append(f"{proposal_id}: Storm work part references an object outside the gift")
                 elif not isinstance(media, list) or len(media) != 1 or not isinstance(media[0], dict):
                     issues.append(f"{proposal_id}: Storm work part must carry exactly one image")
                 elif not isinstance(obj.get("image"), dict) or media[0].get("uri") != obj["image"].get("uri"):
@@ -388,16 +515,80 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                         or obj.get("artist") not in credit_line
                     ):
                         issues.append(f"{proposal_id}: Storm work credit does not match the object rights record")
-            elif part.get("candidate_object_id") is not None or media not in ([], None):
-                issues.append(f"{proposal_id}: non-work Storm part carries object media or identity")
+            elif role == "resolution":
+                if part.get("candidate_object_id") is not None:
+                    issues.append(f"{proposal_id}: resolution Storm part carries object identity")
+                if not isinstance(media, list) or len(media) != 1 or not isinstance(media[0], dict):
+                    issues.append(f"{proposal_id}: resolution Storm part must carry exactly one cover image")
+                else:
+                    cover = media[0]
+                    cover_path = resolve_candidate_file(candidate_dir, cover.get("asset_path"))
+                    source_asset_path = resolve_candidate_file(candidate_dir, cover.get("source_asset_path"))
+                    if cover_path is None:
+                        issues.append(f"{proposal_id}: cover image path is missing, unsafe, or escaping")
+                    else:
+                        cover_bytes = cover_path.read_bytes()
+                        if cover.get("byte_length") != len(cover_bytes):
+                            issues.append(f"{proposal_id}: cover image byte length does not match the retained asset")
+                        if cover.get("sha256") != hashlib.sha256(cover_bytes).hexdigest():
+                            issues.append(f"{proposal_id}: cover image SHA-256 does not match the retained asset")
+                        try:
+                            width, height, bit_depth, color_type, has_srgb_profile = png_profile(cover_path)
+                        except ValueError as exc:
+                            issues.append(f"{proposal_id}: invalid cover PNG: {exc}")
+                        else:
+                            if (width, height) != (WAVE_COVER_DIMENSION, WAVE_COVER_DIMENSION):
+                                issues.append(f"{proposal_id}: cover PNG is not 1600 by 1600 pixels")
+                            if (cover.get("width"), cover.get("height")) != (width, height):
+                                issues.append(f"{proposal_id}: cover dimensions do not match the retained asset")
+                            if bit_depth != 8 or color_type != 2:
+                                issues.append(f"{proposal_id}: cover PNG must be opaque 8-bit truecolor")
+                            if not has_srgb_profile:
+                                issues.append(f"{proposal_id}: cover PNG lacks an embedded sRGB profile")
+                    if source_asset_path is None:
+                        issues.append(f"{proposal_id}: cover source path is missing, unsafe, or escaping")
+                    else:
+                        source_bytes = source_asset_path.read_bytes()
+                        if cover.get("source_sha256") != hashlib.sha256(source_bytes).hexdigest():
+                            issues.append(f"{proposal_id}: cover source SHA-256 does not match the retained asset")
+            elif role == "synthesis":
+                if part.get("candidate_object_id") is not None or media not in ([], None):
+                    issues.append(f"{proposal_id}: synthesis Storm part carries object media or identity")
         expected_roles = ["resolution", *(["work"] * len(object_ids)), "synthesis"]
         actual_roles = [part.get("role") for part in parts if isinstance(part, dict)]
         if actual_roles != expected_roles:
-            issues.append(f"{proposal_id}: Storm roles must be resolution, scheduled works, then synthesis")
+            issues.append(f"{proposal_id}: Storm roles must be resolution, gift works, then synthesis")
         if work_ids != object_ids:
-            issues.append(f"{proposal_id}: Storm work parts must match the object schedule exactly and in order")
+            issues.append(f"{proposal_id}: Storm work parts must match the gift's object list exactly and in order")
         if len(source_paths) != len(set(source_paths)):
             issues.append(f"{proposal_id}: Storm parts reuse a Markdown source path")
+        if total_storm_utf16_code_units > MAX_WAVE_STORM_UTF16_CODE_UNITS:
+            issues.append(
+                f"{proposal_id}: Storm exceeds {MAX_WAVE_STORM_UTF16_CODE_UNITS} total UTF-16 code units"
+            )
+        if total_storm_media_files > MAX_WAVE_STORM_MEDIA_FILES:
+            issues.append(
+                f"{proposal_id}: Storm exceeds {MAX_WAVE_STORM_MEDIA_FILES} total media files"
+            )
+        publication_profile = package.get("publication_profile")
+        if not isinstance(publication_profile, dict):
+            issues.append(f"{proposal_id}: Storm lacks a publication profile")
+        else:
+            target_observation = publication_profile.get("target_observation")
+            if not isinstance(target_observation, dict) or any(
+                target_observation.get(field) != wave_authority.get(field)
+                for field in ("winning_threshold", "winning_threshold_min_duration_ms")
+            ):
+                issues.append(f"{proposal_id}: Storm target observation does not match Wave authority")
+            if publication_profile.get("part_metrics") != computed_part_metrics:
+                issues.append(f"{proposal_id}: Storm publication part metrics do not match the exact source edition")
+            expected_totals = {
+                "utf16_code_units": total_storm_utf16_code_units,
+                "utf8_bytes": total_storm_utf8_bytes,
+                "media_count": total_storm_media_files,
+            }
+            if publication_profile.get("totals") != expected_totals:
+                issues.append(f"{proposal_id}: Storm publication totals do not match the exact source edition")
         if len(resolution_sections) == 2 and resolution_sections[0] != resolution_sections[1]:
             issues.append(f"{proposal_id}: opening and closing Resolution sections differ")
 

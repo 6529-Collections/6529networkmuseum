@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600" role="img" aria-labelledby="title description">
+  <title id="title">Conflict at Its Edges</title>
+  <desc id="description">Square proposal cover for five photographs of evidence and aftermath, 1952 to 2016, offered to the 6529 Network Museum.</desc>
+  <rect width="1600" height="1600" fill="#131316"/>
+  <rect x="144" y="144" width="16" height="1312" fill="#528BFF"/>
+  <rect x="160" y="144" width="1296" height="2" fill="#34343A"/>
+  <text x="224" y="248" fill="#84ADFF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="9">PROPOSED GIFT</text>
+  <text x="216" y="520" fill="#F5F5F5" font-family="Arial, Helvetica, sans-serif" font-size="148" font-weight="700" letter-spacing="-5">
+    <tspan x="216" dy="0">CONFLICT</tspan>
+    <tspan x="216" dy="166">AT ITS EDGES</tspan>
+  </text>
+  <rect x="224" y="804" width="132" height="10" fill="#528BFF"/>
+  <text x="224" y="944" fill="#D5D5D8" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="400" letter-spacing="-1">
+    <tspan x="224" dy="0">Five Photographs of</tspan>
+    <tspan x="224" dy="78">Evidence and Aftermath</tspan>
+  </text>
+  <text x="224" y="1198" fill="#F5F5F5" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700" letter-spacing="1">1952–2016</text>
+  <line x1="224" y1="1342" x2="1456" y2="1342" stroke="#34343A" stroke-width="2"/>
+  <text x="224" y="1418" fill="#A4A4AA" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="4">6529 NETWORK MUSEUM</text>
+</svg>

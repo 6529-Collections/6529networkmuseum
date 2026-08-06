@@ -21,14 +21,87 @@
     "credit_type": "TDH",
     "credit_scope": "DROP"
   },
+  "drop_title": "Conflict at Its Edges",
   "single_voting_object": true,
+  "publication_profile": {
+    "profile": "6529NM_WAVE_STORM_PUBLICATION_V1",
+    "source_text_encoding": "UTF-8",
+    "source_line_endings": "LF",
+    "counting_basis": "raw_markdown_including_final_lf",
+    "limits": {
+      "per_part_utf16_code_units": 25000,
+      "per_part_utf8_bytes": 65535,
+      "total_utf16_code_units": 50000,
+      "total_media_files": 8
+    },
+    "editorial_targets": {
+      "per_part_utf16_code_units": 20000,
+      "per_part_utf8_bytes": 60000,
+      "total_utf16_code_units": 45000
+    },
+    "observed_production": {
+      "frontend_commit": "c807f6da8efea7e39405fba8185de153096bf95d",
+      "backend_commit": "e1ca97c54d42f83c5f7bd613fcfa5a4476b93eb6",
+      "observed_at": "2026-08-06T11:18:41.858Z"
+    },
+    "target_observation": {
+      "observed_at": "2026-08-06T11:22:06.296Z",
+      "posting_profile_handle": "punk6529bot",
+      "wave_open": true,
+      "eligible_to_participate": true,
+      "eligible_to_vote": true,
+      "eligible_to_chat": true,
+      "admin": true,
+      "winning_threshold": 69000000,
+      "winning_threshold_min_duration_ms": 86400000,
+      "time_lock_ms": 86400000,
+      "signature_required": true
+    },
+    "part_metrics": [
+      {"part_number": 1, "utf16_code_units": 6513, "utf8_bytes": 6563, "media_count": 1},
+      {"part_number": 2, "utf16_code_units": 2909, "utf8_bytes": 2921, "media_count": 1},
+      {"part_number": 3, "utf16_code_units": 3210, "utf8_bytes": 3222, "media_count": 1},
+      {"part_number": 4, "utf16_code_units": 3377, "utf8_bytes": 3389, "media_count": 1},
+      {"part_number": 5, "utf16_code_units": 3100, "utf8_bytes": 3115, "media_count": 1},
+      {"part_number": 6, "utf16_code_units": 3091, "utf8_bytes": 3097, "media_count": 1},
+      {"part_number": 7, "utf16_code_units": 13377, "utf8_bytes": 13407, "media_count": 0}
+    ],
+    "totals": {
+      "utf16_code_units": 35577,
+      "utf8_bytes": 35714,
+      "media_count": 6
+    },
+    "leaderboard": {
+      "media_selection": "parts[0].media[0]",
+      "cover_part_number": 1,
+      "cover_media_index": 0,
+      "object_fit": "contain",
+      "preview_checks_px": [267, 450, 1600]
+    }
+  },
   "parts": [
     {
       "part_number": 1,
       "role": "resolution",
-      "title": "Proposed gift: five works from Magnum Photos 75",
+      "title": "Proposed gift: Conflict at Its Edges",
       "markdown_path": "public/wave-storm/01-resolution.md",
-      "media": []
+      "media": [
+        {
+          "asset_path": "public/media/conflict-at-its-edges-cover.png",
+          "source_asset_path": "public/media/conflict-at-its-edges-cover.svg",
+          "media_type": "image/png",
+          "width": 1600,
+          "height": 1600,
+          "byte_length": 86923,
+          "sha256": "082d690ed07297a1583efa70167fd1735e611a9530cd0652dae9cfaee9482d77",
+          "source_sha256": "829be2d065b5cf5692d5eb96a59615b98c79dddfb0065e2bc8e664a59b3c4b93",
+          "color_profile": "sRGB IEC61966-2.1",
+          "opaque": true,
+          "alt_text": "Dark square proposal cover with a blue vertical rule and the words Conflict at Its Edges: Five Photographs of Evidence and Aftermath, 1952–2016.",
+          "credit_line": "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.",
+          "rights_label": "CC0-1.0"
+        }
+      ]
     },
     {
       "part_number": 2,
@@ -113,16 +186,20 @@
     {
       "part_number": 7,
       "role": "synthesis",
-      "title": "The five photographs together",
+      "title": "Conflict at Its Edges",
       "markdown_path": "public/wave-storm/07-case-and-decision.md",
       "media": []
     }
   ],
   "submission_notes": [
     "Submit all seven parts as one Storm drop so the parent drop remains the single TDH voting object.",
+    "Attach the retained square title card as the first media item in part one; it is the leaderboard cover.",
     "Attach the exact source image named in each work part; do not upload a marketplace screenshot or substitute crop.",
     "Retain each visible credit line and All Rights Reserved label.",
-    "Before submission, replace the draft source edition with the merged immutable Git commit and update the finalized-block chain observation.",
-    "Do not post this package through an automation account; the donor stated that the donor will submit the proposal."
+    "Use the exact UTF-8, LF-only Markdown sources recorded here, including their final line feed; do not paste a separately edited copy.",
+    "Reconfirm the live 25,000 UTF-16-unit and 65,535 UTF-8-byte per-part limits and the 50,000 UTF-16-unit total before opening the composer.",
+    "Set the API drop title exactly to Conflict at Its Edges; the cover and first lines repeat that identity so compact clients remain intelligible.",
+    "After merge, bind the dry-run publication plan to the immutable Git commit and verify the finalized-chain state against this edition; if a material fact changed, amend and review the source before posting.",
+    "Do not post until the donor gives explicit final approval of the exact manuscript, cover, and publication action."
   ]
 }

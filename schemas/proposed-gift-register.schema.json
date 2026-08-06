@@ -44,7 +44,7 @@
         "draft",
         "not_submitted",
         "open",
-        "selected_for_accession_processing",
+        "selected",
         "closed_without_selection",
         "withdrawn",
         "superseded"

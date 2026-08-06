@@ -37,7 +37,7 @@
         "draft",
         "not_submitted",
         "open",
-        "selected_for_accession_processing",
+        "selected",
         "closed_without_selection",
         "withdrawn",
         "superseded"
@@ -53,7 +53,7 @@
         "acquisition_method": {"const": "donation"},
         "scope": {"const": "full_gift"},
         "object_count": {"type": "integer", "minimum": 1},
-        "decision_unit": {"const": "exact_scheduled_group"},
+        "decision_unit": {"const": "exact_group"},
         "conditions": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
       }
     },
@@ -148,13 +148,13 @@
       "required": ["question", "threshold_cleared_effect", "threshold_not_cleared_effect", "later_required_events"],
       "properties": {
         "question": {"type": "string", "minLength": 1},
-        "threshold_cleared_effect": {"const": "selects_the_exact_scheduled_gift_for_accession_processing"},
+        "threshold_cleared_effect": {"const": "gift_selected"},
         "threshold_not_cleared_effect": {"const": "proposal_closes_without_selection"},
         "later_required_events": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"enum": ["identity_verification", "donor_authority", "title_review", "rights_review", "technical_review", "transfer", "custody_receipt", "formal_acceptance", "accession"]}
+          "items": {"enum": ["identity_verification", "donor_authority", "title_review", "rights_review", "technical_review", "transfer", "custody_receipt", "formal_acceptance", "preservation", "accession"]}
         }
       }
     },

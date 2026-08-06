@@ -5,7 +5,8 @@
 - **Publication date:** 2026-08-05
 - **Applies to:** exact gifts presented to the 6529 Network Museum Wave for a curatorial decision
 - **Governing policy:** [`donation-acceptance.md`](../policies/donation-acceptance.md)
-- **First application:** `6529NM-PG-2026-001`, five works from Magnum Photos 75
+- **Publication profile:** [`wave-storm-publication-standard.md`](wave-storm-publication-standard.md)
+- **First application:** `6529NM-PG-2026-001`, *Conflict at Its Edges: Five Photographs of Evidence and Aftermath, 1952–2016*
 
 ## Purpose
 
@@ -15,7 +16,7 @@ Museum website as though it were already part of the collection.
 
 The Museum Wave is the public forum for that decision. Each proposed gift
 appears as one multi-part Storm: the opening part states the exact question and
-object schedule, each work receives an image-led section, and the closing part
+object list, each work receives an image-led section, and the closing part
 carries the case, countercase, sources, and resolution. The parent drop is the
 unit that receives TDH votes. The repository holds the public source edition
 and its evidence; the Wave makes the decision.
@@ -36,19 +37,27 @@ become intake sources for the formal accession package. The accession record
 then states what was verified, accepted, transferred, received, and
 accessioned. The proposal itself retains its historical role.
 
+## Public Markdown typography
+
+Wave copy must remain legible in narrow and wide readers. Write each prose
+paragraph as one physical source line. Some readers preserve soft line breaks;
+hard-wrapping prose at an arbitrary column therefore produces broken rhythm and
+excessive leading across the rendered document.
+
+Use blank lines to separate headings, standfirsts, field rows, object identity,
+credit lines, and prose paragraphs. Keep compact object data on one line with
+middle dots between fields. Never use trailing spaces to force a line break.
+The generated voter dossier must preserve these paragraph boundaries exactly.
+
 ## The decision
 
 Every proposal opens with one exact question and two consequences.
 
-- **Threshold cleared:** the Wave selects the complete scheduled gift for
-  accession processing.
+- **Threshold cleared:** the gift is selected.
 - **Threshold not cleared:** the proposal closes without selection.
 
-Selection authorizes the Museum to proceed with the scheduled gift. It does
-not itself verify donor authority, pass title, transfer the tokens, grant
-copyright, establish custody, complete technical review, accept the gift, or
-assign an accession number. Those events receive their own evidence and
-records.
+Identity, donor authority, title, rights and technical review, transfer,
+custody, formal acceptance, preservation, and accession follow selection.
 
 The Wave's threshold, duration, credit type, and status are live facts. The
 proposal record captures the live API configuration and observation time. A
@@ -66,7 +75,7 @@ State:
 
 - donor public credit;
 - donation scope and any conditions;
-- whether the Wave decides one object, an exact group, or a severable schedule;
+- whether the Wave decides one object, an exact group, or a severable group;
 - collection and project identity;
 - chain, contract, token ID, edition, artist, title, and date for every object;
 - whether the collection is preapproved under the current register.
@@ -123,10 +132,12 @@ repository edition when available.
 One proposed gift uses one Storm drop and one TDH decision. A clear sequence
 is:
 
-1. the exact question and exact object schedule;
+1. a square proposal cover followed by the exact question and exact object list;
 2. one image-led part per work;
 3. the group case, countercase, rights/provenance/technical state, sources, and
    the same resolution at the end.
+
+The cover is the first media item in the first part because that position supplies the leaderboard image. Its dimensions, fixity, credit, rights, and alternative text are governed with the rest of the package. See the publication profile for the current 25,000 UTF-16-unit and 65,535 UTF-8-byte per-part limits, 50,000 UTF-16-unit Storm limit, eight-file budget, cover specification, live preflight, and post-publication readback.
 
 The opening and final parts repeat the same decision language. A shorter gift
 may combine work sections. A larger gift may group works by documented series
@@ -153,7 +164,7 @@ adopted, each proposal must state the policy authority actually in force.
 | `draft` | Public source package is under construction. |
 | `not_submitted` | Package is complete but no Wave drop exists. |
 | `open` | A submitted Wave drop is awaiting a final threshold outcome. |
-| `selected_for_accession_processing` | The drop cleared the applicable TDH threshold; later gift and accession events remain separate. |
+| `selected` | The drop cleared the applicable TDH threshold; the remaining gift and accession work follows. |
 | `closed_without_selection` | The drop did not clear the threshold. No collection-status effect follows. |
 | `withdrawn` | The proposer withdrew the exact offer before decision. |
 | `superseded` | A named later proposal replaces this edition. |
@@ -163,6 +174,7 @@ adopted, each proposal must state the policy authority actually in force.
 Before submission, answer yes:
 
 - Is the exact voting unit clear in the first screen?
+- Does the leaderboard cover identify the proposal clearly at thumbnail size without borrowing or cropping a work beyond the recorded rights?
 - Can every work be identified without a marketplace listing?
 - Does every displayed image carry useful alternative text, credit, and rights?
 - Does the text begin with the works and the decision rather than Museum

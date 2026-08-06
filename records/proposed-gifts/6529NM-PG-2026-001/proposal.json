@@ -13,16 +13,16 @@
   "record_type": "PROPOSED_GIFT",
   "schema_profile": "6529NM_PROPOSED_GIFT_V1",
   "proposal_id": "6529NM-PG-2026-001",
-  "title": "Five works from Magnum Photos 75",
-  "subtitle": "Authority and uncertainty, 1952–2016",
+  "title": "Conflict at Its Edges",
+  "subtitle": "Five Photographs of Evidence and Aftermath, 1952–2016",
   "status": "not_submitted",
-  "status_as_of": "2026-08-05T17:46:53.817Z",
+  "status_as_of": "2026-08-06T11:22:06.296Z",
   "offer": {
     "donor_public_credit": "Offered by punk6529",
     "acquisition_method": "donation",
     "scope": "full_gift",
     "object_count": 5,
-    "decision_unit": "exact_scheduled_group",
+    "decision_unit": "exact_group",
     "conditions": []
   },
   "preapproval": {
@@ -41,12 +41,12 @@
     "credit_scope": "DROP",
     "winning_threshold": 69000000,
     "winning_threshold_min_duration_ms": 86400000,
-    "observed_at": "2026-08-05T17:27:02.315Z",
+    "observed_at": "2026-08-06T11:22:06.296Z",
     "proposal_drop": {
       "drop_id": null,
       "serial_no": null,
       "status": "not_submitted",
-      "status_observed_at": "2026-08-05T17:27:02.315Z"
+      "status_observed_at": "2026-08-06T11:22:06.296Z"
     }
   },
   "contract_observation": {
@@ -66,8 +66,8 @@
     "royalty_amount_at_10000": 0
   },
   "resolution": {
-    "question": "Should the 6529 Network Museum select the complete gift of Magnum Photos 75 tokens 127, 145, 97, 44, and 104 for accession processing?",
-    "threshold_cleared_effect": "selects_the_exact_scheduled_gift_for_accession_processing",
+    "question": "Should the 6529 Network Museum select the complete gift of Magnum Photos 75 tokens 127, 145, 97, 44, and 104?",
+    "threshold_cleared_effect": "gift_selected",
     "threshold_not_cleared_effect": "proposal_closes_without_selection",
     "later_required_events": [
       "identity_verification",
@@ -78,6 +78,7 @@
       "transfer",
       "custody_receipt",
       "formal_acceptance",
+      "preservation",
       "accession"
     ]
   },
