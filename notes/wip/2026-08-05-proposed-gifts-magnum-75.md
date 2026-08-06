@@ -395,3 +395,33 @@ Production was re-observed at 2026-08-06T11:18:41.858Z: the frontend served exac
 The retained 1,600-pixel cover remains an opaque sRGB PNG, 86,923 bytes, with SHA-256 `082d690ed07297a1583efa70167fd1735e611a9530cd0652dae9cfaee9482d77`. It was visually checked at 1,600, 450, and 267 pixels; the title remains immediate and the safe area survives. Each of the five immutable source JPEGs was fetched again, matched to the recorded SHA-256, and visually compared with its caption and alternative text. No source photograph was copied into the repository, cropped, recombined, or used to make the cover.
 
 No proposal has been posted, no vote has been cast, and no asset has moved. The remaining gates are owner approval of the exact edition shown in this task, repository merge and immutable source-commit insertion, a fresh Wave and finalized-chain observation, and the owner's explicit instruction to publish.
+
+## Publication and live acceptance, 2026-08-06
+
+The owner gave the explicit instruction to publish the reviewed edition. Source
+PR [#31](https://github.com/6529-Collections/6529networkmuseum/pull/31)
+merged as canonical Museum commit
+`eb95dfc02f05f220232f770a6d9ab33d50eed38b`. A fresh authenticated preflight
+then confirmed the open 6529 Network Museum Wave, its 69,000,000 TDH threshold,
+twenty-four-hour hold and time lock, and signature requirement. Read-only
+Ethereum checks matched all five owners, token URIs, approvals, and the
+contract owner at finalized block `25696089`, block hash
+`0x11eb22cf2bd45e4e42950c6f487c3f37cb7938694e52ab97115eebaeea9f6591`.
+
+`punk6529bot` published the seven-part Storm through the 6529 API as drop
+[`002bfa4f-8416-48bf-b35e-38f354e9a9f0`](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0),
+serial `1276093`, at `2026-08-06T13:19:30.726Z`. Because the live drop API
+requires media on the 6529 CDN, the publisher fetched each governed Arweave
+image, verified its repository SHA-256 and byte count, and uploaded those exact
+bytes; no marketplace image or substitute crop was used. API readback matched
+all seven source parts, six ordered media items, the signed author, target Wave,
+and `PARTICIPATORY` type. Rating and raters were both zero at readback; no vote
+was cast.
+
+Rendered acceptance covered the leaderboard card, full viewer, all five work
+images, and the synthesis part at 1,280 pixels, plus the proposal, artwork, and
+leaderboard card at a 390-by-844 viewport. Every work image reached non-zero
+natural dimensions, all mobile checks measured `390/390/390` for viewport,
+client, and scroll widths, and the browser console had no errors. Publication
+opened the proposal for TDH voting. It did not select the gift, transfer any
+asset, formally accept a donation, or accession an object.

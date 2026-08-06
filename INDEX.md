@@ -33,7 +33,7 @@ Status vocabulary:
 | [`records/programs/6529NM-AP-01/selected-works.json`](records/programs/6529NM-AP-01/selected-works.json) | canonical constructed outcome index | Sixteen Wave winners retained as `selected_unminted`, explicitly not acquisition/accession |
 | [`records/programs/6529NM-AP-01/media-manifest.json`](records/programs/6529NM-AP-01/media-manifest.json) | constructed technical manifest | Fixity-identified submitted sources and forty-eight deterministic responsive presentation derivatives; no preservation-master, rights, mint, acquisition, or accession claim |
 | [`records/accessions/register.json`](records/accessions/register.json) | canonical reviewed current-view register | Casey REAS seven-work gift accepted and accessioned; title, rights, curatorial, and technical decisions complete; software preservation remains active stewardship |
-| [`records/proposed-gifts/`](records/proposed-gifts/) | constructed public candidate register and packages | Exact gifts prepared for a Museum Wave decision; no acceptance, custody, accession number, or collection-status claim |
+| [`records/proposed-gifts/`](records/proposed-gifts/) | active public candidate register and packages | Exact gifts prepared for or open in a Museum Wave decision; no acceptance, custody, accession number, or collection-status claim |
 
 ## Casey Reas accession dossier
 
@@ -121,7 +121,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-04-generative-system-frontend-experience.md`](notes/wip/2026-08-04-generative-system-frontend-experience.md) | live production instrument and release record | Project-owned Inside the System route, five Casey-specific visualizers, complete minted lookup/filter indexes, side-by-side Museum models, reviewed descriptor-backed suggestions, accession deep links, exact staging/production evidence, and the acquisition-extensible derived-display boundary |
 | [`notes/wip/2026-08-05-museum-data-architecture.md`](notes/wip/2026-08-05-museum-data-architecture.md) | active construction and release ledger | Museum-native eleven-standard data architecture, two-level public/technical publication structure, Casey implementation crosswalk, Stream-deferred convergence boundary, and release state |
 | [`notes/wip/2026-08-05-rights-handbook.md`](notes/wip/2026-08-05-rights-handbook.md) | live production release ledger | Public rights handbook, standard-license registry, retained legal texts, practical Museum-use explanations, object links, validation, and exact staging/production release evidence |
-| [`notes/wip/2026-08-05-proposed-gifts-magnum-75.md`](notes/wip/2026-08-05-proposed-gifts-magnum-75.md) | active WIP analysis and implementation ledger | Wave-native seven-part Magnum Photos 75 voter dossier, policy distinction, evidence, publication design, platform compatibility audit, and release gates |
+| [`notes/wip/2026-08-05-proposed-gifts-magnum-75.md`](notes/wip/2026-08-05-proposed-gifts-magnum-75.md) | active proposal and publication ledger | Wave-native seven-part Magnum Photos 75 voter dossier, evidence, API publication receipt, rendered acceptance, and accession boundary |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 
 ## Generative analysis tooling
