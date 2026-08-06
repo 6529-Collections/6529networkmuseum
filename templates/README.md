@@ -10,6 +10,7 @@ These templates are the operational layer below the governing working standard [
 |---|---|---|
 | [`record-control.md`](record-control.md) | Instantiate the exact constructor/reviewer and canonical payload-hash contract | Top-level governed JSON `record_control` block |
 | [`accession-state-gates.md`](accession-state-gates.md) | Gate offered or selected material through authorization, acquisition, receipt, accession, cataloguing, technical verification, preservation, and display | Workflow state; not an accession record |
+| [`proposed-gift-wave.md`](proposed-gift-wave.md) | Present one exact gift as a substantive multi-part Storm in the Museum Wave | Public candidate and voting package; not an accession or policy amendment |
 | [`accession-lot.md`](accession-lot.md) | Establish one accession act for one donation, purchase, transfer, or program outcome | Lot-level institutional act and object schedule |
 | [`object-record.md`](object-record.md) | Describe one artwork/object in the lot | One object, one evidence trail, one status view |
 | [`technical-condition-report.md`](technical-condition-report.md) | Examine digital constitution, dependencies, fixity, rendering, behavior, and risk | Object-level technical and condition assessment |

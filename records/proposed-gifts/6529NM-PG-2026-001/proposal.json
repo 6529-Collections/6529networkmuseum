@@ -1,0 +1,491 @@
+{
+  "$schema": "../../../schemas/proposed-gift.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
+      "role": "constructor",
+      "constructed_at": "2026-08-05T17:34:39.310Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_GIFT",
+  "schema_profile": "6529NM_PROPOSED_GIFT_V1",
+  "proposal_id": "6529NM-PG-2026-001",
+  "title": "Conflict at Its Edges",
+  "subtitle": "Five Photographs of Evidence and Aftermath, 1952–2016",
+  "status": "not_submitted",
+  "status_as_of": "2026-08-06T11:22:06.296Z",
+  "offer": {
+    "donor_public_credit": "Offered by punk6529",
+    "acquisition_method": "donation",
+    "scope": "full_gift",
+    "object_count": 5,
+    "decision_unit": "exact_group",
+    "conditions": []
+  },
+  "preapproval": {
+    "collection_name": "Magnum Photos 75",
+    "collection_preapproved": false,
+    "register_path": "records/collections/approved-collections.json",
+    "checked_at": "2026-08-05T17:27:02.315Z",
+    "policy_consequence": "The adopted donation policy requires Museum governance authorization before acceptance because Magnum Photos 75 is not in the preapproved-collection register."
+  },
+  "wave_authority": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "wave_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_type": "APPROVE",
+    "credit_type": "TDH",
+    "credit_scope": "DROP",
+    "winning_threshold": 69000000,
+    "winning_threshold_min_duration_ms": 86400000,
+    "observed_at": "2026-08-06T11:22:06.296Z",
+    "proposal_drop": {
+      "drop_id": null,
+      "serial_no": null,
+      "status": "not_submitted",
+      "status_observed_at": "2026-08-06T11:22:06.296Z"
+    }
+  },
+  "contract_observation": {
+    "block_number": 25690178,
+    "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+    "block_timestamp": "2026-08-05T17:20:23Z",
+    "observed_at": "2026-08-05T17:46:53.817Z",
+    "contract_owner": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+    "admins": [
+      "0xdc6f5281bc65dee2d317e140eb19c927351dd86d",
+      "0xd8d005f66296068a2efc240f7e5910af52a86ee1"
+    ],
+    "implementation": "0xe4e4003afe3765aca8149a82fc064c0b125b9e5a",
+    "proxy_upgrade_path": "constructor_set_implementation_no_public_upgrade_path_observed",
+    "token_uri_mutability": "owner_or_admin_can_change_token_uri_or_base_uri",
+    "extensions": [],
+    "royalty_amount_at_10000": 0
+  },
+  "resolution": {
+    "question": "Should the 6529 Network Museum select the complete gift of Magnum Photos 75 tokens 127, 145, 97, 44, and 104?",
+    "threshold_cleared_effect": "gift_selected",
+    "threshold_not_cleared_effect": "proposal_closes_without_selection",
+    "later_required_events": [
+      "identity_verification",
+      "donor_authority",
+      "title_review",
+      "rights_review",
+      "technical_review",
+      "transfer",
+      "custody_receipt",
+      "formal_acceptance",
+      "preservation",
+      "accession"
+    ]
+  },
+  "objects": [
+    {
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
+      "chain_id": "eip155:1",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "127",
+      "artist": "David Seymour",
+      "title": "Patrolling the border between the Negev Desert and Jordan",
+      "date": 1952,
+      "location": "Negev",
+      "country": "Israel",
+      "archive_number": "SED1952003W00003/23",
+      "source_notes": [
+        "The David Seymour estate publishes a visually matching frame as PAR116258 with the fuller place description King Solomon's Mines area; the public source does not cross-index that filename to the Magnum archive number.",
+        "Border and patrol are caption evidence; no border marker, unit, or named person is identifiable from the image alone."
+      ],
+      "edition": "1 of 1",
+      "curation": "2/3",
+      "metadata": {
+        "uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM",
+        "sha256": "sha256:b1c52d7cfa7ac198c08051d91a3a2e62d9260dbacbafdc7a4fd71cce0d311178",
+        "bytes": 2665,
+        "observed_at": "2026-08-05T17:34:39.310Z"
+      },
+      "image": {
+        "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+        "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
+        "bytes": 2518674,
+        "observed_at": "2026-08-05T17:34:39.310Z",
+        "media_type": "image/jpeg",
+        "width": 3056,
+        "height": 4600,
+        "preservation_status": "upstream_not_retained"
+      },
+      "rights": {
+        "copyright_notice": "© David Seymour/Magnum Photos 2022 All Rights Reserved",
+        "license": "All Rights Reserved",
+        "copyright_holder": "David Seymour/Magnum Photos",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0x23173c71a59f9709724537b928dde8f3ffe0e3162ab8e4f2d9d9ef787e17f0f3",
+            "block_number": 16070886,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "foundation_market_escrow",
+            "tx_hash": "0xc924996c8aa8cc17534397c75d3ce78efdd6bd44b142a9de06c6283f3e582d03",
+            "block_number": 16147602,
+            "from": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "to": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "receipt_status": "success"
+          },
+          {
+            "role": "current_owner_transfer",
+            "tx_hash": "0x95239b5d68a414bc4bcb481490be08002e7d870ce6bf86dbd0c961ed8ee21a09",
+            "block_number": 25689728,
+            "from": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25690178,
+        "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+        "observed_at": "2026-08-05T17:46:53.817Z",
+        "owner": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "token_uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+      "chain_id": "eip155:1",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "145",
+      "artist": "Larry Towell",
+      "title": "Government soldiers in a church, Suchitoto, El Salvador",
+      "date": 1986,
+      "location": "Suchitoto",
+      "country": "El Salvador",
+      "archive_number": "TOL1986003W00045/26",
+      "source_notes": [
+        "The token metadata spells the place Suchitito; institutional and geographic sources support the normalized spelling Suchitoto.",
+        "Broad church-persecution and liberation-theology context is documented, but the exact church, unit, operation, assignment, and scene-specific causal claim remain unresolved."
+      ],
+      "edition": "1 of 1",
+      "curation": "2/3",
+      "metadata": {
+        "uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ",
+        "sha256": "sha256:fa39b70cabf9c2b471d274907f3aa8dff921a6c479db056e631c9f1c22b72317",
+        "bytes": 2833,
+        "observed_at": "2026-08-05T17:34:39.310Z"
+      },
+      "image": {
+        "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+        "sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
+        "bytes": 1813285,
+        "observed_at": "2026-08-05T17:34:39.310Z",
+        "media_type": "image/jpeg",
+        "width": 5369,
+        "height": 3601,
+        "preservation_status": "upstream_not_retained"
+      },
+      "rights": {
+        "copyright_notice": "© Larry Towell/Magnum Photos 2022 All Rights Reserved",
+        "license": "All Rights Reserved",
+        "copyright_holder": "Larry Towell/Magnum Photos",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0xa8fecaea9a0eafbabf61a186e87f9c5ba14158e7b9422752c19994c16109a1e4",
+            "block_number": 16071368,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "foundation_market_escrow",
+            "tx_hash": "0xd2e8e53a076699c7fbaeccd6020181b026ab1d02004cbaafabc0d0fb0e756af6",
+            "block_number": 16176133,
+            "from": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "to": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "receipt_status": "success"
+          },
+          {
+            "role": "current_owner_transfer",
+            "tx_hash": "0xc0a96ebabb74d5e4ff2c670c247b27b2a1d23f0a46dabee968401ebf91a62bc0",
+            "block_number": 25689720,
+            "from": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25690178,
+        "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+        "observed_at": "2026-08-05T17:46:53.817Z",
+        "owner": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "token_uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
+      "chain_id": "eip155:1",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "97",
+      "artist": "Micha Bar-Am",
+      "title": "Demonstration, Western Wall, Jerusalem",
+      "date": 1989,
+      "location": "Jerusalem",
+      "country": null,
+      "archive_number": "BAM1989009W02477/26C",
+      "source_notes": [
+        "The Micha Bar-Am Archive records the matching frame as BAM1989009W02477-26; the relation of its suffix to the token metadata's /26C is not publicly explained.",
+        "Contemporary sources document the 1989 confrontation and police tear gas, but the exact day, assignment, and identity of the visible person remain unresolved."
+      ],
+      "edition": "1 of 1",
+      "curation": "2/3",
+      "metadata": {
+        "uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY",
+        "sha256": "sha256:0c829f07bdae9dbf99dc7cf3ac78f699342852aa17f3837277fe7620541afdd3",
+        "bytes": 2966,
+        "observed_at": "2026-08-05T17:34:39.310Z"
+      },
+      "image": {
+        "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+        "sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
+        "bytes": 1666083,
+        "observed_at": "2026-08-05T17:34:39.310Z",
+        "media_type": "image/jpeg",
+        "width": 5000,
+        "height": 3292,
+        "preservation_status": "upstream_not_retained"
+      },
+      "rights": {
+        "copyright_notice": "© Micha Bar-Am/Magnum Photos 2022 All Rights Reserved",
+        "license": "All Rights Reserved",
+        "copyright_holder": "Micha Bar-Am/Magnum Photos",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0x17057d388846e601dba0013475dc6642869058e89f90f63d231ed1b44864913b",
+            "block_number": 16070265,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "foundation_market_escrow",
+            "tx_hash": "0xa72cfa2c0e6e8ec7066d69216c64d0e62de90726fca35b00cce20b6e0762f078",
+            "block_number": 16090280,
+            "from": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "to": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "receipt_status": "success"
+          },
+          {
+            "role": "current_owner_transfer",
+            "tx_hash": "0xa530bc66b7f14a85cb92f73b0f424cefb9bb69683dd3554b176daa38ebe47850",
+            "block_number": 25689725,
+            "from": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25690178,
+        "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+        "observed_at": "2026-08-05T17:46:53.817Z",
+        "owner": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "token_uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
+      "chain_id": "eip155:1",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "44",
+      "artist": "Moisés Saman",
+      "title": "Tripoli, Libya",
+      "date": 2011,
+      "location": "Tripoli",
+      "country": "Libya",
+      "archive_number": "SAM2011005H2503/5482",
+      "source_notes": [
+        "The source caption attributes the claimed air strike and injury to Libyan government officials and states that the claim was impossible to verify.",
+        "The exact house, date, cause of the wall damage, responsible actor, and identities of the depicted child and reported injured woman remain unresolved."
+      ],
+      "edition": "1 of 1",
+      "curation": "1/3",
+      "metadata": {
+        "uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns",
+        "sha256": "sha256:735676760644ba54703fdbe9f49cb6415a56c9c1e92ac04748bdea92c3cd45a1",
+        "bytes": 2713,
+        "observed_at": "2026-08-05T17:34:39.310Z"
+      },
+      "image": {
+        "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+        "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
+        "bytes": 1540870,
+        "observed_at": "2026-08-05T17:34:39.310Z",
+        "media_type": "image/jpeg",
+        "width": 5616,
+        "height": 3744,
+        "preservation_status": "upstream_not_retained"
+      },
+      "rights": {
+        "copyright_notice": "© Moisés Saman/Magnum Photos 2022 All Rights Reserved",
+        "license": "All Rights Reserved",
+        "copyright_holder": "Moisés Saman/Magnum Photos",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0x6786a3a02c43dc5334b58f416eef60e90292a43b63af00b63116c124822aaf17",
+            "block_number": 15037570,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "foundation_market_escrow",
+            "tx_hash": "0xa5a4bbda1fb5332d5b2aee821afd0c62bfa39cd66e68cb83a551380e7af5dfa4",
+            "block_number": 15088937,
+            "from": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "to": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "receipt_status": "success"
+          },
+          {
+            "role": "current_owner_transfer",
+            "tx_hash": "0x1bd65e9320e334578f7aad039973c78566ca1b5bf84faef800d5560a89fa50d4",
+            "block_number": 25689723,
+            "from": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25690178,
+        "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+        "observed_at": "2026-08-05T17:46:53.817Z",
+        "owner": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "token_uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+      "chain_id": "eip155:1",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "104",
+      "artist": "Lorenzo Meloni",
+      "title": "Palmyra, Syria",
+      "date": 2016,
+      "location": "Palmyra",
+      "country": "Syria",
+      "archive_number": "MEL2016002G0401/4032",
+      "source_notes": [
+        "TIME independently corroborates the same caption and dates the frame 1 April 2016, five days after government and allied forces seized Palmyra from ISIL.",
+        "The photograph records aftermath under Syrian government permission; it does not show the 2015 destruction of the Temple of Bel or support identifying the soldier."
+      ],
+      "edition": "1 of 1",
+      "curation": "2/3",
+      "metadata": {
+        "uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0",
+        "sha256": "sha256:2a093378493e6ea76e5277c1a1d66c36a727bcf20f418b86bf9df90ce0ec0b50",
+        "bytes": 2797,
+        "observed_at": "2026-08-05T17:34:39.310Z"
+      },
+      "image": {
+        "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+        "sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
+        "bytes": 16871807,
+        "observed_at": "2026-08-05T17:34:39.310Z",
+        "media_type": "image/jpeg",
+        "width": 5964,
+        "height": 4768,
+        "preservation_status": "upstream_not_retained"
+      },
+      "rights": {
+        "copyright_notice": "© Lorenzo Meloni/Magnum Photos 2022 All Rights Reserved",
+        "license": "All Rights Reserved",
+        "copyright_holder": "Lorenzo Meloni/Magnum Photos",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0x455147b6272e8924d8559dd8adc8543470e83dc13cba47605afe37b3a566554f",
+            "block_number": 16070363,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "foundation_market_escrow",
+            "tx_hash": "0xb7a7e4612bc2ceef06f7ae430cb53564e3fb0cb19a4478ad45181268903d2c8d",
+            "block_number": 16118509,
+            "from": "0xd8d005f66296068a2efc240f7e5910af52a86ee1",
+            "to": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "receipt_status": "success"
+          },
+          {
+            "role": "current_owner_transfer",
+            "tx_hash": "0x23315ad1425c91df68019f08e1ab92adcadb10cb69d9e5299deafaf1796d1747",
+            "block_number": 25689729,
+            "from": "0xcda72070e455bb31c7690a170224ce43623d0b6f",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25690178,
+        "block_hash": "0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c",
+        "observed_at": "2026-08-05T17:46:53.817Z",
+        "owner": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "token_uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "documents": {
+    "voter_dossier": "records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md",
+    "wave_storm_package": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
+    "wave_resolution": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-resolution.md"
+  },
+  "rights_summary": "All five token metadata records state All Rights Reserved. No token transfer is treated as a copyright, reproduction, publication, display, derivative, or preservation grant. Any later accession must record the rights actually available and the consequence of any unresolved permission.",
+  "technical_summary": "All five token metadata objects and linked JPEGs resolved from Arweave and were SHA-256 verified on 2026-08-05. At finalized Ethereum block 25690178, all five tokens were owned by 0x6daa633c23615a29471deafae351727867e7dad1, had no token-level approval, and resolved to the fixed metadata URIs recorded here. Each token has a three-event mint-to-market-to-current-owner transfer history. The proxy exposes no public upgrade path, but the implementation allows the contract owner or admins to change token URIs or the base URI. The files are upstream public resources and are not retained Museum preservation objects.",
+  "non_claims": [
+    "This candidate ID is not an accession number.",
+    "The offer, repository record, Wave submission, or Wave threshold outcome does not by itself transfer title, establish Museum custody, complete gift acceptance, or accession any token.",
+    "NFT edition 1 of 1 does not assert uniqueness of the underlying photograph, negative, print, file, copyright, or other authorized manifestation.",
+    "Public Arweave availability and hash verification do not establish Museum preservation custody or reproduction rights.",
+    "The curatorial grouping was formed by the donor and is not attributed to Magnum Photos, the five photographers, Azu Nwagbogu, or Alejandro Cartagena."
+  ]
+}

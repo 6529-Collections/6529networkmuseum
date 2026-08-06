@@ -39,6 +39,7 @@ Contract design is in progress; deployment and activation remain pending. See
 | Governance decisions | [`records/governance/decisions.json`](records/governance/decisions.json) | Six adopted decisions and two participatory proposals with no adopted effect at the snapshot |
 | Preapproved donation collections | [`records/collections/approved-collections.json`](records/collections/approved-collections.json) | Autoglyphs, Art Blocks, original Rare Pepes, original CryptoPunks |
 | Accession programs and selected art | [`records/programs/`](records/programs/) | Keys and Gates selection complete; acquisition/accession verification pending |
+| Proposed gifts | [`records/proposed-gifts/`](records/proposed-gifts/) | Public Wave-native candidate packages; no collection status before later formal acceptance and accession |
 | Donations and accession work | [`records/accessions/register.json`](records/accessions/register.json) | Casey REAS seven-work gift accepted and accessioned; post-accession title, finalized-state custody, token-approval, and exact-address compliance diligence complete; autonomous software preservation remains active stewardship |
 | Public scholarship | [`records/accessions/6529NM.2026.001/public/`](records/accessions/6529NM.2026.001/public/) | Casey Reas artist monograph, seven-work collection and gift narratives, five project essays, seven object entries, and the supporting source-and-chronology matrix |
 | Institutional practice | [`records/institutional-practice/`](records/institutional-practice/) | Digital-art-weighted comparative essay, twenty-seven primary-source profiles, a classified chain-native adjacent-practice study, detailed source notes, and [deterministic citation inventory](docs/institutional-source-inventory.json) |
@@ -48,6 +49,7 @@ Contract design is in progress; deployment and activation remain pending. See
 | Museum data architecture | [`docs/data-architecture.md`](docs/data-architecture.md) | Plain-language and machine-readable profile for Spectrum, CIDOC CRM, LIDO, PREMIS, PROV-O, Getty vocabularies, IIIF, C2PA, BagIt, OCFL, and CAIP-19, with the Casey Reas implementation audit and exact seven-object machine schedule |
 | Digital art stewardship | [`docs/digital-art-stewardship-standard.md`](docs/digital-art-stewardship-standard.md) | Work identity, components, artist documentation, manifestations, interventions, preservation packages, reproducibility, service exit, and public/restricted records |
 | Accession standard | [`docs/accession-standard.md`](docs/accession-standard.md) | Museum-rigorous, chain-native profile governed by the Museum data architecture |
+| Proposed gift Wave standard | [`docs/proposed-gift-wave-standard.md`](docs/proposed-gift-wave-standard.md) | Public Storm dossier, decision language, minimum evidence, respectful closure, and accession handoff |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Program media delivery | [`docs/program-media-delivery.md`](docs/program-media-delivery.md) | Deterministic responsive derivatives, source fixity, immutable CDN keys, high-resolution access, rights boundaries, and verification |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
@@ -84,6 +86,7 @@ Run the complete local control plane with:
 python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests -v
 python scripts/bootstrap_validate.py
+python scripts/build_proposed_gift_dossiers.py --check
 python scripts/check_fetch_guard.py
 python scripts/validate_rights_handbook.py
 python scripts/sync_rights_legal_texts.py

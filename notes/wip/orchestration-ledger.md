@@ -2257,13 +2257,23 @@ unminted. The Stream-compatible object rights records are unchanged; the new
 registry supplies a linked external vocabulary without silently extending the
 Stream schema.
 
-Source validation passed the complete Museum and Casey controls, 138 Python
+## 2026-08-05 Museum Storm publication profile
+
+The live Museum Wave and current frontend/backend source were reviewed before preparing the first proposed-gift Storm. The first media item in part one supplies the leaderboard image in both gallery and compact grid readers. Those surfaces use square containers and 450-pixel derivatives on smaller viewports, with a 1,080-pixel derivative available to the larger desktop gallery. The frontend had a 24,000-character total Storm rule despite the backend's 25,000-character allowance for each part. Frontend PR `6529seize-frontend#3630`, exact current head `de72e2689cf03529fac3454cfef936359eff4d3a`, raises the total to 50,000 and enforces the 25,000-character per-part maximum across both composer paths.
+
+The reusable public standard is `docs/wave-storm-publication-standard.md`. It governs source and live-release pins, character and file budgets, first-media order, square-cover design, image rights and alternative text, exact source fixity, preflight, explicit final posting authorization, API readback, leaderboard/full-drop/mobile inspection, and append-only publication recording.
+
+The Magnum proposal now carries a Museum-made 1,600 × 1,600 typographic title card as part-one media item one. A collage was rejected because all five source photographs are All Rights Reserved and the cover does not need to crop or recombine them. The opaque sRGB PNG and editable SVG are retained beside the proposal. The package binds their hashes and the PNG's byte length, dimensions, color profile, credit, CC0-1.0 rights label, and alternative text. Semantic validation enforces the 50,000-character total, eight-file total, cover position, local-path safety, PNG structure and CRCs, no trailing bytes, exact SHA-256, opaque 8-bit truecolor, 1,600-pixel square dimensions, embedded sRGB profile, and SVG source fixity.
+
+No publication action is authorized yet. The final gate remains the donor's explicit approval of the exact merged manuscript and cover, followed by a separate instruction to post. Publication will not include a vote or any on-chain transfer unless separately directed.
+
+Source validation passed the complete Museum and Casey controls, 159 Python
 tests with one intentional skip, program-media and diligence-manifest checks,
 and deterministic release-manifest regeneration. The current source release
 commitments are SHA-256
-`sha256:b6b1d5ddf19c88335b752bc610a1d4020236a3eb4a86a13d52182a29aa22ffb1`
+`sha256:a2708435addbe41f15336dc93a9931a946245a2d9df51660a97542c54c995136`
 and Keccak-256
-`0x11546194ab32ec2553562d48aa21788329da52afa86470812d4c327aa2d3d025`.
+`0x96b8f25c9ce1abdd2676a79aa886dd17b16678942cef11f6deb0361418899b2b`.
 Frontend integration, staged qualification, and production qualification are
 the remaining release gates.
 
@@ -2324,3 +2334,256 @@ source build. Required remaining gates are final manifest regeneration, both
 pull-request review cycles, exact-source frontend build and visual review,
 staging deployment and E2E, production deployment and E2E, and a release note
 to the Dev Team Chat subwave using the `punk6529bot` identity.
+## 2026-08-05 proposed gifts in the Museum Wave
+
+The first proposed-gift package uses the Museum Wave rather than a standing
+website gallery. One seven-part Storm holds the exact resolution, five
+image-led work entries, case, countercase, public chain provenance, rights and
+technical limits, and the governed source edition. The parent drop remains the
+single TDH voting object. An unselected proposal stays in its decision context
+as **closed without selection** and is not exhibited beside artists or Museum
+holdings.
+
+Constructed candidate `6529NM-PG-2026-001` contains Magnum Photos 75 tokens
+`127`, `145`, `97`, `44`, and `104` as one complete gift offered by punk6529.
+Magnum Photos 75 is not in the adopted preapproved-collection register, so the
+current donation policy already requires Museum Wave authorization. A future
+policy amendment is still required before exact-gift Wave review can be stated
+as adopted for preapproved collections.
+
+The package records all five tokenURI values, metadata/image fixity, dimensions,
+three-event transfer histories, and owner/approval state at finalized Ethereum
+block `25,690,178`, hash
+`0x01a42cf70ba13f1ebefa607249fd9009baadb127f2a05fcb6e7573d943cb200c`.
+It also records contract administration and token-URI mutability. The public
+record makes no donor-identity binding, title, rights, transfer, custody,
+acceptance, or accession claim.
+
+`scripts/build_proposed_gift_dossiers.py` deterministically composes the voter
+dossier from Storm source parts. Bootstrap validation now rejects path escape,
+part reordering, missing/duplicate works, object-image mismatch, stale dossier,
+status drift, partial chain observations, broken provenance continuity,
+repeated transfer hashes, media/credit drift, noncanonical document topology,
+reparse-point paths, and disagreement between the opening and closing
+resolutions. The focused proposed-gift suite contains twenty passing tests,
+including the 25,000-character part boundary, 50,000-character Storm boundary,
+eight-media boundary, and title-card fixity mutations.
+No Storm has been posted, no vote has been cast, and no transfer or transaction has been made. The donor has asked the agent to prepare for an eventual authorized publication, but the live post remains gated on explicit approval of the exact final manuscript, cover, and posting action.
+
+Owner review removed the phrase “selects the exact schedule for accession
+processing.” The Wave now decides whether to select the five named tokens as
+one gift. If the threshold is cleared, the gift is selected; identity, donor
+authority, title, rights and technical review, transfer, custody, formal
+acceptance, preservation, and accession follow.
+
+The same review required a full curatorial expansion. The opening Storm part
+now establishes Magnum’s cooperative and photographic history and the precise
+first- and second-release evidence for Magnum Photos 75. Each image-led part
+now includes a sourced photographer profile and explains the work’s place in
+that practice. The affirmative case now argues from institutional history,
+cross-generational photographic practice, group sequence, on-chain object
+specificity, and Museum fit. The countercase remains intact and is followed by
+a point-by-point response covering donor formation, geographic scope,
+vulnerable subjects, archival uncertainty, and retained copyright.
+
+Owner review established the donor-proposed public title as *Conflict at Its
+Edges: Five Photographs of Evidence and Aftermath, 1952–2016*. The neutral
+“five photographs from Magnum Photos 75” wording is now a descriptor, not the
+gift name. The title, subtitle, proposal register, Storm package, opening and
+closing parts, controlling resolution, and generated dossier now agree. The
+title is independent of Nwagbogu's “indecisive moment” and centers the group's
+own concern with the spatial, institutional, evidentiary, and historical edges
+of conflict.
+
+Owner review also identified excessive line spacing throughout the rendered
+review copy. The cause was hard-wrapped Markdown interpreted as visible soft
+breaks. All seven Storm source parts and the controlling resolution now use one
+physical source line per prose paragraph, explicit blank-line separation for
+semantic blocks, and compact one-line object facts. The public standard and
+template now require the same typography.
+
+## 2026-08-05 Storm backend compatibility audit
+
+Exact `6529seize-backend` main
+`972d860d20dd512f4e039ab07350037e332e83be` is incompatible with a standalone
+frontend increase to 25,000 characters per part and 50,000 per Storm. The
+active create route alone rejects aggregate content above 32,768 code units;
+the 35,577-unit Magnum manuscript is 2,809 units over that ceiling. Shared Joi
+validation remains uncapped, so executable probes accepted 25,001-unit parts
+and 50,001-unit totals for create, update, and Wave-description payloads.
+OpenAPI's 25,000-per-part declaration is not runtime enforcement.
+
+The persistence and realtime boundaries require coordinated repair.
+`drops_parts.content` is `TEXT` under `utf8mb4`; strict disposable MySQL 8.3
+accepted 25,000 ASCII characters but rejected 25,000 three-byte and four-byte
+characters. The column must be widened if 25,000 is to mean arbitrary Unicode
+characters. The backend also sends each complete `ApiDrop` as one API Gateway
+WebSocket frame. A minimal exact Magnum `DROP_UPDATE` is 36,652 UTF-8 bytes,
+already 3,884 bytes above the 32-KiB frame ceiling, and non-stale send failures
+are swallowed after logging. The correct compatibility path is a compact
+oversize invalidation/refetch event understood by the frontend before backend
+emission, plus shared create/update/Wave validation and exact boundary,
+Unicode, fixture, and realtime tests.
+
+Baseline verification passed 44 focused backend tests. Frontend PR
+[`#3630`](https://github.com/6529-Collections/6529seize-frontend/pull/3630)
+is fully green at `de72e2689cf03529fac3454cfef936359eff4d3a`, but remains a hold-for-companion-change
+PR. No backend code, database, deployment, Storm post, vote, or transfer was
+mutated.
+
+## 2026-08-05 owner-selected Storm release boundary
+
+The owner selected a no-schema-change contract: each part is limited to both
+25,000 JavaScript UTF-16 code units and 65,535 UTF-8 bytes, while total Storm
+content is limited to 50,000 UTF-16 code units. Exact boundaries are accepted.
+The `TEXT` column remains unchanged. The coordinated release order is frontend
+`DROP_UPDATE_REF` compatibility, backend shared validation and compact-event
+emission, then the frontend 50,000-unit composer increase. Each production
+step follows staging qualification and the final production boundary matrix
+uses only a clearly labeled engineering QA Wave.
+
+The owner deferred the Magnum proposal Wave until tomorrow. No gift proposal,
+vote, or transfer is authorized in this release lane. After production
+qualification, punk6529bot is authorized to post the engineering closeout to
+Follow The Repo (`49f0e595-ec7c-4235-8695-a527f61b69f4`).
+
+The exact reporting destination is the Dev Team Chat child Wave
+`bf945b75-2912-4ce6-b1f5-95b5b667b7c9`. The production QA matrix includes a
+small post, 33,000-unit success, exact 25,000-per-part and 50,000-total success,
+exact 65,535-byte success, and +1 rejections for the unit, byte, and aggregate
+limits. Successful bodies are verified by hashes and API readback; rejected
+bodies must leave the Wave feed unchanged. Full test bodies and credentials
+must never enter logs or durable evidence.
+
+## 2026-08-06 Storm limit release execution
+
+Frontend realtime compatibility PR
+[`#3633`](https://github.com/6529-Collections/6529seize-frontend/pull/3633)
+merged as `f1a8a24937d2557b91f6db1c936ead0736b89dc7`. It reached production inside
+deployed frontend main `81ddbf2a6dce7df785c87d9a3192d3ed7a74f1cf` through workflow
+`31061048126`. Live `/api/version` returned that exact SHA with `stale:false`,
+and manifest-bound production E2E workflow `31061460637` passed. The frontend
+therefore understands `DROP_UPDATE_REF` before the backend can emit it.
+
+The broader staging E2E workflow `31059622531` exposed a test-only Museum
+diagnostic mismatch after 15 of 16 packs passed. Frontend PR
+[`#3636`](https://github.com/6529-Collections/6529seize-frontend/pull/3636)
+aligned only the three exact shared-shell transport diagnostics already accepted
+by a sibling Museum suite. Direct staging replay passed all six data-architecture
+cases on desktop and 390-pixel mobile while all HTTP 5xx responses, page errors,
+deployed 429s, and unrelated console errors remained blocking. The PR merged as
+`68211368a099cc7a4638febbd9346336e16e8a38` after all required checks and zero
+review threads.
+
+Backend limit PR
+[`#1906`](https://github.com/6529-Collections/6529seize-backend/pull/1906)
+merged as `4bcbe53375d8f9742b548c28000c4b2bc2ac0991` after the full 833-test suite,
+backend/API build, DCO, Snyk, Sonar, CodeRabbit, and exact-head 6529bot review
+passed. The API-only staging composition is
+`0e180e98eea1202e7a51605cc64745e1301e2266`, with prior staging
+`691533e5c2a8777a54ef3812e8b468a3f53cc683` and exact main `4bcbe533...` as
+parents. Staging deploy attempt `31062172253` failed closed at authorization
+before credentials or cloud mutation because the earlier frontend staging E2E
+workflow still held the shared actor lease. It will be retried only after that
+workflow is terminal.
+
+Frontend composer PR
+[`#3630`](https://github.com/6529-Collections/6529seize-frontend/pull/3630)
+is refreshed onto frontend main `68211368...` at exact head
+`65c35cc0f0980a36476aef49bc57cef35c9533a7`. Its 42 focused tests, changed
+lint, 1,372-file changed typecheck, format, Help index sync, and whitespace
+checks pass; hosted exact-head CI and reviews are running. It remains held from
+merge until the matching backend is production-qualified.
+
+Independent review withheld live-use approval from the first QA harness and
+identified four concrete P1 defects in WebSocket URL canonicalization, helper
+execution closure pinning, canonical part coordinates, and exact event
+correlation. A separate Luna lane is repairing and adversarially testing those
+issues. No QA Wave, boundary post, Magnum proposal, vote, transfer, or other
+live Wave mutation has occurred.
+
+### Backend production and boundary proof
+
+The previous no-live-mutation statement is superseded for the authorized
+engineering QA only. Backend staging workflow `31062543421` and production
+workflow `31071386850` succeeded for exact backend main
+`4bcbe53375d8f9742b548c28000c4b2bc2ac0991`. Production health reported the
+exact commit with database and Redis healthy.
+
+Two independent Luna reviewers approved the final fail-closed QA harness at
+SHA-256
+`a730294033b2bb1e4895df18bba4e1746153d613b5a3d70f96f7ac7fab5a2fbe`.
+The one disposable production child then proved all four accepted cases and all
+three exact +1 rejections, with canonical HTTP readback, exact 400 contracts,
+three complete realtime frames, and two compact reference frames. The retained
+passed-state evidence is 15,476 bytes, SHA-256
+`9b2922d609d0d6b1ad752fa2f2f41f6fcb991c6b8dacb458ec32a69782a77d0b`.
+
+Exact child deletion returned 200 and readback returned 404; a fresh Follow The
+Repo subwave listing found zero QA remnants. The cleanup receipt SHA-256 is
+`7188d4faf52eff91572fbdaacdc3dbf00a473949b010df580dc581c0ad0da452`.
+No gift proposal, vote, asset transfer, or Magnum Wave publication occurred.
+
+Frontend composer PR #3630 is rebased onto `0aaaa276...` at exact head
+`aae6ca2b7c56938f556d87a93bcbcab740d3663c`. Its local 42-test and changed-file
+quality gates pass; hosted exact-head CI and reviews are the active release gate.
+
+### Frontend composer and independent production evidence closeout
+
+Frontend composer PR
+[`#3630`](https://github.com/6529-Collections/6529seize-frontend/pull/3630)
+merged as `4f5af95a044d8a46af9d549f479a8d59f335d73e`. Exact staging composition
+`1d7a6cf61b01ef40801311423d378e9d5d7ab287` passed deploy `31075590780`,
+automatic dispatch `31076375475`, staging E2E `31076383322`, and retained
+desktop/mobile composer checks. Production deploy `31078927972` succeeded after
+two earlier attempts (`31077347684`, `31077898309`) failed closed before cloud
+mutation under release-lane contention. Live `/api/version` matched
+`4f5af95a044d8a46af9d549f479a8d59f335d73e` three times with `stale:false`, and
+the thirty-minute watch completed without drift.
+
+Automatic production E2E `31079280391` exposed a verifier-checkout defect
+before browser execution. PR
+[`#3645`](https://github.com/6529-Collections/6529seize-frontend/pull/3645)
+merged as `d27148d1dfd85ed8cdaa50239d59ac1e524afdc9`; corrected run `31084933482`
+passed. The workflow was then hardened so untrusted browser evidence is
+verified on a separate clean runner. PR
+[`#3651`](https://github.com/6529-Collections/6529seize-frontend/pull/3651)
+merged as exact main `b11a43d3bd05a480e3e62c296c8ff3c966cabeb9` after App CI `31087742731`
+and all required reviews passed.
+
+Final production E2E
+[`31089652308`](https://github.com/6529-Collections/6529seize-frontend/actions/runs/31089652308)
+passed against deployed app SHA `4f5af95a044d8a46af9d549f479a8d59f335d73e`.
+The read-only runner passed sixteen of sixteen selected packs on first attempt,
+including all five Museum packs, with zero product or infrastructure failures.
+The isolated verifier passed in fourteen seconds. Downloaded evidence:
+
+- immutable selection SHA-256:
+  `6a668937ee1db1ab556223c421d0441ed899651a49a3156bbc63b507ff373d97`;
+- selection digest:
+  `04310c334ad1adefe0d01d4eec47443c6b29784e6b212f620f9ef7c21626a7ed`;
+- accepted `evidence.json` SHA-256:
+  `64b841830928395dc5071eeed3535440a192066aad877a74f8ff89ba120c680a`.
+
+The dependent frontend release lane was explicitly cleared after artifact
+readback. The Storm contract is live and qualified at 25,000 UTF-16 units and
+65,535 UTF-8 bytes per part, and 50,000 UTF-16 units in total, with exact
+boundaries accepted. The production QA Wave was deleted and no
+`storm-limit-qa-*` child remains. The Magnum proposed-gift Wave remains
+unpublished and deferred until the owner's next-day curatorial sign-off.
+
+punk6529bot posted the final technical closeout to Dev Team Chat as drop
+`c5571b13-b112-41ba-92b2-e1223bc1746a`, serial `1275454`. API readback
+confirmed the full report, its single-part content, author `punk6529bot`, and
+destination Wave `bf945b75-2912-4ce6-b1f5-95b5b667b7c9`. No Magnum gift
+proposal was included or published.
+
+## 2026-08-06 Magnum Storm final-review edition
+
+The Storm publication standard was advanced to version 1.1.0 and aligned to the production-qualified three-limit contract: 25,000 UTF-16 code units and 65,535 UTF-8 bytes per part, 50,000 UTF-16 code units in total, and eight media files. The standard now fixes the count to exact UTF-8, LF-only Markdown including the final LF; records 20,000/60,000 per-part and 45,000 aggregate editorial targets; documents first-part/first-media leaderboard selection and `contain` presentation; and states the current alternative-text transport limitation without weakening the repository record or visible close-description requirement.
+
+The Magnum package now carries a schema-governed publication profile with the exact API title `Conflict at Its Edges`, deployed frontend/backend observations, authenticated target-Wave readiness, exact per-part and total metrics, and the leaderboard-cover contract. Semantic validation recomputes those fields, enforces both per-part limits and the aggregate limit using JavaScript-compatible UTF-16 counting, rejects invalid UTF-8, BOMs, CR line endings, and missing final LF, and fails metric drift. Twenty-four focused tests pass, including astral-Unicode and multibyte boundary cases.
+
+Production observations at `2026-08-06T11:18:41.858Z` identified frontend `c807f6da8efea7e39405fba8185de153096bf95d` (`stale:false`) and healthy backend `e1ca97c54d42f83c5f7bd613fcfa5a4476b93eb6`. Authenticated Museum Wave observation at `2026-08-06T11:22:06.296Z` confirmed `punk6529bot` can participate, vote, chat, and administer; the Wave remained open at the 69,000,000 TDH threshold and twenty-four-hour hold/time lock. The exact seven-part edition contains 35,577 UTF-16 units, 35,714 UTF-8 bytes, and six ordered media items.
+
+The 1,600-pixel cover passed visual checks at 1,600, 450, and 267 pixels. All five immutable Arweave work images were re-fetched, matched their recorded SHA-256 hashes, and passed visual-to-caption review. No gift proposal has been posted, no vote has been cast, and no transfer has occurred. Publication remains gated on repository merge, refreshed chain/Wave observations, and the owner's explicit `go` for this exact edition.

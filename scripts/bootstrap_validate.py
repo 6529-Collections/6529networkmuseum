@@ -16,6 +16,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
 from promote_casey_publications import mismatches as casey_publication_mismatches
+from proposed_gifts import proposed_gift_issues
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -121,7 +122,6 @@ BINARY_SECRET_PATTERNS = (
     re.compile(rb"(?i)(?:api[_ -]?key|client[_ -]?secret|private[_ -]?key|seed[_ -]?phrase|mnemonic|password)\s*[:=]\s*['\"]?[A-Za-z0-9_./+\-=]{8,}"),
 )
 BINARY_LOCAL_PATH = re.compile(rb"(?:[A-Za-z]:[\\/](?:Users|repos)[\\/]|\\\\[A-Za-z0-9][A-Za-z0-9_.-]*[\\/][A-Za-z0-9][A-Za-z0-9_.-]*[\\/]|/(?:home|Users|root)/)")
-BINARY_EXECUTABLE_SIGNATURES = (b"MZ", b"\x7fELF", b"#!", b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08", b"<script")
 BINARY_TEXT_MARKERS = ("api", "client", "secret", "private", "seed", "mnemonic", "password", "token", "ghp_", "AKIA", "eyJ", "-----BEGIN", "C:\\", "/Users/", "/home/", "/root/")
 UTF16_SCAN_LIMIT = 65_536
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
@@ -170,8 +170,6 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
     if path.suffix.lower() in EXECUTABLE_SUFFIXES:
         fail(f"raw evidence has executable suffix: {path.relative_to(ROOT)}")
     payload = path.read_bytes()
-    if any(signature.lower() in payload.lower() for signature in BINARY_EXECUTABLE_SIGNATURES):
-        fail(f"raw evidence has executable signature: {path.relative_to(ROOT)}")
     if BINARY_LOCAL_PATH.search(payload) or any(marker in payload for marker in BINARY_SECRET_MARKERS) or any(pattern.search(payload) for pattern in BINARY_SECRET_PATTERNS):
         fail(f"credential-shaped content in raw public evidence: {path.relative_to(ROOT)}")
     for encoding in ("utf-8-sig",):
@@ -201,6 +199,10 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
         fail(f"raw evidence media profile is not admitted: {path.relative_to(ROOT)}")
     if not payload.startswith(PNG_SIGNATURE):
         fail(f"raw evidence media signature does not match {media_type}: {path.relative_to(ROOT)}")
+    # Do not search compressed IDAT bytes for unrelated executable magic.
+    # Random compressed image bytes can contain those short sequences. The
+    # strict chunk walk below validates CRCs and rejects any bytes after IEND,
+    # which is the relevant PNG/polyglot boundary.
     cursor = len(PNG_SIGNATURE)
     saw_ihdr = False
     saw_iend = False
@@ -236,13 +238,46 @@ def validate_binary_evidence(path: Path, entry: dict[str, object]) -> None:
         fail(f"PNG has no complete IHDR/IEND structure: {path.relative_to(ROOT)}")
 
 
-def check_public_record_safety(evidence_entries: dict[Path, dict[str, object]] | None = None) -> None:
+def declared_governed_binary_assets(loaded: dict[Path, object]) -> set[Path]:
+    """Return local publication assets declared by proposed-gift packages."""
+    assets: set[Path] = set()
+    for package_path, package in loaded.items():
+        if package_path.name != "wave-storm.json" or not isinstance(package, dict):
+            continue
+        parts = package.get("parts")
+        if not isinstance(parts, list):
+            continue
+        for part in parts:
+            media = part.get("media") if isinstance(part, dict) else None
+            if not isinstance(media, list):
+                continue
+            for item in media:
+                value = item.get("asset_path") if isinstance(item, dict) else None
+                if not isinstance(value, str) or not value or "\\" in value:
+                    continue
+                relative = PurePosixPath(value)
+                if relative.is_absolute() or any(segment in {"", ".", ".."} for segment in relative.parts):
+                    continue
+                target = (package_path.parent / Path(*relative.parts)).resolve()
+                if target.is_relative_to(package_path.parent.resolve()) and target.is_file():
+                    assets.add(target)
+    return assets
+
+
+def check_public_record_safety(
+    evidence_entries: dict[Path, dict[str, object]] | None = None,
+    governed_binary_assets: set[Path] | None = None,
+) -> None:
     evidence_entries = evidence_entries or {}
+    governed_binary_assets = governed_binary_assets or set()
     for directory in GOVERNED_DIRS:
         root = ROOT / directory
         if not root.exists():
             continue
         for path in sorted(p for p in root.rglob("*") if p.is_file()):
+            if path.resolve() in governed_binary_assets:
+                validate_binary_evidence(path, {"media_type": "image/png"})
+                continue
             try:
                 text = path.read_bytes().decode("utf-8")
             except UnicodeDecodeError as exc:
@@ -562,10 +597,13 @@ def main() -> None:
     loaded = load_json_files()
     check_local_markdown_links()
     evidence_entries = check_evidence_manifests(loaded)
-    check_public_record_safety(evidence_entries)
+    check_public_record_safety(evidence_entries, declared_governed_binary_assets(loaded))
     check_keys_and_gates_duplicate_keys()
     check_declared_schemas(loaded)
     check_record_controls(loaded)
+    proposed_issues = proposed_gift_issues(ROOT, loaded)
+    if proposed_issues:
+        fail("proposed-gift validation failure: " + "; ".join(proposed_issues[:8]))
     check_governance_references(loaded)
     print(f"Museum bootstrap validation passed ({len(loaded)} JSON files checked).")
 

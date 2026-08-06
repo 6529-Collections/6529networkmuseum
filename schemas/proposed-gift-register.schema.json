@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/proposed-gift-register/v1",
+  "title": "6529 Network Museum proposed-gift register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "record_control", "register_id", "snapshot_at", "proposals"],
+  "properties": {
+    "$schema": {"const": "../../schemas/proposed-gift-register.schema.json"},
+    "record_control": {"$ref": "#/$defs/recordControl"},
+    "register_id": {"const": "6529NM-PROPOSED-GIFT-REGISTER"},
+    "snapshot_at": {"type": "string", "format": "date-time"},
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "proposal_id",
+          "title",
+          "status",
+          "object_count",
+          "donor_public_credit",
+          "proposal_record",
+          "wave_status",
+          "collection_status_effect"
+        ],
+        "properties": {
+          "proposal_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}$"},
+          "title": {"type": "string", "minLength": 1},
+          "status": {"$ref": "#/$defs/status"},
+          "object_count": {"type": "integer", "minimum": 1},
+          "donor_public_credit": {"type": "string", "minLength": 1},
+          "proposal_record": {"type": "string", "pattern": "^[A-Za-z0-9._/-]+/proposal\\.json$"},
+          "wave_status": {"enum": ["not_submitted", "open", "selected", "closed_without_selection", "withdrawn"]},
+          "collection_status_effect": {"const": "none_until_later_formal_acceptance_and_accession"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "enum": [
+        "draft",
+        "not_submitted",
+        "open",
+        "selected",
+        "closed_without_selection",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "recordControl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "record_status": {"enum": ["constructed", "reviewed"]},
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": {"type": "string", "minLength": 1},
+            "role": {"const": "constructor"},
+            "constructed_at": {"type": "string", "format": "date-time"}
+          }
+        },
+        "review": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["actor_id", "role", "reviewed_at", "reviewed_commit", "outcome", "payload_sha256"],
+              "properties": {
+                "actor_id": {"type": "string", "minLength": 1},
+                "role": {"const": "reviewer"},
+                "reviewed_at": {"type": "string", "format": "date-time"},
+                "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+                "outcome": {"const": "approved"},
+                "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"record_status": {"const": "constructed"}}},
+          "then": {"properties": {"review": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"record_status": {"const": "reviewed"}}},
+          "then": {"properties": {"review": {"type": "object"}}}
+        }
+      ]
+    }
+  }
+}

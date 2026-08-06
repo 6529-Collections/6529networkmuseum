@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/proposed-gift-wave-package/v1",
+  "title": "6529 Network Museum proposed-gift Wave Storm package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "status",
+    "target_wave",
+    "drop_title",
+    "single_voting_object",
+    "publication_profile",
+    "parts",
+    "submission_notes"
+  ],
+  "properties": {
+    "$schema": {"const": "../../../schemas/proposed-gift-wave-package.schema.json"},
+    "record_control": {"$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"},
+    "record_type": {"const": "PROPOSED_GIFT_WAVE_PACKAGE"},
+    "schema_profile": {"const": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1"},
+    "proposal_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}$"},
+    "status": {
+      "enum": [
+        "draft",
+        "not_submitted",
+        "open",
+        "selected",
+        "closed_without_selection",
+        "withdrawn",
+        "superseded"
+      ]
+    },
+    "target_wave": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wave_id", "wave_name", "wave_type", "credit_type", "credit_scope"],
+      "properties": {
+        "wave_id": {"type": "string", "format": "uuid"},
+        "wave_name": {"const": "6529 Network Museum"},
+        "wave_type": {"const": "APPROVE"},
+        "credit_type": {"const": "TDH"},
+        "credit_scope": {"const": "DROP"}
+      }
+    },
+    "drop_title": {"type": "string", "minLength": 1, "maxLength": 250},
+    "single_voting_object": {"const": true},
+    "publication_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "source_text_encoding",
+        "source_line_endings",
+        "counting_basis",
+        "limits",
+        "editorial_targets",
+        "observed_production",
+        "target_observation",
+        "part_metrics",
+        "totals",
+        "leaderboard"
+      ],
+      "properties": {
+        "profile": {"const": "6529NM_WAVE_STORM_PUBLICATION_V1"},
+        "source_text_encoding": {"const": "UTF-8"},
+        "source_line_endings": {"const": "LF"},
+        "counting_basis": {"const": "raw_markdown_including_final_lf"},
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "per_part_utf16_code_units",
+            "per_part_utf8_bytes",
+            "total_utf16_code_units",
+            "total_media_files"
+          ],
+          "properties": {
+            "per_part_utf16_code_units": {"const": 25000},
+            "per_part_utf8_bytes": {"const": 65535},
+            "total_utf16_code_units": {"const": 50000},
+            "total_media_files": {"const": 8}
+          }
+        },
+        "editorial_targets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "per_part_utf16_code_units",
+            "per_part_utf8_bytes",
+            "total_utf16_code_units"
+          ],
+          "properties": {
+            "per_part_utf16_code_units": {"const": 20000},
+            "per_part_utf8_bytes": {"const": 60000},
+            "total_utf16_code_units": {"const": 45000}
+          }
+        },
+        "observed_production": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["frontend_commit", "backend_commit", "observed_at"],
+          "properties": {
+            "frontend_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "backend_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "observed_at": {"type": "string", "format": "date-time"}
+          }
+        },
+        "target_observation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "observed_at",
+            "posting_profile_handle",
+            "wave_open",
+            "eligible_to_participate",
+            "eligible_to_vote",
+            "eligible_to_chat",
+            "admin",
+            "winning_threshold",
+            "winning_threshold_min_duration_ms",
+            "time_lock_ms",
+            "signature_required"
+          ],
+          "properties": {
+            "observed_at": {"type": "string", "format": "date-time"},
+            "posting_profile_handle": {"type": "string", "minLength": 1},
+            "wave_open": {"const": true},
+            "eligible_to_participate": {"const": true},
+            "eligible_to_vote": {"type": "boolean"},
+            "eligible_to_chat": {"type": "boolean"},
+            "admin": {"type": "boolean"},
+            "winning_threshold": {"type": "integer", "minimum": 1},
+            "winning_threshold_min_duration_ms": {"type": "integer", "minimum": 0},
+            "time_lock_ms": {"type": "integer", "minimum": 0},
+            "signature_required": {"type": "boolean"}
+          }
+        },
+        "part_metrics": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["part_number", "utf16_code_units", "utf8_bytes", "media_count"],
+            "properties": {
+              "part_number": {"type": "integer", "minimum": 1},
+              "utf16_code_units": {"type": "integer", "minimum": 1, "maximum": 25000},
+              "utf8_bytes": {"type": "integer", "minimum": 1, "maximum": 65535},
+              "media_count": {"type": "integer", "minimum": 0, "maximum": 1}
+            }
+          }
+        },
+        "totals": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["utf16_code_units", "utf8_bytes", "media_count"],
+          "properties": {
+            "utf16_code_units": {"type": "integer", "minimum": 1, "maximum": 50000},
+            "utf8_bytes": {"type": "integer", "minimum": 1},
+            "media_count": {"type": "integer", "minimum": 0, "maximum": 8}
+          }
+        },
+        "leaderboard": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["media_selection", "cover_part_number", "cover_media_index", "object_fit", "preview_checks_px"],
+          "properties": {
+            "media_selection": {"const": "parts[0].media[0]"},
+            "cover_part_number": {"const": 1},
+            "cover_media_index": {"const": 0},
+            "object_fit": {"const": "contain"},
+            "preview_checks_px": {"const": [267, 450, 1600]}
+          }
+        }
+      }
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["part_number", "role", "title", "markdown_path", "media"],
+        "properties": {
+          "part_number": {"type": "integer", "minimum": 1},
+          "role": {"enum": ["resolution", "work", "synthesis"]},
+          "title": {"type": "string", "minLength": 1},
+          "markdown_path": {"type": "string", "pattern": "^public/wave-storm/[0-9]{2}-[a-z0-9-]+\\.md$"},
+          "candidate_object_id": {"type": "string", "pattern": "^6529NM-PG-[0-9]{4}-[0-9]{3}\\.OBJ-[0-9]{3}$"},
+          "media": {
+            "type": "array",
+            "maxItems": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"role": {"const": "work"}}},
+            "then": {
+              "required": ["candidate_object_id"],
+              "properties": {
+                "media": {
+                  "minItems": 1,
+                  "items": {"$ref": "#/$defs/workMedia"}
+                }
+              }
+            }
+          },
+          {
+            "if": {"properties": {"role": {"const": "resolution"}}},
+            "then": {
+              "properties": {
+                "media": {
+                  "minItems": 1,
+                  "items": {"$ref": "#/$defs/coverMedia"}
+                }
+              }
+            }
+          },
+          {
+            "if": {"properties": {"role": {"const": "synthesis"}}},
+            "then": {"properties": {"media": {"maxItems": 0}}}
+          }
+        ]
+      }
+    },
+    "submission_notes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  },
+  "$defs": {
+    "workMedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "media_type", "alt_text", "credit_line", "rights_label"],
+      "properties": {
+        "uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/"},
+        "media_type": {"const": "image/jpeg"},
+        "alt_text": {"type": "string", "minLength": 1},
+        "credit_line": {"type": "string", "minLength": 1},
+        "rights_label": {"const": "All Rights Reserved"}
+      }
+    },
+    "coverMedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_path",
+        "source_asset_path",
+        "media_type",
+        "width",
+        "height",
+        "byte_length",
+        "sha256",
+        "source_sha256",
+        "color_profile",
+        "opaque",
+        "alt_text",
+        "credit_line",
+        "rights_label"
+      ],
+      "properties": {
+        "asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.png$"},
+        "source_asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.svg$"},
+        "media_type": {"const": "image/png"},
+        "width": {"const": 1600},
+        "height": {"const": 1600},
+        "byte_length": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "color_profile": {"const": "sRGB IEC61966-2.1"},
+        "opaque": {"const": true},
+        "alt_text": {"type": "string", "minLength": 1},
+        "credit_line": {"type": "string", "minLength": 1},
+        "rights_label": {"const": "CC0-1.0"}
+      }
+    }
+  }
+}
