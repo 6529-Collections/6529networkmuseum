@@ -15,8 +15,8 @@
   "proposal_id": "6529NM-PG-2026-001",
   "title": "Conflict at Its Edges",
   "subtitle": "Five Photographs of Evidence and Aftermath, 1952–2016",
-  "status": "not_submitted",
-  "status_as_of": "2026-08-06T11:22:06.296Z",
+  "status": "open",
+  "status_as_of": "2026-08-06T13:19:30.726Z",
   "offer": {
     "donor_public_credit": "Offered by punk6529",
     "acquisition_method": "donation",
@@ -41,12 +41,12 @@
     "credit_scope": "DROP",
     "winning_threshold": 69000000,
     "winning_threshold_min_duration_ms": 86400000,
-    "observed_at": "2026-08-06T11:22:06.296Z",
+    "observed_at": "2026-08-06T13:19:12.695Z",
     "proposal_drop": {
-      "drop_id": null,
-      "serial_no": null,
-      "status": "not_submitted",
-      "status_observed_at": "2026-08-06T11:22:06.296Z"
+      "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+      "serial_no": 1276093,
+      "status": "PARTICIPATORY",
+      "status_observed_at": "2026-08-06T13:19:30.726Z"
     }
   },
   "contract_observation": {

@@ -2587,3 +2587,20 @@ The Magnum package now carries a schema-governed publication profile with the ex
 Production observations at `2026-08-06T11:18:41.858Z` identified frontend `c807f6da8efea7e39405fba8185de153096bf95d` (`stale:false`) and healthy backend `e1ca97c54d42f83c5f7bd613fcfa5a4476b93eb6`. Authenticated Museum Wave observation at `2026-08-06T11:22:06.296Z` confirmed `punk6529bot` can participate, vote, chat, and administer; the Wave remained open at the 69,000,000 TDH threshold and twenty-four-hour hold/time lock. The exact seven-part edition contains 35,577 UTF-16 units, 35,714 UTF-8 bytes, and six ordered media items.
 
 The 1,600-pixel cover passed visual checks at 1,600, 450, and 267 pixels. All five immutable Arweave work images were re-fetched, matched their recorded SHA-256 hashes, and passed visual-to-caption review. No gift proposal has been posted, no vote has been cast, and no transfer has occurred. Publication remains gated on repository merge, refreshed chain/Wave observations, and the owner's explicit `go` for this exact edition.
+
+## 2026-08-06 Magnum proposed-gift publication
+
+The owner supplied the explicit publication instruction. Museum PR
+[#31](https://github.com/6529-Collections/6529networkmuseum/pull/31) merged after
+exact-head Museum validation and deterministic Ubuntu/Windows checks as
+`eb95dfc02f05f220232f770a6d9ab33d50eed38b`. Fresh Wave and read-only finalized
+chain preflight passed. `punk6529bot` then created the single seven-part
+`PARTICIPATORY` Storm through the authenticated API as drop
+[`002bfa4f-8416-48bf-b35e-38f354e9a9f0`](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0),
+serial `1276093`. API verification matched the exact seven source parts and six
+media records, with rating and raters both zero.
+
+Desktop and 390-pixel browser acceptance confirmed the leaderboard cover, all
+five photographs, complete source text, no horizontal overflow, and no console
+errors. No vote, transfer, selection, formal acceptance, or accession occurred.
+The proposal is now open for the Wave's TDH decision.

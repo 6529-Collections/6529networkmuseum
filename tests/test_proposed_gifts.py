@@ -236,7 +236,7 @@ class ProposedGiftValidationTests(unittest.TestCase):
 
     def test_rejects_register_status_drift(self) -> None:
         issues = self.issues_after(
-            lambda loaded: loaded[self.register_path]["proposals"][0].update({"wave_status": "open"})
+            lambda loaded: loaded[self.register_path]["proposals"][0].update({"wave_status": "selected"})
         )
         self.assertTrue(any("Wave status does not match" in issue for issue in issues))
 
