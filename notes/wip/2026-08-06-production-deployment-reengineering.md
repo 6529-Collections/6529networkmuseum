@@ -1140,3 +1140,27 @@ completion or control-plane bypass.
 Dev Team Wave monitoring remained active on a five-minute cadence. Drop
 `1281474` recorded the final architecture/status checkpoint before the backend
 production proof; no new external team objection appeared before completion.
+
+## Amendment: final release status
+
+- amendment ID: `deployment-reengineering-closeout-2026-08-07`
+- recorded at: `2026-08-07T22:30:05Z`
+- supersedes: the status claims in the opening summary, **Architecture under
+  review**, and every later gate section that describes the release as active,
+  pending, blocked, provisional, or incomplete
+- preserves: every run-time observation, failed-run account, decision,
+  artifact identity, digest, timestamp, timing measurement, and historical
+  checkpoint above
+
+The superseded passages remain in place as a chronological engineering record.
+Their status language describes the release at the time each passage was
+written. The final release status is complete. Frontend production serves exact
+SHA `4d870d0f7d579d5c950eae5321d7008e522b88c1`; controller `31221425555`,
+automatic Production E2E `31222473935`, and automatic authority completion
+`31223189513` all succeeded. Backend production serves exact SHA
+`092ea6218fbb29afbb311ecd2ee2ef31f3184d15`; deploy `31223892606` generated
+the valid success-evidence artifact and automatic completion `31224018833`
+verified it and released authority. The production product and control-plane
+gates described by this ledger are closed. Repeated clean releases remain
+necessary before treating the single 28m15s observation as a percentile or
+service-level measure.
