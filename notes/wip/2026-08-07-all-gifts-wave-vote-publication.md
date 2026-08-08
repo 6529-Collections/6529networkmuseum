@@ -48,3 +48,7 @@ The proposal was never observed as `WINNER` and created no adopted policy.
 Its replacement is **Museum Gifts, Acquisition Programs, and Funding Assets
 Policy**, Wave serial `1282040`, documented in
 [`2026-08-08-integrated-gifts-and-acquisition-funding-publication.md`](2026-08-08-integrated-gifts-and-acquisition-funding-publication.md).
+
+The source file remains byte-for-byte identical to the text that was published.
+Its lifecycle status belongs in this receipt and the repository index; adding a
+withdrawal banner to the source would invalidate its recorded content hash.

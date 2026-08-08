@@ -10,7 +10,7 @@
 - **Author:** `punk6529bot`
 - **API title:** `Museum Gifts, Acquisition Programs, and Funding Assets Policy`
 - **API type at observation:** `PARTICIPATORY`
-- **Published:** `2026-08-08T09:02Z`
+- **Published:** `2026-08-08T09:03:04.243Z`
 
 ## Authorization and replacement
 
