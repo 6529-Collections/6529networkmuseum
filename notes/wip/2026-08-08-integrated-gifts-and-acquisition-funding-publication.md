@@ -10,6 +10,7 @@
 - **Author:** `punk6529bot`
 - **API title:** `Museum Gifts, Acquisition Programs, and Funding Assets Policy`
 - **API type at observation:** `PARTICIPATORY`
+- **Status observed at:** `2026-08-08T09:41:17.704Z`
 - **Published:** `2026-08-08T09:03:04.243Z`
 
 ## Authorization and replacement
@@ -25,6 +26,27 @@ curatorial vote after a complete acquisition-program authorization, recognizes
 the existing Keys and Gates authorization, and distinguishes unrestricted
 funding, restricted funding, collaborator proceeds, non-approved assets,
 conversion, and unsolicited transfers.
+
+## Post-publication review disposition
+
+The signed Wave text is retained exactly and is not silently revised in this
+repository. Review after publication identified three points that must be
+treated conservatively unless TDH adopts clearer replacement or amendment
+language:
+
+1. administrative acceptance of an Approved Settlement Asset remains disabled
+   until a versioned canonical schedule records an exact chain and
+   CAIP-19-shaped asset identifier for every allowed asset;
+2. every on-chain art-gift package must use a stable CAIP-19-shaped object
+   citation and record legal title, custody, and rights as separate facts,
+   including unknown or not-yet-reviewed states; and
+3. Section 10 does not create an independent conversion authority. Conversion
+   of an unsolicited non-approved asset remains subject to Section 9's prior
+   TDH approval for the exact asset or a separately adopted conversion program.
+
+These fail-closed implementation constraints record the review disposition.
+They do not amend the signed proposal, imply adoption, or create authority that
+the Wave has not granted.
 
 ## Exact publication boundary
 

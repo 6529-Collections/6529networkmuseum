@@ -2640,3 +2640,12 @@ bytes, and SHA-256
 Rating and raters were zero at publication; the bot cast no vote. The proposal
 remains open and has no adopted-policy effect unless the live API later reports
 `WINNER`.
+
+Authenticated readback at `2026-08-08T09:41:17.704Z` again returned
+`PARTICIPATORY`; no adoption is inferred from rank, rating, or elapsed time.
+Post-publication review also recorded three fail-closed operational
+dispositions without changing the signed Wave text: administrative settlement
+asset acceptance awaits a versioned exact-identifier schedule; on-chain art
+packages require CAIP-19-shaped identity plus separate title, custody, and
+rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
+conversion of unsolicited non-approved assets.
