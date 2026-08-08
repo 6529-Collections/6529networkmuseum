@@ -40,4 +40,4 @@ Public technical material supports San Roque Dam’s site and a 1944 dam phase. 
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/zoku.md) · [Previous: *Nowhere To Esc.*](nowhere-to-esc.md) · [Next: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/zoku.md) · [Previous: *Now Is Our Time*](now-is-our-time.md) · [Next: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)

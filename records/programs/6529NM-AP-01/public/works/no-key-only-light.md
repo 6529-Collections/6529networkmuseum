@@ -42,4 +42,4 @@ The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and 
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/intrepid.md) · [Previous: *Managed Freedom*](managed-freedom.md) · [Next: *Residual Barrier*](residual-barrier.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/intrepid.md) · [Previous: *Take the Key!*](take-the-key.md) · [Next: *Rusted*](rusted.md)

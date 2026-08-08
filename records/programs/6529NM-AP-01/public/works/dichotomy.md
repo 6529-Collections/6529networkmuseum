@@ -42,4 +42,4 @@ The submission places the image in Rajahmundry and identifies a DJI drone. The [
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/rakesh.md) · [Previous: *the cost of open*](the-cost-of-open.md) · [Next: *Now Is Our Time*](now-is-our-time.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/rakesh.md) · [Previous: *the cost of open*](the-cost-of-open.md) · [Next: *Residual Barrier*](residual-barrier.md)

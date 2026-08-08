@@ -93,7 +93,7 @@ The historical visual descriptions and their typed projections are documented in
 
 The public page renders OUT-015 as **মুক্তিযুদ্ধ - Fight for Freedom**, following the exact UTF-8 title in the retained artist submission/media evidence. `selected-works.json` remains the source-layer title record; this page records the display transcription and its direct evidence without claiming corruption or silently rewriting the canonical JSON.
 
-The same source discipline applies to other title or credit questions: OUT-002 preserves the submitted `teh` spelling pending artist confirmation; `GulYildiz`/`Gül Yıldız`, `pandelic`/Eric Pan, `Minalisa`/Mina Rahmani, `shamspranto`/Shams Nayeem Pranto, and `Veerendra`/Veerendra Jillella are displayed as source-layer associations with unresolved authority questions where indicated.
+The same source discipline applies to other title or credit questions: OUT-002 preserves the submitted `teh` spelling pending artist confirmation; the `GulYildiz`/`Gül Yıldız` association is supported by the signed submission and Fujifilm profile; `pandelic`/Eric Pan, `Minalisa`/Mina Rahmani, `shamspranto`/Shams Nayeem Pranto, and `Veerendra`/Veerendra Jillella remain source-layer associations with unresolved authority questions where indicated.
 
 ## WP-1 integration dependencies
 

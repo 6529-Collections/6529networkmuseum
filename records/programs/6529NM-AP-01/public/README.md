@@ -4,7 +4,7 @@ This directory is the initial public-facing scholarship layer for the Keys and G
 
 ## Publication status
 
-Keys and Gates is a public photographic acquisition page linked to Curated Acquisition `6529NM-CA-2026-002` and Acquisition Program `6529NM-AP-01`. It presents sixteen photographs selected in 2026. Visitor state: **Selected through the Keys and Gates acquisition program; acquisition pending. Mint pending.** The supporting institutional record retains the formal lifecycle evidence and registrar boundary.
+Keys and Gates is a public photographic acquisition page linked to Curated Acquisition `6529NM-CA-2026-002` and Acquisition Program `6529NM-AP-01`. It presents sixteen photographs selected in 2026. Visitor state: **Selected through the Keys and Gates acquisition program; acquisition pending. Not yet minted; minting route under consideration.** The supporting institutional record retains the formal lifecycle evidence and registrar boundary.
 
 The public catalogue is linked to Acquisition Program `6529NM-AP-01` and its program Wave. It does not replace or amend the canonical program and outcome records.
 
@@ -53,7 +53,7 @@ Each work page separates:
 3. what public sources independently support; and
 4. what remains unknown or requires registrar confirmation.
 
-Artist intent is attributed to the artist's submission. Public biographical material is source-graded and kept minimal where identity or biography is unresolved. The pages avoid publishing private contact information, legal identity assumptions, sensitive location detail, passport data, or consent instruments.
+Artist intent is attributed to the artist's submission. Public biographical material is source-graded and kept minimal where identity or biography is unresolved. The pages avoid publishing private contact information, legal identity assumptions, sensitive location detail, document identifiers, or consent instruments.
 
 ## Media boundary
 

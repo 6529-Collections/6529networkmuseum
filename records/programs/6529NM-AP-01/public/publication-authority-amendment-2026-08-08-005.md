@@ -7,10 +7,14 @@
 **Issued:** 8 August 2026
 **Constructor:** 6529 Network Museum, Curatorial Research and Registrar
 **Scope:** all sixteen selected Keys and Gates outcomes, current provisional editorial edition
+**Independent exact-commit review:** pending; reviewer identity and review time are not asserted in this candidate record
 
-This amendment records the completed registrar disposition for the current
-limited public catalogue. It is an authority record for a defined editorial
-display, not a rights grant, acquisition act, accession, or Collection record.
+This amendment records the completed operational registrar disposition for the
+current limited public catalogue as a candidate publication authority. It is an
+authority record for a defined editorial display, not a rights grant, acquisition
+act, accession, or Collection record. The candidate remains review-pending until
+a fresh independent reviewer checks this exact commit; no independent approval
+is claimed here.
 It corrects the publication-layer contradiction between the retained program
 and submission evidence, which supports a public catalogue, and the earlier
 qualified wording that treated the presentation authorization as unresolved.
@@ -112,6 +116,7 @@ dignity risk govern each work's treatment.
 
 ## Revision history
 
-- **1 · 8 August 2026:** Recorded the completed all-sixteen limited editorial-
-  display determination, its evidence basis, per-work scope, and separation
-  from rights, acquisition, accession, and Collection controls.
+- **1 · 8 August 2026:** Recorded the operational all-sixteen limited
+  editorial-display determination as a review-pending candidate, its evidence
+  basis, per-work scope, and separation from rights, acquisition, accession,
+  and Collection controls.

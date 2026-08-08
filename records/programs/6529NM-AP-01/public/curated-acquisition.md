@@ -4,7 +4,7 @@
 
 The group begins with gates made of light: a blue patterned screen in a stone hall, a passage opening into glare, a ruined sequence of arches, and a small house glowing behind a warning sign. It then moves into systems that organize movement—traffic, a horse herd, a reservation-only landscape, and an aerial boundary between homes and palms. These images make access visible as pace, scale, and distance, with each threshold regulating more than the line between inside and out.
 
-The next movement is historical and infrastructural. A weathered wall carries graffiti after its barrier has weakened; an industrial compound holds a collective declaration; a spillway turns pressure into managed water; a train window frames two women against the memory of liberation. The final works place the checkpoint in the body and the interface: a refrigerator, a concealed torso, a small booklet or document held in a theatrical room, and an “Esc” key that promises an exit to a subject too small to use it.
+The next movement is historical and infrastructural. A weathered wall carries graffiti after its barrier has weakened; an industrial compound carries painted words; a spillway turns pressure into managed water; a train window frames two women against the memory of liberation. The final works place the checkpoint in the body and the interface: a refrigerator, a concealed torso, a small booklet or document held in a theatrical room, and an “Esc” key that promises an exit to a subject too small to use it.
 
 Taken together, the photographs keep freedom open as a live question. They show how an opening can filter, how a road can be open and still rationed, how a document can enable passage while exposing a person, and how a house can remain visible from the wrong side of a gate. Staged images, documentary views, collage, long exposure, and focus stacking make different kinds of access visible. The [research publication](curatorial-essay.md), *Access, Control, and Exit*, follows those formal and historical relations through sustained close readings.
 
@@ -31,7 +31,7 @@ HugoFaz appears twice in the selected group, in OUT-002 and OUT-011. Each work h
 > Curated Acquisition ID: `6529NM-CA-2026-002`  
 > Selected works: **16**  
 > Visitor state: **Selected through an acquisition program; acquisition pending**  
-> Mint qualifier: **Mint pending**  
+> Mint qualifier: **Not yet minted; minting route under consideration**
 > Artist count: **15**  
 > Collection relationship: **Not in the permanent Collection; no accession recorded.**
 

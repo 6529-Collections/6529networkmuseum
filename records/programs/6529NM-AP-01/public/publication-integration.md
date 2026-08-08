@@ -81,7 +81,7 @@ After WP-1 supplies the canonical entity shape, admit the following relations wi
       -> interprets -> Curated Acquisition 6529NM-CA-2026-002
       -> discusses -> Work and Artist entities
 
-The relation set must not create an accession, title binding, custody event, mint, token, purchase, or rights grant. The visitor status remains: **Selected through the Keys and Gates acquisition program; acquisition pending. Mint pending.**
+The relation set must not create an accession, title binding, custody event, mint, token, purchase, or rights grant. The visitor status remains: **Selected through the Keys and Gates acquisition program; acquisition pending. Not yet minted; minting route under consideration.**
 
 ## Integration acceptance checks
 

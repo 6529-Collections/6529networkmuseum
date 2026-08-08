@@ -1,10 +1,10 @@
 # Access, Control, and Exit
 
-Sixteen photographs selected in 2026 ask how a promise of passage becomes visible: as a band of light, a timed road, a wall’s afterlife, a document, a body, or a key that fails to complete a word. Their strongest comparisons appear where a generous view carries a strict condition. The images hold that interval open, giving access a surface while showing the labour, timing, memory, and proof that surface conceals.
+Sixteen photographs selected in 2026 move across four registers: apertures and exits, managed movement, residual infrastructures, and bodies and interfaces. A blue patterned screen, a fort passage, a tub in traffic, a horse herd, a reserved landscape, a palm boundary, a weathered wall, a spillway, train windows, a refrigerator, a concealed torso, a document, and a separated Esc key give the argument its materials.
 
-The sequence follows the catalogue’s curatorial order. Four registers guide the reading: aperture, managed movement, residue, and credential. Each register changes the scale of the gate while keeping the question exact—who sees, who moves, what remains, and what must be shown before passage is recognized.
+The sequence follows the catalogue’s curatorial order. The first group measures light and distance; the second puts routes and bodies under pressure; the third follows control into walls, sites, water, and public memory; the fourth brings those questions into domestic space, the pictured body, and the interface. Close looking keeps the comparisons attached to each photograph.
 
-## Aperture and threshold
+## Apertures and exits
 
 In GulYildiz’s [*Take the Key!*](works/take-the-key.md), a small figure stands before a tall patterned screen inside a stone interior. Blue geometry breaks daylight into long bands across the floor. The screen has the authority of a wall and the behaviour of a filter: it admits brightness in pieces and keeps the figure at a distance from whatever lies beyond. The artist links the image to knowledge, authority, digital sovereignty, and self-custody. The photograph gives those ideas an optical structure before any claim is resolved.
 
@@ -24,17 +24,17 @@ Priyanka’s [*the cost of open*](works/the-cost-of-open.md) offers the most con
 
 Rakesh Pulapa’s aerial [*Dichotomy.*](works/dichotomy.md) compresses movement into a diagram. Dense roofs meet a regimented palm plantation along an edge drawn almost ruler-straight across the frame. The submission calls the cultivated side a prison garden and the other side a neighbourhood; the facility remains unidentified in the public record. From above, land use becomes pattern, and the question of access includes the unequal viewpoints from which a boundary can be mapped.
 
-## Residue after control
+## Residual infrastructures
 
 In ikertje’s [*Residual Barrier*](works/residual-barrier.md), a weathered concrete wall holds the lower edge of a pale sky. Graffiti and surface damage interrupt its mass, while the horizontal line keeps the old force of a barrier present in the eye. The particular Berlin Wall segment remains unidentified in the public record. Its subject is the persistence of a boundary as material and memory after the exact site and original function have receded.[^3]
 
-pandelic’s [*Now Is Our Time*](works/now-is-our-time.md) locates residue in a changing industrial compound. Barred openings, lamps, layered graffiti, and the painted sentence occupy one black-and-white field. RAW-Gelände’s documented movement from railway repair works through shutdown, cultural use, and redevelopment gives the site a history of changing access; the image holds the slogan inside that unstable property story. The words claim the present, while the building records how quickly a present can become a contested layer.
+pandelic’s [*Now Is Our Time*](works/now-is-our-time.md) locates residue in a changing industrial compound. Barred openings, lamps, layered graffiti, and the painted sentence occupy one black-and-white field. RAW-Gelände’s documented movement from railway repair works through shutdown, cultural use, and redevelopment gives the site a history of changing access; the image holds the slogan inside that unstable property story. The painted words occupy the present frame, while the building records how quickly a present can become a contested layer.
 
 Zoku’s [*Morning Glory*](works/morning-glory.md) looks up through a dark, fluted spillway. Water radiates from a centre below the frame and gathers the light into a narrow opening of sky. The artist describes an automated pressure-regulation system at San Roque Dam. Public technical material supports a 1944 dam phase; the particular component, operating conditions, and full automation claim remain attributed to the submission.[^4] The photograph’s formal insight survives that qualification: the mechanism is felt through water and repeated concrete while the operator disappears.
 
 In shamspranto’s [*মুক্তিযুদ্ধ - Fight for Freedom*](works/fight-for-freedom.md), two women lean from separate windows of a weathered teal train. One meets the outside with her face; the other shields part of hers with an orange head covering. A torn poster enters below them, its provenance and relation to the Liberation War unresolved. The Bangla title invokes the 1971 historical frame, while the contemporary collage keeps the scene in the present. Windows, tracks, and poster divide public movement from private memory; the source of the image’s history remains unsettled.
 
-## Credential and exposure
+## Bodies and interfaces
 
 GIANT’s [*The Hostile Gate*](works/the-hostile-gate.md) brings the gate into a kitchen. A shirtless figure opens a refrigerator covered in colourful magnets; the door releases a pale vertical light, and the sparse interior refuses the comfort the appliance promises. In the artist’s self-portrait project, the domestic gesture carries appetite, body image, and self-judgement. The photograph keeps the threshold close to the hand: access to provision is also a moment of self-measurement.
 
@@ -44,11 +44,11 @@ In [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), HugoFaz places t
 
 arsonic’s [*Nowhere To Esc.*](works/nowhere-to-esc.md) reduces the credential to keyboard scale. Black keys spell “NO / WHERE / TO,” while the Esc key sits apart beside a small ant. The separation changes the phrase’s rhythm: the command is readable, and the promised exit remains physically displaced. The ant supplies a vulnerable scale against the hard certainty of the keys. Interface language becomes a still life about an exit that exists as a sign before it exists as a route.
 
-## The interval between invitation and permission
+## A material comparison
 
-Across the four registers, the group assigns permission different materials. Light is filtered by a screen and a doorway. Movement is timed by traffic, herd, route, reservation, and aerial viewpoint. Concrete and industrial walls carry authority into their afterlife. Bodies, documents, fabric, and keyboard marks ask to be read while withholding part of what would make passage conclusive.
+Read in curatorial order, the group moves from openings that admit light to routes that choreograph bodies, then to infrastructures whose former controls survive as wall, industrial site, spillway, and train. The final register brings the question into the body and the interface: a refrigerator door, a concealed torso, a document, and an Esc key.
 
-That comparison gives the group its pressure. Freedom appears in several forms and the gate takes several shapes. Visibility, movement, memory, and proof are distributed across distinct situations, and a photograph can hold the exact interval where a view invites entry while its conditions remain outside the frame.
+The comparison stays material and specific. Light breaks into bands; traffic and herds set competing tempos; the lake and palm boundary expose access systems beyond the frame; walls, water, and train windows carry histories forward; bodies and objects make proof visible. Freedom here is a changing visual condition, encountered through scale, timing, residue, and the things a photograph asks us to read.
 
 ## Notes and source record
 

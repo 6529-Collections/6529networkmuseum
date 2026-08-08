@@ -27,7 +27,7 @@ IKERTJE describes the wall as a threshold after enforcement ends: movement has b
 
 ## Curatorial interpretation
 
-The work studies a wall’s afterlife. Graffiti gives a controlled surface a record of unsanctioned presence, while the edit keeps the concrete self-contained. Access survives here as material: the gate’s practical function has weakened, and its remains still organize memory.
+The work studies a wall’s afterlife. Graffiti gives a controlled surface a record of added marks, while the edit keeps the concrete self-contained. Access survives here as material: the gate’s practical function has weakened, and its remains still organize memory.
 
 ## Context
 
@@ -40,4 +40,4 @@ The submission places the photograph in Berlin in 2011. Public Berlin Wall histo
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/ikertje.md) · [Previous: *No Key, Only Light*](no-key-only-light.md) · [Next: *The Hostile Gate*](the-hostile-gate.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/ikertje.md) · [Previous: *Dichotomy.*](dichotomy.md) · [Next: *Now Is Our Time*](now-is-our-time.md)

@@ -2,6 +2,8 @@
 
 The selected artist works publicly under the pseudonym intrepid. The retained 6529 profile and submission establish a documentary family-photography context shaped by travel, confinement, and a historic site. The public identity remains handle-based; no reliable biography or secure legal identity bridge has been located in the sources reviewed for this edition.
 
+**Initial profile:** The public credit is handle-based, with the selected submission as the main account of the practice.
+
 The artist’s practice, as represented by this work, is documentary family photography shaped by travel, confinement, and the charged architecture of a historic site. Two silhouetted figures move through Fort Frederick toward a blown-out opening of daylight. The image holds a private return to land against the fort’s public histories of defence and revolution; the figures’ partial anonymity is part of the photograph’s restraint.
 
 ## Selected work

@@ -40,4 +40,4 @@ The submission gives Iran as the location but leaves the building unidentified. 
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/teyhu.md) · [Previous: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md) · [Next: *Nowhere To Esc.*](nowhere-to-esc.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/teyhu.md) · [Previous: *No Key, Only Light*](no-key-only-light.md) · [Next: *No Access*](no-access.md)

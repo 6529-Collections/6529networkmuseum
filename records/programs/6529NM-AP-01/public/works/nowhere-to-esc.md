@@ -42,4 +42,4 @@ The artist’s public practice is associated with Web3, meme, and generative-art
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/arsonic.md) · [Previous: *Rusted*](rusted.md) · [Next: *Morning Glory*](morning-glory.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/arsonic.md) · [Previous: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)

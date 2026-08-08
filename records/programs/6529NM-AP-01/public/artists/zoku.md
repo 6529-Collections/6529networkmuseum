@@ -2,6 +2,8 @@
 
 The [6529 profile](https://6529.io/zoku) confirms the artist handle, and [The Line listing](https://www.theline.wtf/listing/zoku/) places the practice within conceptual digital art and meme/glitch communities. No reliable independent biography, legal identity, education, or career history has been located.
 
+**Initial profile:** Public sources establish the handle and conceptual digital-art context; biographical detail is sparse.
+
 In *Morning Glory*, Zoku looks upward into a dark, fluted circular spillway. Water radiates through the hidden centre while a small opening of sky remains visible. The selected work extends the artist’s conceptual interest in systems into photography: hydraulic infrastructure becomes a funnel, aperture, and engineered gate. The submission identifies San Roque Dam in Córdoba, Argentina, and describes automatic regulation; public technical sources support the site and a 1944 dam phase while qualifying the claim of wholly human-independent operation.
 
 ## Selected work

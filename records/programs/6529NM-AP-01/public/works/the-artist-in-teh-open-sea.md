@@ -43,4 +43,4 @@ Faz’s public practice joins photography to performance, film, and self-represe
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Take the Key!*](take-the-key.md) · [Next: *Managed Freedom*](managed-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *No Access*](no-access.md) · [Next: *Managed Freedom*](managed-freedom.md)

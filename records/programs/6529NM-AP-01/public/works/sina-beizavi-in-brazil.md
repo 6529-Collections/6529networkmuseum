@@ -29,6 +29,8 @@ Gold ornament, bare skin, and the dark rectangle of the document make a compact 
 
 Faz’s submission names the sitter and describes the pictured object as a small booklet or document. This catalogue uses “the sitter”; personal biography, document identifiers, and nationality claims stay outside the treatment. The artist represents that written consent documentation is available on request; no consent instrument is retained in the Museum record.
 
+The title supplies the submitted public name “Sina Beizavi”; this interpretation uses “the sitter” and publishes no additional identity or biographical inference. Consent is recorded separately in the rights record.
+
 ## Curatorial interpretation
 
 The dark booklet or document changes the portrait’s terms. It introduces an administrative object of passage while keeping its identifiers beyond the public image. In a room of hospitality, the photograph asks how welcome relates to the systems that require a person to prove the right to cross.
@@ -44,4 +46,4 @@ The submission places the photograph at Casa NUA in São Paulo; that statement i
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Checkpoint*](checkpoint.md) · [Next: *Rusted*](rusted.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Checkpoint*](checkpoint.md) · [Next: *Nowhere To Esc.*](nowhere-to-esc.md)

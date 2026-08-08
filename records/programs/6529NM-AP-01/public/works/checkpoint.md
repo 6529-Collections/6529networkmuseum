@@ -42,4 +42,4 @@ The artist’s public profile describes a self-taught portrait practice. The sub
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/minalisa.md) · [Previous: *Now Is Our Time*](now-is-our-time.md) · [Next: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/minalisa.md) · [Previous: *The Hostile Gate*](the-hostile-gate.md) · [Next: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)

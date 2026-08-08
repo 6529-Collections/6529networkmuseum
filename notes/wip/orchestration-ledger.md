@@ -2961,3 +2961,43 @@ formulaic scaffolding terms on these visitor paths. The final full suite
 passed 191 tests with one intentional skip, and the public link inventory
 contains 386 local targets. No provisional Work/Artist IDs were bound and the
 WP-1 rebase hold remains in force.
+
+## 2026-08-08 Keys and Gates narrow correction and provenance hardening
+
+The local follow-up from clean head `94c5f193d56388d01828d1ee963c75ad4f5728ee`
+aligns all Work Previous/Next links with the published curatorial order: the
+four acquisition registers are `Apertures and exits`, `Managed movement`,
+`Residual infrastructures`, and `Bodies and interfaces`, and the sixteen-page
+navigation chain is tested end to end. Visitor mint language now reads
+`Not yet minted; minting route under consideration`; machine/source lifecycle
+values remain governed in the source layer.
+
+The essay opening and close now carry a material comparative argument with the
+same register labels as the gateway. Fight for Freedom no longer invents
+tickets/timetables, repeated image claims, or unresolved graffiti agency;
+Now Is Our Time uses visible marks and leaves authorship open. The Sina title
+remains exact, while its public interpretation uses `the sitter` and adds no
+identity or biographical inference. Six evidence-limited artist pages carry
+restrained `Initial profile` expectations; GulYildiz/Gül Yıldız is supported by
+the signed submission and Fujifilm profile rather than left in a contradictory
+asserted/unresolved state.
+
+The source layer now attributes OUT-004 `my children` and private-release
+language to the artist, states that no instrument is retained or independently
+verified, keeps OUT-011 consent/venue review open, and attributes OUT-014
+automation and flood/water claims to the submission while limiting INA support
+to the 1944 dam phase. Typed source URLs retain their `submitted_high_resolution_source`
+role and are labelled upstream public source evidence/provenance locators, not
+Museum presentation links. Visitor/media tests reject source URL projection and
+restricted OUT-004/OUT-011 1280/2400 URLs; authority rows must exactly match the
+accessibility and media allowlists.
+
+The release-bound K&G research note now references the exact public OUT-011
+Wave/source record while recording that sensitive artist-supplied biography was
+reviewed and omitted from Museum projection. Immutable OUT-011 outcome/source
+bytes remain unchanged. Publication-authority amendment 005 retains the
+positive operational `PROVISIONAL_EDITORIAL_DISPLAY_LIMITED` disposition but is
+explicitly a candidate pending fresh exact-commit independent review; no
+reviewer identity or review time is fabricated. No WP-1 canonical Work/Artist
+IDs were bound, no shared schema/vocabulary was changed, and no push, merge, or
+deploy is authorized.

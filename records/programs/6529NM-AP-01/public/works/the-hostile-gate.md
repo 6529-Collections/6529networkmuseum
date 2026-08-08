@@ -44,4 +44,4 @@ The [source register](../sources-and-bibliography.md) links artist, gallery, awa
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/giant.md) · [Previous: *Residual Barrier*](residual-barrier.md) · [Next: *the cost of open*](the-cost-of-open.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/giant.md) · [Previous: *Fight for Freedom*](fight-for-freedom.md) · [Next: *Checkpoint*](checkpoint.md)

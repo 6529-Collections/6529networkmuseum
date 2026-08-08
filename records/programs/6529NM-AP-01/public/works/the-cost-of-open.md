@@ -42,4 +42,4 @@ The artist’s submission supplies the access context for Moraine Lake, includin
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/priyanka.md) · [Previous: *The Hostile Gate*](the-hostile-gate.md) · [Next: *Dichotomy.*](dichotomy.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/priyanka.md) · [Previous: *Managed Freedom*](managed-freedom.md) · [Next: *Dichotomy.*](dichotomy.md)

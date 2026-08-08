@@ -1,6 +1,6 @@
 # Keys and Gates — deterministic media joins
 
-This page is the public editorial join between each selected outcome and the existing program media manifest. It records current fixity and presentation paths without turning a web derivative into a preservation master, tokenized artwork, or rights instrument.
+This page is the public editorial join between each selected outcome and the existing program media manifest. It records current fixity and presentation paths without turning a web derivative into a preservation master, tokenized artwork, or rights instrument. A typed `source.url` is labelled `submitted_high_resolution_source`: it is upstream public submission evidence and a provenance locator, not a Museum presentation link or automatic source/high-resolution affordance.
 
 ## Join rule
 

@@ -40,4 +40,4 @@ The [source register](../sources-and-bibliography.md) links public professional 
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/gulyildiz.md) · [Next: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/gulyildiz.md) · [Next: *No Key, Only Light*](no-key-only-light.md)

@@ -42,4 +42,4 @@ The submission-led record supports the miniature and focus-stacking process. A f
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/veerendra.md) · [Previous: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/veerendra.md) · [Previous: *Rusted*](rusted.md) · [Next: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md)

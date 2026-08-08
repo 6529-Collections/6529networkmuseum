@@ -61,9 +61,11 @@ and 15,306 bytes. The source hash, fixed transform, width allowlist, and
 content-addressed path continue to provide the reproducible derivation rule;
 the source original is not retained in this repository.
 
-The typed media manifest was re-emitted for this release with
-`record_control.constructor.constructed_at` and `generated_at` set to
-`2026-08-08T12:58:46Z`; its source and derivative projections remain fixed by
+The typed media manifest for this edition is the committed file
+`records/programs/6529NM-AP-01/media-manifest.json`. Its
+`record_control.constructor.constructed_at` and `generated_at` fields currently
+both read `2026-08-08T13:17:24Z`; the focused corpus test binds those fields to
+this amendment and checks the OUT-011 source and derivative projections against
 the hashes above.
 
 ## Rights and record boundary

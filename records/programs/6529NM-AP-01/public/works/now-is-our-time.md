@@ -19,7 +19,7 @@ Industrial ruins, barred openings, lamps, and layered graffiti frame the declara
 
 ## Close looking
 
-Hard contrasts organize the frame: black windows, pale walls, a lamp’s small flare, and graffiti gathered across the surface like a second architecture. The slogan sits within a place of repair, closure, and re-use. Its capital letters claim the wall while the building’s decay keeps time around them. The camera holds the site at a deliberate distance, presenting a public view shaped by history. Barred openings and uncertain routes make the declaration read as invitation and occupation, a public voice speaking from a site whose access has changed over time.
+Hard contrasts organize the frame: black windows, pale walls, a lamp’s small flare, and graffiti gathered across the surface like a second architecture. The slogan sits within a place of repair, closure, and re-use. Its capital letters fill the wall while the building’s decay keeps time around them. The camera holds the site at a deliberate distance, presenting a public view shaped by history. Barred openings and uncertain routes make the declaration legible as an invitation-shaped mark in a site whose access has changed over time.
 
 ## Artist’s account
 
@@ -27,7 +27,7 @@ Pan’s submission places the scene at Berlin’s RAW-Gelände in Friedrichshain
 
 ## Curatorial interpretation
 
-The photograph separates access to a site from authority over its signs. A collective can make a place legible through use and inscription, while ownership and redevelopment reorganize the same ground. The slogan survives as an image; its survival leaves authorship and permission open.
+The photograph separates access to a site from authority over its signs. Painted words make a place legible through use and inscription, while ownership and redevelopment reorganize the same ground. The slogan survives as an image; its survival leaves authorship and permission open.
 
 ## Context
 
@@ -40,4 +40,4 @@ RAW-Gelände’s public history supports the broad sequence from railway repair 
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/pandelic.md) · [Previous: *Dichotomy.*](dichotomy.md) · [Next: *Checkpoint*](checkpoint.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/pandelic.md) · [Previous: *Residual Barrier*](residual-barrier.md) · [Next: *Morning Glory*](morning-glory.md)

@@ -62,6 +62,24 @@ EXPECTED_WIDTHS = {
     record_id: [640] if record_id.endswith(("OUT-004", "OUT-011")) else [640, 1280, 2400]
     for record_id in EXPECTED_ALTS
 }
+CURATORIAL_SEQUENCE = (
+    "take-the-key.md",
+    "no-key-only-light.md",
+    "rusted.md",
+    "no-access.md",
+    "the-artist-in-teh-open-sea.md",
+    "managed-freedom.md",
+    "the-cost-of-open.md",
+    "dichotomy.md",
+    "residual-barrier.md",
+    "now-is-our-time.md",
+    "morning-glory.md",
+    "fight-for-freedom.md",
+    "the-hostile-gate.md",
+    "checkpoint.md",
+    "sina-beizavi-in-brazil.md",
+    "nowhere-to-esc.md",
+)
 
 
 def load_json(relative_path: str) -> dict[str, object]:
@@ -323,6 +341,217 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             self.assertIn("../curated-acquisition.md", text, artist)
             self.assertIn("../curatorial-essay.md", text, artist)
             self.assertRegex(text, r"\]\(\.\./works/[^\)]+\.md\)", artist)
+
+    def test_full_work_navigation_matches_published_curatorial_sequence(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        work_dir = public_root / "works"
+        self.assertEqual(set(CURATORIAL_SEQUENCE), {path.name for path in work_dir.glob("*.md")})
+
+        acquisition = (public_root / "curated-acquisition.md").read_text(encoding="utf-8")
+        essay = (public_root / "curatorial-essay.md").read_text(encoding="utf-8")
+        for label in (
+            "Apertures and exits",
+            "Managed movement",
+            "Residual infrastructures",
+            "Bodies and interfaces",
+        ):
+            self.assertIn(f"| {label} |", acquisition)
+            self.assertIn(f"## {label}", essay)
+
+        for index, filename in enumerate(CURATORIAL_SEQUENCE):
+            text = (work_dir / filename).read_text(encoding="utf-8")
+            browse = text.split("## Browse", 1)[1]
+            actual_targets = re.findall(
+                r"\[(?:Previous|Next): [^\]]+\]\(([^)]+)\)",
+                browse,
+            )
+            expected_targets = []
+            if index:
+                expected_targets.append(CURATORIAL_SEQUENCE[index - 1])
+            if index + 1 < len(CURATORIAL_SEQUENCE):
+                expected_targets.append(CURATORIAL_SEQUENCE[index + 1])
+            self.assertEqual(expected_targets, actual_targets, filename)
+
+    def test_public_mint_language_is_non_committal(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        expected = "Not yet minted; minting route under consideration"
+        for relative_path in ("README.md", "curated-acquisition.md", "publication-integration.md"):
+            text = (public_root / relative_path).read_text(encoding="utf-8")
+            self.assertIn(expected, text, relative_path)
+            self.assertNotIn("Mint pending", text, relative_path)
+
+    def test_sina_title_and_sitter_boundary_is_explicit(self) -> None:
+        text = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/works/sina-beizavi-in-brazil.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("The title supplies the submitted public name", text)
+        self.assertIn("uses “the sitter”", text)
+        self.assertIn("publishes no additional identity or biographical inference", text)
+        self.assertIn("Consent is recorded separately", text)
+
+    def test_sparse_artist_profiles_have_restrained_initial_profile_markers(self) -> None:
+        artist_dir = REPO_ROOT / "records/programs/6529NM-AP-01/public/artists"
+        expected_markers = {
+            "intrepid.md",
+            "minalisa.md",
+            "teyhu.md",
+            "veerendra.md",
+            "zoku.md",
+            "arsonic.md",
+        }
+        for filename in expected_markers:
+            text = (artist_dir / filename).read_text(encoding="utf-8")
+            self.assertIn("**Initial profile:**", text, filename)
+        self.assertNotIn("**Initial profile:**", (artist_dir / "hugofaz.md").read_text(encoding="utf-8"))
+
+    def test_gulyildiz_public_name_handle_association_has_direct_support(self) -> None:
+        text = (REPO_ROOT / "records/programs/6529NM-AP-01/public/artists/gulyildiz.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("selected submission is signed", text)
+        self.assertIn("public name/handle association", text)
+        self.assertNotIn("professional name are established", text)
+
+    def test_public_media_urls_are_manifest_allowlisted_and_restricted_urls_are_absent(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        accessibility = load_json(f"media/programs/{PROGRAM_ID}/accessibility.json")
+        accessibility_by_id = {item["record_id"]: item for item in accessibility["items"]}
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+
+        allowed_urls = set()
+        for item in manifest["items"]:
+            record_id = item["record_id"]
+            allowed_widths = set(accessibility_by_id[record_id]["public_widths"])
+            for derivative in item["presentation"]["derivatives"]:
+                if derivative["width"] in allowed_widths:
+                    allowed_urls.add(derivative["url"])
+
+        visitor_paths = [
+            public_root / "README.md",
+            public_root / "curated-acquisition.md",
+            public_root / "curatorial-essay.md",
+            *sorted((public_root / "artists").glob("*.md")),
+            *sorted((public_root / "works").glob("*.md")),
+        ]
+        visitor_text = "\n".join(path.read_text(encoding="utf-8") for path in visitor_paths)
+        media_urls = {
+            url.rstrip(".,;")
+            for url in re.findall(r"https?://[^\s)]+", visitor_text)
+            if "d3lqz0a4bldqgf.cloudfront.net/museum/programs/" in url
+        }
+        self.assertEqual(16, len(media_urls))
+        self.assertTrue(media_urls <= allowed_urls)
+        self.assertNotRegex(
+            visitor_text,
+            r"/6529NM-AP-01-OUT-(?:004|011)/[^\s)]+/(?:1280|2400)\.webp",
+        )
+
+    def test_upstream_source_urls_are_provenance_only_and_not_media_projection(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        media_joins = (public_root / "media-joins.md").read_text(encoding="utf-8")
+        self.assertIn("upstream public submission evidence", media_joins)
+        self.assertIn("not a Museum presentation link", media_joins)
+        visitor_paths = [
+            public_root / "README.md",
+            public_root / "curated-acquisition.md",
+            public_root / "curatorial-essay.md",
+            *sorted((public_root / "artists").glob("*.md")),
+            *sorted((public_root / "works").glob("*.md")),
+        ]
+        visitor_text = "\n".join(path.read_text(encoding="utf-8") for path in visitor_paths)
+        for item in manifest["items"]:
+            source = item["source"]
+            self.assertEqual("submitted_high_resolution_source", source["role"], item["record_id"])
+            self.assertNotIn(source["url"], json.dumps(item["presentation"]), item["record_id"])
+            self.assertNotIn(source["url"], visitor_text, item["record_id"])
+
+    def test_out_011_sensitive_source_language_is_minimized_from_release_projection(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        visitor_paths = [
+            public_root / "README.md",
+            public_root / "curated-acquisition.md",
+            public_root / "curatorial-essay.md",
+            *sorted((public_root / "artists").glob("*.md")),
+            *sorted((public_root / "works").glob("*.md")),
+        ]
+        visitor_text = "\n".join(path.read_text(encoding="utf-8") for path in visitor_paths).lower()
+        research_text = (
+            REPO_ROOT / "notes/research/keys-and-gates-evidence.md"
+        ).read_text(encoding="utf-8").lower()
+        forbidden_source_phrases = (
+            "queer artist",
+            "escaped iran",
+            "iranian passport",
+            "sexual identity",
+            "passport",
+            "sanctions",
+        )
+        for phrase in forbidden_source_phrases:
+            self.assertNotIn(phrase, visitor_text, phrase)
+            self.assertNotIn(phrase, research_text, phrase)
+
+        immutable_source = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/outcomes/OUT-011.json"
+        ).read_text(encoding="utf-8").lower()
+        self.assertIn("iranian passport", immutable_source)
+
+    def test_publication_authority_candidate_has_no_unearned_independent_review(self) -> None:
+        authority_text = (
+            REPO_ROOT
+            / "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("candidate publication authority", authority_text)
+        self.assertIn("Independent exact-commit review", authority_text)
+        self.assertIn("reviewer identity and review time are not asserted", authority_text)
+        self.assertIn("no independent approval", authority_text)
+        self.assertIn("is claimed here", authority_text)
+
+    def test_publication_authority_rows_match_exact_width_allowlist(self) -> None:
+        accessibility = load_json(f"media/programs/{PROGRAM_ID}/accessibility.json")
+        accessibility_by_alias = {
+            item["record_id"].split(f"{PROGRAM_ID}-", 1)[1]: item["public_widths"]
+            for item in accessibility["items"]
+        }
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        manifest_by_alias = {
+            item["record_id"].split(f"{PROGRAM_ID}-", 1)[1]: item["presentation"]["public_widths"]
+            for item in manifest["items"]
+        }
+        authority_text = (
+            REPO_ROOT
+            / "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md"
+        ).read_text(encoding="utf-8")
+        rows = {
+            match.group(1): {
+                "authority": match.group(2),
+                "widths": [int(value.strip()) for value in match.group(3).split(",")],
+            }
+            for match in re.finditer(
+                r"^\| (OUT-\d{3}) \| `([^`]+)` \| ([0-9, ]+) \|",
+                authority_text,
+                re.MULTILINE,
+            )
+        }
+        expected_aliases = {f"OUT-{index:03d}" for index in range(1, 17)}
+        self.assertEqual(expected_aliases, set(rows))
+        self.assertEqual(16, len(rows))
+        for alias in sorted(expected_aliases):
+            self.assertEqual("PROVISIONAL_EDITORIAL_DISPLAY_LIMITED", rows[alias]["authority"])
+            self.assertEqual(accessibility_by_alias[alias], rows[alias]["widths"], alias)
+            self.assertEqual(manifest_by_alias[alias], rows[alias]["widths"], alias)
+
+    def test_out_011_amendment_binds_current_committed_manifest_fields(self) -> None:
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        amendment = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md"
+        ).read_text(encoding="utf-8")
+        constructed_at = manifest["record_control"]["constructor"]["constructed_at"]
+        generated_at = manifest["generated_at"]
+        self.assertIn("records/programs/6529NM-AP-01/media-manifest.json", amendment)
+        self.assertIn(f"`{constructed_at}`", amendment)
+        self.assertIn(f"`{generated_at}`", amendment)
+        self.assertNotIn("2026-08-08T12:58:46Z", amendment)
 
     def test_visitor_copy_has_no_exhibition_or_formulaic_scaffolding_terms(self) -> None:
         public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"

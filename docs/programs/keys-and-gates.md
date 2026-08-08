@@ -121,11 +121,10 @@ shelter, and the quiet act of leaving.
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-004.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=57c49f95-7854-4a2a-ba2c-d448bc7827fc)
 
-Two children stand in the dungeon at Fort Frederick, Grenada, facing the white
-opening of a doorway. The photograph follows four months of pandemic lockdown
-aboard a sailboat and the eventual permission to step ashore. A private release
-meets a fort built for surveillance and confinement, then marked by revolution,
-invasion, and the violence of competing powers.
+The artist’s submission describes the figures as “my children” and represents
+that a private release exists. The public derivative shows distant silhouettes
+from behind; the instrument is not retained or independently verified in the
+Museum record. The fort’s public history supplies the architectural context.
 
 ### 05 — *Residual Barrier* — ikertje
 
@@ -194,10 +193,11 @@ experience that has been managed by others becomes visible.
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-011.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52b6f536-3ebc-4bf5-b7da-2ed775df7ad3)
 
-In São Paulo, the portrait shows an artist resting at Casa NUA, wearing a
-welcome gift in Brazilian colours. The ordinary afternoon is held in the
-fabric, the reclining pose, and the stillness of the room. The image is
-presented under the linked consent and rights record.
+The submission places the sitter at Casa NUA in São Paulo, holding a small
+object in an ornate room. The submitted title supplies the public name “Sina
+Beizavi”; the public description uses “the sitter” and adds no identity or
+biographical inference. Consent and venue/rights review remain open; no
+consent instrument is retained in the Museum record.
 
 ### 12 — *Rusted* — Teyhu
 
@@ -225,21 +225,22 @@ while withholding its function.
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-014.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=dc75fe32-f3c2-49db-9069-d9975b5964f3)
 
-At San Roque Dam in Córdoba, a spillway opens automatically when the reservoir
-rises. The photograph attends to a system that controls pressure without a
-person opening a gate. Its subject is infrastructure whose restraint is also
-care: release prevents flood, stores water, and keeps a region inhabitable.
+The artist’s submission identifies San Roque Dam in Córdoba and describes an
+automatic spillway response to rising reservoir pressure, including
+flood-control and water-storage functions. Instituto Nacional del Agua material
+supports a 1944 dam phase; it does not independently establish the pictured
+component, automation, or operating conditions.
 
 ### 15 — *মুক্তিযুদ্ধ - Fight for Freedom* — shamspranto
 
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-015.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=8ac2b1b8-64f9-48ef-b41b-04ee3a9ba3ab)
 
-Two women look through separate train windows. Between them, the carriage is
-civic machinery—ticketed, timed, and tracked—while a torn poster recalls the
-Bangladesh Liberation War. Freedom appears in a narrow opening: the threshold
-is neither private interior nor public outside, and leaning through it becomes
-a daily claim.
+Two women look through separate train windows. A torn poster recalls the
+Bangladesh Liberation War, while its provenance and relation to that history
+remain unresolved. The separate windows place the passengers in a shared
+vehicle with divided sightlines; the artist’s historical framing remains
+attributed to the submission.
 
 ### 16 — *No Access* — Veerendra
 
