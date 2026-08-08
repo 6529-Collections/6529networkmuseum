@@ -2604,3 +2604,48 @@ Desktop and 390-pixel browser acceptance confirmed the leaderboard cover, all
 five photographs, complete source text, no horizontal overflow, and no console
 errors. No vote, transfer, selection, formal acceptance, or accession occurred.
 The proposal is now open for the Wave's TDH decision.
+
+## 2026-08-07 Gift-specific TDH approval proposal publication
+
+After exact-text owner approval, `punk6529bot` published the signed one-part
+proposal **Gift-Specific TDH Approval for Every Museum Gift** to the 6529
+Network Museum Wave as `PARTICIPATORY` drop
+[`a991d0b2-4c57-4ae1-b3b1-0680a4772998`](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=a991d0b2-4c57-4ae1-b3b1-0680a4772998),
+serial `1281404`.
+
+Authenticated publication readback confirmed the Wave, author, title and type,
+one signed text part, and exact content SHA-256
+`9883e18bd88331a3f98ad15a6279aaa0cc782aa366537bf13b8ad9e0b39ada76`.
+Rating and raters were both zero at publication; the bot cast no vote.
+
+## 2026-08-08 Integrated gifts and acquisition-funding proposal replacement
+
+After Museum Wave discussion distinguished art gifts, authorized acquisition
+programs, and funding assets, punk6529 authorized `punk6529bot` in Wave serial
+`1282010` to withdraw the pending gift-specific proposal and publish an
+integrated replacement.
+
+Immediately before withdrawal, the old drop was still `PARTICIPATORY`, with 14
+raters and a rating of `34,387,666`; it had never been observed as `WINNER`.
+The bot deleted drop `a991d0b2-4c57-4ae1-b3b1-0680a4772998` at
+`2026-08-08T09:02:02.862Z`, and exact-ID readback returned HTTP 404.
+
+The bot then published the signed one-part proposal **Museum Gifts,
+Acquisition Programs, and Funding Assets Policy** as
+[`401bdae4-1da7-41d0-aeef-73b1da78b39d`](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=401bdae4-1da7-41d0-aeef-73b1da78b39d),
+serial `1282040`. Authenticated readback confirmed the title, Wave, author,
+`PARTICIPATORY` type, one signed text part, 14,752 UTF-16 units, 14,752 UTF-8
+bytes, and SHA-256
+`60eaebbbaebab62cbdc10beab31e8e9a8a2a20cf488d5a29dff174f272b1f57d`.
+Rating and raters were zero at publication; the bot cast no vote. The proposal
+remains open and has no adopted-policy effect unless the live API later reports
+`WINNER`.
+
+Authenticated readback at `2026-08-08T09:41:17.704Z` again returned
+`PARTICIPATORY`; no adoption is inferred from rank, rating, or elapsed time.
+Post-publication review also recorded three fail-closed operational
+dispositions without changing the signed Wave text: administrative settlement
+asset acceptance awaits a versioned exact-identifier schedule; on-chain art
+packages require CAIP-19-shaped identity plus separate title, custody, and
+rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
+conversion of unsolicited non-approved assets.
