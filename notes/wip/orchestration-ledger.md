@@ -2649,3 +2649,35 @@ asset acceptance awaits a versioned exact-identifier schedule; on-chain art
 packages require CAIP-19-shaped identity plus separate title, custody, and
 rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
 conversion of unsolicited non-approved assets.
+
+## 2026-08-08 Final pre-vote policy correction
+
+Punk6529's Wave authorization covered withdrawal and replacement with the
+review enhancements. A new append-only source incorporates the three
+chain-native corrections directly into the ballot: versioned schedule
+`6529NM-ASA-1` with exact Ethereum-mainnet CAIP-19-shaped identifiers for
+native Ether, USDC, and USDT; CAIP-19-shaped identity for each on-chain artwork
+with separate legal title, custody, and rights states; and an explicit bar on
+using Section 10 to bypass Section 9's conversion approval.
+
+Authenticated API readback at `2026-08-08T09:43:28.8803627Z` found serial
+`1282040` still `PARTICIPATORY`, with zero raters and zero rating. The bot
+deleted it at `2026-08-08T09:43:30.771Z`. Exact-ID readback at
+`2026-08-08T09:45:10.0772336Z` returned HTTP 404. No voter position was
+displaced.
+
+The bot published the corrected one-part signed proposal **Museum Gifts,
+Acquisition Programs, and Funding Assets Policy** as
+[`6387c484-c602-4a2f-8d8b-456395cf077f`](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=6387c484-c602-4a2f-8d8b-456395cf077f),
+serial `1282091`, at `2026-08-08T09:43:48.737Z`. Authenticated readback at
+`2026-08-08T09:43:57.9531010Z` confirmed the title, Wave, author,
+`PARTICIPATORY` type, one signed text part, 16,289 UTF-16 units, 16,289 UTF-8
+bytes, exact SHA-256
+`ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2`,
+and zero raters and rating. The bot did not vote. Replacement notice serial
+`1282092` was posted as drop `fce69ba5-b9e9-4a95-9c10-1e5323d1f192`.
+
+The refreshed repository release manifest has SHA-256
+`sha256:e7ad7517d7a1f15eae48d63f500fe5d3559d367bf722255e87a53f093aae0820`
+and Keccak commitment
+`0xc622387d76cf5ee22c89873ccee05414a81fc23dab668b521bedb12d05eb0b5b`.

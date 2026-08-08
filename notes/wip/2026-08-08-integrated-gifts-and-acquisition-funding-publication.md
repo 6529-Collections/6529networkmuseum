@@ -64,9 +64,20 @@ text of
 
 The bot did not vote on the proposal.
 
+## Withdrawal and final state
+
+At the final authenticated observation on
+`2026-08-08T09:43:28.8803627Z`, this proposal remained `PARTICIPATORY` with
+zero raters and zero rating. The bot deleted it at
+`2026-08-08T09:43:30.771Z`. Exact-ID readback at
+`2026-08-08T09:45:10.0772336Z` returned HTTP 404. No voter position was
+displaced.
+
+The corrected signed replacement is Wave serial `1282091`, drop
+`6387c484-c602-4a2f-8d8b-456395cf077f`. It incorporates the three review
+dispositions into the ballot text itself.
+
 ## Status meaning
 
-`PARTICIPATORY` means the proposal is open for the Wave's TDH decision. It is
-not adopted Museum policy. Only a later live API observation of `WINNER` may
-support recording the resolution as adopted. Until then, the Museum's existing
-adopted decisions remain in force.
+`PARTICIPATORY` was the final state observed before withdrawal. This proposal
+was never observed as `WINNER` and did not become adopted Museum policy.
