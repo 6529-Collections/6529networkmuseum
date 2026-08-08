@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:147c96a5062d1865e5d14d8fc353489fe0f28317541169ff459ad379206d74ab",
-      "size": 36547
+      "sha256": "sha256:06eba55e8b69e2b279b013ee079233aee8765f91a7b6915423b05fbdaf624b73",
+      "size": 38619
     },
     {
       "byte_mode": "lf-normalized",
@@ -222,8 +222,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:028aaeb46fe520d37ad773a2bf9a0e84439f7a07a1c52714762691f6b9ad5d32",
-      "size": 25119
+      "sha256": "sha256:8b2b624bff2f4da20b2c203d44abdb1658189d1ac97d5a96add8ed39d238dd1e",
+      "size": 26705
     },
     {
       "byte_mode": "lf-normalized",
@@ -257,8 +257,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/program-media-delivery.md",
-      "sha256": "sha256:7a7431a240f9f5c7a1fdec38dd927fbd232c1e487cb06656db0530e21294cc38",
-      "size": 6478
+      "sha256": "sha256:6e26ef8269654188bb2a20ed7e8021bf781241d18d51e22a930d8884309ec625",
+      "size": 6725
     },
     {
       "byte_mode": "lf-normalized",
@@ -666,11 +666,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x80449b441ad0eda7a072496128500aad3c1911a23ec962075e5d01e189686df2"
+        "digest": "0x9c27d659137de55d5dc2e1069ec8f36bc358f2b1aca66102071b1babb6f0cf7d"
       },
       "path": "media/programs/6529NM-AP-01/accessibility.json",
-      "sha256": "sha256:62bcf67437a29f2745654c6de24480fb7cee22eeffd29a970407633c08919abb",
-      "size": 2914
+      "sha256": "sha256:ea59d3e3053c996143b956617c16309cc34982f21107c31c523860484ba200d9",
+      "size": 3057
     },
     {
       "byte_mode": "lf-normalized",
@@ -1392,11 +1392,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x1561b9ed4e694989e0434aae845e99362733c8a2d2115d20036fec44018ea67f"
+        "digest": "0x68a185e3fc43ebac53ba4069483c8e7174373e2c36ff9d576b54af640527d1dd"
       },
       "path": "records/programs/6529NM-AP-01/media-manifest.json",
-      "sha256": "sha256:1b57932e3395ac3c4b0eab05930068f5af3096ac06a5989c0797efbc3fe988a6",
-      "size": 55301
+      "sha256": "sha256:b8be1be1046f0dd79ffbd55d970838f42b4330f3de5d5193117bc184ae228098",
+      "size": 55174
     },
     {
       "byte_mode": "lf-normalized",
@@ -1584,6 +1584,264 @@
       "path": "records/programs/6529NM-AP-01/program.json",
       "sha256": "sha256:2bda620e19f542ae071a5483f084ed861ac91bfa88872a6c4aaba3a9807ba284",
       "size": 9110
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/README.md",
+      "sha256": "sha256:3c6450e912f9705b99a0f573d3b8fb359a03121b83b1560dd3372fb3507c4e85",
+      "size": 3034
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-002.md",
+      "sha256": "sha256:497632e5833bca78cc1f1ab0f08101181f1a8cc86f1fd40af29a2505d38d9c90",
+      "size": 3050
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/accessibility-amendment.md",
+      "sha256": "sha256:150751d88daa4db609e3bee76364a9c79caf6509affa32b35c425ba4a770b76e",
+      "size": 3725
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/arsonic.md",
+      "sha256": "sha256:fc6ce0323489f7fa37d32d67ebcb2895f2d2af9da1be0253538ac8d064f6b624",
+      "size": 1446
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/giant.md",
+      "sha256": "sha256:faa9db6d1e000c5d5450f9cac6fd0deaa6fe6c2591998e533cbbb2d2b412e7c0",
+      "size": 1975
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/gulyildiz.md",
+      "sha256": "sha256:3cef0605e0a7c2230f03a9de4f970ba8d5fe1aba33c4f7692669b48b30c42b91",
+      "size": 1478
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/hugofaz.md",
+      "sha256": "sha256:2393bbe84af9ee9fae226c9bb078a81e9b65a137ae50207505dab2789de357cc",
+      "size": 2234
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/ikertje.md",
+      "sha256": "sha256:5788970a2cabba295544d3472c859ac2022f5878a973d5c805fc9760640a11fb",
+      "size": 1235
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/intrepid.md",
+      "sha256": "sha256:209c3e9f81efe624093dd41f58a59156f1d0564eae8ca68bc15316bc82756d73",
+      "size": 1193
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/minalisa.md",
+      "sha256": "sha256:da0297443175c8d5153970b357c461916393cd720757b0580047b34274b9b9e8",
+      "size": 1058
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/nasimghanizadeh.md",
+      "sha256": "sha256:eead6abfed7b3163ad186f1090cf9638bc3fbbf9b13f8d1e9090f9edf9dbedfd",
+      "size": 1581
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/pandelic.md",
+      "sha256": "sha256:62c51df977752da953d7aef689a1e34820bbc74e438f69e6a1d03e5a8f9ecaa6",
+      "size": 1446
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/priyanka.md",
+      "sha256": "sha256:de0a80d600faf13b22a21dc71e2a7ade94de45071e820c95882d9acda4d620f0",
+      "size": 1374
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/rakesh.md",
+      "sha256": "sha256:7e3376ac977d0ff033290b12f5b61d111dfa7090cf25c08bcffd40243c289a3b",
+      "size": 1830
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/shamspranto.md",
+      "sha256": "sha256:743f57ff53765560ef6648414376f81fffdfea895357404505941f02adf61b9b",
+      "size": 1813
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/teyhu.md",
+      "sha256": "sha256:b44ffb7367718fe5105992b39f6d5f65539d17b884a6121dfe8bcb041ec1694e",
+      "size": 938
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/veerendra.md",
+      "sha256": "sha256:d5c6e18f96379957c696ee02f0fb20593797c16bd304c953c0ce99994b344079",
+      "size": 1202
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/artists/zoku.md",
+      "sha256": "sha256:c878c9de2d92c18242d5df1126bbeca733c4db8bed025456463a0193d37470aa",
+      "size": 1491
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/contexts/index.md",
+      "sha256": "sha256:7ff51dfab70e1713d2d3a4499d05156ce3d395b37d2ef3663ebbe05d1a593fe2",
+      "size": 4899
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/curated-acquisition.md",
+      "sha256": "sha256:e367405f41cd305672a2ea03d069ed1de1b5c101722e5bc4b22233408beb3df5",
+      "size": 4649
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/curatorial-essay.md",
+      "sha256": "sha256:07a12777e34d5d1876b377ba2e52a16a8b996fc7ef01292cb50c645ad2eb581c",
+      "size": 14019
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/institutional-record.md",
+      "sha256": "sha256:826679f645d0cf790692fc6bb4deec0f496e5b767c26c2f0a9ffb5842de3e3b3",
+      "size": 8376
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/media-joins.md",
+      "sha256": "sha256:b499c620b68fa50f423cbcd71014c06b2f633fd8a1dab0532ed4b0e7ec43271f",
+      "size": 9004
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/publication-integration.md",
+      "sha256": "sha256:02cb0160605249239101c3bc5be6cdb517e41c0903e3169c38fe17eed60335f0",
+      "size": 5725
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/rights-and-consent.md",
+      "sha256": "sha256:b5b250c7d008ae678b899358d442ae146c90d8a82f6a5d1a1015701038850671",
+      "size": 10642
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/schema-dependencies.md",
+      "sha256": "sha256:f2910a4acae18bcd6b817f5a5653c197762779644e8845bfce1cd01c231a507a",
+      "size": 3025
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/sources-and-bibliography.md",
+      "sha256": "sha256:1cd3ba52cf037f3b3658ed89b65b865c434800a9a85ef631b0a796bd5d2a7bdb",
+      "size": 15688
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/checkpoint.md",
+      "sha256": "sha256:22e06f69053baec6bc992bf9077ae9775aa2519a71f30311611d542307d8e528",
+      "size": 3196
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/dichotomy.md",
+      "sha256": "sha256:94ca1286f8fe9dc7f70d2d996a447ba5f4c49df76c07e6f472a5408ae002fdbf",
+      "size": 3061
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/fight-for-freedom.md",
+      "sha256": "sha256:95f2cf7883e61c1d816cbeaf0d6cdd82476fb6ecad5ff63e98c3cbb2a2e89efe",
+      "size": 3315
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/managed-freedom.md",
+      "sha256": "sha256:6da1c6e40c5cff39c643f31d6c27366697e076af4ebd41e941aa609f657fea14",
+      "size": 2998
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/morning-glory.md",
+      "sha256": "sha256:6a24c3ebd14c22542e556b7d670370401684f5556ba7bc73d3d07d401a1874e6",
+      "size": 2916
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/no-access.md",
+      "sha256": "sha256:7bc161e2e264df0ccd62bd424caa3222766b93e6f4f02052378bc7adae8d335e",
+      "size": 3014
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/no-key-only-light.md",
+      "sha256": "sha256:21cb08332846034a0d77aed4540aff1e9240acde643ee6c8b6fcf22fc78c257f",
+      "size": 3328
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/now-is-our-time.md",
+      "sha256": "sha256:3bfcffa1c58aa8752661eeba1b5f21a0525a20e5afc911e90d27d0a102a93d34",
+      "size": 3090
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/nowhere-to-esc.md",
+      "sha256": "sha256:eb030080d4e6b50de1565e35f100ee0f8f38d9d0d98322b42600025e39d9f2f4",
+      "size": 3058
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/residual-barrier.md",
+      "sha256": "sha256:33a408cfa4e8ea41dc9753c4c572f6534d19af97c5d9efd63c95e60417ad728f",
+      "size": 3080
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/rusted.md",
+      "sha256": "sha256:4400f902ea49c01092af63c60e40ab5932a32c5badbff471ecc5ee71833a9863",
+      "size": 2884
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/sina-beizavi-in-brazil.md",
+      "sha256": "sha256:7592c1db44ad53504c6335188a1c10012c7a105b8e37d61536168fc8f526b8dc",
+      "size": 3640
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/take-the-key.md",
+      "sha256": "sha256:2679ea67b26454c5858bcfc8b3d1d36a0229a9544d475b09d54ec0db29cd772d",
+      "size": 2904
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/the-artist-in-teh-open-sea.md",
+      "sha256": "sha256:03be065f96c2dc9af7db323e0239bc279f5290e40037f6ae38df440732778c41",
+      "size": 3518
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/the-cost-of-open.md",
+      "sha256": "sha256:b98689e0a71f6e5058222cbc29c6367b3f1466a42bf51dfedcd097d5c6f51fe0",
+      "size": 3028
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/programs/6529NM-AP-01/public/works/the-hostile-gate.md",
+      "sha256": "sha256:a7f9205df8b5924a8d6f590ca0b0d44ea4e1aa2d38f88196f9fb1c0699347ce9",
+      "size": 3309
     },
     {
       "byte_mode": "lf-normalized",
@@ -1982,11 +2240,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x75a0d5b1e4fc4364d694f0720cb16fdce412142fb59bbe1d8bb246352926746e"
+        "digest": "0x1a3a0015c5cac6146fb6d86d27c686e5eb86c8898a52d79ba6d4dbfac62e7f1d"
       },
       "path": "schemas/program-media-manifest.schema.json",
-      "sha256": "sha256:456dedada28f6a30e4d44081ba1fa479784d104a32fd3204aea73f8abf14e1b0",
-      "size": 8299
+      "sha256": "sha256:533ee19e01586762a36251138c2677e59a158890724136d7cd83081b693b015f",
+      "size": 8281
     },
     {
       "byte_mode": "lf-normalized",
@@ -2192,6 +2450,18 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "scripts/check_public_links.py",
+      "sha256": "sha256:71efd0751c577e9bfcbcbccdef7cf53258a6ee8c81b2948bd8c0b09c3e344ebe",
+      "size": 4227
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "scripts/check_public_unicode.py",
+      "sha256": "sha256:c046cb54499e5e571ba38d7608e49d09648f964afeabc5f17056f5084b0e48e5",
+      "size": 4304
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "scripts/emit_casey_collection_descriptors.py",
       "sha256": "sha256:b4b4be2e47bb3d90dede011b577bcc6538cea60dd9202caf704176a64a595f1b",
       "size": 11499
@@ -2217,8 +2487,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/generate_program_media.py",
-      "sha256": "sha256:4be477a485f963b38724fd5b0bb8f42ba3430db938c54ec94a706b769e849717",
-      "size": 25019
+      "sha256": "sha256:9538572b19189cda467c29b86b0547ec6c64e6a2987c5b7ce2426206c637dfd6",
+      "size": 24991
     },
     {
       "byte_mode": "lf-normalized",
@@ -2804,15 +3074,33 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "tests/test_keys_gates_public_corpus.py",
+      "sha256": "sha256:d1312068c5b8056d78951d1e0a946cc80a6515ebc9f3e7a037b477ef7a7e5bbe",
+      "size": 4953
+    },
+    {
+      "byte_mode": "lf-normalized",
       "path": "tests/test_program_media.py",
-      "sha256": "sha256:6523d7682ed602a036ab4c0a48408f7e1ba5b3d0ce53e37afa56390ae680a1cf",
-      "size": 6512
+      "sha256": "sha256:89fc11fff6dd43c92b4dc5dcec550f702e769288c85f1b10aa1bb837cce8d431",
+      "size": 6474
     },
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
       "sha256": "sha256:d66491a58d799e1265d9820db0a79fd82fc0de2c19276ece4ba02a810f3b13c0",
       "size": 15363
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "tests/test_public_links.py",
+      "sha256": "sha256:b6eca3145214029f90c3df6fe095917e0bd67d1756147470acb2c6ee68a5cc8e",
+      "size": 774
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "tests/test_public_unicode.py",
+      "sha256": "sha256:5834cec19984ac384d45cdf163d67549f69855c1935064883c639f96e0e45d88",
+      "size": 289
     },
     {
       "byte_mode": "lf-normalized",
@@ -2852,9 +3140,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7"
+    "digest": "0x6ff753c5719c52143395c02cb7317631e55b62e52adb95f6b4e49f7bc5f28b49"
   },
-  "manifest_sha256": "sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d",
+  "manifest_sha256": "sha256:5feed6a9a45cefb4e555d4734d12896e12ef260941b07175ae3b739b9c5b6a07",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

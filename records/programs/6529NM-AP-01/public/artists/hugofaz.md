@@ -1,0 +1,11 @@
+# Hugo Faz (HugoFaz)
+
+Hugo Faz is a São Paulo–based photographer, filmmaker, performance artist, and image-maker. His practice moves between directed photography, self-portraiture, performance, and moving image, using the body as a site where public rules and private self-expression meet. The [artist site](https://hugofaz.art/) and [LensCulture profile](https://www.lensculture.com/hugo-faz) describe an artist interested in censorship, sexuality, social identity, and the boundary between public and private space.
+
+Faz’s photographs often make a situation rather than simply record one. A body is placed into a charged setting, then held against the surrounding systems of speed, spectatorship, or permission. Long exposure, staged gesture, theatrical interiors, costume, and the deliberate display or concealment of the body become formal tools. Projects such as *366 NuDays of Hugo* and *100 NUDE Shoots* establish a sustained engagement with self-representation and the social body; public professional profiles also connect the practice to performance and film.
+
+The two selected works show how that practice can move from the city to the portrait room. In *the Artist in teh Open Sea*, a performer in a white tub or boat holds a precise, vulnerable shape inside the blurred speed of São Paulo traffic. The image turns transit into a performance of artistic autonomy. In *Sina Beizavi in Brazil*, a nude figure reclines on an ornate chair while holding a dark document identified in the submission as a passport. The theatrical pose and the document’s presence bring questions of welcome, national identity, and visibility into the same frame. The sitter’s preferred name and sensitive biographical account remain object-level matters on that work’s page, not assumptions about Faz’s biography.
+
+Faz’s public professional context is documented through his artist site, LensCulture profile, and 6529 identity page. The Museum uses those sources for practice and geography while retaining the artist’s preferred public credit as an open confirmation point.
+
+**Sources:** [artist site](https://hugofaz.art/), [LensCulture profile](https://www.lensculture.com/hugo-faz), [6529 profile](https://6529.io/HugoFaz).

@@ -95,15 +95,18 @@ submitted source remains available as a clearly labeled high-resolution link.
 
 Every item has a concise visual description in
 `media/programs/6529NM-AP-01/accessibility.json`. These descriptions are
-constructed and pending independent review. They do not replace the artist
-statement or add a curatorial interpretation.
+constructed and visually reviewed. The three corrected descriptions and the
+status transition are recorded in the append-only public accessibility
+amendment; the descriptions do not replace the artist statement or add a
+curatorial interpretation.
 
 ## Rights and record boundary
 
 The outcome record's `rights_effective_status` remains controlling. Derivation
 and delivery do not activate a conditional CC0 declaration or grant downstream
-reuse rights. The media manifest is deliberately `constructed`, with independent
-record review still pending.
+reuse rights. The media manifest remains deliberately `constructed`; its visual
+description audit is complete, while rights, source, and acquisition controls
+remain separate gates.
 
 The current live evidence still supports `selected_unminted`: the sixteen works
 won the Keys and Gates vote, but the Museum has no primary mint, purchase,
@@ -124,7 +127,8 @@ review, and then update the frontend projection.
 
 ## Open preservation work
 
-- independently review the constructed media manifest and visual descriptions;
+- preserve the reviewed accessibility amendment and retain the source,
+  derivative, and rights boundaries as separate controls;
 - determine whether and under what authority submitted source bytes may enter a
   Museum preservation package;
 - add IIIF Presentation 3 resources only after the applicable rights and

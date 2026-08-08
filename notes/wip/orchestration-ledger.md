@@ -2605,6 +2605,7 @@ five photographs, complete source text, no horizontal overflow, and no console
 errors. No vote, transfer, selection, formal acceptance, or accession occurred.
 The proposal is now open for the Wave's TDH decision.
 
+
 ## 2026-08-07 Gift-specific TDH approval proposal publication
 
 After exact-text owner approval, `punk6529bot` published the signed one-part
@@ -2686,3 +2687,125 @@ The refreshed repository release manifest has SHA-256
 `sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d`
 and Keccak commitment
 `0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7`.
+## 2026-08-08 Keys and Gates WP-4 public corpus
+
+WP-4 is building an isolated public scholarship layer under
+records/programs/6529NM-AP-01/public/. The accepted editorial split is now in
+place: curated-acquisition.md is the concise art-led gateway and
+curatorial-essay.md is the deeper comparative Research Publication
+*Access, Control, and Exit*. The corpus covers all sixteen selected photographs,
+fifteen distinct artist profiles, deterministic WebP joins and accessibility
+text, source/bibliography/context records, and a public rights boundary.
+
+The visitor language remains “Selected through the Keys and Gates acquisition
+program; acquisition pending. Mint pending.” The Curated Acquisition ID is
+6529NM-CA-2026-002, while program 6529NM-AP-01 and source aliases OUT-001
+through OUT-016 remain distinct. The public layer does not claim mint, purchase,
+title, custody, effective rights, accession, or Collection membership. Detailed
+artist correspondence remains a registrar work-queue matter and is not exposed
+in the public tree.
+
+WP-4 did not modify shared schemas or controlled vocabularies. The
+publication-integration.md handoff records that WP-1 must assign independent
+Work and Artist IDs, retain OUT and handle aliases, admit the 15 Artists, 16
+Works, Curated Acquisition, Research Publication, Program, media references,
+and typed relations to the canonical release/manifest, and regenerate the
+release manifest after rebase. Source PR #36 was merged as
+ff26543908c5d1e1851e34b597b36ab13ff20849; WP-4 must rebase onto that exact
+main before its own publication PR and preserve the source policy/index/ledger
+records.
+
+Local checks currently pass: bootstrap validation, semantic validation, program
+media check (48 derivatives), strict UTF-8/no-mojibake check, public link/anchor
+inventory, and the 16-page media URL join check.
+
+The final route pass gives all sixteen Works stable title-slug presentation
+routes under `records/programs/6529NM-AP-01/public/works/`; OUT-001 through
+OUT-016 remain source aliases and media anchors. The public README no longer
+describes a projection, and visitor pages use the approved acquisition-pending
+language while the formal `selected_unminted` state remains in the institutional
+record and source layer. The release manifest was regenerated after this route
+pass; its exact commitments will be reported with the final commit and PR.
+Typed Work and Artist admission remains pending the WP-1 ontology/release
+commit; no shared schema or controlled vocabulary was changed.
+
+## 2026-08-08 Keys and Gates independent review disposition
+
+The full independent review packet is dispositioned in the isolated WP-4
+corpus. The visual audit covered all sixteen public presentation derivatives.
+OUT-002 now names the sharply defined performer seated in a small white tub or
+boat; OUT-011 names the visible dark booklet/document, states that its text is
+not legible at the public 640px derivative scale, and removes unnecessary
+sensitive biography from the public treatment; OUT-016 names the lit gate,
+warning sign, and person-like silhouette. The accessibility JSON, typed media
+manifest, public media joins, Work alt text, focused tests, and an append-only
+derived accessibility amendment now agree one-to-one. Source and derivative
+hashes remain unchanged, and all sixteen outcome `rights_effective_status`
+values remain controlling and unverified.
+
+The ethics review is work-specific. OUT-004 keeps the artist's represented
+consent coverage attributed while limiting public identity/age language;
+OUT-006 treats the artist's self-portrait claim without presuming a separate
+model-release doctrine; OUT-010 keeps the head-obscured nude body object-led
+while requiring subject-authority/adult-status review if it is not a
+self-portrait; OUT-011 separates display of the submitted artwork from
+sensitive biography, document identifiers, venue permission, and high-
+resolution treatment; and OUT-015 separates the artist's mother/consent
+assertion from the second sitter and poster/collage provenance. Content notices
+precede OUT-006, OUT-010, and OUT-011, with an additional silhouette note for
+OUT-004. No blanket guardian/model-release rule is introduced.
+
+The publication apparatus now records edition 1.0, author/institution,
+8 August 2026 research cutoff, suggested citation, three claim-level notes,
+and revision history. The curatorial sequence is explicitly order rather than
+rank or chronology; final acquired quantity may be fewer than sixteen. The
+OUT-002 `teh` title remains source-faithful. Public GIANT spelling is
+Humilevskiy with submitted Humilevskyi retained as a raw variant. The arsonic
+Fingerprints DAO link is labelled indirect because it is an interview with
+Guillaume (Zeblocks). Twstalker mirrors remain excluded.
+
+Pre-rebase checks pass: focused corpus/media tests, 48-derivative media fixity,
+strict UTF-8/no-mojibake, public link/anchor inventory, and rights-handbook
+validation. The branch has now rebased onto exact canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`; the release manifest is being
+regenerated and the full post-rebase validation remains the final local gate.
+WP-1 typed Work/Artist admission and canonical release activation remain a
+later rebase. No merge or deploy is authorized.
+
+## 2026-08-08 Keys and Gates PR #40 follow-up review
+
+The owning PR review accepted the corpus and identified three bounded
+nice-to-haves. OUT-013 now preserves the work's visual syntax in both the
+authoritative `media/programs/6529NM-AP-01/accessibility.json` projection and
+the typed `records/programs/6529NM-AP-01/media-manifest.json` output: the keys
+spell `NO / WHERE / TO`, while the Esc key sits apart below beside the ant.
+The public Work alt text is synchronized. The follow-on append-only record
+`6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-002` retains the superseded and
+revised file hashes; it does not alter source or derivative bytes.
+
+`scripts/check_public_links.py` now blanks fenced Markdown code blocks before
+link extraction. `tests/test_public_links.py` adds a focused missing-target
+fixture inside a fenced example, so documentation snippets cannot create
+false broken-link findings while real local links remain checked. The Bangla
+Unicode control now asserts its complete declared Bangla codepoint tuple; the
+unused punctuation tail was removed.
+
+The GLM review's apparent false positives are explicitly resolved: the
+accessibility JSON and typed media manifest are modified in this diff; the
+shared/root `constructed_visual_description_reviewed` status intentionally
+applies to all sixteen reviewed items; OUT-011's booklet/document correction
+remains tied to the retained 640px visual audit and deterministic old/new
+hashes in amendment 001; the Work rights link resolves; and the fifteen Artist
+profiles are complete because Hugo Faz is one canonical artist with two Work
+pages. PR #40 remains draft. A later rebase onto the PR39/WP-1 integration
+base must regenerate the release manifest and rerun the exact gates; no merge
+or deploy is authorized.
+
+The follow-up local gate is complete: 182 repository tests passed with one
+intentional skip; bootstrap validation checked 317 JSON files; semantic,
+fetch-guard, rights-handbook, media-fixity, Unicode, public-link, and
+whitespace checks passed. The regenerated release manifest contains 418
+entries, including 43 public Keys and Gates entries, with manifest SHA-256
+`sha256:5feed6a9a45cefb4e555d4734d12896e12ef260941b07175ae3b739b9c5b6a07`
+and Keccak commitment
+`0x6ff753c5719c52143395c02cb7317631e55b62e52adb95f6b4e49f7bc5f28b49`.

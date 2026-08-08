@@ -32,6 +32,7 @@ QUALITY = 82
 METHOD = 6
 CACHE_CONTROL = "public, max-age=31536000, immutable"
 EXPECTED_OUTCOME_COUNT = 16
+ALT_TEXT_STATUS = "constructed_visual_description_reviewed"
 SHA256_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 RECORD_ID_PATTERN = re.compile(r"^6529NM-AP-01-OUT-[0-9]{3}$")
 SRGB_ICC_SHA256 = "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
@@ -110,7 +111,7 @@ def load_alt_texts() -> dict[str, str]:
     accessibility = load_json(ACCESSIBILITY_PATH)
     if accessibility.get("program_id") != PROGRAM_ID:
         raise ProgramMediaError("accessibility program_id does not match")
-    if accessibility.get("status") != "constructed_visual_description_pending_independent_review":
+    if accessibility.get("status") != ALT_TEXT_STATUS:
         raise ProgramMediaError("accessibility review status is not the expected constructed status")
     items = accessibility.get("items")
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
@@ -313,7 +314,7 @@ def generate_item(
         "presentation": {
             "role": "web_presentation_surrogate",
             "alt_text": alt_text,
-            "alt_text_status": "constructed_visual_description_pending_independent_review",
+            "alt_text_status": ALT_TEXT_STATUS,
             "derivatives": derivatives,
         },
     }
