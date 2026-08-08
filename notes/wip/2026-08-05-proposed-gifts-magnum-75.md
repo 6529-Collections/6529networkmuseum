@@ -17,7 +17,8 @@ fact and source used in the Wave dossier is public.
 ## Proposed-gift identity
 
 - Candidate ID: `6529NM-PG-2026-001`
-- Status: proposed; not yet submitted to the Museum Wave
+- Status: selected by the Museum Wave; acquisition review in progress. See the
+  [append-only status amendment](../../records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md).
 - Donor public credit: offered by punk6529
 - Collection: Magnum Photos 75
 - Ethereum contract: `0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91`
@@ -425,3 +426,22 @@ natural dimensions, all mobile checks measured `390/390/390` for viewport,
 client, and scroll widths, and the browser console had no errors. Publication
 opened the proposal for TDH voting. It did not select the gift, transfer any
 asset, formally accept a donation, or accession an object.
+
+## 2026-08-08 current-status amendment
+
+An authenticated read-only `punk6529bot` readback at
+`2026-08-08T10:15:02.0167151Z` returned Magnum drop
+`002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, as signed `WINNER`,
+rank `1`, rating/realtime rating `121,603,214`, and `29` raters. The winning
+context records place `1` and decision time `2026-08-08T09:51:10.179Z` UTC;
+sale time and sale price are null. The exact current public status is
+**Selected by Museum Wave; acquisition review in progress**.
+
+The earlier `2026-08-08T09:06:07.985Z` readback remains a historical
+`PARTICIPATORY` observation with rank `1`, realtime rating `122,969,240`, and
+29 raters. The signed proposal publication and its original publication-time
+`PARTICIPATORY` observation remain intact. The current selection does not
+establish formal acceptance, donor authority, transfer, title, custody, rights
+clearance, technical or preservation completion, accession, or permanent-
+Collection membership. The append-only repository receipt is
+`records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md`.

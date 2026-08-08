@@ -2686,3 +2686,56 @@ The refreshed repository release manifest has SHA-256
 `sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d`
 and Keccak commitment
 `0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7`.
+
+## 2026-08-08 Magnum WINNER status amendment
+
+Post-merge source main is exact `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`;
+Museum validation run [31252451827](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31252451827)
+completed green before this narrow branch was created. The authenticated
+read-only `punk6529bot` readback at `2026-08-08T10:15:02.0167151Z` is the
+canonical current status observation for Magnum. It changed the current Wave
+observation for drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, to signed
+`WINNER`, rank `1`, rating/realtime rating `121,603,214`, and `29` raters.
+The current public status is **Selected by Museum Wave; acquisition review in
+progress**. This establishes Wave selection only. Formal acceptance, donor
+authority, transfer, title, custody, rights clearance, technical or
+preservation completion, accession, and permanent-Collection membership remain
+unestablished.
+
+The prior `2026-08-08T09:06:07.985Z` `PARTICIPATORY` observation is
+historical-only (rank `1`, realtime rating `122,969,240`, 29 raters) and is
+preserved, as is the signed proposal's publication-time `PARTICIPATORY`
+readback. The governed receipt is
+`records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md`.
+The proposal, Wave package, and register current views now explicitly advance
+to revision `2`. Each binds its exact LF-normalized revision-one payload hash
+and the canonical source commit `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`
+through one ordered amendment-history entry; the retained source snapshots are
+under `records/proposed-gifts/6529NM-PG-2026-001/history/`.
+PR #38 remains the separate draft WP-3 scholarship corpus; this amendment does
+not rebase or modify that branch.
+
+## 2026-08-08 Magnum lineage identity follow-up
+
+Hosted Museum validation run
+[`31254820343`](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31254820343)
+completed green at the preceding draft head `a0d2e506101647c50a0d14a5fd12bcd8f185b89d`.
+The exact-head follow-up adds a generic stable-identity binding across every
+proposed-gift current view: every identity discriminator present on the
+current view (`$schema`, `record_type`, `schema_profile`, `proposal_id`, or
+`register_id`) must match its retained prior snapshot, and every revised view
+must contain a non-empty proposal or register identifier. Current and prior
+constructor timestamps must be present and timezone-aware so chronology is
+enforced rather than assumed. Deterministic adversarial tests cover copied or
+repointed proposal/register snapshots, missing domain identity, invalid and
+missing prior constructors, and invalid current constructors.
+
+Compatibility is deliberate: `prior_snapshot_path` remains declared in the
+existing v1 amendment-history schema but is optional at that schema layer, so
+the published v1 `$id` is not broken by a new required property. The generic
+semantic lineage validator requires a safe, existing path for every revised
+current view, and a revision-two record missing that path fails semantic
+validation. No schema-id bump is required for this additive declaration plus
+revision-two semantic invariant. Before ready-state review, the
+status-amendment PR was draft and unmerged; the WP-3 scholarship PR remained
+separate.
