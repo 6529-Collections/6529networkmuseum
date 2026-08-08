@@ -406,6 +406,7 @@ history; the public README and Work pages keep registrar/schema/integration
 material out of default visitor navigation.
 
 Focused media/corpus tests, media fixity, public link/anchor, strict UTF-8 and
-rights checks pass on the pre-rebase branch. Rebase onto canonical main
-`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8` remains the next publication gate;
-WP-1 typed entity admission remains a later integration rebase.
+rights checks pass. The branch has rebased onto canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`, and the release manifest is being
+regenerated for the post-rebase validation run. WP-1 typed entity admission
+remains a later integration rebase.

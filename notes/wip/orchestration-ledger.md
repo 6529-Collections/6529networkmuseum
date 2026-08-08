@@ -2766,7 +2766,8 @@ Guillaume (Zeblocks). Twstalker mirrors remain excluded.
 
 Pre-rebase checks pass: focused corpus/media tests, 48-derivative media fixity,
 strict UTF-8/no-mojibake, public link/anchor inventory, and rights-handbook
-validation. The branch is now ready to rebase onto exact canonical main
-`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`; WP-1 typed Work/Artist admission
-and canonical release activation remain a later rebase. No merge or deploy is
-authorized.
+validation. The branch has now rebased onto exact canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`; the release manifest is being
+regenerated and the full post-rebase validation remains the final local gate.
+WP-1 typed Work/Artist admission and canonical release activation remain a
+later rebase. No merge or deploy is authorized.
