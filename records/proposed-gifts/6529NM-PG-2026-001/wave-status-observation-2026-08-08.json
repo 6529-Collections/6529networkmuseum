@@ -1,0 +1,93 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x12aacae3d19b5fe4bea60d1f470e43c3dac2809f2d57cb9814279b9e44028799"
+    },
+    "effectiveAt": 1786184102,
+    "recordType": "WAVE_STATUS_OBSERVATION",
+    "schemaId": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5fad62701f87c63609c73c36dcf333934f311a75bfc3625b8abc2f509b79a7ba",
+    "uri": "https://6529networkmuseum.org/records/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+  },
+  "payload": {
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+    "drop_type": "WINNER",
+    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Original PARTICIPATORY proposal observation",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Signed-drop API WINNER status readback (is_signed=true)",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      }
+    ],
+    "non_effects": [
+      "acceptance_not_established",
+      "transfer_not_established",
+      "title_not_established",
+      "custody_not_established",
+      "rights_not_established",
+      "technical_not_established",
+      "preservation_not_established",
+      "accession_not_established",
+      "collection_membership_not_established"
+    ],
+    "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "observation_method": "signed_drop_api_readback",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097",
+    "prior_observation": {
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "source_record_id": "6529NM-PG-2026-001",
+      "source_record_path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
+      "source_status": "PARTICIPATORY",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+    },
+    "proposal_id": "6529NM-PG-2026-001",
+    "rater_count": 29,
+    "rating": 121603214,
+    "realtime_rating": 121603214,
+    "record_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "record_status": "review_pending",
+    "record_type": "WAVE_STATUS_OBSERVATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
+    "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+    "serial_no": 1276093,
+    "signed": true,
+    "source_record_ids": [
+      "6529NM-PG-2026-001"
+    ],
+    "source_status": "WINNER",
+    "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+    "subject_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "visibility": "public",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+  }
+}

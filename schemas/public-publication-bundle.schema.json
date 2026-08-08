@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-publication-bundle-v1.json",
+  "title": "6529 Network Museum visitor assembly bundle",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "../../schemas/public-publication-bundle.schema.json"},
+    "bundle_version": {"const": "1.0.0"},
+    "bundle_id": {"const": "6529NM_PUBLIC_VISITOR_CORPUS_BUNDLE_V1"},
+    "source_inventory_path": {"const": "schemas/public-publication-inventory.json"},
+    "source_inventory_body_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "source_inventory_body_keccak256": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "canonicalization_id": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {"$ref": "#/$defs/path"},
+          "byte_mode": {"const": "lf-normalized"},
+          "content": {"type": "string"},
+          "file_size": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+          "jcs_keccak256": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{64}$"}
+        },
+        "required": ["path", "byte_mode", "content", "file_size", "sha256", "jcs_keccak256"],
+        "unevaluatedProperties": false
+      }
+    },
+    "entry_count": {"type": "integer", "minimum": 1},
+    "content_bytes": {"type": "integer", "minimum": 0}
+  },
+  "$defs": {
+    "path": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.git(?:/|$))(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[?#\\\\])[^\\s]+$"
+    }
+  },
+  "required": ["$schema", "bundle_version", "bundle_id", "source_inventory_path", "source_inventory_body_sha256", "source_inventory_body_keccak256", "canonicalization_id", "entries", "entry_count", "content_bytes"],
+  "unevaluatedProperties": false
+}

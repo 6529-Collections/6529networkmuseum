@@ -1,0 +1,110 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xa785812233b8697aeecf544fd66d5eb5bbf48bb659fe09d9338c906ecd51d31e"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xe9e5d88667626364878c542ec4cb423281cb791e488539afffd23e9595db2224",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0001.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/projects/century",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-PRJ-0001",
+    "entity_status": "review_pending",
+    "entity_type": "PROJECT_OR_SERIES",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Casey project source record",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:ab7733a3f9aa2308d3312f60eb413956cb68defddc325ad37fe64ec36bce5260",
+    "preferred_label": "CENTURY",
+    "profile": {
+      "agent_entity_ids": [
+        "6529NM-ART-0001"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Casey project source records",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+        }
+      ],
+      "ownership_boundary": "Project context is distinct from Museum ownership; only separately accessioned Work entities enter the Collection.",
+      "profile_type": "PROJECT_OR_SERIES",
+      "project_relation_basis": "source_project_record",
+      "project_type": "project",
+      "scope_statement": "The Casey object records identify CENTURY as a distinct project context; this projection does not assert ownership of all project outputs.",
+      "source_record_ids": [
+        "6529NM.2026.001.01",
+        "6529NM.2026.001.02",
+        "6529NM.2026.001.03"
+      ],
+      "work_entity_ids": [
+        "6529NM-W-0001",
+        "6529NM-W-0002",
+        "6529NM-W-0003"
+      ]
+    },
+    "public_slug": "century",
+    "record_id": "6529NM-PRJ-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0001",
+      "6529NM-ORG-0001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ART-0001",
+      "6529NM-ORG-0001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Casey project source record",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-PRJ-0001",
+    "visibility": "public"
+  }
+}

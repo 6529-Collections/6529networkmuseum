@@ -1,0 +1,67 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x7e317f040313b0ef1931c745a3573027bee5d1e208299a429da7ce4a39c293e4"
+    },
+    "effectiveAt": 1786199144,
+    "recordType": "MEDIA_DESCRIPTION_AMENDMENT",
+    "schemaId": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x3c7356d2c1d89021765d18ed86a4311605e75ec090b95de3453d83a39354864c",
+    "uri": "https://6529networkmuseum.org/records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
+  },
+  "payload": {
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-08T14:25:44Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Museum direct visual observation of visible smoke and canister",
+        "observed_at": "2026-08-08T14:25:44Z",
+        "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg"
+      }
+    ],
+    "observation_kind": "direct_visual_observation",
+    "observed_at": "2026-08-08T14:25:44Z",
+    "prior_payload_sha256": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995",
+    "payload_sha256": "sha256:c8bf773e7f31678c466cd0ddaeaff7f9d6551a5eeab3cce3ba4bc3030dba05aa",
+    "record_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
+    "record_status": "review_pending",
+    "record_type": "MEDIA_DESCRIPTION_AMENDMENT",
+    "record_version": "1.0.0",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290",
+    "subject_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
+    "supersedes": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "supersession_reason": "Append-only amendment adds a current visible-facts description from direct visual observation; the historical seven-part Wave publication and its part-4 text remain unchanged.",
+    "visibility": "public",
+    "amendment_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
+    "subject_media_entity_id": "6529NM-MED-0042",
+    "subject_work_entity_id": "6529NM-W-0026",
+    "evidence_class": "C",
+    "source_media_uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
+    "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md",
+    "historical_source_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "historical_source_part_id": 4,
+    "superseded_part_id": 4,
+    "superseded_content_sha256": "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094",
+    "historical_publication_preserved": true,
+    "current_accessibility_text": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
+    "claim_boundary": "Visible facts only; the gas or smoke type, event date, and subject identity are not established by this description.",
+    "source_record_ids": ["6529NM-WAVE-PUB-OBS-2026-08-08-001", "6529NM-PG-2026-001.OBJ-003"]
+  }
+}

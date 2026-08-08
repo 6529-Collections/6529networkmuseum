@@ -1,0 +1,100 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xfc39192ba502b828ba2ca95ac812a864422cc28158740989357a9486711e77f9"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x946fa2e9f1700fb6f7d77be2b134835027d9fbe5af4fdb4bf04fcb51f7e50a78",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AP-ENT-0001.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-AP-ENT-0001",
+    "entity_status": "review_pending",
+    "entity_type": "ACQUISITION_PROGRAM",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Adopted donation decision",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:9fc0ff6a036594cf7ca05d58fa8efa12851d0905341c03e4444b562c80a44bfb",
+    "preferred_label": "Gift Acquisitions",
+    "profile": {
+      "authority_record_ids": [
+        "6529NM-GOV-1052156",
+        "6529NM-GOV-1052812"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Adopted donation decision",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+        }
+      ],
+      "produced_acquisition_entity_ids": [
+        "6529NM-CA-2026-001",
+        "6529NM-CA-2026-003"
+      ],
+      "profile_type": "ACQUISITION_PROGRAM",
+      "program_id": "6529NM-AP-ENT-0001",
+      "program_kind": "donation_pathway",
+      "program_status": "active",
+      "rules_summary": "A standing donation pathway governed by adopted Museum donation and collection-scope decisions; each gift retains its own review and accession gates.",
+      "selected_outcome_record_ids": []
+    },
+    "public_slug": "gift-acquisitions",
+    "record_id": "6529NM-AP-ENT-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052812"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052812"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Adopted donation decision",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-AP-ENT-0001",
+    "visibility": "public"
+  }
+}

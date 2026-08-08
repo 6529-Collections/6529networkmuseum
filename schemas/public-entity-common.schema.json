@@ -1,0 +1,417 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json",
+  "title": "6529 Network Museum public entity and relation common definitions",
+  "$defs": {
+    "nonEmpty": {"type": "string", "minLength": 1},
+    "id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+    "entityId": {"$ref": "#/$defs/id"},
+    "dateTime": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/dateTime"},
+    "date": {"type": "string", "format": "date"},
+    "entityType": {
+      "enum": [
+        "INSTITUTION",
+        "COLLECTION",
+        "AGENT",
+        "ARTIST",
+        "ORGANIZATION",
+        "WORK",
+        "PROJECT_OR_SERIES",
+        "CURATED_ACQUISITION",
+        "ACQUISITION_PROGRAM",
+        "ACCESSION",
+        "RESEARCH_PUBLICATION",
+        "MEDIA_REFERENCE",
+        "EXHIBITION"
+      ]
+    },
+    "entityIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/entityId"}
+    },
+    "nonEmptyEntityIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/entityId"}
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/evidenceRef"}
+    },
+    "sourceRecordIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/id"}
+    },
+    "nameVariant": {
+      "type": "object",
+      "properties": {
+        "value": {"$ref": "#/$defs/nonEmpty"},
+        "variant_role": {"enum": ["preferred", "alternate", "pseudonym", "source_label", "legal"]},
+        "source_kind": {"enum": ["authority_record", "artist_statement", "museum_record", "proposal", "wave", "published_source"]},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["value", "variant_role", "source_kind", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "nameVariants": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/nameVariant"}
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "authority_status": {"enum": ["established", "provisional", "source_label_only", "unavailable"]},
+        "authority_record_ids": {"$ref": "#/$defs/entityIds"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["authority_status", "authority_record_ids", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "practice": {
+      "type": "object",
+      "properties": {
+        "summary": {"$ref": "#/$defs/nonEmpty"},
+        "areas": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmpty"}},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["summary", "areas", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "creationDate": {
+      "type": "object",
+      "properties": {
+        "display": {"$ref": "#/$defs/nonEmpty"},
+        "status": {"enum": ["established", "approximate", "not_established"]},
+        "earliest": {"type": ["string", "null"], "format": "date"},
+        "latest": {"type": ["string", "null"], "format": "date"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["display", "status", "earliest", "latest", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["proposed", "selected_unminted", "acquisition_pending", "accession_review", "accessioned", "not_in_collection", "archived", "reserved"]},
+        "as_of": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["status", "as_of", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "curatedAcquisitionLifecycle": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "proposed_in_museum_wave",
+            "selected_by_museum_wave_acquisition_review_in_progress",
+            "selected_through_acquisition_program_acquisition_pending",
+            "acquisition_complete_accession_review_in_progress",
+            "accessioned_into_permanent_collection",
+            "closed_without_selection",
+            "withdrawn"
+          ]
+        },
+        "as_of": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["status", "as_of", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "lifecycleObservation": {
+      "type": "object",
+      "properties": {
+        "observation_id": {"$ref": "#/$defs/id"},
+        "status": {"enum": ["proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program", "selected_through_acquisition_program_acquisition_pending", "acquisition_pending", "acquisition_complete", "accession_review_in_progress", "accession_review", "accessioned", "accessioned_into_permanent_collection", "closed_without_selection", "withdrawn"]},
+        "source_status": {"enum": ["PARTICIPATORY", "WINNER", "selected_unminted", "selected", "acquisition_pending", "accession_review_in_progress", "accessioned", "not_established"]},
+        "observed_at": {"$ref": "#/$defs/dateTime"},
+        "source_record_ids": {"$ref": "#/$defs/sourceRecordIds"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "notes": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["observation_id", "status", "source_status", "observed_at", "source_record_ids", "evidence_refs", "notes"],
+      "unevaluatedProperties": false
+    },
+    "independentFact": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["verified", "verified_with_conditions", "unverified", "not_established", "not_started", "pending", "planned", "pending_review", "in_progress", "not_recorded", "not_applicable"]},
+        "as_of": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "notes": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "as_of", "evidence_refs", "notes"],
+      "unevaluatedProperties": false
+    },
+    "independentAcquisitionFacts": {
+      "type": "object",
+      "properties": {
+        "mint": {"$ref": "#/$defs/independentFact"},
+        "payment": {"$ref": "#/$defs/independentFact"},
+        "title": {"$ref": "#/$defs/independentFact"},
+        "custody": {"$ref": "#/$defs/independentFact"},
+        "rights": {"$ref": "#/$defs/independentFact"},
+        "technical": {"$ref": "#/$defs/independentFact"},
+        "preservation": {"$ref": "#/$defs/independentFact"},
+        "display": {"$ref": "#/$defs/independentFact"}
+      },
+      "required": ["mint", "payment", "title", "custody", "rights", "technical", "preservation", "display"],
+      "unevaluatedProperties": false
+    },
+    "museumRelation": {
+      "type": "object",
+      "properties": {
+        "relation_status": {"enum": ["current", "historical", "not_established"]},
+        "as_of": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["relation_status", "as_of", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "typedReference": {
+      "type": "object",
+      "properties": {
+        "reference_type": {"enum": ["component", "manifestation"]},
+        "record_id": {"$ref": "#/$defs/id"},
+        "source_record_id": {"$ref": "#/$defs/id"},
+        "target_kind": {"enum": ["authoritative_record", "governed_typed_registry"]},
+        "target_type": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+        "registry_id": {"type": ["string", "null"], "minLength": 1},
+        "source_status": {"enum": ["selected_unminted", "proposed", "not_established", "verified"]},
+        "caip19": {"type": "string", "pattern": "^eip155:[0-9]+/erc721:0x[0-9a-fA-F]{40}/[0-9]+$"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"}
+      },
+      "required": ["reference_type", "record_id", "source_record_id", "target_kind", "target_type", "registry_id", "evidence_refs"],
+      "unevaluatedProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"target_kind": {"const": "authoritative_record"}}, "required": ["target_kind"]},
+          "then": {"properties": {"registry_id": {"type": "null"}}, "required": ["registry_id"]}
+        },
+        {
+          "if": {"properties": {"target_kind": {"const": "governed_typed_registry"}}, "required": ["target_kind"]},
+          "then": {"properties": {"registry_id": {"const": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"}}, "required": ["registry_id"]}
+        }
+      ]
+    },
+    "fixityVerified": {
+      "type": "object",
+      "properties": {
+        "status": {"const": "verified"},
+        "algorithm": {"enum": ["sha256", "keccak256"]},
+        "digest": {"type": "string"},
+        "verified_at": {"$ref": "#/$defs/dateTime"},
+        "basis": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "algorithm", "digest", "verified_at", "basis"],
+      "unevaluatedProperties": false,
+      "allOf": [
+        {"oneOf": [
+          {"properties": {"algorithm": {"const": "sha256"}, "digest": {"pattern": "^sha256:[0-9a-f]{64}$"}}},
+          {"properties": {"algorithm": {"const": "keccak256"}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}}
+        ]}
+      ]
+    },
+    "fixityUnverified": {
+      "type": "object",
+      "properties": {
+        "status": {"const": "unverified_not_retrieved"},
+        "algorithm": {"type": "null"},
+        "digest": {"type": "null"},
+        "verified_at": {"type": "null"},
+        "basis": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "algorithm", "digest", "verified_at", "basis"],
+      "unevaluatedProperties": false
+    },
+    "fixity": {"oneOf": [{"$ref": "#/$defs/fixityVerified"}, {"$ref": "#/$defs/fixityUnverified"}]},
+    "rights": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["cleared", "cleared_with_conditions", "restricted", "unknown", "not_applicable"]},
+        "statement_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
+        "observed_at": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "notes": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "statement_entity_id", "observed_at", "evidence_refs", "notes"],
+      "unevaluatedProperties": false
+    },
+    "sourceObservation": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["retrieved", "not_retrieved", "source_declared", "mutable_external"]},
+        "observed_at": {"$ref": "#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "notes": {"$ref": "#/$defs/nonEmpty"}
+      },
+      "required": ["status", "observed_at", "evidence_refs", "notes"],
+      "unevaluatedProperties": false
+    },
+    "mediaLocator": {
+      "type": "object",
+      "properties": {
+        "uri": {"type": ["string", "null"], "pattern": "^(https://|ipfs://|ar://)[^\\s]+$"},
+        "repository_path": {"type": ["string", "null"], "pattern": "^(?!/)(?![A-Za-z]:)[^\\\\]+$"}
+      },
+      "required": ["uri", "repository_path"],
+      "unevaluatedProperties": false
+    },
+    "mediaReference": {
+      "type": "object",
+      "properties": {
+        "media_role": {"enum": ["museum_retained_preservation_object", "museum_generated_public_derivative", "museum_authored_public_graphic", "token_linked_source_media", "historical_wave_proposal_presentation"]},
+        "publication_boundary": {"enum": ["preservation_record", "public_derivative", "public_graphic", "token_source", "historical_wave_proposal_context"]},
+        "source_locator": {"$ref": "#/$defs/mediaLocator"},
+        "token_source_locator": {
+          "anyOf": [{"$ref": "#/$defs/mediaLocator"}, {"type": "null"}]
+        },
+        "media_type": {"type": "string", "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]*/[a-z0-9][a-z0-9!#$&^_.+-]*$"},
+        "visual": {"type": "boolean"},
+        "width": {"type": ["integer", "null"], "minimum": 1},
+        "height": {"type": ["integer", "null"], "minimum": 1},
+        "accessibility_text": {"type": ["string", "null"], "minLength": 1},
+        "accessibility_status": {"enum": ["provided", "publication_join", "pending_review", "not_applicable"]},
+        "accessibility_subject_policy": {"enum": ["not_applicable", "non_identifying_sensitive_subject", "non_identifying_child_subject"]},
+        "accessibility_publication_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
+        "identity_inference_prohibition": {
+          "type": ["object", "null"],
+          "properties": {
+            "status": {"const": "prohibited"},
+            "scope": {"const": "subject_identity"},
+            "reason": {"$ref": "#/$defs/nonEmpty"}
+          },
+          "required": ["status", "scope", "reason"],
+          "unevaluatedProperties": false
+        },
+        "subject_entity_id": {"$ref": "#/$defs/entityId"},
+        "credit": {"$ref": "#/$defs/nonEmpty"},
+        "rights": {"$ref": "#/$defs/rights"},
+        "source_observation": {"$ref": "#/$defs/sourceObservation"},
+        "accessibility_evidence_refs": {"$ref": "#/$defs/evidenceRefs"},
+        "fixity": {"$ref": "#/$defs/fixity"},
+        "token_source_fixity": {
+          "anyOf": [{"$ref": "#/$defs/fixity"}, {"type": "null"}]
+        },
+        "source_record_ids": {"$ref": "#/$defs/sourceRecordIds"},
+        "derived_from_media_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
+        "transform_profile": {"type": ["string", "null"], "minLength": 1},
+        "wave_proposal_context": {
+          "type": ["object", "null"],
+          "properties": {
+            "wave_id": {"$ref": "#/$defs/id"},
+            "drop_id": {"$ref": "#/$defs/id"},
+            "publication_record_id": {"$ref": "#/$defs/id"},
+            "observation_record_id": {"$ref": "#/$defs/id"},
+            "api_endpoint": {"type": "string", "format": "uri", "pattern": "^https://api\\.6529\\.io/api/drops/[^\\s]+$"},
+            "published_at": {"$ref": "#/$defs/dateTime"},
+            "publication_status": {"const": "historical_public_proposal_context"}
+          },
+          "required": ["wave_id", "drop_id", "publication_record_id", "published_at", "publication_status"],
+          "unevaluatedProperties": false
+        },
+        "publication_context_entity_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/entityId"}
+        },
+        "allowed_ui_affordances": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"]}
+        }
+      },
+      "required": ["media_role", "publication_boundary", "source_locator", "token_source_locator", "media_type", "visual", "width", "height", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "identity_inference_prohibition", "subject_entity_id", "credit", "rights", "source_observation", "accessibility_evidence_refs", "fixity", "token_source_fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "wave_proposal_context", "publication_context_entity_ids", "allowed_ui_affordances"],
+      "unevaluatedProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"visual": {"const": true}}, "required": ["visual"]},
+          "then": {
+            "required": ["width", "height"],
+            "oneOf": [
+              {"required": ["accessibility_text"]},
+              {"properties": {"accessibility_status": {"const": "publication_join"}}, "required": ["accessibility_publication_entity_id"]}
+            ]
+          }
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "museum_retained_preservation_object"}}, "required": ["media_role"]},
+          "then": {
+            "properties": {"source_observation": {"properties": {"status": {"const": "retrieved"}}, "required": ["status"]}, "fixity": {"$ref": "#/$defs/fixityVerified"}}
+          }
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "museum_generated_public_derivative"}}, "required": ["media_role"]},
+          "then": {"required": ["transform_profile"]}
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "museum_authored_public_graphic"}}, "required": ["media_role"]},
+          "then": {
+            "required": ["transform_profile", "derived_from_media_entity_id"],
+            "properties": {"publication_boundary": {"const": "public_graphic"}, "derived_from_media_entity_id": {"type": "null"}, "allowed_ui_affordances": {"not": {"contains": {"const": "hero"}}}}
+          }
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]},
+          "then": {
+            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity"],
+            "allOf": [{"if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_child_subject"}}, "required": ["accessibility_subject_policy"]}, "then": {"required": ["accessibility_text", "identity_inference_prohibition"]}}],
+            "properties": {"publication_boundary": {"const": "historical_wave_proposal_context"}, "publication_context_entity_ids": {"contains": {"const": "6529NM-CA-2026-003"}, "minContains": 1}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}, "contains": {"const": "open_wave_proposal_context"}, "minContains": 1}}
+          }
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "museum_retained_preservation_object"}}, "required": ["media_role"]},
+          "then": {"properties": {"publication_boundary": {"const": "preservation_record"}}, "required": ["publication_boundary"]}
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "museum_generated_public_derivative"}}, "required": ["media_role"]},
+          "then": {"properties": {"publication_boundary": {"const": "public_derivative"}}, "required": ["publication_boundary"]}
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "token_linked_source_media"}}, "required": ["media_role"]},
+          "then": {"properties": {"publication_boundary": {"const": "token_source"}}, "required": ["publication_boundary"]}
+        },
+        {
+          "if": {"properties": {"rights": {"properties": {"status": {"enum": ["restricted", "unknown"]}}, "required": ["status"]}}, "required": ["rights"]},
+          "then": {
+            "properties": {
+              "allowed_ui_affordances": {
+                "items": {"enum": ["alt_text", "open_wave_proposal_context", "copy_citation"]}
+              }
+            }
+          }
+        },
+        {
+          "if": {"properties": {"source_observation": {"properties": {"status": {"const": "mutable_external"}}, "required": ["status"]}}, "required": ["source_observation"]},
+          "then": {"properties": {"fixity": {"$ref": "#/$defs/fixityUnverified"}}}
+        },
+        {
+          "if": {"properties": {"source_observation": {"properties": {"status": {"const": "retrieved"}}, "required": ["status"]}}, "required": ["source_observation"]},
+          "then": {"properties": {"fixity": {"$ref": "#/$defs/fixityVerified"}}}
+        },
+        {
+          "if": {"properties": {"allowed_ui_affordances": {"contains": {"const": "download"}}}, "required": ["allowed_ui_affordances"]},
+          "then": {"properties": {"rights": {"properties": {"status": {"enum": ["cleared", "cleared_with_conditions"]}}, "required": ["status"]}}}
+        },
+        {
+          "if": {"properties": {"allowed_ui_affordances": {"contains": {"const": "zoom"}}}, "required": ["allowed_ui_affordances"]},
+          "then": {"properties": {"visual": {"const": true}, "rights": {"properties": {"status": {"enum": ["cleared", "cleared_with_conditions"]}}, "required": ["status"]}}}
+        },
+        {
+          "if": {"properties": {"allowed_ui_affordances": {"contains": {"const": "fullscreen"}}}, "required": ["allowed_ui_affordances"]},
+          "then": {"properties": {"visual": {"const": true}, "rights": {"properties": {"status": {"enum": ["cleared", "cleared_with_conditions"]}}, "required": ["status"]}}}
+        }
+      ]
+    }
+  }
+}

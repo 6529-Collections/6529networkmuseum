@@ -1,0 +1,102 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xe4251393db8b2da0276eb4fd3686da86e72809c5e1f54d3751bd9d38d32295c9"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x1127b4647166a121b965bf61ab407497e72750c801299e7df28211964ab9203f",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0002.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/projects/pre-process",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-PRJ-0002",
+    "entity_status": "review_pending",
+    "entity_type": "PROJECT_OR_SERIES",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Casey project source record",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:af86f0eee921251b8f70695542603bcc4a1071c7cb2d5cb97928580589aa2c58",
+    "preferred_label": "Pre-Process",
+    "profile": {
+      "agent_entity_ids": [
+        "6529NM-ART-0001"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Casey project source records",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json"
+        }
+      ],
+      "ownership_boundary": "Project context is distinct from Museum ownership; only separately accessioned Work entities enter the Collection.",
+      "profile_type": "PROJECT_OR_SERIES",
+      "project_relation_basis": "source_project_record",
+      "project_type": "project",
+      "scope_statement": "The Casey object records identify Pre-Process as a distinct project context; this projection does not assert ownership of all project outputs.",
+      "source_record_ids": [
+        "6529NM.2026.001.04"
+      ],
+      "work_entity_ids": [
+        "6529NM-W-0004"
+      ]
+    },
+    "public_slug": "pre-process",
+    "record_id": "6529NM-PRJ-0002",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0001",
+      "6529NM-ORG-0001",
+      "6529NM-W-0004"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ART-0001",
+      "6529NM-ORG-0001",
+      "6529NM-W-0004"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Casey project source record",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.04.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-PRJ-0002",
+    "visibility": "public"
+  }
+}

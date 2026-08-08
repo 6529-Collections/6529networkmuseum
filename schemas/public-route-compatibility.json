@@ -1,0 +1,53 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/public-route-compatibility-v1.json",
+  "inventory_version": "1.0.0",
+  "entries": [
+    {"legacy_route": "/museum/network/collections", "canonical_route": "/museum/network/acquisitions", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/accessions", "canonical_route": "/museum/network/collection#accessions", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/programs", "canonical_route": "/museum/network/acquisition-programs", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/methodology", "canonical_route": "/museum/network/research", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/stories", "canonical_route": "/museum/network/research", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/governance", "canonical_route": "/museum/network/about/governance", "target_kind": "route", "target_entity_id": null, "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/gifts/6529NM.2026.001", "canonical_route": "/museum/network/acquisitions/the-system-in-seven-states", "target_kind": "entity", "target_entity_id": "6529NM-CA-2026-001", "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/objects/6529NM.2026.001.01", "canonical_route": "/museum/network/works/6529NM-W-0001", "target_kind": "entity", "target_entity_id": "6529NM-W-0001", "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/collection/6529NM.2026.001.01", "canonical_route": "/museum/network/works/6529NM-W-0001", "target_kind": "entity", "target_entity_id": "6529NM-W-0001", "semantics": "permanent_redirect", "status": "permanent"},
+    {"legacy_route": "/museum/network/programs/6529NM-AP-01", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates", "target_kind": "entity", "target_entity_id": "6529NM-AP-ENT-0002", "semantics": "permanent_redirect", "status": "permanent"}
+  ],
+  "include_governed_route_aliases": true,
+  "expansions": [
+    {"expansion_id": "casey-object-and-collection-routes", "source_inventory": "work_aliases", "alias_kind": "accession_object", "legacy_templates": ["/museum/network/objects/{alias}", "/museum/network/collection/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": true, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "all-work-object-routes", "source_inventory": "work_aliases", "alias_kind": "all", "legacy_templates": ["/museum/network/objects/{alias}", "/museum/network/works/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "casey-accession-and-gift-routes", "source_inventory": "acquisition_aliases", "alias_kind": "accession_lot", "legacy_templates": ["/museum/network/accessions/{alias}", "/museum/network/gifts/{alias}", "/museum/network/acquisitions/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "casey-accession-record-routes", "source_inventory": "acquisition_aliases", "alias_kind": "accession_record", "legacy_templates": ["/museum/network/accessions/{alias}", "/museum/network/acquisitions/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "acquisition-program-route-aliases", "source_inventory": "acquisition_aliases", "alias_kind": "program_route_key", "legacy_templates": ["/museum/network/programs/{alias}", "/museum/network/acquisition-programs/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "source-program-route-aliases", "source_inventory": "source_aliases", "alias_kind": "source_program", "legacy_templates": ["/museum/network/programs/{alias}", "/museum/network/acquisition-programs/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "curated-acquisition-route-aliases", "source_inventory": "acquisition_aliases", "alias_kind": "proposal", "legacy_templates": ["/museum/network/acquisitions/{alias}"], "canonical_route_from_entity": true, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "identity"},
+    {"expansion_id": "approved-collection-slugs", "source_inventory": "approved_collections", "alias_kind": "preferred_name_slug", "legacy_templates": ["/museum/network/collections/{alias}"], "canonical_route_from_entity": false, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "approved_collection_to_gift_program"},
+    {"expansion_id": "institutional-practice-research-children", "source_inventory": "institutional_practice", "alias_kind": "path", "legacy_templates": ["/museum/network/methodology/institutional-practice/{alias}", "/museum/network/stories/institutional-practice/{alias}"], "canonical_route_from_entity": false, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "institutional_practice_to_research"},
+    {"expansion_id": "data-architecture-research-children", "source_inventory": "data_architecture", "alias_kind": "path", "legacy_templates": ["/museum/network/methodology/data-architecture/{alias}", "/museum/network/stories/data-architecture/{alias}"], "canonical_route_from_entity": false, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "data_architecture_to_research"},
+    {"expansion_id": "rights-research-children", "source_inventory": "rights", "alias_kind": "path", "legacy_templates": ["/museum/network/methodology/rights-and-licenses/{alias}", "/museum/network/stories/rights-and-licenses/{alias}"], "canonical_route_from_entity": false, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "rights_to_research"},
+    {"expansion_id": "governance-about-children", "source_inventory": "governance", "alias_kind": "decision_id", "legacy_templates": ["/museum/network/governance/{alias}"], "canonical_route_from_entity": false, "only_permanent_collection": false, "semantics": "permanent_redirect", "path_transform": "governance_to_about"}
+  ],
+  "frontend_route_set": [
+    "/museum/network",
+    "/museum/network/collection",
+    "/museum/network/collection#accessions",
+    "/museum/network/artists",
+    "/museum/network/artists/{slug}",
+    "/museum/network/organizations",
+    "/museum/network/organizations/{slug}",
+    "/museum/network/projects",
+    "/museum/network/projects/{slug}",
+    "/museum/network/works",
+    "/museum/network/works/{workId}",
+    "/museum/network/acquisitions",
+    "/museum/network/acquisitions/{slug}",
+    "/museum/network/acquisition-programs",
+    "/museum/network/acquisition-programs/{programSlug}",
+    "/museum/network/research",
+    "/museum/network/research/{slug}",
+    "/museum/network/about",
+    "/museum/network/about/governance",
+    "/museum/network/about/governance/{decisionId}"
+  ]
+}

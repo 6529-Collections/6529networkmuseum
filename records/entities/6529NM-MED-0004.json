@@ -1,0 +1,159 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xfcc5f22f5fd2e91f3739b92fdbd6f7395a60501299b246d61938ef8fa0fbcc15"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xafda0e24a034505006362b82084558d3cf61165eb35a7b1c60dc4d2d453132d9",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0004.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "entity_id": "6529NM-MED-0004",
+    "entity_status": "review_pending",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Museum-authored proposal cover",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:c17f77520f46f6b8ca8708bab6b230200961a4a5b8d9ea266b8f123400a0e1bf",
+    "preferred_label": "Conflict at Its Edges historical proposal cover graphic",
+    "profile": {
+      "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Retrieved Museum-authored cover bytes for accessibility",
+            "observed_at": "2026-08-08T14:31:26Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
+          }
+        ],
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": "Black, blue, and white square graphic with the printed words PROPOSED GIFT, CONFLICT AT ITS EDGES, Five Photographs of Evidence and Aftermath, 1952–2016, and 6529 NETWORK MUSEUM.",
+        "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "alt_text",
+          "open_repository_path",
+          "copy_citation"
+        ],
+        "credit": "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Retrieved Museum-authored repository bytes hashed by the deterministic migration.",
+          "digest": "sha256:082d690ed07297a1583efa70167fd1735e611a9530cd0652dae9cfaee9482d77",
+          "status": "verified",
+          "verified_at": "2026-08-08T14:31:26Z"
+        },
+        "height": 1600,
+        "identity_inference_prohibition": null,
+        "media_role": "museum_authored_public_graphic",
+        "media_type": "image/png",
+        "publication_boundary": "public_graphic",
+        "publication_context_entity_ids": [],
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Wave part-1 rights declaration",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+            }
+          ],
+          "notes": "Source rights label: CC0-1.0. Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "statement_entity_id": null,
+          "status": "cleared"
+        },
+        "source_locator": {
+          "repository_path": "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Retrieved Museum-authored cover bytes",
+              "observed_at": "2026-08-08T14:31:26Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM-PG-2026-001",
+          "6529NM-WAVE-PUB-OBS-2026-08-08-001"
+        ],
+        "subject_entity_id": "6529NM-CA-2026-003",
+        "token_source_fixity": null,
+        "token_source_locator": null,
+        "transform_profile": "Museum-authored text-only historical proposal graphic; independently authored, not derived from a source photograph, and not a selected-acquisition hero.",
+        "visual": true,
+        "wave_proposal_context": null,
+        "width": 1600
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0004",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-CA-2026-003",
+      "6529NM-PG-2026-001",
+      "6529NM-WAVE-PUB-OBS-2026-08-08-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-CA-2026-003",
+      "6529NM-PG-2026-001",
+      "6529NM-WAVE-PUB-OBS-2026-08-08-001"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Museum-authored proposal cover",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
+        }
+      ],
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-MED-0004",
+    "visibility": "public"
+  }
+}

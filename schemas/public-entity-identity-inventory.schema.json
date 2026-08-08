@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-entity-identity-inventory-v1.json",
+  "title": "6529 Network Museum public entity identity inventory",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/public-entity-identity-inventory-v1.json"},
+    "inventory_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "identity_policy": {"type": "string", "minLength": 1},
+    "entity_id_patterns": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "retired_identity_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {"type": "string", "minLength": 1},
+          "entity_type": {"enum": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"]},
+          "retired_at": {"type": "string", "format": "date-time"},
+          "reason": {"type": "string", "minLength": 1},
+          "superseded_by": {"type": ["string", "null"]}
+        },
+        "required": ["entity_id", "entity_type", "retired_at", "reason", "superseded_by"],
+        "unevaluatedProperties": false
+      }
+    },
+    "required_bootstrap_curated_acquisitions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {"type": "string", "pattern": "^6529NM-CA-[0-9]{4}-[0-9]{3}$"},
+          "preferred_label": {"type": "string", "minLength": 1},
+          "public_slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "source_aliases": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        },
+        "required": ["entity_id", "preferred_label", "public_slug", "source_aliases"],
+        "unevaluatedProperties": false
+      }
+    },
+    "acquisition_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {"type": "string", "minLength": 1},
+          "canonical_entity_id": {"type": "string", "minLength": 1},
+          "alias_kind": {"enum": ["program_route_key", "source_program", "proposal", "accession_lot", "accession_record"]}
+        },
+        "required": ["alias", "canonical_entity_id", "alias_kind"],
+        "unevaluatedProperties": false
+      }
+    },
+    "source_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {"type": "string", "minLength": 1},
+          "alias_type": {"enum": ["program_route_key", "source_program", "source_acquisition_context", "proposal", "accession_lot", "accession_record"]},
+          "canonical_entity_id": {"type": "string", "minLength": 1},
+          "route_target": {"type": "boolean"}
+        },
+        "required": ["alias", "alias_type", "canonical_entity_id", "route_target"],
+        "unevaluatedProperties": false
+      }
+    },
+    "work_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {"type": "string", "minLength": 1},
+          "canonical_entity_id": {"type": "string", "pattern": "^6529NM-W-[0-9]{4}$"},
+          "alias_kind": {"enum": ["accession_object", "program_outcome", "proposal_candidate_object"]}
+        },
+        "required": ["alias", "canonical_entity_id", "alias_kind"],
+        "unevaluatedProperties": false
+      }
+    },
+    "typed_reference_registry": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "registry_id": {"const": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"},
+          "target_id": {"type": "string", "minLength": 1},
+          "reference_type": {"enum": ["component", "manifestation"]},
+          "target_type": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+          "authoritative_record_id": {"type": "string", "minLength": 1},
+          "caip19": {"type": ["string", "null"], "pattern": "^eip155:[0-9]+/erc721:0x[0-9a-fA-F]{40}/[0-9]+$"}
+        },
+        "required": ["registry_id", "target_id", "reference_type", "target_type", "authoritative_record_id", "caip19"],
+        "unevaluatedProperties": false,
+        "allOf": [
+          {
+            "if": {"properties": {"target_type": {"const": "ERC721_TOKEN_MANIFESTATION"}}, "required": ["target_type"]},
+            "then": {"properties": {"caip19": {"type": "string"}}, "required": ["caip19"]}
+          }
+        ]
+      }
+    },
+    "identity_bindings": {
+      "type": "object",
+      "properties": {
+        "AGENT": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "ARTIST": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "WORK": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "PROJECT_OR_SERIES": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "MEDIA_REFERENCE": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "WORK_LIFECYCLE_OBSERVATION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}}
+      },
+      "required": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"],
+      "unevaluatedProperties": false
+    },
+    "route_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "legacy_route": {"type": "string", "pattern": "^/museum/network/[^\\s]+$"},
+          "canonical_route": {"type": "string", "pattern": "^/museum/network/[^\\s]+$"},
+          "canonical_entity_id": {"type": "string", "minLength": 1}
+        },
+        "required": ["legacy_route", "canonical_route", "canonical_entity_id"],
+        "unevaluatedProperties": false
+      }
+    },
+    "public_slug_inventory": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {"type": "string", "minLength": 1},
+          "entity_type": {"enum": ["ARTIST", "ORGANIZATION", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "RESEARCH_PUBLICATION", "WORK"]},
+          "preferred_label": {"type": "string", "minLength": 1},
+          "public_slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "canonical_route": {"type": "string", "pattern": "^/museum/network/(artists|organizations|projects|acquisitions|research|works|acquisition-programs)/[^\\s]+$"}
+        },
+        "required": ["entity_id", "entity_type", "preferred_label", "public_slug", "canonical_route"],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "identityBinding": {
+      "type": "object",
+      "properties": {
+        "source_key": {"type": "string", "minLength": 1},
+        "entity_id": {"type": "string", "minLength": 1}
+      },
+      "required": ["source_key", "entity_id"],
+      "unevaluatedProperties": false
+    },
+    "identityBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/identityBinding"}
+    }
+  },
+  "required": ["$schema", "inventory_version", "identity_policy", "entity_id_patterns", "retired_identity_ids", "required_bootstrap_curated_acquisitions", "acquisition_aliases", "source_aliases", "work_aliases", "typed_reference_registry", "identity_bindings", "route_aliases", "public_slug_inventory"],
+  "unevaluatedProperties": false
+}
