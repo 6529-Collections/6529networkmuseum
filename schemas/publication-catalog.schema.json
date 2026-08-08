@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/publication-catalog-v1.json",
+  "title": "6529 Network Museum immutable publication catalog (C)",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/publication-catalog-v1.json"},
+    "envelope": {
+      "type": "object",
+      "properties": {
+        "recordType": {"const": "PUBLICATION_CATALOG"},
+        "contentHash": {
+          "type": "object",
+          "properties": {
+            "algorithm": {"const": 1},
+            "digest": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+            "canonicalizationId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}
+          },
+          "required": ["algorithm", "digest", "canonicalizationId"],
+          "unevaluatedProperties": false
+        },
+        "uri": {"type": "string", "pattern": "^https://6529networkmuseum.org/release/catalog/[^\\s]+$"}
+      },
+      "required": ["recordType", "contentHash", "uri"],
+      "unevaluatedProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "catalog_id": {"type": "string", "pattern": "^6529NM-PUBCAT-[0-9a-f]{40}$"},
+        "catalog_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "state": {"const": "immutable_binding"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "reviewed_source_head_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "candidate_parent_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "manifest_binding": {"$ref": "#/$defs/manifestBinding"},
+        "publication_inventory_binding": {"$ref": "#/$defs/publicationInventoryBinding"},
+        "bundle_binding": {"$ref": "#/$defs/bundleBinding"},
+        "assembly_documents": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/document"}},
+        "media_assets": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/document"}},
+        "activation_policy": {"const": "frontend_activates_only_verified_catalog"}
+      },
+      "required": ["catalog_id", "catalog_version", "state", "created_at", "reviewed_source_head_commit", "candidate_parent_commit", "manifest_binding", "publication_inventory_binding", "bundle_binding", "assembly_documents", "media_assets", "activation_policy"],
+      "unevaluatedProperties": false
+    }
+  },
+  "$defs": {
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "keccak": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "canonicalization": {"const": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"},
+    "sourceUrl": {"type": "string", "pattern": "^https://github\\.com/6529-Collections/6529networkmuseum/blob/[0-9a-f]{40}/[^\\s]+$"},
+    "rawUrl": {"type": "string", "pattern": "^https://raw\\.githubusercontent\\.com/6529-Collections/6529networkmuseum/[0-9a-f]{40}/[^\\s]+$"},
+    "manifestBinding": {
+      "type": "object",
+      "properties": {
+        "path": {"const": "release-artifacts/latest/record-manifest.json"},
+        "file_size": {"type": "integer", "minimum": 0},
+        "file_sha256": {"$ref": "#/$defs/sha256"},
+        "body_sha256": {"$ref": "#/$defs/sha256"},
+        "body_keccak256": {"$ref": "#/$defs/keccak"},
+        "canonicalization_id": {"$ref": "#/$defs/canonicalization"},
+        "immutable_source_url": {"type": "string", "pattern": "^https://github\\.com/6529-Collections/6529networkmuseum/blob/[0-9a-f]{40}/release-artifacts/latest/record-manifest\\.json$"},
+        "immutable_raw_url": {"type": "string", "pattern": "^https://raw\\.githubusercontent\\.com/6529-Collections/6529networkmuseum/[0-9a-f]{40}/release-artifacts/latest/record-manifest\\.json$"}
+      },
+      "required": ["path", "file_size", "file_sha256", "body_sha256", "body_keccak256", "canonicalization_id", "immutable_source_url", "immutable_raw_url"],
+      "unevaluatedProperties": false
+    },
+    "publicationInventoryBinding": {
+      "type": "object",
+      "properties": {
+        "path": {"const": "schemas/public-publication-inventory.json"},
+        "file_size": {"type": "integer", "minimum": 0},
+        "file_sha256": {"$ref": "#/$defs/sha256"},
+        "body_sha256": {"$ref": "#/$defs/sha256"},
+        "body_keccak256": {"$ref": "#/$defs/keccak"},
+        "canonicalization_id": {"$ref": "#/$defs/canonicalization"},
+        "inventory_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+        "counts": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "integer", "minimum": 1}},
+        "immutable_source_url": {"$ref": "#/$defs/sourceUrl"},
+        "immutable_raw_url": {"$ref": "#/$defs/rawUrl"}
+      },
+      "required": ["path", "file_size", "file_sha256", "body_sha256", "body_keccak256", "canonicalization_id", "inventory_version", "counts", "immutable_source_url", "immutable_raw_url"],
+      "unevaluatedProperties": false
+    },
+    "bundleBinding": {
+      "type": "object",
+      "properties": {
+        "path": {"const": "records/publication/visitor-corpus-bundle-v1.json"},
+        "file_size": {"type": "integer", "minimum": 0},
+        "file_sha256": {"$ref": "#/$defs/sha256"},
+        "raw_file_size": {"type": "integer", "minimum": 0},
+        "raw_file_sha256": {"$ref": "#/$defs/sha256"},
+        "body_sha256": {"$ref": "#/$defs/sha256"},
+        "body_keccak256": {"$ref": "#/$defs/keccak"},
+        "canonicalization_id": {"$ref": "#/$defs/canonicalization"},
+        "source_inventory_body_sha256": {"$ref": "#/$defs/sha256"},
+        "source_inventory_body_keccak256": {"$ref": "#/$defs/keccak"},
+        "immutable_source_url": {"$ref": "#/$defs/sourceUrl"},
+        "immutable_raw_url": {"$ref": "#/$defs/rawUrl"}
+      },
+      "required": ["path", "file_size", "file_sha256", "raw_file_size", "raw_file_sha256", "body_sha256", "body_keccak256", "canonicalization_id", "source_inventory_body_sha256", "source_inventory_body_keccak256", "immutable_source_url", "immutable_raw_url"],
+      "unevaluatedProperties": false
+    },
+    "document": {
+      "type": "object",
+      "properties": {
+        "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.git(?:/|$))(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[?#\\\\])[^\\s]+$"},
+        "file_size": {"type": "integer", "minimum": 0},
+        "byte_mode": {"enum": ["raw", "lf-normalized"]},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "jcs_keccak256": {"type": ["string", "null"], "pattern": "^0x[0-9a-f]{64}$"},
+        "immutable_source_url": {"$ref": "#/$defs/sourceUrl"},
+        "immutable_raw_url": {"$ref": "#/$defs/rawUrl"}
+      },
+      "required": ["path", "file_size", "byte_mode", "sha256", "jcs_keccak256", "immutable_source_url", "immutable_raw_url"],
+      "unevaluatedProperties": false
+    }
+  },
+  "required": ["$schema", "envelope", "payload"],
+  "unevaluatedProperties": false
+}

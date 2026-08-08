@@ -1,0 +1,75 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xb7113ae3d15cf1215fa78f3f8baeb5f9cf564d2b3c3acbc8e6584714d0a7e557"
+    },
+    "effectiveAt": 1786184102,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x2b82993556d39977cc5def5681e28fd791fb675108429b5ff13886dc43ec6dd5",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0090.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Published proposal work set",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Museum Wave selection observation",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+      }
+    ],
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:641b7c86e0dff65140e5c104fd552a91f8ae366cf9a1ee695228635ff6365634",
+    "qualifier": {
+      "display_order": 2,
+      "scope": "proposal_work_set",
+      "selection_status": "selected"
+    },
+    "record_id": "6529NM-REL-0090",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-CA-2026-003",
+      "6529NM-PG-2026-001",
+      "6529NM-W-0025",
+      "6529NM-WAVE-OBS-2026-08-08-001"
+    ],
+    "relation_id": "6529NM-REL-0090",
+    "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-CA-2026-003",
+    "source_record_ids": [
+      "6529NM-PG-2026-001",
+      "6529NM-WAVE-OBS-2026-08-08-001"
+    ],
+    "subject_id": "6529NM-REL-0090",
+    "target_entity_id": "6529NM-W-0025",
+    "visibility": "public"
+  }
+}

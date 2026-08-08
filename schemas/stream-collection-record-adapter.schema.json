@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json",
+  "title": "Museum to Stream v2 CollectionRecord adapter vector",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json"},
+    "stream_source_commit": {"const": "f610e04979bf9a8f4f48b31131e7e0e8f78bac43"},
+    "interface_path": {"const": "smart-contracts/interfaces/stream/IStreamPreservationRecords.sol"},
+    "implementation_path": {"const": "smart-contracts/domains/preservation/StreamPreservationRecords.sol"},
+    "record_type_preimage": {"enum": ["PUBLIC_ENTITY", "PUBLIC_RELATION", "WAVE_STATUS_OBSERVATION", "WAVE_PUBLICATION_OBSERVATION", "MEDIA_DESCRIPTION_AMENDMENT", "PUBLICATION_CATALOG"]},
+    "stream_record": {
+      "type": "object",
+      "properties": {
+        "recordType": {"$ref": "#/$defs/nonzeroBytes32"},
+        "subjectId": {"$ref": "#/$defs/nonzeroBytes32"},
+        "contentHash": {"$ref": "#/$defs/museumContentHashRef"},
+        "uri": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "^https://",
+          "$comment": "JSON Schema maxLength counts Unicode characters, not UTF-8 bytes. The runtime adapter is authoritative for the Stream 2048-byte UTF-8 limit."
+        },
+        "schemaId": {"$ref": "#/$defs/nonzeroBytes32"},
+        "signatureScheme": {"$ref": "#/$defs/bytes32"},
+        "signatureHash": {"$ref": "#/$defs/hashRef"},
+        "effectiveAt": {
+          "type": "integer",
+          "not": {"type": "boolean"},
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "$comment": "This JSON Schema uses the I-JSON safe-integer ceiling. The Python adapter and the on-chain Stream uint64 field separately enforce the full nonzero uint64 domain (1..18446744073709551615) before serialization or submission."
+        }
+      },
+      "required": ["recordType", "subjectId", "contentHash", "uri", "schemaId", "signatureScheme", "signatureHash", "effectiveAt"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLIC_ENTITY"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x9c5f56299520166d6f06ffa496528f8d9259a500d9397dec6bdf42977ce5ee1d"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLIC_RELATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x01d4738f43db92ec5e6bafaf853baa89a7a8d39bbf65bc03bcec04acf40f4173"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "WAVE_STATUS_OBSERVATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x79cca49a4c5e4e8fd015aa82db315ae94c00f529eb358e7a90a53b6cfc919378"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "WAVE_PUBLICATION_OBSERVATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x9b0fc6f1c595364e2754f9efdb47d75ae2f00544313d9c144775f72792905e34"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "MEDIA_DESCRIPTION_AMENDMENT"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x1f2dbaca8474989aa6f921d726fbeaf149cb10865cd8de3f45f774b2e4106708"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLICATION_CATALOG"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0xfcdfbacd4c910d8dd53d211e47b82a9359f699af51aa18d6754f07ba0eebe4db"}}}}}
+    },
+    {
+      "if": {
+        "required": ["stream_record"],
+        "properties": {
+          "stream_record": {
+            "required": ["signatureScheme"],
+            "properties": {"signatureScheme": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}}
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stream_record": {
+            "properties": {"signatureHash": {"$ref": "#/$defs/unsignedHashRef"}}
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "stream_record": {
+            "properties": {"signatureHash": {"$ref": "#/$defs/signedHashRef"}}
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "nonzeroBytes32": {
+      "allOf": [
+        {"$ref": "#/$defs/bytes32"},
+        {"not": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}}
+      ]
+    },
+    "hashRef": {
+      "oneOf": [
+        {"$ref": "#/$defs/signedHashRef"},
+        {"$ref": "#/$defs/unsignedHashRef"}
+      ]
+    },
+    "signedHashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"type": "integer", "not": {"type": "boolean"}, "minimum": 1, "maximum": 6},
+        "digest": {"type": "string"},
+        "canonicalizationId": {"$ref": "#/$defs/nonzeroBytes32"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false,
+      "oneOf": [
+        {"properties": {"algorithm": {"const": 1}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 2}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 3}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 4}, "digest": {"pattern": "^0x(?:[0-9a-f]{2}){1,128}$"}}},
+        {"properties": {"algorithm": {"const": 5}, "digest": {"pattern": "^0x(?:[0-9a-f]{2}){1,128}$"}}},
+        {"properties": {"algorithm": {"const": 6}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}}
+      ]
+    },
+    "museumContentHashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"const": 1},
+        "digest": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "canonicalizationId": {"const": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false
+    },
+    "unsignedHashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"const": 0},
+        "digest": {"const": "0x"},
+        "canonicalizationId": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false
+    }
+  },
+  "required": ["$schema", "stream_source_commit", "interface_path", "implementation_path", "record_type_preimage", "stream_record"],
+  "unevaluatedProperties": false
+}

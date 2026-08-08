@@ -1,0 +1,112 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x36f3ad19669621824caa50fa898b5bfc5f28ba105fb145407a7a12a6d9af1463"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5e2c2bd16f16f76d8c450146d9e248eaa3c7350d129d2a02ae697a6a428ef920",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-I-0001.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-I-0001",
+    "entity_status": "review_pending",
+    "entity_type": "INSTITUTION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Museum governance source",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:3574c7087b41f402fa29ff6ea3fa096b6c4bfcf2c5b14dda140b56e24c73ee8b",
+    "preferred_label": "6529 Network Museum",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [
+          "6529NM-GOV-1052156",
+          "6529NM-GOV-1052812"
+        ],
+        "authority_status": "established",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Adopted Museum policy",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+          }
+        ]
+      },
+      "collection_entity_id": "6529NM-C-0001",
+      "institution_kind": "network_museum",
+      "mission": "A public, evidence-led museum for network-native art and its long-term care.",
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+            }
+          ],
+          "source_kind": "museum_record",
+          "value": "6529 Network Museum",
+          "variant_role": "preferred"
+        }
+      ],
+      "profile_type": "INSTITUTION"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-I-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052812"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052812"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Museum governance source",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-I-0001",
+    "visibility": "public"
+  }
+}

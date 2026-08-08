@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import stat
 import struct
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -18,6 +20,18 @@ MAX_WAVE_STORM_UTF16_CODE_UNITS = 50_000
 MAX_WAVE_STORM_MEDIA_FILES = 8
 WAVE_COVER_DIMENSION = 1_600
 MARKDOWN_LIST_OR_TABLE_LINE = re.compile(r"^(?:\s*(?:[-+*]|\d+[.)])\s+|\s*\|)")
+PROPOSED_GIFT_CURRENT_VIEW_NAMES = {"proposal.json", "wave-storm.json"}
+GOVERNED_SNAPSHOT_ROOTS = {"policies", "records", "docs", "governance", "schemas", "specs"}
+SHA256_VALUE = re.compile(r"^sha256:[0-9a-f]{64}$")
+SOURCE_COMMIT = re.compile(r"^[0-9a-f]{40}$")
+IDENTITY_DISCRIMINATORS = (
+    "$schema",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "register_id",
+)
+DOMAIN_IDENTIFIERS = ("proposal_id", "register_id")
 
 
 def utf16_code_units(value: str) -> int:
@@ -149,6 +163,151 @@ def compose_voter_dossier(candidate_dir: Path, package: dict[str, Any]) -> str:
     return "\n\n---\n\n".join(sections) + "\n"
 
 
+def _control_time(value: object) -> datetime | None:
+    if not isinstance(value, str):
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return parsed if parsed.tzinfo is not None and parsed.utcoffset() is not None else None
+
+
+def _normalized_sha256(path: Path) -> str:
+    raw = path.read_bytes()
+    normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return "sha256:" + hashlib.sha256(normalized).hexdigest()
+
+
+def _proposed_gift_current_views(root: Path, loaded: dict[Path, object]) -> list[tuple[Path, dict[str, Any]]]:
+    proposed_root = (root / "records/proposed-gifts").resolve()
+    register_path = (root / REGISTER_PATH).resolve()
+    views: list[tuple[Path, dict[str, Any]]] = []
+    for path, record in loaded.items():
+        if not isinstance(record, dict):
+            continue
+        resolved = path.resolve()
+        if resolved == register_path:
+            views.append((resolved, record))
+            continue
+        if not resolved.is_relative_to(proposed_root) or resolved.name not in PROPOSED_GIFT_CURRENT_VIEW_NAMES:
+            continue
+        if resolved.parent.parent == proposed_root:
+            views.append((resolved, record))
+    return sorted(views, key=lambda item: item[0].as_posix())
+
+
+def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
+    """Verify append-only lineage for every proposed-gift current-view record."""
+    issues: list[str] = []
+    root = root.resolve()
+    for current_path, current in _proposed_gift_current_views(root, loaded):
+        relative_current = current_path.relative_to(root).as_posix()
+        control = current.get("record_control")
+        if not isinstance(control, dict) or "revision" not in control:
+            continue
+        current_revision = control.get("revision")
+        history = current.get("amendment_history")
+        if not isinstance(current_revision, int) or current_revision < 1:
+            issues.append(f"{relative_current}: current revision must be a positive integer")
+            continue
+        current_constructed_at = _control_time(
+            control.get("constructor", {}).get("constructed_at")
+            if isinstance(control.get("constructor"), dict)
+            else None
+        )
+        if current_constructed_at is None:
+            issues.append(f"{relative_current}: current constructor timestamp is missing or not timezone-aware")
+        if current_revision == 1 and history in (None, []):
+            continue
+        current_domain_identifiers = [
+            key
+            for key in DOMAIN_IDENTIFIERS
+            if key in current and isinstance(current.get(key), str) and bool(current.get(key))
+        ]
+        if not current_domain_identifiers:
+            issues.append(
+                f"{relative_current}: current view must contain at least one non-empty domain identifier (proposal_id or register_id)"
+            )
+        if not isinstance(history, list) or len(history) != current_revision - 1:
+            issues.append(f"{relative_current}: amendment history count must equal current revision minus one")
+            continue
+        history_revisions = [item.get("revision") if isinstance(item, dict) else None for item in history]
+        if (
+            not all(type(revision) is int for revision in history_revisions)
+            or history_revisions != list(range(1, current_revision))
+        ):
+            issues.append(f"{relative_current}: amendment history revisions must be unique, increasing, and prior to the current revision")
+        for index, entry in enumerate(history):
+            if not isinstance(entry, dict):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} is not an object")
+                continue
+            revision = entry.get("revision")
+            snapshot_value = entry.get("prior_snapshot_path")
+            snapshot_relative = safe_relative_path(snapshot_value)
+            if snapshot_relative is None or not snapshot_relative.parts or snapshot_relative.parts[0] not in GOVERNED_SNAPSHOT_ROOTS:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has an unsafe prior snapshot path")
+                continue
+            if path_has_reparse_point(root, snapshot_relative):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} snapshot path crosses a link or reparse point")
+                continue
+            snapshot_path = (root / Path(*snapshot_relative.parts)).resolve()
+            if not snapshot_path.is_relative_to(root) or not snapshot_path.is_file():
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is missing")
+                continue
+            if not isinstance(entry.get("prior_source_commit"), str) or not SOURCE_COMMIT.fullmatch(entry["prior_source_commit"]):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has no 40-hex prior source commit")
+            if entry.get("supersedes") != entry.get("prior_payload_sha256"):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} supersedes and prior payload hash differ")
+            expected_hashes = (entry.get("supersedes"), entry.get("prior_payload_sha256"))
+            actual_hash = _normalized_sha256(snapshot_path)
+            if actual_hash not in expected_hashes or any(not isinstance(value, str) or not SHA256_VALUE.fullmatch(value) or value != actual_hash for value in expected_hashes):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot LF hash does not match both recorded hashes")
+            try:
+                snapshot = json.loads(snapshot_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n").decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not UTF-8 JSON")
+                continue
+            if not isinstance(snapshot, dict):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not a JSON object")
+                continue
+            # A snapshot is the exact prior payload, not a relocated live
+            # document. Its `$schema` value therefore remains an immutable
+            # identity token from that payload and is not rebased to the
+            # snapshot's storage directory.
+            for identity_key in IDENTITY_DISCRIMINATORS:
+                if identity_key in current and (
+                    identity_key not in snapshot or snapshot[identity_key] != current[identity_key]
+                ):
+                    issues.append(
+                        f"{relative_current}: amendment-history entry {index + 1} identity binding mismatch for {identity_key}"
+                    )
+            snapshot_control = snapshot.get("record_control")
+            snapshot_revision = snapshot_control.get("revision") if isinstance(snapshot_control, dict) else None
+            if snapshot_revision != revision:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} snapshot revision does not match its history revision")
+            snapshot_constructed_at = _control_time(snapshot_control.get("constructor", {}).get("constructed_at") if isinstance(snapshot_control, dict) and isinstance(snapshot_control.get("constructor"), dict) else None)
+            superseded_at = _control_time(entry.get("superseded_at"))
+            if superseded_at is None:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has no timezone-aware supersession time")
+            if snapshot_constructed_at is None:
+                issues.append(
+                    f"{relative_current}: amendment-history entry {index + 1} prior snapshot constructor timestamp is missing or not timezone-aware"
+                )
+            elif superseded_at is not None and snapshot_constructed_at >= superseded_at:
+                issues.append(f"{relative_current}: prior snapshot is not logically older than its supersession")
+            if current_constructed_at is not None and superseded_at is not None and current_constructed_at < superseded_at:
+                issues.append(f"{relative_current}: current constructor predates its amendment")
+            snapshot_history = snapshot.get("amendment_history") if isinstance(snapshot, dict) else None
+            if revision == 1 and snapshot_history not in (None, []):
+                issues.append(f"{relative_current}: revision-one prior snapshot contains amendment history")
+            elif isinstance(revision, int) and revision > 1:
+                prior_revisions = [item.get("revision") if isinstance(item, dict) else None for item in snapshot_history] if isinstance(snapshot_history, list) else []
+                if prior_revisions != list(range(1, revision)):
+                    issues.append(f"{relative_current}: prior snapshot history is not logically older and complete")
+    return issues
+
+
 def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
     """Return semantic errors that JSON Schema cannot express across files."""
     issues: list[str] = []
@@ -164,6 +323,8 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
     rows = register.get("proposals")
     if not isinstance(rows, list):
         return ["proposed-gift register has no proposal rows"]
+
+    issues.extend(proposed_gift_revision_lineage_issues(root, loaded))
 
     proposal_ids = [row.get("proposal_id") for row in rows if isinstance(row, dict)]
     if len(proposal_ids) != len(set(proposal_ids)):

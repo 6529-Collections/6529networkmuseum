@@ -1,0 +1,65 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xe1073de5b33e01ed6098144581833115e427d355a482b1512adf7f746b5eca5c"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xaae13ed8ac982df0004be972454151e6373e53bf6a63d31d167a9047dd975b53",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0164.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Magnum project artist source",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "payload_sha256": "sha256:f52559b4a5673f960ee472cd4b9c1cde7d67d1308fa211e1fd6a93a8b1f9cfef",
+    "qualifier": {
+      "role": "creator"
+    },
+    "record_id": "6529NM-REL-0164",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0021",
+      "6529NM-PG-2026-001.OBJ-005",
+      "6529NM-PRJ-0006"
+    ],
+    "relation_id": "6529NM-REL-0164",
+    "relation_type": "AGENT_PLAYS_ROLE",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-ART-0021",
+    "source_record_ids": [
+      "6529NM-PG-2026-001.OBJ-005"
+    ],
+    "subject_id": "6529NM-REL-0164",
+    "target_entity_id": "6529NM-PRJ-0006",
+    "visibility": "public"
+  }
+}

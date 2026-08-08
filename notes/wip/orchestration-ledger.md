@@ -3001,3 +3001,77 @@ explicitly a candidate pending fresh exact-commit independent review; no
 reviewer identity or review time is fabricated. No WP-1 canonical Work/Artist
 IDs were bound, no shared schema/vocabulary was changed, and no push, merge, or
 deploy is authorized.
+
+## 2026-08-08 Magnum WINNER status amendment
+
+Post-merge source main is exact `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`;
+Museum validation run [31252451827](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31252451827)
+completed green before this narrow branch was created. The authenticated
+read-only `punk6529bot` readback at `2026-08-08T10:15:02.0167151Z` is the
+canonical current status observation for Magnum. It changed the current Wave
+observation for drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, to signed
+`WINNER`, rank `1`, rating/realtime rating `121,603,214`, and `29` raters.
+The current public status is **Selected by Museum Wave; acquisition review in
+progress**. This establishes Wave selection only. Formal acceptance, donor
+authority, transfer, title, custody, rights clearance, technical or
+preservation completion, accession, and permanent-Collection membership remain
+unestablished.
+
+The prior `2026-08-08T09:06:07.985Z` `PARTICIPATORY` observation is
+historical-only (rank `1`, realtime rating `122,969,240`, 29 raters) and is
+preserved, as is the signed proposal's publication-time `PARTICIPATORY`
+readback. The governed receipt is
+`records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md`.
+The proposal, Wave package, and register current views now explicitly advance
+to revision `2`. Each binds its exact LF-normalized revision-one payload hash
+and the canonical source commit `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`
+through one ordered amendment-history entry; the retained source snapshots are
+under `records/proposed-gifts/6529NM-PG-2026-001/history/`.
+PR #38 remains the separate draft WP-3 scholarship corpus; this amendment does
+not rebase or modify that branch.
+
+## 2026-08-08 Magnum lineage identity follow-up
+
+Hosted Museum validation run
+[`31254820343`](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31254820343)
+completed green at the preceding draft head `a0d2e506101647c50a0d14a5fd12bcd8f185b89d`.
+The exact-head follow-up adds a generic stable-identity binding across every
+proposed-gift current view: every identity discriminator present on the
+current view (`$schema`, `record_type`, `schema_profile`, `proposal_id`, or
+`register_id`) must match its retained prior snapshot, and every revised view
+must contain a non-empty proposal or register identifier. Current and prior
+constructor timestamps must be present and timezone-aware so chronology is
+enforced rather than assumed. Deterministic adversarial tests cover copied or
+repointed proposal/register snapshots, missing domain identity, invalid and
+missing prior constructors, and invalid current constructors.
+
+Compatibility is deliberate: `prior_snapshot_path` remains declared in the
+existing v1 amendment-history schema but is optional at that schema layer, so
+the published v1 `$id` is not broken by a new required property. The generic
+semantic lineage validator requires a safe, existing path for every revised
+current view, and a revision-two record missing that path fails semantic
+validation. No schema-id bump is required for this additive declaration plus
+revision-two semantic invariant. Before ready-state review, the
+status-amendment PR was draft and unmerged; the WP-3 scholarship PR remained
+separate.
+
+## 2026-08-08 Keys and Gates integration with canonical public ontology
+
+The Keys and Gates corpus is now integrated locally with canonical Museum main
+`f31ac3f6c72753d11c9dffbdd42c88fc749695ca`, the structural source release
+merged through PR #41. Conflict resolution retained the later independently
+inspected accessibility descriptions and the per-work public-width restrictions
+for OUT-004 and OUT-011, while preserving the complete WP-1 ontology, route,
+Stream-interoperability, and publication-control history.
+
+The deterministic public-entity migration now produces 283 entity and relation
+records. The closed visitor inventory contains 468 entries; its assembly bundle
+contains 467 embedded entries and is 3,605,784 bytes. The complete governed
+manifest contains 741 entries with SHA-256
+`sha256:b16e81f1d39b64deba1028d219bfd0031c0d25963b50b9c001512bf21b2c3cfe`
+and Keccak commitment
+`0xf99c62ddcaaebbd275f3e27e4f4327654c7f8d280a508975d6f0844b6f095054`.
+Program-media verification is closed at 44 presentation derivatives and
+15,408,782 bytes. All generated artifacts are current. The branch remains
+review-pending: no publication catalog, active pointer, mint, acquisition,
+accession, or Collection membership has been created.

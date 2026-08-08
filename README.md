@@ -93,6 +93,7 @@ python scripts/sync_rights_legal_texts.py
 python scripts/validate.py
 python scripts/generate_institutional_source_inventory.py --check
 python scripts/generate_program_media.py --check
+python scripts/migrate_public_entities.py --check
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check
 ```

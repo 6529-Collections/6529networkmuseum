@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
+  "title": "6529 Network Museum public relation identity inventory",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json"},
+    "inventory_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "identity_policy": {"type": "string", "minLength": 1},
+    "relation_key_format": {"const": "relation_type|source_entity_id|target_entity_id"},
+    "relation_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation_id": {"type": "string", "pattern": "^6529NM-REL-[0-9]{4}$"},
+          "source_key": {"type": "string", "pattern": "^[A-Z0-9_]+\\|[^|]+\\|[^|]+$"}
+        },
+        "required": ["relation_id", "source_key"],
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "required": ["$schema", "inventory_version", "identity_policy", "relation_key_format", "relation_bindings"],
+  "unevaluatedProperties": false
+}

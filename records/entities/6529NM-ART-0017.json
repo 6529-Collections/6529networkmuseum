@@ -1,0 +1,138 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xb934a4103e10394fddf3a5ca7086b5d027b8d2dbce0cdbfe8c94ba2d0ae39e6b"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x6d8b54940d19f84077abafbb31bf342919994edf65896094dfcfc2526fc31651",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0017.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/david-seymour",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "entity_id": "6529NM-ART-0017",
+    "entity_status": "review_pending",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:069ef68544ee452f26396edc8351ca6f045fcf90d0dbb013f6b6dc072c9830cc",
+    "preferred_label": "David Seymour",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [
+          "6529NM-AGT-0018"
+        ],
+        "authority_status": "source_label_only",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "source_kind": "proposal",
+          "value": "David Seymour",
+          "variant_role": "preferred"
+        },
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Raw issuer label",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "source_kind": "proposal",
+          "value": "David Seymour",
+          "variant_role": "source_label"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "photography",
+          "proposal work"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          }
+        ],
+        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "david-seymour",
+    "record_id": "6529NM-ART-0017",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AGT-0018",
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AGT-0018",
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        }
+      ],
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ART-0017",
+    "visibility": "public"
+  }
+}

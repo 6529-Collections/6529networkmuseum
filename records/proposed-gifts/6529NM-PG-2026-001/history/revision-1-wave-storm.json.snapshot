@@ -1,0 +1,207 @@
+{
+  "$schema": "../../../schemas/proposed-gift-wave-package.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
+      "role": "constructor",
+      "constructed_at": "2026-08-05T17:34:39.310Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_GIFT_WAVE_PACKAGE",
+  "schema_profile": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1",
+  "proposal_id": "6529NM-PG-2026-001",
+  "status": "open",
+  "target_wave": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "wave_type": "APPROVE",
+    "credit_type": "TDH",
+    "credit_scope": "DROP"
+  },
+  "drop_title": "Conflict at Its Edges",
+  "single_voting_object": true,
+  "publication_profile": {
+    "profile": "6529NM_WAVE_STORM_PUBLICATION_V1",
+    "source_text_encoding": "UTF-8",
+    "source_line_endings": "LF",
+    "counting_basis": "raw_markdown_including_final_lf",
+    "limits": {
+      "per_part_utf16_code_units": 25000,
+      "per_part_utf8_bytes": 65535,
+      "total_utf16_code_units": 50000,
+      "total_media_files": 8
+    },
+    "editorial_targets": {
+      "per_part_utf16_code_units": 20000,
+      "per_part_utf8_bytes": 60000,
+      "total_utf16_code_units": 45000
+    },
+    "observed_production": {
+      "frontend_commit": "c807f6da8efea7e39405fba8185de153096bf95d",
+      "backend_commit": "e1ca97c54d42f83c5f7bd613fcfa5a4476b93eb6",
+      "observed_at": "2026-08-06T11:18:41.858Z"
+    },
+    "target_observation": {
+      "observed_at": "2026-08-06T11:22:06.296Z",
+      "posting_profile_handle": "punk6529bot",
+      "wave_open": true,
+      "eligible_to_participate": true,
+      "eligible_to_vote": true,
+      "eligible_to_chat": true,
+      "admin": true,
+      "winning_threshold": 69000000,
+      "winning_threshold_min_duration_ms": 86400000,
+      "time_lock_ms": 86400000,
+      "signature_required": true
+    },
+    "part_metrics": [
+      {"part_number": 1, "utf16_code_units": 6513, "utf8_bytes": 6563, "media_count": 1},
+      {"part_number": 2, "utf16_code_units": 2909, "utf8_bytes": 2921, "media_count": 1},
+      {"part_number": 3, "utf16_code_units": 3210, "utf8_bytes": 3222, "media_count": 1},
+      {"part_number": 4, "utf16_code_units": 3377, "utf8_bytes": 3389, "media_count": 1},
+      {"part_number": 5, "utf16_code_units": 3100, "utf8_bytes": 3115, "media_count": 1},
+      {"part_number": 6, "utf16_code_units": 3091, "utf8_bytes": 3097, "media_count": 1},
+      {"part_number": 7, "utf16_code_units": 13377, "utf8_bytes": 13407, "media_count": 0}
+    ],
+    "totals": {
+      "utf16_code_units": 35577,
+      "utf8_bytes": 35714,
+      "media_count": 6
+    },
+    "leaderboard": {
+      "media_selection": "parts[0].media[0]",
+      "cover_part_number": 1,
+      "cover_media_index": 0,
+      "object_fit": "contain",
+      "preview_checks_px": [267, 450, 1600]
+    }
+  },
+  "parts": [
+    {
+      "part_number": 1,
+      "role": "resolution",
+      "title": "Proposed gift: Conflict at Its Edges",
+      "markdown_path": "public/wave-storm/01-resolution.md",
+      "media": [
+        {
+          "asset_path": "public/media/conflict-at-its-edges-cover.png",
+          "source_asset_path": "public/media/conflict-at-its-edges-cover.svg",
+          "media_type": "image/png",
+          "width": 1600,
+          "height": 1600,
+          "byte_length": 86923,
+          "sha256": "082d690ed07297a1583efa70167fd1735e611a9530cd0652dae9cfaee9482d77",
+          "source_sha256": "829be2d065b5cf5692d5eb96a59615b98c79dddfb0065e2bc8e664a59b3c4b93",
+          "color_profile": "sRGB IEC61966-2.1",
+          "opaque": true,
+          "alt_text": "Dark square proposal cover with a blue vertical rule and the words Conflict at Its Edges: Five Photographs of Evidence and Aftermath, 1952–2016.",
+          "credit_line": "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.",
+          "rights_label": "CC0-1.0"
+        }
+      ]
+    },
+    {
+      "part_number": 2,
+      "role": "work",
+      "title": "David Seymour — Magnum 75 #127",
+      "markdown_path": "public/wave-storm/02-david-seymour-127.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+      "media": [
+        {
+          "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+          "media_type": "image/jpeg",
+          "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
+          "credit_line": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 3,
+      "role": "work",
+      "title": "Larry Towell — Magnum 75 #145",
+      "markdown_path": "public/wave-storm/03-larry-towell-145.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+      "media": [
+        {
+          "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
+          "credit_line": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 4,
+      "role": "work",
+      "title": "Micha Bar-Am — Magnum 75 #97",
+      "markdown_path": "public/wave-storm/04-micha-bar-am-97.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+      "media": [
+        {
+          "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
+          "credit_line": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 5,
+      "role": "work",
+      "title": "Moisés Saman — Magnum 75 #44",
+      "markdown_path": "public/wave-storm/05-moises-saman-44.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+      "media": [
+        {
+          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+          "media_type": "image/jpeg",
+          "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
+          "credit_line": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 6,
+      "role": "work",
+      "title": "Lorenzo Meloni — Magnum 75 #104",
+      "markdown_path": "public/wave-storm/06-lorenzo-meloni-104.md",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+      "media": [
+        {
+          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+          "media_type": "image/jpeg",
+          "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
+          "credit_line": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
+          "rights_label": "All Rights Reserved"
+        }
+      ]
+    },
+    {
+      "part_number": 7,
+      "role": "synthesis",
+      "title": "Conflict at Its Edges",
+      "markdown_path": "public/wave-storm/07-case-and-decision.md",
+      "media": []
+    }
+  ],
+  "submission_notes": [
+    "Submit all seven parts as one Storm drop so the parent drop remains the single TDH voting object.",
+    "Attach the retained square title card as the first media item in part one; it is the leaderboard cover.",
+    "Attach the exact source image named in each work part; do not upload a marketplace screenshot or substitute crop.",
+    "Retain each visible credit line and All Rights Reserved label.",
+    "Use the exact UTF-8, LF-only Markdown sources recorded here, including their final line feed; do not paste a separately edited copy.",
+    "Reconfirm the live 25,000 UTF-16-unit and 65,535 UTF-8-byte per-part limits and the 50,000 UTF-16-unit total before opening the composer.",
+    "Set the API drop title exactly to Conflict at Its Edges; the cover and first lines repeat that identity so compact clients remain intelligible.",
+    "After merge, bind the dry-run publication plan to the immutable Git commit and verify the finalized-chain state against this edition; if a material fact changed, amend and review the source before posting.",
+    "Do not post until the donor gives explicit final approval of the exact manuscript, cover, and publication action.",
+    "Published by punk6529bot to the 6529 Network Museum Wave as drop 002bfa4f-8416-48bf-b35e-38f354e9a9f0, serial 1276093, on 2026-08-06T13:19:30.726Z from canonical Museum source commit eb95dfc02f05f220232f770a6d9ab33d50eed38b after the donor gave that explicit approval.",
+    "Publication opened the proposal for TDH voting; it did not cast a vote, transfer an asset, select the gift, formally accept it, or accession any object."
+  ]
+}

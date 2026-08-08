@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-publication-inventory-v1.json",
+  "title": "6529 Network Museum closed visitor publication inventory",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/public-publication-inventory-v1.json"},
+    "inventory_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "inventory_id": {"const": "6529NM_PUBLIC_VISITOR_CORPUS"},
+    "scope": {"const": "visitor_publication_corpus"},
+    "integrity": {
+      "type": "object",
+      "properties": {
+        "canonicalization_id": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "body_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "body_keccak256": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}
+      },
+      "required": ["canonicalization_id", "body_sha256", "body_keccak256"],
+      "unevaluatedProperties": false
+    },
+    "assembler": {
+      "type": "object",
+      "properties": {
+        "required_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/path"}
+        },
+        "activation_mode": {"const": "atomic"},
+        "bundle_path": {"const": "records/publication/visitor-corpus-bundle-v1.json"}
+      },
+      "required": ["required_paths", "activation_mode", "bundle_path"],
+      "unevaluatedProperties": false
+    },
+    "bundle": {"$ref": "#/$defs/bundle"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/entry"}
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "approved_public_media": {"type": "integer", "minimum": 1},
+        "media_description_amendment": {"type": "integer", "minimum": 1},
+        "public_assembly_control_document": {"type": "integer", "minimum": 1},
+        "public_curatorial_manuscript": {"type": "integer", "minimum": 1},
+        "public_entity_record": {"type": "integer", "minimum": 1},
+        "public_media_source_manifest": {"type": "integer", "minimum": 1},
+        "public_relation_record": {"type": "integer", "minimum": 1},
+        "wave_observation": {"type": "integer", "minimum": 1}
+      },
+      "required": [
+        "approved_public_media",
+        "media_description_amendment",
+        "public_assembly_control_document",
+        "public_curatorial_manuscript",
+        "public_entity_record",
+        "public_media_source_manifest",
+        "public_relation_record",
+        "wave_observation"
+      ],
+      "unevaluatedProperties": false
+    },
+    "required_source_sets": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {"$ref": "#/$defs/path"}
+      },
+      "unevaluatedProperties": false
+    }
+  },
+  "$defs": {
+    "path": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.git(?:/|$))(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[?#\\\\])[^\\s]+$"
+    },
+    "entry": {
+      "type": "object",
+      "properties": {
+        "path": {"$ref": "#/$defs/path"},
+        "kind": {"enum": [
+          "public_entity_record",
+          "public_relation_record",
+          "wave_observation",
+          "media_description_amendment",
+          "public_curatorial_manuscript",
+          "public_assembly_control_document",
+          "public_media_source_manifest",
+          "approved_public_media"
+        ]},
+        "delivery_role": {"enum": ["assembly_document", "media_asset"]},
+        "required_in_catalog": {"const": true},
+        "activation_mode": {"enum": ["atomic", "deferred_on_demand"]}
+      },
+      "required": ["path", "kind", "delivery_role", "required_in_catalog", "activation_mode"],
+      "unevaluatedProperties": false,
+      "allOf": [
+        {
+          "if": {"properties": {"delivery_role": {"const": "assembly_document"}}, "required": ["delivery_role"]},
+          "then": {"properties": {"activation_mode": {"const": "atomic"}}}
+        },
+        {
+          "if": {"properties": {"delivery_role": {"const": "media_asset"}}, "required": ["delivery_role"]},
+          "then": {"properties": {"activation_mode": {"const": "deferred_on_demand"}}}
+        }
+      ]
+    },
+    "bundle": {
+      "type": "object",
+      "properties": {
+        "path": {"const": "records/publication/visitor-corpus-bundle-v1.json"},
+        "schema": {"const": "https://6529networkmuseum.org/schemas/public-publication-bundle-v1.json"},
+        "required_in_catalog": {"const": true},
+        "activation_mode": {"const": "atomic"},
+        "max_serialized_bytes": {"const": 8000000}
+      },
+      "required": ["path", "schema", "required_in_catalog", "activation_mode", "max_serialized_bytes"],
+      "unevaluatedProperties": false
+    }
+  },
+  "required": ["$schema", "inventory_version", "inventory_id", "scope", "integrity", "assembler", "bundle", "entries", "counts", "required_source_sets"],
+  "unevaluatedProperties": false
+}

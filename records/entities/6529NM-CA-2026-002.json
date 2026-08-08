@@ -1,0 +1,357 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xef6cac0047df7b3a382c2eea5e574261dbdfcec04d2cfb72d0b524853e54920a"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xcda84fb12f2504e826fd9c242fb36f6f3965c9800b42107464b2cf7239ff7fe7",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-CA-2026-002.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/keys-and-gates",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-CA-2026-002",
+    "entity_status": "review_pending",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates program record",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+      },
+      {
+        "evidence_class": "E",
+        "label": "Curated acquisition thesis",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:07062348b61c0ef7daeb0f2a039d81de50bec1dae236fb7d2a5c9244fdadf242",
+    "preferred_label": "Keys and Gates",
+    "profile": {
+      "acquisition_method": "purchase",
+      "collection_effect": "none",
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates program record",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        },
+        {
+          "evidence_class": "E",
+          "label": "Curated acquisition thesis",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Planned custody reference is not custody evidence.",
+          "status": "unverified"
+        },
+        "display": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "No display authorization is recorded.",
+          "status": "not_started"
+        },
+        "mint": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "No primary mint evidence is recorded.",
+          "status": "not_established"
+        },
+        "payment": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Program terms describe a planned purchase price only.",
+          "status": "planned"
+        },
+        "preservation": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "No preservation completion is recorded.",
+          "status": "not_started"
+        },
+        "rights": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Conditional program terms are not an effective rights grant.",
+          "status": "unverified"
+        },
+        "technical": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "No completed technical review is recorded.",
+          "status": "not_started"
+        },
+        "title": {
+          "as_of": "2026-08-01T15:03:35Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "No title binding is recorded.",
+          "status": "not_established"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-08-01T15:03:35Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Keys and Gates selected-works index",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
+        "status": "selected_through_acquisition_program_acquisition_pending"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Lifecycle source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Keys and Gates remains selected through its acquisition program with acquisition pending.",
+          "observation_id": "6529NM-CA-OBS-0002",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "source_record_ids": [
+            "6529NM-AP-01"
+          ],
+          "source_status": "selected_unminted",
+          "status": "selected_through_acquisition_program_acquisition_pending"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [
+          "6529NM-AP-ENT-0002"
+        ],
+        "kind": "acquisition_program",
+        "source_record_ids": [
+          "6529NM-AP-01"
+        ]
+      },
+      "public_credit": "Selected through the Keys and Gates acquisition program; acquisition pending",
+      "source_work_record_ids": [
+        "6529NM-AP-01-OUT-001",
+        "6529NM-AP-01-OUT-002",
+        "6529NM-AP-01-OUT-003",
+        "6529NM-AP-01-OUT-004",
+        "6529NM-AP-01-OUT-005",
+        "6529NM-AP-01-OUT-006",
+        "6529NM-AP-01-OUT-007",
+        "6529NM-AP-01-OUT-008",
+        "6529NM-AP-01-OUT-009",
+        "6529NM-AP-01-OUT-010",
+        "6529NM-AP-01-OUT-011",
+        "6529NM-AP-01-OUT-012",
+        "6529NM-AP-01-OUT-013",
+        "6529NM-AP-01-OUT-014",
+        "6529NM-AP-01-OUT-015",
+        "6529NM-AP-01-OUT-016"
+      ],
+      "thesis": "The program’s selected group brings together photographs of access, exclusion, permission, surveillance, custody, autonomy, and exit; selection is complete, while acquisition and minting remain pending.",
+      "title": "Keys and Gates",
+      "work_entity_ids": [
+        "6529NM-W-0008",
+        "6529NM-W-0009",
+        "6529NM-W-0010",
+        "6529NM-W-0011",
+        "6529NM-W-0012",
+        "6529NM-W-0013",
+        "6529NM-W-0014",
+        "6529NM-W-0015",
+        "6529NM-W-0016",
+        "6529NM-W-0017",
+        "6529NM-W-0018",
+        "6529NM-W-0019",
+        "6529NM-W-0020",
+        "6529NM-W-0021",
+        "6529NM-W-0022",
+        "6529NM-W-0023"
+      ]
+    },
+    "public_slug": "keys-and-gates",
+    "record_id": "6529NM-CA-2026-002",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-001",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-003",
+      "6529NM-AP-01-OUT-004",
+      "6529NM-AP-01-OUT-005",
+      "6529NM-AP-01-OUT-006",
+      "6529NM-AP-01-OUT-007",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-01-OUT-009",
+      "6529NM-AP-01-OUT-010",
+      "6529NM-AP-01-OUT-011",
+      "6529NM-AP-01-OUT-012",
+      "6529NM-AP-01-OUT-013",
+      "6529NM-AP-01-OUT-014",
+      "6529NM-AP-01-OUT-015",
+      "6529NM-AP-01-OUT-016",
+      "6529NM-AP-ENT-0002",
+      "6529NM-W-0008",
+      "6529NM-W-0009",
+      "6529NM-W-0010",
+      "6529NM-W-0011",
+      "6529NM-W-0012",
+      "6529NM-W-0013",
+      "6529NM-W-0014",
+      "6529NM-W-0015",
+      "6529NM-W-0016",
+      "6529NM-W-0017",
+      "6529NM-W-0018",
+      "6529NM-W-0019",
+      "6529NM-W-0020",
+      "6529NM-W-0021",
+      "6529NM-W-0022",
+      "6529NM-W-0023"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-001",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-003",
+      "6529NM-AP-01-OUT-004",
+      "6529NM-AP-01-OUT-005",
+      "6529NM-AP-01-OUT-006",
+      "6529NM-AP-01-OUT-007",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-01-OUT-009",
+      "6529NM-AP-01-OUT-010",
+      "6529NM-AP-01-OUT-011",
+      "6529NM-AP-01-OUT-012",
+      "6529NM-AP-01-OUT-013",
+      "6529NM-AP-01-OUT-014",
+      "6529NM-AP-01-OUT-015",
+      "6529NM-AP-01-OUT-016",
+      "6529NM-AP-ENT-0002",
+      "6529NM-W-0008",
+      "6529NM-W-0009",
+      "6529NM-W-0010",
+      "6529NM-W-0011",
+      "6529NM-W-0012",
+      "6529NM-W-0013",
+      "6529NM-W-0014",
+      "6529NM-W-0015",
+      "6529NM-W-0016",
+      "6529NM-W-0017",
+      "6529NM-W-0018",
+      "6529NM-W-0019",
+      "6529NM-W-0020",
+      "6529NM-W-0021",
+      "6529NM-W-0022",
+      "6529NM-W-0023"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates program record",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        },
+        {
+          "evidence_class": "E",
+          "label": "Curated acquisition thesis",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-CA-2026-002",
+    "visibility": "public"
+  }
+}

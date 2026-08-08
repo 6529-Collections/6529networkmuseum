@@ -1,0 +1,27 @@
+{
+  "$schema": "../../schemas/proposed-gift-register.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
+      "role": "constructor",
+      "constructed_at": "2026-08-05T17:34:39.310Z"
+    },
+    "review": null
+  },
+  "register_id": "6529NM-PROPOSED-GIFT-REGISTER",
+  "snapshot_at": "2026-08-06T13:19:30.726Z",
+  "proposals": [
+    {
+      "proposal_id": "6529NM-PG-2026-001",
+      "title": "Conflict at Its Edges",
+      "status": "open",
+      "object_count": 5,
+      "donor_public_credit": "Offered by punk6529",
+      "proposal_record": "6529NM-PG-2026-001/proposal.json",
+      "wave_status": "open",
+      "collection_status_effect": "none_until_later_formal_acceptance_and_accession"
+    }
+  ]
+}

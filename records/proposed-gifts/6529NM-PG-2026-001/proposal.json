@@ -1,22 +1,33 @@
 {
   "$schema": "../../../schemas/proposed-gift.schema.json",
   "record_control": {
-    "revision": 1,
+    "revision": 2,
     "record_status": "constructed",
     "constructor": {
       "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
       "role": "constructor",
-      "constructed_at": "2026-08-05T17:34:39.310Z"
+      "constructed_at": "2026-08-08T10:15:02.0167151Z"
     },
     "review": null
   },
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-08T10:15:02.0167151Z",
+      "supersedes": "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
+      "prior_payload_sha256": "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
+      "prior_source_commit": "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
+      "prior_snapshot_path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot",
+      "reason": "Superseded the revision-one proposed-gift view with the authenticated Museum Wave WINNER observation; preserves the prior proposal construction and records current selection while leaving acceptance, title, custody, rights, technical, preservation, accession, and Collection gates open."
+    }
+  ],
   "record_type": "PROPOSED_GIFT",
   "schema_profile": "6529NM_PROPOSED_GIFT_V1",
   "proposal_id": "6529NM-PG-2026-001",
   "title": "Conflict at Its Edges",
   "subtitle": "Five Photographs of Evidence and Aftermath, 1952–2016",
-  "status": "open",
-  "status_as_of": "2026-08-06T13:19:30.726Z",
+  "status": "selected",
+  "status_as_of": "2026-08-08T10:15:02.0167151Z",
   "offer": {
     "donor_public_credit": "Offered by punk6529",
     "acquisition_method": "donation",
@@ -41,12 +52,12 @@
     "credit_scope": "DROP",
     "winning_threshold": 69000000,
     "winning_threshold_min_duration_ms": 86400000,
-    "observed_at": "2026-08-06T13:19:12.695Z",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
     "proposal_drop": {
       "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
       "serial_no": 1276093,
-      "status": "PARTICIPATORY",
-      "status_observed_at": "2026-08-06T13:19:30.726Z"
+      "status": "WINNER",
+      "status_observed_at": "2026-08-08T10:15:02.0167151Z"
     }
   },
   "contract_observation": {

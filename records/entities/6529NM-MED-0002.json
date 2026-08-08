@@ -1,0 +1,173 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0d1a7b0968baac74f690e2aaa0ed48ca79a377ff1523f56cfc2b6c0f0b5bee98"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x547d8bfbba623fc3d9209fc6fc1ffe2357a182f1e7fcc547e67e22ecd96ea6d8",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0002.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-MED-0002",
+    "entity_status": "review_pending",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Token-linked metadata record",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:d464d1fa0f1e0f9fc832bf7c542052b90d160d1d06fe413a14a9ca6d43d542ce",
+    "preferred_label": "Casey token-linked metadata source",
+    "profile": {
+      "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
+          }
+        ],
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "not_applicable",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": null,
+        "allowed_ui_affordances": [
+          "view",
+          "open_token_source",
+          "copy_citation"
+        ],
+        "credit": "Casey Reas, token-linked metadata source",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Existing object record metadata snapshot fixity.",
+          "digest": "sha256:e193e1436718786aac6e96aac69d70b3ecbb224576626378137683bbf6916e74",
+          "status": "verified",
+          "verified_at": "2026-08-02T06:30:00Z"
+        },
+        "height": null,
+        "identity_inference_prohibition": null,
+        "media_role": "token_linked_source_media",
+        "media_type": "application/json",
+        "publication_boundary": "token_source",
+        "publication_context_entity_ids": [],
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "statement_entity_id": null,
+          "status": "cleared_with_conditions"
+        },
+        "source_locator": {
+          "repository_path": null,
+          "uri": "https://api.artblocks.io/token/100000031"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM.2026.001.01",
+          "6529NM.2026.001.RIGHTS.01"
+        ],
+        "subject_entity_id": "6529NM-W-0001",
+        "token_source_fixity": null,
+        "token_source_locator": null,
+        "transform_profile": null,
+        "visual": false,
+        "wave_proposal_context": null,
+        "width": null
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0002",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.RIGHTS.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.RIGHTS.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Token-linked metadata record",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-MED-0002",
+    "visibility": "public"
+  }
+}

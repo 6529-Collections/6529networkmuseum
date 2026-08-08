@@ -1,0 +1,65 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x2c5571f7ac9a6fa995b3b243b061683edf01007ce881682cc1589755d334a869"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x695859d0880bc191b2f728d449278e427511b71c68023f8a3667a1ca9dd86ddd",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0010.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates artist creator",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "payload_sha256": "sha256:8e2eb08406651f568cdb154370b9e1042bbe230da125275a4f0f5dbfeb4afc5b",
+    "qualifier": {
+      "role": "creator"
+    },
+    "record_id": "6529NM-REL-0010",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-01-OUT-002",
+      "6529NM-ART-0003",
+      "6529NM-W-0009"
+    ],
+    "relation_id": "6529NM-REL-0010",
+    "relation_type": "ARTIST_CREATES_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-ART-0003",
+    "source_record_ids": [
+      "6529NM-AP-01-OUT-002"
+    ],
+    "subject_id": "6529NM-REL-0010",
+    "target_entity_id": "6529NM-W-0009",
+    "visibility": "public"
+  }
+}
