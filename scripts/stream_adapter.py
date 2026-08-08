@@ -39,6 +39,26 @@ MAX_STREAM_DIGEST_BYTES = 128
 FIXED_32_BYTE_ALGORITHMS = frozenset({1, 2, 3, 6})
 VARIABLE_DIGEST_ALGORITHMS = frozenset({4, 5})
 BINARY_EXTENSIONS = frozenset({".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".woff", ".woff2", ".ttf"})
+MANIFEST_KEYS = frozenset(
+    {
+        "canonicalization",
+        "entries",
+        "hash_algorithms",
+        "inventory_files",
+        "inventory_roots",
+        "manifest_commitment",
+        "manifest_sha256",
+        "manifest_type",
+        "manifest_version",
+    }
+)
+MANIFEST_CANONICALIZATION = {
+    "id": MUSEUM_JCS_ID,
+    "name": "RFC8785_JCS",
+    "profile": "museum-i-json-v1",
+}
+MANIFEST_ENTRY_KEYS = frozenset({"byte_mode", "path", "sha256", "size"})
+MANIFEST_JSON_ENTRY_KEYS = MANIFEST_ENTRY_KEYS | {"content_hash"}
 
 # Stream keeps recordType open/nonzero. These are Museum adapter pins, not a
 # claim that Stream itself has admitted these preimages to its family registry.
@@ -257,6 +277,8 @@ def _manifest_bytes(path: str, raw: bytes) -> tuple[bytes, str]:
 
 
 def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    if set(manifest) != MANIFEST_KEYS:
+        raise StreamAdapterError("exact B manifest has an invalid root shape")
     if manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST" or not isinstance(manifest.get("manifest_version"), str) or not SEMVER.fullmatch(manifest["manifest_version"]):
         raise StreamAdapterError("exact B manifest has an invalid type or version")
     hash_algorithms = manifest.get("hash_algorithms")
@@ -268,7 +290,7 @@ def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
     ):
         raise StreamAdapterError("exact B manifest hash algorithm registry drifted")
     canonicalization = manifest.get("canonicalization")
-    if not isinstance(canonicalization, dict) or canonicalization.get("id") != MUSEUM_JCS_ID:
+    if not isinstance(canonicalization, dict) or canonicalization != MANIFEST_CANONICALIZATION:
         raise StreamAdapterError("exact B manifest canonicalization pin drifted")
 
     entries = manifest.get("entries")
@@ -280,6 +302,11 @@ def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
             raise StreamAdapterError("exact B manifest contains an invalid entry")
         path = entry["path"]
         _safe_source_path(path)
+        expected_entry_keys = (
+            MANIFEST_JSON_ENTRY_KEYS if path.casefold().endswith(".json") else MANIFEST_ENTRY_KEYS
+        )
+        if set(entry) != expected_entry_keys:
+            raise StreamAdapterError(f"exact B manifest entry has an invalid shape: {path}")
         if path in by_path:
             raise StreamAdapterError(f"exact B manifest contains a duplicate path: {path}")
         size = entry.get("size")

@@ -267,6 +267,15 @@ class StreamAdapterTests(unittest.TestCase):
         def mutate_manifest_commitment_shape(manifest: dict) -> None:
             manifest["manifest_commitment"]["future"] = True
 
+        def mutate_manifest_root_shape(manifest: dict) -> None:
+            manifest["future"] = True
+
+        def mutate_canonicalization_shape(manifest: dict) -> None:
+            manifest["canonicalization"]["future"] = True
+
+        def mutate_entry_shape(manifest: dict) -> None:
+            manifest["entries"][0]["future"] = True
+
         def mutate_entry_path(manifest: dict) -> None:
             manifest["entries"][0]["path"] = "records/entities/other.json"
 
@@ -284,6 +293,9 @@ class StreamAdapterTests(unittest.TestCase):
                 (mutate_manifest_sha, False),
                 (mutate_manifest_keccak, False),
                 (mutate_manifest_commitment_shape, False),
+                (mutate_manifest_root_shape, True),
+                (mutate_canonicalization_shape, True),
+                (mutate_entry_shape, True),
             )
         )
         mutations.extend(((mutation, True) for mutation in (mutate_entry_path, mutate_entry_size, mutate_entry_mode, mutate_entry_sha)))
@@ -864,6 +876,9 @@ class PublicationCatalogTests(unittest.TestCase):
         import publication_catalog as catalog_module
 
         mutations = {
+            "manifest root extra field": lambda manifest: manifest.update({"future": True}),
+            "canonicalization extra field": lambda manifest: manifest["canonicalization"].update({"future": True}),
+            "manifest entry extra field": lambda manifest: manifest["entries"][0].update({"future": True}),
             "JSON content algorithm": lambda manifest: next(
                 entry for entry in manifest["entries"] if entry["path"].endswith(".json")
             )["content_hash"].update({"algorithm": 2}),

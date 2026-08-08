@@ -218,12 +218,29 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
     manifest = strict_load(raw)
     if not isinstance(manifest, dict):
         raise CatalogError("committed record manifest must be an object")
+    expected_manifest_keys = {
+        "canonicalization",
+        "entries",
+        "hash_algorithms",
+        "inventory_files",
+        "inventory_roots",
+        "manifest_commitment",
+        "manifest_sha256",
+        "manifest_type",
+        "manifest_version",
+    }
+    if set(manifest) != expected_manifest_keys:
+        raise CatalogError("committed whole-release manifest has an invalid root shape")
     if manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST" or not re.fullmatch(r"\d+\.\d+\.\d+", str(manifest.get("manifest_version"))):
         raise CatalogError("committed whole-release manifest has an invalid type/version")
     if manifest.get("hash_algorithms") != {"keccak256": 1, "sha256": 2}:
         raise CatalogError("committed manifest hash algorithm registry drifted")
     canonicalization = manifest.get("canonicalization")
-    if not isinstance(canonicalization, dict) or canonicalization.get("id") != JCS_ID:
+    if not isinstance(canonicalization, dict) or canonicalization != {
+        "id": JCS_ID,
+        "name": "RFC8785_JCS",
+        "profile": "museum-i-json-v1",
+    }:
         raise CatalogError("committed manifest canonicalization pin drifted")
     entries = manifest.get("entries")
     if not isinstance(entries, list) or not entries:
@@ -234,9 +251,14 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
             raise CatalogError("committed manifest contains an invalid entry")
         path = entry["path"]
         validate_accepted_path(path, allow_manifest=False)
+        expected_entry_keys = {"byte_mode", "path", "sha256", "size"}
+        if path.casefold().endswith(".json"):
+            expected_entry_keys.add("content_hash")
+        if set(entry) != expected_entry_keys:
+            raise CatalogError(f"committed manifest entry has an invalid shape: {path}")
         if path in by_path:
             raise CatalogError(f"committed manifest contains a duplicate path: {path}")
-        if not isinstance(entry.get("size"), int) or entry["size"] < 0 or not SHA256.fullmatch(str(entry.get("sha256"))) or entry.get("byte_mode") not in {"raw", "lf-normalized"}:
+        if isinstance(entry.get("size"), bool) or not isinstance(entry.get("size"), int) or entry["size"] < 0 or not SHA256.fullmatch(str(entry.get("sha256"))) or entry.get("byte_mode") not in {"raw", "lf-normalized"}:
             raise CatalogError(f"committed manifest entry has invalid size/hash/byte_mode: {path}")
         by_path[path] = entry
     if list(by_path) != sorted(by_path):
