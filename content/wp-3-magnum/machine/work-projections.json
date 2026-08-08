@@ -1,0 +1,125 @@
+{
+  "local_profile": "6529NM_WP3_MAGNUM_PUBLIC_WORK_PROJECTIONS_V1",
+  "status": "staging_ready_for_wp1_public_work_admission",
+  "staging_root": "content/wp-3-magnum",
+  "final_public_namespace": null,
+  "final_public_paths_owner": "WP-1",
+  "shared_schema_owner": "WP-1",
+  "canonical_work_id_policy": "WP-1 assigns acquisition-independent Work IDs on rebase; null IDs here are intentional.",
+  "work_lifecycle": "proposed_in_museum_wave",
+  "collection_membership": "not_in_collection",
+  "accession_record": null,
+  "object_record": null,
+  "works": [
+    {
+      "public_work_slug": "david-seymour-patrolling-negev-jordan-1952",
+      "canonical_work_id": null,
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-001",
+      "public_page": "content/wp-3-magnum/works/01-david-seymour-127.md",
+      "artist_slug": "david-seymour",
+      "title": "Patrolling the border between the Negev Desert and Jordan",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
+        "token_id": "127",
+        "metadata_uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM", "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_source_media", "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM", "rights": "All Rights Reserved", "display_scope": "proposal_wave_context_only"}
+      ],
+      "evidence_sources": ["S10", "S17", "S18", "S19", "S37"]
+    },
+    {
+      "public_work_slug": "larry-towell-soldiers-church-suchitoto-1986",
+      "canonical_work_id": null,
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-002",
+      "public_page": "content/wp-3-magnum/works/02-larry-towell-145.md",
+      "artist_slug": "larry-towell",
+      "title": "Government soldiers in a church, Suchitoto, El Salvador",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+        "token_id": "145",
+        "metadata_uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE", "sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee", "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_source_media", "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE", "rights": "All Rights Reserved", "display_scope": "proposal_wave_context_only"}
+      ],
+      "evidence_sources": ["S11", "S20", "S21", "S33", "S37"]
+    },
+    {
+      "public_work_slug": "micha-bar-am-demonstration-western-wall-1989",
+      "canonical_work_id": null,
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-003",
+      "public_page": "content/wp-3-magnum/works/03-micha-bar-am-97.md",
+      "artist_slug": "micha-bar-am",
+      "title": "Demonstration, Western Wall, Jerusalem",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
+        "token_id": "97",
+        "metadata_uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4", "sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df", "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_source_media", "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4", "rights": "All Rights Reserved", "display_scope": "proposal_wave_context_only"}
+      ],
+      "evidence_sources": ["S12", "S22", "S23", "S24", "S25", "S34", "S37"]
+    },
+    {
+      "public_work_slug": "moises-saman-tripoli-2011",
+      "canonical_work_id": null,
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-004",
+      "public_page": "content/wp-3-magnum/works/04-moises-saman-44.md",
+      "artist_slug": "moises-saman",
+      "title": "Tripoli, Libya",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
+        "token_id": "44",
+        "metadata_uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_source_media", "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "rights": "All Rights Reserved", "display_scope": "proposal_wave_context_only"}
+      ],
+      "evidence_sources": ["S13", "S26", "S27", "S28", "S29", "S35", "S37"]
+    },
+    {
+      "public_work_slug": "lorenzo-meloni-palmyra-2016",
+      "canonical_work_id": null,
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-005",
+      "public_page": "content/wp-3-magnum/works/05-lorenzo-meloni-104.md",
+      "artist_slug": "lorenzo-meloni",
+      "title": "Palmyra, Syria",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+        "token_id": "104",
+        "metadata_uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco", "sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2", "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_source_media", "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco", "rights": "All Rights Reserved", "display_scope": "proposal_wave_context_only"}
+      ],
+      "evidence_sources": ["S14", "S30", "S31", "S32", "S37"]
+    }
+  ]
+}

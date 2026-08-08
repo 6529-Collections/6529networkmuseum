@@ -1,0 +1,142 @@
+{
+  "local_profile": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2",
+  "status": "staging_content_ready_for_wp1_rebase",
+  "content_root": "content/wp-3-magnum",
+  "content_root_role": "construction_staging_only",
+  "final_public_namespace": null,
+  "publication_path_owner": "WP-1",
+  "publication_path_contract": {
+    "visitor_facing_wp3_path_allowed": false,
+    "post_wp1_actions": [
+      "Move or rename manuscripts into the governed entity/publication paths selected by WP-1.",
+      "Bind final Organization, Project, Artist, Work, Curated Acquisition, Research Publication, Media Reference, and relation IDs.",
+      "Rewrite relative links and update INDEX.md and the release manifest.",
+      "Leave only research memos in notes/wip/wp-3-magnum-research/; remove the staging root from the final public namespace."
+    ]
+  },
+  "shared_schema_owner": "WP-1",
+  "shared_schema_changes_in_this_corpus": false,
+  "canonical_manifest_currently_contains_content_root": false,
+  "curated_acquisition_id": "6529NM-CA-2026-003",
+  "proposed_gift_id": "6529NM-PG-2026-001",
+  "live_governance_observation": {
+    "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+    "serial_no": 1276093,
+    "drop_type": "PARTICIPATORY",
+    "rank": 1,
+    "realtime_rating": 122969240,
+    "rater_count": 29,
+    "observed_at": "2026-08-08T09:06:07.985Z",
+    "selection_established": false
+  },
+  "wp1_admission_contract": {
+    "contract_owner": "WP-1",
+    "contract_state": "required_on_rebase_before_ready_pr",
+    "canonical_work_id_assignment": "WP-1 assigns acquisition-independent stable Work IDs; this corpus assigns none.",
+    "canonical_release_manifest": "release-artifacts/latest/record-manifest.json",
+    "admission_requirements": [
+      "Admit the Organization, Project, five Artists, five Works, Curated Acquisition, Research Publications, Media References, and declared relations as one coherent publication group.",
+      "Add the content root and its reviewed machine projections to the release/manifest under the WP-1 contract without changing shared schemas or controlled vocabularies here.",
+      "Map each Work's proposal object alias, token CAIP-19, archive number, token component, metadata component, source-image component, and historical Wave manifestation to the WP-1 Work entity.",
+      "Use Work lifecycle proposed_in_museum_wave and collection membership not_in_collection.",
+      "Keep accession, title binding, custody, condition, preservation, and object-record admission as later records; do not manufacture them in this projection.",
+      "Bind the admitted release group to the exact reviewed commit and regenerated manifest."
+    ]
+  },
+  "integration_dependencies": [
+    "docs/record-model.md",
+    "docs/accession-standard.md",
+    "docs/curatorial-publication-standard.md",
+    "docs/public-museum-experience-standard.md",
+    "docs/stream-interoperability.md",
+    "docs/data-architecture.md",
+    "docs/proposed-gift-wave-standard.md",
+    "docs/wave-storm-publication-standard.md",
+    "schemas/proposed-gift.schema.json",
+    "schemas/proposed-gift-wave-package.schema.json",
+    "schemas/record-envelope.schema.json",
+    "schemas/controlled-vocabularies.json",
+    "schemas/object-record.schema.json",
+    "schemas/rights-statement.schema.json",
+    "schemas/condition-report.schema.json",
+    "schemas/visual-observation.schema.json",
+    "schemas/preservation-manifest.schema.json",
+    "schemas/transaction-provenance.schema.json"
+  ],
+  "entity_projections": {
+    "organization": {
+      "slug": "magnum-photos",
+      "canonical_id": null,
+      "page": "entities/magnum-photos.md",
+      "admit_as": "Organization"
+    },
+    "project": {
+      "slug": "magnum-photos-75",
+      "canonical_id": null,
+      "page": "entities/magnum-photos-75.md",
+      "admit_as": "Project or Series"
+    },
+    "artists": {
+      "canonical_ids": null,
+      "admit_as": "Artist",
+      "pages": [
+        "artists/david-seymour.md",
+        "artists/larry-towell.md",
+        "artists/micha-bar-am.md",
+        "artists/moises-saman.md",
+        "artists/lorenzo-meloni.md"
+      ]
+    },
+    "works": {
+      "canonical_ids": null,
+      "id_owner": "WP-1",
+      "admit_as": "Work",
+      "lifecycle": "proposed_in_museum_wave",
+      "collection_membership": "not_in_collection",
+      "projection_file": "machine/work-projections.json",
+      "pages": [
+        "works/01-david-seymour-127.md",
+        "works/02-larry-towell-145.md",
+        "works/03-micha-bar-am-97.md",
+        "works/04-moises-saman-44.md",
+        "works/05-lorenzo-meloni-104.md"
+      ]
+    },
+    "curated_acquisition": {
+      "id": "6529NM-CA-2026-003",
+      "admit_as": "Curated Acquisition",
+      "page": "entities/conflict-at-its-edges.md",
+      "state": "proposed_in_museum_wave"
+    },
+    "research_publications": {
+      "admit_as": "Research Publication",
+      "root": "content/wp-3-magnum",
+      "manifest_group": "wp3-magnum-scholarship"
+    },
+    "media_references": {
+      "admit_as": "Media Reference",
+      "page": "dossiers/source-and-rights-record.md",
+      "machine_record": "machine/wave-media-join.json",
+      "scope": "historical_proposal_wave_media_only"
+    }
+  },
+  "relations": [
+    "Organization Magnum Photos publishes Project or Series Magnum Photos 75.",
+    "Project or Series Magnum Photos 75 has five proposed Work projections.",
+    "Each Work is created_by one of five admitted Artist entities.",
+    "Curated Acquisition 6529NM-CA-2026-003 proposes the exact five Works under Proposed Gift 6529NM-PG-2026-001.",
+    "Each Work is manifested by a token component, token metadata component, upstream source-image component, and historical Wave media reference.",
+    "Research Publications interpret and cite the Organization, Project, Artists, Works, Curated Acquisition, and Evidence Sources."
+  ],
+  "acquisition_boundary": {
+    "accession_id": null,
+    "object_record_ids": null,
+    "title_binding": null,
+    "custody": null,
+    "condition": null,
+    "preservation": null,
+    "rights": "source notices and narrow proposal-media disposition only; no general reproduction grant"
+  },
+  "media_policy_reference": "dossiers/source-and-rights-record.md",
+  "correction_policy": "append_only_with_supersedes"
+}
