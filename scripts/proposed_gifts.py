@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import stat
 import struct
@@ -18,6 +19,23 @@ MAX_WAVE_STORM_UTF16_CODE_UNITS = 50_000
 MAX_WAVE_STORM_MEDIA_FILES = 8
 WAVE_COVER_DIMENSION = 1_600
 MARKDOWN_LIST_OR_TABLE_LINE = re.compile(r"^(?:\s*(?:[-+*]|\d+[.)])\s+|\s*\|)")
+
+MAGNUM_AMENDMENT_AT = "2026-08-08T10:15:02.0167151Z"
+MAGNUM_PRIOR_SOURCE_COMMIT = "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8"
+MAGNUM_REVISION_ONE_HISTORY = {
+    "records/proposed-gifts/6529NM-PG-2026-001/proposal.json": (
+        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot",
+        "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
+    ),
+    "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json": (
+        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-wave-storm.json.snapshot",
+        "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
+    ),
+    "records/proposed-gifts/register.json": (
+        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
+        "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
+    ),
+}
 
 
 def utf16_code_units(value: str) -> int:
@@ -149,6 +167,70 @@ def compose_voter_dossier(candidate_dir: Path, package: dict[str, Any]) -> str:
     return "\n\n---\n\n".join(sections) + "\n"
 
 
+def magnum_revision_lineage_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
+    """Verify the selected proposal's current views retain their exact revision-one source."""
+    issues: list[str] = []
+    for relative_current, (relative_snapshot, expected_hash) in MAGNUM_REVISION_ONE_HISTORY.items():
+        current_path = (root / relative_current).resolve()
+        current = loaded.get(current_path)
+        if not isinstance(current, dict):
+            continue
+        control = current.get("record_control")
+        if not isinstance(control, dict) or control.get("revision") != 2:
+            issues.append(f"{relative_current}: current selected view must be revision 2")
+            continue
+        if control.get("constructor", {}).get("constructed_at") != MAGNUM_AMENDMENT_AT:
+            issues.append(f"{relative_current}: revision-two constructor time is not the status-amendment time")
+        history = current.get("amendment_history")
+        if not isinstance(history, list) or len(history) != 1:
+            issues.append(f"{relative_current}: revision two requires exactly one amendment-history entry")
+            continue
+        entry = history[0]
+        if not isinstance(entry, dict):
+            issues.append(f"{relative_current}: amendment-history entry is not an object")
+            continue
+        history_revisions = [item.get("revision") for item in history if isinstance(item, dict)]
+        if (
+            not all(isinstance(revision, int) for revision in history_revisions)
+            or len(history_revisions) != len(set(history_revisions))
+            or history_revisions != sorted(history_revisions)
+            or any(revision >= control["revision"] for revision in history_revisions)
+            or history_revisions != list(range(1, control["revision"]))
+        ):
+            issues.append(f"{relative_current}: amendment history revisions must be unique, increasing, and prior to the current revision")
+        if entry.get("revision") != 1:
+            issues.append(f"{relative_current}: amendment history is not monotonic from revision 1")
+        if entry.get("superseded_at") != MAGNUM_AMENDMENT_AT:
+            issues.append(f"{relative_current}: revision-one supersession time is not the status-amendment time")
+        if entry.get("supersedes") != expected_hash or entry.get("prior_payload_sha256") != expected_hash:
+            issues.append(f"{relative_current}: amendment does not bind the expected revision-one payload hash")
+        if entry.get("prior_source_commit") != MAGNUM_PRIOR_SOURCE_COMMIT:
+            issues.append(f"{relative_current}: amendment does not bind the canonical revision-one source commit")
+        if not isinstance(entry.get("reason"), str) or not entry["reason"].strip():
+            issues.append(f"{relative_current}: amendment has no reason")
+
+        snapshot_path = root / relative_snapshot
+        if not snapshot_path.is_file():
+            issues.append(f"{relative_current}: retained revision-one snapshot is missing")
+            continue
+        raw = snapshot_path.read_bytes()
+        normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        actual_hash = "sha256:" + hashlib.sha256(normalized).hexdigest()
+        if actual_hash != expected_hash:
+            issues.append(f"{relative_current}: retained revision-one snapshot hash mismatch")
+        try:
+            snapshot = json.loads(normalized.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            issues.append(f"{relative_current}: retained revision-one snapshot is not UTF-8 JSON")
+            continue
+        snapshot_control = snapshot.get("record_control") if isinstance(snapshot, dict) else None
+        if not isinstance(snapshot_control, dict) or snapshot_control.get("revision") != 1:
+            issues.append(f"{relative_current}: retained snapshot is not revision 1")
+        if isinstance(snapshot, dict) and snapshot.get("amendment_history") not in (None, []):
+            issues.append(f"{relative_current}: retained revision-one snapshot contains amendment history")
+    return issues
+
+
 def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
     """Return semantic errors that JSON Schema cannot express across files."""
     issues: list[str] = []
@@ -164,6 +246,8 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
     rows = register.get("proposals")
     if not isinstance(rows, list):
         return ["proposed-gift register has no proposal rows"]
+
+    issues.extend(magnum_revision_lineage_issues(root, loaded))
 
     proposal_ids = [row.get("proposal_id") for row in rows if isinstance(row, dict)]
     if len(proposal_ids) != len(set(proposal_ids)):

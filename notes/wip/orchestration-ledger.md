@@ -2690,10 +2690,11 @@ and Keccak commitment
 ## 2026-08-08 Magnum WINNER status amendment
 
 Post-merge source main is exact `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`;
-Museum validation run `31252451827` completed green before this narrow branch
-was created. The authenticated read-only `punk6529bot` readback at
-`2026-08-08T10:15:02.0167151Z` changed the current Wave observation for Magnum
-drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, to signed
+Museum validation run [31252451827](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31252451827)
+completed green before this narrow branch was created. The authenticated
+read-only `punk6529bot` readback at `2026-08-08T10:15:02.0167151Z` is the
+canonical current status observation for Magnum. It changed the current Wave
+observation for drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, to signed
 `WINNER`, rank `1`, rating/realtime rating `121,603,214`, and `29` raters.
 The current public status is **Selected by Museum Wave; acquisition review in
 progress**. This establishes Wave selection only. Formal acceptance, donor
@@ -2701,9 +2702,15 @@ authority, transfer, title, custody, rights clearance, technical or
 preservation completion, accession, and permanent-Collection membership remain
 unestablished.
 
-The prior `2026-08-08T09:06:07.985Z` `PARTICIPATORY` observation (rank `1`,
-realtime rating `122,969,240`, 29 raters) is preserved, as is the signed
-proposal's publication-time `PARTICIPATORY` readback. The governed receipt is
+The prior `2026-08-08T09:06:07.985Z` `PARTICIPATORY` observation is
+historical-only (rank `1`, realtime rating `122,969,240`, 29 raters) and is
+preserved, as is the signed proposal's publication-time `PARTICIPATORY`
+readback. The governed receipt is
 `records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md`.
+The proposal, Wave package, and register current views now explicitly advance
+to revision `2`. Each binds its exact LF-normalized revision-one payload hash
+and the canonical source commit `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`
+through one ordered amendment-history entry; the retained source snapshots are
+under `records/proposed-gifts/6529NM-PG-2026-001/history/`.
 PR #38 remains the separate draft WP-3 scholarship corpus; this amendment does
 not rebase or modify that branch.

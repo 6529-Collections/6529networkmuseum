@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import re
 import shutil
@@ -121,6 +122,70 @@ class ProposedGiftValidationTests(unittest.TestCase):
             encoding="utf-8"
         )
         self.assertIn("status-amendments/2026-08-08-winner.md", resolution)
+        self.assertIn("## Effect (historical publication rule)", resolution)
+        self.assertIn("historical publication rule", resolution)
+
+    def test_magnum_revision_two_binds_exact_revision_one_snapshots(self) -> None:
+        expected = {
+            self.proposal_path: (
+                self.proposal_path.parent / "history/revision-1-proposal.json.snapshot",
+                "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
+            ),
+            self.package_path: (
+                self.package_path.parent / "history/revision-1-wave-storm.json.snapshot",
+                "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
+            ),
+            self.register_path: (
+                self.register_path.parent / "6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
+                "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
+            ),
+        }
+        for current_path, (snapshot_path, expected_hash) in expected.items():
+            current = self.loaded[current_path]
+            self.assertEqual(current["record_control"]["revision"], 2)
+            self.assertEqual(
+                current["record_control"]["constructor"]["constructed_at"],
+                "2026-08-08T10:15:02.0167151Z",
+            )
+            history = current["amendment_history"]
+            self.assertEqual([entry["revision"] for entry in history], [1])
+            entry = history[0]
+            self.assertEqual(entry["supersedes"], expected_hash)
+            self.assertEqual(entry["prior_payload_sha256"], expected_hash)
+            self.assertEqual(
+                entry["prior_source_commit"],
+                "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
+            )
+            raw = snapshot_path.read_bytes()
+            normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            self.assertEqual(
+                "sha256:" + hashlib.sha256(normalized).hexdigest(),
+                expected_hash,
+            )
+            snapshot = json.loads(normalized.decode("utf-8"))
+            self.assertEqual(snapshot["record_control"]["revision"], 1)
+            self.assertNotIn("amendment_history", snapshot)
+
+    def test_magnum_revision_two_cannot_silently_drop_lineage(self) -> None:
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path].pop("amendment_history")
+        )
+        self.assertTrue(
+            any("exactly one amendment-history entry" in issue for issue in issues),
+            issues,
+        )
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["amendment_history"][0].__setitem__(
+                "revision", 2
+            )
+        )
+        self.assertTrue(any("not monotonic" in issue for issue in issues), issues)
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["amendment_history"][0].__setitem__(
+                "supersedes", "sha256:" + "0" * 64
+            )
+        )
+        self.assertTrue(any("expected revision-one payload hash" in issue for issue in issues), issues)
 
     def test_wave_selects_the_gift_before_later_accession_work(self) -> None:
         proposal = self.loaded[self.proposal_path]

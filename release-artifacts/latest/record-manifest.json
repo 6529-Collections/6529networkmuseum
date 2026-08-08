@@ -1604,14 +1604,32 @@
     },
     {
       "byte_mode": "lf-normalized",
+      "path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot",
+      "sha256": "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
+      "size": 22813
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
+      "sha256": "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
+      "size": 834
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-wave-storm.json.snapshot",
+      "sha256": "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
+      "size": 9420
+    },
+    {
+      "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x351108ed2291d1dd35dc2f5077ba204c021850ee1d8e52ef27331dcf408372bf"
+        "digest": "0x747c25fca1e34b48721fe25d08a803a1ed5c3d4db1a9ac181da64ea22267c216"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
-      "sha256": "sha256:f4e40cf2bb0dc1508c91d4c16b93d91c6e205f3a922f8b2c84ba556d030b1b10",
-      "size": 22822
+      "sha256": "sha256:b167adfb11ac9643cc24f280398e7153d816139dc139aa76081eedf844453866",
+      "size": 23522
     },
     {
       "byte_mode": "lf-normalized",
@@ -1640,8 +1658,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-resolution.md",
-      "sha256": "sha256:f2ba64dc0eabfd8d16ab28f57e1ea18e72b25ca8c858543bcfb4cf2440bddf77",
-      "size": 1795
+      "sha256": "sha256:d4ca445f997321bcafc2d124b8e510a33affbe706e0b045b82d5b6d5fef3329a",
+      "size": 1941
     },
     {
       "byte_mode": "lf-normalized",
@@ -1690,11 +1708,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x53e092696264a491d0d2f896719c067b1767305bc4b6fdf1b874a69bdb325798"
+        "digest": "0x63ce789a9b80f70d229431ce652b277808fabad26c440a5cebb77357ad05e3d1"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
-      "sha256": "sha256:b991b3b2c54ae494cf528af133ea9b06e0f4e1ce2c0684b73874e790c59121a4",
-      "size": 9672
+      "sha256": "sha256:b1db411744021d0fe72e6c94fa47d118dd721db2e3c8b41e69ce549dd2c4296a",
+      "size": 10302
     },
     {
       "byte_mode": "lf-normalized",
@@ -1707,11 +1725,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xa9361e3fe00ff8dcee6288f97f29e16783add8255f168fc1207d0343b2ebeb01"
+        "digest": "0x0e509e5b83625721b4a07bd7e8fd76ae0aba144722a8b9ad1d6998d754724215"
       },
       "path": "records/proposed-gifts/register.json",
-      "sha256": "sha256:abf523d28189e7e473a9def92123cb9442d0c24ca5d271f335b69bfe497e382c",
-      "size": 846
+      "sha256": "sha256:63d3f35ec7370bd3a4849d9138a80f66ba190c1783b3dbd48f69af8626ea9b15",
+      "size": 1443
     },
     {
       "byte_mode": "lf-normalized",
@@ -2021,33 +2039,33 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x898c4b1f4513071625a9807484688edd00eb0cc02df4fb7b6cf4d76ab17a6aea"
+        "digest": "0xfc492240e602db0f8ddc3089eaa57c9918bd03d58b187f8d697e90d301031301"
       },
       "path": "schemas/proposed-gift-register.schema.json",
-      "sha256": "sha256:bb3fb8e9d3c098d64730559ffa73732413bfb770878d06a9f927dc2443512aa9",
-      "size": 3699
+      "sha256": "sha256:c80857b1a888e9019d1e8bab13cbbfeb2a84422beb8d7ba5614e4340bb2c236a",
+      "size": 5190
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd7c6f455e4f88768c47ad8ac60d09c8e9e890c29e0d77dadb7b4fc46e70667d8"
+        "digest": "0xd13ec8d8785c518a0f98840d264974c281cd1d957d8f575733470d5cc59bb468"
       },
       "path": "schemas/proposed-gift-wave-package.schema.json",
-      "sha256": "sha256:55a661144e4de04b61194fefa6b486ef31e05d5a1cbccf262834e73682367e55",
-      "size": 10096
+      "sha256": "sha256:3c5035fd8e374b3184f0040485d2f197c0ece2858ebafcadf2baafa9c8a67002",
+      "size": 10968
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xfd0088885cb2cd37cef47842973ce4784a85f63f9343d217891a7e686279e36d"
+        "digest": "0x068223f1ffdcc5d18a518b9017020ec22bc412914625f4449393bcf428d00c3f"
       },
       "path": "schemas/proposed-gift.schema.json",
-      "sha256": "sha256:36e66e79c9edd98be0b01a0cc328c303739f34279949339c03e9b8b525b933bc",
-      "size": 12056
+      "sha256": "sha256:22a516b6823fc7ee201ad1bfba92c50e61134e76c6a645806e38700318116d53",
+      "size": 12928
     },
     {
       "byte_mode": "lf-normalized",
@@ -2241,8 +2259,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/proposed_gifts.py",
-      "sha256": "sha256:d3ee8b7ca3e98ec51d421c0d60eda5c1a0ca9d2ed38cc73c35248df25124f27b",
-      "size": 33790
+      "sha256": "sha256:2ac31525919869ca13c28f0f6830be7a56e6ad5866a6aafede72ec14231dd758",
+      "size": 38888
     },
     {
       "byte_mode": "lf-normalized",
@@ -2817,8 +2835,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
-      "sha256": "sha256:8fac091a97fe40a0b28703edc4f856b445bbfbed23024fc4e8b2219597d14441",
-      "size": 18533
+      "sha256": "sha256:1183d90aeedbf1c78711d6109c6619a495c91592d8fe6145b42442a0ddc3ebb6",
+      "size": 21694
     },
     {
       "byte_mode": "lf-normalized",
@@ -2858,9 +2876,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x2d91ad6a6e1dcd8ad70fa42e1308fc949a6f69484ea5bda5d43ed54e1a9956ae"
+    "digest": "0x34e5668791ba8548aff32d9910b3fea11698296eb3c8d731bc06c25dcbe811ef"
   },
-  "manifest_sha256": "sha256:1172d670632aa268d25cf8777d3f39a3c2e89d1b22631c285dfd226b7b7c08e3",
+  "manifest_sha256": "sha256:16c8a5381cda19ea1c20cfd9df22e394aa9adbc05effa78175277bd8a773da69",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

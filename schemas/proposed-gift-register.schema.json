@@ -8,6 +8,10 @@
   "properties": {
     "$schema": {"const": "../../schemas/proposed-gift-register.schema.json"},
     "record_control": {"$ref": "#/$defs/recordControl"},
+    "amendment_history": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/amendmentHistory"}
+    },
     "register_id": {"const": "6529NM-PROPOSED-GIFT-REGISTER"},
     "snapshot_at": {"type": "string", "format": "date-time"},
     "proposals": {
@@ -38,7 +42,50 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "required": ["record_control"],
+        "properties": {
+          "record_control": {
+            "required": ["revision"],
+            "properties": {"revision": {"minimum": 2}}
+          }
+        }
+      },
+      "then": {
+        "required": ["amendment_history"],
+        "properties": {"amendment_history": {"minItems": 1}}
+      }
+    },
+    {
+      "if": {
+        "required": ["record_control"],
+        "properties": {
+          "record_control": {
+            "required": ["revision"],
+            "properties": {"revision": {"const": 1}}
+          }
+        }
+      },
+      "then": {"properties": {"amendment_history": {"maxItems": 0}}}
+    }
+  ],
   "$defs": {
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "amendmentHistory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_source_commit", "reason"],
+      "properties": {
+        "revision": {"type": "integer", "minimum": 1},
+        "superseded_at": {"type": "string", "format": "date-time"},
+        "supersedes": {"$ref": "#/$defs/sha256"},
+        "prior_payload_sha256": {"$ref": "#/$defs/sha256"},
+        "prior_source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
     "status": {
       "enum": [
         "draft",

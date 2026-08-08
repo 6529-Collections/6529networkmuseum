@@ -1,29 +1,19 @@
 {
   "$schema": "../../../schemas/proposed-gift-wave-package.schema.json",
   "record_control": {
-    "revision": 2,
+    "revision": 1,
     "record_status": "constructed",
     "constructor": {
       "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
       "role": "constructor",
-      "constructed_at": "2026-08-08T10:15:02.0167151Z"
+      "constructed_at": "2026-08-05T17:34:39.310Z"
     },
     "review": null
   },
-  "amendment_history": [
-    {
-      "revision": 1,
-      "superseded_at": "2026-08-08T10:15:02.0167151Z",
-      "supersedes": "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
-      "prior_payload_sha256": "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
-      "prior_source_commit": "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
-      "reason": "Superseded the revision-one Wave package view with the authenticated signed WINNER observation and current proposal publication status; preserves the original publication rule and leaves later acquisition gates open."
-    }
-  ],
   "record_type": "PROPOSED_GIFT_WAVE_PACKAGE",
   "schema_profile": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1",
   "proposal_id": "6529NM-PG-2026-001",
-  "status": "selected",
+  "status": "open",
   "target_wave": {
     "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
     "wave_name": "6529 Network Museum",
@@ -212,7 +202,6 @@
     "After merge, bind the dry-run publication plan to the immutable Git commit and verify the finalized-chain state against this edition; if a material fact changed, amend and review the source before posting.",
     "Do not post until the donor gives explicit final approval of the exact manuscript, cover, and publication action.",
     "Published by punk6529bot to the 6529 Network Museum Wave as drop 002bfa4f-8416-48bf-b35e-38f354e9a9f0, serial 1276093, on 2026-08-06T13:19:30.726Z from canonical Museum source commit eb95dfc02f05f220232f770a6d9ab33d50eed38b after the donor gave that explicit approval.",
-    "Publication opened the proposal for TDH voting; it did not cast a vote, transfer an asset, select the gift, formally accept it, or accession any object.",
-    "The append-only status amendment at public/status-amendments/2026-08-08-winner.md records the authenticated 2026-08-08T10:15:02.0167151Z WINNER readback and the current public status: Selected by Museum Wave; acquisition review in progress."
+    "Publication opened the proposal for TDH voting; it did not cast a vote, transfer an asset, select the gift, formally accept it, or accession any object."
   ]
 }
