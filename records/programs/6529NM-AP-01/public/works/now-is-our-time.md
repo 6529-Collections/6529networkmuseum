@@ -1,4 +1,4 @@
-# OUT-009 — *Now Is Our Time*
+# *Now Is Our Time*
 
 ![A high-contrast black-and-white view of a weathered industrial site with barred openings, lamps, and graffiti.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Eric Pan (pandelic)](../artists/pandelic.md)  
 **Title:** *Now Is Our Time*  
 **Selection:** place 9 · serial `1029013` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=a9e1af00-7ac7-4b7d-a39e-31c7a662ee28)  
+**Source alias:** OUT-009
 **Submitted location/date:** Berlin, Germany · 1 July 2011  
 **Medium:** black-and-white digital photograph  
 **Submitted dimensions:** 3008 × 2000 pixels · Nikon D70, 35 mm  
@@ -39,4 +40,3 @@ RAW-Gelände’s public history supports the broad sequence from railway repair 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The artist’s CC0 declaration is present; visible-mark authorship, site permission, exact building, original file, and publication scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

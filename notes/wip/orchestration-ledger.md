@@ -2718,3 +2718,13 @@ records.
 Local checks currently pass: bootstrap validation, semantic validation, program
 media check (48 derivatives), strict UTF-8/no-mojibake check, public link/anchor
 inventory, and the 16-page media URL join check.
+
+The final route pass gives all sixteen Works stable title-slug presentation
+routes under `records/programs/6529NM-AP-01/public/works/`; OUT-001 through
+OUT-016 remain source aliases and media anchors. The public README no longer
+describes a projection, and visitor pages use the approved acquisition-pending
+language while the formal `selected_unminted` state remains in the institutional
+record and source layer. The release manifest was regenerated after this route
+pass; its exact commitments will be reported with the final commit and PR.
+Typed Work and Artist admission remains pending the WP-1 ontology/release
+commit; no shared schema or controlled vocabulary was changed.

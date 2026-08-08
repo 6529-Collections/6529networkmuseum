@@ -1,4 +1,4 @@
-# OUT-010 — *Checkpoint*
+# *Checkpoint*
 
 ![A bare torso emerges from black fabric while the head remains concealed.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Minalisa](../artists/minalisa.md)  
 **Title:** *Checkpoint*  
 **Selection:** place 10 · serial `1066664` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=d68542bc-f05e-4f23-ae8b-fac730cd4b7b)  
+**Source alias:** OUT-010
 **Submitted location/date:** withheld · 2026  
 **Medium:** digital portrait photograph, processed in Lightroom and Photoshop  
 **Submitted dimensions:** 4160 × 6240 pixels · Fujifilm X-T4, 16 mm  
@@ -39,4 +40,3 @@ The artist’s public profile describes a self-taught portrait practice. The sub
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration and a statement that written documentation can be supplied; subject identity, adult status, self-portrait status, and publication consent require restricted review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

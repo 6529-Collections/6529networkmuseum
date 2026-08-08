@@ -14,10 +14,10 @@ The group’s current relationship is summarized below; the [Research and record
 
 | Sequence | Works | Shared visual question |
 |---|---|---|
-| Apertures and exits | [OUT-001](works/OUT-001-take-the-key.md), [OUT-004](works/OUT-004-no-key-only-light.md), [OUT-012](works/OUT-012-rusted.md), [OUT-016](works/OUT-016-no-access.md) | What can be seen through an opening before passage is granted? |
-| Managed movement | [OUT-002](works/OUT-002-the-artist-in-teh-open-sea.md), [OUT-003](works/OUT-003-managed-freedom.md), [OUT-007](works/OUT-007-the-cost-of-open.md), [OUT-008](works/OUT-008-dichotomy.md) | Who sets the speed, route, or altitude of movement? |
-| Residual infrastructures | [OUT-005](works/OUT-005-residual-barrier.md), [OUT-009](works/OUT-009-now-is-our-time.md), [OUT-014](works/OUT-014-morning-glory.md), [OUT-015](works/OUT-015-fight-for-freedom.md) | What remains after a barrier changes function? |
-| Bodies and interfaces | [OUT-006](works/OUT-006-the-hostile-gate.md), [OUT-010](works/OUT-010-checkpoint.md), [OUT-011](works/OUT-011-sina-beizavi-in-brazil.md), [OUT-013](works/OUT-013-nowhere-to-esc.md) | When does the body or command become the checkpoint? |
+| Apertures and exits | [*Take the Key!*](works/take-the-key.md), [*No Key, Only Light*](works/no-key-only-light.md), [*Rusted*](works/rusted.md), [*No Access*](works/no-access.md) | What can be seen through an opening before passage is granted? |
+| Managed movement | [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md), [*Managed Freedom*](works/managed-freedom.md), [*the cost of open*](works/the-cost-of-open.md), [*Dichotomy.*](works/dichotomy.md) | Who sets the speed, route, or altitude of movement? |
+| Residual infrastructures | [*Residual Barrier*](works/residual-barrier.md), [*Now Is Our Time*](works/now-is-our-time.md), [*Morning Glory*](works/morning-glory.md), [*মুক্তিযুদ্ধ - Fight for Freedom*](works/fight-for-freedom.md) | What remains after a barrier changes function? |
+| Bodies and interfaces | [*The Hostile Gate*](works/the-hostile-gate.md), [*Checkpoint*](works/checkpoint.md), [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), [*Nowhere To Esc.*](works/nowhere-to-esc.md) | When does the body or command become the checkpoint? |
 
 ## Artists
 

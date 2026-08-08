@@ -1,4 +1,4 @@
-# OUT-006 — *The Hostile Gate*
+# *The Hostile Gate*
 
 ![A shirtless man opens a refrigerator covered with colourful magnets.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Artem Humilevskyi (GIANT)](../artists/giant.md)  
 **Title:** *The Hostile Gate*  
 **Selection:** place 6 · serial `1157117` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=73ecf8fc-9bde-492d-a624-39d0dd547587)  
+**Source alias:** OUT-006
 **Submitted location/date:** Mykolaiv, Ukraine · 16 April 2020  
 **Medium:** digital self-portrait photograph, processed in Adobe Photoshop  
 **Submitted dimensions:** 3804 × 2536 pixels · Sony ILCE-6000, 16 mm  
@@ -39,4 +40,3 @@ Public artist, gallery, award, and institutional sources support the broader *Gi
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The artist’s CC0 declaration and self-consent statement are present in the submission; the required license wording, supporting documentation, and publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

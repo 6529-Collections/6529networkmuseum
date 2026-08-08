@@ -1,4 +1,4 @@
-# OUT-013 — *Nowhere To Esc.*
+# *Nowhere To Esc.*
 
 ![Black keyboard keys spell “NO WHERE TO,” with an Esc key below and an ant beside it.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [arsonic](../artists/arsonic.md)  
 **Title:** *Nowhere To Esc.*  
 **Selection:** place 13 · serial `1004919` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=51982d19-395a-4eaa-866c-8e89aa952cbb)  
+**Source alias:** OUT-013
 **Submitted location/date:** Montreal, Canada · 18 May 2026  
 **Medium:** staged digital photograph, processed in Lightroom and Photoshop  
 **Submitted dimensions:** 5000 × 5000 pixels · iPhone 17 Pro Max  
@@ -39,4 +40,3 @@ The artist’s public practice is associated with Web3, meme, and generative-art
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration and an animal-welfare statement. Original file, staged-material provenance, and publication scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

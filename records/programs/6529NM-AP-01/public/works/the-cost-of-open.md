@@ -1,4 +1,4 @@
-# OUT-007 — *the cost of open*
+# *the cost of open*
 
 ![Turquoise water at Moraine Lake is framed by evergreen forest and snow-dusted mountains.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Priyanka Patel (priyanka)](../artists/priyanka.md)  
 **Title:** *the cost of open*  
 **Selection:** place 7 · serial `1147422` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=f24313f0-b335-4c16-9052-3a689f82f188)  
+**Source alias:** OUT-007
 **Submitted location/date:** Moraine Lake, Canada · 2024  
 **Medium:** digital landscape photograph, processed in Adobe Lightroom  
 **Submitted dimensions:** 10080 × 5670 pixels · Nikon D850  
@@ -39,4 +40,3 @@ Parks Canada documents the reservation, shuttle, and road-management conditions 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Source-resolution, capture conditions, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

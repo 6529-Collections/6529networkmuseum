@@ -1,4 +1,4 @@
-# OUT-011 — *Sina Beizavi in Brazil*
+# *Sina Beizavi in Brazil*
 
 ![A nude figure reclines on an ornate gold chair, holding a dark booklet or document.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Hugo Faz (HugoFaz)](../artists/hugofaz.md)  
 **Title:** *Sina Beizavi in Brazil*  
 **Selection:** place 11 · serial `1167034` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52b6f536-3ebc-4bf5-b7da-2ed775df7ad3)  
+**Source alias:** OUT-011
 **Submitted location/date:** Casa NUA, São Paulo, Brazil · 5 July 2026  
 **Medium:** directed digital photograph, colour graded by the artist  
 **Submitted dimensions:** 6000 × 4000 pixels  
@@ -39,4 +40,3 @@ Casa NUA is part of the artist’s submitted context. The public image supports 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes an artist and subject CC0/consent assertion. Written consent, safe biography, document privacy, Casa NUA permission, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

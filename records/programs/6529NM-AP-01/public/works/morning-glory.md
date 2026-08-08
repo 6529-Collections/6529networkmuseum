@@ -1,4 +1,4 @@
-# OUT-014 — *Morning Glory*
+# *Morning Glory*
 
 ![Water radiates through a dark fluted spillway toward a small opening of sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Zoku](../artists/zoku.md)  
 **Title:** *Morning Glory*  
 **Selection:** place 14 · serial `991838` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=dc75fe32-f3c2-49db-9069-d9975b5964f3)  
+**Source alias:** OUT-014
 **Submitted location/date:** San Roque Dam, Córdoba, Argentina · 12 May 2026  
 **Medium:** digital photograph from RAW, minimally edited in Lightroom  
 **Submitted dimensions:** 2670 × 1878 pixels · Xiaomi smartphone camera  
@@ -39,4 +40,3 @@ Public technical material supports San Roque Dam’s site and a 1944 dam phase. 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission states that the work will be released under CC0 if selected. Site permission, technical description, source RAW, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

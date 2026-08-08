@@ -1,4 +1,4 @@
-# OUT-016 — *No Access*
+# *No Access*
 
 ![A miniature white house with a red roof sits beyond a gate on a hill beneath a night sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Veerendra](../artists/veerendra.md)  
 **Title:** *No Access*  
 **Selection:** place 16 · serial `1058703` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=13407a59-3b86-4a04-b68e-87e818ed3766)  
+**Source alias:** OUT-016
 **Submitted location/date:** not stated in the submission  
 **Medium:** handmade miniature photographed with focus stacking  
 **Submitted dimensions:** 4896 × 3917 pixels · Nikon D750, 24 mm  
@@ -39,4 +40,3 @@ The submission-led record supports the miniature and focus-stacking process. A f
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Miniature materials, figure status, source sequence, preferred public name, and final rights scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

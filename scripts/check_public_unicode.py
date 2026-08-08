@@ -84,7 +84,7 @@ def scan_public(root: Path = PUBLIC_ROOT) -> list[str]:
                 )
 
     acquisition = root / "curated-acquisition.md"
-    work = root / "works" / "OUT-015-fight-for-freedom.md"
+    work = root / "works" / "fight-for-freedom.md"
     for path in (acquisition, work):
         text = decoded.get(path)
         if text is None:

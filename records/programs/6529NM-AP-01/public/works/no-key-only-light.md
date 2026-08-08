@@ -1,4 +1,4 @@
-# OUT-004 — *No Key, Only Light*
+# *No Key, Only Light*
 
 ![Two silhouetted figures move through a rough stone passage toward a bright opening.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [intrepid](../artists/intrepid.md)  
 **Title:** *No Key, Only Light*  
 **Selection:** place 4 · serial `1152154` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=57c49f95-7854-4a2a-ba2c-d448bc7827fc)  
+**Source alias:** OUT-004
 **Submitted location/date:** Fort Frederick, Grenada · submission states 2020; artist narrative opens with 2021  
 **Medium:** digital photograph, lightly adjusted in Lightroom  
 **Submitted dimensions:** 4160 × 4160 pixels · Canon 6D Mark II, 33 mm  
@@ -39,4 +40,3 @@ Public historical sources support Fort Frederick’s colonial and revolutionary 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The artist declares CC0 and consent coverage for depicted people; supporting releases, date, source file, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

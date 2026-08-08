@@ -1,4 +1,4 @@
-# OUT-002 — *the Artist in teh Open Sea*
+# *the Artist in teh Open Sea*
 
 ![An elevated view of traffic and a sharply legible performer in a white tub or boat.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -8,6 +8,7 @@
 **Title:** *the Artist in teh Open Sea*  
 **Title note:** The spelling is retained exactly as submitted; confirmation is requested.  
 **Selection:** place 2 · serial `1171592` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9)  
+**Source alias:** OUT-002
 **Submitted location/date:** São Paulo, Brazil · 6 July 2026  
 **Medium:** composite long-exposure digital photograph, directed and colour-graded by the artist  
 **Submitted dimensions:** 6000 × 4000 pixels · Canon 6D Mark II  
@@ -40,4 +41,3 @@ Faz’s public practice connects photography to performance, film, and self-repr
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a conditional CC0/full-rights assertion. Performer consent, staging permission, original composite layers, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

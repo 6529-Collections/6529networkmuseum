@@ -1,4 +1,4 @@
-# OUT-008 — *Dichotomy.*
+# *Dichotomy.*
 
 ![An aerial photograph divides dense homes from an ordered field of palm trees.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [Rakesh Pulapa (Rakesh)](../artists/rakesh.md)  
 **Title:** *Dichotomy.*  
 **Selection:** place 8 · serial `973173` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=aa257b16-4309-48b6-9033-1e3d7fb9016d)  
+**Source alias:** OUT-008
 **Submitted location/date:** Rajahmundry, India · 2017  
 **Medium:** aerial digital photograph, processed in Photoshop  
 **Submitted dimensions:** 2952 × 3888 pixels · DJI Mavic Pro  
@@ -39,4 +40,3 @@ The submission places the image in Rajahmundry and identifies a DJI drone. Publi
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Facility identity, aerial authorization, source metadata, and final rights scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

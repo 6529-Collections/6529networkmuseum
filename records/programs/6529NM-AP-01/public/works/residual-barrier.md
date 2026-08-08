@@ -1,4 +1,4 @@
-# OUT-005 — *Residual Barrier*
+# *Residual Barrier*
 
 ![A weathered concrete wall with layered graffiti beneath a pale sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -7,6 +7,7 @@
 **Artist:** [IKERTJE (ikertje)](../artists/ikertje.md)  
 **Title:** *Residual Barrier*  
 **Selection:** place 5 · serial `981298` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52631c54-fcce-46e7-b88c-5100de46734c)  
+**Source alias:** OUT-005
 **Submitted location/date:** Berlin, Germany · 2011  
 **Medium:** digital photograph, edited in Adobe Photoshop  
 **Submitted dimensions:** 3780 × 2452 pixels · Nikon D60, 55 mm  
@@ -39,4 +40,3 @@ The submission places the photograph in Berlin in 2011. Public Berlin Wall histo
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a CC0/CCO declaration, but the required license wording, visible-mark permissions, edit history, and source publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
-

@@ -21,6 +21,8 @@ OUT-001 through OUT-016 are Acquisition Program selected-outcome/source IDs. The
 
 Artist handles are public names and source aliases. They are not canonical Artist entity IDs. WP-1 must assign independent, stable Work and Artist IDs while preserving the page routes and the source aliases below.
 
+The title-slug routes below are stable presentation routes, not canonical Work or Artist IDs. The public URL must continue to identify the work or artist by its page route while the typed release binds that page to the independent WP-1 entity ID.
+
 ## Artist route admission
 
 | Public name / handle | Route | Selected source aliases |
@@ -45,22 +47,22 @@ Artist handles are public names and source aliases. They are not canonical Artis
 
 | Source alias | Public route | Artist route | Collection membership |
 |---|---|---|---|
-| OUT-001 | works/OUT-001-take-the-key.md | artists/gulyildiz.md | not_in_collection |
-| OUT-002 | works/OUT-002-the-artist-in-teh-open-sea.md | artists/hugofaz.md | not_in_collection |
-| OUT-003 | works/OUT-003-managed-freedom.md | artists/nasimghanizadeh.md | not_in_collection |
-| OUT-004 | works/OUT-004-no-key-only-light.md | artists/intrepid.md | not_in_collection |
-| OUT-005 | works/OUT-005-residual-barrier.md | artists/ikertje.md | not_in_collection |
-| OUT-006 | works/OUT-006-the-hostile-gate.md | artists/giant.md | not_in_collection |
-| OUT-007 | works/OUT-007-the-cost-of-open.md | artists/priyanka.md | not_in_collection |
-| OUT-008 | works/OUT-008-dichotomy.md | artists/rakesh.md | not_in_collection |
-| OUT-009 | works/OUT-009-now-is-our-time.md | artists/pandelic.md | not_in_collection |
-| OUT-010 | works/OUT-010-checkpoint.md | artists/minalisa.md | not_in_collection |
-| OUT-011 | works/OUT-011-sina-beizavi-in-brazil.md | artists/hugofaz.md | not_in_collection |
-| OUT-012 | works/OUT-012-rusted.md | artists/teyhu.md | not_in_collection |
-| OUT-013 | works/OUT-013-nowhere-to-esc.md | artists/arsonic.md | not_in_collection |
-| OUT-014 | works/OUT-014-morning-glory.md | artists/zoku.md | not_in_collection |
-| OUT-015 | works/OUT-015-fight-for-freedom.md | artists/shamspranto.md | not_in_collection |
-| OUT-016 | works/OUT-016-no-access.md | artists/veerendra.md | not_in_collection |
+| OUT-001 | works/take-the-key.md | artists/gulyildiz.md | not_in_collection |
+| OUT-002 | works/the-artist-in-teh-open-sea.md | artists/hugofaz.md | not_in_collection |
+| OUT-003 | works/managed-freedom.md | artists/nasimghanizadeh.md | not_in_collection |
+| OUT-004 | works/no-key-only-light.md | artists/intrepid.md | not_in_collection |
+| OUT-005 | works/residual-barrier.md | artists/ikertje.md | not_in_collection |
+| OUT-006 | works/the-hostile-gate.md | artists/giant.md | not_in_collection |
+| OUT-007 | works/the-cost-of-open.md | artists/priyanka.md | not_in_collection |
+| OUT-008 | works/dichotomy.md | artists/rakesh.md | not_in_collection |
+| OUT-009 | works/now-is-our-time.md | artists/pandelic.md | not_in_collection |
+| OUT-010 | works/checkpoint.md | artists/minalisa.md | not_in_collection |
+| OUT-011 | works/sina-beizavi-in-brazil.md | artists/hugofaz.md | not_in_collection |
+| OUT-012 | works/rusted.md | artists/teyhu.md | not_in_collection |
+| OUT-013 | works/nowhere-to-esc.md | artists/arsonic.md | not_in_collection |
+| OUT-014 | works/morning-glory.md | artists/zoku.md | not_in_collection |
+| OUT-015 | works/fight-for-freedom.md | artists/shamspranto.md | not_in_collection |
+| OUT-016 | works/no-access.md | artists/veerendra.md | not_in_collection |
 
 ## Typed relation handoff
 
@@ -88,4 +90,3 @@ The relation set must not create an accession, title binding, custody event, min
 3. Admit the Program, Curated Acquisition, 15 Artist entities, 16 Work entities, Research Publication, media references, and typed relations to the canonical release/manifest.
 4. Regenerate and check the repository release manifest after admission; preserve source-policy records and existing INDEX.md/orchestration updates.
 5. Run the complete validator, public link/anchor inventory, media join checks, and UTF-8/no-mojibake check.
-
