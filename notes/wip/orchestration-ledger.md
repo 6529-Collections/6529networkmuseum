@@ -2661,10 +2661,15 @@ with separate legal title, custody, and rights states; and an explicit bar on
 using Section 10 to bypass Section 9's conversion approval.
 
 Authenticated API readback at `2026-08-08T09:43:28.8803627Z` found serial
-`1282040` still `PARTICIPATORY`, with zero raters and zero rating. The bot
-deleted it at `2026-08-08T09:43:30.771Z`. Exact-ID readback at
-`2026-08-08T09:45:10.0772336Z` returned HTTP 404. No voter position was
-displaced.
+`1282040` still `PARTICIPATORY`, with `rating: 0`, `realtime_rating: 0`, and
+`raters_count: 0`. The deletion API returned success at
+`2026-08-08T09:43:30.771Z`. Exact-ID readback at
+`2026-08-08T09:45:10.0772336Z` independently returned HTTP 404; the later
+verification time does not imply delayed deletion or an overlap between live
+ballots. No voter position in serial `1282040` was displaced. Serial `1281404`
+is a different record: it accrued 14 raters and a rating of `34,387,666`
+between publication and withdrawal, and was withdrawn before adoption rather
+than before voting.
 
 The bot published the corrected one-part signed proposal **Museum Gifts,
 Acquisition Programs, and Funding Assets Policy** as
@@ -2678,6 +2683,6 @@ and zero raters and rating. The bot did not vote. Replacement notice serial
 `1282092` was posted as drop `fce69ba5-b9e9-4a95-9c10-1e5323d1f192`.
 
 The refreshed repository release manifest has SHA-256
-`sha256:e7ad7517d7a1f15eae48d63f500fe5d3559d367bf722255e87a53f093aae0820`
+`sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d`
 and Keccak commitment
-`0xc622387d76cf5ee22c89873ccee05414a81fc23dab668b521bedb12d05eb0b5b`.
+`0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7`.

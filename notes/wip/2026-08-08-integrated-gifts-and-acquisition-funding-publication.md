@@ -68,10 +68,16 @@ The bot did not vote on the proposal.
 
 At the final authenticated observation on
 `2026-08-08T09:43:28.8803627Z`, this proposal remained `PARTICIPATORY` with
-zero raters and zero rating. The bot deleted it at
-`2026-08-08T09:43:30.771Z`. Exact-ID readback at
-`2026-08-08T09:45:10.0772336Z` returned HTTP 404. No voter position was
-displaced.
+`rating: 0`, `realtime_rating: 0`, and `raters_count: 0`. The deletion API
+returned success at `2026-08-08T09:43:30.771Z`. Exact-ID readback at
+`2026-08-08T09:45:10.0772336Z` independently returned HTTP 404; that later
+verification time does not imply delayed deletion or an overlap between live
+ballots. No voter position in serial `1282040` was displaced.
+
+This zero-rater statement applies only to serial `1282040`. The earlier serial
+`1281404` accrued 14 raters and a rating of `34,387,666` between publication
+and its authorized withdrawal. It was withdrawn before adoption, not before
+voting.
 
 The corrected signed replacement is Wave serial `1282091`, drop
 `6387c484-c602-4a2f-8d8b-456395cf077f`. It incorporates the three review

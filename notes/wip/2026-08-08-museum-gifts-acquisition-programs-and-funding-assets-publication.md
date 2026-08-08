@@ -24,10 +24,15 @@ the ballot before voting began: a versioned schedule of exact settlement-asset
 identifiers, a stronger minimum record for on-chain art, and an explicit bar on
 bypassing the conversion-approval rule through unsolicited-transfer handling.
 Immediately before replacement, proposal serial `1282040` remained
-`PARTICIPATORY` with zero raters and zero rating. It was deleted at
-`2026-08-08T09:43:30.771Z`. Exact-ID readback at
-`2026-08-08T09:45:10.0772336Z` returned HTTP 404. No voter position was
-displaced.
+`PARTICIPATORY` with `rating: 0`, `realtime_rating: 0`, and `raters_count: 0`.
+The deletion API returned success at `2026-08-08T09:43:30.771Z`. Exact-ID
+readback at `2026-08-08T09:45:10.0772336Z` independently returned HTTP 404;
+that later verification time does not imply delayed deletion or an overlap
+between live ballots. No voter position in serial `1282040` was displaced.
+
+The earlier serial `1281404` is a different record. It accrued 14 raters and a
+rating of `34,387,666` before its authorized withdrawal. It was withdrawn
+before adoption, not before voting.
 
 The live proposal retains the same policy structure. Its settlement schedule
 `6529NM-ASA-1` identifies native Ether, USDC, and USDT on Ethereum mainnet by
