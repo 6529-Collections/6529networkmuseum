@@ -335,6 +335,18 @@ class ProposedGiftValidationTests(unittest.TestCase):
         issues = self.issues_after(duplicate)
         self.assertTrue(any("unique, increasing" in issue for issue in issues), issues)
 
+    def test_revision_lineage_requires_exact_integer_history_revisions(self) -> None:
+        for invalid_revision in (1.0, True):
+            with self.subTest(invalid_revision=invalid_revision):
+                issues = self.issues_after(
+                    lambda loaded, value=invalid_revision: loaded[self.proposal_path][
+                        "amendment_history"
+                    ][0].__setitem__("revision", value)
+                )
+                self.assertTrue(
+                    any("unique, increasing" in issue for issue in issues), issues
+                )
+
     def test_revision_lineage_rejects_mismatched_prior_snapshot_revision(self) -> None:
         def mutate(root: Path, loaded: dict[Path, object]) -> None:
             snapshot = root / "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot"

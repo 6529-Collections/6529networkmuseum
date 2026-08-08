@@ -233,7 +233,10 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             issues.append(f"{relative_current}: amendment history count must equal current revision minus one")
             continue
         history_revisions = [item.get("revision") if isinstance(item, dict) else None for item in history]
-        if history_revisions != list(range(1, current_revision)):
+        if (
+            not all(type(revision) is int for revision in history_revisions)
+            or history_revisions != list(range(1, current_revision))
+        ):
             issues.append(f"{relative_current}: amendment history revisions must be unique, increasing, and prior to the current revision")
         for index, entry in enumerate(history):
             if not isinstance(entry, dict):
