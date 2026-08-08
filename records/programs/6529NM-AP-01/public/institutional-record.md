@@ -63,15 +63,17 @@ The manifest’s `rights_effective_status` remains controlling for each outcome.
 
 Creative Commons’ public guidance also separates copyright dedication from personality, privacy, publicity, and trademark rights. The [rights register](rights-and-consent.md) applies that distinction to people, minors, nudity, passports, graffiti, posters, sites, and physical miniatures.
 
+The reviewed visual descriptions and their typed projection are documented in the [accessibility amendment](accessibility-amendment.md). That derived record changes the accessibility wording and review status only; it does not change source bytes, derivative hashes, selected-outcome status, or `rights_effective_status`.
+
 ## Transcription and correction note
 
-The public page renders OUT-015 as **মুক্তিযুদ্ধ - Fight for Freedom**, following the authoritative Bangla title visible in the artist submission/media evidence. The current `selected-works.json` contains an encoding/mojibake transcription of the Bangla portion. This page does not silently modify the canonical JSON. A future append-only correction should preserve the original assertion, add `supersedes`, bind the corrected title to the direct submission evidence, and receive the repository’s normal review.
+The public page renders OUT-015 as **মুক্তিযুদ্ধ - Fight for Freedom**, following the authoritative Bangla title visible in the artist submission/media evidence. The current `selected-works.json` contains a legacy encoding transcription of the Bangla portion. This page does not silently modify the canonical JSON; the public correction note records the UTF-8 display form, its direct submission/media basis, and the historical source relationship through an append-only record.
 
 The same source discipline applies to other title or credit questions: OUT-002 preserves the submitted `teh` spelling pending artist confirmation; `GulYildiz`/Gül Yıldız, `pandelic`/Eric Pan, `Minalisa`/Mina Rahmani, `shamspranto`/Shams Nayeem Pranto, and `Veerendra`/Veerendra Jillella are displayed as source-layer associations with unresolved authority questions where indicated.
 
 ## WP-1 integration dependencies
 
-The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [WP-1 publication integration handoff](publication-integration.md). WP-4 has not modified shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, media-manifest schemas, or rights registries.
+The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [WP-1 publication integration handoff](publication-integration.md). WP-4 has not modified WP-1-owned shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. It has made one isolated program-media control change: the `program-media-manifest` accessibility status now records the completed visual audit as `constructed_visual_description_reviewed`; the correction is covered by the derived accessibility amendment and focused tests.
 
 Integration must preserve:
 

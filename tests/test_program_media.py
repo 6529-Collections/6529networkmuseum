@@ -56,7 +56,7 @@ class ProgramMediaTests(unittest.TestCase):
             json.dumps(
                 {
                     "program_id": media.PROGRAM_ID,
-                    "status": "constructed_visual_description_pending_independent_review",
+                    "status": media.ALT_TEXT_STATUS,
                     "items": [
                         {
                             "record_id": self.record_id,

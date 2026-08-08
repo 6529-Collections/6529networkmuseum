@@ -384,3 +384,28 @@ overlay and receive their own object reading. They do not alter the historical
 Casey gift. Optional atomic remote project-study records remain the next data-
 interoperability improvement; they are not required for the live derived
 display package.
+
+## 2026-08-08 — Keys and Gates accessibility and publication review
+
+The independent corpus review is dispositioned in the WP-4 source layer. All
+sixteen presentation derivatives were visually audited; OUT-002 now names the
+central performer in the white tub/boat, OUT-011 names the visible booklet or
+document rather than a phone and records that its text is not legible at the
+public derivative scale, and OUT-016 includes the gate warning sign and
+person-like silhouette. The accessibility JSON and typed media manifest now
+use `constructed_visual_description_reviewed`, with the append-only derived
+amendment retaining the superseded hashes and source boundary.
+
+The rights disposition is image-specific: OUT-004, OUT-006, OUT-010, OUT-011,
+and OUT-015 distinguish editorial display of the submitted artwork from
+depicted-person, dignity, document, venue, poster, and high-resolution review.
+No blanket guardian/model-release rule is asserted, and every outcome retains
+its recorded unverified `rights_effective_status`. The publication now carries
+edition metadata, research cutoff, claim-level notes, citation, and revision
+history; the public README and Work pages keep registrar/schema/integration
+material out of default visitor navigation.
+
+Focused media/corpus tests, media fixity, public link/anchor, strict UTF-8 and
+rights checks pass on the pre-rebase branch. Rebase onto canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8` remains the next publication gate;
+WP-1 typed entity admission remains a later integration rebase.

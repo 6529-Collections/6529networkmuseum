@@ -4,7 +4,7 @@ These short context notes provide public, source-graded background for selected 
 
 ## Fort Frederick, Grenada — OUT-004
 
-The Grenada Tourism Authority dates Fort Frederick’s construction to a French start in 1779 and English completion in 1783, and describes its strategic position and later revolutionary use. The site’s military history is relevant to the submitted image’s architecture of confinement and exit. It does not independently verify the artist’s family narrative, the date discrepancy between 2020 and 2021, or the children’s consent status. Sources: [Grenada Tourism Authority](https://www.puregrenada.com/fort-frederick/), [UNESCO tentative-list entry](https://whc.unesco.org/en/tentativelists/1926/).
+The Grenada Tourism Authority dates Fort Frederick’s construction to a French start in 1779 and English completion in 1783, and describes its strategic position and later revolutionary use. The site’s military history is relevant to the submitted image’s architecture of confinement and exit. It does not independently verify the artist’s family narrative, the date discrepancy between 2020 and 2021, or the artist’s represented consent coverage. Sources: [Grenada Tourism Authority](https://www.puregrenada.com/fort-frederick/), [UNESCO tentative-list entry](https://whc.unesco.org/en/tentativelists/1926/).
 
 ## Berlin Wall / *Residual Barrier* — OUT-005
 
@@ -20,7 +20,7 @@ The official RAW history traces the site from a nineteenth-century railway works
 
 ## Casa NUA, São Paulo — OUT-011
 
-Casa NUA’s public materials describe a São Paulo venue for digital-native art, events, production, and cultural programming. That institutional context supports the work’s setting, but not the subject’s sensitive biography, passport details, room permission, or direct consent. Sources: [Casa NUA](https://nua.casa/), [Domínio Público](https://dominiopublico.nua.casa/).
+Casa NUA’s public materials describe a São Paulo venue for digital-native art, events, production, and cultural programming. That institutional context supports the work’s setting, but not the sitter’s sensitive biography, document details, room permission, or direct consent. Sources: [Casa NUA](https://nua.casa/), [Domínio Público](https://dominiopublico.nua.casa/).
 
 ## Bangladesh Liberation War — OUT-015
 

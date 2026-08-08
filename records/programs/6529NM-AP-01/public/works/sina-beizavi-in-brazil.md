@@ -1,6 +1,8 @@
 # *Sina Beizavi in Brazil*
 
-![A nude figure reclines on an ornate gold chair, holding a dark booklet or document.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
+> **Content note:** Full-frontal nudity and a pictured travel document. The public derivative shows the document at a distance; personal identifiers are not transcribed and are not legible at the standard 640px presentation size.
+
+![A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -25,18 +27,18 @@ The image holds two kinds of visibility together. The figure is offered as prese
 
 ## Artist’s account
 
-Faz’s submission identifies the subject as Sina Beizavi and describes his escape from Iran, queer identity, artistic expression, migration to Brazil, and relationship to Casa NUA. These are artist-provided biographical claims about the depicted person and remain subject to direct confirmation. The submission also states that the subject gave written consent.
+Faz’s submission identifies the sitter as Sina Beizavi and states that the pictured document is an Iranian passport. It also supplies sensitive personal claims, which are withheld from this public catalogue pending direct subject approval. The submission reports written consent from the sitter; that remains an artist-provided representation rather than an independent Museum instrument.
 
 ## Curatorial interpretation
 
-The document is not presented as proof to be inspected; it is a prop whose presence changes the portrait’s terms. A passport or booklet can enable movement while making a person legible to institutions. By placing it in a room of hospitality, the photograph asks whether welcome can be separated from the systems that first required a person to prove the right to cross.
+The dark booklet or document is a prop whose presence changes the portrait’s terms. It introduces the administrative object of passage without making its identifiers available to the viewer. By placing it in a room of hospitality, the photograph asks whether welcome can be separated from the systems that first require a person to prove the right to cross.
 
 ## Context
 
-Casa NUA is part of the artist’s submitted context. The public image supports a staged portrait reading, but it does not independently verify the subject’s legal, migration, religious, or sexuality-related history. Those claims and the safe public naming of the subject remain rights and correspondence questions.
+The work’s public context is Casa NUA, a São Paulo venue for digital-native art, events, production, and cultural programming. That context does not establish the sitter’s biography, document identifiers, venue permission, or direct consent scope.
 
 ## Status and source note
 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
-> **Rights/source note:** The submission includes an artist and subject CC0/consent assertion. Written consent, safe biography, document privacy, Casa NUA permission, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** The submission includes an artist and subject CC0/consent assertion. The public derivative does not expose readable document identifiers; direct subject approval for nude display and sensitive biography, Casa NUA permission, high-resolution/source treatment, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).

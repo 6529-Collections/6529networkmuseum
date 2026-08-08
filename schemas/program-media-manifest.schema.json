@@ -186,7 +186,7 @@
               "role": { "const": "web_presentation_surrogate" },
               "alt_text": { "type": "string", "minLength": 20 },
               "alt_text_status": {
-                "const": "constructed_visual_description_pending_independent_review"
+                "const": "constructed_visual_description_reviewed"
               },
               "derivatives": {
                 "type": "array",

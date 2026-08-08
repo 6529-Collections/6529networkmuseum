@@ -1,10 +1,12 @@
 # *The Hostile Gate*
 
+> **Content note:** Nudity and body exposure.
+
 ![A shirtless man opens a refrigerator covered with colourful magnets.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
-**Artist:** [Artem Humilevskyi (GIANT)](../artists/giant.md)  
+**Artist:** [Artem Humilevskiy (GIANT)](../artists/giant.md)<br>
 **Title:** *The Hostile Gate*  
 **Selection:** place 6 · serial `1157117` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=73ecf8fc-9bde-492d-a624-39d0dd547587)  
 **Source alias:** OUT-006
@@ -25,7 +27,7 @@ The sparse interior is almost swallowed by shadow. What should promise provision
 
 ## Artist’s account
 
-The submission places the image within GIANT’s ongoing self-portrait project and describes the refrigerator door as a hostile gate between caloric discipline and primal hunger. The artist identifies the depicted person as himself and states that written consent documentation exists.
+The submission places the image within GIANT’s ongoing self-portrait project and describes the refrigerator door as a hostile gate between caloric discipline and primal hunger. The artist identifies the depicted person as himself and states that written consent documentation exists. The public page treats that as an artist-provided account; it does not infer a separate model-release requirement for a self-portrait.
 
 ## Curatorial interpretation
 

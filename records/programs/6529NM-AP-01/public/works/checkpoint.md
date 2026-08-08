@@ -1,5 +1,7 @@
 # *Checkpoint*
 
+> **Content note:** Nudity and partial concealment. The subject’s identity and location are not stated.
+
 ![A bare torso emerges from black fabric while the head remains concealed.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data

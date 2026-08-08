@@ -1,6 +1,6 @@
 # WP-1 schema and vocabulary dependencies
 
-This WP-4 corpus is Markdown content only. It intentionally does not add or modify schemas, controlled vocabularies, record envelopes, or shared ontology files.
+This WP-4 corpus is isolated content plus one narrowly scoped program-media control correction. It does not redefine WP-1 schemas, controlled vocabularies, record envelopes, or shared ontology files.
 
 ## Required integration dependencies
 
@@ -15,6 +15,7 @@ The content layer expects downstream integration to use the existing WP-1-owned 
 - Stream-compatible record envelopes, subject derivation, schema identifiers, hash algorithms, and CAIP-19-shaped on-chain citations;
 - rights vocabulary and object-specific rights-effective status;
 - program media-manifest joins and the source/presentation-surrogate/preservation-object boundary;
+- the existing `schemas/program-media-manifest.schema.json` control, whose accessibility status vocabulary now uses `constructed_visual_description_reviewed` after the completed visual audit; and
 - public/restricted record separation and public-safety scanning.
 
 ## Suggested future content relations
@@ -41,3 +42,5 @@ WP-4 does not:
 - convert the presentation derivatives into preservation masters or tokenized works;
 - assert that the planned custody reference `networkmuseum.6529.eth` has received any asset;
 - decide the future mint topology between a dedicated 6529Stream instance and a main-Stream subcollection.
+
+The program-media status correction is not a WP-1 ontology change. It is an implementation dependency for the typed media manifest, accessibility JSON, generator, and tests; WP-1 integration should preserve the derived amendment and its one-to-one media joins.

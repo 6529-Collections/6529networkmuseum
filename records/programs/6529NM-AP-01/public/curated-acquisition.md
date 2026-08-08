@@ -8,9 +8,9 @@ The next movement is historical and infrastructural. A weathered wall carries gr
 
 Taken together, the photographs do not settle the meaning of freedom. They show how an opening can filter, how a road can be open and still rationed, how a document can enable passage while exposing a person, and how a house can remain visible from the wrong side of a gate. Staged images, documentary views, collage, long exposure, and focus stacking make different kinds of access visible. The [research publication](curatorial-essay.md), *Access, Control, and Exit*, follows those formal and historical relations through sustained close readings.
 
-The group’s current relationship is summarized below; the [Research and record](institutional-record.md) page keeps the supporting record.
+The sequence is a curatorial order for reading the group, not a ranking or chronology. The final acquired quantity may be fewer than sixteen because availability, terms, rights, documentation, and program quantity remain open. The group’s current relationship is summarized below; the [Research and record](institutional-record.md) page keeps the supporting record.
 
-## Visual sequence
+## Visual sequence — curatorial order
 
 | Sequence | Works | Shared visual question |
 |---|---|---|

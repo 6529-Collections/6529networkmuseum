@@ -1,5 +1,7 @@
 # *No Key, Only Light*
 
+> **Content note:** Two young figures are shown in silhouette; the public catalogue does not state their identities or ages.
+
 ![Two silhouetted figures move through a rough stone passage toward a bright opening.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
@@ -25,7 +27,7 @@ Stone, shadow, and glare make the threshold feel historical without fixing it to
 
 ## Artist’s account
 
-The artist’s submission describes children inside Fort Frederick after an Australian family spent months confined aboard a sailboat during the pandemic and later received permission to enter Grenada. It connects the personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion.
+The artist’s submission describes young family members inside Fort Frederick after an Australian family spent months confined aboard a sailboat during the pandemic and later received permission to enter Grenada. It connects the personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion.
 
 ## Curatorial interpretation
 
@@ -33,10 +35,10 @@ The image brings private confinement into contact with public architecture. A do
 
 ## Context
 
-Public historical sources support Fort Frederick’s colonial and revolutionary context, including its inward-facing defensive design and role during the Grenadian Revolution. The family narrative, date discrepancy, figures’ identities, and guardian-consent scope remain in the source and rights records.
+Public historical sources support Fort Frederick’s colonial and revolutionary context, including its inward-facing defensive design and role during the Grenadian Revolution. The family narrative, date discrepancy, figures’ identities, and the artist’s represented consent coverage remain in the source and rights records.
 
 ## Status and source note
 
 > **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
 > **Mint:** **Mint pending.**
-> **Rights/source note:** The artist declares CC0 and consent coverage for depicted people; supporting releases, date, source file, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** The artist declares CC0 and consent coverage for depicted people; the supporting instrument, date, source file, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).

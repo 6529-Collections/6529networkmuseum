@@ -15,7 +15,7 @@ This register supports the public corpus. It distinguishes canonical Museum reco
 | Source | Use |
 |---|---|
 | [`program.json`](../program.json) | Program rules, status, Wave, price, planned custody reference, registrar gates, and non-claims. Grade A. |
-| [`selected-works.json`](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A; OUT-015 title encoding correction is pending. |
+| [`selected-works.json`](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A; its legacy OUT-015 title encoding is preserved as historical source text and paired with the UTF-8 display transcription below. |
 | [`outcomes/OUT-001.json`](../outcomes/OUT-001.json) through [`OUT-016.json`](../outcomes/OUT-016.json) | Direct submission text, artist declarations, source fixity, media linkage, and per-work rights/consent assertions. Grade A for the submitted assertion; not an executed rights instrument. |
 | [`media-manifest.json`](../media-manifest.json) | Source hash/dimensions and deterministic WebP presentation derivatives. Grade A for technical derivation; not preservation or rights evidence. |
 | [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md) | Public program summary and status boundary. Grade A for the repository’s public control note. |
@@ -57,13 +57,13 @@ The canonical artist profiles in [`artists/`](artists/) retain only public, sour
 | nasimghanizadeh | [Linktree](https://linktr.ee/Nasim_Ghanizadeh), [Bluesky](https://bsky.app/profile/nasimghanizade.bsky.social), [Julien Sunyé essay](https://www.juliensunye.com/journal/after-the-gold-rush), [Bideodromo catalogue](https://www.bideodromo.com/2019/CATALOGObideodromo2019.pdf) |
 | intrepid | [Artist-attributed essay](https://hive.blog/hive-194913/%40intrepidphotos/forgotten-citizens), [6529 profile](https://6529.io/intrepid) |
 | ikertje | [Artist biography](https://ikertje.com/about-me), [Linktree](https://linktr.ee/IKERTJE) |
-| GIANT / Artem Humilevskyi | [Artist site](https://humilevskiy.com/), [Global Peace Photo Award](https://globalpeacephotoaward.org/submissions/winners-2022/giant), [Spilne Art](https://spilne.art/en/artist/artem-humilevskyi/), [Galerie Sechs](https://www.galeriesechs.ch/artists-featured/artem-humilevskyi), [PinchukArtCentre](https://pinchukartcentre.org/en/persons-pac/artist-en/artem-humilevskyi) |
+| GIANT / Artem Humilevskiy (submitted variant: Humilevskyi) | [Artist site](https://humilevskiy.com/), [Global Peace Photo Award](https://globalpeacephotoaward.org/submissions/winners-2022/giant), [Spilne Art](https://spilne.art/en/artist/artem-humilevskyi/), [Galerie Sechs](https://www.galeriesechs.ch/artists-featured/artem-humilevskyi), [PinchukArtCentre](https://pinchukartcentre.org/en/persons-pac/artist-en/artem-humilevskyi) |
 | priyanka / Priyanka Patel | [Farcaster](https://farcaster.xyz/priyanka), [public interview](https://paragraph.com/%40toadyhawk/vip-6-priyanka), [artist site](https://www.priyankap.photography/) |
 | Rakesh / Rakesh Pulapa | [Artist biography](https://www.rakeshpulapa.com/about), [Condé Nast Traveller](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/), [public profile](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114) |
 | pandelic / Eric Pan | [Artist site](https://ericpan.org/), [15 Questions](https://www.15questions.net/interview/eric-pan-about-improvisation/page-1/), [catalog profile](https://legacy.catalog.works/pandelic) |
 | Minalisa / Mina Rahmani | [Farcaster](https://farcaster.xyz/minalisa1991) |
 | Teyhu | [Linktree](https://linktr.ee/teyhu) |
-| arsonic | [6529 profile](https://6529.io/arsonic/xtdh), [Shape of Pepe](https://shapeofpepe.com/theartist.html), [artist X profile](https://x.com/Ars0nic), [Fingerprints DAO interview](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b) |
+| arsonic | [6529 profile](https://6529.io/arsonic/xtdh), [Shape of Pepe](https://shapeofpepe.com/theartist.html), [artist X profile](https://x.com/Ars0nic), [indirect Fingerprints DAO context: Guillaume (Zeblocks)](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b) |
 | Zoku | [6529 profile](https://6529.io/zoku), [The Line profile](https://www.theline.wtf/listing/zoku/) |
 | shamspranto | [6529 profile](https://6529.io/shamspranto), [Get Bengal](https://www.getbengal.com/photo/details/the-story-of-bangladesh-and-lonely-life-through-shams-photography), [121Clicks](https://121clicks.com/photo-stories/shams-pranto-bangladesh-photography/) |
 | Veerendra | [6529 collected profile](https://6529.io/veerendra/collected), [The Talented Indian](https://www.thetalentedindian.com/tag/veerendra-jillella/), [Chaibisket](https://www.chaibisket.com/blogs/blog/best-photographers-telugu-states) |

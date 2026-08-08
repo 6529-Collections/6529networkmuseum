@@ -1,6 +1,6 @@
 {
   "program_id": "6529NM-AP-01",
-  "status": "constructed_visual_description_pending_independent_review",
+  "status": "constructed_visual_description_reviewed",
   "items": [
     {
       "record_id": "6529NM-AP-01-OUT-001",
@@ -8,7 +8,7 @@
     },
     {
       "record_id": "6529NM-AP-01-OUT-002",
-      "alt_text": "An elevated night view of buses and blurred vehicles moving through a lit transit station bordered by trees."
+      "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway."
     },
     {
       "record_id": "6529NM-AP-01-OUT-003",
@@ -44,7 +44,7 @@
     },
     {
       "record_id": "6529NM-AP-01-OUT-011",
-      "alt_text": "A man wearing sunglasses reclines nude on an ornate gold chair in a dark room while holding a phone."
+      "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale."
     },
     {
       "record_id": "6529NM-AP-01-OUT-012",
@@ -64,7 +64,7 @@
     },
     {
       "record_id": "6529NM-AP-01-OUT-016",
-      "alt_text": "A small white house with a red roof stands on a green hill at night above an illuminated gate under a starry sky."
+      "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette."
     }
   ]
 }

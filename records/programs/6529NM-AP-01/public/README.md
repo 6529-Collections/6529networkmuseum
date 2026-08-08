@@ -18,8 +18,8 @@ The public catalogue is linked to Acquisition Program `6529NM-AP-01` and its pro
 - [Source, bibliography, and chronology register](sources-and-bibliography.md)
 - [Rights and consent boundary](rights-and-consent.md)
 - [Media and accessibility record](media-joins.md)
-- [WP-1 schema dependencies](schema-dependencies.md)
-- [WP-1 publication integration handoff](publication-integration.md)
+
+Registrar, schema, and integration records remain available through the research record and contextual links, but are not part of the default visitor navigation.
 
 ## Editorial method
 
@@ -34,8 +34,8 @@ Artist intent is attributed to the artist's submission. Public biographical mate
 
 ## Media boundary
 
-The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and current accessibility text without changing the technical manifest.
+The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and reviewed accessibility text; the [accessibility amendment](accessibility-amendment.md) records the text correction without changing derivative bytes.
 
 ## Review state
 
-This is an initial corpus for editorial, registrar, rights, and artist review. It is not a final accession catalogue. Corrections must be append-only and must preserve the underlying selected-outcome evidence.
+This is an initial public edition for editorial, registrar, rights, and artist review. The final acquired quantity may be fewer than sixteen because availability, terms, rights, documentation, and program quantity remain open. Corrections must be append-only and must preserve the underlying selected-outcome evidence.

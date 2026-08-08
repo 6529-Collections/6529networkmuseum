@@ -2728,3 +2728,45 @@ record and source layer. The release manifest was regenerated after this route
 pass; its exact commitments will be reported with the final commit and PR.
 Typed Work and Artist admission remains pending the WP-1 ontology/release
 commit; no shared schema or controlled vocabulary was changed.
+
+## 2026-08-08 Keys and Gates independent review disposition
+
+The full independent review packet is dispositioned in the isolated WP-4
+corpus. The visual audit covered all sixteen public presentation derivatives.
+OUT-002 now names the sharply defined performer seated in a small white tub or
+boat; OUT-011 names the visible dark booklet/document, states that its text is
+not legible at the public 640px derivative scale, and removes unnecessary
+sensitive biography from the public treatment; OUT-016 names the lit gate,
+warning sign, and person-like silhouette. The accessibility JSON, typed media
+manifest, public media joins, Work alt text, focused tests, and an append-only
+derived accessibility amendment now agree one-to-one. Source and derivative
+hashes remain unchanged, and all sixteen outcome `rights_effective_status`
+values remain controlling and unverified.
+
+The ethics review is work-specific. OUT-004 keeps the artist's represented
+consent coverage attributed while limiting public identity/age language;
+OUT-006 treats the artist's self-portrait claim without presuming a separate
+model-release doctrine; OUT-010 keeps the head-obscured nude body object-led
+while requiring subject-authority/adult-status review if it is not a
+self-portrait; OUT-011 separates display of the submitted artwork from
+sensitive biography, document identifiers, venue permission, and high-
+resolution treatment; and OUT-015 separates the artist's mother/consent
+assertion from the second sitter and poster/collage provenance. Content notices
+precede OUT-006, OUT-010, and OUT-011, with an additional silhouette note for
+OUT-004. No blanket guardian/model-release rule is introduced.
+
+The publication apparatus now records edition 1.0, author/institution,
+8 August 2026 research cutoff, suggested citation, three claim-level notes,
+and revision history. The curatorial sequence is explicitly order rather than
+rank or chronology; final acquired quantity may be fewer than sixteen. The
+OUT-002 `teh` title remains source-faithful. Public GIANT spelling is
+Humilevskiy with submitted Humilevskyi retained as a raw variant. The arsonic
+Fingerprints DAO link is labelled indirect because it is an interview with
+Guillaume (Zeblocks). Twstalker mirrors remain excluded.
+
+Pre-rebase checks pass: focused corpus/media tests, 48-derivative media fixity,
+strict UTF-8/no-mojibake, public link/anchor inventory, and rights-handbook
+validation. The branch is now ready to rebase onto exact canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`; WP-1 typed Work/Artist admission
+and canonical release activation remain a later rebase. No merge or deploy is
+authorized.

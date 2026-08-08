@@ -6,4 +6,4 @@ In *Nowhere To Esc.*, Arsonic translates a software command into a tabletop stil
 
 **Further research:** The handle’s digital-art context is established; the photographic workflow, materials, and preferred authority form remain to be confirmed.
 
-**Sources:** [6529 profile](https://6529.io/arsonic/xtdh), [Shape of Pepe](https://shapeofpepe.com/theartist.html), [artist X profile](https://x.com/Ars0nic), [Fingerprints DAO interview](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b).
+**Sources:** [6529 profile](https://6529.io/arsonic/xtdh), [Shape of Pepe](https://shapeofpepe.com/theartist.html), [artist X profile](https://x.com/Ars0nic). The [Fingerprints DAO interview with Guillaume (Zeblocks)](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b) is an indirect Web3-context source, not evidence about arsonic’s identity or practice.

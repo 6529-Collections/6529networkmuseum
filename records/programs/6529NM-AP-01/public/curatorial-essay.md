@@ -1,12 +1,18 @@
 # Access, Control, and Exit
 
+**Edition:** 1.0 (initial public edition) · 8 August 2026<br>
+**Author:** 6529 Network Museum, Curatorial Research<br>
+**Research cutoff:** 8 August 2026 UTC<br>
+**Stable edition:** *Keys and Gates* Research Publication, edition 1.0, bound to Curated Acquisition `6529NM-CA-2026-002`; the exact release commit is recorded in the Museum release manifest.<br>
+**Suggested citation:** 6529 Network Museum. “Access, Control, and Exit.” *Keys and Gates* Research Publication, edition 1.0, 8 August 2026. Curated Acquisition `6529NM-CA-2026-002`.
+
 A gate is never only the thing that blocks. It is also a promise that passage has been organized: by a door, a road, a queue, a passport, a wall, a body, a button, a camera, a landscape, or a story about who is allowed to move. The sixteen photographs in *Keys and Gates* return to that double condition. They give access a shape, then show the shape failing to settle the question. Light enters but does not necessarily admit. A road opens while becoming reservation-only. A key hangs in a ruin. A field looks free while riders and animals negotiate a hierarchy. A house glows above a locked gate. The works ask what it means to live on the near side of a permission that may be visible, invisible, temporary, or never granted.
 
 ## The gate as an optical event
 
 GulYildiz’s [*Take the Key!*](works/take-the-key.md) makes access spatial and perceptual. A small figure stands before a tall patterned screen inside a stone interior. The blue geometry admits daylight in fragments, projecting long bands across the floor while the human scale of the figure recedes. The screen both reveals and filters. The artist links the image to knowledge, authority, digital sovereignty, Web3 ownership, and the responsibility of self-custody. Those are the artist’s terms; the photograph’s formal fact is more unsettled. The gate is luminous and opaque at once.
 
-In [*No Key, Only Light*](works/no-key-only-light.md), two figures move through a rough stone passage toward an opening almost entirely blown out by daylight. The image uses a tunnel as a literal and historical threshold. The submission connects the scene at Fort Frederick in Grenada to four months of confinement on a sailboat during the pandemic and to the site’s histories of colonial defence, revolution, and military power. The silhouettes are caught between personal return and architectural memory. The public history of the fort can support the site context, but the family narrative, dates, and the figures’ consent remain part of the work’s unresolved record.
+In [*No Key, Only Light*](works/no-key-only-light.md), two young silhouetted figures move through a rough stone passage toward an opening almost entirely blown out by daylight. The image uses a tunnel as a literal and historical threshold. The artist’s account connects the scene at Fort Frederick in Grenada to a family’s months of confinement on a sailboat during the pandemic and to the site’s histories of colonial defence, revolution, and military power. The silhouettes are caught between personal return and architectural memory. Public Fort Frederick history supports the site context; the family account, dates, and represented consent coverage remain attributed to the submission.[^1]
 
 Teyhu’s [*Rusted*](works/rusted.md) repeats the passage in a different register. Successive arches lead the eye toward a distant figure holding or wearing keys. Here the key is not a triumphant token of entry. In the artist’s account it is rusted metal, a promise made unusable by fatigue. The work resists the temptation to identify the building or assign a conflict history from its broken plaster and exposed brick. Its power lies in that refusal: the architecture offers evidence of damage without yielding a single authorized narrative.
 
@@ -38,7 +44,7 @@ Several works turn the gate inward, making the body the checkpoint. GIANT’s [*
 
 Minalisa’s [*Checkpoint*](works/checkpoint.md) is more withholding. A bare torso emerges from black fabric, but the head is concealed. The body is exposed and the person remains visually uncredentialed. The artist frames the image through clothing, law, movement, and the gaze of others; the photograph keeps that reading attributed while making its structure palpable. The image carries heightened privacy and nudity risk even though the face is not shown. Concealment does not remove the body from the field of scrutiny.
 
-In [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), HugoFaz places a nude, sunglassed figure in an ornate gold chair at Casa NUA, holding the booklet the submission identifies as an Iranian passport. The chair supplies an architecture of sovereignty; the passport makes national permission materially present. The relaxed body appears to have crossed a border, yet the document’s visibility introduces a new vulnerability. The artist’s narrative includes migration, sexuality, religion, and escape. Those claims require the subject’s direct approval before they can become public biography. The work’s central contradiction is doubled: a person may be visibly at ease while the evidence of their passage remains dangerously exposed.
+In [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), HugoFaz places a nude, sunglassed figure in an ornate gold chair at Casa NUA, holding a dark booklet or document the submission identifies as an Iranian passport. The chair supplies an architecture of sovereignty; the administrative object makes permission materially present. The public catalogue does not reproduce its identifiers or the submission’s sensitive personal narrative. The work’s central contradiction remains: a person may be visibly at ease while the evidence of passage is also a site of exposure.[^2]
 
 ## Refusal and the small exit
 
@@ -48,6 +54,16 @@ Across the group, exit is never a clean opposite to exclusion. The rider may lea
 
 ## Openness as a material question
 
-The photographs also make visible the difference between an image’s invitation and the permissions embedded in its materials. A body may be identifiable even when a face is hidden. A passport, poster, graffiti mark, miniature, domestic object, or site can carry another person’s rights. A CC0 dedication can address copyright without resolving privacy, publicity, trademark, or consent. In this group, openness is therefore not an abstract virtue applied from outside; it is a material question posed by the works themselves.
+The photographs also make visible the difference between an image’s invitation and the permissions embedded in its materials. A body may be identifiable even when a face is hidden. A passport, poster, graffiti mark, miniature, domestic object, or site can carry another person’s rights. A CC0 dedication can address copyright without resolving privacy, publicity, trademark, or consent. In this group, openness is a material question posed by the works themselves.[^3]
 
 The gate remains useful because it never stops at the threshold. It asks us to look again at the surface that filters light, the road that distributes speed, the wall that outlasts its function, the document that both admits and exposes, and the command that promises an exit. *Keys and Gates* leaves those relations open long enough for the photographs to become more precise.
+
+## Notes and source record
+
+[^1]: Selection, curatorial order, and the current acquisition boundary are documented in the [Curated Acquisition gateway](curated-acquisition.md), the [institutional record](institutional-record.md), and the retained [program and outcome records](../program.json). Fort Frederick’s public architectural history is summarized with sources in the [context register](contexts/index.md); the family account and consent representation remain in the work and rights records.
+[^2]: The visual description and document-legibility boundary are recorded in [Sina Beizavi in Brazil](works/sina-beizavi-in-brazil.md), the [media join register](media-joins.md#out-011), and the [rights and consent boundary](rights-and-consent.md#display-specific-ethical-basis). Casa NUA is used only as the public venue context documented in the [context register](contexts/index.md).
+[^3]: The group’s artist accounts, visual descriptions, and source-graded context are linked from the sixteen [work treatments](works/) and [source/bibliography register](sources-and-bibliography.md). The separation between copyright dedication, privacy, publicity, and third-party materials follows the [rights and consent boundary](rights-and-consent.md) and the linked Creative Commons guidance.
+
+## Revision history
+
+- **1.0 · 8 August 2026:** Initial public edition. Separated the concise acquisition gateway from this comparative publication; completed the sixteen-image visual audit; added claim-level source notes; and applied the selected, acquisition-pending, mint-pending boundary.
