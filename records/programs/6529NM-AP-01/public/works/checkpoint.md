@@ -2,7 +2,9 @@
 
 > **Content note:** Nudity and partial concealment. The subject’s identity and location are unspecified; the public record gives no age determination.
 
-![A bare torso emerges from folds of black fabric against a nearly black background.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
+> **Image delivery:** Not approved for delivery. The technical derivative is retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
+
+> **Constructed visual description (pending independent review):** A bare torso emerges from folds of black fabric against a nearly black background.
 
 ## Object data
 
@@ -38,7 +40,7 @@ The artist’s public profile describes a self-taught portrait practice. The sub
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** The submission includes a CC0 declaration and represents that written documentation can be supplied. Subject identity, adult status, self-portrait status, and publication consent remain to be verified; no consent instrument is retained in the Museum record. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-010 has no visual-display approval. The submission includes a conditional CC0 declaration and represents that written documentation can be supplied, but subject identity, adult status, self-portrait status, and publication consent remain to be verified; no consent instrument is retained in the Museum record. The image is not approved for delivery. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

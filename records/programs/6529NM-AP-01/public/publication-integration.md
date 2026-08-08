@@ -13,7 +13,7 @@ This handoff keeps the Keys and Gates public corpus ready for admission to the c
 | Work entities | works/*.md | WP-1 Work IDs to be assigned |
 | Media references | media-joins.md and ../media-manifest.json | Existing program media-manifest item IDs |
 
-The current branch is pending WP-1 admission. The public pages are complete as editorial routes, but the branch must be rebased onto the WP-1 ontology/release work before it can claim a typed release activation.
+The current branch is pending WP-1 admission. The public pages are complete as editorial routes and the written scholarship is complete as constructed text, but exact-commit independent review, accessibility, image display, sensitive-subject authorization, and image delivery remain pending. OUT-004, OUT-010, and OUT-011 images are not approved for delivery. The branch must still be rebased onto the WP-1 ontology/release work before it can claim a typed release activation.
 
 ## Identity rule
 

@@ -1,10 +1,12 @@
 # *Sina Beizavi in Brazil*
 
-> **Content note:** Full-frontal nudity and a pictured travel document. The public derivative shows the document at a distance; personal identifiers are not transcribed and are not legible at the standard 640px presentation size.
+> **Content note:** Full-frontal nudity and a pictured travel document. The technical 640px derivative shows the document at a distance; personal identifiers are not transcribed and are not legible at that derivative scale.
 
-![A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
+> **Image delivery:** Not approved for delivery. The technical 640px derivative and its readback are retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
 
-**Public-size note:** This edition publishes only the 640px derivative. The 1280px and 2400px presentation variants were withdrawn from delivery; source originals and high-resolution preservation masters are not public.
+> **Constructed visual description (pending independent review):** A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.
+
+**Public-size note:** The technical media record retains a 640px derivative for lineage. It is not approved for delivery; the 1280px and 2400px presentation variants were withdrawn from delivery, and source originals and high-resolution preservation masters are not public.
 
 ## Object data
 
@@ -42,7 +44,7 @@ The submission places the photograph at Casa NUA in São Paulo; that statement i
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md) and uses only the 640 derivative under [the OUT-011 delivery amendment](../accessibility-amendment-2026-08-08-004.md). The artist represents written consent documentation is available on request; no consent instrument is retained in the Museum record. The public derivative keeps document identifiers unreadable. Future subject, venue, source/high-resolution, and acquisition review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-011 has no visual-display approval. The artist represents written consent documentation is available on request, but no consent instrument is retained in the Museum record; direct subject approval, document-legibility, venue, sensitive-biography, and publication-scope review remain pending. The OUT-011 delivery amendment records technical invalidation/readback and 640-only lineage; it is not approval for delivery. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

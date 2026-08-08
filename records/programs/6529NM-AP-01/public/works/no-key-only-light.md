@@ -1,8 +1,10 @@
 # *No Key, Only Light*
 
-> **Content note:** Two distant silhouetted figures are shown. The program terms exclude identifiable minors; this public 640 derivative supplies no identifying detail and leaves the figures’ ages unestablished.
+> **Content note:** Two distant silhouetted figures are described in the technical 640 derivative. The program terms exclude identifiable minors; the derivative supplies no identifying detail and leaves the figures’ ages unestablished.
 
-![Two silhouetted figures walk toward daylight at the end of a rough stone passage.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
+> **Image delivery:** Not approved for delivery. The technical 640px derivative is retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
+
+> **Constructed visual description (pending independent review):** Two silhouetted figures walk toward daylight at the end of a rough stone passage.
 
 ## Object data
 
@@ -25,11 +27,11 @@ A rough passage narrows the image before a white doorway opens it into glare. Th
 
 ## Artist’s account
 
-The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It connects that personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion. The public image leaves the figures unidentified. The artist represents that consent documentation is available on request; no consent instrument is retained in the Museum record, and future acquisition review remains separate.
+The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It attributes the association with surveillance, colonial defence, revolution, military control, and the 1983 invasion to the artist’s account. The public description leaves the figures unidentified. The artist represents that consent documentation is available on request; no consent instrument is retained in the Museum record, and future acquisition review remains separate.
 
 ## Curatorial interpretation
 
-The image brings private confinement into contact with public architecture. A doorway in a defensive complex becomes, in the artist’s account, a sign of finally reaching land. The bright opening carries that relief, while the fort’s history places it beside a structure built to contain and surveil.
+The image brings private confinement into contact with public architecture. A doorway in a defensive complex becomes, in the artist’s account, a sign of finally reaching land. The bright opening carries that relief, while the fort’s documented military history supplies a frame of defence and control.
 
 ## Context
 
@@ -38,7 +40,7 @@ The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md) and is limited to the 640 derivative under [the OUT-004 delivery amendment](../accessibility-amendment-2026-08-08-006.md). The artist represents consent documentation is available on request; no instrument is retained in the Museum record. Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-004 has no visual-display approval. The artist represents consent documentation is available on request, but no instrument is retained in the Museum record; the figures’ ages and privacy/consent scope remain unverified. The 640 derivative’s technical invalidation/readback is recorded in [the OUT-004 delivery amendment](../accessibility-amendment-2026-08-08-006.md), but it is not approval for delivery. Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

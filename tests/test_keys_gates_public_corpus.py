@@ -80,6 +80,7 @@ CURATORIAL_SEQUENCE = (
     "sina-beizavi-in-brazil.md",
     "nowhere-to-esc.md",
 )
+WITHHELD_IMAGE_ALIASES = {"OUT-004", "OUT-010", "OUT-011"}
 
 
 def load_json(relative_path: str) -> dict[str, object]:
@@ -120,13 +121,23 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         works_by_alias = {}
         alias_pattern = re.compile(r"\*\*Source alias:\*\* (OUT-\d{3})")
         image_pattern = re.compile(r"!\[([^\]]+)\]\([^\n]+\)")
+        description_pattern = re.compile(
+            r"\*\*Constructed visual description \(pending independent review\):\*\* ([^\r\n]+)"
+        )
         for work in work_dir.glob("*.md"):
             text = work.read_text(encoding="utf-8")
             alias_match = alias_pattern.search(text)
             image_match = image_pattern.search(text)
             self.assertIsNotNone(alias_match, work)
-            self.assertIsNotNone(image_match, work)
-            works_by_alias[alias_match.group(1)] = (work, image_match.group(1))
+            alias = alias_match.group(1)
+            if alias in WITHHELD_IMAGE_ALIASES:
+                self.assertIsNone(image_match, work)
+                description_match = description_pattern.search(text)
+                self.assertIsNotNone(description_match, work)
+                works_by_alias[alias] = (work, description_match.group(1))
+            else:
+                self.assertIsNotNone(image_match, work)
+                works_by_alias[alias] = (work, image_match.group(1))
         self.assertEqual({f"OUT-{index:03d}" for index in range(1, 17)}, set(works_by_alias))
 
         media_text = (REPO_ROOT / "records/programs/6529NM-AP-01/public/media-joins.md").read_text(
@@ -134,7 +145,11 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         )
         media_rows = {
             match.group(1): match.group(2).strip()
-            for match in re.finditer(r"<a id=\"out-(\d{3})\"></a>OUT-\1 .*? \| ([^|]+) \| 640", media_text)
+            for match in re.finditer(
+                r'^\| <a id="out-(\d{3})"></a>OUT-\1 \| [^|]+ \| [^|]+ \| ([^|]+) \|',
+                media_text,
+                re.MULTILINE,
+            )
         }
         self.assertEqual({f"{index:03d}" for index in range(1, 17)}, set(media_rows))
         for record_id, alt_text in EXPECTED_ALTS.items():
@@ -303,10 +318,14 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             alias_match = alias_pattern.search(text)
             media_match = media_pattern.search(text)
             self.assertIsNotNone(alias_match, work)
-            self.assertIsNotNone(media_match, work)
             alias = alias_match.group(1)
             self.assertNotIn(alias, aliases)
-            self.assertEqual(alias, f"OUT-{media_match.group(1)}")
+            if alias in WITHHELD_IMAGE_ALIASES:
+                self.assertIsNone(media_match, work)
+                self.assertIn("Image delivery:** Not approved for delivery", text)
+            else:
+                self.assertIsNotNone(media_match, work)
+                self.assertEqual(alias, f"OUT-{media_match.group(1)}")
             self.assertIn(
                 "**Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**",
                 text,
@@ -411,6 +430,42 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertIn("selected submission is signed", text)
         self.assertIn("public name/handle association", text)
         self.assertNotIn("professional name are established", text)
+        self.assertNotIn("Istanbul", text)
+
+    def test_fort_frederick_surveillance_is_attributed_or_source_bounded(self) -> None:
+        work = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/works/no-key-only-light.md"
+        ).read_text(encoding="utf-8")
+        essay = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/curatorial-essay.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("attributes the association with surveillance", work)
+        self.assertIn("artist’s account connects that personal movement to surveillance", essay)
+        self.assertIn("documented military history supplies a frame of defence and control", work)
+        self.assertNotIn("fort’s history places it beside a structure built to contain and surveil", work)
+
+    def test_current_publication_boundary_keeps_text_complete_but_images_pending(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        boundary = (public_root / "publication-authority-amendment-2026-08-08-007.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("Constructed and complete as text", boundary)
+        self.assertIn("No independent exact-commit approval is asserted", boundary)
+        self.assertIn("constructed_visual_description_pending_independent_review", boundary)
+        self.assertIn("Image display and delivery", boundary)
+        for alias in sorted(WITHHELD_IMAGE_ALIASES):
+            self.assertIn(f"| {alias} |", boundary)
+            self.assertIn("no visual-display approval", boundary)
+            self.assertIn("not approved for visual display or delivery", boundary)
+            work_name = {
+                "OUT-004": "no-key-only-light.md",
+                "OUT-010": "checkpoint.md",
+                "OUT-011": "sina-beizavi-in-brazil.md",
+            }[alias]
+            work = (public_root / "works" / work_name).read_text(encoding="utf-8")
+            self.assertIn("Image delivery:** Not approved for delivery", work)
+            self.assertIn("Constructed visual description (pending independent review)", work)
+            self.assertNotIn("d3lqz0a4bldqgf.cloudfront.net/museum/programs/", work)
 
     def test_public_media_urls_are_manifest_allowlisted_and_restricted_urls_are_absent(self) -> None:
         public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
@@ -439,11 +494,11 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             for url in re.findall(r"https?://[^\s)]+", visitor_text)
             if "d3lqz0a4bldqgf.cloudfront.net/museum/programs/" in url
         }
-        self.assertEqual(16, len(media_urls))
+        self.assertEqual(13, len(media_urls))
         self.assertTrue(media_urls <= allowed_urls)
         self.assertNotRegex(
             visitor_text,
-            r"/6529NM-AP-01-OUT-(?:004|011)/[^\s)]+/(?:1280|2400)\.webp",
+            r"/6529NM-AP-01-OUT-(?:004|010|011)/[^\s)]+/(?:640|1280|2400)\.webp",
         )
 
     def test_upstream_source_urls_are_provenance_only_and_not_media_projection(self) -> None:
@@ -580,7 +635,11 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         )
         for item in manifest["items"]:
             presentation = item["presentation"]
-            self.assertIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
+            alias = item["record_id"].split(f"{PROGRAM_ID}-", 1)[1]
+            if alias in WITHHELD_IMAGE_ALIASES:
+                self.assertNotIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
+            else:
+                self.assertIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
             source_url = item["source"]["url"]
             self.assertNotIn(source_url, work_text, item["record_id"])
             self.assertNotIn(source_url, visitor_text, item["record_id"])

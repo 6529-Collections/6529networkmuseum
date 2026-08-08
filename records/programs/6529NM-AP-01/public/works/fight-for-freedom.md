@@ -38,7 +38,7 @@ The Liberation War Museum’s public history supports the title’s 1971 referen
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md). The submission contains a CC0 declaration and represents written consent for depicted people; consent scope, poster provenance, title spelling confirmation, and publication scope remain to be verified. No consent instrument is retained in the Museum record. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md#transcription-and-correction-note).
+> **Rights/source note:** The written scholarship is within the current text-publication scope; exact-commit review, image display, accessibility, and image-specific consent remain pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md). The submission contains a CC0 declaration and represents written consent for depicted people; consent scope, poster provenance, title spelling confirmation, and image-delivery scope remain to be verified. No consent instrument is retained in the Museum record. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md#transcription-and-correction-note).
 
 ## Browse
 
