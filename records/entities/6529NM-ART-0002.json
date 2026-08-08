@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x38766110faabc3ddd035f79cbf6a003dfb511e5eb99e3dc4882fefedd1a41cd2",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0002.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0002.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/gulyildiz",

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd6afff387c339767a01582012f719fb9f31d5de7ec6b0bf4e0a8fe8b46bbdee5",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-AP-ENT-0002.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AP-ENT-0002.json"
   },
   "payload": {
     "canonical_route": "/museum/network/acquisition-programs/keys-and-gates",

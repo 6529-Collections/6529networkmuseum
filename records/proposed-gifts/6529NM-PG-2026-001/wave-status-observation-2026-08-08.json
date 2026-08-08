@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5fad62701f87c63609c73c36dcf333934f311a75bfc3625b8abc2f509b79a7ba",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+    "uri": "https://6529networkmuseum.org/records/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
   },
   "payload": {
     "constructor": {

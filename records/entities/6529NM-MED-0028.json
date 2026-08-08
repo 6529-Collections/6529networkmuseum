@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfaec774987772e4e9017fb54027fe36d7000800ff5396659e2e313d351e939f6"
+      "digest": "0x2915ef6cae0eff4b56a10f915b8adc7fac939875313b93993aadb3442b856583"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5687ebd5bc8cfd5242cee3239f3fa2d653b439b8be49a556caea18138106d3a5",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0028.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0028.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a765790776cb8c666f61acbe1d62a027f39af504c8884173160f811aadcbe46a",
+    "payload_sha256": "sha256:17150c0c137543d6210fb43cf6f2f75a1aef1194040fb7fdbd1fd344d1b253b5",
     "preferred_label": "Now Is Our Time Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-009.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

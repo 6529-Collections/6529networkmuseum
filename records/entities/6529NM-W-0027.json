@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x23570ece234ef95254e93256bfe1471c4a567dfe300ffd55fe22f7b56b9f1d25"
+      "digest": "0x4ac09f35339206a076262da4871ed24be4b9df5492dc97eae77a83938784351f"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x1c81fb972aca2466e9cd2a1aff3c1f07e951da97b9f2292116d2677098abad04",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0027.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0027.json"
   },
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0027",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:f070efee29ac0c937b2893e96cd95da8fc5b6db6d5d562e4c66d99d8ee054dad",
+    "payload_sha256": "sha256:15260f088a1937b066a3d59472ff125292e3eb60b33ae1da10b50839bdede856",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [],
@@ -183,12 +183,12 @@
       ],
       "medium": "photograph",
       "mint_fact": {
-        "as_of": "2026-08-06T13:19:30.726Z",
+        "as_of": "2026-08-05T17:46:53.817Z",
         "evidence_refs": [
           {
             "evidence_class": "A",
             "label": "Finalized Ethereum chain observation",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-05T17:46:53.817Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
           }
         ],

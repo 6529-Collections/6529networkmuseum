@@ -20,7 +20,12 @@
       "properties": {
         "id": {"$ref": "#/$defs/id"},
         "role": {"type": "string", "const": "reviewer"},
-        "reviewed_at": {"$ref": "#/$defs/dateTime"}
+        "reviewed_at": {"$ref": "#/$defs/dateTime"},
+        "reviewed_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "reviewed_manifest_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "reviewed_manifest_keccak": {"$ref": "#/$defs/bytes32"},
+        "reviewer_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/id"}},
+        "outcome": {"enum": ["approved"]}
       },
       "required": ["id", "role", "reviewed_at"],
       "unevaluatedProperties": false

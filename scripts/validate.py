@@ -9,6 +9,7 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 from datetime import datetime, timezone
 from ipaddress import ip_address
 from pathlib import Path
@@ -29,6 +30,7 @@ VOCAB_PATH = SCHEMAS_DIR / "controlled-vocabularies.json"
 VOCAB_SCHEMA_PATH = SCHEMAS_DIR / "controlled-vocabularies.schema.json"
 ENVELOPE_PATH = SCHEMAS_DIR / "record-envelope.schema.json"
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
+MEDIA_DESCRIPTION_AMENDMENT_ID = "6529NM-MEDIA-DESC-AMD-2026-08-08-001"
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -94,6 +96,13 @@ RECORD_REFERENCE_KEYS = {
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
 PUBLIC_ENTITY_TYPE = "PUBLIC_ENTITY"
 PUBLIC_RELATION_TYPE = "PUBLIC_RELATION"
+RELEASE_REVIEW_BOUND_RECORD_TYPES = {
+    PUBLIC_ENTITY_TYPE,
+    PUBLIC_RELATION_TYPE,
+    "WAVE_STATUS_OBSERVATION",
+    "WAVE_PUBLICATION_OBSERVATION",
+    "MEDIA_DESCRIPTION_AMENDMENT",
+}
 PUBLIC_ENTITY_SCHEMA_ID = "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9"
 PUBLIC_RELATION_SCHEMA_ID = "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de"
 PUBLIC_IDENTITY_INVENTORY_FILENAME = "public-entity-identity-inventory.json"
@@ -133,6 +142,90 @@ def public_entity_id_pattern(entity_type: Any, identity_inventory: dict[str, Any
 def frozen_projection(value: Any) -> str:
     """Return a stable, hashable representation of JSON-derived untrusted data."""
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+
+
+def _route_slug(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii").casefold()
+    normalized = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+    if not normalized:
+        raise ValueError(f"cannot derive a governed route slug from {value!r}")
+    return normalized
+
+
+def _route_source_rows(root: Path, identity_inventory: dict[str, Any], expansion: dict[str, Any]) -> list[dict[str, Any]]:
+    source_name = expansion.get("source_inventory")
+    if source_name in {"work_aliases", "acquisition_aliases", "source_aliases", "route_aliases"}:
+        rows = identity_inventory.get(source_name, [])
+        return [row for row in rows if isinstance(row, dict)]
+    if source_name == "approved_collections":
+        value = load_json(root / "records/collections/approved-collections.json")
+        return [
+            {"alias": _route_slug(row["preferred_name"]), "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions#" + _route_slug(row["preferred_name"]), "canonical_entity_id": None}
+            for row in value.get("collections", [])
+            if isinstance(row, dict) and isinstance(row.get("preferred_name"), str)
+        ]
+    if source_name == "institutional_practice":
+        base = root / "records/institutional-practice"
+        return [{"alias": path.relative_to(base).with_suffix("").as_posix(), "canonical_entity_id": None} for path in sorted(base.rglob("*")) if path.is_file()]
+    if source_name == "data_architecture":
+        rows = [{"alias": "overview", "canonical_entity_id": None}]
+        base = root / "docs/data-architecture"
+        rows.extend({"alias": path.relative_to(base).with_suffix("").as_posix(), "canonical_entity_id": None} for path in sorted(base.rglob("*")) if path.is_file())
+        return rows
+    if source_name == "rights":
+        base = root / "docs/rights"
+        return [{"alias": path.relative_to(base).with_suffix("").as_posix(), "canonical_entity_id": None} for path in sorted(base.rglob("*")) if path.is_file()]
+    if source_name == "governance":
+        value = load_json(root / "records/governance/decisions.json")
+        return [{"alias": row.get("decision_id"), "canonical_entity_id": None} for row in value.get("records", []) if isinstance(row, dict) and isinstance(row.get("decision_id"), str)]
+    return []
+
+
+def _expected_route_expansion_keys(root: Path, identity_inventory: dict[str, Any], public_entities: dict[str, dict[str, Any]], route_inventory: dict[str, Any]) -> set[tuple[str, str, str | None]]:
+    """Expand the closed compatibility contract without a catch-all redirect."""
+
+    expected: set[tuple[str, str, str | None]] = set()
+    for expansion in route_inventory.get("expansions", []):
+        if not isinstance(expansion, dict):
+            continue
+        source_name = expansion.get("source_inventory")
+        alias_kind = expansion.get("alias_kind")
+        for row in _route_source_rows(root, identity_inventory, expansion):
+            alias = row.get("alias")
+            if not isinstance(alias, str):
+                continue
+            if source_name in {"work_aliases", "acquisition_aliases"} and alias_kind != "all" and row.get("alias_kind") != alias_kind:
+                continue
+            if source_name == "source_aliases" and alias_kind != "all" and row.get("alias_type") != alias_kind:
+                continue
+            target_id = row.get("canonical_entity_id") if expansion.get("canonical_route_from_entity") else None
+            target = public_entities.get(target_id) if isinstance(target_id, str) else None
+            if expansion.get("canonical_route_from_entity"):
+                if target is None:
+                    continue
+                if expansion.get("only_permanent_collection") and target.get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
+                    continue
+                canonical = target.get("canonical_route")
+            else:
+                canonical = row.get("canonical_route")
+                transform = expansion.get("path_transform")
+                if transform == "institutional_practice_to_research":
+                    canonical = "/museum/network/research/institutional-practice/" + alias
+                elif transform == "data_architecture_to_research":
+                    canonical = "/museum/network/research/data-architecture" if alias == "overview" else "/museum/network/research/data-architecture/" + alias
+                elif transform == "rights_to_research":
+                    canonical = "/museum/network/research/rights-and-licenses/" + alias
+                elif transform == "governance_to_about":
+                    canonical = "/museum/network/about/governance/" + alias
+                elif transform == "approved_collection_to_gift_program":
+                    canonical = "/museum/network/acquisition-programs/gift-acquisitions#" + alias
+            if not isinstance(canonical, str):
+                continue
+            for template in expansion.get("legacy_templates", []):
+                if not isinstance(template, str):
+                    continue
+                expected.add((template.replace("{alias}", alias), canonical, target_id))
+    return expected
 
 
 SENSITIVE_KEY_PARTS = {
@@ -757,6 +850,13 @@ def validate_public_media(media: Any, label: str) -> list[str]:
                 issues.append(f"{label}: visual media requires accessibility text or a typed publication join")
     source_observation = media.get("source_observation")
     source_status = source_observation.get("status") if isinstance(source_observation, dict) else None
+    accessibility_evidence_refs = media.get("accessibility_evidence_refs")
+    if not isinstance(accessibility_evidence_refs, list) or not accessibility_evidence_refs:
+        issues.append(f"{label}: accessibility_evidence_refs must be a non-empty typed evidence list")
+    else:
+        for evidence_ref in accessibility_evidence_refs:
+            if not isinstance(evidence_ref, dict) or evidence_ref.get("evidence_class") not in {"A", "B", "C", "D", "E"}:
+                issues.append(f"{label}: accessibility evidence must carry an explicit evidence class")
     fixity = media.get("fixity")
     issues.extend(validate_public_fixity(fixity, f"{label}.fixity"))
     fixity_status = fixity.get("status") if isinstance(fixity, dict) else None
@@ -821,6 +921,24 @@ def validate_public_media(media: Any, label: str) -> list[str]:
                 uri = evidence_ref.get("uri") if isinstance(evidence_ref, dict) else None
                 if isinstance(uri, str) and re.search(rf"(?<![A-Za-z0-9]){re.escape(subject_entity_id)}(?![A-Za-z0-9])", uri):
                     issues.append(f"{label}: {evidence_field} evidence cannot cite the subject MEDIA_REFERENCE entity itself")
+        rights_refs = media.get("rights", {}).get("evidence_refs", []) if isinstance(media.get("rights"), dict) else []
+        source_refs = media.get("source_observation", {}).get("evidence_refs", []) if isinstance(media.get("source_observation"), dict) else []
+        def contains_amendment(refs: Any) -> bool:
+            return any(
+                isinstance(ref, dict)
+                and isinstance(ref.get("uri"), str)
+                and (MEDIA_DESCRIPTION_AMENDMENT_ID in ref["uri"] or "media-description-amendment-2026-08-08.json" in ref["uri"])
+                for ref in refs if isinstance(refs, list)
+            )
+        if contains_amendment(rights_refs):
+            issues.append(f"{label}: the class-C media description amendment cannot be rights evidence")
+        if contains_amendment(source_refs) and subject_entity_id != "6529NM-MED-0042":
+            issues.append(f"{label}: the media description amendment is restricted to the Bar-Am accessibility/source-description boundary")
+        if subject_entity_id == "6529NM-MED-0042":
+            if not contains_amendment(accessibility_evidence_refs):
+                issues.append(f"{label}: Bar-Am media must bind the append-only description amendment as accessibility evidence")
+            if contains_amendment(source_refs):
+                issues.append(f"{label}: Bar-Am media description amendment belongs in accessibility evidence, not source_observation evidence")
     if role == "historical_wave_proposal_presentation":
         if publication_boundary != "historical_wave_proposal_context":
             issues.append(f"{label}: historical Wave media is proposal-context-only")
@@ -1006,8 +1124,19 @@ def validate_wave_publication_observation(payload: dict[str, Any], repository_ro
 def validate_media_description_amendment(payload: dict[str, Any], repository_root: Path = REPO_ROOT) -> list[str]:
     issues: list[str] = []
     expected_text = "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground."
+    expected_predecessor = "6529NM-WAVE-PUB-OBS-2026-08-08-001"
+    expected_prior_payload_sha256 = "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995"
+    expected_part_sha256 = "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094"
     if payload.get("record_id") != "6529NM-MEDIA-DESC-AMD-2026-08-08-001" or payload.get("amendment_id") != payload.get("record_id"):
         issues.append("MEDIA_DESCRIPTION_AMENDMENT identity is not stable")
+    if payload.get("supersedes") != expected_predecessor:
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT must supersede the exact Wave publication observation")
+    if not isinstance(payload.get("supersession_reason"), str) or not payload.get("supersession_reason"):
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT must state an append-only supersession reason")
+    if payload.get("prior_payload_sha256") != expected_prior_payload_sha256:
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT prior_payload_sha256 must bind the exact historical Wave observation payload")
+    if payload.get("superseded_part_id") != 4 or payload.get("superseded_content_sha256") != expected_part_sha256:
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT must bind the exact historical Wave part-4 content hash")
     if payload.get("subject_media_entity_id") != "6529NM-MED-0042" or payload.get("subject_work_entity_id") != "6529NM-W-0026":
         issues.append("MEDIA_DESCRIPTION_AMENDMENT subject binding is incorrect")
     if payload.get("evidence_class") != "C" or payload.get("current_accessibility_text") != expected_text:
@@ -1019,8 +1148,22 @@ def validate_media_description_amendment(payload: dict[str, Any], repository_roo
     if source_file is None or not source_file.is_file():
         issues.append("MEDIA_DESCRIPTION_AMENDMENT source_path does not resolve")
     expected = WAVE_PUBLICATION_EXPECTED_PARTS[4]
-    if payload.get("source_media_uri") != expected["media_url"] or payload.get("historical_source_part_id") != 4:
+    if payload.get("source_media_uri") != expected["media_url"] or payload.get("historical_source_observation_id") != expected_predecessor or payload.get("historical_source_part_id") != 4:
         issues.append("MEDIA_DESCRIPTION_AMENDMENT must remain bound to Wave receipt part 4")
+    receipt_path = repository_root / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+    try:
+        receipt = load_json(receipt_path)
+        receipt_payload = receipt.get("payload", {}) if isinstance(receipt, dict) else {}
+        if receipt_payload.get("record_id") != expected_predecessor or receipt_payload.get("record_type") != "WAVE_PUBLICATION_OBSERVATION":
+            issues.append("MEDIA_DESCRIPTION_AMENDMENT predecessor must be the Wave publication observation record")
+        if payload.get("prior_payload_sha256") != receipt_payload.get("payload_sha256"):
+            issues.append("MEDIA_DESCRIPTION_AMENDMENT prior_payload_sha256 does not match the predecessor payload")
+        receipt_parts = receipt_payload.get("parts", []) if isinstance(receipt_payload, dict) else []
+        receipt_part = next((part for part in receipt_parts if isinstance(part, dict) and part.get("part_id") == 4), None)
+        if not isinstance(receipt_part, dict) or receipt_part.get("content_sha256") != expected_part_sha256:
+            issues.append("MEDIA_DESCRIPTION_AMENDMENT predecessor part 4 hash does not match the immutable receipt")
+    except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+        issues.append(f"MEDIA_DESCRIPTION_AMENDMENT predecessor receipt is unreadable: {exc}")
     evidence_refs = payload.get("evidence_refs") if isinstance(payload.get("evidence_refs"), list) else []
     if not any(isinstance(ref, dict) and ref.get("evidence_class") == "C" and ref.get("uri") == expected["media_url"] for ref in evidence_refs):
         issues.append("MEDIA_DESCRIPTION_AMENDMENT direct visual evidence must cite the exact observed media URI")
@@ -1038,6 +1181,15 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
     if record_status == "reviewed" or review_status == "reviewed":
         if record_status != "reviewed" or review_status != "reviewed" or not isinstance(reviewer, dict) or not reviewer.get("id"):
             issues.append("public record: reviewed publication requires record_status/review_status reviewed and a concrete reviewer")
+        elif record_type in RELEASE_REVIEW_BOUND_RECORD_TYPES and (
+            not re.fullmatch(r"[0-9a-f]{40}", str(reviewer.get("reviewed_commit", "")))
+            or not re.fullmatch(r"sha256:[0-9a-f]{64}", str(reviewer.get("reviewed_manifest_sha256", "")))
+            or not re.fullmatch(r"0x[0-9a-f]{64}", str(reviewer.get("reviewed_manifest_keccak", "")))
+            or not isinstance(reviewer.get("reviewer_ids"), list)
+            or reviewer.get("id") not in reviewer.get("reviewer_ids", [])
+            or reviewer.get("outcome") != "approved"
+        ):
+            issues.append("public record: reviewed publication requires reviewer IDs, approved outcome, and the exact reviewed candidate commit")
     if record_status in {"constructed", "review_pending"} or review_status == "pending_independent_review":
         if payload.get("entity_status") == "published":
             issues.append("public record: entity_status published is prohibited while independent review is pending")
@@ -1557,6 +1709,34 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
             issues.append(f"public entity inventory: acquisition alias {alias!r} points to unpublished {canonical_id!r}")
         if isinstance(alias, str) and re.fullmatch(r"6529NM-AP-01-OUT-\d{3}", alias) and canonical_id in required_acquisition_ids:
             issues.append(f"public entity inventory: Work outcome alias {alias} must not identify a Curated Acquisition")
+    source_aliases = identity_inventory.get("source_aliases", []) if isinstance(identity_inventory, dict) else []
+    source_alias_keys: set[tuple[str, str]] = set()
+    for row in source_aliases:
+        if not isinstance(row, dict):
+            issues.append("public entity inventory: source_aliases entries must be objects")
+            continue
+        alias = row.get("alias")
+        alias_type = row.get("alias_type")
+        canonical_id = row.get("canonical_entity_id")
+        key = (str(alias), str(alias_type))
+        if key in source_alias_keys:
+            issues.append(f"public entity inventory: duplicate typed source alias {alias!r}/{alias_type!r}")
+        source_alias_keys.add(key)
+        entity = entities.get(canonical_id) if isinstance(canonical_id, str) else None
+        if entity is None:
+            issues.append(f"public entity inventory: typed source alias {alias!r}/{alias_type!r} points to unpublished {canonical_id!r}")
+            continue
+        entity_type = entity[1].get("entity_type")
+        if alias_type == "source_program" and entity_type != "ACQUISITION_PROGRAM":
+            issues.append(f"public entity inventory: source_program alias {alias!r} must resolve to an Acquisition Program")
+        if alias_type == "source_acquisition_context" and entity_type != "CURATED_ACQUISITION":
+            issues.append(f"public entity inventory: source_acquisition_context alias {alias!r} must resolve to a Curated Acquisition")
+        if row.get("route_target") and entity_type not in PUBLIC_CANONICAL_PAGE_TYPES:
+            issues.append(f"public entity inventory: route-target source alias {alias!r} must resolve to a canonical-page entity")
+        if alias == "6529NM-AP-01" and alias_type == "source_acquisition_context" and canonical_id != "6529NM-CA-2026-002":
+            issues.append("public entity inventory: 6529NM-AP-01 acquisition context must resolve to Keys and Gates CA-002")
+        if alias == "6529NM-AP-01" and alias_type == "source_program" and canonical_id != "6529NM-AP-ENT-0002":
+            issues.append("public entity inventory: 6529NM-AP-01 source program must resolve to AP-ENT-0002")
     route_aliases = identity_inventory.get("route_aliases", []) if isinstance(identity_inventory, dict) else []
     legacy_routes: set[str] = set()
     for row in route_aliases:
@@ -1716,6 +1896,17 @@ def validate_records(root: Path) -> list[str]:
     except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
         identity_inventory = {}
         issues.append(f"schemas/{PUBLIC_IDENTITY_INVENTORY_FILENAME}: unavailable: {exc}")
+    try:
+        route_inventory = load_json(schema_root / "schemas/public-route-compatibility.json")
+        route_schema = load_json(schema_root / "schemas/public-route-compatibility.schema.json")
+        route_errors = sorted(
+            (leaf for error in validator_for(route_schema, schema_store).iter_errors(route_inventory) for leaf in schema_leaf_errors(error)),
+            key=lambda error: list(error.absolute_path),
+        )
+        issues.extend(f"schemas/public-route-compatibility.json: {format_error(error)}" for error in route_errors)
+    except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+        route_inventory = {}
+        issues.append(f"schemas/public-route-compatibility.json: unavailable: {exc}")
     issues.extend(validate_vocabularies(vocabularies))
     try:
         vocabulary_schema = load_json(schema_root / "schemas/controlled-vocabularies.schema.json")
@@ -1883,9 +2074,105 @@ def validate_records(root: Path) -> list[str]:
                 superseded_path = record_ids.get(supersedes)
                 if superseded_path:
                     superseded = load_json(superseded_path)
-                    if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
+                    supersession_pair = (payload.get("record_type"), superseded.get("payload", {}).get("record_type"))
+                    allowed_cross_type = supersession_pair == ("MEDIA_DESCRIPTION_AMENDMENT", "WAVE_PUBLICATION_OBSERVATION")
+                    if superseded.get("payload", {}).get("record_type") != payload.get("record_type") and not allowed_cross_type:
                         issues.append(f"{relative}: supersedes must point to the same record_type")
     issues.extend(validate_public_graph(records, vocabularies, identity_inventory))
+    public_entities = {
+        payload.get("entity_id"): payload
+        for _path, _record, payload in records
+        if isinstance(payload, dict)
+        and payload.get("record_type") == PUBLIC_ENTITY_TYPE
+        and isinstance(payload.get("entity_id"), str)
+    }
+    if public_entities and isinstance(route_inventory, dict) and route_inventory:
+        compatibility_keys: set[tuple[str, str, str | None]] = set()
+        seen_legacy_routes: set[str] = set()
+        for entry in route_inventory.get("entries", []):
+            if not isinstance(entry, dict):
+                continue
+            legacy = entry.get("legacy_route")
+            if legacy in seen_legacy_routes:
+                issues.append(f"public route compatibility: duplicate legacy route {legacy}")
+            seen_legacy_routes.add(legacy)
+            compatibility_keys.add((legacy, entry.get("canonical_route"), entry.get("target_entity_id")))
+            if entry.get("target_kind") == "entity":
+                target_id = entry.get("target_entity_id")
+                target = public_entities.get(target_id)
+                if target is None:
+                    issues.append(f"public route compatibility: {legacy!r} targets unpublished entity {target_id!r}")
+                elif target.get("canonical_route") != entry.get("canonical_route"):
+                    issues.append(f"public route compatibility: {legacy!r} does not equal the target entity's exact canonical route")
+            if entry.get("legacy_route") == "/museum/network/programs/6529NM-AP-01" and entry.get("target_entity_id") != "6529NM-AP-ENT-0002":
+                issues.append("public route compatibility: the Keys and Gates program route must never resolve to CA-002")
+            if entry.get("canonical_route") == "/museum/network/acquisitions/keys-and-gates":
+                issues.append("public route compatibility: a program route cannot target the Keys and Gates acquisition")
+        if route_inventory.get("include_governed_route_aliases") is True:
+            expected_expansion_keys = _expected_route_expansion_keys(
+                root, identity_inventory, public_entities, route_inventory
+            )
+            for row in identity_inventory.get("route_aliases", []) if isinstance(identity_inventory, dict) else []:
+                if not isinstance(row, dict):
+                    continue
+                key = (row.get("legacy_route"), row.get("canonical_route"), row.get("canonical_entity_id"))
+                if key not in compatibility_keys and key not in expected_expansion_keys:
+                    issues.append(f"public route compatibility: governed route alias is not covered by the closed compatibility contract: {row.get('legacy_route')}")
+            explicit_keys = set(compatibility_keys)
+            fixed_route_keys = {
+                key for key in explicit_keys
+                if key[0] in {
+                    "/museum/network/collections",
+                    "/museum/network/accessions",
+                    "/museum/network/programs",
+                    "/museum/network/methodology",
+                    "/museum/network/stories",
+                    "/museum/network/governance",
+                }
+            }
+            expected_keys = fixed_route_keys | expected_expansion_keys
+            # Every explicit entity/dynamic compatibility route must come from
+            # a governed identity alias or one of the closed expansions; the
+            # expansion itself is the complete runtime contract and need not
+            # duplicate hundreds of concrete entries in this control file.
+            unexpected_expansions = sorted(explicit_keys - expected_keys)
+            if unexpected_expansions:
+                issues.append(f"public route compatibility: ungoverned dynamic routes are present {unexpected_expansions[:8]}")
+            compatibility_keys = expected_keys
+            for expansion in route_inventory.get("expansions", []):
+                if not isinstance(expansion, dict) or not expansion.get("canonical_route_from_entity"):
+                    continue
+                for row in _route_source_rows(root, identity_inventory, expansion):
+                    if expansion.get("source_inventory") in {"work_aliases", "acquisition_aliases"} and expansion.get("alias_kind") != "all" and row.get("alias_kind") != expansion.get("alias_kind"):
+                        continue
+                    if expansion.get("source_inventory") == "source_aliases" and expansion.get("alias_kind") != "all" and row.get("alias_type") != expansion.get("alias_kind"):
+                        continue
+                    target_id = row.get("canonical_entity_id")
+                    target = public_entities.get(target_id)
+                    if target is None:
+                        issues.append(f"public route compatibility: expansion target {target_id!r} is unpublished")
+                    elif expansion.get("only_permanent_collection") and target.get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
+                        issues.append(f"public route compatibility: collection alias expansion may only target permanent Collection Work {target_id}")
+            if not any(route.startswith("/museum/network/collection/") for route, _canonical, _target in compatibility_keys):
+                issues.append("public route compatibility: Casey Collection object expansion is missing")
+            for route, _canonical, target in compatibility_keys:
+                if route.startswith("/museum/network/collection/"):
+                    target_payload = public_entities.get(target)
+                    if target_payload is None or target_payload.get("entity_type") != "WORK" or target_payload.get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
+                        issues.append(f"public route compatibility: /collection alias is not relation-gated to a permanent Collection Work: {route}")
+            required_frontend_routes = {
+                "/museum/network/collection",
+                "/museum/network/artists",
+                "/museum/network/organizations",
+                "/museum/network/projects",
+                "/museum/network/works",
+                "/museum/network/acquisitions",
+                "/museum/network/acquisition-programs",
+                "/museum/network/research",
+                "/museum/network/about",
+            }
+            if not required_frontend_routes.issubset(set(route_inventory.get("frontend_route_set", []))):
+                issues.append("public route compatibility: frontend_route_set omits a canonical index route")
     return issues
 
 

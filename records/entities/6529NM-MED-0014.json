@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6d02c631b469c5444621c093db858cdb927b395d5772877af45c0486608019c7"
+      "digest": "0xe00352f91a83cf8be8dde6db34e7abe97b4edfe0f0458febeed2814ea647def1"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xca348cc74bf79cd97d017f5f620986a220913cd1ec4c5320f31da8daf3dfdd3a",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0014.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0014.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:499014ce5ebe6ca12f3d6b9540e369351562b93b65cceb2d818ffe02a17aa738",
+    "payload_sha256": "sha256:09917e940041a70e0fbb099e39e854b7c7a8e5cec3900e4a304762f43378ab61",
     "preferred_label": "Phototaxis #308 live presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json"
+          },
+          {
+            "evidence_class": "C",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "not_applicable",
         "accessibility_subject_policy": "not_applicable",

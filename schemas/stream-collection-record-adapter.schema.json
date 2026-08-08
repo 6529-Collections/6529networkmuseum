@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json",
+  "title": "Museum to Stream v2 CollectionRecord adapter vector",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json"},
+    "stream_source_commit": {"const": "f610e04979bf9a8f4f48b31131e7e0e8f78bac43"},
+    "interface_path": {"const": "smart-contracts/interfaces/stream/IStreamPreservationRecords.sol"},
+    "implementation_path": {"const": "smart-contracts/domains/preservation/StreamPreservationRecords.sol"},
+    "record_type_preimage": {"enum": ["PUBLIC_ENTITY", "PUBLIC_RELATION", "WAVE_STATUS_OBSERVATION", "WAVE_PUBLICATION_OBSERVATION", "MEDIA_DESCRIPTION_AMENDMENT", "PUBLICATION_CATALOG"]},
+    "stream_record": {
+      "type": "object",
+      "properties": {
+        "recordType": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "subjectId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "contentHash": {"$ref": "#/$defs/hashRef"},
+        "uri": {"type": "string", "minLength": 1},
+        "schemaId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "signatureScheme": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "signatureHash": {"$ref": "#/$defs/hashRef"},
+        "effectiveAt": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "$comment": "This JSON Schema uses the I-JSON safe-integer ceiling. The Python adapter and the on-chain Stream uint64 field separately enforce the full nonzero uint64 domain (1..18446744073709551615) before serialization or submission."
+        }
+      },
+      "required": ["recordType", "subjectId", "contentHash", "uri", "schemaId", "signatureScheme", "signatureHash", "effectiveAt"],
+      "unevaluatedProperties": false
+    }
+  },
+  "$defs": {
+    "hashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "digest": {"type": "string", "pattern": "^0x[0-9a-f]*$"},
+        "canonicalizationId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false
+    }
+  },
+  "required": ["$schema", "stream_source_commit", "interface_path", "implementation_path", "record_type_preimage", "stream_record"],
+  "unevaluatedProperties": false
+}

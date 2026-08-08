@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5461990f0aeea5ad748b807dee17a73f7d5f6f19ff541cf1408af6320f200baa",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0005.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0005.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/intrepid",

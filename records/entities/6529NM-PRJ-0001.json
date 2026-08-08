@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xe9e5d88667626364878c542ec4cb423281cb791e488539afffd23e9595db2224",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-PRJ-0001.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0001.json"
   },
   "payload": {
     "canonical_route": "/museum/network/projects/century",

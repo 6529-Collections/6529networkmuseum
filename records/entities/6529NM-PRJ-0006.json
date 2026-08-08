@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xe772a7631f1a10a949b5b0a1cc0e9e9c13e8270b708f543ba7ee668e121511df",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-PRJ-0006.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0006.json"
   },
   "payload": {
     "canonical_route": "/museum/network/projects/magnum-photos-75",

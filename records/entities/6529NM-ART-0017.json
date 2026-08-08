@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x6d8b54940d19f84077abafbb31bf342919994edf65896094dfcfc2526fc31651",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0017.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0017.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/david-seymour",

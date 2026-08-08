@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc9cac7ce1bb17d55254d929922a15b55444da5504e3fd289d3fe310e81444675"
+      "digest": "0x6fe3a14291b2bf89a4ffd535fc2029f7815eee9088516f0ab5d363411a204d9f"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x748454bc506bc785a3b6e7f85ee1b5fb0237977b577484759a3970016d433958",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0023.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0023.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0d23a136d9a86330e94d83ae13ea8f020470ff114ac26f4061273a86d3c57351",
+    "payload_sha256": "sha256:4107423b1e8b59eabdc762abd56b101bc58c1bf943d2976b11c4bd968dd05a41",
     "preferred_label": "No Key, Only Light Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9e9f1d2375a1aadbee632da67531a8c61c45b9490464e5ce9bea5b63ab220f7b"
+      "digest": "0x7b9864a7d901c25241ffbd0b3d87f7aec1db2e9dce3642165d92631820f7701c"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x39c88c8c574aa589de12081d0d1af1d0e0cb8b85b384edc5a6f7b2e5fb83d1a6",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0044.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0044.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,18 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:4d254a87bde20473cb2665ff88d9d69a3202bcc03c84472cf2c9ed086f0d6890",
+    "payload_sha256": "sha256:28f2795767b6f2fe5d50ea7ce388f555ade5baf091f9d2633ef0654b1cf46cd6",
     "preferred_label": "Palmyra, Syria historical Wave proposal presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Historical Wave presentation accessibility source",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -76,13 +84,7 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Signed-drop API rights-context readback",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
@@ -99,21 +101,15 @@
         "source_observation": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
+              "evidence_class": "B",
+              "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "status": "source_declared"
+          "status": "mutable_external"
         },
         "source_record_ids": [
           "6529NM-PG-2026-001",

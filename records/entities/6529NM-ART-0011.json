@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xcb4529e79ca34e6da7322fa59c06b6fe9e0605411e6a530ffe90ca6be2f7d0e2",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0011.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0011.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/minalisa",

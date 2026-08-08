@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd403c6a0b9bccd0e5fb49f270f02f6d83a81b8305b9b788d5bd2543a9cf21594",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0018.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0018.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/larry-towell",

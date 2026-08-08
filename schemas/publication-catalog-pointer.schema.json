@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/publication-catalog-pointer-v1.json",
+  "title": "6529 Network Museum moving publication-catalog activation pointer",
+  "type": "object",
+  "properties": {
+    "$schema": {"const": "https://6529networkmuseum.org/schemas/publication-catalog-pointer-v1.json"},
+    "pointer_version": {"const": "1.0.0"},
+    "catalog_path": {"type": "string", "pattern": "^release-artifacts/catalog/6529NM-PUBCAT-[0-9a-f]{40}\\.json$"},
+    "catalog_file_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "catalog_envelope_content_hash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+    "source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "activation": {
+      "type": "object",
+      "properties": {
+        "actor_id": {"type": "string", "minLength": 1},
+        "activated_at": {"type": "string", "format": "date-time"},
+        "mode": {"enum": ["activate", "rollback"]},
+        "prior_catalog_id": {"type": ["string", "null"], "pattern": "^6529NM-PUBCAT-[0-9a-f]{40}$"}
+      },
+      "required": ["actor_id", "activated_at", "mode", "prior_catalog_id"],
+      "unevaluatedProperties": false
+    }
+  },
+  "required": ["$schema", "pointer_version", "catalog_path", "catalog_file_sha256", "catalog_envelope_content_hash", "source_commit", "activation"],
+  "unevaluatedProperties": false
+}

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd883302b8eb218fe694af34ad63e8b2dedd64ab94d94375caeb8fc339500b5b0"
+      "digest": "0xbea69460cd5d415096121574f0dae03a7dc1da40575064cf492cf2ac9121ffda"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xf2225b104f350284187eec25a79a7aa526ef559c9a04739cdd95961720d9981f",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0012.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0012.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:3204534042832a3b87e9d754d69031874959b5edfada30e8a9bb99335cbe68b0",
+    "payload_sha256": "sha256:78536491a54ec822d4ec94b81c69205afe8672fc217994a6e699687c15a2044f",
     "preferred_label": "CENTURY #401 live presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+          },
+          {
+            "evidence_class": "C",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "not_applicable",
         "accessibility_subject_policy": "not_applicable",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x93d2904f7448f21390bb0c8fec34ccc68306ca470b2ac1db4adaeb7f1a0b4364"
+      "digest": "0x9ec93594492db539c52fc4faed74c47ef562bda667ee461fa3dd7e4d3d897f09"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5fafcb33c6cbc69f92b83d2ca14a089706bc355091d74b69a6b450bc463dc811",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0043.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0043.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,18 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8be6b23a4b1999c89ba68d014fdabf18859b788311ce29242441e97c1f608d58",
+    "payload_sha256": "sha256:8ac792e095be6345f70b7d1db25db167c22620ab4764906401ebb6b075ee9a4e",
     "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Historical Wave presentation accessibility source",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_child_subject",
@@ -80,13 +88,7 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Signed-drop API rights-context readback",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
@@ -103,21 +105,15 @@
         "source_observation": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
+              "evidence_class": "B",
+              "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "status": "source_declared"
+          "status": "mutable_external"
         },
         "source_record_ids": [
           "6529NM-PG-2026-001",

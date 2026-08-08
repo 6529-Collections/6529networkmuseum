@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb6ba11b988bc339a8162bc0b856417b3c13296d66cc571ef0f842aa68a75110c"
+      "digest": "0xffb0cc84ffca09dab459d135b10c53a85b783b48c89894075845ecc455ee410c"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x0f40b02301b1a6d766ce4ce1c857bd3798ec4c030f17a9e61ae561e77be4949d",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0020.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0020.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:3a65c26a98642d5ff42eea1a5f81443e8b7e57973dcbe1d6822b048f1696f9c9",
+    "payload_sha256": "sha256:c0edc632d1d551778395d6c454d641dc4e31829d68ed60f3ab82bd40c5219ef6",
     "preferred_label": "Take the Key! Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-001.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

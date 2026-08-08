@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x1127b4647166a121b965bf61ab407497e72750c801299e7df28211964ab9203f",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-PRJ-0002.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0002.json"
   },
   "payload": {
     "canonical_route": "/museum/network/projects/pre-process",

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5eda1f707926562853f3541bd84e38dc7d7ca47c94de7a5bdee0402bd83d2db7",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/relations/6529NM-REL-0039.json"
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0039.json"
   },
   "payload": {
     "assertion_status": "asserted",

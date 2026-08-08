@@ -55,6 +55,22 @@
         "unevaluatedProperties": false
       }
     },
+    "source_aliases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "alias": {"type": "string", "minLength": 1},
+          "alias_type": {"enum": ["program_route_key", "source_program", "source_acquisition_context", "proposal", "accession_lot", "accession_record"]},
+          "canonical_entity_id": {"type": "string", "minLength": 1},
+          "route_target": {"type": "boolean"}
+        },
+        "required": ["alias", "alias_type", "canonical_entity_id", "route_target"],
+        "unevaluatedProperties": false
+      }
+    },
     "work_aliases": {
       "type": "array",
       "minItems": 1,
@@ -132,6 +148,6 @@
       "items": {"$ref": "#/$defs/identityBinding"}
     }
   },
-  "required": ["$schema", "inventory_version", "identity_policy", "entity_id_patterns", "retired_identity_ids", "required_bootstrap_curated_acquisitions", "acquisition_aliases", "work_aliases", "identity_bindings", "route_aliases", "public_slug_inventory"],
+  "required": ["$schema", "inventory_version", "identity_policy", "entity_id_patterns", "retired_identity_ids", "required_bootstrap_curated_acquisitions", "acquisition_aliases", "source_aliases", "work_aliases", "identity_bindings", "route_aliases", "public_slug_inventory"],
   "unevaluatedProperties": false
 }

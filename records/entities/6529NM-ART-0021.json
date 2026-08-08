@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x92df035e4991cb56b268830a4d921f76b77281fab4c82bc1855c5888478bde84",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0021.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0021.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/lorenzo-meloni",

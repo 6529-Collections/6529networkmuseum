@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1b0c8155307b70c637d72a0004b0dabd6f652584887b9a6936d2d4be936291a4"
+      "digest": "0xe67dcd482ccff9e6145df7b5adb235bf4d99694412e959dc393c96188402ab13"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x9dd98dc436708724310d4408a86fe6e45ac34750c900784a0e90658f56e2453f",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0032.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0032.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:4126c46f09e2b7b1ec8369ae4c1d1deccb2c2320fb7e7c4aaa21a3c8127851b8",
+    "payload_sha256": "sha256:c2dab3cee8d58b1f4f24938b5fc9dd6ec782d18f291cdf4f329352c9bdb3f6d9",
     "preferred_label": "Nowhere To Esc. Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-013.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

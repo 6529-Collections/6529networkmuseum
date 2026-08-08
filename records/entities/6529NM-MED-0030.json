@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd34d29c8de202e6866a9ac2ecf770b84424dfdb037ccd748d9eecfab15a5d0de"
+      "digest": "0x0503ac7f3026622b034bc4db1c3e2f2d7e726b7cb519e2aaa5ddff6c6f1573f7"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xf9a16aceecf0f0ccee51ed053b756035167b6c7f27662ed3dfb7f5c9249d8b01",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0030.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0030.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b6f4770b15ba2ecc823bf648e8d1460fdad5a2ae3455b7d35cf6d21211c7ae32",
+    "payload_sha256": "sha256:7c3620da976fbd7dc23250ba4741574573c26101c8b48306ed30d57d1dc9982b",
     "preferred_label": "Sina Beizavi in Brazil Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

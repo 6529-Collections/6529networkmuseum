@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xeadc1a87959a7a401f724dd92444731dbcae2049d2e069bccf622969144daa64"
+      "digest": "0xf075d9571b6e9b419ee059a27437a7af1855bc037fc2318937b316275585197e"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xfc548f7c5c41b61d900f9ea798b6c3db40041d0ccaa97d5229bb043e74fc9295",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0026.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0026.json"
   },
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0026",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4de3ec0c24c9c1e907f12ec62d5a96829e296340196682f1e887cd7e69e13ef4",
+    "payload_sha256": "sha256:741c121e304c089eead447e4b3d154a36b13faa363a231ad5e2ae1587833c52f",
     "preferred_label": "Demonstration, Western Wall, Jerusalem",
     "profile": {
       "accession_entity_ids": [],
@@ -183,12 +183,12 @@
       ],
       "medium": "photograph",
       "mint_fact": {
-        "as_of": "2026-08-06T13:19:30.726Z",
+        "as_of": "2026-08-05T17:46:53.817Z",
         "evidence_refs": [
           {
             "evidence_class": "A",
             "label": "Finalized Ethereum chain observation",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-05T17:46:53.817Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
           }
         ],

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9ccc2abfa3f6e442c50db4c893a825095bf7d9e0b4bb1f54593882445f988db6"
+      "digest": "0x6cad15dea1e0f8deccb34ff128a8745e206fac7a849ed7b518c854badb394f81"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x01a19385f2634ae963214e8db63354e669cca3c25c62c30c624c07fdc4f29270",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0029.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0029.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:7929ffd7c4fea40c81b9ca36fc1a9a7c2dd3ee700d3d811755c79a434370bb12",
+    "payload_sha256": "sha256:9496db6b240926217998b2cabe38e3ec8dd3d64b7f2ea0dd2d7eda21a6f8d42d",
     "preferred_label": "Checkpoint Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-010.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

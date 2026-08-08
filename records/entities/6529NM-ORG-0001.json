@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x652cb4c223dbd8ab16bedf481f7754b62b0fc9ea78b4bdedc8c0b4bdf9e59691",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ORG-0001.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ORG-0001.json"
   },
   "payload": {
     "canonical_route": "/museum/network/organizations/art-blocks",

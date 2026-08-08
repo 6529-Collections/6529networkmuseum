@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4eac4633f57d98b52d2de3c9d13a9db18ba454ae067c921850af4b0045ab272c"
+      "digest": "0x9155a4ef0a75b869d5fa27b4713bc715eaccca6bc40467acc1821f1bc75269a1"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x26840239b5b925a1d195cd30347b0c462f3e1b4613717c3a6727f10a8ddaeb6b",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0016.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0016.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d5c325e8767324e0d8ec602b474d7634b8885077436edfc3e30ff60f4d379f97",
+    "payload_sha256": "sha256:b57a37a6fa0e11d7f4e39f979c62262b5bb1107042ae9961a263e138535ac8e4",
     "preferred_label": "Ex Nihilo (Cosmos) #248 live presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json"
+          },
+          {
+            "evidence_class": "C",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "not_applicable",
         "accessibility_subject_policy": "not_applicable",

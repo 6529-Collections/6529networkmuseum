@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc8af51f53fb05f6ff1801dcffd31501ba8f24c141ddb39a1718af563d8eda5ed"
+      "digest": "0x0735ead21b0632efedfcd6107ea4c64482713f69d6f71a5d22f345290d6556df"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x82c1fcde2f31994bfac8ea1cf1c887339c6cf974470b58cd3d78db05a2511d9a",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0024.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0024.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a11d6bde938d9dc57e0efa734f7cf4c7d2ade220f8b85925965c88f2b873c9fd",
+    "payload_sha256": "sha256:9402106b0b05ef3c5b60ce82c0854efffd271e517efc7da06c7e0fa739393c89",
     "preferred_label": "Residual Barrier Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-005.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

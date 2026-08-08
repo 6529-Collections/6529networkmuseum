@@ -53,6 +53,14 @@
     {"alias": "6529NM.2026.001", "canonical_entity_id": "6529NM-CA-2026-001", "alias_kind": "accession_lot"},
     {"alias": "6529NM-ACC-2026-001", "canonical_entity_id": "6529NM-CA-2026-001", "alias_kind": "accession_record"}
   ],
+  "source_aliases": [
+    {"alias": "6529NM-AP-GIFT-01", "alias_type": "program_route_key", "canonical_entity_id": "6529NM-AP-ENT-0001", "route_target": true},
+    {"alias": "6529NM-AP-01", "alias_type": "source_program", "canonical_entity_id": "6529NM-AP-ENT-0002", "route_target": true},
+    {"alias": "6529NM-AP-01", "alias_type": "source_acquisition_context", "canonical_entity_id": "6529NM-CA-2026-002", "route_target": false},
+    {"alias": "6529NM-PG-2026-001", "alias_type": "proposal", "canonical_entity_id": "6529NM-CA-2026-003", "route_target": true},
+    {"alias": "6529NM.2026.001", "alias_type": "accession_lot", "canonical_entity_id": "6529NM-CA-2026-001", "route_target": true},
+    {"alias": "6529NM-ACC-2026-001", "alias_type": "accession_record", "canonical_entity_id": "6529NM-CA-2026-001", "route_target": false}
+  ],
   "work_aliases": [
     {"alias": "6529NM.2026.001.01", "canonical_entity_id": "6529NM-W-0001", "alias_kind": "accession_object"},
     {"alias": "6529NM.2026.001.02", "canonical_entity_id": "6529NM-W-0002", "alias_kind": "accession_object"},

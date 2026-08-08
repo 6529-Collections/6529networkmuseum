@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4cfd9b6439819c1d2d65dfc2f89d110ec426a9c7ccc276c431bb7b45d51920cf"
+      "digest": "0x30a4b8ecfdf0aeed24d67d157f675c410a136f28b0bf9d87f73a31cc17026144"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x9f21d85020494f79c68c361281989ed253833b8790df495b08f82fdc0221733a",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0025.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0025.json"
   },
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0025",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:5686470c0a9f947922b1da6be307109348f0882f75380256fc1460658bebc464",
+    "payload_sha256": "sha256:845437bf05efdff676ec0e31633974ebeacb0cd260ecce2b1f9f6327fe9a7612",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador",
     "profile": {
       "accession_entity_ids": [],
@@ -183,12 +183,12 @@
       ],
       "medium": "photograph",
       "mint_fact": {
-        "as_of": "2026-08-06T13:19:30.726Z",
+        "as_of": "2026-08-05T17:46:53.817Z",
         "evidence_refs": [
           {
             "evidence_class": "A",
             "label": "Finalized Ethereum chain observation",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-05T17:46:53.817Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
           }
         ],

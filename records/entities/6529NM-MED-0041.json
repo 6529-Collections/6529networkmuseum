@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x55fdb5f1730d86030590e90881b694d43b0ce95940cc480973e584e00c2baf22"
+      "digest": "0x22b43804ff4a0124aaffa9556a791fe3fe78e5b2aa462cb78ea05c008e59d4ec"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xaac25ec255646296ba88866694963d38998ad36d462f72406892321d9f542adc",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0041.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0041.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,18 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6b700d9781c68a66d1d498a3d4cfadf95d92120849a291b830dbf015f84cdfac",
+    "payload_sha256": "sha256:9cfc7475d5fd0696002d2341d3c80448b5897cc8241f59a0ee3e3bb30454b078",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador historical Wave proposal presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Historical Wave presentation accessibility source",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -76,13 +84,7 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Signed-drop API rights-context readback",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
@@ -99,21 +101,15 @@
         "source_observation": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
+              "evidence_class": "B",
+              "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "status": "source_declared"
+          "status": "mutable_external"
         },
         "source_record_ids": [
           "6529NM-PG-2026-001",

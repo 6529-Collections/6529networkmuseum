@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5e2ed859d826bf7a0b933ca2ae7ed3585423b5d467319544c5d96fc55cc371aa",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0014.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0014.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/zoku",

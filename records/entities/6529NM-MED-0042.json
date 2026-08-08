@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x35bd3baece8a11c60df02eba07d77d4289999de4c62855cc1801545359e2ed4f"
+      "digest": "0xcb416715fce1f2b5f30da306829f6afe1dde20a4aa3d6ea676d0eb2a8e0b3725"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd360e4c5be97691d1c61d8745d6ab582d2ade2e720323b1e9f64ad14091434c3",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0042.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0042.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,18 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:eecbe378ce2ff52054c007ef2479f997126ceec1d51aa0485238975f9e3e1b52",
+    "payload_sha256": "sha256:632d4a2427e2844a327a6474d292105e8bbbb73ec6241ae4148a62647d948b91",
     "preferred_label": "Demonstration, Western Wall, Jerusalem historical Wave proposal presentation source",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Museum direct visual observation of visible smoke and canister",
+            "observed_at": "2026-08-08T14:25:44Z",
+            "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -76,21 +84,9 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Signed-drop API rights-context readback",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
             }
           ],
           "notes": "Source rights label: All Rights Reserved. Rights state is projected from the cited source and is not inferred from media availability.",
@@ -105,27 +101,15 @@
         "source_observation": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
+              "evidence_class": "B",
+              "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "status": "source_declared"
+          "status": "mutable_external"
         },
         "source_record_ids": [
           "6529NM-MEDIA-DESC-AMD-2026-08-08-001",

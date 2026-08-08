@@ -13,6 +13,63 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  focused-stream-catalog:
+    name: focused-stream-catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out reviewed revision
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
+        with:
+          python-version: "3.12.10"
+          cache: pip
+
+      - name: Install pinned validation dependencies
+        run: python -m pip install --disable-pip-version-check --requirement requirements-dev.txt
+
+      - name: Run focused Stream and publication-catalog tests
+        run: >-
+          python -m unittest
+          tests.test_stream_adapter_and_publication_catalog
+          tests.test_manifest_binary_modes
+          -v
+
+  public-publication:
+    name: public-publication-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Check out reviewed revision
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
+        with:
+          python-version: "3.12.10"
+          cache: pip
+
+      - name: Install pinned validation dependencies
+        run: python -m pip install --disable-pip-version-check --requirement requirements-dev.txt
+
+      - name: Check deterministic public publication inventory
+        run: python scripts/generate_public_publication_inventory.py --check
+
+      - name: Check deterministic public publication bundle
+        run: python scripts/generate_public_publication_bundle.py --check
+
   validate:
     name: Museum validation
     runs-on: ubuntu-latest

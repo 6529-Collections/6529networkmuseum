@@ -25,15 +25,13 @@ VOCAB_PATH = ROOT / "schemas" / "controlled-vocabularies.json"
 IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-entity-identity-inventory.json"
 RELATION_IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-relation-identity-inventory.json"
 CONSTRUCTOR_ID = "codex-task:019fe093-6890-7d20-9685-e291642d23ef"
-REVIEWER_ID = "codex-review:pending-independent-review"
 GENERATED_AT = "2026-08-08T14:31:26Z"
-# Keep independent review completion separate from construction time so record
-# provenance does not imply that construction and review happened simultaneously.
-REVIEWED_AT = "2026-08-08T12:34:35Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
 KEYS_AT = "2026-08-01T15:03:35Z"
 PROPOSAL_AT = "2026-08-06T13:19:30.726Z"
+MAGNUM_CHAIN_AT = "2026-08-05T17:46:53.817Z"
 WINNER_AT = "2026-08-08T10:15:02.0167151Z"
+DIRECT_VISUAL_AT = "2026-08-08T14:25:44Z"
 WINNER_OBSERVATION_ID = "6529NM-WAVE-OBS-2026-08-08-001"
 WINNER_SOURCE_PATH = "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
 WINNER_SOURCE_URL = "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
@@ -44,14 +42,28 @@ MEDIA_DESCRIPTION_AMENDMENT_PATH = "records/proposed-gifts/6529NM-PG-2026-001/me
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 ZERO32 = "0x" + "0" * 64
 GITHUB = "https://github.com/6529-Collections/6529networkmuseum/blob/main/"
+LOGICAL_RECORD_BASE = "https://6529networkmuseum.org/records/"
 PUBLIC_ENTITY_SCHEMA = "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9"
 PUBLIC_RELATION_SCHEMA = "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de"
 WAVE_STATUS_SCHEMA = "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1"
 
 
+class DuplicateJsonKeyError(ValueError):
+    """Raised when a source JSON object repeats a key."""
+
+
+def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise DuplicateJsonKeyError(f"duplicate JSON key: {key!r}")
+        result[key] = value
+    return result
+
+
 def load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+        return json.load(handle, object_pairs_hook=reject_duplicate_keys)
 
 
 def identity_binding_indexes(identity_inventory: dict[str, Any]) -> dict[str, dict[str, str]]:
@@ -167,6 +179,16 @@ def sha256_file(path: Path) -> str:
 
 def github_uri(repository_path: str) -> str:
     return GITHUB + repository_path.replace("\\", "/")
+
+
+def logical_record_uri(repository_path: str) -> str:
+    """Return the stable logical URI used by an off-chain record envelope.
+
+    GitHub blob/main links remain evidence/source locators. They are mutable
+    presentation links and are never the authoritative envelope locator.
+    """
+
+    return LOGICAL_RECORD_BASE + repository_path.replace("\\", "/")
 
 
 def source_repository_path(source: str) -> str:
@@ -347,12 +369,42 @@ def common(record_type: str, record_id: str, effective_at: str, refs: list[str],
     }
 
 
-def finalize(payload: dict[str, Any], relative_path: str, reviewed: bool, reviewer_id: str | None) -> dict[str, Any]:
+def finalize(
+    payload: dict[str, Any],
+    relative_path: str,
+    reviewed: bool,
+    reviewer_id: str | None,
+    *,
+    reviewed_at: str | None = None,
+    reviewed_commit: str | None = None,
+    reviewed_manifest_sha256: str | None = None,
+    reviewed_manifest_keccak: str | None = None,
+) -> dict[str, Any]:
     if reviewed:
-        reviewer = reviewer_id or REVIEWER_ID
-        if reviewer.endswith("pending-independent-review"):
+        if not isinstance(reviewer_id, str) or not reviewer_id:
             raise ValueError("--reviewed requires --reviewer-id from an independent reviewer")
-        payload["reviewer"] = {"id": reviewer, "role": "reviewer", "reviewed_at": REVIEWED_AT}
+        if not isinstance(reviewed_at, str) or not reviewed_at:
+            raise ValueError("--reviewed requires an explicit --reviewed-at")
+        if not isinstance(reviewed_commit, str) or not re.fullmatch(r"[0-9a-f]{40}", reviewed_commit):
+            raise ValueError("--reviewed requires a 40-character lowercase --reviewed-commit")
+        if not isinstance(reviewed_manifest_sha256, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", reviewed_manifest_sha256):
+            raise ValueError("--reviewed requires --reviewed-manifest-sha256 as sha256:<64 lowercase hex>")
+        if not isinstance(reviewed_manifest_keccak, str) or not re.fullmatch(r"0x[0-9a-f]{64}", reviewed_manifest_keccak):
+            raise ValueError("--reviewed requires --reviewed-manifest-keccak as 0x<64 lowercase hex>")
+        created_at = datetime.datetime.fromisoformat(payload["created_at"].replace("Z", "+00:00"))
+        review_time = datetime.datetime.fromisoformat(reviewed_at.replace("Z", "+00:00"))
+        if review_time <= created_at:
+            raise ValueError("--reviewed-at must be after construction time")
+        payload["reviewer"] = {
+            "id": reviewer_id,
+            "role": "reviewer",
+            "reviewed_at": reviewed_at,
+            "reviewed_manifest_sha256": reviewed_manifest_sha256,
+            "reviewed_manifest_keccak": reviewed_manifest_keccak,
+            "reviewed_commit": reviewed_commit,
+            "reviewer_ids": [reviewer_id],
+            "outcome": "approved",
+        }
         payload["record_status"] = "reviewed"
         payload["review_status"] = "reviewed"
     # Re-finalization is used for append-only construction amendments. Always
@@ -368,7 +420,7 @@ def finalize(payload: dict[str, Any], relative_path: str, reviewed: bool, review
             "recordType": record_type,
             "subjectId": keccak256(f"6529networkmuseum.subject.{record_type.lower()}.v1:{payload['record_id']}".encode("utf-8")),
             "contentHash": {"algorithm": 1, "digest": keccak256(canonicalize(payload)), "canonicalizationId": JCS_ID},
-            "uri": github_uri(relative_path),
+            "uri": logical_record_uri(relative_path),
             "schemaId": payload["schema_id"],
             "signatureScheme": ZERO32,
             "signatureHash": {"algorithm": 2, "digest": ZERO32, "canonicalizationId": JCS_ID},
@@ -427,7 +479,7 @@ def relation(record_id: str, relation_type: str, source: str, target: str, quali
     return f"records/relations/{record_id}.json", payload
 
 
-def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None, accessibility_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     publication_boundary = {
         "museum_retained_preservation_object": "preservation_record",
         "museum_generated_public_derivative": "public_derivative",
@@ -437,6 +489,7 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
     }[role]
     rights_evidence: list[dict[str, Any]] = list(rights_evidence_refs or [])
     source_evidence_refs: list[dict[str, Any]] = list(source_observation_evidence_refs or [])
+    accessibility_evidence: list[dict[str, Any]] = list(accessibility_evidence_refs or [])
     if rights_evidence_refs is None or source_observation_evidence_refs is None:
         seen_evidence: set[str] = set()
         for ref in source_refs:
@@ -448,6 +501,8 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
                 rights_evidence.append(evidence("Rights boundary", ref, observed_at, "B"))
             if source_observation_evidence_refs is None:
                 source_evidence_refs.append(evidence("Source observation", ref, observed_at, "C"))
+    if accessibility_evidence_refs is None:
+        accessibility_evidence = [source_evidence("Accessibility source", ref, observed_at) for ref in source_refs]
     return {
         "profile_type": "MEDIA_REFERENCE",
         "media": {
@@ -467,6 +522,7 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
             "credit": credit,
             "rights": {"status": rights_status, "statement_entity_id": None, "observed_at": observed_at, "evidence_refs": rights_evidence, "notes": (f"Source rights label: {rights_label}. " if rights_label else "") + "Rights state is projected from the cited source and is not inferred from media availability."},
             "source_observation": {"status": source_status, "observed_at": observed_at, "evidence_refs": source_evidence_refs, "notes": "Source observation and mutable-host boundary remain separate from preservation status."},
+            "accessibility_evidence_refs": accessibility_evidence,
             "fixity": fixity,
             "token_source_locator": token_source_locator,
             "token_source_fixity": token_source_fixity,
@@ -502,7 +558,15 @@ def verify_evidence_paths(records: dict[str, dict[str, Any]]) -> None:
         raise ValueError("public migration contains nonexistent evidence paths: " + ", ".join(sorted(missing)))
 
 
-def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dict[str, dict[str, Any]]:
+def build_records(
+    reviewed: bool = False,
+    reviewer_id: str | None = None,
+    *,
+    reviewed_at: str | None = None,
+    reviewed_commit: str | None = None,
+    reviewed_manifest_sha256: str | None = None,
+    reviewed_manifest_keccak: str | None = None,
+) -> dict[str, dict[str, Any]]:
     vocab = load_json(VOCAB_PATH)
     identity_inventory = load_json(IDENTITY_INVENTORY_PATH)
     identity_indexes = identity_binding_indexes(identity_inventory)
@@ -513,11 +577,23 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         row["entity_id"]: row for row in identity_inventory.get("public_slug_inventory", [])
     }
     records: dict[str, dict[str, Any]] = {}
+    def finish(payload: dict[str, Any], relative: str) -> dict[str, Any]:
+        return finalize(
+            payload,
+            relative,
+            reviewed,
+            reviewer_id,
+            reviewed_at=reviewed_at,
+            reviewed_commit=reviewed_commit,
+            reviewed_manifest_sha256=reviewed_manifest_sha256,
+            reviewed_manifest_keccak=reviewed_manifest_keccak,
+        )
+
     def add_entity(*args: Any, **kwargs: Any) -> str:
         relative, payload = entity(*args, reviewed=reviewed, **kwargs)
         if relative in records:
             raise ValueError(f"duplicate generated entity record {relative}")
-        records[relative] = finalize(payload, relative, reviewed, reviewer_id)
+        records[relative] = finish(payload, relative)
         return payload["entity_id"]
     def add_relation(_legacy_record_id: str, relation_type: str, source: str, target: str, qualifier: dict[str, Any], effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> str:
         relation_key = semantic_relation_key(relation_type, source, target, qualifier)
@@ -530,7 +606,7 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         relative, payload = relation(record_id, relation_type, source, target, qualifier, effective_at, refs, evidence_refs)
         if relative in records:
             raise ValueError(f"duplicate generated relation record {relative}")
-        records[relative] = finalize(payload, relative, reviewed, reviewer_id)
+        records[relative] = finish(payload, relative)
         return payload["relation_id"]
 
     winner_payload = common("WAVE_STATUS_OBSERVATION", WINNER_OBSERVATION_ID, WINNER_AT, ["6529NM-PG-2026-001"], [
@@ -562,7 +638,7 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         },
         "source_record_ids": ["6529NM-PG-2026-001"],
     })
-    records[WINNER_SOURCE_PATH] = finalize(winner_payload, WINNER_SOURCE_PATH, reviewed, reviewer_id)
+    records[WINNER_SOURCE_PATH] = finish(winner_payload, WINNER_SOURCE_PATH)
 
     def fixed_id(entity_type: str, source_key: str) -> str:
         try:
@@ -832,7 +908,7 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         magnum_work_ids_by_candidate[signed_obj["candidate_object_id"]],
         first_receipt["credit"],
         "restricted",
-        "source_declared",
+        "mutable_external",
         ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID],
         PROPOSAL_AT,
         {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection."},
@@ -865,7 +941,7 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
             magnum_work_ids_by_candidate[candidate_id],
             receipt["credit"],
             "restricted",
-            "source_declared",
+            "mutable_external",
             media_source_refs,
             PROPOSAL_AT,
             {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection."},
@@ -879,6 +955,7 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
             rights_label=receipt["rights_label"],
         ), [*media_source_refs, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)])
     width = 1600
+    cover_accessibility_text = "Black, blue, and white square graphic with the printed words PROPOSED GIFT, CONFLICT AT ITS EDGES, Five Photographs of Evidence and Aftermath, 1952–2016, and 6529 NETWORK MUSEUM."
     add_entity(media_derivative, "MEDIA_REFERENCE", "Conflict at Its Edges historical proposal cover graphic", None, None, PROPOSAL_AT, media_profile("museum_authored_public_graphic", github_uri("records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"), "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", "image/png", True, width, width, "Black, blue, and white square graphic with the printed words PROPOSED GIFT, CONFLICT AT ITS EDGES, Five Photographs of Evidence and Aftermath, 1952–2016, and 6529 NETWORK MUSEUM.", "provided", "6529NM-CA-2026-003", "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.", "cleared", "retrieved", ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], PROPOSAL_AT, {"status": "verified", "algorithm": "sha256", "digest": sha256_file(derivative_path), "verified_at": GENERATED_AT, "basis": "Retrieved Museum-authored repository bytes hashed by the deterministic migration."}, ["view", "thumbnail", "alt_text", "open_repository_path", "copy_citation"], transform="Museum-authored text-only historical proposal graphic; independently authored, not derived from a source photograph, and not a selected-acquisition hero.", rights_label="CC0-1.0", rights_evidence_refs=[evidence("Wave publication cover rights label", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT, "B"), evidence("Museum-authored cover bytes and fixity", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT, "C")], source_observation_evidence_refs=[evidence("Museum-authored cover bytes and fixity", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT, "C")]), ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], [source_evidence("Museum-authored proposal cover", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT)])
 
     for index, item in enumerate(manifest["items"]):
@@ -994,7 +1071,32 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         media_record = records[media_relative]
         media_payload = media_record["payload"]
         media_payload["preferred_label"] = f"{obj['title']} historical Wave proposal presentation source"
-        records[media_relative] = finalize(media_payload, media_relative, reviewed, reviewer_id)
+        media = media_payload["profile"]["media"]
+        media["source_observation"]["status"] = "mutable_external"
+        wave_rights_evidence = [source_evidence("Signed-drop API rights-context readback", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)]
+        wave_source_evidence = [source_evidence("Historical Wave presentation locator observation", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)]
+        media["rights"]["evidence_refs"] = wave_rights_evidence
+        media["source_observation"]["evidence_refs"] = wave_source_evidence
+        if obj["candidate_object_id"] == "6529NM-PG-2026-001.OBJ-003":
+            media["accessibility_evidence_refs"] = [
+                evidence("Museum direct visual observation of visible smoke and canister", media["source_locator"]["uri"], DIRECT_VISUAL_AT, "C")
+            ]
+        else:
+            media["accessibility_evidence_refs"] = [source_evidence("Historical Wave presentation accessibility source", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)]
+        records[media_relative] = finish(media_payload, media_relative)
+
+    # The proposal cover is an independently authored historical graphic. Its
+    # CC0 basis is the Wave part-1 rights declaration plus retained repository
+    # bytes; the acquisition is context, never license evidence.
+    cover_relative = f"records/entities/{media_derivative}.json"
+    cover_record = records[cover_relative]
+    cover_media = cover_record["payload"]["profile"]["media"]
+    cover_media["accessibility_text"] = cover_accessibility_text
+    cover_media["rights"]["evidence_refs"] = [source_evidence("Wave part-1 rights declaration", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)]
+    cover_media["source_observation"]["evidence_refs"] = [source_evidence("Retrieved Museum-authored cover bytes", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", GENERATED_AT)]
+    cover_media["accessibility_evidence_refs"] = [source_evidence("Retrieved Museum-authored cover bytes for accessibility", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", GENERATED_AT)]
+    cover_media["source_record_ids"] = ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID]
+    records[cover_relative] = finish(cover_record["payload"], cover_relative)
 
     # The retained proposal contains finalized Ethereum verification for all
     # five Magnum objects. Replace the provisional construction fact with the
@@ -1004,13 +1106,13 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
         record = records[relative]
         record["payload"]["profile"]["mint_fact"] = fact(
             "verified",
-            PROPOSAL_AT,
+            MAGNUM_CHAIN_AT,
             ["6529NM-PG-2026-001"],
             "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
             evidence_class="A",
             evidence_label="Finalized Ethereum chain observation",
         )
-        records[relative] = finalize(record["payload"], relative, reviewed, reviewer_id)
+        records[relative] = finish(record["payload"], relative)
 
     # Keep the acquisition-level mint fact aligned with the same independent
     # chain evidence while retaining all Museum acquisition gates separately.
@@ -1018,13 +1120,13 @@ def build_records(reviewed: bool = False, reviewer_id: str | None = None) -> dic
     ca3_record = records[ca3_relative]
     ca3_record["payload"]["profile"]["independent_acquisition_facts"]["mint"] = fact(
         "verified",
-        PROPOSAL_AT,
+        MAGNUM_CHAIN_AT,
         ["6529NM-PG-2026-001"],
         "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
         evidence_class="A",
         evidence_label="Finalized Ethereum chain observation",
     )
-    records[ca3_relative] = finalize(ca3_record["payload"], ca3_relative, reviewed, reviewer_id)
+    records[ca3_relative] = finish(ca3_record["payload"], ca3_relative)
 
     if used_relation_keys != set(relation_indexes):
         raise ValueError(f"relation identity inventory mismatch: missing={sorted(set(relation_indexes) - used_relation_keys)}, unused={sorted(used_relation_keys - set(relation_indexes))}")
@@ -1078,8 +1180,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--check", action="store_true", help="verify generated bytes without writing")
     parser.add_argument("--reviewed", action="store_true", help="emit independently reviewed status")
     parser.add_argument("--reviewer-id", help="independent reviewer actor ID required with --reviewed")
+    parser.add_argument("--reviewed-at", help="review completion time, after construction, required with --reviewed")
+    parser.add_argument("--reviewed-commit", help="exact candidate A commit reviewed, required with --reviewed")
+    parser.add_argument("--reviewed-manifest-sha256", help="candidate A manifest SHA-256, required with --reviewed")
+    parser.add_argument("--reviewed-manifest-keccak", help="candidate A manifest Keccak-256, required with --reviewed")
     args = parser.parse_args(argv)
-    records = build_records(args.reviewed, args.reviewer_id)
+    records = build_records(
+        args.reviewed,
+        args.reviewer_id,
+        reviewed_at=args.reviewed_at,
+        reviewed_commit=args.reviewed_commit,
+        reviewed_manifest_sha256=args.reviewed_manifest_sha256,
+        reviewed_manifest_keccak=args.reviewed_manifest_keccak,
+    )
     unexpected_inventory, missing_inventory = generated_directory_issues(records)
     inventory_issues = [*unexpected_inventory, *missing_inventory]
     # Missing expected outputs are repairable in write mode; stale unexpected

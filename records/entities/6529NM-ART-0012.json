@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xa95cab580a80db7589fb10e46eccbb5afc967b2d8a9a10b72d822ed0a3ad22b2",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0012.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0012.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/teyhu",

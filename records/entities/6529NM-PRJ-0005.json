@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x3bad7eb5ea534ec5d42b3d7bcafdaa5e116adb61b27ce7d45f126941015e830d",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-PRJ-0005.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0005.json"
   },
   "payload": {
     "canonical_route": "/museum/network/projects/ex-nihilo-cosmos",

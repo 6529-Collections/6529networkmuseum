@@ -21,8 +21,10 @@ semantic checks. Schemas handle types, required fields, patterns, controlled
 values, and closed nested objects. `scripts/validate.py` handles the checks
 that need the whole repository or need to compare values:
 
-- the off-chain file has the exact Stream `CollectionRecord` envelope under
-  `envelope`; field names and order are not changed in the ABI-facing shape;
+- the off-chain file carries the Museum envelope under `envelope`; the
+  executable Stream adapter converts its readable record type, hash
+  references, URI, schema and subject identifiers, signature convention, and
+  effective time into the exact eight-field `CollectionRecord` ABI shape;
 - `payload.schema_id`, `envelope.schemaId`, and the pinned vocabulary agree;
 - `envelope.contentHash` is Keccak-256 over the payload's canonical JSON;
 - the subject is `keccak256("6529networkmuseum.subject.<record-type-lower>.v1:<subject_id>")`;
@@ -77,7 +79,7 @@ that need the whole repository or need to compare values:
   declared WebP exists with the committed raw-byte hash, size, geometry, and
   sRGB profile, and that no undeclared derivative is present.
 - `scripts/migrate_public_entities.py --check` verifies the deterministic
-  Stream-shaped public projection: 119 `PUBLIC_ENTITY` records, 152 closed
+  Stream-shaped public projection: 118 `PUBLIC_ENTITY` records, 153 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
   (272 generated records in total).
   The graph gate covers 21 Artist entities, 2 Organization entities, 6

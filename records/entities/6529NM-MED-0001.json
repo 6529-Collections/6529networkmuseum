@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3539204bbf04ba17569f1bd8a78b687804d72159c7c78fadcb69ba7f4b8c10b1"
+      "digest": "0xf9cde0e3717571a9b1d16a43570e7755fe8a9301563f33af3be671f1972a79fa"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x51be03e457cc75bf92bce53511bbbe882d52e5ecb19e32c31da87b5758113ca0",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0001.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0001.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d7e70741e1f8eac80e4846f978e9fab1ce5ffdaa6139626bc92fac835a29533d",
+    "payload_sha256": "sha256:a16e8c4e6add64fae84957fe6fb8bb21447be6c9b8ef03f032254feb0ac820a1",
     "preferred_label": "Casey retained preservation evidence manifest",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "not_applicable",
         "accessibility_subject_policy": "not_applicable",

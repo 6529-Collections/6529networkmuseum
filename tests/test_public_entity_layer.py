@@ -18,7 +18,6 @@ import migrate_public_entities as migration  # noqa: E402
 from migrate_public_entities import (  # noqa: E402
     GENERATED_AT,
     EVIDENCE_CLASSES,
-    REVIEWED_AT,
     WINNER_AT,
     WINNER_OBSERVATION_ID,
     WINNER_SOURCE_PATH,
@@ -35,6 +34,11 @@ from migrate_public_entities import (  # noqa: E402
     source_record_evidence_class,
     verify_evidence_paths,
 )
+
+TEST_REVIEWED_AT = "2026-08-08T16:00:00Z"
+TEST_REVIEWED_COMMIT = "a" * 40
+TEST_REVIEWED_MANIFEST_SHA256 = "sha256:" + "b" * 64
+TEST_REVIEWED_MANIFEST_KECCAK = "0x" + "c" * 64
 from validate import (  # noqa: E402
     DuplicateJsonKeyError,
     PUBLIC_RELATION_TYPE,
@@ -52,7 +56,14 @@ from validate import (  # noqa: E402
 class PublicEntityLayerTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.records = build_records(reviewed=True, reviewer_id="codex-review:test-independent")
+        cls.records = build_records(
+            reviewed=True,
+            reviewer_id="codex-review:test-independent",
+            reviewed_at=TEST_REVIEWED_AT,
+            reviewed_commit=TEST_REVIEWED_COMMIT,
+            reviewed_manifest_sha256=TEST_REVIEWED_MANIFEST_SHA256,
+            reviewed_manifest_keccak=TEST_REVIEWED_MANIFEST_KECCAK,
+        )
         cls.vocabularies, _envelope_schema, cls.schema_store = load_schemas(ROOT)
         cls.inventory = load_json(ROOT / "schemas/public-entity-identity-inventory.json")
 
@@ -90,7 +101,10 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
         self.assertEqual(len(self.relations()), 153)
         sample = next(iter(entities.values()))
-        self.assertEqual(sample["reviewer"]["reviewed_at"], REVIEWED_AT)
+        self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
+        self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
+        self.assertEqual(sample["reviewer"]["reviewed_manifest_sha256"], TEST_REVIEWED_MANIFEST_SHA256)
+        self.assertEqual(sample["reviewer"]["reviewed_manifest_keccak"], TEST_REVIEWED_MANIFEST_KECCAK)
         self.assertEqual(sample["constructor"]["observed_at"], GENERATED_AT)
         self.assertNotEqual(sample["reviewer"]["reviewed_at"], sample["constructor"]["observed_at"])
 
@@ -390,6 +404,39 @@ class PublicEntityLayerTests(unittest.TestCase):
         with self.assertRaises(DuplicateJsonKeyError):
             json.loads('{"drop_id":"one","drop_id":"two"}', object_pairs_hook=reject_duplicate_keys)
 
+    def test_media_amendment_binds_append_only_predecessor_part_and_hash(self) -> None:
+        receipt = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json")
+        amendment = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json")
+        payload = amendment["payload"]
+        self.assertEqual(payload["supersedes"], WAVE_PUBLICATION_OBSERVATION_ID)
+        self.assertEqual(payload["prior_payload_sha256"], receipt["payload"]["payload_sha256"])
+        self.assertEqual(payload["superseded_part_id"], 4)
+        self.assertEqual(payload["superseded_content_sha256"], receipt["payload"]["parts"][3]["content_sha256"])
+        amendment_schema = load_json(ROOT / "schemas/media-description-amendment.schema.json")
+        amendment_validator = validator_for(amendment_schema, self.schema_store)
+        self.assertEqual(list(amendment_validator.iter_errors(payload)), [])
+        for field, value in {
+            "supersedes": "6529NM-WAVE-PUB-OBS-2026-08-08-999",
+            "prior_payload_sha256": "sha256:" + "1" * 64,
+            "superseded_part_id": 3,
+            "superseded_content_sha256": "sha256:" + "2" * 64,
+        }.items():
+            mutated = copy.deepcopy(payload)
+            mutated[field] = value
+            self.assertTrue(list(amendment_validator.iter_errors(mutated)), field)
+            self.assertTrue(validate_media_description_amendment(mutated, ROOT), field)
+        missing_supersedes = copy.deepcopy(payload)
+        missing_supersedes.pop("supersedes")
+        self.assertTrue(list(amendment_validator.iter_errors(missing_supersedes)))
+        self.assertTrue(validate_media_description_amendment(missing_supersedes, ROOT))
+
+    def test_migrator_rejects_duplicate_json_keys_before_last_key_wins(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            source = Path(temporary_directory) / "duplicate.json"
+            source.write_text('{"record_id":"first","record_id":"second"}', encoding="utf-8")
+            with self.assertRaises(migration.DuplicateJsonKeyError):
+                migration.load_json(source)
+
     def test_retired_identity_tombstone_blocks_reuse_without_resurrecting_agent(self) -> None:
         self.assertNotIn("6529NM-AGT-0012", self.entities())
         tombstone = next(row for row in self.inventory["retired_identity_ids"] if row["entity_id"] == "6529NM-AGT-0012")
@@ -434,7 +481,14 @@ class PublicEntityLayerTests(unittest.TestCase):
             return value
 
         with patch.object(migration, "load_json", side_effect=reordered_load_json):
-            reordered_records = migration.build_records(reviewed=True, reviewer_id="codex-review:test-independent")
+            reordered_records = migration.build_records(
+                reviewed=True,
+                reviewer_id="codex-review:test-independent",
+                reviewed_at=TEST_REVIEWED_AT,
+                reviewed_commit=TEST_REVIEWED_COMMIT,
+                reviewed_manifest_sha256=TEST_REVIEWED_MANIFEST_SHA256,
+                reviewed_manifest_keccak=TEST_REVIEWED_MANIFEST_KECCAK,
+            )
         reordered_entities = {record["payload"]["entity_id"]: record["payload"] for record in reordered_records.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"}
         reordered_relations = {record["payload"]["relation_id"]: record["payload"] for record in reordered_records.values() if record["payload"].get("record_type") == PUBLIC_RELATION_TYPE}
         reordered_inventory = copy.deepcopy(self.inventory)

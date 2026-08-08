@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb29fc94af2b6fcfde3ade071139a96248e8c572ed2e12d8453fa9ff7f6bef557"
+      "digest": "0x0b3efc2a12dfdf977d7fa276970d7f373777d4ecbcaf0962a4ecd0b630d742d8"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd82cfcb058fea2accfe8a6532248b4e85bf81fec3cd96af810d55f9e084042ce",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0034.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0034.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:960cb5bd2f239ab8af3c79270a2b07c2b56a7d536301c2746c46e7bc8cc9b4cb",
+    "payload_sha256": "sha256:d59e2caccbfe113320b11b9069cb04150e58f12dcd806f8e71f4bef459de65f1",
     "preferred_label": "মুক্তিযুদ্ধ - Fight for Freedom Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-015.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

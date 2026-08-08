@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7c6f0f063567cb0288d374c930e8e19ff847419139ea59c8d8b792be401795fa"
+      "digest": "0x7e317f040313b0ef1931c745a3573027bee5d1e208299a429da7ce4a39c293e4"
     },
     "effectiveAt": 1786199144,
     "recordType": "MEDIA_DESCRIPTION_AMENDMENT",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x3c7356d2c1d89021765d18ed86a4311605e75ec090b95de3453d83a39354864c",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
+    "uri": "https://6529networkmuseum.org/records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
   },
   "payload": {
     "constructor": {
@@ -36,7 +36,8 @@
     ],
     "observation_kind": "direct_visual_observation",
     "observed_at": "2026-08-08T14:25:44Z",
-    "payload_sha256": "sha256:1e644b6897f3cb4464c6394dd28ac66eb42bce5e7ac6f8b6d42f640e02aa8a77",
+    "prior_payload_sha256": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995",
+    "payload_sha256": "sha256:c8bf773e7f31678c466cd0ddaeaff7f9d6551a5eeab3cce3ba4bc3030dba05aa",
     "record_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
     "record_status": "review_pending",
     "record_type": "MEDIA_DESCRIPTION_AMENDMENT",
@@ -45,6 +46,8 @@
     "reviewer": null,
     "schema_id": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290",
     "subject_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
+    "supersedes": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "supersession_reason": "Append-only amendment adds a current visible-facts description from direct visual observation; the historical seven-part Wave publication and its part-4 text remain unchanged.",
     "visibility": "public",
     "amendment_id": "6529NM-MEDIA-DESC-AMD-2026-08-08-001",
     "subject_media_entity_id": "6529NM-MED-0042",
@@ -54,6 +57,8 @@
     "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md",
     "historical_source_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
     "historical_source_part_id": 4,
+    "superseded_part_id": 4,
+    "superseded_content_sha256": "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094",
     "historical_publication_preserved": true,
     "current_accessibility_text": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
     "claim_boundary": "Visible facts only; the gas or smoke type, event date, and subject identity are not established by this description.",

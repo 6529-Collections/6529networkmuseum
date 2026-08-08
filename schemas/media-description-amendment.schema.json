@@ -9,6 +9,9 @@
       "properties": {
         "record_type": {"const": "MEDIA_DESCRIPTION_AMENDMENT"},
         "schema_id": {"const": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290"},
+        "supersedes": {"const": "6529NM-WAVE-PUB-OBS-2026-08-08-001"},
+        "supersession_reason": {"const": "Append-only amendment adds a current visible-facts description from direct visual observation; the historical seven-part Wave publication and its part-4 text remain unchanged."},
+        "prior_payload_sha256": {"const": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995"},
         "amendment_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "subject_media_entity_id": {"const": "6529NM-MED-0042"},
         "subject_work_entity_id": {"const": "6529NM-W-0026"},
@@ -19,12 +22,14 @@
         "source_path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md"},
         "historical_source_observation_id": {"const": "6529NM-WAVE-PUB-OBS-2026-08-08-001"},
         "historical_source_part_id": {"const": 4},
+        "superseded_part_id": {"const": 4},
+        "superseded_content_sha256": {"const": "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094"},
         "historical_publication_preserved": {"const": true},
         "current_accessibility_text": {"const": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground."},
         "claim_boundary": {"const": "Visible facts only; the gas or smoke type, event date, and subject identity are not established by this description."},
         "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}}
       },
-      "required": ["amendment_id", "subject_media_entity_id", "subject_work_entity_id", "observation_kind", "evidence_class", "observed_at", "source_media_uri", "source_path", "historical_source_observation_id", "historical_source_part_id", "historical_publication_preserved", "current_accessibility_text", "claim_boundary", "source_record_ids"]
+      "required": ["supersedes", "supersession_reason", "prior_payload_sha256", "amendment_id", "subject_media_entity_id", "subject_work_entity_id", "observation_kind", "evidence_class", "observed_at", "source_media_uri", "source_path", "historical_source_observation_id", "historical_source_part_id", "superseded_part_id", "superseded_content_sha256", "historical_publication_preserved", "current_accessibility_text", "claim_boundary", "source_record_ids"]
     }
   ],
   "unevaluatedProperties": false

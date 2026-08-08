@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x47ff3265aaf7146146263303f656dd417e9792d3ccc790c0c3ecdb10e31f66a8"
+      "digest": "0x254ab0919bbcf26534801af8fb00d87928088f6767252cbd26d03364a52d05d0"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xaec7ad5c3a678609f216c0eb7afd605f2fa11e7aad15049d8e80d35b26eb13ac",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0033.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0033.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,10 +40,24 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:5368fb73eea306263b9f22682fedf81c93bab6d8a9a0e3d20d6de853607ef1f0",
+    "payload_sha256": "sha256:5642bc6c305bdb3f719344e9a2319b7dbf5a1b56fa5f66a8e448062497fe4ef9",
     "preferred_label": "Morning Glory Museum presentation derivative",
     "profile": {
       "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accessibility source",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+          }
+        ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",

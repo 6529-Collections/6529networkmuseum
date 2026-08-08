@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x0f73a4346c972f8f4511487528b78f3922a57853a3328e43407d9e6415064278",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0010.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0010.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/pandelic",

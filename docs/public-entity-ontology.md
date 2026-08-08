@@ -84,4 +84,16 @@ Mutable external media is represented with `source_status: mutable_external`, an
 
 ## Interoperability
 
-The public records map to Stream's `CollectionRecord` envelope without claiming that the Museum-native payload is already an admitted Stream on-chain schema. `ARTIST_CREATES_WORK` maps to LIDO creation actor semantics; `ORGANIZATION_PUBLISHES_PROJECT` carries Art Blocks' source-documented publishing/platform context, while `ORGANIZATION_ORIGINATES_PROJECT` is reserved for an evidenced project originator such as Magnum Photos. `INSTITUTION_HOLDS_COLLECTION`, acquisition/accession relations, and `ENTITY_HAS_MEDIA` map through the Museum's LIDO view. Media fixity, derivation, source, and preservation roles map to PREMIS Object/Event/Rights semantics. The source records remain authoritative for event detail, and any adapter must preserve bilateral identity, evidence, rights, and custody boundaries.
+The public records convert deterministically to Stream's `CollectionRecord`
+shape without claiming that the Museum-native payload is already an admitted
+Stream on-chain schema. `ARTIST_CREATES_WORK` has a proposed LIDO creation-actor
+correspondence; `ORGANIZATION_PUBLISHES_PROJECT` carries Art Blocks'
+source-documented publishing/platform context, while
+`ORGANIZATION_ORIGINATES_PROJECT` is reserved for an evidenced project
+originator such as Magnum Photos. `INSTITUTION_HOLDS_COLLECTION`,
+acquisition/accession relations, and `ENTITY_HAS_MEDIA` have proposed LIDO
+views. Media fixity, derivation, source, and preservation roles have proposed
+PREMIS Object/Event/Rights mappings. The source records remain authoritative
+for event detail; future PREMIS/LIDO adapters must preserve identity, evidence,
+rights, and custody boundaries and prove that preservation with round-trip
+fixtures.

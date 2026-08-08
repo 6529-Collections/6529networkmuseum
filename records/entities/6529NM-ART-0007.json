@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x2c6c25bf128a30aa45132c5f7a78d55be188ff1c1ab3a9b81746b8a9893102fb",
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0007.json"
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0007.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/giant",

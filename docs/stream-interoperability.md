@@ -17,20 +17,28 @@ the Museum record.
 
 ## Pinned source
 
-This profile is aligned to `6529-Collections/6529Stream` `origin/main` commit `5021c8060950c3fef995271e674ed4b2007fee6d`, observed 2026-08-01 UTC.
+The executable adapter profile is pinned to `6529-Collections/6529Stream`
+commit `f610e04979bf9a8f4f48b31131e7e0e8f78bac43`, inspected 2026-08-08 UTC.
+The pin is deliberate: later Stream changes require a new field-by-field review
+and new independent ABI vectors before this profile can advance.
 
 Normative Stream sources at that commit:
 
-- `smart-contracts/IStreamPreservationRecords.sol`
-- `smart-contracts/StreamPreservationRecords.sol`
-- `docs/collection-metadata-contract.md`
-- `docs/metadata-router-and-renderer.md`
+- `smart-contracts/interfaces/stream/IStreamPreservationRecords.sol`
+- `smart-contracts/domains/preservation/StreamPreservationRecords.sol`
+- `smart-contracts/domains/metadata/StreamMetadataRenderer.sol`
 
-Stream currently implements the generic preservation record envelope and specifies the museum profile semantics. Its design document also publishes a draft owner-record ABI and EIP-712 envelope, but the pinned source tree does not contain a `StreamOwnerRecords` implementation or a deployed owner-record module. At the pinned commit it does not yet publish standalone canonical JSON Schema files for `STREAM_ACCESSION_V1`, `STREAM_WORK_DESCRIPTION_V1`, `STREAM_RIGHTS_V1`, `STREAM_PREMIS_V3_PROFILE`, or `STREAM_LIDO_PROFILE_V1`. Museum schemas therefore pin the same fields and vocabularies now and must be replaced or proven byte-compatible when Stream publishes those canonical schema documents.
+Stream implements the generic `CollectionRecord` preservation envelope and its
+record-family/writer admission boundary. At the pinned commit it does not
+publish standalone canonical JSON Schema files for `STREAM_ACCESSION_V1`,
+`STREAM_WORK_DESCRIPTION_V1`, `STREAM_RIGHTS_V1`,
+`STREAM_PREMIS_V3_PROFILE`, or `STREAM_LIDO_PROFILE_V1`. The Museum's PREMIS
+and LIDO correspondences therefore remain proposed mappings. They are not
+called exports or round trips until exact schemas, adapters, and fixtures exist.
 
 ## Exact on-chain envelope
 
-Museum records intended for a Stream-compatible chain use the exact Stream shapes:
+The output of the Museum-to-Stream adapter uses the exact Stream shapes:
 
 ```solidity
 struct HashRef {
@@ -226,12 +234,22 @@ gate.
 
 Identifiers are `keccak256` of the exact ASCII literal unless Stream assigns a numeric algorithm ID.
 
-## Bilateral ontology profile
+## Proposed ontology crosswalk
 
-The Museum and Stream use the same concepts in both directions:
+The Museum uses concepts that can support future Stream, PREMIS, and LIDO
+exports. The following are design requirements rather than implemented
+bilateral adapters:
 
-- **PREMIS v3:** digital preservation Objects, Events, Agents, and Rights. Museum preservation data must round-trip through `STREAM_PREMIS_V3_PROFILE`, including LoC preservation event and outcome vocabularies.
-- **LIDO/CDWA-Lite:** the work-description/tombstone record must round-trip through `STREAM_LIDO_PROFILE_V1`. Creator authority references use ULAN, VIAF, or Wikidata; medium/technique uses Getty AAT where available.
+- **PREMIS v3:** proposed mappings cover digital-preservation Objects, Events,
+  Agents, and Rights, including Library of Congress preservation-event and
+  outcome vocabularies. `STREAM_PREMIS_V3_PROFILE` is a reserved profile
+  identifier until Stream publishes the profile and the Museum ships exact
+  export/import fixtures.
+- **LIDO/CDWA-Lite:** proposed mappings cover work descriptions, object
+  identification, actors, events, and collection relationships. Creator
+  authority references may use ULAN, VIAF, or Wikidata; medium and technique
+  may use Getty AAT. `STREAM_LIDO_PROFILE_V1` is not called implemented until
+  an exact schema and round-trip fixtures exist.
 - **IIIF Presentation 3:** serious visual works should expose an archival manifest under `STREAM_IIIF_P3_MIN_V1`, with content-addressed painting resources and explicit rights/attribution.
 - **BagIt/OCFL:** object dossiers use `STREAM_BAGIT_PROFILE_V1`; SHA-256 and Keccak-256 manifests coexist, and superseding dossiers become new repository versions.
 - **C2PA:** optional provenance references remain hash-committed records with explicit validation status.
@@ -288,7 +306,7 @@ Before deploying a Museum contract or publishing a completed accession on Stream
 
 1. vendor or content-address the canonical Stream profile documents;
 2. compare schema IDs and document hashes against the active Stream system manifest;
-3. validate Museum → Stream → PREMIS/LIDO export round trips;
+3. implement and validate Museum to Stream to PREMIS/LIDO export round trips;
 4. regenerate the acquisition packet and object dossier without operator-only data;
 5. reject deployment if any shared field, vocabulary, hash, or subject derivation has drifted.
 6. for owner records, pin the implemented module source and deployment, verify
@@ -335,18 +353,33 @@ must not be promoted or interpreted as a canonical Stream record.
 
 ## PUBLIC_ENTITY/PUBLIC_RELATION bilateral profile
 
-WP-1 uses `PUBLIC_ENTITY` and `PUBLIC_RELATION` as a Museum-native, Stream-
-shaped publication layer. The outer shape remains exactly `{envelope,payload}`;
-`envelope.recordType`, `schemaId`, `subjectId`, `contentHash`, and
-`effectiveAt` are committed from the payload and are never replaced by a
-frontend route or an opaque source alias. The public schema commitments are
-the Keccak-256 commitments to `PUBLIC_ENTITY_V1` and `PUBLIC_RELATION_V1`.
+WP-1 uses `PUBLIC_ENTITY` and `PUBLIC_RELATION` as a Museum-native publication
+layer designed for deterministic conversion to Stream. The Museum's off-chain
+record remains `{envelope,payload}`. It is not ABI-identical to
+`CollectionRecord`: the readable Museum `recordType` is converted to a pinned
+`bytes32` value; JSON hex values are decoded into the corresponding Solidity
+types; and the Museum's legacy unsigned placeholder is normalized to Stream's
+zero-scheme, empty-hash convention. `schemaId`, `subjectId`, `contentHash`, and
+`effectiveAt` retain their meanings through the conversion. The public schema
+commitments are the Keccak-256 commitments to `PUBLIC_ENTITY_V1` and
+`PUBLIC_RELATION_V1`.
 `WAVE_STATUS_OBSERVATION` uses the same envelope for an append-only source
 observation and preserves its prior observation rather than rewriting it.
 
-The adapter is deliberately bilateral and typed:
+`scripts/stream_adapter.py` tests one precise direction: Museum envelope plus
+exact reviewed-source proof to normalized Stream `CollectionRecord`, then
+Stream struct to its normalized semantic JSON representation. It also checks
+the exact `abi.encode(record)` layout and Stream v2 record-hash preimage against
+independently generated golden vectors. It does not claim a lossless conversion
+from an arbitrary Stream record back to the original Museum payload or evidence
+package. Immutable raw-source URIs require the exact reviewed commit, a regular
+Git blob admitted by that commit's manifest, and byte-equivalent envelope and
+payload inputs. Stable Museum logical record URIs are an explicit off-chain
+mode and do not establish Stream admission.
 
-| Museum projection | Stream/PREMIS/LIDO boundary |
+The proposed crosswalk is typed:
+
+| Museum projection | Tested Stream boundary and proposed PREMIS/LIDO correspondence |
 |---|---|
 | `PUBLIC_ENTITY` identity and closed profile | Stream `CollectionRecord` envelope; LIDO object/actor identity views; no claim that the Museum profile is already an on-chain Stream schema |
 | `PUBLIC_RELATION` endpoint and qualifier | LIDO event/actor/object or object/object relationship view; relation direction, cardinality, and evidence remain Museum constraints |
@@ -355,9 +388,9 @@ The adapter is deliberately bilateral and typed:
 | Artist/Organization/Agent profiles | LIDO actor/name/role mapping; typed Artist and Organization identities are not collapsed into a generic Agent |
 | Accession and Collection relations | PREMIS event/rights/custody evidence plus LIDO collection/object relations; membership requires an actual accession relation |
 
-Adapters must preserve the Museum ID, source alias, evidence URI/path, source
-observation time, rights status, and independent lifecycle facts in both
-directions. A historical Wave proposal presentation image maps to a public
+Any future PREMIS or LIDO exporter must preserve the Museum ID, source alias,
+evidence URI/path, source observation time, rights status, and independent
+lifecycle facts in both directions. A historical Wave proposal presentation image maps to a public
 presentation object with a restricted affordance allowlist and the
 non-licensing `open_wave_proposal_context` locator. The signed-drop API
 publication observation preserves the exact retained part/source hashes and
@@ -369,4 +402,5 @@ serialization.
 Unknown profiles, relations, media roles, affordances, algorithms, and
 algorithm/digest pairs fail closed. Future Stream admission requires a
 field-by-field schema comparison, deterministic JCS/Keccak commitment check,
-PREMIS/LIDO round trip, and readback of the exact source/evidence boundaries.
+implemented PREMIS/LIDO round trip, and readback of the exact source/evidence
+boundaries.
