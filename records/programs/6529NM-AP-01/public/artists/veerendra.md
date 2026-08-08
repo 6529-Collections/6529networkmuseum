@@ -1,8 +1,14 @@
 # Veerendra
 
-The submission names Veerendra Jillella and describes a photographic practice built from handmade miniatures, focus stacking, and night photography. Public search results show creative activity under a matching name and Indian photography references, but they do not yet establish a secure identity bridge or a fuller public biography.
+**Publication note:** Provisional artist note based on the selected submission and contextual public leads; no reliable public biography or secure identity bridge has been located.
+
+The submission names Veerendra Jillella and describes a photographic practice built from handmade miniatures, focus stacking, and night photography. No reliable public biography or independent identity bridge has been located in the sources reviewed for this edition; contextual public leads are retained below without treating them as a verified name bridge.
 
 In *No Access*, a small white house with a red roof sits on a grassy rise beneath stars. A path stops at a fenced gate and warning sign, where a warm-lit silhouette stands outside. The work’s miniature scale makes a modest barrier carry the full drama of exclusion. Focus stacking and the handmade scene turn access into something fabricated, tactile, and carefully controlled.
+
+## Selected work
+
+[*No Access*](../works/no-access.md)
 
 **Further research:** The submission establishes a miniature and focus-stacking practice; the public identity bridge, materials, figure status, source sequence, and final rights terms remain to be confirmed.
 

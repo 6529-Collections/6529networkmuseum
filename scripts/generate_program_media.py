@@ -32,7 +32,7 @@ QUALITY = 82
 METHOD = 6
 CACHE_CONTROL = "public, max-age=31536000, immutable"
 EXPECTED_OUTCOME_COUNT = 16
-ALT_TEXT_STATUS = "constructed_visual_description_reviewed"
+ALT_TEXT_STATUS = "constructed_visual_description_pending_independent_review"
 SHA256_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 RECORD_ID_PATTERN = re.compile(r"^6529NM-AP-01-OUT-[0-9]{3}$")
 SRGB_ICC_SHA256 = "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
@@ -107,7 +107,7 @@ def load_outcomes() -> list[dict[str, Any]]:
     return outcomes
 
 
-def load_alt_texts() -> dict[str, str]:
+def load_accessibility() -> tuple[dict[str, str], dict[str, list[int]]]:
     accessibility = load_json(ACCESSIBILITY_PATH)
     if accessibility.get("program_id") != PROGRAM_ID:
         raise ProgramMediaError("accessibility program_id does not match")
@@ -117,6 +117,7 @@ def load_alt_texts() -> dict[str, str]:
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
         raise ProgramMediaError("accessibility inventory must contain exactly 16 items")
     result: dict[str, str] = {}
+    public_widths: dict[str, list[int]] = {}
     for item in items:
         if not isinstance(item, dict):
             raise ProgramMediaError("accessibility item is not an object")
@@ -125,7 +126,17 @@ def load_alt_texts() -> dict[str, str]:
         if record_id in result or len(alt_text) < 20:
             raise ProgramMediaError(f"invalid or duplicated accessibility entry: {record_id}")
         result[record_id] = alt_text
-    return result
+        widths = item.get("public_widths", list(WIDTHS))
+        if (
+            not isinstance(widths, list)
+            or not widths
+            or len(widths) > len(WIDTHS)
+            or widths != sorted(set(widths))
+            or any(width not in WIDTHS for width in widths)
+        ):
+            raise ProgramMediaError(f"invalid public widths for {record_id}")
+        public_widths[record_id] = widths
+    return result, public_widths
 
 
 def outcome_media(outcome: dict[str, Any]) -> dict[str, Any]:
@@ -236,6 +247,7 @@ def write_immutable_asset(path: Path, payload: bytes) -> None:
 def generate_item(
     outcome: dict[str, Any],
     alt_text: str,
+    public_widths: list[int],
     source_dir: Path,
 ) -> dict[str, Any]:
     record_id = require_string(outcome.get("record_id"), "record_id")
@@ -262,7 +274,7 @@ def generate_item(
         normalized, colour_status, output_icc = normalize_colour(oriented, source_icc)
         source_width, source_height = normalized.size
         derivatives: list[dict[str, Any]] = []
-        for width in WIDTHS:
+        for width in public_widths:
             payload, height = webp_bytes(normalized, width, output_icc)
             relative_path = Path(
                 "media",
@@ -315,6 +327,7 @@ def generate_item(
             "role": "web_presentation_surrogate",
             "alt_text": alt_text,
             "alt_text_status": ALT_TEXT_STATUS,
+            "public_widths": public_widths,
             "derivatives": derivatives,
         },
     }
@@ -329,12 +342,17 @@ def generate_manifest(
     if not source_dir.is_dir():
         raise ProgramMediaError(f"source directory does not exist: {source_dir}")
     outcomes = load_outcomes()
-    alt_texts = load_alt_texts()
+    alt_texts, public_widths = load_accessibility()
     outcome_ids = {require_string(outcome.get("record_id"), "record_id") for outcome in outcomes}
     if set(alt_texts) != outcome_ids:
         raise ProgramMediaError("accessibility and outcome record ID sets differ")
     items = [
-        generate_item(outcome, alt_texts[require_string(outcome.get("record_id"), "record_id")], source_dir)
+        generate_item(
+            outcome,
+            alt_texts[require_string(outcome.get("record_id"), "record_id")],
+            public_widths[require_string(outcome.get("record_id"), "record_id")],
+            source_dir,
+        )
         for outcome in outcomes
     ]
     return {
@@ -422,7 +440,7 @@ def verify_webp(path: Path, width: int, height: int) -> None:
 def verify_manifest() -> tuple[int, int]:
     manifest = load_json(MANIFEST_PATH)
     outcomes = {require_string(item.get("record_id"), "record_id"): item for item in load_outcomes()}
-    alt_texts = load_alt_texts()
+    alt_texts, public_widths = load_accessibility()
     items = manifest.get("items")
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
         raise ProgramMediaError("media manifest must contain exactly 16 items")
@@ -473,8 +491,11 @@ def verify_manifest() -> tuple[int, int]:
             raise ProgramMediaError(f"{record_id} source dimensions are invalid")
         if presentation.get("alt_text") != alt_texts[record_id]:
             raise ProgramMediaError(f"{record_id} alt text differs from the accessibility source")
+        expected_widths = public_widths[record_id]
+        if presentation.get("public_widths") != expected_widths:
+            raise ProgramMediaError(f"{record_id} public widths differ from the accessibility source")
         derivatives = presentation.get("derivatives")
-        if not isinstance(derivatives, list) or [entry.get("width") for entry in derivatives if isinstance(entry, dict)] != list(WIDTHS):
+        if not isinstance(derivatives, list) or [entry.get("width") for entry in derivatives if isinstance(entry, dict)] != expected_widths:
             raise ProgramMediaError(f"{record_id} derivative widths are incomplete or unordered")
         digest = source_sha256.removeprefix("sha256:")
         for derivative in derivatives:

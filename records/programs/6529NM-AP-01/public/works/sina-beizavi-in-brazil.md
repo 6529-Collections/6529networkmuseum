@@ -4,6 +4,8 @@
 
 ![A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
 
+**Public-size note:** This edition publishes only the 640px derivative. The 1280px and 2400px presentation variants are withheld; source originals and high-resolution preservation masters are not public.
+
 ## Object data
 
 **Artist:** [Hugo Faz (HugoFaz)](../artists/hugofaz.md)  
@@ -21,17 +23,15 @@ A nude figure reclines on an ornate gold chair, wearing bright sandals and holdi
 
 ## Close looking
 
-The chair turns the room into a small stage. Gold ornament, bare skin, and the dark rectangle of the document make a compact arrangement of welcome and scrutiny. The subject’s body is relaxed, but the object in his hand introduces the bureaucratic world into the theatrical one.
-
-The image holds two kinds of visibility together. The figure is offered as present and at ease, while the document carries a history of borders, nationality, and permission. The sandals, described in the submission as a welcome gift, add a note of colour that does not dissolve the document’s weight.
+Gold ornament, bare skin, and the dark rectangle of the document make a compact arrangement of welcome and scrutiny. The sitter’s relaxed posture gives the chair a theatrical ease, while the object in his hand introduces borders, nationality, and permission into the room. The sandals, described in the submission as a welcome gift, add colour without reducing the document’s weight.
 
 ## Artist’s account
 
-Faz’s submission identifies the sitter as Sina Beizavi and states that the pictured document is an Iranian passport. It also supplies sensitive personal claims, which are withheld from this public catalogue pending direct subject approval. The submission reports written consent from the sitter; that remains an artist-provided representation rather than an independent Museum instrument.
+Faz’s submission identifies the sitter as Sina Beizavi and states that the pictured document is an Iranian passport. The submitted sitter name is retained as a source form, without asserting a legal identity; preferred public spelling and permission to publish the name remain correspondence questions. The submission also supplies sensitive personal claims, which are withheld from this public catalogue pending direct subject approval. It reports written consent from the sitter; that remains an artist-provided representation rather than an independent Museum instrument.
 
 ## Curatorial interpretation
 
-The dark booklet or document is a prop whose presence changes the portrait’s terms. It introduces the administrative object of passage without making its identifiers available to the viewer. By placing it in a room of hospitality, the photograph asks whether welcome can be separated from the systems that first require a person to prove the right to cross.
+The dark booklet or document changes the portrait’s terms. It introduces an administrative object of passage while keeping its identifiers beyond the public image. In a room of hospitality, the photograph asks how welcome relates to the systems that require a person to prove the right to cross.
 
 ## Context
 
@@ -39,6 +39,11 @@ The work’s public context is Casa NUA, a São Paulo venue for digital-native a
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
-> **Rights/source note:** The submission includes an artist and subject CC0/consent assertion. The public derivative does not expose readable document identifiers; direct subject approval for nude display and sensitive biography, Casa NUA permission, high-resolution/source treatment, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** The submission reports an artist CC0 declaration and subject consent. The public derivative does not expose readable document identifiers; direct subject approval for nude display and sensitive biography, Casa NUA permission, high-resolution/source treatment, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Checkpoint*](checkpoint.md) · [Next: *Rusted*](rusted.md)

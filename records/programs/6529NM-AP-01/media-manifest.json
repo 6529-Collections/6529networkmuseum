@@ -67,7 +67,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -120,7 +121,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -173,7 +175,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -226,7 +229,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -279,7 +283,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -332,7 +337,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -385,7 +391,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -437,8 +444,9 @@
       },
       "presentation": {
         "role": "web_presentation_surrogate",
-        "alt_text": "A vertical aerial view shows dense homes meeting an abrupt, unbroken edge of green forest.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text": "A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -491,7 +499,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "Black-and-white industrial buildings sit beneath a cloudy sky, with the words NOW IS OUR TIME painted on a wall.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -544,7 +553,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A bare torso emerges from folds of black fabric against a nearly black background.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -597,7 +607,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640],
         "derivatives": [
           {
             "width": 640,
@@ -607,26 +618,6 @@
             "byte_size": 15306,
             "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
             "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 853,
-            "mime_type": "image/webp",
-            "sha256": "sha256:00f3ff73be1cfff57a5ddf3ae9890cd9a49e1de547c5883cd1ac405bcda6f985",
-            "byte_size": 43850,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:c704956b390385b6c8f2c9158455292618b8237aa3355ff6b0a2615b3f62c251",
-            "byte_size": 104860,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]
@@ -650,7 +641,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A person stands framed by successive arched doorways inside a heavily damaged building.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -703,7 +695,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc key sits apart below beside a small ant.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -756,7 +749,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "The camera looks upward through a dark, fluted circular structure toward a small opening of sky.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -809,7 +803,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,
@@ -862,7 +857,8 @@
       "presentation": {
         "role": "web_presentation_surrogate",
         "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette.",
-        "alt_text_status": "constructed_visual_description_reviewed",
+        "alt_text_status": "constructed_visual_description_pending_independent_review",
+        "public_widths": [640, 1280, 2400],
         "derivatives": [
           {
             "width": 640,

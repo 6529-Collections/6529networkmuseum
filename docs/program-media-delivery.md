@@ -40,7 +40,7 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 
 - implementation: Pillow 12.3.0;
 - output: lossy WebP, quality 82, encoder method 6;
-- widths: 640, 1280, and 2400 pixels;
+- widths: 640, 1280, and 2400 pixels where the per-work public-size control permits;
 - resize: Lanczos, proportional, no crop, no upscale;
 - orientation: apply the source EXIF orientation before measuring or resizing;
 - colour: convert embedded profiles to sRGB; treat untagged files as sRGB;
@@ -55,10 +55,11 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 
 `scripts/generate_program_media.py` generates the derivatives from a local
 source directory and fails rather than replacing different bytes at an
-existing content-addressed path. `--check` verifies the closed 48-file
-inventory, byte fixity, WebP structure, pixel geometry, ICC presence,
-source/outcome agreement, rights-status agreement, accessibility text, and
-selected-work membership without a network request.
+existing content-addressed path. `--check` verifies the closed 46-file
+inventory for this edition, including the OUT-011 640-only restriction, byte
+fixity, WebP structure, pixel geometry, ICC presence, source/outcome agreement,
+rights-status agreement, accessibility text, and selected-work membership
+without a network request.
 
 ## Delivery contract
 
@@ -91,22 +92,23 @@ The program grid uses `srcset` and `sizes` so the browser selects the smallest
 declared derivative appropriate to the rendered card. Object pages use the same
 responsive set without cropping, reserve the declared aspect ratio to prevent
 layout shift, and prioritize only the primary above-the-fold image. The
-submitted source remains available as a clearly labeled high-resolution link.
+submitted source is not exposed through the public presentation; the governed
+derivatives are the only public media links.
 
 Every item has a concise visual description in
 `media/programs/6529NM-AP-01/accessibility.json`. These descriptions are
-constructed and visually reviewed. The three corrected descriptions and the
-status transition are recorded in the append-only public accessibility
-amendment; the descriptions do not replace the artist statement or add a
-curatorial interpretation.
+constructed and pending independent visual review. The current corrections,
+per-work size restriction, and status transition are recorded in the append-only
+public accessibility amendment; the descriptions do not replace the artist
+statement or add a curatorial interpretation.
 
 ## Rights and record boundary
 
 The outcome record's `rights_effective_status` remains controlling. Derivation
 and delivery do not activate a conditional CC0 declaration or grant downstream
-reuse rights. The media manifest remains deliberately `constructed`; its visual
-description audit is complete, while rights, source, and acquisition controls
-remain separate gates.
+reuse rights. The media manifest remains deliberately `constructed`; its
+independent visual review is pending, while rights, source, and acquisition
+controls remain separate gates.
 
 The current live evidence still supports `selected_unminted`: the sixteen works
 won the Keys and Gates vote, but the Museum has no primary mint, purchase,
@@ -127,7 +129,7 @@ review, and then update the frontend projection.
 
 ## Open preservation work
 
-- preserve the reviewed accessibility amendment and retain the source,
+- preserve the append-only accessibility amendments and retain the source,
   derivative, and rights boundaries as separate controls;
 - determine whether and under what authority submitted source bytes may enter a
   Museum preservation package;

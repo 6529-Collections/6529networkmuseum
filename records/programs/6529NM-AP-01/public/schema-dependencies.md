@@ -15,7 +15,7 @@ The content layer expects downstream integration to use the existing WP-1-owned 
 - Stream-compatible record envelopes, subject derivation, schema identifiers, hash algorithms, and CAIP-19-shaped on-chain citations;
 - rights vocabulary and object-specific rights-effective status;
 - program media-manifest joins and the source/presentation-surrogate/preservation-object boundary;
-- the existing `schemas/program-media-manifest.schema.json` control, whose accessibility status vocabulary now uses `constructed_visual_description_reviewed` after the completed visual audit; and
+- the existing `schemas/program-media-manifest.schema.json` control, whose accessibility status vocabulary now uses `constructed_visual_description_pending_independent_review` until the completed visual audit is independently reviewed; and
 - public/restricted record separation and public-safety scanning.
 
 ## Suggested future content relations
@@ -38,7 +38,7 @@ WP-4 does not:
 
 - create a new schema profile or controlled term for “Curated Acquisition”;
 - change the canonical selected-work title, status, source hash, or evidence files;
-- normalize legal names from public search results into authoritative identity records;
+- normalize legal names from unverified public leads into authoritative identity records;
 - convert the presentation derivatives into preservation masters or tokenized works;
 - assert that the planned custody reference `networkmuseum.6529.eth` has received any asset;
 - decide the future mint topology between a dedicated 6529Stream instance and a main-Stream subcollection.

@@ -12,12 +12,12 @@ The sequence is a curatorial order for reading the group, not a ranking or chron
 
 ## Visual sequence — curatorial order
 
-| Sequence | Works | Shared visual question |
-|---|---|---|
-| Apertures and exits | [*Take the Key!*](works/take-the-key.md), [*No Key, Only Light*](works/no-key-only-light.md), [*Rusted*](works/rusted.md), [*No Access*](works/no-access.md) | What can be seen through an opening before passage is granted? |
-| Managed movement | [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md), [*Managed Freedom*](works/managed-freedom.md), [*the cost of open*](works/the-cost-of-open.md), [*Dichotomy.*](works/dichotomy.md) | Who sets the speed, route, or altitude of movement? |
-| Residual infrastructures | [*Residual Barrier*](works/residual-barrier.md), [*Now Is Our Time*](works/now-is-our-time.md), [*Morning Glory*](works/morning-glory.md), [*মুক্তিযুদ্ধ - Fight for Freedom*](works/fight-for-freedom.md) | What remains after a barrier changes function? |
-| Bodies and interfaces | [*The Hostile Gate*](works/the-hostile-gate.md), [*Checkpoint*](works/checkpoint.md), [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), [*Nowhere To Esc.*](works/nowhere-to-esc.md) | When does the body or command become the checkpoint? |
+| Sequence | Works | Artists | Shared visual question |
+|---|---|---|---|
+| Apertures and exits | [*Take the Key!*](works/take-the-key.md), [*No Key, Only Light*](works/no-key-only-light.md), [*Rusted*](works/rusted.md), [*No Access*](works/no-access.md) | [GulYildiz](artists/gulyildiz.md), [intrepid](artists/intrepid.md), [Teyhu](artists/teyhu.md), [Veerendra](artists/veerendra.md) | What can be seen through an opening before passage is granted? |
+| Managed movement | [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md), [*Managed Freedom*](works/managed-freedom.md), [*the cost of open*](works/the-cost-of-open.md), [*Dichotomy.*](works/dichotomy.md) | [HugoFaz](artists/hugofaz.md), [nasimghanizadeh](artists/nasimghanizadeh.md), [priyanka](artists/priyanka.md), [Rakesh](artists/rakesh.md) | Who sets the speed, route, or altitude of movement? |
+| Residual infrastructures | [*Residual Barrier*](works/residual-barrier.md), [*Now Is Our Time*](works/now-is-our-time.md), [*Morning Glory*](works/morning-glory.md), [*Fight for Freedom*](works/fight-for-freedom.md) | [ikertje](artists/ikertje.md), [pandelic](artists/pandelic.md), [Zoku](artists/zoku.md), [shamspranto](artists/shamspranto.md) | What remains after a barrier changes function? |
+| Bodies and interfaces | [*The Hostile Gate*](works/the-hostile-gate.md), [*Checkpoint*](works/checkpoint.md), [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), [*Nowhere To Esc.*](works/nowhere-to-esc.md) | [GIANT](artists/giant.md), [Minalisa](artists/minalisa.md), [HugoFaz](artists/hugofaz.md), [arsonic](artists/arsonic.md) | When does the body or command become the checkpoint? |
 
 ## Artists
 

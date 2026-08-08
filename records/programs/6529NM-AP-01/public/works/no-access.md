@@ -29,7 +29,7 @@ Veerendra describes a handmade miniature and focus-stacking process that builds 
 
 ## Curatorial interpretation
 
-The work makes exclusion out of atmosphere. It does not need a wall of monumental scale: a small sign and a narrow interruption are enough to turn a path into a test. The miniature exposes the fact that access is designed. Even the stars, which seem unrestricted, sit above a ground organized by a warning.
+The work builds exclusion out of atmosphere. A small sign and a narrow interruption turn a path into a test. The miniature exposes access as a designed condition: the house remains close enough to inspect, while the ground route is organized by a warning.
 
 ## Context
 
@@ -37,6 +37,11 @@ The submission-led record supports the miniature and focus-stacking process. A f
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Miniature materials, figure status, source sequence, preferred public name, and final rights scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/veerendra.md) · [Previous: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)

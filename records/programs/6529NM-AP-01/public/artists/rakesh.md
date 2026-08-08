@@ -4,6 +4,10 @@ Rakesh Pulapa is an Indian travel and aerial photographer whose [artist biograph
 
 In *Dichotomy.*, Pulapa’s aerial viewpoint divides dense homes from an ordered field of palms. The image’s near-ruler-straight edge turns a lived environment into a diagram of land use, security, and property. The submission describes the ordered side as a jail facility and the other as a residential neighbourhood; the photograph itself leaves the facility unidentified, allowing the formal boundary to remain visible while the claim stays attributed.
 
+## Selected work
+
+[*Dichotomy.*](../works/dichotomy.md)
+
 **Further research:** The travel and aerial practice is supported; the facility, flight authorization, safe location wording, source metadata, and preferred authority form remain to be confirmed.
 
 **Sources:** [artist biography](https://www.rakeshpulapa.com/about), [Condé Nast Traveller](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/), [The Hans India](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114), [public interview](https://www.eatmy.news/2020/09/patience-and-perfection-is-important-to.html).

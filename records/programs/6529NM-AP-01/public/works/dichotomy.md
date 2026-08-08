@@ -1,6 +1,6 @@
 # *Dichotomy.*
 
-![An aerial photograph divides dense homes from an ordered field of palm trees.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp)
+![A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -21,7 +21,7 @@ From above, a hard line separates dense residential roofs from a geometric field
 
 The boundary runs almost ruler-straight through the frame. On one side, roofs and roads make a dense, irregular surface; on the other, palm crowns repeat in ordered rows. The aerial viewpoint removes the human scale that would make the line negotiable. Land use becomes pattern, and pattern begins to look like destiny.
 
-The two halves are not simply dark and light or open and closed. The plantation has the visual calm of a garden, while the neighbourhood reads as a compact field of pressure. The image’s force comes from that reversal: an arrangement associated with custody can look orderly and lush, while ordinary freedom looks crowded.
+The plantation has the visual calm of a garden; the neighbourhood reads as a compact field of pressure. That reversal gives the image its force. An arrangement associated with custody appears orderly and lush, while ordinary freedom is rendered as crowding.
 
 ## Artist’s account
 
@@ -29,14 +29,19 @@ Pulapa describes the ordered side as a jail facility and the other as a resident
 
 ## Curatorial interpretation
 
-The photograph makes access a problem of viewpoint. From the ground, a wall, road, or security perimeter would organize movement. From above, the boundary becomes an abstract stroke, and the people living on either side disappear into the diagram. The image therefore asks who is allowed to see a landscape as a system and who must live inside its divisions.
+The photograph makes access a problem of viewpoint. From the ground, a wall, road, or security perimeter would organize movement; from above, the boundary becomes an abstract stroke. People living on either side disappear into the diagram, leaving the viewer to consider who may see a landscape as a system and who must live inside its divisions.
 
 ## Context
 
-The submission places the image in Rajahmundry and identifies a DJI drone. Public artist sources support Pulapa’s aerial practice and regional association. The facility’s exact identity, flight permission, and safe publication wording require confirmation.
+The submission places the image in Rajahmundry and identifies a DJI drone. The [source register](../sources-and-bibliography.md) links public artist sources for Pulapa’s aerial practice and regional association. The facility’s exact identity, flight permission, and safe publication wording require confirmation.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Facility identity, aerial authorization, source metadata, and final rights scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/rakesh.md) · [Previous: *the cost of open*](the-cost-of-open.md) · [Next: *Now Is Our Time*](now-is-our-time.md)

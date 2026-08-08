@@ -181,16 +181,23 @@
           "presentation": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["role", "alt_text", "alt_text_status", "derivatives"],
+            "required": ["role", "alt_text", "alt_text_status", "public_widths", "derivatives"],
             "properties": {
               "role": { "const": "web_presentation_surrogate" },
               "alt_text": { "type": "string", "minLength": 20 },
               "alt_text_status": {
-                "const": "constructed_visual_description_reviewed"
+                "const": "constructed_visual_description_pending_independent_review"
+              },
+              "public_widths": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "uniqueItems": true,
+                "items": { "enum": [640, 1280, 2400] }
               },
               "derivatives": {
                 "type": "array",
-                "minItems": 3,
+                "minItems": 1,
                 "maxItems": 3,
                 "items": {
                   "type": "object",

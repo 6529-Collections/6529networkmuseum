@@ -1,6 +1,6 @@
 # *Nowhere To Esc.*
 
-![Black keyboard keys spell “NO / WHERE / TO” on a white surface, while the Esc key sits apart below beside a small ant.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp)
+![Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc key sits apart below beside a small ant.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -29,7 +29,7 @@ Arsonic describes Esc as a symbol of cancel, leaving, stopping, and going back, 
 
 ## Curatorial interpretation
 
-The work converts a command into a blocked passage. Its central object is not the ant alone but the gap between a readable instruction and an available action. The viewer can understand the exit immediately; the subject cannot reach it. Access is withheld through scale, interface design, and the assumption that a visible control is an effective one.
+The work converts a command into a blocked passage. Its subject is the gap between a readable instruction and an available action. The viewer understands the exit immediately; the ant cannot reach it. Scale, interface design, and the authority of visible controls turn access into a promise without movement.
 
 ## Context
 
@@ -37,6 +37,11 @@ The artist’s public practice is associated with Web3, meme, and generative-art
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration and an animal-welfare statement. Original file, staged-material provenance, and publication scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/arsonic.md) · [Previous: *Rusted*](rusted.md) · [Next: *Morning Glory*](morning-glory.md)

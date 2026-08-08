@@ -2809,3 +2809,73 @@ entries, including 43 public Keys and Gates entries, with manifest SHA-256
 `sha256:5feed6a9a45cefb4e555d4734d12896e12ef260941b07175ae3b739b9c5b6a07`
 and Keccak commitment
 `0x6ff753c5719c52143395c02cb7317631e55b62e52adb95f6b4e49f7bc5f28b49`.
+
+## 2026-08-08 Keys and Gates bounded follow-up — current disposition
+
+This section supersedes the prior PR #40 follow-up state for the current dirty
+follow-up. Historical amendments 001 and 002 remain append-only records of
+their former reviewed assertions; accessibility amendment 003 is the current
+publication-state record. It records exact identity
+`6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-003`, supersedes 001 and 002 for
+current state, and explains why constructor-only status returned to
+`constructed_visual_description_pending_independent_review`.
+
+The canonical accessibility JSON, Work image alts, media-join cells, and typed
+manifest now agree for all 16 outcomes. OUT-008 uses the ordered
+palm-plantation/residential-boundary description. OUT-011 publishes only 640;
+its 1280 and 2400 local derivatives were removed from the public inventory,
+with prior hashes `sha256:00f3ff73be1cfff57a5ddf3ae9890cd9a49e1de547c5883cd1ac405bcda6f985`
+and `sha256:c704956b390385b6c8f2c9158455292618b8237aa3355ff6b0a2615b3f62c251`
+and byte sizes 43850/104860 retained in amendment 003. Current source-record
+hashes are `sha256:3a296516f19a2ef1028cfabd6004a1858d0f7eb07b5fd55d6265ae2ca9c90858`
+and `sha256:798df3807f67736083af2feaf441c0534c1afa3a37b3af0a8b71546186817f42`.
+The generator/schema accept evidence-based per-work public widths; media check
+is 46 derivatives and 15,945,214 bytes.
+
+The copy disposition removed unsupported “cold”/“humming” language from
+OUT-006 and qualified OUT-015 poster/collage provenance. The Work pages now
+use a consistent status line, content notices, and navigation. Artist coverage
+is 15 canonical profiles, with one Hugo Faz profile linking OUT-002 and
+OUT-011. Evidence-limited profiles are labelled concise/provisional only where
+needed. Dead citations were removed rather than replaced by unverified mirrors;
+Rakesh’s EatMy.News source was added to the public bibliography; Veerendra’s
+“public search results” wording was replaced by an exact biography gap.
+
+Rights review rejected the blanket private-model/guardian-release rule. OUT-004
+uses the program’s identifiable-minor exclusion and treats the distant public
+silhouettes as non-identifying while retaining represented-consent confirmation
+as a gate. OUT-010, OUT-011, and OUT-015 keep image-specific dignity,
+subject/venue/document/poster questions and content notices. Museum-created
+WebP files are presentation surrogates; no effective CC0, unrestricted reuse,
+CDN authorization, future on-chain right, mint, purchase, title, custody, or
+accession is claimed. CDN/public presentation authorization remains unresolved.
+
+The exact Bangla title is retained as UTF-8 source text; no unsupported legacy
+mojibake claim is made. The historical program sentence “An ant is enclosed
+inside the key marked Esc” remains source text; current visual/accessibility
+copy records the ant beside/below Esc. The program Wave UUID typo
+`4ff0223b...` was corrected to `4ff022b3-aa17-4a0a-ba78-58f64ff1d427` and a
+focused source-link regression was added. PR #40 remains draft and WP-1 typed
+activation/rebase remains pending. No merge or deploy is authorized.
+
+## 2026-08-08 Keys and Gates follow-up — exact local gate closure
+
+After the final copy and navigation refinements, the deterministic release
+manifest was regenerated and checked. It now contains 417 entries, including
+44 Keys and Gates public-path entries, with manifest SHA-256
+`sha256:964057bc4f67849bfe02d91e1c1c5e721e8c9d77be0026637b66808f946c37c3`
+and Keccak commitment
+`0x8ec0e3c2ef47b204f06c5f8f870d9ec0dd07ae45a5a2f34908df03e2615723d2`.
+The media manifest is current at 46 derivatives and 15,945,214 bytes; OUT-011
+has only the 640 derivative in the public inventory. The source-link regression
+asserts the canonical Wave UUID
+`4ff022b3-aa17-4a0a-ba78-58f64ff1d427` and rejects the historical typo.
+
+Current focused gates pass: `check_public_unicode.py` (44 public Markdown
+files), `check_public_links.py` (305 local targets), `generate_program_media.py --check`,
+the public-link regression including fenced-code false positives, the Keys and
+Gates corpus tests, and the program-media tests. The full repository
+validation and complete test suite remain the final pre-push gates. The exact
+current branch head will be recorded after the signed follow-up commit; PR #40
+remains draft pending WP-1 typed Work/Artist activation and its required
+integration rebase. No merge or deploy is authorized.

@@ -19,13 +19,36 @@ The public catalogue is linked to Acquisition Program `6529NM-AP-01` and its pro
 - [Rights and consent boundary](rights-and-consent.md)
 - [Media and accessibility record](media-joins.md)
 
+## Work index
+
+- [OUT-001 — *Take the Key!*](works/take-the-key.md)
+- [OUT-002 — *the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md)
+- [OUT-003 — *Managed Freedom*](works/managed-freedom.md)
+- [OUT-004 — *No Key, Only Light*](works/no-key-only-light.md)
+- [OUT-005 — *Residual Barrier*](works/residual-barrier.md)
+- [OUT-006 — *The Hostile Gate*](works/the-hostile-gate.md)
+- [OUT-007 — *the cost of open*](works/the-cost-of-open.md)
+- [OUT-008 — *Dichotomy.*](works/dichotomy.md)
+- [OUT-009 — *Now Is Our Time*](works/now-is-our-time.md)
+- [OUT-010 — *Checkpoint*](works/checkpoint.md)
+- [OUT-011 — *Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md)
+- [OUT-012 — *Rusted*](works/rusted.md)
+- [OUT-013 — *Nowhere To Esc.*](works/nowhere-to-esc.md)
+- [OUT-014 — *Morning Glory*](works/morning-glory.md)
+- [OUT-015 — *Fight for Freedom*](works/fight-for-freedom.md)
+- [OUT-016 — *No Access*](works/no-access.md)
+
+## Artist index
+
+[GulYildiz](artists/gulyildiz.md) · [HugoFaz](artists/hugofaz.md) · [nasimghanizadeh](artists/nasimghanizadeh.md) · [intrepid](artists/intrepid.md) · [ikertje](artists/ikertje.md) · [GIANT](artists/giant.md) · [priyanka](artists/priyanka.md) · [Rakesh](artists/rakesh.md) · [pandelic](artists/pandelic.md) · [Minalisa](artists/minalisa.md) · [Teyhu](artists/teyhu.md) · [arsonic](artists/arsonic.md) · [Zoku](artists/zoku.md) · [shamspranto](artists/shamspranto.md) · [Veerendra](artists/veerendra.md)
+
 Registrar, schema, and integration records remain available through the research record and contextual links, but are not part of the default visitor navigation.
 
 ## Editorial method
 
 Each work page separates:
 
-1. what is visible in the reviewed presentation derivative;
+1. what is visible in the current presentation derivative;
 2. what the artist supplied in the submission;
 3. what public sources independently support; and
 4. what remains unknown or requires registrar confirmation.
@@ -34,7 +57,7 @@ Artist intent is attributed to the artist's submission. Public biographical mate
 
 ## Media boundary
 
-The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and reviewed accessibility text; the [accessibility amendments](accessibility-amendment.md) and [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md) record text corrections without changing derivative bytes.
+The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and constructed accessibility text pending independent visual review; [amendment 003](accessibility-amendment-2026-08-08-003.md) records the current status, OUT-008 correction, and OUT-011 size restriction.
 
 ## Review state
 

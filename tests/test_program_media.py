@@ -61,6 +61,7 @@ class ProgramMediaTests(unittest.TestCase):
                         {
                             "record_id": self.record_id,
                             "alt_text": "A geometric red and blue test image used to verify deterministic conversion.",
+                            "public_widths": [640, 1280, 2400],
                         }
                     ],
                 }

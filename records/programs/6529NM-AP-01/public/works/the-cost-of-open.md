@@ -1,6 +1,6 @@
 # *the cost of open*
 
-![Turquoise water at Moraine Lake is framed by evergreen forest and snow-dusted mountains.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp)
+![A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -29,14 +29,19 @@ Patel’s submission describes the change from overnight queues and private-vehi
 
 ## Curatorial interpretation
 
-The work turns the sublime landscape into an access document without showing the infrastructure of access. The empty-looking water is therefore not empty of administration. The title asks the viewer to account for the invisible costs that make a view appear free, and for the environmental pressures that prompted the gate in the first place.
+The work turns the sublime landscape into an access document while keeping the machinery of access outside the frame. The empty-looking water carries administration in its title and in the conditions of its making. The view asks the viewer to account for the costs—money, planning, time, and environmental limits—that make a landscape appear available.
 
 ## Context
 
-Parks Canada documents the reservation, shuttle, and road-management conditions around Moraine Lake. Those public rules support the work’s access context; the image itself does not establish the precise viewpoint, visitor conditions, or who appears in the source scene.
+The artist’s submission supplies the access context for Moraine Lake, including reservations, shuttles, capacity, and time. No stable external tourism citation is retained in this edition after the link audit. The image itself leaves the precise viewpoint, visitor conditions, and any source-scene visitors open.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Source-resolution, capture conditions, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/priyanka.md) · [Previous: *The Hostile Gate*](the-hostile-gate.md) · [Next: *Dichotomy.*](dichotomy.md)

@@ -49,7 +49,7 @@ The current [rights and consent register](rights-and-consent.md) and [media join
 
 ## Public/restricted boundary
 
-Public now: selection identifiers, artist handles and approved public-source biographies, artist-attributed submission readings, visual descriptions of the reviewed presentation derivatives, source links, current media joins, and explicit unknowns.
+Public now: selection identifiers, artist handles and approved public-source biographies, artist-attributed submission readings, visual descriptions of the current presentation derivatives, source links, current media joins, and explicit unknowns.
 
 Restricted or pending: legal identity documents, direct contact details, model releases, consent instruments, sensitive locations, unredacted passport/document details, original high-resolution bytes, layered source files, exact site permissions, title documents, transaction evidence, custody receipts, and technical preservation packages.
 
@@ -57,23 +57,23 @@ The public corpus does not publish private contact information or treat a platfo
 
 ## Media and rights boundary
 
-The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted source fixity and 48 deterministic WebP presentation derivatives. The source bytes were fixity-checked during derivation but are not retained in the repository. The derivatives are web-presentation surrogates, not preservation masters, tokenized artworks, or evidence that rights have become effective.
+The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted source fixity and the deterministic WebP presentation derivatives permitted for each work. The source bytes were fixity-checked during derivation but are not retained in the repository. The derivatives are web-presentation surrogates, not downloadable source originals, high-resolution preservation masters, tokenized artworks, or evidence that rights have become effective. OUT-011 is limited to its 640 surrogate for this edition; the withdrawn local 1280/2400 fixity is recorded only in amendment 003.
 
 The manifest’s `rights_effective_status` remains controlling for each outcome. Artist statements that say “CC0,” “CCO,” or that all rights are held are submission assertions until the Museum receives and reviews an effective rights instrument, authorship/title evidence, third-party-material status, and any required depicted-person consent.
 
 Creative Commons’ public guidance also separates copyright dedication from personality, privacy, publicity, and trademark rights. The [rights register](rights-and-consent.md) applies that distinction to people, minors, nudity, passports, graffiti, posters, sites, and physical miniatures.
 
-The reviewed visual descriptions and their typed projection are documented in the [initial accessibility amendment](accessibility-amendment.md) and the [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). Those derived records change accessibility wording and review status only; they do not change source bytes, derivative hashes, selected-outcome status, or `rights_effective_status`.
+The historical visual descriptions and their typed projections are documented in the [initial accessibility amendment](accessibility-amendment.md) and the [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). The current pending status, OUT-008 correction, and OUT-011 public-size restriction are controlled by [amendment 003](accessibility-amendment-2026-08-08-003.md). These derived records do not change source bytes, selected-outcome status, or `rights_effective_status`.
 
 ## Transcription and correction note
 
-The public page renders OUT-015 as **মুক্তিযুদ্ধ - Fight for Freedom**, following the authoritative Bangla title visible in the artist submission/media evidence. The current `selected-works.json` contains a legacy encoding transcription of the Bangla portion. This page does not silently modify the canonical JSON; the public correction note records the UTF-8 display form, its direct submission/media basis, and the historical source relationship through an append-only record.
+The public page renders OUT-015 as **মুক্তিযুদ্ধ - Fight for Freedom**, following the exact UTF-8 title in the retained artist submission/media evidence. `selected-works.json` remains the source-layer title record; this page records the display transcription and its direct evidence without claiming corruption or silently rewriting the canonical JSON.
 
-The same source discipline applies to other title or credit questions: OUT-002 preserves the submitted `teh` spelling pending artist confirmation; `GulYildiz`/Gül Yıldız, `pandelic`/Eric Pan, `Minalisa`/Mina Rahmani, `shamspranto`/Shams Nayeem Pranto, and `Veerendra`/Veerendra Jillella are displayed as source-layer associations with unresolved authority questions where indicated.
+The same source discipline applies to other title or credit questions: OUT-002 preserves the submitted `teh` spelling pending artist confirmation; `GulYildiz`/`Gül Yıldız`, `pandelic`/Eric Pan, `Minalisa`/Mina Rahmani, `shamspranto`/Shams Nayeem Pranto, and `Veerendra`/Veerendra Jillella are displayed as source-layer associations with unresolved authority questions where indicated.
 
 ## WP-1 integration dependencies
 
-The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [WP-1 publication integration handoff](publication-integration.md). WP-4 has not modified WP-1-owned shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. It has made one isolated program-media control change: the `program-media-manifest` accessibility status now records the completed visual audit as `constructed_visual_description_reviewed`; the correction is covered by the derived accessibility amendment and focused tests.
+The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [WP-1 publication integration handoff](publication-integration.md). WP-4 has not modified WP-1-owned shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. It has made one isolated program-media control change: the `program-media-manifest` accessibility status currently records constructed descriptions as `constructed_visual_description_pending_independent_review`; the correction is covered by the derived accessibility amendment and focused tests.
 
 Integration must preserve:
 
@@ -83,6 +83,10 @@ Integration must preserve:
 - observation times, fixity, evidence grades, and negative evidence;
 - append-only corrections with `supersedes`; and
 - public/restricted separation.
+
+## Presentation authority boundary
+
+The program terms and retained public Wave submissions support a provisional editorial catalogue of the selected submissions. The Museum-created 640, 1280, and 2400 WebP files are responsive presentation surrogates derived for that editorial surface; they do not expose source originals, create an effective CC0 grant, or authorize unrestricted reuse. OUT-011 is restricted to 640 in this edition because the larger derivative makes the booklet cover more legible. CDN/public presentation authorization remains an unresolved registrar disposition, separate from any future on-chain rights, mint, purchase, title, custody, or accession evidence. The controlling technical boundary is documented in [`docs/program-media-delivery.md`](../../../../docs/program-media-delivery.md), and the program terms remain in [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md).
 
 ## Exact non-claims retained for audit
 

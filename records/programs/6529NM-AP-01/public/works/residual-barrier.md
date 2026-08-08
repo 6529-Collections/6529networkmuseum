@@ -1,6 +1,6 @@
 # *Residual Barrier*
 
-![A weathered concrete wall with layered graffiti beneath a pale sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp)
+![A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -19,9 +19,7 @@ A weathered wall carries graffiti across a rough concrete surface; its old force
 
 ## Close looking
 
-The wall fills almost the entire frame. Its seams, chips, and dark coping line make a horizontal barrier before the graffiti begins to pull it into another register. The pale sky is a narrow remainder rather than an escape. Nothing in the image moves, yet the surface carries the pressure of a structure built to decide who could pass.
-
-The altered image concentrates attention on the concrete. Marks of personal presence sit on a surface designed for separation, turning a former prohibition into an informal archive. The barrier’s practical force may have weakened; its scale and texture keep it active as an object of attention.
+The wall fills almost the entire frame. Its seams, chips, and dark coping line establish a horizontal barrier before the graffiti pulls the concrete into another register. The pale sky is a narrow remainder. Nothing moves, yet the surface carries the pressure of a structure built to decide who could pass. Personal marks turn the site’s history into an informal archive, while the wall’s scale keeps that memory physically present.
 
 ## Artist’s account
 
@@ -29,7 +27,7 @@ IKERTJE describes the wall as a threshold after enforcement ends: movement has b
 
 ## Curatorial interpretation
 
-The work is less an image of a wall than of a wall’s afterlife. Its residue is not only historical. The graffiti shows how a controlled surface can become a place for unsanctioned presence, while the edit makes the structure feel even more self-contained. Access here is remembered by what remains after the gate no longer fully functions.
+The work studies a wall’s afterlife. Graffiti turns a controlled surface into a place for unsanctioned presence, and the edit makes the structure feel even more self-contained. Access is remembered through the material that remains after the gate’s practical function has weakened.
 
 ## Context
 
@@ -37,6 +35,11 @@ The submission places the photograph in Berlin in 2011. Public Berlin Wall histo
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a CC0/CCO declaration, but the required license wording, visible-mark permissions, edit history, and source publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/ikertje.md) · [Previous: *No Key, Only Light*](no-key-only-light.md) · [Next: *The Hostile Gate*](the-hostile-gate.md)

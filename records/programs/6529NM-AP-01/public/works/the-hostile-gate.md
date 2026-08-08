@@ -1,8 +1,8 @@
 # *The Hostile Gate*
 
-> **Content note:** Nudity and body exposure.
+> **Content note:** Shirtless self-portrait and body-image themes.
 
-![A shirtless man opens a refrigerator covered with colourful magnets.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp)
+![A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -31,14 +31,19 @@ The submission places the image within GIANT’s ongoing self-portrait project a
 
 ## Curatorial interpretation
 
-The work makes the body both credential and obstacle. A refrigerator ordinarily opens onto care, but here its opening is burdened by the artist’s account of control. The close domestic setting prevents the metaphor from floating free: the gate is cold, humming, illuminated, and operated by a body already subject to judgement.
+The refrigerator becomes a measure of appetite and self-surveillance. Its light, magnets, and open door keep the metaphor close to the domestic scene: the threshold is operated by a body already subject to judgement, and comfort arrives with its own terms.
 
 ## Context
 
-Public artist, gallery, award, and institutional sources support the broader *Giant* self-portrait project and its themes of body image, vulnerability, self-acceptance, and resilience. Claims about exhibition or collection counts remain outside this public treatment unless independently verified.
+The [source register](../sources-and-bibliography.md) links artist, gallery, award, and institutional sources for the broader *Giant* self-portrait project and its themes of body image, vulnerability, self-acceptance, and resilience. Claims about exhibition or collection counts remain outside this public treatment unless independently verified.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The artist’s CC0 declaration and self-consent statement are present in the submission; the required license wording, supporting documentation, and publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/giant.md) · [Previous: *Residual Barrier*](residual-barrier.md) · [Next: *the cost of open*](the-cost-of-open.md)

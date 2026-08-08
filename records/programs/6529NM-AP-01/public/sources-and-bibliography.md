@@ -15,7 +15,7 @@ This register supports the public corpus. It distinguishes canonical Museum reco
 | Source | Use |
 |---|---|
 | [`program.json`](../program.json) | Program rules, status, Wave, price, planned custody reference, registrar gates, and non-claims. Grade A. |
-| [`selected-works.json`](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A; its legacy OUT-015 title encoding is preserved as historical source text and paired with the UTF-8 display transcription below. |
+| [selected-works.json](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A; the source title spelling is retained and the public display transcription follows the exact UTF-8 submission/media evidence. |
 | [`outcomes/OUT-001.json`](../outcomes/OUT-001.json) through [`OUT-016.json`](../outcomes/OUT-016.json) | Direct submission text, artist declarations, source fixity, media linkage, and per-work rights/consent assertions. Grade A for the submitted assertion; not an executed rights instrument. |
 | [`media-manifest.json`](../media-manifest.json) | Source hash/dimensions and deterministic WebP presentation derivatives. Grade A for technical derivation; not preservation or rights evidence. |
 | [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md) | Public program summary and status boundary. Grade A for the repository’s public control note. |
@@ -55,30 +55,34 @@ The canonical artist profiles in [`artists/`](artists/) retain only public, sour
 | GulYildiz / Gül Yıldız | [Fujifilm profile](https://www.fujifilm-x.com/en-gb/photographers/gul-yildiz/), [6529 profile](https://6529.io/GulYildiz), [LinkedIn](https://tr.linkedin.com/in/gulyildiz) |
 | HugoFaz / Hugo Faz | [Artist site](https://hugofaz.art/), [LensCulture](https://www.lensculture.com/hugo-faz), [6529 profile](https://6529.io/HugoFaz) |
 | nasimghanizadeh | [Linktree](https://linktr.ee/Nasim_Ghanizadeh), [Bluesky](https://bsky.app/profile/nasimghanizade.bsky.social), [Julien Sunyé essay](https://www.juliensunye.com/journal/after-the-gold-rush), [Bideodromo catalogue](https://www.bideodromo.com/2019/CATALOGObideodromo2019.pdf) |
-| intrepid | [Artist-attributed essay](https://hive.blog/hive-194913/%40intrepidphotos/forgotten-citizens), [6529 profile](https://6529.io/intrepid) |
+| intrepid | [6529 profile](https://6529.io/intrepid) |
 | ikertje | [Artist biography](https://ikertje.com/about-me), [Linktree](https://linktr.ee/IKERTJE) |
-| GIANT / Artem Humilevskiy (submitted variant: Humilevskyi) | [Artist site](https://humilevskiy.com/), [Global Peace Photo Award](https://globalpeacephotoaward.org/submissions/winners-2022/giant), [Spilne Art](https://spilne.art/en/artist/artem-humilevskyi/), [Galerie Sechs](https://www.galeriesechs.ch/artists-featured/artem-humilevskyi), [PinchukArtCentre](https://pinchukartcentre.org/en/persons-pac/artist-en/artem-humilevskyi) |
-| priyanka / Priyanka Patel | [Farcaster](https://farcaster.xyz/priyanka), [public interview](https://paragraph.com/%40toadyhawk/vip-6-priyanka), [artist site](https://www.priyankap.photography/) |
-| Rakesh / Rakesh Pulapa | [Artist biography](https://www.rakeshpulapa.com/about), [Condé Nast Traveller](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/), [public profile](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114) |
+| GIANT / Artem Humilevskiy (submitted variant: Humilevskyi) | [artist site](https://humilevskiy.com/), [Global Peace Photo Award](https://globalpeacephotoaward.org/submissions/winners-2022/giant), [Galerie Sechs](https://www.galeriesechs.ch/artists-featured/artem-humilevskiy) |
+| priyanka / Priyanka Patel | [Farcaster](https://farcaster.xyz/priyanka), [public interview](https://paragraph.com/%40toadyhawk/vip-6-priyanka) |
+| Rakesh / Rakesh Pulapa | [artist biography](https://www.rakeshpulapa.com/about), [Condé Nast Traveller](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/), [The Hans India](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114), [EatMy.News interview](https://www.eatmy.news/2020/09/patience-and-perfection-is-important-to.html) |
 | pandelic / Eric Pan | [Artist site](https://ericpan.org/), [15 Questions](https://www.15questions.net/interview/eric-pan-about-improvisation/page-1/), [catalog profile](https://legacy.catalog.works/pandelic) |
 | Minalisa / Mina Rahmani | [Farcaster](https://farcaster.xyz/minalisa1991) |
 | Teyhu | [Linktree](https://linktr.ee/teyhu) |
-| arsonic | [6529 profile](https://6529.io/arsonic/xtdh), [Shape of Pepe](https://shapeofpepe.com/theartist.html), [artist X profile](https://x.com/Ars0nic), [indirect Fingerprints DAO context: Guillaume (Zeblocks)](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b) |
+| arsonic | [6529 profile](https://6529.io/arsonic/xtdh), [artist X profile](https://x.com/Ars0nic), [indirect Fingerprints DAO context: Guillaume (Zeblocks)](https://fingerprintsdao.medium.com/artist-interview-guillaume-zeblocks-6342a0f9b36b) |
 | Zoku | [6529 profile](https://6529.io/zoku), [The Line profile](https://www.theline.wtf/listing/zoku/) |
-| shamspranto | [6529 profile](https://6529.io/shamspranto), [Get Bengal](https://www.getbengal.com/photo/details/the-story-of-bangladesh-and-lonely-life-through-shams-photography), [121Clicks](https://121clicks.com/photo-stories/shams-pranto-bangladesh-photography/) |
+| shamspranto | [6529 profile](https://6529.io/shamspranto), [121Clicks](https://121clicks.com/photo-stories/shams-pranto-bangladesh-photography/) |
 | Veerendra | [6529 collected profile](https://6529.io/veerendra/collected), [The Talented Indian](https://www.thetalentedindian.com/tag/veerendra-jillella/), [Chaibisket](https://www.chaibisket.com/blogs/blog/best-photographers-telugu-states) |
 
 ## Site and historical context bibliography
 
 - [Fort Frederick, Grenada Tourism Authority](https://www.puregrenada.com/fort-frederick/) and [UNESCO tentative-list context](https://whc.unesco.org/en/tentativelists/1926/) — OUT-004.
-- [Berlin Wall Memorial](https://www.berlin.de/en/museums/3109351-3104050-gedenkstaette-berliner-mauer.en.html), [German Federal Archives](https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/), and [Berlin Q&A](https://www.berlin.de/aufarbeitung/veroeffentlichungen/einzelpublikationen/bab_lzpb_berlin_questions_and_answers_screen.pdf?ts=1705104093) — OUT-005.
-- [Parks Canada Moraine Lake access](https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/moraine-lake), [visitor-use milestones](https://www.parks.canada.ca/pn-np/ab/banff/info/gestion-management/involved/ll-vum/vum-milestone), and [2023–24 plan](https://www.parks.canada.ca/pn-np/ab/banff/info/gestion-management/involved/plan/2023-2024) — OUT-007.
+- [Berlin Wall Memorial](https://www.berlin.de/en/museums/3109351-3104050-gedenkstaette-berliner-mauer.en.html) and [German Federal Archives](https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/) — OUT-005.
+- OUT-007 access context remains attributed to the artist submission; no stable external tourism citation is retained in this edition after the link audit.
 - [RAW-Gelände official history](https://raw-gelaende.de/en/historie/) and [English site history](https://raw-gelaende.de/en/about-r-a-w/) — OUT-009.
 - [Casa NUA](https://nua.casa/) and [Domínio Público](https://dominiopublico.nua.casa/) — OUT-011.
 - [Liberation War Museum history](https://www.liberationwarmuseumbd.org/page/history) and [Bangladesh Army history](https://www.army.mil.bd/history) — OUT-015.
 - [Argentine government dam inventory](https://www.argentina.gob.ar/sites/default/files/libropresas_3_compress_3_3-101-219.pdf), [INA/UNC study](https://www.ina.gov.ar/archivos/publicaciones/Cirsa-Limnologia-7-problem.pdf), and [APRHI operations note](https://www.aprhi.gob.ar/lluvias-en-cordoba-los-diques-se-acercan-a-su-nivel-maximo-y-aseguran-agua-para-todo-el-ano/) — OUT-014.
 - [Creative Commons CC0 and NFTs FAQ](https://creativecommons.org/cc-and-nfts/) — copyright dedication versus personality, privacy, publicity, and trademark rights.
 - [Nikon focus-shift guidance](https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/focus-shift-the-basics-stacking-focus) and [Adobe depth-of-field compositing](https://helpx.adobe.com/photoshop/desktop/create-masks/blend-images/create-a-composite-with-extended-depth-of-field.html) — OUT-016 technique context.
+
+## External link audit
+
+On 8 August 2026, stale external citations were removed from this public edition after endpoint checks returned error or DNS failures. No archive snapshot is asserted for those omissions. The retained bibliography above is the current source set; unresolved biography and context are stated as gaps rather than padded with low-authority mirrors.
 
 ## Chronology
 

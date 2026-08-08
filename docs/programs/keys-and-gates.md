@@ -223,7 +223,7 @@ while withholding its function.
 ### 14 — *Morning Glory* — Zoku
 
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-014.json) ·
-[Wave submission](https://6529.io/waves/4ff0223b-aa17-4a0a-ba78-58f64ff1d427?drop=dc75fe32-f3c2-49db-9069-d9975b5964f3)
+[Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=dc75fe32-f3c2-49db-9069-d9975b5964f3)
 
 At San Roque Dam in Córdoba, a spillway opens automatically when the reservoir
 rises. The photograph attends to a system that controls pressure without a

@@ -1,6 +1,6 @@
 # *Managed Freedom*
 
-![A rider rises with a rearing white horse above a crowded herd in a mountain landscape.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp)
+![A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -19,9 +19,7 @@ A rider lifts with a rearing white horse above a crowded herd moving across an o
 
 ## Close looking
 
-The horse rises almost vertically, its pale body catching the eye against the dark mass below. The herd presses across the lower field in overlapping directions, while the rider’s posture creates a momentary axis of command. The horizon is open, but the image is crowded with training, force, and negotiated movement.
-
-Nothing in the landscape looks like a fence. Control appears through bodies: the rider, the horse’s lift, and the herd’s collective direction. The photograph makes the open plain feel less like a blank freedom than a space whose routes are continually arranged.
+The horse rises almost vertically, its pale body catching the eye against the dark mass below. The herd presses across the lower field in overlapping directions, while the rider’s posture creates a momentary axis of command. The horizon gives the plain breadth; the bodies arrange routes through training, force, and negotiated movement. Direction emerges from the relation among rider, horse, and herd, and the open field becomes a space whose paths are continually arranged.
 
 ## Artist’s account
 
@@ -29,14 +27,19 @@ Ghanizadeh connects the scene to migration, departure, refusal, evasion, shelter
 
 ## Curatorial interpretation
 
-The work refuses the familiar equation of freedom with an empty horizon. Movement here depends on relation: command and resistance, animal force and human direction, individual departure and collective pressure. The rising horse makes a beautiful interruption, but the herd keeps the interruption from becoming an escape.
+Freedom arrives here as a relation. Command meets resistance, animal force meets human direction, and an individual departure remains inside collective pressure. The rising horse breaks the herd’s rhythm for a moment; the surrounding bodies hold the scene in place.
 
 ## Context
 
-The submission places the work in Kayseri, Turkey. Public sources support Ghanizadeh’s photography and video practice, but the precise site, rider relationship, and any biography of migration or exile remain unverified.
+The submission places the work in Kayseri, Turkey. The [source register](../sources-and-bibliography.md) links public sources for the artist’s photography and video practice; the precise site, rider relationship, and any biography of migration or exile remain unverified.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Rider/depicted-person permissions, exact site and date, source metadata, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/nasimghanizadeh.md) · [Previous: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md) · [Next: *No Key, Only Light*](no-key-only-light.md)

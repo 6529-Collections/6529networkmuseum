@@ -1,6 +1,6 @@
 # *Take the Key!*
 
-![A small figure stands before a blue patterned gate in a sunlit stone hall.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp)
+![A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -19,9 +19,7 @@ A solitary figure faces a blue patterned screen inside a stone hall as sunlight 
 
 ## Close looking
 
-The screen is both opening and obstruction. Its repeating blue pattern admits light in bands, but the pattern prevents a clear view through it. A small figure stands at the threshold, reduced by the weight of the stone around them and lengthened by the shadow cast into the room.
-
-The image makes a gate visible before it makes passage imaginable. Light crosses the screen freely; the person does not. The figure’s stillness gives the architecture time to become an authority, while the bright field beyond remains possible but undefined.
+The blue patterned screen catches sunlight in repeated bands. It brightens the hall while filtering the view beyond; the figure recedes under the stone and the long floor shadow. At the edge of the screen, stillness gives architecture time to become authority, while the bright field beyond stays possible and undefined.
 
 ## Artist’s account
 
@@ -29,14 +27,19 @@ Yıldız connects doors and keys to knowledge, authority, digital sovereignty, o
 
 ## Curatorial interpretation
 
-The photograph’s force lies in the difference between illumination and access. The screen does not darken the room; it organizes what the room can reveal. By placing the human figure at a small scale, the image makes permission feel structural rather than personal: the threshold is beautiful, but beauty does not hand over the key.
+The photograph’s force lies in the distance between illumination and access. The screen organizes what the room can reveal, and the small figure makes that arrangement bodily. Beauty gives the threshold its authority; the key remains an idea held by the artist’s account.
 
 ## Context
 
-Public professional sources support Yıldız’s photographic and multidisciplinary practice. The exact venue, capture date, camera body, and identity or consent of the depicted figure remain object-level questions.
+The [source register](../sources-and-bibliography.md) links public professional sources for the artist’s photographic and multidisciplinary practice. The exact venue, capture date, camera body, and identity or consent of the depicted figure remain object-level questions.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a conditional CC0 declaration. Exact venue, figure consent, source file, and final rights scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/gulyildiz.md) · [Next: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md)

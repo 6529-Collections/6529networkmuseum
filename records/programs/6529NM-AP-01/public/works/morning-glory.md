@@ -1,6 +1,6 @@
 # *Morning Glory*
 
-![Water radiates through a dark fluted spillway toward a small opening of sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp)
+![The camera looks upward through a dark, fluted circular structure toward a small opening of sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -19,9 +19,7 @@ Water fans through a dark, fluted spillway while a small opening of sky remains 
 
 ## Close looking
 
-The photograph looks upward into a form that is both bowl and aperture. Water radiates from a centre hidden below the frame, and the repeating flutes pull the eye toward the bright opening. The structure’s mechanism disappears into pattern. What controls pressure appears as a flower, a throat, or a mouth.
-
-The sky is not a wide horizon. It is a small permission at the top of the image, framed by the spillway’s dark geometry. Water and light move through an engineered channel, but the channel refuses to look like a gate in the ordinary sense.
+The photograph looks upward into a form that is both bowl and aperture. Water radiates from a centre hidden below the frame, and repeating flutes pull the eye toward the bright opening. The mechanism disappears into pattern. A small patch of sky becomes a measured permission at the top of the image, while water and light follow an engineered channel whose form resembles a flower, throat, or mouth.
 
 ## Artist’s account
 
@@ -29,7 +27,7 @@ Zoku identifies the image as the spillway funnel of San Roque Dam and describes 
 
 ## Curatorial interpretation
 
-The work makes control legible through its disappearance. No operator, hinge, or warning sign appears; only the shaped force of water remains. The photograph’s abstraction is therefore political as well as formal: systems can organize who or what passes while presenting themselves as neutral flow.
+The work makes control legible through disappearance. No operator, hinge, or warning sign appears; shaped water carries the evidence of a system. The abstraction is political as well as formal: infrastructure can organize passage while presenting itself as neutral flow.
 
 ## Context
 
@@ -37,6 +35,11 @@ Public technical material supports San Roque Dam’s site and a 1944 dam phase. 
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission states that the work will be released under CC0 if selected. Site permission, technical description, source RAW, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/zoku.md) · [Previous: *Nowhere To Esc.*](nowhere-to-esc.md) · [Next: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)

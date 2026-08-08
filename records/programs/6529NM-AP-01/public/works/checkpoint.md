@@ -1,8 +1,8 @@
 # *Checkpoint*
 
-> **Content note:** Nudity and partial concealment. The subject’s identity and location are not stated.
+> **Content note:** Nudity and partial concealment. The subject’s identity and location are not stated; ages are not established in the public record.
 
-![A bare torso emerges from black fabric while the head remains concealed.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
+![A bare torso emerges from folds of black fabric against a nearly black background.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -21,9 +21,7 @@ A bare torso appears through black fabric; the concealed head keeps the person�
 
 ## Close looking
 
-The black fabric creates a narrow opening around the body. It covers and reveals at the same time, making the photograph’s border feel tactile. The absence of a face does not reduce the image’s exposure. Instead, it concentrates attention on the body as a place where visibility, privacy, and control meet.
-
-The image is carefully withheld. It gives no location and no social setting in which to read the figure, leaving the viewer with the pressure of the crop and the deliberate act of looking. The checkpoint is therefore both the body and the frame that decides how much of it can be seen.
+Black fabric opens around the torso like a narrow aperture. Its folds turn the photograph’s border into a physical edge, and the crop concentrates attention on the body’s relation to visibility. With no face or setting to anchor it, the figure is present through exposure and withheld through form. Clothing becomes an instrument for deciding how much can be seen, while the body’s vulnerability remains in view.
 
 ## Artist’s account
 
@@ -31,7 +29,7 @@ The submission describes a body shaped by decisions about clothing, movement, an
 
 ## Curatorial interpretation
 
-The work makes concealment an active form of control. The fabric is not simply a veil; it is an aperture that regulates the viewer’s access while keeping the subject from becoming fully legible. Exposure and privacy are simultaneous, and neither can be reduced to the presence or absence of a face.
+Concealment functions as control. The fabric regulates the viewer’s approach and keeps the subject from becoming fully legible. Exposure and privacy occupy the same frame, carried by the crop and the deliberate absence of a face.
 
 ## Context
 
@@ -39,6 +37,11 @@ The artist’s public profile describes a self-taught portrait practice. The sub
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration and a statement that written documentation can be supplied; subject identity, adult status, self-portrait status, and publication consent require restricted review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/minalisa.md) · [Previous: *Now Is Our Time*](now-is-our-time.md) · [Next: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)

@@ -1,8 +1,8 @@
 # *No Key, Only Light*
 
-> **Content note:** Two young figures are shown in silhouette; the public catalogue does not state their identities or ages.
+> **Content note:** Two distant silhouetted figures are shown. The program terms exclude identifiable minors; this public 640 derivative supplies no identifying detail and does not establish the figures’ ages. Direct confirmation of the artist’s represented family/consent account remains an acquisition gate.
 
-![Two silhouetted figures move through a rough stone passage toward a bright opening.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
+![Two silhouetted figures walk toward daylight at the end of a rough stone passage.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -21,24 +21,27 @@ Two figures stand inside a rough stone passage and face a blown-out opening of d
 
 ## Close looking
 
-The passage narrows the image before the white doorway opens it again. The figures are silhouettes, not portraits: their bodies carry the memory of confinement while the light beyond withholds detail. The route is clear enough to imagine and too bright to read.
-
-Stone, shadow, and glare make the threshold feel historical without fixing it to one story. The architecture has weight, but the figures’ small movement toward the opening gives the image a human tempo. They are not shown arriving at freedom; they are shown facing the possibility of exit.
+A rough passage narrows the image before a white doorway opens it into glare. The figures remain silhouettes, carrying the memory of confinement while the light beyond withholds detail. Their route is clear enough to imagine and too bright to read. Stone, shadow, and glare give the threshold historical weight, and the figures’ small movement supplies a human tempo: the photograph holds them at the instant when exit becomes imaginable.
 
 ## Artist’s account
 
-The artist’s submission describes young family members inside Fort Frederick after an Australian family spent months confined aboard a sailboat during the pandemic and later received permission to enter Grenada. It connects the personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion.
+The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It connects that personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion. The public image leaves the figures unidentified; direct confirmation of the submission’s family and consent account remains an acquisition gate.
 
 ## Curatorial interpretation
 
-The image brings private confinement into contact with public architecture. A doorway that once served a defensive complex becomes, for the artist’s family, a sign of finally reaching land. The bright opening carries that relief, while the fort’s history keeps the meaning of access unsettled: an exit for one body may belong to a structure built to contain another.
+The image brings private confinement into contact with public architecture. A doorway in a defensive complex becomes, in the artist’s account, a sign of finally reaching land. The bright opening carries that relief, while the fort’s history places it beside a structure built to contain and surveil.
 
 ## Context
 
-Public historical sources support Fort Frederick’s colonial and revolutionary context, including its inward-facing defensive design and role during the Grenadian Revolution. The family narrative, date discrepancy, figures’ identities, and the artist’s represented consent coverage remain in the source and rights records.
+The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and [source register](../sources-and-bibliography.md) document Fort Frederick’s colonial and revolutionary context, including its inward-facing defensive design and role during the Grenadian Revolution. The family narrative, date discrepancy, figures’ identities, and the artist’s represented consent coverage remain in the source and rights records.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The artist declares CC0 and consent coverage for depicted people; the supporting instrument, date, source file, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/intrepid.md) · [Previous: *Managed Freedom*](managed-freedom.md) · [Next: *Residual Barrier*](residual-barrier.md)

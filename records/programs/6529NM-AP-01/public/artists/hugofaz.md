@@ -8,4 +8,8 @@ The two selected works show how that practice can move from the city to the port
 
 Faz’s public professional context is documented through his artist site, LensCulture profile, and 6529 identity page. The Museum uses those sources for practice and geography while retaining the artist’s preferred public credit as an open confirmation point.
 
+## Selected works
+
+[*the Artist in teh Open Sea*](../works/the-artist-in-teh-open-sea.md) · [*Sina Beizavi in Brazil*](../works/sina-beizavi-in-brazil.md)
+
 **Sources:** [artist site](https://hugofaz.art/), [LensCulture profile](https://www.lensculture.com/hugo-faz), [6529 profile](https://6529.io/HugoFaz).

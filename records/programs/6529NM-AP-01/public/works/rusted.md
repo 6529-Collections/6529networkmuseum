@@ -1,6 +1,6 @@
 # *Rusted*
 
-![A distant figure stands among ruined arches and holds keys inside a damaged interior.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp)
+![A person stands framed by successive arched doorways inside a heavily damaged building.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -19,9 +19,7 @@ A distant figure with keys stands inside a sequence of damaged rooms and arches.
 
 ## Close looking
 
-The image is organized by repetition. Arches open one behind another, but each opening leads only to another layer of plaster, brick, shadow, and rubble. The figure is small enough to be absorbed by the architecture, yet the keys give the body a precise visual task: to carry the possibility of entry through a place that looks exhausted by permission.
-
-The ruin is not treated as a spectacle of collapse. Its muted surfaces and measured distance make the emotional register quieter. The path forward exists as a sequence of apertures, but the keys do not guarantee that any of them will open.
+Repetition organizes the image. Arches open one behind another, each revealing another layer of plaster, brick, shadow, and rubble. The figure is small enough to be absorbed by the architecture, while the keys give the body a precise task: to carry the possibility of entry through a place exhausted by permission. The path forward exists as a sequence of apertures; the keys offer possibility without guaranteeing an opening.
 
 ## Artist’s account
 
@@ -29,7 +27,7 @@ Teyhu describes the space as suspended between collapse and escape and the keys 
 
 ## Curatorial interpretation
 
-The work turns a key into a burden rather than a solution. Its repeated arches make access feel procedural: one must move through one threshold after another, carrying the evidence of a permission that may already have failed. The figure’s distance keeps the image from becoming a simple portrait of triumph or defeat.
+The work turns a key into a burden. Its repeated arches make access procedural: one threshold follows another, and the figure carries evidence of a permission that may already have failed. Distance keeps the image suspended between arrival and departure.
 
 ## Context
 
@@ -37,6 +35,11 @@ The submission gives Iran as the location but does not identify the building. Th
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission states that the work is released under CC0 and identifies it as a self-portrait; exact site, likeness status, safe geography, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/teyhu.md) · [Previous: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md) · [Next: *Nowhere To Esc.*](nowhere-to-esc.md)

@@ -1,6 +1,6 @@
 # *the Artist in teh Open Sea*
 
-![An elevated view of traffic and a sharply legible performer in a white tub or boat.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp)
+![An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
@@ -20,9 +20,9 @@ A person in a small white tub or boat remains sharply legible amid long-exposure
 
 ## Close looking
 
-The elevated view turns the roadway into a diagonal field of velocity. Most vehicles dissolve into white and grey bands, while the performer and the white vessel hold their shape. The image’s central contrast is between public infrastructure and a body moving at an incompatible pace. The road is full, bright, and in motion; the figure’s stillness becomes an act of concentration.
+The elevated view turns the roadway into a diagonal field of velocity. Vehicles dissolve into white and grey bands; the performer and white vessel hold their shape. The road is full, bright, and in motion, so the figure’s stillness reads as a deliberate act of concentration.
 
-The tub is neither a literal boat nor simply a prop. It shifts the roadway into an “open sea” without changing the city’s material force. The long exposure makes buses behave like current, while the directed figure resists becoming another streak. The photograph’s tension comes from that mismatch of speeds and scales.
+The tub shifts the roadway into an “open sea” while the city remains materially present. Long exposure makes buses behave like current; the directed figure resists becoming another streak. Speed and scale carry the photograph’s tension.
 
 ## Artist’s account
 
@@ -30,14 +30,19 @@ Hugo Faz describes the rower as the artist in a marketplace that values speed an
 
 ## Curatorial interpretation
 
-This is staged photographic performance rather than neutral traffic documentation. Long exposure gives the urban system the appearance of a tide, and the tub makes a roadway perform the role of water. The work joins performance documentation, conceptual street photography, and images of transit and labour. It asks whether a public system can accommodate a body that refuses its assigned speed.
+The scene is a staged photographic performance. Long exposure gives the urban system the appearance of a tide, and the tub makes a roadway perform the role of water. Performance documentation, conceptual street photography, and images of transit meet in the same frame. The question is whether a public system can accommodate a body moving at its own speed.
 
 ## Context
 
-Faz’s public practice connects photography to performance, film, and self-representation. That context clarifies why the scene is constructed as an encounter rather than offered as an accidental event. The exact road or terminal, staging permissions, public-safety conditions, composite layers, and high-resolution publication scope remain in the source record.
+Faz’s public practice joins photography to performance, film, and self-representation. The staged encounter belongs to that continuum: the roadway supplies a live system of speed, while the performer makes a deliberate place inside it. The exact road or terminal, staging permissions, public-safety conditions, composite layers, and high-resolution publication scope remain in the source record.
 
 ## Status and source note
 
-> **Status:** **Selected through the Keys and Gates acquisition program; acquisition pending.**  
+> **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
+> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
 > **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a conditional CC0/full-rights assertion. Performer consent, staging permission, original composite layers, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Take the Key!*](take-the-key.md) · [Next: *Managed Freedom*](managed-freedom.md)
