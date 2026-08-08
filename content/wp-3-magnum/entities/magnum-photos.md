@@ -60,7 +60,7 @@ publication, caption, and copyright histories.
 The new form changes the question of agency. A token can give a historical
 image a durable locator while leaving title, rights, preservation, and display
 permission divided among other records. The five selected Works make those
-divisions visible: a technical publication can be exact about a token and
+divisions visible ([object schedule](../machine/object-schedule.json)): a technical publication can be exact about a token and
 remain open about an archive crosswalk or reproduction authority.
 
 ## Relation to this offer
@@ -74,13 +74,16 @@ for each photograph.
 
 ## Rights note
 
-The five token records carry photographer/Magnum `All Rights Reserved` notices.
-The proposal records token transfer without a copyright or reproduction grant.
+The five token records carry photographer/Magnum `All Rights Reserved` notices
+([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
+The proposal records token transfer without a copyright or reproduction grant
+([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 The exact historical public Wave URLs may be referenced in the selected-offer
-proposal context with their supplied credits. See the [Source and rights
+proposal context with their supplied credits ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)). See the [Source and rights
 record](../dossiers/source-and-rights-record.md); Collection publication,
 download, derivatives, IIIF, and preservation require separate permission and
-review.
+review ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
 
 [^1]: Magnum Photos institutional history, membership page, and photographer biographies, sources [S01–S03](../sources/source-register.md).
 [^2]: Magnum photographer biographies and project records, sources [S03](../sources/source-register.md) and [S17–S32](../sources/source-register.md).

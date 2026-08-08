@@ -45,7 +45,8 @@ regional history while retaining its own evidentiary limits.[^5]
 ## Selected Work
 
 The selected Work is from Towell's 1986 Central American period and belongs to
-the second curation of Magnum Photos 75. Its exact place in the offer is the
+the second curation of Magnum Photos 75 ([S11](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). Its exact place in the offer is the
 meeting of architectural order, armed presence, and an unresolved print-image
 crosswalk. The object entry follows the church, crucifix, and caption history;
 this profile follows Towell's duration-based practice and its exhibition, book,

@@ -45,7 +45,8 @@ photographer reached the ruins.
 
 ## Selected Work
 
-The selected Work is one of four images in the group's 2/3 curation. It extends
+The selected Work is one of four images in the group's `2/3` curation
+([S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). It extends
 the offer from street, church, and plaza into a damaged World Heritage site and
 gives the group a final encounter with access, ruin, and historical scale. The
 object entry owns the exact caption and manifestation record; this profile

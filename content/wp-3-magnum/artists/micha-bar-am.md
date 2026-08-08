@@ -46,7 +46,8 @@ larger movement between reportage and institution.
 
 ## Selected Work
 
-The selected Work is a 1989 Jerusalem photograph in the second curation. Its
+The selected Work is a 1989 Jerusalem photograph in the second curation
+([S12](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). Its
 role in the offer is concentrated in public space: a small moving figure,
 smoke, a barrier, and a contested place-name bring Bar-Am's documentary and
 institutional histories into one frame. The image's exact event and subject

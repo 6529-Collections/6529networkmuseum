@@ -35,7 +35,8 @@ questions in the object and rights records.
 
 ## Selected Work
 
-The selected Work is the sole photograph in the group's 1/3 curation. It gives
+The selected Work is the sole photograph in the group's `1/3` curation
+([S13](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). It gives
 the offer a different kind of evidence problem from the other four images: a
 child is visible, the caption contains accounts of a damaged house and minder
 evidence, and identity remains restricted. The object entry describes the

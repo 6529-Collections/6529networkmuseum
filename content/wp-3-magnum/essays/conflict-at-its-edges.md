@@ -8,7 +8,8 @@ record—an archive number, a caption, a route into a restricted place, or a
 history of the site itself.
 
 The donor's selection joins one token identified in the Magnum Photos 75 project
-as curation `1/3` to four identified as curation `2/3`. That split is an
+as curation `1/3` to four identified as curation `2/3` ([S10–S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). That split is an
 observable feature of this offer. The donor's rationale beyond the grouping is
 unrecorded. The essay asks what the five images make visible together while
 keeping that boundary intact.[^1]
@@ -98,10 +99,12 @@ and Museum close looking each answer a different question.
 
 The material forms reinforce that layering. Each Work has a token number,
 metadata object, Arweave source-image locator, and historical Wave-upload URL.
-Those are manifestations in a 2022 networked publication. They sit beside
+Those are manifestations in a 2022 networked publication ([S10–S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). They sit beside
 older negative, print, estate, book, exhibition, and caption histories. A token
 can make a locator durable; it cannot resolve every historical relation or
-create a rights grant.
+create a rights grant ([S10–S14](../sources/source-register.md); [S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)).
 
 ## The donor's sequence
 
@@ -111,7 +114,8 @@ second is presented in dialogue with Azu Nwagbogu's account of the “indecisive
 moment.” The selected offer places Saman's first-register token at the center of
 a later donor-made relation with four second-register tokens. That arrangement
 is exact here, even though another five-image group could share a 1/3 and 2/3
-distribution.[^2]
+distribution ([S04–S07](../sources/source-register.md); [S10–S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)).[^2]
 
 The donor's sequence also changes the reading of chronology. Seymour is the
 earliest date, yet Saman is the first-curation hinge; Meloni closes the visible
@@ -119,7 +123,8 @@ run with a 2016 image whose access history is inseparable from the damaged
 site. The offer is therefore neither a Magnum-issued anthology nor a neutral
 chronological survey. It is a new relation among five independently identified
 Works, built from the donor's act of proposal and now selected by the Museum
-Wave for acquisition review.
+Wave for acquisition review ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)).
 
 ## The unresolved edge
 
@@ -132,9 +137,11 @@ safeguarding record can all change the account.
 
 The exact Wave-upload URLs remain historical public proposal presentation media
 with their supplied credit and `All Rights Reserved` label. Wave selection
-established curatorial approval. Formal gift acceptance, title and custody,
+established curatorial approval ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json); [S37](../sources/source-register.md)). Formal gift acceptance, title and custody,
 rights review, technical examination, preservation planning, accession and
-Collection entry will follow. The five photographs remain five Works, and the
+Collection entry will follow ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). The five photographs remain five Works, and the
 selected offer remains a question about how documentary images carry evidence
 across time, institution, and network.
 

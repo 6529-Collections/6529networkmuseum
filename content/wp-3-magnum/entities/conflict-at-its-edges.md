@@ -3,7 +3,8 @@
 ## Curated Acquisition
 
 *Conflict at Its Edges* is the selected five-Work offer formed by punk6529 from
-five photographs published in Magnum Photos 75. The group crosses the Negev,
+five photographs published in Magnum Photos 75 ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). The group crosses the Negev,
 El Salvador, Jerusalem, Libya, and Palmyra. Its proposition follows the edge
 between what a photograph shows and what its caption, archive, access history,
 or regional record asks the viewer to consider.
@@ -13,20 +14,24 @@ or regional record asks the viewer to consider.
 | Curated Acquisition | `6529NM-CA-2026-003` |
 | Proposal record | `6529NM-PG-2026-001` |
 | Public credit | Offered by punk6529 |
-| Selection relation | Saman #44 is identified in project metadata as curation `1/3`; Seymour #127, Towell #145, Bar-Am #97, and Meloni #104 as curation `2/3` |
-| Current status | Selected by Museum Wave; acquisition review in progress |
-| Collection status | Outside the permanent Collection |
+| Selection relation | Saman #44 is identified in project metadata as curation `1/3`; Seymour #127, Towell #145, Bar-Am #97, and Meloni #104 as curation `2/3`. [S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
+| Current status | Selected by Museum Wave; acquisition review in progress. [S37](../sources/source-register.md); [integration map](../machine/integration-map.json) |
+| Collection status | Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
 
 ## The exact proposition
 
 The donor-formed offer brings two Magnum Photos 75 selection registers into one
 relation. Saman #44 is the sole `1/3` item; the other four selected Works are
 marked `2/3`. That split is specific to this five-token group and can be checked
-against the project metadata and proposal record. Another five-image selection
+against the project metadata and proposal record ([S10–S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). Another five-image selection
 could share the same numerical distribution. The donor's rationale beyond the
 observable grouping remains unrecorded.[^2]
 
 ## Five selected Works
+
+The table records the exact five selected objects in the proposal and WP-1
+projection ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
 | Token | Artist | Work |
 | ---: | --- | --- |
@@ -49,12 +54,15 @@ to the public history of a 2022 blockchain edition while retaining the older
 histories of reportage, print, archive, book, and exhibition. Its mission fit
 comes from making those relationships available for public research.
 
-Wave selection established curatorial approval. Formal gift acceptance, title
+Wave selection established curatorial approval ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). Formal gift acceptance, title
 and custody, rights review, technical examination, preservation planning,
-accession and Collection entry will follow. The exact historical public Wave
+accession and Collection entry will follow ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). The exact historical public Wave
 URLs may be referenced in this proposal context with their supplied
 artist/Magnum credits, `All Rights Reserved`, and the **Wave-source historical
-proposal media** designation. The [Source and rights record](../dossiers/source-and-rights-record.md)
+proposal media** designation ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)). The [Source and rights record](../dossiers/source-and-rights-record.md)
 sets out that narrow presentation boundary.
 
 [^2]: Direct Magnum Photos 75 metadata and project records, sources [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).

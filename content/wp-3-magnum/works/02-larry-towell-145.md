@@ -74,7 +74,8 @@ authority.
 
 ## The Work in the selected offer
 
-Towell's Work is one of four tokens identified as curation 2/3. In the
+Towell's Work is one of four tokens identified as curation `2/3`
+([S11](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). In the
 selected offer it contributes an interior whose religious architecture makes
 military presence spatially measurable. It sits between Seymour's open
 landscape and Bar-Am's obstructed public event in the proposal order, while
@@ -88,10 +89,10 @@ rationale beyond the observable grouping has not been recorded.
 | --- | --- |
 | Underlying photographic Work | The historical photograph identified by the Towell caption and archive reference TOL1986003W00045/26; the place spelling, church, assignment, and print relation remain separate research questions. |
 | Token-linked JPEG | The Arweave JPEG linked from token 145: 5,369 × 3,601 pixels, 1,813,285 observed bytes, SHA-256 e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee. |
-| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is restricted to this selected offer's proposal context. |
-| Preservation and master status | The observed JPEG is a token-linked image file, not a declared negative, print master, or preservation master. No original negative, contact sheet, rights-cleared repository derivative, or completed preservation package is recorded. |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. |
-| Credit and rights | © Larry Towell/Magnum Photos 2022 · All Rights Reserved. The recorded notice does not grant broader reproduction or preservation permission. |
+| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is restricted to this selected offer's proposal context ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
+| Preservation and master status | The observed JPEG is a token-linked image file, not a declared negative, print master, or preservation master. No original negative, contact sheet, rights-cleared repository derivative, or completed preservation package is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
+| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
+| Credit and rights | © Larry Towell/Magnum Photos 2022 · All Rights Reserved. The recorded notice does not grant broader reproduction or preservation permission. [S11](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
 
 ## Further research
 

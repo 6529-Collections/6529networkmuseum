@@ -28,17 +28,18 @@ surrounding architecture impossible to overlook.
 | Artist | Lorenzo Meloni |
 | Date / place | 1 April 2016; Palmyra, Syria |
 | Archive reference | `MEL2016002G0401/4032` |
-| Token manifestation | Ethereum ERC-721 token `104`; sequence `104/225`; curation `2/3`; edition `1 of 1` |
+| Token manifestation | Ethereum ERC-721 token `104`; sequence `104/225`; curation `2/3`; edition `1 of 1`. [S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
 | Metadata | [Token metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) |
 | Token-linked source image | [Arweave source](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) |
 | Observed source image | JPEG, 5,964 × 4,768 px, 16,871,807 bytes; SHA-256 `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
-| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection |
-| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved |
+| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
+| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved. [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
 
 ## Caption history
 
 The token record gives *Palmyra, Syria*, 2016, archive
-`MEL2016002G0401/4032`, and curation `2/3`. A contemporary publication caption
+`MEL2016002G0401/4032`, and curation `2/3` ([S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). A contemporary publication caption
 dates the frame to 1 April 2016 and describes a Syrian army soldier holding or
 removing his helmet while seated on rubble associated with the former Temple of
 Bel.[^1]
@@ -72,7 +73,7 @@ material remains of political violence.
 
 The selected offer gives that practice one image in which access history and
 formal restraint meet. Four of the five selected Works belong to the project's
-second curation; Meloni's frame carries the sequence to the damaged heritage
+second curation ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)); Meloni's frame carries the sequence to the damaged heritage
 site while preserving the question of how a photographer's permitted route
 shapes what can be seen.
 
@@ -82,8 +83,8 @@ shapes what can be seen.
 | --- | --- |
 | Underlying photographic Work | The photograph made by Lorenzo Meloni in Palmyra on 1 April 2016; the Museum's Work projection identifies its image and caption history. |
 | Token-linked JPEG | The Arweave source-image URL named by token metadata; its fixity, dimensions, and byte count are observed upstream references, not a Museum preservation master. |
-| Historical Wave presentation | The exact CloudFront upload listed in the historical public proposal's part history; it may be referenced in this selected-offer context with the stated credit and `All Rights Reserved` label after final receipt and graph binding. |
-| Preservation / master status | No source bytes or preservation master are retained in this repository. Download, derivative, IIIF, and Collection publication require separate rights and stewardship records. |
+| Historical Wave presentation | The exact CloudFront upload listed in the historical public proposal's part history; it may be referenced in this selected-offer context with the stated credit and `All Rights Reserved` label after final receipt and graph binding ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
+| Preservation / master status | No source bytes or preservation master are retained in this repository. Download, derivative, IIIF, and Collection publication require separate rights and stewardship records ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)). |
 
 The [Source and rights record](../dossiers/source-and-rights-record.md) gives the
 current media disposition and its narrow proposal context. The 16.9 MB source

@@ -45,8 +45,10 @@ the Magnum archive crosswalk or a chain of title.[^4]
 ## Selected Work
 
 The selected Work brings Seymour's early-1950s Israel practice into a group
-that also includes four later photographers. It is the sole 1/3 curation item
-and the earliest image in the selected offer. The landscape's scale and the
+that also includes four later photographers. It is one of four `2/3` curation
+items in the selected offer; Moisés Saman's #44 is the sole `1/3` item
+([S10](../sources/source-register.md), [S13](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). The landscape's scale and the
 figure's turned posture give the group its first question: how can a photograph
 make a contested border visible while keeping the individual at the center of
 attention?

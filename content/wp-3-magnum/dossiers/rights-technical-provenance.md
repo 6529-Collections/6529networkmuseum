@@ -7,9 +7,13 @@ observations establish about the five token-linked manifestations. It keeps
 token identity, source-image identity, copyright, title, custody, display
 permission, and Museum accession as separate facts. The five photographs are
 public Work projections for the selected acquisition; no accession or object record is
-manufactured here.
+manufactured here ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
 ## Technical identity schedule
+
+The five-row schedule reproduces the token, curation, and acquisition-independent
+Work bindings in the source register and machine record
+([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
 
 | Public Work | Work | Proposal alias | Token / curation | CAIP-19 | Archive reference |
 | --- | --- | --- | --- | --- | --- |
@@ -36,7 +40,8 @@ The proposal package reports that all five metadata objects and linked JPEGs
 were resolved and SHA-256 verified on 5 August 2026. The Museum visually
 inspected the five upstream images on 8 August 2026; no JPEG or derivative was
 added to this repository. The local observations identify retrievable upstream
-resources at those observation times, not Museum preservation objects.
+resources at those observation times, not Museum preservation objects
+([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
 
 ## Chain and contract observation
 
@@ -52,12 +57,13 @@ following finalized-block observation:
 - no token-level approval at that observation; and
 - three successful transfer events recorded for each token: mint, transfer to
   an address identified by Blockscout as Foundation Market, then transfer to
-  the observed owner.
+  the observed owner ([S16](../sources/source-register.md); [S37](../sources/source-register.md)).
 
 These are point-in-time chain observations. The owner address is not treated as
 the donor, copyright holder, legal-title holder, or Museum custodian. The local
 proposal records themselves say that offer, repository record, Wave submission,
-or threshold outcome does not complete gift acceptance or accession.
+or threshold outcome does not complete gift acceptance or accession
+([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
 The verified contract source exposes no public proxy-upgrade path in the local
 review, while the implementation allows the contract owner or administrators to
@@ -68,37 +74,42 @@ review must re-read tokenURI state before relying on a live pointer.
 ## Rights and use disposition
 
 Each target token metadata record carries a photographer/Magnum copyright line
-and `All Rights Reserved`. The proposal package records token transfer as
-asserting no copyright or reproduction grant. Magnum’s terms distinguish an NFT
-purchase from copyright in the associated photographic file. Those statements
+and `All Rights Reserved` ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). The proposal package records token transfer as
+asserting no copyright or reproduction grant ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). Magnum’s terms distinguish an NFT
+purchase from copyright in the associated photographic file ([S09](../sources/source-register.md)). Those statements
 are source records, not a complete chain-of-title or license determination.
 
 The exact already-published Wave JPEG URLs may be referenced or embedded in the
 proposal’s historical Wave presentation with the supplied artist/Magnum credit,
-`All Rights Reserved`, and the label **Wave-source historical proposal media**.
+`All Rights Reserved`, and the label **Wave-source historical proposal media**
+([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
 The [Source and rights record](source-and-rights-record.md) and [media plan](media-plan.md)
 define that narrow disposition. Download, full-resolution delivery, crops or
 derivatives, responsive recompression, IIIF, preservation copying, and
-Collection publication remain outside the current permission boundary.
+Collection publication remain outside the current permission boundary
+([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json);
+[integration map](../machine/integration-map.json)).
 
 ## Accession boundary
 
 | Record or fact | Current state |
 | --- | --- |
-| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` |
-| Collection membership | `not_in_collection` |
-| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` in the WP-1 committed projection; governed release admission remains pending |
-| Curated Acquisition | `6529NM-CA-2026-003` |
-| Proposal record | `6529NM-PG-2026-001` |
-| Accession number | None |
-| Object record | None |
-| Title binding to Museum custody | None |
-| Donor authority/legal title | Unresolved |
-| Copyright/reproduction/display license | Narrow historical proposal-media disposition only |
-| Museum custody/preservation | None; upstream files not retained |
+| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` ([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)) |
+| Collection membership | `not_in_collection` ([object schedule](../machine/object-schedule.json); [integration map](../machine/integration-map.json)) |
+| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` in the WP-1 committed projection; governed release admission remains pending ([integration map](../machine/integration-map.json)) |
+| Curated Acquisition | `6529NM-CA-2026-003` ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
+| Proposal record | `6529NM-PG-2026-001` ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
+| Accession number | None ([integration map](../machine/integration-map.json)) |
+| Object record | None ([integration map](../machine/integration-map.json)) |
+| Title binding to Museum custody | None ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
+| Donor authority/legal title | Unresolved ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
+| Copyright/reproduction/display license | Narrow historical proposal-media disposition only ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json); [integration map](../machine/integration-map.json)) |
+| Museum custody/preservation | None; upstream files not retained ([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)) |
 
 Sources: proposal records and live technical boundary [S37](../sources/source-register.md),
 exact token metadata [S10–S14](../sources/source-register.md), contract and
 token observations [S15–S16](../sources/source-register.md), and the retained public
 proposal record
-media [S38](../sources/source-register.md).
+media [S38](../sources/source-register.md), [object schedule](../machine/object-schedule.json),
+[integration map](../machine/integration-map.json), and [wave-media join](../machine/wave-media-join.json).

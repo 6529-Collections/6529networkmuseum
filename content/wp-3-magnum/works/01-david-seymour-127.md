@@ -70,7 +70,8 @@ Within the selected five-Work offer, Seymour supplies the earliest date and a
 founding-generation Magnum perspective. Its open terrain gives the group a
 starting condition: the viewer must infer a political edge from a body, a
 weapon, and receding ground. The image is one of four tokens identified in
-project metadata as curation 2/3. Its exact role in this offer is therefore
+project metadata as curation `2/3` ([S10](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)). Its exact role in this offer is therefore
 observable in the token record and in the donor's grouping; the donor's wider
 rationale remains unrecorded.
 
@@ -80,10 +81,10 @@ rationale remains unrecorded.
 | --- | --- |
 | Underlying photographic Work | The historical photograph identified by the caption and archive reference SED1952003W00003/23; the negative, print history, and exact assignment remain under research. |
 | Token-linked JPEG | The Arweave JPEG linked from token 127: 3,056 × 4,600 pixels, 2,518,674 observed bytes, SHA-256 65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453. |
-| Historical Wave-upload presentation | The exact CloudFront upload used for the public Wave presentation is retained as historical proposal media in the [Source and rights record](../dossiers/source-and-rights-record.md). Its permitted reference is limited to this selected offer's proposal context. |
-| Preservation and master status | The observed JPEG is a token-linked presentation/source file, not a declared negative or preservation master. No rights-cleared repository derivative, original negative, contact sheet, or completed preservation package is recorded. |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. |
-| Credit and rights | © David Seymour/Magnum Photos 2022 · All Rights Reserved. The rights label is retained as source evidence; it is not a broader publication grant. |
+| Historical Wave-upload presentation | The exact CloudFront upload used for the public Wave presentation is retained as historical proposal media in the [Source and rights record](../dossiers/source-and-rights-record.md). Its permitted reference is limited to this selected offer's proposal context ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
+| Preservation and master status | The observed JPEG is a token-linked presentation/source file, not a declared negative or preservation master. No rights-cleared repository derivative, original negative, contact sheet, or completed preservation package is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
+| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
+| Credit and rights | © David Seymour/Magnum Photos 2022 · All Rights Reserved. The rights label is retained as source evidence; it is not a broader publication grant. [S10](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
 
 ## Further research
 

@@ -19,9 +19,10 @@ The official launch page announced a first collection in Magnum's seventy-fifth
 anniversary year. It describes 76 images, six drops from 28 June to 12 July
 2022, and selection by photographer and Obscura co-founder Alejandro Cartagena.
 The same publication also uses 75-image wording, so the first-release count is
-preserved as an observation boundary.[^2]
+preserved as an observation boundary ([S04](../sources/source-register.md)).[^2]
 
-The direct metadata describes a three-curation, 225-image project. The second
+The direct metadata describes a three-curation, 225-image project
+([S10–S14](../sources/source-register.md); [machine object schedule](../machine/object-schedule.json)). The second
 selection is presented in dialogue with Azu Nwagbogu, founder and director of
 the African Artists' Foundation. Nwagbogu's account turns from the familiar
 “decisive moment” toward an “indecisive moment”: images charged with
@@ -35,7 +36,8 @@ an interpretation of the launch's description, not a new title assigned to
 Cartagena's selection.[^4]
 
 The selected offer contains one first-register token, Saman #44, and four
-second-register tokens: Seymour #127, Towell #145, Bar-Am #97, and Meloni #104.
+second-register tokens: Seymour #127, Towell #145, Bar-Am #97, and Meloni #104
+([S10–S14](../sources/source-register.md); [machine object schedule](../machine/object-schedule.json)).
 That distribution belongs to the token records. The donor's five-Work relation
 is a later formation across the registers.
 
@@ -52,7 +54,8 @@ The Arweave pointer identifies an upstream source-image URL and observed fixity.
 The historical CloudFront URLs are Wave-upload presentation manifestations in
 the selected offer's proposal context. The issuer's `All Rights Reserved`
 notice remains a rights statement; it is not a general permission for download,
-reproduction, or Collection publication.
+reproduction, or Collection publication ([S10–S14](../sources/source-register.md);
+[S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
 
 ## Publication record
 
@@ -61,16 +64,18 @@ method:
 
 | Record | Observation | Significance |
 | --- | --- | --- |
-| Official launch | First collection described with 76 images, six drops, and Cartagena's selection; the page also uses 75-image wording | Announcement history |
-| Issuer metadata | Three curations and 225 images; target tokens carry sequence values within 225 | Project description and token-level metadata |
-| Foundation snapshot | 148 items displayed in the retained marketplace view | Platform presentation, not a canonical mint count |
-| Chain enumeration | 149 issued `mintBase` token records across two observable curations | Time- and method-bounded chain observation |
+| Official launch | First collection described with 76 images, six drops, and Cartagena's selection; the page also uses 75-image wording ([S04](../sources/source-register.md)) | Announcement history |
+| Issuer metadata | Three curations and 225 images; target tokens carry sequence values within 225 ([S10–S14](../sources/source-register.md); [machine object schedule](../machine/object-schedule.json)) | Project description and token-level metadata |
+| Foundation snapshot | 148 items displayed in the retained marketplace view ([S06](../sources/source-register.md)) | Platform presentation, not a canonical mint count |
+| Chain enumeration | 149 issued `mintBase` token records across two observable curations ([S06](../sources/source-register.md)) | Time- and method-bounded chain observation |
 
 The posted dossier's finalized-block statement remains **148 live tokens at
-block `25,690,178`**. The research note's statement remains **149 issued across
-two observable curations**. These are different observations and remain side
+block `25,690,178`** ([S37](../sources/source-register.md)). The research note's
+statement remains **149 issued across two observable curations**
+([S06](../sources/source-register.md)). These are different observations and remain side
 by side. A definitive issuer release ledger, the first-curation 75/76
-resolution, and a public third curation remain open research questions.
+resolution, and a public third curation remain open research questions
+([S04](../sources/source-register.md); [S07](../sources/source-register.md)).
 
 ## Relation to the selected offer
 
@@ -89,7 +94,8 @@ proposal context with their supplied artist/Magnum credits, `All Rights
 Reserved`, and **Wave-source historical proposal media** label. The [Source and
 rights record](../dossiers/source-and-rights-record.md) carries the current
 boundary. Collection publication, download, derivatives, IIIF, and preservation
-require later component-specific permission and review.
+require later component-specific permission and review ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json); [integration map](../machine/integration-map.json)).
 
 [^1]: Magnum Photos 75 project record and token metadata, sources [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^2]: Archived official Magnum launch page, source [S04](../sources/source-register.md).

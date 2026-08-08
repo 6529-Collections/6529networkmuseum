@@ -5,14 +5,15 @@
 *Conflict at Its Edges* began with punk6529's proposal of five token-linked
 photographs published in Magnum Photos 75. The donor's act was a formation of a
 unit: one proposal record, five independently identified Works, and a proposed
-credit to the Museum. Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, and the
+credit to the Museum ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)). Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, and the
 five photographers are not represented as having formed or endorsed this
 donor-made combination.
 
 The project metadata places Moisés Saman's #44 in curation `1/3`, the first
 register associated with Cartagena. David Seymour #127, Larry Towell #145,
 Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`, the later register
-presented in dialogue with Nwagbogu.[^1] The selected offer carries those two
+presented in dialogue with Nwagbogu ([S10–S14](../sources/source-register.md);
+[object schedule](../machine/object-schedule.json)).[^1] The selected offer carries those two
 selection histories as part of its provenance. The donor's wider reason for
 choosing these five has not been recorded.
 
@@ -61,14 +62,15 @@ publication crosswalks remain incomplete. Caption authority is uneven, and the
 project's counts remain layered: the first release uses both 76- and 75-image
 wording, the posted dossier says 148 live tokens at block `25,690,178`, and a
 separate chain observation identifies 149 issued across two observable
-curations.[^3]
+curations ([S04](../sources/source-register.md); [S06](../sources/source-register.md);
+[S37](../sources/source-register.md)).[^3]
 
 Rights and stewardship are the second counterweight. The token records carry
-`All Rights Reserved`; token transfer is a point-in-time chain observation with
-no copyright or reproduction grant. The exact CloudFront URLs are historical
+`All Rights Reserved` ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)); token transfer is a point-in-time chain observation with
+no copyright or reproduction grant ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)). The exact CloudFront URLs are historical
 public Wave presentation media, and the Arweave URLs are token-linked source
-locators. The Museum has no retained preservation master or responsive
-derivative in this corpus.
+locators ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)). The Museum has no retained preservation master or responsive
+derivative in this corpus ([object schedule](../machine/object-schedule.json)).
 
 Saman's Work adds a safeguarding condition. Public interpretation can describe
 the child, wall, lamp, and marks at visible-fact level. Identity, age, consent,
@@ -84,19 +86,22 @@ title, transfer and custody, rights review, technical examination, preservation
 planning, accession, and any Collection publication. Each step would carry its
 own source. The acquisition record would preserve the donor-formed relation,
 maintain the five Work identities, and state which manifestations are actually
-held or permitted.
+held or permitted ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
 The public consequence would be a carefully bounded account of digital
 photographic stewardship. The Museum could present the selected offer as a
 research-led acquisition under review, then revise the page if acceptance
 changes its legal or custodial state. The historical Wave presentation may be
 referenced in the selected offer with its supplied credit, `All Rights
-Reserved`, and **Wave-source historical proposal media** label; Collection
-publication and preservation would require separate permission and records.
+Reserved`, and **Wave-source historical proposal media** label ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)); Collection publication and
+preservation would require separate permission and records ([integration map](../machine/integration-map.json)).
 
-Wave selection established curatorial approval. Formal gift acceptance, title
+Wave selection established curatorial approval ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)). Formal gift acceptance, title
 and custody, rights review, technical examination, preservation planning,
-accession and Collection entry will follow.
+accession and Collection entry will follow ([S37](../sources/source-register.md);
+[integration map](../machine/integration-map.json)).
 
 [^1]: Direct Magnum Photos 75 metadata and local object schedule, sources [S10–S14](../sources/source-register.md).
 [^2]: International Center of Photography, *Magnum Manifesto* and related photobook program, source [S39](../sources/source-register.md).

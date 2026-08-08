@@ -7,16 +7,20 @@ public media for Wave parts 2–6. This corpus may reference or embed those exac
 CloudFront Wave-upload URLs in the selected offer's proposal context. Each
 display carries the artist/Magnum credit recorded in the historical
 presentation, `All Rights Reserved`, and the label **Wave-source historical
-proposal media**.
+proposal media** ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
 
 This is a narrow presentation disposition. It creates no repository copy and
 authorizes no new image manifestation. The exact URL-to-Work/token join is
 machine-readable in [`wave-media-join.json`](../machine/wave-media-join.json),
 with final `WAVE_PUBLICATION_OBSERVATION` receipt binding pending WP-1
 admission. The human-readable credit and rights record is [Source and rights
-record](source-and-rights-record.md).
+record](source-and-rights-record.md). The machine disposition is also bounded by
+the [integration map](../machine/integration-map.json).
 
 ## Work-to-media join
+
+The table is the five-row historical Work/media join retained for this selected
+offer ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
 
 | Public Work ID | Proposal alias | Wave part | Wave-upload dimensions / bytes | Token-linked source dimensions / bytes | Exact Wave-upload media URL | Token-linked source image | Load policy |
 | --- | --- | ---: | --- | --- | --- | --- | --- |
@@ -36,25 +40,27 @@ derivative is retained.
 
 | Use | Current disposition | Required record before change |
 | --- | --- | --- |
-| Reference/embed the exact upstream URL in the selected offer's historical Wave context | Allowed only after the final graph relation and receipt binding verify the Work, Media Reference, Curated Acquisition, proposal, and Wave publication observation | Exact URL, credit, rights label, part, token link, receipt hash, and Work relation |
-| Standalone Work route image | Fail closed until the same verified relation is present and the page visibly labels historical Wave proposal presentation | WP-1 graph relation and route-policy check |
-| Public Collection page | Blocked | Written display/publication permission and admitted Collection record |
-| Download or full-resolution delivery | Blocked | Explicit distribution permission and reviewed delivery policy |
-| Crop, thumbnail, recompression, responsive `srcset`, or other derivative | Blocked | Component-specific derivative permission and source-fixity manifest |
-| IIIF manifest or tiled service | Blocked | IIIF-specific permission, retained source, and reviewed rights manifest |
-| Preservation copy or derivative | Blocked | Preservation permission, retained source bytes, PREMIS/provenance record, and approved storage plan |
+| Reference/embed the exact upstream URL in the selected offer's historical Wave context | Allowed only after the final graph relation and receipt binding verify the Work, Media Reference, Curated Acquisition, proposal, and Wave publication observation ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Exact URL, credit, rights label, part, token link, receipt hash, and Work relation |
+| Standalone Work route image | Fail closed until the same verified relation is present and the page visibly labels historical Wave proposal presentation ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | WP-1 graph relation and route-policy check |
+| Public Collection page | Blocked ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)) | Written display/publication permission and admitted Collection record |
+| Download or full-resolution delivery | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Explicit distribution permission and reviewed delivery policy |
+| Crop, thumbnail, recompression, responsive `srcset`, or other derivative | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Component-specific derivative permission and source-fixity manifest |
+| IIIF manifest or tiled service | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | IIIF-specific permission, retained source, and reviewed rights manifest |
+| Preservation copy or derivative | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Preservation permission, retained source bytes, PREMIS/provenance record, and approved storage plan |
 
 No JPEG, thumbnail, AVIF, WebP, responsive derivative, or IIIF manifest is
 generated or committed by this corpus. A delivered upstream byte can be saved
 by a viewer; the interface therefore makes no download-prevention claim. It
 does make no download offer, uses no eager large-source load, and exposes the
-observed dimensions and byte counts.
+observed dimensions and byte counts ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json); [integration map](../machine/integration-map.json)).
 
 ## Display colophon
 
 > [Artist] / Magnum Photos, [title and place], [year]. © [artist]/Magnum Photos
 > 2022. All Rights Reserved. Wave-source historical proposal media.
 
-The colophon identifies the historical presentation. It makes no claim of
+The colophon identifies the historical presentation ([S38](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)). It makes no claim of
 download, full-resolution delivery, preservation, Collection status, or Museum
-copyright ownership.
+copyright ownership ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)).
