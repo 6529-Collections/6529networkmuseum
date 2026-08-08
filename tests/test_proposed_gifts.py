@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -66,6 +67,25 @@ class ProposedGiftValidationTests(unittest.TestCase):
         self.assertEqual(register["snapshot_at"], "2026-08-08T10:15:02.0167151Z")
         self.assertEqual(register["proposals"][0]["status"], "selected")
         self.assertEqual(register["proposals"][0]["wave_status"], "selected")
+        self.assertEqual(
+            proposal["resolution"]["later_required_events"],
+            [
+                "identity_verification",
+                "donor_authority",
+                "title_review",
+                "rights_review",
+                "technical_review",
+                "transfer",
+                "custody_receipt",
+                "formal_acceptance",
+                "preservation",
+                "accession",
+            ],
+        )
+        self.assertEqual(
+            register["proposals"][0]["collection_status_effect"],
+            "none_until_later_formal_acceptance_and_accession",
+        )
         self.assertIn(
             "Selected by Museum Wave; acquisition review in progress",
             amendment,
@@ -86,6 +106,16 @@ class ProposedGiftValidationTests(unittest.TestCase):
             "Collection membership",
         ):
             self.assertIn(boundary, amendment)
+        self.assertIn("schema status `selected` is a proposal-record layer", amendment)
+        self.assertIn("future WP-1 Work-entity lifecycle", amendment)
+
+        local_links = [
+            target.split("#", 1)[0]
+            for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", amendment)
+            if not target.startswith(("http://", "https://", "mailto:"))
+        ]
+        self.assertEqual(local_links, ["../wave-resolution.md"])
+        self.assertTrue((amendment_path.parent / local_links[0]).resolve().is_file())
 
         resolution = (self.proposal_path.parent / "public/wave-resolution.md").read_text(
             encoding="utf-8"

@@ -1628,8 +1628,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md",
-      "sha256": "sha256:838ebf9af966935b7a8a211fa5aa39a26033a140d113ab3f72afd1a87bf28f15",
-      "size": 2639
+      "sha256": "sha256:1d52b1382f12d4f61546aa78ab725529f3bae1308699387e160746b9b82a0430",
+      "size": 3013
     },
     {
       "byte_mode": "lf-normalized",
@@ -2817,8 +2817,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
-      "sha256": "sha256:65cf6b0119a7dce336626f154f34c3d47300fa4dea022ae0e877f41da93b412c",
-      "size": 17367
+      "sha256": "sha256:8fac091a97fe40a0b28703edc4f856b445bbfbed23024fc4e8b2219597d14441",
+      "size": 18533
     },
     {
       "byte_mode": "lf-normalized",
@@ -2858,9 +2858,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x74fcbc4e9ef9bf5e1ea4517d6d939e2746e645d7caddab6256157225e3a3f380"
+    "digest": "0x2d91ad6a6e1dcd8ad70fa42e1308fc949a6f69484ea5bda5d43ed54e1a9956ae"
   },
-  "manifest_sha256": "sha256:bf4eefac15b50417cf1d96fecf930f42e4730c9714b3ac9e0afba69125f73d74",
+  "manifest_sha256": "sha256:1172d670632aa268d25cf8777d3f39a3c2e89d1b22631c285dfd226b7b7c08e3",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
