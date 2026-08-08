@@ -2649,3 +2649,41 @@ asset acceptance awaits a versioned exact-identifier schedule; on-chain art
 packages require CAIP-19-shaped identity plus separate title, custody, and
 rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
 conversion of unsolicited non-approved assets.
+## 2026-08-08 WP-3 Magnum scholarship corpus
+
+WP-3 created the isolated `content/wp-3-magnum/` corpus for proposed gift
+`6529NM-PG-2026-001` and Curated Acquisition `6529NM-CA-2026-003`. It contains
+the Magnum Photos organization profile, Magnum Photos 75 project profile, five
+artist profiles, five public Work projections and essays, acquisition gateway,
+group essay, acquisition narrative, caption/evidence and chronology dossiers,
+source register, rights/technical/provenance record, media plan, and machine
+WP-1 admission drafts.
+
+The five public Work pages now use one visitor status line,
+`Proposed in the Museum Wave · Outside the permanent Collection.`, one concise
+Further research section, and a clean Source and rights colophon. They do not
+publish provisional Work IDs, raw lifecycle/collection tokens, evidence-class
+labels, machine-join/frontend directives, or repeated selection-status strings.
+Saman’s open research asks for safeguarding/consent/caption/restricted-identity
+documentation; identifying the child is not a public research goal.
+
+The exact historical Wave media URLs remain reference/embed-only proposal media
+with artist/Magnum credit, `All Rights Reserved`, and a Wave-source label. No
+repository derivative, download, full-resolution claim, IIIF, preservation copy,
+or Collection publication permission is inferred. The machine join maps each
+work to its Wave part, exact URL, token metadata, and source record.
+
+The strict decoded-byte UTF-8/no-mojibake check passes all 15 public pages; the
+local link inventory checks 121 links; all 39 source IDs resolve; and the four
+machine JSON drafts parse. WP-1 must assign acquisition-independent Work IDs,
+admit the organization/project/artists/works/Curated Acquisition/publications/
+media/relations as one release group, add the isolated root to the manifest, and
+bind the release to the reviewed commit. No shared schema or controlled
+vocabulary was changed. The 148-at-block observation and separate 149-issued
+research enumeration remain separate claims.
+
+Source PR #36 subsequently merged to exact main
+`ff26543908c5d1e1851e34b597b36ab13ff20849`; the WP-3 branch must fetch/rebase
+onto that main, preserve the policy/publication/ledger/index records, regenerate
+the release manifest, and rerun validation before its draft/ready PR. Do not
+adopt the unrelated replacement-policy draft outside this worktree.
