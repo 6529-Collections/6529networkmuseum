@@ -19,6 +19,7 @@ from proposed_gifts import (  # noqa: E402
     MAX_WAVE_PART_UTF8_BYTES,
     MAX_WAVE_STORM_MEDIA_FILES,
     MAX_WAVE_STORM_UTF16_CODE_UNITS,
+    _control_time,
     compose_voter_dossier,
     proposed_gift_issues,
     utf16_code_units,
@@ -283,10 +284,16 @@ class ProposedGiftValidationTests(unittest.TestCase):
 
         issues = self.issues_after(
             lambda loaded: loaded[self.proposal_path]["record_control"]["constructor"].__setitem__(
-                "constructed_at", "2026-08-08T10:15:02.0167151"
+                "constructed_at", "2026-08-08T10:15:02.016715"
             )
         )
         self.assertTrue(any("current constructor timestamp is missing or not timezone-aware" in issue for issue in issues), issues)
+
+    def test_control_time_accepts_seven_digit_aware_fractional_timestamp(self) -> None:
+        parsed = _control_time("2026-08-08T10:15:02.0167151Z")
+        self.assertIsNotNone(parsed)
+        assert parsed is not None
+        self.assertIsNotNone(parsed.utcoffset())
 
     def test_revision_lineage_snapshot_path_is_schema_optional_but_semantically_required(self) -> None:
         schema = json.loads(

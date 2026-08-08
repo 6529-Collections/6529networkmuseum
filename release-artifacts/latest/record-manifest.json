@@ -2259,8 +2259,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/proposed_gifts.py",
-      "sha256": "sha256:1b6cd1b7b9aad3bfa25db94a3edefec99f3b0f723ecebb0f7c22ec8e0d6f3ae1",
-      "size": 43710
+      "sha256": "sha256:3f1f65a75842bd6bce73543ef0333e5da1c080f1187f17e74677ca7014888b58",
+      "size": 43466
     },
     {
       "byte_mode": "lf-normalized",
@@ -2835,8 +2835,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
-      "sha256": "sha256:63e8a624559b2d770e8198ab126a7d25c0202ae4bf0dcd532b00eca4a90baf7d",
-      "size": 30259
+      "sha256": "sha256:f1f6e0cde157851d05187620c0df2ca94028c3efa9001b6f653293001e7fbadc",
+      "size": 30549
     },
     {
       "byte_mode": "lf-normalized",
@@ -2876,9 +2876,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x527a23c42b758dce594d16f9f2c873ff5bd3e86233df19773db83835af678677"
+    "digest": "0x904a7d40fa55701c70870e669d81e0c66ecd14fd499f56c7bb33bc136fe706e8"
   },
-  "manifest_sha256": "sha256:50cc3505de1705d4cb70d57d73cde9729d6201653b905d7dbbfddeb3a357d3e5",
+  "manifest_sha256": "sha256:fbad76a51c47bbfa9b769398225b20432d24b749de4c4ee158441678cbd52d00",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

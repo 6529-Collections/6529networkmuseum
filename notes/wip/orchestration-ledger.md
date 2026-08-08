@@ -2736,6 +2736,6 @@ the published v1 `$id` is not broken by a new required property. The generic
 semantic lineage validator requires a safe, existing path for every revised
 current view, and a revision-two record missing that path fails semantic
 validation. No schema-id bump is required for this additive declaration plus
-revision-two semantic invariant. At the time of this entry, the
-status-amendment PR remained draft and unmerged; the WP-3 scholarship PR
-remained separate.
+revision-two semantic invariant. Before ready-state review, the
+status-amendment PR was draft and unmerged; the WP-3 scholarship PR remained
+separate.

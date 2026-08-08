@@ -233,15 +233,8 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             issues.append(f"{relative_current}: amendment history count must equal current revision minus one")
             continue
         history_revisions = [item.get("revision") if isinstance(item, dict) else None for item in history]
-        if (
-            not all(isinstance(revision, int) for revision in history_revisions)
-            or len(history_revisions) != len(set(history_revisions))
-            or history_revisions != sorted(history_revisions)
-            or any(revision >= current_revision for revision in history_revisions if isinstance(revision, int))
-            or history_revisions != list(range(1, current_revision))
-        ):
+        if history_revisions != list(range(1, current_revision)):
             issues.append(f"{relative_current}: amendment history revisions must be unique, increasing, and prior to the current revision")
-        current_constructed_at = _control_time(control.get("constructor", {}).get("constructed_at") if isinstance(control.get("constructor"), dict) else None)
         for index, entry in enumerate(history):
             if not isinstance(entry, dict):
                 issues.append(f"{relative_current}: amendment-history entry {index + 1} is not an object")
@@ -275,6 +268,10 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             if not isinstance(snapshot, dict):
                 issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not a JSON object")
                 continue
+            # A snapshot is the exact prior payload, not a relocated live
+            # document. Its `$schema` value therefore remains an immutable
+            # identity token from that payload and is not rebased to the
+            # snapshot's storage directory.
             for identity_key in IDENTITY_DISCRIMINATORS:
                 if identity_key in current and (
                     identity_key not in snapshot or snapshot[identity_key] != current[identity_key]
