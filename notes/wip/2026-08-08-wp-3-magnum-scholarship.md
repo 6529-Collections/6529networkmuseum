@@ -70,8 +70,11 @@ and controlled vocabularies. No shared schema or vocabulary was changed here.
   section, and one source/rights colophon. No visitor-facing WP-1 placeholder,
   raw lifecycle/collection row, evidence-class label, machine-join directive,
   frontend instruction, or repeated selection-status footer remains.
-- Strict decoded-byte UTF-8/no-mojibake check passes for 15 public pages.
-- Local Markdown/JSON link inventory passes for 121 local links.
+- Strict decoded-byte UTF-8/no-mojibake check passes for 21 public Markdown
+  pages, including dossiers and the source register; README and `reviews/` are
+  intentionally control-plane exclusions.
+- Deterministic local Markdown/JSON reference check passes for 121 relative
+  links and 24 governed repository paths.
 - All 39 source IDs used by the corpus resolve in the source register.
 - Four machine JSON files parse successfully.
 

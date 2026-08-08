@@ -82,7 +82,7 @@ acceptance action.
 | Dossiers | `dossiers/` | Captions, evidence, chronologies, rights, technical, provenance, and media plan |
 | Sources | `sources/` | Claim-addressable bibliography and source register |
 | Machine drafts | `machine/` | Work projections, token/component schedule, media join, and WP-1 release admission contract |
-| Review | `reviews/` | Editorial checks, unresolved questions, and release boundary |
+| Review | `reviews/` | Recursive public UTF-8/no-mojibake scan, deterministic local-link/governed-path check, unresolved questions, and release boundary |
 
 The work entries are ordered chronologically for interpretation: Seymour
 (1952), Towell (1986), Bar-Am (1989), Saman (2011), and Meloni (2016). The
