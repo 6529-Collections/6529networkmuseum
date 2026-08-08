@@ -32,8 +32,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:d3e1d3424fd3bf3573c10e5ff1b474185d803982ab5752b4e949ee8346a56852",
-      "size": 5834
+      "sha256": "sha256:80d3c446fd49a530bd1fa0966d5812a0b1bb0fbfad9d5f3916aaa8342a0b2a64",
+      "size": 7112
     },
     {
       "byte_mode": "lf-normalized",
@@ -6142,8 +6142,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_stream_adapter_and_publication_catalog.py",
-      "sha256": "sha256:0cf0732cbdd91376854dc6578e68918e8c73191775fe7b11143a106919229688",
-      "size": 29282
+      "sha256": "sha256:1e3c6c1b0bf6acd45a561a87e1f8f165f5bff06f74ae33bfc808c460bd3c6f86",
+      "size": 29692
     }
   ],
   "hash_algorithms": {
@@ -6177,9 +6177,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x8d0de9f323c1f7497947ba30d732c132af998e834a40845cb18cf1abddd07322"
+    "digest": "0xd56aa34bd2375ca3488411fe6ec00f8e6713d9868b01fcf36187742da19661ad"
   },
-  "manifest_sha256": "sha256:e1329f2c53e6b5d7c8fdadd9f0ddad3a50f6059e0798290436a903a76977beb5",
+  "manifest_sha256": "sha256:1d7ee0774112b18152bd6e27ee7c21d3da9fbf4a09e60a24c89b103581ba6ff6",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

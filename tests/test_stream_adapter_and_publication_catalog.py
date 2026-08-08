@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -83,8 +84,17 @@ class StreamAdapterTests(unittest.TestCase):
         return temporary, root, commit
 
     def test_exact_pinned_stream_v2_source_and_authorization_caveat(self) -> None:
-        interface = subprocess.check_output(["git", "-C", "D:\\repos\\6529Stream", "show", f"{STREAM_SOURCE_COMMIT}:{STREAM_INTERFACE_PATH}"], text=True)
-        implementation = subprocess.check_output(["git", "-C", "D:\\repos\\6529Stream", "show", f"{STREAM_SOURCE_COMMIT}:{STREAM_IMPLEMENTATION_PATH}"], text=True)
+        stream_source_root = Path(os.environ.get("STREAM_SOURCE_ROOT", r"D:\repos\6529Stream"))
+        resolved_source_commit = subprocess.check_output(
+            ["git", "-C", str(stream_source_root), "rev-parse", f"{STREAM_SOURCE_COMMIT}^{{commit}}"], text=True
+        ).strip()
+        self.assertEqual(resolved_source_commit, STREAM_SOURCE_COMMIT)
+        interface = subprocess.check_output(
+            ["git", "-C", str(stream_source_root), "show", f"{STREAM_SOURCE_COMMIT}:{STREAM_INTERFACE_PATH}"], text=True
+        )
+        implementation = subprocess.check_output(
+            ["git", "-C", str(stream_source_root), "show", f"{STREAM_SOURCE_COMMIT}:{STREAM_IMPLEMENTATION_PATH}"], text=True
+        )
         self.assertIn("struct CollectionRecord", interface)
         self.assertIn('keccak256("6529stream.preservation-record.v2")', implementation)
         self.assertIn("_recordFamilyRegistry.requireRecordWriter", implementation)

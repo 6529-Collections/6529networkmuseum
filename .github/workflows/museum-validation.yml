@@ -17,12 +17,23 @@ jobs:
     name: focused-stream-catalog
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      STREAM_SOURCE_ROOT: ${{ github.workspace }}/upstream/6529Stream
     steps:
       - name: Check out reviewed revision
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
+
+      - name: Check out exact Stream v2 source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: 6529-Collections/6529Stream
+          ref: f610e04979bf9a8f4f48b31131e7e0e8f78bac43
+          path: upstream/6529Stream
+          persist-credentials: false
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
@@ -76,12 +87,23 @@ jobs:
     name: Museum validation
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      STREAM_SOURCE_ROOT: ${{ github.workspace }}/upstream/6529Stream
     steps:
       - name: Check out reviewed revision
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
+
+      - name: Check out exact Stream v2 source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: 6529-Collections/6529Stream
+          ref: f610e04979bf9a8f4f48b31131e7e0e8f78bac43
+          path: upstream/6529Stream
+          persist-credentials: false
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
@@ -136,6 +158,8 @@ jobs:
     name: deterministic-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
+    env:
+      STREAM_SOURCE_ROOT: ${{ github.workspace }}/upstream/6529Stream
     strategy:
       fail-fast: false
       matrix:
@@ -146,6 +170,15 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+
+      - name: Check out exact Stream v2 source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: 6529-Collections/6529Stream
+          ref: f610e04979bf9a8f4f48b31131e7e0e8f78bac43
+          path: upstream/6529Stream
+          persist-credentials: false
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.2.0
