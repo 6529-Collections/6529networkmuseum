@@ -113,11 +113,12 @@ record is to be manufactured to fill the integration gap.
 - Clean baseline before this correction pass: `37ac11f80bd990055cf42c3b9e09632c7cc3fd90`.
 - WP-1 target projection: `61ec035`; merge-base before migration:
   `c01af9f08778c77b823283f81a989cd5f5e24a95`.
-- Pre-rebase source base used for this correction pass:
-  `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`.
-- The local `origin/main` ref subsequently advanced to
-  `36ac78a1172327dab5ba55f7b8f96d6d45dc5d85` (status amendment PR #39,
-  parent `4821ea52`); this WP-3 branch remains unrebased and unpublished.
+- Actual WP-3 branch source base at this checkpoint:
+  `ff26543908c5d1e1851e34b597b36ab13ff20849` (PR #36); PR #37
+  `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8` and status amendment PR #39
+  `36ac78a1172327dab5ba55f7b8f96d6d45dc5d85` are later canonical main refs,
+  not yet in this branch. The current branch/main merge-base is `ff265439`;
+  this WP-3 branch remains unrebased and unpublished.
 - Exact correction boundary in this pass: `INDEX.md`, `content/wp-3-magnum/**`,
   and this WIP note; no shared schemas, controlled vocabularies,
   status-amendment worktree, merge, deployment, or publication were touched.
