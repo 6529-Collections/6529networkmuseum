@@ -2,7 +2,7 @@
 
 ## Scope
 
-WP-3 built an isolated museum-grade scholarship corpus for proposed gift
+WP-3 built an isolated museum-grade scholarship corpus for the selected gift
 `6529NM-PG-2026-001`, Curated Acquisition `6529NM-CA-2026-003`, and its five
 Magnum Photos 75 photographs. The corpus is proposal scholarship and public Work
 projection content. It is not an accession, object-record, title, custody,
@@ -14,8 +14,8 @@ acceptance, or permanent-Collection record.
   `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, `PARTICIPATORY`, rank
   1, realtime rating `122,969,240`, and 29 raters. The rating and rank are
   mutable observations; this observation is historical-only after the later
-  authenticated readback.
-- The canonical current authenticated readback at `2026-08-08T10:15:02.0167151Z`
+  signed-drop API readback.
+- The canonical current signed-drop API readback at `2026-08-08T10:15:02.0167151Z`
   reports the same signed drop as `WINNER`, rank `1`, realtime rating
   `121,603,214`, and 29 raters. The current public status is **Selected by
   Museum Wave; acquisition review in progress**. Formal acceptance, donor
@@ -27,14 +27,19 @@ acceptance, or permanent-Collection record.
   selected-review state with **Outside the permanent Collection**. Proposal
   `OBJ-001` through `OBJ-005`, token IDs, CAIP-19 values, archive numbers,
   components, and manifestations remain typed aliases and references.
-- The five works map to Wave parts 2–6 and to the exact already-published
-  upstream JPEG URLs in the signed proposal. Narrow reference/embed use in the
-  historical Wave presentation is documented with artist/Magnum credit, `All
-  Rights Reserved`, and a Wave-source label. No JPEG or responsive derivative is
+- The five works map to Wave parts 2–6 and to the exact historical public
+  Wave-upload URLs in the retained presentation record. The Arweave URLs remain
+  separate token-linked source-image references. Narrow reference/embed use in
+  the selected acquisition's Wave context is documented with artist/Magnum
+  credit, `All Rights Reserved`, and a Wave-source label. No authenticated
+  publication receipt or snapshot is retained in this WP-3 branch; no copyright
+  or broader reuse authority is inferred. No JPEG or responsive derivative is
   retained or generated; download, full-resolution delivery, derivative, IIIF,
   preservation, and Collection publication remain blocked. The machine join
-  now enforces exact allowlisted URLs, no runtime fallback or URL rewriting,
-  closed UI affordances, and non-identifying child alt text.
+  now enforces exact Wave-upload URLs, token-source separation, exact proposal
+  context, no runtime fallback or URL rewriting, closed UI affordances,
+  non-identifying child alt text, and the required Saman identity_inference
+  block.
 - The posted dossier’s 148 live-token observation at finalized block
   `25,690,178` and the separate research note’s 149 issued across two
   observable curations are preserved as different observation boundaries. The
@@ -82,7 +87,7 @@ controlled vocabularies. No shared schema or vocabulary was changed here.
 - Strict decoded-byte UTF-8/no-mojibake check passes for 21 public Markdown
   pages, including dossiers and the source register; README and `reviews/` are
   intentionally control-plane exclusions.
-- Deterministic local Markdown/JSON reference check passes for 131 relative
+- Deterministic local Markdown/JSON reference check passes for 121 relative
   links and 19 governed repository paths, plus 5 source-register paths and 6
   explicit staging paths.
 - Media-policy check passes for five exact Work/Media/Wave joins and fail-closed
@@ -91,6 +96,45 @@ controlled vocabularies. No shared schema or vocabulary was changed here.
   S41 AFP, S42 United Nations, S43 United States Department of State, and S44
   Micha Bar-Am Archive, resolve in the source register.
 - Four machine JSON files parse successfully.
+
+## Editorial audit disposition
+
+- The Curated Acquisition entity is now a concise facts/thesis/status gateway;
+  the acquisition narrative carries donor formation, mission fit, countercase,
+  and consequences of later acceptance; the long group essay carries the only
+  sustained comparative reading.
+- The group argument is selection-specific and testable: one first-curation
+  token (#44) and four second-curation tokens (#97, #104, #127, #145) form a
+  donor-created relation across two Magnum Photos 75 registers.
+- Every Work page leads with the exact historical Wave-upload image and a short
+  label, then
+  moves into object-specific looking, caption history, structured status/rights,
+  and one Further research section. Saman's safeguarding determination remains
+  in the object and rights apparatus; the group essay states one interpretive
+  consequence and does not pursue public identification.
+- Artist profiles now have distinct phase, book/exhibition, material, and
+  reception structures, with concise Selected Work sections and no repeated
+  object-caption or implementation language.
+- Visitor-facing manuscripts contain no WP-1, rebase, deployment, schema,
+  manifest, frontend, or machine-join narration. Those controls remain in the
+  handoff, dossier, and machine records.
+
+## Registrar media disposition
+
+- The corpus retains historical public Wave-upload URL evidence and recorded
+  credits/rights labels only. The exact signed API response is not retained as
+  a public-safe receipt or snapshot in this branch; no signed-state, copyright,
+  reproduction, or broader reuse authority is inferred.
+- The five Work joins distinguish the exact Wave-upload presentation URL from
+  the Arweave token-linked source-image URL. View and hero affordances are bound
+  to proposal `6529NM-PG-2026-001`, Curated Acquisition `6529NM-CA-2026-003`,
+  Wave `5f207393-5418-4a75-8738-e40edb44a94d`, and drop
+  `002bfa4f-8416-48bf-b35e-38f354e9a9f0`; outside-context use fails closed.
+- Saman's `identity_inference` block is required and mutation-tested. Public
+  alt text remains non-identifying; name, age, identity, consent, unpublished
+  location, and sensitive metadata are not inferred. Bar-Am alt text is likewise
+  mutation-tested against tear-gas inference and stays with visible smoke and
+  canister.
 
 ## Open correspondence and integration questions
 
@@ -122,3 +166,18 @@ record is to be manufactured to fill the integration gap.
 - Exact correction boundary in this pass: `INDEX.md`, `content/wp-3-magnum/**`,
   and this WIP note; no shared schemas, controlled vocabularies,
   status-amendment worktree, merge, deployment, or publication were touched.
+
+## 2026-08-08 substantive rewrite checkpoint
+
+- Rewrite parent checkpoint: `db5a39a9274f901c88b87f80aa68bc643aa65130`.
+- This local branch remains `codex/wp-3-magnum-scholarship`, unrebased and
+  unpublished. The rewrite separates the acquisition gateway, acquisition
+  narrative, comparative essay, artist profiles, and art-first Work pages.
+- The registrar correction distinguishes CloudFront Wave-upload presentation
+  media from Arweave token-source media, keeps the receipt field unretained
+  pending WP-1's public-safe receipt contract, and requires context-bound
+  display plus Saman/Bar-Am mutation guards.
+- The revised current-state wording is **Selected by Museum Wave; acquisition
+  review in progress**. Formal gift acceptance, donor authority, title/custody,
+  rights, technical, preservation, accession, and Collection steps remain later
+  review events.

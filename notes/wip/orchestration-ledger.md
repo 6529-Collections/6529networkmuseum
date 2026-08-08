@@ -2334,7 +2334,18 @@ source build. Required remaining gates are final manifest regeneration, both
 pull-request review cycles, exact-source frontend build and visual review,
 staging deployment and E2E, production deployment and E2E, and a release note
 to the Dev Team Chat subwave using the `punk6529bot` identity.
-## 2026-08-05 proposed gifts in the Museum Wave
+## 2026-08-05 proposed gifts in the Museum Wave [HISTORICAL / SUPERSEDED]
+
+> **Handoff marker:** This entry records the pre-selection proposal state and
+> its initial construction counts. The later authenticated 2026-08-08
+> `10:15:02.0167151Z` readback is the canonical current status observation:
+> **Selected by Museum Wave; acquisition review in progress**. The earlier
+> proposal wording and the initial 15-page / 121-link / 39-source inventory are
+> historical and superseded by the selected-acquisition corpus below; they are
+> retained here for append-only lineage.
+
+> Historical source-state line retained verbatim: “Status: proposed; not yet
+> submitted to the Museum Wave”.
 
 The first proposed-gift package uses the Museum Wave rather than a standing
 website gallery. One seven-part Storm holds the exact resolution, five
@@ -2650,7 +2661,6 @@ asset acceptance awaits a versioned exact-identifier schedule; on-chain art
 packages require CAIP-19-shaped identity plus separate title, custody, and
 rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
 conversion of unsolicited non-approved assets.
-
 ## 2026-08-08 Final pre-vote policy correction
 
 Punk6529's Wave authorization covered withdrawal and replacement with the
@@ -3209,7 +3219,15 @@ Program-media tests now cover withheld, one-width, missing, non-list, Boolean,
 duplicate, unordered, unsupported, and oversized policies. No public catalog,
 pointer, image delivery, mint, acquisition, accession, or Collection membership
 has been activated.
-## 2026-08-08 WP-3 Magnum scholarship corpus
+## 2026-08-08 WP-3 Magnum scholarship corpus [HISTORICAL / SUPERSEDED CONSTRUCTION ENTRY]
+
+> **Handoff marker:** This construction entry predates the current rewrite and
+> is retained for append-only lineage. Its proposed-gift wording and initial
+> page/link/source counts are historical; current status is the canonical
+> 10:15:02.0167151Z selected-review observation, and current corpus counts must
+> be taken from the validated files and regenerated manifest.
+
+The pre-branch green source-base check is [run 31252451827](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31252451827) against canonical main `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`.
 
 WP-3 created the isolated `content/wp-3-magnum/` corpus for proposed gift
 `6529NM-PG-2026-001` and Curated Acquisition `6529NM-CA-2026-003`. It contains

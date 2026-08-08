@@ -2,83 +2,71 @@
 
 ## Artist profile
 
-**Work in this proposal:** [*Patrolling the border between the Negev Desert and Jordan*](../works/01-david-seymour-127.md), 1952
+**Selected Work:** [*Patrolling the border between the Negev Desert and Jordan*](../works/01-david-seymour-127.md), 1952
 **Sources:** [S17–S19](../sources/source-register.md)
 
-David Szymin (1911–1956), known professionally as Chim, was born in Warsaw
-and trained in the photographic and graphic culture of interwar Europe. He
-worked for illustrated publications, covered the Spanish Civil War, and
-developed a humane, attentive form of reportage in which political history is
-carried by ordinary lives. After the Second World War he photographed
-reconstruction and children for UNICEF. His pictures of the emergence of
-Israel became a sustained body of work rather than a single assignment.[^1]
+David Szymin (1911–1956), known as Chim, came from the photographic and graphic
+culture of interwar Europe. His early work included the Spanish Civil War and
+the illustrated press. The pictures that established his later reputation hold
+political history close to ordinary life: a face, a family, a road, or a field
+can carry the pressure of a larger conflict without becoming an emblem that
+stands in for everyone.[^1]
 
-In 1947 Seymour joined Robert Capa, Henri Cartier-Bresson, and George Rodger in
-founding Magnum Photos. The cooperative gave photographers a collective
-structure for shaping the circulation and afterlife of their pictures. Chim’s
-role was both practical and symbolic: he brought a humanistic attention to
-children, displaced people, and postwar societies into an institution known for
-news, conflict, and authorial independence. After Capa’s death, Seymour became
-Magnum’s president, linking his own practice to the organization’s early
-governance.[^2]
+## From war reporting to humanist attention
 
-## Israel and the postwar image
+The Second World War changed the scale of Seymour's work. His postwar UNICEF
+photographs of children made care, displacement, and reconstruction part of the
+subject of reportage. The work's emotional force comes from attention rather
+than spectacle. Bodies remain situated in rooms, streets, and landscapes; the
+photograph asks the viewer to stay with a life as it is lived through history.
 
-The International Center of Photography’s account of Seymour’s Israel work
-places him in the country repeatedly from 1951 onward. He photographed the new
-state, settlers, public life, and the changing relationship between people and
-land. The photographs are historically alert without reducing their subjects
-to political emblems. A field of labour, a child, a soldier, or a border road
-can carry a national history while retaining the texture of a lived scene.[^3]
+That approach shaped his role in Magnum Photos. Seymour was among the four
+photographers named by Magnum's current institutional history as founders in
+1947, and he became the agency's president after Robert Capa's death.[^2] His
+importance to the cooperative rests in that conjunction of authorship and
+governance: the photographer's observation remains personal while the agency
+gives images a collective route through editing, publication, and archive.
 
-That practice is especially relevant to the Negev photographs. The desert is
-not an empty backdrop in Seymour’s work. It is a place shaped by settlement,
-mining, military demarcation, travel, and the imagination of a new country.
-The camera’s attention to terrain and posture makes political geography
-available through small visual decisions: where a person stands, what the body
-faces, and what remains outside the frame.
+## Israel as a sustained body of work
 
-Seymour’s postwar humanism also resists a simple division between “personal”
-and “historical” images. A photograph can be formally quiet and politically
-charged. The archive’s captions, publication sequences, and later exhibitions
-help viewers recognize that charge, while the image continues to ask what the
-caption leaves out. His work is therefore a strong historical precedent for a
-Museum that treats documentary photographs as authored objects and as records
-with incomplete histories.
+The International Center of Photography places Seymour in Israel repeatedly
+from 1951 onward. He photographed settlers, public life, labour, and the
+changing relationship between people and land. The work uses the country as a
+living field of social relations rather than a backdrop for a single national
+story. Terrain, posture, and small encounters carry the historical weight.[^3]
 
-## Practice and legacy
+His Israeli photographs are especially useful for thinking about the relation
+between a caption and a landscape. A road or border region can be named by an
+archive while the image offers only terrain, distance, and a person in relation
+to it. That gap is productive in Seymour's practice: humanist attention gives
+the viewer access to a world while preserving the subject's irreducibility.
 
-Seymour’s legacy sits within the larger history of postwar photojournalism:
-the growth of illustrated magazines, the moral authority granted to the
-humanist image, the economics of agency distribution, and the later museum and
-book afterlife of reportage. Magnum’s cooperative model helped photographers
-retain authorship and collective influence, but it did not remove the ethical
-problems of photographing war, poverty, migration, or state formation. Seymour’s
-work remains compelling because it combines proximity with restraint. It asks
-the viewer to see a person within history rather than using a person as a
-symbol that exhausts history.
+## Reception and material afterlife
 
-The public estate record adds another dimension to that legacy. It preserves
-images, filenames, and place descriptions that may not align one-for-one with
-Magnum’s archive identifiers. Such differences are part of the continuing
-research life of the work. They show that the historical photograph is carried
-by several custodial and descriptive systems, each with its own vocabulary.
+Seymour's work has been preserved through estate records, Magnum's archive, and
+museum exhibitions. ICP's *Chim: Photographs by David Seymour* treats the work
+as both postwar reportage and an authored photographic practice, with exhibition
+and catalogue materials that return to original publication and contact-sheet
+questions.[^3] The estate's public photo album provides another material layer:
+image files and place descriptions continue the work's afterlife while using a
+different descriptive vocabulary from the token and Magnum records.
 
-## Work in this proposal
+The continuing reception of Seymour depends on that layered form. A photograph
+can be a field image, a printed page, an exhibition object, an estate file, and
+a later digital manifestation. Each form reveals a different part of its
+history. The archive's work is to keep those forms in relation without treating
+their labels as interchangeable.
 
-The proposed work is the 1952 Negev photograph identified by the token and
-proposal as *Patrolling the border between the Negev Desert and Jordan*. The
-artist’s biography and Israel practice provide its historical setting; the
-object page carries the exact caption variants, visual description, archive
-number, token manifestation, and open crosswalk questions. The estate’s public
-record presents a visually matching frame under `PAR116258.jpg`.[^4]
+## Selected Work
 
-The proposal remains a public Wave record rather than an artist biography
-being treated as title or rights evidence. The image-specific rights notice,
-media source, and status are kept on the Work page and in the shared proposal
-records.
+The selected Work belongs to Seymour's early-1950s Israel practice. Its place in
+the group brings the founding generation of Magnum into contact with later
+photographers and with the project metadata's second-curation register. The
+object page carries the image-specific caption and archive evidence; this
+profile supplies the practice history that gives the 1952 frame its humanist
+and institutional setting.
 
 [^1]: Magnum Photos, David Seymour profile, source [S17](../sources/source-register.md).
 [^2]: Magnum institutional history and Seymour profile, sources [S01](../sources/source-register.md) and [S17](../sources/source-register.md).
 [^3]: International Center of Photography, Seymour biography and Israel context, source [S18](../sources/source-register.md).
-[^4]: David Seymour estate photo album and direct token metadata, sources [S19](../sources/source-register.md) and [S10](../sources/source-register.md).
+[^4]: David Seymour estate photo album, source [S19](../sources/source-register.md).

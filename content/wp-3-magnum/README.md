@@ -9,8 +9,8 @@ include this staging root.
 
 ## What this corpus is
 
-This corpus deepens proposed gift `6529NM-PG-2026-001` into the intellectual
-and evidentiary shape required for the Museum's current proposal publication
+This corpus deepens selected gift `6529NM-PG-2026-001` into the intellectual
+and evidentiary shape required for the Museum's current acquisition publication
 and for a later Museum publication after the subsequent acquisition gates are
 completed. Its working Curated Acquisition
 identity is `6529NM-CA-2026-003`, a stable content
@@ -29,7 +29,7 @@ The corpus supplies a typed handoff for the WP-1 public ontology:
   `selected_by_museum_wave_acquisition_review_in_progress` and collection
   membership `not_in_collection`. Proposal object IDs remain typed aliases.
 - **Curated Acquisition:** *Conflict at Its Edges*, the donor-formed,
-  proposed five-work unit.
+  selected five-work unit under acquisition review.
 - **Research Publications:** the institutional and project profiles, artist
   profiles, object entries, essays, chronologies, and evidence dossiers in
   this staging directory; final governed publication paths are assigned during
@@ -42,7 +42,7 @@ The corpus supplies a typed handoff for the WP-1 public ontology:
 ## Live status boundary
 
 The parent Museum Wave is the decision authority. The earlier read-only
-authenticated `punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json`
+signed-drop API readback from `punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json`
 observation on 2026-08-08 recorded:
 
 - title: *Conflict at Its Edges*;
@@ -55,12 +55,12 @@ observation on 2026-08-08 recorded:
 - observation time: `2026-08-08T09:06:07.985Z` UTC.
 
 The 09:06:07 observation is preserved as historical-only. The canonical current
-authenticated readback at `2026-08-08T10:15:02.0167151Z` records the same signed
+signed-drop API readback at `2026-08-08T10:15:02.0167151Z` records the same signed
 drop as `WINNER`, rating `121603214`, and `29` raters. Current public status is
-**Selected by Museum Wave; acquisition review in progress**. That status does
-not establish formal acceptance, donor authority, transfer, title, custody,
-rights clearance, technical or preservation completion, accession, or
-permanent-Collection membership. The five Work projections retain the typed
+**Selected by Museum Wave; acquisition review in progress**. Wave selection
+established curatorial approval. Formal gift acceptance, donor authority,
+transfer, title and custody, rights review, technical examination, preservation
+planning, accession and Collection entry will follow. The five Work projections retain the typed
 WP-1 lifecycle and `collection_membership: not_in_collection` fields.
 
 The source package remains the proposal's historical decision record:
@@ -75,7 +75,7 @@ acceptance action.
 
 | Layer | File or directory | Purpose |
 | --- | --- | --- |
-| Entity profiles | `entities/` | Magnum Photos, Magnum Photos 75, and the proposed Curated Acquisition |
+| Entity profiles | `entities/` | Magnum Photos, Magnum Photos 75, and the selected Curated Acquisition |
 | Artist profiles | `artists/` | Five practice-led profiles with exact-work placement |
 | Works | `works/` | Five public Work projections and substantial object essays |
 | Essays | `essays/` | Group essay and acquisition narrative |
@@ -98,7 +98,7 @@ Every substantial claim is written with one of the Museum's evidence classes:
   finalized block, transfer, owner, approval, or retrieved bytes;
 - **B — authoritative issuer, artist, estate, archive, institutional, or
   governance source:** Magnum, an artist archive, ICP, UNESCO, World Press
-  Photo, a signed Wave record, or an equivalent primary authority;
+  Photo, an authenticated Wave status record, or an equivalent primary authority;
 - **C — Museum technical observation:** checksum, dimensions, byte count,
   visual inspection, link integrity, or local editorial check;
 - **D — third-party historical source:** a reputable newspaper, book record,
@@ -116,18 +116,18 @@ they are not silently upgraded into Museum facts.
 ## Media and rights boundary
 
 The five token-linked image URLs were retrieved for exact visual inspection on
-2026-08-08. Their bytes were not added to this repository. The signed Wave
-Storm proposal already published those exact upstream URLs as its five work
-media items. The machine-readable join in
+2026-08-08. Their bytes were not added to this repository. The retained Wave
+Storm package records those exact upstream URLs as historical public
+presentation media for its five work items. The machine-readable join in
 `machine/wave-media-join.json` permits a frontend to reference or embed those
-historical proposal-display URLs in the proposal's Wave context only, with the
+historical public Wave presentation URLs in the proposal's Wave context only, with the
 artist/Magnum credit, `All Rights Reserved`, and an explicit `Wave-source`
 label. It does not promise download, full-resolution delivery, preservation,
 or a new derivative.
 
 No JPEG, AVIF, WebP, thumbnail, share card, IIIF manifest, tiled derivative,
 or responsive `srcset` is generated here. The issuer metadata for every object
-states `All Rights Reserved`; the historical Magnum terms do not establish a
+states `All Rights Reserved`; the retained public URL evidence carries no
 general Museum copyright or Collection-publication grant. Arweave persistence
 and a matching SHA-256 do not create permission. Future Collection pages,
 download links, IIIF, and preservation masters remain blocked pending written,
@@ -194,7 +194,7 @@ release group in the admission contract.
 
 ## What remains before accession-grade Collection publication
 
-The staged public Work projections and proposal scholarship are ready for review.
+The staged public Work projections and selected-acquisition scholarship are ready for review.
 For
 accession-grade Collection publication, the Museum still needs a live selection result,
 donor authority and legal-title instrument, a title binding to the exact
@@ -204,7 +204,7 @@ archive and caption correspondence, and second-person review. Corrections must
 be append-only amendments with `supersedes`; unresolved questions remain
 visible.
 
-No merge or deployment is authorized by this corpus. The eventual frontend
-should expose the proposed gift in its Wave context until those gates clear;
-it must not add the five works to permanent Collection counts or imply that one
-token represents an artist's oeuvre.
+No merge or deployment is authorized by this corpus. The eventual frontend can
+present the selected acquisition in its Wave context while formal review
+proceeds; Collection counts remain unchanged and one token does not represent
+an artist's oeuvre.

@@ -152,14 +152,15 @@
       "admit_as": "Media Reference",
       "page": "dossiers/source-and-rights-record.md",
       "machine_record": "machine/wave-media-join.json",
-      "scope": "historical_proposal_wave_media_only"
+      "scope": "historical_proposal_wave_media_only",
+      "receipt_binding": "WP-1 must bind the retained public-safe signed-drop receipt and per-part hashes after ontology merge; this staging branch has no receipt snapshot."
     }
   },
   "relations": [
     "Organization Magnum Photos publishes Project or Series Magnum Photos 75.",
-    "Project or Series Magnum Photos 75 has five proposed Work projections.",
+    "Project or Series Magnum Photos 75 contextualizes five selected Work projections.",
     "Each Work is created_by one of five admitted Artist entities.",
-    "Curated Acquisition 6529NM-CA-2026-003 proposes the exact five Works under Proposed Gift 6529NM-PG-2026-001.",
+    "Curated Acquisition 6529NM-CA-2026-003 is the selected five-Work acquisition under review, historically documented by Proposed Gift 6529NM-PG-2026-001.",
     "Each Work is manifested by a token component, token metadata component, upstream source-image component, and historical Wave media reference.",
     "Research Publications interpret and cite the Organization, Project, Artists, Works, Curated Acquisition, and Evidence Sources."
   ],

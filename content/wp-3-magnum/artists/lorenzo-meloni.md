@@ -2,62 +2,66 @@
 
 ## Artist profile
 
-**Work in this proposal:** [*Palmyra, Syria*](../works/05-lorenzo-meloni-104.md), 2016
-**Sources:** [S30–S32](../sources/source-register.md)
+**Selected Work:** [*Palmyra, Syria*](../works/05-lorenzo-meloni-104.md), 2016
+**Sources:** [S30–S32](../sources/source-register.md), [S41](../sources/source-register.md)
 
-Lorenzo Meloni’s photography treats conflict as a historical process. Magnum’s
-public profile describes his work across the Middle East and North Africa, a
-historicist approach, and his full membership in 2020.[^1] His projects follow
-the rise, territorial rule, fall, and aftermath of Islamic State across places
-whose histories exceed the immediate news cycle.
+Lorenzo Meloni treats conflict as a historical process. Magnum's profile
+describes a practice spanning the Middle East and North Africa, a historicist
+approach, and full membership in 2020.[^1] His work follows the rise,
+territorial rule, collapse, and aftermath of Islamic State across places whose
+history exceeds the news cycle.
 
-Meloni’s practice is attentive to recurrence. Ruins, found objects, fragments,
-and gestures can carry the memory of earlier violence into a later scene. The
-photograph is not simply an illustration of a battle. It is a piece of a longer
-history in which political actors rename places, rebuild them, restrict access,
-and use images to shape public memory.
+## The long project
 
-## A fragmented history of war
+*We Don't Say Goodbye* gathers a 2013–2019 body of work made in Iraq, Syria,
+and Libya. GOST describes a fragmented book in which photographs are interrupted
+by objects and writing found in war rubble; Meloni's project statement turns to
+repetition, historical loops, and the return of violence.[^2] The material
+choices matter. A found fragment can carry a political history without becoming
+an illustration; a sequence can move through time by recurrence rather than by
+campaign chronology.
 
-The publisher’s account of *We Don’t Say Goodbye* describes a 2013–2019 body of
-work in Iraq, Syria, and Libya. The book’s form moves through the rise, reign,
-fall, and immediate aftermath of Islamic State, interrupting sequences with
-objects and writing found in war rubble.[^2] Meloni’s stated interest in
-repetition and historical loops gives the work a structure different from a
-linear campaign report.
+That method is visible in the project associated with *The Collapse of the
+Caliphate*. The Visa pour l'Image material links Kobanî, Palmyra, Sirte, and
+Mosul in a cross-border history. Meloni's photographs treat cities as layered
+sites: an ancient monument, a contemporary battle, a ruined object, and a
+future memory can occupy the same frame's afterlife.[^2]
 
-His project history includes the cross-border work associated with “The Collapse
-of the Caliphate,” linking Kobanî, Palmyra, Sirte, and Mosul. The sequence makes
-the geography of conflict visible without reducing each city to the same story.
-Palmyra’s ancient site, its destruction, its recapture, and its later
-photographic afterlife enter the work as a cultural history as well as a
-military one.
+## Aftermath and controlled looking
 
-## Palmyra and managed looking
+Meloni's official *Kobane: The Aftermath* project records civilians rebuilding
+after destruction and returns to fragments, cultural loss, and the remains of
+political violence. The image-making is therefore attentive to what survives:
+walls, objects, gestures, and the distance between an event and its later
+image.[^1]
 
-UNESCO’s records establish Palmyra’s World Heritage significance, the
-destruction of the Temple of Bel on 30 August 2015, the site’s damage, and the
-control and demining conditions around the March 2016 recapture.[^3] TIME’s
-contemporary account reports that Meloni entered Palmyra with Syrian government
-permission and shadowed government forces; AFP’s contemporaneous eyewitness
-account describes an army minder, mines, and directed entry for journalists.[^3]
+Palmyra brings that practice into a site of extraordinary historical density.
+UNESCO records the heritage significance of the ancient city, the destruction
+of the Temple of Bel on 30 August 2015, and the damage and demining conditions
+following the March 2016 change of control. TIME reports Meloni's government-
+permissioned visit and shadowing of government forces; AFP describes an army
+minder, mine warnings, and directed entry for journalists.[^3] Access is part
+of the work's history because the route into the ruins shaped the available
+view.
 
-These conditions matter to Meloni’s practice because access is part of the
-photograph’s history. A permissioned route can open a place while also framing
-what can be seen and how the visit is narrated. The photograph can record
-aftermath without becoming either unmediated evidence or a simple statement of
-the escorting power. Meloni’s work holds that tension between historical
-attention and the politics of access.
+## Reception and the image's place in the practice
 
-## Work in this proposal
+Meloni's reception joins contemporary photojournalism, festival exhibition, and
+the photobook. *The Collapse of the Caliphate* gives the work a public exhibition
+history; *We Don't Say Goodbye* gives it a book form in which rubble and text
+interrupt the photographic sequence. The exact token-linked frame's page-level
+place in those publications remains an open catalogue question. That gap keeps
+the distinction between project relation and exact-frame inclusion visible.
 
-The proposed 2016 photograph is identified by the token and local proposal as
-*Palmyra, Syria*, archive `MEL2016002G0401/4032`, token #104, curation 2/3. The
-Work page carries the exact date and caption history, UNESCO chronology,
-managed-access context, and object record. This profile supplies the practice
-history that makes the image’s quiet aftermath legible without claiming its
-inclusion in a book or exhibition whose page-level crosswalk remains open.
+## Selected Work
 
-[^1]: Magnum Photos, Lorenzo Meloni profile, source [S30](../sources/source-register.md).
-[^2]: GOST Books, *We Don’t Say Goodbye*, and related project records, source [S30](../sources/source-register.md).
-[^3]: TIME, AFP, and UNESCO Palmyra records, sources [S31](../sources/source-register.md), [S32](../sources/source-register.md), and [S41](../sources/source-register.md).
+The selected Work is Meloni's 2016 Palmyra image and one of four photographs in
+the second-curation register of Magnum Photos 75. Its place in the donor-formed
+group carries the project from the archive's selection logic into the political
+conditions of photographing a damaged World Heritage site. The Work page holds
+the exact caption and access evidence; this profile supplies the longer history
+of Meloni's projects, books, exhibitions, and material attention to aftermath.
+
+[^1]: Magnum Photos, Lorenzo Meloni profile and *Kobane: The Aftermath*, source [S30](../sources/source-register.md).
+[^2]: GOST Books, *We Don't Say Goodbye*, and Visa pour l'Image project material, source [S30](../sources/source-register.md).
+[^3]: TIME, UNESCO, and AFP Palmyra records, sources [S31–S32](../sources/source-register.md) and [S41](../sources/source-register.md).

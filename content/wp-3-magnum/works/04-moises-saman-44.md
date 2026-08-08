@@ -1,96 +1,79 @@
 # Moisés Saman, *Tripoli, Libya*
 
+![Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg)
+
+*Short label: Tripoli, 2011 · Libya. Wave-source historical public media; the
+exact URL remains publicly available as historical Wave presentation evidence.*
+
+## Looking at the photograph
+
+The child's lowered head sits close to a light wall marked by numerous dark
+impacts. A caged lamp occupies the upper field. The wall flattens the room and
+the lamp supplies a small, repeated geometry that echoes the marks below. The
+frame is intimate in scale while its explanation reaches toward war reporting
+and an official account.
+
+The surface supplies evidence of an altered place. It cannot supply the cause
+of the damage by itself. The photograph's force comes from the distance between
+what can be seen—the wall, lamp, child, and marks—and what the caption asks the
+viewer to consider.
+
 ## Object record
 
-| Field | Museum proposal value |
+| Field | Record |
 | --- | --- |
-| Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
 | Public Work | `6529NM-W-0027` |
+| Proposal alias | `6529NM-PG-2026-001.OBJ-004` |
 | Artist | Moisés Saman |
+| Issuer artist label | `Moises Saman` |
 | Date / place | 2011; Tripoli, Libya |
 | Archive reference | `SAM2011005H2503/5482` |
 | Token manifestation | Ethereum ERC-721 token `44`; sequence `44/225`; curation `1/3`; edition `1 of 1` |
-| CAIP-19 | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44` |
-| Metadata / image | [metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) / [Wave-source image URL](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) |
-| Observed image | JPEG, 5,616 × 3,744 px; SHA-256 `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
-| Rights notice | `© Moisés Saman/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
-
-Exact identity and technical fields are drawn from the proposal package and
-token record. The checksum and visual description are technical observations;
-the image and token remain separate from any original negative, print, or
-copyright work.
+| Metadata | [Token metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) |
+| Token-linked source image | [Arweave source](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) |
+| Observed source image | JPEG, 5,616 × 3,744 px; SHA-256 `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
+| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection |
+| Credit / rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved |
+| Safeguarding / public display | Child-sensitive subject; public alt text remains non-identifying. Any restricted identity, consent, or safeguarding record stays in the appropriate research and rights channel. |
 
 ## Caption history
 
-- **Display name:** the public page uses **Moisés Saman**; the source package's
-  issuer label is preserved as **Moises Saman** in the source and machine records.
-- **Issuer/token caption:** a child stands beside impact marks on a
-  house wall on the eastern outskirts of Tripoli. Government officials said
-  western air strikes targeted civilian areas and injured one woman; the source
-  caption explicitly says the claim was impossible to verify.
-- **What the photograph shows:** a child lowers the head beside a light wall with
-  numerous dark marks; a caged lamp occupies the upper area. The photograph
-  does not identify the house, date, weapon, responsible actor, injured woman,
-  or child.
-- **Context:** Saman’s Libya work was made in a press environment
-  shaped by controlled access and danger to journalists. This explains why the
-  caption’s qualification matters; it does not prove the official account.
+The issuer caption places the scene on the eastern outskirts of Tripoli. One
+metadata passage says that the house was targeted by Western air strikes and
+that one woman was injured; it attributes that account to government officials
+and marks it impossible to verify. A separate caption passage says that minders
+showed evidence of strikes targeting civilian areas. These remain two attributed
+claims with separate source positions.[^1]
 
-## Essay: the caption that refuses proof
+The public description stays with visible facts: a child, a damaged wall, a
+caged lamp, and a lowered head. It gives no public name, age, biography, house
+identification, weapon attribution, or account of the child's later life. The
+source package's raw label is retained in the structured record while the
+display name uses **Moisés Saman**.
 
-The photograph’s force begins with proximity. The child’s lowered head and the
-wall’s many marks make a domestic scene feel both intimate and exposed. The
-caged lamp adds a practical, almost ordinary object, but its grid echoes the
-marks and makes the room’s explanation feel constructed. We see damage. We do
-not see its cause.
+## Historical context
 
-The issuer caption is unusually self-limiting. It records what officials said,
-identifies the claimed air-strike context, and then says that the claim was
-impossible to verify. That final sentence is not a footnote. It is part of the
-object’s evidence. The published caption says that the image
-shows a child beside impact marks; officials presented the house as evidence
-of western air strikes; and the claim was not verified in the source record.
-The qualification belongs to the caption itself.
+Saman's Libya work was made within a press environment shaped by state control,
+restricted routes, and danger to journalists. Magnum's print record and TIME's
+account describe the managed access around Tripoli; the Committee to Protect
+Journalists supplies the wider press-freedom context.[^2] Those conditions
+explain why the caption's qualification matters. They do not turn the official
+account into an established fact.
 
-The political setting makes this discipline more necessary. Contemporary
-accounts describe how journalists in Libya worked amid state pressure,
-restricted routes, and competing narratives.[^1] A managed visit can produce
-real evidence and a staged explanation at the same time. The published record
-holds both conditions together: access was controlled, while the official
-presentation remains a source-specific account rather than transparent truth.
+## Source and rights
 
-The child’s vulnerability is a second ethical limit. The public record reviewed
-does not name the child, state an age, document consent, or describe later life.
-The public record supplies no biography. The published page keeps the missing
-consent record visible where appropriate, avoids sensational description, and
-follows World Press Photo’s guidance on circumstances, attribution, and care for
-children as an editorial reference.[^2] That reference does not make a
-retroactive judgment on Saman; it guides responsible publication now.
-
-Within the five-work group, #44 provides a key. It shows that documentary
-photography can make a claim visible while preserving the impossibility of
-verification. The wall’s marks are evidence of an altered surface, not a
-complete account of the event. The child is present, but not available for an
-invented narrative. The officials’ statement is quoted, but not adopted. The
-photograph stands at the edge between testimony and proof.
-
-## Rights and source
-
-The proposal’s historical Wave presentation uses the [published source image
-URL](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) with the
-supplied artist/Magnum credit, `All Rights Reserved`, and Wave-source label.
-The [Source and rights record](../dossiers/source-and-rights-record.md)
-distinguishes that presentation from download, full-resolution delivery,
-derivatives, IIIF, preservation, and Collection publication.
+The [Source and rights record](../dossiers/source-and-rights-record.md) records
+the historical public Wave URL evidence, supplied credit, rights label, and proposal-only
+presentation. Future reproduction, download, derivative, preservation, and
+Collection uses require separate permission and safeguarding review.
 
 ## Further research
 
-The open record concerns the house and date, the source of the officials’
-account, field notes, safeguarding and consent documentation, caption history,
-assignment and publication history, and permissions for the token-linked file.
-Any sensitive identity information about the child remains restricted unless a
-future rights and safeguarding review establishes a responsible public form.
+Seek restricted records concerning the house and date, field notes, caption
+history, safeguarding and consent documentation, assignment and first
+publication, and permissions for the token-linked file. Sensitive identity
+information remains restricted unless a responsible public form is later
+established.
 
-[^1]: Reporting and press-freedom context, sources [S27–S28](../sources/source-register.md).
-[^2]: World Press Photo ethics and caption guidance, source [S35](../sources/source-register.md).
+[^1]: Direct token metadata, source [S13](../sources/source-register.md).
+[^2]: Magnum Photos print record and TIME report, source [S27](../sources/source-register.md); press-freedom context, source [S28](../sources/source-register.md).

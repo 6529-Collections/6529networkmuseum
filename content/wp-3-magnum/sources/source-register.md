@@ -128,8 +128,8 @@ copyright chain.
 | --- | ---: | --- | --- |
 | S10 | #127 | <https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM> | Seymour, Negev, 1952; archive `SED1952003W00003/23`; curation `2/3`; issuer title/caption; image pointer and fixity fields |
 | S11 | #145 | <https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ> | Towell, issuer spelling “Suchitito,” 1986; archive `TOL1986003W00045/26`; curation `2/3`; church and Guazapa caption |
-| S12 | #97 | <https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY> | Bar-Am, Jerusalem, 1989; archive `BAM1989009W02477/26C`; curation `2/3`; Women of the Wall/police-tear-gas caption |
-| S13 | #44 | <https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns> | Saman, Tripoli, 2011; archive `SAM2011005H2503/5482`; curation `1/3`; officials’ air-strike claim explicitly “impossible to verify” |
+| S12 | #97 | <https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY> | Bar-Am, Jerusalem, 1989; archive `BAM1989009W02477/26C`; curation `2/3`; Women of the Wall/smoke-and-canister caption |
+| S13 | #44 | <https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns> | Saman, Tripoli, 2011; archive `SAM2011005H2503/5482`; curation `1/3`; separate house-targeted and minder-evidence air-strike claims, with the officials’ account explicitly “impossible to verify” |
 | S14 | #104 | <https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0> | Meloni, Palmyra, 2016; archive `MEL2016002G0401/4032`; curation `2/3`; Temple of Bel caption |
 
 ### S15 — Contract source and implementation
@@ -312,7 +312,7 @@ copyright chain.
 
 - **Source:** UNESCO World Heritage Centre, Palmyra news and site records.
 - **URLs:** <https://whc.unesco.org/en/news/1341>,
-  <https://whc.unesco.org/en/list/22/>
+  <https://whc.unesco.org/en/list/23/>
 - **Type / class:** intergovernmental heritage record / B.
 - **Supports:** cultural significance, damage chronology, and the difference
   between the ancient site and the 2016 photograph.
@@ -320,18 +320,16 @@ copyright chain.
 
 ## Regional histories and caption ethics
 
-### S33 — El Salvador peace and truth-commission context
+### S33 — El Salvador peace-accord context
 
-- **Sources:** United Nations Peacemaker, El Salvador peace-agreement records;
-  United States Institute of Peace, *From Madness to Hope: The 12-Year War in
-  El Salvador*.
-- **URLs:** <https://peacemaker.un.org/el-salvador-peace-accords>,
-  <https://www.usip.org/sites/default/files/file/ElSalvador-Report.pdf>
-- **Type / class:** intergovernmental/official truth-commission publication / B.
-- **Supports:** civil-war chronology, peace process, and a restrained context
-  for the church/persecution caption.
+- **Source:** United Nations Peacemaker, El Salvador peace-agreement records.
+- **URL:** <https://peacemaker.un.org/el-salvador-peace-accords>
+- **Type / class:** intergovernmental peace-process record / B.
+- **Supports:** civil-war chronology and peace-process context for a restrained
+  reading of the church/persecution caption.
 - **Limit:** does not identify the church, soldiers, operation, or Towell's
-  assignment in #145.
+  assignment in #145; the issuer's Guazapa wording remains an attributed
+  caption, not a finding of this source.
 
 ### S34 — Western Wall / Women of the Wall history
 
@@ -372,8 +370,8 @@ copyright chain.
 
 ### S37 — Local proposal and governance evidence
 
-- **Sources:** repository proposal record, signed Wave package, voter dossier,
-  and live authenticated API readback.
+- **Sources:** repository proposal record, retained Wave package, voter dossier,
+  and live signed-drop API readback.
 - **Paths:**
   `records/proposed-gifts/6529NM-PG-2026-001/proposal.json`,
   `records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json`,
@@ -381,14 +379,14 @@ copyright chain.
 - **Live observation:** drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial
   `1276093`, `drop_type PARTICIPATORY`, observed by `punk6529bot` at
   `2026-08-08T09:06:07.985Z` UTC. This is historical-only after the later
-  authenticated readback.
-- **Canonical current observation:** the authenticated readback at
+  signed-drop API readback.
+- **Canonical current observation:** the signed-drop API readback at
   `2026-08-08T10:15:02.0167151Z` UTC reports the same drop as signed
   `WINNER`, rank `1`, realtime rating `121603214`, and `29` raters. Its public
-  status is **Selected by Museum Wave; acquisition review in progress**. The
-  observation does not establish formal acceptance, donor authority, transfer,
-  title, custody, rights clearance, technical or preservation completion,
-  accession, or Collection membership.
+  status is **Selected by Museum Wave; acquisition review in progress**. Wave
+  selection established curatorial approval. Formal gift acceptance, donor
+  authority, transfer, title and custody, rights review, technical examination,
+  preservation planning, accession and Collection entry will follow.
 - **Type / class:** Museum constructed proposal plus live governance source / A-B.
 - **Supports:** exact decision unit, five objects, proposal boundary, retained
   block observation, package fixity, media labels, and current status.
@@ -397,21 +395,23 @@ copyright chain.
   observation is the canonical current status observation; the 09:06:07
   observation is historical-only.
 
-### S38 — Signed Wave Storm historical presentation media
+### S38 — Historical public Wave presentation media
 
-- **Source:** the signed local Wave Storm package, whose work parts were
-  published to the 6529 Network Museum Wave on 6 August 2026.
+- **Source:** the retained local Wave Storm publication record, whose work
+  parts were published to the 6529 Network Museum Wave on 6 August 2026.
 - **Path:** `records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json`.
-- **Type / class:** signed proposal publication record / A-B.
-- **Supports:** the exact five already-published upstream JPEG URLs, their
-  work-part numbers, historical credit lines, and `All Rights Reserved`
-  labels. The URLs are reproduced in the machine join at
-  `content/wp-3-magnum/machine/wave-media-join.json`.
-- **Limit:** this record supports a narrow, labelled reference/embed in the
-  proposal's historical Wave context only. It is not written permission for
-  download, full-resolution distribution, Collection publication, IIIF,
-  derivatives, or Museum preservation. No new repository media is created by
-  this corpus.
+- **Type / class:** historical public publication record / B-C.
+- **Supports:** the exact Wave-upload URLs, work-part numbers, historical
+  credit lines, and `All Rights Reserved` labels reproduced in the machine join
+  at `content/wp-3-magnum/machine/wave-media-join.json`. The Arweave URLs are
+  retained separately there as token-linked source-image URLs.
+- **Exact Wave-upload URLs:** parts 2–6 are [#127](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg), [#145](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg), [#97](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg), [#44](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg), and [#104](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg).
+- **Limit:** this corpus retains historical public URL evidence and recorded
+  credits/rights labels; it does not retain an authenticated publication
+  receipt or snapshot for the five media URLs. The narrow reference/embed
+  disposition is limited to the selected acquisition's proposal Wave context;
+  no copyright, download, full-resolution, Collection-publication, IIIF,
+  derivative, or preservation authority is inferred.
 
 ### S39 — Independent institutional history of Magnum
 
@@ -465,7 +465,7 @@ copyright chain.
 - **Supports:** the date and terms of the 1949 General Armistice Agreement and
   its armistice-demarcation framework.
 - **Limit:** it does not identify Seymour’s location, patrol, assignment, or
-  the incident depicted in the proposed frame.
+  the incident depicted in the selected frame.
 
 ### S43 — United States Department of State 1952 border records
 

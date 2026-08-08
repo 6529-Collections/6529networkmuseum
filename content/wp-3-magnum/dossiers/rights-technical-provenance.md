@@ -6,7 +6,7 @@ This dossier records what the proposal package and public chain/metadata
 observations establish about the five token-linked manifestations. It keeps
 token identity, source-image identity, copyright, title, custody, display
 permission, and Museum accession as separate facts. The five photographs are
-public Work projections for the proposed gift; no accession or object record is
+public Work projections for the selected acquisition; no accession or object record is
 manufactured here.
 
 ## Technical identity schedule
@@ -89,7 +89,7 @@ Collection publication remain outside the current permission boundary.
 | Collection membership | `not_in_collection` |
 | Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` in the WP-1 committed projection; governed release admission remains pending |
 | Curated Acquisition | `6529NM-CA-2026-003` |
-| Proposed gift | `6529NM-PG-2026-001` |
+| Proposal record | `6529NM-PG-2026-001` |
 | Accession number | None |
 | Object record | None |
 | Title binding to Museum custody | None |
@@ -99,5 +99,6 @@ Collection publication remain outside the current permission boundary.
 
 Sources: proposal records and live technical boundary [S37](../sources/source-register.md),
 exact token metadata [S10–S14](../sources/source-register.md), contract and
-token observations [S15–S16](../sources/source-register.md), and signed proposal
+token observations [S15–S16](../sources/source-register.md), and the retained public
+proposal record
 media [S38](../sources/source-register.md).

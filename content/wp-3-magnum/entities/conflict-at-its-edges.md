@@ -1,129 +1,79 @@
 # Conflict at Its Edges
 
-## Five photographs of evidence and aftermath, 1952–2016
+## Curated Acquisition
 
-An armed figure watches a desert valley without a visible border. Two soldiers
-stand beneath a crucifix. A person runs through smoke at the Western Wall. A
-child lowers their head beside a wall marked by damage that an official account
-cannot verify. In Palmyra, a soldier hides his face behind a helmet among the
-rubble of a World Heritage site.
+*Conflict at Its Edges* is a selected five-work gift formed by punk6529 from
+five photographs published in Magnum Photos 75. The group follows documentary
+images across the Negev, El Salvador, Jerusalem, Libya, and Palmyra. Its
+curatorial proposition is precise: a photograph can make an event present while
+the decisive part of its explanation remains in a caption, an access history,
+an archive, or a source that has yet to be found.
 
-Together, these five photographs ask how pictures carry evidence when the event
-is partly outside the frame. Each image depends on a caption, an access
-condition, an archive number, and a history of looking. Each also leaves
-something unresolved: the person on patrol, the church and its soldiers, the
-demonstration’s precise event, the source of the damage in Tripoli, the route
-into Palmyra. The group’s title names that threshold—where a photograph is
-powerful enough to make a claim and careful enough to show what it cannot prove.
+| Field | Record |
+| --- | --- |
+| Curated Acquisition | `6529NM-CA-2026-003` |
+| Proposal record | `6529NM-PG-2026-001` |
+| Public credit | Offered by punk6529 |
+| Selection relation | Saman #44 is identified in the project metadata as curation `1/3`; Seymour #127, Towell #145, Bar-Am #97, and Meloni #104 as curation `2/3` |
+| Current status | Selected by Museum Wave; acquisition review in progress |
+| Collection status | Outside the permanent Collection |
 
-The five works are proposed as a single gift and presented in chronological
-order. Their relation is the Museum’s curatorial proposition, not a claim that
-Magnum Photos or either Magnum 75 curator formed this group.
+## The exact proposition
 
-## The visual sequence
+The donor-formed group brings two Magnum Photos 75 selection registers into one
+argument. Saman #44 carries the first-curation relation associated with
+Alejandro Cartagena; the other four carry the second-curation relation made in
+dialogue with Azu Nwagbogu. That split gives the selected gift a feature another
+five-image selection would not share: it places an image whose caption openly
+withholds verification beside four images selected within a later account of
+the archive's unresolved, “indecisive” moments. The group tests how those two
+selection histories change the reading of documentary evidence when they are
+held together by a donor rather than by either Magnum curator.[^2]
 
-| Year | Work | What the frame holds open |
+The claim can be checked against the project metadata, the captions, and future
+archive correspondence. A changed curation field, a stronger account of the
+donor's formation of the group, or a recovered Magnum crosswalk would change
+the interpretation. The selected gift keeps that test visible.
+
+## Five selected Works
+
+| Token | Artist | Work |
 | ---: | --- | --- |
-| 1952 | [David Seymour, *Patrolling the border between the Negev Desert and Jordan*](../works/01-david-seymour-127.md) | A rifle, a shelter, and a watchful body make a border felt without showing its line. |
-| 1986 | [Larry Towell, *Government soldiers in a church, Suchitoto, El Salvador*](../works/02-larry-towell-145.md) | Armed symmetry and sacred architecture coexist while the church, soldiers, and operation remain unnamed. |
-| 1989 | [Micha Bar-Am, *Demonstration, Western Wall, Jerusalem*](../works/03-micha-bar-am-97.md) | Smoke and movement register a contested public space without fixing the central person or exact event. |
-| 2011 | [Moisés Saman, *Tripoli, Libya*](../works/04-moises-saman-44.md) | A damaged wall becomes evidence and an official claim becomes explicitly provisional. |
-| 2016 | [Lorenzo Meloni, *Palmyra, Syria*](../works/05-lorenzo-meloni-104.md) | A hidden face and surviving columns hold a pause after destruction and recapture. |
+| 127 | David Seymour | [*Patrolling the border between the Negev Desert and Jordan*](../works/01-david-seymour-127.md) |
+| 145 | Larry Towell | [*Government soldiers in a church, Suchitoto, El Salvador*](../works/02-larry-towell-145.md) |
+| 97 | Micha Bar-Am | [*Demonstration, Western Wall, Jerusalem*](../works/03-micha-bar-am-97.md) |
+| 44 | Moisés Saman | [*Tripoli, Libya*](../works/04-moises-saman-44.md) |
+| 104 | Lorenzo Meloni | [*Palmyra, Syria*](../works/05-lorenzo-meloni-104.md) |
 
-The sequence moves through Negev, El Salvador, Jerusalem, Libya, and Syria.
-It moves from a landscape of surveillance to interiors and public sites where
-authority is staged, contested, or remembered. The photographers’ practices
-remain distinct. Seymour’s humanistic Israel work, Towell’s long Central
-American project, Bar-Am’s documentary and institutional career, Saman’s
-conflict reporting, and Meloni’s historicist study of aftermath give the group
-five different ways of approaching evidence.
+Each Work has its own caption history, archive reference, token manifestation,
+and research questions. The five pages carry the close looking; the [group
+essay](../essays/conflict-at-its-edges.md) develops the comparison.
 
-## The case for the acquisition
+## Why the acquisition matters
 
-The strongest reason to consider this group is its sustained attention to the
-conditions of documentary knowledge. These are not five interchangeable images
-of “conflict.” They offer five precise situations in which a photograph’s
-authority is made and tested:
+The selected unit gives the Museum a compact study in documentary authorship,
+caption authority, and networked circulation. It joins photographs made across
+four generations of Magnum practice to the public history of a 2022 blockchain
+edition. The mission fit comes from the encounter between visual culture and
+reproducible public research: each Work can be read as an image, a captioned
+publication, an archival lead, and a token-linked manifestation without
+collapsing those histories.
 
-- Seymour’s caption supplies the border that the terrain withholds.
-- Towell’s caption supplies wartime church history that the symmetrical room
-  cannot complete.
-- Bar-Am’s smoke makes the event’s urgency visible while obscuring its actors.
-- Saman’s caption records an official account and its own failure of
-  verification.
-- Meloni’s contemporary publication places a quiet gesture inside a managed
-  visit to a damaged monument.
+The same precision makes the review consequential. The public record still
+needs archive crosswalks, donor authority, title and custody evidence,
+component-specific rights, and a responsible account of the child pictured in
+Saman's work. Those questions define the terms of any later acceptance and
+preservation decision.
 
-The proposal also preserves a rare layered history of a contemporary networked
-publication. Each object has a token identity, archive reference, metadata
-pointer, source-image pointer, observed fixity, and project sequence. The
-photographs’ earlier histories remain active beside those technical records.
-The group would let the Museum show how an image travels from negative or print
-history into an agency archive, then into a blockchain-native edition and a
-public research record. That history is especially valuable because it resists
-the idea that a token replaces the photograph’s earlier life.
+## Public record
 
-The five works bring ethical questions into the acquisition itself. A child is
-pictured without a public consent record. A government account is qualified as
-unverified. A military escort and controlled access shape the Palmyra frame.
-Caption variants and archive suffixes remain visible. Rather than smoothing
-these conditions away, the proposal gives them a durable place in cataloguing,
-interpretation, and future correspondence. World Press Photo’s guidance on
-caption attribution, circumstances, consent, and vulnerable subjects offers a
-useful editorial benchmark for that work.[^1]
+Wave selection established curatorial approval. Formal gift acceptance, title
+and custody, rights review, technical examination, preservation planning,
+accession and Collection entry will follow. The exact historical public Wave
+URLs may be referenced in this proposal context with their supplied
+artist/Magnum credits, the `All Rights Reserved` label, and the **Wave-source
+historical proposal media** designation. The [Source and rights record](../dossiers/source-and-rights-record.md)
+sets out that narrow presentation boundary.
 
-## A fair countercase
-
-There are substantial reasons to defer a formal acquisition. The public record
-does not yet bind every archive number to a negative, contact sheet, first
-publication, or physical print. The five token records carry “All Rights
-Reserved” notices, while a complete Museum reproduction, preservation, and
-display grant has not been located. The token owner observed at the finalized
-block is a chain fact, not by itself a title instrument. A five-work unit formed
-by a donor may also be too heterogeneous to stand as a representative account
-of Magnum or any photographer’s oeuvre.
-
-These concerns are real. They argue for a careful acceptance process, not for
-pretending that the proposed works have already entered the Collection. The
-group can be evaluated on its exact scope: five identified photographic works
-and five related token manifestations, with an explicit research agenda and a
-rights plan. Acceptance would require donor authority, title binding, custody,
-condition, preservation, and component-specific permissions. The scholarship
-can proceed in parallel, with corrections recorded as amendments and the
-unresolved archive questions kept visible.
-
-The countercase also clarifies the value of the proposal’s present form. A
-public decision-facing page can show the art, the evidence, and the limits
-without converting uncertainty into a collection claim. In the current
-selected-review phase, the same record gives the next review a precise starting
-point; if the review later closes without formal acceptance, it remains a useful
-archival record of the proposed group.
-
-## The public proposal
-
-The signed Wave presentation places the five work URLs in a common proposal
-sequence. Those already-published sources carry their artist/Magnum credits,
-`All Rights Reserved`, and the label **Wave-source historical proposal media**.
-The [Source and rights record](../dossiers/source-and-rights-record.md) keeps
-that presentation history distinct from a download, full-resolution delivery,
-derivative, IIIF service, preservation master, or Collection publication.
-
-At present, *Conflict at Its Edges* is selected by the Museum Wave with
-acquisition review in progress, and remains outside the permanent Collection.[^2]
-
-**Public credit:** Offered by punk6529.
-**Curated Acquisition:** `6529NM-CA-2026-003`
-**Proposed Gift:** `6529NM-PG-2026-001`
-
-## Research notes
-
-The project’s institutional setting is [Magnum Photos](magnum-photos.md); its
-upstream publication history is [Magnum Photos 75](magnum-photos-75.md). The
-five artist profiles and object pages carry the individual caption histories,
-visual descriptions, contextual scholarship, and open correspondence. The
-[group essay](../essays/conflict-at-its-edges.md) develops the comparative
-reading at greater length. Rights, provenance, technical observations,
-chronologies, and media disposition are collected in the dossiers.
-
-[^1]: World Press Photo, caption requirements and code of ethics, source [S35](../sources/source-register.md). The guidance is an editorial reference for this publication.
-[^2]: Local proposal, signed Wave package, and live authenticated readback, source [S37](../sources/source-register.md). The proposal record preserves its process history; a Wave status does not itself create acceptance or accession.
+[^1]: Local proposed-gift and authenticated Wave records, source [S37](../sources/source-register.md).
+[^2]: Direct Magnum Photos 75 metadata and project records, sources [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).

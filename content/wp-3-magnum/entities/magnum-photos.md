@@ -15,9 +15,10 @@ a photographer-owned, self-selecting organization with Nominee, Associate, and
 full Member stages.[^1]
 
 That structure was a historical intervention in picture-agency economics. The
-photographer was not only a hired operator delivering negatives to an editor;
-the cooperative gave members a collective stake in the circulation and afterlife
-of pictures. The model supported long-form projects alongside news assignments,
+The older agency economy positioned the photographer as an operator delivering
+negatives to an editor. The cooperative gave members a collective stake in the
+circulation and afterlife of pictures. The model supported long-form projects
+alongside news assignments,
 books, exhibitions, prints, and editorial distribution. It also made authorship
 visible as an institutional value: a Magnum photograph could be a report, a
 personal essay, a historical document, or a work whose meaning changed as it
@@ -28,7 +29,7 @@ that travelled across Europe, Asia, Africa, the Americas, and the Middle East.
 Later members and correspondents extended that geography and expanded the
 range of subjects: landlessness, migration, revolution, war, domestic life,
 religious practice, cultural loss, and the ordinary experience of political
-change. The five photographers in this proposal make that generational breadth
+change. The five photographers in this selected acquisition make that generational breadth
 concrete. Seymour’s Israel work belongs to the founding period; Towell’s
 Central American projects represent a later long-form documentary practice;
 Bar-Am’s career joins military, newspaper, archive, and museum histories;
@@ -54,7 +55,7 @@ The archive is consequently more than a store of famous images. It is a field
 of relations: contact sheets, negatives, prints, captions, assignments,
 publication pages, books, exhibitions, rights records, and later digital
 manifestations. A single frame can acquire several catalogue identities without
-those identities being identical. The five proposed works show the problem in
+those identities being identical. The five selected Works show the problem in
 small, precise forms: an estate filename without a public Magnum crosswalk; a
 place name spelled differently by issuer and institution; an archive suffix
 that changes between artist and token records; a caption that preserves an
@@ -64,8 +65,8 @@ ruin within a controlled visit.
 Magnum’s archival power also carries ethical questions. Photojournalism has
 often depended on unequal access to people in crisis, military escorts, state
 permission, and editorial systems that can turn lived experience into a
-portable image. The cooperative’s authorial independence does not remove those
-conditions. It makes them available for scrutiny. Caption responsibility,
+portable image. The cooperative’s authorial independence leaves those
+conditions available for scrutiny. Caption responsibility,
 consent, vulnerable subjects, the description of unseen actions, and the
 distinction between observation and interpretation remain part of the work of
 looking.[^3]
@@ -81,17 +82,17 @@ URI, image URI, and marketplace presentation become part of the public record.
 The photograph remains older than the token. Its negative, print, publication,
 caption, and copyright history continue alongside the blockchain manifestation.
 
-This movement changes the question of agency rather than ending it. A public
+This movement changes the question of agency. A public
 token can make a historical image newly available to collectors while leaving
 the archive’s older asymmetries intact. It can give a work a durable locator
 while leaving rights, preservation, and title divided among different parties.
-The five proposed objects make those divisions visible enough to study: the
+The five selected Works make those divisions visible enough to study: the
 token record is technically exact in some respects and historically open in
 others.
 
-## Relation to this proposal
+## Relation to this acquisition
 
-The proposal’s five photographers are related to Magnum through different
+The selected acquisition’s five photographers are related to Magnum through different
 biographies and periods. The project name in the token metadata is evidence of
 institutional publication context. It is not evidence that Magnum Photos is
 the donor, that the five works form an official Magnum grouping, or that a
@@ -99,7 +100,7 @@ Magnum credit alone resolves the rights chain. The acquisition page presents
 the group as a Museum curatorial proposition and keeps the photographers’ own
 practices distinct.
 
-The current proposal is especially suited to Magnum’s archival questions
+The selected acquisition is especially suited to Magnum’s archival questions
 because it places a 1952 border image beside photographs of El Salvador,
 Jerusalem, Libya, and Palmyra. The group shows five ways that agency, access,
 caption, and aftermath shape documentary meaning. The organization profile
@@ -110,11 +111,12 @@ evidence.
 
 The five token records carry photographer/Magnum `All Rights Reserved` notices.
 The local proposal records token transfer as asserting no copyright or
-reproduction grant. The exact URLs already published in the signed Wave may be
-referenced in the proposal context with their supplied credits. See the
+reproduction grant. The exact historical public Wave URLs may be referenced in
+the proposal context with their supplied credits. See the
 [Source and rights record](../dossiers/source-and-rights-record.md). That narrow public
-reference does not establish a general licence for Collection publication,
-download, derivatives, IIIF, or preservation.
+reference is limited to the labelled proposal presentation; Collection
+publication, download, derivatives, IIIF, and preservation require separate
+permission and review.
 
 [^1]: Magnum Photos, institutional history, photographer profiles, and submissions page, sources [S01–S03](../sources/source-register.md).
 [^2]: Magnum photographer biographies and project records, sources [S03](../sources/source-register.md) and [S17–S32](../sources/source-register.md).

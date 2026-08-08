@@ -2,130 +2,98 @@
 
 ## When an archive becomes a networked edition
 
-Magnum Photos 75 asks what happens when a photographic archive is reorganized
-as a sequence of curatorial choices, token editions, and public network data.
-The project’s images are older than the blockchain, but their 2022 presentation
-gave each selected frame a new set of visible relations: a collection number,
-curation, token, metadata object, image pointer, edition language, and market
-history. The result is neither a simple digitization nor a replacement for the
-archive. It is a new publication layer in which selection and circulation
-become part of the work’s public history.[^1]
+Magnum Photos 75 reorganized a photographic archive through curatorial choice,
+serial tokens, metadata, and public network data. The photographs predate the
+blockchain by decades. Their 2022 publication gave each selected frame a new
+set of visible relations: collection number, curation, token, metadata object,
+image pointer, edition language, and transaction history.[^1]
 
-The project was announced during Magnum Photos’ seventy-fifth anniversary year.
-The official launch page framed the first collection as an archive selection
-curated by photographer and Obscura co-founder Alejandro Cartagena, released in
-six drops between 28 June and 12 July 2022.[^2] The direct token records describe
-a larger three-curation, 225-image project. A second selection was presented in
-dialogue with Azu Nwagbogu, founder and director of the African Artists’
-Foundation. Nwagbogu’s curatorial language turns away from the familiar
-“decisive moment” as a single authoritative instant and toward an “indecisive
-moment”: an image that holds anticipation, feeling, and several possible
-readings.[^3]
+That form carries an artistic question. Selection becomes part of an image's
+afterlife. The archive is encountered through a numbered edition whose technical
+precision sits beside older histories of negative, print, caption, and copyright.
+Magnum Photos 75 is therefore a project about circulation as well as image
+choice.
 
-That distinction gives the project an artistic argument. The archive is not
-only mined for iconic images. It is reread through selection. **The Museum
-interprets Cartagena’s first curation as foregrounding the formal and narrative
-endurance of historical frames**—a reading prompted by the launch page’s
-emphasis on the qualities that allowed archive images to endure, rather than an
-official label.[^4] Nwagbogu’s second makes unresolved meaning itself a
-selection principle. The five proposed works include one first-curation image
-and four second-curation images, while the Museum’s group is a separate
-proposition about documentary images that remain active at the edge of
-certainty.
+## Two curatorial registers
 
-## Five images, two curatorial registers
+The official launch page announced the first collection in Magnum's seventy-
+fifth-anniversary year. It described 76 images, six drops from 28 June to 12
+July 2022, and a selection by photographer and Obscura co-founder Alejandro
+Cartagena.[^2] The page also contains 75-image wording; the first-release
+count remains a publication discrepancy rather than a resolved total.
 
-The five target records move from Seymour’s 1952 Negev patrol to Meloni’s 2016
-Palmyra aftermath. Token #44 by Moisés Saman belongs to the first-curation
-context associated with Cartagena; #97, #104, #127, and #145 belong to the
-second-curation context encoded in their metadata. The sequence values are
-project metadata, not a chronology of image-making.
+The direct metadata identifies a three-curation, 225-image project. A second
+selection was presented in dialogue with Azu Nwagbogu, founder and director of
+the African Artists' Foundation. Nwagbogu's language turns from the familiar
+“decisive moment” toward an “indecisive moment”: an image holding anticipation,
+feeling, intent, and several possible readings.[^3]
 
-| Token | Work | Curation | Project question |
-| ---: | --- | --- | --- |
-| 127 | David Seymour, Negev, 1952 | 2/3 | How can a caption make a border present when the line is absent? |
-| 145 | Larry Towell, Suchitoto, 1986 | 2/3 | How does a formal interior hold an incomplete wartime account? |
-| 97 | Micha Bar-Am, Jerusalem, 1989 | 2/3 | What does smoke do to public evidence and event identity? |
-| 44 | Moisés Saman, Tripoli, 2011 | 1/3 | How can an image carry an official claim and its failed verification together? |
-| 104 | Lorenzo Meloni, Palmyra, 2016 | 2/3 | What does a controlled view of aftermath reveal about access and memory? |
+Cartagena's first curation foregrounds the formal and narrative endurance of
+historical frames. That reading follows the launch page's emphasis on the
+qualities that allow archive images to endure; it is a critical description of
+the page's stated rationale rather than a title assigned by the project.[^4]
+Nwagbogu's second register gives unresolved meaning a different selection
+principle. The two registers are useful precisely because they remain distinct.
 
-The second-curation idea is particularly resonant here. The images ask viewers
-to linger between caption and surface, between historical context and the
-limits of what a frame shows. The first-curation Saman image provides an
-important counterpoint: its caption itself declares the central official claim
-impossible to verify. The Museum’s comparative reading grows from the images’
-relations, while preserving the project’s own curatorial attributions.
+The selected acquisition contains one first-register token, Saman #44, and four
+second-register tokens: Seymour #127, Towell #145, Bar-Am #97, and Meloni #104.
+That distribution is a fact of the direct metadata. The donor's five-work group
+is a later relation across the registers, not an upstream Magnum sequence.
 
 ## Blockchain as publication form
 
-The project translated archive selection into a blockchain-native edition by
-linking each token to JSON metadata and an Arweave JPEG. The local object
-records preserve token IDs, CAIP-19 identities, archive numbers, sequence,
-curation, dimensions, checksums, and rights notices as separate fields. The
-contract and transfer history add a time-stamped circulation record. These
-layers allow a researcher to ask not only which image was selected, but how its
-selection was numbered, pointed to, traded, and described.
+Each target token links to JSON metadata and an Arweave JPEG through one reviewed
+Ethereum ERC-721 contract. The token number, sequence, curation, archive
+reference, metadata pointer, image pointer, and transfer history form a chain of
+publication facts. “1 of 1” describes the token edition. The older photograph
+continues to have other possible manifestations in estates, prints, books,
+exhibitions, and agency archives.
 
-The form also makes the boundaries of digital publication visible. “1 of 1”
-describes the token edition. The older photograph may have a negative, print,
-publication, or other digital manifestation. The Arweave pointer is a durable
-locator for the observed bytes; it is not a Museum preservation master. The
-metadata’s `All Rights Reserved` notice remains separate from any legal
-permission to download, reproduce, display, or create a derivative. In this
-way, the project’s technical precision and its unresolved rights history sit
-side by side rather than being forced into one category.
+The Arweave pointer identifies the observed source bytes at a URL. It gives the
+project a durable locator while leaving the questions of copyright, Museum
+display, and preservation in their own records. `All Rights Reserved` remains a
+rights notice in the issuer metadata; it is not a general permission for
+download, reproduction, or Collection publication.
 
 ## Publication record
 
-The public record contains several counts that describe different layers of
-the project. They are preserved together:
+The project record contains several counts, each describing a different layer:
 
-| Record | Observation | Reading |
+| Record | Observation | Significance |
 | --- | --- | --- |
-| Official launch | A first collection described with a 76-image formulation, six drops, and Cartagena’s selection | Announcement history; release completion requires a separate ledger |
+| Official launch | First collection described with 76 images, six drops, and Cartagena's selection | Announcement history; the page also uses 75-image wording |
 | Issuer metadata | Three curations and 225 images; target tokens carry sequence values within 225 | Project description and token-level metadata |
-| Foundation snapshot | The retained marketplace view displayed 148 items | Platform presentation, not a canonical mint count |
-| Chain enumeration | Research enumeration found 149 issued `mintBase` token records across two observable curations | Chain observation with its own scope and method |
+| Foundation snapshot | 148 items displayed in the retained marketplace view | Platform presentation, not a canonical mint count |
+| Chain enumeration | 149 issued `mintBase` token records across two observable curations | Time- and method-bounded chain observation |
 
-The posted dossier’s finalized-block statement remains: **148 live tokens at
-block `25,690,178`**. The research note’s statement also remains: **149 issued
-across two observable curations**. The two observations are not silently
-substituted for one another. A definitive issuer release ledger, the first-
-curation 75/76 discrepancy, and any public third curation remain open research
-questions.[^4]
+The posted dossier's finalized-block statement remains **148 live tokens at
+block `25,690,178`**. The research note's statement remains **149 issued across
+two observable curations**. Those observations have different scopes and are
+preserved together. A definitive issuer release ledger, the first-curation
+75/76 resolution, and a public third curation remain open research questions.
 
-## A project of selection and afterlife
+## Why the project matters to the selected acquisition
 
-Magnum Photos 75 is historically important because it makes an institution’s
-selection practice legible in a form built for network circulation. It brings
-an archive’s long temporal range into contact with blockchain’s serial logic.
-The project’s artistic question is therefore also institutional: what changes
-when an image’s afterlife is presented as a token, and what remains stubbornly
-outside that presentation?
+Magnum Photos 75 makes selection legible in a form built for network circulation.
+The selected *Conflict at Its Edges* group uses that legibility as a research
+condition: it joins one token from the first register to four from the second,
+then asks how captions, access histories, and archive variants behave when a
+donor forms a new five-work relation. The project profile supplies the
+publication history; the [Curated Acquisition page](conflict-at-its-edges.md)
+and [group essay](../essays/conflict-at-its-edges.md) make the donor-formed
+comparison explicit.
 
-For the five proposed works, the answer is the continuing force of caption,
-assignment, access, and rights history. Seymour’s Negev image still needs its
-estate/Magnum crosswalk. Towell’s Suchitoto spelling and church identity remain
-open. Bar-Am’s archive suffixes diverge. Saman’s official claim remains
-qualified. Meloni’s Palmyra frame remains inseparable from managed access and
-the site’s destruction chronology. The networked edition gives each a new
-locator; it does not close these older histories.
+## Rights and presentation
 
-## Technical and rights note
-
-The five tokens resolve through one reviewed Ethereum ERC-721 contract with
-Arweave metadata/image pointers. The local proposal records three transfer
-events per token and a finalized-block owner observation; the reviewed source
-shows administrative token-URI/base-URI mutability. Those are technical
-provenance facts. The project’s `All Rights Reserved` notices and the proposal’s
-separate no-reproduction-grant posture govern current Museum presentation. The
-already-published Wave URLs may be referenced in the proposal context with
-their supplied credits and rights labels; see the [Source and rights
-record](../dossiers/source-and-rights-record.md). Collection publication,
-download, full-resolution delivery, derivatives, IIIF, and preservation require
-later component-specific permission and review.
+The exact historical public Wave URLs may be referenced in the proposal context
+with their supplied artist/Magnum credits, `All Rights Reserved`, and
+**Wave-source historical proposal media** label. The [Source and
+rights record](../dossiers/source-and-rights-record.md) carries the complete
+presentation boundary. Collection publication, download, full-resolution
+delivery, derivatives, IIIF, and preservation require later component-specific
+permission and review.
 
 [^1]: Magnum Photos 75 project record and token metadata, sources [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^2]: Archived official Magnum launch page, source [S04](../sources/source-register.md).
 [^3]: Second-release reporting and issuer metadata, sources [S05](../sources/source-register.md), [S40](../sources/source-register.md), and [S10–S14](../sources/source-register.md).
-[^4]: The Museum’s reading of Cartagena’s first curation is grounded in the archived launch page, source [S04](../sources/source-register.md). Foundation snapshot, project chronology, and local proposal/governance records are sources [S06–S07](../sources/source-register.md) and [S37](../sources/source-register.md). The 148/149 reconciliation is retained as an observation-boundary note in the WP-3 research handoff.
+[^4]: The launch page's description of endurance supplies the basis for this reading, source [S04](../sources/source-register.md).

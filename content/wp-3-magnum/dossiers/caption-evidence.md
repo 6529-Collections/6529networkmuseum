@@ -3,12 +3,12 @@
 ## Purpose and method
 
 This dossier preserves the distinction between four kinds of record attached
-to each proposed photograph: the issuer's token caption, artist or institutional
+to each selected photograph: the issuer's token caption, artist or institutional
 catalogue records, direct visual observation of the published JPEG, and Museum
 interpretation. A caption is retained as a historical statement by its source;
 it is not silently converted into an independently verified event description.
 
-The five works are public Work projections for the proposal and are linked to
+The five works are public Work projections for the selected acquisition and are linked to
 their proposal object aliases in the machine records. The WP-1 target projection
 binds them to `6529NM-W-0024` through `6529NM-W-0028`; the governed release still
 controls final admission and manifest binding. The visitor-facing pages use a
@@ -61,7 +61,7 @@ sources S12 and S22–S25, S34.
 
 | Evidence layer | Record | Boundary |
 | --- | --- | --- |
-| Issuer/token caption | A child stands beside impact marks on a house wall on Tripoli’s eastern outskirts. Officials said western air strikes targeted civilian areas and injured one woman; the source caption states that the claim was impossible to verify. | The caption’s qualification is part of the object’s evidence. It does not identify the house, date, weapon, responsible actor, injured woman, or child. |
+| Issuer/token caption | One metadata passage says that Western air strikes targeted the house and injured one woman; it attributes the account to officials and states that the claim was impossible to verify. A separate caption passage says that minders showed evidence of strikes targeting civilian areas. | The two claims remain separately attributed. The caption’s qualification is part of the object’s evidence; no public identity, age, consent, house, weapon, responsible actor, or injured woman is supplied. |
 | Visible observation | A child lowers the head beside a light wall with dark marks; a caged lamp occupies the upper area. | No age, consent, biography, or later life is supplied by the reviewed public record. |
 | Contextual sources | TIME and CPJ document the pressure, danger, and controlled access surrounding reporting in Libya in 2011. | Context explains why the caption’s limitation matters; it does not authenticate the officials’ account or the cause of the marks. |
 | Museum interpretation | The image makes an altered surface visible while withholding its cause. The child’s vulnerability gives the uncertainty an ethical dimension: the record must not fill the gap with an invented biography. | Safeguarding language is a publication responsibility, not evidence of consent or a retroactive judgment on the photographer. |

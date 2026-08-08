@@ -2,67 +2,69 @@
 
 ## Artist profile
 
-**Work in this proposal:** [*Demonstration, Western Wall, Jerusalem*](../works/03-micha-bar-am-97.md), 1989
-**Sources:** [S22–S25](../sources/source-register.md), [S34](../sources/source-register.md)
+**Selected Work:** [*Demonstration, Western Wall, Jerusalem*](../works/03-micha-bar-am-97.md), 1989
+**Sources:** [S22–S25](../sources/source-register.md), [S34](../sources/source-register.md), [S44](../sources/source-register.md)
 
-Micha Bar-Am’s career joins documentary photography to the institutions and
-political histories of Israel. Magnum’s public biography identifies his birth
-in 1930, his 1948 service, work in the Sinai and during the Six-Day War, and his
-1968 status as a Magnum correspondent.[^1] He photographed military and public
-life while also building a long-term photographic record of the country and its
-neighbours.
+Micha Bar-Am's career is built across several kinds of photographic authority.
+He photographed war and public life, worked as a Magnum correspondent, helped
+build the International Center of Photography, and shaped museum practice in
+Israel. Magnum's biography records his 1948 service, work in the Sinai and
+during the Six-Day War, and 1968 correspondent status.[^1] These phases give his
+photographs a position inside the national histories they record and inside the
+institutions that later preserve them.
 
-Bar-Am’s significance extends beyond the making of individual images. He helped
-Cornell Capa establish the International Center of Photography and established
-the photography department at the Tel Aviv Museum of Art in 1977, serving as
-Senior Curator of Photography through 1992. The archive’s biography records his
-1993 Enrique Kavlin Lifetime Achievement Award as a separate event.[^1]
-These roles place him in a distinctive position within photographic history:
-he was a participant in events, a correspondent who shaped public narratives,
-an author of books and exhibitions, and a curator who helped determine how
-photographs would be preserved and seen.
+## From military experience to public history
 
-## Documentary practice and public history
+Bar-Am's early experience of military service and his later documentary work
+gave him access to events in which the camera is already part of public power.
+Newspaper circulation can make a frame immediate; an archive can make it
+durable; a museum can give it a new vocabulary. His practice moves through all
+three conditions. The result is a documentary form attentive to gestures,
+smoke, architecture, and crowds, with equal attention to the institutions that
+decide how those elements will be remembered.
 
-Bar-Am’s work is grounded in the tension between involvement and observation.
-Military experience can provide access and knowledge while also shaping what a
-photographer is able to see. Newspaper and agency circulation can make a frame
-public while compressing its circumstances. Museum work can preserve an image
-and give it a new historical vocabulary. Bar-Am’s career holds these positions
-together rather than keeping them in separate professional categories.
+The Western Wall is a particularly charged setting for that practice. A plaza
+can be a place of prayer, a site of national symbolism, and a stage for disputes
+over access and authority. Women of the Wall's public history describes a
+movement shaped by questions of women's prayer, religious authority, gender,
+and access to the Wall.[^2] That situated account gives the 1989 image social
+weight while leaving the exact day and central person to the photograph's own
+archive.
 
-That history makes his photographs of public space especially charged. A street,
-wall, plaza, or religious site can be a place of daily practice and a stage for
-conflicting claims about belonging. The camera records gestures, smoke,
-architecture, and crowd movement, but the archive must still locate the event,
-name participants responsibly, and preserve variant captions.
+## Institution-building and the archive
 
-## The Western Wall image in context
+Bar-Am helped Cornell Capa establish ICP. In Israel he established the Tel Aviv
+Museum of Art photography department in 1977 and served as Senior Curator of
+Photography through 1992. The Micha Bar-Am Archive dates his Enrique Kavlin
+Lifetime Achievement Award separately to 1993.[^3] The distinction matters to
+his biography: curatorial service and later recognition are different moments
+in a career devoted to photographic public life.
 
-The public history of Women of the Wall describes a movement shaped by disputes
-over women’s prayer, religious authority, gender, and access to the Western
-Wall.[^2] That participant history gives the proposed photograph a substantial
-social context without making the movement’s account a substitute for a
-scene-specific caption. The object’s date, central person, and exact event
-remain questions for the image’s archive and contemporaneous records.
+The archive's 2022 *The Last Photograph* materials continue that institutional
+afterlife. They present Bar-Am as an artist whose photographs, collections,
+exhibitions, and curatorial work belong to one extended history of seeing. The
+work's reception therefore includes the conditions under which a photograph is
+named, stored, exhibited, and compared across institutions.
 
-The artist archive, ICP, and Museum Wales each provide a related public record
-for the photograph.[^3] Their title and identifier variants show how an image
-travels between artist, museum, and later digital catalogues. The Bar-Am
-Archive’s suffix and the token metadata’s suffix are close but not yet
-explained; the older “Wailing Wall” terminology in the Museum Wales record is
-preserved as cataloguing history. Together they show how a public event is
-stabilized through successive acts of naming.
+## Catalogue variants as part of reception
 
-## Work in this proposal
+The selected Jerusalem image has related public records at the Bar-Am Archive,
+ICP, and Museum Wales. The archive uses `BAM1989009W02477-26`; the token record
+uses `/26C`; Museum Wales preserves the older title “Western Wall (Wailing
+Wall), Jerusalem.”[^4] These variants show how a public event is stabilized by
+successive acts of description. They belong to the work's reception history
+until correspondence explains their relation.
 
-The proposed 1989 photograph is identified by the token and local proposal as
-*Demonstration, Western Wall, Jerusalem*, archive `BAM1989009W02477/26C`, token
-#97, curation 2/3. The Work page carries the exact caption, visible smoke and
-movement, related archive records, and unresolved event questions. This profile
-places the image within Bar-Am’s combined history of documentary practice,
-institution-building, and public religious space.
+## Selected Work
 
-[^1]: Magnum Photos and Micha Bar-Am Archive biographies, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+The selected Work comes from Bar-Am's 1989 Jerusalem practice and the second
+curation of Magnum Photos 75. It brings his documentary attention to public
+space into contact with the institution-building history that shaped how such
+images are preserved. The Work page holds the smoke, caption, and identifier
+evidence; this profile follows the artist's movement between reportage,
+institution, and archive.
+
+[^1]: Magnum Photos, Micha Bar-Am profile, source [S22](../sources/source-register.md).
 [^2]: Women of the Wall public history, source [S34](../sources/source-register.md).
-[^3]: Micha Bar-Am Archive, ICP, and Museum Wales object records, sources [S23–S25](../sources/source-register.md).
+[^3]: Magnum Photos and Micha Bar-Am Archive biographies, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+[^4]: Micha Bar-Am Archive, ICP, and Museum Wales object records, sources [S23–S25](../sources/source-register.md).

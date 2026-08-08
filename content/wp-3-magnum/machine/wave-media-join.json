@@ -14,8 +14,11 @@
     "historical_only": true
   },
   "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
-  "source_label": "Wave-source historical proposal media",
-  "publication_boundary": "signed_wave_proposal_only",
+  "source_label": "Historical public Wave URL evidence",
+  "publication_boundary": "historical_public_wave_url_only",
+  "source_evidence_boundary": "historical_public_wave_url_evidence_only",
+  "authenticated_publication_receipt": null,
+  "authenticated_publication_receipt_sha256": null,
   "runtime_policy": {
     "source_url_policy": "exact_allowlisted_wave_media_url_only",
     "url_rewrite": "deny",
@@ -33,10 +36,10 @@
   },
   "display_policy": {
     "allowed": [
-      "Reference or embed the exact already-published URL in the active proposal's Wave context.",
+      "Reference or embed the exact historical public URL only in the proposal's Wave context.",
       "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and Wave-source label.",
       "Use the token-linked URL as a locator; do not represent it as a Museum-preserved file.",
-      "Offer view, hero, non-identifying alt text, open signed-Wave source, and copy-citation affordances only."
+      "Offer view, hero, non-identifying alt text, open historical public URL, and copy-citation affordances only."
     ],
     "blocked": [
       "Download or download affordance",
@@ -47,7 +50,7 @@
       "Collection publication, permanent Collection count, or accession display",
       "IIIF manifest, tiled service, or preservation-master claim"
     ],
-    "rights_basis": "Signed proposal publication record and its historical public URLs; not a general copyright, reproduction, preservation, or Collection-publication licence."
+    "rights_basis": "Historical public URL evidence with recorded credits and rights labels; no copyright, reproduction, preservation, or Collection-publication licence is inferred."
   },
   "works": [
     {
@@ -62,12 +65,21 @@
       "token_id": "127",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
       "token_metadata_url": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM",
-      "token_image_url": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
-      "wave_media_url": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+      "token_source_image_url": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+      "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
+      "wave_media_url_type": "historical_wave_drop_upload",
       "credit_line": "© David Seymour/Magnum Photos 2022 All Rights Reserved",
       "rights_label": "All Rights Reserved",
       "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_signed_wave_source", "copy_citation"],
+      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "presentation_context": {
+        "proposal_id": "6529NM-PG-2026-001",
+        "curated_acquisition_id": "6529NM-CA-2026-003",
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "scope": "historical_public_wave_proposal_context_only",
+        "outside_scope": "deny"
+      },
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -85,12 +97,21 @@
       "token_id": "145",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
       "token_metadata_url": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ",
-      "token_image_url": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
-      "wave_media_url": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+      "token_source_image_url": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+      "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg",
+      "wave_media_url_type": "historical_wave_drop_upload",
       "credit_line": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_signed_wave_source", "copy_citation"],
+      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "presentation_context": {
+        "proposal_id": "6529NM-PG-2026-001",
+        "curated_acquisition_id": "6529NM-CA-2026-003",
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "scope": "historical_public_wave_proposal_context_only",
+        "outside_scope": "deny"
+      },
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -108,14 +129,23 @@
       "token_id": "97",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
       "token_metadata_url": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY",
-      "token_image_url": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
-      "wave_media_url": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+      "token_source_image_url": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+      "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
+      "wave_media_url_type": "historical_wave_drop_upload",
       "credit_line": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_signed_wave_source", "copy_citation"],
+      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "presentation_context": {
+        "proposal_id": "6529NM-PG-2026-001",
+        "curated_acquisition_id": "6529NM-CA-2026-003",
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "scope": "historical_public_wave_proposal_context_only",
+        "outside_scope": "deny"
+      },
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
-      "alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
+      "alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
       "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-003"]
     },
@@ -132,17 +162,39 @@
       "token_id": "44",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
       "token_metadata_url": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns",
-      "token_image_url": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
-      "wave_media_url": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+      "token_source_image_url": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+      "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg",
+      "wave_media_url_type": "historical_wave_drop_upload",
       "credit_line": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_signed_wave_source", "copy_citation"],
+      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "presentation_context": {
+        "proposal_id": "6529NM-PG-2026-001",
+        "curated_acquisition_id": "6529NM-CA-2026-003",
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "scope": "historical_public_wave_proposal_context_only",
+        "outside_scope": "deny"
+      },
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master", "identity_inference"],
       "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
       "accessibility_subject_policy": "non_identifying_child_subject",
       "child_subject": true,
       "child_display_rule": "Do not identify the child or expose sensitive identity metadata; retain the public description at the visible-fact level.",
+      "identity_inference": {
+        "permitted": false,
+        "display_policy": "non_identifying_visible_facts_only",
+        "forbidden_inferences": [
+          "name",
+          "age",
+          "identity",
+          "consent",
+          "unpublished location",
+          "sensitive metadata"
+        ],
+        "restricted_research_scope": true
+      },
       "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-004"]
     },
     {
@@ -157,12 +209,21 @@
       "token_id": "104",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
       "token_metadata_url": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0",
-      "token_image_url": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
-      "wave_media_url": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+      "token_source_image_url": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+      "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg",
+      "wave_media_url_type": "historical_wave_drop_upload",
       "credit_line": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_signed_wave_source", "copy_citation"],
+      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "presentation_context": {
+        "proposal_id": "6529NM-PG-2026-001",
+        "curated_acquisition_id": "6529NM-CA-2026-003",
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "scope": "historical_public_wave_proposal_context_only",
+        "outside_scope": "deny"
+      },
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
