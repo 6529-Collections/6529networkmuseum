@@ -32,8 +32,32 @@ IMMUTABLE_RAW_BASE = "https://raw.githubusercontent.com/6529-Collections/6529net
 FULL_COMMIT = re.compile(r"^[0-9a-f]{40}$")
 SHA256_DIGEST = re.compile(r"^sha256:[0-9a-f]{64}$")
 KECCAK_DIGEST = re.compile(r"^0x[0-9a-f]{64}$")
-SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 MANIFEST_PATH = "release-artifacts/latest/record-manifest.json"
+MANIFEST_VERSION = "1.1.0"
+MANIFEST_INVENTORY_ROOTS = (
+    ".github",
+    "policies",
+    "records",
+    "schemas",
+    "docs",
+    "governance",
+    "media",
+    "specs",
+    "templates",
+    "scripts",
+    "tests",
+    "notes/research/generative-systems/casey-reas",
+)
+MANIFEST_INVENTORY_FILES = (
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "INDEX.md",
+    "README.md",
+    "RIGHTS.md",
+    "requirements-dev.txt",
+)
 MAX_STREAM_URI_BYTES = 2048
 MAX_STREAM_DIGEST_BYTES = 128
 FIXED_32_BYTE_ALGORITHMS = frozenset({1, 2, 3, 6})
@@ -279,8 +303,15 @@ def _manifest_bytes(path: str, raw: bytes) -> tuple[bytes, str]:
 def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
     if set(manifest) != MANIFEST_KEYS:
         raise StreamAdapterError("exact B manifest has an invalid root shape")
-    if manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST" or not isinstance(manifest.get("manifest_version"), str) or not SEMVER.fullmatch(manifest["manifest_version"]):
+    if (
+        manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST"
+        or manifest.get("manifest_version") != MANIFEST_VERSION
+    ):
         raise StreamAdapterError("exact B manifest has an invalid type or version")
+    if manifest.get("inventory_roots") != list(MANIFEST_INVENTORY_ROOTS):
+        raise StreamAdapterError("exact B manifest inventory root pin drifted")
+    if manifest.get("inventory_files") != list(MANIFEST_INVENTORY_FILES):
+        raise StreamAdapterError("exact B manifest inventory file pin drifted")
     hash_algorithms = manifest.get("hash_algorithms")
     if (
         not isinstance(hash_algorithms, dict)
@@ -797,6 +828,8 @@ def derive_collection_record_hash(
 def require_stream_admission(*, known_collection: bool, family_admitted: bool, writer_authorized: bool, authorization_class: int | None = None) -> int:
     """Model the v2 registry/collection/writer gate without claiming deployment."""
 
+    if type(known_collection) is not bool or type(family_admitted) is not bool or type(writer_authorized) is not bool:
+        raise StreamAdmissionError("Stream v2 admission evidence flags must be Boolean")
     if not known_collection:
         raise StreamAdmissionError("Stream v2 requires a known Core collection")
     if not family_admitted:

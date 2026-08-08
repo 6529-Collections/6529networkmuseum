@@ -32,6 +32,8 @@ from publication_catalog import (  # noqa: E402
     validate_pointer,
 )
 from stream_adapter import (  # noqa: E402
+    MANIFEST_INVENTORY_FILES,
+    MANIFEST_INVENTORY_ROOTS,
     MUSEUM_JCS_ID,
     STREAM_IMPLEMENTATION_PATH,
     STREAM_INTERFACE_PATH,
@@ -82,8 +84,8 @@ class StreamAdapterTests(unittest.TestCase):
         manifest_body = {
             "manifest_type": "6529NM_RECORD_MANIFEST",
             "manifest_version": "1.1.0",
-            "inventory_roots": [],
-            "inventory_files": [],
+            "inventory_roots": list(MANIFEST_INVENTORY_ROOTS),
+            "inventory_files": list(MANIFEST_INVENTORY_FILES),
             "hash_algorithms": {"keccak256": 1, "sha256": 2},
             "canonicalization": {"name": "RFC8785_JCS", "id": MUSEUM_JCS_ID, "profile": "museum-i-json-v1"},
             "entries": [{
@@ -276,6 +278,15 @@ class StreamAdapterTests(unittest.TestCase):
         def mutate_entry_shape(manifest: dict) -> None:
             manifest["entries"][0]["future"] = True
 
+        def mutate_manifest_version(manifest: dict) -> None:
+            manifest["manifest_version"] = "9.9.9"
+
+        def mutate_inventory_roots(manifest: dict) -> None:
+            manifest["inventory_roots"] = ["records"]
+
+        def mutate_inventory_files(manifest: dict) -> None:
+            manifest["inventory_files"] = None
+
         def mutate_entry_path(manifest: dict) -> None:
             manifest["entries"][0]["path"] = "records/entities/other.json"
 
@@ -296,6 +307,9 @@ class StreamAdapterTests(unittest.TestCase):
                 (mutate_manifest_root_shape, True),
                 (mutate_canonicalization_shape, True),
                 (mutate_entry_shape, True),
+                (mutate_manifest_version, True),
+                (mutate_inventory_roots, True),
+                (mutate_inventory_files, True),
             )
         )
         mutations.extend(((mutation, True) for mutation in (mutate_entry_path, mutate_entry_size, mutate_entry_mode, mutate_entry_sha)))
@@ -640,6 +654,16 @@ class StreamAdapterTests(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 require_stream_admission(**kwargs)
+        for field in ("known_collection", "family_admitted", "writer_authorized"):
+            kwargs = {
+                "known_collection": True,
+                "family_admitted": True,
+                "writer_authorized": True,
+                "authorization_class": 2,
+            }
+            kwargs[field] = 1
+            with self.assertRaises(ValueError):
+                require_stream_admission(**kwargs)
 
 
 class PublicationCatalogTests(unittest.TestCase):
@@ -775,7 +799,7 @@ class PublicationCatalogTests(unittest.TestCase):
             if relative.endswith(".json"):
                 entry["content_hash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(json.loads(data))).hex(), "canonicalizationId": self.JCS}
             entries.append(entry)
-        body = {"manifest_type": "6529NM_RECORD_MANIFEST", "manifest_version": "1.1.0", "inventory_roots": ["docs", "media", "records", "schemas", "scripts"], "inventory_files": [], "hash_algorithms": {"keccak256": 1, "sha256": 2}, "canonicalization": {"name": "RFC8785_JCS", "id": self.JCS, "profile": "museum-i-json-v1"}, "entries": entries}
+        body = {"manifest_type": "6529NM_RECORD_MANIFEST", "manifest_version": "1.1.0", "inventory_roots": list(MANIFEST_INVENTORY_ROOTS), "inventory_files": list(MANIFEST_INVENTORY_FILES), "hash_algorithms": {"keccak256": 1, "sha256": 2}, "canonicalization": {"name": "RFC8785_JCS", "id": self.JCS, "profile": "museum-i-json-v1"}, "entries": entries}
         canonical_body = canonicalize(body)
         body["manifest_commitment"] = {"algorithm": 1, "digest": "0x" + keccak256(canonical_body).hex(), "canonicalizationId": self.JCS}
         body["manifest_sha256"] = sha256_prefixed(canonical_body)
@@ -879,6 +903,9 @@ class PublicationCatalogTests(unittest.TestCase):
             "manifest root extra field": lambda manifest: manifest.update({"future": True}),
             "canonicalization extra field": lambda manifest: manifest["canonicalization"].update({"future": True}),
             "manifest entry extra field": lambda manifest: manifest["entries"][0].update({"future": True}),
+            "manifest version drift": lambda manifest: manifest.update({"manifest_version": "9.9.9"}),
+            "inventory root drift": lambda manifest: manifest.update({"inventory_roots": ["records"]}),
+            "inventory file type drift": lambda manifest: manifest.update({"inventory_files": None}),
             "JSON content algorithm": lambda manifest: next(
                 entry for entry in manifest["entries"] if entry["path"].endswith(".json")
             )["content_hash"].update({"algorithm": 2}),

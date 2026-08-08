@@ -23,6 +23,31 @@ from canonical import canonicalize
 REPOSITORY = "6529-Collections/6529networkmuseum"
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 MANIFEST_PATH = "release-artifacts/latest/record-manifest.json"
+MANIFEST_VERSION = "1.1.0"
+MANIFEST_INVENTORY_ROOTS = (
+    ".github",
+    "policies",
+    "records",
+    "schemas",
+    "docs",
+    "governance",
+    "media",
+    "specs",
+    "templates",
+    "scripts",
+    "tests",
+    "notes/research/generative-systems/casey-reas",
+)
+MANIFEST_INVENTORY_FILES = (
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "INDEX.md",
+    "README.md",
+    "RIGHTS.md",
+    "requirements-dev.txt",
+)
 PUBLICATION_INVENTORY_PATH = "schemas/public-publication-inventory.json"
 PUBLICATION_BUNDLE_PATH = "records/publication/visitor-corpus-bundle-v1.json"
 CATALOG_DIR = "release-artifacts/catalog"
@@ -231,8 +256,15 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
     }
     if set(manifest) != expected_manifest_keys:
         raise CatalogError("committed whole-release manifest has an invalid root shape")
-    if manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST" or not re.fullmatch(r"\d+\.\d+\.\d+", str(manifest.get("manifest_version"))):
+    if (
+        manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST"
+        or manifest.get("manifest_version") != MANIFEST_VERSION
+    ):
         raise CatalogError("committed whole-release manifest has an invalid type/version")
+    if manifest.get("inventory_roots") != list(MANIFEST_INVENTORY_ROOTS):
+        raise CatalogError("committed manifest inventory root pin drifted")
+    if manifest.get("inventory_files") != list(MANIFEST_INVENTORY_FILES):
+        raise CatalogError("committed manifest inventory file pin drifted")
     if manifest.get("hash_algorithms") != {"keccak256": 1, "sha256": 2}:
         raise CatalogError("committed manifest hash algorithm registry drifted")
     canonicalization = manifest.get("canonicalization")
