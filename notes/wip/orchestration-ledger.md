@@ -2605,6 +2605,7 @@ five photographs, complete source text, no horizontal overflow, and no console
 errors. No vote, transfer, selection, formal acceptance, or accession occurred.
 The proposal is now open for the Wave's TDH decision.
 
+
 ## 2026-08-07 Gift-specific TDH approval proposal publication
 
 After exact-text owner approval, `punk6529bot` published the signed one-part
@@ -2686,3 +2687,34 @@ The refreshed repository release manifest has SHA-256
 `sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d`
 and Keccak commitment
 `0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7`.
+## 2026-08-08 Keys and Gates WP-4 public corpus
+
+WP-4 is building an isolated public scholarship layer under
+records/programs/6529NM-AP-01/public/. The accepted editorial split is now in
+place: curated-acquisition.md is the concise art-led gateway and
+curatorial-essay.md is the deeper comparative Research Publication
+*Access, Control, and Exit*. The corpus covers all sixteen selected photographs,
+fifteen distinct artist profiles, deterministic WebP joins and accessibility
+text, source/bibliography/context records, and a public rights boundary.
+
+The visitor language remains “Selected through the Keys and Gates acquisition
+program; acquisition pending. Mint pending.” The Curated Acquisition ID is
+6529NM-CA-2026-002, while program 6529NM-AP-01 and source aliases OUT-001
+through OUT-016 remain distinct. The public layer does not claim mint, purchase,
+title, custody, effective rights, accession, or Collection membership. Detailed
+artist correspondence remains a registrar work-queue matter and is not exposed
+in the public tree.
+
+WP-4 did not modify shared schemas or controlled vocabularies. The
+publication-integration.md handoff records that WP-1 must assign independent
+Work and Artist IDs, retain OUT and handle aliases, admit the 15 Artists, 16
+Works, Curated Acquisition, Research Publication, Program, media references,
+and typed relations to the canonical release/manifest, and regenerate the
+release manifest after rebase. Source PR #36 was merged as
+ff26543908c5d1e1851e34b597b36ab13ff20849; WP-4 must rebase onto that exact
+main before its own publication PR and preserve the source policy/index/ledger
+records.
+
+Local checks currently pass: bootstrap validation, semantic validation, program
+media check (48 derivatives), strict UTF-8/no-mojibake check, public link/anchor
+inventory, and the 16-page media URL join check.
