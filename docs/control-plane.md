@@ -78,7 +78,8 @@ that need the whole repository or need to compare values:
   sRGB profile, and that no undeclared derivative is present.
 - `scripts/migrate_public_entities.py --check` verifies the deterministic
   Stream-shaped public projection: 119 `PUBLIC_ENTITY` records, 152 closed
-  `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`.
+  `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
+  (272 generated records in total).
   The graph gate covers 21 Artist entities, 2 Organization entities, 6
   Project/Series entities, 28 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
