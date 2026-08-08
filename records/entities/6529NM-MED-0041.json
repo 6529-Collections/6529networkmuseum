@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x22b43804ff4a0124aaffa9556a791fe3fe78e5b2aa462cb78ea05c008e59d4ec"
+      "digest": "0x4928040d210e06bda64657342d299fc0067f45ce1122238fad8199aac879b2c1"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9cfc7475d5fd0696002d2341d3c80448b5897cc8241f59a0ee3e3bb30454b078",
+    "payload_sha256": "sha256:1b80aa9ae6218379cbb2c8891dea9890c15f806ea9023f5bc7a0d2ad469c6625",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,8 +57,6 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -96,7 +94,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg"
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -116,19 +114,10 @@
           "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0025",
-        "token_source_fixity": {
-          "algorithm": "sha256",
-          "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes.",
-          "digest": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
-          "status": "verified",
-          "verified_at": "2026-08-06T13:19:30.726Z"
-        },
-        "token_source_locator": {
-          "repository_path": null,
-          "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE"
-        },
+        "token_source_fixity": null,
+        "token_source_locator": null,
         "transform_profile": null,
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",

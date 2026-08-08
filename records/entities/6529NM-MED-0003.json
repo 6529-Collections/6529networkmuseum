@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb59b9864af9d94fc54e9c7e87b30e461fb64e76b4fa621273a28a2f2285fdee8"
+      "digest": "0x0ff4167c2173769240b5ddf1de80093019a3ede67be9ac3faba54b6671f7a077"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:f06d0ec38223e3193cdd890b8640e957015514af149e6ae96820ad96df4303ac",
+    "payload_sha256": "sha256:0d45dc6bbfbfa19c0ee49d6fd05ca91835628da2fdd65ef4691111ef14ae7872",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,8 +57,6 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -96,7 +94,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg"
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -116,19 +114,10 @@
           "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0024",
-        "token_source_fixity": {
-          "algorithm": "sha256",
-          "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes.",
-          "digest": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
-          "status": "verified",
-          "verified_at": "2026-08-06T13:19:30.726Z"
-        },
-        "token_source_locator": {
-          "repository_path": null,
-          "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM"
-        },
+        "token_source_fixity": null,
+        "token_source_locator": null,
         "transform_profile": null,
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x254ab0919bbcf26534801af8fb00d87928088f6767252cbd26d03364a52d05d0"
+      "digest": "0x7a9f602e2f37806858b043bb6cd74f4f5969356d5e1f8de660b2dd32019e1f3d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:5642bc6c305bdb3f719344e9a2319b7dbf5a1b56fa5f66a8e448062497fe4ef9",
+    "payload_sha256": "sha256:b587c0eae1197a6b3a1872f8dab58ba48d83ede3f74fbc4a4265300511c1f753",
     "preferred_label": "Morning Glory Museum presentation derivative",
     "profile": {
       "media": {
@@ -59,13 +59,10 @@
           }
         ],
         "accessibility_publication_entity_id": null,
-        "accessibility_status": "provided",
+        "accessibility_status": "pending_review",
         "accessibility_subject_policy": "not_applicable",
-        "accessibility_text": "The camera looks upward through a dark, fluted circular structure toward a small opening of sky.",
+        "accessibility_text": "A dark fluted circular structure surrounds a small central opening; a rough concrete surface appears at lower right.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
-          "hero",
           "alt_text",
           "copy_citation"
         ],
@@ -105,8 +102,8 @@
           "status": "unknown"
         },
         "source_locator": {
-          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp",
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp"
+          "repository_path": null,
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -135,7 +132,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": null,
         "width": 640
       },

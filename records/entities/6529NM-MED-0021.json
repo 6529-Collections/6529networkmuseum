@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xeb119765ab5d63e891b2541ca4106be68c03760666f27a174a98ff6a4bcc9c18"
+      "digest": "0xb032da5fdf542619631922a8d5a5508289e726ef498accbf4c949c729753097d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:89ea3c387f5eff87e28b2642152f78ba89046daccdce57d2f927fd1f0a9cc898",
+    "payload_sha256": "sha256:3186c166c3a3e4032a38de8e8b7a262f48428a387660105323b5b9b9a03d2fc7",
     "preferred_label": "the Artist in teh Open Sea Museum presentation derivative",
     "profile": {
       "media": {
@@ -59,13 +59,10 @@
           }
         ],
         "accessibility_publication_entity_id": null,
-        "accessibility_status": "provided",
+        "accessibility_status": "pending_review",
         "accessibility_subject_policy": "not_applicable",
-        "accessibility_text": "An elevated night view of buses and blurred vehicles moving through a lit transit station bordered by trees.",
+        "accessibility_text": "An elevated daytime view shows buses and motion-blurred traffic on a roadway beside tree-lined bus stops.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
-          "hero",
           "alt_text",
           "copy_citation"
         ],
@@ -105,8 +102,8 @@
           "status": "unknown"
         },
         "source_locator": {
-          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp",
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp"
+          "repository_path": null,
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -135,7 +132,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": null,
         "width": 640
       },

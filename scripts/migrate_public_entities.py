@@ -46,6 +46,7 @@ LOGICAL_RECORD_BASE = "https://6529networkmuseum.org/records/"
 PUBLIC_ENTITY_SCHEMA = "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9"
 PUBLIC_RELATION_SCHEMA = "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de"
 WAVE_STATUS_SCHEMA = "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1"
+TYPED_REFERENCE_REGISTRY_ID = "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -346,6 +347,79 @@ def lifecycle_observation(observation_id: str, status: str, source_status: str, 
         "evidence_refs": evidence_refs or [source_evidence("Lifecycle source", ref, observed_at) for ref in refs],
         "notes": notes,
     }
+
+
+def authoritative_typed_reference(
+    reference_type: str,
+    record_id: str,
+    target_type: str,
+    evidence_refs: list[dict[str, Any]],
+    *,
+    source_status: str | None = None,
+) -> dict[str, Any]:
+    """Build a typed reference to one exact source record.
+
+    The target kind and target record type are intentionally carried in the
+    projection. The validator resolves the ID against the repository source
+    register and rejects a missing or type-mismatched record.
+    """
+
+    reference: dict[str, Any] = {
+        "reference_type": reference_type,
+        "record_id": record_id,
+        "source_record_id": record_id,
+        "target_kind": "authoritative_record",
+        "target_type": target_type,
+        "registry_id": None,
+        "evidence_refs": evidence_refs,
+    }
+    if source_status is not None:
+        reference["source_status"] = source_status
+    return reference
+
+
+def governed_typed_reference(
+    identity_inventory: dict[str, Any],
+    reference_type: str,
+    target_id: str,
+    source_record_id: str,
+    evidence_refs: list[dict[str, Any]],
+    *,
+    source_status: str | None = None,
+) -> dict[str, Any]:
+    """Build a typed reference from an exact governed registry row."""
+
+    rows = identity_inventory.get("typed_reference_registry")
+    if not isinstance(rows, list):
+        raise ValueError("public identity inventory is missing typed_reference_registry")
+    matches = [
+        row for row in rows
+        if isinstance(row, dict)
+        and row.get("registry_id") == TYPED_REFERENCE_REGISTRY_ID
+        and row.get("reference_type") == reference_type
+        and row.get("target_id") == target_id
+    ]
+    if len(matches) != 1:
+        raise ValueError(f"typed reference registry must contain exactly one {reference_type} target {target_id!r}")
+    target = matches[0]
+    if target.get("authoritative_record_id") != source_record_id:
+        raise ValueError(
+            f"typed reference registry target {target_id!r} is bound to "
+            f"{target.get('authoritative_record_id')!r}, not {source_record_id!r}"
+        )
+    reference: dict[str, Any] = {
+        "reference_type": reference_type,
+        "record_id": target_id,
+        "source_record_id": source_record_id,
+        "target_kind": "governed_typed_registry",
+        "target_type": target["target_type"],
+        "registry_id": TYPED_REFERENCE_REGISTRY_ID,
+        "caip19": target.get("caip19"),
+        "evidence_refs": evidence_refs,
+    }
+    if source_status is not None:
+        reference["source_status"] = source_status
+    return reference
 
 
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
@@ -746,7 +820,7 @@ def build_records(
             "mint_fact": fact("verified", CASEY_AT, [object_id], "The existing Work Description carries the token identity; minting remains a separate fact from accession."),
             "collection_membership": {"status": "permanent_collection", "collection_entity_id": collection, "accession_entity_ids": [accession], "source_record_ids": ["6529NM.2026.001", "6529NM-ACC-2026-001"], "evidence_refs": [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)]},
             "project_or_series_entity_ids": [project_id], "acquisition_entity_ids": ["6529NM-CA-2026-001"], "program_entity_ids": [gift_program], "accession_entity_ids": [accession], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "accessioned"), "accessioned", "accessioned", CASEY_AT, ["6529NM-ACC-2026-001", object_id], "The Work is admitted through the completed Casey accession; mint, rights, custody, and preservation remain independently recorded facts.")],
-            "component_references": [{"reference_type": "component", "record_id": object_id, "source_record_id": object_id, "evidence_refs": [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT)]}], "manifestation_references": [{"reference_type": "manifestation", "record_id": "6529NM.2026.001.VO-01", "source_record_id": "6529NM.2026.001.VO-01", "evidence_refs": [source_evidence("Visual observation", "6529NM.2026.001.VO-01", CASEY_AT)]}], "identity_boundary": "The public Work identity is separate from the accession lot, token, component record, manifestation, title, custody, and future acquisition relations.", "evidence_refs": [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT), evidence("Chain transfer receipt", "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json", CASEY_AT, "A"), source_evidence("Rights statement", rights_id, CASEY_AT), source_evidence("Condition report", condition_id, CASEY_AT)],
+            "component_references": [authoritative_typed_reference("component", object_id, "WORK_DESCRIPTION", [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT)])], "manifestation_references": [authoritative_typed_reference("manifestation", "6529NM.2026.001.VO-01", "VISUAL_OBSERVATION", [source_evidence("Visual observation", "6529NM.2026.001.VO-01", CASEY_AT)])], "identity_boundary": "The public Work identity is separate from the accession lot, token, component record, manifestation, title, custody, and future acquisition relations.", "evidence_refs": [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT), evidence("Chain transfer receipt", "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json", CASEY_AT, "A"), source_evidence("Rights statement", rights_id, CASEY_AT), source_evidence("Condition report", condition_id, CASEY_AT)],
         }, [object_id, "6529NM.2026.001", "6529NM-ACC-2026-001", rights_id, condition_id, "6529NM.2026.001.VO-01", project_id, accession, "6529NM-CA-2026-001", gift_program], [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT)], media_entity_ids=([media_retained, media_token, casey_media_ids_by_object[object_id]] if index == 0 else [casey_media_ids_by_object[object_id]]))
 
     add_entity(accession, "ACCESSION", "Casey Reas accession 6529NM.2026.001", None, None, CASEY_AT, {
@@ -789,7 +863,7 @@ def build_records(
         outcome_id = row["record_id"]
         keys_work_ids_by_outcome[outcome_id] = work_id
         add_entity(work_id, "WORK", row["title"], work_id, f"/museum/network/works/{work_id}", KEYS_AT, {
-            "profile_type": "WORK", "creator_entity_ids": [keys_artist_ids_by_outcome[outcome_id]], "title": row["title"], "creation_date": {"display": "not established", "status": "not_established", "earliest": None, "latest": None, "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)]}, "medium": "photographic submission; final technical and identity state unverified", "work_lifecycle_status": "selected_through_acquisition_program", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_through_acquisition_program", "as_of": KEYS_AT, "evidence_refs": [source_evidence("Keys and Gates selected-works index", outcome_id, KEYS_AT)]}, "mint_fact": fact("pending", KEYS_AT, [outcome_id], "The source outcome is selected_unminted; minting is an independent pending fact and does not establish acquisition or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": [outcome_id], "evidence_refs": [source_evidence("Selected outcome is not an accession", outcome_id, KEYS_AT)]}, "project_or_series_entity_ids": [], "acquisition_entity_ids": ["6529NM-CA-2026-002"], "program_entity_ids": [keys_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "selected_unminted"), "selected_through_acquisition_program", "selected_unminted", KEYS_AT, [outcome_id, keys_program_source], "The program selection remains a historical source outcome; minting, acquisition, accession, and Collection membership are independent facts.")], "component_references": [{"reference_type": "component", "record_id": outcome_id, "source_record_id": outcome_id, "source_status": "selected_unminted", "evidence_refs": [source_evidence("Selected outcome source", outcome_id, KEYS_AT)]}], "manifestation_references": [], "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.", "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)],
+            "profile_type": "WORK", "creator_entity_ids": [keys_artist_ids_by_outcome[outcome_id]], "title": row["title"], "creation_date": {"display": "not established", "status": "not_established", "earliest": None, "latest": None, "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)]}, "medium": "photographic submission; final technical and identity state unverified", "work_lifecycle_status": "selected_through_acquisition_program", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_through_acquisition_program", "as_of": KEYS_AT, "evidence_refs": [source_evidence("Keys and Gates selected-works index", outcome_id, KEYS_AT)]}, "mint_fact": fact("pending", KEYS_AT, [outcome_id], "The source outcome is selected_unminted; minting is an independent pending fact and does not establish acquisition or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": [outcome_id], "evidence_refs": [source_evidence("Selected outcome is not an accession", outcome_id, KEYS_AT)]}, "project_or_series_entity_ids": [], "acquisition_entity_ids": ["6529NM-CA-2026-002"], "program_entity_ids": [keys_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "selected_unminted"), "selected_through_acquisition_program", "selected_unminted", KEYS_AT, [outcome_id, keys_program_source], "The program selection remains a historical source outcome; minting, acquisition, accession, and Collection membership are independent facts.")], "component_references": [authoritative_typed_reference("component", outcome_id, "PROGRAM_OUTCOME", [source_evidence("Selected outcome source", outcome_id, KEYS_AT)], source_status="selected_unminted")], "manifestation_references": [], "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.", "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)],
         }, [outcome_id, keys_program_source, keys_program, "6529NM-CA-2026-002", keys_agent_ids_by_outcome[outcome_id]], [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)], media_entity_ids=[keys_media_ids_by_outcome[outcome_id]])
 
     proposal = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json")
@@ -827,8 +901,8 @@ def build_records(
             "profile_type": "ARTIST", "authority": {"authority_status": "source_label_only", "authority_record_ids": [agent_id], "evidence_refs": [source_evidence("Proposed gift artist label", "6529NM-PG-2026-001", PROPOSAL_AT)]}, "practice": {"summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography.", "areas": ["photography", "proposal work"], "evidence_refs": [source_evidence("Proposed gift artist label", "6529NM-PG-2026-001", PROPOSAL_AT)]}, "name_variants": names_with_source_label(obj["artist"], "proposal", ["6529NM-PG-2026-001"], PROPOSAL_AT),
         }, [agent_id, "6529NM-PG-2026-001", candidate_id], [source_evidence("Proposed gift artist label", "6529NM-PG-2026-001", PROPOSAL_AT)])
         add_entity(work_id, "WORK", obj["title"], work_id, f"/museum/network/works/{work_id}", WINNER_AT, {
-            "profile_type": "WORK", "creator_entity_ids": [artist_id], "title": obj["title"], "creation_date": {"display": str(obj["date"]), "status": "established", "earliest": f"{obj['date']}-01-01", "latest": f"{obj['date']}-12-31", "evidence_refs": [source_evidence("Proposed gift object", "6529NM-PG-2026-001", PROPOSAL_AT)]}, "medium": "photograph", "work_lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_by_museum_wave", "as_of": WINNER_AT, "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)]}, "mint_fact": fact("not_started", WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "The WINNER source status establishes Museum Wave selection and acquisition review only; it does not establish mint, payment, title, custody, rights, technical review, preservation, accession, or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "evidence_refs": [source_evidence("WINNER has no accession effect", WINNER_SOURCE_PATH, WINNER_AT)]}, "project_or_series_entity_ids": [magnum_project], "acquisition_entity_ids": ["6529NM-CA-2026-003"], "program_entity_ids": [gift_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "proposed_in_museum_wave"), "proposed_in_museum_wave", "PARTICIPATORY", PROPOSAL_AT, ["6529NM-PG-2026-001"], "The original published proposal observation is retained as history and is not rewritten.", [source_evidence("Original PARTICIPATORY proposal observation", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)]), lifecycle_observation(fixed_observation_id(work_id, "selected_by_museum_wave_acquisition_review_in_progress"), "selected_by_museum_wave_acquisition_review_in_progress", "WINNER", WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "Signed-drop API WINNER status readback changes the Museum relationship to selection under acquisition review only; the five Works remain outside the permanent Collection.", [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)])], "component_references": [], "manifestation_references": [{"reference_type": "manifestation", "record_id": f"{candidate_id}.TOKEN", "source_record_id": candidate_id, "source_status": "proposed", "caip19": f"eip155:1/erc721:{obj['contract']}/{obj['token_id']}", "evidence_refs": [source_evidence("Proposed ERC-721 manifestation reference", "6529NM-PG-2026-001", PROPOSAL_AT)]}], "identity_boundary": "Work identity is independent of the proposed acquisition, candidate object alias, chain identity, token manifestation, and any later accession.", "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Original proposal object", "6529NM-PG-2026-001", PROPOSAL_AT)],
-        }, ["6529NM-PG-2026-001", "6529NM-CA-2026-003", magnum_project, agent_id], [source_evidence("Proposed gift object", "6529NM-PG-2026-001", PROPOSAL_AT)], media_entity_ids=[magnum_media_ids_by_candidate[candidate_id]])
+            "profile_type": "WORK", "creator_entity_ids": [artist_id], "title": obj["title"], "creation_date": {"display": str(obj["date"]), "status": "established", "earliest": f"{obj['date']}-01-01", "latest": f"{obj['date']}-12-31", "evidence_refs": [source_evidence("Proposed gift object", "6529NM-PG-2026-001", PROPOSAL_AT)]}, "medium": "photograph", "work_lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_by_museum_wave", "as_of": WINNER_AT, "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)]}, "mint_fact": fact("not_started", WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "The WINNER source status establishes Museum Wave selection and acquisition review only; it does not establish mint, payment, title, custody, rights, technical review, preservation, accession, or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "evidence_refs": [source_evidence("WINNER has no accession effect", WINNER_SOURCE_PATH, WINNER_AT)]}, "project_or_series_entity_ids": [magnum_project], "acquisition_entity_ids": ["6529NM-CA-2026-003"], "program_entity_ids": [gift_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "proposed_in_museum_wave"), "proposed_in_museum_wave", "PARTICIPATORY", PROPOSAL_AT, ["6529NM-PG-2026-001"], "The original published proposal observation is retained as history and is not rewritten.", [source_evidence("Original PARTICIPATORY proposal observation", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)]), lifecycle_observation(fixed_observation_id(work_id, "selected_by_museum_wave_acquisition_review_in_progress"), "selected_by_museum_wave_acquisition_review_in_progress", "WINNER", WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "Signed-drop API WINNER status readback changes the Museum relationship to selection under acquisition review only; the five Works remain outside the permanent Collection.", [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)])], "component_references": [], "manifestation_references": [governed_typed_reference(identity_inventory, "manifestation", f"{candidate_id}.TOKEN", candidate_id, [source_evidence("Proposed ERC-721 manifestation reference", "6529NM-PG-2026-001", PROPOSAL_AT)], source_status="proposed")], "identity_boundary": "Work identity is independent of the proposed acquisition, candidate object alias, chain identity, token manifestation, and any later accession.", "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Original proposal object", "6529NM-PG-2026-001", PROPOSAL_AT)],
+        }, ["6529NM-PG-2026-001", candidate_id, "6529NM-CA-2026-003", magnum_project, agent_id], [source_evidence("Proposed gift object", "6529NM-PG-2026-001", PROPOSAL_AT)], media_entity_ids=[magnum_media_ids_by_candidate[candidate_id]])
 
     add_entity(magnum_project, "PROJECT_OR_SERIES", "Magnum Photos 75", slug_inventory[magnum_project]["public_slug"], slug_inventory[magnum_project]["canonical_route"], PROPOSAL_AT, {
         "profile_type": "PROJECT_OR_SERIES", "project_type": "series", "project_relation_basis": "proposal_work_set", "scope_statement": "Retained proposal evidence names Magnum Photos 75 as a 2022 anniversary-year release context drawn from the Magnum archive. This Project projection links the five Museum Works currently selected for acquisition review to that named context; it does not assert that the Museum owns, accepted, or catalogs the complete Magnum Photos 75 release.", "agent_entity_ids": [magnum_org, *magnum_artist_ids], "work_entity_ids": magnum_works, "ownership_boundary": "Magnum Photos 75 is a broader source project and tokenized release context, distinct from the Museum's Conflict at Its Edges Curated Acquisition and from each independent Work identity. Token manifestations and source media do not establish Museum title, custody, rights, or Collection membership.", "source_record_ids": ["6529NM-PG-2026-001", *magnum_work_source_ids], "evidence_refs": [source_evidence("Named Magnum Photos 75 project", "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md", PROPOSAL_AT), source_evidence("Five-work proposal set", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)],
@@ -894,13 +968,12 @@ def build_records(
         "publication_status": "historical_public_proposal_context",
     }
     first_receipt = wave_publication_by_candidate[signed_obj["candidate_object_id"]]
-    first_token_fixity = {"status": "verified", "algorithm": "sha256", "digest": signed_obj["image"]["sha256"], "verified_at": PROPOSAL_AT, "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes."}
     add_entity(media_wave, "MEDIA_REFERENCE", "Conflict at Its Edges historical Wave proposal presentation source", None, None, PROPOSAL_AT, media_profile(
         "historical_wave_proposal_presentation",
-        first_receipt["media_url"],
+        None,
         None,
         first_receipt["mime_type"],
-        True,
+        False,
         signed_obj["image"]["width"],
         signed_obj["image"]["height"],
         wave_media_by_candidate[signed_obj["candidate_object_id"]]["alt_text"],
@@ -912,12 +985,12 @@ def build_records(
         ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID],
         PROPOSAL_AT,
         {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection."},
-        ["view", "thumbnail", "alt_text", "open_wave_proposal_context", "copy_citation"],
+        ["alt_text", "open_wave_proposal_context", "copy_citation"],
         wave_proposal_context=wave_proposal_context,
         accessibility_subject_policy="non_identifying_sensitive_subject",
         publication_context_entity_ids=["6529NM-CA-2026-003"],
-        token_source_locator={"uri": signed_obj["image"]["uri"], "repository_path": None},
-        token_source_fixity=first_token_fixity,
+        token_source_locator=None,
+        token_source_fixity=None,
         rights_label=first_receipt["rights_label"],
     ), ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)])
     for signed_obj in proposal["objects"][1:]:
@@ -930,10 +1003,10 @@ def build_records(
             media_source_refs.append(MEDIA_DESCRIPTION_AMENDMENT_ID)
         add_entity(magnum_media_ids_by_candidate[signed_obj["candidate_object_id"]], "MEDIA_REFERENCE", f"{signed_obj['title']} historical Wave proposal presentation source", None, None, PROPOSAL_AT, media_profile(
             "historical_wave_proposal_presentation",
-            receipt["media_url"],
+            None,
             None,
             receipt["mime_type"],
-            True,
+            False,
             signed_obj["image"]["width"],
             signed_obj["image"]["height"],
             accessibility_text,
@@ -945,13 +1018,13 @@ def build_records(
             media_source_refs,
             PROPOSAL_AT,
             {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection."},
-            ["view", "thumbnail", "alt_text", "open_wave_proposal_context", "copy_citation"],
+            ["alt_text", "open_wave_proposal_context", "copy_citation"],
             wave_proposal_context=wave_proposal_context,
             accessibility_subject_policy="non_identifying_child_subject" if "child" in wave_media.get("alt_text", "").casefold() else "non_identifying_sensitive_subject",
             identity_inference_prohibition={"status": "prohibited", "scope": "subject_identity", "reason": "Do not infer or publish the identity of a child subject from this historical proposal image."} if "child" in wave_media.get("alt_text", "").casefold() else None,
             publication_context_entity_ids=["6529NM-CA-2026-003"],
-            token_source_locator={"uri": signed_obj["image"]["uri"], "repository_path": None},
-            token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": signed_obj["image"]["sha256"], "verified_at": PROPOSAL_AT, "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes."},
+            token_source_locator=None,
+            token_source_fixity=None,
             rights_label=receipt["rights_label"],
         ), [*media_source_refs, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)])
     width = 1600
@@ -968,14 +1041,14 @@ def build_records(
         derivative_path_value = derivative["repository_path"]
         add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{outcome['title']} Museum presentation derivative", None, None, KEYS_AT, media_profile(
             "museum_generated_public_derivative",
-            derivative["url"],
-            derivative_path_value,
+            None,
+            None,
             derivative["mime_type"],
-            True,
+            False,
             derivative["width"],
             derivative["height"],
             item["presentation"]["alt_text"],
-            "provided",
+            "pending_review",
             keys_work_ids_by_outcome[outcome_id],
             f"{outcome['artist']} — {outcome['title']}; Keys and Gates program presentation",
             "unknown",
@@ -983,7 +1056,7 @@ def build_records(
             [outcome_id, keys_program_source],
             KEYS_AT,
             {"status": "verified", "algorithm": "sha256", "digest": derivative["sha256"], "verified_at": KEYS_AT, "basis": "The governed Keys and Gates media manifest records the retrieved derivative bytes and digest."},
-            ["view", "thumbnail", "hero", "alt_text", "copy_citation"],
+            ["alt_text", "copy_citation"],
             transform=manifest["transform"]["profile"],
         ), [outcome_id, keys_program_source], [source_evidence("Keys and Gates presentation derivative", derivative_path_value, KEYS_AT)])
 
@@ -997,6 +1070,16 @@ def build_records(
     for candidate_id in magnum_work_source_ids:
         work_id = magnum_work_ids_by_candidate[candidate_id]
         add_relation(f"6529NM-REL-{relation_number:04d}", "ARTIST_CREATES_WORK", magnum_artist_ids_by_candidate[candidate_id], work_id, {"role": "creator"}, PROPOSAL_AT, [candidate_id], [source_evidence("Proposed artist creator", "6529NM-PG-2026-001", PROPOSAL_AT)])
+        relation_number += 1
+    for project_name, project_id in projects.items():
+        project_objects = [obj for obj in casey_objects if obj.get("project", {}).get("name") == project_name]
+        project_source_ids = [obj["record_id"] for obj in project_objects] or ["6529NM.2026.001"]
+        add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", casey_artist, project_id, {"role": "creator"}, CASEY_AT, project_source_ids, [source_evidence("Casey project agent source", project_source_ids[0], CASEY_AT)])
+        relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", magnum_org, magnum_project, {"role": "originator"}, PROPOSAL_AT, ["6529NM-PG-2026-001"], [source_evidence("Magnum project origin source", "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md", PROPOSAL_AT)])
+    relation_number += 1
+    for candidate_id in magnum_work_source_ids:
+        add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", magnum_artist_ids_by_candidate[candidate_id], magnum_project, {"role": "creator"}, PROPOSAL_AT, [candidate_id], [source_evidence("Magnum project artist source", "6529NM-PG-2026-001", PROPOSAL_AT)])
         relation_number += 1
     for project_name, project_id in projects.items():
         for obj in [item for item in casey_objects if item.get("project", {}).get("name") == project_name]:
@@ -1079,7 +1162,7 @@ def build_records(
         media["source_observation"]["evidence_refs"] = wave_source_evidence
         if obj["candidate_object_id"] == "6529NM-PG-2026-001.OBJ-003":
             media["accessibility_evidence_refs"] = [
-                evidence("Museum direct visual observation of visible smoke and canister", media["source_locator"]["uri"], DIRECT_VISUAL_AT, "C")
+                source_evidence("Museum direct visual observation recorded in the media-description amendment", MEDIA_DESCRIPTION_AMENDMENT_ID, DIRECT_VISUAL_AT)
             ]
         else:
             media["accessibility_evidence_refs"] = [source_evidence("Historical Wave presentation accessibility source", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT)]

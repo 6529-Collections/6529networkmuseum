@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0542d436066c091a4d3e35b68673720ab9560ba37c4d6231b8a0b3bdf50b6264"
+      "digest": "0x77be6c75e593a40bd3c070f4f8150f84c45fba30054b112e2db5ac1482aa8314"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:9637648db339410da8107841368deae59359e0372e845972806205959925ddea",
+    "payload_sha256": "sha256:8ea32faa2713d06565540f98a9fc77bc55e8e8d25f3dfca3508f99b012592deb",
     "preferred_label": "Sina Beizavi in Brazil",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-011",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-011",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

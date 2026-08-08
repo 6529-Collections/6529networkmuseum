@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbdac68ad0968f9bba05aa5a40d6fdb6a47bf1ca1e2c8206f39dc76dc2672260f"
+      "digest": "0x92975caa82b7703398cfc3ec5c74f0396ef17456d469ad91a3f626315928ca03"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a8a3f81e6b298395098bf1631665d6c0f2cdb5ff7cef9e78fd2988672243c5bf",
+    "payload_sha256": "sha256:6cfea26bd90d68dfa5eccc24015457e1d8af65702e3dbfe5f70e4dfecf2a95ba",
     "preferred_label": "Checkpoint",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-010",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-010",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

@@ -615,6 +615,50 @@
                               {
                                   "relation_id":  "6529NM-REL-0153",
                                   "source_key":  "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION|6529NM-AP-ENT-0001|6529NM-CA-2026-003"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0154",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0001|6529NM-PRJ-0001"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0155",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0001|6529NM-PRJ-0002"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0156",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0001|6529NM-PRJ-0003"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0157",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0001|6529NM-PRJ-0004"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0158",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0001|6529NM-PRJ-0005"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0159",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ORG-0002|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0160",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0017|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0161",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0018|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0162",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0019|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0163",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0020|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0164",
+                                  "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0021|6529NM-PRJ-0006"
                               }
                           ]
 }

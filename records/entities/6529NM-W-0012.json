@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1dccc2562cae200a37ab2730ba74f02e0e3c01a401046274f10a29c1ebe0551f"
+      "digest": "0xce742ea46015df6fe00ec879b96090090cb39a5ccbdcab0ebde8d46686a19917"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ac4776bfb8c5e4b75c92d319b940a76b6c700576b7e4bb2bd0c97ab95568a9b4",
+    "payload_sha256": "sha256:189591e7a053bc74110b7f22ef4e3f4628877e59c6bb959fd57fa83d0ba510da",
     "preferred_label": "Residual Barrier",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-005",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-005",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9ec93594492db539c52fc4faed74c47ef562bda667ee461fa3dd7e4d3d897f09"
+      "digest": "0xdc702e0c23d05134debb2ff5dabd57e268e7c8e1ad63d1176ba0001f93a2f469"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8ac792e095be6345f70b7d1db25db167c22620ab4764906401ebb6b075ee9a4e",
+    "payload_sha256": "sha256:9887e6c0738b8fcf326af2edb24ade56c621c1d23b058787e81401beca91e371",
     "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,8 +57,6 @@
         "accessibility_subject_policy": "non_identifying_child_subject",
         "accessibility_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -100,7 +98,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg"
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -120,19 +118,10 @@
           "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0027",
-        "token_source_fixity": {
-          "algorithm": "sha256",
-          "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes.",
-          "digest": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
-          "status": "verified",
-          "verified_at": "2026-08-06T13:19:30.726Z"
-        },
-        "token_source_locator": {
-          "repository_path": null,
-          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o"
-        },
+        "token_source_fixity": null,
+        "token_source_locator": null,
         "transform_profile": null,
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x60e288c0b129e5f4eb13d8c0d52dd4aa50c13505e99449a275fde180061efa57"
+      "digest": "0x08296aaa9ff5c4ca6393b7698bfbf8260baa3cb141d1ba1ccbb3deb658e83077"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:8ee75962ee3e95afbc36c1e8afc6294b6aef7577af5dd7d79c9e560614b03efb",
+    "payload_sha256": "sha256:7fccf09f3c99eb6eefdadebace4ad9096824807ae2581021da7bbad8818439ed",
     "preferred_label": "Ex Nihilo (Cosmos) #248",
     "profile": {
       "accession_entity_ids": [
@@ -83,7 +83,10 @@
           ],
           "record_id": "6529NM.2026.001.07",
           "reference_type": "component",
-          "source_record_id": "6529NM.2026.001.07"
+          "registry_id": null,
+          "source_record_id": "6529NM.2026.001.07",
+          "target_kind": "authoritative_record",
+          "target_type": "WORK_DESCRIPTION"
         }
       ],
       "creation_date": {
@@ -182,7 +185,10 @@
           ],
           "record_id": "6529NM.2026.001.VO-01",
           "reference_type": "manifestation",
-          "source_record_id": "6529NM.2026.001.VO-01"
+          "registry_id": null,
+          "source_record_id": "6529NM.2026.001.VO-01",
+          "target_kind": "authoritative_record",
+          "target_type": "VISUAL_OBSERVATION"
         }
       ],
       "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",

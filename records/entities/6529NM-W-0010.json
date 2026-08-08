@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc9ef695898e796e5a4a1f2aeac31abb5772d2daba36e194552e73ee6880f8012"
+      "digest": "0xc085b27c00d8fd9f4309907d929d05bbe30dcd7c95a9b3a2e13673c6fccbb73d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:0fb72c3a1b17ac92af9471ecf1fdd3bea50fa3dd66b3a85974af5a54e198dcea",
+    "payload_sha256": "sha256:f504a353a5b3e8e22636a1e0c1437753116bc46900e546029361293ee7adb10b",
     "preferred_label": "Managed Freedom",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-003",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-003",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

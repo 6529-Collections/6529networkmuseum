@@ -90,7 +90,7 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 118, "PUBLIC_RELATION": 153, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 118, "PUBLIC_RELATION": 164, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
@@ -99,7 +99,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sum(payload["entity_type"] == "AGENT" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 31)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
-        self.assertEqual(len(self.relations()), 153)
+        self.assertEqual(len(self.relations()), 164)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -257,16 +257,15 @@ class PublicEntityLayerTests(unittest.TestCase):
         keys_media = [value for key, value in media.items() if 20 <= int(key.rsplit("-", 1)[1]) <= 35]
         self.assertEqual(len(keys_media), 16)
         self.assertEqual(len([relation for relation in media_relations if relation["target_entity_id"] in {value["entity_id"] for value in keys_media}]), 16)
-        proposal = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json")
-        wave_publication = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json")
-        magnum_urls = {part["media_url"] for part in wave_publication["payload"]["parts"] if part.get("candidate_object_id")}
-        token_urls = {item["image"]["uri"] for item in proposal["objects"]}
         magnum_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "historical_wave_proposal_presentation"]
-        self.assertEqual({value["profile"]["media"]["source_locator"]["uri"] for value in magnum_media}, magnum_urls)
         self.assertEqual(len(magnum_media), 5)
         for value in magnum_media:
             media_profile = value["profile"]["media"]
-            self.assertIn(media_profile["token_source_locator"]["uri"], token_urls)
+            self.assertIsNone(media_profile["source_locator"]["uri"])
+            self.assertIsNone(media_profile["source_locator"]["repository_path"])
+            self.assertIsNone(media_profile["token_source_locator"])
+            self.assertIsNone(media_profile["token_source_fixity"])
+            self.assertFalse(media_profile["visual"])
             self.assertEqual(media_profile["publication_boundary"], "historical_wave_proposal_context")
             self.assertEqual(media_profile["publication_context_entity_ids"], ["6529NM-CA-2026-003"])
             self.assertEqual(media_profile["wave_proposal_context"]["publication_status"], "historical_public_proposal_context")
@@ -275,6 +274,9 @@ class PublicEntityLayerTests(unittest.TestCase):
             self.assertNotIn("zoom", media_profile["allowed_ui_affordances"])
             self.assertNotIn("fullscreen", media_profile["allowed_ui_affordances"])
             self.assertNotIn("open_repository_path", media_profile["allowed_ui_affordances"])
+            self.assertNotIn("view", media_profile["allowed_ui_affordances"])
+            self.assertNotIn("thumbnail", media_profile["allowed_ui_affordances"])
+            self.assertNotIn("hero", media_profile["allowed_ui_affordances"])
         child_media = next(value for value in magnum_media if value["entity_id"] == "6529NM-MED-0043")["profile"]["media"]
         self.assertEqual(child_media["accessibility_subject_policy"], "non_identifying_child_subject")
         self.assertNotRegex(child_media["accessibility_text"].lower(), r"\b(named|identified|known as)\b")
@@ -299,6 +301,13 @@ class PublicEntityLayerTests(unittest.TestCase):
         keys_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "museum_generated_public_derivative" and any(ref.startswith("6529NM-AP-01-OUT-") for ref in value["profile"]["media"].get("source_record_ids", []))]
         self.assertEqual(len(keys_media), 16)
         self.assertTrue(all(value["profile"]["media"]["width"] == 640 for value in keys_media))
+        for value in keys_media:
+            media_profile = value["profile"]["media"]
+            self.assertEqual(media_profile["rights"]["status"], "unknown")
+            self.assertEqual(media_profile["accessibility_status"], "pending_review")
+            self.assertFalse(media_profile["visual"])
+            self.assertEqual(media_profile["source_locator"], {"uri": None, "repository_path": None})
+            self.assertEqual(media_profile["allowed_ui_affordances"], ["alt_text", "copy_citation"])
         generated_json = json.dumps(self.records, ensure_ascii=False)
         self.assertNotIn("OUT-004/1280.webp", generated_json)
         self.assertNotIn("OUT-004/2400.webp", generated_json)
@@ -359,6 +368,75 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(len(publishes), 5)
         self.assertTrue(all(relation["source_entity_id"] == "6529NM-ORG-0001" and relation["qualifier"]["role"] == "publisher" for relation in publishes))
         self.assertEqual([relation for relation in relations if relation["relation_type"] == "ORGANIZATION_ORIGINATES_PROJECT" and relation["target_entity_id"] != "6529NM-PRJ-0006"], [])
+
+    def test_project_agents_have_source_backed_bidirectional_role_relations(self) -> None:
+        entities = self.entities()
+        relations = [relation for relation in self.relations() if relation["relation_type"] == "AGENT_PLAYS_ROLE"]
+        self.assertEqual(len(relations), 11)
+        for project_id, project in entities.items():
+            if project["entity_type"] != "PROJECT_OR_SERIES":
+                continue
+            project_relations = [relation for relation in relations if relation["target_entity_id"] == project_id]
+            self.assertEqual({relation["source_entity_id"] for relation in project_relations}, set(project["profile"]["agent_entity_ids"]))
+            for relation in project_relations:
+                self.assertIsInstance(relation["qualifier"].get("role"), str)
+                self.assertTrue(relation["qualifier"]["role"])
+                self.assertTrue(set(relation["source_record_ids"]).intersection(project["profile"]["source_record_ids"]))
+
+    def test_typed_work_references_resolve_to_authoritative_or_governed_targets(self) -> None:
+        entities = self.entities()
+        registry_targets = self.inventory["typed_reference_registry"]
+        registry_by_target = {(row["reference_type"], row["target_id"]): row for row in registry_targets}
+        for work_id, work in entities.items():
+            if work["entity_type"] != "WORK":
+                continue
+            for field in ("component_references", "manifestation_references"):
+                expected_type = field.removesuffix("_references")
+                for reference in work["profile"][field]:
+                    self.assertEqual(reference["reference_type"], expected_type)
+                    self.assertIn(reference["source_record_id"], work["references"])
+                    self.assertIn(reference["target_kind"], {"authoritative_record", "governed_typed_registry"})
+                    if reference["target_kind"] == "authoritative_record":
+                        self.assertEqual(reference["record_id"], reference["source_record_id"])
+                        self.assertIsNone(reference["registry_id"])
+                    else:
+                        target = registry_by_target[(expected_type, reference["record_id"])]
+                        self.assertEqual(reference["registry_id"], "PUBLIC_TYPED_REFERENCE_REGISTRY_V1")
+                        self.assertEqual(reference["target_type"], target["target_type"])
+                        self.assertEqual(reference["source_record_id"], target["authoritative_record_id"])
+                        self.assertEqual(reference["caip19"], target["caip19"])
+        self.assertEqual(self.graph_issues(), [])
+
+    def test_typed_reference_target_mutations_fail_closed(self) -> None:
+        missing_target = copy.deepcopy(self.records)
+        missing_ref = next(record["payload"] for record in missing_target.values() if record["payload"].get("entity_id") == "6529NM-W-0001")["profile"]["component_references"][0]
+        missing_ref["record_id"] = "6529NM.2026.001.999"
+        self.assertTrue(any("does not resolve" in issue or "must equal source_record_id" in issue for issue in self.graph_issues(missing_target)))
+
+        mismatched_type = copy.deepcopy(self.records)
+        mismatched_ref = next(record["payload"] for record in mismatched_type.values() if record["payload"].get("entity_id") == "6529NM-W-0001")["profile"]["component_references"][0]
+        mismatched_ref["target_type"] = "GOVERNANCE_DECISION"
+        self.assertTrue(any("mismatched" in issue or "expected one of" in issue for issue in self.graph_issues(mismatched_type)))
+
+        mismatched_registry = copy.deepcopy(self.records)
+        registry_ref = next(record["payload"] for record in mismatched_registry.values() if record["payload"].get("entity_id") == "6529NM-W-0024")["profile"]["manifestation_references"][0]
+        registry_ref["caip19"] = "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/999"
+        self.assertTrue(any("mismatched CAIP-19" in issue for issue in self.graph_issues(mismatched_registry)))
+
+        missing_metadata = copy.deepcopy(self.entities()["6529NM-W-0008"])
+        missing_metadata["profile"]["component_references"][0].pop("target_kind")
+        self.assertTrue(self.schema_issues(missing_metadata, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
+
+    def test_project_agent_relation_mutations_fail_closed(self) -> None:
+        missing_relation = copy.deepcopy(self.records)
+        relation_key = next(key for key, record in missing_relation.items() if record["payload"].get("relation_type") == "AGENT_PLAYS_ROLE" and record["payload"].get("target_entity_id") == "6529NM-PRJ-0001")
+        del missing_relation[relation_key]
+        self.assertTrue(any("Project agent_entity_ids must equal" in issue for issue in self.graph_issues(missing_relation)))
+
+        missing_role = copy.deepcopy(self.records)
+        relation = next(record["payload"] for record in missing_role.values() if record["payload"].get("relation_type") == "AGENT_PLAYS_ROLE")
+        relation["qualifier"].pop("role")
+        self.assertTrue(any("missing required qualifiers" in issue or "requires a non-empty role" in issue for issue in self.graph_issues(missing_role)))
 
     def test_evidence_classes_are_explicit_and_label_independent(self) -> None:
         self.assertEqual(EVIDENCE_CLASSES, {"A", "B", "C", "D", "E"})
@@ -585,6 +663,9 @@ class PublicEntityLayerTests(unittest.TestCase):
         signed = copy.deepcopy(next(value for value in entities.values() if value["entity_id"] == "6529NM-MED-0041")["profile"]["media"])
         signed["allowed_ui_affordances"].append("download")
         self.assertTrue(validate_public_media(signed, "test.signed"))
+        signed = copy.deepcopy(next(value for value in entities.values() if value["entity_id"] == "6529NM-MED-0041")["profile"]["media"])
+        signed["allowed_ui_affordances"].append("view")
+        self.assertTrue(any("cannot expose visual delivery" in issue for issue in validate_public_media(signed, "test.signed-view")))
         signed["publication_context_entity_ids"] = []
         self.assertTrue(validate_public_media(signed, "test.historical-context"))
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])

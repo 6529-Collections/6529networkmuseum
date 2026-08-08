@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8e909276465ac3c94f3b1c75b87e9a280cd3debab6491e72d1a5624dc0ac4d5f"
+      "digest": "0xf6faf48710220265642babee08efebadb16ee5ad3388d8ad9ed5bdef64e61ab5"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:5879e5d75e52bf099b754c7dfd465095a722b588ed750b4a341866c213ba1bd4",
+    "payload_sha256": "sha256:f7cad43c8ba8278f8e51f26af7be0bd98bd37caa0b0a96d5710605ff7afae86d",
     "preferred_label": "The Hostile Gate",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-006",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-006",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

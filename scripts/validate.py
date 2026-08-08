@@ -31,6 +31,7 @@ VOCAB_SCHEMA_PATH = SCHEMAS_DIR / "controlled-vocabularies.schema.json"
 ENVELOPE_PATH = SCHEMAS_DIR / "record-envelope.schema.json"
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
 MEDIA_DESCRIPTION_AMENDMENT_ID = "6529NM-MEDIA-DESC-AMD-2026-08-08-001"
+TYPED_REFERENCE_REGISTRY_ID = "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -839,7 +840,16 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     if has_key_recursive(media, "image_url"):
         issues.append(f"{label}: generic image_url is prohibited; use the closed media locator and role")
     locator = media.get("source_locator")
-    if not isinstance(locator, dict) or (locator.get("uri") is None and locator.get("repository_path") is None):
+    has_source_locator = isinstance(locator, dict) and (locator.get("uri") is not None or locator.get("repository_path") is not None)
+    rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
+    rights_status = rights.get("status")
+    affordances = media.get("allowed_ui_affordances", [])
+    metadata_only = (
+        media.get("visual") is False
+        and rights_status in {"restricted", "unknown"}
+        and not any(item in affordances for item in {"view", "thumbnail", "hero", "play", "zoom", "fullscreen", "download", "open_token_source", "open_repository_path"})
+    )
+    if not has_source_locator and not metadata_only:
         issues.append(f"{label}: source_locator must contain a URI or repository_path")
     visual = media.get("visual")
     if visual is True:
@@ -880,8 +890,8 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     accessibility_subject_policy = media.get("accessibility_subject_policy")
     if accessibility_subject_policy == "non_identifying_child_subject":
         text = media.get("accessibility_text")
-        if visual is not True or not isinstance(text, str) or not text:
-            issues.append(f"{label}: non-identifying child-subject media requires visual accessibility text")
+        if not isinstance(text, str) or not text:
+            issues.append(f"{label}: non-identifying child-subject media requires accessibility text")
         elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
             issues.append(f"{label}: child-subject accessibility text must not identify the subject")
         prohibition = media.get("identity_inference_prohibition")
@@ -891,7 +901,6 @@ def validate_public_media(media: Any, label: str) -> list[str]:
         prohibition = media.get("identity_inference_prohibition")
         if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity":
             issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited subject_identity object")
-    affordances = media.get("allowed_ui_affordances", [])
     if role == "museum_retained_preservation_object" and (source_status != "retrieved" or fixity_status != "verified"):
         issues.append(f"{label}: retained preservation objects require retrieved bytes and verified fixity")
     if role == "museum_generated_public_derivative" and not isinstance(media.get("transform_profile"), str):
@@ -910,8 +919,6 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: the historical CA-003 proposal graphic cannot claim derivation from a source photograph")
         if "hero" in affordances:
             issues.append(f"{label}: the historical CA-003 proposal graphic cannot be published as the selected-acquisition hero")
-    rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
-    rights_status = rights.get("status")
     subject_entity_id = media.get("subject_entity_id")
     if isinstance(subject_entity_id, str):
         for evidence_field in ("rights", "source_observation"):
@@ -954,8 +961,8 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: historical Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
         if any(item in affordances for item in {"open_token_source", "open_repository_path"}):
             issues.append(f"{label}: historical Wave media cannot expose token or repository source affordances")
-    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in {"download", "zoom", "fullscreen", "open_token_source", "open_repository_path"}):
-        issues.append(f"{label}: {rights_status} media cannot expose download, zoom, fullscreen, token, or repository source opening")
+    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in {"view", "thumbnail", "hero", "download", "zoom", "fullscreen", "open_token_source", "open_repository_path"}):
+        issues.append(f"{label}: {rights_status} media cannot expose visual delivery, download, zoom, fullscreen, token, or repository source opening")
     if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
         issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
     if any(item in affordances for item in {"zoom", "fullscreen"}) and (visual is not True or rights_status not in {"cleared", "cleared_with_conditions"}):
@@ -1310,6 +1317,141 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
     return issues
 
 
+def _typed_reference_record_index(repository_root: Path) -> dict[str, set[tuple[str, Path]]]:
+    """Index authoritative record IDs and typed aliases for closed references."""
+
+    index: dict[str, set[tuple[str, Path]]] = {}
+    alias_keys = {
+        "entity_id", "relation_id", "program_id", "proposal_id", "object_id",
+        "accession_lot_id", "accession_number", "outcome_id", "publication_id", "accession_id",
+        "observation_id", "amendment_id", "candidate_object_id",
+    }
+
+    def register(identifier: Any, record_type: Any, path: Path) -> None:
+        if isinstance(identifier, str) and isinstance(record_type, str):
+            index.setdefault(identifier, set()).add((record_type, path))
+
+    def register_aliases(value: Any, record_type: Any, path: Path) -> None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                if key in alias_keys:
+                    register(child, record_type, path)
+                register_aliases(child, record_type, path)
+        elif isinstance(value, list):
+            for child in value:
+                register_aliases(child, record_type, path)
+
+    records_dir = repository_root / "records"
+    for path in (sorted(records_dir.rglob("*.json")) if records_dir.is_dir() else []):
+        try:
+            record = load_json(path)
+        except (OSError, json.JSONDecodeError, DuplicateJsonKeyError):
+            continue
+        if not isinstance(record, dict):
+            continue
+        payload = record.get("payload") if record.get("$schema") == OFFCHAIN_ENVELOPE_SCHEMA else record
+        if not isinstance(payload, dict):
+            continue
+        record_type = payload.get("record_type")
+        register(payload.get("record_id"), record_type, path)
+        register_aliases(payload, record_type, path)
+    return index
+
+
+def _typed_reference_registry_index(identity_inventory: dict[str, Any] | None) -> tuple[dict[tuple[str, str], dict[str, Any]], list[str]]:
+    """Load the governed typed-target registry without accepting ambiguity."""
+
+    issues: list[str] = []
+    rows = identity_inventory.get("typed_reference_registry") if isinstance(identity_inventory, dict) else None
+    if not isinstance(rows, list):
+        return {}, ["public entity inventory: typed_reference_registry is missing"]
+    index: dict[tuple[str, str], dict[str, Any]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            issues.append("public entity inventory: typed_reference_registry entries must be objects")
+            continue
+        key = (str(row.get("reference_type")), str(row.get("target_id")))
+        if key in index:
+            issues.append(f"public entity inventory: duplicate typed reference target {key[0]}:{key[1]}")
+            continue
+        if row.get("registry_id") != TYPED_REFERENCE_REGISTRY_ID:
+            issues.append(f"public entity inventory: typed reference target {key[1]!r} has an unknown registry_id")
+        index[key] = row
+    return index, issues
+
+
+def _validate_work_typed_references(
+    payload: dict[str, Any],
+    typed_record_index: dict[str, set[tuple[str, Path]]],
+    typed_registry: dict[tuple[str, str], dict[str, Any]],
+    display_path: str,
+) -> tuple[list[str], set[tuple[str, str]]]:
+    """Require every Work component/manifestation target to be closed and typed."""
+
+    issues: list[str] = []
+    used_registry_targets: set[tuple[str, str]] = set()
+    profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+    declared_sources = set(payload.get("references", [])) if isinstance(payload.get("references"), list) else set()
+    for field, expected_reference_type in (("component_references", "component"), ("manifestation_references", "manifestation")):
+        references = profile.get(field, [])
+        if not isinstance(references, list):
+            continue
+        for index, reference in enumerate(references):
+            label = f"{display_path}.profile.{field}[{index}]"
+            if not isinstance(reference, dict):
+                issues.append(f"{label}: typed reference must be an object")
+                continue
+            reference_type = reference.get("reference_type")
+            target_id = reference.get("record_id")
+            source_record_id = reference.get("source_record_id")
+            target_kind = reference.get("target_kind")
+            target_type = reference.get("target_type")
+            registry_id = reference.get("registry_id")
+            if reference_type != expected_reference_type:
+                issues.append(f"{label}: reference_type must be {expected_reference_type}")
+            if not isinstance(target_id, str) or not target_id:
+                issues.append(f"{label}: record_id must identify an explicit target")
+                continue
+            if not isinstance(source_record_id, str) or not source_record_id:
+                issues.append(f"{label}: source_record_id must identify the target's source record")
+            elif source_record_id not in declared_sources:
+                issues.append(f"{label}: source_record_id {source_record_id!r} is not declared by the Work references")
+            if not isinstance(target_type, str) or not target_type:
+                issues.append(f"{label}: target_type is required")
+            if target_kind == "authoritative_record":
+                if registry_id is not None:
+                    issues.append(f"{label}: authoritative_record target must not carry a registry_id")
+                if target_id != source_record_id:
+                    issues.append(f"{label}: authoritative_record target record_id must equal source_record_id")
+                candidates = typed_record_index.get(target_id, set())
+                if not candidates:
+                    issues.append(f"{label}: authoritative target {target_id!r} does not resolve to a repository record")
+                elif not isinstance(target_type, str) or not any(record_type == target_type for record_type, _path in candidates):
+                    actual_types = sorted({record_type for record_type, _path in candidates})
+                    issues.append(f"{label}: authoritative target {target_id!r} has target_type {target_type!r}, expected one of {actual_types}")
+            elif target_kind == "governed_typed_registry":
+                if registry_id != TYPED_REFERENCE_REGISTRY_ID:
+                    issues.append(f"{label}: governed target must use registry_id {TYPED_REFERENCE_REGISTRY_ID}")
+                key = (expected_reference_type, target_id)
+                entry = typed_registry.get(key)
+                if entry is None:
+                    issues.append(f"{label}: governed typed target {target_id!r} is not in the closed registry")
+                else:
+                    used_registry_targets.add(key)
+                    if entry.get("target_type") != target_type:
+                        issues.append(f"{label}: governed target {target_id!r} has mismatched target_type")
+                    if entry.get("authoritative_record_id") != source_record_id:
+                        issues.append(f"{label}: governed target {target_id!r} has mismatched authoritative source record")
+                    if reference.get("caip19") != entry.get("caip19"):
+                        issues.append(f"{label}: governed target {target_id!r} has mismatched CAIP-19 manifestation identity")
+                    authoritative_id = entry.get("authoritative_record_id")
+                    if not isinstance(authoritative_id, str) or not typed_record_index.get(authoritative_id):
+                        issues.append(f"{label}: governed target {target_id!r} has an unresolved authoritative source record")
+            else:
+                issues.append(f"{label}: target_kind must be authoritative_record or governed_typed_registry")
+    return issues, used_registry_targets
+
+
 def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None, repository_root: Path = REPO_ROOT) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
@@ -1431,7 +1573,12 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
     return issues
 
 
-def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None) -> list[str]:
+def validate_public_graph(
+    records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]],
+    vocabularies: dict[str, Any],
+    identity_inventory: dict[str, Any] | None = None,
+    repository_root: Path = REPO_ROOT,
+) -> list[str]:
     """Validate the closed public entity/relation graph after all records are loaded."""
     issues: list[str] = []
     entities: dict[str, tuple[Path, dict[str, Any]]] = {}
@@ -1445,6 +1592,11 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
                 entities[entity_id] = (path, payload)
         elif payload.get("record_type") == PUBLIC_RELATION_TYPE:
             relations.append((path, payload))
+
+    typed_record_index = _typed_reference_record_index(repository_root)
+    typed_registry, typed_registry_issues = _typed_reference_registry_index(identity_inventory)
+    issues.extend(typed_registry_issues)
+    used_registry_targets: set[tuple[str, str]] = set()
 
     def display_path(path: Path) -> str:
         try:
@@ -1484,6 +1636,15 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
                 issues.append(f"{relative}: {entity_type} canonical_route must equal its route prefix plus stored public_slug")
         else:
             issues.append(f"{relative}: unsupported public entity type {entity_type!r}")
+        if entity_type == "WORK":
+            typed_issues, used_targets = _validate_work_typed_references(
+                payload,
+                typed_record_index,
+                typed_registry,
+                relative,
+            )
+            issues.extend(typed_issues)
+            used_registry_targets.update(used_targets)
         if isinstance(slug, str):
             slug_key = (str(entity_type), slug)
             if slug_key in slug_paths and slug_paths[slug_key] != path:
@@ -1587,6 +1748,19 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
         elif relation_type == "ARTIST_CREATES_WORK":
             if source_id not in target[1].get("profile", {}).get("creator_entity_ids", []):
                 issues.append(f"{relative}: Work creator_entity_ids must include the Artist/Agent source")
+        elif relation_type == "AGENT_PLAYS_ROLE":
+            if target_type == "PROJECT_OR_SERIES":
+                project_profile = target[1].get("profile", {})
+                declared_agents = set(project_profile.get("agent_entity_ids", []))
+                if source_id not in declared_agents:
+                    issues.append(f"{relative}: Project agent relation source is missing from agent_entity_ids")
+                role = qualifier.get("role")
+                if not isinstance(role, str) or not role:
+                    issues.append(f"{relative}: Project agent relation requires a non-empty role qualifier")
+                project_sources = set(project_profile.get("source_record_ids", []))
+                relation_sources = relation.get("source_record_ids")
+                if not isinstance(relation_sources, list) or not project_sources.intersection(relation_sources):
+                    issues.append(f"{relative}: Project agent relation must carry source_record_ids that back the Project assertion")
         elif relation_type == "PROJECT_CONTEXTUALIZES_WORK":
             if target_id not in source[1].get("profile", {}).get("work_entity_ids", []):
                 issues.append(f"{relative}: Project/Series work_entity_ids must include the relation target")
@@ -1619,6 +1793,31 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
         elif relation_type == "COLLECTION_CONTAINS_WORK":
             if source[1].get("profile", {}).get("membership_rule") != "accession_only" or target[1].get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
                 issues.append(f"{relative}: Collection membership requires accession_only policy and permanent Work membership")
+
+    for project_id, (_path, project) in entities.items():
+        if project.get("entity_type") != "PROJECT_OR_SERIES":
+            continue
+        declared_agents = set(project.get("profile", {}).get("agent_entity_ids", []))
+        related_agents = {
+            relation.get("source_entity_id")
+            for _relation_path, relation in relations
+            if relation.get("relation_type") == "AGENT_PLAYS_ROLE"
+            and relation.get("target_entity_id") == project_id
+            and relation.get("record_status") != "superseded"
+            and relation.get("assertion_status") != "reserved"
+        }
+        if declared_agents != related_agents:
+            issues.append(
+                f"{display_path(_path)}: Project agent_entity_ids must equal active AGENT_PLAYS_ROLE sources; "
+                f"missing={sorted(declared_agents - related_agents)}, unexpected={sorted(related_agents - declared_agents)}"
+            )
+
+    # The identity registry is repository-global, while several control-plane
+    # fixture validations intentionally contain no public Work graph. Enforce
+    # closed registry use whenever a Work projection is actually present.
+    if typed_registry and any(payload.get("entity_type") == "WORK" for _path, payload in entities.values()) and used_registry_targets != set(typed_registry):
+        unused = sorted(set(typed_registry) - used_registry_targets)
+        issues.append(f"public entity inventory: typed reference registry contains unreferenced targets {unused}")
 
     # Program projections and their durable production relations must agree in
     # both directions. A pathway can explain how an acquisition was produced;
@@ -2078,7 +2277,7 @@ def validate_records(root: Path) -> list[str]:
                     allowed_cross_type = supersession_pair == ("MEDIA_DESCRIPTION_AMENDMENT", "WAVE_PUBLICATION_OBSERVATION")
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type") and not allowed_cross_type:
                         issues.append(f"{relative}: supersedes must point to the same record_type")
-    issues.extend(validate_public_graph(records, vocabularies, identity_inventory))
+    issues.extend(validate_public_graph(records, vocabularies, identity_inventory, root))
     public_entities = {
         payload.get("entity_id"): payload
         for _path, _record, payload in records

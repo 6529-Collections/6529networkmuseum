@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7b9864a7d901c25241ffbd0b3d87f7aec1db2e9dce3642165d92631820f7701c"
+      "digest": "0x6a08d6fc106edefcb4f8656df3065ba342a91ec3a94e53104641f1be723d65f1"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:28f2795767b6f2fe5d50ea7ce388f555ade5baf091f9d2633ef0654b1cf46cd6",
+    "payload_sha256": "sha256:e68b82da1603be08cd7951c71a1dbdb33c90677b629ff81d0c5c43cba1c744c8",
     "preferred_label": "Palmyra, Syria historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,8 +57,6 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -96,7 +94,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg"
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -116,19 +114,10 @@
           "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0028",
-        "token_source_fixity": {
-          "algorithm": "sha256",
-          "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes.",
-          "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
-          "status": "verified",
-          "verified_at": "2026-08-06T13:19:30.726Z"
-        },
-        "token_source_locator": {
-          "repository_path": null,
-          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco"
-        },
+        "token_source_fixity": null,
+        "token_source_locator": null,
         "transform_profile": null,
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",

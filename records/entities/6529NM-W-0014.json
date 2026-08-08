@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x46b7364712aaec9332f9eba73e330c17ad9393e0ccfb304dffc66c90995bab30"
+      "digest": "0xa2247fb189d0f7164f0f6f534970b81bba1902eaa23354271130ccdf4158ebbc"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a70aca307524c3207235ee4ba1d0d5da33ac23e8084d81ff02ca4181ba638376",
+    "payload_sha256": "sha256:197d702950c094ab763dffdc6103e1bc0263ff244f840675257f4db5c061c6b5",
     "preferred_label": "the cost of open",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-007",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-007",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

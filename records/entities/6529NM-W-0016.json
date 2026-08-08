@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5d40f352e2c58d7cf26c38d3b0ffc5d48f11012a25de195c433c652a0eeb5b2c"
+      "digest": "0x0d73ed7a60b1b24eba0c16e3329b1b48cb072602918c44e281ebc3ee03246096"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a05e3fdaf1007e5f7d27e0d793b75845eae66e364253649dc4a40efa1d642377",
+    "payload_sha256": "sha256:024f7a4ae32624b411e689f9d91503e0e0233547a68898b1d0ff16d00175c952",
     "preferred_label": "Now Is Our Time",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-009",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-009",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4ac09f35339206a076262da4871ed24be4b9df5492dc97eae77a83938784351f"
+      "digest": "0xdc31025bd9c5c81bbb15af33c94969e83ea29d71ab7c4016345c6c20f91fb9a3"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:15260f088a1937b066a3d59472ff125292e3eb60b33ae1da10b50839bdede856",
+    "payload_sha256": "sha256:e7ab6c70199b7d4591c5bdd44046d90c626262b1aaa957a40a3f5613b6fb9627",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [],
@@ -177,8 +177,11 @@
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-004.TOKEN",
           "reference_type": "manifestation",
+          "registry_id": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1",
           "source_record_id": "6529NM-PG-2026-001.OBJ-004",
-          "source_status": "proposed"
+          "source_status": "proposed",
+          "target_kind": "governed_typed_registry",
+          "target_type": "ERC721_TOKEN_MANIFESTATION"
         }
       ],
       "medium": "photograph",
@@ -214,6 +217,7 @@
       "6529NM-AGT-0021",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-004",
       "6529NM-PRJ-0006"
     ],
     "review_status": "pending_independent_review",
@@ -223,6 +227,7 @@
       "6529NM-AGT-0021",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-004",
       "6529NM-PRJ-0006"
     ],
     "status_observation": {

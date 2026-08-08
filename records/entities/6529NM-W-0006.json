@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5a3e64aac52077ba0f99c5e0b1f5e00fa50c119a6381c8dc2f985732d1b9b02e"
+      "digest": "0x55115dbe958b65c3c44d43652016e405e9162eb353550a4fc7ed61e9d14f964d"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:f6b6fec4388e9ab35ff951498ff6ef66d902b4dad9b45f527e72578e42a9b7de",
+    "payload_sha256": "sha256:cac6cd5b26bd91060d79ef7cb9d07bd37b5539461ffa418c9f81d5c97b9f9724",
     "preferred_label": "923 EMPTY ROOMS #713",
     "profile": {
       "accession_entity_ids": [
@@ -83,7 +83,10 @@
           ],
           "record_id": "6529NM.2026.001.06",
           "reference_type": "component",
-          "source_record_id": "6529NM.2026.001.06"
+          "registry_id": null,
+          "source_record_id": "6529NM.2026.001.06",
+          "target_kind": "authoritative_record",
+          "target_type": "WORK_DESCRIPTION"
         }
       ],
       "creation_date": {
@@ -182,7 +185,10 @@
           ],
           "record_id": "6529NM.2026.001.VO-01",
           "reference_type": "manifestation",
-          "source_record_id": "6529NM.2026.001.VO-01"
+          "registry_id": null,
+          "source_record_id": "6529NM.2026.001.VO-01",
+          "target_kind": "authoritative_record",
+          "target_type": "VISUAL_OBSERVATION"
         }
       ],
       "medium": "On-chain generative software associated with an ERC-721 token on Ethereum; Art Blocks records a token hash. Determinism of live behavior has not yet been independently verified.",

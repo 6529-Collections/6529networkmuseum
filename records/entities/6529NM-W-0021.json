@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe9669e40977e612f4b27241fc004968b56096cf2de89fdda3e7ae8789ec0d8ab"
+      "digest": "0xea5e0ccf0dca2ec21f82b5c5a04d50fa4e767306830b908f01ec0eb75d88d5ed"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:db5ff0438cc2a24e90b945433cd3ca17eee551dad25e62d6c59a85474eef07e2",
+    "payload_sha256": "sha256:1c324ad411a07b11f3a36fd43d0669210b0cd00651e1b2ec5c470fde95ad764d",
     "preferred_label": "Morning Glory",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-014",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-014",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

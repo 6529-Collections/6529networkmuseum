@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x01fb5ca3c9e9be3231893c8d5b4a8dad6040aa3fb847431183a240fbf20934ac"
+      "digest": "0xae7609024805e4ec71b99f8a39600f4da3a7406ce5f2c28241c5c2ef0cf358e2"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2a79a8cbb459f8b8aa242017417ae6e6b1d5196af00a1effe89d06bd43e37ed2",
+    "payload_sha256": "sha256:f5600c1024c7214240ee3234f9ccce1cd47d917c31e23a68fddf00c91dc0b770",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan",
     "profile": {
       "accession_entity_ids": [],
@@ -177,8 +177,11 @@
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-001.TOKEN",
           "reference_type": "manifestation",
+          "registry_id": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1",
           "source_record_id": "6529NM-PG-2026-001.OBJ-001",
-          "source_status": "proposed"
+          "source_status": "proposed",
+          "target_kind": "governed_typed_registry",
+          "target_type": "ERC721_TOKEN_MANIFESTATION"
         }
       ],
       "medium": "photograph",
@@ -214,6 +217,7 @@
       "6529NM-AGT-0018",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001",
       "6529NM-PRJ-0006"
     ],
     "review_status": "pending_independent_review",
@@ -223,6 +227,7 @@
       "6529NM-AGT-0018",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001",
       "6529NM-PRJ-0006"
     ],
     "status_observation": {

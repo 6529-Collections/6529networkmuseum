@@ -30,10 +30,15 @@ MUSEUM_JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9
 LOGICAL_RECORD_BASE = "https://6529networkmuseum.org/records/"
 IMMUTABLE_RAW_BASE = "https://raw.githubusercontent.com/6529-Collections/6529networkmuseum/"
 FULL_COMMIT = re.compile(r"^[0-9a-f]{40}$")
+SHA256_DIGEST = re.compile(r"^sha256:[0-9a-f]{64}$")
+KECCAK_DIGEST = re.compile(r"^0x[0-9a-f]{64}$")
+SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
+MANIFEST_PATH = "release-artifacts/latest/record-manifest.json"
 MAX_STREAM_URI_BYTES = 2048
 MAX_STREAM_DIGEST_BYTES = 128
 FIXED_32_BYTE_ALGORITHMS = frozenset({1, 2, 3, 6})
 VARIABLE_DIGEST_ALGORITHMS = frozenset({4, 5})
+BINARY_EXTENSIONS = frozenset({".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".woff", ".woff2", ".ttf"})
 
 # Stream keeps recordType open/nonzero. These are Museum adapter pins, not a
 # claim that Stream itself has admitted these preimages to its family registry.
@@ -82,9 +87,15 @@ def _bytes32(value: Any, field: str, *, allow_zero: bool = True) -> str:
 
 
 def _word_uint(value: int) -> bytes:
-    if not isinstance(value, int) or value < 0 or value >= 2**256:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0 or value >= 2**256:
         raise StreamAdapterError(f"invalid ABI uint value {value!r}")
     return value.to_bytes(32, "big")
+
+
+def _nonzero_uint64(value: Any, field: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0 or value >= 2**64:
+        raise StreamAdapterError(f"{field} must be a nonzero uint64")
+    return value
 
 
 def _word_bytes32(value: str, field: str, *, allow_zero: bool = True) -> bytes:
@@ -100,7 +111,7 @@ def museum_record_type_to_stream(record_type: str) -> str:
 
 def _hash_ref_hash(ref: dict[str, Any]) -> bytes:
     algorithm = ref.get("algorithm")
-    if not isinstance(algorithm, int) or algorithm < 0 or algorithm > 65535:
+    if isinstance(algorithm, bool) or not isinstance(algorithm, int) or algorithm < 0 or algorithm > 65535:
         raise StreamAdapterError("HashRef.algorithm must be a uint16")
     digest = _hex_bytes(ref.get("digest"), "HashRef.digest", allow_empty=True)
     canonicalization_id = _word_bytes32(ref.get("canonicalizationId"), "HashRef.canonicalizationId")
@@ -113,6 +124,8 @@ def _normalize_hash_ref(ref: Any, field: str, *, unsigned_signature: bool = Fals
     algorithm = ref.get("algorithm")
     digest = ref.get("digest")
     canonicalization_id = ref.get("canonicalizationId")
+    if isinstance(algorithm, bool):
+        raise StreamAdapterError(f"{field}.algorithm must be an integer, not a boolean")
     if unsigned_signature:
         # The Museum's legacy unsigned placeholder is algorithm 2 + zero32 +
         # JCS. Stream v2's unsigned HashRef is algorithm 0 + empty bytes + 0.
@@ -143,7 +156,8 @@ def _safe_source_path(path: str) -> None:
         or "\\" in path
         or any(part in {"", ".", ".."} for part in path.split("/"))
         or any(part.casefold() in {".git", "release-artifacts"} for part in path.split("/"))
-        or any(char in path for char in "*?[]{}!")
+        or any(char in path for char in "*?[]{}!#%")
+        or any(ord(char) < 0x20 or ord(char) == 0x7F for char in path)
     ):
         raise StreamAdapterError(f"source path is not a safe governed literal: {path!r}")
 
@@ -168,30 +182,165 @@ def _strict_json_bytes(data: bytes, field: str) -> dict[str, Any]:
 
 def _git_blob_bytes(root: Path, commit: str, path: str) -> bytes:
     try:
-        resolved = subprocess.check_output(
+        resolved_result = subprocess.run(
             ["git", "-C", str(root), "rev-parse", "--verify", f"{commit}^{{commit}}"],
+            capture_output=True,
             text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
+            check=False,
+        )
+        if resolved_result.returncode:
+            raise StreamAdapterError("exact governed Git commit could not be resolved")
+        resolved = resolved_result.stdout.strip()
         if resolved != commit:
             raise StreamAdapterError("source_commit does not resolve to the exact supplied commit")
-        row = subprocess.check_output(
-            ["git", "-C", str(root), "ls-tree", commit, "--", path],
-            text=True,
-            stderr=subprocess.DEVNULL,
-        ).strip()
-        if not row:
-            raise StreamAdapterError(f"governed source path is absent at exact commit: {path}")
-        metadata, separator, listed_path = row.partition("\t")
-        parts = metadata.split()
-        if separator != "\t" or listed_path != path or len(parts) != 3 or parts[1] != "blob" or not parts[0].startswith("100"):
-            raise StreamAdapterError(f"governed source path is not one exact regular Git blob: {path}")
-        return subprocess.check_output(
-            ["git", "-C", str(root), "show", f"{commit}:{path}"],
-            stderr=subprocess.DEVNULL,
+        lookup = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(root),
+                "--literal-pathspecs",
+                "ls-tree",
+                "-r",
+                "-z",
+                "--full-tree",
+                commit,
+                "--",
+                path,
+            ],
+            capture_output=True,
+            check=False,
         )
-    except subprocess.CalledProcessError as exc:
+        if lookup.returncode:
+            raise StreamAdapterError("exact governed Git source could not be resolved")
+        rows = [row for row in lookup.stdout.split(b"\0") if row]
+        if len(rows) != 1:
+            raise StreamAdapterError(f"governed source path is absent at exact commit: {path}")
+        metadata, separator, listed_path = rows[0].partition(b"\t")
+        try:
+            listed_path_text = listed_path.decode("utf-8")
+            parts = metadata.decode("ascii").split()
+        except UnicodeDecodeError as exc:
+            raise StreamAdapterError(f"governed source path is not a canonical UTF-8 Git path: {path}") from exc
+        if (
+            separator != b"\t"
+            or listed_path_text != path
+            or len(parts) != 3
+            or parts[1] != "blob"
+            or parts[0] not in {"100644", "100755"}
+        ):
+            raise StreamAdapterError(f"governed source path is not one exact regular Git blob: {path}")
+        blob = subprocess.run(
+            ["git", "-C", str(root), "cat-file", "blob", f"{commit}:{path}"],
+            capture_output=True,
+            check=False,
+        )
+        if blob.returncode:
+            raise StreamAdapterError(f"exact governed Git blob could not be read: {path}")
+        return blob.stdout
+    except OSError as exc:
         raise StreamAdapterError("exact governed Git source could not be resolved") from exc
+
+
+def _manifest_bytes(path: str, raw: bytes) -> tuple[bytes, str]:
+    if Path(path).suffix.casefold() in BINARY_EXTENSIONS:
+        return raw, "raw"
+    return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n"), "lf-normalized"
+
+
+def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    if manifest.get("manifest_type") != "6529NM_RECORD_MANIFEST" or not isinstance(manifest.get("manifest_version"), str) or not SEMVER.fullmatch(manifest["manifest_version"]):
+        raise StreamAdapterError("exact B manifest has an invalid type or version")
+    hash_algorithms = manifest.get("hash_algorithms")
+    if (
+        not isinstance(hash_algorithms, dict)
+        or type(hash_algorithms.get("keccak256")) is not int
+        or type(hash_algorithms.get("sha256")) is not int
+        or hash_algorithms != {"keccak256": 1, "sha256": 2}
+    ):
+        raise StreamAdapterError("exact B manifest hash algorithm registry drifted")
+    canonicalization = manifest.get("canonicalization")
+    if not isinstance(canonicalization, dict) or canonicalization.get("id") != MUSEUM_JCS_ID:
+        raise StreamAdapterError("exact B manifest canonicalization pin drifted")
+
+    entries = manifest.get("entries")
+    if not isinstance(entries, list) or not entries:
+        raise StreamAdapterError("exact B manifest entries are unavailable")
+    by_path: dict[str, dict[str, Any]] = {}
+    for entry in entries:
+        if not isinstance(entry, dict) or not isinstance(entry.get("path"), str):
+            raise StreamAdapterError("exact B manifest contains an invalid entry")
+        path = entry["path"]
+        _safe_source_path(path)
+        if path in by_path:
+            raise StreamAdapterError(f"exact B manifest contains a duplicate path: {path}")
+        size = entry.get("size")
+        if isinstance(size, bool) or not isinstance(size, int) or size < 0:
+            raise StreamAdapterError(f"exact B manifest entry has an invalid size: {path}")
+        if not isinstance(entry.get("sha256"), str) or not SHA256_DIGEST.fullmatch(entry["sha256"]):
+            raise StreamAdapterError(f"exact B manifest entry has an invalid SHA-256: {path}")
+        if entry.get("byte_mode") not in {"raw", "lf-normalized"}:
+            raise StreamAdapterError(f"exact B manifest entry has an invalid byte mode: {path}")
+        by_path[path] = entry
+    if list(by_path) != sorted(by_path):
+        raise StreamAdapterError("exact B manifest paths must be sorted")
+
+    body = dict(manifest)
+    manifest_sha256 = body.pop("manifest_sha256", None)
+    commitment = body.pop("manifest_commitment", None)
+    if not isinstance(manifest_sha256, str) or not SHA256_DIGEST.fullmatch(manifest_sha256):
+        raise StreamAdapterError("exact B manifest is missing a valid SHA-256 body commitment")
+    if (
+        not isinstance(commitment, dict)
+        or type(commitment.get("algorithm")) is not int
+        or commitment.get("algorithm") != 1
+        or commitment.get("canonicalizationId") != MUSEUM_JCS_ID
+        or not isinstance(commitment.get("digest"), str)
+        or not KECCAK_DIGEST.fullmatch(commitment["digest"])
+    ):
+        raise StreamAdapterError("exact B manifest is missing a valid Keccak/JCS body commitment")
+    try:
+        canonical_body = canonical_json(body)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise StreamAdapterError("exact B manifest body is not canonicalizable") from exc
+    expected_sha256 = "sha256:" + hashlib.sha256(canonical_body).hexdigest()
+    expected_keccak = "0x" + keccak256(canonical_body).hex()
+    if manifest_sha256 != expected_sha256 or commitment["digest"] != expected_keccak:
+        raise StreamAdapterError("exact B manifest body commitments are inconsistent")
+    return by_path
+
+
+def _read_exact_source(
+    payload: dict[str, Any] | None,
+    *,
+    source_root: Path | None,
+    source_commit: str,
+    source_path: str,
+) -> dict[str, Any]:
+    if source_root is None or payload is None or not isinstance(payload, dict):
+        raise StreamAdapterError(
+            "immutable Stream URI derivation requires source_root and source_payload proof"
+        )
+    root = source_root.resolve()
+    manifest = _strict_json_bytes(
+        _git_blob_bytes(root, source_commit, MANIFEST_PATH),
+        "exact B manifest",
+    )
+    entries = _manifest_entries(manifest)
+    manifest_entry = entries.get(source_path)
+    if manifest_entry is None:
+        raise StreamAdapterError("governed source path is not admitted by the exact B manifest")
+    source_raw = _git_blob_bytes(root, source_commit, source_path)
+    source_bytes, expected_byte_mode = _manifest_bytes(source_path, source_raw)
+    if (
+        manifest_entry["size"] != len(source_bytes)
+        or manifest_entry["byte_mode"] != expected_byte_mode
+        or manifest_entry["sha256"] != "sha256:" + hashlib.sha256(source_bytes).hexdigest()
+    ):
+        raise StreamAdapterError("exact B manifest entry does not describe the governed source bytes")
+    source_record = _strict_json_bytes(source_bytes, "exact governed source record")
+    if source_record.get("payload") != payload:
+        raise StreamAdapterError("exact governed source payload does not match the adapter input")
+    return source_record
 
 
 def _verify_exact_source(
@@ -202,27 +351,14 @@ def _verify_exact_source(
     source_commit: str,
     source_path: str,
 ) -> None:
-    if source_root is None or payload is None:
-        raise StreamAdapterError(
-            "immutable Stream URI derivation requires source_root and source_payload proof"
-        )
-    root = source_root.resolve()
-    manifest = _strict_json_bytes(
-        _git_blob_bytes(root, source_commit, "release-artifacts/latest/record-manifest.json"),
-        "exact B manifest",
-    )
-    entries = manifest.get("entries")
-    if not isinstance(entries, list) or not any(
-        isinstance(entry, dict) and entry.get("path") == source_path for entry in entries
-    ):
-        raise StreamAdapterError("governed source path is not admitted by the exact B manifest")
-    source_record = _strict_json_bytes(
-        _git_blob_bytes(root, source_commit, source_path), "exact governed source record"
+    source_record = _read_exact_source(
+        payload,
+        source_root=source_root,
+        source_commit=source_commit,
+        source_path=source_path,
     )
     if source_record.get("envelope") != envelope:
         raise StreamAdapterError("exact governed source envelope does not match the adapter input")
-    if source_record.get("payload") != payload:
-        raise StreamAdapterError("exact governed source payload does not match the adapter input")
 
 
 def _validate_stream_uri(uri: Any) -> str:
@@ -249,7 +385,7 @@ def _record_uri(
     source_root: Path | None = None,
     source_payload: dict[str, Any] | None = None,
     allow_logical_uri: bool = False,
-    allow_existing_immutable_raw_uri: bool = False,
+    allow_verified_immutable_raw_uri: bool = False,
 ) -> str:
     uri = envelope.get("uri")
     if source_commit is not None or source_path is not None:
@@ -276,7 +412,7 @@ def _record_uri(
             raise StreamAdapterError("GitHub source URI must bind a full immutable commit")
     parsed = urlsplit(uri)
     if parsed.scheme == "https" and parsed.netloc == "raw.githubusercontent.com":
-        if not allow_existing_immutable_raw_uri:
+        if not allow_verified_immutable_raw_uri:
             raise StreamAdapterError(
                 "raw Museum source URIs require exact source-root, commit, path, and payload proof"
             )
@@ -302,6 +438,66 @@ def _record_uri(
     raise StreamAdapterError("logical Stream URI must use the Museum logical record host")
 
 
+def _source_proof_supplied(
+    *,
+    source_envelope: dict[str, Any] | None,
+    source_payload: dict[str, Any] | None,
+    source_root: str | Path | None,
+    source_commit: str | None,
+    source_path: str | None,
+) -> bool:
+    values = (source_envelope, source_payload, source_root, source_commit, source_path)
+    if not any(value is not None for value in values):
+        return False
+    if any(value is None for value in (source_payload, source_root, source_commit, source_path)):
+        raise StreamAdapterError(
+            "existing raw Stream URIs require source_payload, source_root, source_commit, and source_path proof"
+        )
+    if source_envelope is not None and not isinstance(source_envelope, dict):
+        raise StreamAdapterError("source_envelope proof must be an object")
+    if not isinstance(source_payload, dict):
+        raise StreamAdapterError("source_payload proof must be an object")
+    if not isinstance(source_root, (str, Path)) or not str(source_root):
+        raise StreamAdapterError("source proof requires a non-empty repository root")
+    if not isinstance(source_commit, str) or not FULL_COMMIT.fullmatch(source_commit):
+        raise StreamAdapterError("source proof requires a full lowercase Git commit")
+    if not isinstance(source_path, str):
+        raise StreamAdapterError("source proof requires a governed source path")
+    return True
+
+
+def _verify_stream_record_source_proof(
+    record: dict[str, Any],
+    *,
+    source_envelope: dict[str, Any] | None,
+    source_payload: dict[str, Any],
+    source_root: str | Path,
+    source_commit: str,
+    source_path: str,
+) -> None:
+    if source_envelope is None:
+        source_record = _read_exact_source(
+            source_payload,
+            source_root=Path(source_root),
+            source_commit=source_commit,
+            source_path=source_path,
+        )
+        source_envelope = source_record.get("envelope")
+        if not isinstance(source_envelope, dict):
+            raise StreamAdapterError("exact governed source envelope is not an object")
+    expected = museum_envelope_to_stream_record(
+        source_envelope,
+        source_commit=source_commit,
+        source_path=source_path,
+        source_payload=source_payload,
+        source_root=source_root,
+    )
+    if expected != record:
+        raise StreamAdapterError(
+            "existing raw Stream URI does not match the exact Git/manifest/envelope/payload proof"
+        )
+
+
 def museum_envelope_to_stream_record(
     envelope: dict[str, Any],
     *,
@@ -315,6 +511,11 @@ def museum_envelope_to_stream_record(
 
     if not isinstance(envelope, dict):
         raise StreamAdapterError("Museum envelope must be an object")
+    normalized_source_root: Path | None = None
+    if source_root is not None:
+        if not isinstance(source_root, (str, Path)) or not str(source_root):
+            raise StreamAdapterError("source_root must be a non-empty repository root")
+        normalized_source_root = Path(source_root)
     record_type = envelope.get("recordType")
     stream_record = {
         "recordType": museum_record_type_to_stream(record_type),
@@ -324,7 +525,7 @@ def museum_envelope_to_stream_record(
             envelope,
             source_commit=source_commit,
             source_path=source_path,
-            source_root=Path(source_root) if source_root is not None else None,
+            source_root=normalized_source_root,
             source_payload=source_payload,
             allow_logical_uri=allow_logical_uri,
         ),
@@ -333,8 +534,7 @@ def museum_envelope_to_stream_record(
         "signatureHash": None,
         "effectiveAt": envelope.get("effectiveAt"),
     }
-    if not isinstance(stream_record["effectiveAt"], int) or stream_record["effectiveAt"] <= 0 or stream_record["effectiveAt"] >= 2**64:
-        raise StreamAdapterError("CollectionRecord.effectiveAt must be a nonzero uint64")
+    _nonzero_uint64(stream_record["effectiveAt"], "CollectionRecord.effectiveAt")
     if source_payload is not None:
         expected_payload_hash = "0x" + keccak256(canonical_json(source_payload)).hex()
         content_hash = stream_record["contentHash"]
@@ -353,7 +553,15 @@ def canonical_json(value: Any) -> bytes:
     return canonicalize(value)
 
 
-def stream_record_to_semantic_json(record: dict[str, Any]) -> dict[str, Any]:
+def stream_record_to_semantic_json(
+    record: dict[str, Any],
+    *,
+    source_envelope: dict[str, Any] | None = None,
+    source_payload: dict[str, Any] | None = None,
+    source_root: str | Path | None = None,
+    source_commit: str | None = None,
+    source_path: str | None = None,
+) -> dict[str, Any]:
     """Return the normalized JSON form used for deterministic round trips."""
 
     required = ("recordType", "subjectId", "contentHash", "uri", "schemaId", "signatureScheme", "signatureHash", "effectiveAt")
@@ -362,17 +570,31 @@ def stream_record_to_semantic_json(record: dict[str, Any]) -> dict[str, Any]:
     record_type = next((name for name, preimage in MUSEUM_RECORD_TYPE_PREIMAGES.items() if "0x" + keccak256(preimage.encode("ascii")).hex() == record["recordType"]), None)
     if record_type is None:
         raise StreamAdapterError("CollectionRecord uses an unknown Museum recordType pin")
+    source_proof = _source_proof_supplied(
+        source_envelope=source_envelope,
+        source_payload=source_payload,
+        source_root=source_root,
+        source_commit=source_commit,
+        source_path=source_path,
+    )
+    if source_proof:
+        _verify_stream_record_source_proof(
+            record,
+            source_envelope=source_envelope,
+            source_payload=source_payload,
+            source_root=source_root,
+            source_commit=source_commit,
+            source_path=source_path,
+        )
     uri = {"uri": record.get("uri")}
     _record_uri(
         uri,
         source_commit=None,
         source_path=None,
         allow_logical_uri=True,
-        allow_existing_immutable_raw_uri=True,
+        allow_verified_immutable_raw_uri=source_proof,
     )
-    effective_at = record.get("effectiveAt")
-    if not isinstance(effective_at, int) or effective_at <= 0 or effective_at >= 2**64:
-        raise StreamAdapterError("CollectionRecord.effectiveAt must be a nonzero uint64")
+    effective_at = _nonzero_uint64(record.get("effectiveAt"), "CollectionRecord.effectiveAt")
     signature_scheme = _bytes32(record.get("signatureScheme"), "signatureScheme")
     normalized = {
         "recordType": museum_record_type_to_stream(record_type),
@@ -401,10 +623,25 @@ def _encode_hash_ref(ref: dict[str, Any]) -> bytes:
     return _word_uint(algorithm) + _word_uint(96) + canonicalization + _encode_dynamic_bytes(digest)
 
 
-def encode_collection_record_tuple_body(record: dict[str, Any]) -> bytes:
+def encode_collection_record_tuple_body(
+    record: dict[str, Any],
+    *,
+    source_envelope: dict[str, Any] | None = None,
+    source_payload: dict[str, Any] | None = None,
+    source_root: str | Path | None = None,
+    source_commit: str | None = None,
+    source_path: str | None = None,
+) -> bytes:
     """Encode the dynamic tuple body (without the outer single-argument offset)."""
 
-    record = stream_record_to_semantic_json(record)
+    record = stream_record_to_semantic_json(
+        record,
+        source_envelope=source_envelope,
+        source_payload=source_payload,
+        source_root=source_root,
+        source_commit=source_commit,
+        source_path=source_path,
+    )
     content_tail = _encode_hash_ref(record["contentHash"])
     signature_tail = _encode_hash_ref(record["signatureHash"])
     uri_tail = _encode_dynamic_bytes(record["uri"].encode("utf-8"))
@@ -425,10 +662,25 @@ def encode_collection_record_tuple_body(record: dict[str, Any]) -> bytes:
     return head + content_tail + uri_tail + signature_tail
 
 
-def encode_collection_record_abi(record: dict[str, Any]) -> bytes:
+def encode_collection_record_abi(
+    record: dict[str, Any],
+    *,
+    source_envelope: dict[str, Any] | None = None,
+    source_payload: dict[str, Any] | None = None,
+    source_root: str | Path | None = None,
+    source_commit: str | None = None,
+    source_path: str | None = None,
+) -> bytes:
     """Encode ``abi.encode(record)`` for one dynamic CollectionRecord argument."""
 
-    return _word_uint(32) + encode_collection_record_tuple_body(record)
+    return _word_uint(32) + encode_collection_record_tuple_body(
+        record,
+        source_envelope=source_envelope,
+        source_payload=source_payload,
+        source_root=source_root,
+        source_commit=source_commit,
+        source_path=source_path,
+    )
 
 
 def derive_collection_record_hash(
@@ -438,10 +690,22 @@ def derive_collection_record_hash(
     contract_address: str,
     stream_core: str,
     collection_id: int,
+    source_envelope: dict[str, Any] | None = None,
+    source_payload: dict[str, Any] | None = None,
+    source_root: str | Path | None = None,
+    source_commit: str | None = None,
+    source_path: str | None = None,
 ) -> str:
     """Derive the exact v2 Solidity record hash preimage."""
 
-    record = stream_record_to_semantic_json(record)
+    record = stream_record_to_semantic_json(
+        record,
+        source_envelope=source_envelope,
+        source_payload=source_payload,
+        source_root=source_root,
+        source_commit=source_commit,
+        source_path=source_path,
+    )
     address = _hex_bytes(contract_address, "address")
     core = _hex_bytes(stream_core, "streamCore")
     if len(address) != 20 or len(core) != 20:
@@ -473,7 +737,7 @@ def require_stream_admission(*, known_collection: bool, family_admitted: bool, w
         raise StreamAdmissionError("Stream v2 requires record-family registry admission")
     if not writer_authorized:
         raise StreamAdmissionError("Stream v2 requires record-writer authorization")
-    if not isinstance(authorization_class, int) or authorization_class <= 0 or authorization_class > 255:
+    if isinstance(authorization_class, bool) or not isinstance(authorization_class, int) or authorization_class <= 0 or authorization_class > 255:
         raise StreamAdmissionError("Stream v2 admission must return a nonzero authorizationClass")
     return authorization_class
 

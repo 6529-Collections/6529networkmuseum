@@ -11,6 +11,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from jsonschema import Draft202012Validator
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
@@ -71,10 +73,30 @@ class StreamAdapterTests(unittest.TestCase):
         root = Path(temporary.name)
         record_path = root / Path(*source_path.split("/"))
         record_path.parent.mkdir(parents=True, exist_ok=True)
-        record_path.write_bytes(render_json({"envelope": envelope, "payload": payload}))
+        source_bytes = render_json({"envelope": envelope, "payload": payload})
+        record_path.write_bytes(source_bytes)
         manifest_path = root / "release-artifacts/latest/record-manifest.json"
         manifest_path.parent.mkdir(parents=True, exist_ok=True)
-        manifest_path.write_bytes(render_json({"entries": [{"path": source_path}]}))
+        normalized_source = source_bytes.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        manifest_body = {
+            "manifest_type": "6529NM_RECORD_MANIFEST",
+            "manifest_version": "1.1.0",
+            "inventory_roots": [],
+            "inventory_files": [],
+            "hash_algorithms": {"keccak256": 1, "sha256": 2},
+            "canonicalization": {"name": "RFC8785_JCS", "id": MUSEUM_JCS_ID, "profile": "museum-i-json-v1"},
+            "entries": [{
+                "path": source_path,
+                "size": len(normalized_source),
+                "sha256": sha256_prefixed(normalized_source),
+                "byte_mode": "lf-normalized",
+            }],
+        }
+        canonical_manifest_body = canonicalize(manifest_body)
+        manifest = dict(manifest_body)
+        manifest["manifest_commitment"] = {"algorithm": 1, "digest": "0x" + keccak256(canonical_manifest_body).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+        manifest["manifest_sha256"] = sha256_prefixed(canonical_manifest_body)
+        manifest_path.write_bytes(render_json(manifest))
         subprocess.run(["git", "init", "-q"], cwd=root, check=True)
         subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
         subprocess.run(["git", "config", "user.name", "Stream Adapter Test"], cwd=root, check=True)
@@ -154,6 +176,185 @@ class StreamAdapterTests(unittest.TestCase):
         finally:
             temporary.cleanup()
 
+    def _commit_manifest_mutation(self, root: Path, manifest: dict) -> str:
+        manifest_path = root / "release-artifacts/latest/record-manifest.json"
+        manifest_path.write_bytes(render_json(manifest))
+        subprocess.run(["git", "add", "release-artifacts/latest/record-manifest.json"], cwd=root, check=True)
+        subprocess.run(["git", "commit", "-qm", "manifest mutation"], cwd=root, check=True)
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+
+    def _recommit_manifest_body(self, manifest: dict) -> None:
+        body = copy.deepcopy(manifest)
+        body.pop("manifest_commitment", None)
+        body.pop("manifest_sha256", None)
+        canonical_body = canonicalize(body)
+        manifest["manifest_commitment"] = {"algorithm": 1, "digest": "0x" + keccak256(canonical_body).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+        manifest["manifest_sha256"] = sha256_prefixed(canonical_body)
+
+    def test_existing_raw_uri_requires_exact_proof_in_abi_and_hash_paths(self) -> None:
+        payload = {"record_id": "E", "value": "stable"}
+        envelope = self.museum_envelope()
+        envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+        temporary, source_root, source_commit = self.exact_source_repo(envelope, payload)
+        try:
+            record = museum_envelope_to_stream_record(
+                envelope,
+                source_commit=source_commit,
+                source_path="records/entities/E.json",
+                source_payload=payload,
+                source_root=source_root,
+            )
+            for callback in (
+                stream_record_to_semantic_json,
+                encode_collection_record_tuple_body,
+                encode_collection_record_abi,
+                derive_collection_record_hash,
+            ):
+                with self.assertRaises(ValueError, msg=callback.__name__):
+                    if callback is derive_collection_record_hash:
+                        callback(record, chain_id=1, contract_address="0x" + "44" * 20, stream_core="0x" + "55" * 20, collection_id=7)
+                    else:
+                        callback(record)
+
+            proof = {
+                "source_envelope": envelope,
+                "source_payload": payload,
+                "source_root": source_root,
+                "source_commit": source_commit,
+                "source_path": "records/entities/E.json",
+            }
+            self.assertEqual(stream_record_to_semantic_json(record, **proof), record)
+            self.assertEqual(encode_collection_record_abi(record, **proof)[32:], encode_collection_record_tuple_body(record, **proof))
+            self.assertTrue(derive_collection_record_hash(record, chain_id=1, contract_address="0x" + "44" * 20, stream_core="0x" + "55" * 20, collection_id=7, **proof).startswith("0x"))
+        finally:
+            temporary.cleanup()
+
+    def test_manifest_commitments_and_source_entry_fixity_are_fail_closed(self) -> None:
+        mutations = []
+
+        def mutate_manifest_sha(manifest: dict) -> None:
+            manifest["manifest_sha256"] = "sha256:" + "f" * 64
+
+        def mutate_manifest_keccak(manifest: dict) -> None:
+            manifest["manifest_commitment"]["digest"] = "0x" + "e" * 64
+
+        def mutate_entry_path(manifest: dict) -> None:
+            manifest["entries"][0]["path"] = "records/entities/other.json"
+
+        def mutate_entry_size(manifest: dict) -> None:
+            manifest["entries"][0]["size"] += 1
+
+        def mutate_entry_mode(manifest: dict) -> None:
+            manifest["entries"][0]["byte_mode"] = "raw"
+
+        def mutate_entry_sha(manifest: dict) -> None:
+            manifest["entries"][0]["sha256"] = "sha256:" + "d" * 64
+
+        mutations.extend(((mutate_manifest_sha, False), (mutate_manifest_keccak, False)))
+        mutations.extend(((mutation, True) for mutation in (mutate_entry_path, mutate_entry_size, mutate_entry_mode, mutate_entry_sha)))
+
+        for mutation, recommit in mutations:
+            payload = {"record_id": "E", "value": "stable"}
+            envelope = self.museum_envelope()
+            envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+            temporary, source_root, _source_commit = self.exact_source_repo(envelope, payload)
+            try:
+                manifest_path = source_root / "release-artifacts/latest/record-manifest.json"
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                mutation(manifest)
+                if recommit:
+                    self._recommit_manifest_body(manifest)
+                mutated_commit = self._commit_manifest_mutation(source_root, manifest)
+                with self.assertRaises(ValueError):
+                    museum_envelope_to_stream_record(
+                        envelope,
+                        source_commit=mutated_commit,
+                        source_path="records/entities/E.json",
+                        source_payload=payload,
+                        source_root=source_root,
+                    )
+            finally:
+                temporary.cleanup()
+
+    def test_source_paths_reject_url_delimiters_and_encoded_equivalents(self) -> None:
+        payload = {"record_id": "E", "value": "stable"}
+        envelope = self.museum_envelope()
+        envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+        temporary, source_root, source_commit = self.exact_source_repo(envelope, payload)
+        try:
+            for source_path in (
+                "records/entities/E.json#fragment",
+                "records/entities/E.json?query",
+                "records/entities/E.json%23fragment",
+                "records/entities/E.json%3Fquery",
+            ):
+                with self.assertRaises(ValueError):
+                    museum_envelope_to_stream_record(
+                        envelope,
+                        source_commit=source_commit,
+                        source_path=source_path,
+                        source_payload=payload,
+                        source_root=source_root,
+                    )
+        finally:
+            temporary.cleanup()
+
+    def test_boolean_values_are_not_integer_abi_fields(self) -> None:
+        for value in (False, True):
+            envelope = self.museum_envelope()
+            envelope["effectiveAt"] = value
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
+
+            envelope = self.museum_envelope()
+            envelope["contentHash"]["algorithm"] = value
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
+
+            envelope = self.museum_envelope()
+            envelope["signatureHash"]["algorithm"] = value
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
+
+        record = museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True)
+        record["effectiveAt"] = True
+        with self.assertRaises(ValueError):
+            encode_collection_record_abi(record)
+        for kwargs in (
+            {"chain_id": True, "collection_id": 7},
+            {"chain_id": 1, "collection_id": True},
+        ):
+            with self.assertRaises(ValueError):
+                derive_collection_record_hash(
+                    museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True),
+                    contract_address="0x" + "44" * 20,
+                    stream_core="0x" + "55" * 20,
+                    **kwargs,
+                )
+        with self.assertRaises(ValueError):
+            require_stream_admission(known_collection=True, family_admitted=True, writer_authorized=True, authorization_class=True)
+
+    def test_adapter_schema_rejects_boolean_integer_slots(self) -> None:
+        schema = json.loads((ROOT / "schemas/stream-collection-record-adapter.schema.json").read_text(encoding="utf-8"))
+        base = {
+            "$schema": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json",
+            "stream_source_commit": STREAM_SOURCE_COMMIT,
+            "interface_path": STREAM_INTERFACE_PATH,
+            "implementation_path": STREAM_IMPLEMENTATION_PATH,
+            "record_type_preimage": "PUBLIC_ENTITY",
+            "stream_record": museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True),
+        }
+        for path in (("effectiveAt",), ("contentHash", "algorithm"), ("signatureHash", "algorithm")):
+            mutated = copy.deepcopy(base)
+            if path[-1] == "algorithm":
+                if path[0] == "contentHash":
+                    mutated["stream_record"]["contentHash"]["algorithm"] = True
+                else:
+                    mutated["stream_record"]["signatureHash"]["algorithm"] = True
+            else:
+                mutated["stream_record"]["effectiveAt"] = True
+            self.assertTrue(list(Draft202012Validator(schema).iter_errors(mutated)), path)
+
     def test_legacy_unsigned_placeholder_cannot_pass_through(self) -> None:
         record = museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True)
         record["signatureHash"] = {"algorithm": 2, "digest": ZERO32, "canonicalizationId": MUSEUM_JCS_ID}
@@ -179,6 +380,9 @@ class StreamAdapterTests(unittest.TestCase):
         expected_hex = "00000000000000000000000000000000000000000000000000000000000000209c5f56299520166d6f06ffa496528f8d9259a500d9397dec6bdf42977ce5ee1d1111111111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000001a0333333333333333333333333333333333333333333333333333333333333333300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000220000000000000000000000000000000000000000000000000000000006a7718b000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000060886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f904400000000000000000000000000000000000000000000000000000000000000202222222222222222222222222222222222222222222222222222222222222222000000000000000000000000000000000000000000000000000000000000004168747470733a2f2f363532396e6574776f726b6d757365756d2e6f72672f7265636f7264732f656e7469746965732f363532394e4d2d572d303030312e6a736f6e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         self.assertEqual(encoded.hex(), expected_hex)
         first = derive_collection_record_hash(record, chain_id=1, contract_address="0x" + "44" * 20, stream_core="0x" + "55" * 20, collection_id=7)
+        # Fixed independently computed Solidity preimage vector; do not derive
+        # this expected value through the function under test.
+        self.assertEqual(first, "0x524a3108d5cb9431446f89aee12254db2458c5275efb9032c053605e516a475d")
         record["uri"] = "https://6529networkmuseum.org/records/entities/6529NM-W-0002.json"
         second = derive_collection_record_hash(record, chain_id=1, contract_address="0x" + "44" * 20, stream_core="0x" + "55" * 20, collection_id=7)
         self.assertNotEqual(first, second)

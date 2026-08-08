@@ -83,6 +83,9 @@ jobs:
       - name: Check deterministic public publication bundle
         run: python scripts/generate_public_publication_bundle.py --check
 
+      - name: Check deterministic public entity migration
+        run: python scripts/migrate_public_entities.py --check
+
   validate:
     name: Museum validation
     runs-on: ubuntu-latest
@@ -113,6 +116,9 @@ jobs:
 
       - name: Run bootstrap record checks
         run: python scripts/bootstrap_validate.py
+
+      - name: Check deterministic public entity migration
+        run: python scripts/migrate_public_entities.py --check
 
       - name: Check proposed-gift voter dossiers
         run: python scripts/build_proposed_gift_dossiers.py --check
@@ -198,6 +204,7 @@ jobs:
           python scripts/sync_rights_legal_texts.py
           python scripts/generate_program_media.py --check
           python scripts/generate_institutional_source_inventory.py --check
+          python scripts/migrate_public_entities.py --check
           python scripts/validate_full_with_casey.py
           python scripts/build_casey_diligence_manifest.py --check
           python scripts/generate_manifest.py --check

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf075d9571b6e9b419ee059a27437a7af1855bc037fc2318937b316275585197e"
+      "digest": "0xd443976b5447601e7efc9f3124757f498fad1037954d27a7e0ff570c5e17ef51"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:741c121e304c089eead447e4b3d154a36b13faa363a231ad5e2ae1587833c52f",
+    "payload_sha256": "sha256:2f3ae705fa5a77420fe93cc3453a4f277823ac541207718f08fba41175080aa9",
     "preferred_label": "Demonstration, Western Wall, Jerusalem",
     "profile": {
       "accession_entity_ids": [],
@@ -177,8 +177,11 @@
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-003.TOKEN",
           "reference_type": "manifestation",
+          "registry_id": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1",
           "source_record_id": "6529NM-PG-2026-001.OBJ-003",
-          "source_status": "proposed"
+          "source_status": "proposed",
+          "target_kind": "governed_typed_registry",
+          "target_type": "ERC721_TOKEN_MANIFESTATION"
         }
       ],
       "medium": "photograph",
@@ -214,6 +217,7 @@
       "6529NM-AGT-0020",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-003",
       "6529NM-PRJ-0006"
     ],
     "review_status": "pending_independent_review",
@@ -223,6 +227,7 @@
       "6529NM-AGT-0020",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-003",
       "6529NM-PRJ-0006"
     ],
     "status_observation": {

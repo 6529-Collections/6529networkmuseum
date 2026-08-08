@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x64ecf9dc538989e09c72675ff69b91c3ef0795799edb472bcc6950d63dab6ea3"
+      "digest": "0xadc7c794cafd07edd35f1b7ed5c42977efcd456d2a8fff11e05d45aa1cdc2cf7"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7dc7637df2cc8dc8168d9a34fd271ab1a92b976c374e730bf866729bcd9865e6",
+    "payload_sha256": "sha256:79b2b682abc54c9e83cb73fb09f0b9ada632018a9a281da9eb43ecbfde0a0ca2",
     "preferred_label": "No Key, Only Light",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-004",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-004",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

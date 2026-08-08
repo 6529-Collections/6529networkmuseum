@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x946eb01383fff80561bb8149ca9311ece50a4ec1f9c3887009e0fe2310adb670"
+      "digest": "0xb213bae7e5aa6b4baf620f8b8d5d48df0f0125c46072bdd4bdec5bf820b0881c"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:421494753e2bf565bddbf722118f06e1f8f3a03c6cdb806b013ccb1b08da890a",
+    "payload_sha256": "sha256:c75cd189a3df0c10d7edd8019e333ccb3a9644b0aa45877485c71ff8c8c9e2cd",
     "preferred_label": "the Artist in teh Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-002",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-002",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

@@ -561,7 +561,7 @@ def _parse_utc(value: Any, label: str) -> datetime:
     return parsed.astimezone(timezone.utc)
 
 
-def _review_binding(root: Path, commit: str, assembly_paths: list[str]) -> dict[str, Any]:
+def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_paths: list[str]) -> dict[str, Any]:
     reviewer_panel: tuple[Any, ...] | None = None
     primary_reviewer_id: str | None = None
     reviewed_at: str | None = None
@@ -618,7 +618,20 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str]) -> dict[
     if candidate not in _commit_parents(root, commit):
         raise CatalogError("candidate A is not a direct parent of reviewed B")
     _, candidate_manifest_entries, candidate_manifest_binding = _read_manifest(root, candidate)
+    candidate_inventory, candidate_assembly, candidate_media, candidate_inventory_binding = _read_inventory(
+        root, candidate, candidate_manifest_entries
+    )
+    _bundle_binding(root, candidate, candidate_inventory, candidate_assembly, candidate_inventory_binding)
     _, reviewed_manifest_entries, _ = _read_manifest(root, commit)
+    reviewed_inventory, reviewed_assembly, reviewed_media, _ = _read_inventory(
+        root, commit, reviewed_manifest_entries
+    )
+    if candidate_inventory != reviewed_inventory:
+        raise CatalogError("candidate A and reviewed B publication inventories differ")
+    if candidate_assembly != assembly_paths or candidate_media != media_paths:
+        raise CatalogError("candidate A publication inventory role sets differ from reviewed B")
+    if reviewed_assembly != assembly_paths or reviewed_media != media_paths:
+        raise CatalogError("reviewed B publication inventory role sets drifted from the catalog inputs")
     generator_paths = {
         "scripts/generate_manifest.py",
         "scripts/generate_public_publication_inventory.py",
@@ -697,7 +710,7 @@ def build_catalog(root: Path, *, reviewed_source_head_commit: str, accepted_path
     if accepted_paths is not None and accepted_paths != all_paths:
         raise CatalogError("accepted_documents input must equal the closed inventory union exactly")
     bundle_binding = _bundle_binding(root, reviewed_source_head_commit, inventory, assembly_paths, inventory_binding)
-    review_binding = _review_binding(root, reviewed_source_head_commit, assembly_paths)
+    review_binding = _review_binding(root, reviewed_source_head_commit, assembly_paths, media_paths)
     catalog_id = f"6529NM-PUBCAT-{reviewed_source_head_commit}"
     payload = {
         "catalog_id": catalog_id,
@@ -811,7 +824,7 @@ def validate_catalog(catalog: dict[str, Any], *, root: Path | None = None, expec
         actual_media = [document_entry(root, commit, path) for path in expected_media]
         if actual_assembly != assembly_documents or actual_media != media_assets:
             issues.append("catalog document digests/URLs drifted from exact B Git objects")
-        _review_binding(root, commit, expected_assembly)
+        _review_binding(root, commit, expected_assembly, expected_media)
     except CatalogError as exc:
         issues.append(str(exc))
     return issues
@@ -1077,6 +1090,43 @@ def _release_blob_bytes(root: Path, commit: str, path: str) -> bytes:
     return blob.stdout
 
 
+def git_head_commit(root: Path) -> str:
+    """Return the exact commit checked out by the repository's current Git tree."""
+
+    result = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--verify", "HEAD^{commit}"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode:
+        raise CatalogError("rollback requires a repository with a retained Git HEAD commit")
+    commit = result.stdout.strip()
+    require_commit_object(root, commit)
+    return commit
+
+
+def retained_release_json(root: Path, commit: str, path: str) -> tuple[dict[str, Any], bytes]:
+    """Read one exact JSON release artifact from a retained Git tree."""
+
+    raw = _release_blob_bytes(root, commit, path)
+    value = strict_load(raw)
+    if not isinstance(value, dict):
+        raise CatalogError(f"retained release artifact is not a JSON object: {commit}:{path}")
+    return value, raw
+
+
+def retained_catalog_from_git_tree(root: Path, commit: str, catalog_id: str) -> tuple[dict[str, Any], bytes]:
+    """Read and identity-check one exact immutable catalog blob from Git."""
+
+    path = f"{CATALOG_DIR}/{catalog_id}.json"
+    value, raw = retained_release_json(root, commit, path)
+    payload = _catalog_payload(value)
+    if payload["catalog_id"] != catalog_id:
+        raise CatalogError(f"retained Git-tree catalog identity does not match its path: {catalog_id}")
+    return value, raw
+
+
 def _catalog_tree_blobs(root: Path, commit: str) -> dict[str, str]:
     """Return exact immutable catalog paths and blob IDs at one Git commit."""
 
@@ -1133,62 +1183,99 @@ def _optional_release_json(root: Path, commit: str, path: str) -> dict[str, Any]
     return value
 
 
-def check_catalog_git_transition(root: Path, previous_commit: str, current_commit: str) -> list[str]:
-    """Verify one exact append-only catalog activation or rollback in Git.
+def _git_changed_paths(root: Path, previous_commit: str, current_commit: str) -> set[str]:
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(root),
+            "diff",
+            "--name-only",
+            "--no-renames",
+            "-z",
+            previous_commit,
+            current_commit,
+            "--",
+        ],
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise CatalogError(f"catalog transition changed-path lookup failed: {previous_commit} -> {current_commit}")
+    return {path.decode("utf-8") for path in result.stdout.split(b"\0") if path}
 
-    All prior catalog blobs must be retained byte-for-byte. An activation adds
-    exactly one new immutable catalog plus the pointer update; a rollback is a
-    pointer-only change to a catalog already present in the previous tree.
-    """
+
+def _first_parent_chain(root: Path, previous_commit: str, current_commit: str) -> list[str]:
+    """Return the inclusive first-parent chain from ``previous`` to ``current``."""
+
+    require_commit_object(root, previous_commit)
+    require_commit_object(root, current_commit)
+    if previous_commit == current_commit:
+        raise CatalogError("catalog transition must compare distinct commits")
+    chain = [current_commit]
+    seen = {current_commit}
+    cursor = current_commit
+    while cursor != previous_commit:
+        parents = _commit_parents(root, cursor)
+        if not parents:
+            raise CatalogError("catalog transition previous_commit is not a first-parent ancestor of current_commit")
+        cursor = parents[0]
+        if cursor in seen:
+            raise CatalogError("catalog transition encountered a cycle in first-parent history")
+        seen.add(cursor)
+        chain.append(cursor)
+    chain.reverse()
+    return chain
+
+
+def _is_catalog_release_path(path: str) -> bool:
+    return path == POINTER_PATH or path.startswith(CATALOG_DIR + "/")
+
+
+def _check_catalog_git_transition_adjacent(root: Path, previous_commit: str, current_commit: str) -> list[str]:
+    """Verify one adjacent first-parent catalog activation or rollback."""
 
     issues: list[str] = []
+    previous_blobs = _catalog_tree_blobs(root, previous_commit)
+    current_blobs = _catalog_tree_blobs(root, current_commit)
+    changed = _git_changed_paths(root, previous_commit, current_commit)
+    if not any(_is_catalog_release_path(path) for path in changed):
+        return []
+
+    for path, blob_id in previous_blobs.items():
+        if current_blobs.get(path) != blob_id:
+            issues.append(f"immutable historical catalog was deleted or rewritten: {path}")
+    additions = set(current_blobs) - set(previous_blobs)
+
+    current_pointer = _optional_release_json(root, current_commit, POINTER_PATH)
+    if current_pointer is None:
+        return [*issues, "current catalog transition has no activation pointer"]
+    current_id = _pointer_catalog_id(current_pointer)
+    if current_id is None:
+        return [*issues, "current activation pointer has an invalid catalog path"]
+    current_path = f"{CATALOG_DIR}/{current_id}.json"
     try:
-        require_commit_object(root, previous_commit)
-        require_commit_object(root, current_commit)
-        ancestor = subprocess.run(
-            [
-                "git",
-                "-C",
-                str(root),
-                "merge-base",
-                "--is-ancestor",
-                previous_commit,
-                current_commit,
-            ],
-            capture_output=True,
-            check=False,
-        )
-        if ancestor.returncode:
-            return ["catalog transition previous_commit is not an ancestor of current_commit"]
-
-        previous_blobs = _catalog_tree_blobs(root, previous_commit)
-        current_blobs = _catalog_tree_blobs(root, current_commit)
-        for path, blob_id in previous_blobs.items():
-            if current_blobs.get(path) != blob_id:
-                issues.append(f"immutable historical catalog was deleted or rewritten: {path}")
-        additions = set(current_blobs) - set(previous_blobs)
-
-        current_pointer = _optional_release_json(root, current_commit, POINTER_PATH)
-        if current_pointer is None:
-            return [*issues, "current catalog transition has no activation pointer"]
-        current_id = _pointer_catalog_id(current_pointer)
-        if current_id is None:
-            return [*issues, "current activation pointer has an invalid catalog path"]
-        current_path = f"{CATALOG_DIR}/{current_id}.json"
         current_catalog_bytes = _release_blob_bytes(root, current_commit, current_path)
-        current_catalog = strict_load(current_catalog_bytes)
-        if not isinstance(current_catalog, dict):
-            return [*issues, "current pointer target is not a catalog object"]
+    except CatalogError as exc:
+        return [*issues, str(exc)]
+    current_catalog = strict_load(current_catalog_bytes)
+    if not isinstance(current_catalog, dict):
+        return [*issues, "current pointer target is not a catalog object"]
 
-        previous_pointer = _optional_release_json(root, previous_commit, POINTER_PATH)
-        previous_active_id = _pointer_catalog_id(previous_pointer)
-        previous_catalog: dict[str, Any] | None = None
-        if previous_pointer is not None:
-            if previous_active_id is None:
-                issues.append("previous activation pointer has an invalid catalog path")
-            else:
-                previous_path = f"{CATALOG_DIR}/{previous_active_id}.json"
+    previous_pointer = _optional_release_json(root, previous_commit, POINTER_PATH)
+    previous_active_id = _pointer_catalog_id(previous_pointer)
+    previous_catalog: dict[str, Any] | None = None
+    if previous_pointer is not None:
+        if previous_active_id is None:
+            issues.append("previous activation pointer has an invalid catalog path")
+        else:
+            previous_path = f"{CATALOG_DIR}/{previous_active_id}.json"
+            try:
                 previous_bytes = _release_blob_bytes(root, previous_commit, previous_path)
+            except CatalogError as exc:
+                issues.append(str(exc))
+                previous_bytes = None
+            if previous_bytes is not None:
                 value = strict_load(previous_bytes)
                 if not isinstance(value, dict):
                     issues.append("previous pointer target is not a catalog object")
@@ -1202,58 +1289,66 @@ def check_catalog_git_transition(root: Path, previous_commit: str, current_commi
                         )
                     )
 
-        issues.extend(validate_catalog(current_catalog, root=root, expected_commit=current_pointer.get("source_commit")))
-        issues.extend(validate_pointer(current_pointer, current_catalog, current_catalog_bytes))
-        issues.extend(
-            check_append_only_catalog(
-                previous_catalog,
-                current_catalog,
-                previous_pointer,
-                current_pointer,
-                retained_catalog_ids={
-                    path.rsplit("/", 1)[-1].removesuffix(".json")
-                    for path in previous_blobs
-                },
-            )
+    issues.extend(validate_catalog(current_catalog, root=root, expected_commit=current_pointer.get("source_commit")))
+    issues.extend(validate_pointer(current_pointer, current_catalog, current_catalog_bytes))
+    issues.extend(
+        check_append_only_catalog(
+            previous_catalog,
+            current_catalog,
+            previous_pointer,
+            current_pointer,
+            retained_catalog_ids={
+                path.rsplit("/", 1)[-1].removesuffix(".json")
+                for path in previous_blobs
+            },
         )
+    )
 
-        activation = current_pointer.get("activation")
-        mode = activation.get("mode") if isinstance(activation, dict) else None
-        if mode == "activate":
-            if additions != {current_path}:
-                issues.append("catalog activation must add exactly its one new immutable catalog")
-            if current_path in previous_blobs:
-                issues.append("catalog activation target already existed in prior history")
-        elif mode == "rollback":
-            if additions:
-                issues.append("catalog rollback must not add a catalog file")
-            if current_path not in previous_blobs:
-                issues.append("catalog rollback target was not retained in prior Git history")
+    activation = current_pointer.get("activation")
+    mode = activation.get("mode") if isinstance(activation, dict) else None
+    if mode == "activate":
+        if additions != {current_path}:
+            issues.append("catalog activation must add exactly its one new immutable catalog")
+        if current_path in previous_blobs:
+            issues.append("catalog activation target already existed in prior history")
+    elif mode == "rollback":
+        if additions:
+            issues.append("catalog rollback must not add a catalog file")
+        if current_path not in previous_blobs:
+            issues.append("catalog rollback target was not retained in prior Git history")
 
-        changed = set(
-            subprocess.run(
-                [
-                    "git",
-                    "-C",
-                    str(root),
-                    "diff",
-                    "--name-only",
-                    previous_commit,
-                    current_commit,
-                    "--",
-                ],
-                capture_output=True,
-                text=True,
-                check=True,
-            ).stdout.splitlines()
+    expected_changed = {POINTER_PATH} | additions
+    if changed != expected_changed:
+        issues.append(
+            "catalog transition changed paths outside its exact release boundary: "
+            f"unexpected={sorted(changed - expected_changed)}, "
+            f"missing={sorted(expected_changed - changed)}"
         )
-        expected_changed = {POINTER_PATH} | additions
-        if changed != expected_changed:
-            issues.append(
-                "catalog transition changed paths outside its exact release boundary: "
-                f"unexpected={sorted(changed - expected_changed)}, "
-                f"missing={sorted(expected_changed - changed)}"
-            )
-    except (CatalogError, json.JSONDecodeError, OSError, subprocess.CalledProcessError) as exc:
-        issues.append(str(exc))
     return issues
+
+
+def check_catalog_git_transition(root: Path, previous_commit: str, current_commit: str) -> list[str]:
+    """Verify every adjacent first-parent catalog activation or rollback in Git.
+
+    All prior catalog blobs must be retained byte-for-byte at every first-parent
+    step. Checking only the endpoint trees would allow a delete/rewrite/restore
+    sequence to disappear from the final diff.
+    """
+
+    try:
+        chain = _first_parent_chain(root, previous_commit, current_commit)
+        issues: list[str] = []
+        for adjacent_previous, adjacent_current in zip(chain, chain[1:]):
+            try:
+                adjacent_issues = _check_catalog_git_transition_adjacent(
+                    root, adjacent_previous, adjacent_current
+                )
+            except (CatalogError, json.JSONDecodeError, OSError, subprocess.CalledProcessError) as exc:
+                adjacent_issues = [str(exc)]
+            issues.extend(
+                f"first-parent transition {adjacent_previous} -> {adjacent_current}: {issue}"
+                for issue in adjacent_issues
+            )
+        return issues
+    except (CatalogError, json.JSONDecodeError, OSError, subprocess.CalledProcessError) as exc:
+        return [str(exc)]

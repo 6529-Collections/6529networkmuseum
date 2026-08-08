@@ -21,6 +21,7 @@
         "signatureHash": {"$ref": "#/$defs/hashRef"},
         "effectiveAt": {
           "type": "integer",
+          "not": {"type": "boolean"},
           "minimum": 1,
           "maximum": 9007199254740991,
           "$comment": "This JSON Schema uses the I-JSON safe-integer ceiling. The Python adapter and the on-chain Stream uint64 field separately enforce the full nonzero uint64 domain (1..18446744073709551615) before serialization or submission."
@@ -34,7 +35,7 @@
     "hashRef": {
       "type": "object",
       "properties": {
-        "algorithm": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "algorithm": {"type": "integer", "not": {"type": "boolean"}, "minimum": 0, "maximum": 65535},
         "digest": {"type": "string", "pattern": "^0x[0-9a-f]*$"},
         "canonicalizationId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}
       },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9d2e40d4532398978b35f2f8085903fc090bbc3979f2cd6887448fb61df1770e"
+      "digest": "0x608bb4690803e53162b80c2af504f688c1d712ced134663d281173254ce9e655"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:99647faf2e5ac21efda67bbe42599f7830666778cc174d4e309cbb900596b9f8",
+    "payload_sha256": "sha256:dc4afb6eca672cf5090b764fcbeeb3681aeb0de17066675c7c4daab6e726841e",
     "preferred_label": "মুক্তিযুদ্ধ - Fight for Freedom",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-015",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-015",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

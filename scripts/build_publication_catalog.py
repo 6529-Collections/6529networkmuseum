@@ -14,9 +14,14 @@ from publication_catalog import (
     build_catalog,
     build_pointer,
     check_catalog_git_transition,
+    check_append_only_catalog,
+    git_head_commit,
+    retained_catalog_from_git_tree,
+    retained_release_json,
     render_json,
     sha256_prefixed,
     strict_load,
+    _catalog_tree_blobs,
     validate_canonical_catalog_path,
     validate_catalog,
     validate_pointer,
@@ -62,23 +67,67 @@ def main(argv: list[str] | None = None) -> int:
         if args.write_release:
             if not args.actor or not args.activated_at:
                 raise CatalogError("--write-release requires --actor and --activated-at")
+            if args.mode == "activate" and (not args.commit or not args.created_at or args.target_catalog_id):
+                raise CatalogError(
+                    "activation requires --commit and --created-at and forbids --target-catalog-id"
+                )
+            if args.mode == "rollback" and (
+                args.commit or args.created_at or not args.target_catalog_id
+            ):
+                raise CatalogError(
+                    "rollback requires --target-catalog-id and forbids --commit/--created-at"
+                )
             pointer_path = root / Path(*POINTER_PATH.split("/"))
-            previous_pointer = (
-                strict_load(pointer_path.read_bytes()) if pointer_path.is_file() else None
-            )
-            if previous_pointer is not None and not isinstance(previous_pointer, dict):
-                raise CatalogError("existing publication pointer is not an object")
             prior_catalog_id = None
-            if isinstance(previous_pointer, dict):
+            previous_pointer = None
+            previous_catalog = None
+            retained_catalog_ids: set[str] | None = None
+            if args.mode == "rollback":
+                tree_commit = git_head_commit(root)
+                retained_pointer, retained_pointer_bytes = retained_release_json(
+                    root, tree_commit, POINTER_PATH
+                )
+                if not pointer_path.is_file() or pointer_path.read_bytes() != retained_pointer_bytes:
+                    raise CatalogError(
+                        "rollback requires the current activation pointer to match its exact retained Git-tree bytes"
+                    )
+                previous_pointer = retained_pointer
                 prior_path = previous_pointer.get("catalog_path")
                 validate_canonical_catalog_path(prior_path)
                 prior_catalog_id = prior_path.rsplit("/", 1)[-1][:-5]
+                if args.target_catalog_id == prior_catalog_id:
+                    raise CatalogError("rollback target cannot equal the current prior catalog")
+                previous_catalog, previous_catalog_bytes = retained_catalog_from_git_tree(
+                    root, tree_commit, prior_catalog_id
+                )
+                previous_catalog_issues = validate_catalog(
+                    previous_catalog,
+                    root=root,
+                    expected_commit=previous_catalog["payload"]["reviewed_source_head_commit"],
+                )
+                if previous_catalog_issues:
+                    raise CatalogError("; ".join(previous_catalog_issues))
+                previous_pointer_issues = validate_pointer(
+                    previous_pointer, previous_catalog, previous_catalog_bytes
+                )
+                if previous_pointer_issues:
+                    raise CatalogError("; ".join(previous_pointer_issues))
+                retained_catalog_ids = {
+                    path.rsplit("/", 1)[-1].removesuffix(".json")
+                    for path in _catalog_tree_blobs(root, tree_commit)
+                }
+            else:
+                previous_pointer = (
+                    strict_load(pointer_path.read_bytes()) if pointer_path.is_file() else None
+                )
+                if previous_pointer is not None and not isinstance(previous_pointer, dict):
+                    raise CatalogError("existing publication pointer is not an object")
+                if isinstance(previous_pointer, dict):
+                    prior_path = previous_pointer.get("catalog_path")
+                    validate_canonical_catalog_path(prior_path)
+                    prior_catalog_id = prior_path.rsplit("/", 1)[-1][:-5]
 
             if args.mode == "activate":
-                if not args.commit or not args.created_at or args.target_catalog_id:
-                    raise CatalogError(
-                        "activation requires --commit and --created-at and forbids --target-catalog-id"
-                    )
                 catalog = build_catalog(
                     root,
                     reviewed_source_head_commit=args.commit,
@@ -91,22 +140,15 @@ def main(argv: list[str] | None = None) -> int:
                     *f"{CATALOG_DIR}/{catalog_id}.json".split("/")
                 )
             else:
-                if args.commit or args.created_at or not args.target_catalog_id:
-                    raise CatalogError(
-                        "rollback requires --target-catalog-id and forbids --commit/--created-at"
-                    )
                 catalog_id = args.target_catalog_id
-                if catalog_id == prior_catalog_id:
-                    raise CatalogError("rollback target cannot equal the current prior catalog")
-                catalog_path = root / Path(
-                    *f"{CATALOG_DIR}/{catalog_id}.json".split("/")
+                catalog, catalog_bytes = retained_catalog_from_git_tree(
+                    root, tree_commit, catalog_id
                 )
-                if not catalog_path.is_file():
-                    raise CatalogError("rollback target catalog is not retained locally")
-                catalog_bytes = catalog_path.read_bytes()
-                catalog = strict_load(catalog_bytes)
-                if not isinstance(catalog, dict):
-                    raise CatalogError("rollback target catalog is not an object")
+                catalog_path = root / Path(*f"{CATALOG_DIR}/{catalog_id}.json".split("/"))
+                if catalog_path.is_file() and catalog_path.read_bytes() != catalog_bytes:
+                    raise CatalogError(
+                        "rollback target catalog bytes do not match the exact retained Git-tree catalog"
+                    )
 
             issues = validate_catalog(
                 catalog,
@@ -126,6 +168,16 @@ def main(argv: list[str] | None = None) -> int:
             pointer_issues = validate_pointer(pointer, catalog, catalog_bytes)
             if pointer_issues:
                 raise CatalogError("; ".join(pointer_issues))
+            if args.mode == "rollback":
+                lineage_issues = check_append_only_catalog(
+                    previous_catalog,
+                    catalog,
+                    previous_pointer,
+                    pointer,
+                    retained_catalog_ids=retained_catalog_ids,
+                )
+                if lineage_issues:
+                    raise CatalogError("; ".join(lineage_issues))
 
             if catalog_path.is_file() and catalog_path.read_bytes() != catalog_bytes:
                 raise CatalogError("immutable catalog path already exists with different bytes")

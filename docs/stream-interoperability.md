@@ -370,12 +370,29 @@ observation and preserves its prior observation rather than rewriting it.
 exact reviewed-source proof to normalized Stream `CollectionRecord`, then
 Stream struct to its normalized semantic JSON representation. It also checks
 the exact `abi.encode(record)` layout and Stream v2 record-hash preimage against
-independently generated golden vectors. It does not claim a lossless conversion
-from an arbitrary Stream record back to the original Museum payload or evidence
-package. Immutable raw-source URIs require the exact reviewed commit, a regular
-Git blob admitted by that commit's manifest, and byte-equivalent envelope and
-payload inputs. Stable Museum logical record URIs are an explicit off-chain
-mode and do not establish Stream admission.
+an independently computed fixed record-hash golden constant. It does not claim
+a lossless conversion from an arbitrary Stream record back to the original
+Museum payload or evidence package.
+
+An immutable raw-source URI is an admission proof, not merely a string. The
+adapter requires the exact full lowercase Git commit, an exact regular Git
+blob, the source envelope and payload, and the exact source root/path. Before
+that URI may enter semantic normalization, ABI encoding, or record-hash
+derivation, the commit's `release-artifacts/latest/record-manifest.json` must
+have internally consistent SHA-256 and Keccak/JCS body commitments, and its
+source entry must match the exact repository-relative path, normalized byte
+size, declared byte mode, and SHA-256. The source blob must then parse as one
+strict JSON object whose envelope and payload equal the supplied proof, and
+the payload must match the envelope content commitment. ABI/hash helpers
+require this proof again when handed an existing raw URI; a raw URI cannot be
+admitted by shape validation alone.
+
+Source paths are literal POSIX paths only. URL query/fragment delimiters
+(`?`, `#`) and percent-encoded equivalents are rejected, as are pathspec,
+traversal, separator, and control-character ambiguities. Stable Museum logical
+record URIs remain an explicit off-chain mode and do not establish Stream
+admission. Every Python value entering a Stream integer ABI slot is an actual
+integer, never a Boolean; the JSON Schema states the same closed-type rule.
 
 The proposed crosswalk is typed:
 

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2c54a1630d8781405108c0f63f720b4cf26dc410d2717c9c64c300f16b86c84f"
+      "digest": "0x77677b9ba258aaadc0327de7224abfdf33de5077975ac4b8b81d40fbc5677d1f"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c6ee1f82f71e65dfbcb9f83d90f9242949087b71488340dc7c7bb0a488aceaa0",
+    "payload_sha256": "sha256:33dbdda7a6a6024a4a5041b27f38a23945b1bf85da62e86160de382a9190e163",
     "preferred_label": "Take the Key!",
     "profile": {
       "accession_entity_ids": [],
@@ -78,8 +78,11 @@
           ],
           "record_id": "6529NM-AP-01-OUT-001",
           "reference_type": "component",
+          "registry_id": null,
           "source_record_id": "6529NM-AP-01-OUT-001",
-          "source_status": "selected_unminted"
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
         }
       ],
       "creation_date": {

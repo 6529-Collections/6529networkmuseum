@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0b3efc2a12dfdf977d7fa276970d7f373777d4ecbcaf0962a4ecd0b630d742d8"
+      "digest": "0xf1b53ecfcb40b82edc67db3eabff86fc479d0378a294ed1e21dd2028b56dbe6b"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d59e2caccbfe113320b11b9069cb04150e58f12dcd806f8e71f4bef459de65f1",
+    "payload_sha256": "sha256:7db0b401f074a61f807a5158674a535e15b7c52970c7fa986e2bdc633dbd9f50",
     "preferred_label": "মুক্তিযুদ্ধ - Fight for Freedom Museum presentation derivative",
     "profile": {
       "media": {
@@ -59,13 +59,10 @@
           }
         ],
         "accessibility_publication_entity_id": null,
-        "accessibility_status": "provided",
+        "accessibility_status": "pending_review",
         "accessibility_subject_policy": "not_applicable",
-        "accessibility_text": "Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.",
+        "accessibility_text": "Two people lean from the windows of a weathered teal train; one wears a patterned white head covering and the other a bright orange head covering.",
         "allowed_ui_affordances": [
-          "view",
-          "thumbnail",
-          "hero",
           "alt_text",
           "copy_citation"
         ],
@@ -105,8 +102,8 @@
           "status": "unknown"
         },
         "source_locator": {
-          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp",
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp"
+          "repository_path": null,
+          "uri": null
         },
         "source_observation": {
           "evidence_refs": [
@@ -135,7 +132,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
-        "visual": true,
+        "visual": false,
         "wave_proposal_context": null,
         "width": 640
       },

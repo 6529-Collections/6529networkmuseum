@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x30a4b8ecfdf0aeed24d67d157f675c410a136f28b0bf9d87f73a31cc17026144"
+      "digest": "0x361ca6ca113926cb5b7249fa9c0c37336e89ea6aabe91db0e6d63663939fd596"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:845437bf05efdff676ec0e31633974ebeacb0cd260ecce2b1f9f6327fe9a7612",
+    "payload_sha256": "sha256:b5c9c45269cc9464613608093c30ff420389934214f59ad998afe751fd1e36e9",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador",
     "profile": {
       "accession_entity_ids": [],
@@ -177,8 +177,11 @@
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-002.TOKEN",
           "reference_type": "manifestation",
+          "registry_id": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1",
           "source_record_id": "6529NM-PG-2026-001.OBJ-002",
-          "source_status": "proposed"
+          "source_status": "proposed",
+          "target_kind": "governed_typed_registry",
+          "target_type": "ERC721_TOKEN_MANIFESTATION"
         }
       ],
       "medium": "photograph",
@@ -214,6 +217,7 @@
       "6529NM-AGT-0019",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002",
       "6529NM-PRJ-0006"
     ],
     "review_status": "pending_independent_review",
@@ -223,6 +227,7 @@
       "6529NM-AGT-0019",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002",
       "6529NM-PRJ-0006"
     ],
     "status_observation": {

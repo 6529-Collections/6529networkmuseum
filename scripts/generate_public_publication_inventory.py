@@ -36,6 +36,7 @@ JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
 MAX_BUNDLE_BYTES = 8_000_000
 TEXT_EXTENSIONS = {".json", ".md", ".txt", ".py", ".yml", ".yaml", ".svg", ".gitattributes", ".gitignore"}
 MEDIA_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".svg"}
+PUBLIC_MEDIA_RIGHTS_STATUSES = {"cleared", "cleared_with_conditions"}
 EXCLUDED_PUBLIC_MARKDOWN = {"records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md"}
 
 # These are the visitor-facing and frontend-contract manuscripts that do not
@@ -62,11 +63,10 @@ ASSEMBLY_CONTROL_PATHS = (
     "schemas/public-publication-bundle.schema.json",
 )
 
-# The source manifests are public, typed inputs to the media adapter.  The
-# active MEDIA_REFERENCE records and the program media manifest are the
-# authority for the selected media assets below.
+# Accessibility descriptions are safe visitor-facing source material. The
+# program media manifest remains governed repository evidence, but its direct
+# derivative locators are excluded from the visitor corpus until rights clear.
 MEDIA_SOURCE_MANIFEST_PATHS = (
-    "records/programs/6529NM-AP-01/media-manifest.json",
     "media/programs/6529NM-AP-01/accessibility.json",
 )
 
@@ -188,6 +188,8 @@ def _active_media_repository_paths(root: Path) -> set[str]:
             not isinstance(media, dict)
             or media.get("visual") is not True
             or media.get("publication_boundary") not in {"public_derivative", "historical_wave_proposal_context", "public_graphic"}
+            or not isinstance(media.get("rights"), dict)
+            or media["rights"].get("status") not in PUBLIC_MEDIA_RIGHTS_STATUSES
         ):
             continue
         locator = media.get("source_locator") if isinstance(media, dict) else None
@@ -272,8 +274,13 @@ def _entries(root: Path) -> list[dict[str, Any]]:
     for relative in MEDIA_SOURCE_MANIFEST_PATHS:
         add(_entry(relative, "public_media_source_manifest", "assembly_document"))
 
-    active_media_paths = _active_media_repository_paths(root)
-    all_media_paths = active_media_paths | _program_media_paths(root)
+    # The program manifest remains a governed exact inventory, but it is not a
+    # public-display grant. Validate its local bytes without admitting them to
+    # the visitor corpus. A derivative becomes deliverable only through an
+    # active MEDIA_REFERENCE whose effective rights status is explicitly
+    # cleared above.
+    _program_media_paths(root)
+    all_media_paths = _active_media_repository_paths(root)
     for relative in sorted(all_media_paths):
         suffix = Path(relative).suffix.casefold()
         if suffix in MEDIA_EXTENSIONS:

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa9ff7ad1b20d87e283eecf056ff7abdf1f31d20f2c897ccef1bf250637992af6"
+      "digest": "0x1e8c7ca81544890c83977a508753f4a7c660da3593ed3e6d198a548dbd892cc3"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2e2382014fdea4516da6ff1cd074a51a3dc4e85297639208d072f6bb9a6fc51a",
+    "payload_sha256": "sha256:998b495f80289a99712353f05bd5d8f2c9a3aaf1c7f6128fc348f64062835916",
     "preferred_label": "Palmyra, Syria",
     "profile": {
       "accession_entity_ids": [],
@@ -177,8 +177,11 @@
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-005.TOKEN",
           "reference_type": "manifestation",
+          "registry_id": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1",
           "source_record_id": "6529NM-PG-2026-001.OBJ-005",
-          "source_status": "proposed"
+          "source_status": "proposed",
+          "target_kind": "governed_typed_registry",
+          "target_type": "ERC721_TOKEN_MANIFESTATION"
         }
       ],
       "medium": "photograph",
@@ -214,6 +217,7 @@
       "6529NM-AGT-0022",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-005",
       "6529NM-PRJ-0006"
     ],
     "review_status": "pending_independent_review",
@@ -223,6 +227,7 @@
       "6529NM-AGT-0022",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-005",
       "6529NM-PRJ-0006"
     ],
     "status_observation": {
