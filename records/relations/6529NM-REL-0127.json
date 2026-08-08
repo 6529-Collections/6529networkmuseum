@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x979c7f7275e55cf3b1f6034e14e685d0f0ac56450dd7cf712413a6e0ce244449"
+      "digest": "0x97eeb48417ff0b7dbfdefbd543a26b4fb06aa99f18c64041e1af4e0099c032d6"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -22,26 +22,26 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Casey Work presentation media relation",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.02.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:ed2ee11988ec7798642fb2ad7f0e7c9ba2bd1ddb50864dda461b45f231cf036b",
+    "payload_sha256": "sha256:0c7bdbdd1bccef7504f9e728a586e7307317cf2db40e2b3413170fd47b476d65",
     "qualifier": {
       "media_context": "primary"
     },
     "record_id": "6529NM-REL-0127",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,12 +51,8 @@
     ],
     "relation_id": "6529NM-REL-0127",
     "relation_type": "ENTITY_HAS_MEDIA",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-W-0002",
     "source_record_ids": [

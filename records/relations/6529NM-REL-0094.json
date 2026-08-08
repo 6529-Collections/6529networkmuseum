@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0f861302bfc7c6cea8dd89774811cc27692a0e887ff20cb188edd43de5da12b3"
+      "digest": "0xac94d091a4c4c802de0db474a98296e4ee8c26f9759681027aeee29d855b46a3"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -22,26 +22,26 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Accession certificate",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:056147162c03592c0a61e80f5696dfb22efca6dcefd8f6b15854f0402e746886",
+    "payload_sha256": "sha256:21a48a4075e389c458411af93d5374c23c88aae406ac699f8585342a4615de6e",
     "qualifier": {
       "accession_object_id": "6529NM.2026.001.01"
     },
     "record_id": "6529NM-REL-0094",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -52,12 +52,8 @@
     ],
     "relation_id": "6529NM-REL-0094",
     "relation_type": "ACCESSION_ADMITS_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-ACC-ENT-0001",
     "source_record_ids": [

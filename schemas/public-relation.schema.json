@@ -7,13 +7,14 @@
       "type": "object",
       "properties": {
         "display_order": {"type": "integer", "minimum": 1},
-        "role": {"enum": ["creator", "publisher", "platform", "curator", "author", "subject", "component", "manifestation"]},
+        "role": {"enum": ["creator", "originator", "publisher", "platform", "curator", "author", "subject", "component", "manifestation"]},
         "selection_status": {"enum": ["proposed", "selected_unminted", "selected", "not_established"]},
         "mint_status": {"enum": ["pending", "not_started", "verified", "not_applicable"]},
         "accession_object_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
         "collection_membership_status": {"enum": ["permanent_collection", "not_in_collection", "accession_review_in_progress", "not_established"]},
         "scope": {"enum": ["museum_curatorial_grouping", "artist_defined", "source_project", "proposal_work_set"]},
         "media_context": {"enum": ["primary", "thumbnail", "hero", "documentation", "source", "preservation"]},
+        "publication_context_entity_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"},
         "relation_basis": {"enum": ["source_record", "museum_projection", "program_rule", "wave_publication"]}
       },
       "unevaluatedProperties": false
@@ -25,6 +26,7 @@
         "AGENT_PLAYS_ROLE",
         "PROJECT_CONTEXTUALIZES_WORK",
         "ORGANIZATION_ORIGINATES_PROJECT",
+        "ORGANIZATION_PUBLISHES_PROJECT",
         "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION",
         "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
         "PROGRAM_SELECTS_WORK",

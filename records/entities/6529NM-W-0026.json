@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd094acae648e2ead0fbb00366bbb415d3afbc2d372a805ef51c554fd2d1359c5"
+      "digest": "0xeadc1a87959a7a401f724dd92444731dbcae2049d2e069bccf622969144daa64"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/works/6529NM-W-0026",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0026",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Proposed gift object",
         "observed_at": "2026-08-06T13:19:30.726Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:b6c9e259471843a2bd6a2b21a346f05d9c74e8b358c362fe4d44d176a51c02a4",
+    "payload_sha256": "sha256:4de3ec0c24c9c1e907f12ec62d5a96829e296340196682f1e887cd7e69e13ef4",
     "preferred_label": "Demonstration, Western Wall, Jerusalem",
     "profile": {
       "accession_entity_ids": [],
@@ -55,7 +55,7 @@
         "collection_entity_id": null,
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "WINNER has no accession effect",
             "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
@@ -73,7 +73,7 @@
         "earliest": "1989-01-01",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Proposed gift object",
             "observed_at": "2026-08-06T13:19:30.726Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -89,14 +89,14 @@
         "as_of": "2026-08-08T10:15:02.0167151Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
-            "label": "Authenticated WINNER status observation",
+            "evidence_class": "B",
+            "label": "Signed-drop API WINNER status readback (is_signed=true)",
             "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
           },
           {
-            "evidence_class": "C",
-            "label": "Signed Museum Wave drop",
+            "evidence_class": "B",
+            "label": "Museum Wave drop page readback",
             "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
@@ -106,13 +106,13 @@
       },
       "evidence_refs": [
         {
-          "evidence_class": "C",
-          "label": "Authenticated WINNER status observation",
+          "evidence_class": "B",
+          "label": "Signed-drop API WINNER status readback (is_signed=true)",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
         },
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Original proposal object",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -123,7 +123,7 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Original PARTICIPATORY proposal observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -141,19 +141,19 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Authenticated WINNER status observation",
+              "evidence_class": "B",
+              "label": "Signed-drop API WINNER status readback (is_signed=true)",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
             },
             {
-              "evidence_class": "C",
-              "label": "Signed Museum Wave drop",
+              "evidence_class": "B",
+              "label": "Museum Wave drop page readback",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
-          "notes": "Authenticated live WINNER status changes the Museum relationship to selection under acquisition review only; the five Works remain outside the permanent Collection.",
+          "notes": "Signed-drop API WINNER status readback changes the Museum relationship to selection under acquisition review only; the five Works remain outside the permanent Collection.",
           "observation_id": "6529NM-W-OBS-0031",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "source_record_ids": [
@@ -169,7 +169,7 @@
           "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Proposed ERC-721 manifestation reference",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -183,26 +183,22 @@
       ],
       "medium": "photograph",
       "mint_fact": {
-        "as_of": "2026-08-08T10:15:02.0167151Z",
+        "as_of": "2026-08-06T13:19:30.726Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
-            "label": "Source record",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
+            "evidence_class": "A",
+            "label": "Finalized Ethereum chain observation",
+            "observed_at": "2026-08-06T13:19:30.726Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-          },
-          {
-            "evidence_class": "C",
-            "label": "Source record",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
           }
         ],
-        "notes": "The WINNER source status establishes Museum Wave selection and acquisition review only; it does not establish mint, payment, title, custody, rights, technical review, preservation, accession, or Collection membership.",
-        "status": "not_started"
+        "notes": "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
+        "status": "verified"
       },
       "profile_type": "WORK",
-      "program_entity_ids": [],
+      "program_entity_ids": [
+        "6529NM-AP-ENT-0001"
+      ],
       "project_or_series_entity_ids": [
         "6529NM-PRJ-0006"
       ],
@@ -211,7 +207,7 @@
     },
     "public_slug": "6529NM-W-0026",
     "record_id": "6529NM-W-0026",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,12 +216,8 @@
       "6529NM-PG-2026-001",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0020",
@@ -236,14 +228,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Proposed gift object",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0026",
     "visibility": "public"

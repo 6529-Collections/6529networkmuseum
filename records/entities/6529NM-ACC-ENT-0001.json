@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xeab54b86e6aa0dcc0ee1e011c156a3d593bcde5e558d2fa2f09dc71423a10dbd"
+      "digest": "0x54c0998f835f57a46f68e571fca8100357ed74cb73c1902925bca5f35dbadc54"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": null,
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-ACC-ENT-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACCESSION",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Accession certificate",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:e6c600cade183eca3189db210b3665c78431cee0a00d538a6d300c7a92ee0eaf",
+    "payload_sha256": "sha256:375ca6747fa177e8d7dbd454158f570d7a002026a1e2becc113af26f3a42b94a",
     "preferred_label": "Casey Reas accession 6529NM.2026.001",
     "profile": {
       "accession_number": "6529NM.2026.001",
@@ -56,7 +56,7 @@
       ],
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Accession certificate",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
@@ -67,7 +67,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-ACC-ENT-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -81,12 +81,8 @@
       "6529NM-W-0007",
       "6529NM.2026.001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -102,14 +98,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Accession certificate",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ACC-ENT-0001",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x74e33178d0cbbb5622b352604bbb333f38ec07465e6ce52b629aa94b7cd47f50"
+      "digest": "0x45b5c3ad62b60f99591d83d19b4db1b8dbd674f7a812536292638e24c74f9398"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -22,24 +22,24 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Institution collection relation",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:5929aefed0ccbe2c0f39cddf9df87d9b3868693fe6374dba377c933604814776",
+    "payload_sha256": "sha256:5ea29f83f1348e3a7ddbe525ae0706056548598c6243f1a85b863b557db4865a",
     "qualifier": {},
     "record_id": "6529NM-REL-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -50,12 +50,8 @@
     ],
     "relation_id": "6529NM-REL-0001",
     "relation_type": "INSTITUTION_HOLDS_COLLECTION",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-I-0001",
     "source_record_ids": [

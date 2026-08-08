@@ -182,7 +182,7 @@
         "program_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/id"},
         "authority_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
         "rules_summary": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
-        "program_status": {"enum": ["draft", "open_call", "selection_complete_acquisition_and_accession_unverified", "acquisition_in_progress", "complete", "closed"]},
+        "program_status": {"enum": ["draft", "active", "open_call", "selection_complete_acquisition_and_accession_unverified", "acquisition_in_progress", "complete", "closed"]},
         "produced_acquisition_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
         "selected_outcome_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
         "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
@@ -248,7 +248,7 @@
         "public_slug": {"anyOf": [{"type": "string", "pattern": "^[A-Za-z0-9]+(?:[A-Za-z0-9._-]*[A-Za-z0-9])?$"}, {"type": "null"}]},
         "canonical_route": {"anyOf": [{"type": "string", "pattern": "^/museum/network$|^/museum/network/collection$|^/museum/network/(?:artists|organizations|projects|acquisitions|research|works|acquisition-programs)/[A-Za-z0-9][A-Za-z0-9._-]*$"}, {"type": "null"}]},
         "page_exposure": {"enum": ["canonical_page", "relational_only", "reserved_no_instance"]},
-        "entity_status": {"enum": ["published", "archived"]},
+        "entity_status": {"enum": ["published", "review_pending", "archived"]},
         "status_observation": {"$ref": "#/$defs/statusObservation"},
         "source_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
         "references": {"type": "array", "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}},

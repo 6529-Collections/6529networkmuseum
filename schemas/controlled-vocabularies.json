@@ -45,7 +45,9 @@
     "CONDITION_REPORT",
     "PUBLIC_ENTITY",
     "PUBLIC_RELATION",
-    "WAVE_STATUS_OBSERVATION"
+    "WAVE_STATUS_OBSERVATION",
+    "WAVE_PUBLICATION_OBSERVATION",
+    "MEDIA_DESCRIPTION_AMENDMENT"
   ],
   "schema_ids": {
     "MUSEUM_POLICY": "0x4f742df0f409d9b218f47244d66fcbffd1406a707cbb7c5794043eaacf1d9503",
@@ -62,7 +64,9 @@
     "CONDITION_REPORT": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
     "PUBLIC_ENTITY": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "PUBLIC_RELATION": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
-    "WAVE_STATUS_OBSERVATION": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1"
+    "WAVE_STATUS_OBSERVATION": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
+    "WAVE_PUBLICATION_OBSERVATION": "0xd33c7c3f4e09f408a7a1a18e6e6a2f3d923e3578c3eadab1604b03f80e8a74fc",
+    "MEDIA_DESCRIPTION_AMENDMENT": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290"
   },
   "schema_paths": {
     "MUSEUM_POLICY": "museum-policy.schema.json",
@@ -79,7 +83,9 @@
     "CONDITION_REPORT": "condition-report.schema.json",
     "PUBLIC_ENTITY": "public-entity.schema.json",
     "PUBLIC_RELATION": "public-relation.schema.json",
-    "WAVE_STATUS_OBSERVATION": "wave-status-observation.schema.json"
+    "WAVE_STATUS_OBSERVATION": "wave-status-observation.schema.json",
+    "WAVE_PUBLICATION_OBSERVATION": "wave-publication-observation.schema.json",
+    "MEDIA_DESCRIPTION_AMENDMENT": "media-description-amendment.schema.json"
   },
   "evidence_classes": ["A", "B", "C", "D", "E"],
   "visibility": ["public", "restricted"],
@@ -97,7 +103,7 @@
   ],
   "governance_source_statuses": ["WINNER", "PARTICIPATORY", "OPEN", "CLOSED", "UNKNOWN"],
   "decision_statuses": ["adopted", "not_adopted", "active", "superseded", "observed"],
-  "program_statuses": ["draft", "open_call", "selection_complete", "acquisition_in_progress", "complete", "closed"],
+  "program_statuses": ["draft", "active", "open_call", "selection_complete", "acquisition_in_progress", "complete", "closed"],
   "outcome_statuses": ["selected", "not_selected", "withdrawn", "pending_verification"],
   "acquisition_methods": ["donation", "purchase", "bequest", "exchange", "transfer"],
   "workflow_states": [
@@ -128,26 +134,27 @@
   "rights_grant_statuses": ["granted", "granted_with_conditions", "denied", "unspecified", "not_applicable"],
   "rights_use_classes": ["reproduction", "publication", "exhibition", "print", "derivative_use", "ai_training", "preservation", "migration_emulation", "accessibility"],
   "public_entity_types": ["INSTITUTION", "COLLECTION", "AGENT", "ARTIST", "ORGANIZATION", "WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "ACCESSION", "RESEARCH_PUBLICATION", "MEDIA_REFERENCE", "EXHIBITION"],
-  "public_entity_statuses": ["published", "archived"],
+  "public_entity_statuses": ["published", "review_pending", "archived"],
   "public_page_exposures": ["canonical_page", "relational_only", "reserved_no_instance"],
   "public_work_lifecycle_statuses": ["proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program", "acquisition_pending", "acquisition_complete", "accession_review_in_progress", "accessioned", "closed_without_selection", "withdrawn", "not_established"],
-  "public_work_mint_statuses": ["pending", "not_started", "verified", "not_applicable"],
+  "public_work_mint_statuses": ["pending", "not_started", "unverified", "verified", "not_applicable"],
   "curated_acquisition_lifecycle_statuses": ["proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program_acquisition_pending", "acquisition_complete_accession_review_in_progress", "accessioned_into_permanent_collection", "closed_without_selection", "withdrawn"],
-  "public_media_roles": ["museum_retained_preservation_object", "museum_generated_public_derivative", "token_linked_source_media", "signed_wave_proposal_presentation"],
+  "public_media_roles": ["museum_retained_preservation_object", "museum_generated_public_derivative", "museum_authored_public_graphic", "token_linked_source_media", "historical_wave_proposal_presentation"],
   "public_media_rights_statuses": ["cleared", "cleared_with_conditions", "restricted", "unknown", "not_applicable"],
   "public_media_source_statuses": ["retrieved", "not_retrieved", "source_declared", "mutable_external"],
-  "public_media_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_signed_wave_source", "open_repository_path", "copy_citation"],
+  "public_media_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"],
   "public_independent_fact_statuses": ["verified", "verified_with_conditions", "unverified", "not_established", "not_started", "pending", "planned", "pending_review", "in_progress", "not_recorded", "not_applicable"],
-  "public_relation_types": ["INSTITUTION_HOLDS_COLLECTION", "ARTIST_CREATES_WORK", "AGENT_PLAYS_ROLE", "PROJECT_CONTEXTUALIZES_WORK", "ORGANIZATION_ORIGINATES_PROJECT", "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", "PROGRAM_SELECTS_WORK", "ACCESSION_ADMITS_WORK", "COLLECTION_CONTAINS_WORK", "WORK_CONSTITUTED_BY_COMPONENT", "WORK_HAS_MANIFESTATION", "PUBLICATION_INTERPRETS_ENTITY", "INSTITUTION_PUBLISHES_PUBLICATION", "ENTITY_HAS_MEDIA", "EXHIBITION_PRESENTS_WORK"],
+  "public_relation_types": ["INSTITUTION_HOLDS_COLLECTION", "ARTIST_CREATES_WORK", "AGENT_PLAYS_ROLE", "PROJECT_CONTEXTUALIZES_WORK", "ORGANIZATION_ORIGINATES_PROJECT", "ORGANIZATION_PUBLISHES_PROJECT", "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", "PROGRAM_SELECTS_WORK", "ACCESSION_ADMITS_WORK", "COLLECTION_CONTAINS_WORK", "WORK_CONSTITUTED_BY_COMPONENT", "WORK_HAS_MANIFESTATION", "PUBLICATION_INTERPRETS_ENTITY", "INSTITUTION_PUBLISHES_PUBLICATION", "ENTITY_HAS_MEDIA", "EXHIBITION_PRESENTS_WORK"],
   "public_relation_assertion_statuses": ["asserted", "observed", "reserved"],
   "relation_profiles": {
     "INSTITUTION_HOLDS_COLLECTION": {"source_entity_types": ["INSTITUTION"], "target_entity_types": ["COLLECTION"], "max_targets_per_source": 1, "max_sources_per_target": 1, "allowed_qualifier_fields": [], "required_qualifier_fields": []},
     "ARTIST_CREATES_WORK": {"source_entity_types": ["ARTIST"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": []},
     "AGENT_PLAYS_ROLE": {"source_entity_types": ["AGENT", "ARTIST", "ORGANIZATION"], "target_entity_types": ["WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "RESEARCH_PUBLICATION"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": ["role"]},
     "PROJECT_CONTEXTUALIZES_WORK": {"source_entity_types": ["PROJECT_OR_SERIES"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["scope"], "required_qualifier_fields": []},
-    "ORGANIZATION_ORIGINATES_PROJECT": {"source_entity_types": ["ORGANIZATION"], "target_entity_types": ["PROJECT_OR_SERIES"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": []},
+    "ORGANIZATION_ORIGINATES_PROJECT": {"source_entity_types": ["ORGANIZATION"], "target_entity_types": ["PROJECT_OR_SERIES"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": ["role"], "allowed_qualifier_values": {"role": ["originator"]}},
+    "ORGANIZATION_PUBLISHES_PROJECT": {"source_entity_types": ["ORGANIZATION"], "target_entity_types": ["PROJECT_OR_SERIES"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": ["role"], "allowed_qualifier_values": {"role": ["publisher"]}},
     "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION": {"source_entity_types": ["ACQUISITION_PROGRAM"], "target_entity_types": ["CURATED_ACQUISITION"], "max_targets_per_source": null, "max_sources_per_target": 1, "allowed_qualifier_fields": [], "required_qualifier_fields": []},
-    "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK": {"source_entity_types": ["CURATED_ACQUISITION"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["display_order", "selection_status", "scope"], "required_qualifier_fields": ["display_order"]},
+    "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK": {"source_entity_types": ["CURATED_ACQUISITION"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["display_order", "selection_status", "scope"], "required_qualifier_fields": ["display_order"], "allowed_qualifier_values": {"selection_status": ["selected", "selected_unminted"]}},
     "PROGRAM_SELECTS_WORK": {"source_entity_types": ["ACQUISITION_PROGRAM"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["selection_status", "mint_status", "display_order"], "required_qualifier_fields": ["selection_status"]},
     "ACCESSION_ADMITS_WORK": {"source_entity_types": ["ACCESSION"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": 1, "allowed_qualifier_fields": ["accession_object_id"], "required_qualifier_fields": ["accession_object_id"]},
     "COLLECTION_CONTAINS_WORK": {"source_entity_types": ["COLLECTION"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": 1, "allowed_qualifier_fields": ["collection_membership_status"], "required_qualifier_fields": ["collection_membership_status"]},
@@ -155,7 +162,7 @@
     "WORK_HAS_MANIFESTATION": {"source_entity_types": ["WORK"], "target_entity_types": ["MEDIA_REFERENCE", "WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": ["role"]},
     "PUBLICATION_INTERPRETS_ENTITY": {"source_entity_types": ["RESEARCH_PUBLICATION"], "target_entity_types": ["WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ARTIST", "ORGANIZATION"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["role"], "required_qualifier_fields": []},
     "INSTITUTION_PUBLISHES_PUBLICATION": {"source_entity_types": ["INSTITUTION"], "target_entity_types": ["RESEARCH_PUBLICATION"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": [], "required_qualifier_fields": []},
-    "ENTITY_HAS_MEDIA": {"source_entity_types": ["INSTITUTION", "COLLECTION", "ARTIST", "ORGANIZATION", "WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "RESEARCH_PUBLICATION"], "target_entity_types": ["MEDIA_REFERENCE"], "max_targets_per_source": null, "max_sources_per_target": 1, "allowed_qualifier_fields": ["display_order", "media_context"], "required_qualifier_fields": ["media_context"]},
+    "ENTITY_HAS_MEDIA": {"source_entity_types": ["INSTITUTION", "COLLECTION", "ARTIST", "ORGANIZATION", "WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "RESEARCH_PUBLICATION"], "target_entity_types": ["MEDIA_REFERENCE"], "max_targets_per_source": null, "max_sources_per_target": 1, "allowed_qualifier_fields": ["display_order", "media_context", "publication_context_entity_id"], "required_qualifier_fields": ["media_context"]},
     "EXHIBITION_PRESENTS_WORK": {"source_entity_types": ["EXHIBITION"], "target_entity_types": ["WORK"], "max_targets_per_source": null, "max_sources_per_target": null, "allowed_qualifier_fields": ["display_order"], "required_qualifier_fields": [], "reserved": true}
   }
 }

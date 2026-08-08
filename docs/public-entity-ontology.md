@@ -1,6 +1,6 @@
 # Public entity and relation ontology
 
-Status: working Museum source standard for the public entity publication layer. This document defines a reviewed, Stream-shaped projection contract; it does not itself adopt governance, acquire an artwork, mint a token, establish custody, grant rights, or create an exhibition.
+Status: working Museum source standard for the public entity publication layer. This document defines the constructed, review-pending Stream-shaped projection contract; it does not itself adopt governance, acquire an artwork, mint a token, establish custody, grant rights, or create an exhibition.
 
 ## Boundary and identity
 
@@ -14,7 +14,7 @@ Reserved Curated Acquisition identifiers are:
 |---|---|---|
 | `6529NM-CA-2026-001` | The System in Seven States | Casey seven-work accession and publication records; separate from accession `6529NM.2026.001` |
 | `6529NM-CA-2026-002` | Keys and Gates | Acquisition Program `6529NM-AP-ENT-0002` (source alias `6529NM-AP-01`); selected, unminted, and not accessioned |
-| `6529NM-CA-2026-003` | Conflict at Its Edges | Proposed gift `6529NM-PG-2026-001` with append-only signed-Wave `WINNER` observation; selected by Museum Wave for acquisition review, with no Collection effect |
+| `6529NM-CA-2026-003` | Conflict at Its Edges | Proposed gift `6529NM-PG-2026-001` with an append-only signed-drop API `WINNER` status observation (`is_signed:true` as reported by the API); selected by Museum Wave for acquisition review, with no Collection effect |
 
 The same Curated Acquisition identity advances by append-only correction. Rejection closes it as `closed_without_selection`; it is not deleted or silently rewritten.
 
@@ -52,7 +52,7 @@ The public lifecycle is intentionally independent from transaction and stewardsh
 6. `closed_without_selection`
 7. `withdrawn`
 
-The layer records mint, payment, title, custody, rights, technical, preservation, and display as typed independent facts with their own evidence and observation times. None is inferred from a lifecycle label, wallet custody, a transfer, a `WINNER` label, or a selected outcome. The Keys and Gates projection therefore retains `selected_through_acquisition_program_acquisition_pending`, selected outcome references, and null/unverified downstream facts. The Magnum projection retains the earlier `PARTICIPATORY` proposal observation and appends the authenticated `WINNER` observation as `selected_by_museum_wave_acquisition_review_in_progress`; all five Works remain outside Collection. The Casey projection records the completed accession boundary without claiming that software preservation is complete.
+The layer records mint, payment, title, custody, rights, technical, preservation, and display as typed independent facts with their own evidence and observation times. None is inferred from a lifecycle label, wallet custody, a transfer, a `WINNER` label, or a selected outcome. The Keys and Gates projection therefore retains `selected_through_acquisition_program_acquisition_pending`, selected outcome references, and null/unverified downstream facts. The Magnum projection retains the earlier `PARTICIPATORY` proposal observation and appends the signed-drop API `WINNER` observation as `selected_by_museum_wave_acquisition_review_in_progress`; all five Works remain outside Collection. The Casey projection records the completed accession boundary without claiming that software preservation is complete.
 
 ## Relations and direction
 
@@ -60,7 +60,7 @@ Relations are closed, directed assertions. The validator checks endpoint existen
 
 The initial relation vocabulary includes:
 
-`INSTITUTION_HOLDS_COLLECTION`, `ARTIST_CREATES_WORK`, `AGENT_PLAYS_ROLE`, `PROJECT_CONTEXTUALIZES_WORK`, `ORGANIZATION_ORIGINATES_PROJECT`, `ACQUISITION_PROGRAM_PRODUCES_ACQUISITION`, `CURATED_ACQUISITION_BRINGS_TOGETHER_WORK`, `PROGRAM_SELECTS_WORK`, `ACCESSION_ADMITS_WORK`, `COLLECTION_CONTAINS_WORK`, `WORK_CONSTITUTED_BY_COMPONENT`, `WORK_HAS_MANIFESTATION`, `PUBLICATION_INTERPRETS_ENTITY`, `INSTITUTION_PUBLISHES_PUBLICATION`, and `ENTITY_HAS_MEDIA`.
+`INSTITUTION_HOLDS_COLLECTION`, `ARTIST_CREATES_WORK`, `AGENT_PLAYS_ROLE`, `PROJECT_CONTEXTUALIZES_WORK`, `ORGANIZATION_ORIGINATES_PROJECT`, `ORGANIZATION_PUBLISHES_PROJECT`, `ACQUISITION_PROGRAM_PRODUCES_ACQUISITION`, `CURATED_ACQUISITION_BRINGS_TOGETHER_WORK`, `PROGRAM_SELECTS_WORK`, `ACCESSION_ADMITS_WORK`, `COLLECTION_CONTAINS_WORK`, `WORK_CONSTITUTED_BY_COMPONENT`, `WORK_HAS_MANIFESTATION`, `PUBLICATION_INTERPRETS_ENTITY`, `INSTITUTION_PUBLISHES_PUBLICATION`, and `ENTITY_HAS_MEDIA`.
 
 The reserved `EXHIBITION_PRESENTS_WORK` relation is not instantiated. It may validate only when an actual reviewed Exhibition entity exists. A rights-use class, display-ready state, image manifest, or prose mention is not an exhibition.
 
@@ -72,7 +72,7 @@ Work identity, component, manifestation, token-linked source media, documentatio
 
 Media is never represented by a generic `image_url`. Each `MEDIA_REFERENCE` target of an `ENTITY_HAS_MEDIA` assertion carries:
 
-- one role: `museum_retained_preservation_object`, `museum_generated_public_derivative`, `token_linked_source_media`, or `signed_wave_proposal_presentation`;
+- one role: `museum_retained_preservation_object`, `museum_generated_public_derivative`, `museum_authored_public_graphic`, `token_linked_source_media`, or `historical_wave_proposal_presentation`;
 - a source URI and/or repository path, MIME type, and visual dimensions when applicable;
 - the Work or other public entity subject and a credit line;
 - a rights statement/status independent of title and custody;
@@ -80,8 +80,8 @@ Media is never represented by a generic `image_url`. Each `MEDIA_REFERENCE` targ
 - a fixity object only when the bytes were actually retrieved and hashed, otherwise an explicit closed `unverified_not_retrieved` status;
 - an allow-list of UI affordances. Unknown/restricted media cannot gain download, zoom, or fullscreen through a default.
 
-Mutable external media is represented with `source_status: mutable_external`, an observed-at timestamp, and no fabricated permanence. Signed-Wave proposal media retains its Wave/drop/publication evidence, `publication_boundary: signed_wave_proposal_only`, and only the closed presentation affordances including the non-licensing `open_signed_wave_source` locator. It cannot imply selection or acquisition and cannot gain download, zoom, fullscreen, token-source, or repository-source access. Accessibility metadata can require `non_identifying_child_subject`; that policy is executable and forbids identifying language in the alt text. Museum-generated derivatives retain their transform/source relationship and are not preservation masters. A retained preservation object is not the tokenized work.
+Mutable external media is represented with `source_status: mutable_external`, an observed-at timestamp, and no fabricated permanence. The five Magnum images are `historical_wave_proposal_presentation` media with `publication_boundary: historical_wave_proposal_context`, a `wave_proposal_context` object, and explicit `publication_context_entity_ids: ["6529NM-CA-2026-003"]`. The retained signed-drop API publication observation binds all seven public parts, their exact UTF-8 source bytes and hashes, the five actual CloudFront presentation URLs, credits, rights labels, and the separate Arweave token/source locators. This is an observation of an API response reporting `is_signed:true`, not an independently verified cryptographic signature or a copyright license. The only external locator affordance is the non-licensing `open_wave_proposal_context`; download, zoom, fullscreen, token-source, and repository-source access are prohibited. `ENTITY_HAS_MEDIA` must carry the same CA-003 context, and graph validation rejects reuse outside the selected acquisition/linked Work context. Accessibility metadata can require `non_identifying_child_subject` plus a structural `identity_inference_prohibition` object; the validator also forbids identifying language in the alt text. Museum-generated derivatives retain their transform/source relationship and are not preservation masters. The Conflict at Its Edges cover is an independently authored `museum_authored_public_graphic` with `publication_boundary: public_graphic`, CC0-1.0 rights, no source-photograph derivation, and no hero affordance. A retained preservation object is not the tokenized work.
 
 ## Interoperability
 
-The public records map to Stream's `CollectionRecord` envelope without claiming that the Museum-native payload is already an admitted Stream on-chain schema. `ARTIST_CREATES_WORK` maps to LIDO creation actor semantics; `INSTITUTION_HOLDS_COLLECTION`, acquisition/accession relations, and `ENTITY_HAS_MEDIA` map through the Museum's LIDO view. Media fixity, derivation, source, and preservation roles map to PREMIS Object/Event/Rights semantics. The source records remain authoritative for event detail, and any adapter must preserve bilateral identity, evidence, rights, and custody boundaries.
+The public records map to Stream's `CollectionRecord` envelope without claiming that the Museum-native payload is already an admitted Stream on-chain schema. `ARTIST_CREATES_WORK` maps to LIDO creation actor semantics; `ORGANIZATION_PUBLISHES_PROJECT` carries Art Blocks' source-documented publishing/platform context, while `ORGANIZATION_ORIGINATES_PROJECT` is reserved for an evidenced project originator such as Magnum Photos. `INSTITUTION_HOLDS_COLLECTION`, acquisition/accession relations, and `ENTITY_HAS_MEDIA` map through the Museum's LIDO view. Media fixity, derivation, source, and preservation roles map to PREMIS Object/Event/Rights semantics. The source records remain authoritative for event detail, and any adapter must preserve bilateral identity, evidence, rights, and custody boundaries.

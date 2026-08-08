@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe1f0c3d88ea61692a96ce48c2e1d5fca56dd3e5fac17afaba06327388ba26a0b"
+      "digest": "0xed4dd0f3931cd17ce8211db6930c80c12b03cc48f33868a4709abd6e23d26de3"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -22,44 +22,43 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
-        "label": "Magnum signed-Wave Work media relation",
+        "evidence_class": "B",
+        "label": "Historical public Wave proposal media relation",
         "observed_at": "2026-08-06T13:19:30.726Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:b2a035c25d29e4f9f2951d5d28246fab6c1781e1d6bb2c73802245e1b961dcfe",
+    "payload_sha256": "sha256:91971f738618eccb619f8e95566e9754104aca687b54f6e7f661ae048e956d8b",
     "qualifier": {
-      "media_context": "source"
+      "media_context": "source",
+      "publication_context_entity_id": "6529NM-CA-2026-003"
     },
     "record_id": "6529NM-REL-0149",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-CA-2026-003",
       "6529NM-MED-0041",
       "6529NM-PG-2026-001.OBJ-002",
       "6529NM-W-0025"
     ],
     "relation_id": "6529NM-REL-0149",
     "relation_type": "ENTITY_HAS_MEDIA",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-W-0025",
     "source_record_ids": [
+      "6529NM-CA-2026-003",
       "6529NM-PG-2026-001.OBJ-002"
     ],
     "subject_id": "6529NM-REL-0149",

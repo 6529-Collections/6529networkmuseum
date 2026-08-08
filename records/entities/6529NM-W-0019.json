@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xcf08039864744087e182df452d6225476a79dcbfbe0f85ab875a7e462fb9167e"
+      "digest": "0xcf75aff5a6dd7cbf4fa4c1c40f95a99fd9481f10a9a19c1a067501db57505e18"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/works/6529NM-W-0019",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0019",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Keys and Gates outcome",
         "observed_at": "2026-08-01T15:03:35Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:6834559a1c603e00c3c1cd56e7b940e02b906490cf260cd383c048549c923660",
+    "payload_sha256": "sha256:82b3b197636ff7f6ca848e5f00a22e0e673b6a068fd42e3d55530273a00615d2",
     "preferred_label": "Rusted",
     "profile": {
       "accession_entity_ids": [],
@@ -55,7 +55,7 @@
         "collection_entity_id": null,
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Selected outcome is not an accession",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -70,7 +70,7 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Selected outcome source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -87,7 +87,7 @@
         "earliest": null,
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates outcome",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -103,7 +103,7 @@
         "as_of": "2026-08-01T15:03:35Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates selected-works index",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -114,7 +114,7 @@
       },
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Keys and Gates outcome",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -125,13 +125,13 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Lifecycle source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
             },
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Lifecycle source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
@@ -154,7 +154,7 @@
         "as_of": "2026-08-01T15:03:35Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Source record",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
@@ -173,7 +173,7 @@
     },
     "public_slug": "6529NM-W-0019",
     "record_id": "6529NM-W-0019",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -183,12 +183,8 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0013",
@@ -200,14 +196,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Keys and Gates outcome",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0019",
     "visibility": "public"

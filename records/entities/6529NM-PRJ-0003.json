@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6ba4b5c4725ad5c28bec8cc34aaf5133b89f656f4e10bd13f760abdc9891e96f"
+      "digest": "0x6b2d6d51040b1a43436daf7bf34a3ae722f71e93e676bf775ec35b01927be673"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -22,25 +22,25 @@
     "canonical_route": "/museum/network/projects/phototaxis",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Casey project source record",
         "observed_at": "2026-08-02T06:30:00Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0005.json"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:1dee410caea394453c32b52173c18b8112718e96f97af43e1967e1edc01b040c",
+    "payload_sha256": "sha256:27e22a3f35fbe0821272cf5e81b7ebffa17a59754a7435c8caefa063c43987c8",
     "preferred_label": "Phototaxis",
     "profile": {
       "agent_entity_ids": [
@@ -48,10 +48,10 @@
       ],
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Casey project source records",
           "observed_at": "2026-08-02T06:30:00Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0005.json"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json"
         }
       ],
       "ownership_boundary": "Project context is distinct from Museum ownership; only separately accessioned Work entities enter the Collection.",
@@ -60,7 +60,7 @@
       "project_type": "project",
       "scope_statement": "The Casey object records identify Phototaxis as a distinct project context; this projection does not assert ownership of all project outputs.",
       "source_record_ids": [
-        "6529NM-W-0005"
+        "6529NM.2026.001.05"
       ],
       "work_entity_ids": [
         "6529NM-W-0005"
@@ -68,7 +68,7 @@
     },
     "public_slug": "phototaxis",
     "record_id": "6529NM-PRJ-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -76,12 +76,8 @@
       "6529NM-ORG-0001",
       "6529NM-W-0005"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -91,14 +87,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Casey project source record",
           "observed_at": "2026-08-02T06:30:00Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-W-0005.json"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json"
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-PRJ-0003",
     "visibility": "public"

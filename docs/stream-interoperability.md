@@ -357,10 +357,15 @@ The adapter is deliberately bilateral and typed:
 
 Adapters must preserve the Museum ID, source alias, evidence URI/path, source
 observation time, rights status, and independent lifecycle facts in both
-directions. A signed-Wave presentation image maps to a public presentation
-object with a restricted affordance allowlist and the non-licensing
-`open_signed_wave_source` locator; it cannot become a downloadable preservation
-master, a title/custody assertion, or an accession through serialization.
+directions. A historical Wave proposal presentation image maps to a public
+presentation object with a restricted affordance allowlist and the
+non-licensing `open_wave_proposal_context` locator. The signed-drop API
+publication observation preserves the exact retained part/source hashes and
+actual CloudFront presentation URLs, while the Arweave URI remains a separate
+token-linked/source locator. API-reported `is_signed:true` is not an independent
+signature or license determination; the media cannot become a downloadable
+preservation master, a title/custody assertion, or an accession through
+serialization.
 Unknown profiles, relations, media roles, affordances, algorithms, and
 algorithm/digest pairs fail closed. Future Stream admission requires a
 field-by-field schema comparison, deterministic JCS/Keccak commitment check,

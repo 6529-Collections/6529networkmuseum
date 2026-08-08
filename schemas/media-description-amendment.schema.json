@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/media-description-amendment-v1.json",
+  "title": "6529 Network Museum append-only current media description amendment payload",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "MEDIA_DESCRIPTION_AMENDMENT"},
+        "schema_id": {"const": "0xffb82108cd96e9389b64508bb6f716401d67cd98d37d0c21ec61b17fb04bf290"},
+        "amendment_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "subject_media_entity_id": {"const": "6529NM-MED-0042"},
+        "subject_work_entity_id": {"const": "6529NM-W-0026"},
+        "observation_kind": {"const": "direct_visual_observation"},
+        "evidence_class": {"const": "C"},
+        "observed_at": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/dateTime"},
+        "source_media_uri": {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"},
+        "source_path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md"},
+        "historical_source_observation_id": {"const": "6529NM-WAVE-PUB-OBS-2026-08-08-001"},
+        "historical_source_part_id": {"const": 4},
+        "historical_publication_preserved": {"const": true},
+        "current_accessibility_text": {"const": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground."},
+        "claim_boundary": {"const": "Visible facts only; the gas or smoke type, event date, and subject identity are not established by this description."},
+        "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}}
+      },
+      "required": ["amendment_id", "subject_media_entity_id", "subject_work_entity_id", "observation_kind", "evidence_class", "observed_at", "source_media_uri", "source_path", "historical_source_observation_id", "historical_source_part_id", "historical_publication_preserved", "current_accessibility_text", "claim_boundary", "source_record_ids"]
+    }
+  ],
+  "unevaluatedProperties": false
+}

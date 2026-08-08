@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://6529networkmuseum.org/schemas/wave-status-observation-v1.json",
-  "title": "6529 Network Museum append-only Wave status observation payload",
+  "title": "6529 Network Museum append-only signed-drop API status observation payload",
   "allOf": [
     {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
     {
@@ -21,7 +21,7 @@
         "realtime_rating": {"type": "integer", "minimum": 0},
         "rater_count": {"type": "integer", "minimum": 0},
         "source_url": {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"},
-        "observation_method": {"const": "authenticated_drop_readback"},
+        "observation_method": {"const": "signed_drop_api_readback"},
         "selection_effect": {"const": "selected_by_museum_wave_acquisition_review_in_progress"},
         "non_effects": {
           "type": "array",

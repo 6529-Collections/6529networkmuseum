@@ -8,6 +8,22 @@
     "inventory_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
     "identity_policy": {"type": "string", "minLength": 1},
     "entity_id_patterns": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "retired_identity_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {"type": "string", "minLength": 1},
+          "entity_type": {"enum": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"]},
+          "retired_at": {"type": "string", "format": "date-time"},
+          "reason": {"type": "string", "minLength": 1},
+          "superseded_by": {"type": ["string", "null"]}
+        },
+        "required": ["entity_id", "entity_type", "retired_at", "reason", "superseded_by"],
+        "unevaluatedProperties": false
+      }
+    },
     "required_bootstrap_curated_acquisitions": {
       "type": "array",
       "minItems": 1,
@@ -54,6 +70,19 @@
         "unevaluatedProperties": false
       }
     },
+    "identity_bindings": {
+      "type": "object",
+      "properties": {
+        "AGENT": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "ARTIST": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "WORK": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "PROJECT_OR_SERIES": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "MEDIA_REFERENCE": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "WORK_LIFECYCLE_OBSERVATION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}}
+      },
+      "required": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"],
+      "unevaluatedProperties": false
+    },
     "route_aliases": {
       "type": "array",
       "minItems": 1,
@@ -87,6 +116,22 @@
       }
     }
   },
-  "required": ["$schema", "inventory_version", "identity_policy", "entity_id_patterns", "required_bootstrap_curated_acquisitions", "acquisition_aliases", "work_aliases", "route_aliases", "public_slug_inventory"],
+  "$defs": {
+    "identityBinding": {
+      "type": "object",
+      "properties": {
+        "source_key": {"type": "string", "minLength": 1},
+        "entity_id": {"type": "string", "minLength": 1}
+      },
+      "required": ["source_key", "entity_id"],
+      "unevaluatedProperties": false
+    },
+    "identityBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/identityBinding"}
+    }
+  },
+  "required": ["$schema", "inventory_version", "identity_policy", "entity_id_patterns", "retired_identity_ids", "required_bootstrap_curated_acquisitions", "acquisition_aliases", "work_aliases", "identity_bindings", "route_aliases", "public_slug_inventory"],
   "unevaluatedProperties": false
 }

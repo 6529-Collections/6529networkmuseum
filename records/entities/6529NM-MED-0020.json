@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x61246f3885d063a001e37196dafc97cf24ad89956c46abd3ea62e3b3adf98525"
+      "digest": "0xb6ba11b988bc339a8162bc0b856417b3c13296d66cc571ef0f842aa68a75110c"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -22,25 +22,25 @@
     "canonical_route": null,
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-MED-0020",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
         "evidence_class": "C",
         "label": "Keys and Gates presentation derivative",
         "observed_at": "2026-08-01T15:03:35Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp"
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:541a087952d77bed125368327e28e9e5f26c68d7799aebe8c72a0c11bb83e944",
+    "payload_sha256": "sha256:3a65c26a98642d5ff42eea1a5f81443e8b7e57973dcbe1d6822b048f1696f9c9",
     "preferred_label": "Take the Key! Museum presentation derivative",
     "profile": {
       "media": {
@@ -60,24 +60,26 @@
         "fixity": {
           "algorithm": "sha256",
           "basis": "The governed Keys and Gates media manifest records the retrieved derivative bytes and digest.",
-          "digest": "sha256:d28e89b7ca58647ce0b7a0979ca8138d4213c3c0b4080d76b7f154b522612b04",
+          "digest": "sha256:3e20417e312f145184476d3c122992754899a136313359e72294eb8f781d59f0",
           "status": "verified",
           "verified_at": "2026-08-01T15:03:35Z"
         },
-        "height": 1920,
+        "height": 960,
+        "identity_inference_prohibition": null,
         "media_role": "museum_generated_public_derivative",
         "media_type": "image/webp",
         "publication_boundary": "public_derivative",
+        "publication_context_entity_ids": [],
         "rights": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Rights boundary",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-001.json"
             },
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Rights boundary",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
@@ -88,10 +90,9 @@
           "statement_entity_id": null,
           "status": "unknown"
         },
-        "signed_wave": null,
         "source_locator": {
-          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp",
-          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp"
+          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp",
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp"
         },
         "source_observation": {
           "evidence_refs": [
@@ -117,27 +118,26 @@
           "6529NM-AP-01-OUT-001"
         ],
         "subject_entity_id": "6529NM-W-0008",
+        "token_source_fixity": null,
+        "token_source_locator": null,
         "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
         "visual": true,
-        "width": 1280
+        "wave_proposal_context": null,
+        "width": 640
       },
       "profile_type": "MEDIA_REFERENCE"
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0020",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -149,11 +149,11 @@
           "evidence_class": "C",
           "label": "Keys and Gates presentation derivative",
           "observed_at": "2026-08-01T15:03:35Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp"
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0020",
     "visibility": "public"

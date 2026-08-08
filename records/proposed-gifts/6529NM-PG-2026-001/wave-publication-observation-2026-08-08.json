@@ -1,0 +1,162 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x882a7de38b30d0ce3795e8126b1e9a19466c01f9d5e609d50becd914b8ebf29c"
+    },
+    "effectiveAt": 1786184102,
+    "recordType": "WAVE_PUBLICATION_OBSERVATION",
+    "schemaId": "0xd33c7c3f4e09f408a7a1a18e6e6a2f3d923e3578c3eadab1604b03f80e8a74fc",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x788c95dabd68b9d369f63271da65da3bfc78f02a6c96db3611ae858e8a56d040",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+  },
+  "payload": {
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "drop_created_at": "2026-08-06T13:19:28.882Z",
+    "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+    "serial_no": 1276093,
+    "drop_type": "WINNER",
+    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Signed-drop API readback (is_signed=true)",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "uri": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      }
+    ],
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995",
+    "parts": [
+      {
+        "part_id": 1,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:e735f85395398e97077dad532d14b69fef650f60b05dddd931bd26dfab490a3e",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/f8006332-4f8a-4556-b0df-3c43eec16334/conflict-at-its-edges-cover.png",
+        "mime_type": "image/png",
+        "candidate_object_id": null,
+        "token_source_uri": null,
+        "credit": "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.",
+        "rights_label": "CC0-1.0"
+      },
+      {
+        "part_id": 2,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/02-david-seymour-127.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:c57190e0f57313153bd2f2817370e3ff259e12ca37b3a10b1e4bc7eca1b0513c",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+        "token_source_uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+        "credit": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022.",
+        "rights_label": "All Rights Reserved"
+      },
+      {
+        "part_id": 3,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/03-larry-towell-145.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:e6440e460470e7a47bd9e2a184398bf0b95ab36db130b3cfc84716ed6aa66f31",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+        "token_source_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+        "credit": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
+        "rights_label": "All Rights Reserved"
+      },
+      {
+        "part_id": 4,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+        "token_source_uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+        "credit": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
+        "rights_label": "All Rights Reserved"
+      },
+      {
+        "part_id": 5,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/05-moises-saman-44.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:0d47741f7399e86ff1abf184b6000c978b0b90051abc962863b3f572f4eef886",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+        "token_source_uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+        "credit": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
+        "rights_label": "All Rights Reserved"
+      },
+      {
+        "part_id": 6,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/06-lorenzo-meloni-104.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:1a069afa6164389e8482e2d72bd7a49f30d0df355e1a6f5f2c07983705bfa22f",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+        "token_source_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+        "credit": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
+        "rights_label": "All Rights Reserved"
+      },
+      {
+        "part_id": 7,
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/07-case-and-decision.md",
+        "content_encoding": "UTF-8",
+        "line_endings": "LF",
+        "content_sha256": "sha256:97672880e617004bd7094495b0bf759f5d16bb71f0316c5696c5e9d96e3b38d7",
+        "media_url": null,
+        "mime_type": null,
+        "candidate_object_id": null,
+        "token_source_uri": null,
+        "credit": null,
+        "rights_label": null
+      }
+    ],
+    "proposal_id": "6529NM-PG-2026-001",
+    "record_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "record_status": "review_pending",
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "record_version": "1.0.0",
+    "references": ["6529NM-PG-2026-001", "6529NM-WAVE-OBS-2026-08-08-001"],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd33c7c3f4e09f408a7a1a18e6e6a2f3d923e3578c3eadab1604b03f80e8a74fc",
+    "selection_context_entity_id": "6529NM-CA-2026-003",
+    "source_package_path": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
+    "proposal_path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
+    "subject_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "title": "Conflict at Its Edges",
+    "visibility": "public",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+    "author": {
+      "id": "7ee51a67-07b7-4c91-87ed-464c56446c43",
+      "handle": "punk6529bot",
+      "primary_address": "0xf58fe66af1a8c792cd64d8d706eddabadfcb2fd0"
+    },
+    "is_signed": true,
+    "parts_count": 7
+  }
+}

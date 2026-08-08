@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x826bbb8345b2be9c24a08aff17b7ab12d8a86d72d89a23e4e3abaca3296851b1"
+      "digest": "0x93d2904f7448f21390bb0c8fec34ccc68306ca470b2ac1db4adaeb7f1a0b4364"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -22,26 +22,26 @@
     "canonical_route": null,
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0043",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
-        "evidence_class": "C",
-        "label": "Published signed-Wave presentation",
+        "evidence_class": "B",
+        "label": "Historical public Wave proposal presentation",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:db9973a4cabdbe5db37b8b36c6f7aa159258d345e236b3ded704855463dea3f8",
-    "preferred_label": "Tripoli, Libya signed-Wave presentation source",
+    "payload_sha256": "sha256:8be6b23a4b1999c89ba68d014fdabf18859b788311ce29242441e97c1f608d58",
+    "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
         "accessibility_publication_entity_id": null,
@@ -50,48 +50,55 @@
         "accessibility_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
         "allowed_ui_affordances": [
           "view",
-          "hero",
+          "thumbnail",
           "alt_text",
-          "open_signed_wave_source",
+          "open_wave_proposal_context",
           "copy_citation"
         ],
         "credit": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": "sha256",
-          "basis": "Proposal record retains the observed upstream image digest.",
-          "digest": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
-          "status": "verified",
-          "verified_at": "2026-08-06T13:19:30.726Z"
+          "algorithm": null,
+          "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection.",
+          "digest": null,
+          "status": "unverified_not_retrieved",
+          "verified_at": null
         },
         "height": 3744,
-        "media_role": "signed_wave_proposal_presentation",
+        "identity_inference_prohibition": {
+          "reason": "Do not infer or publish the identity of a child subject from this historical proposal image.",
+          "scope": "subject_identity",
+          "status": "prohibited"
+        },
+        "media_role": "historical_wave_proposal_presentation",
         "media_type": "image/jpeg",
-        "publication_boundary": "signed_wave_proposal_only",
+        "publication_boundary": "historical_wave_proposal_context",
+        "publication_context_entity_ids": [
+          "6529NM-CA-2026-003"
+        ],
         "rights": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Rights boundary",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
-          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "notes": "Source rights label: All Rights Reserved. Rights state is projected from the cited source and is not inferred from media availability.",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "statement_entity_id": null,
           "status": "restricted"
         },
-        "signed_wave": {
-          "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
-          "publication_record_id": "6529NM-PG-2026-001",
-          "published_at": "2026-08-06T13:19:30.726Z",
-          "signature_status": "signed_and_published",
-          "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
-        },
         "source_locator": {
           "repository_path": null,
-          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o"
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -100,54 +107,78 @@
               "label": "Source observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "status": "retrieved"
+          "status": "source_declared"
         },
         "source_record_ids": [
           "6529NM-PG-2026-001",
-          "6529NM-PG-2026-001.OBJ-004"
+          "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0027",
+        "token_source_fixity": {
+          "algorithm": "sha256",
+          "basis": "The retained proposal package records the observed token-linked source image digest; it is not a digest of the Wave upload bytes.",
+          "digest": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
+          "status": "verified",
+          "verified_at": "2026-08-06T13:19:30.726Z"
+        },
+        "token_source_locator": {
+          "repository_path": null,
+          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o"
+        },
         "transform_profile": null,
         "visual": true,
+        "wave_proposal_context": {
+          "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+          "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+          "observation_record_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+          "publication_record_id": "6529NM-PG-2026-001",
+          "publication_status": "historical_public_proposal_context",
+          "published_at": "2026-08-06T13:19:28.882Z",
+          "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+        },
         "width": 5616
       },
       "profile_type": "MEDIA_REFERENCE"
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0043",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
-      "6529NM-PG-2026-001.OBJ-004"
+      "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
+      "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
-      "6529NM-PG-2026-001.OBJ-004"
+      "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
-          "label": "Published signed-Wave presentation",
+          "evidence_class": "B",
+          "label": "Historical public Wave proposal presentation",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0043",
     "visibility": "public"

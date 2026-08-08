@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x98365acdbf23aaf1f6cc0a9ae775c1c75aab27acb228973d64c7e56b7976c812"
+      "digest": "0x6f4749ea74c8d2281c6dcee8e510723e27fc4d941b6236f84bff3aa9529933e7"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/artists/zoku",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0014",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Keys and Gates artist label",
         "observed_at": "2026-08-01T15:03:35Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:bbf4c99eb586b53d1ad7cdeda7cea585685a8105403c130b422940779c73f777",
+    "payload_sha256": "sha256:02cf0e61e349ff6381eeb775d2ead5f58a0efbbc0fad4db2215622631362bfe4",
     "preferred_label": "Zoku",
     "profile": {
       "authority": {
@@ -50,7 +50,7 @@
         "authority_status": "source_label_only",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates artist label",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
@@ -61,7 +61,7 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
@@ -79,7 +79,7 @@
         ],
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates artist label",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
@@ -91,7 +91,7 @@
     },
     "public_slug": "zoku",
     "record_id": "6529NM-ART-0014",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,12 +99,8 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-014"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0015",
@@ -114,14 +110,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Keys and Gates artist label",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-014.json"
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0014",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x11573622cd20fdb8f85994f5dce40a3c938e1057d9bf903808b4a163e356c46b"
+      "digest": "0x5a3e64aac52077ba0f99c5e0b1f5e00fa50c119a6381c8dc2f985732d1b9b02e"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/works/6529NM-W-0006",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-W-0006",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Existing WORK_DESCRIPTION",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a1216119baad7e19ef3a2a87080fa685b33092ff75623d532883edb5c6bde466",
+    "payload_sha256": "sha256:f6b6fec4388e9ab35ff951498ff6ef66d902b4dad9b45f527e72578e42a9b7de",
     "preferred_label": "923 EMPTY ROOMS #713",
     "profile": {
       "accession_entity_ids": [
@@ -59,7 +59,7 @@
         "collection_entity_id": "6529NM-C-0001",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Accession certificate",
             "observed_at": "2026-08-02T06:30:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
@@ -75,7 +75,7 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Existing WORK_DESCRIPTION",
               "observed_at": "2026-08-02T06:30:00Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
@@ -91,7 +91,7 @@
         "earliest": null,
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Casey object record",
             "observed_at": "2026-08-02T06:30:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
@@ -107,7 +107,7 @@
         "as_of": "2026-08-02T06:30:00Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Accession certificate",
             "observed_at": "2026-08-02T06:30:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
@@ -118,13 +118,19 @@
       },
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Existing WORK_DESCRIPTION",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
         },
         {
-          "evidence_class": "C",
+          "evidence_class": "A",
+          "label": "Chain transfer receipt",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json"
+        },
+        {
+          "evidence_class": "B",
           "label": "Rights statement",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.06.json"
@@ -141,20 +147,20 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Lifecycle source",
               "observed_at": "2026-08-02T06:30:00Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
             },
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Lifecycle source",
               "observed_at": "2026-08-02T06:30:00Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
             }
           ],
           "notes": "The Work is admitted through the completed Casey accession; mint, rights, custody, and preservation remain independently recorded facts.",
-          "observation_id": "6529NM-W-OBS-0001",
+          "observation_id": "6529NM-W-OBS-0006",
           "observed_at": "2026-08-02T06:30:00Z",
           "source_record_ids": [
             "6529NM-ACC-2026-001",
@@ -184,7 +190,7 @@
         "as_of": "2026-08-02T06:30:00Z",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Source record",
             "observed_at": "2026-08-02T06:30:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
@@ -205,7 +211,7 @@
     },
     "public_slug": "6529NM-W-0006",
     "record_id": "6529NM-W-0006",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,12 +226,8 @@
       "6529NM.2026.001.RIGHTS.06",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -242,14 +244,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Existing WORK_DESCRIPTION",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0006",
     "visibility": "public"

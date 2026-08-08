@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x121f469358852dee9296700127e60aba3015ce62c05f4df05a1c76ff5c9c1561"
+      "digest": "0x900e7178e6a0b9f7233ce3d6611944066f7d9fd0f52b36d593eb22ec487a3854"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/artists/hugofaz",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Keys and Gates artist label",
         "observed_at": "2026-08-01T15:03:35Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:905681abffb426b09c76467b17c135e08e56e0a0c8b50baff6ac72fd19d82783",
+    "payload_sha256": "sha256:08d2be86c09dfa50df58745cc7db473c30fa0ffa1f4f6c82f331e7b3e83e3dcd",
     "preferred_label": "HugoFaz",
     "profile": {
       "authority": {
@@ -50,7 +50,7 @@
         "authority_status": "source_label_only",
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates artist label",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
@@ -61,13 +61,13 @@
         {
           "evidence_refs": [
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
             },
             {
-              "evidence_class": "C",
+              "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
@@ -85,13 +85,13 @@
         ],
         "evidence_refs": [
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates artist label",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
           },
           {
-            "evidence_class": "C",
+            "evidence_class": "B",
             "label": "Keys and Gates artist label",
             "observed_at": "2026-08-01T15:03:35Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
@@ -103,26 +103,20 @@
     },
     "public_slug": "hugofaz",
     "record_id": "6529NM-ART-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AGT-0003",
-      "6529NM-AGT-0012",
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-002",
       "6529NM-AP-01-OUT-011"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
-      "6529NM-AGT-0012",
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-002",
       "6529NM-AP-01-OUT-011"
@@ -130,14 +124,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Keys and Gates artist label",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0003",
     "visibility": "public"

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -61,6 +62,11 @@ RECORD_REFERENCE_KEYS = {
     "entity_id",
     "entity_ids",
     "relation_id",
+    "observation_id",
+    "amendment_id",
+    "historical_source_observation_id",
+    "subject_media_entity_id",
+    "subject_work_entity_id",
     "source_entity_id",
     "target_entity_id",
     "source_record_ids",
@@ -763,8 +769,9 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     expected_boundary = {
         "museum_retained_preservation_object": "preservation_record",
         "museum_generated_public_derivative": "public_derivative",
+        "museum_authored_public_graphic": "public_graphic",
         "token_linked_source_media": "token_source",
-        "signed_wave_proposal_presentation": "signed_wave_proposal_only",
+        "historical_wave_proposal_presentation": "historical_wave_proposal_context",
     }.get(role)
     if expected_boundary is None:
         issues.append(f"{label}: media_role must use the closed Museum media vocabulary")
@@ -777,32 +784,248 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: non-identifying child-subject media requires visual accessibility text")
         elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
             issues.append(f"{label}: child-subject accessibility text must not identify the subject")
+        prohibition = media.get("identity_inference_prohibition")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
+            issues.append(f"{label}: child-subject media requires a structural identity_inference_prohibition")
+    elif media.get("identity_inference_prohibition") is not None:
+        prohibition = media.get("identity_inference_prohibition")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity":
+            issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited subject_identity object")
+    affordances = media.get("allowed_ui_affordances", [])
     if role == "museum_retained_preservation_object" and (source_status != "retrieved" or fixity_status != "verified"):
         issues.append(f"{label}: retained preservation objects require retrieved bytes and verified fixity")
     if role == "museum_generated_public_derivative" and not isinstance(media.get("transform_profile"), str):
         issues.append(f"{label}: Museum-generated derivatives require a transform profile")
-    affordances = media.get("allowed_ui_affordances", [])
+    if role == "museum_authored_public_graphic":
+        if publication_boundary != "public_graphic":
+            issues.append(f"{label}: Museum-authored public graphics require the public_graphic boundary")
+        if media.get("derived_from_media_entity_id") is not None:
+            issues.append(f"{label}: Museum-authored public graphics cannot claim derivation from another media object")
+        if not isinstance(media.get("transform_profile"), str) or "independently authored" not in media.get("transform_profile", ""):
+            issues.append(f"{label}: Museum-authored public graphics require an independent authorship transform statement")
+        if "hero" in affordances:
+            issues.append(f"{label}: historical Museum-authored public graphics cannot be published as an acquisition hero")
+    if role == "museum_generated_public_derivative" and set(media.get("publication_context_entity_ids", [])) == {"6529NM-CA-2026-003"}:
+        if media.get("derived_from_media_entity_id") is not None:
+            issues.append(f"{label}: the historical CA-003 proposal graphic cannot claim derivation from a source photograph")
+        if "hero" in affordances:
+            issues.append(f"{label}: the historical CA-003 proposal graphic cannot be published as the selected-acquisition hero")
     rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
     rights_status = rights.get("status")
-    if role == "signed_wave_proposal_presentation":
-        if publication_boundary != "signed_wave_proposal_only":
-            issues.append(f"{label}: signed-Wave media is presentation-context-only")
-        if not isinstance(media.get("signed_wave"), dict):
-            issues.append(f"{label}: signed-Wave media requires signed_wave publication evidence")
-        if "open_signed_wave_source" not in affordances:
-            issues.append(f"{label}: signed-Wave media must expose only the explicitly published source through open_signed_wave_source")
-        if not set(affordances).issubset({"view", "thumbnail", "hero", "alt_text", "open_signed_wave_source", "copy_citation"}):
-            issues.append(f"{label}: signed-Wave media affordances must remain within the proposal presentation allowlist")
+    subject_entity_id = media.get("subject_entity_id")
+    if isinstance(subject_entity_id, str):
+        for evidence_field in ("rights", "source_observation"):
+            evidence_section = media.get(evidence_field)
+            evidence_refs = evidence_section.get("evidence_refs", []) if isinstance(evidence_section, dict) else []
+            for evidence_ref in evidence_refs if isinstance(evidence_refs, list) else []:
+                uri = evidence_ref.get("uri") if isinstance(evidence_ref, dict) else None
+                if isinstance(uri, str) and re.search(rf"(?<![A-Za-z0-9]){re.escape(subject_entity_id)}(?![A-Za-z0-9])", uri):
+                    issues.append(f"{label}: {evidence_field} evidence cannot cite the subject MEDIA_REFERENCE entity itself")
+    if role == "historical_wave_proposal_presentation":
+        if publication_boundary != "historical_wave_proposal_context":
+            issues.append(f"{label}: historical Wave media is proposal-context-only")
+        if not isinstance(media.get("wave_proposal_context"), dict):
+            issues.append(f"{label}: historical Wave media requires wave_proposal_context evidence")
+        if "open_wave_proposal_context" not in affordances:
+            issues.append(f"{label}: historical Wave media must expose only the exact proposal context through open_wave_proposal_context")
+        if set(media.get("publication_context_entity_ids", [])) != {"6529NM-CA-2026-003"}:
+            issues.append(f"{label}: historical Wave media must be explicitly bound to CA-003 publication context")
+        if not set(affordances).issubset({"view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"}):
+            issues.append(f"{label}: historical Wave media affordances must remain within the proposal presentation allowlist")
         if any(item in affordances for item in {"download", "zoom", "fullscreen", "play"}):
-            issues.append(f"{label}: signed-Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
+            issues.append(f"{label}: historical Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
         if any(item in affordances for item in {"open_token_source", "open_repository_path"}):
-            issues.append(f"{label}: signed-Wave media cannot expose token or repository source affordances")
+            issues.append(f"{label}: historical Wave media cannot expose token or repository source affordances")
     if rights_status in {"restricted", "unknown"} and any(item in affordances for item in {"download", "zoom", "fullscreen", "open_token_source", "open_repository_path"}):
         issues.append(f"{label}: {rights_status} media cannot expose download, zoom, fullscreen, token, or repository source opening")
     if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
         issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
     if any(item in affordances for item in {"zoom", "fullscreen"}) and (visual is not True or rights_status not in {"cleared", "cleared_with_conditions"}):
         issues.append(f"{label}: zoom/fullscreen requires visual media with cleared rights")
+    return issues
+
+
+WAVE_PUBLICATION_EXPECTED_PARTS = {
+    1: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md",
+        "content_sha256": "sha256:e735f85395398e97077dad532d14b69fef650f60b05dddd931bd26dfab490a3e",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/f8006332-4f8a-4556-b0df-3c43eec16334/conflict-at-its-edges-cover.png",
+        "mime_type": "image/png",
+        "candidate_object_id": None,
+        "token_source_uri": None,
+    },
+    2: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/02-david-seymour-127.md",
+        "content_sha256": "sha256:c57190e0f57313153bd2f2817370e3ff259e12ca37b3a10b1e4bc7eca1b0513c",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+        "token_source_uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+    },
+    3: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/03-larry-towell-145.md",
+        "content_sha256": "sha256:e6440e460470e7a47bd9e2a184398bf0b95ab36db130b3cfc84716ed6aa66f31",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+        "token_source_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+    },
+    4: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md",
+        "content_sha256": "sha256:edb682412450b6fb22e1ac72853c2930944d3dcfa0fb22fc78ed4026cb8dc094",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+        "token_source_uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+    },
+    5: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/05-moises-saman-44.md",
+        "content_sha256": "sha256:0d47741f7399e86ff1abf184b6000c978b0b90051abc962863b3f572f4eef886",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+        "token_source_uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+    },
+    6: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/06-lorenzo-meloni-104.md",
+        "content_sha256": "sha256:1a069afa6164389e8482e2d72bd7a49f30d0df355e1a6f5f2c07983705bfa22f",
+        "media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg",
+        "mime_type": "image/jpeg",
+        "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+        "token_source_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+    },
+    7: {
+        "source_path": "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/07-case-and-decision.md",
+        "content_sha256": "sha256:97672880e617004bd7094495b0bf759f5d16bb71f0316c5696c5e9d96e3b38d7",
+        "media_url": None,
+        "mime_type": None,
+        "candidate_object_id": None,
+        "token_source_uri": None,
+    },
+}
+
+
+def validate_wave_publication_observation(payload: dict[str, Any], repository_root: Path = REPO_ROOT) -> list[str]:
+    """Validate the frozen, public-safe readback against retained source bytes."""
+
+    issues: list[str] = []
+    expected_scalars = {
+        "record_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+        "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+        "proposal_id": "6529NM-PG-2026-001",
+        "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "is_signed": True,
+        "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "serial_no": 1276093,
+        "drop_type": "WINNER",
+        "title": "Conflict at Its Edges",
+        "drop_created_at": "2026-08-06T13:19:28.882Z",
+        "parts_count": 7,
+        "selection_context_entity_id": "6529NM-CA-2026-003",
+        "source_package_path": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
+        "proposal_path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
+    }
+    for key, expected in expected_scalars.items():
+        if payload.get(key) != expected:
+            issues.append(f"WAVE_PUBLICATION_OBSERVATION.{key} does not match the retained signed-drop API readback")
+    author = payload.get("author") if isinstance(payload.get("author"), dict) else {}
+    expected_author = {
+        "id": "7ee51a67-07b7-4c91-87ed-464c56446c43",
+        "handle": "punk6529bot",
+        "primary_address": "0xf58fe66af1a8c792cd64d8d706eddabadfcb2fd0",
+    }
+    if author != expected_author:
+        issues.append("WAVE_PUBLICATION_OBSERVATION.author does not match the retained public-safe API author projection")
+    parts = payload.get("parts") if isinstance(payload.get("parts"), list) else []
+    if [part.get("part_id") for part in parts if isinstance(part, dict)] != list(WAVE_PUBLICATION_EXPECTED_PARTS):
+        issues.append("WAVE_PUBLICATION_OBSERVATION.parts must contain exactly ordered parts 1 through 7")
+    seen_candidates: set[str] = set()
+    package_path = repository_root / "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+    proposal_path = repository_root / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+    try:
+        package = load_json(package_path)
+        proposal = load_json(proposal_path)
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"WAVE_PUBLICATION_OBSERVATION source package is unreadable: {exc}"]
+    package_by_part = {item.get("part_number"): item for item in package.get("parts", []) if isinstance(item, dict)}
+    proposal_by_candidate = {item.get("candidate_object_id"): item for item in proposal.get("objects", []) if isinstance(item, dict)}
+    for part in parts:
+        if not isinstance(part, dict):
+            issues.append("WAVE_PUBLICATION_OBSERVATION.parts entries must be objects")
+            continue
+        part_id = part.get("part_id")
+        expected = WAVE_PUBLICATION_EXPECTED_PARTS.get(part_id)
+        if expected is None:
+            issues.append(f"WAVE_PUBLICATION_OBSERVATION has unsupported part_id {part_id!r}")
+            continue
+        for key, expected_value in expected.items():
+            if part.get(key) != expected_value:
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}.{key} does not match the immutable readback")
+        source_path = part.get("source_path")
+        source_file = repository_root / source_path if isinstance(source_path, str) else None
+        if source_file is None or not source_file.is_file():
+            issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: source_path does not resolve")
+        else:
+            raw = source_file.read_bytes()
+            if b"\r" in raw:
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: retained source must use LF line endings")
+            try:
+                raw.decode("utf-8")
+            except UnicodeDecodeError:
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: retained source is not UTF-8")
+            actual = "sha256:" + hashlib.sha256(raw).hexdigest()
+            if part.get("content_sha256") != actual:
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: content_sha256 does not match retained bytes")
+            if part_id == 4 and b"tear gas" not in raw:
+                issues.append("WAVE_PUBLICATION_OBSERVATION.part 4 must preserve the historical 'tear gas' text")
+        package_part = package_by_part.get(part_id, {})
+        package_media = package_part.get("media", []) if isinstance(package_part, dict) else []
+        package_media = package_media[0] if package_media and isinstance(package_media[0], dict) else {}
+        if part.get("candidate_object_id") != package_part.get("candidate_object_id"):
+            issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: candidate binding disagrees with wave-storm package")
+        if package_media and (part.get("credit") != package_media.get("credit_line") or part.get("rights_label") != package_media.get("rights_label")):
+            issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: credit or rights label disagrees with wave-storm package")
+        candidate = part.get("candidate_object_id")
+        if isinstance(candidate, str):
+            if candidate in seen_candidates:
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION: duplicate candidate binding {candidate}")
+            seen_candidates.add(candidate)
+            proposal_object = proposal_by_candidate.get(candidate, {})
+            image = proposal_object.get("image", {}) if isinstance(proposal_object, dict) else {}
+            if part.get("token_source_uri") != image.get("uri"):
+                issues.append(f"WAVE_PUBLICATION_OBSERVATION.part {part_id}: token/source URI disagrees with proposal")
+    if seen_candidates != {f"6529NM-PG-2026-001.OBJ-{index:03d}" for index in range(1, 6)}:
+        issues.append("WAVE_PUBLICATION_OBSERVATION must bind exactly the five proposal candidates once")
+    evidence_refs = payload.get("evidence_refs") if isinstance(payload.get("evidence_refs"), list) else []
+    if not any(isinstance(ref, dict) and ref.get("evidence_class") == "B" and ref.get("label") == "Signed-drop API readback (is_signed=true)" for ref in evidence_refs):
+        issues.append("WAVE_PUBLICATION_OBSERVATION must identify the API-reported signed state precisely as class B")
+    return issues
+
+
+def validate_media_description_amendment(payload: dict[str, Any], repository_root: Path = REPO_ROOT) -> list[str]:
+    issues: list[str] = []
+    expected_text = "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground."
+    if payload.get("record_id") != "6529NM-MEDIA-DESC-AMD-2026-08-08-001" or payload.get("amendment_id") != payload.get("record_id"):
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT identity is not stable")
+    if payload.get("subject_media_entity_id") != "6529NM-MED-0042" or payload.get("subject_work_entity_id") != "6529NM-W-0026":
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT subject binding is incorrect")
+    if payload.get("evidence_class") != "C" or payload.get("current_accessibility_text") != expected_text:
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT must project only the reviewed visible-facts description")
+    if "tear gas" in str(payload.get("current_accessibility_text", "")).casefold():
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT current description must not identify the gas type")
+    source_path = payload.get("source_path")
+    source_file = repository_root / source_path if isinstance(source_path, str) else None
+    if source_file is None or not source_file.is_file():
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT source_path does not resolve")
+    expected = WAVE_PUBLICATION_EXPECTED_PARTS[4]
+    if payload.get("source_media_uri") != expected["media_url"] or payload.get("historical_source_part_id") != 4:
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT must remain bound to Wave receipt part 4")
+    evidence_refs = payload.get("evidence_refs") if isinstance(payload.get("evidence_refs"), list) else []
+    if not any(isinstance(ref, dict) and ref.get("evidence_class") == "C" and ref.get("uri") == expected["media_url"] for ref in evidence_refs):
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT direct visual evidence must cite the exact observed media URI")
+    if any(isinstance(ref, dict) and ref.get("evidence_class") == "C" and isinstance(ref.get("uri"), str) and "/public/wave-storm/04-micha-bar-am-97.md" in ref.get("uri", "") for ref in evidence_refs):
+        issues.append("MEDIA_DESCRIPTION_AMENDMENT direct visual evidence must not substitute the historical Markdown source path for the image")
     return issues
 
 
@@ -818,6 +1041,10 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
     if record_status in {"constructed", "review_pending"} or review_status == "pending_independent_review":
         if payload.get("entity_status") == "published":
             issues.append("public record: entity_status published is prohibited while independent review is pending")
+        if record_type == PUBLIC_ENTITY_TYPE and payload.get("entity_status") not in {None, "review_pending"}:
+            issues.append("public entity: a review-pending record must use entity_status review_pending")
+    if record_type == PUBLIC_ENTITY_TYPE and record_status == "reviewed" and payload.get("entity_status") != "published":
+        issues.append("public entity: reviewed publication must use entity_status published")
     if payload.get("entity_status") == "published" and (record_status != "reviewed" or review_status != "reviewed" or not isinstance(reviewer, dict)):
         issues.append("public record: published entity must be independently reviewed")
     if record_type == PUBLIC_ENTITY_TYPE:
@@ -931,7 +1158,7 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
     return issues
 
 
-def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None) -> list[str]:
+def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None, repository_root: Path = REPO_ROOT) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
     payload = record["payload"]
@@ -964,6 +1191,21 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
             issues.append(f"envelope.contentHash.digest does not match canonical payload; expected {expected_hash}")
     except (TypeError, ValueError) as exc:
         issues.append(f"payload canonicalization: {exc}")
+    payload_commitment = payload.get("payload_sha256")
+    if isinstance(payload_commitment, str):
+        payload_without_commitment = dict(payload)
+        payload_without_commitment.pop("payload_sha256", None)
+        expected_omitted_commitment = "sha256:" + hashlib.sha256(canonicalize(payload_without_commitment)).hexdigest()
+        payload_with_zero_commitment = dict(payload)
+        payload_with_zero_commitment["payload_sha256"] = "sha256:" + "0" * 64
+        expected_zero_commitment = "sha256:" + hashlib.sha256(canonicalize(payload_with_zero_commitment)).hexdigest()
+        if payload_commitment not in {expected_omitted_commitment, expected_zero_commitment}:
+            issues.append(
+                "payload.payload_sha256 does not match the canonical payload under the omitted-field or zeroed-field commitment rule; "
+                f"expected {expected_omitted_commitment} or {expected_zero_commitment}"
+            )
+    else:
+        issues.append("payload.payload_sha256 must be a sha256 commitment string")
     for hash_name in ("contentHash", "signatureHash"):
         hash_ref = envelope.get(hash_name, {})
         if not isinstance(hash_ref, dict):
@@ -1021,10 +1263,16 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
         }
         for key, value in expected.items():
             if payload.get(key) != value:
-                issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the authenticated WINNER readback")
+                issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the signed-drop API WINNER status readback")
         prior = payload.get("prior_observation") if isinstance(payload.get("prior_observation"), dict) else {}
         if prior.get("source_status") != "PARTICIPATORY" or prior.get("source_record_id") != "6529NM-PG-2026-001":
             issues.append("WAVE_STATUS_OBSERVATION must retain the earlier PARTICIPATORY proposal observation")
+        if payload.get("observation_method") != "signed_drop_api_readback":
+            issues.append("WAVE_STATUS_OBSERVATION must use the precise signed_drop_api_readback method")
+    if record_type == "WAVE_PUBLICATION_OBSERVATION":
+        issues.extend(validate_wave_publication_observation(payload, repository_root))
+    if record_type == "MEDIA_DESCRIPTION_AMENDMENT":
+        issues.extend(validate_media_description_amendment(payload, repository_root))
     issues.extend(validate_state_machine(payload, vocabularies))
     issues.extend(validate_event_history(payload))
     issues.extend(validate_public_payload(payload, vocabularies, identity_inventory))
@@ -1132,6 +1380,11 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
         missing_qualifiers = {field for field in required if qualifier.get(field) is None}
         if missing_qualifiers:
             issues.append(f"{relative}: relation {relation_type} is missing required qualifiers {sorted(missing_qualifiers)}")
+        allowed_values = profile.get("allowed_qualifier_values", {})
+        if isinstance(allowed_values, dict):
+            for field, allowed_values_for_field in allowed_values.items():
+                if field in qualifier and isinstance(allowed_values_for_field, list) and qualifier[field] not in allowed_values_for_field:
+                    issues.append(f"{relative}: relation {relation_type} qualifier {field}={qualifier[field]!r} is not allowed")
         if source_id == target_id:
             issues.append(f"{relative}: public relation cannot point to itself")
         reserved = bool(profile.get("reserved"))
@@ -1165,6 +1418,17 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
                     issues.append(f"{relative}: media subject_entity_id must equal relation source_entity_id")
                 if target_id not in source[1].get("media_entity_ids", []):
                     issues.append(f"{relative}: source entity must list the target in media_entity_ids")
+                context_ids = set(media.get("publication_context_entity_ids", []))
+                if context_ids:
+                    context_id = qualifier.get("publication_context_entity_id")
+                    if context_id not in context_ids:
+                        issues.append(f"{relative}: media publication context must be explicitly carried by the ENTITY_HAS_MEDIA relation")
+                    if source_id != context_id:
+                        source_profile = source[1].get("profile", {})
+                        if source_type != "WORK" or context_id not in source_profile.get("acquisition_entity_ids", []):
+                            issues.append(f"{relative}: media may only be reused in its declared acquisition/linked Work context")
+                if media.get("media_role") == "historical_wave_proposal_presentation" and qualifier.get("publication_context_entity_id") != "6529NM-CA-2026-003":
+                    issues.append(f"{relative}: historical Wave proposal media must be joined only in the CA-003 context")
         elif relation_type == "INSTITUTION_HOLDS_COLLECTION":
             if source[1].get("profile", {}).get("collection_entity_id") != target_id:
                 issues.append(f"{relative}: institution profile collection_entity_id must match relation target")
@@ -1175,7 +1439,11 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
             if target_id not in source[1].get("profile", {}).get("work_entity_ids", []):
                 issues.append(f"{relative}: Project/Series work_entity_ids must include the relation target")
         elif relation_type == "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION":
+            source_profile = source[1].get("profile", {})
             target_pathway = target[1].get("profile", {}).get("program_or_pathway", {})
+            produced_ids = source_profile.get("produced_acquisition_entity_ids", [])
+            if target_id not in produced_ids:
+                issues.append(f"{relative}: Acquisition Program produced_acquisition_entity_ids must include the relation target")
             if source_id not in target_pathway.get("entity_ids", []):
                 issues.append(f"{relative}: Curated Acquisition program_or_pathway must include the program source")
         elif relation_type == "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK":
@@ -1199,6 +1467,31 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
         elif relation_type == "COLLECTION_CONTAINS_WORK":
             if source[1].get("profile", {}).get("membership_rule") != "accession_only" or target[1].get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
                 issues.append(f"{relative}: Collection membership requires accession_only policy and permanent Work membership")
+
+    # Program projections and their durable production relations must agree in
+    # both directions. A pathway can explain how an acquisition was produced;
+    # it can never itself create Collection membership.
+    for program_id, (_path, program) in entities.items():
+        if program.get("entity_type") != "ACQUISITION_PROGRAM":
+            continue
+        profile = program.get("profile", {})
+        produced = set(profile.get("produced_acquisition_entity_ids", []))
+        related = {
+            relation.get("target_entity_id")
+            for _relation_path, relation in relations
+            if relation.get("relation_type") == "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION"
+            and relation.get("source_entity_id") == program_id
+            and relation.get("record_status") != "superseded"
+        }
+        if produced != related:
+            issues.append(f"{display_path(_path)}: program produced_acquisition_entity_ids must equal active production relations; missing={sorted(produced - related)}, unexpected={sorted(related - produced)}")
+    gift_program = entities.get("6529NM-AP-ENT-0001")
+    if gift_program is not None:
+        if gift_program[1].get("profile", {}).get("program_status") != "active":
+            issues.append(f"{display_path(gift_program[0])}: Gift Acquisitions must remain an active donation pathway")
+        produced = set(gift_program[1].get("profile", {}).get("produced_acquisition_entity_ids", []))
+        if not {"6529NM-CA-2026-001", "6529NM-CA-2026-003"}.issubset(produced):
+            issues.append(f"{display_path(gift_program[0])}: Gift Acquisitions must produce the Casey and Magnum Curated Acquisitions")
 
     # Foundation fixture roots may intentionally contain no PUBLIC_ENTITY layer.
     # Apply the governed public identity inventory only when that layer is present;
@@ -1242,7 +1535,7 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
         if isinstance(route, str):
             slug_inventory_routes.add(route)
         if entity is None:
-            issues.append(f"public entity inventory: governed slug entity {entity_id!r} is not published")
+            issues.append(f"public entity inventory: governed slug entity {entity_id!r} is not present in the candidate graph")
             continue
         actual = entity[1]
         if actual.get("entity_type") != entity_type or actual.get("preferred_label") != row.get("preferred_label") or actual.get("public_slug") != slug or actual.get("canonical_route") != route:
@@ -1283,6 +1576,109 @@ def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, An
             issues.append(f"public entity inventory: route alias {legacy!r} does not target the entity's exact canonical route")
         if legacy == canonical:
             issues.append(f"public entity inventory: route alias {legacy!r} must differ from its canonical route")
+    identity_bindings = identity_inventory.get("identity_bindings", {}) if isinstance(identity_inventory, dict) else {}
+    retired_ids: set[str] = set()
+    retired_rows = identity_inventory.get("retired_identity_ids", []) if isinstance(identity_inventory, dict) else []
+    if not isinstance(retired_rows, list):
+        issues.append("public entity inventory: retired_identity_ids must be a list")
+        retired_rows = []
+    for row in retired_rows:
+        if not isinstance(row, dict):
+            issues.append("public entity inventory: retired identity tombstones must be objects")
+            continue
+        retired_id = row.get("entity_id")
+        retired_type = row.get("entity_type")
+        if not isinstance(retired_id, str) or not isinstance(retired_type, str):
+            issues.append("public entity inventory: retired identity tombstone requires entity_id and entity_type")
+            continue
+        if retired_id in retired_ids:
+            issues.append(f"public entity inventory: duplicate retired identity {retired_id}")
+        retired_ids.add(retired_id)
+        pattern = public_entity_id_pattern(retired_type, identity_inventory)
+        if isinstance(pattern, str) and not re.fullmatch(pattern, retired_id):
+            issues.append(f"public entity inventory: retired identity {retired_id} violates the {retired_type} pattern")
+        if retired_id in entities:
+            issues.append(f"{display_path(entities[retired_id][0])}: retired identity {retired_id} must not be an active PUBLIC_ENTITY")
+        superseded_by = row.get("superseded_by")
+        if isinstance(superseded_by, str) and superseded_by not in entities:
+            issues.append(f"public entity inventory: retired identity {retired_id} points to unpublished superseding identity {superseded_by}")
+    if not isinstance(identity_bindings, dict):
+        issues.append("public entity inventory: identity_bindings must be an object")
+    else:
+        for binding_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE"):
+            rows = identity_bindings.get(binding_type)
+            if not isinstance(rows, list) or not rows:
+                issues.append(f"public entity inventory: missing {binding_type} identity bindings")
+                continue
+            seen_sources: set[str] = set()
+            seen_ids: set[str] = set()
+            pattern = identity_inventory.get("entity_id_patterns", {}).get(binding_type)
+            for row in rows:
+                if not isinstance(row, dict):
+                    issues.append(f"public entity inventory: {binding_type} identity binding must be an object")
+                    continue
+                source_key = row.get("source_key")
+                entity_id = row.get("entity_id")
+                if not isinstance(source_key, str) or not source_key:
+                    issues.append(f"public entity inventory: {binding_type} identity binding has no source_key")
+                elif source_key in seen_sources:
+                    issues.append(f"public entity inventory: duplicate {binding_type} identity source_key {source_key!r}")
+                else:
+                    seen_sources.add(source_key)
+                if not isinstance(entity_id, str) or not entity_id:
+                    issues.append(f"public entity inventory: {binding_type} identity binding has no entity_id")
+                    continue
+                if entity_id in retired_ids:
+                    issues.append(f"public entity inventory: active {binding_type} binding reuses retired identity {entity_id}")
+                if entity_id in seen_ids:
+                    issues.append(f"public entity inventory: duplicate {binding_type} identity entity_id {entity_id!r}")
+                seen_ids.add(entity_id)
+                if isinstance(pattern, str) and not re.fullmatch(pattern, entity_id):
+                    issues.append(f"public entity inventory: {binding_type} identity binding {entity_id!r} violates its ID pattern")
+                entity = entities.get(entity_id)
+                if entity is None:
+                    issues.append(f"public entity inventory: {binding_type} identity binding {entity_id!r} is not present in the candidate graph")
+                elif entity[1].get("entity_type") != binding_type:
+                    issues.append(f"{display_path(entity[0])}: identity binding type {binding_type} does not match entity type {entity[1].get('entity_type')}")
+            actual_ids = {entity_id for entity_id, (_path, payload) in entities.items() if payload.get("entity_type") == binding_type}
+            if actual_ids != seen_ids:
+                issues.append(f"public entity inventory: {binding_type} identity bindings do not equal generated entities; missing={sorted(seen_ids - actual_ids)}, unexpected={sorted(actual_ids - seen_ids)}")
+        observation_bindings = identity_bindings.get("WORK_LIFECYCLE_OBSERVATION")
+        if not isinstance(observation_bindings, list) or not observation_bindings:
+            issues.append("public entity inventory: missing WORK_LIFECYCLE_OBSERVATION identity bindings")
+        else:
+            seen_observation_sources: set[str] = set()
+            seen_observation_ids: set[str] = set()
+            pattern = identity_inventory.get("entity_id_patterns", {}).get("WORK_LIFECYCLE_OBSERVATION")
+            for row in observation_bindings:
+                if not isinstance(row, dict):
+                    issues.append("public entity inventory: WORK_LIFECYCLE_OBSERVATION binding must be an object")
+                    continue
+                source_key = row.get("source_key")
+                observation_id = row.get("entity_id")
+                if not isinstance(source_key, str) or not source_key:
+                    issues.append("public entity inventory: WORK_LIFECYCLE_OBSERVATION binding has no source_key")
+                elif source_key in seen_observation_sources:
+                    issues.append(f"public entity inventory: duplicate WORK_LIFECYCLE_OBSERVATION source_key {source_key!r}")
+                else:
+                    seen_observation_sources.add(source_key)
+                if not isinstance(observation_id, str) or not observation_id:
+                    issues.append("public entity inventory: WORK_LIFECYCLE_OBSERVATION binding has no entity_id")
+                else:
+                    if observation_id in seen_observation_ids:
+                        issues.append(f"public entity inventory: duplicate WORK_LIFECYCLE_OBSERVATION entity_id {observation_id!r}")
+                    seen_observation_ids.add(observation_id)
+                    if isinstance(pattern, str) and not re.fullmatch(pattern, observation_id):
+                        issues.append(f"public entity inventory: WORK_LIFECYCLE_OBSERVATION identity {observation_id!r} violates its ID pattern")
+            actual_observation_ids = {
+                observation.get("observation_id")
+                for _entity_id, (_path, payload) in entities.items()
+                if payload.get("entity_type") == "WORK"
+                for observation in payload.get("profile", {}).get("lifecycle_observations", [])
+                if isinstance(observation, dict) and isinstance(observation.get("observation_id"), str)
+            }
+            if actual_observation_ids != seen_observation_ids:
+                issues.append(f"public entity inventory: WORK_LIFECYCLE_OBSERVATION bindings do not equal generated observations; missing={sorted(seen_observation_ids - actual_observation_ids)}, unexpected={sorted(actual_observation_ids - seen_observation_ids)}")
     for entity_id, (path, payload) in entities.items():
         pattern = public_entity_id_pattern(payload.get("entity_type"), identity_inventory)
         if isinstance(pattern, str) and not re.fullmatch(pattern, entity_id):
@@ -1354,13 +1750,23 @@ def validate_records(root: Path) -> list[str]:
             issues.append(f"{relative_path}: duplicate record identifier {identifier}; first seen at {prior.relative_to(root).as_posix()}")
 
     def register_aliases(value: dict[str, Any], path: Path) -> None:
-        for key in (
+        alias_keys = {
             "entity_id", "relation_id", "program_id", "proposal_id", "object_id",
             "accession_lot_id", "accession_number", "outcome_id", "publication_id", "accession_id",
-        ):
-            identifier = value.get(key)
-            if isinstance(identifier, str):
-                record_aliases.setdefault(identifier, set()).add(path)
+            "observation_id", "amendment_id", "candidate_object_id",
+        }
+
+        def visit_nested(item: Any) -> None:
+            if isinstance(item, dict):
+                for key, identifier in item.items():
+                    if key in alias_keys and isinstance(identifier, str):
+                        record_aliases.setdefault(identifier, set()).add(path)
+                    visit_nested(identifier)
+            elif isinstance(item, list):
+                for child in item:
+                    visit_nested(child)
+
+        visit_nested(value)
 
     for path in record_paths:
         relative = path.relative_to(root).as_posix()
@@ -1441,7 +1847,7 @@ def validate_records(root: Path) -> list[str]:
         # Semantic checks deliberately run even when a schema error exists so a failed
         # record gets the complete diagnostic set in one deterministic CI run.
         if isinstance(record.get("envelope"), dict):
-            issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies, identity_inventory))
+            issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies, identity_inventory, root))
         records.append((path, record, payload))
     aliases = {}
     has_public_entities = any(
@@ -1455,7 +1861,7 @@ def validate_records(root: Path) -> list[str]:
         for alias, canonical_id in aliases.items():
             canonical_path = record_ids.get(canonical_id)
             if canonical_path is None:
-                issues.append(f"public identity inventory: canonical Work {canonical_id} is not published for alias {alias}")
+                issues.append(f"public identity inventory: canonical Work {canonical_id} is not present for alias {alias}")
                 continue
             record_aliases.setdefault(alias, set()).add(canonical_path)
     for path, record, payload in records:

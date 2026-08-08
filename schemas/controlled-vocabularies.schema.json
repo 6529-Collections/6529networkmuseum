@@ -85,6 +85,7 @@
           "max_sources_per_target": {"type": ["integer", "null"], "minimum": 1},
           "allowed_qualifier_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
           "required_qualifier_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "allowed_qualifier_values": {"type": "object", "additionalProperties": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}},
           "reserved": {"type": "boolean"}
         },
         "required": ["source_entity_types", "target_entity_types", "max_targets_per_source", "max_sources_per_target", "allowed_qualifier_fields", "required_qualifier_fields"],

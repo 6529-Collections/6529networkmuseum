@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc60a309573f63ffe3a74aac2294d13610734cbd50aaf26aeac994576667101a7"
+      "digest": "0x3ec44e084c279166420b647086c40b36196aac1e61a384a98ff7551746338e47"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -22,17 +22,17 @@
     "canonical_route": "/museum/network/collection",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-C-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "COLLECTION",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Accession-only membership rule",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:0832de1bf74d3d079830bf4567edae1618debc923299048b6006ca0d91b61bc4",
+    "payload_sha256": "sha256:632c18d3c7c48e1a51fa562a10e2eb228ce91a38fc460a2f143610d52cae1edb",
     "preferred_label": "6529 Network Museum permanent Collection",
     "profile": {
       "admitted_work_entity_ids": [
@@ -55,7 +55,7 @@
       "collection_kind": "permanent_collection",
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Casey accession register",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
@@ -67,7 +67,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-C-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -75,12 +75,8 @@
       "6529NM-I-0001",
       "6529NM.2026.001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -90,14 +86,14 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Accession-only membership rule",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-C-0001",
     "visibility": "public"

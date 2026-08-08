@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x98e2f59b7f8e1352738d0018263cf653cbc1590dbbd5fbb92e6e07970ce6a72a"
+      "digest": "0xc85639ea11f3fb3b701aab307fca8a72ed95f4fe59251ab8d22615113163c310"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -22,48 +22,44 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Casey project context",
         "observed_at": "2026-08-02T06:30:00Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.05.json"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:310fc6f7857b387f2f5166e8843f081c815244e3d5213011a427e93b96e49829",
+    "payload_sha256": "sha256:32c84a92889bd457efb84aa055ed0db8ed4eb4026c0b64dabcd8c7d976e38a1e",
     "qualifier": {
       "scope": "source_project"
     },
     "record_id": "6529NM-REL-0036",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM-PRJ-0003",
-      "6529NM-W-0005",
-      "6529NM.2026.001.05"
+      "6529NM-PRJ-0005",
+      "6529NM-W-0007",
+      "6529NM.2026.001.07"
     ],
     "relation_id": "6529NM-REL-0036",
     "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
-    "source_entity_id": "6529NM-PRJ-0003",
+    "source_entity_id": "6529NM-PRJ-0005",
     "source_record_ids": [
-      "6529NM.2026.001.05"
+      "6529NM.2026.001.07"
     ],
     "subject_id": "6529NM-REL-0036",
-    "target_entity_id": "6529NM-W-0005",
+    "target_entity_id": "6529NM-W-0007",
     "visibility": "public"
   }
 }

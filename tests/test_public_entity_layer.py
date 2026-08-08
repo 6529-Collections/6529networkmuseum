@@ -5,27 +5,46 @@ from __future__ import annotations
 import copy
 import json
 import sys
+import tempfile
 import unittest
 from collections import Counter
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import migrate_public_entities as migration  # noqa: E402
 from migrate_public_entities import (  # noqa: E402
+    GENERATED_AT,
+    EVIDENCE_CLASSES,
+    REVIEWED_AT,
     WINNER_AT,
     WINNER_OBSERVATION_ID,
     WINNER_SOURCE_PATH,
+    WAVE_PUBLICATION_OBSERVATION_ID,
     build_records,
+    evidence,
+    generated_directory_issues,
+    identity_binding_indexes,
     load_json,
+    relation_binding_indexes,
+    resolve_identity_ids,
+    semantic_relation_key,
+    source_evidence,
+    source_record_evidence_class,
     verify_evidence_paths,
 )
 from validate import (  # noqa: E402
+    DuplicateJsonKeyError,
     PUBLIC_RELATION_TYPE,
     load_schemas,
+    reject_duplicate_keys,
     validate_public_graph,
     validate_public_media,
     validate_public_payload,
+    validate_media_description_amendment,
+    validate_wave_publication_observation,
     validator_for,
 )
 
@@ -60,14 +79,72 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 119, "PUBLIC_RELATION": 152, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 118, "PUBLIC_RELATION": 153, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "PROJECT_OR_SERIES" for payload in entities.values()), 6)
         self.assertEqual(sum(payload["entity_type"] == "WORK" for payload in entities.values()), 28)
+        self.assertEqual(sum(payload["entity_type"] == "AGENT" for payload in entities.values()), 21)
+        self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 31)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
-        self.assertEqual(len(self.relations()), 152)
+        self.assertEqual(len(self.relations()), 153)
+        sample = next(iter(entities.values()))
+        self.assertEqual(sample["reviewer"]["reviewed_at"], REVIEWED_AT)
+        self.assertEqual(sample["constructor"]["observed_at"], GENERATED_AT)
+        self.assertNotEqual(sample["reviewer"]["reviewed_at"], sample["constructor"]["observed_at"])
+
+    def test_migration_rejects_unexpected_generated_json(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            entities_dir = root / "entities"
+            relations_dir = root / "relations"
+            entities_dir.mkdir()
+            relations_dir.mkdir()
+            (entities_dir / "known-entity.json").write_text("{}", encoding="utf-8")
+            (entities_dir / "stale-entity.json").write_text("{}", encoding="utf-8")
+            (relations_dir / "known-relation.json").write_text("{}", encoding="utf-8")
+            issues = generated_directory_issues(
+                {
+                    "records/entities/known-entity.json": {},
+                    "records/relations/known-relation.json": {},
+                },
+                entities_dir=entities_dir,
+                relations_dir=relations_dir,
+            )
+            unexpected, missing = issues
+            self.assertEqual(unexpected, ["unexpected generated JSON: records/entities/stale-entity.json"])
+            self.assertEqual(missing, [])
+
+    def test_migration_inventory_allows_missing_write_repairs(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            entities_dir = root / "entities"
+            relations_dir = root / "relations"
+            entities_dir.mkdir()
+            relations_dir.mkdir()
+            (relations_dir / "known-relation.json").write_text("{}", encoding="utf-8")
+            unexpected, missing = generated_directory_issues(
+                {
+                    "records/entities/missing-entity.json": {},
+                    "records/relations/known-relation.json": {},
+                },
+                entities_dir=entities_dir,
+                relations_dir=relations_dir,
+            )
+            self.assertEqual(unexpected, [])
+            self.assertEqual(missing, ["missing generated JSON: records/entities/missing-entity.json"])
+            (entities_dir / "stale-entity.json").write_text("{}", encoding="utf-8")
+            unexpected, missing = generated_directory_issues(
+                {
+                    "records/entities/missing-entity.json": {},
+                    "records/relations/known-relation.json": {},
+                },
+                entities_dir=entities_dir,
+                relations_dir=relations_dir,
+            )
+            self.assertEqual(unexpected, ["unexpected generated JSON: records/entities/stale-entity.json"])
+            self.assertEqual(missing, ["missing generated JSON: records/entities/missing-entity.json"])
 
     def test_canonical_ids_slugs_routes_and_artist_relations_are_closed(self) -> None:
         entities = self.entities()
@@ -147,7 +224,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertTrue(all("records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/" in json.dumps(relation["evidence_refs"]) for relation in project_relations))
         origin_relation = next(relation for relation in relations if relation["relation_type"] == "ORGANIZATION_ORIGINATES_PROJECT" and relation["target_entity_id"] == "6529NM-PRJ-0006")
         self.assertEqual(origin_relation["source_entity_id"], "6529NM-ORG-0002")
-        self.assertEqual(origin_relation["qualifier"]["role"], "publisher")
+        self.assertEqual(origin_relation["qualifier"]["role"], "originator")
         self.assertNotEqual(entities["6529NM-PRJ-0006"]["entity_id"], "6529NM-CA-2026-003")
         self.assertTrue(all(work["profile"]["project_or_series_entity_ids"] == ["6529NM-PRJ-0006"] for work in (entities[f"6529NM-W-{index:04d}"] for index in range(24, 29))))
         self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "not_in_collection" for relation in project_relations))
@@ -167,19 +244,52 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(len(keys_media), 16)
         self.assertEqual(len([relation for relation in media_relations if relation["target_entity_id"] in {value["entity_id"] for value in keys_media}]), 16)
         proposal = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json")
-        magnum_urls = {item["image"]["uri"] for item in proposal["objects"]}
-        magnum_media = [value for value in media.values() if value["profile"]["media"].get("signed_wave")]
+        wave_publication = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json")
+        magnum_urls = {part["media_url"] for part in wave_publication["payload"]["parts"] if part.get("candidate_object_id")}
+        token_urls = {item["image"]["uri"] for item in proposal["objects"]}
+        magnum_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "historical_wave_proposal_presentation"]
         self.assertEqual({value["profile"]["media"]["source_locator"]["uri"] for value in magnum_media}, magnum_urls)
         self.assertEqual(len(magnum_media), 5)
         for value in magnum_media:
             media_profile = value["profile"]["media"]
-            self.assertEqual(media_profile["publication_boundary"], "signed_wave_proposal_only")
+            self.assertIn(media_profile["token_source_locator"]["uri"], token_urls)
+            self.assertEqual(media_profile["publication_boundary"], "historical_wave_proposal_context")
+            self.assertEqual(media_profile["publication_context_entity_ids"], ["6529NM-CA-2026-003"])
+            self.assertEqual(media_profile["wave_proposal_context"]["publication_status"], "historical_public_proposal_context")
+            self.assertIn("open_wave_proposal_context", media_profile["allowed_ui_affordances"])
             self.assertNotIn("download", media_profile["allowed_ui_affordances"])
             self.assertNotIn("zoom", media_profile["allowed_ui_affordances"])
             self.assertNotIn("fullscreen", media_profile["allowed_ui_affordances"])
+            self.assertNotIn("open_repository_path", media_profile["allowed_ui_affordances"])
         child_media = next(value for value in magnum_media if value["entity_id"] == "6529NM-MED-0043")["profile"]["media"]
         self.assertEqual(child_media["accessibility_subject_policy"], "non_identifying_child_subject")
         self.assertNotRegex(child_media["accessibility_text"].lower(), r"\b(named|identified|known as)\b")
+        self.assertEqual(child_media["identity_inference_prohibition"]["status"], "prohibited")
+        self.assertEqual(child_media["identity_inference_prohibition"]["scope"], "subject_identity")
+        cover = media["6529NM-MED-0004"]["profile"]["media"]
+        self.assertEqual(cover["media_role"], "museum_authored_public_graphic")
+        self.assertEqual(cover["publication_boundary"], "public_graphic")
+        self.assertEqual(cover["subject_entity_id"], "6529NM-CA-2026-003")
+        self.assertIsNone(cover["derived_from_media_entity_id"])
+        self.assertEqual(cover["rights"]["status"], "cleared")
+        self.assertIn("PROPOSED GIFT", cover["accessibility_text"])
+        self.assertIn("CONFLICT AT ITS EDGES", cover["accessibility_text"])
+        self.assertIn("Five Photographs of Evidence and Aftermath", cover["accessibility_text"])
+        self.assertIn("1952–2016", cover["accessibility_text"])
+        self.assertIn("6529 NETWORK MUSEUM", cover["accessibility_text"])
+        self.assertIn(WAVE_PUBLICATION_OBSERVATION_ID, cover["source_record_ids"])
+        self.assertNotIn("6529NM-CA-2026-003", json.dumps(cover["rights"]["evidence_refs"]))
+        self.assertNotIn("6529NM-CA-2026-003", json.dumps(cover["source_observation"]["evidence_refs"]))
+        self.assertNotIn("hero", cover["allowed_ui_affordances"])
+        self.assertIn("text-only historical proposal graphic", cover["transform_profile"])
+        keys_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "museum_generated_public_derivative" and any(ref.startswith("6529NM-AP-01-OUT-") for ref in value["profile"]["media"].get("source_record_ids", []))]
+        self.assertEqual(len(keys_media), 16)
+        self.assertTrue(all(value["profile"]["media"]["width"] == 640 for value in keys_media))
+        generated_json = json.dumps(self.records, ensure_ascii=False)
+        self.assertNotIn("OUT-004/1280.webp", generated_json)
+        self.assertNotIn("OUT-004/2400.webp", generated_json)
+        self.assertNotIn("OUT-011/1280.webp", generated_json)
+        self.assertNotIn("OUT-011/2400.webp", generated_json)
 
     def test_collection_membership_remains_exactly_casey_seven(self) -> None:
         entities = self.entities()
@@ -193,6 +303,165 @@ class PublicEntityLayerTests(unittest.TestCase):
         permanent_work_ids = {entity_id for entity_id, payload in entities.items() if payload["entity_type"] == "WORK" and payload["profile"]["collection_membership"]["status"] == "permanent_collection"}
         self.assertEqual(permanent_work_ids, {relation["target_entity_id"] for relation in accession_relations})
         self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["collection_membership"]["status"] == "not_in_collection" for index in range(24, 29)))
+
+    def test_magnum_mint_and_acquisition_mint_are_chain_verified_but_not_museum_acquisition(self) -> None:
+        entities = self.entities()
+        for index in range(24, 29):
+            work = entities[f"6529NM-W-{index:04d}"]["profile"]
+            self.assertEqual(work["mint_fact"]["status"], "verified")
+            self.assertEqual(work["mint_fact"]["evidence_refs"][0]["evidence_class"], "A")
+            self.assertIn("proposal.json", work["mint_fact"]["evidence_refs"][0]["uri"])
+            self.assertEqual(work["collection_membership"]["status"], "not_in_collection")
+            self.assertEqual(work["accession_entity_ids"], [])
+        ca3 = entities["6529NM-CA-2026-003"]["profile"]
+        self.assertEqual(ca3["independent_acquisition_facts"]["mint"]["status"], "verified")
+        self.assertEqual(ca3["independent_acquisition_facts"]["mint"]["evidence_refs"][0]["evidence_class"], "A")
+        self.assertIn("existing external ERC-721 token manifestation only", ca3["independent_acquisition_facts"]["mint"]["notes"])
+        self.assertIn("does not establish Museum acquisition", ca3["independent_acquisition_facts"]["mint"]["notes"])
+
+    def test_program_pathways_and_produced_acquisitions_are_exact(self) -> None:
+        entities = self.entities()
+        programs = {entity_id: payload for entity_id, payload in entities.items() if payload["entity_type"] == "ACQUISITION_PROGRAM"}
+        relations = self.relations()
+        produced = {
+            program_id: {relation["target_entity_id"] for relation in relations if relation["relation_type"] == "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION" and relation["source_entity_id"] == program_id}
+            for program_id in programs
+        }
+        self.assertEqual(programs["6529NM-AP-ENT-0001"]["profile"]["program_status"], "active")
+        self.assertEqual(entities["6529NM-CA-2026-002"]["profile"]["thesis"], "The program’s selected group brings together photographs of access, exclusion, permission, surveillance, custody, autonomy, and exit; selection is complete, while acquisition and minting remain pending.")
+        self.assertEqual(produced["6529NM-AP-ENT-0001"], {"6529NM-CA-2026-001", "6529NM-CA-2026-003"})
+        self.assertEqual(programs["6529NM-AP-ENT-0001"]["profile"]["produced_acquisition_entity_ids"], sorted(produced["6529NM-AP-ENT-0001"]))
+        self.assertEqual(produced["6529NM-AP-ENT-0002"], {"6529NM-CA-2026-002"})
+        self.assertEqual(entities["6529NM-CA-2026-001"]["profile"]["program_or_pathway"]["entity_ids"], ["6529NM-AP-ENT-0001"])
+        self.assertEqual(entities["6529NM-CA-2026-003"]["profile"]["program_or_pathway"]["entity_ids"], ["6529NM-AP-ENT-0001"])
+        self.assertEqual(entities["6529NM-CA-2026-002"]["profile"]["program_or_pathway"]["entity_ids"], ["6529NM-AP-ENT-0002"])
+        self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["program_entity_ids"] == ["6529NM-AP-ENT-0001"] for index in [*range(1, 8), *range(24, 29)]))
+        self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["program_entity_ids"] == ["6529NM-AP-ENT-0002"] for index in range(8, 24)))
+        self.assertEqual([relation for relation in relations if relation["relation_type"] == "COLLECTION_CONTAINS_WORK" and entities[relation["source_entity_id"]]["entity_type"] == "ACQUISITION_PROGRAM"], [])
+
+    def test_art_blocks_publishes_casey_projects_without_false_origination(self) -> None:
+        relations = self.relations()
+        publishes = [relation for relation in relations if relation["relation_type"] == "ORGANIZATION_PUBLISHES_PROJECT"]
+        self.assertEqual(len(publishes), 5)
+        self.assertTrue(all(relation["source_entity_id"] == "6529NM-ORG-0001" and relation["qualifier"]["role"] == "publisher" for relation in publishes))
+        self.assertEqual([relation for relation in relations if relation["relation_type"] == "ORGANIZATION_ORIGINATES_PROJECT" and relation["target_entity_id"] != "6529NM-PRJ-0006"], [])
+
+    def test_evidence_classes_are_explicit_and_label_independent(self) -> None:
+        self.assertEqual(EVIDENCE_CLASSES, {"A", "B", "C", "D", "E"})
+        self.assertEqual(source_record_evidence_class("eip155:1/erc721:0xabc/1"), "A")
+        self.assertEqual(source_record_evidence_class("6529NM-GOV-1052812"), "B")
+        self.assertEqual(source_record_evidence_class("6529NM.2026.001.DILIGENCE-01"), "C")
+        self.assertEqual(source_record_evidence_class("records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"), "E")
+        self.assertEqual(source_record_evidence_class("sources/third-party/historical-reference.md"), "D")
+        original = source_evidence("Governance claim", "6529NM-GOV-1052812", GENERATED_AT)
+        relabeled = source_evidence("An editor changed this label", "6529NM-GOV-1052812", GENERATED_AT)
+        self.assertEqual(original["evidence_class"], "B")
+        self.assertEqual(relabeled["evidence_class"], original["evidence_class"])
+
+    def test_review_pending_candidate_state_is_not_archived_and_cannot_be_final(self) -> None:
+        candidate = build_records()
+        candidate_entities = [record["payload"] for record in candidate.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"]
+        self.assertEqual(len(candidate_entities), 118)
+        self.assertTrue(all(payload["entity_status"] == "review_pending" for payload in candidate_entities))
+        self.assertTrue(all(payload["record_status"] == "review_pending" for payload in candidate_entities))
+        self.assertTrue(all(payload["reviewer"] is None for payload in candidate_entities))
+        finalised_candidate = copy.deepcopy(candidate_entities[0])
+        finalised_candidate["record_status"] = "reviewed"
+        finalised_candidate["review_status"] = "reviewed"
+        finalised_candidate["reviewer"] = {"id": "codex-review:test-independent", "reviewed_at": "2026-08-08T15:00:00Z"}
+        finalised_candidate["entity_status"] = "review_pending"
+        issues = validate_public_payload(finalised_candidate, self.vocabularies, self.inventory)
+        self.assertTrue(any("reviewed publication must use entity_status published" in issue for issue in issues))
+
+    def test_wave_receipt_and_visual_amendment_are_exact_and_mutation_safe(self) -> None:
+        receipt = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json")
+        amendment = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json")
+        self.assertEqual(validate_wave_publication_observation(receipt["payload"], ROOT), [])
+        self.assertEqual(validate_media_description_amendment(amendment["payload"], ROOT), [])
+        historical_part = (ROOT / receipt["payload"]["parts"][3]["source_path"]).read_text(encoding="utf-8")
+        self.assertIn("tear gas", historical_part.casefold())
+        self.assertNotIn("tear gas", amendment["payload"]["current_accessibility_text"].casefold())
+        changed_url = copy.deepcopy(receipt["payload"])
+        changed_url["parts"][1]["media_url"] = changed_url["parts"][1]["media_url"].replace("magnum-75-127.jpg", "magnum-75-127-mutated.jpg")
+        self.assertTrue(validate_wave_publication_observation(changed_url, ROOT))
+        changed_hash = copy.deepcopy(receipt["payload"])
+        changed_hash["parts"][1]["content_sha256"] = "sha256:" + "1" * 64
+        self.assertTrue(validate_wave_publication_observation(changed_hash, ROOT))
+        with self.assertRaises(DuplicateJsonKeyError):
+            json.loads('{"drop_id":"one","drop_id":"two"}', object_pairs_hook=reject_duplicate_keys)
+
+    def test_retired_identity_tombstone_blocks_reuse_without_resurrecting_agent(self) -> None:
+        self.assertNotIn("6529NM-AGT-0012", self.entities())
+        tombstone = next(row for row in self.inventory["retired_identity_ids"] if row["entity_id"] == "6529NM-AGT-0012")
+        self.assertEqual(tombstone["superseded_by"], "6529NM-AGT-0003")
+        mutated = copy.deepcopy(self.inventory)
+        mutated["identity_bindings"]["AGENT"].append({"source_key": "hugo-duplicate", "entity_id": "6529NM-AGT-0012"})
+        with self.assertRaises(ValueError):
+            identity_binding_indexes(mutated)
+
+    def test_all_lifecycle_observations_are_inventory_bound(self) -> None:
+        observations = {
+            observation["observation_id"]: work_id
+            for work_id, work in self.entities().items()
+            if work["entity_type"] == "WORK"
+            for observation in work["profile"]["lifecycle_observations"]
+        }
+        expected = {row["entity_id"] for row in self.inventory["identity_bindings"]["WORK_LIFECYCLE_OBSERVATION"]}
+        self.assertEqual(len(observations), 33)
+        self.assertEqual(set(observations), expected)
+        self.assertEqual(len(set(observations)), 33)
+        for observation_id, work_id in observations.items():
+            self.assertIn(work_id, self.entities())
+
+    def test_source_reordering_preserves_governed_entity_relation_media_and_observation_ids(self) -> None:
+        baseline_entities = self.entities()
+        baseline_entity_identity = {
+            entity_id: (payload["entity_type"], payload["preferred_label"], payload["public_slug"], payload["canonical_route"])
+            for entity_id, payload in baseline_entities.items()
+        }
+        baseline_relations = {
+            payload["relation_id"]: (payload["relation_type"], payload["source_entity_id"], payload["target_entity_id"])
+            for payload in self.relations()
+        }
+        original_load_json = migration.load_json
+
+        def reordered_load_json(path: Path):
+            value = original_load_json(path)
+            if path.name == "proposal.json" and "proposed-gifts" in path.as_posix():
+                value["objects"] = list(reversed(value["objects"]))
+            if path.name == "selected-works.json":
+                value["works"] = list(reversed(value["works"]))
+            return value
+
+        with patch.object(migration, "load_json", side_effect=reordered_load_json):
+            reordered_records = migration.build_records(reviewed=True, reviewer_id="codex-review:test-independent")
+        reordered_entities = {record["payload"]["entity_id"]: record["payload"] for record in reordered_records.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"}
+        reordered_relations = {record["payload"]["relation_id"]: record["payload"] for record in reordered_records.values() if record["payload"].get("record_type") == PUBLIC_RELATION_TYPE}
+        reordered_inventory = copy.deepcopy(self.inventory)
+        for rows in reordered_inventory["identity_bindings"].values():
+            rows.reverse()
+        original_indexes = identity_binding_indexes(self.inventory)
+        reordered_indexes = identity_binding_indexes(reordered_inventory)
+        for binding_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"):
+            self.assertEqual(reordered_indexes[binding_type], original_indexes[binding_type])
+        self.assertEqual({entity_id: (payload["entity_type"], payload["preferred_label"], payload["public_slug"], payload["canonical_route"]) for entity_id, payload in reordered_entities.items()}, baseline_entity_identity)
+        self.assertEqual({relation_id: (payload["relation_type"], payload["source_entity_id"], payload["target_entity_id"]) for relation_id, payload in reordered_relations.items()}, baseline_relations)
+        baseline_observations = {observation["observation_id"]: work_id for work_id, work in baseline_entities.items() if work["entity_type"] == "WORK" for observation in work["profile"]["lifecycle_observations"]}
+        reordered_observations = {observation["observation_id"]: work_id for work_id, work in reordered_entities.items() if work["entity_type"] == "WORK" for observation in work["profile"]["lifecycle_observations"]}
+        self.assertEqual(reordered_observations, baseline_observations)
+        baseline_media = {entity_id: payload["profile"]["media"]["subject_entity_id"] for entity_id, payload in baseline_entities.items() if payload["entity_type"] == "MEDIA_REFERENCE"}
+        reordered_media = {entity_id: payload["profile"]["media"]["subject_entity_id"] for entity_id, payload in reordered_entities.items() if payload["entity_type"] == "MEDIA_REFERENCE"}
+        self.assertEqual(reordered_media, baseline_media)
+
+    def test_relation_identity_excludes_mutable_qualifiers(self) -> None:
+        relation = next(item for item in self.relations() if item["relation_type"] == "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK")
+        key = semantic_relation_key(relation["relation_type"], relation["source_entity_id"], relation["target_entity_id"], relation["qualifier"])
+        relation_inventory = load_json(ROOT / "schemas/public-relation-identity-inventory.json")
+        indexes = relation_binding_indexes(relation_inventory)
+        changed = copy.deepcopy(relation["qualifier"])
+        changed["display_order"] = changed.get("display_order", 1) + 100
+        self.assertEqual(semantic_relation_key(relation["relation_type"], relation["source_entity_id"], relation["target_entity_id"], changed), key)
+        self.assertEqual(indexes[key], relation["relation_id"])
 
     def test_acquisition_programs_are_pathways_not_collection_membership(self) -> None:
         entities = self.entities()
@@ -220,7 +489,10 @@ class PublicEntityLayerTests(unittest.TestCase):
             self.assertEqual([item["source_status"] for item in profile["lifecycle_observations"]], ["PARTICIPATORY", "WINNER"])
         observation = next(payload for payload in self.payloads() if payload.get("record_type") == "WAVE_STATUS_OBSERVATION")
         self.assertEqual(observation["observation_id"], WINNER_OBSERVATION_ID)
-        self.assertEqual({observation[key] for key in ("serial_no", "rating", "realtime_rating", "rater_count")}, {1276093, 121603214, 29})
+        self.assertEqual(observation["serial_no"], 1276093)
+        self.assertEqual(observation["rating"], 121603214)
+        self.assertEqual(observation["realtime_rating"], 121603214)
+        self.assertEqual(observation["rater_count"], 29)
         self.assertTrue(observation["signed"])
         self.assertEqual(observation["drop_type"], "WINNER")
         self.assertEqual(observation["prior_observation"]["source_status"], "PARTICIPATORY")
@@ -259,9 +531,22 @@ class PublicEntityLayerTests(unittest.TestCase):
         signed = copy.deepcopy(next(value for value in entities.values() if value["entity_id"] == "6529NM-MED-0041")["profile"]["media"])
         signed["allowed_ui_affordances"].append("download")
         self.assertTrue(validate_public_media(signed, "test.signed"))
+        signed["publication_context_entity_ids"] = []
+        self.assertTrue(validate_public_media(signed, "test.historical-context"))
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])
         child["accessibility_text"] = "Named child identified as Alex."
         self.assertTrue(validate_public_media(child, "test.child"))
+        child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])
+        child["identity_inference_prohibition"] = None
+        self.assertTrue(validate_public_media(child, "test.child-structural-prohibition"))
+        child["identity_inference_prohibition"] = {"status": "permitted", "scope": "subject_identity", "reason": "bad"}
+        self.assertTrue(validate_public_media(child, "test.child-structural-status"))
+        cover = copy.deepcopy(entities["6529NM-MED-0004"]["profile"]["media"])
+        cover["derived_from_media_entity_id"] = "6529NM-MED-0041"
+        self.assertTrue(validate_public_media(cover, "test.cover-boundary"))
+        cover = copy.deepcopy(entities["6529NM-MED-0004"]["profile"]["media"])
+        cover["rights"]["evidence_refs"][0]["uri"] = "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-CA-2026-003.json"
+        self.assertTrue(validate_public_media(cover, "test.cover-self-rights-evidence"))
 
     def test_evidence_paths_and_graph_routes_fail_closed(self) -> None:
         records = copy.deepcopy(self.records)

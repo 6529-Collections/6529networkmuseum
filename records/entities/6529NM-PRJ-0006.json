@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x19cdf46d73a691c79ae2b93993b9166b53f09073f005eaf6f701f2512329d0d0"
+      "digest": "0x1298aa5310e3e8bf3fac61d8c01537780f8a7e5360c4b06b983056471a0ae1d0"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -22,23 +22,23 @@
     "canonical_route": "/museum/network/projects/magnum-photos-75",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-PRJ-0006",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Named Magnum Photos 75 project",
         "observed_at": "2026-08-06T13:19:30.726Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
       },
       {
-        "evidence_class": "C",
+        "evidence_class": "B",
         "label": "Five-work proposal set",
         "observed_at": "2026-08-06T13:19:30.726Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:43aa7da5fe63f15ebb37aef2d3941189b1b6d908e0d4de98f63aed7b0adbb6a7",
+    "payload_sha256": "sha256:35833c78aae9e4c7831015925f2c56446e0daa823284a1d96d001b8a33157581",
     "preferred_label": "Magnum Photos 75",
     "profile": {
       "agent_entity_ids": [
@@ -59,13 +59,13 @@
       ],
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Named Magnum Photos 75 project",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
         },
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Five-work proposal set",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
@@ -75,7 +75,7 @@
       "profile_type": "PROJECT_OR_SERIES",
       "project_relation_basis": "proposal_work_set",
       "project_type": "series",
-      "scope_statement": "Retained proposal evidence names Magnum Photos 75 as a 2022 anniversary-year release context drawn from the Magnum archive. This Project projection links the five proposed Museum Works to that named context; it does not assert that the Museum owns, accepted, or catalogs the complete Magnum Photos 75 release.",
+      "scope_statement": "Retained proposal evidence names Magnum Photos 75 as a 2022 anniversary-year release context drawn from the Magnum archive. This Project projection links the five Museum Works currently selected for acquisition review to that named context; it does not assert that the Museum owns, accepted, or catalogs the complete Magnum Photos 75 release.",
       "source_record_ids": [
         "6529NM-PG-2026-001",
         "6529NM-PG-2026-001.OBJ-001",
@@ -94,7 +94,7 @@
     },
     "public_slug": "magnum-photos-75",
     "record_id": "6529NM-PRJ-0006",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -111,12 +111,8 @@
       "6529NM-W-0027",
       "6529NM-W-0028"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0017",
@@ -135,20 +131,20 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Named Magnum Photos 75 project",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
         },
         {
-          "evidence_class": "C",
+          "evidence_class": "B",
           "label": "Five-work proposal set",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-PRJ-0006",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x53ae2589fd26cb16b75b5be7432a60ca18d8d886f205d506f767e9306c0e6aa9"
+      "digest": "0xdfad8255097456c8f78005eb44ff36b5493586211a00aa1090c36a4856381528"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -22,48 +22,44 @@
     "assertion_status": "asserted",
     "constructor": {
       "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T00:00:00Z",
+      "observed_at": "2026-08-08T14:31:26Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T00:00:00Z",
+    "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "evidence_refs": [
       {
-        "evidence_class": "C",
-        "label": "Casey project context",
+        "evidence_class": "B",
+        "label": "Art Blocks project publishing context",
         "observed_at": "2026-08-02T06:30:00Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:8f1980b5b654093a3e07a536d4de15bbf87536c7058289481de52655f0321a7c",
+    "payload_sha256": "sha256:675ee26cda750f0bd68964b015be22d2fb812bc2ae20a7cfaba2da80ba5efccb",
     "qualifier": {
-      "scope": "source_project"
+      "role": "publisher"
     },
     "record_id": "6529NM-REL-0040",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM-PRJ-0005",
-      "6529NM-W-0007",
-      "6529NM.2026.001.07"
+      "6529NM-ORG-0001",
+      "6529NM-PRJ-0004",
+      "6529NM.2026.001.01"
     ],
     "relation_id": "6529NM-REL-0040",
-    "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
-      "reviewed_at": "2026-08-08T00:00:00Z",
-      "role": "reviewer"
-    },
+    "relation_type": "ORGANIZATION_PUBLISHES_PROJECT",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
-    "source_entity_id": "6529NM-PRJ-0005",
+    "source_entity_id": "6529NM-ORG-0001",
     "source_record_ids": [
-      "6529NM.2026.001.07"
+      "6529NM.2026.001.01"
     ],
     "subject_id": "6529NM-REL-0040",
-    "target_entity_id": "6529NM-W-0007",
+    "target_entity_id": "6529NM-PRJ-0004",
     "visibility": "public"
   }
 }

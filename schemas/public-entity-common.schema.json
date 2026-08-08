@@ -256,9 +256,12 @@
     "mediaReference": {
       "type": "object",
       "properties": {
-        "media_role": {"enum": ["museum_retained_preservation_object", "museum_generated_public_derivative", "token_linked_source_media", "signed_wave_proposal_presentation"]},
-        "publication_boundary": {"enum": ["preservation_record", "public_derivative", "token_source", "signed_wave_proposal_only"]},
+        "media_role": {"enum": ["museum_retained_preservation_object", "museum_generated_public_derivative", "museum_authored_public_graphic", "token_linked_source_media", "historical_wave_proposal_presentation"]},
+        "publication_boundary": {"enum": ["preservation_record", "public_derivative", "public_graphic", "token_source", "historical_wave_proposal_context"]},
         "source_locator": {"$ref": "#/$defs/mediaLocator"},
+        "token_source_locator": {
+          "anyOf": [{"$ref": "#/$defs/mediaLocator"}, {"type": "null"}]
+        },
         "media_type": {"type": "string", "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]*/[a-z0-9][a-z0-9!#$&^_.+-]*$"},
         "visual": {"type": "boolean"},
         "width": {"type": ["integer", "null"], "minimum": 1},
@@ -267,34 +270,54 @@
         "accessibility_status": {"enum": ["provided", "publication_join", "pending_review", "not_applicable"]},
         "accessibility_subject_policy": {"enum": ["not_applicable", "non_identifying_sensitive_subject", "non_identifying_child_subject"]},
         "accessibility_publication_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
+        "identity_inference_prohibition": {
+          "type": ["object", "null"],
+          "properties": {
+            "status": {"const": "prohibited"},
+            "scope": {"const": "subject_identity"},
+            "reason": {"$ref": "#/$defs/nonEmpty"}
+          },
+          "required": ["status", "scope", "reason"],
+          "unevaluatedProperties": false
+        },
         "subject_entity_id": {"$ref": "#/$defs/entityId"},
         "credit": {"$ref": "#/$defs/nonEmpty"},
         "rights": {"$ref": "#/$defs/rights"},
         "source_observation": {"$ref": "#/$defs/sourceObservation"},
         "fixity": {"$ref": "#/$defs/fixity"},
+        "token_source_fixity": {
+          "anyOf": [{"$ref": "#/$defs/fixity"}, {"type": "null"}]
+        },
         "source_record_ids": {"$ref": "#/$defs/sourceRecordIds"},
         "derived_from_media_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
         "transform_profile": {"type": ["string", "null"], "minLength": 1},
-        "signed_wave": {
+        "wave_proposal_context": {
           "type": ["object", "null"],
           "properties": {
             "wave_id": {"$ref": "#/$defs/id"},
             "drop_id": {"$ref": "#/$defs/id"},
             "publication_record_id": {"$ref": "#/$defs/id"},
+            "observation_record_id": {"$ref": "#/$defs/id"},
+            "api_endpoint": {"type": "string", "format": "uri", "pattern": "^https://api\\.6529\\.io/api/drops/[^\\s]+$"},
             "published_at": {"$ref": "#/$defs/dateTime"},
-            "signature_status": {"enum": ["signed_and_published", "observed_published"]}
+            "publication_status": {"const": "historical_public_proposal_context"}
           },
-          "required": ["wave_id", "drop_id", "publication_record_id", "published_at", "signature_status"],
+          "required": ["wave_id", "drop_id", "publication_record_id", "published_at", "publication_status"],
           "unevaluatedProperties": false
+        },
+        "publication_context_entity_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/entityId"}
         },
         "allowed_ui_affordances": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_signed_wave_source", "open_repository_path", "copy_citation"]}
+          "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"]}
         }
       },
-      "required": ["media_role", "publication_boundary", "source_locator", "media_type", "visual", "width", "height", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "subject_entity_id", "credit", "rights", "source_observation", "fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "signed_wave", "allowed_ui_affordances"],
+      "required": ["media_role", "publication_boundary", "source_locator", "token_source_locator", "media_type", "visual", "width", "height", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "identity_inference_prohibition", "subject_entity_id", "credit", "rights", "source_observation", "fixity", "token_source_fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "wave_proposal_context", "publication_context_entity_ids", "allowed_ui_affordances"],
       "unevaluatedProperties": false,
       "allOf": [
         {
@@ -318,11 +341,18 @@
           "then": {"required": ["transform_profile"]}
         },
         {
-          "if": {"properties": {"media_role": {"const": "signed_wave_proposal_presentation"}}, "required": ["media_role"]},
+          "if": {"properties": {"media_role": {"const": "museum_authored_public_graphic"}}, "required": ["media_role"]},
           "then": {
-            "required": ["signed_wave", "publication_boundary"],
-            "allOf": [{"if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_child_subject"}}, "required": ["accessibility_subject_policy"]}, "then": {"required": ["accessibility_text"]}}],
-            "properties": {"publication_boundary": {"const": "signed_wave_proposal_only"}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_signed_wave_source", "copy_citation"]}, "contains": {"const": "open_signed_wave_source"}, "minContains": 1}}
+            "required": ["transform_profile", "derived_from_media_entity_id"],
+            "properties": {"publication_boundary": {"const": "public_graphic"}, "derived_from_media_entity_id": {"type": "null"}, "allowed_ui_affordances": {"not": {"contains": {"const": "hero"}}}}
+          }
+        },
+        {
+          "if": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]},
+          "then": {
+            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity"],
+            "allOf": [{"if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_child_subject"}}, "required": ["accessibility_subject_policy"]}, "then": {"required": ["accessibility_text", "identity_inference_prohibition"]}}],
+            "properties": {"publication_boundary": {"const": "historical_wave_proposal_context"}, "publication_context_entity_ids": {"contains": {"const": "6529NM-CA-2026-003"}, "minContains": 1}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}, "contains": {"const": "open_wave_proposal_context"}, "minContains": 1}}
           }
         },
         {
@@ -339,7 +369,7 @@
         },
         {
           "if": {"properties": {"rights": {"properties": {"status": {"enum": ["restricted", "unknown"]}}, "required": ["status"]}}, "required": ["rights"]},
-          "then": {"properties": {"allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_signed_wave_source", "copy_citation"]}}}}
+          "then": {"properties": {"allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}}}}
         },
         {
           "if": {"properties": {"source_observation": {"properties": {"status": {"const": "mutable_external"}}, "required": ["status"]}}, "required": ["source_observation"]},

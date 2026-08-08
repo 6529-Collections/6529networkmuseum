@@ -322,7 +322,7 @@ Required modules, in this order unless an exhibition-specific art direction just
 1. **Primary art encounter:** a large approved still, video, or lightweight live presentation from an accessioned work or current program. It includes title, artist, date, and one clear action to enter the work.
 2. **Mission in one breath:** no more than approximately 60 words, with a link to the full institutional statement.
 3. **Featured collection story:** initially the Casey Reas gift, showing the seven works as art and explaining why the gift matters.
-4. **Current acquisition:** Keys and Gates is explicitly described as **Selected through an acquisition program; acquisition pending**, with optional **Mint pending** qualifier. Conflict at Its Edges is shown as **Selected by Museum Wave—acquisition review in progress**, with no acceptance, custody, title, rights, accession, or Collection implication.
+4. **Current acquisition:** Keys and Gates is explicitly described as **Selected through an acquisition program; acquisition pending**, with the qualifier **Not yet minted; minting route under consideration.** Conflict at Its Edges is shown as **Selected by Museum Wave—acquisition review in progress**, with no acceptance, custody, title, rights, accession, or Collection implication.
 5. **Explore the collection:** visually rich entry points by artist, project, medium, date, and curatorial theme.
 6. **Research and essays:** Research Publications, artist profiles, technical conservation features, and acquisition stories.
 7. **Institutional footer:** collecting, donations, decisions, standards, repository, release commitment, accessibility, and contact.
@@ -509,7 +509,7 @@ The Keys and Gates page must include:
 - artist, title, and selection context for each work;
 - the selection mechanism explained in plain language;
 - a prominent, unambiguous visitor statement: **Selected through an acquisition program; acquisition pending**;
-- an optional independent qualifier: **Mint pending**;
+- an optional independent qualifier: **Not yet minted; minting route under consideration.**;
 - no contract address, token ID, custody claim, accession number, or collection-holding claim before primary mint and subsequent evidence exist;
 - future links to Stream or other primary-mint presentation only after deployment and mint evidence;
 - an archive of the program source and decision history in the evidence layer.
@@ -1040,7 +1040,7 @@ Required work:
 - create typed artist, title, selection, and media projections;
 - present the works in a designed sequence or exhibition, not a text-card matrix;
 - publish the curatorial frame and selection history;
-- label every work **Selected through an acquisition program; acquisition pending** in visitor language, with optional **Mint pending** qualifier;
+- label every work **Selected through an acquisition program; acquisition pending** in visitor language, with the qualifier **Not yet minted; minting route under consideration.**;
 - suppress holdings, token, contract, custody, and accession fields until supported by primary evidence;
 - update the presentation after minting through an append-only state change, not by rewriting the selection history;
 - support either future Stream deployment option without changing visitor URLs.
