@@ -17,7 +17,8 @@ fact and source used in the Wave dossier is public.
 ## Proposed-gift identity
 
 - Candidate ID: `6529NM-PG-2026-001`
-- Status: proposed; not yet submitted to the Museum Wave
+- Status: selected by the Museum Wave; acquisition review in progress. See the
+  [append-only status amendment](../../records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md).
 - Donor public credit: offered by punk6529
 - Collection: Magnum Photos 75
 - Ethereum contract: `0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91`
