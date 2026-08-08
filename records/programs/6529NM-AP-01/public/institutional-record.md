@@ -63,7 +63,7 @@ The manifest’s `rights_effective_status` remains controlling for each outcome.
 
 Creative Commons’ public guidance also separates copyright dedication from personality, privacy, publicity, and trademark rights. The [rights register](rights-and-consent.md) applies that distinction to people, minors, nudity, passports, graffiti, posters, sites, and physical miniatures.
 
-The reviewed visual descriptions and their typed projection are documented in the [accessibility amendment](accessibility-amendment.md). That derived record changes the accessibility wording and review status only; it does not change source bytes, derivative hashes, selected-outcome status, or `rights_effective_status`.
+The reviewed visual descriptions and their typed projection are documented in the [initial accessibility amendment](accessibility-amendment.md) and the [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). Those derived records change accessibility wording and review status only; they do not change source bytes, derivative hashes, selected-outcome status, or `rights_effective_status`.
 
 ## Transcription and correction note
 

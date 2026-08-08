@@ -1,6 +1,6 @@
 # *Nowhere To Esc.*
 
-![Black keyboard keys spell “NO WHERE TO,” with an Esc key below and an ant beside it.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp)
+![Black keyboard keys spell “NO / WHERE / TO” on a white surface, while the Esc key sits apart below beside a small ant.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

@@ -56,4 +56,4 @@ All sixteen presentation descriptions are now marked constructed_visual_descript
 | OUT-015 | The description identifies the train windows and visible figures without naming either woman or assigning poster authorship. |
 | OUT-016 | The description adds the lit gate, warning sign, and person-like silhouette while leaving the silhouette's status open. |
 
-The reviewed accessibility projection and typed manifest update are recorded in the [append-only accessibility amendment](accessibility-amendment.md). Derivative bytes and source hashes are unchanged; the selected outcome records remain the source of status and rights facts.
+The reviewed accessibility projection and typed manifest updates are recorded in the [initial accessibility amendment](accessibility-amendment.md) and its [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). Derivative bytes and source hashes are unchanged; the selected outcome records remain the source of status and rights facts.

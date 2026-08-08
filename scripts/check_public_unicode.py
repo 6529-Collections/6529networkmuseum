@@ -26,9 +26,6 @@ EXPECTED_TITLE_CODEPOINTS = (
     0x09A6,
     0x09CD,
     0x09A7,
-    0x20,
-    0x2D,
-    0x20,
 )
 
 # These are observed UTF-8/Latin-1 or UTF-8/Windows-1252 double-decoding
@@ -109,8 +106,10 @@ def scan_public(root: Path = PUBLIC_ROOT) -> list[str]:
     if work in decoded:
         title_index = decoded[work].find(EXPECTED_TITLE)
         if title_index >= 0:
-            actual = tuple(ord(char) for char in EXPECTED_TITLE[:11])
-            if actual != EXPECTED_TITLE_CODEPOINTS[:11]:
+            actual = tuple(
+                ord(char) for char in EXPECTED_TITLE[: len(EXPECTED_TITLE_CODEPOINTS)]
+            )
+            if actual != EXPECTED_TITLE_CODEPOINTS:
                 errors.append("Bangla title codepoint assertion failed")
 
     return errors

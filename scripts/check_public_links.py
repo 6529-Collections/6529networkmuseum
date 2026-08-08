@@ -12,6 +12,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT = ROOT / "records" / "programs" / "6529NM-AP-01" / "public"
 LINK_RE = re.compile(r"!?(?:\[[^\]]*\])\(([^)\s]+)\)")
+FENCE_RE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
 HEADING_RE = re.compile(r"^#{1,6}\s+(.+?)\s*$")
 ANCHOR_RE = re.compile(r"""<a\s+[^>]*id=['"]([^'"]+)['"]""", re.IGNORECASE)
 
@@ -25,7 +26,7 @@ def github_slug(heading: str) -> str:
 
 
 def anchors_for(path: Path) -> set[str]:
-    text = path.read_text(encoding="utf-8")
+    text = without_fenced_code_blocks(path.read_text(encoding="utf-8"))
     anchors = set(ANCHOR_RE.findall(text))
     for line in text.splitlines():
         match = HEADING_RE.match(line)
@@ -34,11 +35,44 @@ def anchors_for(path: Path) -> set[str]:
     return anchors
 
 
+def without_fenced_code_blocks(text: str) -> str:
+    """Blank fenced-code lines before scanning Markdown links.
+
+    Links in fenced examples are not document navigation links. Preserve line
+    breaks so a fence cannot join adjacent Markdown into a new link token.
+    Both backtick and tilde fences are accepted, including indented fences and
+    fences with an info string.
+    """
+
+    output: list[str] = []
+    fence_char: str | None = None
+    fence_length = 0
+    for line in text.splitlines(keepends=True):
+        match = FENCE_RE.match(line)
+        if fence_char is None:
+            if match:
+                fence = match.group(1)
+                fence_char = fence[0]
+                fence_length = len(fence)
+                output.append("\n" if line.endswith(("\n", "\r")) else "")
+            else:
+                output.append(line)
+            continue
+
+        if match:
+            fence = match.group(1)
+            if fence[0] == fence_char and len(fence) >= fence_length:
+                fence_char = None
+                fence_length = 0
+        output.append("\n" if line.endswith(("\n", "\r")) else "")
+    return "".join(output)
+
+
 def check_links(root: Path = PUBLIC_ROOT) -> list[str]:
     errors: list[str] = []
     checked = 0
     for source in sorted(root.rglob("*.md")):
-        text = source.read_text(encoding="utf-8")
+        text = without_fenced_code_blocks(source.read_text(encoding="utf-8"))
         for raw_target in LINK_RE.findall(text):
             target = unquote(raw_target.strip("<>"))
             parsed = urlsplit(target)

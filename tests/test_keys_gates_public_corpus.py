@@ -19,6 +19,10 @@ EXPECTED_ALTS = {
         "holding a small dark booklet or document; its text is not legible at the "
         "public derivative scale."
     ),
+    f"{PROGRAM_ID}-OUT-013": (
+        "Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc "
+        "key sits apart below beside a small ant."
+    ),
     f"{PROGRAM_ID}-OUT-016": (
         "A small white house with a red roof stands on a hill beneath a starry sky, "
         "beyond a lit gate with a warning sign and a person-like silhouette."

@@ -34,7 +34,7 @@ Artist intent is attributed to the artist's submission. Public biographical mate
 
 ## Media boundary
 
-The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and reviewed accessibility text; the [accessibility amendment](accessibility-amendment.md) records the text correction without changing derivative bytes.
+The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and reviewed accessibility text; the [accessibility amendments](accessibility-amendment.md) and [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md) record text corrections without changing derivative bytes.
 
 ## Review state
 

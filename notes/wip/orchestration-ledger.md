@@ -2771,3 +2771,41 @@ validation. The branch has now rebased onto exact canonical main
 regenerated and the full post-rebase validation remains the final local gate.
 WP-1 typed Work/Artist admission and canonical release activation remain a
 later rebase. No merge or deploy is authorized.
+
+## 2026-08-08 Keys and Gates PR #40 follow-up review
+
+The owning PR review accepted the corpus and identified three bounded
+nice-to-haves. OUT-013 now preserves the work's visual syntax in both the
+authoritative `media/programs/6529NM-AP-01/accessibility.json` projection and
+the typed `records/programs/6529NM-AP-01/media-manifest.json` output: the keys
+spell `NO / WHERE / TO`, while the Esc key sits apart below beside the ant.
+The public Work alt text is synchronized. The follow-on append-only record
+`6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-002` retains the superseded and
+revised file hashes; it does not alter source or derivative bytes.
+
+`scripts/check_public_links.py` now blanks fenced Markdown code blocks before
+link extraction. `tests/test_public_links.py` adds a focused missing-target
+fixture inside a fenced example, so documentation snippets cannot create
+false broken-link findings while real local links remain checked. The Bangla
+Unicode control now asserts its complete declared Bangla codepoint tuple; the
+unused punctuation tail was removed.
+
+The GLM review's apparent false positives are explicitly resolved: the
+accessibility JSON and typed media manifest are modified in this diff; the
+shared/root `constructed_visual_description_reviewed` status intentionally
+applies to all sixteen reviewed items; OUT-011's booklet/document correction
+remains tied to the retained 640px visual audit and deterministic old/new
+hashes in amendment 001; the Work rights link resolves; and the fifteen Artist
+profiles are complete because Hugo Faz is one canonical artist with two Work
+pages. PR #40 remains draft. A later rebase onto the PR39/WP-1 integration
+base must regenerate the release manifest and rerun the exact gates; no merge
+or deploy is authorized.
+
+The follow-up local gate is complete: 182 repository tests passed with one
+intentional skip; bootstrap validation checked 317 JSON files; semantic,
+fetch-guard, rights-handbook, media-fixity, Unicode, public-link, and
+whitespace checks passed. The regenerated release manifest contains 418
+entries, including 43 public Keys and Gates entries, with manifest SHA-256
+`sha256:5feed6a9a45cefb4e555d4734d12896e12ef260941b07175ae3b739b9c5b6a07`
+and Keccak commitment
+`0x6ff753c5719c52143395c02cb7317631e55b62e52adb95f6b4e49f7bc5f28b49`.
