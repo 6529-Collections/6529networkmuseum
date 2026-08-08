@@ -217,6 +217,91 @@ class ProposedGiftValidationTests(unittest.TestCase):
         )
         self.assertTrue(any("prior snapshot is missing" in issue for issue in issues), issues)
 
+    def test_revision_lineage_binds_stable_identity(self) -> None:
+        def rewrite_snapshot(root: Path, loaded: dict[Path, object], current_relative: str, snapshot_name: str, mutate) -> None:
+            snapshot_path = root / "records/proposed-gifts/6529NM-PG-2026-001/history" / snapshot_name
+            snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+            mutate(snapshot)
+            snapshot_path.write_bytes((json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
+            normalized = snapshot_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            digest = "sha256:" + hashlib.sha256(normalized).hexdigest()
+            current_path = (root / "records/proposed-gifts" / current_relative).resolve()
+            entry = loaded[current_path]["amendment_history"][0]
+            entry["supersedes"] = digest
+            entry["prior_payload_sha256"] = digest
+
+        issues = self.copied_lineage_issues(
+            lambda root, loaded: rewrite_snapshot(
+                root,
+                loaded,
+                "6529NM-PG-2026-001/proposal.json",
+                "revision-1-proposal.json.snapshot",
+                lambda snapshot: snapshot.__setitem__("proposal_id", "6529NM-PG-2026-999"),
+            )
+        )
+        self.assertTrue(any("identity binding mismatch for proposal_id" in issue for issue in issues), issues)
+
+        issues = self.copied_lineage_issues(
+            lambda root, loaded: rewrite_snapshot(
+                root,
+                loaded,
+                "register.json",
+                "revision-1-register.json.snapshot",
+                lambda snapshot: snapshot.__setitem__("register_id", "6529NM-OTHER-REGISTER"),
+            )
+        )
+        self.assertTrue(any("identity binding mismatch for register_id" in issue for issue in issues), issues)
+
+        issues = self.issues_after(lambda loaded: loaded[self.proposal_path].pop("proposal_id"))
+        self.assertTrue(any("at least one non-empty domain identifier" in issue for issue in issues), issues)
+
+    def test_revision_lineage_requires_timezone_aware_constructor_timestamps(self) -> None:
+        def rewrite_snapshot_constructor(root: Path, loaded: dict[Path, object], remove: bool) -> None:
+            snapshot_path = root / "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot"
+            snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+            constructor = snapshot["record_control"]["constructor"]
+            if remove:
+                constructor.pop("constructed_at")
+            else:
+                constructor["constructed_at"] = "2026-08-05T17:34:39.310"
+            snapshot_path.write_bytes((json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
+            normalized = snapshot_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+            digest = "sha256:" + hashlib.sha256(normalized).hexdigest()
+            current_path = (root / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json").resolve()
+            entry = loaded[current_path]["amendment_history"][0]
+            entry["supersedes"] = digest
+            entry["prior_payload_sha256"] = digest
+
+        for remove in (False, True):
+            issues = self.copied_lineage_issues(
+                lambda root, loaded, remove=remove: rewrite_snapshot_constructor(root, loaded, remove)
+            )
+            self.assertTrue(
+                any("prior snapshot constructor timestamp is missing or not timezone-aware" in issue for issue in issues),
+                issues,
+            )
+
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["record_control"]["constructor"].__setitem__(
+                "constructed_at", "2026-08-08T10:15:02.0167151"
+            )
+        )
+        self.assertTrue(any("current constructor timestamp is missing or not timezone-aware" in issue for issue in issues), issues)
+
+    def test_revision_lineage_snapshot_path_is_schema_optional_but_semantically_required(self) -> None:
+        schema = json.loads(
+            (REPO_ROOT / "schemas/proposed-gift-register.schema.json").read_text(encoding="utf-8")
+        )
+        amendment_schema = schema["$defs"]["amendmentHistory"]
+        self.assertIn("prior_snapshot_path", amendment_schema["properties"])
+        self.assertNotIn("prior_snapshot_path", amendment_schema["required"])
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["amendment_history"][0].pop(
+                "prior_snapshot_path"
+            )
+        )
+        self.assertTrue(any("unsafe prior snapshot path" in issue for issue in issues), issues)
+
     def test_revision_lineage_rejects_snapshot_hash_drift(self) -> None:
         def mutate(root: Path, loaded: dict[Path, object]) -> None:
             snapshot = root / "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot"

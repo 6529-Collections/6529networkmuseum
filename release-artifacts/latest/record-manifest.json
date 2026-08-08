@@ -2039,11 +2039,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x0dff57a0084cb476621f60166b0e2a2358a41ecf66093cf252e70dd5219f0426"
+        "digest": "0x2885d6fbbeb5b4ed43889995b98797a7eef8e6a6d86d10ae7c8c5cba76d0df54"
       },
       "path": "schemas/proposed-gift-register.schema.json",
-      "sha256": "sha256:c2c64129f592a7ee2549c53428b778d176b9c74a9aa0aeb1ce3ff4190d81df6c",
-      "size": 5280
+      "sha256": "sha256:791cb08e6771538ff9f45ff29b3110766ff42569064427949d939363365957e2",
+      "size": 5257
     },
     {
       "byte_mode": "lf-normalized",
@@ -2259,8 +2259,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/proposed_gifts.py",
-      "sha256": "sha256:2e77552c251ae9f8443af731e82e4bba1724ce29c263f4d152b8c3bd205a60cd",
-      "size": 41948
+      "sha256": "sha256:1b6cd1b7b9aad3bfa25db94a3edefec99f3b0f723ecebb0f7c22ec8e0d6f3ae1",
+      "size": 43710
     },
     {
       "byte_mode": "lf-normalized",
@@ -2835,8 +2835,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
-      "sha256": "sha256:4ab5c855ba1249676dfdd8c28f28ee59822df08d88f37307a155a4f0e4c71fcb",
-      "size": 25516
+      "sha256": "sha256:63e8a624559b2d770e8198ab126a7d25c0202ae4bf0dcd532b00eca4a90baf7d",
+      "size": 30259
     },
     {
       "byte_mode": "lf-normalized",
@@ -2876,9 +2876,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xae887054647efd0be4dbad0d2a8657a88c8ecf75027f374311267f91f6d0c640"
+    "digest": "0x527a23c42b758dce594d16f9f2c873ff5bd3e86233df19773db83835af678677"
   },
-  "manifest_sha256": "sha256:a592050759b988c3b615800fcb793aba50a09026e9d84721e5a7e1cf7bdfc32f",
+  "manifest_sha256": "sha256:50cc3505de1705d4cb70d57d73cde9729d6201653b905d7dbbfddeb3a357d3e5",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

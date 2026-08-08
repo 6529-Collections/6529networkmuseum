@@ -2714,3 +2714,27 @@ through one ordered amendment-history entry; the retained source snapshots are
 under `records/proposed-gifts/6529NM-PG-2026-001/history/`.
 PR #38 remains the separate draft WP-3 scholarship corpus; this amendment does
 not rebase or modify that branch.
+
+## 2026-08-08 Magnum lineage identity follow-up
+
+Hosted Museum validation run
+[`31254820343`](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31254820343)
+completed green at the preceding draft head `a0d2e506101647c50a0d14a5fd12bcd8f185b89d`.
+The exact-head follow-up adds a generic stable-identity binding across every
+proposed-gift current view: every identity discriminator present on the
+current view (`$schema`, `record_type`, `schema_profile`, `proposal_id`, or
+`register_id`) must match its retained prior snapshot, and every revised view
+must contain a non-empty proposal or register identifier. Current and prior
+constructor timestamps must be present and timezone-aware so chronology is
+enforced rather than assumed. Deterministic adversarial tests cover copied or
+repointed proposal/register snapshots, missing domain identity, invalid and
+missing prior constructors, and invalid current constructors.
+
+Compatibility is deliberate: `prior_snapshot_path` remains declared in the
+existing v1 amendment-history schema but is optional at that schema layer, so
+the published v1 `$id` is not broken by a new required property. The generic
+semantic lineage validator requires a safe, existing path for every revised
+current view, and a revision-two record missing that path fails semantic
+validation. No schema-id bump is required for this additive declaration plus
+revision-two semantic invariant. The status-amendment PR remains draft and
+unmerged; the WP-3 scholarship PR remains separate.

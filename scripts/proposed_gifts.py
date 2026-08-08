@@ -24,6 +24,14 @@ PROPOSED_GIFT_CURRENT_VIEW_NAMES = {"proposal.json", "wave-storm.json"}
 GOVERNED_SNAPSHOT_ROOTS = {"policies", "records", "docs", "governance", "schemas", "specs"}
 SHA256_VALUE = re.compile(r"^sha256:[0-9a-f]{64}$")
 SOURCE_COMMIT = re.compile(r"^[0-9a-f]{40}$")
+IDENTITY_DISCRIMINATORS = (
+    "$schema",
+    "record_type",
+    "schema_profile",
+    "proposal_id",
+    "register_id",
+)
+DOMAIN_IDENTIFIERS = ("proposal_id", "register_id")
 
 
 def utf16_code_units(value: str) -> int:
@@ -200,11 +208,27 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             continue
         current_revision = control.get("revision")
         history = current.get("amendment_history")
-        if current_revision == 1 and history in (None, []):
-            continue
         if not isinstance(current_revision, int) or current_revision < 1:
             issues.append(f"{relative_current}: current revision must be a positive integer")
             continue
+        current_constructed_at = _control_time(
+            control.get("constructor", {}).get("constructed_at")
+            if isinstance(control.get("constructor"), dict)
+            else None
+        )
+        if current_constructed_at is None:
+            issues.append(f"{relative_current}: current constructor timestamp is missing or not timezone-aware")
+        if current_revision == 1 and history in (None, []):
+            continue
+        current_domain_identifiers = [
+            key
+            for key in DOMAIN_IDENTIFIERS
+            if key in current and isinstance(current.get(key), str) and bool(current.get(key))
+        ]
+        if not current_domain_identifiers:
+            issues.append(
+                f"{relative_current}: current view must contain at least one non-empty domain identifier (proposal_id or register_id)"
+            )
         if not isinstance(history, list) or len(history) != current_revision - 1:
             issues.append(f"{relative_current}: amendment history count must equal current revision minus one")
             continue
@@ -248,7 +272,17 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             except (UnicodeDecodeError, json.JSONDecodeError):
                 issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not UTF-8 JSON")
                 continue
-            snapshot_control = snapshot.get("record_control") if isinstance(snapshot, dict) else None
+            if not isinstance(snapshot, dict):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not a JSON object")
+                continue
+            for identity_key in IDENTITY_DISCRIMINATORS:
+                if identity_key in current and (
+                    identity_key not in snapshot or snapshot[identity_key] != current[identity_key]
+                ):
+                    issues.append(
+                        f"{relative_current}: amendment-history entry {index + 1} identity binding mismatch for {identity_key}"
+                    )
+            snapshot_control = snapshot.get("record_control")
             snapshot_revision = snapshot_control.get("revision") if isinstance(snapshot_control, dict) else None
             if snapshot_revision != revision:
                 issues.append(f"{relative_current}: amendment-history entry {index + 1} snapshot revision does not match its history revision")
@@ -256,7 +290,11 @@ def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]
             superseded_at = _control_time(entry.get("superseded_at"))
             if superseded_at is None:
                 issues.append(f"{relative_current}: amendment-history entry {index + 1} has no timezone-aware supersession time")
-            elif snapshot_constructed_at is not None and snapshot_constructed_at >= superseded_at:
+            if snapshot_constructed_at is None:
+                issues.append(
+                    f"{relative_current}: amendment-history entry {index + 1} prior snapshot constructor timestamp is missing or not timezone-aware"
+                )
+            elif superseded_at is not None and snapshot_constructed_at >= superseded_at:
                 issues.append(f"{relative_current}: prior snapshot is not logically older than its supersession")
             if current_constructed_at is not None and superseded_at is not None and current_constructed_at < superseded_at:
                 issues.append(f"{relative_current}: current constructor predates its amendment")

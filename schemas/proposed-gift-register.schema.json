@@ -76,7 +76,7 @@
     "amendmentHistory": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_source_commit", "prior_snapshot_path", "reason"],
+      "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_source_commit", "reason"],
       "properties": {
         "revision": {"type": "integer", "minimum": 1},
         "superseded_at": {"type": "string", "format": "date-time"},
