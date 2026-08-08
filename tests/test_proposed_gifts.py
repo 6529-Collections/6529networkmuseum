@@ -46,6 +46,17 @@ class ProposedGiftValidationTests(unittest.TestCase):
         mutate(loaded)
         return proposed_gift_issues(REPO_ROOT, loaded)
 
+    def copied_lineage_issues(self, mutate) -> list[str]:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            shutil.copytree(REPO_ROOT / "records/proposed-gifts", root / "records/proposed-gifts")
+            loaded = {
+                path.resolve(): json.loads(path.read_text(encoding="utf-8"))
+                for path in (root / "records/proposed-gifts").rglob("*.json")
+            }
+            mutate(root, loaded)
+            return proposed_gift_issues(root, loaded)
+
     def test_canonical_package_is_semantically_complete(self) -> None:
         self.assertEqual(proposed_gift_issues(REPO_ROOT, self.loaded), [])
 
@@ -156,6 +167,10 @@ class ProposedGiftValidationTests(unittest.TestCase):
                 entry["prior_source_commit"],
                 "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
             )
+            self.assertEqual(
+                entry["prior_snapshot_path"],
+                snapshot_path.relative_to(REPO_ROOT).as_posix(),
+            )
             raw = snapshot_path.read_bytes()
             normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
             self.assertEqual(
@@ -166,12 +181,12 @@ class ProposedGiftValidationTests(unittest.TestCase):
             self.assertEqual(snapshot["record_control"]["revision"], 1)
             self.assertNotIn("amendment_history", snapshot)
 
-    def test_magnum_revision_two_cannot_silently_drop_lineage(self) -> None:
+    def test_revision_lineage_cannot_silently_drop_or_reorder_history(self) -> None:
         issues = self.issues_after(
             lambda loaded: loaded[self.proposal_path].pop("amendment_history")
         )
         self.assertTrue(
-            any("exactly one amendment-history entry" in issue for issue in issues),
+            any("count must equal current revision minus one" in issue for issue in issues),
             issues,
         )
         issues = self.issues_after(
@@ -179,13 +194,68 @@ class ProposedGiftValidationTests(unittest.TestCase):
                 "revision", 2
             )
         )
-        self.assertTrue(any("not monotonic" in issue for issue in issues), issues)
+        self.assertTrue(any("unique, increasing" in issue for issue in issues), issues)
         issues = self.issues_after(
             lambda loaded: loaded[self.proposal_path]["amendment_history"][0].__setitem__(
                 "supersedes", "sha256:" + "0" * 64
             )
         )
-        self.assertTrue(any("expected revision-one payload hash" in issue for issue in issues), issues)
+        self.assertTrue(any("supersedes and prior payload hash differ" in issue for issue in issues), issues)
+
+    def test_revision_lineage_rejects_unsafe_and_missing_snapshot_paths(self) -> None:
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["amendment_history"][0].__setitem__(
+                "prior_snapshot_path", "../proposal.json"
+            )
+        )
+        self.assertTrue(any("unsafe prior snapshot path" in issue for issue in issues), issues)
+        issues = self.issues_after(
+            lambda loaded: loaded[self.proposal_path]["amendment_history"][0].__setitem__(
+                "prior_snapshot_path",
+                "records/proposed-gifts/6529NM-PG-2026-001/history/missing.json.snapshot",
+            )
+        )
+        self.assertTrue(any("prior snapshot is missing" in issue for issue in issues), issues)
+
+    def test_revision_lineage_rejects_snapshot_hash_drift(self) -> None:
+        def mutate(root: Path, loaded: dict[Path, object]) -> None:
+            snapshot = root / "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot"
+            snapshot.write_bytes(snapshot.read_bytes().replace(b"Conflict at Its Edges", b"Conflict at Its Edgex", 1))
+
+        issues = self.copied_lineage_issues(mutate)
+        self.assertTrue(any("LF hash does not match both recorded hashes" in issue for issue in issues), issues)
+
+    def test_revision_lineage_rejects_gaps_and_duplicates(self) -> None:
+        def gap(loaded) -> None:
+            record = loaded[self.proposal_path]
+            record["record_control"]["revision"] = 3
+            record["amendment_history"].append(copy.deepcopy(record["amendment_history"][0]))
+            record["amendment_history"][1]["revision"] = 3
+
+        issues = self.issues_after(gap)
+        self.assertTrue(any("unique, increasing" in issue for issue in issues), issues)
+
+        def duplicate(loaded) -> None:
+            record = loaded[self.proposal_path]
+            record["record_control"]["revision"] = 3
+            record["amendment_history"].append(copy.deepcopy(record["amendment_history"][0]))
+
+        issues = self.issues_after(duplicate)
+        self.assertTrue(any("unique, increasing" in issue for issue in issues), issues)
+
+    def test_revision_lineage_rejects_mismatched_prior_snapshot_revision(self) -> None:
+        def mutate(root: Path, loaded: dict[Path, object]) -> None:
+            snapshot = root / "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot"
+            changed = snapshot.read_bytes().replace(b'"revision": 1', b'"revision": 2', 1)
+            snapshot.write_bytes(changed)
+            digest = "sha256:" + hashlib.sha256(changed.replace(b"\r\n", b"\n").replace(b"\r", b"\n")).hexdigest()
+            proposal_path = (root / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json").resolve()
+            entry = loaded[proposal_path]["amendment_history"][0]
+            entry["supersedes"] = digest
+            entry["prior_payload_sha256"] = digest
+
+        issues = self.copied_lineage_issues(mutate)
+        self.assertTrue(any("snapshot revision does not match" in issue for issue in issues), issues)
 
     def test_wave_selects_the_gift_before_later_accession_work(self) -> None:
         proposal = self.loaded[self.proposal_path]

@@ -17,6 +17,7 @@
       "supersedes": "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
       "prior_payload_sha256": "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
       "prior_source_commit": "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
+      "prior_snapshot_path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
       "reason": "Superseded the revision-one proposed-gift register snapshot with the current authenticated Museum Wave selection projection; no formal acceptance or Collection membership is recorded."
     }
   ],

@@ -8,6 +8,7 @@ import json
 import re
 import stat
 import struct
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -19,23 +20,10 @@ MAX_WAVE_STORM_UTF16_CODE_UNITS = 50_000
 MAX_WAVE_STORM_MEDIA_FILES = 8
 WAVE_COVER_DIMENSION = 1_600
 MARKDOWN_LIST_OR_TABLE_LINE = re.compile(r"^(?:\s*(?:[-+*]|\d+[.)])\s+|\s*\|)")
-
-MAGNUM_AMENDMENT_AT = "2026-08-08T10:15:02.0167151Z"
-MAGNUM_PRIOR_SOURCE_COMMIT = "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8"
-MAGNUM_REVISION_ONE_HISTORY = {
-    "records/proposed-gifts/6529NM-PG-2026-001/proposal.json": (
-        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot",
-        "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
-    ),
-    "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json": (
-        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-wave-storm.json.snapshot",
-        "sha256:2afab11df2fc258c76b79c547b86992ddc9b45d338de005a93682c736c514262",
-    ),
-    "records/proposed-gifts/register.json": (
-        "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
-        "sha256:2b030517bea9c39e4c0e495ea11041307681cecb95a3e2e62d3873588ecc42ff",
-    ),
-}
+PROPOSED_GIFT_CURRENT_VIEW_NAMES = {"proposal.json", "wave-storm.json"}
+GOVERNED_SNAPSHOT_ROOTS = {"policies", "records", "docs", "governance", "schemas", "specs"}
+SHA256_VALUE = re.compile(r"^sha256:[0-9a-f]{64}$")
+SOURCE_COMMIT = re.compile(r"^[0-9a-f]{40}$")
 
 
 def utf16_code_units(value: str) -> int:
@@ -167,67 +155,118 @@ def compose_voter_dossier(candidate_dir: Path, package: dict[str, Any]) -> str:
     return "\n\n---\n\n".join(sections) + "\n"
 
 
-def magnum_revision_lineage_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
-    """Verify the selected proposal's current views retain their exact revision-one source."""
+def _control_time(value: object) -> datetime | None:
+    if not isinstance(value, str):
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return parsed if parsed.tzinfo is not None and parsed.utcoffset() is not None else None
+
+
+def _normalized_sha256(path: Path) -> str:
+    raw = path.read_bytes()
+    normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return "sha256:" + hashlib.sha256(normalized).hexdigest()
+
+
+def _proposed_gift_current_views(root: Path, loaded: dict[Path, object]) -> list[tuple[Path, dict[str, Any]]]:
+    proposed_root = (root / "records/proposed-gifts").resolve()
+    register_path = (root / REGISTER_PATH).resolve()
+    views: list[tuple[Path, dict[str, Any]]] = []
+    for path, record in loaded.items():
+        if not isinstance(record, dict):
+            continue
+        resolved = path.resolve()
+        if resolved == register_path:
+            views.append((resolved, record))
+            continue
+        if not resolved.is_relative_to(proposed_root) or resolved.name not in PROPOSED_GIFT_CURRENT_VIEW_NAMES:
+            continue
+        if resolved.parent.parent == proposed_root:
+            views.append((resolved, record))
+    return sorted(views, key=lambda item: item[0].as_posix())
+
+
+def proposed_gift_revision_lineage_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
+    """Verify append-only lineage for every proposed-gift current-view record."""
     issues: list[str] = []
-    for relative_current, (relative_snapshot, expected_hash) in MAGNUM_REVISION_ONE_HISTORY.items():
-        current_path = (root / relative_current).resolve()
-        current = loaded.get(current_path)
-        if not isinstance(current, dict):
-            continue
+    root = root.resolve()
+    for current_path, current in _proposed_gift_current_views(root, loaded):
+        relative_current = current_path.relative_to(root).as_posix()
         control = current.get("record_control")
-        if not isinstance(control, dict) or control.get("revision") != 2:
-            issues.append(f"{relative_current}: current selected view must be revision 2")
+        if not isinstance(control, dict) or "revision" not in control:
             continue
-        if control.get("constructor", {}).get("constructed_at") != MAGNUM_AMENDMENT_AT:
-            issues.append(f"{relative_current}: revision-two constructor time is not the status-amendment time")
+        current_revision = control.get("revision")
         history = current.get("amendment_history")
-        if not isinstance(history, list) or len(history) != 1:
-            issues.append(f"{relative_current}: revision two requires exactly one amendment-history entry")
+        if current_revision == 1 and history in (None, []):
             continue
-        entry = history[0]
-        if not isinstance(entry, dict):
-            issues.append(f"{relative_current}: amendment-history entry is not an object")
+        if not isinstance(current_revision, int) or current_revision < 1:
+            issues.append(f"{relative_current}: current revision must be a positive integer")
             continue
-        history_revisions = [item.get("revision") for item in history if isinstance(item, dict)]
+        if not isinstance(history, list) or len(history) != current_revision - 1:
+            issues.append(f"{relative_current}: amendment history count must equal current revision minus one")
+            continue
+        history_revisions = [item.get("revision") if isinstance(item, dict) else None for item in history]
         if (
             not all(isinstance(revision, int) for revision in history_revisions)
             or len(history_revisions) != len(set(history_revisions))
             or history_revisions != sorted(history_revisions)
-            or any(revision >= control["revision"] for revision in history_revisions)
-            or history_revisions != list(range(1, control["revision"]))
+            or any(revision >= current_revision for revision in history_revisions if isinstance(revision, int))
+            or history_revisions != list(range(1, current_revision))
         ):
             issues.append(f"{relative_current}: amendment history revisions must be unique, increasing, and prior to the current revision")
-        if entry.get("revision") != 1:
-            issues.append(f"{relative_current}: amendment history is not monotonic from revision 1")
-        if entry.get("superseded_at") != MAGNUM_AMENDMENT_AT:
-            issues.append(f"{relative_current}: revision-one supersession time is not the status-amendment time")
-        if entry.get("supersedes") != expected_hash or entry.get("prior_payload_sha256") != expected_hash:
-            issues.append(f"{relative_current}: amendment does not bind the expected revision-one payload hash")
-        if entry.get("prior_source_commit") != MAGNUM_PRIOR_SOURCE_COMMIT:
-            issues.append(f"{relative_current}: amendment does not bind the canonical revision-one source commit")
-        if not isinstance(entry.get("reason"), str) or not entry["reason"].strip():
-            issues.append(f"{relative_current}: amendment has no reason")
-
-        snapshot_path = root / relative_snapshot
-        if not snapshot_path.is_file():
-            issues.append(f"{relative_current}: retained revision-one snapshot is missing")
-            continue
-        raw = snapshot_path.read_bytes()
-        normalized = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
-        actual_hash = "sha256:" + hashlib.sha256(normalized).hexdigest()
-        if actual_hash != expected_hash:
-            issues.append(f"{relative_current}: retained revision-one snapshot hash mismatch")
-        try:
-            snapshot = json.loads(normalized.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError):
-            issues.append(f"{relative_current}: retained revision-one snapshot is not UTF-8 JSON")
-            continue
-        snapshot_control = snapshot.get("record_control") if isinstance(snapshot, dict) else None
-        if not isinstance(snapshot_control, dict) or snapshot_control.get("revision") != 1:
-            issues.append(f"{relative_current}: retained snapshot is not revision 1")
-        if isinstance(snapshot, dict) and snapshot.get("amendment_history") not in (None, []):
-            issues.append(f"{relative_current}: retained revision-one snapshot contains amendment history")
+        current_constructed_at = _control_time(control.get("constructor", {}).get("constructed_at") if isinstance(control.get("constructor"), dict) else None)
+        for index, entry in enumerate(history):
+            if not isinstance(entry, dict):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} is not an object")
+                continue
+            revision = entry.get("revision")
+            snapshot_value = entry.get("prior_snapshot_path")
+            snapshot_relative = safe_relative_path(snapshot_value)
+            if snapshot_relative is None or not snapshot_relative.parts or snapshot_relative.parts[0] not in GOVERNED_SNAPSHOT_ROOTS:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has an unsafe prior snapshot path")
+                continue
+            if path_has_reparse_point(root, snapshot_relative):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} snapshot path crosses a link or reparse point")
+                continue
+            snapshot_path = (root / Path(*snapshot_relative.parts)).resolve()
+            if not snapshot_path.is_relative_to(root) or not snapshot_path.is_file():
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is missing")
+                continue
+            if not isinstance(entry.get("prior_source_commit"), str) or not SOURCE_COMMIT.fullmatch(entry["prior_source_commit"]):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has no 40-hex prior source commit")
+            if entry.get("supersedes") != entry.get("prior_payload_sha256"):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} supersedes and prior payload hash differ")
+            expected_hashes = (entry.get("supersedes"), entry.get("prior_payload_sha256"))
+            actual_hash = _normalized_sha256(snapshot_path)
+            if actual_hash not in expected_hashes or any(not isinstance(value, str) or not SHA256_VALUE.fullmatch(value) or value != actual_hash for value in expected_hashes):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot LF hash does not match both recorded hashes")
+            try:
+                snapshot = json.loads(snapshot_path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n").decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} prior snapshot is not UTF-8 JSON")
+                continue
+            snapshot_control = snapshot.get("record_control") if isinstance(snapshot, dict) else None
+            snapshot_revision = snapshot_control.get("revision") if isinstance(snapshot_control, dict) else None
+            if snapshot_revision != revision:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} snapshot revision does not match its history revision")
+            snapshot_constructed_at = _control_time(snapshot_control.get("constructor", {}).get("constructed_at") if isinstance(snapshot_control, dict) and isinstance(snapshot_control.get("constructor"), dict) else None)
+            superseded_at = _control_time(entry.get("superseded_at"))
+            if superseded_at is None:
+                issues.append(f"{relative_current}: amendment-history entry {index + 1} has no timezone-aware supersession time")
+            elif snapshot_constructed_at is not None and snapshot_constructed_at >= superseded_at:
+                issues.append(f"{relative_current}: prior snapshot is not logically older than its supersession")
+            if current_constructed_at is not None and superseded_at is not None and current_constructed_at < superseded_at:
+                issues.append(f"{relative_current}: current constructor predates its amendment")
+            snapshot_history = snapshot.get("amendment_history") if isinstance(snapshot, dict) else None
+            if revision == 1 and snapshot_history not in (None, []):
+                issues.append(f"{relative_current}: revision-one prior snapshot contains amendment history")
+            elif isinstance(revision, int) and revision > 1:
+                prior_revisions = [item.get("revision") if isinstance(item, dict) else None for item in snapshot_history] if isinstance(snapshot_history, list) else []
+                if prior_revisions != list(range(1, revision)):
+                    issues.append(f"{relative_current}: prior snapshot history is not logically older and complete")
     return issues
 
 
@@ -247,7 +286,7 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
     if not isinstance(rows, list):
         return ["proposed-gift register has no proposal rows"]
 
-    issues.extend(magnum_revision_lineage_issues(root, loaded))
+    issues.extend(proposed_gift_revision_lineage_issues(root, loaded))
 
     proposal_ids = [row.get("proposal_id") for row in rows if isinstance(row, dict)]
     if len(proposal_ids) != len(set(proposal_ids)):

@@ -76,13 +76,14 @@
     "amendmentHistory": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_source_commit", "reason"],
+      "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_source_commit", "prior_snapshot_path", "reason"],
       "properties": {
         "revision": {"type": "integer", "minimum": 1},
         "superseded_at": {"type": "string", "format": "date-time"},
         "supersedes": {"$ref": "#/$defs/sha256"},
         "prior_payload_sha256": {"$ref": "#/$defs/sha256"},
         "prior_source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "prior_snapshot_path": {"type": "string", "minLength": 1},
         "reason": {"type": "string", "minLength": 1}
       }
     },

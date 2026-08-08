@@ -17,6 +17,7 @@
       "supersedes": "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
       "prior_payload_sha256": "sha256:b561564c19ff9e9ad74a4660a33df7dc113c20a6672560f81fbd97213e3966fd",
       "prior_source_commit": "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
+      "prior_snapshot_path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-proposal.json.snapshot",
       "reason": "Superseded the revision-one proposed-gift view with the authenticated Museum Wave WINNER observation; preserves the prior proposal construction and records current selection while leaving acceptance, title, custody, rights, technical, preservation, accession, and Collection gates open."
     }
   ],

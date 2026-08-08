@@ -1625,11 +1625,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x747c25fca1e34b48721fe25d08a803a1ed5c3d4db1a9ac181da64ea22267c216"
+        "digest": "0xebd5d0ae6081855e7603c5612b62a57f7a1b69f1084b9c9247b0f9e4a3a2dfb1"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
-      "sha256": "sha256:b167adfb11ac9643cc24f280398e7153d816139dc139aa76081eedf844453866",
-      "size": 23522
+      "sha256": "sha256:7b6e3ed28ea1c6b83d77414f0961f3af3bd3f6cf01a3b6eb0a4cf02c75ef1fe2",
+      "size": 23638
     },
     {
       "byte_mode": "lf-normalized",
@@ -1708,11 +1708,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x63ce789a9b80f70d229431ce652b277808fabad26c440a5cebb77357ad05e3d1"
+        "digest": "0x471b49ad0fe6b41c50e9d57414c3c4324f96cca5d0d1c7acbba358c7c1964281"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
-      "sha256": "sha256:b1db411744021d0fe72e6c94fa47d118dd721db2e3c8b41e69ce549dd2c4296a",
-      "size": 10302
+      "sha256": "sha256:17e365ed66258ee3dbf7029b8f15f3c629e81331092de765f1b861537a4bf0c9",
+      "size": 10420
     },
     {
       "byte_mode": "lf-normalized",
@@ -1725,11 +1725,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x0e509e5b83625721b4a07bd7e8fd76ae0aba144722a8b9ad1d6998d754724215"
+        "digest": "0x9b611b87d6be27fbeec7fe600ce4f71d76f77fb775156762c431e6f42210d127"
       },
       "path": "records/proposed-gifts/register.json",
-      "sha256": "sha256:63d3f35ec7370bd3a4849d9138a80f66ba190c1783b3dbd48f69af8626ea9b15",
-      "size": 1443
+      "sha256": "sha256:d0a75cc1c1778a6eceb97827d6d8bb40ed0f4eef86c77de3051d692e46170224",
+      "size": 1559
     },
     {
       "byte_mode": "lf-normalized",
@@ -2039,11 +2039,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xfc492240e602db0f8ddc3089eaa57c9918bd03d58b187f8d697e90d301031301"
+        "digest": "0x0dff57a0084cb476621f60166b0e2a2358a41ecf66093cf252e70dd5219f0426"
       },
       "path": "schemas/proposed-gift-register.schema.json",
-      "sha256": "sha256:c80857b1a888e9019d1e8bab13cbbfeb2a84422beb8d7ba5614e4340bb2c236a",
-      "size": 5190
+      "sha256": "sha256:c2c64129f592a7ee2549c53428b778d176b9c74a9aa0aeb1ce3ff4190d81df6c",
+      "size": 5280
     },
     {
       "byte_mode": "lf-normalized",
@@ -2259,8 +2259,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/proposed_gifts.py",
-      "sha256": "sha256:2ac31525919869ca13c28f0f6830be7a56e6ad5866a6aafede72ec14231dd758",
-      "size": 38888
+      "sha256": "sha256:2e77552c251ae9f8443af731e82e4bba1724ce29c263f4d152b8c3bd205a60cd",
+      "size": 41948
     },
     {
       "byte_mode": "lf-normalized",
@@ -2835,8 +2835,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_proposed_gifts.py",
-      "sha256": "sha256:1183d90aeedbf1c78711d6109c6619a495c91592d8fe6145b42442a0ddc3ebb6",
-      "size": 21694
+      "sha256": "sha256:4ab5c855ba1249676dfdd8c28f28ee59822df08d88f37307a155a4f0e4c71fcb",
+      "size": 25516
     },
     {
       "byte_mode": "lf-normalized",
@@ -2876,9 +2876,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x34e5668791ba8548aff32d9910b3fea11698296eb3c8d731bc06c25dcbe811ef"
+    "digest": "0xae887054647efd0be4dbad0d2a8657a88c8ecf75027f374311267f91f6d0c640"
   },
-  "manifest_sha256": "sha256:16c8a5381cda19ea1c20cfd9df22e394aa9adbc05effa78175277bd8a773da69",
+  "manifest_sha256": "sha256:a592050759b988c3b615800fcb793aba50a09026e9d84721e5a7e1cf7bdfc32f",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
