@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x89781b41e7c4cc846d2f63bdf0522def6b80023c0a5fd7e6721b45cbef841489"
+      "digest": "0xacf86e15908ab0bc36c8dfa7b47dfe2208e242fb01da39f9408a421425fcaafa"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0016",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:bc777bdbca7d89ec17d7fc954fcbd582a96ed6b45f80bab52447bbfd6727ab4b",
+    "payload_sha256": "sha256:a4e302d0dda9f4950ff53e2412c418de43fabafe0d8c205a39a89e33d7343562",
     "preferred_label": "Now Is Our Time",
     "profile": {
       "accession_entity_ids": [],
@@ -173,7 +173,7 @@
     },
     "public_slug": "6529NM-W-0016",
     "record_id": "6529NM-W-0016",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -183,8 +183,12 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0010",
@@ -203,7 +207,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0016",
     "visibility": "public"

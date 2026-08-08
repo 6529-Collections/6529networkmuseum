@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6db467df954ab991e099f5f1acaea9e20c7c23f0ce11ebdfd5765cf5f0f360cd"
+      "digest": "0x246e045a34bd2ec66fc12febf660a7842ff1a03fcecd8c1f9bffc88cc61d3f70"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-MED-0024",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:059b7f4ede4791c565fd60cd9140af764843731d2af9b23807966e3188845b2d",
+    "payload_sha256": "sha256:d923726bf2ff6205ec24de401bc476c7ad82d60c69fb06cb8282b466b3831577",
     "preferred_label": "Residual Barrier Museum presentation derivative",
     "profile": {
       "media": {
@@ -125,15 +125,19 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0024",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-005"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -149,7 +153,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0024",
     "visibility": "public"

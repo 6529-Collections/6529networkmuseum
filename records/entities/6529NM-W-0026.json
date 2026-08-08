@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x334533b68efb60c5898b9745a13c48091e6fbc8e3c74185e878d029898db0f4d"
+      "digest": "0xd094acae648e2ead0fbb00366bbb415d3afbc2d372a805ef51c554fd2d1359c5"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0026",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:d6f15c2c6f3482ffe1ebbe50be47e71536b336e7bdbb885e31ea0ce3f334061b",
+    "payload_sha256": "sha256:b6c9e259471843a2bd6a2b21a346f05d9c74e8b358c362fe4d44d176a51c02a4",
     "preferred_label": "Demonstration, Western Wall, Jerusalem",
     "profile": {
       "accession_entity_ids": [],
@@ -211,7 +211,7 @@
     },
     "public_slug": "6529NM-W-0026",
     "record_id": "6529NM-W-0026",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,8 +220,12 @@
       "6529NM-PG-2026-001",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0020",
@@ -239,7 +243,7 @@
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0026",
     "visibility": "public"

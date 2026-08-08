@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaf5ee2fe70a3a98a741bfab6bcc589f7bff555ea4f98c31eca1fd61a68e96a3e"
+      "digest": "0x3cf875fea6e51aeb4061a03cee16d845ecdb3575c023b4ea96cef03d540fd8a6"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-MED-0032",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0d1b35b6ddac000220f619c8663b5e0e5477274554040d998a74cdb5db426b8b",
+    "payload_sha256": "sha256:d38ba63c6fbab1b2e64f736967e5fb798dad36a385fe928004024af4e3775c15",
     "preferred_label": "Nowhere To Esc. Museum presentation derivative",
     "profile": {
       "media": {
@@ -125,15 +125,19 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0032",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-013"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -149,7 +153,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0032",
     "visibility": "public"

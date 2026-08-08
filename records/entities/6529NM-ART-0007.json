@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfd633d718f01dbe04ff0a00a88a7d2624317d1d1b69063809d6414c6f10e56b1"
+      "digest": "0x4ccd132a59fa1e7c35cc4440012bcf6683089ba03e7a8101ad355ee7383d7b40"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0007",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:3591c2c9967e3fc1f6da44a09c3f09bd62a60c509f7f37acdb7723e336f6c75a",
+    "payload_sha256": "sha256:d339a577516ff214cc882d6510ce6fc47e4bb72a69eb88485e2597be0ad7860e",
     "preferred_label": "GIANT",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "giant",
     "record_id": "6529NM-ART-0007",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,12 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0007",
@@ -117,7 +121,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0007",
     "visibility": "public"

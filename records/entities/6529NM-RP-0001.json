@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd2d47f3c84558ce642a6789879b629632a7a5f603eb4ac4c748031e87186f472"
+      "digest": "0x49f6b0ccf484a1733c3c884578663fa683e5a75e9b2696a05b4a765c6b34898a"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-RP-0001",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:eb9ed447b15aa121c4432be6b719b7fffd5a27e31c6353f377b63164bad336e9",
+    "payload_sha256": "sha256:872172d2bdc857417d2b1b26a1c552a4da935b9e2b8c26c3a3db0101cddfe39a",
     "preferred_label": "The System in Seven States",
     "profile": {
       "author_entity_ids": [
@@ -78,7 +78,7 @@
     },
     "public_slug": "the-system-in-seven-states",
     "record_id": "6529NM-RP-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -97,8 +97,12 @@
       "6529NM-W-0007",
       "6529NM.2026.001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-001",
@@ -126,7 +130,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0001",
     "visibility": "public"

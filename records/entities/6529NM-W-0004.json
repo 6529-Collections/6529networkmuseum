@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7eb2af2f11f184e36aa4686d4550612433c7610571973be923b968dbb16d42d5"
+      "digest": "0x5d68a74e453e3ce4a75f82ec033f5f17715e6c224b001071bd7b94103a0ca31e"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-W-0004",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c570f0fd3d7597ca91ae85a40fe9581c2b97caca6ddfae10e6ccd55ca481ff78",
+    "payload_sha256": "sha256:23a202f84e93577f0ec46c6fb031d626e3be23c9c85dccfe0f6d397fe2820fbe",
     "preferred_label": "Pre-Process #63",
     "profile": {
       "accession_entity_ids": [
@@ -205,7 +205,7 @@
     },
     "public_slug": "6529NM-W-0004",
     "record_id": "6529NM-W-0004",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,8 +220,12 @@
       "6529NM.2026.001.RIGHTS.04",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -245,7 +249,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0004",
     "visibility": "public"

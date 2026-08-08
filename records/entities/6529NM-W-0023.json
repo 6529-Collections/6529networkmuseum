@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x638292481e098d334e0d7791232fdbee99f6cd8839217062551339b4c351815a"
+      "digest": "0x5eab80fcb4e9ca2f6c9c553fb5bfe2f351c73ff3c783ed783d4fd2d3af5b5932"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0023",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:e4359ed91b3493ad7374e49ea26b573cd4a37bc903fb7c3610230fb56fbbd679",
+    "payload_sha256": "sha256:c48507a225801502950f0a38ea2fc26a1a3510fec7a8f45ee68555d93ef3c553",
     "preferred_label": "No Access",
     "profile": {
       "accession_entity_ids": [],
@@ -173,7 +173,7 @@
     },
     "public_slug": "6529NM-W-0023",
     "record_id": "6529NM-W-0023",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -183,8 +183,12 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0017",
@@ -203,7 +207,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0023",
     "visibility": "public"

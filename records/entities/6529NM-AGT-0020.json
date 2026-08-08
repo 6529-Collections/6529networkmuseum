@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1958effe053795ab33ab09f4dfe21710eaee0a4859fed433ca810b3666b16626"
+      "digest": "0x6d99a5a79ce6904ef6a1bfc65a88389242d6852156982dcedb5b80bf9d606b2f"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-AGT-0020",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:120f182f3d2f97c7b6a44d08fa312830d7dd055ddfcfdd5bd286fba34047ffd5",
+    "payload_sha256": "sha256:6b24279ae4a4199d4bd42dc1c24adef36f7b8b80a685cebc274ab03296a72aae",
     "preferred_label": "Micha Bar-Am",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,14 +78,18 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0020",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-PG-2026-001"
@@ -100,7 +104,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AGT-0020",
     "visibility": "public"

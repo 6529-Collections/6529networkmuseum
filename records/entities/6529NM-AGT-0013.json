@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9e7facae9bb874c3716493509b4cd8b17facfd2f6cfaebde3ce6a065117278b2"
+      "digest": "0xae400a321ca822e45950a6c5aacc4771aee3c51f0fb7c439a9aac6e997323deb"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0013",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:10ca4f6e54f5e4c2fe5731006aa4c01a79b47dd4c01aae487a03d3d6ab09b1cd",
+    "payload_sha256": "sha256:fbd660dbfb2cc848b13bd7935476d0daefe10e0c1bc24788aa6cc8dd8feb49a1",
     "preferred_label": "Teyhu",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,15 +78,19 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0013",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-012"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -102,7 +106,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AGT-0013",
     "visibility": "public"

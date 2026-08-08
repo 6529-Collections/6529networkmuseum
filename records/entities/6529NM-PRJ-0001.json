@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf2294f614b9da8bd674f5ffafb199b42c296e385d1f935bf2aa961180880d04c"
+      "digest": "0xb388609e015b6edbb8f9f84f5a9aaa644c7b299781f03fd131ac2c76c4310241"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0001",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7b6db684472e3389f8bb9b1bf479f43b6386c3ca9542660c4a8381d6939a1e14",
+    "payload_sha256": "sha256:2ee11f49e42bd2194894f010ad646e9286d5538beae668bb9d4e3896d70703b9",
     "preferred_label": "CENTURY",
     "profile": {
       "agent_entity_ids": [
@@ -72,7 +72,7 @@
     },
     "public_slug": "century",
     "record_id": "6529NM-PRJ-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -82,8 +82,12 @@
       "6529NM-W-0002",
       "6529NM-W-0003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -102,7 +106,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-PRJ-0001",
     "visibility": "public"

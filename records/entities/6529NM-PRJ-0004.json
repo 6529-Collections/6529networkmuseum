@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfd3026c105c213034b2d5d5c260129d5d160c84d3c092425433cf484cf6dd432"
+      "digest": "0x74ab6d3d3d69e6e06ce208b54ca25c2407a43b3edf66e8c6d622672afb651a8a"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0004",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:d1c8e274ce5f6c35a9a4bd575e59dd243514e9fd72359232c5384d4a3ca8c93a",
+    "payload_sha256": "sha256:5d51b1d39a064cd650d5e45d06abc5859a6acaca3efc4934fe2f9c9196a2cc7b",
     "preferred_label": "923 EMPTY ROOMS",
     "profile": {
       "agent_entity_ids": [
@@ -68,7 +68,7 @@
     },
     "public_slug": "923-empty-rooms",
     "record_id": "6529NM-PRJ-0004",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -76,8 +76,12 @@
       "6529NM-ORG-0001",
       "6529NM-W-0006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -94,7 +98,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-PRJ-0004",
     "visibility": "public"

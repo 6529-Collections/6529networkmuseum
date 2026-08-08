@@ -3,7 +3,7 @@
 Date: 2026-08-08
 Worker: `019fe093-6890-7d20-9685-e291642d23ef`
 Branch: `codex/wp-1-source-ontology`
-Initial base: `c01af9f08778c77b823283f81a989cd5f5e24a95`. The merged policy/ballot baseline is now `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`; post-merge run `31252451827` is green. A narrow Magnum WINNER amendment is expected to land next, so final rebase/publication remains held until its successor main is supplied.
+Initial base: `c01af9f08778c77b823283f81a989cd5f5e24a95`. The branch was rebased cleanly onto exact successor main `36ac78a1172327dab5ba55f7b8f96d6d45dc5d85` after PR #39 merged. The post-rebase projection and manifest were independently reviewed before publication.
 
 ## Decisions
 
@@ -28,13 +28,13 @@ Initial base: `c01af9f08778c77b823283f81a989cd5f5e24a95`. The merged policy/ball
 - Full Magnum and Keys scholarship remains outside WP-1. The public projection may carry source-backed labels, work sets, and lifecycle facts without claiming a completed acquisition or writing a full artist dossier.
 - Casey autonomous generator preservation remains an active stewardship action, not a completed preservation state.
 - Media with mutable external sources remains explicitly mutable/unverified until retrieval and fixity evidence exists.
-- Final independent reviewer actor ID and the successor-main commit for the narrow Magnum WINNER amendment are still pending. Do not run the final `--reviewed` generation or publish the WP-1 PR until the successor main is confirmed.
+- Final independent review is bound to `codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc`; all generated records are reviewed/published-state projections. No governance, acquisition, accession, mint, transfer, or deployment action is implied.
 
 ## Verification run to date
 
-`python scripts/migrate_public_entities.py`, `python scripts/bootstrap_validate.py`, `python scripts/validate.py`, and `python -m unittest tests.test_public_entity_layer -v` pass on the current isolated worktree. The focused suite has 12 tests covering exact counts, human slugs/routes, Work identity aliases, Magnum Photos 75 project relations, manifestation boundaries, all-Work media joins, Collection=7, the Program/pathway boundary, WINNER history, durable program selection, schema/route/media adversaries, and evidence-path failure.
+`python scripts/migrate_public_entities.py --reviewed --reviewer-id codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc`, `python scripts/bootstrap_validate.py`, `python scripts/validate.py`, and `python -m unittest tests.test_public_entity_layer -v` pass on the final reviewed projection. The focused suite has 12 tests covering exact counts, human slugs/routes, Work identity aliases, Magnum Photos 75 project relations, manifestation boundaries, all-Work media joins, Collection=7, the Program/pathway boundary, WINNER history, durable program selection, schema/route/media adversaries, and evidence-path failure.
 
-The complete repository suite also passes: `python -m unittest discover -s tests -q` ran 187 tests with one platform skip. The remaining control-plane checks pass for bootstrap (595 JSON files), proposed-gift dossiers, fetch guard, rights handbook/legal snapshots, institutional source inventory, program media, Casey diligence, public migration, and the public validator. The release manifest is intentionally held for regeneration after the required successor-main rebase and reviewed projection.
+The complete repository suite passes: `python -m unittest discover -s tests -q` ran 200 tests with one platform skip after the successor-main rebase. The remaining control-plane checks pass for bootstrap (595 JSON files), proposed-gift dossiers, fetch guard, rights handbook/legal snapshots, institutional source inventory, program media, Casey diligence, public migration, the public validator, and `python scripts/generate_manifest.py --check`. The final release manifest is current with Keccak-256 `0x80ebacd53d08526e078e1d49ceeb86e9f80545fd4afa2394816b1fb36f8faab7` and SHA-256 `sha256:eaf55473b5cfbae60d504e7a9da095818a99802748708506ed5a4ac553a8210c`.
 
 ## Control boundary
 

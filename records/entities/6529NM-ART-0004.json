@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2a6697bc08a3277e1d7d5940e785c1a2a4346dae6b15a265de05bfc6cb61677c"
+      "digest": "0xa9e60405ebe2938cc5e38bb1280fb49c8afd7328422c0ceb62957fe1d2ec5a02"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T00:00:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0004",
-    "entity_status": "archived",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:57f17870a82df28f83b579478f69133d4fdfc27c09d44bad331a24177128574a",
+    "payload_sha256": "sha256:2700bfaa7b8e4789b25e21d31c1ba767785f61f70edcc3ea933aef2f7595ca1c",
     "preferred_label": "nasimghanizadeh",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "nasimghanizadeh",
     "record_id": "6529NM-ART-0004",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,12 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe15a-2e89-77d3-af4c-a7d93842d2dc",
+      "reviewed_at": "2026-08-08T00:00:00Z",
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0004",
@@ -117,7 +121,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "archived"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0004",
     "visibility": "public"
