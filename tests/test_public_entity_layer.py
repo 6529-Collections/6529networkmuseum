@@ -446,6 +446,7 @@ class PublicEntityLayerTests(unittest.TestCase):
                         self.assertEqual(reference["registry_id"], "PUBLIC_TYPED_REFERENCE_REGISTRY_V1")
                         self.assertEqual(reference["target_type"], target["target_type"])
                         self.assertEqual(reference["source_record_id"], target["authoritative_record_id"])
+                        self.assertEqual(target["authoritative_record_type"], "PROPOSED_GIFT")
                         self.assertEqual(reference["caip19"], target["caip19"])
         self.assertEqual(self.graph_issues(), [])
 
@@ -489,6 +490,19 @@ class PublicEntityLayerTests(unittest.TestCase):
         with patch("validate._typed_reference_record_index", return_value=ambiguous):
             issues = self.graph_issues()
         self.assertTrue(any("must resolve to exactly one WORK_DESCRIPTION" in issue for issue in issues), issues)
+
+        registry_ambiguity = {
+            "6529NM-PG-2026-001.OBJ-001": {
+                ("PROPOSED_GIFT", Path("records/proposal-one.json")),
+                ("PROPOSED_GIFT", Path("records/proposal-two.json")),
+            }
+        }
+        with patch("validate._typed_reference_record_index", return_value=registry_ambiguity):
+            issues = self.graph_issues()
+        self.assertTrue(
+            any("must resolve to exactly one PROPOSED_GIFT authoritative source record" in issue for issue in issues),
+            issues,
+        )
 
     def test_restricted_and_unknown_media_are_structurally_metadata_only(self) -> None:
         for entity_id in ("6529NM-MED-0020", "6529NM-MED-0041"):

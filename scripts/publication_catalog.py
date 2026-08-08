@@ -246,6 +246,15 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
     commitment = body.pop("manifest_commitment", None)
     if not SHA256.fullmatch(str(body_sha256)) or not isinstance(commitment, dict):
         raise CatalogError("committed manifest is missing body commitments")
+    if (
+        set(commitment) != {"algorithm", "digest", "canonicalizationId"}
+        or type(commitment.get("algorithm")) is not int
+        or commitment.get("algorithm") != 1
+        or not isinstance(commitment.get("digest"), str)
+        or not KECCAK.fullmatch(commitment["digest"])
+        or commitment.get("canonicalizationId") != JCS_ID
+    ):
+        raise CatalogError("committed manifest Keccak/JCS commitment has an invalid shape or algorithm")
     canonical_body = canonicalize(body)
     expected_sha = sha256_prefixed(canonical_body)
     expected_keccak = "0x" + keccak256(canonical_body).hex()
@@ -268,8 +277,19 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
             raise CatalogError(f"committed manifest entry does not describe the exact B bytes: {path}")
         if path.casefold().endswith(".json"):
             expected_content = entry.get("content_hash")
-            if not isinstance(expected_content, dict) or expected_content.get("digest") != actual["jcs_keccak256"] or expected_content.get("canonicalizationId") != JCS_ID:
+            if (
+                not isinstance(expected_content, dict)
+                or set(expected_content) != {"algorithm", "digest", "canonicalizationId"}
+                or type(expected_content.get("algorithm")) is not int
+                or expected_content.get("algorithm") != 1
+                or not isinstance(expected_content.get("digest"), str)
+                or not KECCAK.fullmatch(expected_content["digest"])
+                or expected_content.get("digest") != actual["jcs_keccak256"]
+                or expected_content.get("canonicalizationId") != JCS_ID
+            ):
                 raise CatalogError(f"committed manifest JSON content commitment drifted: {path}")
+        elif "content_hash" in entry:
+            raise CatalogError(f"committed manifest non-JSON entry must not declare content_hash: {path}")
     return manifest, by_path, binding
 
 

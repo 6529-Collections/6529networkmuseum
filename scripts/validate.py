@@ -1476,9 +1476,20 @@ def _validate_work_typed_references(
                     if reference.get("caip19") != entry.get("caip19"):
                         issues.append(f"{label}: governed target {target_id!r} has mismatched CAIP-19 manifestation identity")
                     authoritative_id = entry.get("authoritative_record_id")
+                    authoritative_type = entry.get("authoritative_record_type")
                     authoritative_candidates = typed_record_index.get(authoritative_id, set()) if isinstance(authoritative_id, str) else set()
                     if not authoritative_candidates:
                         issues.append(f"{label}: governed target {target_id!r} has an unresolved authoritative source record")
+                    else:
+                        matching_authorities = {
+                            candidate for candidate in authoritative_candidates
+                            if isinstance(authoritative_type, str) and candidate[0] == authoritative_type
+                        }
+                        if len(matching_authorities) != 1:
+                            issues.append(
+                                f"{label}: governed target {target_id!r} must resolve to exactly one "
+                                f"{authoritative_type} authoritative source record"
+                            )
             else:
                 issues.append(f"{label}: target_kind must be authoritative_record or governed_typed_registry")
     return issues, used_registry_targets

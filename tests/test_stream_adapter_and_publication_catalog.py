@@ -817,6 +817,23 @@ class PublicationCatalogTests(unittest.TestCase):
         reviewed = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
         return temporary, root, candidate, reviewed
 
+    def _commit_manifest_mutation(self, root: Path, mutate) -> str:
+        manifest_path = root / "release-artifacts/latest/record-manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        mutate(manifest)
+        body = dict(manifest)
+        body.pop("manifest_sha256", None)
+        commitment = body.pop("manifest_commitment", None)
+        canonical_body = canonicalize(body)
+        manifest["manifest_sha256"] = sha256_prefixed(canonical_body)
+        commitment["digest"] = "0x" + keccak256(canonical_body).hex()
+        commitment["canonicalizationId"] = self.JCS
+        manifest["manifest_commitment"] = commitment
+        manifest_path.write_bytes(render_json(manifest))
+        subprocess.run(["git", "add", str(manifest_path)], cwd=root, check=True)
+        subprocess.run(["git", "commit", "-qm", "mutated manifest"], cwd=root, check=True)
+        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
+
     def test_release_artifacts_is_the_manifest_self_reference_boundary(self) -> None:
         paths = [path.relative_to(ROOT).as_posix() for path in inventory_paths(ROOT)]
         self.assertFalse(any(path.startswith("release-artifacts/") for path in paths))
@@ -833,6 +850,32 @@ class PublicationCatalogTests(unittest.TestCase):
             self.assertTrue(catalog["payload"]["manifest_binding"]["immutable_raw_url"].endswith(reviewed + "/release-artifacts/latest/record-manifest.json"))
         finally:
             temporary.cleanup()
+
+    def test_catalog_manifest_hash_references_are_closed_and_algorithm_bound(self) -> None:
+        import publication_catalog as catalog_module
+
+        mutations = {
+            "JSON content algorithm": lambda manifest: next(
+                entry for entry in manifest["entries"] if entry["path"].endswith(".json")
+            )["content_hash"].update({"algorithm": 2}),
+            "JSON content extra field": lambda manifest: next(
+                entry for entry in manifest["entries"] if entry["path"].endswith(".json")
+            )["content_hash"].update({"future": True}),
+            "non-JSON content hash": lambda manifest: next(
+                entry for entry in manifest["entries"] if not entry["path"].endswith(".json")
+            ).update({"content_hash": {"algorithm": 1, "digest": "0x" + "0" * 64, "canonicalizationId": self.JCS}}),
+            "manifest commitment algorithm": lambda manifest: manifest["manifest_commitment"].update({"algorithm": 2}),
+            "manifest commitment extra field": lambda manifest: manifest["manifest_commitment"].update({"future": True}),
+        }
+        for label, mutate in mutations.items():
+            with self.subTest(label=label):
+                temporary, root, _candidate, _reviewed = self.fixture_repo()
+                try:
+                    mutated = self._commit_manifest_mutation(root, mutate)
+                    with self.assertRaises(CatalogError):
+                        catalog_module._read_manifest(root, mutated)
+                finally:
+                    temporary.cleanup()
 
     def test_catalog_rejects_self_reference_and_moving_or_short_commit(self) -> None:
         temporary, root, _candidate, reviewed = self.fixture_repo()
