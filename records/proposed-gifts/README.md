@@ -16,6 +16,14 @@ gift beside artists and permanent holdings.
 The working form and minimum standard are documented in
 [`docs/proposed-gift-wave-standard.md`](../../docs/proposed-gift-wave-standard.md).
 
+The current Magnum Photos 75 proposal has an authenticated `WINNER` status
+observation and is publicly described as **Selected by Museum Wave; acquisition
+review in progress**. Selection remains distinct from formal acceptance,
+donor authority, transfer, title, custody, rights clearance, technical or
+preservation completion, accession, and Collection membership. Its dated
+[status amendment](6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md)
+preserves the earlier proposal publication and live-state observation.
+
 Each candidate's `public/voter-dossier.md` is a deterministic projection of
 the ordered Markdown parts named in `wave-storm.json`. Regenerate and verify it
 with:

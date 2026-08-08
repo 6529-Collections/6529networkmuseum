@@ -16,6 +16,16 @@ Should the 6529 Network Museum select exactly the five ERC-721 tokens in Ethereu
 
 The complete gift is offered by punk6529. The Wave considers all five works as one proposed gift.
 
+## Current status
+
+**Selected by Museum Wave; acquisition review in progress.** The five-work
+proposal remains outside the permanent Collection. The authenticated `WINNER`
+readback establishes the current Wave selection; it does not establish formal
+acceptance, donor authority, transfer, title, custody, rights clearance,
+technical or preservation completion, accession, or Collection membership. See
+the append-only [status amendment](status-amendments/2026-08-08-winner.md) for
+the exact readback and the prior `PARTICIPATORY` observation.
+
 ## Effect
 
 If the Wave drop carrying this candidate clears the applicable TDH threshold, the five-work gift is selected. Identity, donor authority, legal title, rights, technical review, transfer, custody receipt, formal acceptance, preservation, and accession will follow.

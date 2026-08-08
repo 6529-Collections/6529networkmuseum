@@ -47,6 +47,51 @@ class ProposedGiftValidationTests(unittest.TestCase):
     def test_canonical_package_is_semantically_complete(self) -> None:
         self.assertEqual(proposed_gift_issues(REPO_ROOT, self.loaded), [])
 
+    def test_magnum_winner_status_amendment_is_current_and_bounded(self) -> None:
+        proposal = self.loaded[self.proposal_path]
+        register = self.loaded[self.register_path]
+        package = self.loaded[self.package_path]
+        amendment_path = (
+            self.proposal_path.parent
+            / "public/status-amendments/2026-08-08-winner.md"
+        )
+        amendment = amendment_path.read_text(encoding="utf-8")
+        drop = proposal["wave_authority"]["proposal_drop"]
+
+        self.assertEqual(proposal["status"], "selected")
+        self.assertEqual(proposal["status_as_of"], "2026-08-08T10:15:02.0167151Z")
+        self.assertEqual(drop["status"], "WINNER")
+        self.assertEqual(drop["status_observed_at"], "2026-08-08T10:15:02.0167151Z")
+        self.assertEqual(package["status"], "selected")
+        self.assertEqual(register["snapshot_at"], "2026-08-08T10:15:02.0167151Z")
+        self.assertEqual(register["proposals"][0]["status"], "selected")
+        self.assertEqual(register["proposals"][0]["wave_status"], "selected")
+        self.assertIn(
+            "Selected by Museum Wave; acquisition review in progress",
+            amendment,
+        )
+        self.assertIn("selected_by_museum_wave_acquisition_review_in_progress", amendment)
+        self.assertIn("PARTICIPATORY", amendment)
+        self.assertIn("122,969,240", amendment)
+        self.assertIn("WINNER", amendment)
+        self.assertIn("121603214", amendment)
+        for boundary in (
+            "formal acceptance",
+            "donor authority",
+            "legal title",
+            "Museum custody",
+            "rights clearance",
+            "preservation completion",
+            "accession",
+            "Collection membership",
+        ):
+            self.assertIn(boundary, amendment)
+
+        resolution = (self.proposal_path.parent / "public/wave-resolution.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("status-amendments/2026-08-08-winner.md", resolution)
+
     def test_wave_selects_the_gift_before_later_accession_work(self) -> None:
         proposal = self.loaded[self.proposal_path]
         opening = (
@@ -236,7 +281,7 @@ class ProposedGiftValidationTests(unittest.TestCase):
 
     def test_rejects_register_status_drift(self) -> None:
         issues = self.issues_after(
-            lambda loaded: loaded[self.register_path]["proposals"][0].update({"wave_status": "selected"})
+            lambda loaded: loaded[self.register_path]["proposals"][0].update({"wave_status": "open"})
         )
         self.assertTrue(any("Wave status does not match" in issue for issue in issues))
 

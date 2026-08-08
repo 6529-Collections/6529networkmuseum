@@ -2686,3 +2686,24 @@ The refreshed repository release manifest has SHA-256
 `sha256:f58aa33f2559d6e15e259c754e0fd1bd5e32a45f9bdbf49043c70bbdc2671c1d`
 and Keccak commitment
 `0x3407d28aef695e042e5bd0ffc2e7ae6845b7d7db03038d767db4baa69aef58f7`.
+
+## 2026-08-08 Magnum WINNER status amendment
+
+Post-merge source main is exact `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`;
+Museum validation run `31252451827` completed green before this narrow branch
+was created. The authenticated read-only `punk6529bot` readback at
+`2026-08-08T10:15:02.0167151Z` changed the current Wave observation for Magnum
+drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, to signed
+`WINNER`, rank `1`, rating/realtime rating `121,603,214`, and `29` raters.
+The current public status is **Selected by Museum Wave; acquisition review in
+progress**. This establishes Wave selection only. Formal acceptance, donor
+authority, transfer, title, custody, rights clearance, technical or
+preservation completion, accession, and permanent-Collection membership remain
+unestablished.
+
+The prior `2026-08-08T09:06:07.985Z` `PARTICIPATORY` observation (rank `1`,
+realtime rating `122,969,240`, 29 raters) is preserved, as is the signed
+proposal's publication-time `PARTICIPATORY` readback. The governed receipt is
+`records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-08-winner.md`.
+PR #38 remains the separate draft WP-3 scholarship corpus; this amendment does
+not rebase or modify that branch.

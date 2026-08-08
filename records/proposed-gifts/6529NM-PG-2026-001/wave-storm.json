@@ -13,7 +13,7 @@
   "record_type": "PROPOSED_GIFT_WAVE_PACKAGE",
   "schema_profile": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1",
   "proposal_id": "6529NM-PG-2026-001",
-  "status": "open",
+  "status": "selected",
   "target_wave": {
     "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
     "wave_name": "6529 Network Museum",
@@ -202,6 +202,7 @@
     "After merge, bind the dry-run publication plan to the immutable Git commit and verify the finalized-chain state against this edition; if a material fact changed, amend and review the source before posting.",
     "Do not post until the donor gives explicit final approval of the exact manuscript, cover, and publication action.",
     "Published by punk6529bot to the 6529 Network Museum Wave as drop 002bfa4f-8416-48bf-b35e-38f354e9a9f0, serial 1276093, on 2026-08-06T13:19:30.726Z from canonical Museum source commit eb95dfc02f05f220232f770a6d9ab33d50eed38b after the donor gave that explicit approval.",
-    "Publication opened the proposal for TDH voting; it did not cast a vote, transfer an asset, select the gift, formally accept it, or accession any object."
+    "Publication opened the proposal for TDH voting; it did not cast a vote, transfer an asset, select the gift, formally accept it, or accession any object.",
+    "The append-only status amendment at public/status-amendments/2026-08-08-winner.md records the authenticated 2026-08-08T10:15:02.0167151Z WINNER readback and the current public status: Selected by Museum Wave; acquisition review in progress."
   ]
 }
