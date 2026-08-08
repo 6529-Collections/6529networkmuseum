@@ -5,6 +5,7 @@
 | Field | Museum proposal value |
 | --- | --- |
 | Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
+| Public Work | `6529NM-W-0024` |
 | Proposed-gift object | `6529NM-PG-2026-001.OBJ-001` |
 | Artist | David Seymour (Chim) |
 | Date / place | 1952; Negev, Israel |
@@ -14,7 +15,7 @@
 | Metadata / image | [metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) / [Wave-source image URL](https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM) |
 | Observed image | JPEG, 3,056 × 4,600 px; SHA-256 `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453` |
 | Rights notice | `© David Seymour/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 The identity and rights fields come from the local proposal and direct token
 record.[^1] The checksum, dimensions, and visible description are Museum

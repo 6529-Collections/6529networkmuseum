@@ -5,6 +5,7 @@
 | Field | Museum proposal value |
 | --- | --- |
 | Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
+| Public Work | `6529NM-W-0026` |
 | Artist | Micha Bar-Am |
 | Date / place | 1989; Jerusalem |
 | Archive reference | `BAM1989009W02477/26C` |
@@ -13,7 +14,7 @@
 | Metadata / image | [metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) / [Wave-source image URL](https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4) |
 | Observed image | JPEG, 5,000 × 3,292 px; SHA-256 `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
 | Rights notice | `© Micha Bar-Am/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 The technical and identity fields are drawn from the proposal package and
 token record. The checksum and visual description are technical observations;

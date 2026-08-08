@@ -9,10 +9,11 @@ interpretation. A caption is retained as a historical statement by its source;
 it is not silently converted into an independently verified event description.
 
 The five works are public Work projections for the proposal and are linked to
-their proposal object aliases in the machine records. Their canonical Work IDs
-remain a WP-1 integration responsibility. The visitor-facing pages use a short
-caption history and a close reading; this dossier retains the fuller comparison
-and the questions that remain open.
+their proposal object aliases in the machine records. The WP-1 target projection
+binds them to `6529NM-W-0024` through `6529NM-W-0028`; the governed release still
+controls final admission and manifest binding. The visitor-facing pages use a
+short caption history and a close reading; this dossier retains the fuller
+comparison and the questions that remain open.
 
 ## Work 01 — David Seymour, *Patrolling the border between the Negev Desert and Jordan*
 

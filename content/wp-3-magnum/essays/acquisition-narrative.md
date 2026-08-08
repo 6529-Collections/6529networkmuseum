@@ -18,7 +18,7 @@ identified in the [Work pages](../works/01-david-seymour-127.md),
 [Saman](../works/04-moises-saman-44.md), and
 [Meloni](../works/05-lorenzo-meloni-104.md) records. The public status is:
 
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 ## Why these five photographs belong together
 
@@ -111,11 +111,11 @@ display and preservation terms before any accession-grade Collection record.
 Finally, the photographs carry ethical exposure. The Bar-Am frame contains an
 unidentified central figure in a contested event. Towell’s soldiers are not
 named. Saman’s photograph includes a child whose identity, age, and consent are
-not recorded in the reviewed public sources. A Museum publication should not
-turn those gaps into a hunt for names. It should preserve source uncertainty,
-keep sensitive identity information restricted, and seek safeguarding or consent
-documentation through appropriate archive channels. Meloni’s soldier and route
-also remain source-specific; publication can discuss access without asserting a
+not recorded in the reviewed public sources. Those gaps call for source
+uncertainty to remain visible, sensitive identity information to remain
+restricted, and safeguarding or consent documentation to be sought through
+appropriate archive channels. Meloni’s soldier and route also remain
+source-specific; the access history can be discussed without asserting a
 personal identification that the record does not support.
 
 ## Response
@@ -139,11 +139,16 @@ can teach visitors to read documentary evidence at its edges.
 
 ## Current proposal record
 
-The live Museum Wave readback at `2026-08-08T09:06:07.985Z` recorded drop
+The earlier live Wave readback at `2026-08-08T09:06:07.985Z` recorded drop
 `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, `PARTICIPATORY`, rank
-1, realtime rating `122,969,240`, and `29` raters. The reading is a mutable
-governance observation. The proposal is presented in its current relationship
-to the Wave, and its public Work pages use the same proposed status. The
+1, realtime rating `122,969,240`, and `29` raters; it remains a historical-only
+observation. The canonical current authenticated readback at
+`2026-08-08T10:15:02.0167151Z` records the same signed drop as `WINNER`, with
+realtime rating `121,603,214` and `29` raters. The current public status is
+**Selected by Museum Wave; acquisition review in progress**, while formal
+acceptance, donor authority, transfer, title, custody, rights clearance,
+technical and preservation completion, accession, and Collection membership
+remain separate later matters. The
 [Source and rights record](../dossiers/source-and-rights-record.md) carries the
 exact proposal media and current rights disposition.
 

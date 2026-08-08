@@ -13,8 +13,10 @@ life while also building a long-term photographic record of the country and its
 neighbours.
 
 Bar-Am’s significance extends beyond the making of individual images. He helped
-Cornell Capa establish the International Center of Photography and led the
-photography department at the Tel Aviv Museum of Art from 1977 to 1992.[^1]
+Cornell Capa establish the International Center of Photography and established
+the photography department at the Tel Aviv Museum of Art in 1977, serving as
+Senior Curator of Photography through 1992. The archive’s biography records his
+1993 Enrique Kavlin Lifetime Achievement Award as a separate event.[^1]
 These roles place him in a distinctive position within photographic history:
 he was a participant in events, a correspondent who shaped public narratives,
 an author of books and exhibitions, and a curator who helped determine how
@@ -49,8 +51,8 @@ for the photograph.[^3] Their title and identifier variants show how an image
 travels between artist, museum, and later digital catalogues. The Bar-Am
 Archive’s suffix and the token metadata’s suffix are close but not yet
 explained; the older “Wailing Wall” terminology in the Museum Wales record is
-preserved as cataloguing history. These are not merely technical discrepancies.
-They reveal how a public event is stabilized through successive acts of naming.
+preserved as cataloguing history. Together they show how a public event is
+stabilized through successive acts of naming.
 
 ## Work in this proposal
 
@@ -61,6 +63,6 @@ movement, related archive records, and unresolved event questions. This profile
 places the image within Bar-Am’s combined history of documentary practice,
 institution-building, and public religious space.
 
-[^1]: Magnum Photos, Micha Bar-Am profile, source [S22](../sources/source-register.md).
+[^1]: Magnum Photos and Micha Bar-Am Archive biographies, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
 [^2]: Women of the Wall public history, source [S34](../sources/source-register.md).
 [^3]: Micha Bar-Am Archive, ICP, and Museum Wales object records, sources [S23–S25](../sources/source-register.md).

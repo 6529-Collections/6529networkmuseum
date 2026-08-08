@@ -11,8 +11,8 @@ include this staging root.
 
 This corpus deepens proposed gift `6529NM-PG-2026-001` into the intellectual
 and evidentiary shape required for the Museum's current proposal publication
-and for a later Museum publication if the proposal is selected and the
-subsequent acquisition gates are completed. Its working Curated Acquisition
+and for a later Museum publication after the subsequent acquisition gates are
+completed. Its working Curated Acquisition
 identity is `6529NM-CA-2026-003`, a stable content
 identifier only. It is not an accession number and does not reserve one.
 
@@ -21,12 +21,13 @@ The corpus supplies a typed handoff for the WP-1 public ontology:
 - **Organization:** Magnum Photos.
 - **Project or Series:** Magnum Photos 75, an upstream 2022 archive and
   blockchain publication project.
-- **Artists:** David Seymour, Larry Towell, Micha Bar-Am, Moises Saman, and
+- **Artists:** David Seymour, Larry Towell, Micha Bar-Am, Moisés Saman, and
   Lorenzo Meloni.
 - **Works:** five public Work projections for the exact token-linked
-  photographs, with lifecycle `proposed_in_museum_wave` and collection
-  membership `not_in_collection`. Acquisition-independent Work IDs are left
-  null for WP-1 assignment; proposal object IDs remain typed aliases.
+  photographs, bound to WP-1 target IDs `6529NM-W-0024` through
+  `6529NM-W-0028`, with lifecycle
+  `selected_by_museum_wave_acquisition_review_in_progress` and collection
+  membership `not_in_collection`. Proposal object IDs remain typed aliases.
 - **Curated Acquisition:** *Conflict at Its Edges*, the donor-formed,
   proposed five-work unit.
 - **Research Publications:** the institutional and project profiles, artist
@@ -40,9 +41,9 @@ The corpus supplies a typed handoff for the WP-1 public ontology:
 
 ## Live status boundary
 
-The parent Museum Wave is the decision authority. A read-only authenticated
-`punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json` observation
-on 2026-08-08 recorded:
+The parent Museum Wave is the decision authority. The earlier read-only
+authenticated `punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json`
+observation on 2026-08-08 recorded:
 
 - title: *Conflict at Its Edges*;
 - serial: `1276093`;
@@ -53,15 +54,14 @@ on 2026-08-08 recorded:
 - realtime rating: `122969240` and raters: `29` at that observation;
 - observation time: `2026-08-08T09:06:07.985Z` UTC.
 
-The rating is preserved only as a mutable observation. It is not interpreted as
-adoption. The proposal remains proposed and the selection outcome is not
-established by this corpus. The Work projections therefore use
-`proposed_in_museum_wave`, `collection_membership: not_in_collection`, and
-null accession/title-binding/custody fields. The proposal may appear in an
-active Acquisitions hub as
-**Proposed in the Museum Wave** while the drop is open; if it later closes
-without selection, the stable page becomes archival and leaves that active
-index.
+The 09:06:07 observation is preserved as historical-only. The canonical current
+authenticated readback at `2026-08-08T10:15:02.0167151Z` records the same signed
+drop as `WINNER`, rating `121603214`, and `29` raters. Current public status is
+**Selected by Museum Wave; acquisition review in progress**. That status does
+not establish formal acceptance, donor authority, transfer, title, custody,
+rights clearance, technical or preservation completion, accession, or
+permanent-Collection membership. The five Work projections retain the typed
+WP-1 lifecycle and `collection_membership: not_in_collection` fields.
 
 The source package remains the proposal's historical decision record:
 `records/proposed-gifts/6529NM-PG-2026-001/`. Its finalized Ethereum

@@ -39,8 +39,8 @@ UNESCO’s records establish Palmyra’s World Heritage significance, the
 destruction of the Temple of Bel on 30 August 2015, the site’s damage, and the
 control and demining conditions around the March 2016 recapture.[^3] TIME’s
 contemporary account reports that Meloni entered Palmyra with Syrian government
-permission and shadowed government forces; an AFP report describes the army
-minder, mines, and directed entry for journalists.[^3]
+permission and shadowed government forces; AFP’s contemporaneous eyewitness
+account describes an army minder, mines, and directed entry for journalists.[^3]
 
 These conditions matter to Meloni’s practice because access is part of the
 photograph’s history. A permissioned route can open a place while also framing
@@ -60,4 +60,4 @@ inclusion in a book or exhibition whose page-level crosswalk remains open.
 
 [^1]: Magnum Photos, Lorenzo Meloni profile, source [S30](../sources/source-register.md).
 [^2]: GOST Books, *We Don’t Say Goodbye*, and related project records, source [S30](../sources/source-register.md).
-[^3]: TIME, AFP, and UNESCO Palmyra records, sources [S31–S32](../sources/source-register.md).
+[^3]: TIME, AFP, and UNESCO Palmyra records, sources [S31](../sources/source-register.md), [S32](../sources/source-register.md), and [S41](../sources/source-register.md).

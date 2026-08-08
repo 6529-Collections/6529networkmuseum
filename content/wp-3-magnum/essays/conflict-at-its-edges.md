@@ -191,12 +191,11 @@ unidentified subjects, managed access, vulnerable people, and rights that
 require further documentation. A Museum that accepts such a group must accept
 the obligation to keep those conditions visible.
 
-At present, *Conflict at Its Edges* is a proposal in the 6529 Network Museum
-Wave, presented for consideration as a Curated Acquisition and outside the
-permanent Collection.[^14]
+At present, *Conflict at Its Edges* is selected by the Museum Wave with
+acquisition review in progress, and remains outside the permanent Collection.[^14]
 
 [^1]: Direct token metadata and David Seymour estate record, sources [S10](../sources/source-register.md) and [S19](../sources/source-register.md).
-[^2]: Seymour biography and Israel context, sources [S17–S18](../sources/source-register.md).
+[^2]: Seymour biography and ICP context, sources [S17](../sources/source-register.md), [S18](../sources/source-register.md), [S42](../sources/source-register.md), and [S43](../sources/source-register.md).
 [^3]: Towell token metadata and collection record, sources [S11](../sources/source-register.md) and [S21](../sources/source-register.md).
 [^4]: Towell biography and exhibition/publication leads, source [S20](../sources/source-register.md).
 [^5]: Bar-Am token record and Women of the Wall history, sources [S12](../sources/source-register.md) and [S34](../sources/source-register.md).
@@ -205,7 +204,7 @@ permanent Collection.[^14]
 [^8]: Direct token metadata, source [S13](../sources/source-register.md).
 [^9]: Libya press and access context, sources [S27–S28](../sources/source-register.md).
 [^10]: Saman biography and later practice, sources [S26](../sources/source-register.md) and [S29](../sources/source-register.md).
-[^11]: TIME, AFP, and UNESCO Palmyra records, sources [S31–S32](../sources/source-register.md).
+[^11]: TIME, AFP, and UNESCO Palmyra records, sources [S31](../sources/source-register.md), [S32](../sources/source-register.md), and [S41](../sources/source-register.md).
 [^12]: Meloni practice and project history, source [S30](../sources/source-register.md).
 [^13]: Magnum Photos 75 publication record and count reconciliation, sources [S04–S07](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^14]: Local proposal and live governance record, source [S37](../sources/source-register.md).

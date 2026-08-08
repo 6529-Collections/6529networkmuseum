@@ -5,6 +5,7 @@
 | Field | Museum proposal value |
 | --- | --- |
 | Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
+| Public Work | `6529NM-W-0025` |
 | Artist | Larry Towell |
 | Date / place | 1986; preferred spelling Suchitoto, El Salvador |
 | Source variant | Token metadata spells the place “Suchitito”; retained as an issuer variant |
@@ -14,7 +15,7 @@
 | Metadata / image | [metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) / [Wave-source image URL](https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE) |
 | Observed image | JPEG, 5,369 × 3,601 px; SHA-256 `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee` |
 | Rights notice | `© Larry Towell/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 The photographic work, any physical print, and token #145 remain distinct
 manifestations. The source dossier records the checksum, dimensions, and

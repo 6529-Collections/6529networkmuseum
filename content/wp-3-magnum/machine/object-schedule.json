@@ -1,18 +1,36 @@
 {
   "local_profile": "6529NM_WP3_MAGNUM_OBJECT_SCHEDULE_V1",
   "status": "public_work_projections_ready_for_wp1_admission",
-  "public_work_entity_ids": "assigned by WP-1 on rebase; no local Work IDs are manufactured",
+  "public_work_entity_ids": [
+    "6529NM-W-0024",
+    "6529NM-W-0025",
+    "6529NM-W-0026",
+    "6529NM-W-0027",
+    "6529NM-W-0028"
+  ],
+  "organization_entity_id": "6529NM-ORG-0002",
+  "project_entity_id": "6529NM-PRJ-0006",
   "curated_acquisition_id": "6529NM-CA-2026-003",
+  "current_public_status": "Selected by Museum Wave; acquisition review in progress",
+  "current_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+  "prior_wave_observation": {
+    "source_status": "PARTICIPATORY",
+    "observed_at": "2026-08-08T09:06:07.985Z",
+    "historical_only": true
+  },
   "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
   "network": "Ethereum mainnet",
   "chain_id": 1,
   "works": [
     {
+      "work_entity_id": "6529NM-W-0024",
       "proposal_object_alias": "6529NM-PG-2026-001.OBJ-001",
       "proposal_object_id": "6529NM-PG-2026-001.OBJ-001",
       "token_id": "127",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
       "artist": "David Seymour",
+      "artist_entity_id": "6529NM-ART-0017",
+      "artist_display_name": "David Seymour",
       "preferred_title": "Patrolling the border between the Negev Desert and Jordan",
       "date": "1952",
       "place": "Negev, Israel",
@@ -23,14 +41,20 @@
       "image_sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
       "image_dimensions": "3056x4600",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false
+      "collection_membership": false,
+      "collection_membership_status": "not_in_collection",
+      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+      "media_reference_entity_id": "6529NM-MED-0003"
     },
     {
+      "work_entity_id": "6529NM-W-0025",
       "proposal_object_alias": "6529NM-PG-2026-001.OBJ-002",
       "proposal_object_id": "6529NM-PG-2026-001.OBJ-002",
       "token_id": "145",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
       "artist": "Larry Towell",
+      "artist_entity_id": "6529NM-ART-0018",
+      "artist_display_name": "Larry Towell",
       "preferred_title": "Government soldiers in a church, Suchitoto, El Salvador",
       "date": "1986",
       "place": "Suchitoto, El Salvador; issuer metadata spells Suchitito",
@@ -41,14 +65,20 @@
       "image_sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
       "image_dimensions": "5369x3601",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false
+      "collection_membership": false,
+      "collection_membership_status": "not_in_collection",
+      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+      "media_reference_entity_id": "6529NM-MED-0041"
     },
     {
+      "work_entity_id": "6529NM-W-0026",
       "proposal_object_alias": "6529NM-PG-2026-001.OBJ-003",
       "proposal_object_id": "6529NM-PG-2026-001.OBJ-003",
       "token_id": "97",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
       "artist": "Micha Bar-Am",
+      "artist_entity_id": "6529NM-ART-0019",
+      "artist_display_name": "Micha Bar-Am",
       "preferred_title": "Demonstration, Western Wall, Jerusalem",
       "date": "1989",
       "place": "Jerusalem",
@@ -59,14 +89,21 @@
       "image_sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
       "image_dimensions": "5000x3292",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false
+      "collection_membership": false,
+      "collection_membership_status": "not_in_collection",
+      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+      "media_reference_entity_id": "6529NM-MED-0042"
     },
     {
+      "work_entity_id": "6529NM-W-0027",
       "proposal_object_alias": "6529NM-PG-2026-001.OBJ-004",
       "proposal_object_id": "6529NM-PG-2026-001.OBJ-004",
       "token_id": "44",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
-      "artist": "Moises Saman",
+      "artist": "Moisés Saman",
+      "issuer_artist_label": "Moises Saman",
+      "artist_entity_id": "6529NM-ART-0020",
+      "artist_display_name": "Moisés Saman",
       "preferred_title": "Tripoli, Libya",
       "date": "2011",
       "place": "Tripoli, Libya",
@@ -77,14 +114,20 @@
       "image_sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
       "image_dimensions": "5616x3744",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false
+      "collection_membership": false,
+      "collection_membership_status": "not_in_collection",
+      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+      "media_reference_entity_id": "6529NM-MED-0043"
     },
     {
+      "work_entity_id": "6529NM-W-0028",
       "proposal_object_alias": "6529NM-PG-2026-001.OBJ-005",
       "proposal_object_id": "6529NM-PG-2026-001.OBJ-005",
       "token_id": "104",
       "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
       "artist": "Lorenzo Meloni",
+      "artist_entity_id": "6529NM-ART-0021",
+      "artist_display_name": "Lorenzo Meloni",
       "preferred_title": "Palmyra, Syria",
       "date": "2016-04-01",
       "place": "Palmyra, Syria",
@@ -95,7 +138,10 @@
       "image_sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
       "image_dimensions": "5964x4768",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false
+      "collection_membership": false,
+      "collection_membership_status": "not_in_collection",
+      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+      "media_reference_entity_id": "6529NM-MED-0044"
     }
   ]
 }

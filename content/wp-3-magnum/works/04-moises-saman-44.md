@@ -5,6 +5,7 @@
 | Field | Museum proposal value |
 | --- | --- |
 | Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
+| Public Work | `6529NM-W-0027` |
 | Artist | Moisés Saman |
 | Date / place | 2011; Tripoli, Libya |
 | Archive reference | `SAM2011005H2503/5482` |
@@ -13,7 +14,7 @@
 | Metadata / image | [metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) / [Wave-source image URL](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) |
 | Observed image | JPEG, 5,616 × 3,744 px; SHA-256 `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
 | Rights notice | `© Moisés Saman/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 Exact identity and technical fields are drawn from the proposal package and
 token record. The checksum and visual description are technical observations;
@@ -22,6 +23,8 @@ copyright work.
 
 ## Caption history
 
+- **Display name:** the public page uses **Moisés Saman**; the source package's
+  issuer label is preserved as **Moises Saman** in the source and machine records.
 - **Issuer/token caption:** a child stands beside impact marks on a
   house wall on the eastern outskirts of Tripoli. Government officials said
   western air strikes targeted civilian areas and injured one woman; the source

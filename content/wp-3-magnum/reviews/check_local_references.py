@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = ROOT.parents[1]
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 CODE_SPAN = re.compile(r"`([^`]+)`")
+STAGING_PATH = re.compile(r"(?<![A-Za-z0-9_./-])(content/wp-3-magnum/[A-Za-z0-9_./-]+)")
 GOVERNED_PREFIXES = (
     "records/",
     "docs/",
@@ -64,17 +65,40 @@ def check_governed_paths(files: list[Path], errors: list[str]) -> int:
     return checked
 
 
+def check_staging_paths(files: list[Path], errors: list[str]) -> int:
+    """Resolve every explicit content/wp-3-magnum path, including JSON values."""
+
+    checked = 0
+    for source in files:
+        text = source.read_text(encoding="utf-8")
+        for match in STAGING_PATH.finditer(text):
+            candidate = match.group(1).rstrip(".,;:)")
+            checked += 1
+            resolved = (REPOSITORY / candidate).resolve()
+            if not inside_repository(resolved) or not resolved.exists():
+                errors.append(f"{source.relative_to(REPOSITORY)}: missing staging path: {candidate}")
+    return checked
+
+
 def main() -> int:
     files = sorted(path for path in ROOT.rglob("*") if path.suffix in {".md", ".json"})
     errors: list[str] = []
     local_links = check_local_links(files, errors)
-    governed_paths = check_governed_paths(files, errors)
+    source_register = ROOT / "sources" / "source-register.md"
+    governed_files = [path for path in files if path != source_register]
+    governed_paths = check_governed_paths(governed_files, errors)
+    source_register_paths = check_governed_paths([source_register], errors)
+    staging_paths = check_staging_paths(files, errors)
     if errors:
         print("Local reference check failed:", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print(f"Local reference check passed: {local_links} relative links; {governed_paths} governed paths")
+    print(
+        "Local reference check passed: "
+        f"{local_links} relative links; {governed_paths} governed paths; "
+        f"{source_register_paths} source-register paths; {staging_paths} staging paths"
+    )
     return 0
 
 

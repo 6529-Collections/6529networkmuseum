@@ -1,6 +1,6 @@
 {
   "local_profile": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2",
-  "status": "staging_content_ready_for_wp1_rebase",
+  "status": "staging_typed_projection_ready_for_wp1_rebase",
   "content_root": "content/wp-3-magnum",
   "content_root_role": "construction_staging_only",
   "final_public_namespace": null,
@@ -20,25 +20,48 @@
   "curated_acquisition_id": "6529NM-CA-2026-003",
   "proposed_gift_id": "6529NM-PG-2026-001",
   "live_governance_observation": {
+    "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
     "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
     "serial_no": 1276093,
-    "drop_type": "PARTICIPATORY",
+    "drop_type": "WINNER",
     "rank": 1,
-    "realtime_rating": 122969240,
+    "realtime_rating": 121603214,
     "rater_count": 29,
-    "observed_at": "2026-08-08T09:06:07.985Z",
-    "selection_established": false
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "selection_established": true,
+    "public_status": "Selected by Museum Wave; acquisition review in progress",
+    "lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress",
+    "prior_observation": {
+      "drop_type": "PARTICIPATORY",
+      "rank": 1,
+      "realtime_rating": 122969240,
+      "rater_count": 29,
+      "observed_at": "2026-08-08T09:06:07.985Z",
+      "historical_only": true,
+      "selection_established": false
+    },
+    "status_boundary": [
+      "formal acceptance",
+      "donor authority",
+      "transfer and legal title",
+      "Museum custody",
+      "rights clearance",
+      "technical review",
+      "preservation completion",
+      "accession",
+      "permanent Collection membership"
+    ]
   },
   "wp1_admission_contract": {
     "contract_owner": "WP-1",
-    "contract_state": "required_on_rebase_before_ready_pr",
-    "canonical_work_id_assignment": "WP-1 assigns acquisition-independent stable Work IDs; this corpus assigns none.",
+    "contract_state": "typed_projection_prepared_against_wp1_commit_61ec035",
+    "canonical_work_id_assignment": "WP-1 owns governed Work admission; this staging projection is pre-bound to the committed acquisition-independent IDs 6529NM-W-0024 through 6529NM-W-0028.",
     "canonical_release_manifest": "release-artifacts/latest/record-manifest.json",
     "admission_requirements": [
       "Admit the Organization, Project, five Artists, five Works, Curated Acquisition, Research Publications, Media References, and declared relations as one coherent publication group.",
       "Add the content root and its reviewed machine projections to the release/manifest under the WP-1 contract without changing shared schemas or controlled vocabularies here.",
-      "Map each Work's proposal object alias, token CAIP-19, archive number, token component, metadata component, source-image component, and historical Wave manifestation to the WP-1 Work entity.",
-      "Use Work lifecycle proposed_in_museum_wave and collection membership not_in_collection.",
+      "Map each Work's final WP-1 ID, proposal object alias, token CAIP-19, archive number, token component, metadata component, source-image component, and historical Wave manifestation.",
+      "Use the WP-1 Work lifecycle selected_by_museum_wave_acquisition_review_in_progress and collection membership not_in_collection; retain the proposal-origin observation in lifecycle history.",
       "Keep accession, title binding, custody, condition, preservation, and object-record admission as later records; do not manufacture them in this projection.",
       "Bind the admitted release group to the exact reviewed commit and regenerated manifest."
     ]
@@ -66,18 +89,24 @@
   "entity_projections": {
     "organization": {
       "slug": "magnum-photos",
-      "canonical_id": null,
+      "canonical_id": "6529NM-ORG-0002",
       "page": "entities/magnum-photos.md",
       "admit_as": "Organization"
     },
     "project": {
       "slug": "magnum-photos-75",
-      "canonical_id": null,
+      "canonical_id": "6529NM-PRJ-0006",
       "page": "entities/magnum-photos-75.md",
       "admit_as": "Project or Series"
     },
     "artists": {
-      "canonical_ids": null,
+      "canonical_ids": [
+        "6529NM-ART-0017",
+        "6529NM-ART-0018",
+        "6529NM-ART-0019",
+        "6529NM-ART-0020",
+        "6529NM-ART-0021"
+      ],
       "admit_as": "Artist",
       "pages": [
         "artists/david-seymour.md",
@@ -88,10 +117,16 @@
       ]
     },
     "works": {
-      "canonical_ids": null,
-      "id_owner": "WP-1",
+      "canonical_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ],
+      "id_owner": "WP-1 governed public entity contract",
       "admit_as": "Work",
-      "lifecycle": "proposed_in_museum_wave",
+      "lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
       "collection_membership": "not_in_collection",
       "projection_file": "machine/work-projections.json",
       "pages": [
@@ -106,7 +141,7 @@
       "id": "6529NM-CA-2026-003",
       "admit_as": "Curated Acquisition",
       "page": "entities/conflict-at-its-edges.md",
-      "state": "proposed_in_museum_wave"
+      "state": "selected_by_museum_wave_acquisition_review_in_progress"
     },
     "research_publications": {
       "admit_as": "Research Publication",
@@ -127,6 +162,83 @@
     "Curated Acquisition 6529NM-CA-2026-003 proposes the exact five Works under Proposed Gift 6529NM-PG-2026-001.",
     "Each Work is manifested by a token component, token metadata component, upstream source-image component, and historical Wave media reference.",
     "Research Publications interpret and cite the Organization, Project, Artists, Works, Curated Acquisition, and Evidence Sources."
+  ],
+  "typed_relation_dependencies": [
+    {
+      "relation_type": "ORGANIZATION_ORIGINATES_PROJECT",
+      "source_entity_id": "6529NM-ORG-0002",
+      "target_entity_id": "6529NM-PRJ-0006"
+    },
+    {
+      "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
+      "source_entity_id": "6529NM-PRJ-0006",
+      "target_entity_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ]
+    },
+    {
+      "relation_type": "ARTIST_CREATES_WORK",
+      "source_entity_ids": [
+        "6529NM-ART-0017",
+        "6529NM-ART-0018",
+        "6529NM-ART-0019",
+        "6529NM-ART-0020",
+        "6529NM-ART-0021"
+      ],
+      "target_entity_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ],
+      "ordered_pairs": [
+        ["6529NM-ART-0017", "6529NM-W-0024"],
+        ["6529NM-ART-0018", "6529NM-W-0025"],
+        ["6529NM-ART-0019", "6529NM-W-0026"],
+        ["6529NM-ART-0020", "6529NM-W-0027"],
+        ["6529NM-ART-0021", "6529NM-W-0028"]
+      ]
+    },
+    {
+      "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
+      "source_entity_id": "6529NM-CA-2026-003",
+      "target_entity_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ]
+    },
+    {
+      "relation_type": "ENTITY_HAS_MEDIA",
+      "target_entity_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ],
+      "media_entity_ids": [
+        "6529NM-MED-0003",
+        "6529NM-MED-0041",
+        "6529NM-MED-0042",
+        "6529NM-MED-0043",
+        "6529NM-MED-0044"
+      ],
+      "ordered_pairs": [
+        ["6529NM-W-0024", "6529NM-MED-0003"],
+        ["6529NM-W-0025", "6529NM-MED-0041"],
+        ["6529NM-W-0026", "6529NM-MED-0042"],
+        ["6529NM-W-0027", "6529NM-MED-0043"],
+        ["6529NM-W-0028", "6529NM-MED-0044"]
+      ]
+    }
   ],
   "acquisition_boundary": {
     "accession_id": null,

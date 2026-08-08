@@ -11,17 +11,18 @@ manufactured here.
 
 ## Technical identity schedule
 
-| Work | Proposal alias | Token / curation | CAIP-19 | Archive reference |
-| --- | --- | --- | --- | --- |
-| David Seymour, *Patrolling the border between the Negev Desert and Jordan* | `6529NM-PG-2026-001.OBJ-001` | `127`; `2/3`; `127/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127` | `SED1952003W00003/23` |
-| Larry Towell, *Government soldiers in a church, Suchitoto, El Salvador* | `6529NM-PG-2026-001.OBJ-002` | `145`; `2/3`; `145/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145` | `TOL1986003W00045/26` |
-| Micha Bar-Am, *Demonstration, Western Wall, Jerusalem* | `6529NM-PG-2026-001.OBJ-003` | `97`; `2/3`; `97/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97` | `BAM1989009W02477/26C` |
-| Moisés Saman, *Tripoli, Libya* | `6529NM-PG-2026-001.OBJ-004` | `44`; `1/3`; `44/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44` | `SAM2011005H2503/5482` |
-| Lorenzo Meloni, *Palmyra, Syria* | `6529NM-PG-2026-001.OBJ-005` | `104`; `2/3`; `104/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104` | `MEL2016002G0401/4032` |
+| Public Work | Work | Proposal alias | Token / curation | CAIP-19 | Archive reference |
+| --- | --- | --- | --- | --- | --- |
+| `6529NM-W-0024` | David Seymour, *Patrolling the border between the Negev Desert and Jordan* | `6529NM-PG-2026-001.OBJ-001` | `127`; `2/3`; `127/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127` | `SED1952003W00003/23` |
+| `6529NM-W-0025` | Larry Towell, *Government soldiers in a church, Suchitoto, El Salvador* | `6529NM-PG-2026-001.OBJ-002` | `145`; `2/3`; `145/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145` | `TOL1986003W00045/26` |
+| `6529NM-W-0026` | Micha Bar-Am, *Demonstration, Western Wall, Jerusalem* | `6529NM-PG-2026-001.OBJ-003` | `97`; `2/3`; `97/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97` | `BAM1989009W02477/26C` |
+| `6529NM-W-0027` | Moisés Saman, *Tripoli, Libya* | `6529NM-PG-2026-001.OBJ-004` | `44`; `1/3`; `44/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44` | `SAM2011005H2503/5482` |
+| `6529NM-W-0028` | Lorenzo Meloni, *Palmyra, Syria* | `6529NM-PG-2026-001.OBJ-005` | `104`; `2/3`; `104/225` | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104` | `MEL2016002G0401/4032` |
 
-The proposal aliases above are source-package identifiers. They are not public
-Work entity IDs. WP-1 assigns acquisition-independent Work IDs on rebase and
-retains these aliases as typed references.
+The Work IDs above are the acquisition-independent identities supplied by the
+WP-1 committed projection. Proposal aliases remain typed source-package
+references; they are not accession numbers and do not replace the governed Work
+records that the release integration will admit.
 
 | Work | Metadata URI | Source-image URI | Observed JPEG bytes | Dimensions | SHA-256 |
 | --- | --- | --- | ---: | --- | --- |
@@ -84,9 +85,9 @@ Collection publication remain outside the current permission boundary.
 
 | Record or fact | Current state |
 | --- | --- |
-| Public Work lifecycle | `proposed_in_museum_wave` |
+| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` |
 | Collection membership | `not_in_collection` |
-| Canonical Work IDs | Assigned by WP-1 on rebase; no local IDs manufactured |
+| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` in the WP-1 committed projection; governed release admission remains pending |
 | Curated Acquisition | `6529NM-CA-2026-003` |
 | Proposed gift | `6529NM-PG-2026-001` |
 | Accession number | None |

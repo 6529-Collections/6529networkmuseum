@@ -127,5 +127,5 @@ later component-specific permission and review.
 
 [^1]: Magnum Photos 75 project record and token metadata, sources [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^2]: Archived official Magnum launch page, source [S04](../sources/source-register.md).
-[^3]: Second-release reporting and issuer metadata, sources [S05](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
+[^3]: Second-release reporting and issuer metadata, sources [S05](../sources/source-register.md), [S40](../sources/source-register.md), and [S10–S14](../sources/source-register.md).
 [^4]: The Museum’s reading of Cartagena’s first curation is grounded in the archived launch page, source [S04](../sources/source-register.md). Foundation snapshot, project chronology, and local proposal/governance records are sources [S06–S07](../sources/source-register.md) and [S37](../sources/source-register.md). The 148/149 reconciliation is retained as an observation-boundary note in the WP-3 research handoff.

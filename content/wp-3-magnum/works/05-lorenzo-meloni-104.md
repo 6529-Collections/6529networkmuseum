@@ -5,6 +5,7 @@
 | Field | Museum proposal value |
 | --- | --- |
 | Proposal | *Conflict at Its Edges* / `6529NM-PG-2026-001` |
+| Public Work | `6529NM-W-0028` |
 | Artist | Lorenzo Meloni |
 | Date / place | 1 April 2016; Palmyra, Syria |
 | Archive reference | `MEL2016002G0401/4032` |
@@ -13,7 +14,7 @@
 | Metadata / image | [metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) / [Wave-source image URL](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) |
 | Observed image | JPEG, 5,964 × 4,768 px; SHA-256 `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
 | Rights notice | `© Lorenzo Meloni/Magnum Photos 2022 All Rights Reserved`; token transfer: no copyright/reproduction grant asserted |
-**Proposed in the Museum Wave · Outside the permanent Collection.**
+**Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection.**
 
 The identity and technical fields are drawn from the proposal package and token
 record; the date is linked to the exact contemporary caption. The image is a
@@ -94,5 +95,5 @@ route or soldier (with sensitive identity details handled restrictively), and
 the rights party for future Museum use.
 
 [^1]: UNESCO heritage documentation, source [S32](../sources/source-register.md).
-[^2]: TIME and AFP contemporary reporting, source [S31](../sources/source-register.md).
+[^2]: TIME and AFP contemporary reporting, sources [S31](../sources/source-register.md) and [S41](../sources/source-register.md).
 [^3]: Magnum and GOST project/publication records, source [S30](../sources/source-register.md).

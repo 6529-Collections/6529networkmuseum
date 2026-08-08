@@ -7,13 +7,13 @@ Wave Storm proposal for *Conflict at Its Edges*. It is a public research and
 credit record for the proposal presentation. The URLs remain upstream source
 locators; the Museum repository retains no copy of the five photographs.
 
-| Work | Proposal part | Exact source URL | Credit in signed proposal |
-| --- | ---: | --- | --- |
-| David Seymour, Negev, 1952 | 2 | [JPEG](https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM) | David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022. |
-| Larry Towell, Suchitoto, 1986 | 3 | [JPEG](https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE) | Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022. |
-| Micha Bar-Am, Jerusalem, 1989 | 4 | [JPEG](https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4) | Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022. |
-| Moisés Saman, Tripoli, 2011 | 5 | [JPEG](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) | Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022. |
-| Lorenzo Meloni, Palmyra, 2016 | 6 | [JPEG](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) | Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022. |
+| Public Work | Work | Proposal part | Exact source URL | Credit in signed proposal |
+| --- | --- | ---: | --- | --- |
+| `6529NM-W-0024` | David Seymour, Negev, 1952 | 2 | [JPEG](https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM) | David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022. |
+| `6529NM-W-0025` | Larry Towell, Suchitoto, 1986 | 3 | [JPEG](https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE) | Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022. |
+| `6529NM-W-0026` | Micha Bar-Am, Jerusalem, 1989 | 4 | [JPEG](https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4) | Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022. |
+| `6529NM-W-0027` | Moisés Saman, Tripoli, 2011 | 5 | [JPEG](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) | Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022. |
+| `6529NM-W-0028` | Lorenzo Meloni, Palmyra, 2016 | 6 | [JPEG](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) | Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022. |
 
 Every row carries the signed proposal’s `All Rights Reserved` label. In the
 proposal context, the exact source URL may be shown with the credit and the

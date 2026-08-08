@@ -380,12 +380,22 @@ copyright chain.
   `records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md`.
 - **Live observation:** drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial
   `1276093`, `drop_type PARTICIPATORY`, observed by `punk6529bot` at
-  `2026-08-08T09:06:07.985Z` UTC.
+  `2026-08-08T09:06:07.985Z` UTC. This is historical-only after the later
+  authenticated readback.
+- **Canonical current observation:** the authenticated readback at
+  `2026-08-08T10:15:02.0167151Z` UTC reports the same drop as signed
+  `WINNER`, rank `1`, realtime rating `121603214`, and `29` raters. Its public
+  status is **Selected by Museum Wave; acquisition review in progress**. The
+  observation does not establish formal acceptance, donor authority, transfer,
+  title, custody, rights clearance, technical or preservation completion,
+  accession, or Collection membership.
 - **Type / class:** Museum constructed proposal plus live governance source / A-B.
 - **Supports:** exact decision unit, five objects, proposal boundary, retained
   block observation, package fixity, media labels, and current status.
 - **Limit:** the proposal package is not an accession; the live status is
-  mutable and must be refreshed before future reporting.
+  mutable and must be refreshed before future reporting. The 10:15:02
+  observation is the canonical current status observation; the 09:06:07
+  observation is historical-only.
 
 ### S38 — Signed Wave Storm historical presentation media
 
@@ -419,6 +429,68 @@ copyright chain.
 - **Limit:** ICP’s exhibition and program are an institutional interpretation;
   they are not a complete legal or social history of Magnum and do not resolve
   any proposed object’s title or rights.
+
+### S40 — Digital Camera World second-release report
+
+- **Source:** Sebastian Oakley, “Magnum Photos drops its second 75-piece NFT
+  collection,” *Digital Camera World*, 1 December 2022.
+- **URL:** <https://www.digitalcameraworld.com/news/magnum-photos-drops-its-second-75-piece-nft-collection>
+- **Type / class:** contemporary project reporting / D.
+- **Supports:** the reported second 75-image release, Azu Nwagbogu’s dialogue
+  with Magnum, and the six-drop schedule ending 13 December 2022.
+- **Limit:** reporting is not a first-party release ledger and does not prove
+  that every announced image was minted or that a third curation was released.
+
+### S41 — AFP Palmyra access account
+
+- **Source:** Maher Al-Mounes, “Writing history in Palmyra,” Agence France-Presse,
+  1 April 2016.
+- **URL:** <https://correspondent.afp.com/writing-history-palmyra>
+- **Type / class:** contemporary eyewitness agency report / D.
+- **Supports:** the reporter’s account of an army minder, mined ruins, mine
+  warnings, and permission to enter on the condition that journalists follow
+  army directions.
+- **Limit:** this is AFP’s reporter account of access, not a caption or proof
+  that every described condition belongs to Meloni’s exact frame. TIME’s
+  separate report remains the source for Meloni’s permissioned visit and
+  shadowing of government forces.
+
+### S42 — United Nations Israel–Jordan armistice agreement
+
+- **Source:** United Nations Acting Mediator, “Israel-Jordan General Armistice
+  Agreement,” 3 April 1949.
+- **URLs:** <https://www.un.org/unispal/document/auto-insert-181069/>;
+  <https://digitallibrary.un.org/record/486014/files/S_1302_Rev.1-EN.pdf>
+- **Type / class:** intergovernmental primary agreement / B.
+- **Supports:** the date and terms of the 1949 General Armistice Agreement and
+  its armistice-demarcation framework.
+- **Limit:** it does not identify Seymour’s location, patrol, assignment, or
+  the incident depicted in the proposed frame.
+
+### S43 — United States Department of State 1952 border records
+
+- **Source:** Office of the Historian, *Foreign Relations of the United States,
+  1952–1954, The Near and Middle East*, documents on the Israel–Jordan frontier.
+- **URLs:** <https://history.state.gov/historicaldocuments/frus1952-54v09p1/d406>;
+  <https://history.state.gov/historicaldocuments/frus1952-54v09p1/d606>
+- **Type / class:** contemporary diplomatic primary record / B.
+- **Supports:** documented 1952 frontier conditions and the broader record of
+  Israel–Jordan border incidents after the 1949 armistice.
+- **Limit:** diplomatic reports are source-specific accounts and do not prove
+  the proposed photograph’s exact site, patrol, unit, or named incident.
+
+### S44 — Micha Bar-Am Archive biography and date clarification
+
+- **Source:** Micha Bar-Am Archive, press release for *The Last Photograph*,
+  July 2022.
+- **URL:** <https://michabaram.com/usr/documents/exhibitions/press_release_url/6/the-last-pohotograph-proposal_july2022.pdf>
+- **Type / class:** artist-archive biography / B.
+- **Supports:** establishment of the Tel Aviv Museum of Art photography
+  department in 1977 and service as Senior Curator of Photography through 1992;
+  the archive separately dates his Enrique Kavlin Lifetime Achievement Award to
+  1993.
+- **Limit:** a press release is not a complete employment file. The 1993 award
+  date must not be converted into a 1993 end date for the curatorial role.
 
 ## Open source requests
 

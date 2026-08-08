@@ -94,9 +94,10 @@ unresolved archive questions kept visible.
 
 The countercase also clarifies the value of the proposal’s present form. A
 public decision-facing page can show the art, the evidence, and the limits
-without converting uncertainty into a collection claim. If the offer is not
-selected, the research remains a useful archival record of a proposed group. If
-it advances, the same record gives the next review a precise starting point.
+without converting uncertainty into a collection claim. In the current
+selected-review phase, the same record gives the next review a precise starting
+point; if the review later closes without formal acceptance, it remains a useful
+archival record of the proposed group.
 
 ## The public proposal
 
@@ -107,9 +108,8 @@ The [Source and rights record](../dossiers/source-and-rights-record.md) keeps
 that presentation history distinct from a download, full-resolution delivery,
 derivative, IIIF service, preservation master, or Collection publication.
 
-At present, *Conflict at Its Edges* is a five-work proposal in the 6529 Network
-Museum Wave, labelled **Proposed in the Museum Wave** and outside the permanent
-Collection pending a future selection and acquisition record.[^2]
+At present, *Conflict at Its Edges* is selected by the Museum Wave with
+acquisition review in progress, and remains outside the permanent Collection.[^2]
 
 **Public credit:** Offered by punk6529.
 **Curated Acquisition:** `6529NM-CA-2026-003`

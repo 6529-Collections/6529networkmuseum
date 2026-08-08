@@ -2,14 +2,17 @@
 
 ## An institution built around the photographer’s agency
 
-Magnum Photos was founded in 1947 by Robert Capa, Henri Cartier-Bresson,
-George Rodger, and David “Chim” Seymour. Its postwar identity grew from the
-conviction that photographers should participate in deciding how their images
-were edited, distributed, and remembered. Magnum’s current institutional
-history presents the agency as an artists’ cooperative that has documented
-major events for more than seventy-five years, while its submissions page
-describes a photographer-owned, self-selecting organization with Nominee,
-Associate, and full Member stages.[^1]
+Magnum’s current institutional history names Robert Capa, Henri Cartier-Bresson,
+George Rodger, and David “Chim” Seymour as the four photographers who founded
+the agency in 1947. Other official Magnum biographies include William (Bill)
+Vandivert in the founding account, and Magnum’s historical profile describes
+Vandivert as an American who helped found the agency and soon left. Those are
+source-specific formulations, so this profile preserves the nuance rather than
+silently collapsing them into one roster. Magnum’s postwar identity grew from
+the conviction that photographers should participate in deciding how their
+images were edited, distributed, and remembered. Its submissions page describes
+a photographer-owned, self-selecting organization with Nominee, Associate, and
+full Member stages.[^1]
 
 That structure was a historical intervention in picture-agency economics. The
 photographer was not only a hired operator delivering negatives to an editor;
@@ -113,7 +116,7 @@ referenced in the proposal context with their supplied credits. See the
 reference does not establish a general licence for Collection publication,
 download, derivatives, IIIF, or preservation.
 
-[^1]: Magnum Photos, institutional history and submissions page, sources [S01–S02](../sources/source-register.md).
+[^1]: Magnum Photos, institutional history, photographer profiles, and submissions page, sources [S01–S03](../sources/source-register.md).
 [^2]: Magnum photographer biographies and project records, sources [S03](../sources/source-register.md) and [S17–S32](../sources/source-register.md).
 [^3]: World Press Photo caption and ethics guidance, source [S35](../sources/source-register.md); the ethical discussion here is Museum interpretation grounded in the five object records.
 [^4]: International Center of Photography, *Magnum Manifesto* and photobook symposium, source [S39](../sources/source-register.md).
