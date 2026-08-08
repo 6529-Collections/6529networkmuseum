@@ -83,6 +83,18 @@ MANIFEST_CANONICALIZATION = {
 }
 MANIFEST_ENTRY_KEYS = frozenset({"byte_mode", "path", "sha256", "size"})
 MANIFEST_JSON_ENTRY_KEYS = MANIFEST_ENTRY_KEYS | {"content_hash"}
+MUSEUM_ENVELOPE_KEYS = frozenset(
+    {
+        "recordType",
+        "subjectId",
+        "contentHash",
+        "uri",
+        "schemaId",
+        "signatureScheme",
+        "signatureHash",
+        "effectiveAt",
+    }
+)
 
 # Stream keeps recordType open/nonzero. These are Museum adapter pins, not a
 # claim that Stream itself has admitted these preimages to its family registry.
@@ -300,7 +312,65 @@ def _manifest_bytes(path: str, raw: bytes) -> tuple[bytes, str]:
     return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n"), "lf-normalized"
 
 
-def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
+def _git_manifest_inventory_paths(root: Path, source_commit: str) -> tuple[str, ...]:
+    """Return the exact governed regular-file inventory at one Git commit."""
+
+    try:
+        result = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(root),
+                "ls-tree",
+                "-r",
+                "-z",
+                source_commit,
+                "--",
+                *MANIFEST_INVENTORY_FILES,
+                *MANIFEST_INVENTORY_ROOTS,
+            ],
+            capture_output=True,
+            check=False,
+        )
+    except OSError as exc:
+        raise StreamAdapterError("exact B governed inventory could not be enumerated") from exc
+    if result.returncode:
+        raise StreamAdapterError("exact B governed inventory could not be enumerated")
+
+    paths: set[str] = set()
+    for raw_entry in result.stdout.split(b"\0"):
+        if not raw_entry:
+            continue
+        raw_metadata, separator, raw_path = raw_entry.partition(b"\t")
+        try:
+            metadata = raw_metadata.decode("ascii").split()
+            path = raw_path.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise StreamAdapterError("exact B governed inventory contains a non-UTF-8 path") from exc
+        if not separator or len(metadata) != 3:
+            raise StreamAdapterError("exact B governed inventory contains an invalid Git tree entry")
+        mode, object_type, _object_id = metadata
+        _safe_source_path(path)
+        parts = Path(path).parts
+        if any(part in {"__pycache__", ".pytest_cache", ".mypy_cache"} for part in parts):
+            continue
+        if Path(path).suffix.casefold() in {".pyc", ".pyo"}:
+            continue
+        if object_type != "blob" or mode not in {"100644", "100755"}:
+            raise StreamAdapterError(
+                f"exact B governed inventory entry is not one regular Git blob: {path}"
+            )
+        if path in paths:
+            raise StreamAdapterError(f"exact B governed inventory contains a duplicate path: {path}")
+        paths.add(path)
+    return tuple(sorted(paths))
+
+
+def _manifest_entries(
+    manifest: dict[str, Any],
+    *,
+    expected_paths: tuple[str, ...],
+) -> dict[str, dict[str, Any]]:
     if set(manifest) != MANIFEST_KEYS:
         raise StreamAdapterError("exact B manifest has an invalid root shape")
     if (
@@ -366,6 +436,8 @@ def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
         by_path[path] = entry
     if list(by_path) != sorted(by_path):
         raise StreamAdapterError("exact B manifest paths must be sorted")
+    if tuple(by_path) != expected_paths:
+        raise StreamAdapterError("exact B manifest does not exactly match the governed Git inventory")
 
     body = dict(manifest)
     manifest_sha256 = body.pop("manifest_sha256", None)
@@ -409,7 +481,10 @@ def _read_exact_source(
         _git_blob_bytes(root, source_commit, MANIFEST_PATH),
         "exact B manifest",
     )
-    entries = _manifest_entries(manifest)
+    entries = _manifest_entries(
+        manifest,
+        expected_paths=_git_manifest_inventory_paths(root, source_commit),
+    )
     manifest_entry = entries.get(source_path)
     if manifest_entry is None:
         raise StreamAdapterError("governed source path is not admitted by the exact B manifest")
@@ -602,6 +677,8 @@ def museum_envelope_to_stream_record(
 
     if not isinstance(envelope, dict):
         raise StreamAdapterError("Museum envelope must be an object")
+    if set(envelope) != MUSEUM_ENVELOPE_KEYS:
+        raise StreamAdapterError("Museum envelope must contain the exact eight CollectionRecord fields")
     normalized_source_root: Path | None = None
     if source_root is not None:
         if not isinstance(source_root, (str, Path)) or not str(source_root):

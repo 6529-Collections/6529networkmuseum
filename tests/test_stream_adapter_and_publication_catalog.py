@@ -77,6 +77,9 @@ class StreamAdapterTests(unittest.TestCase):
         record_path.parent.mkdir(parents=True, exist_ok=True)
         source_bytes = render_json({"envelope": envelope, "payload": payload})
         record_path.write_bytes(source_bytes)
+        companion_path = root / "records/entities/Z.txt"
+        companion_bytes = b"governed inventory companion\n"
+        companion_path.write_bytes(companion_bytes)
         manifest_path = root / "release-artifacts/latest/record-manifest.json"
         manifest_path.parent.mkdir(parents=True, exist_ok=True)
         normalized_source = source_bytes.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
@@ -88,13 +91,21 @@ class StreamAdapterTests(unittest.TestCase):
             "inventory_files": list(MANIFEST_INVENTORY_FILES),
             "hash_algorithms": {"keccak256": 1, "sha256": 2},
             "canonicalization": {"name": "RFC8785_JCS", "id": MUSEUM_JCS_ID, "profile": "museum-i-json-v1"},
-            "entries": [{
-                "path": source_path,
-                "size": len(normalized_source),
-                "sha256": sha256_prefixed(normalized_source),
-                "byte_mode": "lf-normalized",
-                "content_hash": {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(source_value)).hex(), "canonicalizationId": MUSEUM_JCS_ID},
-            }],
+            "entries": [
+                {
+                    "path": source_path,
+                    "size": len(normalized_source),
+                    "sha256": sha256_prefixed(normalized_source),
+                    "byte_mode": "lf-normalized",
+                    "content_hash": {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(source_value)).hex(), "canonicalizationId": MUSEUM_JCS_ID},
+                },
+                {
+                    "path": "records/entities/Z.txt",
+                    "size": len(companion_bytes),
+                    "sha256": sha256_prefixed(companion_bytes),
+                    "byte_mode": "lf-normalized",
+                },
+            ],
         }
         canonical_manifest_body = canonicalize(manifest_body)
         manifest = dict(manifest_body)
@@ -133,6 +144,12 @@ class StreamAdapterTests(unittest.TestCase):
         self.assertEqual(stream_record["signatureHash"], {"algorithm": 0, "digest": "0x", "canonicalizationId": ZERO32})
         reject_legacy_unsigned_placeholder(stream_record)
         self.assertEqual(stream_record_to_semantic_json(stream_record), stream_record)
+
+    def test_adapter_rejects_envelope_fields_outside_the_closed_schema(self) -> None:
+        envelope = self.museum_envelope()
+        envelope["futureField"] = "malformed"
+        with self.assertRaises(ValueError):
+            museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
 
     def test_adapter_requires_exact_immutable_source_binding_by_default(self) -> None:
         with self.assertRaises(ValueError):
@@ -278,6 +295,15 @@ class StreamAdapterTests(unittest.TestCase):
         def mutate_entry_shape(manifest: dict) -> None:
             manifest["entries"][0]["future"] = True
 
+        def mutate_unlisted_entry(manifest: dict) -> None:
+            invented = copy.deepcopy(manifest["entries"][0])
+            invented["path"] = "unlisted/evil.json"
+            manifest["entries"].append(invented)
+            manifest["entries"].sort(key=lambda entry: entry["path"])
+
+        def mutate_incomplete_inventory(manifest: dict) -> None:
+            manifest["entries"] = manifest["entries"][:1]
+
         def mutate_manifest_version(manifest: dict) -> None:
             manifest["manifest_version"] = "9.9.9"
 
@@ -307,6 +333,8 @@ class StreamAdapterTests(unittest.TestCase):
                 (mutate_manifest_root_shape, True),
                 (mutate_canonicalization_shape, True),
                 (mutate_entry_shape, True),
+                (mutate_unlisted_entry, True),
+                (mutate_incomplete_inventory, True),
                 (mutate_manifest_version, True),
                 (mutate_inventory_roots, True),
                 (mutate_inventory_files, True),
@@ -407,25 +435,12 @@ class StreamAdapterTests(unittest.TestCase):
         payload = {"record_id": "E", "value": "stable"}
         envelope = self.museum_envelope()
         envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
-        temporary, source_root, _source_commit = self.exact_source_repo(envelope, payload)
+        temporary, source_root, source_commit = self.exact_source_repo(envelope, payload)
         try:
-            manifest_path = source_root / "release-artifacts/latest/record-manifest.json"
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            manifest["entries"].insert(
-                0,
-                {
-                    "path": "docs/page.md",
-                    "size": 0,
-                    "sha256": "sha256:" + "0" * 64,
-                    "byte_mode": "lf-normalized",
-                },
-            )
-            self._recommit_manifest_body(manifest)
-            valid_non_json_commit = self._commit_manifest_mutation(source_root, manifest)
             self.assertEqual(
                 museum_envelope_to_stream_record(
                     envelope,
-                    source_commit=valid_non_json_commit,
+                    source_commit=source_commit,
                     source_path="records/entities/E.json",
                     source_payload=payload,
                     source_root=source_root,
