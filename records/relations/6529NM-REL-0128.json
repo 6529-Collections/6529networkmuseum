@@ -1,0 +1,65 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x2240672a71f39cee271ec403accb868b3d177cd0606655f6d9437eff4e4abaf0"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xf6036fe8c97215a84ace12d72db4017a6e74fd67b3ea752648343701d0302a31",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0128.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Casey Work presentation media relation",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:f0fab38f3e31ea71da08b4b7725550ab668095287b635adde453964c2d799922",
+    "qualifier": {
+      "media_context": "primary"
+    },
+    "record_id": "6529NM-REL-0128",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-MED-0012",
+      "6529NM-W-0003",
+      "6529NM.2026.001.03"
+    ],
+    "relation_id": "6529NM-REL-0128",
+    "relation_type": "ENTITY_HAS_MEDIA",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-W-0003",
+    "source_record_ids": [
+      "6529NM.2026.001.03"
+    ],
+    "subject_id": "6529NM-REL-0128",
+    "target_entity_id": "6529NM-MED-0012",
+    "visibility": "public"
+  }
+}

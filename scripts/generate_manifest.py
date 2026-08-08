@@ -43,6 +43,7 @@ INVENTORY_FILES = (
     "requirements-dev.txt",
 )
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+BINARY_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".woff", ".woff2", ".ttf"}
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -78,7 +79,7 @@ def prefixed(name: str, data: bytes) -> str:
 
 def normalized_bytes(path: Path) -> bytes:
     raw = path.read_bytes()
-    if path.suffix.lower() == ".webp":
+    if path.suffix.lower() in BINARY_EXTENSIONS:
         return raw
     return raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
@@ -149,7 +150,7 @@ def file_entry(root: Path, path: Path) -> dict[str, Any]:
         "path": relative,
         "size": len(normalized),
         "sha256": prefixed("sha256", hashlib.sha256(normalized).digest()),
-        "byte_mode": "raw" if path.suffix.lower() == ".webp" else "lf-normalized",
+        "byte_mode": "raw" if path.suffix.lower() in BINARY_EXTENSIONS else "lf-normalized",
     }
     if path.suffix.lower() == ".json":
         with path.open("r", encoding="utf-8") as handle:

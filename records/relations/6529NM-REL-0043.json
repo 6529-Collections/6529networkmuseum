@@ -1,0 +1,67 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xa050d3900fbd5fb0c29deba401ed07f821b8b89dd5edf2b110776a532789224c"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5fa30648203f373d891c802483d2541c19e7b3d9097163ed5d7eba07860baf91",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0043.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Magnum Photos 75 project context",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/03-larry-towell-145.md"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "payload_sha256": "sha256:dd2903a66675f0dddd83a29768c2d9c9da22133bca341bfbf438948443f5cb18",
+    "qualifier": {
+      "scope": "proposal_work_set"
+    },
+    "record_id": "6529NM-REL-0043",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002",
+      "6529NM-PRJ-0006",
+      "6529NM-W-0025"
+    ],
+    "relation_id": "6529NM-REL-0043",
+    "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-PRJ-0006",
+    "source_record_ids": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002"
+    ],
+    "subject_id": "6529NM-REL-0043",
+    "target_entity_id": "6529NM-W-0025",
+    "visibility": "public"
+  }
+}

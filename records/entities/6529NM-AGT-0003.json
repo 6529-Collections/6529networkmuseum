@@ -1,0 +1,130 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x632842c797515d2cca8e162925b76983ddd29483a26dc5fd8b624f3ed9efe3fb"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x3d98abbe173422533e1a9824b158fe55e60909ef785ccbdd02f9f1d61c41ad86",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AGT-0003.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-AGT-0003",
+    "entity_status": "review_pending",
+    "entity_type": "AGENT",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates outcome",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates outcome",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:a63d143284ed555c596c0ad098d540c288eef5320c72e63841b787fb5525a2fc",
+    "preferred_label": "HugoFaz",
+    "profile": {
+      "agent_kind": "PERSON",
+      "authority": {
+        "authority_record_ids": [],
+        "authority_status": "source_label_only",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Keys and Gates outcome",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
+            }
+          ],
+          "source_kind": "wave",
+          "value": "HugoFaz",
+          "variant_role": "preferred"
+        }
+      ],
+      "profile_type": "AGENT",
+      "role_contexts": [
+        "submitting artist label"
+      ]
+    },
+    "public_slug": null,
+    "record_id": "6529NM-AGT-0003",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-011"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-011"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates outcome",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates outcome",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-011.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-AGT-0003",
+    "visibility": "public"
+  }
+}

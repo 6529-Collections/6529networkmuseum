@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/public-entity-v1.json",
+  "title": "6529 Network Museum PUBLIC_ENTITY payload",
+  "$defs": {
+    "statusObservation": {
+      "type": "object",
+      "properties": {
+        "status_label": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "observed_at": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/dateTime"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["status_label", "observed_at", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "institutionProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "INSTITUTION"},
+        "institution_kind": {"enum": ["network_museum", "museum", "archive", "publisher"]},
+        "mission": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "authority": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/authority"},
+        "name_variants": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nameVariants"},
+        "collection_entity_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"}
+      },
+      "required": ["profile_type", "institution_kind", "mission", "authority", "name_variants", "collection_entity_id"],
+      "unevaluatedProperties": false
+    },
+    "collectionProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "COLLECTION"},
+        "collection_kind": {"enum": ["permanent_collection", "study_collection", "digital_collection"]},
+        "institution_entity_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"},
+        "membership_rule": {"const": "accession_only"},
+        "admitted_work_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "collection_kind", "institution_entity_id", "membership_rule", "admitted_work_entity_ids", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "agentProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "AGENT"},
+        "agent_kind": {"enum": ["PERSON", "COLLECTIVE", "PUBLISHER"]},
+        "authority": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/authority"},
+        "name_variants": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nameVariants"},
+        "role_contexts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"}}
+      },
+      "required": ["profile_type", "agent_kind", "authority", "name_variants", "role_contexts"],
+      "unevaluatedProperties": false
+    },
+    "artistProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "ARTIST"},
+        "authority": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/authority"},
+        "practice": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/practice"},
+        "name_variants": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nameVariants"}
+      },
+      "required": ["profile_type", "authority", "practice", "name_variants"],
+      "unevaluatedProperties": false
+    },
+    "organizationProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "ORGANIZATION"},
+        "organization_kind": {"enum": ["platform", "publisher", "museum", "archive", "collective", "rights_holder"]},
+        "history_summary": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "roles": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"}},
+        "authority": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/authority"},
+        "name_variants": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nameVariants"}
+      },
+      "required": ["profile_type", "organization_kind", "history_summary", "roles", "authority", "name_variants"],
+      "unevaluatedProperties": false
+    },
+    "workProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "WORK"},
+        "creator_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "title": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "creation_date": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/creationDate"},
+        "medium": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "work_lifecycle_status": {"enum": ["proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program", "acquisition_pending", "acquisition_complete", "accession_review_in_progress", "accessioned", "closed_without_selection", "withdrawn", "not_established"]},
+        "current_museum_relation": {
+          "type": "object",
+          "properties": {
+            "museum_entity_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"},
+            "relation_status": {"enum": ["permanent_collection", "selected_by_museum_wave", "selected_through_acquisition_program", "proposed_in_wave", "not_established"]},
+            "as_of": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/dateTime"},
+            "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+          },
+          "required": ["museum_entity_id", "relation_status", "as_of", "evidence_refs"],
+          "unevaluatedProperties": false
+        },
+        "mint_fact": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/independentFact"},
+        "collection_membership": {
+          "type": "object",
+          "properties": {
+            "status": {"enum": ["permanent_collection", "not_in_collection", "not_established"]},
+            "collection_entity_id": {"anyOf": [{"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"}, {"type": "null"}]},
+            "accession_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+            "source_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
+            "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+          },
+          "required": ["status", "collection_entity_id", "accession_entity_ids", "source_record_ids", "evidence_refs"],
+          "unevaluatedProperties": false,
+          "allOf": [
+            {"if": {"properties": {"status": {"const": "permanent_collection"}}, "required": ["status"]}, "then": {"properties": {"collection_entity_id": {"type": "string"}, "accession_entity_ids": {"minItems": 1}}}},
+            {"if": {"properties": {"status": {"const": "not_in_collection"}}, "required": ["status"]}, "then": {"properties": {"collection_entity_id": {"type": "null"}, "accession_entity_ids": {"maxItems": 0}}}}
+          ]
+        },
+        "project_or_series_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "acquisition_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "program_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "accession_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "lifecycle_observations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/lifecycleObservation"}},
+        "component_references": {"type": "array", "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/typedReference"}},
+        "manifestation_references": {"type": "array", "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/typedReference"}},
+        "identity_boundary": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "creator_entity_ids", "title", "creation_date", "medium", "work_lifecycle_status", "current_museum_relation", "mint_fact", "collection_membership", "project_or_series_entity_ids", "acquisition_entity_ids", "program_entity_ids", "accession_entity_ids", "lifecycle_observations", "component_references", "manifestation_references", "identity_boundary", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "projectSeriesProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "PROJECT_OR_SERIES"},
+        "project_type": {"enum": ["project", "series", "study_group", "proposal_work_set"]},
+        "project_relation_basis": {"enum": ["artist_defined", "museum_curatorial_grouping", "source_project_record", "proposal_work_set"]},
+        "scope_statement": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "agent_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "work_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "ownership_boundary": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "source_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "project_type", "project_relation_basis", "scope_statement", "agent_entity_ids", "work_entity_ids", "ownership_boundary", "source_record_ids", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "programOrPathway": {
+      "type": "object",
+      "properties": {
+        "kind": {"enum": ["acquisition_program", "museum_wave_proposal", "standing_pathway"]},
+        "entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "source_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"}
+      },
+      "required": ["kind", "entity_ids", "source_record_ids"],
+      "unevaluatedProperties": false,
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "acquisition_program"}}, "required": ["kind"]}, "then": {"properties": {"entity_ids": {"minItems": 1}}}}
+      ]
+    },
+    "curatedAcquisitionProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "CURATED_ACQUISITION"},
+        "title": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "thesis": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "acquisition_method": {"enum": ["donation", "purchase", "bequest", "exchange", "transfer"]},
+        "program_or_pathway": {"$ref": "#/$defs/programOrPathway"},
+        "work_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "source_work_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
+        "lifecycle": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/curatedAcquisitionLifecycle"},
+        "lifecycle_observations": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/lifecycleObservation"}},
+        "collection_effect": {"enum": ["permanent_collection", "none", "not_established", "accession_review_in_progress"]},
+        "independent_acquisition_facts": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/independentAcquisitionFacts"},
+        "public_credit": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "title", "thesis", "acquisition_method", "program_or_pathway", "work_entity_ids", "source_work_record_ids", "lifecycle", "lifecycle_observations", "collection_effect", "independent_acquisition_facts", "public_credit", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "acquisitionProgramProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "ACQUISITION_PROGRAM"},
+        "program_kind": {"enum": ["standing_pathway", "wave_program", "themed_program", "donation_pathway"]},
+        "program_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/id"},
+        "authority_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
+        "rules_summary": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "program_status": {"enum": ["draft", "active", "open_call", "selection_complete_acquisition_and_accession_unverified", "acquisition_in_progress", "complete", "closed"]},
+        "produced_acquisition_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "selected_outcome_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "program_kind", "program_id", "authority_record_ids", "rules_summary", "program_status", "produced_acquisition_entity_ids", "selected_outcome_record_ids", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "accessionProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "ACCESSION"},
+        "accession_number": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}$"},
+        "accession_status": {"enum": ["complete", "incomplete", "review_in_progress"]},
+        "admitted_work_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "source_accession_record_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/id"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "accession_number", "accession_status", "admitted_work_entity_ids", "source_accession_record_id", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "publicationProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "RESEARCH_PUBLICATION"},
+        "publication_kind": {"enum": ["catalogue_essay", "research_note", "technical_report", "collection_essay", "source_register"]},
+        "title": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "publication_date": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/date"},
+        "version": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "author_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "subject_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
+        "publication_document_uri": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
+      },
+      "required": ["profile_type", "publication_kind", "title", "publication_date", "version", "author_entity_ids", "subject_entity_ids", "publication_document_uri", "evidence_refs"],
+      "unevaluatedProperties": false
+    },
+    "mediaProfile": {
+      "type": "object",
+      "properties": {
+        "profile_type": {"const": "MEDIA_REFERENCE"},
+        "media": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/mediaReference"}
+      },
+      "required": ["profile_type", "media"],
+      "unevaluatedProperties": false
+    },
+    "reservedExhibitionProfile": {
+      "type": "object",
+      "properties": {"profile_type": {"const": "EXHIBITION"}, "reservation_status": {"const": "reserved"}},
+      "required": ["profile_type", "reservation_status"],
+      "unevaluatedProperties": false
+    }
+  },
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "PUBLIC_ENTITY"},
+        "schema_id": {"const": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9"},
+        "entity_id": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityId"},
+        "entity_type": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityType"},
+        "preferred_label": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
+        "public_slug": {"anyOf": [{"type": "string", "pattern": "^[A-Za-z0-9]+(?:[A-Za-z0-9._-]*[A-Za-z0-9])?$"}, {"type": "null"}]},
+        "canonical_route": {"anyOf": [{"type": "string", "pattern": "^/museum/network$|^/museum/network/collection$|^/museum/network/(?:artists|organizations|projects|acquisitions|research|works|acquisition-programs)/[A-Za-z0-9][A-Za-z0-9._-]*$"}, {"type": "null"}]},
+        "page_exposure": {"enum": ["canonical_page", "relational_only", "reserved_no_instance"]},
+        "entity_status": {"enum": ["published", "review_pending", "archived"]},
+        "status_observation": {"$ref": "#/$defs/statusObservation"},
+        "source_record_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/sourceRecordIds"},
+        "references": {"type": "array", "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}},
+        "media_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/entityIds"},
+        "profile": {
+          "type": "object",
+          "oneOf": [
+            {"$ref": "#/$defs/institutionProfile"},
+            {"$ref": "#/$defs/collectionProfile"},
+            {"$ref": "#/$defs/agentProfile"},
+            {"$ref": "#/$defs/artistProfile"},
+            {"$ref": "#/$defs/organizationProfile"},
+            {"$ref": "#/$defs/workProfile"},
+            {"$ref": "#/$defs/projectSeriesProfile"},
+            {"$ref": "#/$defs/curatedAcquisitionProfile"},
+            {"$ref": "#/$defs/acquisitionProgramProfile"},
+            {"$ref": "#/$defs/accessionProfile"},
+            {"$ref": "#/$defs/publicationProfile"},
+            {"$ref": "#/$defs/mediaProfile"},
+            {"$ref": "#/$defs/reservedExhibitionProfile"}
+          ],
+          "unevaluatedProperties": false
+        }
+      },
+      "required": ["record_type", "schema_id", "entity_id", "entity_type", "preferred_label", "public_slug", "canonical_route", "page_exposure", "entity_status", "status_observation", "source_record_ids", "references", "profile"],
+      "oneOf": [
+        {"properties": {"entity_type": {"const": "INSTITUTION"}, "profile": {"$ref": "#/$defs/institutionProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "COLLECTION"}, "profile": {"$ref": "#/$defs/collectionProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "AGENT"}, "profile": {"$ref": "#/$defs/agentProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "ARTIST"}, "profile": {"$ref": "#/$defs/artistProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "ORGANIZATION"}, "profile": {"$ref": "#/$defs/organizationProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "WORK"}, "profile": {"$ref": "#/$defs/workProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "PROJECT_OR_SERIES"}, "profile": {"$ref": "#/$defs/projectSeriesProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "CURATED_ACQUISITION"}, "profile": {"$ref": "#/$defs/curatedAcquisitionProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "ACQUISITION_PROGRAM"}, "profile": {"$ref": "#/$defs/acquisitionProgramProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "ACCESSION"}, "profile": {"$ref": "#/$defs/accessionProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "RESEARCH_PUBLICATION"}, "profile": {"$ref": "#/$defs/publicationProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "MEDIA_REFERENCE"}, "profile": {"$ref": "#/$defs/mediaProfile"}}, "required": ["entity_type", "profile"]},
+        {"properties": {"entity_type": {"const": "EXHIBITION"}, "profile": {"$ref": "#/$defs/reservedExhibitionProfile"}}, "required": ["entity_type", "profile"]}
+      ],
+      "allOf": [
+        {
+          "if": {"properties": {"entity_type": {"enum": ["INSTITUTION", "COLLECTION"]}}, "required": ["entity_type"]},
+          "then": {"properties": {"page_exposure": {"const": "canonical_page"}, "public_slug": {"type": "null"}, "canonical_route": {"type": "string"}}, "required": ["page_exposure", "public_slug", "canonical_route"]}
+        },
+        {
+          "if": {"properties": {"entity_type": {"enum": ["ARTIST", "ORGANIZATION", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "RESEARCH_PUBLICATION", "WORK"]}}, "required": ["entity_type"]},
+          "then": {"properties": {"page_exposure": {"const": "canonical_page"}, "public_slug": {"type": "string"}, "canonical_route": {"type": "string"}}, "required": ["page_exposure", "public_slug", "canonical_route"]}
+        },
+        {
+          "if": {"properties": {"entity_type": {"enum": ["AGENT", "ACCESSION", "MEDIA_REFERENCE"]}}, "required": ["entity_type"]},
+          "then": {"properties": {"page_exposure": {"const": "relational_only"}, "public_slug": {"type": "null"}, "canonical_route": {"type": "null"}}, "required": ["page_exposure", "public_slug", "canonical_route"]}
+        },
+        {
+          "if": {"properties": {"entity_type": {"const": "EXHIBITION"}}, "required": ["entity_type"]},
+          "then": {"properties": {"page_exposure": {"const": "reserved_no_instance"}, "public_slug": {"type": "null"}, "canonical_route": {"type": "null"}}, "required": ["page_exposure", "public_slug", "canonical_route"]}
+        },
+        {"if": {"properties": {"entity_type": {"const": "INSTITUTION"}}, "required": ["entity_type"]}, "then": {"properties": {"canonical_route": {"const": "/museum/network"}}}},
+        {"if": {"properties": {"entity_type": {"const": "COLLECTION"}}, "required": ["entity_type"]}, "then": {"properties": {"canonical_route": {"const": "/museum/network/collection"}}}}
+      ]
+    }
+  ],
+  "unevaluatedProperties": false
+}

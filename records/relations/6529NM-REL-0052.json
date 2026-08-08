@@ -1,0 +1,67 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xdefab630a8dc74f0bd40578036bd8635c488c3e0de142d606eb2088a767d9935"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x3714542d8cde689bee234b9dde1c7a7974fb8430bf10425284e44a2fe284b99b",
+    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0052.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Casey curated acquisition",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:63b01ee0d89ca5097d59f80fb29140f68ab10cd3c2c576dae549ef9492c0e22d",
+    "qualifier": {
+      "display_order": 3,
+      "scope": "museum_curatorial_grouping",
+      "selection_status": "selected"
+    },
+    "record_id": "6529NM-REL-0052",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-CA-2026-001",
+      "6529NM-W-0003",
+      "6529NM.2026.001.03"
+    ],
+    "relation_id": "6529NM-REL-0052",
+    "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-CA-2026-001",
+    "source_record_ids": [
+      "6529NM.2026.001.03"
+    ],
+    "subject_id": "6529NM-REL-0052",
+    "target_entity_id": "6529NM-W-0003",
+    "visibility": "public"
+  }
+}

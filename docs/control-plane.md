@@ -21,8 +21,10 @@ semantic checks. Schemas handle types, required fields, patterns, controlled
 values, and closed nested objects. `scripts/validate.py` handles the checks
 that need the whole repository or need to compare values:
 
-- the off-chain file has the exact Stream `CollectionRecord` envelope under
-  `envelope`; field names and order are not changed in the ABI-facing shape;
+- the off-chain file carries the Museum envelope under `envelope`; the
+  executable Stream adapter converts its readable record type, hash
+  references, URI, schema and subject identifiers, signature convention, and
+  effective time into the exact eight-field `CollectionRecord` ABI shape;
 - `payload.schema_id`, `envelope.schemaId`, and the pinned vocabulary agree;
 - `envelope.contentHash` is Keccak-256 over the payload's canonical JSON;
 - the subject is `keccak256("6529networkmuseum.subject.<record-type-lower>.v1:<subject_id>")`;
@@ -76,6 +78,25 @@ that need the whole repository or need to compare values:
   media manifest joins exactly to all sixteen selected outcomes, that every
   declared WebP exists with the committed raw-byte hash, size, geometry, and
   sRGB profile, and that no undeclared derivative is present.
+- `scripts/migrate_public_entities.py --check` verifies the deterministic
+  Stream-shaped public projection: 118 `PUBLIC_ENTITY` records, 153 closed
+  `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
+  (272 generated records in total).
+  The graph gate covers 21 Artist entities, 2 Organization entities, 6
+  Project/Series entities, 28 acquisition-independent Work entities, two
+  Acquisition Programs, exact slug/route families, typed Artist
+  creator relations, 7 Casey Collection memberships, 16 Keys and Gates
+  selections, and the five Magnum Work identities.
+- `tests/test_public_entity_layer.py` verifies that every Work has displayable
+  typed media, with 7 Casey, 16 Keys and Gates, and 5 signed-Wave Magnum
+  Work/media joins; it fails closed on cross-work media reuse, rights/affordance
+  expansion, generic image URLs, collection membership without accession,
+  proposal-as-method, route/profile mismatches, and nonexistent evidence paths.
+- The live Magnum status is an append-only observation. `WINNER` selection
+  advances `6529NM-CA-2026-003` and Works `6529NM-W-0024` through `0028` to
+  `selected_by_museum_wave_acquisition_review_in_progress`, while mint,
+  acceptance, transfer, title, custody, rights, technical/preservation,
+  accession, and Collection membership remain independent facts.
 
 The bootstrap layer additionally verifies that governance decisions reproduce
 the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,

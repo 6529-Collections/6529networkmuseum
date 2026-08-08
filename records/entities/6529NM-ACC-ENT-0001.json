@@ -1,0 +1,113 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x54c0998f835f57a46f68e571fca8100357ed74cb73c1902925bca5f35dbadc54"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xa1a0c158220054688a173d855a0f288246105ae66e568e5a45e565548f57eb6a",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ACC-ENT-0001.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-ACC-ENT-0001",
+    "entity_status": "review_pending",
+    "entity_type": "ACCESSION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:375ca6747fa177e8d7dbd454158f570d7a002026a1e2becc113af26f3a42b94a",
+    "preferred_label": "Casey Reas accession 6529NM.2026.001",
+    "profile": {
+      "accession_number": "6529NM.2026.001",
+      "accession_status": "complete",
+      "admitted_work_entity_ids": [
+        "6529NM-W-0001",
+        "6529NM-W-0002",
+        "6529NM-W-0003",
+        "6529NM-W-0004",
+        "6529NM-W-0005",
+        "6529NM-W-0006",
+        "6529NM-W-0007"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+        }
+      ],
+      "profile_type": "ACCESSION",
+      "source_accession_record_id": "6529NM-ACC-2026-001"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-ACC-ENT-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003",
+      "6529NM-W-0004",
+      "6529NM-W-0005",
+      "6529NM-W-0006",
+      "6529NM-W-0007",
+      "6529NM.2026.001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003",
+      "6529NM-W-0004",
+      "6529NM-W-0005",
+      "6529NM-W-0006",
+      "6529NM-W-0007",
+      "6529NM.2026.001"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ACC-ENT-0001",
+    "visibility": "public"
+  }
+}

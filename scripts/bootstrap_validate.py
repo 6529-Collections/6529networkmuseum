@@ -22,6 +22,9 @@ from proposed_gifts import proposed_gift_issues
 ROOT = Path(__file__).resolve().parents[1]
 GOVERNED_DIRS = ("policies", "records", "docs", "governance", "schemas", "specs")
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
+DERIVED_PUBLICATION_ARTIFACTS = {
+    Path("records/publication/visitor-corpus-bundle-v1.json")
+}
 LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 LOCAL_PATH = re.compile(r"(?:[A-Za-z]:[\\/](?:Users|repos)[\\/]|\\\\[A-Za-z0-9][A-Za-z0-9_.-]*[\\/][A-Za-z0-9][A-Za-z0-9_.-]*[\\/]|/(?:home|Users|root)/)")
 SECRET_PATTERNS = (
@@ -381,6 +384,8 @@ def check_record_controls(loaded: dict[Path, object]) -> None:
         record = loaded[path]
         if not isinstance(record, dict):
             fail(f"governed record must be an object: {path.relative_to(ROOT)}")
+        if path.relative_to(ROOT) in DERIVED_PUBLICATION_ARTIFACTS:
+            continue
         if record.get("$schema") == OFFCHAIN_ENVELOPE_SCHEMA:
             continue
         control = record.get("record_control")

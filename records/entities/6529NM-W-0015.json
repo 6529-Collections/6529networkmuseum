@@ -1,0 +1,214 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xcd81f43455a571f20413cb8f09ed848e2f207a7d556558774e4fb9a784cee932"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x1a0809dfa2151e5edb7c7d95be51bc0f48b8b0df7d196d48a573712d8e92ce4a",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0015.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/works/6529NM-W-0015",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-W-0015",
+    "entity_status": "review_pending",
+    "entity_type": "WORK",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates outcome",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+      }
+    ],
+    "media_entity_ids": [
+      "6529NM-MED-0027"
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:284bedff5c3659d3636c9803dccef3147bc140103fc4d36bfc0543ab2e796d00",
+    "preferred_label": "Dichotomy.",
+    "profile": {
+      "accession_entity_ids": [],
+      "acquisition_entity_ids": [
+        "6529NM-CA-2026-002"
+      ],
+      "collection_membership": {
+        "accession_entity_ids": [],
+        "collection_entity_id": null,
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Selected outcome is not an accession",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+          }
+        ],
+        "source_record_ids": [
+          "6529NM-AP-01-OUT-008"
+        ],
+        "status": "not_in_collection"
+      },
+      "component_references": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Selected outcome source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+            }
+          ],
+          "record_id": "6529NM-AP-01-OUT-008",
+          "reference_type": "component",
+          "registry_id": null,
+          "source_record_id": "6529NM-AP-01-OUT-008",
+          "source_status": "selected_unminted",
+          "target_kind": "authoritative_record",
+          "target_type": "PROGRAM_OUTCOME"
+        }
+      ],
+      "creation_date": {
+        "display": "not established",
+        "earliest": null,
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Keys and Gates outcome",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+          }
+        ],
+        "latest": null,
+        "status": "not_established"
+      },
+      "creator_entity_ids": [
+        "6529NM-ART-0009"
+      ],
+      "current_museum_relation": {
+        "as_of": "2026-08-01T15:03:35Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Keys and Gates selected-works index",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+          }
+        ],
+        "museum_entity_id": "6529NM-I-0001",
+        "relation_status": "selected_through_acquisition_program"
+      },
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates outcome",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+        }
+      ],
+      "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.",
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Lifecycle source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Lifecycle source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "The program selection remains a historical source outcome; minting, acquisition, accession, and Collection membership are independent facts.",
+          "observation_id": "6529NM-W-OBS-0015",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "source_record_ids": [
+            "6529NM-AP-01",
+            "6529NM-AP-01-OUT-008"
+          ],
+          "source_status": "selected_unminted",
+          "status": "selected_through_acquisition_program"
+        }
+      ],
+      "manifestation_references": [],
+      "medium": "photographic submission; final technical and identity state unverified",
+      "mint_fact": {
+        "as_of": "2026-08-01T15:03:35Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Source record",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+          }
+        ],
+        "notes": "The source outcome is selected_unminted; minting is an independent pending fact and does not establish acquisition or Collection membership.",
+        "status": "pending"
+      },
+      "profile_type": "WORK",
+      "program_entity_ids": [
+        "6529NM-AP-ENT-0002"
+      ],
+      "project_or_series_entity_ids": [],
+      "title": "Dichotomy.",
+      "work_lifecycle_status": "selected_through_acquisition_program"
+    },
+    "public_slug": "6529NM-W-0015",
+    "record_id": "6529NM-W-0015",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AGT-0009",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-ENT-0002",
+      "6529NM-CA-2026-002"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AGT-0009",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-ENT-0002",
+      "6529NM-CA-2026-002"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates outcome",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-008.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-W-0015",
+    "visibility": "public"
+  }
+}

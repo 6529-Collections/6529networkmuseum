@@ -1,0 +1,145 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xc66b8e459a201bfd3f871989ca9a26f177b9147d0e0ff91a7c9563f1c6c3ec7e"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xd6afff387c339767a01582012f719fb9f31d5de7ec6b0bf4e0a8fe8b46bbdee5",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AP-ENT-0002.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisition-programs/keys-and-gates",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-AP-ENT-0002",
+    "entity_status": "review_pending",
+    "entity_type": "ACQUISITION_PROGRAM",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates program record",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:a4e9e858c65211f44697f98cf8659ece7388ce765e23b3ae45645076684d7b12",
+    "preferred_label": "Keys and Gates",
+    "profile": {
+      "authority_record_ids": [
+        "6529NM-AP-01"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates program record",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        }
+      ],
+      "produced_acquisition_entity_ids": [
+        "6529NM-CA-2026-002"
+      ],
+      "profile_type": "ACQUISITION_PROGRAM",
+      "program_id": "6529NM-AP-01",
+      "program_kind": "themed_program",
+      "program_status": "selection_complete_acquisition_and_accession_unverified",
+      "rules_summary": "A 60-day photography program with TDH/WAVE selection, CC0 and consent terms, a planned 0.5 ETH purchase price per acquired work, quantity determined by Meme Card mints, and rank-order fallback.",
+      "selected_outcome_record_ids": [
+        "6529NM-AP-01-OUT-001",
+        "6529NM-AP-01-OUT-002",
+        "6529NM-AP-01-OUT-003",
+        "6529NM-AP-01-OUT-004",
+        "6529NM-AP-01-OUT-005",
+        "6529NM-AP-01-OUT-006",
+        "6529NM-AP-01-OUT-007",
+        "6529NM-AP-01-OUT-008",
+        "6529NM-AP-01-OUT-009",
+        "6529NM-AP-01-OUT-010",
+        "6529NM-AP-01-OUT-011",
+        "6529NM-AP-01-OUT-012",
+        "6529NM-AP-01-OUT-013",
+        "6529NM-AP-01-OUT-014",
+        "6529NM-AP-01-OUT-015",
+        "6529NM-AP-01-OUT-016"
+      ]
+    },
+    "public_slug": "keys-and-gates",
+    "record_id": "6529NM-AP-ENT-0002",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-001",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-003",
+      "6529NM-AP-01-OUT-004",
+      "6529NM-AP-01-OUT-005",
+      "6529NM-AP-01-OUT-006",
+      "6529NM-AP-01-OUT-007",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-01-OUT-009",
+      "6529NM-AP-01-OUT-010",
+      "6529NM-AP-01-OUT-011",
+      "6529NM-AP-01-OUT-012",
+      "6529NM-AP-01-OUT-013",
+      "6529NM-AP-01-OUT-014",
+      "6529NM-AP-01-OUT-015",
+      "6529NM-AP-01-OUT-016"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-001",
+      "6529NM-AP-01-OUT-002",
+      "6529NM-AP-01-OUT-003",
+      "6529NM-AP-01-OUT-004",
+      "6529NM-AP-01-OUT-005",
+      "6529NM-AP-01-OUT-006",
+      "6529NM-AP-01-OUT-007",
+      "6529NM-AP-01-OUT-008",
+      "6529NM-AP-01-OUT-009",
+      "6529NM-AP-01-OUT-010",
+      "6529NM-AP-01-OUT-011",
+      "6529NM-AP-01-OUT-012",
+      "6529NM-AP-01-OUT-013",
+      "6529NM-AP-01-OUT-014",
+      "6529NM-AP-01-OUT-015",
+      "6529NM-AP-01-OUT-016"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates program record",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-AP-ENT-0002",
+    "visibility": "public"
+  }
+}
