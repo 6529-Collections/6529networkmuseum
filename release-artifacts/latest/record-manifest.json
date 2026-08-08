@@ -32,7 +32,7 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:b6e79ee19250ca9a5b07a1507486056136ed6f18df0b830c86934a9aeae0f4c4",
+      "sha256": "sha256:d63b866d67329a95c29ce25185bc76bd7b5fb48c319aa7f044f9262274e4ba1d",
       "size": 7373
     },
     {
@@ -6177,9 +6177,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x6cc06765ded8e9b3de3f67fc5fed217dbc73ce0e2365721b0f43f174b1c2a8bd"
+    "digest": "0x137c8b62e3ee0f1c7146279d2da0fc5a395c9a7ae2061664cba674e3a2f622eb"
   },
-  "manifest_sha256": "sha256:c5cb42458a60c771818b27b455cdf1b08d7a0c4cc6b4c7ba6382ae56195c1c2f",
+  "manifest_sha256": "sha256:149637545d9821f50ff3919ad6a4b32bce68bfcd540bf55206ba3000d8cf6fa3",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
