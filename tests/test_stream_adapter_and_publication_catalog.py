@@ -264,6 +264,9 @@ class StreamAdapterTests(unittest.TestCase):
         def mutate_manifest_keccak(manifest: dict) -> None:
             manifest["manifest_commitment"]["digest"] = "0x" + "e" * 64
 
+        def mutate_manifest_commitment_shape(manifest: dict) -> None:
+            manifest["manifest_commitment"]["future"] = True
+
         def mutate_entry_path(manifest: dict) -> None:
             manifest["entries"][0]["path"] = "records/entities/other.json"
 
@@ -276,7 +279,13 @@ class StreamAdapterTests(unittest.TestCase):
         def mutate_entry_sha(manifest: dict) -> None:
             manifest["entries"][0]["sha256"] = "sha256:" + "d" * 64
 
-        mutations.extend(((mutate_manifest_sha, False), (mutate_manifest_keccak, False)))
+        mutations.extend(
+            (
+                (mutate_manifest_sha, False),
+                (mutate_manifest_keccak, False),
+                (mutate_manifest_commitment_shape, False),
+            )
+        )
         mutations.extend(((mutation, True) for mutation in (mutate_entry_path, mutate_entry_size, mutate_entry_mode, mutate_entry_sha)))
 
         for mutation, recommit in mutations:

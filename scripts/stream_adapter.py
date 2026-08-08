@@ -316,6 +316,7 @@ def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
         raise StreamAdapterError("exact B manifest is missing a valid SHA-256 body commitment")
     if (
         not isinstance(commitment, dict)
+        or set(commitment) != {"algorithm", "digest", "canonicalizationId"}
         or type(commitment.get("algorithm")) is not int
         or commitment.get("algorithm") != 1
         or commitment.get("canonicalizationId") != MUSEUM_JCS_ID
