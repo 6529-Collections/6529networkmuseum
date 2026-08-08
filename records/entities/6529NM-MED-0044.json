@@ -1,0 +1,151 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x861c1b1186370f7141266d4c65ec6d4d7a6dd89d2b8bf11a97b14413d75e969c"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x39c88c8c574aa589de12081d0d1af1d0e0cb8b85b384edc5a6f7b2e5fb83d1a6",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0044.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "entity_id": "6529NM-MED-0044",
+    "entity_status": "archived",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Published signed-Wave presentation",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:d00e4f49fab52d2ce15f61450d30140311b9b29d4457c22dabfa142a8a275e36",
+    "preferred_label": "Palmyra, Syria signed-Wave presentation source",
+    "profile": {
+      "media": {
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "non_identifying_sensitive_subject",
+        "accessibility_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
+        "allowed_ui_affordances": [
+          "view",
+          "hero",
+          "alt_text",
+          "open_signed_wave_source",
+          "copy_citation"
+        ],
+        "credit": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Proposal record retains the observed upstream image digest.",
+          "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
+          "status": "verified",
+          "verified_at": "2026-08-06T13:19:30.726Z"
+        },
+        "height": 4768,
+        "media_role": "signed_wave_proposal_presentation",
+        "media_type": "image/jpeg",
+        "publication_boundary": "signed_wave_proposal_only",
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "statement_entity_id": null,
+          "status": "restricted"
+        },
+        "signed_wave": {
+          "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+          "publication_record_id": "6529NM-PG-2026-001",
+          "published_at": "2026-08-06T13:19:30.726Z",
+          "signature_status": "signed_and_published",
+          "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+        },
+        "source_locator": {
+          "repository_path": null,
+          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM-PG-2026-001",
+          "6529NM-PG-2026-001.OBJ-005"
+        ],
+        "subject_entity_id": "6529NM-W-0028",
+        "transform_profile": null,
+        "visual": true,
+        "width": 5964
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0044",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-005"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-005"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Published signed-Wave presentation",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+        }
+      ],
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-MED-0044",
+    "visibility": "public"
+  }
+}

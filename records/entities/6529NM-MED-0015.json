@@ -1,0 +1,155 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xf929c419ba474209daca76bda8a4743054046b3525d2a15bcc5f3e195492796d"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5381005c3035049fc1a53905185d898f3ac9aca1a8d8dff5ca24b039084ea0f9",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0015.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-MED-0015",
+    "entity_status": "archived",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Casey live presentation source",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:2a87570e032758166598a11a59bc8cd2f4cca9ac41e00225128a68b86f041452",
+    "preferred_label": "923 EMPTY ROOMS #713 live presentation source",
+    "profile": {
+      "media": {
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "not_applicable",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": null,
+        "allowed_ui_affordances": [
+          "view",
+          "open_token_source",
+          "copy_citation"
+        ],
+        "credit": "Gift of punk6529; Casey REAS; 923 EMPTY ROOMS #713; 6529 Network Museum, 6529NM.2026.001.06. Licensed CC BY-NC 4.0.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": null,
+          "basis": "The live generator is an external mutable presentation source; the Museum retains observation evidence rather than the response bytes.",
+          "digest": null,
+          "status": "unverified_not_retrieved",
+          "verified_at": null
+        },
+        "height": null,
+        "media_role": "token_linked_source_media",
+        "media_type": "text/html",
+        "publication_boundary": "token_source",
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "statement_entity_id": null,
+          "status": "cleared_with_conditions"
+        },
+        "signed_wave": null,
+        "source_locator": {
+          "repository_path": null,
+          "uri": "https://generator.artblocks.io/1/0x145789247973c5d612bf121e9e4eef84b63eb707/1000713"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "status": "mutable_external"
+        },
+        "source_record_ids": [
+          "6529NM.2026.001.06",
+          "6529NM.2026.001.VO-01"
+        ],
+        "subject_entity_id": "6529NM-W-0006",
+        "transform_profile": null,
+        "visual": false,
+        "width": null
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0015",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.VO-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.VO-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Casey live presentation source",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.06.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-MED-0015",
+    "visibility": "public"
+  }
+}

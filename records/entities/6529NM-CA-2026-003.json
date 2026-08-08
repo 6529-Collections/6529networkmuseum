@@ -1,0 +1,322 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xae4b953cfffe89de0c231297ea35ae2d6843a6ba098c8c459a4b6ed374c4e92b"
+    },
+    "effectiveAt": 1786184102,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xcf4156a3b9c7c3c5fe6426af4171b9a5a4c7c41280004028f96970f089e76954",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-CA-2026-003.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/conflict-at-its-edges",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "entity_id": "6529NM-CA-2026-003",
+    "entity_status": "archived",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Authenticated WINNER status observation",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Original proposed gift record",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      }
+    ],
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:4721d397d9391babcc4ae7882d19ca9879fa4189043fcd2b8eae4ea5435c5aaa",
+    "preferred_label": "Conflict at Its Edges",
+    "profile": {
+      "acquisition_method": "donation",
+      "collection_effect": "none",
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Authenticated WINNER status observation",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+        },
+        {
+          "evidence_class": "C",
+          "label": "Original proposed gift record",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Observed external owner is not Museum custody.",
+          "status": "unverified"
+        },
+        "display": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Proposal presentation is not display authorization.",
+          "status": "not_started"
+        },
+        "mint": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "The proposal source records candidate chain history, not Museum acquisition.",
+          "status": "verified"
+        },
+        "payment": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "No Museum purchase is recorded.",
+          "status": "not_established"
+        },
+        "preservation": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "The upstream files are not Museum preservation objects.",
+          "status": "not_started"
+        },
+        "rights": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "All Rights Reserved is retained as source fact.",
+          "status": "unverified"
+        },
+        "technical": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Proposal-level technical evidence is not an accession review.",
+          "status": "pending_review"
+        },
+        "title": {
+          "as_of": "2026-08-06T13:19:30.726Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "No Museum title binding is recorded.",
+          "status": "not_established"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-08-08T10:15:02.0167151Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Authenticated WINNER status observation",
+            "observed_at": "2026-08-08T10:15:02.0167151Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+          },
+          {
+            "evidence_class": "C",
+            "label": "Signed Museum Wave drop",
+            "observed_at": "2026-08-08T10:15:02.0167151Z",
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+          }
+        ],
+        "status": "selected_by_museum_wave_acquisition_review_in_progress"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Original PARTICIPATORY proposal observation",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "The original PARTICIPATORY proposal observation remains part of the append-only lifecycle history.",
+          "observation_id": "6529NM-CA-OBS-0003",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "source_record_ids": [
+            "6529NM-PG-2026-001"
+          ],
+          "source_status": "PARTICIPATORY",
+          "status": "proposed_in_museum_wave"
+        },
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Authenticated WINNER status observation",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Signed Museum Wave drop",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            }
+          ],
+          "notes": "Authenticated live WINNER status selects the proposed identity for Museum acquisition review only; it creates no accession or Collection membership.",
+          "observation_id": "6529NM-CA-OBS-0004",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
+          "source_record_ids": [
+            "6529NM-PG-2026-001",
+            "6529NM-WAVE-OBS-2026-08-08-001"
+          ],
+          "source_status": "WINNER",
+          "status": "selected_by_museum_wave_acquisition_review_in_progress"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [],
+        "kind": "museum_wave_proposal",
+        "source_record_ids": [
+          "6529NM-PG-2026-001",
+          "6529NM-WAVE-OBS-2026-08-08-001"
+        ]
+      },
+      "public_credit": "Selected by the Museum Wave; acquisition review in progress",
+      "source_work_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-001",
+        "6529NM-PG-2026-001.OBJ-002",
+        "6529NM-PG-2026-001.OBJ-003",
+        "6529NM-PG-2026-001.OBJ-004",
+        "6529NM-PG-2026-001.OBJ-005"
+      ],
+      "thesis": "A formal Museum Wave proposal presents five photographs as one proposed gift; the same public identity now records a live WINNER selection under acquisition review without implying acceptance, acquisition, custody, title, rights, preservation, accession, or Collection membership.",
+      "title": "Conflict at Its Edges",
+      "work_entity_ids": [
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ]
+    },
+    "public_slug": "conflict-at-its-edges",
+    "record_id": "6529NM-CA-2026-003",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001",
+      "6529NM-PG-2026-001.OBJ-002",
+      "6529NM-PG-2026-001.OBJ-003",
+      "6529NM-PG-2026-001.OBJ-004",
+      "6529NM-PG-2026-001.OBJ-005",
+      "6529NM-W-0024",
+      "6529NM-W-0025",
+      "6529NM-W-0026",
+      "6529NM-W-0027",
+      "6529NM-W-0028",
+      "6529NM-WAVE-OBS-2026-08-08-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-001",
+      "6529NM-PG-2026-001.OBJ-002",
+      "6529NM-PG-2026-001.OBJ-003",
+      "6529NM-PG-2026-001.OBJ-004",
+      "6529NM-PG-2026-001.OBJ-005",
+      "6529NM-W-0024",
+      "6529NM-W-0025",
+      "6529NM-W-0026",
+      "6529NM-W-0027",
+      "6529NM-W-0028",
+      "6529NM-WAVE-OBS-2026-08-08-001"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Authenticated WINNER status observation",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+        },
+        {
+          "evidence_class": "C",
+          "label": "Original proposed gift record",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        }
+      ],
+      "observed_at": "2026-08-08T10:15:02.0167151Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-CA-2026-003",
+    "visibility": "public"
+  }
+}

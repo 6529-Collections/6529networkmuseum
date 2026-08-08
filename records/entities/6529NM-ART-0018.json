@@ -1,0 +1,138 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0484c91e69a36c6f3c668cca3cc36eb3d43551f70d505412115b37324d4d4313"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xd403c6a0b9bccd0e5fb49f270f02f6d83a81b8305b9b788d5bd2543a9cf21594",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0018.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/larry-towell",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "entity_id": "6529NM-ART-0018",
+    "entity_status": "archived",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:7574dc124c0cf3b6be36ce198690eb8c7aedf67fe1b4bc7e31018b3edbd6f60d",
+    "preferred_label": "Larry Towell",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [
+          "6529NM-AGT-0019"
+        ],
+        "authority_status": "source_label_only",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Name source",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "source_kind": "proposal",
+          "value": "Larry Towell",
+          "variant_role": "preferred"
+        },
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Raw issuer label",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "source_kind": "proposal",
+          "value": "Larry Towell",
+          "variant_role": "source_label"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "photography",
+          "proposal work"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          }
+        ],
+        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "larry-towell",
+    "record_id": "6529NM-ART-0018",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AGT-0019",
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AGT-0019",
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        }
+      ],
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-ART-0018",
+    "visibility": "public"
+  }
+}

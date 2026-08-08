@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/wave-status-observation-v1.json",
+  "title": "6529 Network Museum append-only Wave status observation payload",
+  "allOf": [
+    {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/commonPayload"},
+    {
+      "type": "object",
+      "properties": {
+        "record_type": {"const": "WAVE_STATUS_OBSERVATION"},
+        "schema_id": {"const": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1"},
+        "observation_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "proposal_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "wave_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "drop_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "serial_no": {"type": "integer", "minimum": 1},
+        "signed": {"const": true},
+        "drop_type": {"const": "WINNER"},
+        "source_status": {"const": "WINNER"},
+        "rating": {"type": "integer", "minimum": 0},
+        "realtime_rating": {"type": "integer", "minimum": 0},
+        "rater_count": {"type": "integer", "minimum": 0},
+        "source_url": {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"},
+        "observation_method": {"const": "authenticated_drop_readback"},
+        "selection_effect": {"const": "selected_by_museum_wave_acquisition_review_in_progress"},
+        "non_effects": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"enum": ["acceptance_not_established", "transfer_not_established", "title_not_established", "custody_not_established", "rights_not_established", "technical_not_established", "preservation_not_established", "accession_not_established", "collection_membership_not_established"]}
+        },
+        "prior_observation": {
+          "type": "object",
+          "properties": {
+            "source_status": {"const": "PARTICIPATORY"},
+            "observed_at": {"type": "string", "format": "date-time"},
+            "source_record_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+            "source_record_path": {"type": "string", "pattern": "^records/[^\\s]+$"},
+            "source_url": {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"}
+          },
+          "required": ["source_status", "observed_at", "source_record_id", "source_record_path", "source_url"],
+          "unevaluatedProperties": false
+        },
+        "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}}
+      },
+      "required": ["observation_id", "proposal_id", "wave_id", "drop_id", "serial_no", "signed", "drop_type", "source_status", "rating", "realtime_rating", "rater_count", "source_url", "observation_method", "selection_effect", "non_effects", "prior_observation", "source_record_ids"]
+    }
+  ],
+  "unevaluatedProperties": false
+}

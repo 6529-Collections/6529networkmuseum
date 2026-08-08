@@ -1,0 +1,67 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xf60f16714a638fe5d6c8ff50dce967f771afe11678da490ed99254645580fd28"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x570bb55be594e2ca23fea299187bb8a78c4e26296aee360aa6a596fc3eb364fb",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/relations/6529NM-REL-0101.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Collection accession relation",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:04438ae73860f93bc78f18c49e47f1c11f2b65a108147686ed6539f23c5f89b4",
+    "qualifier": {
+      "collection_membership_status": "permanent_collection"
+    },
+    "record_id": "6529NM-REL-0101",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-001",
+      "6529NM-C-0001",
+      "6529NM-W-0004",
+      "6529NM.2026.001.04"
+    ],
+    "relation_id": "6529NM-REL-0101",
+    "relation_type": "COLLECTION_CONTAINS_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-C-0001",
+    "source_record_ids": [
+      "6529NM-ACC-2026-001",
+      "6529NM.2026.001.04"
+    ],
+    "subject_id": "6529NM-REL-0101",
+    "target_entity_id": "6529NM-W-0004",
+    "visibility": "public"
+  }
+}

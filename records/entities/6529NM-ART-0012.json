@@ -1,0 +1,125 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x456d9035c30787ec6a759ac782a38a7cd27f1e53e392b7e46e29180d9e4f8366"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xa95cab580a80db7589fb10e46eccbb5afc967b2d8a9a10b72d822ed0a3ad22b2",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0012.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/teyhu",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-ART-0012",
+    "entity_status": "archived",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Keys and Gates artist label",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:84e5c14cf5b58a6dfb21b5ecb7953c0569468c074c0a5f44c6954bd6ae5bb1e1",
+    "preferred_label": "Teyhu",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [
+          "6529NM-AGT-0013"
+        ],
+        "authority_status": "source_label_only",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Keys and Gates artist label",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Name source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
+            }
+          ],
+          "source_kind": "wave",
+          "value": "Teyhu",
+          "variant_role": "preferred"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "photography",
+          "program submission"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Keys and Gates artist label",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
+          }
+        ],
+        "summary": "A limited public artist profile derived from the artist label attached to a Keys and Gates program outcome; it does not assert a complete scholarly biography."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "teyhu",
+    "record_id": "6529NM-ART-0012",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AGT-0013",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-012"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AGT-0013",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-012"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Keys and Gates artist label",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-012.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-ART-0012",
+    "visibility": "public"
+  }
+}

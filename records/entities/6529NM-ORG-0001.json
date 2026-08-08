@@ -1,0 +1,110 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xd01f01bc8abe53a9ea281d3e3295e41cf80fb874348f71211bc1b990673e1d27"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x652cb4c223dbd8ab16bedf481f7754b62b0fc9ea78b4bdedc8c0b4bdf9e59691",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ORG-0001.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/organizations/art-blocks",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-ORG-0001",
+    "entity_status": "archived",
+    "entity_type": "ORGANIZATION",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Casey object record",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:cad3d0e96a7b1fb2ae04f28edeb075e198d627e7bff3bfd66775cba9027121a5",
+    "preferred_label": "Art Blocks",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [],
+        "authority_status": "provisional",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Casey object record",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+          }
+        ]
+      },
+      "history_summary": "Art Blocks is the publishing platform identified by the Casey object records for the relevant generative projects.",
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Name source",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+            }
+          ],
+          "source_kind": "published_source",
+          "value": "Art Blocks",
+          "variant_role": "preferred"
+        }
+      ],
+      "organization_kind": "platform",
+      "profile_type": "ORGANIZATION",
+      "roles": [
+        "publishing platform",
+        "project context"
+      ]
+    },
+    "public_slug": "art-blocks",
+    "record_id": "6529NM-ORG-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.001.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM.2026.001.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Casey object record",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-ORG-0001",
+    "visibility": "public"
+  }
+}

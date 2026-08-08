@@ -1,0 +1,151 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x2649ddb98e330f55f6856add0c61b54be54cee9901d18ea941f0f248d9610359"
+    },
+    "effectiveAt": 1786022370,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5fafcb33c6cbc69f92b83d2ca14a089706bc355091d74b69a6b450bc463dc811",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0043.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-06T13:19:30.726Z",
+    "entity_id": "6529NM-MED-0043",
+    "entity_status": "archived",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Published signed-Wave presentation",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+      }
+    ],
+    "observed_at": "2026-08-06T13:19:30.726Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:b74cf9e0e3a18d48703ca7b813cb53377aac3e71378cb272e5e3547229e1f2b6",
+    "preferred_label": "Tripoli, Libya signed-Wave presentation source",
+    "profile": {
+      "media": {
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "non_identifying_child_subject",
+        "accessibility_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
+        "allowed_ui_affordances": [
+          "view",
+          "hero",
+          "alt_text",
+          "open_signed_wave_source",
+          "copy_citation"
+        ],
+        "credit": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Proposal record retains the observed upstream image digest.",
+          "digest": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
+          "status": "verified",
+          "verified_at": "2026-08-06T13:19:30.726Z"
+        },
+        "height": 3744,
+        "media_role": "signed_wave_proposal_presentation",
+        "media_type": "image/jpeg",
+        "publication_boundary": "signed_wave_proposal_only",
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "statement_entity_id": null,
+          "status": "restricted"
+        },
+        "signed_wave": {
+          "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+          "publication_record_id": "6529NM-PG-2026-001",
+          "published_at": "2026-08-06T13:19:30.726Z",
+          "signature_status": "signed_and_published",
+          "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+        },
+        "source_locator": {
+          "repository_path": null,
+          "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-06T13:19:30.726Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM-PG-2026-001",
+          "6529NM-PG-2026-001.OBJ-004"
+        ],
+        "subject_entity_id": "6529NM-W-0027",
+        "transform_profile": null,
+        "visual": true,
+        "width": 5616
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0043",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-004"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-004"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Published signed-Wave presentation",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+        }
+      ],
+      "observed_at": "2026-08-06T13:19:30.726Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-MED-0043",
+    "visibility": "public"
+  }
+}

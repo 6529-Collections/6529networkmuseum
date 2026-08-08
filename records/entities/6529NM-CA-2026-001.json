@@ -1,0 +1,288 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xac5cc5d2d02c46ec9ea43467073eb3361b6c933d1f05d0e11ed76f74405113a6"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x415c6d4e2d276250fb7683cf9de974c2f662dce492519c8c2e31838dc9c5bb42",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-CA-2026-001.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/the-system-in-seven-states",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-CA-2026-001",
+    "entity_status": "archived",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Casey accession lot",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:ae7b7f74cd19cbbc1814c222a6843f7638e3aa2a9d8a556d9e569f0c569240ef",
+    "preferred_label": "The System in Seven States",
+    "profile": {
+      "acquisition_method": "donation",
+      "collection_effect": "permanent_collection",
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Casey accession lot",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "Custody receipt is recorded separately.",
+          "status": "verified"
+        },
+        "display": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json"
+            }
+          ],
+          "notes": "Display is ready with conditions where the object record says so.",
+          "status": "verified_with_conditions"
+        },
+        "mint": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "Existing accession records contain the token identity and receipt evidence.",
+          "status": "verified"
+        },
+        "payment": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
+            }
+          ],
+          "notes": "The completed gift is recorded as a donation.",
+          "status": "not_applicable"
+        },
+        "preservation": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/post-accession-diligence.json"
+            }
+          ],
+          "notes": "Autonomous generator preservation remains active stewardship.",
+          "status": "in_progress"
+        },
+        "rights": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.01.json"
+            }
+          ],
+          "notes": "Rights are recorded per object with attribution and noncommercial conditions.",
+          "status": "verified_with_conditions"
+        },
+        "technical": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/technical/6529NM.2026.001.01.json"
+            }
+          ],
+          "notes": "Technical and condition review passed with conditions.",
+          "status": "verified_with_conditions"
+        },
+        "title": {
+          "as_of": "2026-08-02T06:30:00Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "Title binding is recorded separately and is not copyright.",
+          "status": "verified"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-08-02T06:30:00Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Accession certificate",
+            "observed_at": "2026-08-02T06:30:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+          }
+        ],
+        "status": "accessioned_into_permanent_collection"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Lifecycle source",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "The completed Casey donation is accessioned into the permanent Collection.",
+          "observation_id": "6529NM-CA-OBS-0001",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-001"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned_into_permanent_collection"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [
+          "6529NM-AP-ENT-0001"
+        ],
+        "kind": "acquisition_program",
+        "source_record_ids": [
+          "6529NM-GOV-1052156",
+          "6529NM-GOV-1052812"
+        ]
+      },
+      "public_credit": "Gift of punk6529",
+      "source_work_record_ids": [
+        "6529NM.2026.001.01",
+        "6529NM.2026.001.02",
+        "6529NM.2026.001.03",
+        "6529NM.2026.001.04",
+        "6529NM.2026.001.05",
+        "6529NM.2026.001.06",
+        "6529NM.2026.001.07"
+      ],
+      "thesis": "A Museum curatorial grouping reads seven accessioned Casey Reas works through related computational systems without claiming an artist-defined canonical group.",
+      "title": "The System in Seven States",
+      "work_entity_ids": [
+        "6529NM-W-0001",
+        "6529NM-W-0002",
+        "6529NM-W-0003",
+        "6529NM-W-0004",
+        "6529NM-W-0005",
+        "6529NM-W-0006",
+        "6529NM-W-0007"
+      ]
+    },
+    "public_slug": "the-system-in-seven-states",
+    "record_id": "6529NM-CA-2026-001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-001",
+      "6529NM-ACC-ENT-0001",
+      "6529NM-AP-ENT-0001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003",
+      "6529NM-W-0004",
+      "6529NM-W-0005",
+      "6529NM-W-0006",
+      "6529NM-W-0007",
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-001",
+      "6529NM-ACC-ENT-0001",
+      "6529NM-AP-ENT-0001",
+      "6529NM-W-0001",
+      "6529NM-W-0002",
+      "6529NM-W-0003",
+      "6529NM-W-0004",
+      "6529NM-W-0005",
+      "6529NM-W-0006",
+      "6529NM-W-0007",
+      "6529NM.2026.001.01",
+      "6529NM.2026.001.02",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.04",
+      "6529NM.2026.001.05",
+      "6529NM.2026.001.06",
+      "6529NM.2026.001.07"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Casey accession lot",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-statement.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-CA-2026-001",
+    "visibility": "public"
+  }
+}

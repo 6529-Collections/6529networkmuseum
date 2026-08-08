@@ -1,0 +1,157 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x21b7298ea2749a9e58fb8a975915722503e83c9e53342bc5ed124031d5081a01"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x4697d34c44dc7faa796c9e2a0f5e6f56c2fecc8198cff0d4539780ea8453f1e3",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0022.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-MED-0022",
+    "entity_status": "archived",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Keys and Gates presentation derivative",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:277a29b5386cf8d062b65540ba33a1b29699f081a591c7ef49b7f50a026c8cf3",
+    "preferred_label": "Managed Freedom Museum presentation derivative",
+    "profile": {
+      "media": {
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": "A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.",
+        "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
+          "alt_text",
+          "copy_citation"
+        ],
+        "credit": "nasimghanizadeh — Managed Freedom; Keys and Gates program presentation",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "The governed Keys and Gates media manifest records the retrieved derivative bytes and digest.",
+          "digest": "sha256:58d70f550e2ea17f6e727db7214f49ff52376917fbc6fb5260554cd39cf3749b",
+          "status": "verified",
+          "verified_at": "2026-08-01T15:03:35Z"
+        },
+        "height": 853,
+        "media_role": "museum_generated_public_derivative",
+        "media_type": "image/webp",
+        "publication_boundary": "public_derivative",
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-003.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "statement_entity_id": null,
+          "status": "unknown"
+        },
+        "signed_wave": null,
+        "source_locator": {
+          "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp",
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-003.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM-AP-01",
+          "6529NM-AP-01-OUT-003"
+        ],
+        "subject_entity_id": "6529NM-W-0010",
+        "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
+        "visual": true,
+        "width": 1280
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0022",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-003"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-003"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Keys and Gates presentation derivative",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-MED-0022",
+    "visibility": "public"
+  }
+}

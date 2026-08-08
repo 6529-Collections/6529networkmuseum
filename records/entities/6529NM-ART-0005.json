@@ -1,0 +1,125 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xc60c05d0c3f24c18d8652635de17451702c07e7611490b142c1dddc51d5c49d0"
+    },
+    "effectiveAt": 1785596615,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5461990f0aeea5ad748b807dee17a73f7d5f6f19ff541cf1408af6320f200baa",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-ART-0005.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/intrepid",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-01T15:03:35Z",
+    "entity_id": "6529NM-ART-0005",
+    "entity_status": "archived",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Keys and Gates artist label",
+        "observed_at": "2026-08-01T15:03:35Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+      }
+    ],
+    "observed_at": "2026-08-01T15:03:35Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:e9bdb94087347c1edbc391923d2492308038e969351b820b93219d4a57c2bca8",
+    "preferred_label": "intrepid",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [
+          "6529NM-AGT-0005"
+        ],
+        "authority_status": "source_label_only",
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Keys and Gates artist label",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Name source",
+              "observed_at": "2026-08-01T15:03:35Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+            }
+          ],
+          "source_kind": "wave",
+          "value": "intrepid",
+          "variant_role": "preferred"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "photography",
+          "program submission"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "C",
+            "label": "Keys and Gates artist label",
+            "observed_at": "2026-08-01T15:03:35Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+          }
+        ],
+        "summary": "A limited public artist profile derived from the artist label attached to a Keys and Gates program outcome; it does not assert a complete scholarly biography."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "intrepid",
+    "record_id": "6529NM-ART-0005",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AGT-0005",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-004"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-AGT-0005",
+      "6529NM-AP-01",
+      "6529NM-AP-01-OUT-004"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Keys and Gates artist label",
+          "observed_at": "2026-08-01T15:03:35Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-004.json"
+        }
+      ],
+      "observed_at": "2026-08-01T15:03:35Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-ART-0005",
+    "visibility": "public"
+  }
+}

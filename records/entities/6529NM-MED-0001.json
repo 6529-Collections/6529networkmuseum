@@ -1,0 +1,155 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xd6fd13829ac49dc6a583f2aeb3f3ef7c3eb708abcb61ed24cf2a6b0d6aa17639"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x51be03e457cc75bf92bce53511bbbe882d52e5ecb19e32c31da87b5758113ca0",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/entities/6529NM-MED-0001.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "entity_id": "6529NM-MED-0001",
+    "entity_status": "archived",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Retained evidence manifest",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/manifest.json"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:29d68ae23955f95b58161ea8c349b3084e190df702dd044fb12dbce432bdf966",
+    "preferred_label": "Casey retained preservation evidence manifest",
+    "profile": {
+      "media": {
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "not_applicable",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": null,
+        "allowed_ui_affordances": [
+          "view",
+          "open_repository_path",
+          "copy_citation"
+        ],
+        "credit": "6529 Network Museum preservation evidence manifest",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Retrieved repository bytes hashed by the deterministic migration.",
+          "digest": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215",
+          "status": "verified",
+          "verified_at": "2026-08-08T00:00:00Z"
+        },
+        "height": null,
+        "media_role": "museum_retained_preservation_object",
+        "media_type": "application/json",
+        "publication_boundary": "preservation_record",
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Rights boundary",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "statement_entity_id": null,
+          "status": "cleared_with_conditions"
+        },
+        "signed_wave": null,
+        "source_locator": {
+          "repository_path": "evidence/casey-reas/manifest.json",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/manifest.json"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.01.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source observation",
+              "observed_at": "2026-08-02T06:30:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/accession-certificate.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM-ACC-2026-001",
+          "6529NM.2026.001.01"
+        ],
+        "subject_entity_id": "6529NM-W-0001",
+        "transform_profile": null,
+        "visual": false,
+        "width": null
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0001",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-001",
+      "6529NM.2026.001.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-001",
+      "6529NM.2026.001.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Retained evidence manifest",
+          "observed_at": "2026-08-02T06:30:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/casey-reas/manifest.json"
+        }
+      ],
+      "observed_at": "2026-08-02T06:30:00Z",
+      "status_label": "archived"
+    },
+    "subject_id": "6529NM-MED-0001",
+    "visibility": "public"
+  }
+}

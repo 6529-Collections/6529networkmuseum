@@ -58,8 +58,70 @@ RECORD_REFERENCE_KEYS = {
     "governing_references",
     "selected_outcome_ids",
     "amendment_ids",
+    "entity_id",
+    "entity_ids",
+    "relation_id",
+    "source_entity_id",
+    "target_entity_id",
+    "source_record_ids",
+    "source_work_record_ids",
+    "authority_record_ids",
+    "program_entity_ids",
+    "acquisition_entity_ids",
+    "accession_entity_ids",
+    "collection_entity_id",
+    "institution_entity_id",
+    "admitted_work_entity_ids",
+    "work_entity_ids",
+    "creator_entity_ids",
+    "agent_entity_ids",
+    "author_entity_ids",
+    "subject_entity_ids",
+    "produced_acquisition_entity_ids",
+    "selected_outcome_record_ids",
+    "media_entity_ids",
+    "publication_record_id",
+    "source_accession_record_id",
+    "derived_from_media_entity_id",
+    "accession_object_id",
 }
 ACCESSION_EVENT_ORDER = ("receipt", "acceptance", "acquisition", "title_passage", "custody_receipt", "accession")
+PUBLIC_ENTITY_TYPE = "PUBLIC_ENTITY"
+PUBLIC_RELATION_TYPE = "PUBLIC_RELATION"
+PUBLIC_ENTITY_SCHEMA_ID = "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9"
+PUBLIC_RELATION_SCHEMA_ID = "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de"
+PUBLIC_IDENTITY_INVENTORY_FILENAME = "public-entity-identity-inventory.json"
+PUBLIC_CANONICAL_PAGE_TYPES = {
+    "INSTITUTION",
+    "COLLECTION",
+    "ARTIST",
+    "ORGANIZATION",
+    "WORK",
+    "PROJECT_OR_SERIES",
+    "CURATED_ACQUISITION",
+    "ACQUISITION_PROGRAM",
+    "RESEARCH_PUBLICATION",
+}
+PUBLIC_RELATIONAL_ONLY_TYPES = {"AGENT", "ACCESSION", "MEDIA_REFERENCE"}
+
+
+def load_public_identity_inventory(schema_root: Path) -> dict[str, Any]:
+    inventory_path = schema_root / "schemas" / PUBLIC_IDENTITY_INVENTORY_FILENAME
+    if not inventory_path.is_file():
+        return {}
+    return load_json(inventory_path)
+
+
+def public_entity_id_pattern(entity_type: Any, identity_inventory: dict[str, Any] | None = None) -> str | None:
+    patterns = identity_inventory.get("entity_id_patterns", {}) if isinstance(identity_inventory, dict) else {}
+    pattern = patterns.get(entity_type)
+    if isinstance(pattern, str):
+        return pattern
+    if entity_type == "CURATED_ACQUISITION":
+        return r"^6529NM-CA-\d{4}-\d{3}$"
+    if entity_type == "WORK":
+        return r"^6529NM-W-\d{4}$"
+    return None
 
 
 def frozen_projection(value: Any) -> str:
@@ -208,6 +270,32 @@ def validate_vocabularies(vocabularies: dict[str, Any]) -> list[str]:
     for state, successors in transitions.items():
         if any(successor not in states for successor in successors):
             issues.append(f"vocabularies.workflow_transitions.{state}: unknown successor")
+    public_relation_types = vocabularies.get("public_relation_types", [])
+    relation_profiles = vocabularies.get("relation_profiles", {})
+    if not isinstance(public_relation_types, list) or not isinstance(relation_profiles, dict):
+        issues.append("vocabularies: public_relation_types and relation_profiles must be present")
+    else:
+        if set(public_relation_types) != set(relation_profiles):
+            issues.append("vocabularies: public_relation_types and relation_profiles must cover exactly the same relation types")
+        for relation_type, profile in relation_profiles.items():
+            if not isinstance(profile, dict):
+                issues.append(f"vocabularies.relation_profiles.{relation_type}: must be an object")
+                continue
+            allowed = profile.get("allowed_qualifier_fields", [])
+            required = profile.get("required_qualifier_fields", [])
+            if not isinstance(allowed, list) or not isinstance(required, list) or not set(required).issubset(set(allowed)):
+                issues.append(f"vocabularies.relation_profiles.{relation_type}: required qualifiers must be an allowed subset")
+            for bound in ("max_targets_per_source", "max_sources_per_target"):
+                value = profile.get(bound)
+                if value is not None and (not isinstance(value, int) or value < 1):
+                    issues.append(f"vocabularies.relation_profiles.{relation_type}.{bound}: must be a positive integer or null")
+    expected_public_schema_ids = {
+        PUBLIC_ENTITY_TYPE: hex_bytes(keccak256(b"PUBLIC_ENTITY_V1")),
+        PUBLIC_RELATION_TYPE: hex_bytes(keccak256(b"PUBLIC_RELATION_V1")),
+    }
+    for record_type, expected in expected_public_schema_ids.items():
+        if vocabularies.get("schema_ids", {}).get(record_type) != expected:
+            issues.append(f"vocabularies.schema_ids.{record_type}: must commit the exact {record_type}_V1 literal")
     return issues
 
 
@@ -615,7 +703,235 @@ def validate_provenance_schedule(schedule: dict[str, Any]) -> list[str]:
     return issues
 
 
-def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> list[str]:
+def has_key_recursive(value: Any, wanted: str) -> bool:
+    if isinstance(value, dict):
+        return wanted in value or any(has_key_recursive(child, wanted) for child in value.values())
+    if isinstance(value, list):
+        return any(has_key_recursive(child, wanted) for child in value)
+    return False
+
+
+def validate_public_fixity(fixity: Any, label: str) -> list[str]:
+    issues: list[str] = []
+    if not isinstance(fixity, dict):
+        return [f"{label}: fixity must be an object"]
+    status = fixity.get("status")
+    algorithm = fixity.get("algorithm")
+    digest = fixity.get("digest")
+    if status == "verified":
+        if algorithm == "sha256" and not (isinstance(digest, str) and re.fullmatch(r"sha256:[0-9a-f]{64}", digest)):
+            issues.append(f"{label}: sha256 fixity requires a sha256:<64 lowercase hex> digest")
+        if algorithm == "keccak256" and not (isinstance(digest, str) and re.fullmatch(r"0x[0-9a-f]{64}", digest)):
+            issues.append(f"{label}: keccak256 fixity requires a 0x<64 lowercase hex> digest")
+        if algorithm not in {"sha256", "keccak256"}:
+            issues.append(f"{label}: verified fixity requires a supported algorithm")
+    elif status == "unverified_not_retrieved":
+        if algorithm is not None or digest is not None or fixity.get("verified_at") is not None:
+            issues.append(f"{label}: unverified_not_retrieved fixity must not contain invented algorithm, digest, or verified_at")
+    else:
+        issues.append(f"{label}: unknown fixity status {status!r}")
+    return issues
+
+
+def validate_public_media(media: Any, label: str) -> list[str]:
+    issues: list[str] = []
+    if not isinstance(media, dict):
+        return [f"{label}: media reference must be an object"]
+    if has_key_recursive(media, "image_url"):
+        issues.append(f"{label}: generic image_url is prohibited; use the closed media locator and role")
+    locator = media.get("source_locator")
+    if not isinstance(locator, dict) or (locator.get("uri") is None and locator.get("repository_path") is None):
+        issues.append(f"{label}: source_locator must contain a URI or repository_path")
+    visual = media.get("visual")
+    if visual is True:
+        if not isinstance(media.get("width"), int) or not isinstance(media.get("height"), int):
+            issues.append(f"{label}: visual media requires positive width and height")
+        if not (isinstance(media.get("accessibility_text"), str) and media.get("accessibility_text")):
+            if media.get("accessibility_status") != "publication_join" or not isinstance(media.get("accessibility_publication_entity_id"), str):
+                issues.append(f"{label}: visual media requires accessibility text or a typed publication join")
+    source_observation = media.get("source_observation")
+    source_status = source_observation.get("status") if isinstance(source_observation, dict) else None
+    fixity = media.get("fixity")
+    issues.extend(validate_public_fixity(fixity, f"{label}.fixity"))
+    fixity_status = fixity.get("status") if isinstance(fixity, dict) else None
+    if source_status == "retrieved" and fixity_status != "verified":
+        issues.append(f"{label}: retrieved media requires verified fixity")
+    if source_status in {"not_retrieved", "source_declared", "mutable_external"} and fixity_status != "unverified_not_retrieved":
+        issues.append(f"{label}: non-retrieved or mutable media must use unverified_not_retrieved fixity")
+    role = media.get("media_role")
+    publication_boundary = media.get("publication_boundary")
+    expected_boundary = {
+        "museum_retained_preservation_object": "preservation_record",
+        "museum_generated_public_derivative": "public_derivative",
+        "token_linked_source_media": "token_source",
+        "signed_wave_proposal_presentation": "signed_wave_proposal_only",
+    }.get(role)
+    if expected_boundary is None:
+        issues.append(f"{label}: media_role must use the closed Museum media vocabulary")
+    elif publication_boundary != expected_boundary:
+        issues.append(f"{label}: publication_boundary must be {expected_boundary!r} for {role}")
+    accessibility_subject_policy = media.get("accessibility_subject_policy")
+    if accessibility_subject_policy == "non_identifying_child_subject":
+        text = media.get("accessibility_text")
+        if visual is not True or not isinstance(text, str) or not text:
+            issues.append(f"{label}: non-identifying child-subject media requires visual accessibility text")
+        elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
+            issues.append(f"{label}: child-subject accessibility text must not identify the subject")
+    if role == "museum_retained_preservation_object" and (source_status != "retrieved" or fixity_status != "verified"):
+        issues.append(f"{label}: retained preservation objects require retrieved bytes and verified fixity")
+    if role == "museum_generated_public_derivative" and not isinstance(media.get("transform_profile"), str):
+        issues.append(f"{label}: Museum-generated derivatives require a transform profile")
+    affordances = media.get("allowed_ui_affordances", [])
+    rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
+    rights_status = rights.get("status")
+    if role == "signed_wave_proposal_presentation":
+        if publication_boundary != "signed_wave_proposal_only":
+            issues.append(f"{label}: signed-Wave media is presentation-context-only")
+        if not isinstance(media.get("signed_wave"), dict):
+            issues.append(f"{label}: signed-Wave media requires signed_wave publication evidence")
+        if "open_signed_wave_source" not in affordances:
+            issues.append(f"{label}: signed-Wave media must expose only the explicitly published source through open_signed_wave_source")
+        if not set(affordances).issubset({"view", "thumbnail", "hero", "alt_text", "open_signed_wave_source", "copy_citation"}):
+            issues.append(f"{label}: signed-Wave media affordances must remain within the proposal presentation allowlist")
+        if any(item in affordances for item in {"download", "zoom", "fullscreen", "play"}):
+            issues.append(f"{label}: signed-Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
+        if any(item in affordances for item in {"open_token_source", "open_repository_path"}):
+            issues.append(f"{label}: signed-Wave media cannot expose token or repository source affordances")
+    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in {"download", "zoom", "fullscreen", "open_token_source", "open_repository_path"}):
+        issues.append(f"{label}: {rights_status} media cannot expose download, zoom, fullscreen, token, or repository source opening")
+    if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
+        issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
+    if any(item in affordances for item in {"zoom", "fullscreen"}) and (visual is not True or rights_status not in {"cleared", "cleared_with_conditions"}):
+        issues.append(f"{label}: zoom/fullscreen requires visual media with cleared rights")
+    return issues
+
+
+def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None) -> list[str]:
+    issues: list[str] = []
+    record_type = payload.get("record_type")
+    record_status = payload.get("record_status")
+    review_status = payload.get("review_status")
+    reviewer = payload.get("reviewer")
+    if record_status == "reviewed" or review_status == "reviewed":
+        if record_status != "reviewed" or review_status != "reviewed" or not isinstance(reviewer, dict) or not reviewer.get("id"):
+            issues.append("public record: reviewed publication requires record_status/review_status reviewed and a concrete reviewer")
+    if record_status in {"constructed", "review_pending"} or review_status == "pending_independent_review":
+        if payload.get("entity_status") == "published":
+            issues.append("public record: entity_status published is prohibited while independent review is pending")
+    if payload.get("entity_status") == "published" and (record_status != "reviewed" or review_status != "reviewed" or not isinstance(reviewer, dict)):
+        issues.append("public record: published entity must be independently reviewed")
+    if record_type == PUBLIC_ENTITY_TYPE:
+        if payload.get("entity_id") != payload.get("record_id"):
+            issues.append("public entity: entity_id must equal record_id")
+        entity_type = payload.get("entity_type")
+        profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+        if profile.get("profile_type") != entity_type:
+            issues.append("public entity: profile.profile_type must equal entity_type")
+        if entity_type == "EXHIBITION":
+            issues.append("public entity: Exhibition is reserved and cannot have a published instance")
+        slug = payload.get("public_slug")
+        route = payload.get("canonical_route")
+        page_exposure = payload.get("page_exposure")
+        route_prefixes = {
+            "ARTIST": "/museum/network/artists/",
+            "ORGANIZATION": "/museum/network/organizations/",
+            "PROJECT_OR_SERIES": "/museum/network/projects/",
+            "CURATED_ACQUISITION": "/museum/network/acquisitions/",
+            "RESEARCH_PUBLICATION": "/museum/network/research/",
+            "WORK": "/museum/network/works/",
+            "ACQUISITION_PROGRAM": "/museum/network/acquisition-programs/",
+        }
+        if entity_type in PUBLIC_CANONICAL_PAGE_TYPES:
+            if page_exposure != "canonical_page":
+                issues.append(f"public entity: {entity_type} must declare canonical_page exposure")
+            if entity_type == "INSTITUTION":
+                if slug is not None or route != "/museum/network":
+                    issues.append("public entity: Institution must use null public_slug and /museum/network")
+            elif entity_type == "COLLECTION":
+                if slug is not None or route != "/museum/network/collection":
+                    issues.append("public entity: Collection must use null public_slug and /museum/network/collection")
+            else:
+                if not isinstance(slug, str) or not isinstance(route, str):
+                    issues.append(f"public entity: {entity_type} canonical page requires stored public_slug and route")
+                elif route != route_prefixes[entity_type] + slug:
+                    issues.append(f"public entity: {entity_type} canonical_route must equal its route prefix plus stored public_slug")
+        elif entity_type in PUBLIC_RELATIONAL_ONLY_TYPES:
+            if page_exposure != "relational_only" or slug is not None or route is not None:
+                issues.append(f"public entity: {entity_type} is relational_only and cannot publish a slug or visitor route")
+        elif entity_type == "EXHIBITION":
+            if page_exposure != "reserved_no_instance" or slug is not None or route is not None:
+                issues.append("public entity: Exhibition is reserved_no_instance and cannot publish a route")
+        else:
+            issues.append(f"public entity: unsupported page exposure type {entity_type!r}")
+        if entity_type == "CURATED_ACQUISITION":
+            pattern = public_entity_id_pattern(entity_type, identity_inventory)
+            if not (isinstance(payload.get("entity_id"), str) and isinstance(pattern, str) and re.fullmatch(pattern, payload["entity_id"])):
+                issues.append("public entity: Curated Acquisition entity_id must use the stable 6529NM-CA-YYYY-NNN pattern")
+            facts = profile.get("independent_acquisition_facts")
+            if not isinstance(facts, dict) or set(facts) != {"mint", "payment", "title", "custody", "rights", "technical", "preservation", "display"}:
+                issues.append("public entity: curated acquisition requires all eight typed independent acquisition facts")
+            lifecycle = profile.get("lifecycle", {}).get("status") if isinstance(profile.get("lifecycle"), dict) else None
+            collection_effect = profile.get("collection_effect")
+            if lifecycle == "accessioned_into_permanent_collection" and collection_effect != "permanent_collection":
+                issues.append("public entity: accessioned Curated Acquisition must have permanent_collection effect")
+            if lifecycle in {"proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program_acquisition_pending"} and collection_effect == "permanent_collection":
+                issues.append("public entity: proposed/selected Curated Acquisition cannot have permanent_collection effect")
+            observations = profile.get("lifecycle_observations")
+            if isinstance(observations, list) and observations:
+                latest = max(observations, key=lambda item: item.get("observed_at", ""))
+                if latest.get("status") != lifecycle:
+                    issues.append("public entity: Curated Acquisition lifecycle must equal its latest append-only observation")
+                if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
+                    if latest.get("source_status") != "WINNER":
+                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires a WINNER source observation")
+                    if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
+                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires the governed WINNER observation path")
+        if entity_type == "WORK":
+            pattern = public_entity_id_pattern(entity_type, identity_inventory)
+            if not (isinstance(payload.get("entity_id"), str) and isinstance(pattern, str) and re.fullmatch(pattern, payload["entity_id"])):
+                issues.append("public entity: Work entity_id must use the acquisition-independent 6529NM-W-NNNN pattern")
+            work_status = profile.get("work_lifecycle_status")
+            museum_relation = profile.get("current_museum_relation", {}).get("relation_status") if isinstance(profile.get("current_museum_relation"), dict) else None
+            membership = profile.get("collection_membership", {}).get("status") if isinstance(profile.get("collection_membership"), dict) else None
+            accession_ids = profile.get("accession_entity_ids", [])
+            membership_accessions = profile.get("collection_membership", {}).get("accession_entity_ids", []) if isinstance(profile.get("collection_membership"), dict) else []
+            mint_fact = profile.get("mint_fact") if isinstance(profile.get("mint_fact"), dict) else {}
+            if mint_fact.get("status") not in set(vocabularies.get("public_work_mint_statuses", [])):
+                issues.append("public entity: Work mint_fact must use the independent closed mint status vocabulary")
+            if membership == "permanent_collection" and (museum_relation != "permanent_collection" or not accession_ids or not membership_accessions):
+                issues.append("public entity: permanent Collection membership requires a permanent Museum relation and accession IDs")
+            if museum_relation == "permanent_collection" and membership != "permanent_collection":
+                issues.append("public entity: permanent Museum relation contradicts Collection membership")
+            if work_status in {"proposed_in_museum_wave", "selected_by_museum_wave_acquisition_review_in_progress", "selected_through_acquisition_program", "not_established"} and membership == "permanent_collection":
+                issues.append("public entity: proposed/selected/not-in-collection Work cannot be a permanent Collection member")
+            if work_status == "accessioned" and membership != "permanent_collection":
+                issues.append("public entity: accessioned Work requires permanent Collection membership")
+            if work_status == "selected_by_museum_wave_acquisition_review_in_progress":
+                if museum_relation != "selected_by_museum_wave":
+                    issues.append("public entity: Museum Wave-selected Work requires the selected_by_museum_wave current relation")
+                if membership != "not_in_collection":
+                    issues.append("public entity: Museum Wave-selected Work must remain outside the permanent Collection")
+                observations = profile.get("lifecycle_observations")
+                latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
+                if latest.get("status") != work_status or latest.get("source_status") != "WINNER":
+                    issues.append("public entity: Museum Wave-selected Work requires a latest WINNER lifecycle observation")
+                if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
+                    issues.append("public entity: Museum Wave-selected Work requires the governed WINNER observation path")
+        if entity_type == "MEDIA_REFERENCE" and isinstance(profile.get("media"), dict):
+            issues.extend(validate_public_media(profile["media"], "public entity profile.media"))
+        if "image_url" in payload or has_key_recursive(profile, "image_url"):
+            issues.append("public entity: generic image_url is prohibited")
+    elif record_type == PUBLIC_RELATION_TYPE:
+        if payload.get("relation_id") != payload.get("record_id"):
+            issues.append("public relation: relation_id must equal record_id")
+        if payload.get("source_entity_id") == payload.get("target_entity_id"):
+            issues.append("public relation: source and target must differ")
+        if payload.get("relation_type") == "ENTITY_HAS_MEDIA" and "media_projection" in payload:
+            issues.append("public relation: complete media identity belongs to the MEDIA_REFERENCE target, not a duplicated media_projection")
+    return issues
+
+
+def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None) -> list[str]:
     issues: list[str] = []
     envelope = record["envelope"]
     payload = record["payload"]
@@ -688,8 +1004,289 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any]) -> 
             issues.append("governance evidence: WINNER must be recorded as adopted")
         if source_status == "PARTICIPATORY" and decision_status == "adopted":
             issues.append("governance evidence: PARTICIPATORY cannot be recorded as adopted")
+    if record_type == "WAVE_STATUS_OBSERVATION":
+        expected = {
+            "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
+            "proposal_id": "6529NM-PG-2026-001",
+            "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+            "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+            "serial_no": 1276093,
+            "signed": True,
+            "drop_type": "WINNER",
+            "source_status": "WINNER",
+            "rating": 121603214,
+            "realtime_rating": 121603214,
+            "rater_count": 29,
+            "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+        }
+        for key, value in expected.items():
+            if payload.get(key) != value:
+                issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the authenticated WINNER readback")
+        prior = payload.get("prior_observation") if isinstance(payload.get("prior_observation"), dict) else {}
+        if prior.get("source_status") != "PARTICIPATORY" or prior.get("source_record_id") != "6529NM-PG-2026-001":
+            issues.append("WAVE_STATUS_OBSERVATION must retain the earlier PARTICIPATORY proposal observation")
     issues.extend(validate_state_machine(payload, vocabularies))
     issues.extend(validate_event_history(payload))
+    issues.extend(validate_public_payload(payload, vocabularies, identity_inventory))
+    return issues
+
+
+def validate_public_graph(records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]], vocabularies: dict[str, Any], identity_inventory: dict[str, Any] | None = None) -> list[str]:
+    """Validate the closed public entity/relation graph after all records are loaded."""
+    issues: list[str] = []
+    entities: dict[str, tuple[Path, dict[str, Any]]] = {}
+    relations: list[tuple[Path, dict[str, Any]]] = []
+    for path, _record, payload in records:
+        if not isinstance(payload, dict):
+            continue
+        if payload.get("record_type") == PUBLIC_ENTITY_TYPE:
+            entity_id = payload.get("entity_id")
+            if isinstance(entity_id, str):
+                entities[entity_id] = (path, payload)
+        elif payload.get("record_type") == PUBLIC_RELATION_TYPE:
+            relations.append((path, payload))
+
+    def display_path(path: Path) -> str:
+        try:
+            return path.relative_to(REPO_ROOT).as_posix()
+        except ValueError:
+            return path.as_posix()
+
+    slug_paths: dict[tuple[str, str], Path] = {}
+    route_paths: dict[str, Path] = {}
+    route_prefixes = {
+        "ARTIST": "/museum/network/artists/",
+        "ORGANIZATION": "/museum/network/organizations/",
+        "PROJECT_OR_SERIES": "/museum/network/projects/",
+        "CURATED_ACQUISITION": "/museum/network/acquisitions/",
+        "RESEARCH_PUBLICATION": "/museum/network/research/",
+        "WORK": "/museum/network/works/",
+        "ACQUISITION_PROGRAM": "/museum/network/acquisition-programs/",
+    }
+    for entity_id, (path, payload) in entities.items():
+        entity_type = payload.get("entity_type")
+        slug = payload.get("public_slug")
+        route = payload.get("canonical_route")
+        page_exposure = payload.get("page_exposure")
+        relative = display_path(path)
+        if entity_type in {"INSTITUTION", "COLLECTION"}:
+            expected_route = "/museum/network" if entity_type == "INSTITUTION" else "/museum/network/collection"
+            if page_exposure != "canonical_page" or slug is not None or route != expected_route:
+                issues.append(f"{relative}: singleton {entity_type} must use canonical_page, null public_slug, and {expected_route}")
+        elif entity_type in PUBLIC_RELATIONAL_ONLY_TYPES:
+            if page_exposure != "relational_only" or slug is not None or route is not None:
+                issues.append(f"{relative}: relational-only {entity_type} must use null public_slug and canonical_route")
+        elif entity_type == "EXHIBITION":
+            issues.append(f"{relative}: Exhibition is reserved; no published PUBLIC_ENTITY instance is allowed")
+        elif entity_type in route_prefixes:
+            expected_route = route_prefixes[entity_type] + slug if isinstance(slug, str) else None
+            if page_exposure != "canonical_page" or not isinstance(slug, str) or route != expected_route:
+                issues.append(f"{relative}: {entity_type} canonical_route must equal its route prefix plus stored public_slug")
+        else:
+            issues.append(f"{relative}: unsupported public entity type {entity_type!r}")
+        if isinstance(slug, str):
+            slug_key = (str(entity_type), slug)
+            if slug_key in slug_paths and slug_paths[slug_key] != path:
+                issues.append(f"{relative}: duplicate public_slug {slug} within {entity_type}; first seen at {display_path(slug_paths[slug_key])}")
+            else:
+                slug_paths[slug_key] = path
+        if isinstance(route, str):
+            if route in route_paths and route_paths[route] != path:
+                issues.append(f"{relative}: duplicate canonical_route {route}; first seen at {display_path(route_paths[route])}")
+            else:
+                route_paths[route] = path
+
+    relation_profiles = vocabularies.get("relation_profiles", {})
+    active_relation_keys: dict[tuple[str, str, str], Path] = {}
+    source_counts: dict[tuple[str, str], int] = {}
+    target_counts: dict[tuple[str, str], int] = {}
+    for path, relation in relations:
+        relation_type = relation.get("relation_type")
+        profile = relation_profiles.get(relation_type)
+        relative = display_path(path)
+        if not isinstance(profile, dict):
+            issues.append(f"{relative}: unknown public relation type {relation_type!r}")
+            continue
+        source_id = relation.get("source_entity_id")
+        target_id = relation.get("target_entity_id")
+        source = entities.get(source_id) if isinstance(source_id, str) else None
+        target = entities.get(target_id) if isinstance(target_id, str) else None
+        if source is None:
+            issues.append(f"{relative}: source_entity_id does not resolve to a PUBLIC_ENTITY")
+            continue
+        if target is None:
+            issues.append(f"{relative}: target_entity_id does not resolve to a PUBLIC_ENTITY")
+            continue
+        source_type = source[1].get("entity_type")
+        target_type = target[1].get("entity_type")
+        if source_type not in profile.get("source_entity_types", []):
+            issues.append(f"{relative}: relation {relation_type} has invalid source entity type {source_type}")
+        if target_type not in profile.get("target_entity_types", []):
+            issues.append(f"{relative}: relation {relation_type} has invalid target entity type {target_type}")
+        qualifier = relation.get("qualifier") if isinstance(relation.get("qualifier"), dict) else {}
+        allowed = set(profile.get("allowed_qualifier_fields", []))
+        required = set(profile.get("required_qualifier_fields", []))
+        unknown_qualifiers = set(qualifier) - allowed
+        if unknown_qualifiers:
+            issues.append(f"{relative}: relation {relation_type} has unsupported qualifiers {sorted(unknown_qualifiers)}")
+        missing_qualifiers = {field for field in required if qualifier.get(field) is None}
+        if missing_qualifiers:
+            issues.append(f"{relative}: relation {relation_type} is missing required qualifiers {sorted(missing_qualifiers)}")
+        if source_id == target_id:
+            issues.append(f"{relative}: public relation cannot point to itself")
+        reserved = bool(profile.get("reserved"))
+        if reserved and relation.get("assertion_status") != "reserved":
+            issues.append(f"{relative}: reserved relation {relation_type} must use assertion_status reserved")
+        if not reserved and relation.get("assertion_status") == "reserved":
+            issues.append(f"{relative}: non-reserved relation {relation_type} cannot use assertion_status reserved")
+        active = relation.get("record_status") != "superseded" and relation.get("assertion_status") != "reserved"
+        relation_key = (relation_type, source_id, target_id)
+        if active:
+            if relation_key in active_relation_keys:
+                issues.append(f"{relative}: duplicate active relation {relation_type} for {source_id} -> {target_id}; first seen at {display_path(active_relation_keys[relation_key])}")
+            else:
+                active_relation_keys[relation_key] = path
+            source_counts[(relation_type, source_id)] = source_counts.get((relation_type, source_id), 0) + 1
+            target_counts[(relation_type, target_id)] = target_counts.get((relation_type, target_id), 0) + 1
+        max_targets = profile.get("max_targets_per_source")
+        max_sources = profile.get("max_sources_per_target")
+        if max_targets is not None and source_counts.get((relation_type, source_id), 0) > max_targets:
+            issues.append(f"{relative}: relation {relation_type} exceeds source cardinality {max_targets}")
+        if max_sources is not None and target_counts.get((relation_type, target_id), 0) > max_sources:
+            issues.append(f"{relative}: relation {relation_type} exceeds target cardinality {max_sources}")
+
+        if relation_type == "ENTITY_HAS_MEDIA":
+            target_profile = target[1].get("profile", {})
+            media = target_profile.get("media") if isinstance(target_profile, dict) else None
+            if target_type != "MEDIA_REFERENCE" or not isinstance(media, dict):
+                issues.append(f"{relative}: ENTITY_HAS_MEDIA must target a MEDIA_REFERENCE with a complete media profile")
+            else:
+                if media.get("subject_entity_id") != source_id:
+                    issues.append(f"{relative}: media subject_entity_id must equal relation source_entity_id")
+                if target_id not in source[1].get("media_entity_ids", []):
+                    issues.append(f"{relative}: source entity must list the target in media_entity_ids")
+        elif relation_type == "INSTITUTION_HOLDS_COLLECTION":
+            if source[1].get("profile", {}).get("collection_entity_id") != target_id:
+                issues.append(f"{relative}: institution profile collection_entity_id must match relation target")
+        elif relation_type == "ARTIST_CREATES_WORK":
+            if source_id not in target[1].get("profile", {}).get("creator_entity_ids", []):
+                issues.append(f"{relative}: Work creator_entity_ids must include the Artist/Agent source")
+        elif relation_type == "PROJECT_CONTEXTUALIZES_WORK":
+            if target_id not in source[1].get("profile", {}).get("work_entity_ids", []):
+                issues.append(f"{relative}: Project/Series work_entity_ids must include the relation target")
+        elif relation_type == "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION":
+            target_pathway = target[1].get("profile", {}).get("program_or_pathway", {})
+            if source_id not in target_pathway.get("entity_ids", []):
+                issues.append(f"{relative}: Curated Acquisition program_or_pathway must include the program source")
+        elif relation_type == "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK":
+            if target_id not in source[1].get("profile", {}).get("work_entity_ids", []):
+                issues.append(f"{relative}: Curated Acquisition work_entity_ids must include the relation target")
+        elif relation_type == "PROGRAM_SELECTS_WORK":
+            if qualifier.get("selection_status") != "selected_unminted":
+                issues.append(f"{relative}: PROGRAM_SELECTS_WORK must preserve the source outcome status selected_unminted")
+            if qualifier.get("mint_status") not in {"pending", "not_started", "verified", "not_applicable"}:
+                issues.append(f"{relative}: PROGRAM_SELECTS_WORK must carry an independent mint_status qualifier")
+            selected_outcomes = set(source[1].get("profile", {}).get("selected_outcome_record_ids", []))
+            if not selected_outcomes.intersection(set(relation.get("source_record_ids", []))):
+                issues.append(f"{relative}: PROGRAM_SELECTS_WORK source_record_ids must identify a durable program outcome")
+        elif relation_type == "ACCESSION_ADMITS_WORK":
+            accession_profile = source[1].get("profile", {})
+            work_profile = target[1].get("profile", {})
+            if accession_profile.get("accession_status") != "complete" or target_id not in accession_profile.get("admitted_work_entity_ids", []):
+                issues.append(f"{relative}: accession relation must point from a complete accession that admits the Work")
+            if work_profile.get("work_lifecycle_status") != "accessioned":
+                issues.append(f"{relative}: accession relation requires an accessioned Work lifecycle")
+        elif relation_type == "COLLECTION_CONTAINS_WORK":
+            if source[1].get("profile", {}).get("membership_rule") != "accession_only" or target[1].get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
+                issues.append(f"{relative}: Collection membership requires accession_only policy and permanent Work membership")
+
+    # Foundation fixture roots may intentionally contain no PUBLIC_ENTITY layer.
+    # Apply the governed public identity inventory only when that layer is present;
+    # otherwise generic Stream/accession fixture validation must remain independent.
+    if not entities:
+        return issues
+    identity_inventory = identity_inventory if isinstance(identity_inventory, dict) else load_public_identity_inventory(REPO_ROOT)
+    required_acquisitions = identity_inventory.get("required_bootstrap_curated_acquisitions", []) if isinstance(identity_inventory, dict) else []
+    required_acquisition_ids = {row.get("entity_id") for row in required_acquisitions if isinstance(row, dict)}
+    present_acquisition_ids = {entity_id for entity_id, (_path, payload) in entities.items() if payload.get("entity_type") == "CURATED_ACQUISITION"}
+    if entities and not required_acquisition_ids:
+        issues.append("public entity inventory: governed bootstrap Curated Acquisition inventory is missing")
+    elif entities and not required_acquisition_ids.issubset(present_acquisition_ids):
+        missing = sorted(required_acquisition_ids - present_acquisition_ids)
+        issues.append(f"public entity inventory: governed bootstrap Curated Acquisition IDs are missing {missing}")
+    for row in required_acquisitions:
+        if not isinstance(row, dict):
+            continue
+        entity_id = row.get("entity_id")
+        entity = entities.get(entity_id)
+        if entity is not None and (entity[1].get("preferred_label") != row.get("preferred_label") or entity[1].get("public_slug") != row.get("public_slug")):
+            issues.append(f"{display_path(entity[0])}: Curated Acquisition identity does not match governed inventory for {entity_id}")
+    slug_rows = identity_inventory.get("public_slug_inventory", []) if isinstance(identity_inventory, dict) else []
+    slug_inventory_keys: set[tuple[str, str]] = set()
+    slug_inventory_routes: set[str] = set()
+    for row in slug_rows:
+        if not isinstance(row, dict):
+            issues.append("public entity inventory: public_slug_inventory entries must be objects")
+            continue
+        entity_id = row.get("entity_id")
+        entity_type = row.get("entity_type")
+        slug = row.get("public_slug")
+        route = row.get("canonical_route")
+        entity = entities.get(entity_id) if isinstance(entity_id, str) else None
+        key = (str(entity_type), str(slug))
+        if key in slug_inventory_keys:
+            issues.append(f"public entity inventory: duplicate governed slug {slug!r} within {entity_type}")
+        slug_inventory_keys.add(key)
+        if isinstance(route, str) and route in slug_inventory_routes:
+            issues.append(f"public entity inventory: duplicate governed route {route}")
+        if isinstance(route, str):
+            slug_inventory_routes.add(route)
+        if entity is None:
+            issues.append(f"public entity inventory: governed slug entity {entity_id!r} is not published")
+            continue
+        actual = entity[1]
+        if actual.get("entity_type") != entity_type or actual.get("preferred_label") != row.get("preferred_label") or actual.get("public_slug") != slug or actual.get("canonical_route") != route:
+            issues.append(f"{display_path(entity[0])}: public slug inventory mismatch for {entity_id}")
+        if entity_type == "ARTIST" and isinstance(slug, str) and slug.startswith(("keys-and-gates-artist-", "conflict-at-its-edges-artist-")):
+            issues.append(f"{display_path(entity[0])}: Artist public_slug must be a stable name/handle, not a generated placeholder")
+    acquisition_aliases = identity_inventory.get("acquisition_aliases", []) if isinstance(identity_inventory, dict) else []
+    alias_values: set[str] = set()
+    for row in acquisition_aliases:
+        if not isinstance(row, dict):
+            continue
+        alias = row.get("alias")
+        canonical_id = row.get("canonical_entity_id")
+        if isinstance(alias, str):
+            if alias in alias_values:
+                issues.append(f"public entity inventory: duplicate acquisition alias {alias}")
+            alias_values.add(alias)
+        if canonical_id not in entities:
+            issues.append(f"public entity inventory: acquisition alias {alias!r} points to unpublished {canonical_id!r}")
+        if isinstance(alias, str) and re.fullmatch(r"6529NM-AP-01-OUT-\d{3}", alias) and canonical_id in required_acquisition_ids:
+            issues.append(f"public entity inventory: Work outcome alias {alias} must not identify a Curated Acquisition")
+    route_aliases = identity_inventory.get("route_aliases", []) if isinstance(identity_inventory, dict) else []
+    legacy_routes: set[str] = set()
+    for row in route_aliases:
+        if not isinstance(row, dict):
+            continue
+        legacy = row.get("legacy_route")
+        canonical = row.get("canonical_route")
+        canonical_id = row.get("canonical_entity_id")
+        if isinstance(legacy, str):
+            if legacy in legacy_routes:
+                issues.append(f"public entity inventory: duplicate legacy route {legacy}")
+            legacy_routes.add(legacy)
+        entity = entities.get(canonical_id) if isinstance(canonical_id, str) else None
+        if entity is None:
+            issues.append(f"public entity inventory: route alias {legacy!r} points to unpublished {canonical_id!r}")
+        elif entity[1].get("canonical_route") != canonical:
+            issues.append(f"public entity inventory: route alias {legacy!r} does not target the entity's exact canonical route")
+        if legacy == canonical:
+            issues.append(f"public entity inventory: route alias {legacy!r} must differ from its canonical route")
+    for entity_id, (path, payload) in entities.items():
+        pattern = public_entity_id_pattern(payload.get("entity_type"), identity_inventory)
+        if isinstance(pattern, str) and not re.fullmatch(pattern, entity_id):
+            issues.append(f"{display_path(path)}: {payload.get('entity_type')} entity_id {entity_id!r} violates governed identity pattern {pattern}")
     return issues
 
 
@@ -712,6 +1309,17 @@ def validate_records(root: Path) -> list[str]:
         vocabularies, envelope_schema, schema_store = load_schemas(schema_root)
     except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
         return [f"schema and vocabulary load failed: {exc}"]
+    try:
+        identity_inventory = load_public_identity_inventory(schema_root)
+        inventory_schema = load_json(schema_root / "schemas/public-entity-identity-inventory.schema.json")
+        inventory_errors = sorted(
+            (leaf for error in validator_for(inventory_schema, schema_store).iter_errors(identity_inventory) for leaf in schema_leaf_errors(error)),
+            key=lambda error: list(error.absolute_path),
+        )
+        issues.extend(f"schemas/{PUBLIC_IDENTITY_INVENTORY_FILENAME}: {format_error(error)}" for error in inventory_errors)
+    except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+        identity_inventory = {}
+        issues.append(f"schemas/{PUBLIC_IDENTITY_INVENTORY_FILENAME}: unavailable: {exc}")
     issues.extend(validate_vocabularies(vocabularies))
     try:
         vocabulary_schema = load_json(schema_root / "schemas/controlled-vocabularies.schema.json")
@@ -733,6 +1341,27 @@ def validate_records(root: Path) -> list[str]:
     record_paths = sorted(records_dir.rglob("*.json")) if records_dir.exists() else []
     records: list[tuple[Path, dict[str, Any], dict[str, Any] | None]] = []
     record_ids: dict[str, Path] = {}
+    record_aliases: dict[str, set[Path]] = {}
+
+    def register_identifier(identifier: Any, path: Path) -> None:
+        if not isinstance(identifier, str):
+            return
+        prior = record_ids.get(identifier)
+        if prior is None:
+            record_ids[identifier] = path
+        elif prior != path:
+            relative_path = path.relative_to(root).as_posix()
+            issues.append(f"{relative_path}: duplicate record identifier {identifier}; first seen at {prior.relative_to(root).as_posix()}")
+
+    def register_aliases(value: dict[str, Any], path: Path) -> None:
+        for key in (
+            "entity_id", "relation_id", "program_id", "proposal_id", "object_id",
+            "accession_lot_id", "accession_number", "outcome_id", "publication_id", "accession_id",
+        ):
+            identifier = value.get(key)
+            if isinstance(identifier, str):
+                record_aliases.setdefault(identifier, set()).add(path)
+
     for path in record_paths:
         relative = path.relative_to(root).as_posix()
         try:
@@ -774,12 +1403,8 @@ def validate_records(root: Path) -> list[str]:
                 issues.extend(f"{relative}: record {format_error(error)}" for error in type_errors)
             except (OSError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
                 issues.append(f"{relative}: declared schema unavailable: {exc}")
-            record_id = record.get("record_id")
-            if isinstance(record_id, str):
-                if record_id in record_ids:
-                    issues.append(f"{relative}: duplicate record_id {record_id}; first seen at {record_ids[record_id].relative_to(root).as_posix()}")
-                else:
-                    record_ids[record_id] = path
+            register_identifier(record.get("record_id"), path)
+            register_aliases(record, path)
             if record.get("record_set_id") == "6529NM-GOV-REGISTER" and isinstance(record.get("records"), list):
                 for row in record["records"]:
                     embedded_id = row.get("decision_id") if isinstance(row, dict) else None
@@ -792,12 +1417,8 @@ def validate_records(root: Path) -> list[str]:
             records.append((path, record, None))
             continue
 
-        record_id = payload.get("record_id")
-        if isinstance(record_id, str):
-            if record_id in record_ids:
-                issues.append(f"{relative}: duplicate record_id {record_id}; first seen at {record_ids[record_id].relative_to(root).as_posix()}")
-            else:
-                record_ids[record_id] = path
+        register_identifier(payload.get("record_id"), path)
+        register_aliases(payload, path)
         record_type = payload.get("record_type")
         type_errors: list[Any] = []
         schema_path_name = vocabularies.get("schema_paths", {}).get(record_type)
@@ -820,14 +1441,29 @@ def validate_records(root: Path) -> list[str]:
         # Semantic checks deliberately run even when a schema error exists so a failed
         # record gets the complete diagnostic set in one deterministic CI run.
         if isinstance(record.get("envelope"), dict):
-            issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies))
+            issues.extend(f"{relative}: {message}" for message in validate_semantics(record, vocabularies, identity_inventory))
         records.append((path, record, payload))
+    aliases = {}
+    has_public_entities = any(
+        isinstance(payload, dict) and payload.get("record_type") == PUBLIC_ENTITY_TYPE
+        for _path, _record, payload in records
+    )
+    if has_public_entities:
+        for row in identity_inventory.get("work_aliases", []) if isinstance(identity_inventory, dict) else []:
+            if isinstance(row, dict) and isinstance(row.get("alias"), str) and isinstance(row.get("canonical_entity_id"), str):
+                aliases[row["alias"]] = row["canonical_entity_id"]
+        for alias, canonical_id in aliases.items():
+            canonical_path = record_ids.get(canonical_id)
+            if canonical_path is None:
+                issues.append(f"public identity inventory: canonical Work {canonical_id} is not published for alias {alias}")
+                continue
+            record_aliases.setdefault(alias, set()).add(canonical_path)
     for path, record, payload in records:
         if not isinstance(payload, dict):
             continue
         relative = path.relative_to(root).as_posix()
         for reference in iter_reference_values(payload):
-            if reference not in record_ids:
+            if reference not in record_ids and reference not in record_aliases:
                 issues.append(f"{relative}: unresolved record reference {reference}")
         for field in ("references", "governing_references"):
             direct_references = payload.get(field, [])
@@ -843,6 +1479,7 @@ def validate_records(root: Path) -> list[str]:
                     superseded = load_json(superseded_path)
                     if superseded.get("payload", {}).get("record_type") != payload.get("record_type"):
                         issues.append(f"{relative}: supersedes must point to the same record_type")
+    issues.extend(validate_public_graph(records, vocabularies, identity_inventory))
     return issues
 
 

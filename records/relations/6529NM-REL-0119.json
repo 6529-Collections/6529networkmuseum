@@ -1,0 +1,65 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x88b2aab866be29e7a2ed68048d144ab5df66518bdac47aed070d4bb58fdd6b04"
+    },
+    "effectiveAt": 1785652200,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xed314100e97d5e1d596ec310dd1c0a0ec630306e3bc81e7c06cc6744ab25c1fc",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/relations/6529NM-REL-0119.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T00:00:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T00:00:00Z",
+    "effective_at": "2026-08-02T06:30:00Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "The System in Seven States",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"
+      }
+    ],
+    "observed_at": "2026-08-02T06:30:00Z",
+    "payload_sha256": "sha256:6f9c0a3570c45c22fea2ba1117dcb45a65539d8d5addad6cfdb41bd2ad722c81",
+    "qualifier": {
+      "role": "subject"
+    },
+    "record_id": "6529NM-REL-0119",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-RP-0001",
+      "6529NM-W-0006",
+      "6529NM.2026.001"
+    ],
+    "relation_id": "6529NM-REL-0119",
+    "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-RP-0001",
+    "source_record_ids": [
+      "6529NM.2026.001"
+    ],
+    "subject_id": "6529NM-REL-0119",
+    "target_entity_id": "6529NM-W-0006",
+    "visibility": "public"
+  }
+}

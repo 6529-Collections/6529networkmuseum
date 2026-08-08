@@ -332,3 +332,36 @@ extended when later acquisitions from the same project arrive. Until that
 profile exists, the frontend package must retain exact source snapshot and
 reviewed descriptor identities, label synthetic views **Museum model**, and
 must not be promoted or interpreted as a canonical Stream record.
+
+## PUBLIC_ENTITY/PUBLIC_RELATION bilateral profile
+
+WP-1 uses `PUBLIC_ENTITY` and `PUBLIC_RELATION` as a Museum-native, Stream-
+shaped publication layer. The outer shape remains exactly `{envelope,payload}`;
+`envelope.recordType`, `schemaId`, `subjectId`, `contentHash`, and
+`effectiveAt` are committed from the payload and are never replaced by a
+frontend route or an opaque source alias. The public schema commitments are
+the Keccak-256 commitments to `PUBLIC_ENTITY_V1` and `PUBLIC_RELATION_V1`.
+`WAVE_STATUS_OBSERVATION` uses the same envelope for an append-only source
+observation and preserves its prior observation rather than rewriting it.
+
+The adapter is deliberately bilateral and typed:
+
+| Museum projection | Stream/PREMIS/LIDO boundary |
+|---|---|
+| `PUBLIC_ENTITY` identity and closed profile | Stream `CollectionRecord` envelope; LIDO object/actor identity views; no claim that the Museum profile is already an on-chain Stream schema |
+| `PUBLIC_RELATION` endpoint and qualifier | LIDO event/actor/object or object/object relationship view; relation direction, cardinality, and evidence remain Museum constraints |
+| Work component/manifestation references | PREMIS Object/Representation identity and LIDO digital-object/physical-digital boundary; a token, derivative, or metadata response is not silently promoted to the Work |
+| `MEDIA_REFERENCE` | PREMIS Object, Event, Rights, and fixity boundary; role, source observation, retrieval/fixity, rights, accessibility, and affordances remain separate facts |
+| Artist/Organization/Agent profiles | LIDO actor/name/role mapping; typed Artist and Organization identities are not collapsed into a generic Agent |
+| Accession and Collection relations | PREMIS event/rights/custody evidence plus LIDO collection/object relations; membership requires an actual accession relation |
+
+Adapters must preserve the Museum ID, source alias, evidence URI/path, source
+observation time, rights status, and independent lifecycle facts in both
+directions. A signed-Wave presentation image maps to a public presentation
+object with a restricted affordance allowlist and the non-licensing
+`open_signed_wave_source` locator; it cannot become a downloadable preservation
+master, a title/custody assertion, or an accession through serialization.
+Unknown profiles, relations, media roles, affordances, algorithms, and
+algorithm/digest pairs fail closed. Future Stream admission requires a
+field-by-field schema comparison, deterministic JCS/Keccak commitment check,
+PREMIS/LIDO round trip, and readback of the exact source/evidence boundaries.

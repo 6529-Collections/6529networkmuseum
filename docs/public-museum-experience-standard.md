@@ -114,14 +114,15 @@ The default interface serves the first two audiences. The deeper record layers s
 
 ### 5.1 Primary navigation
 
-The primary Museum navigation should be:
+The primary Museum navigation should be the following five labels:
 
-- **Visit the Museum** or **Museum Home**
 - **Collection**
 - **Artists**
-- **Programs and Exhibitions**
-- **Stories and Research**
+- **Acquisitions**
+- **Research**
 - **About**
+
+The Museum home remains the institutional front door at `/museum/network`; it is not a sixth peer label. `AGENT`, `ACCESSION`, and `MEDIA_REFERENCE` records are relational-only and do not receive visitor navigation. Exhibition is reserved vocabulary only in this release: no Exhibition instance, placeholder, or page is published.
 
 “Governance,” “Methodology,” “Accessions,” and “Approved Collections” must not be first-order visitor navigation labels.
 
@@ -154,27 +155,26 @@ The site must preserve these distinctions in routing, labels, search results, an
 
 ### 5.4 Required route model
 
-The exact slugs may be adjusted for 6529 conventions, but the semantic routes must exist:
+The following canonical routes and identity rules are normative:
 
 ```text
 /museum/network
 /museum/network/collection
-/museum/network/collection/[object-id]
 /museum/network/artists
 /museum/network/artists/[artist-slug]
+/museum/network/organizations/[organization-slug]
 /museum/network/projects/[project-slug]
-/museum/network/programs
-/museum/network/programs/[program-slug]
-/museum/network/exhibitions/[exhibition-slug]
-/museum/network/stories/[story-slug]
-/museum/network/gifts/[accession-id]
+/museum/network/works/[workId]
+/museum/network/acquisitions/[acquisition-slug]
+/museum/network/acquisition-programs/[program-slug]
+/museum/network/research/[research-slug]
 /museum/network/about
 /museum/network/about/collecting
 /museum/network/about/decisions
 /museum/network/about/standards
 ```
 
-Existing URLs must receive permanent redirects or compatible aliases. Stable object and accession identifiers remain visible and citeable even when visitor-facing routes use readable slugs.
+`[workId]` is the stored, acquisition-independent canonical Work ID `6529NM-W-####`; Casey accession IDs, Keys and Gates `OUT-*` outcome IDs, and Magnum proposal `OBJ-*` IDs are typed aliases and permanent redirects only. Acquisition Programs use stored visitor slugs such as `keys-and-gates`; `6529NM-AP-ENT-####` is the canonical entity ID and `6529NM-AP-01` is a source alias. Existing `/programs`, `/stories`, `/gifts`, `/collection/[object-id]`, and source-ID routes receive permanent redirects or compatible aliases. Stable source identifiers remain visible and citeable in provenance records without becoming visitor URLs.
 
 ## 6. Visual and editorial direction
 
@@ -322,9 +322,9 @@ Required modules, in this order unless an exhibition-specific art direction just
 1. **Primary art encounter:** a large approved still, video, or lightweight live presentation from an accessioned work or current program. It includes title, artist, date, and one clear action to enter the work.
 2. **Mission in one breath:** no more than approximately 60 words, with a link to the full institutional statement.
 3. **Featured collection story:** initially the Casey Reas gift, showing the seven works as art and explaining why the gift matters.
-4. **Current program or exhibition:** initially Keys and Gates, explicitly described as selected and unminted.
+4. **Current acquisition:** Keys and Gates is explicitly described as **Selected through an acquisition program; acquisition pending**, with optional **Mint pending** qualifier. Conflict at Its Edges is shown as **Selected by Museum Wave—acquisition review in progress**, with no acceptance, custody, title, rights, accession, or Collection implication.
 5. **Explore the collection:** visually rich entry points by artist, project, medium, date, and curatorial theme.
-6. **Stories and research:** essays, artist profiles, technical conservation features, and acquisition stories.
+6. **Research and essays:** Research Publications, artist profiles, technical conservation features, and acquisition stories.
 7. **Institutional footer:** collecting, donations, decisions, standards, repository, release commitment, accessibility, and contact.
 
 The home page must not lead with record totals, manifest health, policy cards, or governance decisions. A discreet source-health notice may appear only when the content is stale or incomplete.
@@ -498,9 +498,9 @@ The following existing public files must be routed and placed intentionally:
 | `public/technical-and-condition-review.md` | Display, behavior, condition, and preservation |
 | `public/6529NM.2026.001.01.md` through `.07.md` | Individual artwork pages |
 
-### 7.8 Programs and exhibitions
+### 7.8 Acquisitions and program records
 
-Programs and exhibitions are editorial experiences, not record dumps.
+Acquisitions pages are editorial experiences for coherent Curated Acquisition units, not record dumps. Acquisition Programs are separate pathway/mechanism records in the “How works enter the Museum” namespace: they are discoverable from the Acquisitions hub and link to the Curated Acquisitions or Work outcomes they produce, but they are not themselves acquisitions or Collection units. The public page is a projection of typed records; it never turns a source outcome or Program relation into an accession or Collection member. Only an active accession relation followed by the corresponding Collection relation can place a Work in the permanent Collection.
 
 The Keys and Gates page must include:
 
@@ -508,14 +508,15 @@ The Keys and Gates page must include:
 - the selected works as a media-rich visual sequence;
 - artist, title, and selection context for each work;
 - the selection mechanism explained in plain language;
-- a prominent, unambiguous statement that the works are selected and unminted;
+- a prominent, unambiguous visitor statement: **Selected through an acquisition program; acquisition pending**;
+- an optional independent qualifier: **Mint pending**;
 - no contract address, token ID, custody claim, accession number, or collection-holding claim before primary mint and subsequent evidence exist;
 - future links to Stream or other primary-mint presentation only after deployment and mint evidence;
 - an archive of the program source and decision history in the evidence layer.
 
-An exhibition may combine accessioned works and clearly labeled loans, selections, or documentary material. The relationship of every displayed item to the Museum must be explicit.
+Exhibition remains a reserved relation/type vocabulary, not a page or instance in this release. If a future exhibition is published, every displayed item's relationship to the Museum must be explicit and separately evidenced.
 
-### 7.9 Stories and research
+### 7.9 Research Publications and essays
 
 The Museum should publish serious editorial material independently of the register:
 
@@ -1039,7 +1040,7 @@ Required work:
 - create typed artist, title, selection, and media projections;
 - present the works in a designed sequence or exhibition, not a text-card matrix;
 - publish the curatorial frame and selection history;
-- label every work “Selected; not yet minted or accessioned” in visitor language;
+- label every work **Selected through an acquisition program; acquisition pending** in visitor language, with optional **Mint pending** qualifier;
 - suppress holdings, token, contract, custody, and accession fields until supported by primary evidence;
 - update the presentation after minting through an append-only state change, not by rewriting the selection history;
 - support either future Stream deployment option without changing visitor URLs.
@@ -1143,7 +1144,7 @@ This order minimizes throwaway frontend work because it fixes the publication pr
 - deploy the art-led home;
 - deploy the actual collection index;
 - move collecting policy, donation eligibility, decisions, and methods under About;
-- add stories and research surfaces;
+- add Research Publication and interpretive-essay surfaces;
 - add structured metadata and social imagery.
 
 ### Phase 4 — Publish Keys and Gates as a program
@@ -1158,7 +1159,7 @@ This order minimizes throwaway frontend work because it fixes the publication pr
 - complete visual, accessibility, security, performance, and preservation gates;
 - add multilingual publication support;
 - add richer IIIF viewing and downloadable research data;
-- add online exhibitions and guided paths;
+- reserve the Exhibition route family and schema vocabulary; publish no Exhibition instance until a reviewed exhibition record exists;
 - migrate the publication source from GitHub commitments to on-chain/content-addressed records when the contract is ready, without changing public URLs.
 
 ## 23. Definition of world-class for this Museum
@@ -1205,9 +1206,9 @@ This map turns the product standard into an initial code boundary for `6529seize
 | `components/museum/MuseumShell.tsx` | Navigation foregrounds institutional record domains; source banner describes moving canonical main. | Implement visitor IA, move institutional material under About, and cite exact immutable snapshot evidence in the expert layer. |
 | `app/museum/network/page.tsx` | The home is dominated by section cards, counts, and release evidence. | Replace with curated artwork hero, mission, Casey gift, Keys and Gates program, collection discovery, and stories. |
 | `app/museum/network/accessions/[accessionId]/page.tsx` | The page renders register summary, limits, object links, and JSON but none of the human-readable dossier. | Build an illustrated gift/acquisition narrative and route every declared dossier document. |
-| `app/museum/network/objects/[objectId]/page.tsx` | The page has no artwork viewer and only thin object fields, statement text, JSON, and source link. | Replace with the complete artwork-page specification, including still/live presentation, interpretation, catalog, rights, provenance, preservation, IIIF, and evidence. |
+| `app/museum/network/objects/[objectId]/page.tsx` | Legacy implementation path has no artwork viewer and only thin object fields, statement text, JSON, and source link. | Replace with `/museum/network/works/[workId]`, using the canonical `6529NM-W-####` Work ID and the complete artwork-page specification, including still/live presentation, interpretation, catalog, rights, provenance, preservation, IIIF, and evidence. |
 | `app/museum/network/collections/**` | “Collections” means preapproved donation scopes rather than holdings. | Move these records to About / Collecting and reserve the Collection routes for accessioned objects. |
-| `app/museum/network/programs/**` | Keys and Gates selections render as text cards without art. | Add approved media and a designed program/exhibition presentation while preserving selected/unminted status. |
+| `app/museum/network/programs/**` | Legacy program paths render Keys and Gates selections as text cards without art. | Move the visitor contract to `/museum/network/acquisition-programs/keys-and-gates`; add approved media and a designed acquisition-program presentation while preserving the source `selected_unminted` status. |
 | `components/common/SandboxedExternalIframe.tsx` | Existing sandboxing is a useful starting pattern but its current origin contract does not cover Museum generators. | Build a dedicated `MuseumLiveWorkFrame` with exact work-level allowlisting and stricter capabilities. |
 | `components/nft-image/renderers/NFTHTMLRenderer.tsx` | Existing generic HTML NFT rendering is not an adequate security boundary for Museum live works. | Do not reuse it for Museum presentation; use the dedicated sandbox and CSP. |
 | `components/drops/view/item/content/media/**` | Generic social/drop media dispatch trusts broad URL/MIME inputs, uses generic alt text, and may autoplay video in view. | Reuse only low-level visual ideas; Museum media must be record-bound, rights-aware, digest-addressed, specifically described, and non-autoplaying. |
