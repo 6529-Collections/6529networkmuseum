@@ -23,11 +23,11 @@ The photograph looks upward into a form that is both bowl and aperture. Water ra
 
 ## Artist’s account
 
-Zoku identifies the image as the spillway funnel of San Roque Dam and describes it as an automated system that regulates excess pressure. The submission connects its 1944 expansion to a broader idea of infrastructure solving problems without an individual permission event.
+Zoku identifies the image as the spillway funnel of San Roque Dam and describes it as an automated system that regulates excess pressure. The submission connects its 1944 expansion to a broader idea of infrastructure solving problems through automatic release; no individual permission event appears in the account.
 
 ## Curatorial interpretation
 
-The work makes control legible through disappearance. No operator, hinge, or warning sign appears; shaped water carries the evidence of a system. The abstraction is political as well as formal: infrastructure can organize passage while presenting itself as neutral flow.
+Control appears through disappearance. No operator, hinge, or warning sign appears; shaped water carries the evidence of a system. The abstraction is political as well as formal: infrastructure can organize passage while presenting itself as neutral flow.
 
 ## Context
 
@@ -36,10 +36,8 @@ Public technical material supports San Roque Dam’s site and a 1944 dam phase. 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission states that the work will be released under CC0 if selected. Site permission, technical description, source RAW, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/zoku.md) · [Previous: *Nowhere To Esc.*](nowhere-to-esc.md) · [Next: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/zoku.md) · [Previous: *Nowhere To Esc.*](nowhere-to-esc.md) · [Next: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)

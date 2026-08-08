@@ -53,11 +53,11 @@ Each work page separates:
 3. what public sources independently support; and
 4. what remains unknown or requires registrar confirmation.
 
-Artist intent is attributed to the artist's submission. Public biographical material is source-graded and kept minimal where identity or biography is unresolved. The pages avoid publishing private contact information, legal identity assumptions, sensitive location detail, passport data, or restricted consent documents.
+Artist intent is attributed to the artist's submission. Public biographical material is source-graded and kept minimal where identity or biography is unresolved. The pages avoid publishing private contact information, legal identity assumptions, sensitive location detail, passport data, or consent instruments.
 
 ## Media boundary
 
-The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and constructed accessibility text pending independent visual review; [amendment 003](accessibility-amendment-2026-08-08-003.md) records the current status, OUT-008 correction, and OUT-011 size restriction.
+The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and constructed accessibility text pending independent visual review; [amendment 003](accessibility-amendment-2026-08-08-003.md) records the current projection, [amendment 004](accessibility-amendment-2026-08-08-004.md) records the enforced OUT-011 size restriction and readback, and [amendment 006](accessibility-amendment-2026-08-08-006.md) records the corresponding OUT-004 restriction and readback. The completed display basis for all sixteen works is the [limited editorial-display authority amendment](publication-authority-amendment-2026-08-08-005.md).
 
 ## Review state
 

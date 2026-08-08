@@ -19,7 +19,7 @@ A distant figure with keys stands inside a sequence of damaged rooms and arches.
 
 ## Close looking
 
-Repetition organizes the image. Arches open one behind another, each revealing another layer of plaster, brick, shadow, and rubble. The figure is small enough to be absorbed by the architecture, while the keys give the body a precise task: to carry the possibility of entry through a place exhausted by permission. The path forward exists as a sequence of apertures; the keys offer possibility without guaranteeing an opening.
+Repetition organizes the image. Arches open one behind another, each revealing another layer of plaster, brick, shadow, and rubble. The figure is small enough to be absorbed by the architecture, while the keys give the body a precise task: to carry the possibility of entry through a place exhausted by permission. The path forward exists as a sequence of apertures; the keys offer possibility while the opening remains uncertain.
 
 ## Artist’s account
 
@@ -27,19 +27,17 @@ Teyhu describes the space as suspended between collapse and escape and the keys 
 
 ## Curatorial interpretation
 
-The work turns a key into a burden. Its repeated arches make access procedural: one threshold follows another, and the figure carries evidence of a permission that may already have failed. Distance keeps the image suspended between arrival and departure.
+A key becomes a burden here. Repeated arches render access procedural: one threshold follows another, and the figure carries evidence of a permission that may already have failed. Distance keeps the image suspended between arrival and departure.
 
 ## Context
 
-The submission gives Iran as the location but does not identify the building. The public profile remains handle-based; the Museum does not infer a political history or safe location from the architecture.
+The submission gives Iran as the location but leaves the building unidentified. The public profile remains handle-based; the architecture supplies no basis for a political history or safe location.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission states that the work is released under CC0 and identifies it as a self-portrait; exact site, likeness status, safe geography, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/teyhu.md) · [Previous: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md) · [Next: *Nowhere To Esc.*](nowhere-to-esc.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/teyhu.md) · [Previous: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md) · [Next: *Nowhere To Esc.*](nowhere-to-esc.md)

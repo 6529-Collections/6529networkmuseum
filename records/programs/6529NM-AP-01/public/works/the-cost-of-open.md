@@ -19,7 +19,7 @@ Moraine Lake opens into turquoise water, dark forest, and the snow-dusted Valley
 
 ## Close looking
 
-The image offers the landscape at its most persuasive: water opens across the lower frame, tree line gathers at the edges, and the peaks rise without a visible wall or checkpoint. The clear division between lake, forest, and mountain gives the view a calm legibility. Access appears to be a matter of looking.
+The image offers the landscape at its most persuasive: water opens across the lower frame, tree line gathers at the edges, and the peaks rise in a frame with no visible wall or checkpoint. The clear division between lake, forest, and mountain gives the view a calm legibility. Access appears to be a matter of looking.
 
 The title interrupts that ease. The photograph is beautiful because it presents a shared landscape as if it were immediately available, while the image’s making depends on a route, season, capacity, time, and the chance to arrive. Its openness is visual; the conditions of entry stay outside the frame.
 
@@ -29,19 +29,17 @@ Patel’s submission describes the change from overnight queues and private-vehi
 
 ## Curatorial interpretation
 
-The work turns the sublime landscape into an access document while keeping the machinery of access outside the frame. The empty-looking water carries administration in its title and in the conditions of its making. The view asks the viewer to account for the costs—money, planning, time, and environmental limits—that make a landscape appear available.
+The sublime landscape reads as an access document while its machinery stays outside the frame. The empty-looking water carries administration in its title and in the conditions of its making. The view asks the viewer to account for the costs—money, planning, time, and environmental limits—that give availability its conditions.
 
 ## Context
 
-The artist’s submission supplies the access context for Moraine Lake, including reservations, shuttles, capacity, and time. No stable external tourism citation is retained in this edition after the link audit. The image itself leaves the precise viewpoint, visitor conditions, and any source-scene visitors open.
+The artist’s submission supplies the access context for Moraine Lake, including reservations, shuttles, capacity, and time. [Parks Canada’s current visitor guidance](https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise) states that Moraine Lake Road is closed to personal vehicles year-round and that shuttle access requires a reservation; that policy describes current access, while the photograph’s 2024 route and capture-day conditions remain open. The image itself leaves the precise viewpoint and any source-scene visitors open.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Source-resolution, capture conditions, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/priyanka.md) · [Previous: *The Hostile Gate*](the-hostile-gate.md) · [Next: *Dichotomy.*](dichotomy.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/priyanka.md) · [Previous: *The Hostile Gate*](the-hostile-gate.md) · [Next: *Dichotomy.*](dichotomy.md)

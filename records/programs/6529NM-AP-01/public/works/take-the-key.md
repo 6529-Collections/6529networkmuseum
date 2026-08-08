@@ -36,10 +36,8 @@ The [source register](../sources-and-bibliography.md) links public professional 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a conditional CC0 declaration. Exact venue, figure consent, source file, and final rights scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/gulyildiz.md) · [Next: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/gulyildiz.md) · [Next: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md)

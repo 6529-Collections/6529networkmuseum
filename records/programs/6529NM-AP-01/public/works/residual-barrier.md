@@ -27,19 +27,17 @@ IKERTJE describes the wall as a threshold after enforcement ends: movement has b
 
 ## Curatorial interpretation
 
-The work studies a wall’s afterlife. Graffiti turns a controlled surface into a place for unsanctioned presence, and the edit makes the structure feel even more self-contained. Access is remembered through the material that remains after the gate’s practical function has weakened.
+The work studies a wall’s afterlife. Graffiti gives a controlled surface a record of unsanctioned presence, while the edit keeps the concrete self-contained. Access survives here as material: the gate’s practical function has weakened, and its remains still organize memory.
 
 ## Context
 
-The submission places the photograph in Berlin in 2011. Public Berlin Wall history supports the broader context of former division and memorial afterlife, but the exact segment and the identity or permissions of the graffiti makers are not established by the public record.
+The submission places the photograph in Berlin in 2011. Public Berlin Wall history supports the broader context of former division and memorial afterlife, while the exact segment and the identity or permissions of the graffiti makers remain open in the public record.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a CC0/CCO declaration, but the required license wording, visible-mark permissions, edit history, and source publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/ikertje.md) · [Previous: *No Key, Only Light*](no-key-only-light.md) · [Next: *The Hostile Gate*](the-hostile-gate.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/ikertje.md) · [Previous: *No Key, Only Light*](no-key-only-light.md) · [Next: *The Hostile Gate*](the-hostile-gate.md)

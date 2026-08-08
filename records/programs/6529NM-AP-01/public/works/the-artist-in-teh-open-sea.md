@@ -20,17 +20,17 @@ A person in a small white tub or boat remains sharply legible amid long-exposure
 
 ## Close looking
 
-The elevated view turns the roadway into a diagonal field of velocity. Vehicles dissolve into white and grey bands; the performer and white vessel hold their shape. The road is full, bright, and in motion, so the figure’s stillness reads as a deliberate act of concentration.
+The elevated view lays the roadway across the frame as a diagonal field of velocity. Vehicles dissolve into white and grey bands; the performer and white vessel hold their shape. The road is full, bright, and in motion, so the figure’s stillness reads as a deliberate act of concentration.
 
 The tub shifts the roadway into an “open sea” while the city remains materially present. Long exposure makes buses behave like current; the directed figure resists becoming another streak. Speed and scale carry the photograph’s tension.
 
 ## Artist’s account
 
-Hugo Faz describes the rower as the artist in a marketplace that values speed and volume. “Open seas” are framed as permissioned corridors that lack a meaningful lane for artists; the free act is the one that does not ask. The marketplace language remains attributed to the artist.
+Hugo Faz describes the rower as the artist in a marketplace that values speed and volume. “Open seas” are framed as permissioned corridors that lack a meaningful lane for artists; the free act is the one that asks nothing. The marketplace language remains attributed to the artist.
 
 ## Curatorial interpretation
 
-The scene is a staged photographic performance. Long exposure gives the urban system the appearance of a tide, and the tub makes a roadway perform the role of water. Performance documentation, conceptual street photography, and images of transit meet in the same frame. The question is whether a public system can accommodate a body moving at its own speed.
+The scene is a staged photographic performance. Long exposure gives the urban system the appearance of a tide, and the tub lends the roadway the role of water. Performance documentation, conceptual street photography, and images of transit meet in the same frame. The question is whether a public system can accommodate a body moving at its own speed.
 
 ## Context
 
@@ -39,10 +39,8 @@ Faz’s public practice joins photography to performance, film, and self-represe
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission contains a conditional CC0/full-rights assertion. Performer consent, staging permission, original composite layers, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Take the Key!*](take-the-key.md) · [Next: *Managed Freedom*](managed-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Take the Key!*](take-the-key.md) · [Next: *Managed Freedom*](managed-freedom.md)

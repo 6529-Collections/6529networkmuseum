@@ -1,6 +1,6 @@
 # Rakesh Pulapa (Rakesh)
 
-Rakesh Pulapa is an Indian travel and aerial photographer whose [artist biography](https://www.rakeshpulapa.com/about) describes a computer-science background and a transition from hobby photography into professional work. The [Condé Nast Traveller interview](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/) and [public regional profile](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114) associate him with Rajahmundry/Rajamahendravaram and with drone, nature, and travel photography. One independent interview uses the expanded name Rakesh Kiran Pulapa; the Museum preserves that as a source variant rather than normalizing it.
+Rakesh Pulapa is an Indian travel and aerial photographer whose [artist biography](https://www.rakeshpulapa.com/about) describes a computer-science background and a transition from hobby photography into professional work. The [Condé Nast Traveller interview](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/) and [public regional profile](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114) associate him with Rajahmundry/Rajamahendravaram and with drone, nature, and travel photography. One independent interview uses the expanded name Rakesh Kiran Pulapa; the Museum preserves that as a source variant and leaves the public authority form open.
 
 In *Dichotomy.*, Pulapa’s aerial viewpoint divides dense homes from an ordered field of palms. The image’s near-ruler-straight edge turns a lived environment into a diagram of land use, security, and property. The submission describes the ordered side as a jail facility and the other as a residential neighbourhood; the photograph itself leaves the facility unidentified, allowing the formal boundary to remain visible while the claim stays attributed.
 
@@ -11,3 +11,7 @@ In *Dichotomy.*, Pulapa’s aerial viewpoint divides dense homes from an ordered
 **Further research:** The travel and aerial practice is supported; the facility, flight authorization, safe location wording, source metadata, and preferred authority form remain to be confirmed.
 
 **Sources:** [artist biography](https://www.rakeshpulapa.com/about), [Condé Nast Traveller](https://www.cntraveller.in/story/photographers-behind-indias-most-stunning-drone-shots-share-their-hottest-tips/), [The Hans India](https://www.thehansindia.com/andhra-pradesh/rajahmundry-youth-becomes-vivo-judge-814114), [public interview](https://www.eatmy.news/2020/09/patience-and-perfection-is-important-to.html).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md)

@@ -72,7 +72,7 @@ The canonical artist profiles in [`artists/`](artists/) retain only public, sour
 
 - [Fort Frederick, Grenada Tourism Authority](https://www.puregrenada.com/fort-frederick/) and [UNESCO tentative-list context](https://whc.unesco.org/en/tentativelists/1926/) — OUT-004.
 - [Berlin Wall Memorial](https://www.berlin.de/en/museums/3109351-3104050-gedenkstaette-berliner-mauer.en.html) and [German Federal Archives](https://www.bundesarchiv.de/themen-entdecken/online-entdecken/dokumente-zur-zeitgeschichte/bau-der-berliner-mauer/) — OUT-005.
-- OUT-007 access context remains attributed to the artist submission; no stable external tourism citation is retained in this edition after the link audit.
+- [Parks Canada, Visiting Lake Louise and Moraine Lake](https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise), accessed 8 August 2026 — current road-closure and shuttle-reservation policy for OUT-007; the artist’s 2024 capture conditions remain attributed.
 - [RAW-Gelände official history](https://raw-gelaende.de/en/historie/) and [English site history](https://raw-gelaende.de/en/about-r-a-w/) — OUT-009.
 - [Casa NUA](https://nua.casa/) and [Domínio Público](https://dominiopublico.nua.casa/) — OUT-011.
 - [Liberation War Museum history](https://www.liberationwarmuseumbd.org/page/history) and [Bangladesh Army history](https://www.army.mil.bd/history) — OUT-015.
@@ -83,6 +83,13 @@ The canonical artist profiles in [`artists/`](artists/) retain only public, sour
 ## External link audit
 
 On 8 August 2026, stale external citations were removed from this public edition after endpoint checks returned error or DNS failures. No archive snapshot is asserted for those omissions. The retained bibliography above is the current source set; unresolved biography and context are stated as gaps rather than padded with low-authority mirrors.
+
+| Audit disposition | Source treatment |
+|---|---|
+| Hive, PinchukArtCentre, Spilne Art, Berlin Q&A, and Get Bengal endpoints | Omitted after the recorded error responses; no replacement claim or archive snapshot is asserted. |
+| Legacy Parks Canada access endpoint | Removed from the work bibliography and replaced by the current official [visitor-guidance page](https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise), accessed 8 August 2026. |
+| Shape of Pepe / Priyanka site | Omitted after DNS failure; the artist note remains evidence-proportionate to the Farcaster and interview sources. |
+| Twstalker and mobile.twstalker mirrors | Omitted from Teyhu and Minalisa citations; first-party/platform sources and the signed submissions remain the public basis. |
 
 ## Chronology
 

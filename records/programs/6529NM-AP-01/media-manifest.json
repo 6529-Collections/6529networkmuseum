@@ -6,14 +6,14 @@
     "constructor": {
       "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
       "role": "constructor",
-      "constructed_at": "2026-08-04T22:52:51Z"
+      "constructed_at": "2026-08-08T13:17:24Z"
     },
     "review": null
   },
   "record_type": "PROGRAM_MEDIA_MANIFEST",
   "schema_profile": "6529NM_PROGRAM_MEDIA_MANIFEST_V1",
   "program_id": "6529NM-AP-01",
-  "generated_at": "2026-08-04T22:52:51Z",
+  "generated_at": "2026-08-08T13:17:24Z",
   "source_observed_at": "2026-08-04T21:50:30Z",
   "transform": {
     "profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
@@ -230,7 +230,7 @@
         "role": "web_presentation_surrogate",
         "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
+        "public_widths": [640],
         "derivatives": [
           {
             "width": 640,
@@ -240,26 +240,6 @@
             "byte_size": 45202,
             "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
             "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1280,
-            "mime_type": "image/webp",
-            "sha256": "sha256:18bb9cadc9c91a36518da2d5650cfaa3a9c398bebb4a283275a1b538bce48ad1",
-            "byte_size": 145438,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 2400,
-            "mime_type": "image/webp",
-            "sha256": "sha256:73c4e5dbf469c3c2757ac2368409974e6b6b2c7a508b0ec4db9425252666108c",
-            "byte_size": 390994,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/2400.webp",
             "cache_control": "public, max-age=31536000, immutable"
           }
         ]

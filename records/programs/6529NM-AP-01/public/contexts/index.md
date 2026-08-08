@@ -12,7 +12,7 @@ The Berlin Wall Memorial and German Federal Archives provide public histories of
 
 ## Moraine Lake access — OUT-007
 
-The artist’s submission supplies the access context for Moraine Lake. No stable external tourism citation is retained in this edition after the link audit, so the work’s exact route, permit, and visitor conditions remain open.
+Parks Canada’s current visitor guidance states that Moraine Lake Road is closed to personal vehicles year-round and that visitors using the Parks Canada shuttle need a reservation. The artist’s submission supplies the access context for the 2024 photograph; its exact route, permit, viewpoint, and capture-day conditions remain open. Source: [Parks Canada, Visiting Lake Louise and Moraine Lake](https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise), accessed 8 August 2026.
 
 ## RAW-Gelände, Berlin — OUT-009
 

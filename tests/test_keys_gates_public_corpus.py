@@ -59,7 +59,7 @@ EXPECTED_ALTS = {
     ),
 }
 EXPECTED_WIDTHS = {
-    record_id: [640] if record_id.endswith("OUT-011") else [640, 1280, 2400]
+    record_id: [640] if record_id.endswith(("OUT-004", "OUT-011")) else [640, 1280, 2400]
     for record_id in EXPECTED_ALTS
 }
 
@@ -149,6 +149,12 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertNotIn("/1280.webp", json.dumps(out_011))
         self.assertNotIn("/2400.webp", json.dumps(out_011))
 
+        out_004 = next(item for item in manifest_items if item["record_id"].endswith("OUT-004"))
+        self.assertEqual([640], out_004["presentation"]["public_widths"])
+        self.assertEqual([640], [entry["width"] for entry in out_004["presentation"]["derivatives"]])
+        self.assertNotIn("/1280.webp", json.dumps(out_004))
+        self.assertNotIn("/2400.webp", json.dumps(out_004))
+
     def test_wave_source_link_uses_canonical_program_uuid(self) -> None:
         program_note = (REPO_ROOT / "docs/programs/keys-and-gates.md").read_text(encoding="utf-8")
         self.assertIn(
@@ -166,6 +172,100 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertIn("OUT-008", amendment)
         self.assertIn("OUT-011", amendment)
         self.assertIn("constructed_visual_description_pending_independent_review", amendment)
+
+    def test_out_011_withdrawal_has_exact_readback_and_stays_out_of_visitor_routes(self) -> None:
+        amendment = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md"
+        ).read_text(encoding="utf-8")
+        for required in (
+            "6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-004",
+            "I8YFV5J3W4GCFQCZNXU39X6VYQ",
+            "2026-08-08T12:49:27Z",
+            "HTTP 200; 15,306 bytes",
+            "HTTP 404",
+            "sha256:00f3ff73be1cfff57a5ddf3ae9890cd9a49e1de547c5883cd1ac405bcda6f985",
+            "sha256:c704956b390385b6c8f2c9158455292618b8237aa3355ff6b0a2615b3f62c251",
+            "ECGWRHUV1NM3I",
+            "6529bucket",
+        ):
+            self.assertIn(required, amendment)
+        self.assertEqual(2, amendment.count("HTTP 404"))
+
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        out_011 = next(item for item in manifest["items"] if item["record_id"].endswith("OUT-011"))
+        derivative = out_011["presentation"]["derivatives"]
+        self.assertEqual(
+            [
+                {
+                    "width": 640,
+                    "sha256": "sha256:14eea8754ea08d39dd5fe39d93f2f69dbce8e18e9f550a10f7e76bc6ec3fc784",
+                    "byte_size": 15306,
+                }
+            ],
+            [
+                {
+                    "width": entry["width"],
+                    "sha256": entry["sha256"],
+                    "byte_size": entry["byte_size"],
+                }
+                for entry in derivative
+            ],
+        )
+
+        visitor_paths = [
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/README.md",
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/curated-acquisition.md",
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/curatorial-essay.md",
+            *sorted((REPO_ROOT / "records/programs/6529NM-AP-01/public/works").glob("*.md")),
+            *sorted((REPO_ROOT / "records/programs/6529NM-AP-01/public/artists").glob("*.md")),
+        ]
+        visitor_text = "\n".join(path.read_text(encoding="utf-8") for path in visitor_paths)
+        for internal_value in ("ECGWRHUV1NM3I", "6529bucket", "I8YFV5J3W4GCFQCZNXU39X6VYQ"):
+            self.assertNotIn(internal_value, visitor_text)
+
+        source_url = out_011["source"]["url"]
+        self.assertNotIn(source_url, visitor_text)
+        self.assertIn("source hash, fixed transform, width allowlist", amendment)
+
+    def test_out_004_withdrawal_has_exact_readback_and_lineage(self) -> None:
+        amendment = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-006.md"
+        ).read_text(encoding="utf-8")
+        for required in (
+            "6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-006",
+            "IBOR4WFJPZAPTU36ZXYOFBWLGK",
+            "2026-08-08T13:03:13Z",
+            "HTTP 200; 45,202 bytes",
+            "sha256:18bb9cadc9c91a36518da2d5650cfaa3a9c398bebb4a283275a1b538bce48ad1",
+            "sha256:73c4e5dbf469c3c2757ac2368409974e6b6b2c7a508b0ec4db9425252666108c",
+            "HTTP 404",
+            "sha256:8e0915b020965a6090c868ba29397c03ee8322d84ebca32fe3714f0537d96987",
+        ):
+            self.assertIn(required, amendment)
+        self.assertEqual(2, amendment.count("HTTP 404"))
+
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        out_004 = next(item for item in manifest["items"] if item["record_id"].endswith("OUT-004"))
+        self.assertEqual([640], out_004["presentation"]["public_widths"])
+        self.assertEqual(
+            [{"width": 640, "sha256": "sha256:8e0915b020965a6090c868ba29397c03ee8322d84ebca32fe3714f0537d96987", "byte_size": 45202}],
+            [
+                {"width": entry["width"], "sha256": entry["sha256"], "byte_size": entry["byte_size"]}
+                for entry in out_004["presentation"]["derivatives"]
+            ],
+        )
+
+    def test_limited_editorial_display_authority_covers_all_16(self) -> None:
+        amendment = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("PROVISIONAL_EDITORIAL_DISPLAY_LIMITED", amendment)
+        self.assertIn("No consent instrument", amendment)
+        self.assertIn("private source", amendment)
+        self.assertIn("does **not** activate CC0", amendment)
+        self.assertEqual(16, amendment.count("| `PROVISIONAL_EDITORIAL_DISPLAY_LIMITED` |"))
+        for alias in (f"OUT-{index:03d}" for index in range(1, 17)):
+            self.assertIn(f"| {alias} |", amendment)
 
     def test_selected_outcomes_public_work_pages_and_media_are_one_to_one(self) -> None:
         selected = load_json(f"records/programs/{PROGRAM_ID}/selected-works.json")
@@ -190,13 +290,71 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             self.assertNotIn(alias, aliases)
             self.assertEqual(alias, f"OUT-{media_match.group(1)}")
             self.assertIn(
-                "Selected through the Keys and Gates acquisition program; acquisition pending.",
+                "**Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**",
                 text,
             )
-            self.assertIn("**Mint:** **Mint pending.**", text)
+            self.assertNotIn("**Program state:**", text)
+            self.assertNotIn("**Mint:**", text)
             self.assertNotIn("selected_unminted", text)
             aliases[alias] = work
         self.assertEqual({f"OUT-{i:03d}" for i in range(1, 17)}, set(aliases))
+
+    def test_public_artist_and_work_navigation_is_bidirectional_and_direct(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        acquisition = (public_root / "curated-acquisition.md").read_text(encoding="utf-8")
+        essay_link = "(curatorial-essay.md)"
+        self.assertIn(essay_link, acquisition)
+        works = sorted((public_root / "works").glob("*.md"))
+        artists = sorted((public_root / "artists").glob("*.md"))
+        self.assertEqual(16, len(works))
+        self.assertEqual(15, len(artists))
+        for work in works:
+            text = work.read_text(encoding="utf-8")
+            self.assertIn("../curated-acquisition.md", text, work)
+            self.assertIn("../curatorial-essay.md", text, work)
+            artist_links = re.findall(r"\]\(\.\./artists/([^\)]+)\.md\)", text)
+            self.assertTrue(artist_links, work)
+            for artist_slug in set(artist_links):
+                artist_path = public_root / "artists" / f"{artist_slug}.md"
+                self.assertTrue(artist_path.exists(), artist_path)
+                self.assertIn(f"../works/{work.name}", artist_path.read_text(encoding="utf-8"), artist_path)
+        for artist in artists:
+            text = artist.read_text(encoding="utf-8")
+            self.assertIn("../curated-acquisition.md", text, artist)
+            self.assertIn("../curatorial-essay.md", text, artist)
+            self.assertRegex(text, r"\]\(\.\./works/[^\)]+\.md\)", artist)
+
+    def test_visitor_copy_has_no_exhibition_or_formulaic_scaffolding_terms(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        visitor_paths = [
+            public_root / "curated-acquisition.md",
+            public_root / "curatorial-essay.md",
+            *sorted((public_root / "artists").glob("*.md")),
+            *sorted((public_root / "works").glob("*.md")),
+        ]
+        visitor_text = "\n".join(path.read_text(encoding="utf-8") for path in visitor_paths).lower()
+        for forbidden in ("exhibition", "neither", "rather than", "without", "schema", "manifest", "deployment"):
+            self.assertNotIn(forbidden, visitor_text, forbidden)
+
+    def test_work_pages_project_only_declared_presentation_urls(self) -> None:
+        public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        work_text = "\n".join(path.read_text(encoding="utf-8") for path in (public_root / "works").glob("*.md"))
+        visitor_text = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in (
+                public_root / "README.md",
+                public_root / "curated-acquisition.md",
+                public_root / "curatorial-essay.md",
+                *(public_root / "artists").glob("*.md"),
+            )
+        )
+        for item in manifest["items"]:
+            presentation = item["presentation"]
+            self.assertIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
+            source_url = item["source"]["url"]
+            self.assertNotIn(source_url, work_text, item["record_id"])
+            self.assertNotIn(source_url, visitor_text, item["record_id"])
 
 
 if __name__ == "__main__":

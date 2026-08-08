@@ -19,7 +19,7 @@ Industrial ruins, barred openings, lamps, and layered graffiti frame the declara
 
 ## Close looking
 
-Hard contrasts organize the frame: black windows, pale walls, a lamp’s small flare, and graffiti gathered across the surface like a second architecture. The slogan sits within a place of repair, closure, and re-use. Its capital letters claim the wall while the building’s decay keeps time around them. The camera holds the site at a distance that is neither tourist view nor intimate document. Barred openings and uncertain routes make the declaration read as invitation and occupation, a public voice speaking from a site whose access has changed over time.
+Hard contrasts organize the frame: black windows, pale walls, a lamp’s small flare, and graffiti gathered across the surface like a second architecture. The slogan sits within a place of repair, closure, and re-use. Its capital letters claim the wall while the building’s decay keeps time around them. The camera holds the site at a deliberate distance, presenting a public view shaped by history. Barred openings and uncertain routes make the declaration read as invitation and occupation, a public voice speaking from a site whose access has changed over time.
 
 ## Artist’s account
 
@@ -31,15 +31,13 @@ The photograph separates access to a site from authority over its signs. A colle
 
 ## Context
 
-RAW-Gelände’s public history supports the broad sequence from railway repair works to temporary cultural use and redevelopment. The exact building and graffiti authorship are not independently fixed in the public record.
+RAW-Gelände’s public history supports the broad sequence from railway repair works to temporary cultural use and redevelopment. The exact building and graffiti authorship remain open in the public record.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The artist’s CC0 declaration is present; visible-mark authorship, site permission, exact building, original file, and publication scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/pandelic.md) · [Previous: *Dichotomy.*](dichotomy.md) · [Next: *Checkpoint*](checkpoint.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/pandelic.md) · [Previous: *Dichotomy.*](dichotomy.md) · [Next: *Checkpoint*](checkpoint.md)

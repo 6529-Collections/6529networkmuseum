@@ -25,11 +25,11 @@ The plantation has the visual calm of a garden; the neighbourhood reads as a com
 
 ## Artist’s account
 
-Pulapa describes the ordered side as a jail facility and the other as a residential neighbourhood, asking what custody looks like when confinement resembles order and freedom resembles chaos. Those identifications remain the artist’s account; the public record does not independently identify the facility.
+Pulapa describes the ordered side as a jail facility and the other as a residential neighbourhood, asking what custody looks like when confinement resembles order and freedom resembles chaos. Those identifications remain the artist’s account; the public record leaves the facility unidentified.
 
 ## Curatorial interpretation
 
-The photograph makes access a problem of viewpoint. From the ground, a wall, road, or security perimeter would organize movement; from above, the boundary becomes an abstract stroke. People living on either side disappear into the diagram, leaving the viewer to consider who may see a landscape as a system and who must live inside its divisions.
+Seen from above, access becomes a problem of viewpoint. From the ground, a wall, road, or security perimeter would organize movement; in the aerial frame, the boundary is an abstract stroke. People living on either side disappear into the diagram, leaving the viewer to consider who may see a landscape as a system and who must live inside its divisions.
 
 ## Context
 
@@ -38,10 +38,8 @@ The submission places the image in Rajahmundry and identifies a DJI drone. The [
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Facility identity, aerial authorization, source metadata, and final rights scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/rakesh.md) · [Previous: *the cost of open*](the-cost-of-open.md) · [Next: *Now Is Our Time*](now-is-our-time.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/rakesh.md) · [Previous: *the cost of open*](the-cost-of-open.md) · [Next: *Now Is Our Time*](now-is-our-time.md)

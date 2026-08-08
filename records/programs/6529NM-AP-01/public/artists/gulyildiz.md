@@ -11,3 +11,7 @@ Her photographic language is attentive to architecture, framing, filtered light,
 **Further research:** The public practice and professional name are established; the work’s venue, date, figure consent, and final rights instrument remain to be confirmed.
 
 **Sources:** [Fujifilm profile](https://www.fujifilm-x.com/en-gb/photographers/gul-yildiz/), [6529 profile](https://6529.io/GulYildiz), [LinkedIn profile](https://tr.linkedin.com/in/gulyildiz).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md)

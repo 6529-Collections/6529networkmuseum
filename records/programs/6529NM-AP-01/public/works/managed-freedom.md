@@ -23,7 +23,7 @@ The horse rises almost vertically, its pale body catching the eye against the da
 
 ## Artist’s account
 
-Ghanizadeh connects the scene to migration, departure, refusal, evasion, shelter, invisibility, and the quiet act of leaving. The artist describes freedom as something negotiated within systems of control and states that the image was made by hand during active movement without AI manipulation.
+Ghanizadeh connects the scene to migration, departure, refusal, evasion, shelter, invisibility, and the quiet act of leaving. The artist describes freedom as something negotiated within systems of control and states that the image was made by hand during active movement; the technical note says no AI manipulation was used.
 
 ## Curatorial interpretation
 
@@ -36,10 +36,8 @@ The submission places the work in Kayseri, Turkey. The [source register](../sour
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Rider/depicted-person permissions, exact site and date, source metadata, and final rights wording remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/nasimghanizadeh.md) · [Previous: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md) · [Next: *No Key, Only Light*](no-key-only-light.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/nasimghanizadeh.md) · [Previous: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md) · [Next: *No Key, Only Light*](no-key-only-light.md)

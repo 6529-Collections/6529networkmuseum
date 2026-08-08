@@ -11,3 +11,7 @@ In *মুক্তিযুদ্ধ - Fight for Freedom*, two women lean from 
 **Further research:** The Bangladesh-focused practice is well documented; the preferred display form, depicted-person permissions, collage sources, and title punctuation remain to be confirmed.
 
 **Sources:** [6529 profile](https://6529.io/shamspranto), [121Clicks profile](https://121clicks.com/photo-stories/shams-pranto-bangladesh-photography/), [Liberation War Museum](https://www.liberationwarmuseumbd.org/page/history).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md)

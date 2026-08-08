@@ -2,6 +2,30 @@
 
 This page is the control and evidence layer for the public [Keys and Gates](curated-acquisition.md) catalogue page. It preserves the distinction between visitor-facing curatorial prose and the records required for acquisition, rights, technical, and accession review.
 
+## Research publication record
+
+The [Research Publication, *Access, Control, and Exit*](curatorial-essay.md)
+is the deep comparative essay for this edition. Its public text carries the
+image-grounded argument and source notes; the publication controls are kept
+here.
+
+| Field | Retained value |
+|---|---|
+| Edition | 1.1 · 8 August 2026 |
+| Author | 6529 Network Museum, Curatorial Research |
+| Research cutoff | 8 August 2026 UTC |
+| Stable edition | *Keys and Gates* Research Publication, edition 1.1, bound to Curated Acquisition `6529NM-CA-2026-002` |
+| Suggested citation | 6529 Network Museum. “Access, Control, and Exit.” *Keys and Gates* Research Publication, edition 1.1, 8 August 2026. Curated Acquisition `6529NM-CA-2026-002`. |
+
+### Publication revision history
+
+- **1.1 · 8 August 2026:** Recast the essay as a distinct comparative
+  publication; separated aperture, managed movement, residue, and credential;
+  added official Moraine Lake access citation and narrower San Roque wording;
+  and moved publication controls out of the essay body.
+- **1.0 · 8 August 2026:** Published the initial comparative essay alongside
+  the concise Curated Acquisition gateway.
+
 ## Current control state
 
 | Field | Retained value |
@@ -45,25 +69,25 @@ Before an outcome can move from selection toward acquisition or accession, the p
 10. accession statement and individual object record; and
 11. second-person review.
 
-The current [rights and consent register](rights-and-consent.md) and [media join register](media-joins.md) document the open gates. Direct artist questions and restricted documents remain in the registrar work queue. Their existence is workflow evidence, not completion evidence.
+The current [rights and consent register](rights-and-consent.md) and [media join register](media-joins.md) document the open gates. Direct artist questions remain to be resolved. No consent or private source instrument is retained in this Museum record; if a future document is received, it would enter the registrar layer. The open questions are evidence boundaries, not completion evidence.
 
 ## Public/restricted boundary
 
 Public now: selection identifiers, artist handles and approved public-source biographies, artist-attributed submission readings, visual descriptions of the current presentation derivatives, source links, current media joins, and explicit unknowns.
 
-Restricted or pending: legal identity documents, direct contact details, model releases, consent instruments, sensitive locations, unredacted passport/document details, original high-resolution bytes, layered source files, exact site permissions, title documents, transaction evidence, custody receipts, and technical preservation packages.
+Not retained or still to be established: legal identity documents, direct contact details, model releases, consent instruments, sensitive locations, unredacted passport/document details, original high-resolution bytes, layered source files, exact site permissions, title documents, transaction evidence, custody receipts, and technical preservation packages. No consent or source instrument is represented as being held in this record; future receipt would be handled in a restricted registrar layer.
 
 The public corpus does not publish private contact information or treat a platform handle as a legal identity. Sensitive biography, migration, sexuality, religion, nudity, minor status, and location claims remain attributed, minimized, or held pending direct approval.
 
 ## Media and rights boundary
 
-The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted source fixity and the deterministic WebP presentation derivatives permitted for each work. The source bytes were fixity-checked during derivation but are not retained in the repository. The derivatives are web-presentation surrogates, not downloadable source originals, high-resolution preservation masters, tokenized artworks, or evidence that rights have become effective. OUT-011 is limited to its 640 surrogate for this edition; the withdrawn local 1280/2400 fixity is recorded only in amendment 003.
+The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted source fixity and the deterministic WebP presentation derivatives permitted for each work. The source bytes were fixity-checked during derivation but are not retained in the repository. The derivatives are web-presentation surrogates, not downloadable source originals, high-resolution preservation masters, tokenized artworks, or evidence that rights have become effective. OUT-004 and OUT-011 are limited to their 640 surrogates for this edition; their withdrawn larger-byte fixity and exact post-invalidation readbacks are recorded in [amendment 006](accessibility-amendment-2026-08-08-006.md) and [amendment 004](accessibility-amendment-2026-08-08-004.md).
 
 The manifest’s `rights_effective_status` remains controlling for each outcome. Artist statements that say “CC0,” “CCO,” or that all rights are held are submission assertions until the Museum receives and reviews an effective rights instrument, authorship/title evidence, third-party-material status, and any required depicted-person consent.
 
 Creative Commons’ public guidance also separates copyright dedication from personality, privacy, publicity, and trademark rights. The [rights register](rights-and-consent.md) applies that distinction to people, minors, nudity, passports, graffiti, posters, sites, and physical miniatures.
 
-The historical visual descriptions and their typed projections are documented in the [initial accessibility amendment](accessibility-amendment.md) and the [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). The current pending status, OUT-008 correction, and OUT-011 public-size restriction are controlled by [amendment 003](accessibility-amendment-2026-08-08-003.md). These derived records do not change source bytes, selected-outcome status, or `rights_effective_status`.
+The historical visual descriptions and their typed projections are documented in the [initial accessibility amendment](accessibility-amendment.md) and the [follow-on OUT-013 amendment](accessibility-amendment-2026-08-08-002.md). The current pending status and OUT-008 correction are controlled by [amendment 003](accessibility-amendment-2026-08-08-003.md); [amendment 004](accessibility-amendment-2026-08-08-004.md) and [amendment 006](accessibility-amendment-2026-08-08-006.md) record the subsequent OUT-011 and OUT-004 technical enforcement and exact readbacks. The positive limited editorial-display determination for all sixteen works is recorded in the [publication-authority amendment](publication-authority-amendment-2026-08-08-005.md). These derived records do not change source bytes, selected-outcome status, or `rights_effective_status`.
 
 ## Transcription and correction note
 
@@ -86,7 +110,7 @@ Integration must preserve:
 
 ## Presentation authority boundary
 
-The program terms and retained public Wave submissions support a provisional editorial catalogue of the selected submissions. The Museum-created 640, 1280, and 2400 WebP files are responsive presentation surrogates derived for that editorial surface; they do not expose source originals, create an effective CC0 grant, or authorize unrestricted reuse. OUT-011 is restricted to 640 in this edition because the larger derivative makes the booklet cover more legible. CDN/public presentation authorization remains an unresolved registrar disposition, separate from any future on-chain rights, mint, purchase, title, custody, or accession evidence. The controlling technical boundary is documented in [`docs/program-media-delivery.md`](../../../../docs/program-media-delivery.md), and the program terms remain in [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md).
+The [publication-authority amendment](publication-authority-amendment-2026-08-08-005.md) records `PROVISIONAL_EDITORIAL_DISPLAY_LIMITED` for all sixteen selected submissions. The authority covers only the declared Museum-created WebP surrogates and Museum-authored catalogue text. OUT-004 and OUT-011 are limited to 640 in this edition under the exact delivery readbacks in [amendment 006](accessibility-amendment-2026-08-08-006.md) and [amendment 004](accessibility-amendment-2026-08-08-004.md). The authority does not activate CC0 or unrestricted reuse, expose source/high-resolution bytes, or establish subject/site/third-party clearance, mint, purchase, title, custody, acquisition, accession, or Collection membership. The submissions represent that documentation exists or is available on request where applicable; no such instrument is retained in this Museum record. The controlling technical boundary is documented in [`docs/program-media-delivery.md`](../../../../docs/program-media-delivery.md), and the program terms remain in [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md).
 
 ## Exact non-claims retained for audit
 

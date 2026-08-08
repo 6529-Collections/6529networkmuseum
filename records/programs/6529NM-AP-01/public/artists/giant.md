@@ -11,3 +11,7 @@ In *The Hostile Gate*, Humilevskiy opens a refrigerator while his shirtless body
 **Further research:** The GIANT/Artem Humilevskiy public association and broad project context are established; the submitted spelling, series position, self-consent scope, and final rights terms remain to be confirmed.
 
 **Sources:** [artist site](https://humilevskiy.com/), [Global Peace Photo Award](https://globalpeacephotoaward.org/submissions/winners-2022/giant), [Galerie Sechs](https://www.galeriesechs.ch/artists-featured/artem-humilevskiy).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md)

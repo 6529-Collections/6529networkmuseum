@@ -2879,3 +2879,85 @@ validation and complete test suite remain the final pre-push gates. The exact
 current branch head will be recorded after the signed follow-up commit; PR #40
 remains draft pending WP-1 typed Work/Artist activation and its required
 integration rebase. No merge or deploy is authorized.
+
+## 2026-08-08 Keys and Gates registrar disposition — current pre-WP-1 state
+
+This entry supersedes the immediately preceding draft snapshot where it said
+that CDN/public presentation authorization remained unresolved. It does not
+rewrite that historical snapshot or any source outcome. The completed current
+registrar determination for all sixteen selected outcomes is
+`PROVISIONAL_EDITORIAL_DISPLAY_LIMITED`. Its evidence trail is the program
+record's publication outputs (curatorial subcollection page, individual
+standardized object pages, and compact downloadable catalogue), the sixteen
+signed `WINNER` selection records, and the retained verbatim submission
+rights/consent assertions. The durable amendment is
+`6529NM-AP-01-PUBLICATION-AUTHORITY-2026-08-08-005`.
+
+The authority covers only Museum-created WebP presentation surrogates at the
+declared per-work widths and Museum-authored catalogue text. It does not
+activate CC0, grant unrestricted reuse, expose source/high-resolution bytes,
+clear depicted people, sites, venues, posters, documents, or third-party
+material, or establish mint, purchase, title, custody, acquisition, accession,
+or Collection membership. Every outcome `rights_effective_status` remains
+unchanged and controlling. Artists represent that consent/documentation is
+available on request where applicable; no consent or private source
+instrument is retained in this Museum record. If a future document is
+received, it would be handled in a restricted registrar layer.
+
+The two image-specific delivery dispositions are complete and tested. OUT-004
+retains only 640 (`HTTP 200`, 45,202 bytes); its exact 1280 and 2400 keys return
+`HTTP 404` after invalidation `IBOR4WFJPZAPTU36ZXYOFBWLGK` completed at
+`2026-08-08T13:03:13Z`. OUT-011 retains only 640 (`HTTP 200`, 15,306 bytes);
+its exact larger keys return `HTTP 404` after invalidation
+`I8YFV5J3W4GCFQCZNXU39X6VYQ` completed at `2026-08-08T12:49:27Z`. Amendments
+006 and 004 preserve prior derivative hashes/sizes and the derivation rule.
+No source original or withheld high-resolution rendition is exposed by the
+frontend projection; `source.url` remains provenance-only.
+
+The current public corpus contains fifteen canonical source-layer Artist
+profiles and sixteen Work pages, with one Hugo Faz profile linking OUT-002 and
+OUT-011, exact all-sixteen accessibility-to-media-to-Work text joins, direct
+Acquisition/Research navigation, bidirectional Artist/Work links, and one
+consistent visitor status line per Work. Accessibility remains
+`constructed_visual_description_pending_independent_review`; the constructor
+has not fabricated independent approval. The raw Bangla title remains exact
+UTF-8, and the OUT-002 submitted `teh` spelling remains source-faithful.
+
+Open correspondence and registrar questions remain work-specific: authority
+and preferred public credit; effective CC0/CCO instrument; depicted-person
+consent where represented; source/high-resolution and layered-file scope;
+staging, venue, site, poster, graffiti, document, miniature, and third-party
+material permissions; source metadata and location safety; and acquisition,
+title, custody, mint, preservation, and accession evidence. The public corpus
+states these as evidence gaps without exposing a private checklist.
+
+The local final gate is green: focused corpus/media and public-link tests,
+fenced-code link regression, strict UTF-8/no-mojibake, 44-derivative media
+fixity, bootstrap validation, semantic validation, rights-handbook validation,
+fetch guard, manifest check, whitespace check, and the full suite (190 tests,
+one intentional skip). PR #40 remains draft. WP-1 identity/vocabulary work is
+still the blocker: no provisional Work or Artist IDs were bound, no shared
+schema or controlled vocabulary was changed, and no rebase onto WP-1 main,
+merge, or deploy is authorized in this state.
+
+## 2026-08-08 Keys and Gates visitor-copy and ontology gate closure
+
+The final visitor-copy pass covers `curated-acquisition.md`,
+`curatorial-essay.md`, all fifteen Artist pages, and all sixteen Work pages.
+The literal scan returned no occurrences of `exhibition`, `neither`, `rather
+than`, `without`, `schema`, `manifest`, or `deployment`. The essay now names
+the group and the acquisition; the gateway states that the sequence supplies
+a curatorial order. No Exhibition entity or current Exhibition route is
+implied. Object-level processing and focus-stacking language remains where it
+describes the artwork or practice, and substantive status, rights, and
+legibility boundaries remain explicit.
+
+Evidence-limited Artist pages now lead with the practice and geography that
+their named sources establish. Their concise `Further research` lines carry
+the remaining authority, biography, consent, or rights questions; the former
+visitor-facing `Publication note` and Museum-process phrasing have been
+removed. The new corpus regression rejects the forbidden ontology and
+formulaic scaffolding terms on these visitor paths. The final full suite
+passed 191 tests with one intentional skip, and the public link inventory
+contains 386 local targets. No provisional Work/Artist IDs were bound and the
+WP-1 rebase hold remains in force.

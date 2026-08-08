@@ -4,7 +4,7 @@
 
 ![A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp)
 
-**Public-size note:** This edition publishes only the 640px derivative. The 1280px and 2400px presentation variants are withheld; source originals and high-resolution preservation masters are not public.
+**Public-size note:** This edition publishes only the 640px derivative. The 1280px and 2400px presentation variants were withdrawn from delivery; source originals and high-resolution preservation masters are not public.
 
 ## Object data
 
@@ -23,11 +23,11 @@ A nude figure reclines on an ornate gold chair, wearing bright sandals and holdi
 
 ## Close looking
 
-Gold ornament, bare skin, and the dark rectangle of the document make a compact arrangement of welcome and scrutiny. The sitter’s relaxed posture gives the chair a theatrical ease, while the object in his hand introduces borders, nationality, and permission into the room. The sandals, described in the submission as a welcome gift, add colour without reducing the document’s weight.
+Gold ornament, bare skin, and the dark rectangle of the document make a compact arrangement of welcome and scrutiny. The sitter’s relaxed posture gives the chair a theatrical ease, while the object in the sitter’s hand introduces an administrative question into the room. The sandals, described in the submission as a welcome gift, add colour while keeping the document’s weight present.
 
 ## Artist’s account
 
-Faz’s submission identifies the sitter as Sina Beizavi and states that the pictured document is an Iranian passport. The submitted sitter name is retained as a source form, without asserting a legal identity; preferred public spelling and permission to publish the name remain correspondence questions. The submission also supplies sensitive personal claims, which are withheld from this public catalogue pending direct subject approval. It reports written consent from the sitter; that remains an artist-provided representation rather than an independent Museum instrument.
+Faz’s submission names the sitter and describes the pictured object as a small booklet or document. This catalogue uses “the sitter”; personal biography, document identifiers, and nationality claims stay outside the treatment. The artist represents that written consent documentation is available on request; no consent instrument is retained in the Museum record.
 
 ## Curatorial interpretation
 
@@ -35,15 +35,13 @@ The dark booklet or document changes the portrait’s terms. It introduces an ad
 
 ## Context
 
-The work’s public context is Casa NUA, a São Paulo venue for digital-native art, events, production, and cultural programming. That context does not establish the sitter’s biography, document identifiers, venue permission, or direct consent scope.
+The submission places the photograph at Casa NUA in São Paulo; that statement is retained as source context. Venue endorsement, sitter identity, and document identifiers stay outside this public record. Venue permission and direct consent scope remain separate questions.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
-> **Rights/source note:** The submission reports an artist CC0 declaration and subject consent. The public derivative does not expose readable document identifiers; direct subject approval for nude display and sensitive biography, Casa NUA permission, high-resolution/source treatment, and publication scope require restricted confirmation. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md) and uses only the 640 derivative under [the OUT-011 delivery amendment](../accessibility-amendment-2026-08-08-004.md). The artist represents written consent documentation is available on request; no consent instrument is retained in the Museum record. The public derivative keeps document identifiers unreadable. Future subject, venue, source/high-resolution, and acquisition review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Checkpoint*](checkpoint.md) · [Next: *Rusted*](rusted.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/hugofaz.md) · [Previous: *Checkpoint*](checkpoint.md) · [Next: *Rusted*](rusted.md)

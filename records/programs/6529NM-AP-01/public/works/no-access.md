@@ -21,7 +21,7 @@ A small white house glows on a hill beneath stars, separated from the viewer by 
 
 The scene is built from small, exact signals. A path rises toward the house, but the gate interrupts it. The red roof and warm interior light promise shelter; the warning sign and dark figure keep that promise at a distance. The night sky opens widely above the hill while the ground route narrows into permission.
 
-Miniature scale makes the barrier feel fabricated and tactile. The house is close enough to inspect, yet the image gives the viewer no way to cross the final space. What appears peaceful from far away becomes uneasy through the accumulation of sign, fence, distance, and guarded light.
+At miniature scale, the barrier feels fabricated and tactile. The house is close enough to inspect, yet the image gives the viewer no way to cross the final space. A quiet scene gathers unease through sign, fence, distance, and guarded light.
 
 ## Artist’s account
 
@@ -38,10 +38,8 @@ The submission-led record supports the miniature and focus-stacking process. A f
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration. Miniature materials, figure status, source sequence, preferred public name, and final rights scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/veerendra.md) · [Previous: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/veerendra.md) · [Previous: *মুক্তিযুদ্ধ - Fight for Freedom*](fight-for-freedom.md)

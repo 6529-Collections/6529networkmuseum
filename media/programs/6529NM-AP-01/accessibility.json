@@ -7,7 +7,7 @@
     "constructor": {
       "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
       "role": "constructor",
-      "constructed_at": "2026-08-08T11:34:57Z"
+      "constructed_at": "2026-08-08T13:17:24Z"
     },
     "review": null
   },
@@ -30,7 +30,7 @@
     {
       "record_id": "6529NM-AP-01-OUT-004",
       "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
-      "public_widths": [640, 1280, 2400]
+      "public_widths": [640]
     },
     {
       "record_id": "6529NM-AP-01-OUT-005",

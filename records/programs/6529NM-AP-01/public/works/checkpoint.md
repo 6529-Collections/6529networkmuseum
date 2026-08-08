@@ -1,6 +1,6 @@
 # *Checkpoint*
 
-> **Content note:** Nudity and partial concealment. The subject’s identity and location are not stated; ages are not established in the public record.
+> **Content note:** Nudity and partial concealment. The subject’s identity and location are unspecified; the public record gives no age determination.
 
 ![A bare torso emerges from folds of black fabric against a nearly black background.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -21,11 +21,11 @@ A bare torso appears through black fabric; the concealed head keeps the person�
 
 ## Close looking
 
-Black fabric opens around the torso like a narrow aperture. Its folds turn the photograph’s border into a physical edge, and the crop concentrates attention on the body’s relation to visibility. With no face or setting to anchor it, the figure is present through exposure and withheld through form. Clothing becomes an instrument for deciding how much can be seen, while the body’s vulnerability remains in view.
+Black fabric gathers around the torso like a narrow aperture. Its folds give the photograph’s border a physical edge, and the crop concentrates attention on the body’s relation to visibility. The figure is present through exposure and withheld through form; clothing decides how much can be seen while the body’s vulnerability remains in view.
 
 ## Artist’s account
 
-The submission describes a body shaped by decisions about clothing, movement, and visibility, and locates the work within a personal realization about bodily ownership. The artist identifies the source file as a digital photograph with Lightroom colour work and Photoshop background retouching; sensitive identity and consent claims remain in the restricted record.
+The submission describes a body shaped by decisions about clothing, movement, and visibility, and locates the work within a personal realization about bodily ownership. The artist identifies the source file as a digital photograph with Lightroom colour work and Photoshop background retouching. Identity, adult status, self-portrait status, and consent remain questions for future registrar review; no private instrument is retained in the Museum record.
 
 ## Curatorial interpretation
 
@@ -33,15 +33,13 @@ Concealment functions as control. The fabric regulates the viewer’s approach a
 
 ## Context
 
-The artist’s public profile describes a self-taught portrait practice. The submission withholds geography and presents a nude or partially nude body; the Museum keeps the public treatment object-led and does not infer the subject’s identity or status.
+The artist’s public profile describes a self-taught portrait practice. The submission withholds geography and presents a nude or partially nude body; the public treatment remains object-led and leaves the subject’s identity and status open.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
-> **Rights/source note:** The submission includes a CC0 declaration and a statement that written documentation can be supplied; subject identity, adult status, self-portrait status, and publication consent require restricted review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** The submission includes a CC0 declaration and represents that written documentation can be supplied. Subject identity, adult status, self-portrait status, and publication consent remain to be verified; no consent instrument is retained in the Museum record. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/minalisa.md) · [Previous: *Now Is Our Time*](now-is-our-time.md) · [Next: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/minalisa.md) · [Previous: *Now Is Our Time*](now-is-our-time.md) · [Next: *Sina Beizavi in Brazil*](sina-beizavi-in-brazil.md)

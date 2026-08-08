@@ -21,7 +21,7 @@ Black keyboard keys spell “NO / WHERE / TO,” while an Esc key sits apart bes
 
 The keys are arranged as a sentence that almost resolves into a command. “NO” and “WHERE” occupy the upper field; “TO” points toward the separated Esc key, but the grammar never reaches a usable exit. The ant gives the arrangement a minute scale. It is close enough to the key to appear trapped by its meaning and too small to operate it.
 
-The photograph’s humour is exact rather than comforting. The black keys and hard white letters borrow the authority of an interface, while the ant makes that authority physical and absurd. A button can display the language of escape without providing movement.
+The photograph’s humour is dry and exact. Black keys and hard white letters borrow the authority of an interface, while the ant gives that authority a physical and absurd scale. A button can display the language of escape while movement remains impossible.
 
 ## Artist’s account
 
@@ -29,7 +29,7 @@ Arsonic describes Esc as a symbol of cancel, leaving, stopping, and going back, 
 
 ## Curatorial interpretation
 
-The work converts a command into a blocked passage. Its subject is the gap between a readable instruction and an available action. The viewer understands the exit immediately; the ant cannot reach it. Scale, interface design, and the authority of visible controls turn access into a promise without movement.
+The keyboard stages a command as a blocked passage. Its subject is the gap between a readable instruction and an available action. The viewer understands the exit immediately; the ant cannot reach it. Scale, interface design, and the authority of visible controls leave access as a promise while movement remains impossible.
 
 ## Context
 
@@ -38,10 +38,8 @@ The artist’s public practice is associated with Web3, meme, and generative-art
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The submission includes a CC0 declaration and an animal-welfare statement. Original file, staged-material provenance, and publication scope remain to be confirmed. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/arsonic.md) · [Previous: *Rusted*](rusted.md) · [Next: *Morning Glory*](morning-glory.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/arsonic.md) · [Previous: *Rusted*](rusted.md) · [Next: *Morning Glory*](morning-glory.md)

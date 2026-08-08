@@ -21,29 +21,27 @@ A shirtless figure opens a magnet-covered refrigerator; the domestic door become
 
 ## Close looking
 
-The refrigerator’s open door throws a pale vertical light into the room. Magnets interrupt its surface with small signs and colours, while the figure’s body occupies the foreground with a scale that makes the appliance feel less like furniture than a wall being handled. The image’s tension sits in the pause between opening and taking.
+The refrigerator’s open door throws a pale vertical light into the room. Magnets interrupt its surface with small signs and colours, while the figure’s body gives the appliance the scale of a wall being handled. The image’s tension sits in the pause between opening and taking.
 
-The sparse interior is almost swallowed by shadow. What should promise provision instead exposes a narrow, controlled space. The hand at the door and the body beside it turn an everyday gesture into a negotiation with hunger, self-surveillance, and the need to enter.
+The sparse interior is almost swallowed by shadow. The appliance promises provision, yet reveals a narrow, controlled space. The hand at the door and the body beside it place an everyday gesture in negotiation with hunger, self-surveillance, and the need to enter.
 
 ## Artist’s account
 
-The submission places the image within GIANT’s ongoing self-portrait project and describes the refrigerator door as a hostile gate between caloric discipline and primal hunger. The artist identifies the depicted person as himself and states that written consent documentation exists. The public page treats that as an artist-provided account; it does not infer a separate model-release requirement for a self-portrait.
+The submission places the image within GIANT’s ongoing self-portrait project and describes the refrigerator door as a hostile gate between caloric discipline and primal hunger. The artist identifies the depicted person as himself and states that written consent documentation exists. The public page follows that artist-provided account; separate model-release questions remain outside this self-portrait interpretation.
 
 ## Curatorial interpretation
 
-The refrigerator becomes a measure of appetite and self-surveillance. Its light, magnets, and open door keep the metaphor close to the domestic scene: the threshold is operated by a body already subject to judgement, and comfort arrives with its own terms.
+The refrigerator measures appetite and self-surveillance. Its light, magnets, and open door keep the metaphor close to the domestic scene: a body already subject to judgement operates the threshold, and comfort arrives with its own terms.
 
 ## Context
 
-The [source register](../sources-and-bibliography.md) links artist, gallery, award, and institutional sources for the broader *Giant* self-portrait project and its themes of body image, vulnerability, self-acceptance, and resilience. Claims about exhibition or collection counts remain outside this public treatment unless independently verified.
+The [source register](../sources-and-bibliography.md) links artist, gallery, award, and institutional sources for the broader *Giant* self-portrait project and its themes of body image, vulnerability, self-acceptance, and resilience. Claims about career scale or collection counts require independent verification and remain outside this public treatment.
 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
 > **Rights/source note:** The artist’s CC0 declaration and self-consent statement are present in the submission; the required license wording, supporting documentation, and publication scope remain unverified. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/giant.md) · [Previous: *Residual Barrier*](residual-barrier.md) · [Next: *the cost of open*](the-cost-of-open.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/giant.md) · [Previous: *Residual Barrier*](residual-barrier.md) · [Next: *the cost of open*](the-cost-of-open.md)

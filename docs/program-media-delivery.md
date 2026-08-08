@@ -6,23 +6,27 @@ accession, rights, preservation, or mint record.
 ## Purpose
 
 The Museum must let visitors encounter selected work without requiring a
-browser to download a camera-original file for every card. It must also retain
-a clear path to the submitted high-resolution source without describing that
-source, or any presentation copy, as an accessioned preservation master.
+browser to download a camera-original file for every card. It must retain a
+clear provenance locator for the submitted high-resolution source without
+turning that locator into a visitor download link or describing the source, or
+any presentation copy, as an accessioned preservation master.
 
 The first implementation applies to the sixteen selected works in Keys and
 Gates (`6529NM-AP-01`). On 2026-08-04 UTC, the sixteen public submission files
 totaled 233,601,493 bytes. Individual files ranged from 4.1 MB to 46.7 MB and
 reached 10,080 by 5,670 pixels. The existing grid loaded those source files
-directly. The delivery profile replaces that default path with a 16.1 MB closed
-set of responsive presentation derivatives while keeping each submitted source
-available through an explicit high-resolution link.
+directly. The delivery profile replaces that default path with a 15,408,782-byte
+closed set of responsive presentation derivatives while retaining each submitted
+source locator for provenance and fixity. It does not offer a source or
+high-resolution download link in the visitor interface.
 
 ## Three distinct media roles
 
-1. **Submitted high-resolution source** — the exact public submission URL and
-   the SHA-256, byte size, MIME type, and oriented pixel dimensions observed
-   during derivation. These bytes are not retained in this repository.
+1. **Submitted high-resolution source** — the exact submission URL used as a
+   provenance locator, together with the SHA-256, byte size, MIME type, and
+   oriented pixel dimensions observed during derivation. The `source.url` field
+   is not a visitor-facing download affordance, and these bytes are not
+   retained in this repository.
 2. **Web presentation surrogate** — a deterministic, uncropped derivative for
    the public program interface. It is a technical delivery copy, not a new
    manifestation, a preservation master, or the tokenized artwork.
@@ -31,8 +35,9 @@ available through an explicit high-resolution link.
    object is created or implied by this profile.
 
 The roles must not collapse into one `image_url` field. The public interface
-may use a presentation surrogate by default and must offer the submitted source
-separately.
+uses only an approved presentation surrogate by default; the source locator
+remains provenance data unless a later, explicit display/open-source authority
+creates a separate approved affordance.
 
 ## Deterministic transform
 
@@ -55,8 +60,9 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 
 `scripts/generate_program_media.py` generates the derivatives from a local
 source directory and fails rather than replacing different bytes at an
-existing content-addressed path. `--check` verifies the closed 46-file
-inventory for this edition, including the OUT-011 640-only restriction, byte
+existing content-addressed path. `--check` verifies the closed 44-file
+inventory for this edition, including the OUT-004 and OUT-011 640-only
+restrictions, byte
 fixity, WebP structure, pixel geometry, ICC presence, source/outcome agreement,
 rights-status agreement, accessibility text, and selected-work membership
 without a network request.
@@ -79,8 +85,10 @@ Content-Disposition: inline
 Publishing is additive. A publisher checks the target namespace before upload,
 stores the declared SHA-256 as object metadata, requests an S3 SHA-256 checksum,
 and must not overwrite an existing key whose bytes or metadata differ. The
-frontend consumes only URLs declared in the governed media manifest; it does
-not expose an open image-resizing proxy or accept visitor-supplied media URLs.
+frontend consumes only `presentation.derivatives[].url` values declared in the
+governed media manifest; `source.url` is provenance-only and must not be
+projected as a source or high-resolution link. The frontend does not expose an
+open image-resizing proxy or accept visitor-supplied media URLs.
 
 The repository release manifest covers `media/`. WebP files use raw-byte hashes;
 Museum-authored text continues to use LF-normalized hashes. This byte-mode
@@ -93,14 +101,25 @@ declared derivative appropriate to the rendered card. Object pages use the same
 responsive set without cropping, reserve the declared aspect ratio to prevent
 layout shift, and prioritize only the primary above-the-fold image. The
 submitted source is not exposed through the public presentation; the governed
-derivatives are the only public media links.
+derivatives are the only public media links. A per-work allowlist is authoritative
+for the widths that may be projected, so a source URL or a historical derivative
+does not authorize a larger public rendition.
 
 Every item has a concise visual description in
 `media/programs/6529NM-AP-01/accessibility.json`. These descriptions are
 constructed and pending independent visual review. The current corrections,
 per-work size restriction, and status transition are recorded in the append-only
-public accessibility amendment; the descriptions do not replace the artist
+public accessibility amendments; the descriptions do not replace the artist
 statement or add a curatorial interpretation.
+
+For OUT-004, the 640px URL returned HTTP 200 with 45,202 bytes after the
+2026-08-08 invalidation, while the exact 1280px and 2400px URLs returned HTTP
+404. The readback and prior-byte lineage are recorded in [amendment 006](../records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-006.md).
+
+For OUT-011, the 640px URL returned HTTP 200 with 15,306 bytes after the
+2026-08-08 invalidation, while the exact 1280px and 2400px URLs returned HTTP
+404. The readback and prior-byte lineage are recorded in [amendment 004](../records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md).
+The public document does not expose delivery-origin identifiers.
 
 ## Rights and record boundary
 

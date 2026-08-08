@@ -25,11 +25,11 @@ Colour keeps the collage from becoming solemn: teal paint, orange cloth, and the
 
 ## Artist’s account
 
-Pranto’s submission names the work for the Bangladesh Liberation War and describes the window as a threshold between inside and outside, citizenship and freedom. It identifies one depicted woman as the artist’s mother and states that written consent is available. Those consent details and the poster’s source remain in the restricted record.
+Pranto’s submission names the work for the Bangladesh Liberation War and describes the window as a threshold between inside and outside, citizenship and freedom. It identifies one depicted woman as the artist’s mother and represents that written consent is available. The consent scope and poster source remain to be verified; no consent instrument is retained in the Museum record.
 
 ## Curatorial interpretation
 
-The 1971 war supplies historical context; the photograph stages a contemporary scene in which the memory of liberation travels as a torn, carried, and repeatedly claimed image. Freedom appears as movement through a frame governed by public systems, with collage making the relation between memory and passage visible.
+The 1971 war supplies historical context; the photograph stages a contemporary scene in which the memory of liberation travels as a torn, carried, and repeatedly claimed image. Freedom is pictured as movement through a frame governed by public systems, with collage joining memory to passage.
 
 ## Context
 
@@ -38,10 +38,8 @@ The Liberation War Museum’s public history supports the title’s 1971 referen
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
-> **Rights/source note:** The submission contains a CC0 declaration and an artist statement of written consent for depicted people; the restricted instrument, poster provenance, title spelling confirmation, and publication scope remain pending. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md#transcription-and-correction-note).
+> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md). The submission contains a CC0 declaration and represents written consent for depicted people; consent scope, poster provenance, title spelling confirmation, and publication scope remain to be verified. No consent instrument is retained in the Museum record. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md#transcription-and-correction-note).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/shamspranto.md) · [Previous: *Morning Glory*](morning-glory.md) · [Next: *No Access*](no-access.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/shamspranto.md) · [Previous: *Morning Glory*](morning-glory.md) · [Next: *No Access*](no-access.md)

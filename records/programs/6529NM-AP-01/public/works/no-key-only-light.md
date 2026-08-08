@@ -1,6 +1,6 @@
 # *No Key, Only Light*
 
-> **Content note:** Two distant silhouetted figures are shown. The program terms exclude identifiable minors; this public 640 derivative supplies no identifying detail and does not establish the figures’ ages. Direct confirmation of the artist’s represented family/consent account remains an acquisition gate.
+> **Content note:** Two distant silhouetted figures are shown. The program terms exclude identifiable minors; this public 640 derivative supplies no identifying detail and leaves the figures’ ages unestablished.
 
 ![Two silhouetted figures walk toward daylight at the end of a rough stone passage.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp)
 
@@ -25,7 +25,7 @@ A rough passage narrows the image before a white doorway opens it into glare. Th
 
 ## Artist’s account
 
-The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It connects that personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion. The public image leaves the figures unidentified; direct confirmation of the submission’s family and consent account remains an acquisition gate.
+The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It connects that personal threshold to the fort’s histories of colonial defence, surveillance, revolution, military control, and the 1983 invasion. The public image leaves the figures unidentified. The artist represents that consent documentation is available on request; no consent instrument is retained in the Museum record, and future acquisition review remains separate.
 
 ## Curatorial interpretation
 
@@ -38,10 +38,8 @@ The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Program state:** Selected through the Keys and Gates acquisition program; acquisition pending.
-> **Mint:** **Mint pending.**
-> **Rights/source note:** The artist declares CC0 and consent coverage for depicted people; the supporting instrument, date, source file, and high-resolution publication scope require review. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** Current display is covered by the [limited editorial-display authority](../publication-authority-amendment-2026-08-08-005.md) and is limited to the 640 derivative under [the OUT-004 delivery amendment](../accessibility-amendment-2026-08-08-006.md). The artist represents consent documentation is available on request; no instrument is retained in the Museum record. Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Artist profile](../artists/intrepid.md) · [Previous: *Managed Freedom*](managed-freedom.md) · [Next: *Residual Barrier*](residual-barrier.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/intrepid.md) · [Previous: *Managed Freedom*](managed-freedom.md) · [Next: *Residual Barrier*](residual-barrier.md)
