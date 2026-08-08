@@ -52,6 +52,14 @@
       "permanent Collection membership"
     ]
   },
+  "current_publication_observation": {
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": null,
+    "binding_status": "pending_wp1_receipt_binding",
+    "required_before_media_join_is_current": true
+  },
   "wp1_admission_contract": {
     "contract_owner": "WP-1",
     "contract_state": "typed_projection_prepared_against_wp1_commit_61ec035",
@@ -153,7 +161,10 @@
       "page": "dossiers/source-and-rights-record.md",
       "machine_record": "machine/wave-media-join.json",
       "scope": "historical_proposal_wave_media_only",
-      "receipt_binding": "WP-1 must bind the retained public-safe signed-drop receipt and per-part hashes after ontology merge; this staging branch has no receipt snapshot."
+      "receipt_binding": "WP-1 must bind the retained public-safe signed-drop receipt and per-part hashes after ontology merge; this staging branch records only historical URL evidence and carries no receipt snapshot or current CloudFront proof.",
+      "standalone_work_route": "fail_closed_without_verified_work_ca_media_observation_relation",
+      "required_relation_fields": ["work_entity_id", "media_reference_entity_id", "curated_acquisition_id", "proposal_id", "wave_publication_observation_id"],
+      "historical_label_required": "Wave-source historical proposal media"
     }
   },
   "relations": [

@@ -13,6 +13,19 @@
   "curated_acquisition_id": "6529NM-CA-2026-003",
   "current_public_status": "Selected by Museum Wave; acquisition review in progress",
   "current_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+  "current_status_observation": {
+    "record_type": "WAVE_STATUS_OBSERVATION",
+    "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097"
+  },
+  "current_publication_observation": {
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": null,
+    "binding_status": "pending_wp1_ontology_merge"
+  },
   "prior_wave_observation": {
     "source_status": "PARTICIPATORY",
     "observed_at": "2026-08-08T09:06:07.985Z",

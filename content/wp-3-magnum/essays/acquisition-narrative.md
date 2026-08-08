@@ -1,109 +1,103 @@
 # Acquisition narrative: *Conflict at Its Edges*
 
-## How the gift was formed
+## How the selected offer was formed
 
-*Conflict at Its Edges* began as a donor-formed proposal by punk6529: five
-token-linked photographs, each published in Magnum Photos 75, gathered into one
-selected five-work gift. The grouping follows the donor's curatorial judgment. Magnum
-Photos, Alejandro Cartagena, Azu Nwagbogu, and the five photographers are not
-represented as having formed or endorsed this combination.
+*Conflict at Its Edges* began with punk6529's proposal of five token-linked
+photographs published in Magnum Photos 75. The donor's act was a formation of a
+unit: one proposal record, five independently identified Works, and a proposed
+credit to the Museum. Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, and the
+five photographers are not represented as having formed or endorsed this
+donor-made combination.
 
-The project's own metadata gives the donor's proposal its first important condition.
-Moisés Saman's #44 belongs to curation `1/3`, the first register associated with
-Cartagena; David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo
-Meloni #104 belong to curation `2/3`, the later register made in dialogue with
-Nwagbogu.[^1] The selected gift therefore carries two selection histories inside
-one donor's unit. That fact is central to the acquisition argument, not a
-catalogue footnote.
+The project metadata places Moisés Saman's #44 in curation `1/3`, the first
+register associated with Cartagena. David Seymour #127, Larry Towell #145,
+Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`, the later register
+presented in dialogue with Nwagbogu.[^1] The selected offer carries those two
+selection histories as part of its provenance. The donor's wider reason for
+choosing these five has not been recorded.
 
 ## Mission fit
 
-The Museum's mission joins permanent stewardship with public research and
-access. This selected acquisition fits that mission through the particular relation between
-photographic evidence and network publication. The five records preserve
-different kinds of historical pressure: a border named through caption, armed
-presence arranged inside sacred architecture, a public event obscured by smoke,
-an official claim marked impossible to verify, and a ruin entered through a
-permissioned route. Their differences give viewers reasons to compare how
-images become public knowledge.
+The Museum's mission connects permanent stewardship with public research and
+access. This selected acquisition fits that mission through a compact,
+status-visible study of photographic evidence in a networked edition. Five
+independent Work records can be read alongside their captions, archive leads,
+regional histories, token manifestations, and rights boundaries. The public
+research value lies in showing how those layers meet without making one record
+stand in for another.
 
-The selected acquisition also makes the archive's afterlife visible. Each photograph has an
-older life in reportage, print, estate, or institutional history; each now has a
-token number, metadata pointer, image pointer, project sequence, and stated
-rights notice. The International Center of Photography's account of Magnum
-places prints, books, magazines, video, and archival documents in a broader
-history of the cooperative.[^2] The selected gift extends that history into a
-networked edition while preserving the distinction between a photograph and
-the later technical manifestation.
+Magnum's history gives the offer an appropriate institutional setting. ICP's
+independent account of Magnum places prints, books, magazines, video, and
+archival documents inside the cooperative's visual history.[^2] The proposal
+extends that history into a blockchain publication whose token, metadata, and
+image pointers are public technical facts. It also gives the Museum a chance to
+explain where technical durability ends and title, rights, custody, and
+preservation begin.
 
-## Why this exact group matters
+## The case for acceptance
 
-The selection claim is falsifiable. A different five-image Magnum 75 selection
-could show the range of the archive, or the aesthetic principle of one curator.
-This group adds the friction of a mixed curation: one first-register image and
-four second-register images, joined by a donor whose selection turns that split
-into a question about documentary authority. The group asks whether a caption
-that withholds proof can change how viewers read photographs chosen within a
-later language of anticipation and unresolved meaning.
+Formal acceptance would give the Museum a five-Work case study in documentary
+authorship and network circulation. The Works span different generations,
+places, and photographic practices, while the donor's selection relation is
+small enough for every caption and source boundary to remain visible. The unit
+could support exhibitions, research publications, and public interpretation
+about the afterlives of photojournalism, provided each proposed use receives
+its own rights and stewardship evidence.
 
-That question belongs to this group because its parts resist a single answer.
-The selection relation can be checked in the issuer metadata; the donor's act
-of grouping can be checked in the historical proposal record; the images' arguments
-can be tested against their captions and archive histories. If correspondence
-shows that the five Works were selected or authorized as a Magnum grouping, the
-the acquisition's premise changes. If the curation fields or caption histories change,
-the comparative claim changes with them.
+Acceptance would also preserve a record of decision. The Museum could document
+the donor's formation of the offer, the Wave selection, the later legal and
+registrar instruments, and any changed caption or archive findings as one
+append-only history. The five Work projections would remain independent within
+the acquisition: token manifestation, copyright, title, custody, and
+preservation would each be recorded on their own terms.
 
 ## The countercase
 
-The selected group may be too heterogeneous for a coherent acquisition. Its five
-photographs span sixty-four years, several political geographies, and distinct
-authorial practices. The donor's sequence can illuminate difference while also
-asking the Museum to make a relation that the upstream project did not make.
+The group asks the Museum to make a relation the upstream project did not make.
+Its five photographs span sixty-four years and several political geographies;
+the donor's sequence creates comparison while also creating interpretive
+responsibility. The exact archive-to-negative, contact-sheet, print, and first-
+publication crosswalks remain incomplete. Caption authority is uneven, and the
+project's counts remain layered: the first release uses both 76- and 75-image
+wording, the posted dossier says 148 live tokens at block `25,690,178`, and a
+separate chain observation identifies 149 issued across two observable
+curations.[^3]
 
-The documentary record is uneven. Archive numbers have not all been cross-walked
-to negatives, contact sheets, first publications, or physical prints. The
-project's announced three-curation/225-image structure, its 76/75 first-release
-wording, and the separate observations of 148 live tokens and 149 issued across
-two observable curations remain distinct records.[^3] They are part of the
-project's publication history, not a resolved edition ledger.
+Rights and stewardship are the second counterweight. The token records carry
+`All Rights Reserved`; token transfer is a point-in-time chain observation with
+no copyright or reproduction grant. The exact CloudFront URLs are historical
+public Wave presentation media, and the Arweave URLs are token-linked source
+locators. The Museum has no retained preservation master or responsive
+derivative in this corpus.
 
-Rights and stewardship add a second counterweight. The token records carry
-`All Rights Reserved`; token transfer is recorded without a copyright or
-reproduction grant; and the five exact Wave URLs remain historical public Wave
-presentation media. Wave selection established curatorial approval. Formal gift
-acceptance, donor authority, title and custody, rights review, technical
-examination, preservation planning, accession and Collection entry will follow.
-
-Saman's photograph adds a specific safeguarding obligation. The current public
-record names no child, supplies no age, and carries no public consent
-documentation.
-That missing record belongs in the acceptance discussion and in the restricted
-research path. It should not become a public invitation to identify the child.
+Saman's Work adds a safeguarding condition. Public interpretation can describe
+the child, wall, lamp, and marks at visible-fact level. Identity, age, consent,
+and sensitive location records require restricted handling and correspondence
+with Magnum, the photographer, or an authorized archive. That condition affects
+future acceptance and display decisions without turning the child's identity
+into a research objective.
 
 ## Consequences of acceptance
 
-If a later formal acceptance is authorized, the five Works remain separately
-documented. The acquisition record names the donor-formed
-relation, preserve each Work's caption and source history, and state the
-conditions under which token, metadata, image, copyright, and any physical or
-archival manifestation are held. Donor authority, title, rights, custody,
-technical receivability, preservation, and public-use terms would each require
-their own evidence.
+Acceptance would start a separate registrar sequence: donor authority and legal
+title, transfer and custody, rights review, technical examination, preservation
+planning, accession, and any Collection publication. Each step would carry its
+own source. The acquisition record would preserve the donor-formed relation,
+maintain the five Work identities, and state which manifestations are actually
+held or permitted.
 
-Acceptance would also change the public question. The group could become a
-stewarded example of how a decentralized museum receives a historically layered
-photographic group: one acquisition relation, five independent Works, and a
-visible record of the evidence that supports each. The Saman safeguarding record
-would remain restricted where necessary; the other unresolved archive questions
-would remain open rather than being converted into catalogue certainty.
+The public consequence would be a carefully bounded account of digital
+photographic stewardship. The Museum could present the selected offer as a
+research-led acquisition under review, then revise the page if acceptance
+changes its legal or custodial state. The historical Wave presentation may be
+referenced in the selected offer with its supplied credit, `All Rights
+Reserved`, and **Wave-source historical proposal media** label; Collection
+publication and preservation would require separate permission and records.
 
-The selected acquisition is **Selected by Museum Wave; acquisition review in
-progress** and **Outside the permanent Collection**. The exact historical public
-Wave presentation media may be referenced with its supplied credit and rights
-label under the narrow [Source and rights record](../dossiers/source-and-rights-record.md);
-broader publication and preservation uses require separate permission.
+Wave selection established curatorial approval. Formal gift acceptance, title
+and custody, rights review, technical examination, preservation planning,
+accession and Collection entry will follow.
 
-[^1]: Direct project metadata and local object schedule, sources [S10–S14](../sources/source-register.md).
+[^1]: Direct Magnum Photos 75 metadata and local object schedule, sources [S10–S14](../sources/source-register.md).
 [^2]: International Center of Photography, *Magnum Manifesto* and related photobook program, source [S39](../sources/source-register.md).
 [^3]: Magnum Photos 75 project records and retained local observations, sources [S04–S07](../sources/source-register.md) and [S37](../sources/source-register.md).

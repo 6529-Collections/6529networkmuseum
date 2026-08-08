@@ -3,72 +3,56 @@
 ## Artist profile
 
 **Selected Work:** [*Government soldiers in a church, Suchitoto, El Salvador*](../works/02-larry-towell-145.md), 1986
-**Sources:** [S20–S21](../sources/source-register.md), [S33](../sources/source-register.md)
+**Sources:** [S20–S21](../sources/source-register.md), [S33](../sources/source-register.md), [S45–S47](../sources/source-register.md), [S52](../sources/source-register.md)
 
 Larry Towell developed a long-form documentary practice through study at York
-University, travel, volunteer work, and sustained engagement with Central
-America. Magnum's profile places his photographs in Nicaragua, Guatemala, and
-El Salvador, alongside themes of landlessness, disappearance, books,
-exhibitions, and museum collections.[^1] His method depends on return. A place
-becomes a social geography through repeated attention to people, roads,
-interiors, and the institutions that shape their lives.
+University, travel, volunteer work, and repeated engagement with Central
+America. Magnum's profile describes work in Nicaragua, Guatemala, and El
+Salvador alongside themes of landlessness, disappearance, books, exhibitions,
+and museum collections.[^1] His method gives duration a formal role: roads,
+interiors, families, and institutions accumulate meaning across a body of work.
 
-## Central America: duration and testimony
+## Central America, exhibition, and book
 
-Towell's Nicaragua, El Salvador, and Guatemala photographs belong to the late
-twentieth-century history of documentary work that follows political violence
-beyond the singular incident. The region appears through rural life,
-displacement, military power, religious institutions, and memory. That breadth
-prevents a single picture from carrying the whole account of a war.
+Towell's Central American photographs move between rural life, military power,
+religious institutions, displacement, and memory. *Gifts of War*, organized by
+the Art Gallery of Windsor, travelled from April 1988 through October 1989. The
+artist's CV lists *Gift of War* (1988) and *El Salvador* (1997), while the
+library record for the latter identifies a 127-page book with an introduction
+by Mark Danner.[^2] These records describe distinct public forms: exhibition
+installation, photobook sequence, and the later museum or library object.
 
-The *Gifts of War* exhibition, organized by the Art Gallery of Windsor and
-shown across Canadian venues from 1988 to 1989, combined photographs and
-testimonies from Nicaragua, El Salvador, and Guatemala.[^2] Towell's 1997 book
-*El Salvador* extended the country's war and aftermath into a sustained
-photobook. The exhibition and book give the photographs a durable public form:
-sequence, testimony, and page design become part of how the work is read.
+Membership dates also require attribution. Magnum's public store biography
+gives 1988; a Henri Cartier-Bresson Foundation dossier gives 1989. The dates
+remain a source discrepancy rather than a silently harmonized biography.[^3]
 
-## The church image and the physical print
+## Material and regional attention
 
-The Art Windsor-Essex collection records a gelatin silver print from an El
-Salvador series under the title *Soldiers in Church, Suchitoto, El Salvador*,
-with a 1986–1987 series context and physical dimensions.[^2] That material
-record matters to Towell's practice. The gelatin silver print carries the
-image into a museum environment where paper, scale, and collection history
-shape reception. The public record has not yet established that the print and
-the selected token-linked image are the same object; the relation remains a
-careful comparison lead.
+Towell's use of the photobook makes page order, blank space, and testimony part
+of documentary address. His Central American work asks how a photograph can
+remain with a place after the immediate assignment has ended. The physical-print
+record for *Soldiers in Church, Suchitoto, El Salvador* gives a valuable museum
+comparison, including gelatin-silver process and series context; the stable
+Art Windsor-Essex collection search is a collection locator, not proof that its
+print and the selected token-linked image are the same object.[^4]
 
-Towell's interiors often organize witness through architecture. A church can
-hold devotion, military occupation, community memory, and political danger at
-the same time. His balanced compositions give viewers time to examine the
-distribution of bodies and objects. The formal order makes the social question
-more visible: who has entered the space, who is being watched, and what the
-building has witnessed before the camera arrived.
-
-## Reception and regional history
-
-Towell's work has been received through exhibitions, photobooks, and museum
-holdings across a sustained body of images. Official peace and
-truth-commission records provide the broader history of El Salvador's civil
-war, church social action, repression, and peace process.[^3] They supply a
-serious setting for the church photograph while leaving its building, soldiers,
-unit, and operation to object-level research.
-
-The issuer's spelling “Suchitito” and the preferred “Suchitoto” show how a
-photograph's public identity can shift between token metadata, catalogue, and
-regional authority. Towell's practice makes that shift consequential: a place
-name carries the social world that the long-form project worked to keep in view.
+The 1980s Salvadoran setting also reaches beyond the frame. United Nations
+peace-process records supply the broad civil-war and settlement chronology; they
+do not identify the church, soldiers, unit, or operation in the selected image.
+Towell's practice keeps those levels together: a local interior can carry a
+regional history while retaining its own evidentiary limits.[^5]
 
 ## Selected Work
 
-The selected Work comes from Towell's 1986 Central American period and carries
-the second-curation relation in Magnum Photos 75. Its significance here lies in
-the meeting of a measured church interior, a wartime regional history, and a
-catalogue record that still needs an exact image crosswalk. The Work page holds
-those object-specific questions; this profile follows the practice, exhibition,
-book, and print histories around them.
+The selected Work is from Towell's 1986 Central American period and belongs to
+the second curation of Magnum Photos 75. Its exact place in the offer is the
+meeting of architectural order, armed presence, and an unresolved print-image
+crosswalk. The object entry follows the church, crucifix, and caption history;
+this profile follows Towell's duration-based practice and its exhibition, book,
+and collection afterlives.
 
 [^1]: Magnum Photos, Larry Towell profile, source [S20](../sources/source-register.md).
-[^2]: Art Gallery of Windsor exhibition record and Art Windsor-Essex collection record, source [S21](../sources/source-register.md).
-[^3]: United Nations and truth-commission records for El Salvador, source [S33](../sources/source-register.md).
+[^2]: Art Gallery of Windsor exhibition record, Towell CV, and *El Salvador* library record, sources [S45](../sources/source-register.md), [S46](../sources/source-register.md), and [S47](../sources/source-register.md).
+[^3]: Magnum's public biography and Henri Cartier-Bresson Foundation dossier, sources [S20](../sources/source-register.md) and [S52](../sources/source-register.md).
+[^4]: Art Windsor-Essex, stable collection search and related print record, source [S21](../sources/source-register.md).
+[^5]: United Nations Peacemaker, source [S33](../sources/source-register.md).

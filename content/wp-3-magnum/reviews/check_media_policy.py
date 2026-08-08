@@ -1,29 +1,71 @@
 """Validate the isolated Magnum proposal-media join without network access.
 
-This check is deliberately local and fail-closed. It verifies the typed join
-from each public Work to the exact historical public Wave URL and rejects any
-runtime affordance that would turn proposal-context media into a download,
-derivative, preservation object, or identifying child display.
+The check is fail-closed. It verifies the exact Work, proposal alias, token
+source, historical Wave-upload URL, source fixity observation, current Wave
+observation, and route/display policy. It also runs adversarial mutations for
+child safeguarding, source swaps, and standalone-route bypasses.
 """
 
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
 JOIN_PATH = ROOT / "machine" / "wave-media-join.json"
+PROJECTIONS_PATH = ROOT / "machine" / "work-projections.json"
 
+BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
+CURRENT_OBSERVATION = {
+    "record_type": "WAVE_STATUS_OBSERVATION",
+    "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097",
+}
+CURRENT_PUBLICATION = {
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": None,
+    "binding_status": "pending_wp1_ontology_merge",
+}
 EXPECTED = (
-    ("6529NM-W-0024", "6529NM-MED-0003", "6529NM-PG-2026-001.OBJ-001", "127", "d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg"),
-    ("6529NM-W-0025", "6529NM-MED-0041", "6529NM-PG-2026-001.OBJ-002", "145", "3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg"),
-    ("6529NM-W-0026", "6529NM-MED-0042", "6529NM-PG-2026-001.OBJ-003", "97", "2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg"),
-    ("6529NM-W-0027", "6529NM-MED-0043", "6529NM-PG-2026-001.OBJ-004", "44", "5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg"),
-    ("6529NM-W-0028", "6529NM-MED-0044", "6529NM-PG-2026-001.OBJ-005", "104", "4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg"),
+    {
+        "work": "6529NM-W-0024", "media": "6529NM-MED-0003", "alias": "6529NM-PG-2026-001.OBJ-001", "token": "127",
+        "wave_path": "d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
+        "source": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
+        "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600,
+    },
+    {
+        "work": "6529NM-W-0025", "media": "6529NM-MED-0041", "alias": "6529NM-PG-2026-001.OBJ-002", "token": "145",
+        "wave_path": "3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg",
+        "source": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+        "sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee", "bytes": 1813285, "width": 5369, "height": 3601,
+    },
+    {
+        "work": "6529NM-W-0026", "media": "6529NM-MED-0042", "alias": "6529NM-PG-2026-001.OBJ-003", "token": "97",
+        "wave_path": "2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
+        "source": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
+        "sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df", "bytes": 1666083, "width": 5000, "height": 3292,
+    },
+    {
+        "work": "6529NM-W-0027", "media": "6529NM-MED-0043", "alias": "6529NM-PG-2026-001.OBJ-004", "token": "44",
+        "wave_path": "5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg",
+        "source": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
+        "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "bytes": 1540870, "width": 5616, "height": 3744,
+    },
+    {
+        "work": "6529NM-W-0028", "media": "6529NM-MED-0044", "alias": "6529NM-PG-2026-001.OBJ-005", "token": "104",
+        "wave_path": "4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg",
+        "source": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+        "sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2", "bytes": 16871807, "width": 5964, "height": 4768,
+    },
 )
 
 EXPECTED_CONTEXT = {
@@ -34,48 +76,48 @@ EXPECTED_CONTEXT = {
     "scope": "historical_public_wave_proposal_context_only",
     "outside_scope": "deny",
 }
-
-ALLOWED_AFFORDANCES = {
-    "view",
-    "hero",
-    "alt_text",
-    "open_historical_public_wave_url",
-    "copy_citation",
-}
-BLOCKED_AFFORDANCES = {
-    "download",
-    "full_resolution",
-    "zoom",
-    "fullscreen",
-    "iiif",
-    "preservation_master",
-}
+ALLOWED_AFFORDANCES = {"view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"}
+BLOCKED_AFFORDANCES = {"download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"}
 DENY_RUNTIME_FIELDS = {
-    "url_rewrite": "deny",
-    "runtime_fallback": "deny",
-    "repository_derivative": "deny",
-    "responsive_variants": "deny",
-    "download": "deny",
-    "full_resolution_claim": "deny",
-    "zoom": "deny",
-    "fullscreen": "deny",
-    "iiif_or_tiled_service": "deny",
-    "preservation_claim": "deny",
+    "url_rewrite": "deny", "runtime_fallback": "deny", "repository_derivative": "deny",
+    "responsive_variants": "deny", "download": "deny", "full_resolution_claim": "deny",
+    "zoom": "deny", "fullscreen": "deny", "iiif_or_tiled_service": "deny", "preservation_claim": "deny",
 }
 SAMAN_FORBIDDEN_INFERENCES = {
-    "name",
-    "age",
-    "identity",
-    "consent",
-    "unpublished location",
-    "sensitive metadata",
+    "name", "age", "identity", "consent", "unpublished location", "sensitive metadata",
+    "sensitive visual context", "visual cause", "weapon attribution",
 }
+SAMAN_UNSAFE_TERMS = ("moises", "moisés", "saman", "tripoli", "libya", "name", "age", "identity", "air strike", "weapon")
+
+
+BARAM_CURRENT_SAFE_ALT = "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground."
+BARAM_HISTORICAL_ALT = "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground."
+BARAM_HISTORICAL_ALT_SHA256 = "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"
+
+
+def contains_term(text: str, term: str) -> bool:
+    return re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text, flags=re.IGNORECASE) is not None
+
+
+def validate_observations(join: dict) -> list[str]:
+    errors: list[str] = []
+    if join.get("current_status_observation") != CURRENT_OBSERVATION:
+        errors.append("media join must carry the exact current WINNER observation ID, time, and payload hash")
+    publication = join.get("current_publication_observation")
+    if publication != CURRENT_PUBLICATION:
+        errors.append("publication observation must remain explicitly pending WP-1 receipt binding at this staging checkpoint")
+    binding = join.get("publication_observation_binding", {})
+    if binding.get("record_type") != "WAVE_PUBLICATION_OBSERVATION" or binding.get("record_id") != CURRENT_PUBLICATION["observation_id"]:
+        errors.append("media join must name the final WP-1 publication observation record")
+    if binding.get("payload_sha256") is not None or binding.get("status") != "pending_wp1_receipt_binding":
+        errors.append("staging media join must not claim a publication receipt hash before WP-1 binding")
+    return errors
 
 
 def validate_join(join: dict) -> list[str]:
     """Return all policy violations in a decoded join record."""
 
-    errors: list[str] = []
+    errors = validate_observations(join)
 
     def fail(message: str) -> None:
         errors.append(message)
@@ -86,12 +128,20 @@ def validate_join(join: dict) -> list[str]:
         fail("media join must be historical public URL evidence only")
     if join.get("source_evidence_boundary") != "historical_public_wave_url_evidence_only":
         fail("media join must declare the historical public URL evidence boundary")
-    if join.get("authenticated_publication_receipt") is not None:
-        fail("no authenticated publication receipt is retained in this corpus")
-    if join.get("authenticated_publication_receipt_sha256") is not None:
-        fail("an authenticated receipt hash must remain null when no receipt is retained")
+    if join.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json":
+        fail("wave-storm is retained only as the historical URL evidence source record")
+    if join.get("authenticated_publication_receipt") is not None or join.get("authenticated_publication_receipt_sha256") is not None:
+        fail("no authenticated publication receipt is retained in this pre-WP-1 staging corpus")
     if join.get("prior_status_observation", {}).get("historical_only") is not True:
         fail("the prior PARTICIPATORY observation must remain historical-only")
+
+    route = join.get("route_policy", {})
+    if route.get("standalone_work_route") != "deny_without_verified_work_ca_media_observation_relation":
+        fail("standalone Work routes must fail closed until the final graph relation is verified")
+    if route.get("outside_scope") != "deny" or route.get("fail_closed") is not True:
+        fail("route policy must fail closed outside the selected offer context")
+    if route.get("historical_label_required") != "Wave-source historical proposal media":
+        fail("historical Wave label must be required")
 
     runtime = join.get("runtime_policy", {})
     if runtime.get("source_url_policy") != "exact_allowlisted_wave_media_url_only":
@@ -105,83 +155,137 @@ def validate_join(join: dict) -> list[str]:
         fail("media join must contain exactly five Work rows")
         rows = rows if isinstance(rows, list) else []
 
-    for row, (work_id, media_id, object_alias, token_id, wave_path) in zip(rows, EXPECTED):
+    for row, expected in zip(rows, EXPECTED):
         if not isinstance(row, dict):
             fail("every media row must be an object")
             continue
         label = row.get("proposal_object_alias", "<missing alias>")
-        if row.get("work_entity_id") != work_id:
+        if row.get("work_entity_id") != expected["work"]:
             fail(f"{label}: wrong Work entity ID")
-        if row.get("media_reference_entity_id") != media_id:
+        if row.get("media_reference_entity_id") != expected["media"]:
             fail(f"{label}: wrong Media Reference entity ID")
-        if row.get("proposal_object_alias") != object_alias:
+        if row.get("proposal_object_alias") != expected["alias"] or row.get("proposal_object_id") != expected["alias"]:
             fail(f"{label}: proposal alias drift")
-        if row.get("token_id") != token_id:
+        if row.get("token_id") != expected["token"]:
             fail(f"{label}: token ID drift")
-        token_source = row.get("token_source_image_url")
-        if not isinstance(token_source, str) or not token_source.startswith("https://arweave.net/"):
-            fail(f"{label}: token source image must remain an Arweave URL")
+        if row.get("token_source_image_url") != expected["source"]:
+            fail(f"{label}: token-linked source URL drift")
+        source_fixity = row.get("source_image_fixity", {})
+        for key in ("sha256", "bytes", "width", "height"):
+            if source_fixity.get(key) != expected[key]:
+                fail(f"{label}: source image {key} must remain the exact observed value")
         url = row.get("wave_media_url")
         parsed = urlsplit(url or "")
         if parsed.scheme != "https" or parsed.netloc != "d3lqz0a4bldqgf.cloudfront.net" or parsed.query or parsed.fragment:
             fail(f"{label}: media URL is not an exact allowlisted Wave-upload URL")
-        if parsed.path != f"/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/{wave_path}":
+        if parsed.path != BASE_URL.replace("https://d3lqz0a4bldqgf.cloudfront.net", "") + expected["wave_path"]:
             fail(f"{label}: Wave-upload URL does not match the retained part/media path")
-        if row.get("wave_media_url_type") != "historical_wave_drop_upload":
-            fail(f"{label}: Wave media must be typed as historical drop-upload media")
-        if row.get("media_status") != "historical_wave_url_reference_only":
-            fail(f"{label}: media status must remain historical URL reference only")
+        if row.get("wave_media_url_type") != "historical_wave_drop_upload" or row.get("media_status") != "historical_wave_url_reference_only":
+            fail(f"{label}: Wave media must remain a historical drop-upload URL reference")
         if row.get("rights_label") != "All Rights Reserved":
             fail(f"{label}: rights label must be All Rights Reserved")
         credit = row.get("credit_line", "")
         if "\u00a9" not in credit or "Magnum Photos" not in credit:
-            fail(f"{label}: credit must include artist and Magnum copyright notice")
-        if set(row.get("allowed_ui_affordances", [])) != ALLOWED_AFFORDANCES:
-            fail(f"{label}: allowed UI affordances are not the closed proposal set")
-        if not BLOCKED_AFFORDANCES.issubset(set(row.get("blocked_ui_affordances", []))):
-            fail(f"{label}: blocked UI affordances are incomplete")
+            fail(f"{label}: credit must include the supplied artist/Magnum copyright notice")
+        if set(row.get("allowed_ui_affordances", [])) != ALLOWED_AFFORDANCES or not BLOCKED_AFFORDANCES.issubset(set(row.get("blocked_ui_affordances", []))):
+            fail(f"{label}: UI affordances are not the closed proposal set")
         if row.get("presentation_context") != EXPECTED_CONTEXT:
             fail(f"{label}: display and hero use must be bound to the exact proposal context")
+        display = row.get("standalone_work_display", {})
+        if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "pending_wp1_graph_binding":
+            fail(f"{label}: standalone Work display must fail closed pending the final graph relation")
+        if row.get("load_policy") != "user_initiated_non_eager":
+            fail(f"{label}: upstream source must be user-initiated and non-eager")
         alt = row.get("alt_text", "")
-        if not alt or "identity" in alt.lower() or "name" in alt.lower():
-            fail(f"{label}: alt text must be a non-identifying visible-fact description")
+        if not alt or any(contains_term(alt, term) for term in ("identity", "name", "age", "tear gas")):
+            fail(f"{label}: alt text must remain a non-identifying visible-fact description")
         if row.get("work_entity_id") == "6529NM-W-0027":
-            if row.get("child_subject") is not True:
-                fail("Saman media row must be marked child-sensitive")
-            if row.get("accessibility_subject_policy") != "non_identifying_child_subject":
-                fail("Saman media row must use the child-safe accessibility policy")
-            if any(term in alt.lower() for term in ("moisés", "moises", "saman", "tripoli", "libya")):
-                fail("Saman child alt text must not identify artist or location")
-            if "do not identify" not in row.get("child_display_rule", "").lower():
-                fail("Saman child display rule must prohibit identification")
+            if row.get("child_subject") is not True or row.get("accessibility_subject_policy") != "non_identifying_child_subject":
+                fail("Saman media row must carry the exact child-safe accessibility policy")
+            if any(contains_term(alt, term) for term in SAMAN_UNSAFE_TERMS):
+                fail("Saman child alt text must not expose identity, age, artist, location, or cause")
+            rule = row.get("child_display_rule", "").lower()
+            if "do not identify" not in rule or "visible-fact level" not in rule or any(contains_term(rule, term) for term in ("age", "consent", "sensitive context")):
+                fail("Saman child display rule must prohibit identity and sensitive-context inference")
             identity = row.get("identity_inference")
             if not isinstance(identity, dict):
                 fail("Saman media row must carry an identity_inference block")
             else:
-                if identity.get("permitted") is not False:
-                    fail("Saman identity inference must be prohibited")
-                if identity.get("display_policy") != "non_identifying_visible_facts_only":
-                    fail("Saman identity inference must use the non-identifying display policy")
-                if identity.get("restricted_research_scope") is not True:
-                    fail("Saman identity research must remain restricted")
-                forbidden = set(identity.get("forbidden_inferences", []))
-                if not SAMAN_FORBIDDEN_INFERENCES.issubset(forbidden):
-                    fail("Saman identity_inference must forbid identity, age, consent, and sensitive metadata inference")
+                if identity.get("permitted") is not False or identity.get("display_policy") != "non_identifying_visible_facts_only" or identity.get("restricted_research_scope") is not True:
+                    fail("Saman identity inference must be prohibited and restricted")
+                if not SAMAN_FORBIDDEN_INFERENCES.issubset(set(identity.get("forbidden_inferences", []))):
+                    fail("Saman identity_inference must forbid identity, age, consent, sensitive context, cause, and weapon inference")
         if row.get("work_entity_id") == "6529NM-W-0026":
             lowered_alt = alt.lower()
-            if "smoke" not in lowered_alt or "canister" not in lowered_alt:
+            if "smoke" not in lowered_alt or "canister" not in lowered_alt or "gas" in lowered_alt:
                 fail("Bar-Am alt text must remain limited to visible smoke and canister")
-            if "gas" in lowered_alt:
-                fail("Bar-Am alt text must not infer tear gas")
+            if alt != BARAM_CURRENT_SAFE_ALT or row.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT:
+                fail("Bar-Am current safe alt must remain the visible smoke/canister description")
+            amendment = row.get("alt_text_amendment_binding", {})
+            if (
+                amendment.get("status") != "pending_wp1_media_description_amendment"
+                or amendment.get("required_after_rebase") is not True
+                or amendment.get("historical_seven_part_wording_preserved") is not True
+                or amendment.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+                or amendment.get("historical_part_number") != 4
+                or amendment.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
+                or amendment.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
+            ):
+                fail("Bar-Am safe alt must bind to the future WP-1 append-only media-description amendment")
+            historical = row.get("historical_publication_media", {})
+            historical_text = row.get("historical_alt_text", "")
+            recomputed_historical_hash = "sha256:" + hashlib.sha256(historical_text.encode("utf-8")).hexdigest()
+            if (
+                historical_text != BARAM_HISTORICAL_ALT
+                or row.get("historical_alt_text_sha256") != recomputed_historical_hash
+                or historical.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+                or historical.get("record_revision") != 1
+                or historical.get("part_number") != 4
+                or historical.get("media_index") != 0
+                or historical.get("wording_status") != "retained_historical_seven_part_publication_wording"
+                or historical.get("alt_text") != historical_text
+                or historical.get("alt_text_sha256") != recomputed_historical_hash
+            ):
+                fail("Bar-Am historical seven-part wording and its exact source hash must be retained")
+            if "sha256:" + hashlib.sha256(BARAM_HISTORICAL_ALT.encode("utf-8")).hexdigest() != BARAM_HISTORICAL_ALT_SHA256:
+                fail("Bar-Am historical alt hash fixture is internally inconsistent")
         if row.get("proposal_object_id") not in row.get("source_record_ids", []):
             fail(f"{label}: source records must retain the proposal object binding")
+    return errors
 
+
+def validate_work_projections(projections: dict) -> list[str]:
+    errors: list[str] = []
+    if projections.get("current_status_observation") != CURRENT_OBSERVATION:
+        errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
+    if projections.get("current_publication_observation") != CURRENT_PUBLICATION:
+        errors.append("work projections must carry the exact current publication observation with pending WP-1 receipt binding")
+    if projections.get("current_public_status") != "Selected by Museum Wave; acquisition review in progress":
+        errors.append("work projections must use the selected-review public status")
+    if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
+        errors.append("work projections must preserve selected-review lifecycle and outside-Collection membership")
+    for row in projections.get("works", []):
+        for manifestation in row.get("manifestations", []):
+            if manifestation.get("type") == "historical_wave_presentation_media":
+                if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "pending_wp1_receipt_binding":
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation lacks current publication observation binding")
+                if manifestation.get("standalone_route") != "deny_without_verified_work_ca_media_observation_relation":
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation standalone route is not fail-closed")
+                if row.get("canonical_work_id") == "6529NM-W-0026":
+                    binding = manifestation.get("alt_text_amendment_binding", {})
+                    if (
+                        binding.get("status") != "pending_wp1_media_description_amendment"
+                        or binding.get("historical_seven_part_wording_preserved") is not True
+                        or binding.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+                        or binding.get("historical_part_number") != 4
+                        or binding.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
+                        or binding.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
+                    ):
+                        errors.append("6529NM-W-0026: projected Bar-Am manifestation lacks the exact pending safe-alt amendment binding")
     return errors
 
 
 def mutation_test_rejects(base: dict, mutate, label: str) -> str | None:
-    """Return an error if a deliberately unsafe mutation is accepted."""
-
     candidate = deepcopy(base)
     mutate(candidate)
     if validate_join(candidate):
@@ -190,15 +294,23 @@ def mutation_test_rejects(base: dict, mutate, label: str) -> str | None:
 
 
 def validate_mutation_guards(join: dict) -> list[str]:
-    """Exercise fail-closed safeguards without network or fixture writes."""
-
     mutations = (
         ("missing Saman identity_inference", lambda value: value["works"][3].pop("identity_inference", None)),
         ("permitted Saman identity inference", lambda value: value["works"][3]["identity_inference"].update(permitted=True)),
+        ("Saman unsafe visual/context alt", lambda value: value["works"][3].update(alt_text="The identified nine-year-old child in Tripoli stands beside a house hit by an air strike.")),
+        ("Saman child rule allowing sensitive age", lambda value: value["works"][3].update(child_display_rule="Display the child's age and sensitive context.")),
+        ("Saman swapped exact source URL", lambda value: value["works"][3].update(token_source_image_url=value["works"][0]["token_source_image_url"])),
+        ("Saman swapped source fixity", lambda value: value["works"][3]["source_image_fixity"].update(sha256=value["works"][0]["source_image_fixity"]["sha256"])),
         ("inferred Bar-Am tear gas alt text", lambda value: value["works"][2].update(alt_text="Black-and-white photograph of a person moving through tear gas beside an airborne canister.")),
+        ("mutated Bar-Am historical wording", lambda value: value["works"][2]["historical_publication_media"].update(alt_text="Black-and-white photograph of a person moving beside smoke.")),
+        ("mutated Bar-Am historical wording hash", lambda value: value["works"][2]["historical_publication_media"].update(alt_text_sha256="sha256:0000000000000000000000000000000000000000000000000000000000000000")),
+        ("missing Bar-Am historical publication record", lambda value: value["works"][2].pop("historical_publication_media", None)),
+        ("missing Bar-Am amendment binding", lambda value: value["works"][2].pop("alt_text_amendment_binding", None)),
         ("mutated proposal presentation context", lambda value: value["works"][0]["presentation_context"].update(proposal_id="other")),
         ("presentation outside-scope permission", lambda value: value["works"][1]["presentation_context"].update(outside_scope="allow")),
+        ("standalone route bypass", lambda value: value["works"][1]["standalone_work_display"].update(outside_scope="allow", verification_status="verified")),
         ("unsupported historical URL affordance", lambda value: value["works"][2]["allowed_ui_affordances"].__setitem__(3, "open_signed_wave_source")),
+        ("mutated current observation time", lambda value: value["current_status_observation"].update(observed_at="2026-08-08T09:06:07.985Z")),
     )
     return [error for label, mutate in mutations if (error := mutation_test_rejects(join, mutate, label))]
 
@@ -206,21 +318,21 @@ def validate_mutation_guards(join: dict) -> list[str]:
 def main() -> int:
     try:
         join = json.loads(JOIN_PATH.read_text(encoding="utf-8"))
+        projections = json.loads(PROJECTIONS_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        print(f"Media-policy check failed to read {JOIN_PATH}: {exc}", file=sys.stderr)
+        print(f"Media-policy check failed to read machine records: {exc}", file=sys.stderr)
         return 1
 
     errors = validate_join(join)
+    errors.extend(validate_work_projections(projections))
     if not errors:
         errors.extend(validate_mutation_guards(join))
-
     if errors:
         print("Media-policy check failed:", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-
-    print("Media-policy check passed: five exact Work/Media/Wave joins, context binding, child safeguards, and mutation guards")
+    print("Media-policy check passed: exact five Work/Media joins, current observations, route gates, source fixity, child safeguards, and mutation guards")
     return 0
 
 

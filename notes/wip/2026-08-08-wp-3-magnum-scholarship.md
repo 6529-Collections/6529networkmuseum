@@ -181,3 +181,44 @@ record is to be manufactured to fill the integration gap.
   review in progress**. Formal gift acceptance, donor authority, title/custody,
   rights, technical, preservation, accession, and Collection steps remain later
   review events.
+
+## 2026-08-08 final local rewrite and registrar-control checkpoint
+
+- The five Work entries now expose observed source dimensions and byte counts:
+  Seymour `3,056 × 4,600 / 2,518,674`, Towell `5,369 × 3,601 / 1,813,285`,
+  Bar-Am `5,000 × 3,292 / 1,666,083`, Saman `5,616 × 3,744 / 1,540,870`,
+  and Meloni `5,964 × 4,768 / 16,871,807`. These are upstream technical
+  observations; no source bytes, responsive derivative, or preservation master
+  is retained. The 16.9 MB Meloni source is user-initiated and non-eager.
+- The current selected projections carry
+  `6529NM-WAVE-OBS-2026-08-08-001` at
+  `2026-08-08T10:15:02.0167151Z` with payload hash
+  `sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097`.
+  They also carry the final WP-1 target publication observation ID
+  `6529NM-WAVE-PUB-OBS-2026-08-08-001` and the same observation time, with
+  receipt payload hash intentionally pending WP-1 merge and binding.
+- `wave-media-join.json` treats `wave-storm.json` as historical public URL
+  evidence only. The final public-safe `WAVE_PUBLICATION_OBSERVATION` receipt,
+  per-part hashes, and Work/Media Reference/Curated Acquisition/proposal graph
+  relation are required before a standalone Work route may display the exact
+  historical Wave-upload URL. Outside that relation the route fails closed.
+- The Arweave token-linked source URL, its fixity, dimensions, and byte count
+  remain separate from the CloudFront Wave-upload presentation URL. Bar-Am's
+  current smoke/canister alt is bound to a pending WP-1 append-only
+  media-description amendment. The retained revision-1 Wave part 4 wording is
+  preserved in the machine record with its exact LF/UTF-8 text hash
+  `sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2`;
+  the public-safe smoke/canister wording remains a separate current value.
+  Saman's identity prohibition, child rule, exact source URL/hash, and unsafe
+  visual/context mutations are deterministic checks.
+- Source corrections added direct UNESCO Palmyra list `23`, Rapid Assessment
+  `142423`, and April 2016 mission `1488` locators; direct GOST and Visa records;
+  the WARM practice record; the stable Art Windsor-Essex search locator; the
+  Henri Cartier-Bresson Foundation Towell membership-date variant; and retained
+  TIME/AFP excerpt and page-state caveats. The 2015 destruction chronology stays
+  separate from the March/April 2016 access and demining chronology.
+- New local gates are `reviews/check_copy_citations.py` and the
+  `tests/test_wp3_magnum_editorial.py` wrapper. The media checker now validates
+  current observation identity/time, exact source URL/hash/fixity, standalone
+  route denial, Bar-Am amendment binding, Saman child/identity restrictions,
+  and adversarial mutations. No network-dependent CI behavior was added.

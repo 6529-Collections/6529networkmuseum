@@ -2,74 +2,106 @@
 
 ![Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg)
 
-*Short label: Demonstration, 1989 · Western Wall, Jerusalem. Wave-source
-historical public media; the exact URL remains publicly available as historical
-Wave presentation evidence.*
+*Short label: Demonstration, 1989 · Western Wall, Jerusalem. Historical public
+Wave presentation media; the exact proposal-context URL and credit appear in
+the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
-## Looking at the photograph
+## Looking at the Work
 
-Smoke occupies the middle of the frame and makes the central person partial.
-A canister rises into the open air while stone masonry fixes the background. In
-the foreground, a metal menorah-like structure cuts across the scene. It is a
-religious sign and a physical obstruction at once, a piece of public
-architecture that interrupts the event it helps locate.
+The photograph is organized around an interruption. A person moves through the
+middle distance, partly veiled by smoke; a canister hangs in the air; the
+stone wall holds the background in a dense horizontal plane. At the lower edge,
+a metal menorah-like structure cuts across the scene. It locates the image at a
+religious site while also acting as a barrier between camera and event.
 
-The image's tonal density shifts from pale smoke to dark moving forms and back
-to the heavy wall. The eye reaches for an action and finds an interval of
-visibility instead. Bar-Am gives the demonstration urgency through movement
-while making its exact event difficult to stabilize.
+The black-and-white tones do not settle into a single field. Pale smoke opens
+and closes the central action, dark clothing and hardware pull the eye toward
+the moving figure, and the wall returns the scene to architecture. The
+photograph is legible as a confrontation through motion, smoke, and the
+barrier, yet its human subject remains partial. The image shows a person,
+airborne canister, smoke, stone, and metal structure. They do not name the
+person, identify the canister's contents, or establish the exact day.
 
-## Object record
+That uncertainty is formal as well as historical. The central figure is the
+place where the image seems to promise an event and withholds a complete
+account. Bar-Am's composition lets the public setting remain visible while
+the action breaks into fragments. The work asks the viewer to look at the
+conditions of visibility before accepting a caption as a complete scene.
 
-| Field | Record |
+## Bar-Am's practice and institutions
+
+Bar-Am's photographic career passes through military experience, newspaper
+work, Magnum correspondence, and institution-building. Magnum's official
+profile records his 1948 service, work during the Sinai and Six-Day Wars, and
+correspondent status from 1968.[^1] Its published biography is selective: it
+names major bodies of work and institutional roles without supplying a
+complete assignment chronology or a full award list.
+
+His relation to institutions is part of the practice's history. Bar-Am helped
+Cornell Capa establish the International Center of Photography and later
+established the Tel Aviv Museum of Art photography department. Magnum's
+profile gives the curatorial period as 1977–1993; the Micha Bar-Am Archive
+describes service through 1992 and dates the Enrique Kavlin Lifetime
+Achievement Award separately to 1993.[^2] The two statements remain
+attributed rather than harmonized. ICP's *Israel Diary, 1956–1982* places his
+earlier work within a sustained record of the changing modern state, through
+national events and everyday life.[^3]
+
+Bar-Am has also described the difficulty of being a participant, observer,
+witness, and interpreter at once.[^1] That published statement supplies a
+practice lens for this photograph, not an intention statement about this
+exposure. The work's smoke and partial figure make the tension between
+presence and distance visible without assigning the central person a role.
+
+## Caption history and the 1989 setting
+
+The token metadata names the image *Demonstration, Western Wall, Jerusalem*,
+1989, and gives archive string BAM1989009W02477/26C. The artist archive gives
+BAM1989009W02477-26; ICP carries the same concise title and year; Museum Wales
+preserves the historical title variant “Western Wall (Wailing Wall),
+Jerusalem.”[^4] The shared archive stem is a strong comparison lead. No public
+record explains the suffix difference or provides a scene-specific day and
+participant.
+
+The issuer caption connects the frame to women's Torah prayer and police smoke
+grenades. Women of the Wall's own history supplies a situated account of the
+1988–1989 dispute over prayer, access, and religious authority.[^5] That
+history gives the image a social setting. It does not establish that this
+exposure records a particular March event or identify the central person. The
+public description remains with smoke and an airborne canister; it does not
+turn either into a more specific material or chemical claim.
+
+## The Work in the selected offer
+
+Bar-Am's Work is one of four tokens identified as curation 2/3. In the
+selected offer it is the point at which documentary visibility becomes a
+question of public access: the frame contains a sacred site, a moving body,
+and a barrier that is both visual foreground and social object. Its exact
+archive suffix and event history remain open, so its significance rests on
+the documented photograph, the attributed caption, and the observable place
+within this five-token offer. A donor rationale beyond that grouping has not
+been recorded.
+
+## Manifestations and stewardship
+
+| Aspect | Current record |
 | --- | --- |
-| Public Work | `6529NM-W-0026` |
-| Proposal alias | `6529NM-PG-2026-001.OBJ-003` |
-| Artist | Micha Bar-Am |
-| Date / place | 1989; Jerusalem |
-| Archive reference | `BAM1989009W02477/26C` |
-| Token manifestation | Ethereum ERC-721 token `97`; sequence `97/225`; curation `2/3`; edition `1 of 1` |
-| Metadata | [Token metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) |
-| Token-linked source image | [Arweave source](https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4) |
-| Observed source image | JPEG, 5,000 × 3,292 px; SHA-256 `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
-| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection |
-| Credit / rights | © Micha Bar-Am/Magnum Photos 2022 · All Rights Reserved |
-
-## Caption history
-
-The issuer caption names *Demonstration, Western Wall, Jerusalem*, 1989, and
-refers to women's Torah prayer, a hostile response, and police smoke grenades.
-The artist archive presents the matching frame as
-`BAM1989009W02477-26`; the token record uses `/26C`. ICP and Museum Wales carry
-related title and place records, with Museum Wales retaining the historical
-“Wailing Wall” vocabulary.[^1]
-
-These records describe successive acts of naming. The exact day and the
-identity of the central person remain open. Women of the Wall's situated public
-history gives the event a social and religious context while remaining distinct
-from a scene-specific caption.[^2]
-
-## Historical context and catalogue afterlife
-
-Bar-Am's career joins military and newspaper photography to institution-building
-at ICP and the Tel Aviv Museum of Art.[^3] The image's public life follows that
-same movement between event and archive. A protest photograph records a moment
-of public pressure; later institutions decide which title, suffix, and event
-language will carry it forward.
-
-## Source and rights
-
-The [Source and rights record](../dossiers/source-and-rights-record.md) records
-the historical public Wave URL evidence, supplied credit, rights label, and narrow
-proposal-context presentation. Future reproduction, derivative, IIIF,
-preservation, and Collection uses remain separate permissions questions.
+| Underlying photographic Work | The 1989 photograph identified through the token, artist-archive, ICP, and Museum Wales records; the exact exposure date, assignment, and archive suffix relation remain unresolved. |
+| Token-linked JPEG | The Arweave JPEG linked from token 97: 5,000 × 3,292 pixels, 1,666,083 observed bytes, SHA-256 a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df. |
+| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context. |
+| Preservation and master status | The token-linked JPEG is a recorded upstream rendition, not a declared negative, print master, or preservation master. The artist archive and museum print records describe other manifestations; no completed preservation package or rights-cleared repository derivative is recorded. |
+| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. |
+| Credit and rights | © Micha Bar-Am/Magnum Photos 2022 · All Rights Reserved. The notice remains separate from permission for reproduction, publication, or preservation. |
 
 ## Further research
 
-Resolve the `/26C` and `-26` identifier relation, the event date and caption
-history, the treatment of subject-identifying information, first publication,
-adjacent frames, and the rights party for future Museum use.
+Request the archive crosswalk for BAM1989009W02477, the meaning of 26C and
+-26, any caption sheet or contact sheet, the exact event date and assignment,
+and the rights terms for future Museum use. Any sensitive identity information
+remains restricted unless a responsible public form is documented.
 
-[^1]: Micha Bar-Am Archive, ICP, and Museum Wales object records, sources [S23–S25](../sources/source-register.md).
-[^2]: Women of the Wall public history, source [S34](../sources/source-register.md).
-[^3]: Micha Bar-Am biography and institutional records, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+[^1]: Magnum Photos official Bar-Am profile and published practice statement, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+[^2]: Magnum institutional profile and Micha Bar-Am Archive press release, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+[^3]: International Center of Photography exhibition record, source [S50](../sources/source-register.md).
+[^4]: Direct token metadata, artist archive, ICP, and Museum Wales records, sources [S12](../sources/source-register.md) and [S23–S25](../sources/source-register.md).
+[^5]: Women of the Wall public history, source [S34](../sources/source-register.md).

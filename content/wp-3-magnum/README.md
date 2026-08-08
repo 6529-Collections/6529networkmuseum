@@ -9,7 +9,7 @@ include this staging root.
 
 ## What this corpus is
 
-This corpus deepens selected gift `6529NM-PG-2026-001` into the intellectual
+This corpus deepens the selected proposed gift `6529NM-PG-2026-001` into the intellectual
 and evidentiary shape required for the Museum's current acquisition publication
 and for a later Museum publication after the subsequent acquisition gates are
 completed. Its working Curated Acquisition
@@ -69,7 +69,9 @@ observation at block `25690178` established a point-in-time owner and
 token-level approval state for all five tokens. That is chain evidence for the
 proposal, not donor-authority, legal-title, copyright, Museum-custody, or
 accession evidence. The live Wave state must be re-read before any future
-acceptance action.
+acceptance action or accession publication. The current signed-drop result and
+its publication observation are time-bound evidence, not a substitute for that
+revalidation.
 
 ## Corpus inventory
 
@@ -117,13 +119,15 @@ they are not silently upgraded into Museum facts.
 
 The five token-linked image URLs were retrieved for exact visual inspection on
 2026-08-08. Their bytes were not added to this repository. The retained Wave
-Storm package records those exact upstream URLs as historical public
-presentation media for its five work items. The machine-readable join in
-`machine/wave-media-join.json` permits a frontend to reference or embed those
-historical public Wave presentation URLs in the proposal's Wave context only, with the
-artist/Magnum credit, `All Rights Reserved`, and an explicit `Wave-source`
-label. It does not promise download, full-resolution delivery, preservation,
-or a new derivative.
+Storm package preserves URL strings and work-part history as historical public
+presentation evidence. The machine-readable join in
+`machine/wave-media-join.json` is prepared to reference or embed those exact
+URLs in the selected offer's proposal context only; after WP-1 admission, its
+CloudFront binding must be verified by the public-safe
+`WAVE_PUBLICATION_OBSERVATION` receipt and the final Work/Media/Acquisition
+relation. The artist/Magnum credit, `All Rights Reserved`, and explicit
+`Wave-source` label travel with the narrow reference. It does not promise
+download, full-resolution delivery, preservation, or a new derivative.
 
 No JPEG, AVIF, WebP, thumbnail, share card, IIIF manifest, tiled derivative,
 or responsive `srcset` is generated here. The issuer metadata for every object
@@ -131,7 +135,10 @@ states `All Rights Reserved`; the retained public URL evidence carries no
 general Museum copyright or Collection-publication grant. Arweave persistence
 and a matching SHA-256 do not create permission. Future Collection pages,
 download links, IIIF, and preservation masters remain blocked pending written,
-component-specific rights evidence and a reviewed media manifest.
+component-specific rights evidence and a reviewed media manifest. The observed
+16.9 MB Meloni source is user-initiated and non-eager; the corpus exposes its
+dimensions and byte count and makes no claim that delivered bytes cannot be
+saved.
 
 The rights/technical dossier defines a fail-closed media ladder. Derivatives
 may be generated only after written rights evidence identifies the permitted

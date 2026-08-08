@@ -3,54 +3,45 @@
 ## Artist profile
 
 **Selected Work:** [*Tripoli, Libya*](../works/04-moises-saman-44.md), 2011
-**Sources:** [S26–S29](../sources/source-register.md)
+**Sources:** [S26–S29](../sources/source-register.md), [S51](../sources/source-register.md)
 
 Moisés Saman's practice grew from conflict reporting into longer documentary
-inquiries about how people live through political violence. World Press Photo's
-biography records his Peruvian birth, work for *Newsday*, reporting in
-Afghanistan and Iraq, and that he joined Magnum in 2010 and became a full member
-in 2014.[^1] His photographs
-move between the urgency of the daily assignment and the slower work of
-revisiting a place through sequence, publication, and memory.
+inquiries about how political violence is lived, narrated, and remembered.
+World Press Photo records his Peruvian birth, work for *Newsday*, reporting in
+Afghanistan and Iraq, and the stages of his Magnum career: he joined in 2010
+and became a full member in 2014.[^1] The distinction between those stages is
+part of his professional history.
 
-## Reporting under controlled access
+## Controlled access and caption authority
 
-Saman's Libya work belongs to the theatre of war around Tripoli and the Gaddafi
-regime. The Magnum print record and TIME's account describe a press environment
-in which journalists moved through official arrangements and encountered scenes
-presented by authorities.[^2] This is a material condition of the photographs:
-route, escort, fixer, safety, and caption all influence the field of vision.
+Saman's Libya work was made within a press environment shaped by official
+arrangements, escorts, fixers, safety conditions, and restricted movement. The
+Magnum fine-print record supplies the official title and period; a retained
+TIME excerpt describes the managed access around Tripoli, while CPJ provides
+the wider press-freedom context.[^2] The public page preserves the excerpt and
+its page-state caveat rather than treating it as a forensic account of the
+selected frame.
 
-The resulting images hold a difficult relation between observation and account.
-A wall, a street, or a body can be recorded with precision while the explanation
-offered around it remains provisional. Saman's practice gives that uncertainty a
-formal place. It keeps the visible trace available for scrutiny and lets the
-source of a claim remain attached to the claim.
+This condition enters Saman's form. Walls, rooms, clothing, roads, and damaged
+surfaces carry political weight without resolving every account attached to
+them. A caption can name an event; the photograph can preserve a visible trace;
+the two records remain in conversation under different kinds of authority.
 
-## From press image to sustained recognition
-
-Saman's later work as a contributor to *The New Yorker* appears in the Pulitzer
-record, which recognizes the continuing force of his engagement with conflict,
-aftermath, and documentary evidence.[^3] That reception traces a path from
-field reporting to a publication environment where editing, sequence, and
-audience reshape the meaning of an image. His practice spans several wars,
-places, and caption histories.
-
-Saman's material language often makes ordinary surfaces carry political weight:
-walls, rooms, clothing, roads, and the traces left after an event. The image in
-the selected Work belongs to that attention to the small scene. Its public
-safeguarding and consent questions remain in the Work and rights records, where
-the child's presence is handled as a protected condition of publication.
+Later recognition, including Saman's work with *The New Yorker* recorded by the
+Pulitzer organization, follows this movement from assignment to sustained
+publication and sequence.[^3] His practice makes the selected image legible as
+part of a broader documentary inquiry while leaving its child-safeguarding
+questions in the object and rights records.
 
 ## Selected Work
 
-The selected Work is Saman's 2011 Tripoli photograph and the sole token in the
-group identified with Magnum Photos 75 curation `1/3`. That first-curation
-relation gives the donor-formed group its hinge between two upstream registers.
-The object page carries the caption qualification and restricted safeguarding
-determination; this profile places the image within Saman's reporting practice,
-controlled-access history, and later publication reception.
+The selected Work is the sole photograph in the group's 1/3 curation. It gives
+the offer a different kind of evidence problem from the other four images: a
+child is visible, the caption contains accounts of a damaged house and minder
+evidence, and identity remains restricted. The object entry describes the
+visible image and caption history; this profile places the photograph within Saman's
+controlled-access practice and its ethics of documentary uncertainty.
 
-[^1]: World Press Photo, Moisés Saman biography, source [S26](../sources/source-register.md).
-[^2]: Magnum Photos print record and TIME report on Libya, source [S27](../sources/source-register.md); press-freedom context is [S28](../sources/source-register.md).
+[^1]: World Press Photo, Moisés Saman biography, source [S26](../sources/source-register.md); the official Magnum print record gives full membership in 2014, source [S27](../sources/source-register.md).
+[^2]: Magnum Photos fine-print record, retained TIME excerpt, and CPJ press-freedom context, sources [S27](../sources/source-register.md) and [S28](../sources/source-register.md).
 [^3]: Pulitzer Prize, Moisés Saman contributor record, source [S29](../sources/source-register.md).

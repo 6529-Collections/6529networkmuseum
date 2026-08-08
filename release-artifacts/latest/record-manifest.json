@@ -32,8 +32,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:86aaaeaff7834764017fbe581403d3617ccf7e592934e2ce836188452959c86c",
-      "size": 7677
+      "sha256": "sha256:0cfd315f426bddd072d6f6dedfea34b77af89de98a5c2af3e22e57eb66201bb1",
+      "size": 8302
     },
     {
       "byte_mode": "lf-normalized",
@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:204362e850f372156a0fafb72128e810277a9d667f37b5d131c54094dad203f5",
-      "size": 44134
+      "sha256": "sha256:47915354c7f7f12b2782151489745da3a44448a8447893b1a25d1e948fec0c4e",
+      "size": 44256
     },
     {
       "byte_mode": "lf-normalized",
@@ -6681,6 +6681,12 @@
       "path": "tests/test_stream_adapter_and_publication_catalog.py",
       "sha256": "sha256:3b1412fdff2cf7ca6c8c06dc2b1b63cfa27f4e567bd1ab59cbc5e922e0e582b2",
       "size": 56810
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "path": "tests/test_wp3_magnum_editorial.py",
+      "sha256": "sha256:a102f457fbaf416c6a28c0c6660c8f4ce9631eb40d0e3b4d00f26065d85c377d",
+      "size": 685
     }
   ],
   "hash_algorithms": {
@@ -6714,9 +6720,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xf685b047dbf69c7bb7e728c3470afc76f28d084bfff0af5ed19bbfae68c6df05"
+    "digest": "0x384e0bbc8f80425dd7b33e6f35073c9b125603b204c3f116de174f8efbbc05c3"
   },
-  "manifest_sha256": "sha256:2864e267796fc5f5343773fec9b3a84c6ff8590ea10e087a8d4211d7083204a9",
+  "manifest_sha256": "sha256:864c76beace99a0faaf6e45216a4061b76429f2958d3902ff7cfe543535a065c",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

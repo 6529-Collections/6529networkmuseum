@@ -204,8 +204,9 @@ copyright chain.
 - **Type / class:** museum collection record / B.
 - **Supports:** institutional holdings and a route for comparing Towell’s work,
   not the exact Magnum 75 frame's assignment history.
-- **Limit:** collection-level record; object-level match must be verified before
-  citation as an exact frame.
+- **Limit:** this stable collection-search locator replaces an unavailable
+  individual object URL. It remains a collection-level record; object-level
+  match must be verified before citation as an exact frame.
 
 ### S22 — Micha Bar-Am biography and practice
 
@@ -213,9 +214,11 @@ copyright chain.
 - **URL:** <https://store.magnumphotos.com/collections/micha-bar-am>
 - **Type / class:** institutional biography / B.
 - **Supports:** 1930 birth, 1948 service, Sinai and Six-Day War coverage,
-  1968 Magnum correspondent status, ICP and Tel Aviv Museum roles.
+  1968 Magnum correspondent status, ICP and Tel Aviv Museum roles, and the
+  official profile's statement that he served as curator from 1977–1993.
 - **Limit:** biography does not identify the exact 1989 demonstration date or
-  person in #97.
+  person in #97; the curatorial date differs from the archive release's
+  through-1992 wording in S44.
 
 ### S23 — Micha Bar-Am Archive exact-image page
 
@@ -247,7 +250,7 @@ copyright chain.
 - **Type / class:** museum collection record / B.
 - **Supports:** title/place variant and cross-institutional image comparison.
 - **Limit:** older “Wailing Wall” terminology is preserved as historical
-  cataloguing language; the Museum should explain, not erase, the variant.
+  cataloguing language; public cataloguing retains and explains the variant.
 
 ### S26 — Moises Saman biography
 
@@ -265,10 +268,13 @@ copyright chain.
 - **URLs:** <https://store.magnumphotos.com/products/fine-print-tripoli-libya-2011>,
   <https://time.com/3778127/theatre-of-war-inside-gaddafis-libya/>
 - **Type / class:** artist/agency record and contemporary reporting / B-D.
-- **Supports:** exact title/period, Saman’s broader practice, and the
-  government-managed access problem described in the proposal caption.
-- **Limit:** the official damage claim remains unverified; neither source
-  identifies the child or proves consent.
+- **Supports:** exact title/period, the official Magnum fine-print record's
+  statement that Saman has been a full member since 2014, Saman’s broader
+  practice, and the government-managed access problem described in the
+  retained TIME excerpt.
+- **Limit:** the TIME page may change or be unavailable; the retained excerpt
+  is the bounded evidence for its access account. The official damage claim
+  remains unverified; neither source identifies the child or proves consent.
 
 ### S28 — Libya 2011 press conditions
 
@@ -303,20 +309,29 @@ copyright chain.
 - **Source:** TIME, “Inside War-Ravaged Syria,” 7 April 2016.
 - **URL:** <https://time.com/4284588/inside-war-ravaged-syria/>
 - **Type / class:** contemporary reporting with photographer interview / D-B.
-- **Supports:** Syrian-government permission, March 2016 recapture, Meloni’s
-  visit, remaining structures, and the Temple of Bel loss.
-- **Limit:** contemporary journalism; identify its attributions and do not
-  treat a reporter’s description as a proof of the soldier’s identity.
+- **Supports:** the report's account of Syrian-government permission, March
+  2016 recapture, Meloni’s visit, remaining structures, and the Temple of Bel
+  loss.
+- **Limit:** contemporary journalism. The direct page is an unstable access
+  locator; the retained excerpt in
+  `notes/wip/wp-3-magnum-research/06-lorenzo-meloni.md` preserves the bounded
+  claims and their attribution. Do not treat a reporter’s description as proof
+  of the soldier’s identity or the exact route of this frame.
 
 ### S32 — UNESCO Palmyra record
 
 - **Source:** UNESCO World Heritage Centre, Palmyra news and site records.
 - **URLs:** <https://whc.unesco.org/en/news/1341>,
-  <https://whc.unesco.org/en/list/23/>
+  <https://whc.unesco.org/en/list/23/>,
+  <https://whc.unesco.org/document/142423>,
+  <https://whc.unesco.org/en/news/1488>
 - **Type / class:** intergovernmental heritage record / B.
-- **Supports:** cultural significance, damage chronology, and the difference
-  between the ancient site and the 2016 photograph.
+- **Supports:** Palmyra's World Heritage significance and the 2015 destruction
+  chronology from news/1341; the Rapid Assessment's 23–27 April 2016 control,
+  access, damage, and demining account; and the April 2016 mission news.
 - **Limit:** UNESCO does not identify the exact frame or its photographer.
+  The 2015 heritage-destruction record and the March/April 2016
+  control/access/demining record are separate observations.
 
 ## Regional histories and caption ethics
 
@@ -401,14 +416,18 @@ copyright chain.
   parts were published to the 6529 Network Museum Wave on 6 August 2026.
 - **Path:** `records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json`.
 - **Type / class:** historical public publication record / B-C.
-- **Supports:** the exact Wave-upload URLs, work-part numbers, historical
-  credit lines, and `All Rights Reserved` labels reproduced in the machine join
-  at `content/wp-3-magnum/machine/wave-media-join.json`. The Arweave URLs are
-  retained separately there as token-linked source-image URLs.
+- **Supports:** historical work-part numbers, URL strings, credit lines, and
+  `All Rights Reserved` labels recorded in the local proposal package. The
+  machine join preserves the CloudFront URLs as historical URL evidence and
+  retains the Arweave URLs separately as token-linked source-image locators.
 - **Exact Wave-upload URLs:** parts 2–6 are [#127](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg), [#145](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg), [#97](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg), [#44](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg), and [#104](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg).
-- **Limit:** this corpus retains historical public URL evidence and recorded
-  credits/rights labels; it does not retain an authenticated publication
-  receipt or snapshot for the five media URLs. The narrow reference/embed
+- **Limit:** the local `wave-storm.json` is not the final authenticated proof of
+  the CloudFront upload bindings. This corpus retains historical public URL
+  evidence and recorded credits/rights labels; it does not retain the
+  public-safe `WAVE_PUBLICATION_OBSERVATION` receipt or snapshot for the five
+  media URLs. After WP-1 admission, the exact receipt ID, payload hash, and
+  per-part content hashes must be bound before the join is treated as a current
+  publication observation. The narrow reference/embed
   disposition is limited to the selected acquisition's proposal Wave context;
   no copyright, download, full-resolution, Collection-publication, IIIF,
   derivative, or preservation authority is inferred.
@@ -451,9 +470,11 @@ copyright chain.
   warnings, and permission to enter on the condition that journalists follow
   army directions.
 - **Limit:** this is AFP’s reporter account of access, not a caption or proof
-  that every described condition belongs to Meloni’s exact frame. TIME’s
-  separate report remains the source for Meloni’s permissioned visit and
-  shadowing of government forces.
+  that every described condition belongs to Meloni’s exact frame. The direct
+  page is a weak or unstable locator; the retained excerpt in
+  `notes/wip/wp-3-magnum-research/06-lorenzo-meloni.md` preserves the bounded
+  wording. TIME’s separate report remains the source for Meloni’s
+  permissioned visit and shadowing of government forces.
 
 ### S42 — United Nations Israel–Jordan armistice agreement
 
@@ -491,6 +512,85 @@ copyright chain.
   1993.
 - **Limit:** a press release is not a complete employment file. The 1993 award
   date must not be converted into a 1993 end date for the curatorial role.
+
+### S45 — Larry Towell, *Gifts of War* exhibition record
+
+- **Source:** Art Gallery of Windsor / e-artexte, *Larry Towell: Gifts of War*.
+- **URL:** <https://e-artexte.ca/id/eprint/191/>
+- **Type / class:** institutional exhibition record / B-D.
+- **Supports:** organizer, exhibition scope, Canadian itinerary, and the
+  16 April 1988–14 October 1989 interval.
+- **Limit:** the public record does not list individual photographs and does
+  not prove display of token #145.
+
+### S46 — Larry Towell CV
+
+- **Source:** Stephen Bulger Gallery, Larry Towell CV.
+- **URL:** <https://www.bulgergallery.com/usr/library/documents/main/artists/110/towell-cv.pdf>
+- **Type / class:** artist curriculum vitae / B.
+- **Supports:** *Gift of War* (1988), *El Salvador* (1997), and exhibition and
+  publication history.
+- **Limit:** a CV does not supply a page or plate crosswalk for #145.
+
+### S47 — Larry Towell, *El Salvador* bibliographic record
+
+- **Source:** Open Library, *El Salvador* by Larry Towell.
+- **URL:** <https://openlibrary.org/books/OL655244M/El_Salvador>
+- **Type / class:** library catalogue record / B-D.
+- **Supports:** 1997 publication, 127-page extent, and the book's historical
+  subject context.
+- **Limit:** catalogue copy does not establish the selected frame's inclusion
+  or assignment.
+
+### S48 — Lorenzo Meloni, *We Don't Say Goodbye*
+
+- **Source:** GOST Books, *We Don't Say Goodbye*.
+- **URL:** <https://gostbooks.com/products/we-dont-say-goodbye>
+- **Type / class:** publisher book and artist statement / B.
+- **Supports:** 2013–2019 Iraq/Syria/Libya project, 2022 publication, fragmented
+  sequence, objects and writing recovered from rubble, and the project's
+  historical framing.
+- **Limit:** the publisher page does not establish this exact Palmyra frame's
+  page, plate, or exhibition inclusion.
+
+### S49 — Lorenzo Meloni, *The Collapse of the Caliphate*
+
+- **Source:** Visa pour l'Image, 2017 press material.
+- **URL:** <https://www.visapourlimage.com/files/a4c041c3/press_release_2017.pdf>
+- **Type / class:** festival press release / B.
+- **Supports:** the 2017 project/exhibition context and its cross-border
+  geography, including Kobanî, Palmyra, Sirte, and Mosul.
+- **Limit:** the direct PDF may redirect or change state; retained research
+  notes record the page-state caveat and no exact-frame checklist was found.
+
+### S50 — Micha Bar-Am, *Israel Diary, 1956–1982*
+
+- **Source:** International Center of Photography exhibition record.
+- **URL:** <https://www.icp.org/exhibitions/micha-bar-am-israel-diary-1956-1982>
+- **Type / class:** museum exhibition record / B.
+- **Supports:** Bar-Am's long photographic and institutional practice and the
+  exhibition's historical framing.
+- **Limit:** it does not identify the exact 1989 demonstration date or person.
+
+### S51 — Moisés Saman, *Discordia*
+
+- **Source:** WARM Foundation, *Discordia* project record.
+- **URL:** <https://warmfoundation.org/projects/discordia/>
+- **Type / class:** artist/institution project and exhibition record / B.
+- **Supports:** Saman's 2011–2014 Arab Spring project, 2016 self-published book,
+  exhibition history, and practice statement.
+- **Limit:** the record does not establish that token #44 appears in the book
+  or an exhibition, and it is not a child-consent record.
+
+### S52 — Larry Towell membership-date comparison
+
+- **Source:** Henri Cartier-Bresson Foundation, Larry Towell dossier.
+- **URL:** <https://www.henricartierbresson.org/wp-content/uploads/2014/09/Dossier-Larry-Towell.pdf>
+- **Type / class:** institutional artist dossier / B.
+- **Supports:** the dossier's “since 1989” Magnum membership wording and
+  Towell's Central American practice and publication history.
+- **Limit:** the date differs from Magnum's public 1988 biography in S20; the
+  discrepancy is preserved rather than resolved here.
 
 ## Open source requests
 
