@@ -380,6 +380,14 @@ def _bundle_binding(root: Path, commit: str, inventory: dict[str, Any], assembly
         if not isinstance(content, str):
             raise CatalogError(f"visitor bundle content is not UTF-8 text: {entry.get('path')}")
         data = content.encode("utf-8")
+        source_bytes, source_mode = normalized_bytes(
+            entry["path"], git_bytes(root, commit, entry["path"])
+        )
+        if entry.get("byte_mode") != source_mode or data != source_bytes:
+            raise CatalogError(
+                "visitor bundle content does not match the exact Git-tree file: "
+                f"{entry['path']}"
+            )
         if len(data) != entry.get("file_size") or sha256_prefixed(data) != entry.get("sha256"):
             raise CatalogError(f"visitor bundle content digest/size mismatch: {entry.get('path')}")
         if entry["path"].casefold().endswith(".json") and entry.get("jcs_keccak256") != "0x" + keccak256(canonicalize(strict_load(data))).hex():
@@ -1036,7 +1044,11 @@ def check_append_only_catalog(
         pointer_path = root / Path(*POINTER_PATH.split("/"))
         if current_pointer is not None and pointer_path.is_file():
             try:
-                if strict_load(pointer_path.read_bytes()) != current_pointer:
+                actual_pointer = strict_load(pointer_path.read_bytes())
+                # Before a CLI write, the worktree still carries the retained
+                # previous pointer; after a committed transition it carries
+                # the new pointer. No third state is admissible.
+                if actual_pointer != current_pointer and actual_pointer != previous_pointer:
                     issues.append("current activation pointer was rewritten after validation")
             except (OSError, json.JSONDecodeError, CatalogError) as exc:
                 issues.append(f"current activation pointer is invalid: {exc}")
@@ -1125,6 +1137,61 @@ def retained_catalog_from_git_tree(root: Path, commit: str, catalog_id: str) -> 
     if payload["catalog_id"] != catalog_id:
         raise CatalogError(f"retained Git-tree catalog identity does not match its path: {catalog_id}")
     return value, raw
+
+
+def _worktree_release_path(root: Path, path: str) -> Path:
+    """Resolve one release artifact path while proving containment."""
+
+    if path == POINTER_PATH:
+        resolved_root = root.resolve(strict=False)
+        candidate = (resolved_root / Path(*path.split("/"))).resolve(strict=False)
+        try:
+            candidate.relative_to(resolved_root)
+        except ValueError as exc:
+            raise CatalogError("release artifact resolves outside the supplied publication root") from exc
+        return candidate
+    return _contained_path(root, path)
+
+
+def assert_worktree_release_matches_git_tree(
+    root: Path, commit: str, path: str, *, label: str
+) -> bytes:
+    """Require one worktree release artifact to equal its retained Git blob."""
+
+    retained_bytes = _release_blob_bytes(root, commit, path)
+    worktree_path = _worktree_release_path(root, path)
+    if not worktree_path.is_file():
+        raise CatalogError(f"{label} worktree file is missing: {path}")
+    try:
+        worktree_bytes = worktree_path.read_bytes()
+    except OSError as exc:
+        raise CatalogError(f"{label} worktree file is unreadable: {path}: {exc}") from exc
+    if worktree_bytes != retained_bytes:
+        raise CatalogError(
+            f"{label} worktree bytes do not match the exact retained Git-tree bytes: {path}"
+        )
+    return retained_bytes
+
+
+def verify_active_release_worktree(
+    root: Path, commit: str
+) -> tuple[dict[str, Any], bytes, dict[str, Any], bytes]:
+    """Verify the active pointer and catalog against retained HEAD bytes."""
+
+    pointer, pointer_bytes = retained_release_json(root, commit, POINTER_PATH)
+    assert_worktree_release_matches_git_tree(
+        root, commit, POINTER_PATH, label="active activation pointer"
+    )
+    catalog_path = pointer.get("catalog_path")
+    validate_canonical_catalog_path(catalog_path)
+    catalog_id = _pointer_catalog_id(pointer)
+    if catalog_id is None:
+        raise CatalogError("retained active pointer has an invalid catalog path")
+    catalog, catalog_bytes = retained_catalog_from_git_tree(root, commit, catalog_id)
+    assert_worktree_release_matches_git_tree(
+        root, commit, catalog_path, label="active catalog"
+    )
+    return pointer, pointer_bytes, catalog, catalog_bytes
 
 
 def _catalog_tree_blobs(root: Path, commit: str) -> dict[str, str]:

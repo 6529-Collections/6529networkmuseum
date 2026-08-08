@@ -42,3 +42,45 @@ The complete repository suite passes: `python -m unittest discover -s tests -q` 
 ## Control boundary
 
 This handoff records source design and implementation status only. It does not merge, deploy, mint, purchase, transfer, establish custody, grant rights, advance governance, or advance accession state.
+
+## 2026-08-08 second-panel fail-closed correction
+
+Exact candidate `71a94cb0e30000462337ffc38a9b56692f515838`
+passed hosted run `31275658396`, but all four independent exact-head lanes
+rejected its validators. The records themselves were confirmed safe and no
+catalog activation existed. The follow-up correction closes the reported
+admissible-state gaps:
+
+- Collection, Project, Curated Acquisition, and Accession Work sets must equal
+  their active relations in both directions. Permanent Collection membership
+  requires one matching Collection relation. Typed Work targets resolve
+  uniquely under a closed component/manifestation matrix.
+- Restricted and unknown-rights media are structurally metadata-only:
+  `visual:false`, null source and token locators, and no rendering or delivery
+  affordances.
+- Stream adaptation now pins literal lowercase `https://`, Museum Keccak/JCS
+  content hashes, exact JSON manifest-entry commitments, preimage/record-type
+  pairs, nonzero identities, closed hash-reference forms, URI bounds, and
+  authorization classes 1-8.
+- Candidate A and reviewed B visitor-bundle entries must equal their exact
+  Git-tree source bytes. Activation and rollback verify the current active
+  pointer and catalog against retained HEAD bytes before any write, while a
+  repository with no retained pointer still supports its first activation.
+
+Adversarial coverage was added for each boundary. The combined local matrix is
+green: 261 tests with one expected Windows named-pipe skip, 621-file bootstrap
+validation, full Museum/Casey semantic validation, deterministic migration,
+inventory, bundle, and manifest checks, rights/legal checks, 48-derivative
+media verification, institutional-source verification, Casey package and
+diligence verification, Python compilation, and Windows-aware diff hygiene.
+
+The corrected review-pending tree still has 118 entities and 164 relations. Its
+closed visitor inventory has 420 entries; the atomic bundle has 419 documents
+and 3,079,537 UTF-8 content bytes. Before this handoff update, the regenerated
+whole-release manifest had 692 entries, SHA-256
+`sha256:011ac757046b8aec9ce89b8d0f85a91b47806bd2dc75d785f7b0728a26e35078`,
+and Keccak-256
+`0x4b8ca73a385cafd87bd79dd3749bc40bf82d23617f205b442e80627d887503d3`.
+Because this handoff is itself governed, the manifest is regenerated again
+before commit and the committed exact commitments supersede these provisional
+values. Fresh hosted CI and four fresh exact-head reviews remain mandatory.

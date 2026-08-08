@@ -78,6 +78,7 @@ class StreamAdapterTests(unittest.TestCase):
         manifest_path = root / "release-artifacts/latest/record-manifest.json"
         manifest_path.parent.mkdir(parents=True, exist_ok=True)
         normalized_source = source_bytes.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        source_value = json.loads(normalized_source)
         manifest_body = {
             "manifest_type": "6529NM_RECORD_MANIFEST",
             "manifest_version": "1.1.0",
@@ -90,6 +91,7 @@ class StreamAdapterTests(unittest.TestCase):
                 "size": len(normalized_source),
                 "sha256": sha256_prefixed(normalized_source),
                 "byte_mode": "lf-normalized",
+                "content_hash": {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(source_value)).hex(), "canonicalizationId": MUSEUM_JCS_ID},
             }],
         }
         canonical_manifest_body = canonicalize(manifest_body)
@@ -142,6 +144,30 @@ class StreamAdapterTests(unittest.TestCase):
             envelope["uri"] = uri
             with self.assertRaises(ValueError):
                 museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
+
+    def test_uri_requires_literal_lowercase_https_and_runtime_utf8_byte_cap(self) -> None:
+        for uri in (
+            "HTTP://6529networkmuseum.org/records/entities/E.json",
+            "Https://6529networkmuseum.org/records/entities/E.json",
+            "http://6529networkmuseum.org/records/entities/E.json",
+            "//6529networkmuseum.org/records/entities/E.json",
+            "httpss://6529networkmuseum.org/records/entities/E.json",
+        ):
+            envelope = self.museum_envelope()
+            envelope["uri"] = uri
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
+
+        prefix = "https://6529networkmuseum.org/records/"
+        envelope = self.museum_envelope()
+        envelope["uri"] = prefix + "a" * (2048 - len(prefix))
+        self.assertEqual(
+            museum_envelope_to_stream_record(envelope, allow_logical_uri=True)["uri"],
+            envelope["uri"],
+        )
+        envelope["uri"] = prefix + "é" * ((2048 - len(prefix)) // 2 + 1)
+        with self.assertRaises(ValueError):
+            museum_envelope_to_stream_record(envelope, allow_logical_uri=True)
 
     def test_exact_commit_path_uri_and_payload_commitment(self) -> None:
         payload = {"record_id": "E", "value": "stable"}
@@ -276,6 +302,134 @@ class StreamAdapterTests(unittest.TestCase):
             finally:
                 temporary.cleanup()
 
+    def test_json_manifest_content_hash_is_exact_and_non_json_cannot_invent_one(self) -> None:
+        mutations = []
+
+        def remove_content_hash(manifest: dict) -> None:
+            manifest["entries"][0].pop("content_hash")
+
+        def change_content_hash_algorithm(manifest: dict) -> None:
+            manifest["entries"][0]["content_hash"]["algorithm"] = 2
+
+        def change_content_hash_digest(manifest: dict) -> None:
+            manifest["entries"][0]["content_hash"]["digest"] = "0x" + "f" * 64
+
+        def make_content_hash_odd(manifest: dict) -> None:
+            manifest["entries"][0]["content_hash"]["digest"] = "0x" + "f" * 63
+
+        def change_content_hash_canonicalization(manifest: dict) -> None:
+            manifest["entries"][0]["content_hash"]["canonicalizationId"] = "0x" + "1" * 64
+
+        def add_content_hash_to_non_json(manifest: dict) -> None:
+            manifest["entries"].insert(
+                0,
+                {
+                    "path": "docs/page.md",
+                    "size": 0,
+                    "sha256": "sha256:" + "0" * 64,
+                    "byte_mode": "lf-normalized",
+                    "content_hash": {"algorithm": 1, "digest": "0x" + "1" * 64, "canonicalizationId": MUSEUM_JCS_ID},
+                },
+            )
+
+        mutations.extend(
+            (
+                mutation,
+                False,
+            )
+            for mutation in (
+                remove_content_hash,
+                change_content_hash_algorithm,
+                change_content_hash_digest,
+                make_content_hash_odd,
+                change_content_hash_canonicalization,
+                add_content_hash_to_non_json,
+            )
+        )
+
+        for mutation, _recommit in mutations:
+            payload = {"record_id": "E", "value": "stable"}
+            envelope = self.museum_envelope()
+            envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+            temporary, source_root, _source_commit = self.exact_source_repo(envelope, payload)
+            try:
+                manifest_path = source_root / "release-artifacts/latest/record-manifest.json"
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                mutation(manifest)
+                self._recommit_manifest_body(manifest)
+                mutated_commit = self._commit_manifest_mutation(source_root, manifest)
+                with self.assertRaises(ValueError):
+                    museum_envelope_to_stream_record(
+                        envelope,
+                        source_commit=mutated_commit,
+                        source_path="records/entities/E.json",
+                        source_payload=payload,
+                        source_root=source_root,
+                    )
+            finally:
+                temporary.cleanup()
+
+        payload = {"record_id": "E", "value": "stable"}
+        envelope = self.museum_envelope()
+        envelope["contentHash"] = {"algorithm": 1, "digest": "0x" + keccak256(canonicalize(payload)).hex(), "canonicalizationId": MUSEUM_JCS_ID}
+        temporary, source_root, _source_commit = self.exact_source_repo(envelope, payload)
+        try:
+            manifest_path = source_root / "release-artifacts/latest/record-manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["entries"].insert(
+                0,
+                {
+                    "path": "docs/page.md",
+                    "size": 0,
+                    "sha256": "sha256:" + "0" * 64,
+                    "byte_mode": "lf-normalized",
+                },
+            )
+            self._recommit_manifest_body(manifest)
+            valid_non_json_commit = self._commit_manifest_mutation(source_root, manifest)
+            self.assertEqual(
+                museum_envelope_to_stream_record(
+                    envelope,
+                    source_commit=valid_non_json_commit,
+                    source_path="records/entities/E.json",
+                    source_payload=payload,
+                    source_root=source_root,
+                )["uri"].split("/")[-1],
+                "E.json",
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_exact_source_content_hash_requires_museum_jcs(self) -> None:
+        payload = {"record_id": "E", "value": "stable"}
+        envelope = self.museum_envelope()
+        envelope["contentHash"] = {
+            "algorithm": 1,
+            "digest": "0x" + keccak256(canonicalize(payload)).hex(),
+            "canonicalizationId": "0x" + "1" * 64,
+        }
+        temporary, source_root, source_commit = self.exact_source_repo(envelope, payload)
+        try:
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(
+                    envelope,
+                    source_commit=source_commit,
+                    source_path="records/entities/E.json",
+                    source_payload=payload,
+                    source_root=source_root,
+                )
+        finally:
+            temporary.cleanup()
+
+        for mutation in (
+            {"algorithm": 2, "digest": "0x" + "2" * 64, "canonicalizationId": MUSEUM_JCS_ID},
+            {"algorithm": 1, "digest": "0x" + "2" * 64, "canonicalizationId": "0x" + "1" * 64},
+        ):
+            logical = self.museum_envelope()
+            logical["contentHash"] = mutation
+            with self.assertRaises(ValueError):
+                museum_envelope_to_stream_record(logical, allow_logical_uri=True)
+
     def test_source_paths_reject_url_delimiters_and_encoded_equivalents(self) -> None:
         payload = {"record_id": "E", "value": "stable"}
         envelope = self.museum_envelope()
@@ -355,6 +509,61 @@ class StreamAdapterTests(unittest.TestCase):
                 mutated["stream_record"]["effectiveAt"] = True
             self.assertTrue(list(Draft202012Validator(schema).iter_errors(mutated)), path)
 
+    def test_adapter_schema_binds_record_types_and_rejects_closed_hash_uri_adversaries(self) -> None:
+        schema = json.loads((ROOT / "schemas/stream-collection-record-adapter.schema.json").read_text(encoding="utf-8"))
+        base = {
+            "$schema": "https://6529networkmuseum.org/schemas/stream-collection-record-adapter-v1.json",
+            "stream_source_commit": STREAM_SOURCE_COMMIT,
+            "interface_path": STREAM_INTERFACE_PATH,
+            "implementation_path": STREAM_IMPLEMENTATION_PATH,
+            "record_type_preimage": "PUBLIC_ENTITY",
+            "stream_record": museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True),
+        }
+        validator = Draft202012Validator(schema)
+        preimages = ("PUBLIC_ENTITY", "PUBLIC_RELATION", "WAVE_STATUS_OBSERVATION", "WAVE_PUBLICATION_OBSERVATION", "MEDIA_DESCRIPTION_AMENDMENT", "PUBLICATION_CATALOG")
+        for preimage in preimages:
+            valid = copy.deepcopy(base)
+            valid["record_type_preimage"] = preimage
+            valid["stream_record"]["recordType"] = museum_record_type_to_stream(preimage)
+            self.assertEqual(list(validator.iter_errors(valid)), [], preimage)
+            invalid = copy.deepcopy(valid)
+            invalid["stream_record"]["recordType"] = museum_record_type_to_stream(
+                "PUBLIC_RELATION" if preimage == "PUBLIC_ENTITY" else "PUBLIC_ENTITY"
+            )
+            self.assertTrue(list(validator.iter_errors(invalid)), preimage)
+
+        for field in ("subjectId", "schemaId"):
+            invalid = copy.deepcopy(base)
+            invalid["stream_record"][field] = ZERO32
+            self.assertTrue(list(validator.iter_errors(invalid)), field)
+
+        invalid_uri = copy.deepcopy(base)
+        invalid_uri["stream_record"]["uri"] = "HTTPS://6529networkmuseum.org/records/E.json"
+        self.assertTrue(list(validator.iter_errors(invalid_uri)))
+        invalid_uri["stream_record"]["uri"] = "https://" + "a" * 2041
+        self.assertTrue(list(validator.iter_errors(invalid_uri)))
+
+        for mutation in (
+            lambda value: value.update({"algorithm": 0, "digest": "0x", "canonicalizationId": ZERO32}),
+            lambda value: value.update({"algorithm": 2}),
+            lambda value: value.update({"algorithm": 7}),
+            lambda value: value.update({"digest": "0x" + "2" * 63}),
+            lambda value: value.update({"canonicalizationId": "0x" + "1" * 64}),
+            lambda value: value.update({"canonicalizationId": ZERO32}),
+        ):
+            invalid = copy.deepcopy(base)
+            mutation(invalid["stream_record"]["contentHash"])
+            self.assertTrue(list(validator.iter_errors(invalid)))
+
+        invalid_signature = copy.deepcopy(base)
+        invalid_signature["stream_record"]["signatureScheme"] = "0x" + "44" * 32
+        invalid_signature["stream_record"]["signatureHash"] = {"algorithm": 0, "digest": "0x", "canonicalizationId": ZERO32}
+        self.assertTrue(list(validator.iter_errors(invalid_signature)))
+        invalid_signature["stream_record"]["signatureHash"] = {"algorithm": 7, "digest": "0x" + "2" * 64, "canonicalizationId": MUSEUM_JCS_ID}
+        self.assertTrue(list(validator.iter_errors(invalid_signature)))
+        invalid_signature["stream_record"]["signatureHash"] = {"algorithm": 1, "digest": "0x" + "2" * 63, "canonicalizationId": MUSEUM_JCS_ID}
+        self.assertTrue(list(validator.iter_errors(invalid_signature)))
+
     def test_legacy_unsigned_placeholder_cannot_pass_through(self) -> None:
         record = museum_envelope_to_stream_record(self.museum_envelope(), allow_logical_uri=True)
         record["signatureHash"] = {"algorithm": 2, "digest": ZERO32, "canonicalizationId": MUSEUM_JCS_ID}
@@ -391,12 +600,22 @@ class StreamAdapterTests(unittest.TestCase):
         self.assertEqual(museum_envelope_to_stream_record(maximum, allow_logical_uri=True)["effectiveAt"], 18446744073709551615)
 
     def test_registry_collection_family_and_writer_gates_fail_closed(self) -> None:
-        self.assertEqual(require_stream_admission(known_collection=True, family_admitted=True, writer_authorized=True, authorization_class=2), 2)
+        for authorization_class in (1, 8):
+            self.assertEqual(
+                require_stream_admission(
+                    known_collection=True,
+                    family_admitted=True,
+                    writer_authorized=True,
+                    authorization_class=authorization_class,
+                ),
+                authorization_class,
+            )
         for kwargs in (
             {"known_collection": False, "family_admitted": True, "writer_authorized": True, "authorization_class": 2},
             {"known_collection": True, "family_admitted": False, "writer_authorized": True, "authorization_class": 2},
             {"known_collection": True, "family_admitted": True, "writer_authorized": False, "authorization_class": 2},
             {"known_collection": True, "family_admitted": True, "writer_authorized": True, "authorization_class": 0},
+            {"known_collection": True, "family_admitted": True, "writer_authorized": True, "authorization_class": 9},
         ):
             with self.assertRaises(ValueError):
                 require_stream_admission(**kwargs)

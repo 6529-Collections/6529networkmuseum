@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import contextlib
 import io
+import json
 import os
 import shutil
 import subprocess
@@ -27,6 +28,7 @@ from publication_catalog import (  # noqa: E402
     sha256_prefixed,
     validate_catalog,
     validate_pointer,
+    verify_active_release_worktree,
 )
 
 
@@ -285,6 +287,100 @@ class PublicationCatalogSafetyTests(unittest.TestCase):
             self.assertIn("exact retained Git-tree catalog", output.getvalue())
             self.assertEqual(pointer_path.read_bytes(), pointer_bytes)
 
+    def test_active_release_verifier_rejects_pointer_and_catalog_worktree_drift(self) -> None:
+        active = self.catalog()
+        active_bytes = render_json(active)
+        pointer = build_pointer(
+            active,
+            catalog_file_sha256=sha256_prefixed(active_bytes),
+            activation_actor="release-activator:test",
+            activated_at="2026-08-08T18:01:00Z",
+            mode="activate",
+            prior_catalog_id=None,
+        )
+        for mutation in ("pointer", "catalog"):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                catalog_path = self.write_catalog(root, active)
+                pointer_path = self.write_pointer(root, pointer)
+                self.init_git(root)
+                commit = self.commit_git(root, "retained active release")
+                target = pointer_path if mutation == "pointer" else catalog_path
+                target.write_bytes(target.read_bytes() + b"\n")
+                with self.assertRaisesRegex(
+                    catalog_module.CatalogError,
+                    "worktree bytes do not match the exact retained Git-tree bytes",
+                ):
+                    verify_active_release_worktree(root, commit)
+
+    def test_write_release_invokes_active_release_verifier_before_activation_or_rollback(self) -> None:
+        active = self.catalog(commit="a" * 40)
+        target = self.catalog(commit="b" * 40)
+        pointer = build_pointer(
+            active,
+            catalog_file_sha256=sha256_prefixed(render_json(active)),
+            activation_actor="release-activator:test",
+            activated_at="2026-08-08T18:01:00Z",
+            mode="activate",
+            prior_catalog_id=None,
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.write_catalog(root, active)
+            self.write_catalog(root, target)
+            pointer_path = self.write_pointer(root, pointer)
+            self.init_git(root)
+            self.commit_git(root, "retained active and rollback target")
+            pointer_before = pointer_path.read_bytes()
+            for mode, extra in (
+                ("activate", ["--commit", "b" * 40, "--created-at", "2026-08-08T19:00:00Z"]),
+                ("rollback", ["--target-catalog-id", target["payload"]["catalog_id"]]),
+            ):
+                with self.subTest(mode=mode), contextlib.redirect_stdout(io.StringIO()):
+                    with mock.patch.object(publication_cli, "ROOT", root), mock.patch.object(
+                        publication_cli,
+                        "verify_active_release_worktree",
+                        side_effect=catalog_module.CatalogError("active release mismatch"),
+                    ) as verifier:
+                        result = publication_cli.main(
+                            [
+                                "--write-release", "--mode", mode, *extra,
+                                "--actor", "release-activator:test",
+                                "--activated-at", "2026-08-08T19:01:00Z",
+                            ]
+                        )
+                self.assertEqual(result, 1)
+                verifier.assert_called_once()
+                self.assertEqual(pointer_path.read_bytes(), pointer_before)
+
+    def test_initial_activation_remains_valid_when_head_has_no_pointer(self) -> None:
+        target = self.catalog(commit="b" * 40)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "README.md").write_text("fixture\n", encoding="utf-8", newline="\n")
+            self.init_git(root)
+            self.commit_git(root, "source tree without activation pointer")
+            with contextlib.redirect_stdout(io.StringIO()):
+                with mock.patch.object(publication_cli, "ROOT", root), mock.patch.object(
+                    publication_cli, "build_catalog", return_value=target
+                ), mock.patch.object(
+                    publication_cli, "validate_catalog", return_value=[]
+                ), mock.patch.object(
+                    publication_cli, "validate_pointer", return_value=[]
+                ):
+                    result = publication_cli.main(
+                        [
+                            "--write-release", "--mode", "activate",
+                            "--commit", "b" * 40,
+                            "--created-at", "2026-08-08T19:00:00Z",
+                            "--actor", "release-activator:test",
+                            "--activated-at", "2026-08-08T19:01:00Z",
+                        ]
+                    )
+            pointer_path = root / Path(*POINTER_PATH.split("/"))
+            self.assertEqual(result, 0)
+            self.assertIsNone(json.loads(pointer_path.read_bytes())["activation"]["prior_catalog_id"])
+
     def test_review_proof_parses_candidate_a_inventory_and_bundle(self) -> None:
         from tests.test_stream_adapter_and_publication_catalog import PublicationCatalogTests
 
@@ -304,7 +400,43 @@ class PublicationCatalogSafetyTests(unittest.TestCase):
                 )
             self.assertIn(candidate, [call.args[1] for call in read_inventory.call_args_list])
             self.assertIn(candidate, [call.args[1] for call in bundle_binding.call_args_list])
+            self.assertIn(reviewed, [call.args[1] for call in bundle_binding.call_args_list])
             self.assertFalse((root / Path(*POINTER_PATH.split("/"))).exists())
+        finally:
+            temporary.cleanup()
+
+    def test_bundle_binding_rejects_internally_rehashed_content_that_differs_from_git_tree(self) -> None:
+        from tests.test_stream_adapter_and_publication_catalog import PublicationCatalogTests
+
+        fixture = PublicationCatalogTests()
+        temporary, root, candidate, _reviewed = fixture.fixture_repo()
+        try:
+            subprocess.run(["git", "checkout", "--detach", "-q", candidate], cwd=root, check=True)
+            manifest_entries = catalog_module._read_manifest(root, candidate)[1]
+            inventory, assembly_paths, _, inventory_binding = catalog_module._read_inventory(
+                root, candidate, manifest_entries
+            )
+            bundle_path = root / Path(*catalog_module.PUBLICATION_BUNDLE_PATH.split("/"))
+            bundle = json.loads(bundle_path.read_bytes())
+            entry = next(item for item in bundle["entries"] if item["path"] == "docs/page.md")
+            entry["content"] += "tampered\n"
+            content = entry["content"].encode("utf-8")
+            entry["file_size"] = len(content)
+            entry["sha256"] = sha256_prefixed(content)
+            bundle["content_bytes"] = sum(item["file_size"] for item in bundle["entries"])
+            bundle_path.write_bytes(render_json(bundle))
+            subprocess.run(["git", "add", "--", catalog_module.PUBLICATION_BUNDLE_PATH], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-qm", "tampered bundle"], cwd=root, check=True)
+            tampered_commit = subprocess.check_output(
+                ["git", "rev-parse", "HEAD"], cwd=root, text=True
+            ).strip()
+            with self.assertRaisesRegex(
+                catalog_module.CatalogError,
+                "does not match the exact Git-tree file: docs/page.md",
+            ):
+                catalog_module._bundle_binding(
+                    root, tampered_commit, inventory, assembly_paths, inventory_binding
+                )
         finally:
             temporary.cleanup()
 

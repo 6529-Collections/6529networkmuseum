@@ -327,6 +327,48 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(permanent_work_ids, {relation["target_entity_id"] for relation in accession_relations})
         self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["collection_membership"]["status"] == "not_in_collection" for index in range(24, 29)))
 
+    def test_membership_relation_lists_and_reverse_fields_fail_closed(self) -> None:
+        mutations = (
+            ("collection relation removal", "COLLECTION_CONTAINS_WORK", "6529NM-C-0001", "6529NM-W-0001", "Collection admitted_work_entity_ids must equal"),
+            ("project relation removal", "PROJECT_CONTEXTUALIZES_WORK", "6529NM-PRJ-0001", "6529NM-W-0001", "Project work_entity_ids must equal"),
+            ("acquisition relation removal", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", "6529NM-CA-2026-001", "6529NM-W-0001", "Curated Acquisition work_entity_ids must equal"),
+            ("accession relation removal", "ACCESSION_ADMITS_WORK", "6529NM-ACC-ENT-0001", "6529NM-W-0001", "Accession admitted_work_entity_ids must equal"),
+        )
+        for name, relation_type, source_id, target_id, expected in mutations:
+            with self.subTest(name=name):
+                mutated = copy.deepcopy(self.records)
+                relation_key = next(
+                    key for key, record in mutated.items()
+                    if record["payload"].get("relation_type") == relation_type
+                    and record["payload"].get("source_entity_id") == source_id
+                    and record["payload"].get("target_entity_id") == target_id
+                )
+                del mutated[relation_key]
+                issues = self.graph_issues(mutated)
+                self.assertTrue(any(expected in issue for issue in issues), issues)
+                if relation_type == "COLLECTION_CONTAINS_WORK":
+                    self.assertTrue(any("permanent Collection membership must equal exactly one active" in issue for issue in issues), issues)
+                else:
+                    self.assertTrue(any("Work " in issue and "must equal active" in issue for issue in issues), issues)
+
+        collection_qualifier = copy.deepcopy(self.records)
+        collection_relation = next(
+            record["payload"] for record in collection_qualifier.values()
+            if record["payload"].get("relation_type") == "COLLECTION_CONTAINS_WORK"
+        )
+        collection_relation["qualifier"]["collection_membership_status"] = "not_in_collection"
+        self.assertTrue(any("membership qualifier must equal" in issue for issue in self.graph_issues(collection_qualifier)))
+
+        reverse_field = copy.deepcopy(self.records)
+        reverse_work = next(record["payload"] for record in reverse_field.values() if record["payload"].get("entity_id") == "6529NM-W-0001")
+        reverse_work["profile"]["project_or_series_entity_ids"] = []
+        self.assertTrue(any("Work project_or_series_entity_ids must equal active" in issue for issue in self.graph_issues(reverse_field)))
+
+        membership_source = copy.deepcopy(self.records)
+        membership_work = next(record["payload"] for record in membership_source.values() if record["payload"].get("entity_id") == "6529NM-W-0001")
+        membership_work["profile"]["collection_membership"]["collection_entity_id"] = "6529NM-C-9999"
+        self.assertTrue(any("Work collection_entity_id must equal" in issue for issue in self.graph_issues(membership_source)))
+
     def test_magnum_mint_and_acquisition_mint_are_chain_verified_but_not_museum_acquisition(self) -> None:
         entities = self.entities()
         for index in range(24, 29):
@@ -426,6 +468,45 @@ class PublicEntityLayerTests(unittest.TestCase):
         missing_metadata = copy.deepcopy(self.entities()["6529NM-W-0008"])
         missing_metadata["profile"]["component_references"][0].pop("target_kind")
         self.assertTrue(self.schema_issues(missing_metadata, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
+
+    def test_typed_reference_matrix_and_ambiguous_authoritative_target_fail_closed(self) -> None:
+        component_matrix = copy.deepcopy(self.entities()["6529NM-W-0001"])
+        component_matrix["profile"]["component_references"][0]["target_type"] = "VISUAL_OBSERVATION"
+        self.assertTrue(self.schema_issues(component_matrix, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
+        self.assertTrue(any("closed target_type matrix" in issue for issue in self.graph_issues({**self.records, "mutated-component": {"payload": component_matrix}})))
+
+        manifestation_matrix = copy.deepcopy(self.entities()["6529NM-W-0001"])
+        manifestation_matrix["profile"]["manifestation_references"][0]["target_type"] = "PROGRAM_OUTCOME"
+        self.assertTrue(self.schema_issues(manifestation_matrix, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
+        self.assertTrue(any("closed target_type matrix" in issue for issue in self.graph_issues({**self.records, "mutated-manifestation": {"payload": manifestation_matrix}})))
+
+        ambiguous = {
+            "6529NM.2026.001.01": {
+                ("WORK_DESCRIPTION", Path("records/one.json")),
+                ("WORK_DESCRIPTION", Path("records/two.json")),
+            }
+        }
+        with patch("validate._typed_reference_record_index", return_value=ambiguous):
+            issues = self.graph_issues()
+        self.assertTrue(any("must resolve to exactly one WORK_DESCRIPTION" in issue for issue in issues), issues)
+
+    def test_restricted_and_unknown_media_are_structurally_metadata_only(self) -> None:
+        for entity_id in ("6529NM-MED-0020", "6529NM-MED-0041"):
+            with self.subTest(entity_id=entity_id):
+                baseline = copy.deepcopy(self.entities()[entity_id])
+                self.assertEqual(validate_public_media(baseline["profile"]["media"], entity_id), [])
+                self.assertEqual(self.schema_issues(baseline, "https://6529networkmuseum.org/schemas/public-entity-v1.json"), [])
+                for name, mutate in (
+                    ("source locator", lambda media: media["source_locator"].update({"uri": "https://example.org/media", "repository_path": None})),
+                    ("visual", lambda media: media.update({"visual": True})),
+                    ("token source locator", lambda media: media.update({"token_source_locator": {"uri": "https://example.org/token", "repository_path": None}})),
+                    ("view affordance", lambda media: media["allowed_ui_affordances"].append("view")),
+                ):
+                    with self.subTest(name=name):
+                        mutated = copy.deepcopy(baseline)
+                        mutate(mutated["profile"]["media"])
+                        self.assertTrue(validate_public_media(mutated["profile"]["media"], f"{entity_id}.{name}"))
+                        self.assertTrue(self.schema_issues(mutated, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
 
     def test_project_agent_relation_mutations_fail_closed(self) -> None:
         missing_relation = copy.deepcopy(self.records)

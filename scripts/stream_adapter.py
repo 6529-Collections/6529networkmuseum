@@ -147,6 +147,15 @@ def _normalize_hash_ref(ref: Any, field: str, *, unsigned_signature: bool = Fals
     return {"algorithm": algorithm, "digest": "0x" + digest_bytes.hex(), "canonicalizationId": canonicalization}
 
 
+def _normalize_museum_content_hash(ref: Any, field: str) -> dict[str, Any]:
+    normalized = _normalize_hash_ref(ref, field)
+    if normalized["algorithm"] != 1 or normalized["canonicalizationId"] != MUSEUM_JCS_ID:
+        raise StreamAdapterError(
+            f"{field} must use Museum Keccak-256 algorithm 1 with RFC8785 JCS canonicalization"
+        )
+    return normalized
+
+
 def _safe_source_path(path: str) -> None:
     if (
         not isinstance(path, str)
@@ -280,6 +289,22 @@ def _manifest_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
             raise StreamAdapterError(f"exact B manifest entry has an invalid SHA-256: {path}")
         if entry.get("byte_mode") not in {"raw", "lf-normalized"}:
             raise StreamAdapterError(f"exact B manifest entry has an invalid byte mode: {path}")
+        if path.casefold().endswith(".json"):
+            content_hash = entry.get("content_hash")
+            if (
+                not isinstance(content_hash, dict)
+                or set(content_hash) != {"algorithm", "digest", "canonicalizationId"}
+                or type(content_hash.get("algorithm")) is not int
+                or content_hash.get("algorithm") != 1
+                or not isinstance(content_hash.get("digest"), str)
+                or not KECCAK_DIGEST.fullmatch(content_hash["digest"])
+                or content_hash.get("canonicalizationId") != MUSEUM_JCS_ID
+            ):
+                raise StreamAdapterError(
+                    f"exact B manifest JSON entry has an invalid Museum JCS content_hash: {path}"
+                )
+        elif "content_hash" in entry:
+            raise StreamAdapterError(f"exact B manifest non-JSON entry must not declare content_hash: {path}")
         by_path[path] = entry
     if list(by_path) != sorted(by_path):
         raise StreamAdapterError("exact B manifest paths must be sorted")
@@ -337,7 +362,12 @@ def _read_exact_source(
         or manifest_entry["sha256"] != "sha256:" + hashlib.sha256(source_bytes).hexdigest()
     ):
         raise StreamAdapterError("exact B manifest entry does not describe the governed source bytes")
+    if not source_path.casefold().endswith(".json"):
+        raise StreamAdapterError("exact governed source proof must identify a JSON record")
     source_record = _strict_json_bytes(source_bytes, "exact governed source record")
+    expected_content_hash = "0x" + keccak256(canonical_json(source_record)).hex()
+    if manifest_entry["content_hash"]["digest"] != expected_content_hash:
+        raise StreamAdapterError("exact B manifest JSON content_hash does not match the actual Museum JCS digest")
     if source_record.get("payload") != payload:
         raise StreamAdapterError("exact governed source payload does not match the adapter input")
     return source_record
@@ -364,6 +394,8 @@ def _verify_exact_source(
 def _validate_stream_uri(uri: Any) -> str:
     if not isinstance(uri, str) or not uri:
         raise StreamAdapterError("CollectionRecord.uri must be a non-empty UTF-8 string")
+    if not uri.startswith("https://"):
+        raise StreamAdapterError("CollectionRecord.uri must use the literal lowercase https:// prefix")
     try:
         encoded = uri.encode("utf-8")
     except UnicodeEncodeError as exc:
@@ -520,7 +552,7 @@ def museum_envelope_to_stream_record(
     stream_record = {
         "recordType": museum_record_type_to_stream(record_type),
         "subjectId": _bytes32(envelope.get("subjectId"), "envelope.subjectId", allow_zero=False),
-        "contentHash": _normalize_hash_ref(envelope.get("contentHash"), "envelope.contentHash"),
+        "contentHash": _normalize_museum_content_hash(envelope.get("contentHash"), "envelope.contentHash"),
         "uri": _record_uri(
             envelope,
             source_commit=source_commit,
@@ -538,8 +570,14 @@ def museum_envelope_to_stream_record(
     if source_payload is not None:
         expected_payload_hash = "0x" + keccak256(canonical_json(source_payload)).hex()
         content_hash = stream_record["contentHash"]
-        if content_hash["algorithm"] != 1 or content_hash["digest"] != expected_payload_hash:
-            raise StreamAdapterError("immutable source payload does not match the Museum contentHash commitment")
+        if (
+            content_hash["algorithm"] != 1
+            or content_hash["canonicalizationId"] != MUSEUM_JCS_ID
+            or content_hash["digest"] != expected_payload_hash
+        ):
+            raise StreamAdapterError(
+                "immutable source payload does not match the Museum JCS contentHash commitment"
+            )
     unsigned = stream_record["signatureScheme"] == ZERO32
     stream_record["signatureHash"] = _normalize_hash_ref(envelope.get("signatureHash"), "envelope.signatureHash", unsigned_signature=unsigned)
     return stream_record
@@ -599,7 +637,7 @@ def stream_record_to_semantic_json(
     normalized = {
         "recordType": museum_record_type_to_stream(record_type),
         "subjectId": _bytes32(record.get("subjectId"), "subjectId", allow_zero=False),
-        "contentHash": _normalize_hash_ref(record.get("contentHash"), "contentHash"),
+        "contentHash": _normalize_museum_content_hash(record.get("contentHash"), "contentHash"),
         "uri": record["uri"],
         "schemaId": _bytes32(record.get("schemaId"), "schemaId", allow_zero=False),
         "signatureScheme": signature_scheme,
@@ -737,8 +775,8 @@ def require_stream_admission(*, known_collection: bool, family_admitted: bool, w
         raise StreamAdmissionError("Stream v2 requires record-family registry admission")
     if not writer_authorized:
         raise StreamAdmissionError("Stream v2 requires record-writer authorization")
-    if isinstance(authorization_class, bool) or not isinstance(authorization_class, int) or authorization_class <= 0 or authorization_class > 255:
-        raise StreamAdmissionError("Stream v2 admission must return a nonzero authorizationClass")
+    if isinstance(authorization_class, bool) or not isinstance(authorization_class, int) or not 1 <= authorization_class <= 8:
+        raise StreamAdmissionError("Stream v2 admission must return authorizationClass 1..8")
     return authorization_class
 
 

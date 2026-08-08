@@ -25,6 +25,7 @@ from publication_catalog import (
     validate_canonical_catalog_path,
     validate_catalog,
     validate_pointer,
+    verify_active_release_worktree,
 )
 
 
@@ -84,22 +85,21 @@ def main(argv: list[str] | None = None) -> int:
             retained_catalog_ids: set[str] | None = None
             if args.mode == "rollback":
                 tree_commit = git_head_commit(root)
-                retained_pointer, retained_pointer_bytes = retained_release_json(
-                    root, tree_commit, POINTER_PATH
-                )
-                if not pointer_path.is_file() or pointer_path.read_bytes() != retained_pointer_bytes:
+                (
+                    previous_pointer,
+                    retained_pointer_bytes,
+                    previous_catalog,
+                    previous_catalog_bytes,
+                ) = verify_active_release_worktree(root, tree_commit)
+                if pointer_path.read_bytes() != retained_pointer_bytes:
                     raise CatalogError(
                         "rollback requires the current activation pointer to match its exact retained Git-tree bytes"
                     )
-                previous_pointer = retained_pointer
                 prior_path = previous_pointer.get("catalog_path")
                 validate_canonical_catalog_path(prior_path)
                 prior_catalog_id = prior_path.rsplit("/", 1)[-1][:-5]
                 if args.target_catalog_id == prior_catalog_id:
                     raise CatalogError("rollback target cannot equal the current prior catalog")
-                previous_catalog, previous_catalog_bytes = retained_catalog_from_git_tree(
-                    root, tree_commit, prior_catalog_id
-                )
                 previous_catalog_issues = validate_catalog(
                     previous_catalog,
                     root=root,
@@ -108,7 +108,7 @@ def main(argv: list[str] | None = None) -> int:
                 if previous_catalog_issues:
                     raise CatalogError("; ".join(previous_catalog_issues))
                 previous_pointer_issues = validate_pointer(
-                    previous_pointer, previous_catalog, previous_catalog_bytes
+                    previous_pointer, previous_catalog, previous_catalog_bytes, root=root
                 )
                 if previous_pointer_issues:
                     raise CatalogError("; ".join(previous_pointer_issues))
@@ -117,15 +117,31 @@ def main(argv: list[str] | None = None) -> int:
                     for path in _catalog_tree_blobs(root, tree_commit)
                 }
             else:
-                previous_pointer = (
-                    strict_load(pointer_path.read_bytes()) if pointer_path.is_file() else None
-                )
-                if previous_pointer is not None and not isinstance(previous_pointer, dict):
-                    raise CatalogError("existing publication pointer is not an object")
-                if isinstance(previous_pointer, dict):
+                if pointer_path.exists() or pointer_path.is_symlink():
+                    tree_commit = git_head_commit(root)
+                    (
+                        previous_pointer,
+                        _retained_pointer_bytes,
+                        previous_catalog,
+                        _previous_catalog_bytes,
+                    ) = verify_active_release_worktree(root, tree_commit)
                     prior_path = previous_pointer.get("catalog_path")
                     validate_canonical_catalog_path(prior_path)
                     prior_catalog_id = prior_path.rsplit("/", 1)[-1][:-5]
+                else:
+                    # No pointer is valid only for the first activation. A
+                    # retained HEAD pointer missing from the worktree is a
+                    # deletion and must fail before any write.
+                    tree_commit = git_head_commit(root)
+                    try:
+                        retained_release_json(root, tree_commit, POINTER_PATH)
+                    except CatalogError as exc:
+                        if "absent or ambiguous" not in str(exc):
+                            raise
+                    else:
+                        raise CatalogError(
+                            "activation requires the existing activation pointer to match its exact retained Git-tree bytes"
+                        )
 
             if args.mode == "activate":
                 catalog = build_catalog(
@@ -168,16 +184,16 @@ def main(argv: list[str] | None = None) -> int:
             pointer_issues = validate_pointer(pointer, catalog, catalog_bytes)
             if pointer_issues:
                 raise CatalogError("; ".join(pointer_issues))
-            if args.mode == "rollback":
-                lineage_issues = check_append_only_catalog(
-                    previous_catalog,
-                    catalog,
-                    previous_pointer,
-                    pointer,
-                    retained_catalog_ids=retained_catalog_ids,
-                )
-                if lineage_issues:
-                    raise CatalogError("; ".join(lineage_issues))
+            lineage_issues = check_append_only_catalog(
+                previous_catalog,
+                catalog,
+                previous_pointer,
+                pointer,
+                root=root if args.mode == "rollback" else None,
+                retained_catalog_ids=retained_catalog_ids,
+            )
+            if lineage_issues:
+                raise CatalogError("; ".join(lineage_issues))
 
             if catalog_path.is_file() and catalog_path.read_bytes() != catalog_bytes:
                 raise CatalogError("immutable catalog path already exists with different bytes")

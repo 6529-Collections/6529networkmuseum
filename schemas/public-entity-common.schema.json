@@ -200,6 +200,22 @@
         {
           "if": {"properties": {"target_kind": {"const": "governed_typed_registry"}}, "required": ["target_kind"]},
           "then": {"properties": {"registry_id": {"const": "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"}}, "required": ["registry_id"]}
+        },
+        {
+          "if": {"properties": {"reference_type": {"const": "component"}}, "required": ["reference_type"]},
+          "then": {"properties": {"target_type": {"enum": ["WORK_DESCRIPTION", "PROGRAM_OUTCOME"]}}}
+        },
+        {
+          "if": {"properties": {"reference_type": {"const": "manifestation"}}, "required": ["reference_type"]},
+          "then": {"properties": {"target_type": {"enum": ["VISUAL_OBSERVATION", "ERC721_TOKEN_MANIFESTATION"]}}}
+        },
+        {
+          "if": {"properties": {"target_kind": {"const": "authoritative_record"}}, "required": ["target_kind"]},
+          "then": {"properties": {"target_type": {"enum": ["WORK_DESCRIPTION", "PROGRAM_OUTCOME", "VISUAL_OBSERVATION"]}}}
+        },
+        {
+          "if": {"properties": {"target_kind": {"const": "governed_typed_registry"}}, "required": ["target_kind"]},
+          "then": {"properties": {"target_type": {"const": "ERC721_TOKEN_MANIFESTATION"}}}
         }
       ]
     },
@@ -385,6 +401,12 @@
           "if": {"properties": {"rights": {"properties": {"status": {"enum": ["restricted", "unknown"]}}, "required": ["status"]}}, "required": ["rights"]},
           "then": {
             "properties": {
+              "visual": {"const": false},
+              "source_locator": {
+                "properties": {"uri": {"type": "null"}, "repository_path": {"type": "null"}},
+                "required": ["uri", "repository_path"]
+              },
+              "token_source_locator": {"type": "null"},
               "allowed_ui_affordances": {
                 "items": {"enum": ["alt_text", "open_wave_proposal_context", "copy_citation"]}
               }

@@ -32,6 +32,16 @@ ENVELOPE_PATH = SCHEMAS_DIR / "record-envelope.schema.json"
 OFFCHAIN_ENVELOPE_SCHEMA = "https://6529networkmuseum.org/schemas/record-envelope-v1.json"
 MEDIA_DESCRIPTION_AMENDMENT_ID = "6529NM-MEDIA-DESC-AMD-2026-08-08-001"
 TYPED_REFERENCE_REGISTRY_ID = "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"
+TYPED_REFERENCE_TARGET_TYPE_MATRIX = {
+    ("component", "authoritative_record"): {"WORK_DESCRIPTION", "PROGRAM_OUTCOME"},
+    ("manifestation", "authoritative_record"): {"VISUAL_OBSERVATION"},
+    ("manifestation", "governed_typed_registry"): {"ERC721_TOKEN_MANIFESTATION"},
+}
+METADATA_ONLY_MEDIA_AFFORDANCES = {"alt_text", "open_wave_proposal_context", "copy_citation"}
+MEDIA_RENDER_OR_DELIVERY_AFFORDANCES = {
+    "view", "thumbnail", "hero", "play", "zoom", "fullscreen", "download",
+    "open_token_source", "open_repository_path",
+}
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -844,12 +854,16 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
     rights_status = rights.get("status")
     affordances = media.get("allowed_ui_affordances", [])
-    metadata_only = (
-        media.get("visual") is False
-        and rights_status in {"restricted", "unknown"}
-        and not any(item in affordances for item in {"view", "thumbnail", "hero", "play", "zoom", "fullscreen", "download", "open_token_source", "open_repository_path"})
-    )
-    if not has_source_locator and not metadata_only:
+    if rights_status in {"restricted", "unknown"}:
+        if media.get("visual") is not False:
+            issues.append(f"{label}: {rights_status} media must be metadata-only with visual false")
+        if not isinstance(locator, dict) or locator.get("uri") is not None or locator.get("repository_path") is not None:
+            issues.append(f"{label}: {rights_status} media must have a null source_locator (uri and repository_path)")
+        if media.get("token_source_locator") is not None:
+            issues.append(f"{label}: {rights_status} media must have a null token_source_locator")
+        if isinstance(affordances, list) and not set(affordances).issubset(METADATA_ONLY_MEDIA_AFFORDANCES):
+            issues.append(f"{label}: {rights_status} media may expose metadata-only affordances only")
+    if not has_source_locator and rights_status not in {"restricted", "unknown"}:
         issues.append(f"{label}: source_locator must contain a URI or repository_path")
     visual = media.get("visual")
     if visual is True:
@@ -961,7 +975,7 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: historical Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
         if any(item in affordances for item in {"open_token_source", "open_repository_path"}):
             issues.append(f"{label}: historical Wave media cannot expose token or repository source affordances")
-    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in {"view", "thumbnail", "hero", "download", "zoom", "fullscreen", "open_token_source", "open_repository_path"}):
+    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in MEDIA_RENDER_OR_DELIVERY_AFFORDANCES):
         issues.append(f"{label}: {rights_status} media cannot expose visual delivery, download, zoom, fullscreen, token, or repository source opening")
     if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
         issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
@@ -1376,6 +1390,11 @@ def _typed_reference_registry_index(identity_inventory: dict[str, Any] | None) -
             continue
         if row.get("registry_id") != TYPED_REFERENCE_REGISTRY_ID:
             issues.append(f"public entity inventory: typed reference target {key[1]!r} has an unknown registry_id")
+        allowed_target_types = TYPED_REFERENCE_TARGET_TYPE_MATRIX.get((str(row.get("reference_type")), "governed_typed_registry"), set())
+        if row.get("target_type") not in allowed_target_types:
+            issues.append(
+                f"public entity inventory: typed reference target {key[1]!r} has target_type {row.get('target_type')!r} outside the closed target_type matrix"
+            )
         index[key] = row
     return index, issues
 
@@ -1418,6 +1437,11 @@ def _validate_work_typed_references(
                 issues.append(f"{label}: source_record_id {source_record_id!r} is not declared by the Work references")
             if not isinstance(target_type, str) or not target_type:
                 issues.append(f"{label}: target_type is required")
+            elif target_type not in TYPED_REFERENCE_TARGET_TYPE_MATRIX.get((expected_reference_type, target_kind), set()):
+                issues.append(
+                    f"{label}: target_type {target_type!r} is outside the closed target_type matrix for "
+                    f"{expected_reference_type}/{target_kind}"
+                )
             if target_kind == "authoritative_record":
                 if registry_id is not None:
                     issues.append(f"{label}: authoritative_record target must not carry a registry_id")
@@ -1426,9 +1450,16 @@ def _validate_work_typed_references(
                 candidates = typed_record_index.get(target_id, set())
                 if not candidates:
                     issues.append(f"{label}: authoritative target {target_id!r} does not resolve to a repository record")
-                elif not isinstance(target_type, str) or not any(record_type == target_type for record_type, _path in candidates):
-                    actual_types = sorted({record_type for record_type, _path in candidates})
-                    issues.append(f"{label}: authoritative target {target_id!r} has target_type {target_type!r}, expected one of {actual_types}")
+                else:
+                    matching_candidates = {
+                        candidate for candidate in candidates
+                        if isinstance(target_type, str) and candidate[0] == target_type
+                    }
+                    if not matching_candidates:
+                        actual_types = sorted({record_type for record_type, _path in candidates})
+                        issues.append(f"{label}: authoritative target {target_id!r} has target_type {target_type!r}, expected one of {actual_types}")
+                    elif len(matching_candidates) != 1:
+                        issues.append(f"{label}: authoritative target {target_id!r} must resolve to exactly one {target_type} repository record")
             elif target_kind == "governed_typed_registry":
                 if registry_id != TYPED_REFERENCE_REGISTRY_ID:
                     issues.append(f"{label}: governed target must use registry_id {TYPED_REFERENCE_REGISTRY_ID}")
@@ -1445,7 +1476,8 @@ def _validate_work_typed_references(
                     if reference.get("caip19") != entry.get("caip19"):
                         issues.append(f"{label}: governed target {target_id!r} has mismatched CAIP-19 manifestation identity")
                     authoritative_id = entry.get("authoritative_record_id")
-                    if not isinstance(authoritative_id, str) or not typed_record_index.get(authoritative_id):
+                    authoritative_candidates = typed_record_index.get(authoritative_id, set()) if isinstance(authoritative_id, str) else set()
+                    if not authoritative_candidates:
                         issues.append(f"{label}: governed target {target_id!r} has an unresolved authoritative source record")
             else:
                 issues.append(f"{label}: target_kind must be authoritative_record or governed_typed_registry")
@@ -1791,8 +1823,124 @@ def validate_public_graph(
             if work_profile.get("work_lifecycle_status") != "accessioned":
                 issues.append(f"{relative}: accession relation requires an accessioned Work lifecycle")
         elif relation_type == "COLLECTION_CONTAINS_WORK":
-            if source[1].get("profile", {}).get("membership_rule") != "accession_only" or target[1].get("profile", {}).get("collection_membership", {}).get("status") != "permanent_collection":
+            collection_profile = source[1].get("profile", {})
+            membership = target[1].get("profile", {}).get("collection_membership", {})
+            if collection_profile.get("membership_rule") != "accession_only" or membership.get("status") != "permanent_collection":
                 issues.append(f"{relative}: Collection membership requires accession_only policy and permanent Work membership")
+            if qualifier.get("collection_membership_status") != membership.get("status"):
+                issues.append(f"{relative}: Collection relation membership qualifier must equal the Work collection membership status")
+            if membership.get("collection_entity_id") != source_id:
+                issues.append(f"{relative}: Work collection_entity_id must equal the Collection relation source")
+
+    def id_set(value: Any) -> set[str]:
+        return {item for item in value if isinstance(item, str)} if isinstance(value, list) else set()
+
+    def active_relation_targets(relation_type: str, source_id: str) -> set[str]:
+        return {
+            relation.get("target_entity_id")
+            for _relation_path, relation in relations
+            if relation.get("relation_type") == relation_type
+            and relation.get("source_entity_id") == source_id
+            and relation.get("record_status") != "superseded"
+            and relation.get("assertion_status") != "reserved"
+            and isinstance(relation.get("target_entity_id"), str)
+        }
+
+    def active_relation_sources(relation_type: str, target_id: str) -> set[str]:
+        return {
+            relation.get("source_entity_id")
+            for _relation_path, relation in relations
+            if relation.get("relation_type") == relation_type
+            and relation.get("target_entity_id") == target_id
+            and relation.get("record_status") != "superseded"
+            and relation.get("assertion_status") != "reserved"
+            and isinstance(relation.get("source_entity_id"), str)
+        }
+
+    for collection_id, (_path, collection) in entities.items():
+        if collection.get("entity_type") != "COLLECTION":
+            continue
+        profile = collection.get("profile", {})
+        declared_work_ids = id_set(profile.get("admitted_work_entity_ids"))
+        related_work_ids = active_relation_targets("COLLECTION_CONTAINS_WORK", collection_id)
+        if declared_work_ids != related_work_ids:
+            issues.append(
+                f"{display_path(_path)}: Collection admitted_work_entity_ids must equal active COLLECTION_CONTAINS_WORK targets; "
+                f"missing={sorted(declared_work_ids - related_work_ids)}, unexpected={sorted(related_work_ids - declared_work_ids)}"
+            )
+
+    for project_id, (_path, project) in entities.items():
+        if project.get("entity_type") != "PROJECT_OR_SERIES":
+            continue
+        profile = project.get("profile", {})
+        declared_work_ids = id_set(profile.get("work_entity_ids"))
+        related_work_ids = active_relation_targets("PROJECT_CONTEXTUALIZES_WORK", project_id)
+        if declared_work_ids != related_work_ids:
+            issues.append(
+                f"{display_path(_path)}: Project work_entity_ids must equal active PROJECT_CONTEXTUALIZES_WORK targets; "
+                f"missing={sorted(declared_work_ids - related_work_ids)}, unexpected={sorted(related_work_ids - declared_work_ids)}"
+            )
+
+    for acquisition_id, (_path, acquisition) in entities.items():
+        if acquisition.get("entity_type") != "CURATED_ACQUISITION":
+            continue
+        profile = acquisition.get("profile", {})
+        declared_work_ids = id_set(profile.get("work_entity_ids"))
+        related_work_ids = active_relation_targets("CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", acquisition_id)
+        if declared_work_ids != related_work_ids:
+            issues.append(
+                f"{display_path(_path)}: Curated Acquisition work_entity_ids must equal active CURATED_ACQUISITION_BRINGS_TOGETHER_WORK targets; "
+                f"missing={sorted(declared_work_ids - related_work_ids)}, unexpected={sorted(related_work_ids - declared_work_ids)}"
+            )
+
+    for accession_id, (_path, accession) in entities.items():
+        if accession.get("entity_type") != "ACCESSION":
+            continue
+        profile = accession.get("profile", {})
+        declared_work_ids = id_set(profile.get("admitted_work_entity_ids"))
+        related_work_ids = active_relation_targets("ACCESSION_ADMITS_WORK", accession_id)
+        if declared_work_ids != related_work_ids:
+            issues.append(
+                f"{display_path(_path)}: Accession admitted_work_entity_ids must equal active ACCESSION_ADMITS_WORK targets; "
+                f"missing={sorted(declared_work_ids - related_work_ids)}, unexpected={sorted(related_work_ids - declared_work_ids)}"
+            )
+
+    for work_id, (_path, work) in entities.items():
+        if work.get("entity_type") != "WORK":
+            continue
+        profile = work.get("profile", {})
+        reverse_fields = (
+            ("project_or_series_entity_ids", "PROJECT_CONTEXTUALIZES_WORK"),
+            ("acquisition_entity_ids", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK"),
+            ("accession_entity_ids", "ACCESSION_ADMITS_WORK"),
+        )
+        for field, relation_type in reverse_fields:
+            declared_source_ids = id_set(profile.get(field))
+            related_source_ids = active_relation_sources(relation_type, work_id)
+            if declared_source_ids != related_source_ids:
+                issues.append(
+                    f"{display_path(_path)}: Work {field} must equal active {relation_type} sources; "
+                    f"missing={sorted(declared_source_ids - related_source_ids)}, unexpected={sorted(related_source_ids - declared_source_ids)}"
+                )
+        membership = profile.get("collection_membership") if isinstance(profile.get("collection_membership"), dict) else {}
+        declared_accession_ids = id_set(profile.get("accession_entity_ids"))
+        membership_accession_ids = id_set(membership.get("accession_entity_ids"))
+        if declared_accession_ids != membership_accession_ids:
+            issues.append(f"{display_path(_path)}: Work accession_entity_ids must equal collection_membership.accession_entity_ids")
+        collection_sources = active_relation_sources("COLLECTION_CONTAINS_WORK", work_id)
+        membership_status = membership.get("status")
+        if membership_status == "permanent_collection":
+            collection_id = membership.get("collection_entity_id")
+            if collection_sources != {collection_id}:
+                issues.append(
+                    f"{display_path(_path)}: permanent Collection membership must equal exactly one active COLLECTION_CONTAINS_WORK source; "
+                    f"declared={collection_id!r}, related={sorted(collection_sources)}"
+                )
+        elif collection_sources:
+            issues.append(
+                f"{display_path(_path)}: active COLLECTION_CONTAINS_WORK sources require permanent Collection membership; "
+                f"related={sorted(collection_sources)}"
+            )
 
     for project_id, (_path, project) in entities.items():
         if project.get("entity_type") != "PROJECT_OR_SERIES":

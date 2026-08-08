@@ -12,12 +12,18 @@
     "stream_record": {
       "type": "object",
       "properties": {
-        "recordType": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
-        "subjectId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
-        "contentHash": {"$ref": "#/$defs/hashRef"},
-        "uri": {"type": "string", "minLength": 1},
-        "schemaId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
-        "signatureScheme": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "recordType": {"$ref": "#/$defs/nonzeroBytes32"},
+        "subjectId": {"$ref": "#/$defs/nonzeroBytes32"},
+        "contentHash": {"$ref": "#/$defs/museumContentHashRef"},
+        "uri": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "pattern": "^https://",
+          "$comment": "JSON Schema maxLength counts Unicode characters, not UTF-8 bytes. The runtime adapter is authoritative for the Stream 2048-byte UTF-8 limit."
+        },
+        "schemaId": {"$ref": "#/$defs/nonzeroBytes32"},
+        "signatureScheme": {"$ref": "#/$defs/bytes32"},
         "signatureHash": {"$ref": "#/$defs/hashRef"},
         "effectiveAt": {
           "type": "integer",
@@ -31,13 +37,108 @@
       "unevaluatedProperties": false
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLIC_ENTITY"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x9c5f56299520166d6f06ffa496528f8d9259a500d9397dec6bdf42977ce5ee1d"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLIC_RELATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x01d4738f43db92ec5e6bafaf853baa89a7a8d39bbf65bc03bcec04acf40f4173"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "WAVE_STATUS_OBSERVATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x79cca49a4c5e4e8fd015aa82db315ae94c00f529eb358e7a90a53b6cfc919378"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "WAVE_PUBLICATION_OBSERVATION"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x9b0fc6f1c595364e2754f9efdb47d75ae2f00544313d9c144775f72792905e34"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "MEDIA_DESCRIPTION_AMENDMENT"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0x1f2dbaca8474989aa6f921d726fbeaf149cb10865cd8de3f45f774b2e4106708"}}}}}
+    },
+    {
+      "if": {"properties": {"record_type_preimage": {"const": "PUBLICATION_CATALOG"}}, "required": ["record_type_preimage"]},
+      "then": {"properties": {"stream_record": {"properties": {"recordType": {"const": "0xfcdfbacd4c910d8dd53d211e47b82a9359f699af51aa18d6754f07ba0eebe4db"}}}}}
+    },
+    {
+      "if": {
+        "required": ["stream_record"],
+        "properties": {
+          "stream_record": {
+            "required": ["signatureScheme"],
+            "properties": {"signatureScheme": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}}
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "stream_record": {
+            "properties": {"signatureHash": {"$ref": "#/$defs/unsignedHashRef"}}
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "stream_record": {
+            "properties": {"signatureHash": {"$ref": "#/$defs/signedHashRef"}}
+          }
+        }
+      }
+    }
+  ],
   "$defs": {
+    "bytes32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "nonzeroBytes32": {
+      "allOf": [
+        {"$ref": "#/$defs/bytes32"},
+        {"not": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}}
+      ]
+    },
     "hashRef": {
+      "oneOf": [
+        {"$ref": "#/$defs/signedHashRef"},
+        {"$ref": "#/$defs/unsignedHashRef"}
+      ]
+    },
+    "signedHashRef": {
       "type": "object",
       "properties": {
-        "algorithm": {"type": "integer", "not": {"type": "boolean"}, "minimum": 0, "maximum": 65535},
-        "digest": {"type": "string", "pattern": "^0x[0-9a-f]*$"},
-        "canonicalizationId": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"}
+        "algorithm": {"type": "integer", "not": {"type": "boolean"}, "minimum": 1, "maximum": 6},
+        "digest": {"type": "string"},
+        "canonicalizationId": {"$ref": "#/$defs/nonzeroBytes32"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false,
+      "oneOf": [
+        {"properties": {"algorithm": {"const": 1}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 2}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 3}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}},
+        {"properties": {"algorithm": {"const": 4}, "digest": {"pattern": "^0x(?:[0-9a-f]{2}){1,128}$"}}},
+        {"properties": {"algorithm": {"const": 5}, "digest": {"pattern": "^0x(?:[0-9a-f]{2}){1,128}$"}}},
+        {"properties": {"algorithm": {"const": 6}, "digest": {"pattern": "^0x[0-9a-f]{64}$"}}}
+      ]
+    },
+    "museumContentHashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"const": 1},
+        "digest": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "canonicalizationId": {"const": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"}
+      },
+      "required": ["algorithm", "digest", "canonicalizationId"],
+      "unevaluatedProperties": false
+    },
+    "unsignedHashRef": {
+      "type": "object",
+      "properties": {
+        "algorithm": {"const": 0},
+        "digest": {"const": "0x"},
+        "canonicalizationId": {"const": "0x0000000000000000000000000000000000000000000000000000000000000000"}
       },
       "required": ["algorithm", "digest", "canonicalizationId"],
       "unevaluatedProperties": false
