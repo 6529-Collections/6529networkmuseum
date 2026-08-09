@@ -3435,3 +3435,16 @@ catalog activation, and frontend qualification remain open.
 - Merge remains blocked on exact-tree qualification, fresh hosted checks, and
   terminal verdicts from independent curatorial, rights/privacy, ontology, and
   reproducibility reviewers.
+
+## 2026-08-09 Magnum protocol-relative media rejection
+
+- Rights/privacy review rejected exact candidate
+  `f7334a5037f6f9921ee6eff5513ec6521b39919d` despite a clean current visitor
+  corpus: scheme-relative restricted image targets could evade both visitor
+  validators.
+- The corrected gates reject remote image embeds under any absolute URI scheme
+  or protocol-relative form and normalize restricted locators to their
+  scheme-relative spelling before comparison.
+- A dedicated regression reproduces the reported `//arweave.net/...` bypass.
+- The remaining three reviews of the rejected commit were stopped. All four
+  lanes must restart against the next exact candidate.

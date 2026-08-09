@@ -110,6 +110,7 @@ class WP3EditorialChecks(unittest.TestCase):
         label = "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
         probes = (
             "https://arweave.net/example",
+            "![photo](//arweave.net/example)",
             "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
             "../machine/object-schedule.json",
         )
@@ -118,6 +119,23 @@ class WP3EditorialChecks(unittest.TestCase):
                 errors: list[str] = []
                 REFERENCE_MODULE.check_visitor_document(label, probe_text, declared, errors)
                 self.assertTrue(errors, f"expected visitor-boundary rejection for {label}: {probe_text}")
+
+    def test_media_policy_rejects_scheme_relative_remote_media(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        token_source = join["works"][0]["token_source_image_url"]
+        scheme_relative = token_source.removeprefix("https:")
+        probes = (
+            f"![photo]({scheme_relative})",
+            f"![photo][source]\n\n[source]: {scheme_relative}",
+            f'<img src="{scheme_relative}" alt="photo">',
+        )
+        for probe in probes:
+            with self.subTest(probe=probe):
+                documents = [("probe.md", probe)]
+                errors = MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                    join, documents
+                )
+                self.assertTrue(errors)
 
     def test_media_policy_reports_malformed_shapes_without_crashing(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

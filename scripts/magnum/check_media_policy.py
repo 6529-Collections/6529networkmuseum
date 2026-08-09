@@ -154,10 +154,17 @@ def validate_visitor_markdown_media_affordances(
 
     errors: list[str] = []
     for label, text in documents:
-        if re.search(r"!\[[^\]]*\]\(https?://", text):
-            errors.append(f"{label}: visitor manuscript must not embed remote media")
+        if re.search(r"(?<!\\)!\[[^\]]*\]\s*(?:\(|\[)", text):
+            errors.append(f"{label}: visitor manuscript must not embed media directly")
+        if re.search(
+            r"<\s*(?:audio|embed|iframe|img|object|picture|source|svg|video)\b",
+            text,
+            flags=re.IGNORECASE,
+        ):
+            errors.append(f"{label}: visitor manuscript must not embed raw HTML media")
         for url in sorted(restricted_urls):
-            if url in text:
+            scheme_relative_url = re.sub(r"^https?:", "", url, flags=re.IGNORECASE)
+            if url in text or scheme_relative_url in text:
                 errors.append(f"{label}: visitor manuscript exposes a restricted direct photograph locator")
     return errors
 

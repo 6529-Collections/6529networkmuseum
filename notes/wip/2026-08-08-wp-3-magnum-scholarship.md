@@ -527,3 +527,20 @@ provenance, media, and accession accounts describe the underlying facts and
 their evidentiary sources without substituting internal record architecture for
 scholarship. Fresh exact-head validation and four-lane independent review are
 required before this corrected candidate may merge.
+
+## 2026-08-09 protocol-relative media correction
+
+Independent rights and privacy review rejected exact candidate
+`f7334a5037f6f9921ee6eff5513ec6521b39919d`. The current visitor corpus was
+clean, but the validators did not reject a restricted image rewritten as a
+scheme-relative Markdown target such as `//arweave.net/...`. That spelling
+could have bypassed both the direct-locator comparison and the remote-image
+embed rule.
+
+The local-reference gate now recognizes HTTP, HTTPS, scheme-relative Arweave,
+and `ar://` forms. The media-policy gate rejects remote Markdown image targets
+under any URI scheme or scheme-relative form and compares every restricted URL
+against its scheme-relative spelling. An adversarial regression binds the
+exact failure reported by the reviewer. The candidate remains rejected until a
+new signed commit, fresh commitments, complete validation, and a new four-lane
+independent review all pass.

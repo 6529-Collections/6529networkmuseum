@@ -27,7 +27,7 @@ GOVERNED_PREFIXES = (
     "scripts/",
 )
 FORBIDDEN_VISITOR_URI = re.compile(
-    r"(?:https://(?:[^/\s.]+\.)*arweave\.net/|ar://)", re.IGNORECASE
+    r"(?:(?:https?:)?//(?:[^/\s.]+\.)*arweave\.net/|ar://)", re.IGNORECASE
 )
 COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
