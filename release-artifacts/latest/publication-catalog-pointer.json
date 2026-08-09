@@ -1,0 +1,14 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/publication-catalog-pointer-v1.json",
+  "activation": {
+    "activated_at": "2026-08-09T15:48:06.352Z",
+    "actor_id": "release-activator:codex-museum-orchestrator-2026-08-09",
+    "mode": "activate",
+    "prior_catalog_id": null
+  },
+  "catalog_envelope_content_hash": "0xf3e5c1015fb3b17edc44e55a764a50b7c8acfaa2e21d7c0d7abf246767bef6c0",
+  "catalog_file_sha256": "sha256:da6cf5fa507be2089f7a6a5e9d83d22796beea18cc4b2271a3daa13179b8c082",
+  "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-bf517353ef861e91f5137908daca514b81578b4d.json",
+  "pointer_version": "1.0.0",
+  "source_commit": "bf517353ef861e91f5137908daca514b81578b4d"
+}
