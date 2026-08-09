@@ -21,6 +21,7 @@ REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 JOIN_PATH = ROOT / "machine" / "wave-media-join.json"
 PROJECTIONS_PATH = ROOT / "machine" / "work-projections.json"
+INTEGRATION_PATH = ROOT / "machine" / "integration-map.json"
 EVIDENCE_PATH = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "evidence" / "wave-publication-observation-public-safe-2026-08-09.json"
 EVIDENCE_RELATIVE = "records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json"
 CANONICAL_PUBLICATION_PATH = "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
@@ -103,6 +104,8 @@ EXPECTED_CONTEXT = {
 }
 ALLOWED_AFFORDANCES = {"alt_text", "copy_citation"}
 BLOCKED_AFFORDANCES = {"download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"}
+EXPECTED_ROUTE_POLICY = "deny_without_verified_work_ca_media_observation_relation"
+EXPECTED_EVIDENCE_SCOPE = "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source."
 DENY_RUNTIME_FIELDS = {
     "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "deny",
     "repository_derivative": "deny",
@@ -278,7 +281,7 @@ def validate_join(join: dict) -> list[str]:
     for key, expected in DENY_RUNTIME_FIELDS.items():
         if runtime.get(key) != expected:
             fail(f"runtime policy {key!r} must be {expected!r}")
-    age_rule = runtime.get("age_sensitive_subject_rule", "").lower()
+    age_rule = str(runtime.get("age_sensitive_subject_rule") or "").lower()
     if "apparently young" not in age_rule or "without assigning an age or child classification" not in age_rule:
         fail("runtime policy must prohibit inferred age and child classification for an apparently young subject")
 
@@ -340,7 +343,7 @@ def validate_join(join: dict) -> list[str]:
                 fail("Saman alt text must preserve apparent youth without assigning a child classification")
             if any(contains_term(alt, term) for term in SAMAN_UNSAFE_TERMS):
                 fail("Saman alt text must not expose identity, age, artist, location, or cause")
-            rule = row.get("subject_display_rule", "").lower()
+            rule = str(row.get("subject_display_rule") or "").lower()
             if "do not identify" not in rule or "assign an age or child classification" not in rule or "visible-fact level" not in rule:
                 fail("Saman display rule must prohibit identity, age, and child-classification inference")
             identity = row.get("identity_inference")
@@ -390,7 +393,7 @@ def validate_join(join: dict) -> list[str]:
     return errors
 
 
-def validate_work_projections(projections: dict) -> list[str]:
+def validate_work_projections(projections: dict, join: dict, integration: dict) -> list[str]:
     errors: list[str] = []
     if projections.get("current_status_observation") != CURRENT_OBSERVATION:
         errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
@@ -400,7 +403,25 @@ def validate_work_projections(projections: dict) -> list[str]:
         errors.append("work projections must use the selected-review public status")
     if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
         errors.append("work projections must preserve selected-review lifecycle and outside-Collection membership")
+    if projections.get("evidence_sources_scope") != EXPECTED_EVIDENCE_SCOPE:
+        errors.append("work projections must define evidence_sources as the complete cited source-register set")
+    integration_media = integration.get("entity_projections", {}).get("media_references", {})
+    if integration_media.get("standalone_work_route") != EXPECTED_ROUTE_POLICY:
+        errors.append("integration map standalone Work route policy has drifted")
+    join_by_work = {
+        row.get("work_entity_id"): row
+        for row in join.get("works", [])
+        if isinstance(row, dict)
+    }
     for row in projections.get("works", []):
+        work_id = row.get("canonical_work_id")
+        public_page = row.get("public_page")
+        if not isinstance(public_page, str) or not (REPOSITORY / public_page).is_file():
+            errors.append(f"{work_id}: public Work page is missing")
+        else:
+            cited = sorted(set(re.findall(r"\bS\d{2}\b", (REPOSITORY / public_page).read_text(encoding="utf-8"))))
+            if row.get("evidence_sources") != cited:
+                errors.append(f"{work_id}: evidence_sources must exactly equal the source IDs cited on its public Work page")
         for manifestation in row.get("manifestations", []):
             if manifestation.get("type") == "historical_wave_presentation_media":
                 if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "bound_canonical_wave_publication_observation":
@@ -422,6 +443,10 @@ def validate_work_projections(projections: dict) -> list[str]:
                         or binding.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
                     ):
                         errors.append("6529NM-W-0026: projected Bar-Am manifestation lacks the exact canonical safe-alt binding")
+                if work_id == "6529NM-W-0027":
+                    expected_identity = join_by_work.get(work_id, {}).get("identity_inference")
+                    if manifestation.get("identity_inference") != expected_identity:
+                        errors.append("6529NM-W-0027: projected and media-join identity safeguards must match exactly")
     return errors
 
 
@@ -459,6 +484,7 @@ def main() -> int:
     try:
         join = json.loads(JOIN_PATH.read_text(encoding="utf-8"))
         projections = json.loads(PROJECTIONS_PATH.read_text(encoding="utf-8"))
+        integration = json.loads(INTEGRATION_PATH.read_text(encoding="utf-8"))
         evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         print(f"Media-policy check failed to read machine/evidence records: {exc}", file=sys.stderr)
@@ -472,11 +498,15 @@ def main() -> int:
     if canonical_file_hash != CURRENT_PUBLICATION["receipt_sha256"]:
         errors.append("canonical Wave publication observation file hash drift")
     errors.extend(validate_join(join))
-    errors.extend(validate_work_projections(projections))
+    errors.extend(validate_work_projections(projections, join, integration))
     errors.extend(validate_visitor_markdown_media_affordances(join))
-    saman_alt = join["works"][3].get("alt_text", "").lower()
-    if "impact mark" in saman_alt or "bullet" in saman_alt or "air strike" in saman_alt:
-        errors.append("Saman accessibility text must not infer the cause of visible wall marks")
+    works = join.get("works")
+    if not isinstance(works, list) or len(works) < 4 or not isinstance(works[3], dict):
+        errors.append("Saman accessibility check requires the fourth exact Work row")
+    else:
+        saman_alt = str(works[3].get("alt_text") or "").lower()
+        if "impact mark" in saman_alt or "bullet" in saman_alt or "air strike" in saman_alt:
+            errors.append("Saman accessibility text must not infer the cause of visible wall marks")
     if not errors:
         errors.extend(validate_mutation_guards(join))
     if errors:

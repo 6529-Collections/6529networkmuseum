@@ -183,6 +183,7 @@
         "final_public_paths_owner",
         "shared_schema_owner",
         "canonical_work_id_policy",
+        "evidence_sources_scope",
         "organization_entity_id",
         "project_entity_id",
         "curated_acquisition_id",
@@ -207,6 +208,7 @@
         "final_public_paths_owner": {"type": "string", "minLength": 1},
         "shared_schema_owner": {"type": "string", "minLength": 1},
         "canonical_work_id_policy": {"type": "string", "minLength": 1},
+        "evidence_sources_scope": {"const": "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source."},
         "organization_entity_id": {"const": "6529NM-ORG-0002"},
         "project_entity_id": {"const": "6529NM-PRJ-0006"},
         "curated_acquisition_id": {"const": "6529NM-CA-2026-003"},
@@ -355,7 +357,7 @@
       "required": ["admit_as", "page", "machine_record", "scope", "receipt_binding", "standalone_work_route", "required_relation_fields", "historical_label_required"],
       "properties": {
         "admit_as": {"$ref": "#/$defs/text"}, "page": {"$ref": "#/$defs/text"}, "machine_record": {"$ref": "#/$defs/text"},
-        "scope": {"$ref": "#/$defs/text"}, "receipt_binding": {"$ref": "#/$defs/text"}, "standalone_work_route": {"$ref": "#/$defs/text"},
+        "scope": {"$ref": "#/$defs/text"}, "receipt_binding": {"$ref": "#/$defs/text"}, "standalone_work_route": {"const": "deny_without_verified_work_ca_media_observation_relation"},
         "required_relation_fields": {"$ref": "#/$defs/nonEmptyStringArray"}, "historical_label_required": {"$ref": "#/$defs/text"}
       }
     },
@@ -413,7 +415,7 @@
       "type": "object", "additionalProperties": false,
       "required": ["standalone_work_route", "required_relation_fields", "historical_label_required", "outside_scope", "fail_closed", "verification_status"],
       "properties": {
-        "standalone_work_route": {"$ref": "#/$defs/text"}, "required_relation_fields": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "standalone_work_route": {"const": "deny_without_verified_work_ca_media_observation_relation"}, "required_relation_fields": {"$ref": "#/$defs/nonEmptyStringArray"},
         "historical_label_required": {"$ref": "#/$defs/text"}, "outside_scope": {"const": "deny"},
         "fail_closed": {"const": true}, "verification_status": {"$ref": "#/$defs/text"}
       }
@@ -448,18 +450,9 @@
       "properties": {"requires_verified_graph_relation": {"const": true}, "historical_label_required": {"const": true}, "outside_scope": {"const": "deny"}, "verification_status": {"$ref": "#/$defs/text"}}
     },
     "identityInference": {
-      "oneOf": [
-        {
-          "type": "object", "additionalProperties": false,
-          "required": ["permitted", "display_policy", "forbidden_inferences", "restricted_research_scope"],
-          "properties": {"permitted": {"const": false}, "display_policy": {"$ref": "#/$defs/text"}, "forbidden_inferences": {"$ref": "#/$defs/nonEmptyStringArray"}, "restricted_research_scope": {"const": true}}
-        },
-        {
-          "type": "object", "additionalProperties": false,
-          "required": ["permitted", "required", "forbidden"],
-          "properties": {"permitted": {"const": false}, "required": {"const": true}, "forbidden": {"$ref": "#/$defs/nonEmptyStringArray"}}
-        }
-      ]
+      "type": "object", "additionalProperties": false,
+      "required": ["permitted", "display_policy", "forbidden_inferences", "restricted_research_scope"],
+      "properties": {"permitted": {"const": false}, "display_policy": {"const": "non_identifying_visible_facts_only"}, "forbidden_inferences": {"$ref": "#/$defs/nonEmptyStringArray"}, "restricted_research_scope": {"const": true}}
     },
     "historicalPublicationMedia": {
       "type": "object", "additionalProperties": false,
@@ -547,11 +540,11 @@
     "fiveProjectedWorks": {
       "type": "array", "minItems": 5, "maxItems": 5,
       "prefixItems": [
-        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0024"}}}]},
-        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0025"}}}]},
-        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0026"}}}]},
-        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0027"}}}]},
-        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0028"}}}]}
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0024"}, "evidence_sources": {"const": ["S10", "S19", "S37", "S38", "S42", "S43"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0025"}, "evidence_sources": {"const": ["S11", "S20", "S21", "S33", "S37", "S38", "S45", "S47"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0026"}, "evidence_sources": {"const": ["S12", "S22", "S23", "S25", "S34", "S37", "S38", "S44", "S50"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0027"}, "evidence_sources": {"const": ["S10", "S13", "S14", "S26", "S27", "S28", "S37", "S38", "S51"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0028"}, "evidence_sources": {"const": ["S14", "S30", "S31", "S32", "S37", "S38", "S41", "S48", "S49"]}}}]}
       ], "items": false
     }
   }

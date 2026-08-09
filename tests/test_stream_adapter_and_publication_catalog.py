@@ -971,10 +971,18 @@ class PublicationCatalogTests(unittest.TestCase):
         try:
             import publication_catalog as catalog_module
             _manifest, entries, _binding = catalog_module._read_manifest(root, reviewed)
-            missing = dict(entries)
-            missing.pop("scripts/generate_public_publication_bundle.py")
-            with self.assertRaises(CatalogError):
-                _verify_deterministic_promotion_artifacts(root, reviewed, missing)
+            for required_path in (
+                "scripts/generate_public_publication_bundle.py",
+                "scripts/magnum/check_copy_citations.py",
+                "scripts/magnum/check_local_references.py",
+                "scripts/magnum/check_media_policy.py",
+                "scripts/magnum/check_public_utf8.py",
+            ):
+                with self.subTest(required_path=required_path):
+                    missing = dict(entries)
+                    missing.pop(required_path)
+                    with self.assertRaises(CatalogError):
+                        _verify_deterministic_promotion_artifacts(root, reviewed, missing)
         finally:
             temporary.cleanup()
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -110,6 +111,9 @@ class PublicEntityLayerTests(unittest.TestCase):
         integration = copy.deepcopy(records["integration-map.json"])
         integration["publication_path_contract"]["undeclared"] = True
         mutations.append(integration)
+        integration = copy.deepcopy(records["integration-map.json"])
+        integration["entity_projections"]["media_references"]["standalone_work_route"] = "deny_without_media_only"
+        mutations.append(integration)
         media_join = copy.deepcopy(records["wave-media-join.json"])
         media_join["route_policy"]["undeclared"] = "allow"
         mutations.append(media_join)
@@ -119,12 +123,27 @@ class PublicEntityLayerTests(unittest.TestCase):
         projections = copy.deepcopy(records["work-projections.json"])
         projections["works"][0]["token"]["undeclared"] = "drift"
         mutations.append(projections)
+        projections = copy.deepcopy(records["work-projections.json"])
+        projections["works"][3]["manifestations"][0]["identity_inference"] = {
+            "required": False,
+            "forbidden": ["identity"],
+        }
+        mutations.append(projections)
 
         for index, mutated in enumerate(mutations):
             self.assertTrue(
                 self.local_schema_issues(mutated, "schemas/magnum-scholarship-machine-record.schema.json"),
                 f"mutation {index} unexpectedly passed",
             )
+
+        projections = records["work-projections.json"]
+        self.assertEqual(
+            projections["evidence_sources_scope"],
+            "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source.",
+        )
+        for work in projections["works"]:
+            page = (ROOT / work["public_page"]).read_text(encoding="utf-8")
+            self.assertEqual(work["evidence_sources"], sorted(set(re.findall(r"\bS\d{2}\b", page))))
 
     def test_public_safe_wave_parts_are_exactly_ordered_and_distinct(self) -> None:
         evidence = load_json(
@@ -343,6 +362,32 @@ class PublicEntityLayerTests(unittest.TestCase):
         moises = artists["6529NM-ART-0020"]
         self.assertEqual(moises["preferred_label"], "Moisés Saman")
         self.assertTrue(any(variant["variant_role"] == "source_label" and variant["value"] == "Moisés Saman" for variant in moises["profile"]["name_variants"]))
+        magnum_profiles = [
+            organizations["6529NM-ORG-0002"],
+            *[artists[f"6529NM-ART-{index:04d}"] for index in range(17, 22)],
+        ]
+        proposal_uri = "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        for profile in magnum_profiles:
+            self.assertEqual(profile["observed_at"], migration.MAGNUM_PUBLICATION_AT)
+            self.assertEqual(profile["effective_at"], migration.MAGNUM_PUBLICATION_AT)
+            labels = {item["label"] for item in profile["evidence_refs"]}
+            self.assertTrue(
+                any(
+                    label.startswith("Original proposed-gift")
+                    or label == "Proposed gift artist label"
+                    for label in labels
+                )
+            )
+            self.assertTrue(any("research profile" in label.lower() for label in labels))
+            evidence_text = json.dumps(profile["evidence_refs"])
+            self.assertIn(proposal_uri, evidence_text)
+            self.assertIn(migration.PROPOSAL_AT, evidence_text)
+            self.assertIn(migration.MAGNUM_PUBLICATION_AT, evidence_text)
+        self.assertIn(
+            "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md",
+            json.dumps(organizations["6529NM-ORG-0002"]["evidence_refs"]),
+        )
+
         route_prefixes = {
             "ARTIST": "/museum/network/artists/",
             "ORGANIZATION": "/museum/network/organizations/",
@@ -929,6 +974,9 @@ class PublicEntityLayerTests(unittest.TestCase):
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])
         child["accessibility_text"] = "Named child identified as Alex."
         self.assertTrue(validate_public_media(child, "test.child"))
+        child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])
+        child["accessibility_text"] = "A child standing before a wall."
+        self.assertTrue(validate_public_media(child, "test.child-age-classification"))
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])
         child["identity_inference_prohibition"] = None
         self.assertTrue(validate_public_media(child, "test.child-structural-prohibition"))

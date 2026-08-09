@@ -54,7 +54,7 @@ The acquisition record would preserve the proposal’s five-object relation whil
 
 ## What acceptance would make possible
 
-If accepted, the group could support exhibitions, object publications, and research into the afterlives of documentary photography in a networked edition. The public benefit would depend on keeping the individual histories intact. The Museum would need to bind any title and custody claim to the exact transferred tokens, establish rights for each intended use, preserve the permitted source material, and handle Saman’s photograph through an appropriate safeguarding record.
+If accepted, the group could support exhibitions, object publications, and research into the afterlives of documentary photography in a networked edition. The public benefit would depend on keeping the individual histories intact. The Museum would need to verify donor authority, legal title, and custody separately for each exact token; record any transfer as chain provenance for the token manifestation only; establish rights for each intended use; preserve the permitted source material; and handle Saman’s photograph through an appropriate safeguarding record.
 
 The intellectual work would continue after acceptance. New caption sheets, archive crosswalks, permission records, or artist and Magnum correspondence could change the account. Those changes should enter the publication as dated amendments while preserving the prior record.
 

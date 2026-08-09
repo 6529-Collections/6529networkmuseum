@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb0227827dd2b215f76403eee5a874c913c3b09ef880fa94f0f60e753a8fac0bf"
+      "digest": "0xf3610fbed025caf63b66550d7259bc42035a064af4d8efdf39f0d096de6c7d03"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,11 +26,17 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0021",
     "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
       {
         "evidence_class": "B",
         "label": "Museum artist research profile",
@@ -38,9 +44,9 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/lorenzo-meloni.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2840f01ba1ad890f3447c47c56cafd95f47584cf7e5d921be2d7c68ffef451d8",
+    "payload_sha256": "sha256:a5802c05564ef6df395125dbfb88c7ea852788eb07a1ee91bda910b8926126f8",
     "preferred_label": "Lorenzo Meloni",
     "profile": {
       "authority": {
@@ -49,6 +55,12 @@
         ],
         "authority_status": "provisional",
         "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          },
           {
             "evidence_class": "B",
             "label": "Museum artist research profile",
@@ -125,12 +137,18 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        },
+        {
+          "evidence_class": "B",
           "label": "Museum artist research profile",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/lorenzo-meloni.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
+      "observed_at": "2026-08-09T00:00:00Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0021",

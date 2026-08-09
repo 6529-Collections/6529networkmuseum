@@ -185,7 +185,7 @@
       "machine_record": "machine/wave-media-join.json",
       "scope": "historical_proposal_wave_media_only",
       "receipt_binding": "The enveloped 2026-08-08 observation binds the signed Wave publication and part-content hashes. Later 2026-08-09 public-safe API evidence confirms public media locators, MIME types, and media states. Neither record grants image-display authority; runtime rendering remains blocked.",
-      "standalone_work_route": "fail_closed_without_verified_work_ca_media_observation_relation",
+      "standalone_work_route": "deny_without_verified_work_ca_media_observation_relation",
       "required_relation_fields": ["work_entity_id", "media_reference_entity_id", "curated_acquisition_id", "proposal_id", "wave_publication_observation_id"],
       "historical_label_required": "Wave-source historical proposal media"
     }

@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x79004bacf7a9662725f9c1a5e44ceab915d41f4de7908caa525cb5ec8b1c8669"
+      "digest": "0x02877e9a92b265b5bab93a616758f200be35a7b38ca572d88bb15ad7331d020e"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,11 +26,17 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0020",
     "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
       {
         "evidence_class": "B",
         "label": "Museum artist research profile",
@@ -38,9 +44,9 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:0a626c2a100275be37cccf6677bc4b580137e509015902d8b933a7a9e20a09e3",
+    "payload_sha256": "sha256:8ab89ec278ec67c390c5e6c81d073b632089797ff3d39c38f387fa346d180c02",
     "preferred_label": "Moisés Saman",
     "profile": {
       "authority": {
@@ -49,6 +55,12 @@
         ],
         "authority_status": "provisional",
         "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          },
           {
             "evidence_class": "B",
             "label": "Museum artist research profile",
@@ -125,12 +137,18 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        },
+        {
+          "evidence_class": "B",
           "label": "Museum artist research profile",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
+      "observed_at": "2026-08-09T00:00:00Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0020",

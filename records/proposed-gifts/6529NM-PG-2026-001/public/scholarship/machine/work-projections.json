@@ -17,6 +17,7 @@
   "final_public_paths_owner": "6529 Network Museum public entity contract",
   "shared_schema_owner": "6529 Network Museum public entity contract",
   "canonical_work_id_policy": "The governed identity inventory supplies the acquisition-independent Work IDs below; proposal object IDs remain labelled aliases.",
+  "evidence_sources_scope": "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source.",
   "organization_entity_id": "6529NM-ORG-0002",
   "project_entity_id": "6529NM-PRJ-0006",
   "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -70,7 +71,7 @@
       "manifestations": [
         {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg", "token_source_uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0003", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
       ],
-      "evidence_sources": ["S10", "S17", "S18", "S19", "S37", "S42", "S43"]
+      "evidence_sources": ["S10", "S19", "S37", "S38", "S42", "S43"]
     },
     {
       "public_work_slug": "larry-towell-soldiers-church-suchitoto-1986",
@@ -95,7 +96,7 @@
       "manifestations": [
         {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg", "token_source_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0041", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
       ],
-      "evidence_sources": ["S11", "S20", "S21", "S33", "S37"]
+      "evidence_sources": ["S11", "S20", "S21", "S33", "S37", "S38", "S45", "S47"]
     },
     {
       "public_work_slug": "micha-bar-am-demonstration-western-wall-1989",
@@ -120,7 +121,7 @@
       "manifestations": [
         {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg", "token_source_uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0042", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny", "alt_text_amendment_binding": {"status": "canonical_current_safe_description", "historical_seven_part_wording_preserved": true, "historical_source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", "historical_part_number": 4, "historical_alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2", "current_safe_alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground."}}
       ],
-      "evidence_sources": ["S12", "S22", "S23", "S24", "S25", "S34", "S37", "S44"]
+      "evidence_sources": ["S12", "S22", "S23", "S25", "S34", "S37", "S38", "S44", "S50"]
     },
     {
       "public_work_slug": "moises-saman-tripoli-2011",
@@ -144,9 +145,9 @@
         {"type": "source_image", "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "bytes": 1540870, "width": 5616, "height": 3744, "retention": "upstream_not_retained"}
       ],
       "manifestations": [
-        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg", "token_source_uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0043", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny", "identity_inference": {"permitted": false, "required": true, "forbidden": ["name", "age", "identity", "consent", "unpublished location", "sensitive metadata", "sensitive visual context", "visual cause", "weapon attribution"]}}
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg", "token_source_uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0043", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny", "identity_inference": {"permitted": false, "display_policy": "non_identifying_visible_facts_only", "forbidden_inferences": ["name", "age", "identity", "consent", "unpublished location", "sensitive metadata", "age inference", "sensitive visual context", "visual cause", "weapon attribution"], "restricted_research_scope": true}}
       ],
-      "evidence_sources": ["S13", "S26", "S27", "S28", "S29", "S35", "S37"]
+      "evidence_sources": ["S10", "S13", "S14", "S26", "S27", "S28", "S37", "S38", "S51"]
     },
     {
       "public_work_slug": "lorenzo-meloni-palmyra-2016",
@@ -171,7 +172,7 @@
       "manifestations": [
         {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg", "token_source_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0044", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
       ],
-      "evidence_sources": ["S14", "S30", "S31", "S32", "S37", "S41"]
+      "evidence_sources": ["S14", "S30", "S31", "S32", "S37", "S38", "S41", "S48", "S49"]
     }
   ]
 }

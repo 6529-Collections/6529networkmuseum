@@ -325,9 +325,10 @@ The canonical signed Wave publication record remains
 `sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995`,
 record SHA-256
 `sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58`.
-The later 9 August public-safe API observation confirms the continuing signed
-`WINNER` state and public URL/MIME/media-state fields; it supplements rather
-than supersedes the canonical enveloped observation.
+The later public-safe API observation at `2026-08-09T02:04:21.7672652Z`
+confirms the continuing signed `WINNER` state and public
+URL/MIME/media-state fields; it supplements rather than supersedes the
+canonical enveloped observation.
 
 All five photographic URLs are non-rendering evidence locators. No photograph,
 thumbnail, derivative, responsive source set, download, zoom, fullscreen,
@@ -386,3 +387,29 @@ the ledger change the commitment it reports.
 Focused editorial, media, schema-adversarial, projection, inventory, bundle,
 manifest, and bootstrap checks pass. A fresh exact-head independent review is
 required before merge and reviewed-child promotion.
+
+## 2026-08-09 exact-evidence and append-only provenance correction
+
+The subsequent bot review identified a final group of record-contract issues,
+now corrected without changing the visitor scholarship or opening image
+delivery. Each Work projection declares the complete set of source-register IDs
+actually cited on its public page, and an executable check recomputes that set
+from the manuscript. The integration map, media join, schema, and Saman Work
+projection now share one exact fail-closed route token and one closed
+identity-inference vocabulary. The Saman safeguards continue to describe an
+apparently young person without assigning an age or child classification.
+
+The Magnum Photos Organization and five Artist profiles now retain both layers
+of evidence: the original 6 August proposal labels and the 9 August research
+profiles that support the expanded institutional and practice accounts. Their
+current profile observations are dated to the research publication; the earlier
+proposal evidence remains explicitly present rather than being silently
+replaced. The source transfer remains evidence of token-manifestation chain
+provenance only. Donor authority, legal title, custody, rights, and accession
+remain separate facts.
+
+The generator's compound relation statements were split into ordinary Python
+statements, and focused tests now reject route-token drift, the legacy identity
+shape, incomplete Work-page source arrays, or loss of either provenance layer.
+Regenerated release counts and commitments remain authoritative only in the
+manifest artifacts produced after this correction.

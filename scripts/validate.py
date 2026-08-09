@@ -908,6 +908,8 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: an apparently young subject requires non-identifying accessibility text")
         elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
             issues.append(f"{label}: accessibility text for an apparently young subject must not identify the subject")
+        elif re.search(r"\b(child|children|minor|juvenile|adolescent|teen(?:ager)?|boy|girl|infant)\b", text, flags=re.IGNORECASE):
+            issues.append(f"{label}: accessibility text for an apparently young subject must not assign an age classification")
         prohibition = media.get("identity_inference_prohibition")
         if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity_and_age_classification" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
             issues.append(f"{label}: an apparently young subject requires structural identity-and-age inference prohibition")

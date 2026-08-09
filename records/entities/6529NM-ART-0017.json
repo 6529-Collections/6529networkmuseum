@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd3fe94dfc1329c7dbe867a5debd1e933333596a844559f10c911b35bb305c630"
+      "digest": "0x9f908cc842dcd8e705252c830ec49b9a60a80082d854a90d64c380694c4d09e9"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,11 +26,17 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0017",
     "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
       {
         "evidence_class": "B",
         "label": "Museum artist research profile",
@@ -38,9 +44,9 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:45dc52ba9219eb66be1fc83698328de50c20beb2ca3c9e512f60c378d4fe64e7",
+    "payload_sha256": "sha256:9caaaaba50e7f8acef9db85528afa9c611900330205b295e1ac1c943cf6995e2",
     "preferred_label": "David Seymour",
     "profile": {
       "authority": {
@@ -49,6 +55,12 @@
         ],
         "authority_status": "provisional",
         "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          },
           {
             "evidence_class": "B",
             "label": "Museum artist research profile",
@@ -125,12 +137,18 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        },
+        {
+          "evidence_class": "B",
           "label": "Museum artist research profile",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
+      "observed_at": "2026-08-09T00:00:00Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0017",

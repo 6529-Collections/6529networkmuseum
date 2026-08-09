@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 from pathlib import Path
@@ -40,6 +41,17 @@ class WP3EditorialChecks(unittest.TestCase):
         )
         self.assertEqual(len(errors), 1)
         self.assertIn("restricted direct photograph locator", errors[0])
+
+    def test_media_policy_reports_malformed_shapes_without_crashing(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        malformed = copy.deepcopy(join)
+        malformed["runtime_policy"]["age_sensitive_subject_rule"] = None
+        malformed["works"][3]["subject_display_rule"] = None
+        self.assertTrue(MEDIA_MODULE.validate_join(malformed))
+
+        missing_rows = copy.deepcopy(join)
+        missing_rows["works"] = []
+        self.assertTrue(MEDIA_MODULE.validate_join(missing_rows))
 
 
 if __name__ == "__main__":

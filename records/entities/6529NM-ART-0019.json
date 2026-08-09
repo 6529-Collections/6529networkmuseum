@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xda1b25c06362336ef68d7ab6bd8cb05448a7cb6c6d0a3403277eab401638f181"
+      "digest": "0xad0189b31412ff402180c01eced6cdd465ed56fbffbec4bbba45c0d020a47227"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,11 +26,17 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0019",
     "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Proposed gift artist label",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+      },
       {
         "evidence_class": "B",
         "label": "Museum artist research profile",
@@ -38,9 +44,9 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4a48a1fe75ac0a681f9b390274c0ff9fd1e869ec06b652404c0426237bc3de1f",
+    "payload_sha256": "sha256:e3edec7043f0220f7e779530a9c41ea274f8db25b82f8c89f5fca1e4b5a54831",
     "preferred_label": "Micha Bar-Am",
     "profile": {
       "authority": {
@@ -49,6 +55,12 @@
         ],
         "authority_status": "provisional",
         "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Proposed gift artist label",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          },
           {
             "evidence_class": "B",
             "label": "Museum artist research profile",
@@ -125,12 +137,18 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
+          "label": "Proposed gift artist label",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        },
+        {
+          "evidence_class": "B",
           "label": "Museum artist research profile",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
+      "observed_at": "2026-08-09T00:00:00Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0019",

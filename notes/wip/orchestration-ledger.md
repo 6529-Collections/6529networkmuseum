@@ -3319,3 +3319,33 @@ Bootstrap validation, deterministic generation checks, 22-document editorial
 and UTF-8 checks, visitor-media suppression, and 40 focused schema/projection
 tests pass. Fresh exact-head review, hosted CI, merge, reviewed-child B,
 catalog-activation C, and frontend qualification remain open.
+
+## 2026-08-09 Magnum exact-evidence correction
+
+Bot review of the corrected candidate found seven final contract issues. The
+Saman and Meloni research notes now state the exact token and issuance
+boundaries. The acquisition narrative separates chain transfer evidence from
+donor authority, title, custody, rights, and accession. Machine records now use
+one exact standalone-route policy, one closed Saman identity-inference shape,
+and Work source arrays computed from the source IDs cited on each public Work
+page. The Magnum Photos Organization and five Artist projections retain both
+the original proposal evidence and the later research-profile evidence, with
+the current profile dated to research publication rather than backdated to the
+proposal. Generator compound statements were also split to satisfy the Python
+style gate.
+
+The focused editorial, media, closed-schema, provenance, and public-entity
+suite passes 40 tests. The projection, inventory, bundle, and complete manifest
+must now be regenerated; after that, a new signed exact head requires fresh
+independent review and hosted CI before candidate A may merge.
+
+The next review pass tightened the apparently-young-subject contract at all
+three layers: schema, runtime validator, and adversarial test. A public media
+record now requires non-empty accessibility text and a structural prohibition
+covering both identity and age classification; child, minor, juvenile,
+adolescent, teen, boy, girl, and infant classifications are rejected. The
+Magnum media checker now reports malformed list and policy shapes rather than
+raising an exception. The isolated A-to-B verifier also executes all four
+manifest-bound Magnum checks, and its tests prove that omitting any one of them
+fails closed. The supplemental signed-WINNER observation is recorded with its
+exact `2026-08-09T02:04:21.7672652Z` observation time.
