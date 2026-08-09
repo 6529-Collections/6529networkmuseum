@@ -1,70 +1,96 @@
 {
   "program_id": "6529NM-AP-01",
   "status": "constructed_visual_description_pending_independent_review",
+  "record_control": {
+    "revision": 3,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
+      "role": "constructor",
+      "constructed_at": "2026-08-09T00:32:21Z"
+    },
+    "review": null
+  },
   "items": [
     {
       "record_id": "6529NM-AP-01-OUT-001",
-      "alt_text": "A lone silhouetted person stands inside a stone hall beside a tall blue geometric panel; sunlight casts long shadows across the tiled floor."
+      "alt_text": "A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-002",
-      "alt_text": "An elevated daytime view shows buses and motion-blurred traffic on a roadway beside tree-lined bus stops."
+      "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-003",
-      "alt_text": "A rider on a rearing white horse is surrounded by a herd of horses on a plain beneath hazy mountains."
+      "alt_text": "A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-004",
-      "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage."
+      "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-005",
-      "alt_text": "A close view of a long weathered concrete wall covered with faded graffiti beneath a pale sky."
+      "alt_text": "A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-006",
-      "alt_text": "A shirtless person opens a refrigerator covered with colorful magnets in a kitchen."
+      "alt_text": "A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-007",
-      "alt_text": "A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range."
+      "alt_text": "A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-008",
-      "alt_text": "A vertical aerial view shows dense buildings and roads meeting a straight edge of rows of palm trees."
+      "alt_text": "A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-009",
-      "alt_text": "A black-and-white photograph shows weathered buildings with arched openings beneath a cloudy sky; ‘NOW IS OUR TIME’ is painted on one wall."
+      "alt_text": "Black-and-white industrial buildings sit beneath a cloudy sky, with the words NOW IS OUR TIME painted on a wall.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-010",
-      "alt_text": "A bare torso emerges from folds of black fabric against a nearly black background."
+      "alt_text": "A bare torso emerges from folds of black fabric against a nearly black background.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-011",
-      "alt_text": "A person wearing sunglasses reclines nude on an ornate gold chair in a dim room while holding a phone."
+      "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; no text is readable on the object.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-012",
-      "alt_text": "A person stands framed by successive arched doorways inside a heavily damaged building."
+      "alt_text": "A person stands framed by successive arched doorways inside a heavily damaged building.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-013",
-      "alt_text": "Black keyboard keys spell NO WHERE TO ESC on a white surface beside a small insect."
+      "alt_text": "Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc key sits apart below beside a small ant.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-014",
-      "alt_text": "A dark fluted circular structure surrounds a small central opening; a rough concrete surface appears at lower right."
+      "alt_text": "The camera looks upward through a dark, fluted circular structure toward a small opening of sky.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-015",
-      "alt_text": "Two people lean from the windows of a weathered teal train; one wears a patterned white head covering and the other a bright orange head covering."
+      "alt_text": "Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.",
+      "public_widths": []
     },
     {
       "record_id": "6529NM-AP-01-OUT-016",
-      "alt_text": "At night, a small white building with a red roof stands on a grassy hill under a starry sky; a person stands beside the gate below in the glow of a light."
+      "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette.",
+      "public_widths": []
     }
   ]
 }

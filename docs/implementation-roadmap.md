@@ -384,3 +384,93 @@ overlay and receive their own object reading. They do not alter the historical
 Casey gift. Optional atomic remote project-study records remain the next data-
 interoperability improvement; they are not required for the live derived
 display package.
+
+## 2026-08-08 — Keys and Gates accessibility and publication review
+
+The independent corpus review is dispositioned in the WP-4 source layer. All
+sixteen presentation derivatives were visually audited for construction; OUT-002
+names the central performer in the white tub/boat, OUT-011 names the visible
+booklet or document and records that its text is not legible at the approved
+public derivative scale, and OUT-016 includes the gate warning sign and
+person-like silhouette. The historical amendments retain the prior reviewed
+assertions, while the current accessibility JSON and typed media manifest use
+`constructed_visual_description_pending_independent_review` until a fresh
+independent reviewer approves the final sixteen descriptions. OUT-008 now
+describes the ordered palm plantation/residential boundary, and OUT-011 is
+limited to its 640 surrogate.
+
+The rights disposition is image-specific: OUT-004, OUT-006, OUT-010, OUT-011,
+and OUT-015 distinguish editorial display of the submitted artwork from
+depicted-person, dignity, document, venue, poster, and high-resolution review.
+No blanket guardian/model-release rule is asserted, and every outcome retains
+its recorded unverified `rights_effective_status`. The publication now carries
+edition metadata, research cutoff, claim-level notes, citation, and revision
+history; the public README and Work pages keep registrar/schema/integration
+material out of default visitor navigation.
+
+Focused media/corpus tests, media fixity, public link/anchor, strict UTF-8 and
+rights checks pass. The branch has rebased onto canonical main
+`4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`, and the release manifest is being
+regenerated for the post-rebase validation run. WP-1 typed entity admission
+remains a later integration rebase.
+
+## 2026-08-08 — Keys and Gates bounded follow-up disposition
+
+The follow-up keeps the public acquisition gateway art-led and the Research
+Publication comparative. All sixteen Work pages now carry the exact visitor
+status line “Selected; not yet minted or accessioned; not in the permanent
+Collection.” The public README and gateway link all 16 Works and 15 Artists;
+each Artist links to its selected Work page(s), and each Work links back to its
+Artist, Curated Acquisition, and adjacent curatorial-order routes. The sequence
+is order for reading, not rank or chronology; final acquired quantity may be
+fewer than sixteen.
+
+The current media control is governed by accessibility amendment 003. It
+returns constructor-only accessibility status to pending independent review,
+projects one exact canonical alt string to accessibility JSON, typed manifest,
+media joins, and every Work image, corrects OUT-008, and publishes OUT-011 at
+640 only. The withdrawn OUT-011 1280/2400 local hashes and byte sizes remain in
+the amendment for lineage. The media generator and schema now support
+per-item public widths; the public source/high-resolution files remain
+unexposed.
+
+The ethics disposition is image-specific. OUT-004 follows the program term
+excluding identifiable minors: its distant silhouettes carry no public identity
+or age assertion, while represented consent coverage remains an acquisition
+gate. OUT-006 remains an artist-described self-portrait without a blanket
+model-release doctrine. OUT-010, OUT-011, and OUT-015 retain content notices,
+source-size/document limits, sensitive-biography suppression, and concrete
+subject, venue, and collage questions. The presentation authority boundary
+does not claim effective CC0 or unrestricted reuse; CDN authorization remains
+unresolved for registrar disposition.
+
+The source audit removed stale dead citations without inventing replacements,
+added the omitted EatMy.News source for Rakesh, and replaced Veerendra’s vague
+search-results sentence with an explicit lack of reliable biography/identity
+bridge. The selected Bangla title is represented with its exact UTF-8 source
+text; no unsupported mojibake correction narrative is claimed. The historical
+program sentence placing the ant inside Esc remains retained source text; the
+current 640 visual projection records the ant beside/below Esc. The canonical
+program Wave UUID typo was corrected and covered by a focused regression test.
+
+## 2026-08-09 — Keys and Gates reviewed candidate status
+
+The post-rebase candidate now has a complete deterministic release manifest,
+passes the full schema and semantic validator, and passes the portable Ubuntu
+and Windows publication checks. Its public graph contains the Curated
+Acquisition, sixteen Works, fifteen Artists, and Research Publication
+*Access, Control, and Exit*. Permanent Collection membership remains limited to
+the seven accessioned Casey Reas works.
+
+All Keys and Gates images are withheld from the active visitor publication.
+The current media manifest has no public widths, derivatives, display-authority
+record, or frontend delivery path. Historical review copies and their lineage
+remain evidence; they are not current presentation media. Restoring image
+delivery requires a later append-only, exact-commit authority naming the
+approved works, uses, sizes, accessibility text, rights disposition, and any
+work-specific conditions.
+
+The remaining release gates are exact-head bot and human review, governed merge
+to canonical main, and later catalog activation through the reviewed
+publication sequence. No catalog, active pointer, mint, acquisition, accession,
+or new Collection membership is created by this candidate.

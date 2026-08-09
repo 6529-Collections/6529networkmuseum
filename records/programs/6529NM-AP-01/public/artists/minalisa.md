@@ -1,0 +1,19 @@
+# Minalisa
+
+On her [public Farcaster profile](https://farcaster.xyz/minalisa1991), Minalisa identifies as a self-taught portrait photographer whose stated aim is to convey the feelings of subjects. The selected submission names Mina Rahmani, and the Museum keeps that name as a submitted authority form while leaving legal identity unnormalized. The artist’s geography is withheld in the work record.
+
+**Initial profile:** The public record supports the handle-based portrait practice; identity and geography remain open.
+
+In *Checkpoint*, a bare torso emerges from black fabric while the head remains concealed. The image makes exposure and privacy simultaneous. It belongs to a portrait practice concerned with the emotional charge of the subject and turns the body into a formal checkpoint shaped by clothing, movement, and the gaze of others. The artist’s political interpretation remains attributed to the submission.
+
+## Selected work
+
+[*Checkpoint*](../works/checkpoint.md)
+
+**Further research:** The handle-based practice is established; the relationship to Mina Rahmani, subject status, safe geography, and publication permissions remain to be confirmed.
+
+**Sources:** [Farcaster profile](https://farcaster.xyz/minalisa1991).
+
+## Browse
+
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md)

@@ -1,6 +1,6 @@
 {
     "$schema":  "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
-    "inventory_version":  "1.1.0",
+    "inventory_version":  "1.2.0",
     "identity_policy":  "Relation identity is bound to a semantic predicate and typed endpoints; source emission order and mutable assertion qualifiers never allocate a public relation ID.",
     "relation_key_format":  "relation_type|source_entity_id|target_entity_id",
     "relation_bindings":  [
@@ -659,6 +659,138 @@
                               {
                                   "relation_id":  "6529NM-REL-0164",
                                   "source_key":  "AGENT_PLAYS_ROLE|6529NM-ART-0021|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0165",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-CA-2026-002"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0166",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0008"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0167",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0009"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0168",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0010"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0169",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0011"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0170",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0012"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0171",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0013"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0172",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0014"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0173",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0015"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0174",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0016"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0175",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0017"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0176",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0018"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0177",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0019"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0178",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0020"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0179",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0021"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0180",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0022"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0181",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-W-0023"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0182",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0002"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0183",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0003"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0184",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0004"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0185",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0005"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0186",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0187",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0007"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0188",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0008"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0189",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0009"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0190",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0010"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0191",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0011"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0192",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0012"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0193",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0013"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0194",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0014"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0195",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0015"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0196",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0002|6529NM-ART-0016"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0197",
+                                  "source_key":  "INSTITUTION_PUBLISHES_PUBLICATION|6529NM-I-0001|6529NM-RP-0002"
                               }
                           ]
 }

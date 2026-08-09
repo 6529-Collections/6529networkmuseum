@@ -56,11 +56,12 @@ class ProgramMediaTests(unittest.TestCase):
             json.dumps(
                 {
                     "program_id": media.PROGRAM_ID,
-                    "status": "constructed_visual_description_pending_independent_review",
+                    "status": media.ALT_TEXT_STATUS,
                     "items": [
                         {
                             "record_id": self.record_id,
                             "alt_text": "A geometric red and blue test image used to verify deterministic conversion.",
+                            "public_widths": [640, 1280, 2400],
                         }
                     ],
                 }
@@ -91,6 +92,7 @@ class ProgramMediaTests(unittest.TestCase):
             "2026-08-04T00:00:00Z",
             "2026-08-04T00:00:01Z",
             "codex-task:test-constructor",
+            "test:reviewed-display-authority",
         )
 
     def test_generation_is_deterministic_and_closed(self) -> None:
@@ -149,6 +151,61 @@ class ProgramMediaTests(unittest.TestCase):
             media.write_json(self.manifest_path, manifest)
             with self.assertRaisesRegex(media.ProgramMediaError, "aspect ratio differs"):
                 media.verify_manifest()
+
+    def test_withheld_manifest_has_no_derivatives_or_authority(self) -> None:
+        accessibility = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        accessibility["items"][0]["public_widths"] = []
+        self.accessibility_path.write_text(json.dumps(accessibility), encoding="utf-8")
+        with self.patched_paths():
+            manifest = media.generate_manifest(
+                self.source_root,
+                "2026-08-04T00:00:00Z",
+                "2026-08-04T00:00:01Z",
+                "codex-task:test-constructor",
+            )
+            media.write_json(self.manifest_path, manifest)
+            count, total_bytes = media.verify_manifest()
+
+        self.assertEqual(media.WITHHELD_DELIVERY_STATUS, manifest["delivery"]["status"])
+        self.assertIsNone(manifest["delivery"]["authority_record_id"])
+        self.assertEqual([], manifest["items"][0]["presentation"]["derivatives"])
+        self.assertEqual((0, 0), (count, total_bytes))
+
+    def test_restricted_width_manifest_generates_only_allowed_variant(self) -> None:
+        accessibility = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        accessibility["items"][0]["public_widths"] = [640]
+        self.accessibility_path.write_text(json.dumps(accessibility), encoding="utf-8")
+        with self.patched_paths():
+            manifest = self.generate()
+
+        derivatives = manifest["items"][0]["presentation"]["derivatives"]
+        self.assertEqual([640], [item["width"] for item in derivatives])
+
+    def test_public_width_policy_rejects_missing_or_malformed_values(self) -> None:
+        invalid_values = (
+            ("missing", None),
+            ("not a list", "640"),
+            ("boolean width", [True]),
+            ("duplicate width", [640, 640]),
+            ("unordered widths", [1280, 640]),
+            ("unsupported width", [800]),
+            ("too many widths", [640, 1280, 2400, 3200]),
+        )
+        original = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        for label, widths in invalid_values:
+            with self.subTest(label=label):
+                accessibility = json.loads(json.dumps(original))
+                if label == "missing":
+                    accessibility["items"][0].pop("public_widths")
+                else:
+                    accessibility["items"][0]["public_widths"] = widths
+                self.accessibility_path.write_text(
+                    json.dumps(accessibility), encoding="utf-8"
+                )
+                with self.patched_paths(), self.assertRaisesRegex(
+                    media.ProgramMediaError, "public widths"
+                ):
+                    self.generate()
 
 
 if __name__ == "__main__":

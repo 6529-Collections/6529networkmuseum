@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x020aa836ec2b4d916b720eee2a7f6c87a275ffc1ff5e607ba2522a8941b90046"
+      "digest": "0xf75f7cb0cbd9a620934884fe54d29a7ca29ee6415383967c5b8608a27c1b7d79"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -30,15 +30,15 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Keys and Gates Work presentation media relation",
+        "label": "Keys and Gates Work presentation-record relation",
         "observed_at": "2026-08-01T15:03:35Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-005.json"
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:0303b9070a0d84c67e8b60ee30c4e7c2ed692f7cfffd724883c95f7c23e6e6a3",
+    "payload_sha256": "sha256:5c9997c0f0e9456557faf7d9b7e1636b70e380a964444282577bac0a5b7d27c8",
     "qualifier": {
-      "media_context": "primary"
+      "media_context": "documentation"
     },
     "record_id": "6529NM-REL-0137",
     "record_status": "review_pending",

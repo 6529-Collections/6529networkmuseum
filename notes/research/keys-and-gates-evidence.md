@@ -235,9 +235,9 @@ None of these discussion drops is an adopted amendment to the formal program not
 - Wave serial `1167034`; drop `52b6f536-3ebc-4bf5-b7da-2ed775df7ad3`; [canonical drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52b6f536-3ebc-4bf5-b7da-2ed775df7ad3).
 - Created `2026-07-06T00:02:34.236Z`; decision `2026-07-09T12:00:00Z`; place 11; rating `9,489,775`; raters `32`.
 - Statement SHA-256: `091bdabc3d668c143272ba9e275671191a95d90e78b1e4929291405691b6be14`.
-- Media: [JPEG](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_0f82f62c-87b4-11ee-9d82-029a0e4b6159/4f55ccbe-d546-4f96-ad45-da5acca4291e/Sina-Beizavi-in-Brazil.jpeg); source MIME `image/jpeg`.
-- Artist statement: Sina Beizavi, described as a queer artist who escaped Iran and now works at Casa NUA in Brazil, is shown resting with an Iranian passport. The artist frames the portrait around migration, sanctions, sexual identity, expression, and welcome. Technical representation: digital photograph directed, shot, and color-graded by Hugo Faz; Casa NUA, São Paulo, 2026-07-05.
-- Rights/consent representation: Hugo states full rights and formal written consent from the depicted person for CC0 and permanent accession, with documentation available on request. Because the caption carries sensitive identity, migration, sexuality, and political information, do not publish more biographical detail than the subject has authorized.
+- Upstream source media: [public submission JPEG](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_0f82f62c-87b4-11ee-9d82-029a0e4b6159/4f55ccbe-d546-4f96-ad45-da5acca4291e/Sina-Beizavi-in-Brazil.jpeg), retained here as source and provenance context, not as fixity evidence or a Museum presentation URL.
+- Artist statement: the submission supplies sensitive artist-provided biography and situates the portrait at Casa NUA in São Paulo. That material was reviewed as source evidence and is not repeated in the Museum projection. The public edition retains the submitted title and uses “the sitter” without additional identity or biographical inference.
+- Rights/consent representation: Hugo represents written consent is available on request. No consent instrument is retained in the Museum record; consent, venue, document, and publication scope remain open registrar questions.
 - Current status: `WINNER=verified`; mint/contract/token ID `not verified`; acquisition `not verified`; custody `not verified`; accession `not verified`.
 
 ### 12. Teyhu — “Rusted”
@@ -266,7 +266,7 @@ None of these discussion drops is an adopted amendment to the formal program not
 - Created `2026-05-15T01:10:20.171Z`; decision `2026-07-09T12:00:00Z`; place 14; rating `9,130,092`; raters `33`.
 - Statement SHA-256: `011d39808b3920d8056c607a0ee7705f4fb05e181c1cda44e87bcb5ff284f719`.
 - Media: [PNG](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_90bb8b3b-8780-47d6-b7cd-714139a36946/7696d476-1114-4f6a-9508-29b4a36b430a/Morning-Glory.png); source MIME `image/png`.
-- Artist statement: the San Roque Dam spillway in Córdoba, Argentina, automatically regulates pressure without manual gates; the work reads this pre-internet infrastructure as permissionless design. Technical representation: captured 2026-05-12 with a Xiaomi smartphone; f/2.2, ISO 100, 1/6 s; Lightroom from RAW with minimal tonal adjustment and crop; 2670 × 1878 px.
+- Artist statement: Zoku’s submission identifies the San Roque Dam spillway in Córdoba, Argentina, and describes automatic pressure regulation without manual gates, including flood-control and water-storage functions. INA material supports a 1944 dam phase; the pictured component, automation, and operating conditions remain attributed to the submission. Technical representation: captured 2026-05-12 with a Xiaomi smartphone; f/2.2, ISO 100, 1/6 s; Lightroom from RAW with minimal tonal adjustment and crop; 2670 × 1878 px.
 - Rights/consent representation: CC0 if selected for acquisition. No people or separate consent issue is represented. Confirm final CC0 release after acquisition.
 - Current status: `WINNER=verified`; mint/contract/token ID `not verified`; acquisition `not verified`; custody `not verified`; accession `not verified`.
 
@@ -326,7 +326,7 @@ These items are not formal amendments to the program rules, but they materially 
 2. For each winner, bind the artist’s executed CC0 release and any model/property/third-party consent to the specific token and transfer; do not rely solely on the Wave caption.
 3. Record the purchase/acquisition instrument, price, payment transaction, title passage, prior owner, and Museum receiving address separately.
 4. Verify the transfer into Museum custody independently at the chain level and record block, transaction, log/index, and Safe address.
-5. Apply the Museum accession gates: mission/collection fit, authenticity, provenance, title, rights, sanctions/legal, technical receivability, condition, preservation, display, curatorial statement, and second-person review.
+5. Apply the Museum accession gates: mission/collection fit, authenticity, provenance, title, rights, legal/compliance, technical receivability, condition, preservation, display, curatorial statement, and second-person review.
 6. Assign stable Museum accession/object identifiers only after the specific accession act is complete. A program outcome record may remain `selected` or `acquisition_pending` without entering the accession register.
 7. Preserve the exact artist submissions, media files, metadata, consent instruments, and hashes in a durable dossier. CloudFront media URLs alone are not preservation.
 

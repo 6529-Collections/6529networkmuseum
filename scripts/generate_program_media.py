@@ -26,12 +26,15 @@ MEDIA_ROOT = REPO_ROOT / "media" / "programs" / PROGRAM_ID
 CDN_BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net"
 CDN_KEY_PREFIX = f"museum/programs/{PROGRAM_ID}"
 TRANSFORM_PROFILE = "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
+WITHHELD_DELIVERY_STATUS = "withheld_pending_reviewed_display_authority"
+APPROVED_DELIVERY_STATUS = "approved_by_reviewed_display_authority"
 TRANSFORM_PATH = "webp-v2-q82-m6-fixed-icc"
 WIDTHS = (640, 1280, 2400)
 QUALITY = 82
 METHOD = 6
 CACHE_CONTROL = "public, max-age=31536000, immutable"
 EXPECTED_OUTCOME_COUNT = 16
+ALT_TEXT_STATUS = "constructed_visual_description_pending_independent_review"
 SHA256_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 RECORD_ID_PATTERN = re.compile(r"^6529NM-AP-01-OUT-[0-9]{3}$")
 SRGB_ICC_SHA256 = "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
@@ -106,16 +109,17 @@ def load_outcomes() -> list[dict[str, Any]]:
     return outcomes
 
 
-def load_alt_texts() -> dict[str, str]:
+def load_accessibility() -> tuple[dict[str, str], dict[str, list[int]]]:
     accessibility = load_json(ACCESSIBILITY_PATH)
     if accessibility.get("program_id") != PROGRAM_ID:
         raise ProgramMediaError("accessibility program_id does not match")
-    if accessibility.get("status") != "constructed_visual_description_pending_independent_review":
+    if accessibility.get("status") != ALT_TEXT_STATUS:
         raise ProgramMediaError("accessibility review status is not the expected constructed status")
     items = accessibility.get("items")
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
         raise ProgramMediaError("accessibility inventory must contain exactly 16 items")
     result: dict[str, str] = {}
+    public_widths: dict[str, list[int]] = {}
     for item in items:
         if not isinstance(item, dict):
             raise ProgramMediaError("accessibility item is not an object")
@@ -124,7 +128,22 @@ def load_alt_texts() -> dict[str, str]:
         if record_id in result or len(alt_text) < 20:
             raise ProgramMediaError(f"invalid or duplicated accessibility entry: {record_id}")
         result[record_id] = alt_text
-    return result
+        if "public_widths" not in item:
+            raise ProgramMediaError(f"missing public widths for {record_id}")
+        widths = item["public_widths"]
+        if (
+            not isinstance(widths, list)
+            or len(widths) > len(WIDTHS)
+            or any(
+                not isinstance(width, int) or isinstance(width, bool)
+                for width in widths
+            )
+            or widths != sorted(set(widths))
+            or any(width not in WIDTHS for width in widths)
+        ):
+            raise ProgramMediaError(f"invalid public widths for {record_id}")
+        public_widths[record_id] = widths
+    return result, public_widths
 
 
 def outcome_media(outcome: dict[str, Any]) -> dict[str, Any]:
@@ -235,6 +254,7 @@ def write_immutable_asset(path: Path, payload: bytes) -> None:
 def generate_item(
     outcome: dict[str, Any],
     alt_text: str,
+    public_widths: list[int],
     source_dir: Path,
 ) -> dict[str, Any]:
     record_id = require_string(outcome.get("record_id"), "record_id")
@@ -261,7 +281,7 @@ def generate_item(
         normalized, colour_status, output_icc = normalize_colour(oriented, source_icc)
         source_width, source_height = normalized.size
         derivatives: list[dict[str, Any]] = []
-        for width in WIDTHS:
+        for width in public_widths:
             payload, height = webp_bytes(normalized, width, output_icc)
             relative_path = Path(
                 "media",
@@ -313,7 +333,8 @@ def generate_item(
         "presentation": {
             "role": "web_presentation_surrogate",
             "alt_text": alt_text,
-            "alt_text_status": "constructed_visual_description_pending_independent_review",
+            "alt_text_status": ALT_TEXT_STATUS,
+            "public_widths": public_widths,
             "derivatives": derivatives,
         },
     }
@@ -324,16 +345,30 @@ def generate_manifest(
     source_observed_at: str,
     constructed_at: str,
     constructor_actor: str,
+    display_authority_record: str | None = None,
 ) -> dict[str, Any]:
     if not source_dir.is_dir():
         raise ProgramMediaError(f"source directory does not exist: {source_dir}")
     outcomes = load_outcomes()
-    alt_texts = load_alt_texts()
+    alt_texts, public_widths = load_accessibility()
     outcome_ids = {require_string(outcome.get("record_id"), "record_id") for outcome in outcomes}
     if set(alt_texts) != outcome_ids:
         raise ProgramMediaError("accessibility and outcome record ID sets differ")
+    has_public_derivatives = any(public_widths.values())
+    if has_public_derivatives and not display_authority_record:
+        raise ProgramMediaError(
+            "generation of public derivatives requires an exact reviewed display-authority record"
+        )
+    delivery_status = (
+        APPROVED_DELIVERY_STATUS if has_public_derivatives else WITHHELD_DELIVERY_STATUS
+    )
     items = [
-        generate_item(outcome, alt_texts[require_string(outcome.get("record_id"), "record_id")], source_dir)
+        generate_item(
+            outcome,
+            alt_texts[require_string(outcome.get("record_id"), "record_id")],
+            public_widths[require_string(outcome.get("record_id"), "record_id")],
+            source_dir,
+        )
         for outcome in outcomes
     ]
     return {
@@ -348,6 +383,7 @@ def generate_manifest(
             },
             "review": None,
         },
+        "amendment_history": [],
         "record_type": "PROGRAM_MEDIA_MANIFEST",
         "schema_profile": "6529NM_PROGRAM_MEDIA_MANIFEST_V1",
         "program_id": PROGRAM_ID,
@@ -368,13 +404,15 @@ def generate_manifest(
             "metadata": "source EXIF/XMP stripped; output sRGB ICC profile retained",
         },
         "delivery": {
+            "status": delivery_status,
+            "authority_record_id": display_authority_record,
             "cdn_base_url": CDN_BASE_URL,
             "cache_control": CACHE_CONTROL,
             "key_profile": "museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp",
             "overwrite_policy": "fail if an existing key does not contain the declared bytes",
         },
         "rights_boundary": {
-            "purpose": "Technical presentation surrogates for the existing public Keys and Gates program display",
+            "purpose": "Technical derivation metadata for Keys and Gates; active delivery is controlled independently",
             "status": "Each outcome's recorded rights-effective status remains controlling; this manifest does not activate CC0 or grant reuse rights",
             "non_claims": [
                 "A presentation surrogate is not a preservation master or the tokenized artwork.",
@@ -421,7 +459,7 @@ def verify_webp(path: Path, width: int, height: int) -> None:
 def verify_manifest() -> tuple[int, int]:
     manifest = load_json(MANIFEST_PATH)
     outcomes = {require_string(item.get("record_id"), "record_id"): item for item in load_outcomes()}
-    alt_texts = load_alt_texts()
+    alt_texts, public_widths = load_accessibility()
     items = manifest.get("items")
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
         raise ProgramMediaError("media manifest must contain exactly 16 items")
@@ -434,6 +472,24 @@ def verify_manifest() -> tuple[int, int]:
         raise ProgramMediaError("media manifest Pillow version does not match the pinned runtime")
     if transform.get("icc_profile_sha256") != SRGB_ICC_SHA256:
         raise ProgramMediaError("media manifest sRGB ICC profile hash does not match")
+    delivery = manifest.get("delivery")
+    if not isinstance(delivery, dict):
+        raise ProgramMediaError("media manifest delivery control is missing")
+    delivery_status = delivery.get("status")
+    authority_record = delivery.get("authority_record_id")
+    has_public_derivatives = any(public_widths.values())
+    if delivery_status == WITHHELD_DELIVERY_STATUS:
+        if has_public_derivatives or authority_record is not None:
+            raise ProgramMediaError(
+                "withheld delivery requires empty public widths and no display-authority record"
+            )
+    elif delivery_status == APPROVED_DELIVERY_STATUS:
+        if not has_public_derivatives or not isinstance(authority_record, str) or not authority_record:
+            raise ProgramMediaError(
+                "approved delivery requires public widths and an exact display-authority record"
+            )
+    else:
+        raise ProgramMediaError("media manifest delivery status is not recognized")
     manifest_ids = {
         require_string(item.get("record_id"), "media manifest record_id")
         for item in items
@@ -472,8 +528,11 @@ def verify_manifest() -> tuple[int, int]:
             raise ProgramMediaError(f"{record_id} source dimensions are invalid")
         if presentation.get("alt_text") != alt_texts[record_id]:
             raise ProgramMediaError(f"{record_id} alt text differs from the accessibility source")
+        expected_widths = public_widths[record_id]
+        if presentation.get("public_widths") != expected_widths:
+            raise ProgramMediaError(f"{record_id} public widths differ from the accessibility source")
         derivatives = presentation.get("derivatives")
-        if not isinstance(derivatives, list) or [entry.get("width") for entry in derivatives if isinstance(entry, dict)] != list(WIDTHS):
+        if not isinstance(derivatives, list) or [entry.get("width") for entry in derivatives if isinstance(entry, dict)] != expected_widths:
             raise ProgramMediaError(f"{record_id} derivative widths are incomplete or unordered")
         digest = source_sha256.removeprefix("sha256:")
         for derivative in derivatives:
@@ -528,6 +587,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--source-observed-at", help="UTC observation time for the downloaded source bytes")
     parser.add_argument("--constructed-at", help="UTC construction time for the generated manifest")
     parser.add_argument("--constructor-actor", help="public constructor identifier")
+    parser.add_argument(
+        "--display-authority-record",
+        help="exact reviewed authority record required before generating any public derivative",
+    )
     args = parser.parse_args(argv)
     try:
         if args.check:
@@ -543,6 +606,7 @@ def main(argv: list[str] | None = None) -> int:
             args.source_observed_at,
             args.constructed_at,
             args.constructor_actor,
+            args.display_authority_record,
         )
         write_json(MANIFEST_PATH, manifest)
         count, total_bytes = verify_manifest()
