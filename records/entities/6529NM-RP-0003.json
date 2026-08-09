@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x70609aa03215c912a4a5da0af18d5fb1d88ec3de8e25dfed63af48148bc8cdae"
+      "digest": "0xd3b35e90479afae96ee7e37b605cde45609ac7838c63040a2527c4560fda6ddd"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-RP-0003",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7a349e159292a597f4f91cd068e1c0c5b2a88e63d16382c33ee0beac43ffc978",
+    "payload_sha256": "sha256:7283a03ae3ab7e58ff49eb18886b8b5685344aab8bc946d7e0714e325b4e6147",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "author_entity_ids": [
@@ -113,7 +113,7 @@
     },
     "public_slug": "conflict-at-its-edges",
     "record_id": "6529NM-RP-0003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -132,8 +132,19 @@
       "6529NM-W-0027",
       "6529NM-W-0028"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "reviewer:independent-luna-panel-2026-08-09",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-09T15:09:51.791Z",
+      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
+      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
+      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
+      "reviewer_ids": [
+        "reviewer:independent-luna-panel-2026-08-09"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0017",
@@ -167,7 +178,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0003",
     "visibility": "public"

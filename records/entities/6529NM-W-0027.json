@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdc88a3f658f1a782f19b95ca84a699b31f3a8ac149c86cb05d251c689293490c"
+      "digest": "0x521631ad017f52a931179ffe067dfbd57398c063936e4cc0992f98c567331f06"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0027",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ed5e77e7bd030edf9539650f60a5fe99ba34bbd5b1ea2e12f3dd491f0cb26a6b",
+    "payload_sha256": "sha256:e5f1c4a4307b0f8e7bdec354e63d4ef7f345bb220e5887464516611246d0eefe",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [],
@@ -210,7 +210,7 @@
     },
     "public_slug": "6529NM-W-0027",
     "record_id": "6529NM-W-0027",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,8 +220,19 @@
       "6529NM-PG-2026-001.OBJ-004",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "reviewer:independent-luna-panel-2026-08-09",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-09T15:09:51.791Z",
+      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
+      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
+      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
+      "reviewer_ids": [
+        "reviewer:independent-luna-panel-2026-08-09"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0021",
@@ -240,7 +251,7 @@
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0027",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb213bae7e5aa6b4baf620f8b8d5d48df0f0125c46072bdd4bdec5bf820b0881c"
+      "digest": "0xb6f69331ce2b1a7ab5735199a846a8f7ad52f2cbcf6b38aeecf1d8690bc0212e"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0009",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c75cd189a3df0c10d7edd8019e333ccb3a9644b0aa45877485c71ff8c8c9e2cd",
+    "payload_sha256": "sha256:13e89675e4b47ccccb5d1fbf7ba9d20b1359a3f7332273491512caa462072131",
     "preferred_label": "the Artist in teh Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0009",
     "record_id": "6529NM-W-0009",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,8 +186,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "reviewer:independent-luna-panel-2026-08-09",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-09T15:09:51.791Z",
+      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
+      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
+      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
+      "reviewer_ids": [
+        "reviewer:independent-luna-panel-2026-08-09"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0009",
     "visibility": "public"
