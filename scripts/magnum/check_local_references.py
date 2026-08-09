@@ -2,16 +2,19 @@
 
 from __future__ import annotations
 
+from html import unescape as html_unescape
 import json
 from pathlib import Path
+import posixpath
 import re
 import sys
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 
 
 REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 PUBLICATION_INVENTORY = REPOSITORY / "schemas" / "public-publication-inventory.json"
+MEDIA_JOIN = ROOT / "machine" / "wave-media-join.json"
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 CODE_SPAN = re.compile(r"`([^`]+)`")
 ABSOLUTE_URI = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
@@ -26,9 +29,10 @@ GOVERNED_PREFIXES = (
     "notes/wip/",
     "scripts/",
 )
-FORBIDDEN_VISITOR_URI = re.compile(
-    r"(?:(?:https?:)?//(?:[^/\s.]+\.)*arweave\.net/|ar://)", re.IGNORECASE
+WEB_LOCATOR = re.compile(
+    r"(?=((?:https?:)?[\\/]{2}[^\s<>'\"\)\]]+))", re.IGNORECASE
 )
+AR_URI = re.compile(r"(?<![A-Za-z0-9+.-])ar://", re.IGNORECASE)
 COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
     "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
@@ -48,8 +52,63 @@ def inside_repository(path: Path) -> bool:
     return True
 
 
+def fully_unquote(value: str) -> str:
+    """Decode bounded nested percent-encoding without accepting an infinite rewrite."""
+
+    decoded = value
+    for _ in range(3):
+        candidate = unquote(decoded)
+        if candidate == decoded:
+            break
+        decoded = candidate
+    return decoded
+
+
+def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
+    """Return a scheme-insensitive, browser-equivalent HTTP(S) locator key."""
+
+    candidate = html_unescape(value.strip().strip("<>")).rstrip(".,;!?")
+    if candidate.startswith("//"):
+        candidate = "https:" + candidate
+    candidate = candidate.replace("\\", "/")
+    candidate = re.sub(r"^(https?):/{2,}", r"\1://", candidate, flags=re.IGNORECASE)
+    try:
+        parsed = urlsplit(candidate)
+        if parsed.scheme.casefold() not in {"http", "https"}:
+            return None
+        host = fully_unquote(parsed.hostname or "").rstrip(".").casefold()
+        if not host or any(
+            ord(character) <= 32 or character in "/\\?#@" for character in host
+        ):
+            return None
+        host = host.encode("idna").decode("ascii")
+        port = parsed.port
+    except (UnicodeError, ValueError):
+        return None
+    if port in {80, 443}:
+        port = None
+    decoded_path = fully_unquote(parsed.path or "/")
+    path = posixpath.normpath("/" + decoded_path.lstrip("/"))
+    if decoded_path.endswith("/") and not path.endswith("/"):
+        path += "/"
+    return host, port, path
+
+
+def web_locators(text: str) -> list[tuple[str, int | None, str]]:
+    locators: set[tuple[str, int | None, str]] = set()
+    decoded_text = fully_unquote(html_unescape(text))
+    for candidate_text in {text, decoded_text}:
+        for match in WEB_LOCATOR.finditer(candidate_text):
+            locator = canonical_web_locator(match.group(1))
+            if locator is not None:
+                locators.add(locator)
+    return sorted(locators)
+
+
 def publication_paths() -> set[str]:
     inventory = json.loads(PUBLICATION_INVENTORY.read_text(encoding="utf-8"))
+    if not isinstance(inventory, dict):
+        raise ValueError("public publication inventory is not an object")
     entries = inventory.get("entries")
     if not isinstance(entries, list):
         raise ValueError("public publication inventory has no entries array")
@@ -63,17 +122,52 @@ def publication_paths() -> set[str]:
     return paths
 
 
+def restricted_media_locators() -> set[tuple[str, int | None, str]]:
+    join = json.loads(MEDIA_JOIN.read_text(encoding="utf-8"))
+    if not isinstance(join, dict):
+        raise ValueError("Magnum media join is not an object")
+    works = join.get("works")
+    if not isinstance(works, list):
+        raise ValueError("Magnum media join has no works array")
+    urls = {
+        url
+        for row in works
+        if isinstance(row, dict)
+        for url in (row.get("token_source_image_url"), row.get("wave_media_url"))
+        if isinstance(url, str) and url
+    }
+    locators = {
+        locator
+        for url in urls
+        if (locator := canonical_web_locator(url)) is not None
+    }
+    if not locators:
+        raise ValueError("Magnum media join has no restricted media locators")
+    return locators
+
+
 def check_visitor_document(
     source_relative: str,
     text: str,
     declared_paths: set[str],
     errors: list[str],
+    restricted_locators: set[tuple[str, int | None, str]] | None = None,
 ) -> int:
     """Reject one visitor document's links and complete-manifest disclosures."""
 
-    if FORBIDDEN_VISITOR_URI.search(text):
+    locators = web_locators(text)
+    if restricted_locators is None:
+        restricted_locators = restricted_media_locators()
+    if AR_URI.search(text) or any(
+        host == "arweave.net" or host.endswith(".arweave.net")
+        for host, _, _ in locators
+    ):
         errors.append(
             f"{source_relative}: visitor manuscript exposes a governed Arweave metadata locator"
+        )
+    if any(locator in restricted_locators for locator in locators):
+        errors.append(
+            f"{source_relative}: visitor manuscript exposes a restricted direct photograph locator"
         )
     normalized_text = text.replace("\\", "/")
     for marker in COMPLETE_MANIFEST_ONLY_MARKERS:
@@ -103,6 +197,7 @@ def check_visitor_boundary(
     files: list[Path],
     declared_paths: set[str],
     errors: list[str],
+    restricted_locators: set[tuple[str, int | None, str]] | None = None,
 ) -> int:
     """Reject links or path disclosures that escape the atomic visitor corpus."""
 
@@ -116,6 +211,7 @@ def check_visitor_boundary(
             source.read_text(encoding="utf-8"),
             declared_paths,
             errors,
+            restricted_locators,
         )
     return checked
 
@@ -172,8 +268,9 @@ def main() -> int:
     errors: list[str] = []
     try:
         declared_paths = publication_paths()
+        restricted_locators = restricted_media_locators()
     except (OSError, json.JSONDecodeError, ValueError) as exc:
-        print(f"Local reference check failed to read publication inventory: {exc}", file=sys.stderr)
+        print(f"Local reference check failed to read publication controls: {exc}", file=sys.stderr)
         return 1
     local_links = check_local_links(files, errors)
     source_register = ROOT / "sources" / "source-register.md"
@@ -181,7 +278,9 @@ def main() -> int:
     governed_paths = check_governed_paths(governed_files, errors)
     source_register_paths = check_governed_paths([source_register], errors)
     canonical_paths = check_canonical_paths(files, errors)
-    visitor_links = check_visitor_boundary(files, declared_paths, errors)
+    visitor_links = check_visitor_boundary(
+        files, declared_paths, errors, restricted_locators
+    )
     if errors:
         print("Local reference check failed:", file=sys.stderr)
         for error in errors:

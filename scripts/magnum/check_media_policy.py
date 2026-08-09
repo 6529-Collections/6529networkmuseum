@@ -9,12 +9,14 @@ age-sensitive subject safeguards, source swaps, and standalone-route bypasses.
 from __future__ import annotations
 
 from copy import deepcopy
+from html import unescape as html_unescape
 import hashlib
 import json
 from pathlib import Path
+import posixpath
 import re
 import sys
-from urllib.parse import urlsplit
+from urllib.parse import unquote, urlsplit
 
 
 REPOSITORY = Path(__file__).resolve().parents[2]
@@ -28,6 +30,9 @@ CANONICAL_PUBLICATION_PATH = "records/proposed-gifts/6529NM-PG-2026-001/wave-pub
 CANONICAL_PUBLICATION_FILE = REPOSITORY / CANONICAL_PUBLICATION_PATH
 
 BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
+WEB_LOCATOR = re.compile(
+    r"(?=((?:https?:)?[\\/]{2}[^\s<>'\"\)\]]+))", re.IGNORECASE
+)
 CURRENT_OBSERVATION = {
     "record_type": "WAVE_STATUS_OBSERVATION",
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
@@ -43,6 +48,61 @@ CURRENT_PUBLICATION = {
     "receipt_path": CANONICAL_PUBLICATION_PATH,
     "receipt_sha256": "sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58",
 }
+
+
+def fully_unquote(value: str) -> str:
+    """Decode bounded nested percent-encoding before restricted-URL comparison."""
+
+    decoded = value
+    for _ in range(3):
+        candidate = unquote(decoded)
+        if candidate == decoded:
+            break
+        decoded = candidate
+    return decoded
+
+
+def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
+    """Return a scheme-insensitive, browser-equivalent HTTP(S) locator key."""
+
+    candidate = html_unescape(value.strip().strip("<>")).rstrip(".,;!?")
+    if candidate.startswith("//"):
+        candidate = "https:" + candidate
+    candidate = candidate.replace("\\", "/")
+    candidate = re.sub(r"^(https?):/{2,}", r"\1://", candidate, flags=re.IGNORECASE)
+    try:
+        parsed = urlsplit(candidate)
+        if parsed.scheme.casefold() not in {"http", "https"}:
+            return None
+        host = fully_unquote(parsed.hostname or "").rstrip(".").casefold()
+        if not host or any(
+            ord(character) <= 32 or character in "/\\?#@" for character in host
+        ):
+            return None
+        host = host.encode("idna").decode("ascii")
+        port = parsed.port
+    except (UnicodeError, ValueError):
+        return None
+    if port in {80, 443}:
+        port = None
+    decoded_path = fully_unquote(parsed.path or "/")
+    path = posixpath.normpath("/" + decoded_path.lstrip("/"))
+    if decoded_path.endswith("/") and not path.endswith("/"):
+        path += "/"
+    return host, port, path
+
+
+def web_locators(text: str) -> list[tuple[str, int | None, str]]:
+    locators: set[tuple[str, int | None, str]] = set()
+    decoded_text = fully_unquote(html_unescape(text))
+    for candidate_text in {text, decoded_text}:
+        for match in WEB_LOCATOR.finditer(candidate_text):
+            locator = canonical_web_locator(match.group(1))
+            if locator is not None:
+                locators.add(locator)
+    return sorted(locators)
+
+
 PROJECTION_PUBLICATION = dict(CURRENT_PUBLICATION)
 SUPPLEMENTAL_PUBLIC_SAFE = {
     "evidence_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
@@ -146,6 +206,11 @@ def validate_visitor_markdown_media_affordances(
         for url in (row.get("token_source_image_url"), row.get("wave_media_url"))
         if isinstance(url, str) and url
     }
+    restricted_locators = {
+        locator
+        for url in restricted_urls
+        if (locator := canonical_web_locator(url)) is not None
+    }
     if documents is None:
         documents = [
             (path.relative_to(ROOT), path.read_text(encoding="utf-8"))
@@ -162,10 +227,10 @@ def validate_visitor_markdown_media_affordances(
             flags=re.IGNORECASE,
         ):
             errors.append(f"{label}: visitor manuscript must not embed raw HTML media")
-        for url in sorted(restricted_urls):
-            scheme_relative_url = re.sub(r"^https?:", "", url, flags=re.IGNORECASE)
-            if url in text or scheme_relative_url in text:
-                errors.append(f"{label}: visitor manuscript exposes a restricted direct photograph locator")
+        if any(locator in restricted_locators for locator in web_locators(text)):
+            errors.append(
+                f"{label}: visitor manuscript exposes a restricted direct photograph locator"
+            )
     return errors
 
 

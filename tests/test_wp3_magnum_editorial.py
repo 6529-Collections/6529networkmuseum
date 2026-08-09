@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import sys
 import unittest
+from urllib.parse import quote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,6 +31,30 @@ SCRIPTS = ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 import generate_public_publication_bundle as BUNDLE_MODULE  # noqa: E402
 import generate_public_publication_inventory as INVENTORY_MODULE  # noqa: E402
+
+
+def equivalent_web_variants(url: str) -> tuple[str, ...]:
+    parsed = urlsplit(url)
+    host = parsed.hostname or ""
+    path = parsed.path
+    character_index = next(
+        index for index, character in enumerate(path) if character.isalnum()
+    )
+    encoded_path = (
+        path[:character_index]
+        + f"%{ord(path[character_index]):02X}"
+        + path[character_index + 1 :]
+    )
+    backslash_url = "https:\\\\" + host + path.replace("/", "\\")
+    return (
+        f"https://{host.upper()}{path}",
+        f"https://{host}:443{path}",
+        f"https://{host.upper()}.:443{encoded_path}?download=1#fragment",
+        f"https://{host}/./{path.lstrip('/')}",
+        f"https:////{host}{path}",
+        backslash_url,
+        f"https://example.org/?source={quote(url, safe='')}",
+    )
 
 
 class WP3EditorialChecks(unittest.TestCase):
@@ -136,6 +161,31 @@ class WP3EditorialChecks(unittest.TestCase):
                     join, documents
                 )
                 self.assertTrue(errors)
+
+    def test_normalized_restricted_url_variants_are_rejected(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        declared = {
+            "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
+        }
+        label = next(iter(declared))
+        arweave_url = join["works"][0]["token_source_image_url"]
+        restricted_urls = (
+            arweave_url,
+            join["works"][0]["wave_media_url"],
+        )
+        for restricted_url in restricted_urls:
+            for variant in equivalent_web_variants(restricted_url):
+                with self.subTest(checker="reference", variant=variant):
+                    errors: list[str] = []
+                    REFERENCE_MODULE.check_visitor_document(
+                        label, f"[photo]({variant})", declared, errors
+                    )
+                    self.assertTrue(errors)
+                with self.subTest(checker="media", variant=variant):
+                    errors = MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                        join, [("probe.md", f"[photo]({variant})")]
+                    )
+                    self.assertTrue(errors)
 
     def test_media_policy_reports_malformed_shapes_without_crashing(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

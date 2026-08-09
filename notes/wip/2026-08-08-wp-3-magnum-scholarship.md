@@ -544,3 +544,28 @@ against its scheme-relative spelling. An adversarial regression binds the
 exact failure reported by the reviewer. The candidate remains rejected until a
 new signed commit, fresh commitments, complete validation, and a new four-lane
 independent review all pass.
+
+## 2026-08-09 canonical restricted-locator correction
+
+The fresh rights/privacy lane rejected exact candidate
+`21300d9eb7489c584afc93a24de9ae639096330f`. Although it closed the reported
+scheme-relative form, literal comparison still missed browser-equivalent
+spellings of a restricted locator: uppercase or trailing-dot hosts, explicit
+default ports, percent-encoded or dot-segment paths, backslash separators, and
+restricted URLs nested in encoded query values.
+
+Both visitor validators now parse every overlapping web locator into a common,
+scheme-insensitive key. Hostnames are HTML- and percent-decoded, case-folded,
+IDNA-normalized, and stripped of a terminal dot; default HTTP and HTTPS ports
+are removed; paths receive bounded percent-decoding and dot-segment
+normalization; extra post-scheme slashes are collapsed to browser form; host
+controls are rejected; query strings and fragments cannot disguise the same
+asset.
+The scan also examines decoded text so a restricted URL nested inside an
+encoded redirect remains visible. The local-reference gate now reads the exact
+five-Work media join and independently rejects the same ten restricted source
+and historical Wave locators as the media-policy gate.
+
+Adversarial tests cover both Arweave and CloudFront forms across every spelling
+above. A new exact candidate still requires complete regeneration, validation,
+and four entirely fresh terminal review verdicts.

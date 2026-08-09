@@ -3448,3 +3448,20 @@ catalog activation, and frontend qualification remain open.
 - A dedicated regression reproduces the reported `//arweave.net/...` bypass.
 - The remaining three reviews of the rejected commit were stopped. All four
   lanes must restart against the next exact candidate.
+
+## 2026-08-09 Magnum canonical-locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `21300d9eb7489c584afc93a24de9ae639096330f`: uppercase hosts, explicit default
+  ports, and percent-encoded paths could still identify a restricted asset
+  without matching its stored URL string.
+- Both visitor gates now canonicalize overlapping HTTP(S) and scheme-relative
+  locators across host case and trailing dots, IDNA, default ports, bounded
+  percent-decoding, dot segments, backslash separators, query/fragment forms,
+  encoded nested URLs, and extra post-scheme slashes; malformed host controls
+  are rejected.
+- The local-reference checker now consumes the exact five-Work media join and
+  independently rejects all ten restricted source and historical Wave
+  locators; the media-policy checker retains the same closed set.
+- Tests exercise Arweave and CloudFront variants through both validators. All
+  four independent lanes must restart after the next signed exact candidate.
