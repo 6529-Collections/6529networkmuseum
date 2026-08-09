@@ -8,11 +8,11 @@ import sys
 from urllib.parse import unquote
 
 
-ROOT = Path(__file__).resolve().parents[1]
-REPOSITORY = ROOT.parents[1]
+REPOSITORY = Path(__file__).resolve().parents[3]
+ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 CODE_SPAN = re.compile(r"`([^`]+)`")
-STAGING_PATH = re.compile(r"(?<![A-Za-z0-9_./-])(content/wp-3-magnum/[A-Za-z0-9_./-]+)")
+CANONICAL_PATH = re.compile(r"(?<![A-Za-z0-9_./-])(records/proposed-gifts/6529NM-PG-2026-001/[A-Za-z0-9_./-]+)")
 GOVERNED_PREFIXES = (
     "records/",
     "docs/",
@@ -65,18 +65,18 @@ def check_governed_paths(files: list[Path], errors: list[str]) -> int:
     return checked
 
 
-def check_staging_paths(files: list[Path], errors: list[str]) -> int:
-    """Resolve every explicit content/wp-3-magnum path, including JSON values."""
+def check_canonical_paths(files: list[Path], errors: list[str]) -> int:
+    """Resolve every explicit canonical Magnum path, including JSON values."""
 
     checked = 0
     for source in files:
         text = source.read_text(encoding="utf-8")
-        for match in STAGING_PATH.finditer(text):
+        for match in CANONICAL_PATH.finditer(text):
             candidate = match.group(1).rstrip(".,;:)")
             checked += 1
             resolved = (REPOSITORY / candidate).resolve()
             if not inside_repository(resolved) or not resolved.exists():
-                errors.append(f"{source.relative_to(REPOSITORY)}: missing staging path: {candidate}")
+                errors.append(f"{source.relative_to(REPOSITORY)}: missing canonical path: {candidate}")
     return checked
 
 
@@ -88,7 +88,7 @@ def main() -> int:
     governed_files = [path for path in files if path != source_register]
     governed_paths = check_governed_paths(governed_files, errors)
     source_register_paths = check_governed_paths([source_register], errors)
-    staging_paths = check_staging_paths(files, errors)
+    canonical_paths = check_canonical_paths(files, errors)
     if errors:
         print("Local reference check failed:", file=sys.stderr)
         for error in errors:
@@ -97,7 +97,7 @@ def main() -> int:
     print(
         "Local reference check passed: "
         f"{local_links} relative links; {governed_paths} governed paths; "
-        f"{source_register_paths} source-register paths; {staging_paths} staging paths"
+        f"{source_register_paths} source-register paths; {canonical_paths} canonical paths"
     )
     return 0
 

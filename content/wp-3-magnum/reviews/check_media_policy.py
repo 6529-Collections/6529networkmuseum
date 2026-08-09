@@ -17,11 +17,14 @@ import sys
 from urllib.parse import urlsplit
 
 
-ROOT = Path(__file__).resolve().parents[1]
+REPOSITORY = Path(__file__).resolve().parents[3]
+ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 JOIN_PATH = ROOT / "machine" / "wave-media-join.json"
 PROJECTIONS_PATH = ROOT / "machine" / "work-projections.json"
-EVIDENCE_PATH = ROOT / "evidence" / "6529nm-wave-publication-observation-2026-08-09-001.json"
-EVIDENCE_RELATIVE = "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json"
+EVIDENCE_PATH = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "evidence" / "wave-publication-observation-public-safe-2026-08-09.json"
+EVIDENCE_RELATIVE = "records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json"
+CANONICAL_PUBLICATION_PATH = "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
+CANONICAL_PUBLICATION_FILE = REPOSITORY / CANONICAL_PUBLICATION_PATH
 
 BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
 CURRENT_OBSERVATION = {
@@ -32,19 +35,21 @@ CURRENT_OBSERVATION = {
 }
 CURRENT_PUBLICATION = {
     "record_type": "WAVE_PUBLICATION_OBSERVATION",
-    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
-    "observed_at": "2026-08-09T02:04:21.7672652Z",
-    "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
-    "binding_status": "bound_public_safe_receipt",
-    "receipt_path": EVIDENCE_RELATIVE,
-    "receipt_sha256": "sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995",
+    "binding_status": "bound_canonical_wave_publication_observation",
+    "receipt_path": CANONICAL_PUBLICATION_PATH,
+    "receipt_sha256": "sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58",
 }
-PROJECTION_PUBLICATION = {
-    "record_type": "WAVE_PUBLICATION_OBSERVATION",
-    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
+PROJECTION_PUBLICATION = dict(CURRENT_PUBLICATION)
+SUPPLEMENTAL_PUBLIC_SAFE = {
+    "evidence_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
     "observed_at": "2026-08-09T02:04:21.7672652Z",
     "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
-    "binding_status": "pending_wp1_ontology_merge",
+    "path": EVIDENCE_RELATIVE,
+    "file_sha256": "sha256:2d102b1e5ee4c448bad0631d3bb659949456d74a342f6203b3a1dd12d5f29d6a",
+    "role": "later public-safe API evidence for unchanged signed WINNER and public media URL/MIME/status fields; not a replacement for the enveloped canonical observation",
 }
 EXPECTED_PUBLICATION_SOURCE = "punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json"
 EXPECTED_WAVE_MEDIA = {
@@ -126,11 +131,11 @@ def canonical_payload(payload: dict) -> bytes:
 
 def validate_publication_evidence(evidence: dict) -> list[str]:
     errors: list[str] = []
-    if evidence.get("record_type") != "WAVE_PUBLICATION_OBSERVATION":
-        errors.append("publication evidence must be a WAVE_PUBLICATION_OBSERVATION")
-    if evidence.get("observation_id") != CURRENT_PUBLICATION["observation_id"]:
+    if evidence.get("evidence_type") != "WAVE_PUBLICATION_PUBLIC_SAFE_EVIDENCE":
+        errors.append("publication evidence must carry the public-safe evidence type")
+    if evidence.get("observation_id") != SUPPLEMENTAL_PUBLIC_SAFE["evidence_id"]:
         errors.append("publication evidence must carry the current observation ID")
-    if evidence.get("observed_at") != CURRENT_PUBLICATION["observed_at"]:
+    if evidence.get("observed_at") != SUPPLEMENTAL_PUBLIC_SAFE["observed_at"]:
         errors.append("publication evidence time must match the bound observation")
     if evidence.get("source_command") != EXPECTED_PUBLICATION_SOURCE:
         errors.append("publication evidence must retain the exact safe source command")
@@ -146,7 +151,7 @@ def validate_publication_evidence(evidence: dict) -> list[str]:
         errors.append("publication payload has the wrong Wave identity")
     if payload.get("drop_type") != "WINNER" or payload.get("is_signed") is not True:
         errors.append("publication payload must preserve signed WINNER state")
-    if payload.get("observed_at") != CURRENT_PUBLICATION["observed_at"]:
+    if payload.get("observed_at") != SUPPLEMENTAL_PUBLIC_SAFE["observed_at"]:
         errors.append("publication payload time must match the record observation time")
     parts = payload.get("parts")
     if not isinstance(parts, list) or [part.get("part_id") for part in parts if isinstance(part, dict)] != list(range(1, 8)):
@@ -190,20 +195,22 @@ def validate_observations(join: dict) -> list[str]:
         errors.append("media join must carry the exact current WINNER observation ID, time, and payload hash")
     publication = join.get("current_publication_observation")
     if publication != CURRENT_PUBLICATION:
-        errors.append("publication observation must carry the exact public-safe receipt binding")
+        errors.append("publication observation must carry the exact canonical enveloped receipt binding")
+    if join.get("supplemental_public_safe_media_evidence") != SUPPLEMENTAL_PUBLIC_SAFE:
+        errors.append("media join must preserve the exact later public-safe media evidence without replacing the canonical observation")
     binding = join.get("publication_observation_binding", {})
     expected_binding = {
         "record_type": "WAVE_PUBLICATION_OBSERVATION",
         "record_id": CURRENT_PUBLICATION["observation_id"],
         "payload_sha256": CURRENT_PUBLICATION["payload_sha256"],
-        "receipt_path": EVIDENCE_RELATIVE,
+        "receipt_path": CANONICAL_PUBLICATION_PATH,
         "receipt_sha256": CURRENT_PUBLICATION["receipt_sha256"],
-        "required_after_rebase": True,
-        "status": "bound_public_safe_receipt_pending_wp1_graph_binding",
-        "source_record_currently_used": EVIDENCE_RELATIVE,
+        "required_after_rebase": False,
+        "status": "bound_canonical_observation_and_graph",
+        "source_record_currently_used": CANONICAL_PUBLICATION_PATH,
     }
     if binding != expected_binding:
-        errors.append("media join must bind the exact public-safe receipt while retaining the WP-1 graph gate")
+        errors.append("media join must bind the exact public-safe receipt and canonical graph")
     return errors
 
 
@@ -223,8 +230,8 @@ def validate_join(join: dict) -> list[str]:
         fail("media join must declare the historical URL plus live publication-observation boundary")
     if join.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json":
         fail("wave-storm is retained only as the historical URL evidence source record")
-    if join.get("authenticated_publication_receipt") != EVIDENCE_RELATIVE or join.get("authenticated_publication_receipt_sha256") != CURRENT_PUBLICATION["receipt_sha256"]:
-        fail("the exact public-safe publication receipt path and hash must be retained")
+    if join.get("authenticated_publication_receipt") != CANONICAL_PUBLICATION_PATH or join.get("authenticated_publication_receipt_sha256") != CURRENT_PUBLICATION["receipt_sha256"]:
+        fail("the exact canonical publication observation path and hash must be retained")
     if join.get("prior_status_observation", {}).get("historical_only") is not True:
         fail("the prior PARTICIPATORY observation must remain historical-only")
 
@@ -285,8 +292,8 @@ def validate_join(join: dict) -> list[str]:
         if row.get("presentation_context") != EXPECTED_CONTEXT:
             fail(f"{label}: display and hero use must be bound to the exact proposal context")
         display = row.get("standalone_work_display", {})
-        if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "pending_wp1_graph_binding":
-            fail(f"{label}: standalone Work display must fail closed pending the final graph relation")
+        if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "canonical_graph_verified_display_authority_withheld":
+            fail(f"{label}: standalone Work display must remain closed despite a verified graph because display authority is withheld")
         if row.get("load_policy") != "blocked_pending_reviewed_display_authority":
             fail(f"{label}: upstream source loading must remain blocked pending reviewed display authority")
         alt = row.get("alt_text", "")
@@ -316,15 +323,15 @@ def validate_join(join: dict) -> list[str]:
                 fail("Bar-Am current safe alt must remain the visible smoke/canister description")
             amendment = row.get("alt_text_amendment_binding", {})
             if (
-                amendment.get("status") != "pending_wp1_media_description_amendment"
-                or amendment.get("required_after_rebase") is not True
+                amendment.get("status") != "canonical_current_safe_description"
+                or amendment.get("required_after_rebase") is not False
                 or amendment.get("historical_seven_part_wording_preserved") is not True
                 or amendment.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
                 or amendment.get("historical_part_number") != 4
                 or amendment.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
                 or amendment.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
             ):
-                fail("Bar-Am safe alt must bind to the future WP-1 append-only media-description amendment")
+                fail("Bar-Am safe alt must preserve the canonical current description and historical wording")
             historical = row.get("historical_publication_media", {})
             historical_text = row.get("historical_alt_text", "")
             recomputed_historical_hash = "sha256:" + hashlib.sha256(historical_text.encode("utf-8")).hexdigest()
@@ -352,7 +359,7 @@ def validate_work_projections(projections: dict) -> list[str]:
     if projections.get("current_status_observation") != CURRENT_OBSERVATION:
         errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
     if projections.get("current_publication_observation") != PROJECTION_PUBLICATION:
-        errors.append("work projections must retain their separate pending WP-1 publication/graph binding until rebase")
+        errors.append("work projections must carry the exact bound public-safe publication receipt")
     if projections.get("current_public_status") != "Selected by Museum Wave; acquisition review in progress":
         errors.append("work projections must use the selected-review public status")
     if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
@@ -360,7 +367,7 @@ def validate_work_projections(projections: dict) -> list[str]:
     for row in projections.get("works", []):
         for manifestation in row.get("manifestations", []):
             if manifestation.get("type") == "historical_wave_presentation_media":
-                if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "pending_wp1_receipt_binding":
+                if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "bound_canonical_wave_publication_observation":
                     errors.append(f"{row.get('canonical_work_id')}: manifestation lacks current publication observation binding")
                 if (
                     manifestation.get("standalone_route") != "deny"
@@ -371,14 +378,14 @@ def validate_work_projections(projections: dict) -> list[str]:
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
                     if (
-                        binding.get("status") != "pending_wp1_media_description_amendment"
+                        binding.get("status") != "canonical_current_safe_description"
                         or binding.get("historical_seven_part_wording_preserved") is not True
                         or binding.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
                         or binding.get("historical_part_number") != 4
                         or binding.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
                         or binding.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
                     ):
-                        errors.append("6529NM-W-0026: projected Bar-Am manifestation lacks the exact pending safe-alt amendment binding")
+                        errors.append("6529NM-W-0026: projected Bar-Am manifestation lacks the exact canonical safe-alt binding")
     return errors
 
 
@@ -422,6 +429,12 @@ def main() -> int:
         return 1
 
     errors = validate_publication_evidence(evidence)
+    evidence_file_hash = "sha256:" + hashlib.sha256(EVIDENCE_PATH.read_bytes()).hexdigest()
+    canonical_file_hash = "sha256:" + hashlib.sha256(CANONICAL_PUBLICATION_FILE.read_bytes()).hexdigest()
+    if evidence_file_hash != SUPPLEMENTAL_PUBLIC_SAFE["file_sha256"]:
+        errors.append("supplemental public-safe media evidence file hash drift")
+    if canonical_file_hash != CURRENT_PUBLICATION["receipt_sha256"]:
+        errors.append("canonical Wave publication observation file hash drift")
     errors.extend(validate_join(join))
     errors.extend(validate_work_projections(projections))
     for work_path in sorted((ROOT / "works").glob("*.md")):

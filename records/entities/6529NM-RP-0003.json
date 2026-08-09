@@ -1,0 +1,134 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x10fa3994eba53a684f19a5aa76560728a4f3f2cf09d88cb719509e4f9ebc6fe4"
+    },
+    "effectiveAt": 1786233600,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xe8e6131dc914cf849a8a3a624f5d7b0aea4b4d1df87b3a3298be1c93fe96389d",
+    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-RP-0003.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/research/conflict-at-its-edges",
+    "constructor": {
+      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "observed_at": "2026-08-08T14:31:26Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-08T14:31:26Z",
+    "effective_at": "2026-08-09T00:00:00Z",
+    "entity_id": "6529NM-RP-0003",
+    "entity_status": "review_pending",
+    "entity_type": "RESEARCH_PUBLICATION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Conflict at Its Edges Research Publication",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+      }
+    ],
+    "observed_at": "2026-08-09T00:00:00Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:b641cf33fe238cc4a238effb76f007ac1a45e3c6afac1c5e516737f3e0ab7365",
+    "preferred_label": "Conflict at Its Edges",
+    "profile": {
+      "author_entity_ids": [
+        "6529NM-I-0001"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Conflict at Its Edges Research Publication",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+        }
+      ],
+      "profile_type": "RESEARCH_PUBLICATION",
+      "publication_date": "2026-08-09",
+      "publication_document_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md",
+      "publication_kind": "catalogue_essay",
+      "subject_entity_ids": [
+        "6529NM-CA-2026-003",
+        "6529NM-ORG-0002",
+        "6529NM-PRJ-0006",
+        "6529NM-ART-0017",
+        "6529NM-ART-0018",
+        "6529NM-ART-0019",
+        "6529NM-ART-0020",
+        "6529NM-ART-0021",
+        "6529NM-W-0024",
+        "6529NM-W-0025",
+        "6529NM-W-0026",
+        "6529NM-W-0027",
+        "6529NM-W-0028"
+      ],
+      "title": "Conflict at Its Edges",
+      "version": "1.0.0"
+    },
+    "public_slug": "conflict-at-its-edges",
+    "record_id": "6529NM-RP-0003",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0017",
+      "6529NM-ART-0018",
+      "6529NM-ART-0019",
+      "6529NM-ART-0020",
+      "6529NM-ART-0021",
+      "6529NM-CA-2026-003",
+      "6529NM-ORG-0002",
+      "6529NM-PG-2026-001",
+      "6529NM-PRJ-0006",
+      "6529NM-W-0024",
+      "6529NM-W-0025",
+      "6529NM-W-0026",
+      "6529NM-W-0027",
+      "6529NM-W-0028"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ART-0017",
+      "6529NM-ART-0018",
+      "6529NM-ART-0019",
+      "6529NM-ART-0020",
+      "6529NM-ART-0021",
+      "6529NM-CA-2026-003",
+      "6529NM-ORG-0002",
+      "6529NM-PG-2026-001",
+      "6529NM-PRJ-0006",
+      "6529NM-W-0024",
+      "6529NM-W-0025",
+      "6529NM-W-0026",
+      "6529NM-W-0027",
+      "6529NM-W-0028"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Conflict at Its Edges Research Publication",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+        }
+      ],
+      "observed_at": "2026-08-09T00:00:00Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-RP-0003",
+    "visibility": "public"
+  }
+}

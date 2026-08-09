@@ -286,7 +286,7 @@ record is to be manufactured to fill the integration gap.
   `2026-08-09T02:04:21.7672652Z`; canonical payload SHA-256 is
   `sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`
   and receipt-file SHA-256 is
-  `sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b`.
+  `sha256:2d102b1e5ee4c448bad0631d3bb659949456d74a342f6203b3a1dd12d5f29d6a`.
   The projection contains only the public Wave/drop identity, signed WINNER
   state, seven part numbers, and public media URL/MIME/status bindings. Profile,
   rater, reaction, and credential data are excluded.
@@ -303,3 +303,53 @@ record is to be manufactured to fill the integration gap.
   The deployed address uses an EIP-1967-style proxy and exposes
   administratively mutable token/base URI state. Arweave fixity therefore does
   not make the contract pointer immutable.
+
+## 2026-08-09 canonical integration candidate
+
+The scholarship corpus now lives under
+`records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/`, beside the
+governed proposed-gift record it interprets. The former `content/wp-3-magnum/`
+location retains only deterministic editorial, link, Unicode, and media-policy
+checks. The public index, five artist profiles, five Work entries, Magnum Photos
+and Magnum Photos 75 profiles, two acquisition essays, research dossiers, source
+register, and machine projections are all release-manifest declared.
+
+The public entity projection adds Research Publication `6529NM-RP-0003`, thirteen
+`PUBLICATION_INTERPRETS_ENTITY` relations, and one
+`INSTITUTION_PUBLISHES_PUBLICATION` relation. The complete generated projection
+is 332 records: 120 entities, 211 relations, and one Wave status observation.
+Permanent Collection membership remains exactly the seven Casey Reas Works.
+Magnum remains `selected_by_museum_wave_acquisition_review_in_progress` and
+`not_in_collection`.
+
+The canonical signed Wave publication record remains
+`6529NM-WAVE-PUB-OBS-2026-08-08-001`, payload
+`sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995`,
+record SHA-256
+`sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58`.
+The later 9 August public-safe API observation confirms the continuing signed
+`WINNER` state and public URL/MIME/media-state fields; it supplements rather
+than supersedes the canonical enveloped observation.
+
+All five photographic URLs are non-rendering evidence locators. No photograph,
+thumbnail, derivative, responsive source set, download, zoom, fullscreen,
+IIIF service, or preservation object is admitted. The Museum-authored CC0
+proposal cover remains a separate media reference and may not impersonate a
+source photograph.
+
+The pre-schema candidate release contained 534 publication-inventory entries,
+533 bundled visitor documents, and 775 complete-manifest entries. Candidate
+manifest SHA-256 is
+`sha256:617befc175f8f61897bd6150d85605a641210fdd2540cbfb4d579dae66a1bc80`;
+Keccak is
+`0xed2f45eb33c639ab579345012a02dced06dc830cc066cfc0807a6f2d30979df1`.
+These commitments were superseded when the supplemental evidence and supporting
+machine records received their required governed-record schemas. The exact
+candidate release contains 534 publication-inventory entries, 533 bundled
+visitor documents, and 777 complete-manifest entries. Its authoritative
+SHA-256 is
+`sha256:bbabfe4e198fe833782257496165374d80adacf37d163eb04388d317d563c4a9`;
+its Keccak commitment is
+`0x507e63112fb1573b866c28c89cf699f4cea51c23da702029850e10ae1aab4672`.
+Independent review, deterministic reviewed-child promotion, and a release-only
+catalog/pointer activation remain separate required commits.

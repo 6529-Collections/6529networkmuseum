@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfd993156bbc5b97097aacea6b7a34830045d6b650620f404455ee038d4f4e436"
+      "digest": "0x9fb82392d31cddf6a0d201ae6f577cb25c3fe7613ba689fd28abf6cc42791d9a"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -33,27 +33,27 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Proposed gift artist label",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "label": "Museum artist research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/larry-towell.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:6fa9be05990ad611b11a7fd2ce5335ffa88e7728610292aa3d3dd4d2d1c6a95f",
+    "payload_sha256": "sha256:9f9aea7d8174b1abc273d2407cca881dd8d51d33158c3506dfc61f3680c19b72",
     "preferred_label": "Larry Towell",
     "profile": {
       "authority": {
         "authority_record_ids": [
           "6529NM-AGT-0019"
         ],
-        "authority_status": "source_label_only",
+        "authority_status": "provisional",
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/larry-towell.md"
           }
         ]
       },
@@ -87,18 +87,19 @@
       ],
       "practice": {
         "areas": [
-          "photography",
-          "proposal work"
+          "documentary photography",
+          "land and family",
+          "conflict and private life"
         ],
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/larry-towell.md"
           }
         ],
-        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+        "summary": "Larry Towell's long-form black-and-white practice is grounded in land, family, conflict, and the pressures political systems exert on private life. The selected 1986 El Salvador photograph places armed presence beside domestic and religious space."
       },
       "profile_type": "ARTIST"
     },
@@ -124,9 +125,9 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Proposed gift artist label",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "label": "Museum artist research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/larry-towell.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

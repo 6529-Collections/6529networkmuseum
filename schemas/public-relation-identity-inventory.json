@@ -791,6 +791,62 @@
                               {
                                   "relation_id":  "6529NM-REL-0197",
                                   "source_key":  "INSTITUTION_PUBLISHES_PUBLICATION|6529NM-I-0001|6529NM-RP-0002"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0198",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-CA-2026-003"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0199",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ORG-0002"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0200",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-PRJ-0006"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0201",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ART-0017"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0202",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ART-0018"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0203",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ART-0019"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0204",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ART-0020"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0205",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-ART-0021"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0206",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-W-0024"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0207",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-W-0025"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0208",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-W-0026"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0209",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-W-0027"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0210",
+                                  "source_key":  "PUBLICATION_INTERPRETS_ENTITY|6529NM-RP-0003|6529NM-W-0028"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0211",
+                                  "source_key":  "INSTITUTION_PUBLISHES_PUBLICATION|6529NM-I-0001|6529NM-RP-0003"
                               }
                           ]
 }

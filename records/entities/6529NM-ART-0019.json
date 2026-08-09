@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x97ff369fb923cfb34809bb246b9a4c235d770aefdd91f6097b89c866a43eb1cb"
+      "digest": "0xda1b25c06362336ef68d7ab6bd8cb05448a7cb6c6d0a3403277eab401638f181"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -33,27 +33,27 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Proposed gift artist label",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "label": "Museum artist research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:278668242f320b53bd968ff4e780b31f5c3d0793054055db9d3a65ffa332e2ff",
+    "payload_sha256": "sha256:4a48a1fe75ac0a681f9b390274c0ff9fd1e869ec06b652404c0426237bc3de1f",
     "preferred_label": "Micha Bar-Am",
     "profile": {
       "authority": {
         "authority_record_ids": [
           "6529NM-AGT-0020"
         ],
-        "authority_status": "source_label_only",
+        "authority_status": "provisional",
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
           }
         ]
       },
@@ -87,18 +87,19 @@
       ],
       "practice": {
         "areas": [
-          "photography",
-          "proposal work"
+          "documentary photography",
+          "Israel and civic history",
+          "conflict and ambiguity"
         ],
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
           }
         ],
-        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+        "summary": "Micha Bar-Am's photography is rooted in the contested civic and military history of Israel, combining close access with a wary attention to ambiguity. The selected 1989 Jerusalem photograph records motion, smoke, ritual space, and public confrontation without resolving them into a single account."
       },
       "profile_type": "ARTIST"
     },
@@ -124,9 +125,9 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Proposed gift artist label",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "label": "Museum artist research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xcdb011ce191e8d60a00921e6531491eb9a5f74990d5fe996df1cda142d031aad"
+      "digest": "0xdd9c380c3f2198d5f1272b10ba29d26ac7d76104f6ef50746cb3e991de98cd53"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -33,14 +33,14 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Magnum Photos source profile",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+        "label": "Magnum Photos research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:3204b6da347357ead1d2e774d4402c174de5e6f6260aa84f3c4b4d1e9f94039d",
+    "payload_sha256": "sha256:d38da3f02a4db0dedabcfc4e1a06a452c740574cc634840857c8cc4493325c80",
     "preferred_label": "Magnum Photos",
     "profile": {
       "authority": {
@@ -49,21 +49,21 @@
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Magnum Photos source profile",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+            "label": "Magnum Photos research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
           }
         ]
       },
-      "history_summary": "Magnum Photos is the photographer cooperative and archive/publisher named by the retained Magnum Photos 75 proposal evidence. This limited public profile records its source-documented project role without asserting a Museum ownership or rights relationship.",
+      "history_summary": "Founded in 1947 as a photographer-owned cooperative, Magnum Photos joined individual authorship to a shared editorial, archival, and distribution structure. This profile follows that institutional history into Magnum Photos 75, the 2022 anniversary project from which the five Works under review were selected.",
       "name_variants": [
         {
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Name source",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+              "observed_at": "2026-08-09T00:00:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
             }
           ],
           "source_kind": "published_source",
@@ -97,9 +97,9 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Magnum Photos source profile",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+          "label": "Magnum Photos research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb934a4103e10394fddf3a5ca7086b5d027b8d2dbce0cdbfe8c94ba2d0ae39e6b"
+      "digest": "0xd3fe94dfc1329c7dbe867a5debd1e933333596a844559f10c911b35bb305c630"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -33,27 +33,27 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Proposed gift artist label",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "label": "Museum artist research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:069ef68544ee452f26396edc8351ca6f045fcf90d0dbb013f6b6dc072c9830cc",
+    "payload_sha256": "sha256:45dc52ba9219eb66be1fc83698328de50c20beb2ca3c9e512f60c378d4fe64e7",
     "preferred_label": "David Seymour",
     "profile": {
       "authority": {
         "authority_record_ids": [
           "6529NM-AGT-0018"
         ],
-        "authority_status": "source_label_only",
+        "authority_status": "provisional",
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
           }
         ]
       },
@@ -87,18 +87,19 @@
       ],
       "practice": {
         "areas": [
-          "photography",
-          "proposal work"
+          "documentary photography",
+          "conflict and aftermath",
+          "children and displacement"
         ],
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
           }
         ],
-        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+        "summary": "David Seymour's photographs often turn from the spectacle of war to its human aftermath, particularly children, displacement, and reconstruction. The selected 1952 Negev photograph belongs to this sustained attention to lives organized by borders and political upheaval."
       },
       "profile_type": "ARTIST"
     },
@@ -124,9 +125,9 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Proposed gift artist label",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "label": "Museum artist research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

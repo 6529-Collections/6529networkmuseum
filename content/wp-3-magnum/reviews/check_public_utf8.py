@@ -11,7 +11,8 @@ from pathlib import Path
 import sys
 
 
-ROOT = Path(__file__).resolve().parents[1]
+REPOSITORY = Path(__file__).resolve().parents[3]
+ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 PUBLIC_MARKDOWN_DIRS = tuple(
     ROOT / name for name in ("entities", "artists", "works", "essays", "dossiers", "sources")
 )

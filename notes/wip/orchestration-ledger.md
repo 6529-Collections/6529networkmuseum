@@ -3265,3 +3265,37 @@ Source PR #36 subsequently merged to exact main
 onto that main, preserve the policy/publication/ledger/index records, regenerate
 the release manifest, and rerun validation before its draft/ready PR. Do not
 adopt the unrelated replacement-policy draft outside this worktree.
+
+## 2026-08-09 Magnum canonical integration candidate
+
+WP-3 is rebased through canonical K&G main
+`b021b50c8c394d3f237707eded17fe6bb394b422`. Its visitor corpus has moved from
+the construction namespace into
+`records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/`. Research
+Publication `6529NM-RP-0003` and relations `6529NM-REL-0198` through
+`6529NM-REL-0211` complete the typed publication graph. The projection now
+contains 120 entities, 211 relations, and one Wave status observation.
+
+The canonical publication join uses the enveloped 8 August observation and its
+part-content hashes. The later 9 August public-safe API evidence is retained as
+supplemental URL/MIME/media-state readback. It is not the graph's canonical
+publication identity. Image delivery remains denied for all five photographs;
+the historical URLs are citation evidence only.
+
+Focused Magnum copy, links, UTF-8, media-policy checks and 38 public-entity /
+editorial tests pass. The pre-schema candidate boundary was 534 publication
+inventory entries, 533 visitor-bundle entries, and 775 manifest entries, with
+manifest SHA-256
+`sha256:617befc175f8f61897bd6150d85605a641210fdd2540cbfb4d579dae66a1bc80`
+and Keccak
+`0xed2f45eb33c639ab579345012a02dced06dc830cc066cfc0807a6f2d30979df1`.
+Those commitments were superseded when the public-safe evidence and machine
+records received required closed top-level governed schemas. The current
+candidate boundary contains 534 publication-inventory entries, 533
+visitor-bundle entries, and 777 complete-manifest entries. Its authoritative
+SHA-256 is
+`sha256:bbabfe4e198fe833782257496165374d80adacf37d163eb04388d317d563c4a9`
+and its Keccak commitment is
+`0x507e63112fb1573b866c28c89cf699f4cea51c23da702029850e10ae1aab4672`.
+Exact-head review, merge, reviewed-child promotion, catalog/pointer activation,
+frontend binding, and staging/production qualification remain open.

@@ -356,6 +356,7 @@
     {"entity_id": "6529NM-PRJ-0006", "entity_type": "PROJECT_OR_SERIES", "preferred_label": "Magnum Photos 75", "public_slug": "magnum-photos-75", "canonical_route": "/museum/network/projects/magnum-photos-75"},
     {"entity_id": "6529NM-AP-ENT-0001", "entity_type": "ACQUISITION_PROGRAM", "preferred_label": "Gift Acquisitions", "public_slug": "gift-acquisitions", "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions"},
     {"entity_id": "6529NM-AP-ENT-0002", "entity_type": "ACQUISITION_PROGRAM", "preferred_label": "Keys and Gates", "public_slug": "keys-and-gates", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates"},
-    {"entity_id": "6529NM-RP-0002", "entity_type": "RESEARCH_PUBLICATION", "preferred_label": "Access, Control, and Exit", "public_slug": "access-control-and-exit", "canonical_route": "/museum/network/research/access-control-and-exit"}
+    {"entity_id": "6529NM-RP-0002", "entity_type": "RESEARCH_PUBLICATION", "preferred_label": "Access, Control, and Exit", "public_slug": "access-control-and-exit", "canonical_route": "/museum/network/research/access-control-and-exit"},
+    {"entity_id": "6529NM-RP-0003", "entity_type": "RESEARCH_PUBLICATION", "preferred_label": "Conflict at Its Edges", "public_slug": "conflict-at-its-edges", "canonical_route": "/museum/network/research/conflict-at-its-edges"}
   ]
 }

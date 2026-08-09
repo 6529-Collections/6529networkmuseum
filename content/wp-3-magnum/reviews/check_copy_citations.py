@@ -1,4 +1,4 @@
-"""Run deterministic editorial and citation checks over the public WP-3 corpus.
+"""Run deterministic editorial and citation checks over the public Magnum corpus.
 
 The check is local only. It includes dossiers and the source register because
 both are intended for public research publication; machine records, review
@@ -12,7 +12,8 @@ import re
 import sys
 
 
-ROOT = Path(__file__).resolve().parents[1]
+REPOSITORY = Path(__file__).resolve().parents[3]
+ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 PUBLIC_DIRS = tuple(ROOT / name for name in ("entities", "artists", "works", "essays", "dossiers", "sources"))
 SOURCE_REGISTER = ROOT / "sources" / "source-register.md"
 FOOTNOTE_REF = re.compile(r"\[\^([^\]]+)\](?!:)")
@@ -30,7 +31,7 @@ FORBIDDEN_COPY = (
     "through the machine join",
     "frontend must",
     "The Museum should",
-    "Public Work entity ID assigned by WP-1 on rebase",
+    "Public Work entity ID assigned by an earlier integration lane",
     "proposed five-work gift",
     "five proposed Works",
     "Why consider the gift",

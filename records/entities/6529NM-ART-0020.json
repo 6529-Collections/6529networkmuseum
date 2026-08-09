@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x79a854613e61e860df3b0c2dc96aaa1f5bb21046fe1651018570faada9de76e4"
+      "digest": "0xc7f918910a55302abee65a65b91c51f68858aa87bfff048e69a8086fa3b26b6f"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -33,27 +33,27 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Proposed gift artist label",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "label": "Museum artist research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:9ef1223fb876e8f3515edf20a5456157b21ff8e1c9dfb08d778bea6e9b0f5aa1",
+    "payload_sha256": "sha256:a5b5bfedf0fc1aabea4eca056a35daf46b4f06a2cc373900cf19702ef4ed2d69",
     "preferred_label": "Moisés Saman",
     "profile": {
       "authority": {
         "authority_record_ids": [
           "6529NM-AGT-0021"
         ],
-        "authority_status": "source_label_only",
+        "authority_status": "provisional",
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
           }
         ]
       },
@@ -87,18 +87,19 @@
       ],
       "practice": {
         "areas": [
-          "photography",
-          "proposal work"
+          "documentary photography",
+          "war and political upheaval",
+          "aftermath and uncertainty"
         ],
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Proposed gift artist label",
-            "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "label": "Museum artist research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
           }
         ],
-        "summary": "A limited public artist profile derived from the artist label attached to a proposed Museum Wave work; it does not assert a complete scholarly biography."
+        "summary": "Moisés Saman's work follows war and political upheaval through their unstable aftermaths, often attending to the distance between official narrative and lived experience. The selected 2011 Tripoli photograph centers a young person in an interior marked by conflict while preserving uncertainty around the event."
       },
       "profile_type": "ARTIST"
     },
@@ -124,9 +125,9 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Proposed gift artist label",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "label": "Museum artist research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
