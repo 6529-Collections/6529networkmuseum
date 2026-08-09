@@ -520,6 +520,8 @@
       "schemas/public-entity-identity-inventory.json",
       "schemas/public-publication-bundle.schema.json",
       "schemas/public-publication-inventory.schema.json",
+      "schemas/public-relation-identity-inventory.json",
+      "schemas/public-relation-identity-inventory.schema.json",
       "schemas/public-route-compatibility.json"
     ]
   },
@@ -532,7 +534,7 @@
   },
   "counts": {
     "approved_public_media": 1,
-    "public_assembly_control_document": 93,
+    "public_assembly_control_document": 95,
     "public_curatorial_manuscript": 97,
     "public_entity_record": 120,
     "public_media_source_manifest": 1,
@@ -4163,13 +4165,27 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/public-relation-identity-inventory.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "schemas/public-relation-identity-inventory.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/public-route-compatibility.json",
       "required_in_catalog": true
     }
   ],
   "integrity": {
-    "body_keccak256": "0x3b9fde023f76cc89fe7a04fa8487daa4dafd208c3c38363b5d89db7ef4a47003",
-    "body_sha256": "sha256:8c77c0c28b8d8cf8dc68b473e713640c92fb7bbcc79a9952626f44856b97c6c9",
+    "body_keccak256": "0x4d27f18c6b309318cc14d1acb49bf9f51dd702255c5d2d2e600b092ffad47dea",
+    "body_sha256": "sha256:91e77734cca03ecaf703868b6bc7d1ad56f8714768f7c20928207c8a2940d162",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

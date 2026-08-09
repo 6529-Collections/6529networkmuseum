@@ -80,9 +80,11 @@ EXPLICIT_MANUSCRIPTS = (
 # assembly documents, not source manuscripts and not the inventory itself.
 ASSEMBLY_CONTROL_PATHS = (
     "schemas/public-entity-identity-inventory.json",
+    "schemas/public-relation-identity-inventory.json",
     "schemas/public-route-compatibility.json",
     "schemas/public-publication-inventory.schema.json",
     "schemas/public-publication-bundle.schema.json",
+    "schemas/public-relation-identity-inventory.schema.json",
 )
 
 # Accessibility descriptions are safe visitor-facing source material. The

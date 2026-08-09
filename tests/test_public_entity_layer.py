@@ -300,6 +300,35 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
         self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
 
+        publication_inventory = load_json(ROOT / "schemas/public-publication-inventory.json")
+        publication_entries = {
+            row["path"]: row for row in publication_inventory["entries"]
+        }
+        for path in (
+            "schemas/public-relation-identity-inventory.json",
+            "schemas/public-relation-identity-inventory.schema.json",
+        ):
+            self.assertEqual(
+                publication_entries[path],
+                {
+                    "path": path,
+                    "kind": "public_assembly_control_document",
+                    "delivery_role": "assembly_document",
+                    "required_in_catalog": True,
+                    "activation_mode": "atomic",
+                },
+            )
+            self.assertIn(path, publication_inventory["assembler"]["required_paths"])
+
+        visitor_bundle = load_json(
+            ROOT / "records/publication/visitor-corpus-bundle-v1.json"
+        )
+        bundled_paths = {row["path"] for row in visitor_bundle["entries"]}
+        self.assertIn("schemas/public-relation-identity-inventory.json", bundled_paths)
+        self.assertIn(
+            "schemas/public-relation-identity-inventory.schema.json", bundled_paths
+        )
+
         interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
         self.assertEqual(len(interprets), 32)
         self.assertEqual({relation["target_entity_id"] for relation in interprets}, {"6529NM-CA-2026-002", *work_ids, *artist_ids})
