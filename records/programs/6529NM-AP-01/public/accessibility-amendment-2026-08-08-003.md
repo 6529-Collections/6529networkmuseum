@@ -1,5 +1,7 @@
 # Keys and Gates — accessibility and public-size amendment
 
+> **Historical technical record:** Retained for append-only lineage. It does not operate as current image-delivery authority; see the [current media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md).
+
 **Record ID:** `6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-003`<br>
 **Supersedes for current publication state:** [`6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-001`](accessibility-amendment.md) and [`6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-002`](accessibility-amendment-2026-08-08-002.md)<br>
 **Record type:** derived publication amendment<br>

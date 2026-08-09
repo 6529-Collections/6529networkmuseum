@@ -39,8 +39,7 @@ EXPECTED_ALTS = {
     f"{PROGRAM_ID}-OUT-010": "A bare torso emerges from folds of black fabric against a nearly black background.",
     f"{PROGRAM_ID}-OUT-011": (
         "A nude figure reclines on an ornate gold chair, wearing bright sandals and "
-        "holding a small dark booklet or document; its text is not legible at the "
-        "public derivative scale."
+        "holding a small dark booklet or document; no text is readable on the object."
     ),
     f"{PROGRAM_ID}-OUT-012": "A person stands framed by successive arched doorways inside a heavily damaged building.",
     f"{PROGRAM_ID}-OUT-013": (
@@ -58,10 +57,7 @@ EXPECTED_ALTS = {
         "beyond a lit gate with a warning sign and a person-like silhouette."
     ),
 }
-EXPECTED_WIDTHS = {
-    record_id: [640] if record_id.endswith(("OUT-004", "OUT-011")) else [640, 1280, 2400]
-    for record_id in EXPECTED_ALTS
-}
+EXPECTED_WIDTHS = {record_id: [] for record_id in EXPECTED_ALTS}
 CURATORIAL_SEQUENCE = (
     "take-the-key.md",
     "no-key-only-light.md",
@@ -177,14 +173,14 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             self.assertEqual(expected_widths, [entry["width"] for entry in presentation["derivatives"]])
 
         out_011 = next(item for item in manifest_items if item["record_id"].endswith("OUT-011"))
-        self.assertEqual([640], out_011["presentation"]["public_widths"])
-        self.assertEqual([640], [entry["width"] for entry in out_011["presentation"]["derivatives"]])
+        self.assertEqual([], out_011["presentation"]["public_widths"])
+        self.assertEqual([], out_011["presentation"]["derivatives"])
         self.assertNotIn("/1280.webp", json.dumps(out_011))
         self.assertNotIn("/2400.webp", json.dumps(out_011))
 
         out_004 = next(item for item in manifest_items if item["record_id"].endswith("OUT-004"))
-        self.assertEqual([640], out_004["presentation"]["public_widths"])
-        self.assertEqual([640], [entry["width"] for entry in out_004["presentation"]["derivatives"]])
+        self.assertEqual([], out_004["presentation"]["public_widths"])
+        self.assertEqual([], out_004["presentation"]["derivatives"])
         self.assertNotIn("/1280.webp", json.dumps(out_004))
         self.assertNotIn("/2400.webp", json.dumps(out_004))
 
@@ -226,24 +222,8 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
 
         manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
         out_011 = next(item for item in manifest["items"] if item["record_id"].endswith("OUT-011"))
-        derivative = out_011["presentation"]["derivatives"]
-        self.assertEqual(
-            [
-                {
-                    "width": 640,
-                    "sha256": "sha256:14eea8754ea08d39dd5fe39d93f2f69dbce8e18e9f550a10f7e76bc6ec3fc784",
-                    "byte_size": 15306,
-                }
-            ],
-            [
-                {
-                    "width": entry["width"],
-                    "sha256": entry["sha256"],
-                    "byte_size": entry["byte_size"],
-                }
-                for entry in derivative
-            ],
-        )
+        self.assertEqual([], out_011["presentation"]["public_widths"])
+        self.assertEqual([], out_011["presentation"]["derivatives"])
 
         visitor_paths = [
             REPO_ROOT / "records/programs/6529NM-AP-01/public/README.md",
@@ -279,14 +259,8 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
 
         manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
         out_004 = next(item for item in manifest["items"] if item["record_id"].endswith("OUT-004"))
-        self.assertEqual([640], out_004["presentation"]["public_widths"])
-        self.assertEqual(
-            [{"width": 640, "sha256": "sha256:8e0915b020965a6090c868ba29397c03ee8322d84ebca32fe3714f0537d96987", "byte_size": 45202}],
-            [
-                {"width": entry["width"], "sha256": entry["sha256"], "byte_size": entry["byte_size"]}
-                for entry in out_004["presentation"]["derivatives"]
-            ],
-        )
+        self.assertEqual([], out_004["presentation"]["public_widths"])
+        self.assertEqual([], out_004["presentation"]["derivatives"])
 
     def test_limited_editorial_display_authority_covers_all_16(self) -> None:
         amendment = (
@@ -325,7 +299,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             self.assertIsNone(media_match, work)
             self.assertIn("**Media:** [Media and source record]", text)
             if alias in WITHHELD_IMAGE_ALIASES:
-                self.assertIn("Image delivery:** Not approved for delivery", text)
+                self.assertIn("Image delivery:** Withheld", text)
             self.assertIn(
                 "**Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**",
                 text,
@@ -463,7 +437,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
                 "OUT-011": "sina-beizavi-in-brazil.md",
             }[alias]
             work = (public_root / "works" / work_name).read_text(encoding="utf-8")
-            self.assertIn("Image delivery:** Not approved for delivery", work)
+            self.assertIn("Image delivery:** Withheld", work)
             self.assertIn("Constructed visual description (pending independent review)", work)
             self.assertNotIn("d3lqz0a4bldqgf.cloudfront.net/museum/programs/", work)
 
@@ -562,7 +536,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertIn("no independent approval", authority_text)
         self.assertIn("is claimed here", authority_text)
 
-    def test_publication_authority_rows_match_exact_width_allowlist(self) -> None:
+    def test_historical_authority_rows_are_superseded_by_empty_active_allowlist(self) -> None:
         accessibility = load_json(f"media/programs/{PROGRAM_ID}/accessibility.json")
         accessibility_by_alias = {
             item["record_id"].split(f"{PROGRAM_ID}-", 1)[1]: item["public_widths"]
@@ -593,20 +567,45 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertEqual(16, len(rows))
         for alias in sorted(expected_aliases):
             self.assertEqual("PROVISIONAL_EDITORIAL_DISPLAY_LIMITED", rows[alias]["authority"])
-            self.assertEqual(accessibility_by_alias[alias], rows[alias]["widths"], alias)
-            self.assertEqual(manifest_by_alias[alias], rows[alias]["widths"], alias)
+            self.assertEqual([], accessibility_by_alias[alias], alias)
+            self.assertEqual([], manifest_by_alias[alias], alias)
+            self.assertTrue(rows[alias]["widths"], alias)
+        withdrawal = (
+            REPO_ROOT
+            / "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Supersedes for current delivery state", withdrawal)
+        self.assertIn("amendments 004, 005, 006", withdrawal)
 
-    def test_out_011_amendment_binds_current_committed_manifest_fields(self) -> None:
+    def test_current_withdrawal_binds_prior_candidate_and_active_manifest(self) -> None:
         manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
         amendment = (
-            REPO_ROOT / "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md"
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
         ).read_text(encoding="utf-8")
-        constructed_at = manifest["record_control"]["constructor"]["constructed_at"]
-        generated_at = manifest["generated_at"]
-        self.assertIn("records/programs/6529NM-AP-01/media-manifest.json", amendment)
-        self.assertIn(f"`{constructed_at}`", amendment)
-        self.assertIn(f"`{generated_at}`", amendment)
-        self.assertNotIn("2026-08-08T12:58:46Z", amendment)
+        self.assertEqual("withheld_pending_reviewed_display_authority", manifest["delivery"]["status"])
+        self.assertIsNone(manifest["delivery"]["authority_record_id"])
+        self.assertIn("86b0735e4a81030f94d29973001d3b2751ba8b75", amendment)
+        self.assertIn("sha256:f023c79f44b8440813c11b9ebf9d428d06d399ae87d846d6e08b9e6db459cd85", amendment)
+
+    def test_current_delivery_inventory_is_closed_and_non_rendering(self) -> None:
+        manifest = load_json(f"records/programs/{PROGRAM_ID}/media-manifest.json")
+        self.assertEqual("withheld_pending_reviewed_display_authority", manifest["delivery"]["status"])
+        self.assertIsNone(manifest["delivery"]["authority_record_id"])
+        self.assertTrue(all(item["presentation"]["public_widths"] == [] for item in manifest["items"]))
+        self.assertTrue(all(item["presentation"]["derivatives"] == [] for item in manifest["items"]))
+        media_root = REPO_ROOT / "media/programs/6529NM-AP-01"
+        self.assertEqual([], sorted(media_root.rglob("*.webp")))
+        visitor_bundle = (
+            REPO_ROOT / "records/publication/visitor-corpus-bundle-v1.json"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("d3lqz0a4bldqgf.cloudfront.net/museum/programs/", visitor_bundle)
+        self.assertNotIn("what is visible in the current presentation derivative", visitor_bundle)
+        self.assertNotIn("Existing WebP derivatives may be referenced", visitor_bundle)
+        self.assertNotIn("visual descriptions of the current presentation derivatives", visitor_bundle)
+        self.assertNotIn("The 640px public derivative keeps its text illegible", visitor_bundle)
+        self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment.md", visitor_bundle)
+        self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-002.md", visitor_bundle)
+        self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-003.md", visitor_bundle)
 
     def test_visitor_copy_has_no_exhibition_or_formulaic_scaffolding_terms(self) -> None:
         public_root = REPO_ROOT / "records/programs/6529NM-AP-01/public"

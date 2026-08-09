@@ -37,7 +37,19 @@ MAX_BUNDLE_BYTES = 8_000_000
 TEXT_EXTENSIONS = {".json", ".md", ".txt", ".py", ".yml", ".yaml", ".svg", ".gitattributes", ".gitignore"}
 MEDIA_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".svg"}
 PUBLIC_MEDIA_RIGHTS_STATUSES = {"cleared", "cleared_with_conditions"}
-EXCLUDED_PUBLIC_MARKDOWN = {"records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md"}
+EXCLUDED_PUBLIC_MARKDOWN = {
+    "records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md",
+    # Superseded accessibility and delivery records remain in the source
+    # repository but are not visitor manuscripts. The current accessibility
+    # JSON, publication boundary, and withdrawal amendment carry the active
+    # public state without exposing obsolete derivative instructions.
+    "records/programs/6529NM-AP-01/public/accessibility-amendment.md",
+    "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-002.md",
+    "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-003.md",
+    "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md",
+    "records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-006.md",
+    "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md",
+}
 
 # These are the visitor-facing and frontend-contract manuscripts that do not
 # live below records/**/public.  The records/public tree is derived in full,

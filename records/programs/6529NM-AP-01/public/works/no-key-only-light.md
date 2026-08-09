@@ -2,7 +2,7 @@
 
 > **Content note:** Two distant silhouetted figures are described in the technical 640 derivative. The program terms exclude identifiable minors; the derivative supplies no identifying detail and leaves the figures’ ages unestablished.
 
-> **Image delivery:** Not approved for delivery. The technical 640px derivative is retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
+> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
 
 > **Constructed visual description (pending independent review):** Two silhouetted figures walk toward daylight at the end of a rough stone passage.
 
@@ -40,7 +40,7 @@ The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** OUT-004 has no visual-display approval. The artist represents consent documentation is available on request, but no instrument is retained in the Museum record; the figures’ ages and privacy/consent scope remain unverified. The 640 derivative’s technical invalidation/readback is recorded in [the OUT-004 delivery amendment](../accessibility-amendment-2026-08-08-006.md), but it is not approval for delivery. Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-004 has no visual-display approval. The artist represents consent documentation is available on request, but no instrument is retained in the Museum record; the figures’ ages and privacy/consent scope remain unverified. Historical delivery evidence remains in the append-only source record identified by the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md). Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

@@ -14,11 +14,11 @@
 
 ## Caption
 
-Water fans through a dark, fluted spillway while a small opening of sky remains above the engineered funnel.
+Water fans through a dark, fluted form while a small opening of sky remains above its curving walls.
 
 ## Close looking
 
-The photograph looks upward into a form that is both bowl and aperture. Water radiates from a centre hidden below the frame, and repeating flutes pull the eye toward the bright opening. The mechanism disappears into pattern. A small patch of sky becomes a measured permission at the top of the image, while water and light follow an engineered channel whose form resembles a flower, throat, or mouth.
+The photograph looks upward into a form that is both bowl and aperture. Water radiates from a centre hidden below the frame, and repeating flutes pull the eye toward the bright opening. The structure disappears into pattern. A small patch of sky remains at the top of the image, while water and light follow curves that resemble a flower, throat, or mouth.
 
 ## Artist’s account
 
@@ -26,7 +26,7 @@ Zoku identifies the image as the spillway funnel of San Roque Dam and describes 
 
 ## Curatorial interpretation
 
-Control appears through disappearance. No operator, hinge, or warning sign appears; shaped water carries the evidence of a system. The abstraction is political as well as formal: infrastructure can organize passage while presenting itself as neutral flow.
+No operator, hinge, or warning sign appears. Regulation is conveyed by the fan of water, the repeated ribs, and the circle of sky. The photograph turns a large structure into an enveloping pattern whose purpose is legible only through the flow it shapes.
 
 ## Context
 

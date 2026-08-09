@@ -26,7 +26,7 @@ Yıldız connects doors and keys to knowledge, authority, digital sovereignty, o
 
 ## Curatorial interpretation
 
-The photograph’s force lies in the distance between illumination and access. The screen organizes what the room can reveal, and the small figure makes that arrangement bodily. Beauty gives the threshold its authority; the key remains an idea held by the artist’s account.
+The screen performs two contrary tasks at once: it brightens the hall and breaks the view beyond into a lattice. Long stripes of light carry its pattern onto the floor, while the figure’s small scale makes the architecture feel almost ceremonial. The key belongs to the artist’s account; the photograph itself builds its tension from light made abundant and vision made partial.
 
 ## Context
 

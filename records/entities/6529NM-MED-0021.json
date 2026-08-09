@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4a488a56bc10508d66cd60cdbe22a4b445441cd200bf946c8563a3b26dd5a360"
+      "digest": "0xce202ca0f28df6939d5e60d0fbd8c99f21fd5d5e1b1d4d581d7649fa2b6f13ad"
     },
-    "effectiveAt": 1785596615,
+    "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,36 +26,30 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-01T15:03:35Z",
+    "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0021",
     "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
-        "evidence_class": "C",
-        "label": "Keys and Gates presentation derivative",
-        "observed_at": "2026-08-01T15:03:35Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp"
+        "evidence_class": "B",
+        "label": "Keys and Gates non-delivering presentation record",
+        "observed_at": "2026-08-09T00:32:21Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
       }
     ],
-    "observed_at": "2026-08-01T15:03:35Z",
+    "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:799ee6c1e7e16a7efedd4568b91ba1c93014f8d590e8e99699a55c10ed9d6b33",
-    "preferred_label": "the Artist in teh Open Sea Museum presentation derivative",
+    "payload_sha256": "sha256:8bc6c99765ae03787fa3896fe9ac0be0a09df66f9343d2eadd26e24af6ed5aa4",
+    "preferred_label": "the Artist in teh Open Sea presentation record",
     "profile": {
       "media": {
         "accessibility_evidence_refs": [
           {
-            "evidence_class": "B",
-            "label": "Accessibility source",
-            "observed_at": "2026-08-01T15:03:35Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
-          },
-          {
-            "evidence_class": "B",
-            "label": "Accessibility source",
-            "observed_at": "2026-08-01T15:03:35Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+            "evidence_class": "C",
+            "label": "Keys and Gates accessibility record",
+            "observed_at": "2026-08-09T00:32:21Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/accessibility.json"
           }
         ],
         "accessibility_publication_entity_id": null,
@@ -66,16 +60,16 @@
           "alt_text",
           "copy_citation"
         ],
-        "credit": "HugoFaz — the Artist in teh Open Sea; Keys and Gates program presentation",
+        "credit": "HugoFaz — the Artist in teh Open Sea; Keys and Gates presentation record",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": "sha256",
-          "basis": "The governed Keys and Gates media manifest records the retrieved derivative bytes and digest.",
-          "digest": "sha256:fc6d063ce1587e44ec90a58c3e4ad86574c88be98fcb32d67a14d361967f3a38",
-          "status": "verified",
-          "verified_at": "2026-08-01T15:03:35Z"
+          "algorithm": null,
+          "basis": "The active publication withholds every presentation derivative; prior fixity remains in the source history and withdrawal amendment.",
+          "digest": null,
+          "status": "unverified_not_retrieved",
+          "verified_at": null
         },
-        "height": 427,
+        "height": null,
         "identity_inference_prohibition": null,
         "media_role": "museum_generated_public_derivative",
         "media_type": "image/webp",
@@ -85,19 +79,19 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Keys and Gates outcome rights statement",
               "observed_at": "2026-08-01T15:03:35Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
             },
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+              "label": "Keys and Gates media withdrawal",
+              "observed_at": "2026-08-09T00:32:21Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
             }
           ],
           "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
-          "observed_at": "2026-08-01T15:03:35Z",
+          "observed_at": "2026-08-09T00:32:21Z",
           "statement_entity_id": null,
           "status": "unknown"
         },
@@ -108,21 +102,21 @@
         "source_observation": {
           "evidence_refs": [
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+              "evidence_class": "B",
+              "label": "Keys and Gates active media manifest",
+              "observed_at": "2026-08-09T00:32:21Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/media-manifest.json"
             },
             {
-              "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+              "evidence_class": "B",
+              "label": "Keys and Gates media withdrawal",
+              "observed_at": "2026-08-09T00:32:21Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
-          "observed_at": "2026-08-01T15:03:35Z",
-          "status": "retrieved"
+          "observed_at": "2026-08-09T00:32:21Z",
+          "status": "source_declared"
         },
         "source_record_ids": [
           "6529NM-AP-01",
@@ -134,7 +128,7 @@
         "transform_profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
         "visual": false,
         "wave_proposal_context": null,
-        "width": 640
+        "width": null
       },
       "profile_type": "MEDIA_REFERENCE"
     },
@@ -157,13 +151,13 @@
     "status_observation": {
       "evidence_refs": [
         {
-          "evidence_class": "C",
-          "label": "Keys and Gates presentation derivative",
-          "observed_at": "2026-08-01T15:03:35Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp"
+          "evidence_class": "B",
+          "label": "Keys and Gates non-delivering presentation record",
+          "observed_at": "2026-08-09T00:32:21Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
         }
       ],
-      "observed_at": "2026-08-01T15:03:35Z",
+      "observed_at": "2026-08-09T00:32:21Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0021",

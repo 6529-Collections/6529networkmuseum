@@ -1,5 +1,7 @@
 # Keys and Gates — limited editorial-display authority amendment
 
+> **Historical technical record:** Retained for append-only lineage. It does not operate as current image-delivery authority; see the [current media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md).
+
 **Record ID:** `6529NM-AP-01-PUBLICATION-AUTHORITY-2026-08-08-005`
 **Supersedes for this publication-authority assertion only:** the earlier qualified statement that CDN/public presentation authorization remained unresolved
 **Record type:** append-only derived publication-authority amendment

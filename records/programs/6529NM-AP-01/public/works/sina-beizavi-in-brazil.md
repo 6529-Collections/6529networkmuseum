@@ -1,12 +1,12 @@
 # *Sina Beizavi in Brazil*
 
-> **Content note:** Full-frontal nudity and a pictured travel document. The technical 640px derivative shows the document at a distance; personal identifiers are not transcribed and are not legible at that derivative scale.
+> **Content note:** Full-frontal nudity and a pictured travel document. In the historical 640px presentation review, the document appeared at a distance and personal identifiers were not readable; none are transcribed here.
 
-> **Image delivery:** Not approved for delivery. The technical 640px derivative and its readback are retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
+> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
 
-> **Constructed visual description (pending independent review):** A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.
+> **Constructed visual description (pending independent review):** A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; no text is readable on the object.
 
-**Public-size note:** The technical media record retains a 640px derivative for lineage. It is not approved for delivery; the 1280px and 2400px presentation variants were withdrawn from delivery, and source originals and high-resolution preservation masters are not public.
+**Public-size note:** The active media record retains the visual description and source observation but no image derivative. Historical delivery and fixity remain in the append-only source record; source originals and high-resolution preservation masters are not public.
 
 ## Object data
 

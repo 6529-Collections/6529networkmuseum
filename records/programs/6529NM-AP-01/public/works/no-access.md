@@ -28,7 +28,7 @@ Veerendra describes a handmade miniature and focus-stacking process that builds 
 
 ## Curatorial interpretation
 
-The work builds exclusion out of atmosphere. A small sign and a narrow interruption turn a path into a test. The miniature exposes access as a designed condition: the house remains close enough to inspect, while the ground route is organized by a warning.
+The miniature works like a compact stage set. Warm windows, a red roof, and an expansive sky establish the house as a destination; the sign, gate, and dark silhouette interrupt that invitation with three precise props. Focus stacking sharpens every layer, so distance cannot be blamed on blur. The refusal is built into the scene.
 
 ## Context
 

@@ -26,6 +26,8 @@ MEDIA_ROOT = REPO_ROOT / "media" / "programs" / PROGRAM_ID
 CDN_BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net"
 CDN_KEY_PREFIX = f"museum/programs/{PROGRAM_ID}"
 TRANSFORM_PROFILE = "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
+WITHHELD_DELIVERY_STATUS = "withheld_pending_reviewed_display_authority"
+APPROVED_DELIVERY_STATUS = "approved_by_reviewed_display_authority"
 TRANSFORM_PATH = "webp-v2-q82-m6-fixed-icc"
 WIDTHS = (640, 1280, 2400)
 QUALITY = 82
@@ -129,7 +131,6 @@ def load_accessibility() -> tuple[dict[str, str], dict[str, list[int]]]:
         widths = item.get("public_widths", list(WIDTHS))
         if (
             not isinstance(widths, list)
-            or not widths
             or len(widths) > len(WIDTHS)
             or widths != sorted(set(widths))
             or any(width not in WIDTHS for width in widths)
@@ -338,6 +339,7 @@ def generate_manifest(
     source_observed_at: str,
     constructed_at: str,
     constructor_actor: str,
+    display_authority_record: str | None = None,
 ) -> dict[str, Any]:
     if not source_dir.is_dir():
         raise ProgramMediaError(f"source directory does not exist: {source_dir}")
@@ -346,6 +348,14 @@ def generate_manifest(
     outcome_ids = {require_string(outcome.get("record_id"), "record_id") for outcome in outcomes}
     if set(alt_texts) != outcome_ids:
         raise ProgramMediaError("accessibility and outcome record ID sets differ")
+    has_public_derivatives = any(public_widths.values())
+    if has_public_derivatives and not display_authority_record:
+        raise ProgramMediaError(
+            "generation of public derivatives requires an exact reviewed display-authority record"
+        )
+    delivery_status = (
+        APPROVED_DELIVERY_STATUS if has_public_derivatives else WITHHELD_DELIVERY_STATUS
+    )
     items = [
         generate_item(
             outcome,
@@ -367,6 +377,7 @@ def generate_manifest(
             },
             "review": None,
         },
+        "amendment_history": [],
         "record_type": "PROGRAM_MEDIA_MANIFEST",
         "schema_profile": "6529NM_PROGRAM_MEDIA_MANIFEST_V1",
         "program_id": PROGRAM_ID,
@@ -387,13 +398,15 @@ def generate_manifest(
             "metadata": "source EXIF/XMP stripped; output sRGB ICC profile retained",
         },
         "delivery": {
+            "status": delivery_status,
+            "authority_record_id": display_authority_record,
             "cdn_base_url": CDN_BASE_URL,
             "cache_control": CACHE_CONTROL,
             "key_profile": "museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp",
             "overwrite_policy": "fail if an existing key does not contain the declared bytes",
         },
         "rights_boundary": {
-            "purpose": "Technical presentation surrogates for the existing public Keys and Gates program display",
+            "purpose": "Technical derivation metadata for Keys and Gates; active delivery is controlled independently",
             "status": "Each outcome's recorded rights-effective status remains controlling; this manifest does not activate CC0 or grant reuse rights",
             "non_claims": [
                 "A presentation surrogate is not a preservation master or the tokenized artwork.",
@@ -453,6 +466,24 @@ def verify_manifest() -> tuple[int, int]:
         raise ProgramMediaError("media manifest Pillow version does not match the pinned runtime")
     if transform.get("icc_profile_sha256") != SRGB_ICC_SHA256:
         raise ProgramMediaError("media manifest sRGB ICC profile hash does not match")
+    delivery = manifest.get("delivery")
+    if not isinstance(delivery, dict):
+        raise ProgramMediaError("media manifest delivery control is missing")
+    delivery_status = delivery.get("status")
+    authority_record = delivery.get("authority_record_id")
+    has_public_derivatives = any(public_widths.values())
+    if delivery_status == WITHHELD_DELIVERY_STATUS:
+        if has_public_derivatives or authority_record is not None:
+            raise ProgramMediaError(
+                "withheld delivery requires empty public widths and no display-authority record"
+            )
+    elif delivery_status == APPROVED_DELIVERY_STATUS:
+        if not has_public_derivatives or not isinstance(authority_record, str) or not authority_record:
+            raise ProgramMediaError(
+                "approved delivery requires public widths and an exact display-authority record"
+            )
+    else:
+        raise ProgramMediaError("media manifest delivery status is not recognized")
     manifest_ids = {
         require_string(item.get("record_id"), "media manifest record_id")
         for item in items
@@ -550,6 +581,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--source-observed-at", help="UTC observation time for the downloaded source bytes")
     parser.add_argument("--constructed-at", help="UTC construction time for the generated manifest")
     parser.add_argument("--constructor-actor", help="public constructor identifier")
+    parser.add_argument(
+        "--display-authority-record",
+        help="exact reviewed authority record required before generating any public derivative",
+    )
     args = parser.parse_args(argv)
     try:
         if args.check:
@@ -565,6 +600,7 @@ def main(argv: list[str] | None = None) -> int:
             args.source_observed_at,
             args.constructed_at,
             args.constructor_actor,
+            args.display_authority_record,
         )
         write_json(MANIFEST_PATH, manifest)
         count, total_bytes = verify_manifest()

@@ -7,6 +7,7 @@
   "required": [
     "$schema",
     "record_control",
+    "amendment_history",
     "record_type",
     "schema_profile",
     "program_id",
@@ -26,7 +27,7 @@
       "additionalProperties": false,
       "required": ["revision", "record_status", "constructor", "review"],
       "properties": {
-        "revision": { "const": 1 },
+        "revision": { "type": "integer", "minimum": 1 },
         "record_status": { "const": "constructed" },
         "constructor": {
           "type": "object",
@@ -39,6 +40,21 @@
           }
         },
         "review": { "const": null }
+      }
+    },
+    "amendment_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "reason"],
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "superseded_at": { "type": "string", "format": "date-time" },
+          "supersedes": { "$ref": "#/$defs/sha256" },
+          "prior_payload_sha256": { "$ref": "#/$defs/sha256" },
+          "reason": { "type": "string", "minLength": 1 }
+        }
       }
     },
     "record_type": { "const": "PROGRAM_MEDIA_MANIFEST" },
@@ -91,8 +107,18 @@
     "delivery": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["cdn_base_url", "cache_control", "key_profile", "overwrite_policy"],
+      "required": ["status", "authority_record_id", "cdn_base_url", "cache_control", "key_profile", "overwrite_policy"],
       "properties": {
+        "status": {
+          "enum": [
+            "withheld_pending_reviewed_display_authority",
+            "approved_by_reviewed_display_authority"
+          ]
+        },
+        "authority_record_id": {
+          "type": ["string", "null"],
+          "minLength": 1
+        },
         "cdn_base_url": {
           "const": "https://d3lqz0a4bldqgf.cloudfront.net"
         },
@@ -113,7 +139,7 @@
       "required": ["purpose", "status", "non_claims"],
       "properties": {
         "purpose": {
-          "const": "Technical presentation surrogates for the existing public Keys and Gates program display"
+          "const": "Technical derivation metadata for Keys and Gates; active delivery is controlled independently"
         },
         "status": {
           "const": "Each outcome's recorded rights-effective status remains controlling; this manifest does not activate CC0 or grant reuse rights"
@@ -190,14 +216,14 @@
               },
               "public_widths": {
                 "type": "array",
-                "minItems": 1,
+                "minItems": 0,
                 "maxItems": 3,
                 "uniqueItems": true,
                 "items": { "enum": [640, 1280, 2400] }
               },
               "derivatives": {
                 "type": "array",
-                "minItems": 1,
+                "minItems": 0,
                 "maxItems": 3,
                 "items": {
                   "type": "object",
@@ -238,6 +264,77 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_control": {
+            "properties": { "revision": { "const": 1 } },
+            "required": ["revision"]
+          }
+        },
+        "required": ["record_control"]
+      },
+      "then": {
+        "properties": { "amendment_history": { "maxItems": 0 } }
+      },
+      "else": {
+        "properties": { "amendment_history": { "minItems": 1 } }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "delivery": {
+            "properties": {
+              "status": { "const": "withheld_pending_reviewed_display_authority" }
+            },
+            "required": ["status"]
+          }
+        },
+        "required": ["delivery"]
+      },
+      "then": {
+        "properties": {
+          "delivery": {
+            "properties": { "authority_record_id": { "type": "null" } }
+          },
+          "items": {
+            "items": {
+              "properties": {
+                "presentation": {
+                  "properties": {
+                    "public_widths": { "maxItems": 0 },
+                    "derivatives": { "maxItems": 0 }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "delivery": {
+            "properties": {
+              "status": { "const": "approved_by_reviewed_display_authority" }
+            },
+            "required": ["status"]
+          }
+        },
+        "required": ["delivery"]
+      },
+      "then": {
+        "properties": {
+          "delivery": {
+            "properties": { "authority_record_id": { "type": "string" } }
+          }
+        }
+      }
+    }
+  ],
   "$defs": {
     "sha256": {
       "type": "string",

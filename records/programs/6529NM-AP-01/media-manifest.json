@@ -1,19 +1,28 @@
 {
   "$schema": "../../../schemas/program-media-manifest.schema.json",
   "record_control": {
-    "revision": 1,
+    "revision": 2,
     "record_status": "constructed",
     "constructor": {
       "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
       "role": "constructor",
-      "constructed_at": "2026-08-08T13:17:24Z"
+      "constructed_at": "2026-08-09T00:32:21Z"
     },
     "review": null
   },
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-09T00:32:20Z",
+      "supersedes": "sha256:f023c79f44b8440813c11b9ebf9d428d06d399ae87d846d6e08b9e6db459cd85",
+      "prior_payload_sha256": "sha256:f023c79f44b8440813c11b9ebf9d428d06d399ae87d846d6e08b9e6db459cd85",
+      "reason": "Superseded the candidate derivative allowlist with a zero-derivative visitor-publication state pending a reviewed exact-commit display-authority record."
+    }
+  ],
   "record_type": "PROGRAM_MEDIA_MANIFEST",
   "schema_profile": "6529NM_PROGRAM_MEDIA_MANIFEST_V1",
   "program_id": "6529NM-AP-01",
-  "generated_at": "2026-08-08T13:17:24Z",
+  "generated_at": "2026-08-09T00:32:21Z",
   "source_observed_at": "2026-08-04T21:50:30Z",
   "transform": {
     "profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
@@ -34,13 +43,15 @@
     "metadata": "source EXIF/XMP stripped; output sRGB ICC profile retained"
   },
   "delivery": {
+    "status": "withheld_pending_reviewed_display_authority",
+    "authority_record_id": null,
     "cdn_base_url": "https://d3lqz0a4bldqgf.cloudfront.net",
     "cache_control": "public, max-age=31536000, immutable",
     "key_profile": "museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp",
     "overwrite_policy": "fail if an existing key does not contain the declared bytes"
   },
   "rights_boundary": {
-    "purpose": "Technical presentation surrogates for the existing public Keys and Gates program display",
+    "purpose": "Technical derivation metadata for Keys and Gates; active delivery is controlled independently",
     "status": "Each outcome's recorded rights-effective status remains controlling; this manifest does not activate CC0 or grant reuse rights",
     "non_claims": [
       "A presentation surrogate is not a preservation master or the tokenized artwork.",
@@ -68,39 +79,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 960,
-            "mime_type": "image/webp",
-            "sha256": "sha256:3e20417e312f145184476d3c122992754899a136313359e72294eb8f781d59f0",
-            "byte_size": 126768,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1920,
-            "mime_type": "image/webp",
-            "sha256": "sha256:d28e89b7ca58647ce0b7a0979ca8138d4213c3c0b4080d76b7f154b522612b04",
-            "byte_size": 510514,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 3600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:a2c571eeec02f38b9408820769766897522e3697ceceed32d167e86706046696",
-            "byte_size": 1617734,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -122,39 +102,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 427,
-            "mime_type": "image/webp",
-            "sha256": "sha256:fc6d063ce1587e44ec90a58c3e4ad86574c88be98fcb32d67a14d361967f3a38",
-            "byte_size": 53848,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 853,
-            "mime_type": "image/webp",
-            "sha256": "sha256:3d67ee66b9000bc4c461bf3e4f2a792b210eef107cdc8dda48e86ad32748425e",
-            "byte_size": 196224,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:27be835c3c03027164944bfc914025f7eada3f6909cede05690bb27746fb5269",
-            "byte_size": 659890,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -176,39 +125,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 427,
-            "mime_type": "image/webp",
-            "sha256": "sha256:c45f68c1907ac9475cea8f15288a96887e502567f61e35ee9ac09aa53ffa6461",
-            "byte_size": 21572,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 853,
-            "mime_type": "image/webp",
-            "sha256": "sha256:58d70f550e2ea17f6e727db7214f49ff52376917fbc6fb5260554cd39cf3749b",
-            "byte_size": 57990,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:2e5f3c80266181f1d7f0cfb0ae235a243828063fd958ea9ff6ef62b5ba7a0db9",
-            "byte_size": 154486,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -230,19 +148,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 640,
-            "mime_type": "image/webp",
-            "sha256": "sha256:8e0915b020965a6090c868ba29397c03ee8322d84ebca32fe3714f0537d96987",
-            "byte_size": 45202,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-004/30e39b61e696cdab4b3a54beec5b33c2152f7440343479a45bc7bfe2175b0782/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -264,39 +171,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 415,
-            "mime_type": "image/webp",
-            "sha256": "sha256:5f0a87f5fbae6f0622578e4a60701da4f0b2c89fe7caa0303efff13ab9db5f0a",
-            "byte_size": 65508,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 830,
-            "mime_type": "image/webp",
-            "sha256": "sha256:ad1dbefd5c47533b03ffdd1cf5ca451406c88ed8331cb332ca95c79ea1af47cc",
-            "byte_size": 264520,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1557,
-            "mime_type": "image/webp",
-            "sha256": "sha256:b1f87960960fd00b23b4496dded66fa2b5751f068ff8e0ee689558522be51537",
-            "byte_size": 840050,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -318,39 +194,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 427,
-            "mime_type": "image/webp",
-            "sha256": "sha256:ffa94eec90c5ce8240f50cf3ec733298f83373ff4f7b5d349c658a301e506bbe",
-            "byte_size": 39400,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 853,
-            "mime_type": "image/webp",
-            "sha256": "sha256:d6c7f8b8ba024647cef1e3f96a99d12c837429a32e04b5cb27032ba981d0d4f9",
-            "byte_size": 158136,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:fa68ea818c28e615c377fd521d779ce810417b6fc60fc4424d65b478ece98460",
-            "byte_size": 862290,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -372,39 +217,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 360,
-            "mime_type": "image/webp",
-            "sha256": "sha256:52c1e505385117bd0339667ee61c70b19879714a48b48ca3256cd92fec02d90e",
-            "byte_size": 36326,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 720,
-            "mime_type": "image/webp",
-            "sha256": "sha256:4f91f726853c4e98a3025c4edecfff8051545246d7139d907a13d22a0639ea11",
-            "byte_size": 174120,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1350,
-            "mime_type": "image/webp",
-            "sha256": "sha256:4997f1f53f9a3bc11562d8901bd72ee8710f0c3ce742f4c3cead13a70b227a82",
-            "byte_size": 755382,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -426,39 +240,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 843,
-            "mime_type": "image/webp",
-            "sha256": "sha256:655726c8c546d3e3d4b823f1b2d823343773a89fdd7ea3c69de3e60fd6181c6b",
-            "byte_size": 212956,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1686,
-            "mime_type": "image/webp",
-            "sha256": "sha256:e3d10c47ab3efab2a3dcb7e9be3ae36343e10a82af5a114b5446d0817bcab9ac",
-            "byte_size": 736308,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 3161,
-            "mime_type": "image/webp",
-            "sha256": "sha256:c15ab20d4174349fe31fd675ba20a83e2ce73f12ae1fc55a5cd05573044b7f21",
-            "byte_size": 2204002,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -480,39 +263,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "Black-and-white industrial buildings sit beneath a cloudy sky, with the words NOW IS OUR TIME painted on a wall.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 426,
-            "mime_type": "image/webp",
-            "sha256": "sha256:72e55121d2828efa102b9fa7878ec54f282ff7e703fe7e1fe8f02b31c6825275",
-            "byte_size": 23152,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 851,
-            "mime_type": "image/webp",
-            "sha256": "sha256:8b7b0be05829428a7a355524cd88187e5a87ab4c2a176456396c8d137f1ff7b6",
-            "byte_size": 146068,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1596,
-            "mime_type": "image/webp",
-            "sha256": "sha256:d453986c8708a416bbf2bcfb87eb107b06e76396de14786539397d2307fae144",
-            "byte_size": 823260,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -534,39 +286,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A bare torso emerges from folds of black fabric against a nearly black background.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 960,
-            "mime_type": "image/webp",
-            "sha256": "sha256:0ef30e4f2e5b96edeb33f78ca906ba0352331fa1448dbdd8a627b0845ae12f17",
-            "byte_size": 8080,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1920,
-            "mime_type": "image/webp",
-            "sha256": "sha256:6c9668a3547732a853288008ac60774a8c66d1f9e65a7cb90c197cca2e63731d",
-            "byte_size": 21378,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 3600,
-            "mime_type": "image/webp",
-            "sha256": "sha256:51791ac9835858bf7e7cd06fdfe018ba0f2d986b9e90481e0a7e7419d19f072c",
-            "byte_size": 65456,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-010/f7445ec2e3d716ac8878ee7538001c1b45a2e29baf6f49fd090b86140ecb8162/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -586,21 +307,10 @@
       },
       "presentation": {
         "role": "web_presentation_surrogate",
-        "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; its text is not legible at the public derivative scale.",
+        "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; no text is readable on the object.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 427,
-            "mime_type": "image/webp",
-            "sha256": "sha256:14eea8754ea08d39dd5fe39d93f2f69dbce8e18e9f550a10f7e76bc6ec3fc784",
-            "byte_size": 15306,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -622,39 +332,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A person stands framed by successive arched doorways inside a heavily damaged building.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 452,
-            "mime_type": "image/webp",
-            "sha256": "sha256:33d7d68bdd19ec14b018d4da3cc47fdc614dfb1a4d325e3cc6ff3c00b26bea2d",
-            "byte_size": 91810,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 904,
-            "mime_type": "image/webp",
-            "sha256": "sha256:0a5ad28fd5f5861f04fc275c779dc24f4c20f2d5a024e8f72f21aaa2e7cedb20",
-            "byte_size": 303892,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1694,
-            "mime_type": "image/webp",
-            "sha256": "sha256:aee6a534b76098d92cd1f8d3070a6fe188efc19cb8c13b45208a34fddc4633f8",
-            "byte_size": 995600,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -676,39 +355,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc key sits apart below beside a small ant.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 640,
-            "mime_type": "image/webp",
-            "sha256": "sha256:98422b16afc8a18d59ec229cbf613405f1368f1607e8547daff2cf15094b76b2",
-            "byte_size": 14192,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1280,
-            "mime_type": "image/webp",
-            "sha256": "sha256:e61d70d1613f809acc5b004a6d9769640237b25e23c76e38c77e6a2c20bc3732",
-            "byte_size": 52782,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 2400,
-            "mime_type": "image/webp",
-            "sha256": "sha256:d3c5d998f2790e043b5b2883e7cbe25fcbb03ef34d04850758d8aa05064b4959",
-            "byte_size": 144246,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -730,39 +378,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "The camera looks upward through a dark, fluted circular structure toward a small opening of sky.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 450,
-            "mime_type": "image/webp",
-            "sha256": "sha256:6d823740d55efbb5b372297e7a13dd9e66a4e44f3b8ec3dfe9af8c19ebca5c45",
-            "byte_size": 36502,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 900,
-            "mime_type": "image/webp",
-            "sha256": "sha256:9f76888d88d583be54d4a283fac16543cb4ef6c816978035a38320c83afb927e",
-            "byte_size": 126870,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1688,
-            "mime_type": "image/webp",
-            "sha256": "sha256:2d64c95288438aa6fbab43b5c75a0eac9d9871f5e98c10bc87d4c726c3f5299a",
-            "byte_size": 641796,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -784,39 +401,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 914,
-            "mime_type": "image/webp",
-            "sha256": "sha256:848332c688bdce2a24c6e5482b8e13d48651f53b9cce941a745eff8435798c72",
-            "byte_size": 56190,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1829,
-            "mime_type": "image/webp",
-            "sha256": "sha256:d01bc25cd64b7a7433514965942d9870887ff7e44c0cee6db300670402593df7",
-            "byte_size": 281082,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 3429,
-            "mime_type": "image/webp",
-            "sha256": "sha256:5a904e0b374a324d075ba1e525844f6de9332ec4524d6070e4cb5b4b34344537",
-            "byte_size": 1271516,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     },
     {
@@ -838,39 +424,8 @@
         "role": "web_presentation_surrogate",
         "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette.",
         "alt_text_status": "constructed_visual_description_pending_independent_review",
-        "public_widths": [640, 1280, 2400],
-        "derivatives": [
-          {
-            "width": 640,
-            "height": 512,
-            "mime_type": "image/webp",
-            "sha256": "sha256:3e67afb1dd61d7fd5ead222637ca0c435d7db680e70a4c485377aa13b047a65f",
-            "byte_size": 24194,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 1280,
-            "height": 1024,
-            "mime_type": "image/webp",
-            "sha256": "sha256:057c40778d9428e6b1469e3e72c995fb9a43ca02d3b9aab07991b9c09ddf4996",
-            "byte_size": 114054,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          },
-          {
-            "width": 2400,
-            "height": 1920,
-            "mime_type": "image/webp",
-            "sha256": "sha256:24271a75f11bef7e0a531af4e7fbd52796b6d07a11d86bdc4ff2fae1d7783a9f",
-            "byte_size": 358130,
-            "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "url": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/2400.webp",
-            "cache_control": "public, max-age=31536000, immutable"
-          }
-        ]
+        "public_widths": [],
+        "derivatives": []
       }
     }
   ]

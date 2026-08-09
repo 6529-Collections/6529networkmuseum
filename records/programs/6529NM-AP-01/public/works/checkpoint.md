@@ -2,7 +2,7 @@
 
 > **Content note:** Nudity and partial concealment. The subject’s identity and location are unspecified; the public record gives no age determination.
 
-> **Image delivery:** Not approved for delivery. The technical derivative is retained in the media record for lineage only; visual-display approval remains pending under the [current publication boundary](../publication-authority-amendment-2026-08-08-007.md).
+> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
 
 > **Constructed visual description (pending independent review):** A bare torso emerges from folds of black fabric against a nearly black background.
 
@@ -31,7 +31,7 @@ The submission describes a body shaped by decisions about clothing, movement, an
 
 ## Curatorial interpretation
 
-Concealment functions as control. The fabric regulates the viewer’s approach and keeps the subject from becoming fully legible. Exposure and privacy occupy the same frame, carried by the crop and the deliberate absence of a face.
+The folds do more than frame the torso: they make the body the photograph’s only exposed surface. The absent face prevents recognition, while the close crop intensifies physical presence. Visibility and anonymity are held together by the same black fabric.
 
 ## Context
 

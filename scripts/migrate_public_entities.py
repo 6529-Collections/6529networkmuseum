@@ -29,6 +29,7 @@ GENERATED_AT = "2026-08-08T14:31:26Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
 KEYS_AT = "2026-08-01T15:03:35Z"
 KEYS_PUBLICATION_AT = "2026-08-08T00:00:00Z"
+KEYS_MEDIA_WITHDRAWAL_AT = "2026-08-09T00:32:21Z"
 PROPOSAL_AT = "2026-08-06T13:19:30.726Z"
 MAGNUM_CHAIN_AT = "2026-08-05T17:46:53.817Z"
 WINNER_AT = "2026-08-08T10:15:02.0167151Z"
@@ -1039,34 +1040,33 @@ def build_records(
     cover_accessibility_text = "Black, blue, and white square graphic with the printed words PROPOSED GIFT, CONFLICT AT ITS EDGES, Five Photographs of Evidence and Aftermath, 1952–2016, and 6529 NETWORK MUSEUM."
     add_entity(media_derivative, "MEDIA_REFERENCE", "Conflict at Its Edges historical proposal cover graphic", None, None, PROPOSAL_AT, media_profile("museum_authored_public_graphic", github_uri("records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"), "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", "image/png", True, width, width, "Black, blue, and white square graphic with the printed words PROPOSED GIFT, CONFLICT AT ITS EDGES, Five Photographs of Evidence and Aftermath, 1952–2016, and 6529 NETWORK MUSEUM.", "provided", "6529NM-CA-2026-003", "6529 Network Museum, Conflict at Its Edges proposal cover, 2026.", "cleared", "retrieved", ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], PROPOSAL_AT, {"status": "verified", "algorithm": "sha256", "digest": sha256_file(derivative_path), "verified_at": GENERATED_AT, "basis": "Retrieved Museum-authored repository bytes hashed by the deterministic migration."}, ["view", "thumbnail", "alt_text", "open_repository_path", "copy_citation"], transform="Museum-authored text-only historical proposal graphic; independently authored, not derived from a source photograph, and not a selected-acquisition hero.", rights_label="CC0-1.0", rights_evidence_refs=[evidence("Wave publication cover rights label", WAVE_PUBLICATION_OBSERVATION_ID, PROPOSAL_AT, "B"), evidence("Museum-authored cover bytes and fixity", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT, "C")], source_observation_evidence_refs=[evidence("Museum-authored cover bytes and fixity", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT, "C")]), ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], [source_evidence("Museum-authored proposal cover", "records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png", PROPOSAL_AT)])
 
+    keys_media_withdrawal = "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
     for index, item in enumerate(manifest["items"]):
         outcome_id = item["record_id"]
-        # 640px is the governed catalogue baseline. Some richer responsive
-        # variants were intentionally removed; this graph must not emit their
-        # stale URLs until an append-only delivery record restores them.
-        derivative = next(row for row in item["presentation"]["derivatives"] if row["width"] == 640)
         outcome = outcomes_by_id[outcome_id]
-        derivative_path_value = derivative["repository_path"]
-        add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{outcome['title']} Museum presentation derivative", None, None, KEYS_AT, media_profile(
+        add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{outcome['title']} presentation record", None, None, KEYS_MEDIA_WITHDRAWAL_AT, media_profile(
             "museum_generated_public_derivative",
             None,
             None,
-            derivative["mime_type"],
+            "image/webp",
             False,
-            derivative["width"],
-            derivative["height"],
+            None,
+            None,
             item["presentation"]["alt_text"],
             "pending_review",
             keys_work_ids_by_outcome[outcome_id],
-            f"{outcome['artist']} — {outcome['title']}; Keys and Gates program presentation",
+            f"{outcome['artist']} — {outcome['title']}; Keys and Gates presentation record",
             "unknown",
-            "retrieved",
+            "source_declared",
             [outcome_id, keys_program_source],
-            KEYS_AT,
-            {"status": "verified", "algorithm": "sha256", "digest": derivative["sha256"], "verified_at": KEYS_AT, "basis": "The governed Keys and Gates media manifest records the retrieved derivative bytes and digest."},
+            KEYS_MEDIA_WITHDRAWAL_AT,
+            {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The active publication withholds every presentation derivative; prior fixity remains in the source history and withdrawal amendment."},
             ["alt_text", "copy_citation"],
             transform=manifest["transform"]["profile"],
-        ), [outcome_id, keys_program_source], [source_evidence("Keys and Gates presentation derivative", derivative_path_value, KEYS_AT)])
+            source_observation_evidence_refs=[source_evidence("Keys and Gates active media manifest", "records/programs/6529NM-AP-01/media-manifest.json", KEYS_MEDIA_WITHDRAWAL_AT), source_evidence("Keys and Gates media withdrawal", keys_media_withdrawal, KEYS_MEDIA_WITHDRAWAL_AT)],
+            rights_evidence_refs=[source_evidence("Keys and Gates outcome rights statement", outcome_id, KEYS_AT), source_evidence("Keys and Gates media withdrawal", keys_media_withdrawal, KEYS_MEDIA_WITHDRAWAL_AT)],
+            accessibility_evidence_refs=[source_evidence("Keys and Gates accessibility record", "media/programs/6529NM-AP-01/accessibility.json", KEYS_MEDIA_WITHDRAWAL_AT)],
+        ), [outcome_id, keys_program_source], [source_evidence("Keys and Gates non-delivering presentation record", keys_media_withdrawal, KEYS_MEDIA_WITHDRAWAL_AT)])
 
     add_relation("6529NM-REL-0001", "INSTITUTION_HOLDS_COLLECTION", institution, collection, {}, CASEY_AT, institution_refs, [source_evidence("Institution collection relation", "6529NM.2026.001", CASEY_AT)])
     for index, work_id in enumerate(casey_work_ids):
@@ -1140,7 +1140,7 @@ def build_records(
         add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, casey_media_ids_by_object[object_id], {"media_context": "primary"}, CASEY_AT, [object_id], [source_evidence("Casey Work presentation media relation", object_id, CASEY_AT)]); relation_number += 1
     for index, work_id in enumerate(keys_work_ids):
         outcome_id = outcomes[index]["record_id"]
-        add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, keys_media_ids_by_outcome[outcome_id], {"media_context": "primary"}, KEYS_AT, [outcome_id], [source_evidence("Keys and Gates Work presentation media relation", outcome_id, KEYS_AT)]); relation_number += 1
+        add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, keys_media_ids_by_outcome[outcome_id], {"media_context": "documentation"}, KEYS_AT, [outcome_id], [source_evidence("Keys and Gates Work presentation-record relation", outcome_id, KEYS_AT)]); relation_number += 1
     for candidate_id in magnum_work_source_ids[1:]:
         work_id = magnum_work_ids_by_candidate[candidate_id]
         add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, magnum_media_ids_by_candidate[candidate_id], {"media_context": "source", "publication_context_entity_id": "6529NM-CA-2026-003"}, PROPOSAL_AT, [candidate_id, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal media relation", "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", PROPOSAL_AT)]); relation_number += 1

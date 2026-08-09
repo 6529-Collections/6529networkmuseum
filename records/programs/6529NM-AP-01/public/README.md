@@ -48,7 +48,7 @@ Registrar, schema, and integration records remain available through the research
 
 Each work page separates:
 
-1. what is visible in the current presentation derivative;
+1. what the governed visual description records from the historical presentation review;
 2. what the artist supplied in the submission;
 3. what public sources independently support; and
 4. what remains unknown or requires registrar confirmation.
@@ -57,7 +57,7 @@ Artist intent is attributed to the artist's submission. Public biographical mate
 
 ## Media boundary
 
-The existing program media manifest supplies deterministic web-presentation surrogates. It does not retain the submitted high-resolution source bytes, activate a CC0 dedication, establish preservation-master status, or prove mint, purchase, title, custody, or accession. The media join page records the exact source hash, dimensions, derivative paths, derivative hashes, and constructed accessibility text pending independent visual review; [amendment 003](accessibility-amendment-2026-08-08-003.md) records the current projection, [amendment 004](accessibility-amendment-2026-08-08-004.md) records the enforced OUT-011 size restriction and readback, and [amendment 006](accessibility-amendment-2026-08-08-006.md) records the corresponding OUT-004 restriction and readback. The written scholarship is complete as a constructed editorial edition, but exact-commit independent review remains pending; image display, accessibility, and sensitive-subject authorization are not approved by the current [publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md). OUT-004, OUT-010, and OUT-011 images are not approved for delivery.
+The program media manifest preserves source observations, deterministic transform metadata, and constructed visual descriptions. The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) withholds all sixteen images from the active visitor publication: every public-width allowlist is empty, no active derivative is retained, and the typed Media records expose documentation only. The written scholarship is complete as a constructed editorial edition, while exact-commit review, accessibility, image display, and sensitive-subject authorization remain pending under the [publication boundary](publication-authority-amendment-2026-08-08-007.md). A later image release requires its own reviewed, exact-commit display-authority record.
 
 ## Review state
 

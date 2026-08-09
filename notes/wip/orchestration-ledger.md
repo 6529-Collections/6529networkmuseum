@@ -3108,3 +3108,41 @@ Bootstrap checked
 655 JSON files; the full semantic validator passed; the complete test suite
 passed 292 tests with one expected platform skip. No catalog, pointer, mint,
 acquisition, accession, or Collection membership has been activated.
+
+## 2026-08-09 Keys and Gates display-authority closure
+
+The independent rights and media audit found that the candidate branch still
+made the forty-four generated WebP files and direct delivery locators available
+without a reviewed display-authority record. The current correction fails
+closed. All sixteen active width allowlists are empty; the governed media
+manifest contains zero derivatives and names no display authority; all
+forty-four tracked WebP files are deleted from the current tree; and typed
+Media records retain accessibility and evidence joins while exposing no image
+locator, dimensions, verified current-file fixity, or visual affordance.
+
+The append-only withdrawal record at
+`records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md`
+binds candidate commit `86b0735e4a81030f94d29973001d3b2751ba8b75`,
+the former forty-four-file total of 15,408,782 bytes, and the prior manifest
+and accessibility commitments. Historical delivery observations remain
+recoverable from that immutable commit and the superseded amendments. They do
+not operate as current publication instructions. A later restoration requires
+an append-only, independently reviewed exact-commit authority naming the
+approved works, widths, accessibility text, rights disposition, and any
+work-specific conditions.
+
+The corrected projection remains 119 public entities, 197 public relations,
+and one Wave status observation (317 migration records). The visitor inventory
+contains 497 entries, the visitor bundle 496 entries, and the complete manifest
+732 entries. The final manifest SHA-256 is
+`sha256:757c7b8b41fcf82464941d05337ad47e7da3f0ba522e606cf98f635947cae9ca`;
+its Keccak commitment is
+`0x04f34e03d39f56da26b02f0ca49a74f88282ef44109ccaaa8afe7154652a2f78`.
+Bootstrap checked 655 JSON files. The full semantic validator, rights and
+institutional controls, public inventory and bundle checks, Casey verifier,
+NextGen compatibility tests, and public link checks passed. The complete suite
+passed 294 tests with one expected platform skip. Independent ontology review
+resolved all 1,010 source-record references and confirmed that permanent
+Collection membership remains exactly Casey's seven works. No publication
+catalog, active pointer, mint, acquisition, accession, or Collection membership
+has been created.

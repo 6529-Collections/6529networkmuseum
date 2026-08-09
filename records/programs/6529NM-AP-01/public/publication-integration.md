@@ -36,20 +36,20 @@ available.
 Candidate A is text-only. The Work pages retain captions, close looking,
 source links, and media-record links, but no direct Markdown image embeds.
 Constructed visual descriptions remain in the governed accessibility and
-media records; the three specially withheld pages also repeat them beside
-their image-delivery notices. The typed Media projection remains
-`profile.media.visual: false` and `review_pending`; its derivative paths and
-fixity are lineage records, not image-display or delivery authorization.
+media records. The typed Media projection remains `profile.media.visual:
+false` and `review_pending`; it exposes no image locator or active derivative.
 Constructed accessibility descriptions remain
 `constructed_visual_description_pending_independent_review`, as recorded in
-the [current publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md).
+the [current publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md)
+and [media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md).
 
-The special unresolved image cautions remain explicit: OUT-004 has unverified
+All sixteen images are currently withheld. The special unresolved image
+cautions remain explicit: OUT-004 has unverified
 depicted-figure ages and consent/privacy scope; OUT-010 has unresolved identity,
 adult-status, self-portrait, and consent/publication-scope questions; and
 OUT-011 has unresolved direct subject approval, document legibility, venue
-permission, sensitive biography, and publication scope. Their technical
-derivatives remain source/lineage records only.
+permission, sensitive biography, and publication scope. Historical technical
+derivation remains in the append-only source record.
 
 ## Relations and activation gate
 

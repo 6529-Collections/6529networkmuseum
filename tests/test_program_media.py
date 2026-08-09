@@ -92,6 +92,7 @@ class ProgramMediaTests(unittest.TestCase):
             "2026-08-04T00:00:00Z",
             "2026-08-04T00:00:01Z",
             "codex-task:test-constructor",
+            "test:reviewed-display-authority",
         )
 
     def test_generation_is_deterministic_and_closed(self) -> None:
@@ -150,6 +151,25 @@ class ProgramMediaTests(unittest.TestCase):
             media.write_json(self.manifest_path, manifest)
             with self.assertRaisesRegex(media.ProgramMediaError, "aspect ratio differs"):
                 media.verify_manifest()
+
+    def test_withheld_manifest_has_no_derivatives_or_authority(self) -> None:
+        accessibility = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        accessibility["items"][0]["public_widths"] = []
+        self.accessibility_path.write_text(json.dumps(accessibility), encoding="utf-8")
+        with self.patched_paths():
+            manifest = media.generate_manifest(
+                self.source_root,
+                "2026-08-04T00:00:00Z",
+                "2026-08-04T00:00:01Z",
+                "codex-task:test-constructor",
+            )
+            media.write_json(self.manifest_path, manifest)
+            count, total_bytes = media.verify_manifest()
+
+        self.assertEqual(media.WITHHELD_DELIVERY_STATUS, manifest["delivery"]["status"])
+        self.assertIsNone(manifest["delivery"]["authority_record_id"])
+        self.assertEqual([], manifest["items"][0]["presentation"]["derivatives"])
+        self.assertEqual((0, 0), (count, total_bytes))
 
 
 if __name__ == "__main__":

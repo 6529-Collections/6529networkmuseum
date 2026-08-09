@@ -28,7 +28,7 @@ The Liberation War Museum records the war’s culmination in Bangladesh’s inde
 
 ## San Roque dam claim — OUT-014
 
-An institutional water-quality publication from Argentina’s Instituto Nacional del Agua refers to the San Roque dam’s 1944 construction phase. This supports only the narrow historical lead that a 1944 dam phase exists in the public record. The artist’s claims about automatic pressure regulation, the exact structure, and the circumstances of capture require direct verification. Source: [INA publication](https://www.ina.gov.ar/archivos/publicaciones/Cirsa_Limno_Hypolimnion_Water_Quality_2004.pdf).
+An institutional water-quality publication from Argentina’s Instituto Nacional del Agua refers to the San Roque dam’s 1944 construction phase. This supports only the narrow historical lead that a 1944 dam phase exists in the public record. The artist’s claims about automatic pressure regulation, the exact structure, and the circumstances of capture require direct verification. Source: [INA hypolimnion water-quality study](https://www.ina.gov.ar/archivos/publicaciones/Cirsa_Limno_Hypolimnion_Water_Quality_2004.pdf). The [source bibliography](../sources-and-bibliography.md#site-and-historical-context-bibliography) records this study alongside the broader dam inventory and operations sources.
 
 ## Contexts intentionally withheld or kept attributed
 

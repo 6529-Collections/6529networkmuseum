@@ -14,11 +14,11 @@ any presentation copy, as an accessioned preservation master.
 The first implementation applies to the sixteen selected works in Keys and
 Gates (`6529NM-AP-01`). On 2026-08-04 UTC, the sixteen public submission files
 totaled 233,601,493 bytes. Individual files ranged from 4.1 MB to 46.7 MB and
-reached 10,080 by 5,670 pixels. The existing grid loaded those source files
-directly. The delivery profile replaces that default path with a 15,408,782-byte
-closed set of responsive presentation derivatives while retaining each submitted
-source locator for provenance and fixity. It does not offer a source or
-high-resolution download link in the visitor interface.
+reached 10,080 by 5,670 pixels. A candidate release derived a 15,408,782-byte
+closed set of responsive presentation copies from those sources. The current
+publication withholds that complete derivative set pending reviewed display
+authority. It retains each submitted source locator as provenance evidence but
+offers no source, high-resolution, or presentation-image link to visitors.
 
 ## Three distinct media roles
 
@@ -58,18 +58,19 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 - naming: include the complete source SHA-256 and transform profile in every
   repository and CDN path.
 
-`scripts/generate_program_media.py` generates the derivatives from a local
-source directory and fails rather than replacing different bytes at an
-existing content-addressed path. `--check` verifies the closed 44-file
-inventory for this edition, including the OUT-004 and OUT-011 640-only
-restrictions, byte
-fixity, WebP structure, pixel geometry, ICC presence, source/outcome agreement,
-rights-status agreement, accessibility text, and selected-work membership
+`scripts/generate_program_media.py` generates approved derivatives from a
+local source directory and fails rather than replacing different bytes at an
+existing content-addressed path. Its current withheld-state check requires an
+empty width allowlist, no display-authority record, no derivative entries, and
+no local WebP files. If a later reviewed authority restores image delivery,
+the same checker verifies byte fixity, WebP structure, pixel geometry, ICC
+presence, source/outcome agreement, rights-status agreement, accessibility
+text, selected-work membership, and the exact authority-bound width inventory
 without a network request.
 
 ## Delivery contract
 
-The published files use new, immutable CloudFront keys:
+Any later authority-approved presentation files use immutable CloudFront keys:
 
 ```text
 museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp
@@ -82,7 +83,8 @@ Cache-Control: public, max-age=31536000, immutable
 Content-Disposition: inline
 ```
 
-Publishing is additive. A publisher checks the target namespace before upload,
+Publishing is additive and is currently inactive for Keys and Gates. A
+publisher checks the target namespace before upload,
 stores the declared SHA-256 as object metadata, requests an S3 SHA-256 checksum,
 and must not overwrite an existing key whose bytes or metadata differ. The
 frontend consumes only `presentation.derivatives[].url` values declared in the
@@ -96,14 +98,14 @@ distinction is explicit in each release-manifest entry.
 
 ## Public presentation
 
-The program grid uses `srcset` and `sizes` so the browser selects the smallest
-declared derivative appropriate to the rendered card. Object pages use the same
-responsive set without cropping, reserve the declared aspect ratio to prevent
-layout shift, and prioritize only the primary above-the-fold image. The
-submitted source is not exposed through the public presentation; the governed
-derivatives are the only public media links. A per-work allowlist is authoritative
-for the widths that may be projected, so a source URL or a historical derivative
-does not authorize a larger public rendition.
+The current Keys and Gates publication is text-only. Its media manifest carries
+no active widths or derivatives, and the typed Media records expose no image
+locator, dimensions, current-file fixity, or visual affordance. If reviewed
+authority later restores an image, the program grid uses `srcset` and `sizes`
+so the browser selects the smallest declared derivative appropriate to the
+rendered card. Object pages use the same responsive set without cropping and
+reserve the declared aspect ratio to prevent layout shift. A submitted source
+URL or historical derivative never authorizes visitor display.
 
 Every item has a concise visual description in
 `media/programs/6529NM-AP-01/accessibility.json`. These descriptions are
@@ -112,14 +114,16 @@ per-work size restriction, and status transition are recorded in the append-only
 public accessibility amendments; the descriptions do not replace the artist
 statement or add a curatorial interpretation.
 
-For OUT-004, the 640px URL returned HTTP 200 with 45,202 bytes after the
+Historically, OUT-004's 640px URL returned HTTP 200 with 45,202 bytes after the
 2026-08-08 invalidation, while the exact 1280px and 2400px URLs returned HTTP
 404. The readback and prior-byte lineage are recorded in [amendment 006](../records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-006.md).
 
-For OUT-011, the 640px URL returned HTTP 200 with 15,306 bytes after the
+Historically, OUT-011's 640px URL returned HTTP 200 with 15,306 bytes after the
 2026-08-08 invalidation, while the exact 1280px and 2400px URLs returned HTTP
 404. The readback and prior-byte lineage are recorded in [amendment 004](../records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-004.md).
-The public document does not expose delivery-origin identifiers.
+Those observations remain part of the append-only technical history and do
+not operate as current delivery instructions. The public document does not
+expose delivery-origin identifiers.
 
 ## Rights and record boundary
 

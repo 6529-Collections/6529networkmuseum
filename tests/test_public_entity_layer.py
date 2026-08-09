@@ -337,14 +337,25 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertIn("text-only historical proposal graphic", cover["transform_profile"])
         keys_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "museum_generated_public_derivative" and any(ref.startswith("6529NM-AP-01-OUT-") for ref in value["profile"]["media"].get("source_record_ids", []))]
         self.assertEqual(len(keys_media), 16)
-        self.assertTrue(all(value["profile"]["media"]["width"] == 640 for value in keys_media))
+        self.assertTrue(all(value["profile"]["media"]["width"] is None for value in keys_media))
         for value in keys_media:
             media_profile = value["profile"]["media"]
+            withdrawal_path = "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
             self.assertEqual(media_profile["rights"]["status"], "unknown")
             self.assertEqual(media_profile["accessibility_status"], "pending_review")
             self.assertFalse(media_profile["visual"])
             self.assertEqual(media_profile["source_locator"], {"uri": None, "repository_path": None})
             self.assertEqual(media_profile["allowed_ui_affordances"], ["alt_text", "copy_citation"])
+            self.assertEqual(media_profile["source_observation"]["status"], "source_declared")
+            self.assertEqual(media_profile["fixity"]["status"], "unverified_not_retrieved")
+            self.assertEqual(value["effective_at"], "2026-08-09T00:32:21Z")
+            self.assertEqual(value["observed_at"], "2026-08-09T00:32:21Z")
+            self.assertEqual(media_profile["rights"]["observed_at"], "2026-08-09T00:32:21Z")
+            self.assertEqual(media_profile["source_observation"]["observed_at"], "2026-08-09T00:32:21Z")
+            self.assertNotIn("6529NM-AP-01-MEDIA-DELIVERY-2026-08-09-008", media_profile["source_record_ids"])
+            self.assertIn(withdrawal_path, json.dumps(value["evidence_refs"]))
+            self.assertIn(withdrawal_path, json.dumps(media_profile["rights"]["evidence_refs"]))
+            self.assertIn(withdrawal_path, json.dumps(media_profile["source_observation"]["evidence_refs"]))
         generated_json = json.dumps(self.records, ensure_ascii=False)
         self.assertNotIn("OUT-004/1280.webp", generated_json)
         self.assertNotIn("OUT-004/2400.webp", generated_json)

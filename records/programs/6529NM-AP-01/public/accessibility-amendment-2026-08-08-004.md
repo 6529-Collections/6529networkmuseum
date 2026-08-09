@@ -1,5 +1,7 @@
 # Keys and Gates — OUT-011 media-enforcement amendment
 
+> **Historical technical record:** Retained for append-only lineage. It does not operate as current image-delivery authority; see the [current media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md).
+
 **Record ID:** `6529NM-AP-01-MEDIA-ACCESSIBILITY-2026-08-08-004`<br>
 **Supersedes for this enforcement assertion:** [amendment 003](accessibility-amendment-2026-08-08-003.md)<br>
 **Record type:** derived publication amendment<br>
@@ -22,11 +24,16 @@ keys were removed from the delivery origin, and the distribution cache was
 invalidated. The 640px key was retained. No other program media key is covered
 by this mutation.
 
-| Width | Public URL | Post-invalidation readback | Current treatment |
+| Width | Historical endpoint record | Post-invalidation readback | Current treatment |
 |---:|---|---|---|
-| 640 | `https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/640.webp` | HTTP 200; 15,306 bytes | Retained public derivative |
-| 1280 | `https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/1280.webp` | HTTP 404 | Withdrawn; prior local bytes retained only for lineage |
-| 2400 | `https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-011/4d7c6e452638a6dd091253bf1cc2c5b14e141920dd72a28dab5085bb7b4526fc/webp-v2-q82-m6-fixed-icc/2400.webp` | HTTP 404 | Withdrawn; prior local bytes retained only for lineage |
+| 640 | Exact endpoint retained at candidate commit `86b0735e4a81030f94d29973001d3b2751ba8b75` | HTTP 200; 15,306 bytes | Superseded by the all-image withdrawal |
+| 1280 | Exact endpoint retained at candidate commit `86b0735e4a81030f94d29973001d3b2751ba8b75` | HTTP 404 | Historical withdrawal |
+| 2400 | Exact endpoint retained at candidate commit `86b0735e4a81030f94d29973001d3b2751ba8b75` | HTTP 404 | Historical withdrawal |
+
+The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md)
+supersedes this table's delivery treatment for every width. Exact endpoint
+strings remain recoverable from the immutable candidate commit and are omitted
+from the current public record.
 
 The invalidation completed at `2026-08-08T12:49:27Z` under invalidation ID
 `I8YFV5J3W4GCFQCZNXU39X6VYQ`. The readback was performed with browser-like
