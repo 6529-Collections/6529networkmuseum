@@ -32,8 +32,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": ".github/workflows/museum-validation.yml",
-      "sha256": "sha256:755864b09e5b225d84ebe2b4e02069a5e5f2725bb58913713c4986e48c487f12",
-      "size": 8198
+      "sha256": "sha256:cfc7b9d59f07f82804c0a9c36e10adcdf12b04ed54d5321cacc66effb1b1eb5c",
+      "size": 8288
     },
     {
       "byte_mode": "lf-normalized",
@@ -56,14 +56,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:fe8f2972868ac3e89476aefebd0050182612b4d5be9519096f354f015c1d6f18",
-      "size": 45583
+      "sha256": "sha256:e1e7a8fe8037b3a154b8ebd29591b30fe4a4db0797881686313c66a1a7592d66",
+      "size": 45882
     },
     {
       "byte_mode": "lf-normalized",
       "path": "README.md",
-      "sha256": "sha256:c8ba84bb1986f186d5c0a279ae9788ac34187be4bee1c9f1e7064e3a61cab2fa",
-      "size": 11175
+      "sha256": "sha256:5b3648c397aab83f4764a51871d5fcc192d53d02fd1cdb4b6776ea7747beaf66",
+      "size": 11205
     },
     {
       "byte_mode": "lf-normalized",
@@ -86,8 +86,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/control-plane.md",
-      "sha256": "sha256:d82cbfadae8686c11d5ee9157b80e184a48c89d96c5ba1cf189254eda02ca79e",
-      "size": 12960
+      "sha256": "sha256:a5ecd9d1bd19338367d6c80c369fda9292244ed0dfb016581ad523d4f57849f2",
+      "size": 13273
     },
     {
       "byte_mode": "lf-normalized",
@@ -6363,8 +6363,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/migrate_public_entities.py",
-      "sha256": "sha256:6d2cbb713135c5a63bbc46b020ab6daec2d0553822de70741e94e448322a8507",
-      "size": 120645
+      "sha256": "sha256:a176eda637fc7fb27b4aaf2f1f369fe0a83c31cd946e4c10a491cb0e45df60fc",
+      "size": 126137
     },
     {
       "byte_mode": "lf-normalized",
@@ -6981,8 +6981,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_public_entity_layer.py",
-      "sha256": "sha256:0a02691717fed888f92c034dbfcd59c59ef285439c081f452311f80fa921f913",
-      "size": 76928
+      "sha256": "sha256:8dbae3737f5fd742466ae2f5f16750404e3fd4943f39329a078ec992e295f3e1",
+      "size": 79784
     },
     {
       "byte_mode": "lf-normalized",
@@ -7058,9 +7058,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x52047bb5297bd7d976e233208ed244d9e388d51ba32dcd783923a6485a77a84d"
+    "digest": "0x796adfba3f71e92717d4d679c6a6e7f5fcd8391208549052b6515544d3be4721"
   },
-  "manifest_sha256": "sha256:636bf24457f4aa9b9645ff2be1d05188c15417e13cff7a0a949b0abd1b4bb2de",
+  "manifest_sha256": "sha256:4c0fb7f6f35f95bed32345fceac83960e8c8817adde96f1bcd39768d256e827d",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

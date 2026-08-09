@@ -3551,3 +3551,16 @@ catalog activation, and frontend qualification remain open.
   governed locators and four rendered forms through both gates.
 - The other three reviews were stopped. Complete qualification, a new signed
   head, hosted CI, and four fresh reviews remain mandatory.
+
+## 2026-08-09 reviewed-projection hosted replay correction
+
+- Candidate A `1e8c6f60f1fd2d23e972455cef193ccd43b8e515` merged with the complete
+  pending public corpus. The exact reviewed projection passed its explicit
+  reviewed-mode replay, but the hosted workflow still invoked the pending-only
+  default generator check and would reject candidate B.
+- A small candidate-A increment adds a closed existing-review-state replay:
+  every generated record must be uniformly pending or uniformly reviewed with
+  one identical complete review binding. Mixed or malformed states fail.
+- The command remains a reproducibility check, not review authority. Candidate
+  B will be rebound to the new direct parent and manifest commitments, then the
+  publication catalog will independently enforce the review-only A-to-B delta.
