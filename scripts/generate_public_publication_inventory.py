@@ -124,6 +124,59 @@ def strict_load(data: bytes | str) -> Any:
     return json.loads(data, object_pairs_hook=reject_duplicate_keys)
 
 
+def schema_dependency_paths(root: Path, seed_paths: set[str]) -> set[str]:
+    """Return the complete local schema dependency closure for seed paths."""
+
+    schema_documents: dict[str, dict[str, Any]] = {}
+    schema_id_paths: dict[str, str] = {}
+    for path in sorted((root / "schemas").glob("*.schema.json")):
+        relative = relative_path(root, path)
+        document = strict_load(path.read_bytes())
+        if not isinstance(document, dict):
+            raise InventoryError(f"schema must be a JSON object: {relative}")
+        schema_documents[relative] = document
+        schema_id = document.get("$id")
+        if isinstance(schema_id, str):
+            base_id = schema_id.split("#", 1)[0]
+            prior = schema_id_paths.get(base_id)
+            if prior is not None and prior != relative:
+                raise InventoryError(
+                    f"duplicate local schema $id {base_id!r}: {prior}, {relative}"
+                )
+            schema_id_paths[base_id] = relative
+
+    closure: set[str] = set()
+    pending = sorted(
+        path for path in seed_paths if path.startswith("schemas/") and path.endswith(".schema.json")
+    )
+    while pending:
+        relative = pending.pop()
+        if relative in closure:
+            continue
+        document = schema_documents.get(relative)
+        if document is None:
+            raise InventoryError(f"schema dependency does not exist: {relative}")
+        closure.add(relative)
+        nodes: list[Any] = [document]
+        while nodes:
+            node = nodes.pop()
+            if isinstance(node, dict):
+                reference = node.get("$ref")
+                if isinstance(reference, str) and not reference.startswith("#"):
+                    base_id = reference.split("#", 1)[0]
+                    target = schema_id_paths.get(base_id)
+                    if target is None:
+                        raise InventoryError(
+                            f"unresolved local schema dependency {reference!r} in {relative}"
+                        )
+                    if target not in closure:
+                        pending.append(target)
+                nodes.extend(node.values())
+            elif isinstance(node, list):
+                nodes.extend(node)
+    return closure
+
+
 def keccak256(data: bytes) -> bytes:
     digest = keccak.new(digest_bits=256)
     digest.update(data)
@@ -326,6 +379,7 @@ def _entries(root: Path) -> list[dict[str, Any]]:
         control_paths.add(relative)
     for required_paths in legacy_required_paths(root).values():
         control_paths.update(required_paths)
+    control_paths.update(schema_dependency_paths(root, control_paths))
     for relative in sorted(control_paths):
         add(_entry(relative, "public_assembly_control_document", "assembly_document"))
     for relative in MEDIA_SOURCE_MANIFEST_PATHS:

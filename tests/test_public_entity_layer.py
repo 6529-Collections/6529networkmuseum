@@ -347,6 +347,30 @@ class PublicEntityLayerTests(unittest.TestCase):
         bundled_paths = {row["path"] for row in visitor_bundle["entries"]}
         self.assertTrue(set(closed_graph_controls).issubset(bundled_paths))
 
+        schema_id_paths = {}
+        for path in sorted((ROOT / "schemas").glob("*.schema.json")):
+            document = load_json(path)
+            if isinstance(document.get("$id"), str):
+                schema_id_paths[document["$id"].split("#", 1)[0]] = path.relative_to(ROOT).as_posix()
+        published_schema_paths = {
+            path
+            for path in publication_entries
+            if path.startswith("schemas/") and path.endswith(".schema.json")
+        }
+        for path in published_schema_paths:
+            nodes = [load_json(ROOT / path)]
+            while nodes:
+                node = nodes.pop()
+                if isinstance(node, dict):
+                    reference = node.get("$ref")
+                    if isinstance(reference, str) and not reference.startswith("#"):
+                        base_id = reference.split("#", 1)[0]
+                        self.assertIn(base_id, schema_id_paths, (path, reference))
+                        self.assertIn(schema_id_paths[base_id], publication_entries, (path, reference))
+                    nodes.extend(node.values())
+                elif isinstance(node, list):
+                    nodes.extend(node)
+
         interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
         self.assertEqual(len(interprets), 32)
         self.assertEqual({relation["target_entity_id"] for relation in interprets}, {"6529NM-CA-2026-002", *work_ids, *artist_ids})

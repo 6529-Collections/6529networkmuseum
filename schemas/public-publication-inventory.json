@@ -546,6 +546,7 @@
       "schemas/publication-catalog.schema.json",
       "schemas/record-envelope.schema.json",
       "schemas/rights-statement.schema.json",
+      "schemas/transaction-provenance.schema.json",
       "schemas/visual-observation.schema.json",
       "schemas/wave-publication-observation.schema.json",
       "schemas/wave-status-observation.schema.json"
@@ -560,7 +561,7 @@
   },
   "counts": {
     "approved_public_media": 1,
-    "public_assembly_control_document": 121,
+    "public_assembly_control_document": 122,
     "public_curatorial_manuscript": 97,
     "public_entity_record": 120,
     "public_media_source_manifest": 1,
@@ -4373,6 +4374,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/transaction-provenance.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/visual-observation.schema.json",
       "required_in_catalog": true
     },
@@ -4392,8 +4400,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x6af77920dfcbe1d6db17630d54ca7e3c70731f589577c53735ac07db8be1b0f8",
-    "body_sha256": "sha256:a54afdc40e90ab41ce045728e6f14aaca3c886229c4b1f3aaa7a1abf9040dcb3",
+    "body_keccak256": "0x10c59f2195d7a78fad19e0a73c5fb08f40cdd2ac5b08fb2838027d6a1fdd9981",
+    "body_sha256": "sha256:21308a37c12f39e48c220c35249306fa13d356be49d71b17a0b14e0fadabef39",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

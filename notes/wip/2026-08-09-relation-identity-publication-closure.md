@@ -33,15 +33,17 @@ dependency chain for entity, relation, lifecycle-observation, and envelope
 records. The visitor publication inventory, visitor bundle, and release
 manifest are regenerated from that closed set. Tests require the eighteen
 graph and release controls plus every record schema declared by the controlled
-vocabulary in the inventory and bundle, alongside the active bindings and
-retired tombstones.
+vocabulary and their complete local `$ref` dependency closure in the inventory
+and bundle, alongside the active bindings and retired tombstones.
 
-Candidate A4's regenerated publication inventory contains 546 entries: 545
-atomic assembly documents and one approved public media asset. Its 121 assembly
+Candidate A4's regenerated publication inventory contains 547 entries: 546
+atomic assembly documents and one approved public media asset. Its 122 assembly
 controls include the eighteen closed graph and release-validation files and all
 seventeen record schemas declared by the controlled vocabulary; three of those
-schemas are already among the eighteen controls. The visitor bundle contains all
-545 assembly documents and remains below the governed eight-megabyte ceiling.
+schemas are already among the eighteen controls. Recursive `$ref` closure adds
+the transaction-provenance schema required by the accession-lot schema. The
+visitor bundle contains all 546 assembly documents and remains below the
+governed eight-megabyte ceiling.
 
 Because the publication source commitments change, the correction follows the
 same constructor/reviewer boundary as the prior identity fix:
