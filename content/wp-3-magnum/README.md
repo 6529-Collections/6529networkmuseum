@@ -71,13 +71,17 @@ WP-1 lifecycle and `collection_membership: not_in_collection` fields
 
 The source package remains the proposal's historical decision record:
 `records/proposed-gifts/6529NM-PG-2026-001/`. Its finalized Ethereum
-observation at block `25690178` established a point-in-time owner and
+observation at block `25,690,178` established a point-in-time owner and
 token-level approval state for all five tokens. That is chain evidence for the
 proposal, not donor-authority, legal-title, copyright, Museum-custody, or
 accession evidence ([S37](sources/source-register.md); [object schedule](machine/object-schedule.json)). The live Wave state must be re-read before any future
 acceptance action or accession publication. The current signed-drop result and
 its publication observation are time-bound evidence, not a substitute for that
-revalidation.
+revalidation. A later finalized technical recheck at block `25,714,155` with
+hash `0x9ec59a4b6029e30f52491f6ebfbf34c521a4338056fa1a0b9a5cff12bb9ac767`
+preserved the owner, zero-approval, exact tokenURI, transfer, and contract
+observations while recording the proxy/URI mutability boundary ([S53](sources/source-register.md);
+[S55](sources/source-register.md)).
 
 ## Corpus inventory
 
@@ -128,16 +132,23 @@ they are not silently upgraded into Museum facts.
 The five token-linked image URLs were retrieved for exact visual inspection on
 2026-08-08. Their bytes were not added to this repository. The retained Wave
 Storm package preserves URL strings and work-part history as historical public
-presentation evidence ([S38](sources/source-register.md); [machine wave-media join](machine/wave-media-join.json)). The machine-readable join in
-`machine/wave-media-join.json` is prepared to reference or embed those exact
-URLs in the selected offer's proposal context only; after WP-1 admission, its
-CloudFront binding must be verified by the public-safe
-`WAVE_PUBLICATION_OBSERVATION` receipt and the final Work/Media/Acquisition
-relation. The artist/Magnum credit, `All Rights Reserved`, and explicit
+presentation evidence ([S38](sources/source-register.md); [machine wave-media join](machine/wave-media-join.json)). The live public-safe
+`WAVE_PUBLICATION_OBSERVATION` receipt now binds the Wave's parts 1–7 and
+public media URL/MIME/status fields at
+`2026-08-09T02:04:21.7672652Z`; its payload SHA-256 is
+`sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`
+and its raw-file SHA-256 is
+`sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b`
+([S54](sources/source-register.md); [receipt](evidence/6529nm-wave-publication-observation-2026-08-09-001.json)). The final Work/Media/Acquisition
+graph relation remains pending. The artist/Magnum credit, `All Rights Reserved`, and explicit
 `Wave-source` label travel with the narrow reference ([S38](sources/source-register.md);
 [machine wave-media join](machine/wave-media-join.json)). It does not promise
 download, full-resolution delivery, preservation, or a new derivative
 ([S38](sources/source-register.md); [machine wave-media join](machine/wave-media-join.json)).
+
+CloudFront URLs are Wave-upload presentation media; Arweave URLs reached by
+token metadata are token-source locators. They remain separate provenance
+contexts even where an in-memory byte comparison matches.
 
 No JPEG, AVIF, WebP, thumbnail, share card, IIIF manifest, tiled derivative,
 or responsive `srcset` is generated here. The issuer metadata for every object

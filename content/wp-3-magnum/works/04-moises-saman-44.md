@@ -6,7 +6,7 @@ record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work
 
-The child stands close to a pale wall with the head lowered. A caged lamp
+An apparently young person stands close to a pale wall with the head lowered. A caged lamp
 hangs above, while many dark marks interrupt the wall's surface. The frame
 holds the figure and the wall in a shallow, almost frontal space. The lamp is
 the clearest architectural object; its grid repeats the wall's small marks and
@@ -14,11 +14,11 @@ turns the upper corner into a measured counterweight to the body below.
 
 The image's scale is intimate, but its evidence is difficult to interpret. The
 wall visibly carries damage or staining; the photograph alone cannot identify
-the cause of the marks. The lowered head makes the child present without
+the cause of the marks. The lowered head makes the figure present without
 providing a public identity. That combination of visible surface and withheld
 biography is part of the work's ethical and formal condition.
 
-The frame also divides attention between a person and a site. The child is
+The frame also divides attention between a person and a site. The figure is
 small enough to be read as a figure in a room, yet the wall occupies most of
 the image and refuses to become background. The photograph gives the viewer a
 place to look and a reason to question the account attached to it. Its
@@ -61,11 +61,11 @@ journalists evidence of strikes targeting civilian areas.[^5] The second
 statement concerns what the minders presented; it does not verify the first
 account or establish the cause of the marks in this image.
 
-The public description therefore names only the visible child, wall, lamp, and
+The public description therefore names only the visible figure, wall, lamp, and
 marks. It gives no name, age, biography, house identifier, weapon attribution,
 or later-life account. The issuer's raw spelling is Moises Saman; this Museum
 display uses Moisés Saman while retaining the raw spelling in the structured
-record. Any identity, consent, safeguarding, or sensitive location material
+record. Any identity, age, consent documentation, safeguarding record, or sensitive location material
 belongs in restricted research and rights records, not in a public
 identification exercise.
 
@@ -79,7 +79,7 @@ is the observable contribution of this Work to the offer. Its more difficult
 contribution is ethical: the selected five-token unit brings a vulnerable
 depicted subject into a public research corpus whose caption is itself
 qualified. The public page can preserve that condition without attempting to
-name the child. The rationale beyond the grouping is unrecorded.
+identify the depicted person. The rationale beyond the grouping is unrecorded.
 
 ## Manifestations and stewardship
 
@@ -88,7 +88,7 @@ name the child. The rationale beyond the grouping is unrecorded.
 | Underlying photographic Work | The 2011 photograph identified by the issuer title, Tripoli location, and archive reference SAM2011005H2503/5482. The exact day, house, assignment, and safeguarding record remain unresolved. |
 | Token-linked JPEG | The Arweave JPEG linked from token 44: 5,616 × 3,744 pixels, 1,540,870 observed bytes, SHA-256 cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816. |
 | Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context and the non-identifying display rule ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation and master status | The token-linked JPEG is an upstream rendition, not a declared negative, print master, or preservation master. No source negative, consent instrument, rights-cleared repository derivative, or completed preservation package is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
+| Preservation and master status | The token-linked JPEG is an upstream rendition, not a declared negative, print master, or preservation master. The reviewed public record contains no source negative, consent documentation, rights-cleared repository derivative, or completed preservation package ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
 | Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
 | Credit and rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved. The rights notice does not establish consent, display permission, or a reproduction grant. [S13](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
 

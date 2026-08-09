@@ -66,11 +66,51 @@ proposal records themselves say that offer, repository record, Wave submission,
 or threshold outcome does not complete gift acceptance or accession
 ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
-The verified contract source exposes no public proxy-upgrade path in the local
-review, while the implementation allows the contract owner or administrators to
-change token URIs or the base URI. The recorded Arweave objects and their
-hashes therefore remain useful fixity observations, but a future technical
-review must re-read tokenURI state before relying on a live pointer.
+### Current finalized recheck
+
+A later direct Ethereum JSON-RPC recheck at finalized block `25,714,155`
+(`0x1885deb`), hash
+`0x9ec59a4b6029e30f52491f6ebfbf34c521a4338056fa1a0b9a5cff12bb9ac767`, with
+block timestamp `2026-08-09T01:33:11Z`, retained the same point-in-time owner
+and approval observations. The contract read as `Magnum Photos 75` (`MPA75`)
+and reported ERC-721 support through ERC-165. All five `ownerOf` reads returned
+`0x6daa633c23615a29471deafae351727867e7dad1`; all five `getApproved` reads
+returned the zero address. The tokenURI reads were:
+
+| Token | tokenURI at block `25,714,155` | ownerOf | getApproved |
+| ---: | --- | --- | --- |
+| `#127` | [Arweave metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#145` | [Arweave metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#97` | [Arweave metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#44` | [Arweave metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#104` | [Arweave metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+
+All fifteen mint, market, and current-owner transfer receipts returned success
+(`0x1`) and the expected ERC-721 `Transfer` event. The common observed path is
+mint from the zero address, transfer to an address labelled “Foundation Market”
+by Blockscout, and transfer to the owner above. The label is an explorer
+annotation, not a legal identity or title instrument:
+
+| Token | Mint | Market transfer | Current-owner transfer |
+| ---: | --- | --- | --- |
+| `#127` | [tx](https://etherscan.io/tx/0x23173c71a59f9709724537b928dde8f3ffe0e3162ab8e4f2d9d9ef787e17f0f3) | [tx](https://etherscan.io/tx/0xc924996c8aa8cc17534397c75d3ce78efdd6bd44b142a9de06c6283f3e582d03) | [tx](https://etherscan.io/tx/0x95239b5d68a414bc4bcb481490be08002e7d870ce6bf86dbd0c961ed8ee21a09) |
+| `#145` | [tx](https://etherscan.io/tx/0xa8fecaea9a0eafbabf61a186e87f9c5ba14158e7b9422752c19994c16109a1e4) | [tx](https://etherscan.io/tx/0xd2e8e53a076699c7fbaeccd6020181b026ab1d02004cbaafabc0d0fb0e756af6) | [tx](https://etherscan.io/tx/0xc0a96ebabb74d5e4ff2c670c247b27b2a1d23f0a46dabee968401ebf91a62bc0) |
+| `#97` | [tx](https://etherscan.io/tx/0x17057d388846e601dba0013475dc6642869058e89f90f63d231ed1b44864913b) | [tx](https://etherscan.io/tx/0xa72cfa2c0e6e8ec7066d69216c64d0e62de90726fca35b00cce20b6e0762f078) | [tx](https://etherscan.io/tx/0xa530bc66b7f14a85cb92f73b0f424cefb9bb69683dd3554b176daa38ebe47850) |
+| `#44` | [tx](https://etherscan.io/tx/0x6786a3a02c43dc5334b58f416eef60e90292a43b63af00b63116c124822aaf17) | [tx](https://etherscan.io/tx/0xa5a4bbda1fb5332d5b2aee821afd0c62bfa39cd66e68cb83a551380e7af5dfa4) | [tx](https://etherscan.io/tx/0x1bd65e9320e334578f7aad039973c78566ca1b5bf84faef800d5560a89fa50d4) |
+| `#104` | [tx](https://etherscan.io/tx/0x455147b6272e8924d8559dd8adc8543470e83dc13cba47605afe37b3a566554f) | [tx](https://etherscan.io/tx/0xb7a7e4612bc2ceef06f7ae430cb53564e3fb0cb19a4478ad45181268903d2c8d) | [tx](https://etherscan.io/tx/0x23315ad1425c91df68019f08e1ab92adcadb10cb69d9e5299deafaf1796d1747) |
+
+The public contract page identifies an EIP-1967-style proxy and reports
+implementation `0xe4e4003afe3765aca8149a82fc064c0b125b9e5a`. At the same
+observation the implementation slot pointed to that address; the standard
+EIP-1967 admin slot read zero; and the verified source reported contract owner
+`0xd8d005f66296068a2efc240f7e5910af52a86ee1` with administrators
+`0xdc6f5281bc65dee2d317e140eb19c927351dd86d` and that owner. The verified
+implementation ABI exposed `setTokenURI` and `setBaseTokenURI`, guarded by
+`adminRequired`. I found no public proxy-upgrade mutator in that verified ABI
+at the observation, but this is not an immutability claim: token URIs and the
+base URI are administratively mutable. A future technical review must re-read
+the tokenURI values before relying on a live pointer ([S15](../sources/source-register.md);
+[S53](../sources/source-register.md); [S55](../sources/source-register.md)).
 
 ## Rights and use disposition
 
@@ -81,10 +121,30 @@ asserting no copyright or reproduction grant ([S37](../sources/source-register.m
 purchase from copyright in the associated photographic file ([S09](../sources/source-register.md)). Those statements
 are source records, not a complete chain-of-title or license determination.
 
-The exact already-published Wave JPEG URLs may be referenced or embedded in the
-proposal’s historical Wave presentation with the supplied artist/Magnum credit,
-`All Rights Reserved`, and the label **Wave-source historical proposal media**
-([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
+The live read command `punk6529bot drops get
+002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json` at
+`2026-08-09T02:04:21.7672652Z` returned signed `WINNER`, serial `1276093`, and
+parts 1–7. Its public-safe receipt binds the six public media URLs to their
+reported MIME/status values and records no media for part 7. The canonical
+payload hash is
+`sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`;
+the receipt is
+[`content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json`](../evidence/6529nm-wave-publication-observation-2026-08-09-001.json)
+with raw-file SHA-256
+`sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b`.
+The receipt’s `ready` values describe the Wave publisher’s media state; they
+do not grant rendering or reproduction permission ([S54](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)).
+
+The CloudFront URLs are Wave-upload presentation media. The Arweave image URLs
+in the technical schedule are token-source locators reached through each
+token’s metadata. A matching byte hash observed in memory does not collapse
+those publication contexts, create preservation custody, or create a rights
+grant. The exact already-published Wave URLs may be referenced or embedded in
+the proposal’s historical Wave presentation with the supplied artist/Magnum
+credit, `All Rights Reserved`, and the label **Wave-source historical proposal
+media** ([S38](../sources/source-register.md); [S54](../sources/source-register.md);
+[wave-media join](../machine/wave-media-join.json)).
 The [Source and rights record](source-and-rights-record.md) and [media plan](media-plan.md)
 define that narrow disposition. Download, full-resolution delivery, crops or
 derivatives, responsive recompression, IIIF, preservation copying, and

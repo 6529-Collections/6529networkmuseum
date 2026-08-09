@@ -3,57 +3,58 @@
 ## Artist profile
 
 **Selected Work:** [*Patrolling the border between the Negev Desert and Jordan*](../works/01-david-seymour-127.md), 1952
-**Sources:** [S17–S19](../sources/source-register.md), [S42–S43](../sources/source-register.md)
 
-David Szymin (1911–1956), known as Chim, formed his photographic language in
-the illustrated press of interwar Europe and during the Spanish Civil War.
-His photographs hold political history close to ordinary lives: a family, a
-road, a child, or a field can carry the pressure of conflict without becoming a
-generic emblem.[^1]
+**Sources:** [S01–S02](../sources/source-register.md), [S17–S19](../sources/source-register.md), [S42–S43](../sources/source-register.md)
 
-## A practice shaped by war and reconstruction
+A border enters David Seymour’s selected photograph through a caption and a posture. The image gives the viewer a turned body, a rifle, a pale shelter, and eroded terrain; the named line between the Negev and Jordan remains outside the frame. This relation between visible circumstance and historical description reaches back through Seymour’s work in the illustrated press, the Spanish Civil War, postwar reconstruction, and Israel. His photographs place political history close to bodies, families, labor, landscape, and the ordinary structures of survival.
 
-Seymour's postwar UNICEF work made children, displacement, and reconstruction
-central to a major phase of his practice. The photographs combine a clear
-reportorial situation with an attention to gesture and circumstance. That
-humanist method is part of the historical setting for the selected 1952 frame,
-whose lone figure is held in a broad terrain rather than isolated as a heroic
-portrait.
+### From the illustrated press to postwar reconstruction
 
-Magnum's official history names Seymour among the four founders in 1947 and
-records his presidency after Robert Capa's death. Bill Vandivert's early
-involvement appears in the same institutional history as an important part of
-the founding story, while the exact formulation of the founder list varies
-across public accounts.[^2] Seymour's significance to Magnum lies in the
-connection between individual authorship, cooperative governance, and the
-agency's postwar circulation of photographs.
+David Szymin was born in Warsaw in 1911 and became known professionally as Chim. His early work developed within the illustrated press and the political culture of interwar Europe. The Spanish Civil War gave him a subject in which public conflict and private life appeared together: civilians, families, displacement, and the physical consequences of fighting. The camera remained attentive to the person inside the event.
 
-## Israel and the problem of the named place
+That attention continued after the Second World War. Seymour’s postwar commissions for UNICEF made children, displacement, injury, and reconstruction central to a major period of his practice. The pictures carry documentary information through gesture and circumstance: a child’s posture, a damaged home, a temporary shelter, or a family’s arrangement within a landscape. The human subject remains specific even when the surrounding history is vast.
 
-ICP places Seymour in Israel repeatedly from 1951 onward, photographing
-settlers, public life, labour, and changing relations between people and land.
-The work turns terrain into social history. Posture and distance matter as much
-as the event named by a caption; a person on a road or at a border can remain
-fully present while the archive's place-name carries a wider political field.
-That tension is central to the selected Work's reception.[^3]
+The International Center of Photography describes this approach as humanistic reportage. Its account of Seymour’s work connects the Spanish Civil War, postwar reconstruction, the emergence of Israel, and the lives of people affected by political change. ICP’s related press material describes a form of photography in which informative detail can carry metaphor. The point lies in the pressure between the detail and the history around it. A single figure can hold a political situation without becoming its emblem.[^1]
 
-The estate's public album adds a visual and descriptive afterlife for a frame
-associated with the Negev and King Solomon's Mines. Its filename and place
-description are useful comparison evidence; they do not themselves establish
-the Magnum archive crosswalk or a chain of title.[^4]
+### Israel as a sustained photographic field
 
-## Selected Work
+Seymour travelled regularly to Israel from 1951 onward. ICP places this work within his attention to the new country, its settlers, public life, labor, and changing relation between people and land. The selected frame belongs to that sustained period of looking.
 
-The selected Work brings Seymour's early-1950s Israel practice into a group
-that also includes four later photographers. It is one of four `2/3` curation
-items in the selected offer; Moisés Saman's #44 is the sole `1/3` item
-([S10](../sources/source-register.md), [S13](../sources/source-register.md);
-[object schedule](../machine/object-schedule.json)). The landscape's scale and the
-figure's turned posture give the group its first question: how can a photograph
-make a contested border visible while keeping the individual at the center of
-attention?
+His Israel photographs connect public events with the material conditions surrounding them. Roads, settlements, fields, uniforms, work, religious observance, and open terrain become evidence of a country still being organized and contested. The camera records the visible world while the caption supplies a wider political geography. That division matters in the Negev photograph. The viewer sees a person standing in rough country; the archive and caption name a patrol and a border.
 
-[^1]: Magnum Photos, David Seymour profile, source [S17](../sources/source-register.md).
-[^2]: Magnum institutional history and Seymour profile, sources [S01](../sources/source-register.md) and [S17](../sources/source-register.md).
-[^3]: International Center of Photography, *Chim: Photographs by David Seymour*, source [S18](../sources/source-register.md).
-[^4]: David Seymour estate photo album and related image records, sources [S19](../sources/source-register.md), [S42](../sources/source-register.md), and [S43](../sources/source-register.md).
+Seymour’s work in Israel also extends his earlier interest in reconstruction. A new state appears through the people inhabiting it, the institutions defining it, and the land through which its political claims are made. The selected image holds a military presence inside a landscape that appears almost empty. Its emptiness is visual; the caption gives it a dense historical charge.
+
+### Magnum and authored circulation
+
+Seymour helped establish Magnum in 1947 and later served as the agency’s president after Robert Capa’s death. Magnum’s current institutional history names Henri Cartier-Bresson, Robert Capa, George Rodger, and Seymour as the four founders; other official biographies also record William Vandivert’s early involvement. Those formulations remain source-specific.[^2]
+
+For Seymour, Magnum’s importance lies in the route by which an authored photograph could move through cooperative editing, magazines, books, exhibitions, and archives. The photographer’s name remained attached to the image as its public forms changed. That history is present in the selected work, which now carries an archive reference and a token-linked rendition alongside the estate’s own image record.
+
+Seymour died in 1956 while working during the Suez Crisis. His career therefore belongs to a compressed period in which the illustrated press, international reportage, humanitarian commissions, and photographer-led agency structures were being reshaped together. The selected photograph comes from the late phase of his Israel work, four years before his death.
+
+### The selected photograph
+
+The image is vertically composed. A person occupies the lower foreground, seen from behind or in partial profile, with the face unavailable for identification. A long firearm and sling dominate the central foreground. Beyond the figure are a pale tent-like structure, open ground, loose rock, and layered hills or escarpments. A thin vertical pole or line appears near the middle-left. The frame contains no legible flag, border marker, insignia, map, or unit designation.
+
+The rifle establishes the strongest diagonal in the picture. It joins the figure’s body to the shelter and the terrain beyond, turning equipment into a line of attention. Dark clothing, rock, and firearm form a compact lower mass; the pale structure opens a small interval; the hills recede in tonal bands. The viewer follows the patrol’s direction of looking without seeing the object of that attention.
+
+The token record names the work *Patrolling the border between the Negev Desert and Jordan*, 1952, and gives the archive reference `SED1952003W00003/23`. The David Seymour estate presents a visually matching frame as `PAR116258.jpg` and adds the fuller place description “The King Solomon’s Mines area, Israel, 1952.” The two records strongly correspond in appearance. A public archival record linking the estate filename to the Magnum archive number remains absent.[^3]
+
+### Border history and archival limits
+
+The 1949 Israel–Jordan General Armistice Agreement established an armistice demarcation line in the region. United States Department of State records describe frontier incidents and the unsettled character of the boundary in 1952. These documents supply historical setting for a photograph captioned to a border patrol. They do not identify the person, patrol route, unit, exact site, or incident in the frame.[^4]
+
+The estate’s “King Solomon’s Mines area” phrase adds a second place register to the token’s shorter “Negev, Israel” wording. The distinction should remain visible. The public record supports a 1952 Negev/Israel caption and a strong visual correspondence between two image records. It leaves the exact coordinates, day, assignment, commissioner, first publication, negative, contact sheet, and archive-number semantics unresolved.
+
+### Museum interpretation
+
+Seymour makes a border legible without showing a line. The political edge arrives through the figure’s stance, the firearm, the caption, and the receding terrain. Watchfulness becomes the photograph’s central action. The person looks outward; the viewer remains behind him, held at the same distance from whatever the patrol observes.
+
+The image also gives the landscape an unusual responsibility. The hills do not illustrate a named event. They absorb the event’s pressure. Their exposed surfaces and sparse structures hold the body in a field where political geography has to be supplied by records outside the picture.
+
+Within the selected five-Work group, Seymour provides the earliest photograph and the founding-generation Magnum perspective. Its restraint establishes a question that later works alter: how much history can a frame carry when the decisive boundary belongs to the caption, the archive, and the viewer’s knowledge?
+
+[^1]: Magnum Photos and International Center of Photography records, sources [S17–S18](../sources/source-register.md).
+[^2]: Magnum institutional history, cooperative description, and Seymour profile, sources [S01–S02](../sources/source-register.md) and [S17](../sources/source-register.md).
+[^3]: David Seymour estate image record, source [S19](../sources/source-register.md).
+[^4]: United Nations Israel–Jordan armistice records and United States Department of State frontier records, sources [S42–S43](../sources/source-register.md).

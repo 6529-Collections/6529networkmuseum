@@ -1,106 +1,60 @@
 # Larry Towell, *Government soldiers in a church, Suchitoto, El Salvador*
 
-*Short label: Soldiers in church, 1986 · Suchitoto, El Salvador. Historical
-public Wave proposal record; the non-rendering source locator and credit
-appear in the [Source and rights record](../dossiers/source-and-rights-record.md).*
+*Short label: Soldiers in church, 1986 · Suchitoto, El Salvador. Historical public Wave presentation; the source locator and credit appear in the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
-## Looking at the Work
+## Visible facts
 
-The church interior is viewed straight on. A crucifix fixes the upper centre,
-the altar and flowers hold the lower centre, and two soldiers divide the
-space into near-symmetrical halves. Their bodies are almost still, yet the
-rifles disturb the building's vertical order. A side window on each side
-introduces daylight, so the architecture reads as a room with depth rather
-than a flat backdrop.
+Two armed soldiers stand inside a church beneath a large crucifix. They face the camera in the lower half of a nearly symmetrical interior. Each holds a rifle angled away from the body. Windows admit light from both sides, and flowers appear low near the altar.
 
-The frontal composition gives the photograph the clarity of a stage. The
-viewer can measure the distance between each soldier and the central cross,
-notice the different positions of their hands, and follow the rifles down to
-the floor. The room's devotional signs remain legible while armed occupation
-changes the meaning of the space. Nothing in the frame identifies the unit,
-operation, congregation, or moment that brought the soldiers there.
+The frontal viewpoint makes the room easy to measure. The crucifix establishes the central vertical axis; the soldiers divide the lower field; the rifles introduce diagonals that disturb the church’s architectural order. The windows create depth and prevent the interior from becoming a flat backdrop.
 
-That tension between compositional order and historical uncertainty belongs to
-the photograph's force. The image offers a church, men, weapons, light, and a
-named place. The caption adds a wartime setting and a political vocabulary. A
-museum reading can attend to the way military presence rearranges a sacred
-interior while leaving the caption's scene-specific claims attached to their
-source.
+The image identifies a church, armed bodies, rifles, religious architecture, light, and flowers. It leaves the church name, soldiers’ identities, military unit, operation, congregation, and purpose unresolved. The linked JPEG is a token-related rendition and carries no condition assessment for a physical print or original negative.
 
-## Towell's Central American practice
+## Caption and archive record
 
-Towell developed a long-form documentary practice through sustained work in
-Nicaragua, Guatemala, and El Salvador. Magnum's profile connects that body of
-work to landlessness, disappearance, books, exhibitions, and museum
-collections.[^1] The emphasis on return and duration matters here: the church
-image is a single interior, but its meaning is enlarged by the regional
-histories and sequences in which Towell's photographs have circulated.
+The Museum’s preferred public title is *Government soldiers in a church, Suchitoto, El Salvador*, 1986. The token metadata uses the name “Magnum 75 #145 by Larry Towell. Suchitito, El Salvador. 1986,” with `Location: Suchitito` and archive reference `TOL1986003W00045/26`. The token records edition 1/1 and curation `2/3`.[^1]
 
-The *Gifts of War* exhibition, organized by the Art Gallery of Windsor and
-shown across Canadian venues from April 1988 to October 1989, brought
-photographs and testimonies from Nicaragua, El Salvador, and Guatemala into
-one public form. Towell's CV lists *Gift of War* in 1988 and *El Salvador* in
-1997; library records describe the latter as a 127-page photobook with an
-introduction by Mark Danner.[^2] Those formats are part of the practice's
-genealogy. They give a photograph a social duration that the single frame
-cannot contain by itself.
+“Suchitoto” is supported by the Art Windsor-Essex and Stephen Bulger records. “Suchitito” remains the token’s exact source spelling. The Museum’s normalized form should appear with that source variant preserved in the caption history.[^2]
 
-The Art Windsor-Essex collection also records a gelatin silver print titled
-*Soldiers in Church, Suchitoto, El Salvador*, with a 1986–1987 series context
-and physical dimensions.[^2] The print is a useful material comparison: paper,
-scale, and a museum's object history can alter how the image is encountered.
-The public record has not established that it is the same object as the
-token-linked manifestation, so the comparison remains a research lead rather
-than a completed crosswalk.
+The issuer caption places the scene near the Guazapa guerrilla stronghold and connects persecution of the Catholic Church to liberation theology. This is caption and agency language. The image itself supplies the church interior and armed presence; it cannot establish the building, operation, or scene-specific causal account.
 
-## Caption and regional history
+Art Windsor-Essex records a related gelatin silver print as *El Salvador Series 1986–1987 (Soldiers in Church, Suchitoto, El Salvador)*, 1986, collection number `2002.112`, measuring 35.0 × 28.0 cm. The record gives a strong institutional comparison. Its public page does not publish the Magnum archive number, so the physical print and token-linked rendition remain separate records pending a crosswalk.[^3]
 
-The issuer record spells the place “Suchitito” and identifies the archive as
-TOL1986003W00045/26. The public caption uses “Suchitoto,” and the issuer text
-places the scene near the Guazapa guerrilla stronghold while connecting it to
-the persecution of the Catholic Church and liberation theology.[^3] Those
-claims belong to the caption's history. The visible photograph supports a
-church interior and armed presence; it does not independently establish the
-building or operation.
+## Historical context
 
-United Nations peace-accord records provide the civil-war and peace-process
-setting for a restrained historical reading.[^4] They do not identify this
-church, the soldiers, or Towell's assignment. The spelling difference is
-therefore more than a typographic correction: it shows how a token,
-photographer, and regional catalogue can carry different levels of place
-authority.
+Towell’s Central American work includes Nicaragua, Guatemala, and El Salvador, with recurring attention to landlessness, disappearance, military power, and the social effects of conflict.[^4] The selected frame belongs to his 1986 El Salvador period.
 
-## The Work in the selected offer
+*Gifts of War*, organized by the Art Gallery of Windsor, travelled from April 1988 through October 1989 and brought photographs and testimonies from Nicaragua, El Salvador, and Guatemala into a public exhibition sequence. Towell’s CV lists *Gift of War* from 1988 and *El Salvador* from 1997. The latter is recorded as a 127-page book with an introduction by Mark Danner.[^5]
 
-Towell's Work is one of four tokens identified as curation `2/3`
-([S11](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). In the
-selected offer it contributes an interior whose religious architecture makes
-military presence spatially measurable. It sits between Seymour's open
-landscape and Bar-Am's obstructed public event in the proposal order, while
-its exact contribution remains object-specific: the church identity, physical
-print relation, and assignment history still require research. The proposed
-rationale beyond the observable grouping has not been recorded.
+United Nations peace-accord records provide the broad civil-war and settlement chronology for reading the photograph. They do not identify this church, these soldiers, or the purpose of their presence.[^6] The work’s scene-specific history therefore remains attached to the issuer caption and the unresolved archive record.
 
-## Manifestations and stewardship
+## Museum interpretation
 
-| Aspect | Current record |
+Towell’s composition makes armed authority spatially measurable. The crucifix fixes the upper axis while the soldiers occupy the lower field. Their rifles extend the lines of military presence into a room organized around worship.
+
+The frontal arrangement gives the scene the clarity of a stage. The viewer can compare the soldiers’ positions, follow the rifles toward the floor, and register the small flowers beneath the crucifix. The church remains fully legible as a devotional interior while the soldiers change the room’s social meaning.
+
+This visual order carries historical tension without resolving the event. The photograph can hold a military presence inside sacred architecture while leaving the exact reason for that presence unknown. The caption supplies Guazapa, persecution, and liberation theology as an attributed historical account. The frame supplies the evidence of bodies, weapons, architecture, and light.
+
+The related Art Windsor-Essex print deepens the object’s material history. A gelatin silver print, a book page, an exhibition installation, and a token-linked JPEG each produce a different encounter with the same possible photographic work. The records currently support relation and comparison. They do not prove identity across every manifestation.
+
+Within the selected group, Towell follows Seymour’s open border landscape with an enclosed interior. The conflict edge has become architectural: a room, a community, and a sacred image carry the pressure of armed power.
+
+## Record note
+
+| Field | Current record |
 | --- | --- |
-| Underlying photographic Work | The historical photograph identified by the Towell caption and archive reference TOL1986003W00045/26; the place spelling, church, assignment, and print relation remain separate research questions. |
-| Token-linked JPEG | The Arweave JPEG linked from token 145: 5,369 × 3,601 pixels, 1,813,285 observed bytes, SHA-256 e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee. |
-| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is restricted to this selected offer's proposal context ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation and master status | The observed JPEG is a token-linked image file, not a declared negative, print master, or preservation master. No original negative, contact sheet, rights-cleared repository derivative, or completed preservation package is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| Credit and rights | © Larry Towell/Magnum Photos 2022 · All Rights Reserved. The recorded notice does not grant broader reproduction or preservation permission. [S11](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
+| Token identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145`; Magnum Photos 75 #145; edition 1/1; curation `2/3`. [S11](../sources/source-register.md) |
+| Archive reference | `TOL1986003W00045/26`. [S11](../sources/source-register.md) |
+| Token-linked rendition | JPEG, 5,369 × 3,601 pixels, 1,813,285 observed bytes; SHA-256 `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee`. [S11](../sources/source-register.md) |
+| Museum status | Selected by Museum Wave; acquisition review in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
+| Credit and rights | © Larry Towell/Magnum Photos 2022 · All Rights Reserved. The notice supplies a rights statement; broader reproduction, display, preservation, and Collection-publication authority remain unresolved. [S11](../sources/source-register.md), [S38](../sources/source-register.md) |
 
-## Further research
+The church identity, soldiers and unit, operation, assignment, first publication, archive-neighbor sequence, physical-print equivalence, spelling history, and future rights authority remain open research questions.
 
-The open work is the church and wartime-operation identification, the relation
-between the physical print and token-linked file, the assignment and first
-publication, the sequence suffix, and the permissions governing future
-Museum use. These questions remain bounded by the source register rather than
-by an inference from the image alone.
-
-[^1]: Magnum Photos, Larry Towell profile, source [S20](../sources/source-register.md).
-[^2]: Art Windsor-Essex collection comparison and Towell exhibition, CV, and book records, sources [S21](../sources/source-register.md) and [S45–S47](../sources/source-register.md).
-[^3]: Direct token metadata and local object schedule, source [S11](../sources/source-register.md).
-[^4]: United Nations Peacemaker, El Salvador peace-accord records, source [S33](../sources/source-register.md).
+[^1]: Exact token metadata, source [S11](../sources/source-register.md).
+[^2]: Token metadata and institutional collection records, sources [S11](../sources/source-register.md) and [S21](../sources/source-register.md).
+[^3]: Art Windsor-Essex collection record, source [S21](../sources/source-register.md).
+[^4]: Magnum Photos, Larry Towell profile, source [S20](../sources/source-register.md).
+[^5]: Art Gallery of Windsor exhibition record, Towell CV, and *El Salvador* library record, sources [S45–S47](../sources/source-register.md).
+[^6]: United Nations Peacemaker, source [S33](../sources/source-register.md).

@@ -137,8 +137,9 @@ copyright chain.
   `0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91`.
 - **URL:** <https://eth.blockscout.com/api/v2/smart-contracts/0xe628b59D34F42B16C53F4d697f1FfD4d8d987b91>
 - **Type / class:** public contract/source observation / A.
-- **Supports:** ERC-721 implementation and administrative token-URI/base-URI
-  mutability boundary recorded in the proposal package.
+- **Supports:** ERC-721 implementation, the `Magnum Photos 75` / `MPA75`
+  contract identity, and the administrative token-URI/base-URI mutability
+  boundary. The verified implementation is separately identified in S55.
 - **Limit:** verified source and public functions do not establish title,
   artist authorization, or rights in the photographs.
 
@@ -421,16 +422,15 @@ copyright chain.
   machine join preserves the CloudFront URLs as historical URL evidence and
   retains the Arweave URLs separately as token-linked source-image locators.
 - **Exact Wave-upload URLs:** parts 2–6 are [#127](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg), [#145](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg), [#97](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg), [#44](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg), and [#104](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg).
-- **Limit:** the local `wave-storm.json` is not the final authenticated proof of
-  the CloudFront upload bindings. This corpus retains historical public URL
-  evidence and recorded credits/rights labels; it does not retain the
-  public-safe `WAVE_PUBLICATION_OBSERVATION` receipt or snapshot for the five
-  media URLs. After WP-1 admission, the exact receipt ID, payload hash, and
-  per-part content hashes must be bound before the join is treated as a current
-  publication observation. The narrow reference/embed
-  disposition is limited to the selected acquisition's proposal Wave context;
-  no copyright, download, full-resolution, Collection-publication, IIIF,
-  derivative, or preservation authority is inferred.
+- **Limit:** the local `wave-storm.json` is historical proposal evidence, not the
+  authenticated API read. The public-safe receipt in S54 now binds the exact
+  part/media URL, MIME, and publisher-status fields, but it retains no raw media
+  bytes or per-part content hashes. `ready` is a Wave publication state, not
+  display permission. The narrow reference/embed disposition is limited to the
+  selected acquisition's proposal Wave context; no copyright, download,
+  full-resolution, Collection-publication, IIIF, derivative, preservation,
+  donor-authority, title, or custody claim is inferred. The separate WP-1 graph
+  relation remains pending.
 
 ### S39 — Independent institutional history of Magnum
 
@@ -591,6 +591,79 @@ copyright chain.
   Towell's Central American practice and publication history.
 - **Limit:** the date differs from Magnum's public 1988 biography in S20; the
   discrepancy is preserved rather than resolved here.
+
+### S53 — Current finalized Ethereum observation
+
+- **Source:** direct read-only Ethereum JSON-RPC observation through dRPC,
+  cross-linked to the public block explorers.
+- **URLs:** <https://eth.drpc.org>, <https://etherscan.io/block/25714155>,
+  <https://eth.blockscout.com/block/25714155>
+- **Type / class:** finalized chain-state observation / A.
+- **Supports:** finalized block `25,714,155` (`0x1885deb`), hash
+  `0x9ec59a4b6029e30f52491f6ebfbf34c521a4338056fa1a0b9a5cff12bb9ac767`,
+  timestamp `2026-08-09T01:33:11Z`; contract name `Magnum Photos 75`, symbol
+  `MPA75`, ERC-165 ERC-721 support; the five exact tokenURI reads; all five
+  `ownerOf` reads returning
+  `0x6daa633c23615a29471deafae351727867e7dad1`; and zero token-level
+  approvals. The fifteen linked transfer receipts each returned status `0x1`
+  with the expected `Transfer` event.
+- **Safe recheck commands:**
+
+  ```powershell
+  curl.exe -sS https://eth.drpc.org -H "content-type: application/json" --data-raw '{"jsonrpc":"2.0","id":1,"method":"eth_getBlockByNumber","params":["0x1885deb",false]}'
+  curl.exe -sS https://eth.drpc.org -H "content-type: application/json" --data-raw '{"jsonrpc":"2.0","id":2,"method":"eth_call","params":[{"to":"0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91","data":"0x6352211e000000000000000000000000000000000000000000000000000000000000007f"},"0x1885deb"]}'
+  ```
+
+- **Limit:** the block and calls are time-bound chain observations. They do not
+  establish donor authority, legal title, copyright, Museum custody, formal
+  acceptance, accession, Collection membership, or display permission. An
+  explorer market label does not establish legal title.
+
+### S54 — Live public-safe Wave publication observation
+
+- **Source:** live authenticated `punk6529bot` drop read, filtered in memory to
+  the public publication fields only.
+- **Path:** `content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json`.
+- **Type / class:** live governance/publication observation with Museum
+  technical filtering / A-C.
+- **Source command:** `punk6529bot drops get
+  002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json`
+- **Receipt SHA-256:**
+  `sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b`.
+- **Canonical payload SHA-256:**
+  `sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`.
+- **Supports:** Wave `6529 Network Museum`, drop
+  `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, signed `WINNER`
+  state observed at `2026-08-09T02:04:21.7672652Z`, and parts 1–7 with only
+  their public media URL, MIME, and `ready` status bindings; part 7 has no
+  media. The canonicalization is recorded in the evidence JSON and excludes
+  author/profile, rater/profile/reaction, address, credential, and other
+  non-media response fields.
+- **Limit:** this receipt records Wave publication metadata and public URL
+  bindings only. `ready` is not a rights or display grant. WINNER/signed state
+  does not establish donor authority, legal title, copyright, custody,
+  acceptance, accession, Collection status, or permission to render, download,
+  zoom, fullscreen, derive, or preserve the images. The CloudFront URLs remain
+  Wave-upload presentation media; the Arweave URLs in S10–S14 remain separate
+  token-source locators.
+
+### S55 — Proxy, implementation, and URI mutability boundary
+
+- **Source:** Blockscout verified contract/proxy API and implementation source.
+- **URLs:** <https://eth.blockscout.com/api/v2/smart-contracts/0xe628b59D34F42B16C53F4d697f1FfD4d8d987b91>,
+  <https://eth.blockscout.com/api/v2/smart-contracts/0xe4E4003afE3765Aca8149a82fc064C0b125B9e5a>
+- **Type / class:** public verified source and proxy observation / A.
+- **Supports:** the explorer's EIP-1967-style proxy classification and
+  implementation `0xe4e4003afe3765aca8149a82fc064c0b125b9e5a`; the observed
+  implementation-slot match; a zero standard EIP-1967 admin slot; contract
+  owner `0xd8d005f66296068a2efc240f7e5910af52a86ee1`; administrators
+  `0xdc6f5281bc65dee2d317e140eb19c927351dd86d` and that owner; and verified
+  `setTokenURI` / `setBaseTokenURI` functions guarded by `adminRequired`.
+- **Limit:** no public proxy-upgrade mutator was found in the verified ABI at
+  the observation, but this is not a contract-immutability guarantee. URI and
+  base-URI state can be administratively changed; future records must re-read
+  tokenURI values. Verified source does not establish title, authorization, or
+  photograph rights.
 
 ## Open source requests
 

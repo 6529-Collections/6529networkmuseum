@@ -2,107 +2,61 @@
 
 ## How the selected offer was formed
 
-*Conflict at Its Edges* began with punk6529's proposal of five token-linked
-photographs published in Magnum Photos 75. The proposal formed a
-unit: one proposal record, five independently identified Works, and a proposed
-credit to the Museum ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)). Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, and the
-five photographers did not form or endorse this combination.
+The selected offer consists of five token-linked photographs published through Magnum Photos 75. The donor, punk6529, formed the group under the title *Conflict at Its Edges* and brought it forward as one offer. The artists made five independent Works. The donor’s act was to place them in relation.
 
-The project metadata places Moisés Saman's #44 in curation `1/3`, the first
-register associated with Cartagena. David Seymour #127, Larry Towell #145,
-Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`, the later register
-presented in dialogue with Nwagbogu ([S10–S14](../sources/source-register.md);
-[object schedule](../machine/object-schedule.json)).[^1] The selected offer carries those two
-selection histories as part of its provenance. The wider reason for
-choosing these five has not been recorded.
+That relation crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`, while David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The split is exact and publicly checkable. It records the upstream selection histories of the tokens; it does not explain why the donor chose these five. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group.[^1]
 
-## Mission fit
+The current status is **Selected by Museum Wave; acquisition review in progress**. The five Works remain outside the permanent Collection.
 
-The Museum's mission connects permanent stewardship with public research and
-access. This selected acquisition fits that mission through a compact,
-status-visible study of photographic evidence in a networked edition. Five
-independent Work records can be read alongside their captions, archive leads,
-regional histories, token manifestations, and rights boundaries. The public
-research value lies in showing how those layers meet without making one record
-stand in for another.
+## The relation among the photographs
 
-Magnum's history gives the offer an appropriate institutional setting. ICP's
-independent account of Magnum places prints, books, magazines, video, and
-archival documents inside the cooperative's visual history.[^2] The proposal
-extends that history into a blockchain publication whose token, metadata, and
-image pointers are public technical facts. It also gives the Museum a chance to
-explain where technical durability ends and title, rights, custody, and
-preservation begin.
+The group begins with a border that the photograph cannot mark directly. Seymour’s patrol occupies a narrow strip of the Negev landscape; the caption supplies the political geography while the image gives terrain, posture, weapon, and distance.
+
+Towell moves the question indoors. Two soldiers stand beneath a crucifix, and the church’s symmetry turns armed presence into a problem of worship, access, and captioned place. The image identifies a room and a historical pressure while leaving the church, unit, and operation unresolved.
+
+Bar-Am photographs a public site through smoke. A canister, moving figure, stone wall, and metal barrier make visibility itself unstable. The Western Wall supplies religious and political context; the exact day and person remain matters for the archive.
+
+Saman brings the question into a shallow domestic space. An apparently young person stands beside a marked wall beneath a caged lamp. The issuer caption includes an official account of air strikes and injury while explicitly describing that account as impossible to verify. The photograph records the wall and the person; the caption records the conditions under which the damage was narrated. The reviewed public record supplies no age, identity, or consent documentation for the person shown.
+
+Meloni closes the chronological sequence at Palmyra. A soldier presses a helmet to his face among rubble and surviving columns. The image follows the destruction of the Temple of Bel and the military recapture of the site. Its access history includes government permission, military shadowing, a minder, mine warnings, and directed entry. The photograph’s afterlife begins in the distance between the private gesture and the public history of the ruins.[^2]
+
+Taken together, the five Works concern borders, access, captions, damaged sites, and documentary afterlives. The relation is strongest when each term remains concrete. Borders appear through named places and incomplete coordinates. Access appears through armed presence, controlled routes, military presence, and the conditions of looking. Captions carry claims that the frame cannot independently verify. Damaged sites hold material traces whose causes and histories exceed the image. Documentary afterlives unfold through archives, books, estates, museums, metadata, tokens, and later acts of grouping.
 
 ## The case for acceptance
 
-Formal acceptance would give the Museum a five-Work case study in documentary
-authorship and network circulation. The Works span different generations,
-places, and photographic practices, while the proposed relation is
-small enough for every caption and source boundary to remain visible. The unit
-could support exhibitions, research publications, and public interpretation
-about the afterlives of photojournalism, provided each proposed use receives
-its own rights and stewardship evidence.
+Acceptance would give the Museum a carefully bounded study of how photographic evidence travels. Every Work can remain individually legible while the group permits comparison across generations of Magnum practice, documentary situations, and forms of circulation.
 
-Acceptance would also preserve a record of decision. The Museum could document
-the formation of the offer, the Wave selection, the later legal and
-registrar instruments, and any changed caption or archive findings as one
-append-only history. The five Work projections would remain independent within
-the acquisition: token manifestation, copyright, title, custody, and
-preservation would each be recorded on their own terms.
+The proposed relation also joins photographic history to the specific material history of Magnum Photos 75. The photographs predate blockchain publication by decades. Their 2022 tokens add sequence values, curation fields, metadata objects, Arweave image pointers, edition language, and transfer histories. Those records become part of the photographs’ public afterlives. They offer a way to study what networked publication preserves, what it leaves unresolved, and how an edition can sit beside older histories of caption, print, archive, and copyright.[^3]
+
+The group is small enough for the Museum to keep those distinctions visible. A larger anthology could make uncertainty statistical or anonymous. Five Works allow the public to follow the exact archive reference, the caption’s authority, the access account, the image’s visible evidence, and the unanswered question attached to each frame.
 
 ## The countercase
 
-The group asks the Museum to make a relation the upstream project did not make.
-Its five photographs span sixty-four years and several political geographies;
-the sequence creates comparison while also creating interpretive
-responsibility. The exact archive-to-negative, contact-sheet, print, and first-
-publication crosswalks remain incomplete. Caption authority is uneven, and the
-project's counts remain layered: the first release uses both 76- and 75-image
-wording, while the posted dossier and retained Foundation snapshot each record
-148 tokens within their own observation boundaries. Neither source establishes
-a complete issued-token count ([S04](../sources/source-register.md);
-[S06](../sources/source-register.md); [S37](../sources/source-register.md)).[^3]
+The proposal asks the Museum to make a relation that the upstream project did not make. That act carries risk. The six-decade span can flatten differences among postwar border surveillance, civil-war armed presence, religious protest, state-managed press access, and the aftermath of the Islamic State’s destruction. The title may encourage viewers to read all five photographs through a generalized atmosphere of conflict.
 
-Rights and stewardship are the second counterweight. The token records carry
-`All Rights Reserved` ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)); token transfer is a point-in-time chain observation with
-no copyright or reproduction grant ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)). The exact CloudFront URLs are historical
-public Wave presentation media, and the Arweave URLs are token-linked source
-locators ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)). The Museum has no retained preservation master or responsive
-derivative in this corpus ([object schedule](../machine/object-schedule.json)).
+The donor’s group also crosses curatorial intentions. Saman’s token belongs to the first Magnum 75 register associated with Alejandro Cartagena; the other four belong to the second register presented in dialogue with Azu Nwagbogu. Their juxtaposition may generate a productive argument, though the reviewed public records contain no statement or evidence from either curator endorsing the five-Work relation.
 
-Saman's Work adds a safeguarding condition. Public interpretation can describe
-the child, wall, lamp, and marks at visible-fact level. Identity, age, consent,
-and sensitive location records require restricted handling and correspondence
-with Magnum, the photographer, or an authorized archive. That condition affects
-future acceptance and display decisions without turning the child's identity
-into a research objective.
+The evidentiary record remains uneven. Seymour’s archive-to-estate crosswalk is incomplete. Towell’s church and assignment remain unidentified. Bar-Am’s archive suffix and event date require clarification. Saman’s damage account remains qualified, and the reviewed public record supplies no age, identity, or consent documentation for the apparently young person shown. Meloni’s route into Palmyra is documented through contemporary reporting without a frame-specific permission record.
 
-## Consequences of acceptance
+Rights and stewardship create a further limit. The token notices read `All Rights Reserved`; the proposal records no copyright or reproduction grant. The historical Wave URLs may be referenced in their narrow proposal context with supplied credits. The Museum holds no preservation master or rights-cleared derivative for the five photographs.[^4]
 
-Acceptance would start a separate registrar sequence: donor authority and legal
-title, transfer and custody, rights review, technical examination, preservation
-planning, accession, and any Collection publication. Each step would carry its
-own source. The acquisition record would preserve the proposed relation,
-maintain the five Work identities, and state which manifestations are actually
-held or permitted ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
+## Response
 
-The public consequence would be a carefully bounded account of digital
-photographic stewardship. The Museum could present the selected offer as a
-research-led acquisition under review, then revise the page if acceptance
-changes its legal or custodial state. The historical Wave presentation may be
-referenced in the selected offer with its supplied credit, `All Rights
-Reserved`, and **Wave-source historical proposal media** label ([S38](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json)); Collection publication and
-preservation would require separate permission and records ([integration map](../machine/integration-map.json)).
+These objections describe the group’s proper form. The acquisition should preserve the five Works as independent objects and publish the title as a donor-formed proposition. The publication should disclose the two Magnum 75 curations, the fact that reviewed public records contain no statement or evidence of endorsement, the separate authority of captions and image observations, and the unresolved questions that materially affect interpretation.
 
-The result records the Museum Wave's selection of the exact five-Work proposal
-([S37](../sources/source-register.md);
-[integration map](../machine/integration-map.json)). Formal gift acceptance, title
-and custody, rights review, technical examination, preservation planning,
-accession and Collection entry will follow ([S37](../sources/source-register.md);
-[integration map](../machine/integration-map.json)).
+The acquisition record would preserve the proposal’s five-object relation while keeping each Work’s title, caption, token manifestation, rights, provenance, and custody history separate. The relation becomes a curatorial hypothesis with a stable object list. It proposes a comparison among exact Works and makes no new classification. It asks how a photograph acquires historical weight through the relation among frame, caption, access, place, archive, and later circulation.
 
-[^1]: Direct Magnum Photos 75 metadata and local object schedule, sources [S10–S14](../sources/source-register.md).
-[^2]: International Center of Photography, *Magnum Manifesto* and related photobook program, source [S39](../sources/source-register.md).
-[^3]: Magnum Photos 75 project records and retained local observations, sources [S04–S07](../sources/source-register.md) and [S37](../sources/source-register.md).
+## What acceptance would make possible
+
+If accepted, the group could support exhibitions, object publications, and research into the afterlives of documentary photography in a networked edition. The public benefit would depend on keeping the individual histories intact. The Museum would need to bind any title and custody claim to the exact transferred tokens, establish rights for each intended use, preserve the permitted source material, and handle Saman’s photograph through an appropriate safeguarding record.
+
+The exact historical public Wave URLs may be referenced or embedded only in the selected offer’s proposal context with their supplied artist/Magnum credits, `All Rights Reserved`, and the label **Wave-source historical proposal media**. The local record supplies historical URL evidence only; it does not grant copyright, download, full-resolution, derivative, IIIF, preservation, or permanent Collection-publication authority ([S38](../sources/source-register.md)).
+
+The intellectual work would continue after acceptance. New caption sheets, archive crosswalks, permission records, or artist and Magnum correspondence could change the account. Those changes should enter the publication as dated amendments while preserving the prior record.
+
+*Conflict at Its Edges* deserves consideration because its five photographs make the institutions around documentary evidence visible. Its value will depend on whether the Museum can hold the donor’s relation firmly enough to study and lightly enough to revise.
+
+[^1]: Exact Magnum 75 metadata and proposal record, [S04–S05](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S37](../sources/source-register.md).
+[^2]: Five Work records and caption/context sources, [S10–S14](../sources/source-register.md), [S19](../sources/source-register.md), [S23–S25](../sources/source-register.md), [S27–S32](../sources/source-register.md), and [S41](../sources/source-register.md).
+[^3]: Magnum Photos 75 project and ICP institutional history, [S04](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S39](../sources/source-register.md).
+[^4]: Rights, token, and historical Wave media records, [S09](../sources/source-register.md), [S10–S14](../sources/source-register.md), [S37](../sources/source-register.md), and [S38](../sources/source-register.md).

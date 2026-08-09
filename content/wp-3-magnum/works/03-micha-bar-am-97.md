@@ -41,7 +41,7 @@ established the Tel Aviv Museum of Art photography department. Magnum's
 profile gives the curatorial period as 1977–1993; the Micha Bar-Am Archive
 describes service through 1992 and dates the Enrique Kavlin Lifetime
 Achievement Award separately to 1993.[^2] The two statements remain
-attributed rather than harmonized. ICP's *Israel Diary, 1956–1982* places his
+attributed to their sources. ICP's *Israel Diary, 1956–1982* places his
 earlier work within a sustained record of the changing modern state, through
 national events and everyday life.[^3]
 

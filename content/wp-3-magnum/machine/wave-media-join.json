@@ -16,10 +16,12 @@
   },
   "current_publication_observation": {
     "record_type": "WAVE_PUBLICATION_OBSERVATION",
-    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": null,
-    "binding_status": "pending_wp1_ontology_merge"
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
+    "observed_at": "2026-08-09T02:04:21.7672652Z",
+    "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
+    "binding_status": "bound_public_safe_receipt",
+    "receipt_path": "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json",
+    "receipt_sha256": "sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b"
   },
   "prior_status_observation": {
     "source_status": "PARTICIPATORY",
@@ -27,18 +29,20 @@
     "historical_only": true
   },
   "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
-  "source_label": "Historical public Wave URL evidence",
+  "source_label": "Historical public Wave URL evidence with live public-safe publication observation",
   "publication_boundary": "historical_public_wave_url_only",
-  "source_evidence_boundary": "historical_public_wave_url_evidence_only",
-  "authenticated_publication_receipt": null,
-  "authenticated_publication_receipt_sha256": null,
+  "source_evidence_boundary": "historical_public_wave_url_with_publication_observation",
+  "authenticated_publication_receipt": "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json",
+  "authenticated_publication_receipt_sha256": "sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b",
   "publication_observation_binding": {
     "record_type": "WAVE_PUBLICATION_OBSERVATION",
-    "record_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
-    "payload_sha256": null,
+    "record_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
+    "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
+    "receipt_path": "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json",
+    "receipt_sha256": "sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b",
     "required_after_rebase": true,
-    "status": "pending_wp1_receipt_binding",
-    "source_record_currently_used": "historical_wave_url_evidence_only"
+    "status": "bound_public_safe_receipt_pending_wp1_graph_binding",
+    "source_record_currently_used": "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json"
   },
   "route_policy": {
     "standalone_work_route": "deny_without_verified_work_ca_media_observation_relation",

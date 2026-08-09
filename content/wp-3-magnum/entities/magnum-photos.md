@@ -1,90 +1,29 @@
 # Magnum Photos
 
-## A cooperative built around photographic agency
+## A cooperative of photographic authorship
 
-Magnum's current institutional history names Robert Capa, Henri Cartier-Bresson,
-George Rodger, and David “Chim” Seymour as the four photographers who founded
-the agency in 1947. Other official Magnum biographies include William (Bill)
-Vandivert in the founding account and describe his early involvement, so the
-source-specific distinction remains visible.[^1]
+Magnum is an institution built around a question of authorship: who shapes a photograph after exposure, and through which forms of circulation does it acquire a public life? Its answer has joined individual photographic practice to a collective system of editing, representation, publication, exhibition, print sales, and archiving.
 
-The postwar cooperative gave photographers a stronger role in deciding how
-their pictures were edited, distributed, and remembered. Magnum's submissions
-page describes a photographer-owned, self-selecting organization with Nominee,
-Associate, and full Member stages. Its institutional form connected individual
-authorship to collective routes through editors, magazines, books, exhibitions,
-prints, and archives.[^1]
+Magnum’s current institutional history names Robert Capa, Henri Cartier-Bresson, George Rodger, and David “Chim” Seymour as the four photographers who founded the agency in 1947. Other official Magnum biographies include William “Bill” Vandivert in the founding account. The variation belongs to the institution’s own public history and cautions against treating a single founder list as complete.[^1]
 
-That structure changed the economics of picture agency. A photographer's work
-could remain a long-form project rather than a disposable assignment, while the
-cooperative supplied shared representation and circulation. The model made
-authorship an institutional value and helped establish a postwar vocabulary of
-photojournalism that travelled across Europe, Asia, Africa, the Americas, and
-the Middle East.
+The cooperative structure gave photographers a role in deciding how their work would be edited, distributed, and remembered. Magnum’s membership account describes a photographer-owned, self-selecting organization with Nominee, Associate, and full Member stages, alongside estates and correspondents. That structure made collective representation part of photographic authorship. A photograph could travel through magazines, books, exhibitions, prints, and archives while remaining attached to a named practitioner.[^2]
 
-## Generations, geographies, and the archive
+The archive is therefore larger than a store of famous images. The International Center of Photography’s *Magnum Manifesto* placed prints, books, magazines, video, and archival documents together as evidence of a changing photographic culture. Magnum’s photobook history makes sequence and page order part of that culture. Negatives, contact sheets, captions, assignments, publication pages, exhibitions, rights records, and later digital objects form a chain of relations through which a photograph continues to be interpreted.[^3]
 
-Later members and correspondents expanded Magnum's subjects to landlessness,
-migration, revolution, war, domestic life, religious practice, and cultural
-loss. The five artists in this offer make that breadth concrete: Seymour's
-founding-generation Israel work, Towell's long Central American projects,
-Bar-Am's movement between military experience and museum institution, Saman's
-contemporary conflict reporting, and Meloni's historical study of war's
-aftermath.[^2]
+Those relations also carry the conditions of making. Photojournalism can depend on military escorts, state permission, fixers, restricted movement, unequal access to vulnerable people, and editorial decisions that compress lived experience into a caption. The photograph’s authority grows through those circumstances and remains answerable to them. Captioning, consent, subject protection, and the separation of observation from interpretation belong to the history of the image.[^4]
 
-An independent institutional account adds a different perspective to Magnum's
-self-description. ICP's *Magnum Manifesto* treated the cooperative as a history
-of ideas as well as a repository of famous images, presenting prints, books,
-magazines, video, and archival documents across generations of members. Its
-related photobook program emphasizes the book as a continuing site of Magnum
-authorship.[^3] Together, these sources show an archive made of relations:
-negatives, contact sheets, captions, assignments, publication pages, books,
-exhibitions, rights records, and later digital manifestations.
+The five photographers in the selected proposal make different histories of Magnum visible. David Seymour represents a founding generation whose postwar work connected political events to displacement, children, and reconstruction. Larry Towell developed long-form projects in Central America through books, exhibitions, and repeated attention to landlessness and disappearance. Micha Bar-Am moved between military experience, newspaper work, Magnum correspondence, and the formation of photographic institutions. Moisés Saman’s Libya work shows the pressure of controlled access and qualified captions. Lorenzo Meloni follows conflict through ruins, territorial change, and historical aftermath.[^5]
 
-That archive carries ethical questions alongside its authority. Photojournalism
-has often depended on unequal access to people in crisis, military escorts,
-state permission, and editorial systems that turn lived experience into a
-portable image. Authorial independence makes those conditions available for
-scrutiny. Caption responsibility, consent, vulnerable subjects, and the
-distinction between observation and interpretation remain part of looking.[^4]
+Magnum Photos 75 carried this archive into a networked edition. Historical photographs acquired collection numbers, curation fields, token identities, metadata objects, image pointers, and transaction histories. The new records sit beside older archive, caption, print, book, and copyright histories. A token can provide a durable locator for an edition; it cannot settle every question about the negative, first publication, rights, or later use.
 
-## From analogue archive to networked edition
+The five-Work relation on this page has a distinct author. Punk6529 formed the group for the Museum proposal by bringing together four tokens marked `2/3` and Moisés Saman’s token marked `1/3` in the Magnum 75 metadata. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group. The relation belongs to the donor’s proposition and to the Museum’s interpretation of the exact objects.[^6]
 
-Magnum Photos 75 extends this history into digital circulation. It selected
-historical images, assigned collection and curation identities, linked metadata
-and JPEGs through Arweave, and presented ERC-721 tokens as 1/1 editions. Token
-number, sequence, transaction history, metadata URI, image URI, and marketplace
-presentation become public technical records alongside older negative, print,
-publication, caption, and copyright histories.
+The token records carry photographer/Magnum `All Rights Reserved` notices. The proposal records token transfer without a copyright or reproduction grant, and Magnum’s historical terms distinguish an NFT purchase from copyright in the associated photographic file. The exact historical Wave URLs may be referenced or embedded only in the selected offer’s proposal context with their supplied credits, `All Rights Reserved`, and the label **Wave-source historical proposal media**. Download, full-resolution delivery, derivatives, IIIF, preservation copying, and Collection publication require separate permission and evidence ([S09–S16](../sources/source-register.md); [S37–S38](../sources/source-register.md)).[^7]
 
-The new form changes the question of agency. A token can give a historical
-image a durable locator while leaving title, rights, preservation, and display
-permission divided among other records. The five selected Works make those
-divisions visible ([object schedule](../machine/object-schedule.json)): a technical publication can be exact about a token and
-remain open about an archive crosswalk or reproduction authority.
-
-## Relation to this offer
-
-The five photographers have different biographies and different relationships
-to Magnum. The project name in token metadata establishes publication context.
-The proposal forms a new relation among their Works. Magnum did not create or
-endorse this grouping. The artist and Work pages retain the distinct practice and evidence
-for each photograph.
-
-## Rights note
-
-The five token records carry photographer/Magnum `All Rights Reserved` notices
-([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
-The proposal records token transfer without a copyright or reproduction grant
-([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
-The exact historical public Wave URLs may be referenced in the selected-offer
-proposal context with their supplied credits ([S38](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json)). See the [Source and rights
-record](../dossiers/source-and-rights-record.md); Collection publication,
-download, derivatives, IIIF, and preservation require separate permission and
-review ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
-
-[^1]: Magnum Photos institutional history, membership page, and photographer biographies, sources [S01–S03](../sources/source-register.md).
-[^2]: Magnum photographer biographies and project records, sources [S03](../sources/source-register.md) and [S17–S32](../sources/source-register.md).
-[^3]: International Center of Photography, *Magnum Manifesto* and photobook symposium, source [S39](../sources/source-register.md).
-[^4]: World Press Photo caption and ethics guidance, source [S35](../sources/source-register.md); the ethical synthesis is Museum interpretation grounded in the five Work records.
+[^1]: Magnum Photos institutional history and Seymour profile, [S01](../sources/source-register.md) and [S17](../sources/source-register.md).
+[^2]: Magnum Photos membership description, [S02](../sources/source-register.md).
+[^3]: International Center of Photography, *Magnum Manifesto* and photobook records, [S39](../sources/source-register.md).
+[^4]: World Press Photo caption and ethics guidance, [S35](../sources/source-register.md).
+[^5]: Magnum and institutional artist records, [S17](../sources/source-register.md), [S20](../sources/source-register.md), [S22](../sources/source-register.md), [S26–S27](../sources/source-register.md), and [S30](../sources/source-register.md).
+[^6]: Magnum Photos 75 metadata and local proposal record, [S04–S05](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S37](../sources/source-register.md).
+[^7]: Historical Magnum terms, token metadata, proposal evidence, and Wave media record, [S09](../sources/source-register.md), [S10–S16](../sources/source-register.md), [S37](../sources/source-register.md), and [S38](../sources/source-register.md).

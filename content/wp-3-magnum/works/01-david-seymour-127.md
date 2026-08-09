@@ -1,98 +1,53 @@
 # David Seymour (Chim), *Patrolling the border between the Negev Desert and Jordan*
 
-*Short label: Border patrol, 1952 · Negev, Israel. Historical public Wave
-proposal record; the non-rendering source locator and credit appear in the
-[Source and rights record](../dossiers/source-and-rights-record.md).*
+*Short label: Border patrol, 1952 · Negev, Israel. Historical public Wave presentation; the source locator and credit appear in the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
-## Looking at the Work
+## Visible facts
 
-The person is turned away. That decision places the viewer alongside the
-patrol rather than in front of an identifiable face. A rifle enters from the
-lower edge, rises along the body, and points into the open country. The weapon
-is the strongest diagonal in the frame, but the landscape controls the scale:
-the figure and shelter occupy a narrow foreground while ridges recede toward a
-light horizon.
+The photograph is black and white and vertically composed. A person occupies the lower foreground, seen from behind or in partial profile. The face is unavailable for identification. A long firearm, sling, or harness dominates the central foreground, with dark cropped forms entering at the lower edges.
 
-The vertical format gives the image a long downward and outward pull. Dark
-rock, clothing, and rifle form a compact lower mass; the canvas shelter opens a
-small pale interval; the hills then divide into successive bands. Depth is
-made from tonal steps rather than from a visible road or boundary. The viewer
-can follow the patrol's looking without seeing what it watches.
+Beyond the figure are a pale tent-like or canopy-like structure, open ground, loose rock, and layered, eroded hills. A thin vertical pole or line appears near the middle-left. The landscape recedes through tonal bands. No flag, border marker, map, insignia, unit marking, or named incident is legible in the image.
 
-That withholding gives the photograph its particular tension. The frame offers
-terrain, posture, equipment, and distance. It does not offer a border marker,
-flag, map coordinate, unit, or named incident. The caption supplies a
-geographical and political frame for an image whose visible evidence remains
-deliberately spare. The result is a photograph of watchfulness in which the
-administrative name and the observed landscape remain related but unequal
-forms of knowledge.
+The rifle creates the strongest diagonal. It joins the body to the shelter and the distant terrain, making the figure’s direction of attention legible while leaving its object unseen. Dark rock, clothing, and firearm form a compact lower mass; the pale structure opens a narrow interval before the hills carry the eye toward the horizon.
 
-## Seymour's Israel practice
+## Caption and archive record
 
-Seymour's work grew from interwar photographic and graphic culture, the Spanish
-Civil War, and the illustrated press. After the Second World War, his UNICEF
-photographs made displacement, children, and reconstruction central to a
-humanist form of reportage. The International Center of Photography's account
-of his Israel work places him there repeatedly from 1951, photographing
-settlers, public life, labour, and the changing relation between people and
-land.[^1] The selected frame belongs to that period of sustained attention to
-terrain and social life.
+The token record identifies the work as *Patrolling the border between the Negev Desert and Jordan*, 1952, and gives the Magnum archive reference `SED1952003W00003/23`. Token metadata places the work in the Negev, Israel, as Magnum Photos 75 #127, edition 1/1, curation `2/3`.[^1]
 
-The photograph also belongs to the institutional history of authorship that
-Seymour helped build. Magnum's current history names him, Robert Capa, Henri
-Cartier-Bresson, and George Rodger as the four founders in 1947; other Magnum
-historical material records Bill Vandivert's early involvement in the founding
-group. Seymour later became the agency's president after Capa's death.[^2]
-His place in the agency joins a personal way of looking to a cooperative route
-through editing, publication, and archive.
+The David Seymour estate presents a visually matching frame as `PAR116258.jpg` and captions it “The King Solomon’s Mines area, Israel, 1952.” The estate image and the token-linked JPEG share the same composition and visible arrangement. The public records provide a strong visual match. A reviewed crosswalk between `PAR116258.jpg` and `SED1952003W00003/23` remains unavailable.[^2]
 
-## Caption, archive, and place
+The two captions carry different levels of place information. “Negev, Israel” is the token’s shorter location field. “The King Solomon’s Mines area” is the estate’s fuller description. Both should remain attributed to their sources. The exact site, coordinates, day, patrol route, and archive-number suffix semantics remain open.
 
-The token caption names the Negev and the border between the Negev Desert and
-Jordan. The public David Seymour estate record presents a visually matching
-frame as PAR116258.jpg and adds the phrase “The King Solomon's Mines area.”[^3]
-Those are two descriptive records, not a completed crosswalk. The Magnum
-archive reference for the selected token is SED1952003W00003/23; the public
-estate filename has not been linked to it by a reviewed archival record.
+## Historical context
 
-The 1949 Israel–Jordan General Armistice Agreement establishes the armistice
-demarcation framework, while United States Department of State records describe
-frontier conditions and incidents in 1952.[^4] That history explains why a
-border caption carries weight. It does not identify this patrol or prove the
-precise place represented by the frame. The work remains strongest when the
-historical setting and the limits of the image are held together.
+The 1949 Israel–Jordan General Armistice Agreement established an armistice demarcation line for the region. United States Department of State records describe frontier incidents and the unsettled character of the boundary in 1952.[^3] This history gives the border caption a substantial political setting.
 
-## The Work in the selected offer
+The documents describe regional conditions. They do not identify the person, military unit, assignment, commissioner, or incident represented here. The photograph supplies a body in terrain; the caption and historical records supply the geopolitical frame. Those forms of evidence should remain adjacent without being merged.
 
-Within the selected five-Work offer, Seymour supplies the earliest date and a
-founding-generation Magnum perspective. Its open terrain gives the group a
-starting condition: the viewer must infer a political edge from a body, a
-weapon, and receding ground. The image is one of four tokens identified in
-project metadata as curation `2/3` ([S10](../sources/source-register.md);
-[object schedule](../machine/object-schedule.json)). Its exact role in this offer is therefore
-observable in the token record and in the proposed grouping; the wider
-rationale remains unrecorded.
+## Museum interpretation
 
-## Manifestations and stewardship
+Seymour makes the border present through absence. No line crosses the ground. The frontier appears through the armed figure’s stance, the direction of the rifle, the distance between the shelter and the hills, and the title attached to the image.
 
-| Aspect | Current record |
+The turned body places the viewer behind the patrol. The figure’s face remains outside the encounter, while the landscape becomes the field of attention. This gives the photograph a quiet tension: the viewer sees the conditions of watchfulness and the object of watchfulness remains elsewhere.
+
+The image also resists a simple heroic reading. The figure is small against the terrain, and the rifle functions as both equipment and compositional hinge. The landscape controls the scale. The human body establishes the viewpoint; the hills determine the image’s duration.
+
+The estate’s fuller place caption introduces the phrase “King Solomon’s Mines area,” while the token record gives the broader Negev location. The distinction keeps the photograph’s historical geography open. It also shows how an archive can add specificity that the pixels cannot independently verify.
+
+Within the selected five-Work group, Seymour supplies the earliest image and a founding-generation Magnum perspective. The work begins the sequence with a political edge that is felt through posture, terrain, and caption.
+
+## Record note
+
+| Field | Current record |
 | --- | --- |
-| Underlying photographic Work | The historical photograph identified by the caption and archive reference SED1952003W00003/23; the negative, print history, and exact assignment remain under research. |
-| Token-linked JPEG | The Arweave JPEG linked from token 127: 3,056 × 4,600 pixels, 2,518,674 observed bytes, SHA-256 65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453. |
-| Historical Wave-upload presentation | The exact CloudFront upload used for the public Wave presentation is retained as historical proposal media in the [Source and rights record](../dossiers/source-and-rights-record.md). Its permitted reference is limited to this selected offer's proposal context ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation and master status | The observed JPEG is a token-linked presentation/source file, not a declared negative or preservation master. No rights-cleared repository derivative, original negative, contact sheet, or completed preservation package is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| Credit and rights | © David Seymour/Magnum Photos 2022 · All Rights Reserved. The rights label is retained as source evidence; it is not a broader publication grant. [S10](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
+| Token identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127`; Magnum Photos 75 #127; edition 1/1; curation `2/3`. [S10](../sources/source-register.md) |
+| Archive reference | `SED1952003W00003/23`. [S10](../sources/source-register.md) |
+| Token-linked rendition | JPEG, 3,056 × 4,600 pixels, 2,518,674 observed bytes; SHA-256 `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453`. [S10](../sources/source-register.md) |
+| Museum status | Selected by Museum Wave; acquisition review in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
+| Credit and rights | © David Seymour/Magnum Photos 2022 · All Rights Reserved. The notice supplies a rights statement; broader reproduction, display, preservation, and Collection-publication authority remain unresolved. [S10](../sources/source-register.md), [S38](../sources/source-register.md) |
 
-## Further research
+The exact assignment, first publication, negative, contact sheet, estate-to-Magnum crosswalk, and future rights authority remain research questions. The upstream JPEG is an observed token-linked rendition; the repository retains its URL and fixity record, with no original negative or preservation master.
 
-The priority questions are the estate-to-Magnum crosswalk, the precise location
-and date, the assignment and first outlet, the meaning of the archive suffix,
-and the rights party for future Museum reproduction. The source register
-preserves the open requests and their evidence boundaries.[^5]
-
-[^1]: Magnum Photos and International Center of Photography records, sources [S17–S18](../sources/source-register.md).
-[^2]: Magnum institutional history and Seymour profile, source [S01](../sources/source-register.md) and [S17](../sources/source-register.md).
-[^3]: David Seymour estate photo album, source [S19](../sources/source-register.md).
-[^4]: United Nations Israel–Jordan General Armistice Agreement and United States Department of State 1952 frontier records, sources [S42–S43](../sources/source-register.md).
-[^5]: Direct token metadata and local object schedule, sources [S10](../sources/source-register.md) and [S37](../sources/source-register.md).
+[^1]: Exact token metadata, source [S10](../sources/source-register.md).
+[^2]: David Seymour estate image record, source [S19](../sources/source-register.md).
+[^3]: United Nations Israel–Jordan armistice records and United States Department of State frontier records, sources [S42–S43](../sources/source-register.md).

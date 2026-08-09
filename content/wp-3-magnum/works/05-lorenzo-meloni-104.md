@@ -1,21 +1,34 @@
 # Lorenzo Meloni, *Palmyra, Syria*
 
-*Short label: Palmyra, 1 April 2016 · Syria. Historical Wave proposal
-record; the non-rendering source locator and stated credit remain recorded.*
+*Short label: Palmyra, 1 April 2016 · Syria. Selected five-Work proposal; acquisition review in progress.*
 
 ## Looking at the Work
 
-The seated figure occupies a small part of the frame. He presses a helmet to
-his face among pale rubble, while a surviving column rises behind him and a
-clear blue sky opens the upper field. The ruin supplies the photograph's scale;
-the gesture makes the soldier's body a private interruption within a public
-monument.
+A small seated figure occupies the middle of the frame. He wears a dark uniform and raises a helmet across his face, while pale rubble and standing columns extend around him. The gesture is intimate and difficult to read. The helmet may be in the act of being removed; the image gives no decisive access to the figure’s expression or state.
 
-Colour separates the cool sky from the warm stone and the dark uniform. The
-helmet conceals the face, so the image gives us a pause rather than a legible
-expression. Fatigue, grief, adjustment, and ritual remain possible readings of
-the gesture. The frame withholds a decisive explanation while making the
-surrounding architecture impossible to overlook.
+Colour organizes the photograph through a restrained opposition. The blue sky opens the upper field, warm stone carries the middle distance, and the dark figure gathers the eye near the base of the surviving architecture. The columns provide scale. They make the soldier appear temporary within a site whose history exceeds the immediate scene.
+
+The photograph holds two kinds of attention together. The body supplies a pause, an action that remains psychologically unresolved. The ruins supply a historical duration. The frame offers rubble, columns, helmet, uniform, and sky with considerable clarity. Its explanation arrives through the caption and the circumstances of access that surround it.
+
+## Caption and chronology
+
+The token record identifies the work as *Palmyra, Syria*, 2016, with Magnum archive reference `MEL2016002G0401/4032`. A TIME report published on 7 April 2016 dates the exposure to 1 April and identifies the figure in its caption as a Syrian army soldier seated on rubble associated with the former Temple of Bel.[^1] The caption supplies the date, affiliation, and site history; the image itself cannot establish the soldier’s identity, rank, unit, or route.
+
+UNESCO records the destruction of the principal structure of the Temple of Bel on 30 August 2015. Its later assessment describes Palmyra after the change of control in March 2016, with access constrained and demining incomplete. The photograph therefore belongs to a precise historical interval: five days after the recapture of Palmyra, months after the destruction of the temple’s principal structure, and before the site had become safe or fully accessible.[^2]
+
+The distinction matters. The frame records neither the temple’s destruction nor the recapture battle. It records a site after both events, when surviving architecture, military presence, and photographic access had entered the same view. The standing columns refuse a total image of disappearance. The damaged monument remains materially present, even as its political and cultural meaning has been altered.
+
+## Access as part of the image
+
+TIME reports that Meloni’s visit took place with Syrian government permission and under the shadow of government forces. An AFP account from the same period describes an army minder, mine warnings, demining, and entry directed by the army. These reports describe the published conditions of access; they do not reconstruct the exact route taken for this frame.[^3]
+
+Access still changes the photograph’s meaning. The soldier, the columns, and the rubble were encountered through a controlled passage into a mined historical site. The camera’s position was part of that arrangement. The resulting image carries the apparent stillness of the gesture alongside the political conditions that made the view possible.
+
+## A practice of aftermath
+
+The work belongs to Meloni’s sustained study of conflict and its consequences. *The Collapse of the Caliphate* placed Palmyra beside Kobanê, Sirte, and Mosul in a project shaped by territorial change and historical recurrence. *We Don’t Say Goodbye* gathers a decade of work across Iraq, Syria, and Libya and interrupts photographs with objects and writing recovered from war rubble. In both cases, the image remains connected to material and textual traces that survive the event.[^4]
+
+The Palmyra frame gives that method a concentrated form. The soldier’s obscured face keeps the scene away from a legible portrait. The damaged site enlarges the gesture without explaining it. The photograph becomes an account of how a historical place is encountered after violence, under permission, and through the records that later name what the frame cannot fully contain.
 
 ## Object record
 
@@ -26,76 +39,28 @@ surrounding architecture impossible to overlook.
 | Artist | Lorenzo Meloni |
 | Date / place | 1 April 2016; Palmyra, Syria |
 | Archive reference | `MEL2016002G0401/4032` |
-| Token manifestation | Ethereum ERC-721 token `104`; sequence `104/225`; curation `2/3`; edition `1 of 1`. [S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
+| Chain identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104` |
+| Token manifestation | Ethereum ERC-721 token `104`; sequence `104/225`; curation `2/3`; edition `1 of 1` ([S14](../sources/source-register.md)) |
 | Metadata | [Token metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) |
 | Token-linked source image | [Arweave source](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) |
 | Observed source image | JPEG, 5,964 × 4,768 px, 16,871,807 bytes; SHA-256 `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
-| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved. [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
-
-## Caption history
-
-The token record gives *Palmyra, Syria*, 2016, archive
-`MEL2016002G0401/4032`, and curation `2/3` ([S14](../sources/source-register.md);
-[object schedule](../machine/object-schedule.json)). A contemporary publication caption
-dates the frame to 1 April 2016 and describes a Syrian army soldier holding or
-removing his helmet while seated on rubble associated with the former Temple of
-Bel.[^1]
-
-The visible figure, columns, rubble, and sky are described here as image facts.
-The image and the local archive crosswalk supply no independent face, rank,
-unit, or exact-route evidence. The caption and the photograph remain related
-records with distinct authority.
-
-## Heritage, access, and practice
-
-UNESCO's 2015 account records the destruction of the Temple of Bel on 30 August
-2015. Its April 2016 rapid-assessment report and mission news describe a later
-Palmyra visit after the March 2016 change of control: the Temple of Bel could
-be examined only from a distance, access remained constrained, and demining was
-incomplete.[^2] The two dates describe different stages in the site's history.
-
-TIME reports that Meloni's visit was permitted by the Syrian government and that
-government forces shadowed the journalists. An AFP account describes an army
-minder, mine warnings, and directed access. Those reports are retained with
-page-state and excerpt caveats; they establish the published accounts of the
-visit, not an independently reconstructed route for this frame.[^3]
-
-Meloni's *We Don't Say Goodbye* gathers a 2013–2019 project across Iraq, Syria,
-and Libya. GOST describes a fragmented book in which photographs are interrupted
-by objects and writing recovered from war rubble. Visa pour l'Image's 2017
-project material places *The Collapse of the Caliphate* across Kobanî, Palmyra,
-Sirte, and Mosul.[^4] In this photograph, the monumental site and the partly
-hidden body join Meloni's larger attention to aftermath, recurrence, and the
-material remains of political violence.
-
-The selected offer gives that practice one image in which access history and
-formal restraint meet. Four of the five selected Works belong to the project's
-second curation ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)); Meloni's frame carries the sequence to the damaged heritage
-site while preserving the question of how a photographer's permitted route
-shapes what can be seen.
+| Historical Wave presentation | [Historical Wave JPEG](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg), retained as a non-rendering historical source locator in the [Source and rights record](../dossiers/source-and-rights-record.md) ([S38](../sources/source-register.md)) |
+| Status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection ([S37](../sources/source-register.md)) |
+| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved ([S14](../sources/source-register.md); [S38](../sources/source-register.md)) |
 
 ## Manifestations and stewardship
 
-| Layer | What this record means |
-| --- | --- |
-| Underlying photographic Work | The photograph made by Lorenzo Meloni in Palmyra on 1 April 2016; the Museum's Work projection identifies its image and caption history. |
-| Token-linked JPEG | The Arweave source-image URL named by token metadata; its fixity, dimensions, and byte count are observed upstream references, not a Museum preservation master. |
-| Historical Wave presentation | The exact CloudFront upload listed in the historical public proposal's part history; it may be referenced in this selected-offer context with the stated credit and `All Rights Reserved` label after final receipt and graph binding ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation / master status | No source bytes or preservation master are retained in this repository. Download, derivative, IIIF, and Collection publication require separate rights and stewardship records ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)). |
+The underlying Work is the historical photograph made by Lorenzo Meloni in Palmyra on 1 April 2016. The Arweave JPEG is an upstream token-linked presentation/source file, not a declared negative or preservation master. The repository retains no source bytes or preservation master. The observed 16.9 MB source is presented only through an explicit user action in the selected-offer context; no eager delivery is implied.
 
-The [Source and rights record](../dossiers/source-and-rights-record.md) gives the
-current media disposition and its narrow proposal context. The 16.9 MB source
-is presented only through an explicit user action; no eager delivery or
-responsive derivative is implied.
+The historical CloudFront URL is evidence of public Wave presentation media. It may be referenced in the selected acquisition’s proposal context with its supplied credit, `All Rights Reserved` label, and the label **Wave-source historical proposal media**. Download, full-resolution delivery, crops or derivatives, responsive recompression, IIIF, preservation copying, and Collection publication require separate written, component-specific permission and reviewed records ([S38](../sources/source-register.md); [S38](../sources/source-register.md)).
 
-## Further research
+Meloni’s image is the fifth work in the donor-formed group *Conflict at Its Edges*. Its chronological position and `2/3` curation mark are exact features of the token record. Its interpretation within the group remains a Museum argument about borders, access, damaged sites, captions, and documentary afterlives.
 
-Confirm the archive-to-negative and contact-sheet crosswalk, the exact book or
-exhibition sequence, permission and route documentation, any sensitive soldier
-records, and the rights party for future Museum use.
+## Research status
 
-[^1]: TIME contemporary caption and reporting, source [S31](../sources/source-register.md).
-[^2]: UNESCO's 2015 Palmyra record, Rapid Assessment, and April 2016 mission report, source [S32](../sources/source-register.md).
-[^3]: TIME and AFP accounts of the Palmyra visit, with retained-excerpt and page-state caveats, sources [S31](../sources/source-register.md) and [S41](../sources/source-register.md).
-[^4]: Magnum, GOST, and Visa project/publication records, sources [S30](../sources/source-register.md), [S48](../sources/source-register.md), and [S49](../sources/source-register.md).
+Further research should seek the archive-to-negative and contact-sheet crosswalk, the exact sequence and first publication, documentation of permission and route, and any authoritative account of the soldier’s identity. The public sources establish the captioned circumstances of the photograph while leaving those object-level questions open.
+
+[^1]: TIME, “Inside War-Ravaged Syria,” [S31](../sources/source-register.md).
+[^2]: UNESCO Palmyra records, [S32](../sources/source-register.md).
+[^3]: TIME and AFP accounts of access, [S31](../sources/source-register.md) and [S41](../sources/source-register.md).
+[^4]: Magnum Photos, GOST Books, and Visa pour l’Image, [S30](../sources/source-register.md), [S48](../sources/source-register.md), and [S49](../sources/source-register.md).

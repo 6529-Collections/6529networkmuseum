@@ -222,3 +222,84 @@ record is to be manufactured to fill the integration gap.
   current observation identity/time, exact source URL/hash/fixity, standalone
   route denial, Bar-Am amendment binding, Saman child/identity restrictions,
   and adversarial mutations. No network-dependent CI behavior was added.
+
+## 2026-08-09 independent scholarship review
+
+- The five-Work argument is strongest when framed through borders, controlled
+  access, caption authority, damaged sites, and documentary afterlives. It is
+  weaker as a general account of war or aftermath. The preferred subtitle is
+  **Five Photographs of Borders, Access, and Afterlives, 1952–2016**.
+- The selected relation is donor-formed across two Magnum Photos 75 curations.
+  The reviewed record contains no statement that Magnum Photos, Alejandro
+  Cartagena, Azu Nwagbogu, or the photographers formed or endorsed this exact
+  five-Work selection. Current prose states that evidentiary boundary rather
+  than asserting a negative fact.
+- Magnum Photos, the photographer-owned cooperative; Magnum Foundation, an
+  independent nonprofit; and the Foundation NFT marketplace are distinct
+  entities. Public copy and the source register must not collapse them.
+- “One of one” describes the token edition represented by the contract record;
+  it does not establish uniqueness of the underlying photograph, negative,
+  print, or other manifestation. The contract is an EIP-1967 proxy with
+  administrative URI controls, so metadata immutability must not be asserted
+  without a historical implementation and admin audit.
+- Seymour’s estate presents a visually matching frame under a King Solomon’s
+  Mines description, but no public crosswalk binds `PAR116258.jpg` to
+  `SED1952003W00003/23`. Towell’s preferred place form is Suchitoto; the issuer
+  variant Suchitito remains part of the caption history. No reviewed source
+  identifies the church, military unit, operation, assignment, or first
+  publication.
+- Bar-Am’s public description remains with visible smoke and an airborne
+  canister. Police tear gas and the Women of the Wall dispute belong to
+  separately attributed 1989 context. No reviewed source identifies the
+  person or resolves the archive suffix difference between `/26C` and `/26`.
+- Saman’s public description uses **apparently young person**. The official
+  air-strike account remains attributed and explicitly unverified. The
+  reviewed public record supplies no age, identity, consent documentation,
+  precise house, weapon attribution, or later-life account. Public research
+  must not turn identification into an objective.
+- Meloni’s work is dated 1 April 2016. UNESCO’s destruction chronology and the
+  later government-permitted, incompletely demined access chronology remain
+  separate. TIME and AFP describe access conditions; they do not provide an
+  archive crosswalk or prove every caption claim.
+- Wave governance selected the proposal for acquisition review. It did not by
+  itself complete gift acceptance, title, custody, rights, technical review,
+  preservation, accession, or permanent-Collection membership.
+- The serious countercase remains part of the acquisition scholarship:
+  aestheticization of violence; unequal caption authority; represented
+  communities absent from the selection process; managed access; safeguarding;
+  and the danger that a donor-formed group flattens distinct histories. The
+  response is object-specific scholarship, attributed claims, visible source
+  boundaries, non-identifying publication, and the ability to withhold display
+  where authority is incomplete.
+
+## 2026-08-09 canonical dependency and publication evidence
+
+- Keys & Gates WP-4 merged through PR #40 as canonical Museum main
+  `b021b50c8c394d3f237707eded17fe6bb394b422`. Exact-head run `31288816982`
+  and post-merge main run `31289263301` succeeded across Museum validation,
+  deterministic Ubuntu/Windows, public-publication Ubuntu/Windows, and focused
+  Stream/catalog checks. All sixteen K&G images remain withheld with zero
+  public widths or derivatives and no display authority.
+- A new public-safe Wave receipt is retained at
+  `content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json`.
+  Observation `6529NM-WAVE-PUB-OBS-2026-08-09-001` was made at
+  `2026-08-09T02:04:21.7672652Z`; canonical payload SHA-256 is
+  `sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`
+  and receipt-file SHA-256 is
+  `sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b`.
+  The projection contains only the public Wave/drop identity, signed WINNER
+  state, seven part numbers, and public media URL/MIME/status bindings. Profile,
+  rater, reaction, and credential data are excluded.
+- The receipt proves the historical Wave publication and exact public media
+  bindings. It supplies no copyright, display, derivative, preservation, title,
+  custody, acceptance, accession, or Collection authority. Every runtime
+  render, download, responsive derivative, zoom, fullscreen, IIIF, and
+  preservation path remains denied.
+- The five token identities were rechecked at finalized block `25,714,155`
+  (`0x1885deb`), hash
+  `0x9ec59a4b6029e30f52491f6ebfbf34c521a4338056fa1a0b9a5cff12bb9ac767`,
+  timestamp `2026-08-09T01:33:11Z`. All five `ownerOf`, `tokenURI`, and
+  `getApproved` reads matched the corpus; all five token approvals were zero.
+  The deployed address uses an EIP-1967-style proxy and exposes
+  administratively mutable token/base URI state. Arweave fixity therefore does
+  not make the contract pointer immutable.

@@ -20,6 +20,8 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 JOIN_PATH = ROOT / "machine" / "wave-media-join.json"
 PROJECTIONS_PATH = ROOT / "machine" / "work-projections.json"
+EVIDENCE_PATH = ROOT / "evidence" / "6529nm-wave-publication-observation-2026-08-09-001.json"
+EVIDENCE_RELATIVE = "content/wp-3-magnum/evidence/6529nm-wave-publication-observation-2026-08-09-001.json"
 
 BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
 CURRENT_OBSERVATION = {
@@ -30,10 +32,28 @@ CURRENT_OBSERVATION = {
 }
 CURRENT_PUBLICATION = {
     "record_type": "WAVE_PUBLICATION_OBSERVATION",
-    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": None,
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
+    "observed_at": "2026-08-09T02:04:21.7672652Z",
+    "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
+    "binding_status": "bound_public_safe_receipt",
+    "receipt_path": EVIDENCE_RELATIVE,
+    "receipt_sha256": "sha256:ea12e0b136b150279a8072eec60f3eb7da1c485615dc0a358dc692e464a9c62b",
+}
+PROJECTION_PUBLICATION = {
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-09-001",
+    "observed_at": "2026-08-09T02:04:21.7672652Z",
+    "payload_sha256": "sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2",
     "binding_status": "pending_wp1_ontology_merge",
+}
+EXPECTED_PUBLICATION_SOURCE = "punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json"
+EXPECTED_WAVE_MEDIA = {
+    1: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/f8006332-4f8a-4556-b0df-3c43eec16334/conflict-at-its-edges-cover.png", "image/png"),
+    2: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg", "image/jpeg"),
+    3: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg", "image/jpeg"),
+    4: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg", "image/jpeg"),
+    5: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg", "image/jpeg"),
+    6: ("https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg", "image/jpeg"),
 }
 EXPECTED = (
     {
@@ -100,18 +120,90 @@ def contains_term(text: str, term: str) -> bool:
     return re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text, flags=re.IGNORECASE) is not None
 
 
+def canonical_payload(payload: dict) -> bytes:
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode("utf-8")
+
+
+def validate_publication_evidence(evidence: dict) -> list[str]:
+    errors: list[str] = []
+    if evidence.get("record_type") != "WAVE_PUBLICATION_OBSERVATION":
+        errors.append("publication evidence must be a WAVE_PUBLICATION_OBSERVATION")
+    if evidence.get("observation_id") != CURRENT_PUBLICATION["observation_id"]:
+        errors.append("publication evidence must carry the current observation ID")
+    if evidence.get("observed_at") != CURRENT_PUBLICATION["observed_at"]:
+        errors.append("publication evidence time must match the bound observation")
+    if evidence.get("source_command") != EXPECTED_PUBLICATION_SOURCE:
+        errors.append("publication evidence must retain the exact safe source command")
+    payload = evidence.get("payload")
+    if not isinstance(payload, dict):
+        return errors + ["publication evidence must contain a payload object"]
+    expected_payload_keys = {"drop_id", "drop_serial_no", "drop_type", "is_signed", "observed_at", "parts", "wave_id", "wave_name"}
+    if set(payload) != expected_payload_keys:
+        errors.append("publication payload must contain only the public Wave identity/state/media fields")
+    if payload.get("drop_id") != "002bfa4f-8416-48bf-b35e-38f354e9a9f0" or payload.get("drop_serial_no") != 1276093:
+        errors.append("publication payload has the wrong drop identity or serial")
+    if payload.get("wave_id") != "5f207393-5418-4a75-8738-e40edb44a94d" or payload.get("wave_name") != "6529 Network Museum":
+        errors.append("publication payload has the wrong Wave identity")
+    if payload.get("drop_type") != "WINNER" or payload.get("is_signed") is not True:
+        errors.append("publication payload must preserve signed WINNER state")
+    if payload.get("observed_at") != CURRENT_PUBLICATION["observed_at"]:
+        errors.append("publication payload time must match the record observation time")
+    parts = payload.get("parts")
+    if not isinstance(parts, list) or [part.get("part_id") for part in parts if isinstance(part, dict)] != list(range(1, 8)):
+        errors.append("publication payload must contain parts 1 through 7 in order")
+        parts = parts if isinstance(parts, list) else []
+    for part in parts:
+        if not isinstance(part, dict) or set(part) != {"part_id", "media"}:
+            errors.append("each publication part must contain only part_id and media")
+            continue
+        media = part.get("media")
+        if not isinstance(media, list):
+            errors.append(f"part {part.get('part_id')}: media must be an array")
+            continue
+        if part.get("part_id") == 7 and media:
+            errors.append("part 7 must have no media binding")
+        if part.get("part_id") in EXPECTED_WAVE_MEDIA:
+            if len(media) != 1:
+                errors.append(f"part {part.get('part_id')}: expected one public media binding")
+            else:
+                item = media[0]
+                if set(item) != {"url", "mime_type", "media_status"}:
+                    errors.append(f"part {part.get('part_id')}: media binding contains non-public fields")
+                expected_url, expected_mime = EXPECTED_WAVE_MEDIA[part["part_id"]]
+                if item.get("url") != expected_url or item.get("mime_type") != expected_mime or item.get("media_status") != "ready":
+                    errors.append(f"part {part.get('part_id')}: public media binding drift")
+    payload_text = json.dumps(payload, ensure_ascii=False, sort_keys=True)
+    if any(term in payload_text.lower() for term in ("profile", "rater", "credential", "reaction")):
+        errors.append("publication payload must exclude profile, rater, credential, and reaction data")
+    expected_hash = "sha256:" + hashlib.sha256(canonical_payload(payload)).hexdigest()
+    if evidence.get("payload_sha256") != expected_hash:
+        errors.append("publication evidence payload hash does not match the declared canonicalization")
+    note = evidence.get("exclusion_note", "").lower()
+    if not all(term in note for term in ("donor authority", "legal title", "copyright", "custody", "accession", "display permission")):
+        errors.append("publication evidence must carry the no-authority exclusion note")
+    return errors
+
+
 def validate_observations(join: dict) -> list[str]:
     errors: list[str] = []
     if join.get("current_status_observation") != CURRENT_OBSERVATION:
         errors.append("media join must carry the exact current WINNER observation ID, time, and payload hash")
     publication = join.get("current_publication_observation")
     if publication != CURRENT_PUBLICATION:
-        errors.append("publication observation must remain explicitly pending WP-1 receipt binding at this staging checkpoint")
+        errors.append("publication observation must carry the exact public-safe receipt binding")
     binding = join.get("publication_observation_binding", {})
-    if binding.get("record_type") != "WAVE_PUBLICATION_OBSERVATION" or binding.get("record_id") != CURRENT_PUBLICATION["observation_id"]:
-        errors.append("media join must name the final WP-1 publication observation record")
-    if binding.get("payload_sha256") is not None or binding.get("status") != "pending_wp1_receipt_binding":
-        errors.append("staging media join must not claim a publication receipt hash before WP-1 binding")
+    expected_binding = {
+        "record_type": "WAVE_PUBLICATION_OBSERVATION",
+        "record_id": CURRENT_PUBLICATION["observation_id"],
+        "payload_sha256": CURRENT_PUBLICATION["payload_sha256"],
+        "receipt_path": EVIDENCE_RELATIVE,
+        "receipt_sha256": CURRENT_PUBLICATION["receipt_sha256"],
+        "required_after_rebase": True,
+        "status": "bound_public_safe_receipt_pending_wp1_graph_binding",
+        "source_record_currently_used": EVIDENCE_RELATIVE,
+    }
+    if binding != expected_binding:
+        errors.append("media join must bind the exact public-safe receipt while retaining the WP-1 graph gate")
     return errors
 
 
@@ -127,12 +219,12 @@ def validate_join(join: dict) -> list[str]:
         fail("media join must carry the canonical current selected-review status")
     if join.get("publication_boundary") != "historical_public_wave_url_only":
         fail("media join must be historical public URL evidence only")
-    if join.get("source_evidence_boundary") != "historical_public_wave_url_evidence_only":
-        fail("media join must declare the historical public URL evidence boundary")
+    if join.get("source_evidence_boundary") != "historical_public_wave_url_with_publication_observation":
+        fail("media join must declare the historical URL plus live publication-observation boundary")
     if join.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json":
         fail("wave-storm is retained only as the historical URL evidence source record")
-    if join.get("authenticated_publication_receipt") is not None or join.get("authenticated_publication_receipt_sha256") is not None:
-        fail("no authenticated publication receipt is retained in this pre-WP-1 staging corpus")
+    if join.get("authenticated_publication_receipt") != EVIDENCE_RELATIVE or join.get("authenticated_publication_receipt_sha256") != CURRENT_PUBLICATION["receipt_sha256"]:
+        fail("the exact public-safe publication receipt path and hash must be retained")
     if join.get("prior_status_observation", {}).get("historical_only") is not True:
         fail("the prior PARTICIPATORY observation must remain historical-only")
 
@@ -259,8 +351,8 @@ def validate_work_projections(projections: dict) -> list[str]:
     errors: list[str] = []
     if projections.get("current_status_observation") != CURRENT_OBSERVATION:
         errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
-    if projections.get("current_publication_observation") != CURRENT_PUBLICATION:
-        errors.append("work projections must carry the exact current publication observation with pending WP-1 receipt binding")
+    if projections.get("current_publication_observation") != PROJECTION_PUBLICATION:
+        errors.append("work projections must retain their separate pending WP-1 publication/graph binding until rebase")
     if projections.get("current_public_status") != "Selected by Museum Wave; acquisition review in progress":
         errors.append("work projections must use the selected-review public status")
     if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
@@ -324,11 +416,13 @@ def main() -> int:
     try:
         join = json.loads(JOIN_PATH.read_text(encoding="utf-8"))
         projections = json.loads(PROJECTIONS_PATH.read_text(encoding="utf-8"))
+        evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        print(f"Media-policy check failed to read machine records: {exc}", file=sys.stderr)
+        print(f"Media-policy check failed to read machine/evidence records: {exc}", file=sys.stderr)
         return 1
 
-    errors = validate_join(join)
+    errors = validate_publication_evidence(evidence)
+    errors.extend(validate_join(join))
     errors.extend(validate_work_projections(projections))
     for work_path in sorted((ROOT / "works").glob("*.md")):
         work_text = work_path.read_text(encoding="utf-8")
