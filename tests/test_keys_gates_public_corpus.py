@@ -116,7 +116,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             amendment,
         )
 
-    def test_accessibility_text_projects_exactly_to_work_pages_and_media_joins(self) -> None:
+    def test_accessibility_text_projects_to_media_joins_and_withheld_work_notices(self) -> None:
         work_dir = REPO_ROOT / "records/programs/6529NM-AP-01/public/works"
         works_by_alias = {}
         alias_pattern = re.compile(r"\*\*Source alias:\*\* (OUT-\d{3})")
@@ -130,14 +130,13 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             image_match = image_pattern.search(text)
             self.assertIsNotNone(alias_match, work)
             alias = alias_match.group(1)
+            self.assertIsNone(image_match, work)
             if alias in WITHHELD_IMAGE_ALIASES:
-                self.assertIsNone(image_match, work)
                 description_match = description_pattern.search(text)
                 self.assertIsNotNone(description_match, work)
                 works_by_alias[alias] = (work, description_match.group(1))
             else:
-                self.assertIsNotNone(image_match, work)
-                works_by_alias[alias] = (work, image_match.group(1))
+                works_by_alias[alias] = (work, None)
         self.assertEqual({f"OUT-{index:03d}" for index in range(1, 17)}, set(works_by_alias))
 
         media_text = (REPO_ROOT / "records/programs/6529NM-AP-01/public/media-joins.md").read_text(
@@ -154,7 +153,8 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertEqual({f"{index:03d}" for index in range(1, 17)}, set(media_rows))
         for record_id, alt_text in EXPECTED_ALTS.items():
             alias = record_id.rsplit("-", 1)[1]
-            self.assertEqual(alt_text, works_by_alias[f"OUT-{alias}"][1])
+            if f"OUT-{alias}" in WITHHELD_IMAGE_ALIASES:
+                self.assertEqual(alt_text, works_by_alias[f"OUT-{alias}"][1])
             self.assertEqual(alt_text, media_rows[alias])
 
     def test_typed_manifest_matches_accessibility_and_is_one_to_one(self) -> None:
@@ -310,6 +310,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
 
         alias_pattern = re.compile(r"\*\*Source alias:\*\* (OUT-\d{3})")
         media_pattern = re.compile(r"/6529NM-AP-01-OUT-(\d{3})/")
+        image_pattern = re.compile(r"!\[[^\]]*\]\([^\n]+\)")
         works = sorted((REPO_ROOT / "records/programs/6529NM-AP-01/public/works").glob("*.md"))
         self.assertEqual(16, len(works))
         aliases: dict[str, Path] = {}
@@ -320,12 +321,11 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             self.assertIsNotNone(alias_match, work)
             alias = alias_match.group(1)
             self.assertNotIn(alias, aliases)
+            self.assertIsNone(image_pattern.search(text), work)
+            self.assertIsNone(media_match, work)
+            self.assertIn("**Media:** [Media and source record]", text)
             if alias in WITHHELD_IMAGE_ALIASES:
-                self.assertIsNone(media_match, work)
                 self.assertIn("Image delivery:** Not approved for delivery", text)
-            else:
-                self.assertIsNotNone(media_match, work)
-                self.assertEqual(alias, f"OUT-{media_match.group(1)}")
             self.assertIn(
                 "**Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**",
                 text,
@@ -494,7 +494,7 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
             for url in re.findall(r"https?://[^\s)]+", visitor_text)
             if "d3lqz0a4bldqgf.cloudfront.net/museum/programs/" in url
         }
-        self.assertEqual(13, len(media_urls))
+        self.assertEqual(0, len(media_urls))
         self.assertTrue(media_urls <= allowed_urls)
         self.assertNotRegex(
             visitor_text,
@@ -635,11 +635,8 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         )
         for item in manifest["items"]:
             presentation = item["presentation"]
-            alias = item["record_id"].split(f"{PROGRAM_ID}-", 1)[1]
-            if alias in WITHHELD_IMAGE_ALIASES:
-                self.assertNotIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
-            else:
-                self.assertIn(presentation["derivatives"][0]["url"], work_text, item["record_id"])
+            for derivative in presentation["derivatives"]:
+                self.assertNotIn(derivative["url"], work_text, item["record_id"])
             source_url = item["source"]["url"]
             self.assertNotIn(source_url, work_text, item["record_id"])
             self.assertNotIn(source_url, visitor_text, item["record_id"])

@@ -1,6 +1,5 @@
 # *the cost of open*
 
-![A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-007/02a8ce8495cbea2bce1475a940a436310abc0fd979ff42114f9bf7a1953e9103/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

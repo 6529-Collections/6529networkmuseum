@@ -1,6 +1,5 @@
 # *Managed Freedom*
 
-![A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-003/4efc4651598006e212d159710714181c61dc3dfdc80719b7ae8a573f382d9eca/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

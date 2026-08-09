@@ -3075,3 +3075,36 @@ Program-media verification is closed at 44 presentation derivatives and
 15,408,782 bytes. All generated artifacts are current. The branch remains
 review-pending: no publication catalog, active pointer, mint, acquisition,
 accession, or Collection membership has been created.
+
+## 2026-08-09 Keys and Gates independent-review correction
+
+The exact-head review of the integrated candidate found three substantive
+release defects and the branch was held. The correction assigns Research
+Publication `6529NM-RP-0002`, *Access, Control, and Exit*, at
+`/museum/network/research/access-control-and-exit`; relates it to Curated
+Acquisition `6529NM-CA-2026-002`, all sixteen Works, all fifteen Artists, and
+the publishing Institution; and preserves every pre-existing relation ID while
+appending `6529NM-REL-0165` through `6529NM-REL-0197`.
+
+The unsupported identification of *Residual Barrier* as a Berlin Wall segment
+has been corrected. The artist-attributed Berlin location is retained, while
+the precise site and any relationship to the former Berlin Wall remain
+unverified. The stale WP-1 handoff is now a current integration record.
+
+The candidate is text-only. Thirteen direct Markdown image embeds were removed
+so all sixteen K&G Works now honor their typed `visual: false`, metadata-only
+Media authority. The governed derivatives, fixity, captions, accessibility
+records, and source lineage remain available for independent review; image
+display requires a later exact reviewed promotion.
+
+The corrected projection contains 119 public entities, 197 public relations,
+and one Wave status observation (317 migration records). The visitor inventory
+contains 502 entries, the visitor bundle 501 entries, and the complete manifest
+775 entries. Its SHA-256 is
+`sha256:5523a1c33a688af86fe52139f0766d4fad5189ca66998cec84b1e14b82892482`
+and its Keccak commitment is
+`0x34e46f644beea8b50a69b6c6ce579772d38b97bdbcc5bc6d791d56bb127cf532`.
+Bootstrap checked
+655 JSON files; the full semantic validator passed; the complete test suite
+passed 292 tests with one expected platform skip. No catalog, pointer, mint,
+acquisition, accession, or Collection membership has been activated.

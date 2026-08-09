@@ -1,6 +1,5 @@
 # *Dichotomy.*
 
-![A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-008/03950568f8819a8209f4931380e05b28b17408679a838f8043987b93d2e7fc3b/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

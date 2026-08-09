@@ -90,7 +90,7 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 118, "PUBLIC_RELATION": 164, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 119, "PUBLIC_RELATION": 197, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
@@ -99,7 +99,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sum(payload["entity_type"] == "AGENT" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 31)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
-        self.assertEqual(len(self.relations()), 164)
+        self.assertEqual(sum(payload["entity_type"] == "RESEARCH_PUBLICATION" for payload in entities.values()), 2)
+        self.assertEqual(len(self.relations()), 197)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -107,6 +108,42 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sample["reviewer"]["reviewed_manifest_keccak"], TEST_REVIEWED_MANIFEST_KECCAK)
         self.assertEqual(sample["constructor"]["observed_at"], GENERATED_AT)
         self.assertNotEqual(sample["reviewer"]["reviewed_at"], sample["constructor"]["observed_at"])
+
+    def test_keys_and_gates_research_publication_is_governed_and_explicitly_bound(self) -> None:
+        entities = self.entities()
+        publication = entities["6529NM-RP-0002"]
+        self.assertEqual(publication["preferred_label"], "Access, Control, and Exit")
+        self.assertEqual(publication["public_slug"], "access-control-and-exit")
+        self.assertEqual(publication["canonical_route"], "/museum/network/research/access-control-and-exit")
+        profile = publication["profile"]
+        self.assertEqual(profile["publication_kind"], "catalogue_essay")
+        self.assertEqual(profile["publication_date"], "2026-08-08")
+        self.assertEqual(profile["version"], "1.1")
+        self.assertEqual(profile["author_entity_ids"], ["6529NM-I-0001"])
+        work_ids = [f"6529NM-W-{index:04d}" for index in range(8, 24)]
+        artist_ids = [f"6529NM-ART-{index:04d}" for index in range(2, 17)]
+        self.assertEqual(profile["subject_entity_ids"], ["6529NM-CA-2026-002", *work_ids, *artist_ids])
+        self.assertTrue(profile["publication_document_uri"].endswith("records/programs/6529NM-AP-01/public/curatorial-essay.md"))
+        self.assertIn("records/programs/6529NM-AP-01/public/curatorial-essay.md", json.dumps(profile["evidence_refs"]))
+
+        relation_bindings = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["relation_bindings"]
+        relation_ids = [row["relation_id"] for row in relation_bindings]
+        self.assertEqual(relation_ids[:164], [f"6529NM-REL-{index:04d}" for index in range(1, 165)])
+        self.assertEqual(relation_ids[164:], [f"6529NM-REL-{index:04d}" for index in range(165, 198)])
+        self.assertEqual(relation_bindings[163]["source_key"], "AGENT_PLAYS_ROLE|6529NM-ART-0021|6529NM-PRJ-0006")
+
+        interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
+        self.assertEqual(len(interprets), 32)
+        self.assertEqual({relation["target_entity_id"] for relation in interprets}, {"6529NM-CA-2026-002", *work_ids, *artist_ids})
+        self.assertTrue(all(relation["qualifier"] == {"role": "subject"} for relation in interprets))
+        self.assertTrue(all("records/programs/6529NM-AP-01/public/curatorial-essay.md" in json.dumps(relation["evidence_refs"]) for relation in interprets))
+        publishes = [relation for relation in self.relations() if relation["relation_type"] == "INSTITUTION_PUBLISHES_PUBLICATION" and relation["target_entity_id"] == "6529NM-RP-0002"]
+        self.assertEqual(len(publishes), 1)
+        self.assertEqual(publishes[0]["source_entity_id"], "6529NM-I-0001")
+        self.assertIn("records/programs/6529NM-AP-01/public/curatorial-essay.md", json.dumps(publishes[0]["evidence_refs"]))
+
+        slug_row = next(row for row in self.inventory["public_slug_inventory"] if row["entity_id"] == "6529NM-RP-0002")
+        self.assertEqual(slug_row, {"entity_id": "6529NM-RP-0002", "entity_type": "RESEARCH_PUBLICATION", "preferred_label": "Access, Control, and Exit", "public_slug": "access-control-and-exit", "canonical_route": "/museum/network/research/access-control-and-exit"})
 
     def test_migration_rejects_unexpected_generated_json(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -548,7 +585,7 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_review_pending_candidate_state_is_not_archived_and_cannot_be_final(self) -> None:
         candidate = build_records()
         candidate_entities = [record["payload"] for record in candidate.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"]
-        self.assertEqual(len(candidate_entities), 118)
+        self.assertEqual(len(candidate_entities), 119)
         self.assertTrue(all(payload["entity_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["record_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["reviewer"] is None for payload in candidate_entities))

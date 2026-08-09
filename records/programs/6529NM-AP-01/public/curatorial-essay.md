@@ -26,7 +26,7 @@ Rakesh Pulapa’s aerial [*Dichotomy.*](works/dichotomy.md) compresses movement 
 
 ## Residual infrastructures
 
-In ikertje’s [*Residual Barrier*](works/residual-barrier.md), a weathered concrete wall holds the lower edge of a pale sky. Graffiti and surface damage interrupt its mass, while the horizontal line keeps the old force of a barrier present in the eye. The particular Berlin Wall segment remains unidentified in the public record. Its subject is the persistence of a boundary as material and memory after the exact site and original function have receded.[^3]
+In ikertje’s [*Residual Barrier*](works/residual-barrier.md), a weathered concrete wall holds the lower edge of a pale sky. Graffiti and surface damage interrupt its mass, while the horizontal line keeps the old force of a barrier present in the eye. The artist attributes the photograph’s location to Berlin in 2011; the precise site and any relationship between the pictured structure and the former Berlin Wall remain unverified. Its subject is the persistence of a boundary as material and memory after the exact site and original function have receded.[^3]
 
 pandelic’s [*Now Is Our Time*](works/now-is-our-time.md) locates residue in a changing industrial compound. Barred openings, lamps, layered graffiti, and the painted sentence occupy one black-and-white field. RAW-Gelände’s documented movement from railway repair works through shutdown, cultural use, and redevelopment gives the site a history of changing access; the image holds the slogan inside that unstable property story. The painted words occupy the present frame, while the building records how quickly a present can become a contested layer.
 

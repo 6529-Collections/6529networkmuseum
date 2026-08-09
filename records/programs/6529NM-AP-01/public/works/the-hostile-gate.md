@@ -2,7 +2,6 @@
 
 > **Content note:** Shirtless self-portrait and body-image themes.
 
-![A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-006/29db1bb746118e074cf6cbad247be4874ada7840fd3b025c37903bd87082a233/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

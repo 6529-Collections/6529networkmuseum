@@ -1,6 +1,5 @@
 # *Morning Glory*
 
-![The camera looks upward through a dark, fluted circular structure toward a small opening of sky.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-014/caff170b0ba35c185f75c6e436c2557a9ef1743c399ca07dbb08848777239d03/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

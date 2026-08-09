@@ -1,6 +1,5 @@
 # *Rusted*
 
-![A person stands framed by successive arched doorways inside a heavily damaged building.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-012/4c9f68e4eee9cdf87f59cb960cac072dab8ec23e2b60a94095c38969412fa45b/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

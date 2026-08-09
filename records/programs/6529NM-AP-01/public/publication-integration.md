@@ -1,92 +1,78 @@
-# WP-1 publication integration handoff
+# Keys and Gates publication integration — current state
 
-This handoff keeps the Keys and Gates public corpus ready for admission to the canonical typed release. It is content and routing metadata only; it does not redefine a shared schema or claim that typed publication activation has happened.
+**Record ID:** `6529NM-AP-01-PUBLICATION-INTEGRATION-2026-08-08`<br>
+**Scope:** current text-only public candidate for Curated Acquisition `6529NM-CA-2026-002`<br>
+**Record role:** public integration state; not a schema, release manifest, catalog, acquisition, accession, or rights decision
 
-## Admission state
+The typed projection is now present as a governed, review-pending candidate. It
+keeps the source aliases, public routes, and independent lifecycle facts
+separate. No entity is `published`, and no typed projection claims minting,
+purchase, title, custody, accession, Collection membership, or display
+authorization.
 
-| Subject | Current public route | Canonical typed ID |
-|---|---|---|
-| Acquisition Program | records/programs/6529NM-AP-01/program.json | 6529NM-AP-01 |
-| Curated Acquisition | curated-acquisition.md | 6529NM-CA-2026-002 |
-| Research Publication | curatorial-essay.md | WP-1 publication ID to be assigned |
-| Artist entities | artists/*.md | WP-1 Artist IDs to be assigned |
-| Work entities | works/*.md | WP-1 Work IDs to be assigned |
-| Media references | media-joins.md and ../media-manifest.json | Existing program media-manifest item IDs |
+**Visitor state:** Selected through the Keys and Gates acquisition program;
+acquisition pending. **Mint qualifier:** Not yet minted; minting route under consideration.
 
-The current branch is pending WP-1 admission. The public pages are complete as editorial routes and the written scholarship is complete as constructed text, but exact-commit independent review, accessibility, image display, sensitive-subject authorization, and image delivery remain pending. OUT-004, OUT-010, and OUT-011 images are not approved for delivery. The branch must still be rebased onto the WP-1 ontology/release work before it can claim a typed release activation.
+## Governed typed state
 
-## Identity rule
-
-OUT-001 through OUT-016 are Acquisition Program selected-outcome/source IDs. They are retained as aliases and typed source relations. They are not canonical public Work entity IDs.
-
-Artist handles are public names and source aliases. They are not canonical Artist entity IDs. WP-1 must assign independent, stable Work and Artist IDs while preserving the page routes and the source aliases below.
-
-The title-slug routes below are stable presentation routes, not canonical Work or Artist IDs. The public URL must continue to identify the work or artist by its page route while the typed release binds that page to the independent WP-1 entity ID.
-
-## Artist route admission
-
-| Public name / handle | Route | Selected source aliases |
-|---|---|---|
-| Gül Yıldız / GulYildiz | artists/gulyildiz.md | OUT-001 |
-| Hugo Faz / HugoFaz | artists/hugofaz.md | OUT-002, OUT-011 |
-| Nasim Ghanizadeh / nasimghanizadeh | artists/nasimghanizadeh.md | OUT-003 |
-| intrepid | artists/intrepid.md | OUT-004 |
-| IKERTJE / ikertje | artists/ikertje.md | OUT-005 |
-| Artem Humilevskiy / GIANT | artists/giant.md | OUT-006 |
-| Priyanka Patel / priyanka | artists/priyanka.md | OUT-007 |
-| Rakesh Pulapa / Rakesh | artists/rakesh.md | OUT-008 |
-| Eric Pan / pandelic | artists/pandelic.md | OUT-009 |
-| Minalisa | artists/minalisa.md | OUT-010 |
-| Teyhu | artists/teyhu.md | OUT-012 |
-| arsonic | artists/arsonic.md | OUT-013 |
-| Zoku | artists/zoku.md | OUT-014 |
-| Shams Pranto / shamspranto | artists/shamspranto.md | OUT-015 |
-| Veerendra | artists/veerendra.md | OUT-016 |
-
-## Work route admission
-
-| Source alias | Public route | Artist route | Collection membership |
+| Projection | Typed identity | Public source | Current status |
 |---|---|---|---|
-| OUT-001 | works/take-the-key.md | artists/gulyildiz.md | not_in_collection |
-| OUT-002 | works/the-artist-in-teh-open-sea.md | artists/hugofaz.md | not_in_collection |
-| OUT-003 | works/managed-freedom.md | artists/nasimghanizadeh.md | not_in_collection |
-| OUT-004 | works/no-key-only-light.md | artists/intrepid.md | not_in_collection |
-| OUT-005 | works/residual-barrier.md | artists/ikertje.md | not_in_collection |
-| OUT-006 | works/the-hostile-gate.md | artists/giant.md | not_in_collection |
-| OUT-007 | works/the-cost-of-open.md | artists/priyanka.md | not_in_collection |
-| OUT-008 | works/dichotomy.md | artists/rakesh.md | not_in_collection |
-| OUT-009 | works/now-is-our-time.md | artists/pandelic.md | not_in_collection |
-| OUT-010 | works/checkpoint.md | artists/minalisa.md | not_in_collection |
-| OUT-011 | works/sina-beizavi-in-brazil.md | artists/hugofaz.md | not_in_collection |
-| OUT-012 | works/rusted.md | artists/teyhu.md | not_in_collection |
-| OUT-013 | works/nowhere-to-esc.md | artists/arsonic.md | not_in_collection |
-| OUT-014 | works/morning-glory.md | artists/zoku.md | not_in_collection |
-| OUT-015 | works/fight-for-freedom.md | artists/shamspranto.md | not_in_collection |
-| OUT-016 | works/no-access.md | artists/veerendra.md | not_in_collection |
+| Program | `6529NM-AP-ENT-0002` (source alias `6529NM-AP-01`) | [program record](../program.json) | `review_pending` |
+| Curated Acquisition (CA) | `6529NM-CA-2026-002` | [Curated Acquisition](curated-acquisition.md) | `review_pending` |
+| Artist | `6529NM-ART-0002`–`6529NM-ART-0016` (15 entities) | [artist profile example](artists/gulyildiz.md) and sibling `artists/*.md` pages | `review_pending` |
+| Work | `6529NM-W-0008`–`6529NM-W-0023` (16 entities) | [Work page example](works/take-the-key.md) and sibling `works/*.md` pages | `review_pending` |
+| Media | `6529NM-MED-0020`–`6529NM-MED-0035` (16 entities) | [media joins](media-joins.md) and [program media manifest](../media-manifest.json) | `review_pending` |
+| Research Publication (RP) | `6529NM-RP-0002` (new) | [Access, Control, and Exit](curatorial-essay.md) | `review_pending` |
 
-## Typed relation handoff
+The Program governs the CA; the CA retains the sixteen selected outcome
+aliases; each Work retains its OUT alias, Artist creator, `not_in_collection`
+state, and typed Media reference; and RP `6529NM-RP-0002` interprets the CA
+and discusses its Works and Artists. The new RP identity is recorded here as
+review-pending integration state; its exact catalog pointer is not yet
+available.
 
-After WP-1 supplies the canonical entity shape, admit the following relations without changing the editorial routes:
+## Current public boundary
 
-    Acquisition Program 6529NM-AP-01
-      -> governs / produces -> Curated Acquisition 6529NM-CA-2026-002
+Candidate A is text-only. The Work pages retain captions, close looking,
+source links, and media-record links, but no direct Markdown image embeds.
+Constructed visual descriptions remain in the governed accessibility and
+media records; the three specially withheld pages also repeat them beside
+their image-delivery notices. The typed Media projection remains
+`profile.media.visual: false` and `review_pending`; its derivative paths and
+fixity are lineage records, not image-display or delivery authorization.
+Constructed accessibility descriptions remain
+`constructed_visual_description_pending_independent_review`, as recorded in
+the [current publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md).
+
+The special unresolved image cautions remain explicit: OUT-004 has unverified
+depicted-figure ages and consent/privacy scope; OUT-010 has unresolved identity,
+adult-status, self-portrait, and consent/publication-scope questions; and
+OUT-011 has unresolved direct subject approval, document legibility, venue
+permission, sensitive biography, and publication scope. Their technical
+derivatives remain source/lineage records only.
+
+## Relations and activation gate
+
+The public relationship set remains:
+
+    Program 6529NM-AP-ENT-0002
+      -> produces -> Curated Acquisition 6529NM-CA-2026-002
     Curated Acquisition 6529NM-CA-2026-002
-      -> has selected source outcome -> OUT-001 ... OUT-016
-    Work [WP-1 Work ID]
-      -> has source alias -> OUT-###
-      -> created by -> Artist [WP-1 Artist ID]
-      -> collection membership -> not_in_collection
-      -> has presentation reference -> media-manifest item for OUT-###
-    Research Publication [WP-1 Publication ID]
+      -> brings together -> Work 6529NM-W-0008 ... 6529NM-W-0023
+    Work
+      -> created by -> Artist
+      -> has media -> Media
+    Research Publication 6529NM-RP-0002
       -> interprets -> Curated Acquisition 6529NM-CA-2026-002
-      -> discusses -> Work and Artist entities
+      -> discusses -> Work and Artist
 
-The relation set must not create an accession, title binding, custody event, mint, token, purchase, or rights grant. The visitor status remains: **Selected through the Keys and Gates acquisition program; acquisition pending. Not yet minted; minting route under consideration.**
+Public activation remains pending a fresh exact-commit independent review and a
+catalog pointer/readback that binds RP `6529NM-RP-0002`, the governed typed
+records, the text-only candidate, and the atomic visitor release. Until both
+gates are complete, this record must not be treated as a published catalog
+entry or activation receipt.
 
-## Integration acceptance checks
-
-1. Rebase this branch onto current source main, then onto the WP-1 ontology/release commit when available.
-2. Assign independent canonical Work and Artist IDs while retaining every OUT alias, handle, public route, and source relation.
-3. Admit the Program, Curated Acquisition, 15 Artist entities, 16 Work entities, Research Publication, media references, and typed relations to the canonical release/manifest.
-4. Regenerate and check the repository release manifest after admission; preserve source-policy records and existing INDEX.md/orchestration updates.
-5. Run the complete validator, public link/anchor inventory, media join checks, and UTF-8/no-mojibake check.
+The [institutional record](institutional-record.md), [media joins](media-joins.md),
+[rights and consent record](rights-and-consent.md), and [curatorial essay](curatorial-essay.md)
+remain the supporting public record. Source aliases `OUT-001` through
+`OUT-016` and the public page routes remain unchanged.

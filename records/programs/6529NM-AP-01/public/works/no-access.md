@@ -1,6 +1,5 @@
 # *No Access*
 
-![A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

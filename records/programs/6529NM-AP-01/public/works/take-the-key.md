@@ -1,6 +1,5 @@
 # *Take the Key!*
 
-![A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-001/898df24ecb82ac0b32ca99e995e5c1b027c47d6b1bef8d636eb2b06640d9ea66/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

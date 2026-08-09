@@ -1,6 +1,6 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/public-entity-identity-inventory-v1.json",
-  "inventory_version": "1.3.1",
+  "inventory_version": "1.3.2",
   "identity_policy": "Museum entity identity is independent of acquisition, program, accession, artist, chain, wallet, title, and public route key. Source aliases remain typed references and never replace the canonical entity identifier. Component and manifestation targets are either explicit authoritative records or entries in the governed typed-reference registry.",
   "entity_id_patterns": {
     "INSTITUTION": "^6529NM-I-[0-9]{4}$",
@@ -355,6 +355,7 @@
     {"entity_id": "6529NM-PRJ-0005", "entity_type": "PROJECT_OR_SERIES", "preferred_label": "Ex Nihilo (Cosmos)", "public_slug": "ex-nihilo-cosmos", "canonical_route": "/museum/network/projects/ex-nihilo-cosmos"},
     {"entity_id": "6529NM-PRJ-0006", "entity_type": "PROJECT_OR_SERIES", "preferred_label": "Magnum Photos 75", "public_slug": "magnum-photos-75", "canonical_route": "/museum/network/projects/magnum-photos-75"},
     {"entity_id": "6529NM-AP-ENT-0001", "entity_type": "ACQUISITION_PROGRAM", "preferred_label": "Gift Acquisitions", "public_slug": "gift-acquisitions", "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions"},
-    {"entity_id": "6529NM-AP-ENT-0002", "entity_type": "ACQUISITION_PROGRAM", "preferred_label": "Keys and Gates", "public_slug": "keys-and-gates", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates"}
+    {"entity_id": "6529NM-AP-ENT-0002", "entity_type": "ACQUISITION_PROGRAM", "preferred_label": "Keys and Gates", "public_slug": "keys-and-gates", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates"},
+    {"entity_id": "6529NM-RP-0002", "entity_type": "RESEARCH_PUBLICATION", "preferred_label": "Access, Control, and Exit", "public_slug": "access-control-and-exit", "canonical_route": "/museum/network/research/access-control-and-exit"}
   ]
 }

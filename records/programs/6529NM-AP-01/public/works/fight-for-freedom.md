@@ -1,6 +1,5 @@
 # *মুক্তিযুদ্ধ - Fight for Freedom*
 
-![Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

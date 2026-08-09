@@ -1,6 +1,5 @@
 # *Now Is Our Time*
 
-![Black-and-white industrial buildings sit beneath a cloudy sky, with the words NOW IS OUR TIME painted on a wall.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-009/c6d7f689d7e532cedeaba69270c0775ccf619bbfbbd0f0c5bd9c182e1eb64314/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

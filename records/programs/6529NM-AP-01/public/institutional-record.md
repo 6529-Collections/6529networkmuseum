@@ -97,7 +97,7 @@ The same source discipline applies to other title or credit questions: OUT-002 p
 
 ## WP-1 integration dependencies
 
-The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [WP-1 publication integration handoff](publication-integration.md). WP-4 has not modified WP-1-owned shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. It has made one isolated program-media control change: the `program-media-manifest` accessibility status currently records constructed descriptions as `constructed_visual_description_pending_independent_review`; the correction is covered by the derived accessibility amendment and focused tests.
+The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [current publication integration record](publication-integration.md). WP-4 has not modified WP-1-owned shared schemas, controlled vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. It has made one isolated program-media control change: the `program-media-manifest` accessibility status currently records constructed descriptions as `constructed_visual_description_pending_independent_review`; the correction is covered by the derived accessibility amendment and focused tests.
 
 Integration must preserve:
 

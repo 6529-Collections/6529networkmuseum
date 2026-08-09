@@ -1,6 +1,5 @@
 # *the Artist in teh Open Sea*
 
-![An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-002/e3d4f538d4c9d3aa79a1d7ed11e93819a806fad85dbed4b8b38e9c62528d55fe/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 

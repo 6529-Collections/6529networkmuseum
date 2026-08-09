@@ -1,6 +1,5 @@
 # *Residual Barrier*
 
-![A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.](https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-005/5df39d20ceb215cc93831e52bf9a8b27f332e5e94f613fb3c8f377200ea5daca/webp-v2-q82-m6-fixed-icc/640.webp)
 
 ## Object data
 
