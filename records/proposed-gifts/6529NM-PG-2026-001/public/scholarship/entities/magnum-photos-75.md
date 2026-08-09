@@ -1,5 +1,7 @@
 # Magnum Photos 75
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## An archive enters the blockchain
 
 Magnum Photos 75 gave historical photographs a second circulation through curatorial selection, serial tokens, metadata, image pointers, and network publication. The photographs had already passed through assignments, archives, prints, books, exhibitions, and captions. The 2022 project placed each frame inside a new chain of identifiers: collection number, curation field, token, metadata object, image URI, edition language, and transaction history.[^1]

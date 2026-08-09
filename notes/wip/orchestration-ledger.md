@@ -3349,3 +3349,48 @@ raising an exception. The isolated A-to-B verifier also executes all four
 manifest-bound Magnum checks, and its tests prove that omitting any one of them
 fails closed. The supplemental signed-WINNER observation is recorded with its
 exact `2026-08-09T02:04:21.7672652Z` observation time.
+
+## 2026-08-09 Magnum final publication-boundary correction
+
+Exact-head curatorial and media review rejected candidate `3958696820cb37faaeda61ade97aad59b82b01a8`.
+The visitor corpus had admitted public historical Storm and voter manuscripts,
+including five restricted source-image locators and superseded Saman age
+language. The correction preserves those files as public governed evidence and
+complete-manifest entries while excluding proposed-gift Wave manuscripts,
+voter dossiers, resolutions, and status amendments from the website bundle.
+Current scholarship remains admitted atomically. An executable regression
+checks both preservation and non-delivery.
+
+Research Publication `6529NM-RP-0003` now has a shared edition and citation
+record. All 23 manuscripts carry institutional author, edition, publication
+date, research cutoff, and a publication-record link. The frontend continues
+to construct literal immutable source links from the exact reviewed commit in
+the active publication catalog. Offeror credit, proposal-origin grouping,
+Museum interpretation, artist authorship, and later donor authority are now
+explicitly separate facts.
+
+The same correction incorporates the complete bot-minor audit: URI-scheme and
+source-ID checks, exact Seymour credit, row-level rights notices, date precision,
+issuer-place spelling, Bar-Am append-only supersession, guarded file reads,
+future-safe editorial regexes, Work-publication evidence assertions, WIP table
+escaping, and targeted prose corrections. Focused gates pass; complete release
+regeneration, exact-head review, hosted CI, B/C activation, and frontend release
+remain open.
+
+## 2026-08-09 Magnum exact-record correction
+
+- Corrected generated logical URIs from duplicated `/records/records/` paths to
+  stable repository-root paths.
+- Rebound Wave-publication evidence to the exact later observation timestamp.
+- Reduced Magnum Photos 75 to one typed organization-originator relation plus
+  five Project-to-Work context relations. Photographer authorship remains at the
+  independent Work level.
+- Retired relation IDs `6529NM-REL-0159` through `0164` through append-only
+  tombstones; no identifier was reused.
+- Regenerated projection: 120 entities, 205 relations, one Wave status
+  observation. Focused 44-test, bootstrap, editorial, media, inventory, and
+  bundle checks pass.
+- Complete pre-commit qualification passed: 306 unit tests with one Windows
+  platform skip, the full Museum/Casey validator, Casey package verification,
+  the 22-file diligence-manifest check, fetch guard, manifest checks, and
+  whitespace validation. Exact-head independent review and hosted CI remain.

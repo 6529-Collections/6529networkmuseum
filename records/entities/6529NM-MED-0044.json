@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6a08d6fc106edefcb4f8656df3065ba342a91ec3a94e53104641f1be723d65f1"
+      "digest": "0xb5df73f160f2be91818402c6df2ff82e3b6ad498e4680b321bdf809b9befdf07"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x39c88c8c574aa589de12081d0d1af1d0e0cb8b85b384edc5a6f7b2e5fb83d1a6",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0044.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0044.json"
   },
   "payload": {
     "canonical_route": null,
@@ -34,13 +34,13 @@
       {
         "evidence_class": "B",
         "label": "Historical public Wave proposal presentation",
-        "observed_at": "2026-08-06T13:19:30.726Z",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:e68b82da1603be08cd7951c71a1dbdb33c90677b629ff81d0c5c43cba1c744c8",
+    "payload_sha256": "sha256:5aceed813d1dfd8aad8d410929d2ca676d0507af6c220f8558fbd5e9c4936fa2",
     "preferred_label": "Palmyra, Syria historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -48,7 +48,7 @@
           {
             "evidence_class": "B",
             "label": "Historical Wave presentation accessibility source",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
           }
         ],
@@ -83,7 +83,7 @@
             {
               "evidence_class": "B",
               "label": "Signed-drop API rights-context readback",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -101,7 +101,7 @@
             {
               "evidence_class": "B",
               "label": "Historical Wave presentation locator observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -154,7 +154,7 @@
         {
           "evidence_class": "B",
           "label": "Historical public Wave proposal presentation",
-          "observed_at": "2026-08-06T13:19:30.726Z",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
         }
       ],

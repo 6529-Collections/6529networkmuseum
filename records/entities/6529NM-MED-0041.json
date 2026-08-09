@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4928040d210e06bda64657342d299fc0067f45ce1122238fad8199aac879b2c1"
+      "digest": "0x032dd0a34c1812e33c8551c3ba65d5f27aabc035890c0757316e0134ad323fa9"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xaac25ec255646296ba88866694963d38998ad36d462f72406892321d9f542adc",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0041.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0041.json"
   },
   "payload": {
     "canonical_route": null,
@@ -34,13 +34,13 @@
       {
         "evidence_class": "B",
         "label": "Historical public Wave proposal presentation",
-        "observed_at": "2026-08-06T13:19:30.726Z",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:1b80aa9ae6218379cbb2c8891dea9890c15f806ea9023f5bc7a0d2ad469c6625",
+    "payload_sha256": "sha256:6f38c7122e10eb381e974fc43d89a43d692595238cd32f7b2b21e16285da4281",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -48,7 +48,7 @@
           {
             "evidence_class": "B",
             "label": "Historical Wave presentation accessibility source",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
           }
         ],
@@ -83,7 +83,7 @@
             {
               "evidence_class": "B",
               "label": "Signed-drop API rights-context readback",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -101,7 +101,7 @@
             {
               "evidence_class": "B",
               "label": "Historical Wave presentation locator observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -154,7 +154,7 @@
         {
           "evidence_class": "B",
           "label": "Historical public Wave proposal presentation",
-          "observed_at": "2026-08-06T13:19:30.726Z",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
         }
       ],

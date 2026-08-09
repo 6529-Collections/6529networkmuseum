@@ -1,5 +1,7 @@
 # Larry Towell
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Artist profile
 
 **Selected Work:** [*Government soldiers in a church, Suchitoto, El Salvador*](../works/02-larry-towell-145.md), 1986
@@ -18,7 +20,7 @@ Landlessness provides one of the clearest continuities in Towell’s practice. L
 
 ### Exhibition, book, and photographic sequence
 
-Towell’s Central American work reached public form through exhibitions and books. *Gifts of War*, organized by the Art Gallery of Windsor, travelled between April 1988 and October 1989. The exhibition brought photographs and testimonies from Nicaragua, El Salvador, and Guatemala into a sequence concerned with civilian life, repression, and the effects of war.[^2]
+Towell’s Central American work reached public form through exhibitions and books. *Larry Towell: Gifts of War*, organized by the Art Gallery of Windsor, travelled between April 1988 and October 1989. The exhibition brought photographs and testimonies from Nicaragua, El Salvador, and Guatemala into a sequence concerned with civilian life, repression, and the effects of war. A separate Coach House Press publication, *Gift of War*, appeared in 1988.[^2]
 
 Towell’s CV lists *Gift of War* from 1988 and *El Salvador* from 1997. The library record for *El Salvador* identifies a 127-page book with an introduction by Mark Danner and a historical focus on violence, insurgency, and El Salvador between 1979 and 1992.[^2] These forms extend the life of a photograph. An exhibition establishes a spatial relation among images and testimony; a book controls order, scale, page turning, and intervals of silence.
 

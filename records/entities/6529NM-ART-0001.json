@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x65972485c660a4799d3558c272e83fb4ffe2aeb58e0dd8f86a4e8dd48390d085",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0001.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0001.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/casey-reas",

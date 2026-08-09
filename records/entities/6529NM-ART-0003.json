@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x8aa144ce374e6d59da85d206c8f7beaf7cf2def3fe2212d1846010134888589a",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0003.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0003.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/hugofaz",

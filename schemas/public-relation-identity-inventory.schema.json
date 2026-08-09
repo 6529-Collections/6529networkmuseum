@@ -21,8 +21,24 @@
         "required": ["relation_id", "source_key"],
         "unevaluatedProperties": false
       }
+    },
+    "retired_relation_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation_id": {"type": "string", "pattern": "^6529NM-REL-[0-9]{4}$"},
+          "source_key": {"type": "string", "pattern": "^[A-Z0-9_]+\\|[^|]+\\|[^|]+$"},
+          "retired_at": {"type": "string", "format": "date-time"},
+          "reason": {"type": "string", "minLength": 1},
+          "superseded_by": {"type": ["string", "null"], "pattern": "^6529NM-REL-[0-9]{4}$"}
+        },
+        "required": ["relation_id", "source_key", "retired_at", "reason", "superseded_by"],
+        "unevaluatedProperties": false
+      }
     }
   },
-  "required": ["$schema", "inventory_version", "identity_policy", "relation_key_format", "relation_bindings"],
+  "required": ["$schema", "inventory_version", "identity_policy", "relation_key_format", "relation_bindings", "retired_relation_ids"],
   "unevaluatedProperties": false
 }

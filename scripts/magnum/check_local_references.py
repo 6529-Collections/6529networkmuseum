@@ -12,6 +12,7 @@ REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 CODE_SPAN = re.compile(r"`([^`]+)`")
+ABSOLUTE_URI = re.compile(r"^[A-Za-z][A-Za-z0-9+.-]*:")
 CANONICAL_PATH = re.compile(r"(?<![A-Za-z0-9_./-])(records/proposed-gifts/6529NM-PG-2026-001/[A-Za-z0-9_./-]+)")
 GOVERNED_PREFIXES = (
     "records/",
@@ -39,7 +40,7 @@ def check_local_links(files: list[Path], errors: list[str]) -> int:
         text = source.read_text(encoding="utf-8")
         for match in MARKDOWN_LINK.finditer(text):
             target = unquote(match.group(1).split("#", 1)[0].strip())
-            if not target or target.startswith(("http://", "https://", "mailto:", "//")):
+            if not target or ABSOLUTE_URI.match(target) or target.startswith("//"):
                 continue
             checked += 1
             resolved = (source.parent / target).resolve()

@@ -38,7 +38,6 @@ TEXT_EXTENSIONS = {".json", ".md", ".txt", ".py", ".yml", ".yaml", ".svg", ".git
 MEDIA_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".svg"}
 PUBLIC_MEDIA_RIGHTS_STATUSES = {"cleared", "cleared_with_conditions"}
 EXCLUDED_PUBLIC_MARKDOWN = {
-    "records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md",
     # Superseded accessibility and delivery records remain in the source
     # repository but are not visitor manuscripts. The current accessibility
     # JSON, publication boundary, and withdrawal amendment carry the active
@@ -51,9 +50,20 @@ EXCLUDED_PUBLIC_MARKDOWN = {
     "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md",
 }
 
+# Proposed-gift ballots and their supporting Storm manuscripts are public
+# historical evidence, not current Museum manuscripts. They remain in the
+# governed repository and complete record manifest, while the visitor bundle
+# admits only current scholarship below public/scholarship/. This general
+# boundary prevents a future proposal from silently publishing voting copy,
+# superseded descriptions, or restricted media links as collection scholarship.
+PROPOSED_GIFT_DECISION_HISTORY = re.compile(
+    r"^records/proposed-gifts/[^/]+/public/(?:"
+    r"wave-storm/|status-amendments/|voter-dossier\.md$|wave-resolution\.md$)"
+)
+
 # These are the visitor-facing and frontend-contract manuscripts that do not
-# live below records/**/public.  The records/public tree is derived in full,
-# except for the restricted voter dossier above.
+# live below records/**/public. The records/public tree is derived subject to
+# the explicit historical-evidence boundaries above.
 EXPLICIT_MANUSCRIPTS = (
     "CONTRIBUTING.md",
     "docs/curatorial-publication-standard.md",
@@ -150,6 +160,7 @@ def public_record_paths(root: Path) -> list[str]:
         for path in (root / "records").rglob("*.md")
         if "/public/" in relative_path(root, path)
         and relative_path(root, path) not in EXCLUDED_PUBLIC_MARKDOWN
+        and not PROPOSED_GIFT_DECISION_HISTORY.match(relative_path(root, path))
     }
     paths.update(EXPLICIT_MANUSCRIPTS)
     return sorted(paths)

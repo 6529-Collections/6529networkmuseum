@@ -1,5 +1,7 @@
 # Micha Bar-Am, *Demonstration, Western Wall, Jerusalem*
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 *Short label: Demonstration, 1989 · Western Wall, Jerusalem. Historical public
 Wave proposal record; the non-rendering source locator and credit appear in
 the [Source and rights record](../dossiers/source-and-rights-record.md).*
@@ -17,7 +19,7 @@ and closes the central action, dark clothing and hardware pull the eye toward
 the moving figure, and the wall returns the scene to architecture. The
 photograph is legible as a confrontation through motion, smoke, and the
 barrier, yet its human subject remains partial. The image shows a person,
-airborne canister, smoke, stone, and metal structure. They do not name the
+airborne canister, smoke, stone, and metal structure. These visible elements do not name the
 person, identify the canister's contents, or establish the exact day.
 
 That uncertainty is formal as well as historical. The central figure is the
@@ -99,7 +101,7 @@ Request the archive crosswalk for BAM1989009W02477, the meaning of 26C and
 and the rights terms for future Museum use. Any sensitive identity information
 remains restricted unless a responsible public form is documented.
 
-[^1]: Magnum Photos official Bar-Am profile and published practice statement, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
+[^1]: Magnum Photos official Bar-Am profile and published practice statement, source [S22](../sources/source-register.md).
 [^2]: Magnum institutional profile and Micha Bar-Am Archive press release, sources [S22](../sources/source-register.md) and [S44](../sources/source-register.md).
 [^3]: International Center of Photography exhibition record, source [S50](../sources/source-register.md).
 [^4]: Direct token metadata, artist archive, ICP, and Museum Wales records, sources [S12](../sources/source-register.md) and [S23–S25](../sources/source-register.md).

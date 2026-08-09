@@ -1,5 +1,7 @@
 # Rights, technical identity, and proposal provenance
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Scope
 
 This dossier records what the proposal package and public chain/metadata

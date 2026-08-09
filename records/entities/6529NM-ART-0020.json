@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x86a1e14fcf814a7f7c0e234840a2dadd057680f50a73401b48fc680c9722d769",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0020.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0020.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/moises-saman",

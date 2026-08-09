@@ -413,3 +413,68 @@ statements, and focused tests now reject route-token drift, the legacy identity
 shape, incomplete Work-page source arrays, or loss of either provenance layer.
 Regenerated release counts and commitments remain authoritative only in the
 manifest artifacts produced after this correction.
+
+## 2026-08-09 final publication-boundary and edition correction
+
+Independent exact-head review rejected the candidate because the visitor
+bundle admitted historical proposed-gift decision manuscripts alongside the
+current scholarship. Those Storm, voter-dossier, resolution, and status files
+remain public governed evidence and remain in the complete release manifest.
+They are now excluded from the visitor publication inventory by a general
+proposed-gift decision-history rule. The website corpus admits the current
+`public/scholarship/` manuscripts instead. Tests prove that the historical
+files remain preserved, that no decision-history manuscript enters the visitor
+bundle, and that no restricted photograph locator or superseded Saman age
+description reaches bundled Markdown.
+
+The scholarly corpus now has a common publication record for Research
+Publication `6529NM-RP-0003`, edition `1.0.0`, with institutional authorship,
+publication and research-cutoff dates, suggested citation, research apparatus,
+status, source route, exact-commit delivery method, and revision history. Each
+of the 23 manuscripts links to that record and carries compact edition metadata.
+The active catalog supplies the literal immutable GitHub source link from its
+exact reviewed source commit, avoiding a circular self-commit reference inside
+the manuscript.
+
+The acquisition prose now attributes the public offer to punk6529 without
+treating an offer as completed donor-authority evidence. The proposal-origin
+title and relation, Museum interpretation, artist authorship, and later donor
+authority review remain separate. Object records add explicit date precision;
+the Larry Towell record separates the normalized Suchitoto place from the
+issuer's `Suchitito` spelling. Historical Bar-Am alternative text is preserved
+once and superseded through an exact record/revision/part/media/assertion/hash
+binding. All five source-rights rows carry their exact All Rights Reserved
+status, and the Seymour credit is normalized to the canonical Wave record.
+
+Focused UTF-8, link, editorial, media, schema, entity, publication inventory,
+and visitor-bundle gates pass. A new signed candidate, complete-manifest
+regeneration, fresh exact-head independent review, hosted CI, reviewed-child
+promotion, catalog activation, and frontend staging/production qualification
+remain required.
+
+## 2026-08-09 final ontology and record-integrity correction
+
+Exact-record review found a duplicated logical path in every generated envelope,
+proposal-time timestamps attached to later Wave-publication observations, and six
+unsupported or duplicate Magnum Photos 75 role assertions. Logical envelope URIs
+now resolve once from the repository root. Evidence that cites the retained Wave
+publication observation carries that observation's `2026-08-08T10:15:02.0167151Z`
+timestamp.
+
+Magnum Photos remains the single evidenced originator of the Magnum Photos 75
+Project. The five photographers are creators of their five independent Works;
+five Project-to-Work relations place those Works in the source project context.
+The duplicate generic organization role and five direct artist-to-project creator
+roles are withdrawn. Their six public relation IDs remain in an append-only
+retirement register and cannot be reused. The corrected projection contains 120
+entities, 205 active relations, and one Wave status observation.
+
+Focused entity, graph, schema, editorial, media, inventory, visitor-bundle, and
+manifest checks pass. Complete-suite validation, a new signed exact candidate,
+independent exact-head review, hosted CI, reviewed projection/catalog activation,
+and frontend qualification remain open.
+
+The complete pre-commit qualification subsequently passed: 306 unit tests with
+one platform skip, the full Museum/Casey validator, the Casey snapshot verifier,
+the 22-file diligence manifest check, bootstrap validation, the fetch guard, and
+all Magnum publication checks. Exact-head review and hosted CI remain required.

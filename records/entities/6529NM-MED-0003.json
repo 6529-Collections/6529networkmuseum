@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0ff4167c2173769240b5ddf1de80093019a3ede67be9ac3faba54b6671f7a077"
+      "digest": "0x9c39dd73351a0d1f3e7aa8e67b895b1a960d0d860b8d23391f8450375a10b869"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xb9bf96caa1d88bffa169bf7d24d3389e95567c2f204ec63876f1fa337638b11f",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0003.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0003.json"
   },
   "payload": {
     "canonical_route": null,
@@ -34,13 +34,13 @@
       {
         "evidence_class": "B",
         "label": "Historical public Wave proposal presentation",
-        "observed_at": "2026-08-06T13:19:30.726Z",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0d45dc6bbfbfa19c0ee49d6fd05ca91835628da2fdd65ef4691111ef14ae7872",
+    "payload_sha256": "sha256:9f63fc65752a554dc6585a33e1d0a4c4462c456f818e302ba55899ccfe455aa7",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -48,7 +48,7 @@
           {
             "evidence_class": "B",
             "label": "Historical Wave presentation accessibility source",
-            "observed_at": "2026-08-06T13:19:30.726Z",
+            "observed_at": "2026-08-08T10:15:02.0167151Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
           }
         ],
@@ -83,7 +83,7 @@
             {
               "evidence_class": "B",
               "label": "Signed-drop API rights-context readback",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -101,7 +101,7 @@
             {
               "evidence_class": "B",
               "label": "Historical Wave presentation locator observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -154,7 +154,7 @@
         {
           "evidence_class": "B",
           "label": "Historical public Wave proposal presentation",
-          "observed_at": "2026-08-06T13:19:30.726Z",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
         }
       ],

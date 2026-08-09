@@ -1962,7 +1962,7 @@ def validate_public_graph(
         related_agents = {
             relation.get("source_entity_id")
             for _relation_path, relation in relations
-            if relation.get("relation_type") == "AGENT_PLAYS_ROLE"
+            if relation.get("relation_type") in {"AGENT_PLAYS_ROLE", "ORGANIZATION_ORIGINATES_PROJECT"}
             and relation.get("target_entity_id") == project_id
             and relation.get("record_status") != "superseded"
             and relation.get("assertion_status") != "reserved"

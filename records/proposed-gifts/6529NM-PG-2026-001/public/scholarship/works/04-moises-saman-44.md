@@ -1,5 +1,7 @@
 # Moisés Saman, *Tripoli, Libya*
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 *Short label: Tripoli, 2011 · Libya. Historical public Wave proposal record;
 the non-rendering source locator and credit appear in the [Source and rights
 record](../dossiers/source-and-rights-record.md).*

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x946fa2e9f1700fb6f7d77be2b134835027d9fbe5af4fdb4bf04fcb51f7e50a78",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AP-ENT-0001.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-AP-ENT-0001.json"
   },
   "payload": {
     "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions",

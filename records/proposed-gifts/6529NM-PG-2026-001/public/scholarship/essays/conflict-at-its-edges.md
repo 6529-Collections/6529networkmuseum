@@ -1,5 +1,7 @@
 # *Conflict at Its Edges*
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Five Photographs of Borders, Access, and Afterlives, 1952–2016
 
 These five photographs show conflict at a remove from battle. David Seymour
@@ -17,7 +19,7 @@ verified, or a route controlled by military authority. Their later passage
 through books, archives, museums, metadata, and tokens adds another history to
 the one held in the frame.
 
-The donor formed the group across two Magnum Photos 75 curations. Saman’s #44
+The proposal brings the group together across two Magnum Photos 75 curations. Saman’s #44
 is marked `1/3`; Seymour #127, Towell #145, Bar-Am #97, and Meloni #104 are
 marked `2/3`. Those curation fields describe the upstream publication history
 of each token. The five-work argument begins with their later conjunction.[^1]
@@ -101,7 +103,7 @@ Magnum Photos 75 gives the group its upstream vocabulary. The archived launch ma
 
 That distribution is evidence of the individual tokens’ publication histories. It does not supply the donor’s reason for choosing these five. The proposal assembled a new relation across the registers. The reviewed public records contain no statement or evidence that Magnum Photos, either curator, or the artists endorsed the group.
 
-This distinction matters because the group’s coherence is interpretive. Its title belongs to the Museum’s publication of a donor-formed proposition. Its five photographs retain their own authors, captions, archives, and political histories. The essay can place them beside one another while keeping their different forms of evidence intact.
+This distinction matters because the group’s coherence is interpretive. Its title belongs to the Museum’s publication of a proposition first presented through the offer. Its five photographs retain their own authors, captions, archives, and political histories. The essay can place them beside one another while keeping their different forms of evidence intact.
 
 ## The case and its limit
 

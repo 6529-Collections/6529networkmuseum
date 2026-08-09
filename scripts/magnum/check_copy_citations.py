@@ -10,13 +10,12 @@ import sys
 REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 SOURCE_REGISTER = ROOT / "sources" / "source-register.md"
+PUBLICATION_RECORD = ROOT / "publication-record.md"
 FOOTNOTE_REF = re.compile(r"\[\^([^\]]+)\](?!:)")
 FOOTNOTE_DEF = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
-SOURCE_ID = re.compile(r"\bS\d{2}\b")
+SOURCE_ID = re.compile(r"\bS\d{2,}\b")
 
 FORBIDDEN_COPY = (
-    "The The",
-    "the the",
     "status-bound",
     "active Museum publication layer",
     "not a title instrument",
@@ -66,6 +65,32 @@ def check_current_language(path: Path, text: str, errors: list[str]) -> None:
     for phrase in FORBIDDEN_COPY:
         if phrase in text:
             errors.append(f"{path.relative_to(ROOT)}: stale/process copy: {phrase}")
+    if re.search(r"\bthe\s+the\b", text, flags=re.IGNORECASE):
+        errors.append(f"{path.relative_to(ROOT)}: duplicated article: the the")
+
+
+def check_publication_metadata(path: Path, text: str, errors: list[str]) -> None:
+    if path == PUBLICATION_RECORD:
+        required = (
+            "Edition identifier | `6529NM-RP-0003/1.0.0`",
+            "Institutional author | 6529 Network Museum, Curatorial Research",
+            "Publication date | 9 August 2026",
+            "Research cutoff | 8 August 2026",
+            "**Suggested citation:**",
+            "## Revision history",
+            "**Exact source**",
+        )
+    else:
+        required = (
+            "6529 Network Museum, Curatorial Research",
+            "Edition 1.0.0",
+            "Published 9 August 2026",
+            "Research through 8 August 2026",
+            "[Publication record and suggested citation]",
+        )
+    for field in required:
+        if field not in text:
+            errors.append(f"{path.relative_to(ROOT)}: missing publication metadata: {field}")
 
 
 def check_work_artist_prose(path: Path, text: str, errors: list[str]) -> None:
@@ -105,6 +130,7 @@ def check_copy_citations() -> list[str]:
         check_footnotes(path, text, errors)
         check_sources(path, text, available, errors)
         check_current_language(path, text, errors)
+        check_publication_metadata(path, text, errors)
         check_work_artist_prose(path, text, errors)
 
     all_text = "\n".join(texts)

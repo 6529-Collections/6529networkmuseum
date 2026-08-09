@@ -1,5 +1,7 @@
 # David Seymour (Chim), *Patrolling the border between the Negev Desert and Jordan*
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 *Short label: Border patrol, 1952 · Negev, Israel. Historical public Wave presentation; the source locator and credit appear in the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x586c62ad2844d84c6c1f572189ad898c8877489228d7a82a2e9f945c500e1d80"
+      "digest": "0xb5f5f0c7ea4700f00d05db5f3a537fb3b1911faca4c40b5ff0c3cadbd7692aa1"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xcf4156a3b9c7c3c5fe6426af4171b9a5a4c7c41280004028f96970f089e76954",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-CA-2026-003.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-CA-2026-003.json"
   },
   "payload": {
     "canonical_route": "/museum/network/acquisitions/conflict-at-its-edges",
@@ -55,7 +55,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:e12eff40cfd09968634c673ffa081259e67418357557f809b6bed451b935a308",
+    "payload_sha256": "sha256:94f0a173f5cf659ffc1ff7706402c7f7dec391e8a803071bf644eeb4ceb4f2de",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -269,7 +269,7 @@
         "6529NM-PG-2026-001.OBJ-004",
         "6529NM-PG-2026-001.OBJ-005"
       ],
-      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Brought together by the donor from two Magnum Photos 75 curations, they form a Museum acquisition under review whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.",
+      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Presented together by the selected proposal across two Magnum Photos 75 curations, they form a Museum acquisition under review whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.",
       "title": "Conflict at Its Edges",
       "work_entity_ids": [
         "6529NM-W-0024",

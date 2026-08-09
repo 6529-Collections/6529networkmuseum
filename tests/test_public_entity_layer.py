@@ -23,6 +23,7 @@ from migrate_public_entities import (  # noqa: E402
     WINNER_OBSERVATION_ID,
     WINNER_SOURCE_PATH,
     WAVE_PUBLICATION_OBSERVATION_ID,
+    WAVE_PUBLICATION_OBSERVATION_PATH,
     build_records,
     evidence,
     generated_directory_issues,
@@ -120,6 +121,12 @@ class PublicEntityLayerTests(unittest.TestCase):
         schedule = copy.deepcopy(records["object-schedule.json"])
         schedule["works"][0] = {}
         mutations.append(schedule)
+        schedule = copy.deepcopy(records["object-schedule.json"])
+        schedule["works"][0]["date"] = "1952-01-01"
+        mutations.append(schedule)
+        schedule = copy.deepcopy(records["object-schedule.json"])
+        schedule["works"][1].pop("issuer_place_label")
+        mutations.append(schedule)
         projections = copy.deepcopy(records["work-projections.json"])
         projections["works"][0]["token"]["undeclared"] = "drift"
         mutations.append(projections)
@@ -137,13 +144,17 @@ class PublicEntityLayerTests(unittest.TestCase):
             )
 
         projections = records["work-projections.json"]
+        schedule = records["object-schedule.json"]
+        self.assertEqual([work["date_precision"] for work in schedule["works"]], ["year", "year", "year", "year", "day"])
+        self.assertEqual(schedule["works"][1]["place"], "Suchitoto, El Salvador")
+        self.assertEqual(schedule["works"][1]["issuer_place_label"], "Suchitito, El Salvador")
         self.assertEqual(
             projections["evidence_sources_scope"],
             "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source.",
         )
         for work in projections["works"]:
             page = (ROOT / work["public_page"]).read_text(encoding="utf-8")
-            self.assertEqual(work["evidence_sources"], sorted(set(re.findall(r"\bS\d{2}\b", page))))
+            self.assertEqual(work["evidence_sources"], sorted(set(re.findall(r"\bS\d{2,}\b", page))))
 
     def test_public_safe_wave_parts_are_exactly_ordered_and_distinct(self) -> None:
         evidence = load_json(
@@ -172,7 +183,7 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 120, "PUBLIC_RELATION": 211, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 120, "PUBLIC_RELATION": 205, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
@@ -182,7 +193,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 31)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "RESEARCH_PUBLICATION" for payload in entities.values()), 3)
-        self.assertEqual(len(self.relations()), 211)
+        self.assertEqual(len(self.relations()), 205)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -210,9 +221,11 @@ class PublicEntityLayerTests(unittest.TestCase):
 
         relation_bindings = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["relation_bindings"]
         relation_ids = [row["relation_id"] for row in relation_bindings]
-        self.assertEqual(relation_ids[:164], [f"6529NM-REL-{index:04d}" for index in range(1, 165)])
-        self.assertEqual(relation_ids[164:], [f"6529NM-REL-{index:04d}" for index in range(165, 212)])
-        self.assertEqual(relation_bindings[163]["source_key"], "AGENT_PLAYS_ROLE|6529NM-ART-0021|6529NM-PRJ-0006")
+        self.assertEqual(relation_ids[:158], [f"6529NM-REL-{index:04d}" for index in range(1, 159)])
+        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 212)])
+        retired = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["retired_relation_ids"]
+        self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
+        self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
 
         interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
         self.assertEqual(len(interprets), 32)
@@ -264,6 +277,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         ]
         self.assertEqual(len(publishes), 1)
         self.assertEqual(publishes[0]["source_entity_id"], "6529NM-I-0001")
+        self.assertIn(manuscript, json.dumps(publishes[0]["evidence_refs"]))
 
         slug_row = next(row for row in self.inventory["public_slug_inventory"] if row["entity_id"] == "6529NM-RP-0003")
         self.assertEqual(
@@ -435,6 +449,11 @@ class PublicEntityLayerTests(unittest.TestCase):
         origin_relation = next(relation for relation in relations if relation["relation_type"] == "ORGANIZATION_ORIGINATES_PROJECT" and relation["target_entity_id"] == "6529NM-PRJ-0006")
         self.assertEqual(origin_relation["source_entity_id"], "6529NM-ORG-0002")
         self.assertEqual(origin_relation["qualifier"]["role"], "originator")
+        self.assertEqual(entities["6529NM-PRJ-0006"]["profile"]["agent_entity_ids"], ["6529NM-ORG-0002"])
+        self.assertEqual(
+            [relation for relation in relations if relation["relation_type"] == "AGENT_PLAYS_ROLE" and relation["target_entity_id"] == "6529NM-PRJ-0006"],
+            [],
+        )
         self.assertNotEqual(entities["6529NM-PRJ-0006"]["entity_id"], "6529NM-CA-2026-003")
         self.assertTrue(all(work["profile"]["project_or_series_entity_ids"] == ["6529NM-PRJ-0006"] for work in (entities[f"6529NM-W-{index:04d}"] for index in range(24, 29))))
         self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "not_in_collection" for relation in project_relations))
@@ -621,8 +640,8 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_project_agents_have_source_backed_bidirectional_role_relations(self) -> None:
         entities = self.entities()
-        relations = [relation for relation in self.relations() if relation["relation_type"] == "AGENT_PLAYS_ROLE"]
-        self.assertEqual(len(relations), 11)
+        relations = [relation for relation in self.relations() if relation["relation_type"] in {"AGENT_PLAYS_ROLE", "ORGANIZATION_ORIGINATES_PROJECT"}]
+        self.assertEqual(len(relations), 6)
         for project_id, project in entities.items():
             if project["entity_type"] != "PROJECT_OR_SERIES":
                 continue
@@ -632,6 +651,29 @@ class PublicEntityLayerTests(unittest.TestCase):
                 self.assertIsInstance(relation["qualifier"].get("role"), str)
                 self.assertTrue(relation["qualifier"]["role"])
                 self.assertTrue(set(relation["source_record_ids"]).intersection(project["profile"]["source_record_ids"]))
+
+    def test_envelope_uris_are_canonical_repository_paths(self) -> None:
+        for relative_path, record in self.records.items():
+            self.assertEqual(record["envelope"]["uri"], f"https://6529networkmuseum.org/{relative_path}")
+            self.assertNotIn("/records/records/", record["envelope"]["uri"])
+
+    def test_wave_publication_observation_evidence_uses_observation_time(self) -> None:
+        matches: list[dict] = []
+
+        def visit(value: object) -> None:
+            if isinstance(value, dict):
+                uri = value.get("uri")
+                if isinstance(uri, str) and uri.endswith(WAVE_PUBLICATION_OBSERVATION_PATH):
+                    matches.append(value)
+                for child in value.values():
+                    visit(child)
+            elif isinstance(value, list):
+                for child in value:
+                    visit(child)
+
+        visit(self.records)
+        self.assertTrue(matches)
+        self.assertTrue(all(row.get("observed_at") == WINNER_AT for row in matches))
 
     def test_typed_work_references_resolve_to_authoritative_or_governed_targets(self) -> None:
         entities = self.entities()

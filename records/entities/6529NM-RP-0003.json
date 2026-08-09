@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xe8e6131dc914cf849a8a3a624f5d7b0aea4b4d1df87b3a3298be1c93fe96389d",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-RP-0003.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-RP-0003.json"
   },
   "payload": {
     "canonical_route": "/museum/network/research/conflict-at-its-edges",

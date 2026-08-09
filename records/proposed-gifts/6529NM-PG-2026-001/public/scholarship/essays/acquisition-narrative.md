@@ -1,10 +1,12 @@
 # Acquisition narrative: *Conflict at Its Edges*
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## How the selected offer was formed
 
-The selected offer consists of five token-linked photographs published through Magnum Photos 75. The donor, punk6529, formed the group under the title *Conflict at Its Edges* and brought it forward as one offer. The artists made five independent Works. The donor’s act was to place them in relation.
+The selected offer consists of five token-linked photographs published through Magnum Photos 75. The public proposal credits punk6529 as offeror and presents the five under the title *Conflict at Its Edges*. The artists made five independent Works; the proposal places them in relation. Formal donor authority remains part of acquisition diligence.
 
-That relation crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`, while David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The split is exact and publicly checkable. It records the upstream selection histories of the tokens; it does not explain why the donor chose these five. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group.[^1]
+That relation crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`, while David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The split is exact and publicly checkable. It records the upstream selection histories of the tokens; it does not explain why the offeror selected these five. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group.[^1]
 
 The current status is **Selected by Museum Wave; acquisition review in progress**. The five Works remain outside the permanent Collection.
 
@@ -48,7 +50,7 @@ Rights and stewardship create a further limit. The token notices read `All Right
 
 ## Response
 
-These objections describe the group’s proper form. The acquisition should preserve the five Works as independent objects and publish the title as a donor-formed proposition. The publication should disclose the two Magnum 75 curations, the fact that reviewed public records contain no statement or evidence of endorsement, the separate authority of captions and image observations, and the unresolved questions that materially affect interpretation.
+These objections describe the group’s proper form. The acquisition should preserve the five Works as independent objects and publish the title as a proposal-origin proposition. The publication should disclose the two Magnum 75 curations, the fact that reviewed public records contain no statement or evidence of endorsement, the separate authority of captions and image observations, and the unresolved questions that materially affect interpretation.
 
 The acquisition record would preserve the proposal’s five-object relation while keeping each Work’s title, caption, token manifestation, rights, provenance, and custody history separate. The relation becomes a curatorial hypothesis with a stable object list. It proposes a comparison among exact Works and makes no new classification. It asks how a photograph acquires historical weight through the relation among frame, caption, access, place, archive, and later circulation.
 

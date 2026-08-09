@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x900077fbad4d3be213f02e1dd1f648368f2aa119cf8f37bd4e2e00bd393d6244",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-RP-0002.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-RP-0002.json"
   },
   "payload": {
     "canonical_route": "/museum/network/research/access-control-and-exit",

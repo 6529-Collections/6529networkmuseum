@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x16358b035094f282b0f702fe68272134237f44b22066a452c8407ce3165a3594",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0008.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0008.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/priyanka",

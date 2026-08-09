@@ -1,5 +1,7 @@
 # Moisés Saman
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Artist profile
 
 **Selected Work:** [*Tripoli, Libya*](../works/04-moises-saman-44.md), 2011
@@ -117,7 +119,7 @@ public metadata remain at visible-fact level, with no identifying or sensitive
 location detail. The token’s `1 of 1` designation and public Arweave locator
 supply no reproduction authority.
 
-Within the donor-formed group, Saman’s token is the sole selected work marked
+Within the selected group, Saman’s token is the sole selected work marked
 curation `1/3`; the other four are marked `2/3`.[^6] Its contribution is
 formal, historical, and ethical: a marked surface offered as evidence, a
 caption that qualifies its own causal account, a managed route into the room,

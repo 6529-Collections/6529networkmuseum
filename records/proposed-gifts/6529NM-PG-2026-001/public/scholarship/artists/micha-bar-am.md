@@ -1,5 +1,7 @@
 # Micha Bar-Am
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Artist profile
 
 **Selected Work:** [*Demonstration, Western Wall, Jerusalem*](../works/03-micha-bar-am-97.md), 1989

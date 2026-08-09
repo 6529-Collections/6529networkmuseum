@@ -67,6 +67,7 @@ EXPECTED = (
         "wave_path": "d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
         "source": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
         "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600,
+        "credit": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022. All Rights Reserved.",
     },
     {
         "work": "6529NM-W-0025", "media": "6529NM-MED-0041", "alias": "6529NM-PG-2026-001.OBJ-002", "token": "145",
@@ -284,6 +285,8 @@ def validate_join(join: dict) -> list[str]:
     age_rule = str(runtime.get("age_sensitive_subject_rule") or "").lower()
     if "apparently young" not in age_rule or "without assigning an age or child classification" not in age_rule:
         fail("runtime policy must prohibit inferred age and child classification for an apparently young subject")
+    if "sha256:" + hashlib.sha256(BARAM_HISTORICAL_ALT.encode("utf-8")).hexdigest() != BARAM_HISTORICAL_ALT_SHA256:
+        fail("Bar-Am historical alt hash fixture is internally inconsistent")
 
     rows = join.get("works")
     if not isinstance(rows, list) or len(rows) != len(EXPECTED):
@@ -322,6 +325,8 @@ def validate_join(join: dict) -> list[str]:
         credit = row.get("credit_line", "")
         if "\u00a9" not in credit or "Magnum Photos" not in credit:
             fail(f"{label}: credit must include the supplied artist/Magnum copyright notice")
+        if expected.get("credit") is not None and credit != expected["credit"]:
+            fail(f"{label}: credit line must exactly preserve the canonical historical Wave credit")
         if set(row.get("allowed_ui_affordances", [])) != ALLOWED_AFFORDANCES or not BLOCKED_AFFORDANCES.issubset(set(row.get("blocked_ui_affordances", []))):
             fail(f"{label}: UI affordances are not the closed proposal set")
         if row.get("presentation_context") != EXPECTED_CONTEXT:
@@ -358,25 +363,26 @@ def validate_join(join: dict) -> list[str]:
             lowered_alt = alt.lower()
             if "smoke" not in lowered_alt or "canister" not in lowered_alt or "gas" in lowered_alt:
                 fail("Bar-Am alt text must remain limited to visible smoke and canister")
-            if alt != BARAM_CURRENT_SAFE_ALT or row.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT:
+            if alt != BARAM_CURRENT_SAFE_ALT:
                 fail("Bar-Am current safe alt must remain the visible smoke/canister description")
             amendment = row.get("alt_text_amendment_binding", {})
+            supersedes = amendment.get("supersedes", {})
             if (
                 amendment.get("status") != "canonical_current_safe_description"
-                or amendment.get("required_after_rebase") is not False
                 or amendment.get("historical_seven_part_wording_preserved") is not True
-                or amendment.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
-                or amendment.get("historical_part_number") != 4
-                or amendment.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
-                or amendment.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
+                or supersedes.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+                or supersedes.get("record_revision") != 1
+                or supersedes.get("part_number") != 4
+                or supersedes.get("media_index") != 0
+                or supersedes.get("assertion_path") != "media.alt_text"
+                or supersedes.get("assertion_sha256") != BARAM_HISTORICAL_ALT_SHA256
             ):
                 fail("Bar-Am safe alt must preserve the canonical current description and historical wording")
             historical = row.get("historical_publication_media", {})
-            historical_text = row.get("historical_alt_text", "")
+            historical_text = historical.get("alt_text", "")
             recomputed_historical_hash = "sha256:" + hashlib.sha256(historical_text.encode("utf-8")).hexdigest()
             if (
                 historical_text != BARAM_HISTORICAL_ALT
-                or row.get("historical_alt_text_sha256") != recomputed_historical_hash
                 or historical.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
                 or historical.get("record_revision") != 1
                 or historical.get("part_number") != 4
@@ -386,8 +392,6 @@ def validate_join(join: dict) -> list[str]:
                 or historical.get("alt_text_sha256") != recomputed_historical_hash
             ):
                 fail("Bar-Am historical seven-part wording and its exact source hash must be retained")
-            if "sha256:" + hashlib.sha256(BARAM_HISTORICAL_ALT.encode("utf-8")).hexdigest() != BARAM_HISTORICAL_ALT_SHA256:
-                fail("Bar-Am historical alt hash fixture is internally inconsistent")
         if row.get("proposal_object_id") not in row.get("source_record_ids", []):
             fail(f"{label}: source records must retain the proposal object binding")
     return errors
@@ -419,9 +423,14 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
         if not isinstance(public_page, str) or not (REPOSITORY / public_page).is_file():
             errors.append(f"{work_id}: public Work page is missing")
         else:
-            cited = sorted(set(re.findall(r"\bS\d{2}\b", (REPOSITORY / public_page).read_text(encoding="utf-8"))))
-            if row.get("evidence_sources") != cited:
-                errors.append(f"{work_id}: evidence_sources must exactly equal the source IDs cited on its public Work page")
+            try:
+                public_page_text = (REPOSITORY / public_page).read_text(encoding="utf-8")
+            except OSError as exc:
+                errors.append(f"{work_id}: public Work page cannot be read: {exc}")
+            else:
+                cited = sorted(set(re.findall(r"\bS\d{2,}\b", public_page_text)))
+                if row.get("evidence_sources") != cited:
+                    errors.append(f"{work_id}: evidence_sources must exactly equal the source IDs cited on its public Work page")
         for manifestation in row.get("manifestations", []):
             if manifestation.get("type") == "historical_wave_presentation_media":
                 if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "bound_canonical_wave_publication_observation":
@@ -434,13 +443,16 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
                     errors.append(f"{row.get('canonical_work_id')}: manifestation must remain non-rendering and fail closed")
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
+                    supersedes = binding.get("supersedes", {})
                     if (
                         binding.get("status") != "canonical_current_safe_description"
                         or binding.get("historical_seven_part_wording_preserved") is not True
-                        or binding.get("historical_source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
-                        or binding.get("historical_part_number") != 4
-                        or binding.get("historical_alt_text_sha256") != BARAM_HISTORICAL_ALT_SHA256
-                        or binding.get("current_safe_alt_text") != BARAM_CURRENT_SAFE_ALT
+                        or supersedes.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+                        or supersedes.get("record_revision") != 1
+                        or supersedes.get("part_number") != 4
+                        or supersedes.get("media_index") != 0
+                        or supersedes.get("assertion_path") != "media.alt_text"
+                        or supersedes.get("assertion_sha256") != BARAM_HISTORICAL_ALT_SHA256
                     ):
                         errors.append("6529NM-W-0026: projected Bar-Am manifestation lacks the exact canonical safe-alt binding")
                 if work_id == "6529NM-W-0027":
@@ -486,13 +498,15 @@ def main() -> int:
         projections = json.loads(PROJECTIONS_PATH.read_text(encoding="utf-8"))
         integration = json.loads(INTEGRATION_PATH.read_text(encoding="utf-8"))
         evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8"))
+        evidence_bytes = EVIDENCE_PATH.read_bytes()
+        canonical_publication_bytes = CANONICAL_PUBLICATION_FILE.read_bytes()
     except (OSError, json.JSONDecodeError) as exc:
         print(f"Media-policy check failed to read machine/evidence records: {exc}", file=sys.stderr)
         return 1
 
     errors = validate_publication_evidence(evidence)
-    evidence_file_hash = "sha256:" + hashlib.sha256(EVIDENCE_PATH.read_bytes()).hexdigest()
-    canonical_file_hash = "sha256:" + hashlib.sha256(CANONICAL_PUBLICATION_FILE.read_bytes()).hexdigest()
+    evidence_file_hash = "sha256:" + hashlib.sha256(evidence_bytes).hexdigest()
+    canonical_file_hash = "sha256:" + hashlib.sha256(canonical_publication_bytes).hexdigest()
     if evidence_file_hash != SUPPLEMENTAL_PUBLIC_SAFE["file_sha256"]:
         errors.append("supplemental public-safe media evidence file hash drift")
     if canonical_file_hash != CURRENT_PUBLICATION["receipt_sha256"]:

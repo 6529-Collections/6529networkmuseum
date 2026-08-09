@@ -1,14 +1,17 @@
 # Conflict at Its Edges
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](publication-record.md)*
+
 ## Five Photographs of Borders, Access, and Afterlives, 1952–2016
 
 *Conflict at Its Edges* brings together photographs by David Seymour, Larry
 Towell, Micha Bar-Am, Moisés Saman, and Lorenzo Meloni. Made across sixty-four
 years, the five works locate conflict in spaces where its meaning remains
 unsettled: a desert border, a church, a sacred precinct, a domestic interior,
-and an archaeological site after recapture. The acquisition was formed by the
-donor from two curations in Magnum Photos 75. It is a Museum grouping, distinct
-from both those source curations and from the larger Magnum archive.
+and an archaeological site after recapture. The selected proposal brings the
+five photographs together across two curations in Magnum Photos 75. The Museum
+publishes the relation as a curatorial proposition distinct from those source
+curations and from the larger Magnum archive.
 
 The Museum Wave selected the five-work proposal for acquisition review. Formal
 acceptance, donor authority, legal title, transfer, custody, rights review,

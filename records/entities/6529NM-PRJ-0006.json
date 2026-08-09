@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaf412a426e0f9b95423b08c3173098f1896ee3aa172d48b43073fa99e3816ec6"
+      "digest": "0x68be7c8cd42432d779d48f884031342be717d73582faec555cc07867f91775c2"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xe772a7631f1a10a949b5b0a1cc0e9e9c13e8270b708f543ba7ee668e121511df",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-PRJ-0006.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-PRJ-0006.json"
   },
   "payload": {
     "canonical_route": "/museum/network/projects/magnum-photos-75",
@@ -46,16 +46,11 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7e4ed9b31dfab2b4776ebc3212bc70f8b1aa4ba02b377577e2ad259a9075a54e",
+    "payload_sha256": "sha256:91a9e96b00fe9996ab28e90d5b0b442d1dcab9aa5d7a805f3bfdf9948e5b8428",
     "preferred_label": "Magnum Photos 75",
     "profile": {
       "agent_entity_ids": [
-        "6529NM-ORG-0002",
-        "6529NM-ART-0017",
-        "6529NM-ART-0018",
-        "6529NM-ART-0019",
-        "6529NM-ART-0020",
-        "6529NM-ART-0021"
+        "6529NM-ORG-0002"
       ],
       "evidence_refs": [
         {
@@ -98,11 +93,6 @@
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
-      "6529NM-ART-0017",
-      "6529NM-ART-0018",
-      "6529NM-ART-0019",
-      "6529NM-ART-0020",
-      "6529NM-ART-0021",
       "6529NM-ORG-0002",
       "6529NM-PG-2026-001",
       "6529NM-W-0024",
@@ -115,11 +105,6 @@
     "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
-      "6529NM-ART-0017",
-      "6529NM-ART-0018",
-      "6529NM-ART-0019",
-      "6529NM-ART-0020",
-      "6529NM-ART-0021",
       "6529NM-ORG-0002",
       "6529NM-PG-2026-001",
       "6529NM-W-0024",

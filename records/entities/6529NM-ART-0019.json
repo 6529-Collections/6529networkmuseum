@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5ed2c67c4f30a0af5943a23664ffc38500a1a6b5bc19d5aba6e6f06ff33f1e41",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0019.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0019.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/micha-bar-am",

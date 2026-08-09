@@ -1,5 +1,7 @@
 # Magnum Photos
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## A cooperative of photographic authorship
 
 Magnum is an institution built around a question of authorship: who shapes a photograph after exposure, and through which forms of circulation does it acquire a public life? Its answer has joined individual photographic practice to a collective system of editing, representation, publication, exhibition, print sales, and archiving.

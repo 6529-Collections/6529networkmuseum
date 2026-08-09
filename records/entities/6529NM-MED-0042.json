@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3aac263d9c1b818f05d683962b15dc2b9b21b8c4116ce8855db60b180f7eb9f8"
+      "digest": "0xa50ccd43648d1a316c9ab6a54d302e1d56f673ce36dc405c3059249f070895f2"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd360e4c5be97691d1c61d8745d6ab582d2ade2e720323b1e9f64ad14091434c3",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0042.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0042.json"
   },
   "payload": {
     "canonical_route": null,
@@ -34,13 +34,13 @@
       {
         "evidence_class": "B",
         "label": "Historical public Wave proposal presentation",
-        "observed_at": "2026-08-06T13:19:30.726Z",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b9d4dab7e8a79cdf1310f807cb759eedbbd098716307456835f805abe9f2ee81",
+    "payload_sha256": "sha256:fa9146d102a6498a636c9d14af7a1e9159e6410000febff6ad4d77e2d619640f",
     "preferred_label": "Demonstration, Western Wall, Jerusalem historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -83,7 +83,7 @@
             {
               "evidence_class": "B",
               "label": "Signed-drop API rights-context readback",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -101,7 +101,7 @@
             {
               "evidence_class": "B",
               "label": "Historical Wave presentation locator observation",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],
@@ -157,7 +157,7 @@
         {
           "evidence_class": "B",
           "label": "Historical public Wave proposal presentation",
-          "observed_at": "2026-08-06T13:19:30.726Z",
+          "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
         }
       ],

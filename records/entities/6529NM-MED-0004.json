@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfcc5f22f5fd2e91f3739b92fdbd6f7395a60501299b246d61938ef8fa0fbcc15"
+      "digest": "0x58e55abd4e19593ed168c9c41c4a9c84875bb5457afa808aac09d9e091612dcc"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xafda0e24a034505006362b82084558d3cf61165eb35a7b1c60dc4d2d453132d9",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-MED-0004.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0004.json"
   },
   "payload": {
     "canonical_route": null,
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:c17f77520f46f6b8ca8708bab6b230200961a4a5b8d9ea266b8f123400a0e1bf",
+    "payload_sha256": "sha256:70de47d06b8aebe7cad4f49cf9f312ce06bbb77620f0eb9fbee5ab45f6b1e5d2",
     "preferred_label": "Conflict at Its Edges historical proposal cover graphic",
     "profile": {
       "media": {
@@ -83,7 +83,7 @@
             {
               "evidence_class": "B",
               "label": "Wave part-1 rights declaration",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
             }
           ],

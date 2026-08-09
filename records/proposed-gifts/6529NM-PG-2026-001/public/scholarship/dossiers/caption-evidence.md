@@ -1,5 +1,7 @@
 # Caption and evidence dossier
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Purpose and method
 
 This dossier preserves the distinction between four kinds of record attached

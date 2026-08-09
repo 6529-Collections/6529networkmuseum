@@ -1,5 +1,7 @@
 # Lorenzo Meloni
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Artist profile
 
 **Selected Work:** [*Palmyra, Syria*](../works/05-lorenzo-meloni-104.md), 2016

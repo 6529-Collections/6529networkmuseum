@@ -1,10 +1,12 @@
 # Conflict at Its Edges
 
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
 ## Five Photographs of Borders, Access, and Afterlives, 1952–2016
 
-*Conflict at Its Edges* is a selected five-Work proposal formed by punk6529 from photographs published in Magnum Photos 75. The group follows conflict through the conditions surrounding an image: a border named beyond the frame, a church where armed presence alters the architecture of worship, smoke interrupting access to a sacred site, marks on a wall presented as evidence through a qualified caption, and a monument photographed after destruction and military recapture.
+*Conflict at Its Edges* is a selected five-Work proposal credited to punk6529 as offeror. It brings together photographs published in Magnum Photos 75 and follows conflict through the conditions surrounding an image: a border named beyond the frame, a church where armed presence alters the architecture of worship, smoke interrupting access to a sacred site, marks on a wall presented as evidence through a qualified caption, and a monument photographed after destruction and military recapture.
 
-The donor formed the group across two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`; David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The title and relation belong to the donor’s proposal and the Museum’s subsequent interpretation.[^1]
+The proposal crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`; David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The title and relation enter the public record through the proposal and the Museum’s subsequent interpretation.[^1]
 
 | Field | Record |
 | --- | --- |
@@ -43,7 +45,7 @@ Rights and stewardship also limit the proposal’s present form. The token recor
 
 ## Response
 
-The countercase establishes the terms on which the group can be published. The five photographs should remain five Works. The title should be presented as a donor-formed curatorial proposition, with its sources and limits visible. Each caption must remain attributed; each archive discrepancy must remain legible; Saman’s subject requires a safeguarding boundary; and any future public image use requires separate rights evidence.
+The countercase establishes the terms on which the group can be published. The five photographs should remain five Works. The title should be presented as a proposal-origin curatorial proposition, with its sources and limits visible. Each caption must remain attributed; each archive discrepancy must remain legible; Saman’s subject requires a safeguarding boundary; and any future public image use requires separate rights evidence.
 
 Under those conditions, the group becomes a precise research relation. Its value lies in the way it lets viewers study how documentary photographs acquire meaning at the meeting point of image, caption, access, place, archive, and later circulation. The proposal has been selected by the Museum Wave, while formal acceptance, title and custody, rights review, technical examination, preservation planning, accession, and Collection entry remain unresolved.[^4]
 

@@ -1,6 +1,8 @@
 # Lorenzo Meloni, *Palmyra, Syria*
 
-*Short label: Palmyra, 1 April 2016 · Syria. Selected five-Work proposal; acquisition review in progress.*
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+
+*Short label: Palmyra, Syria · 1 April 2016. Selected five-Work proposal; acquisition review in progress.*
 
 ## Looking at the Work
 
@@ -64,7 +66,7 @@ The historical CloudFront URL is evidence of public Wave presentation media.
 It remains a non-rendering source locator with its supplied credit and `All
 Rights Reserved` notice ([S38](../sources/source-register.md)).
 
-Meloni’s image is the fifth work in the donor-formed group *Conflict at Its Edges*. Its chronological position and `2/3` curation mark are exact features of the token record. Its interpretation within the group remains a Museum argument about borders, access, damaged sites, captions, and documentary afterlives.
+Meloni’s image is the fifth work in the selected group *Conflict at Its Edges*. Its chronological position and `2/3` curation mark are exact features of the token record. Its interpretation within the group remains a Museum argument about borders, access, damaged sites, captions, and documentary afterlives.
 
 ## Research status
 

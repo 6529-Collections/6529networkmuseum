@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x9761675d66ab631bb2b6eece97097cb575d9e1bbefd81a5fee3af537f2a39ff7",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0016.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0016.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/veerendra",

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x52d488376695f4f36961bbc3fb5a4f735bfa9cb6df3e161417e13eee5b64af48",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0009.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0009.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/rakesh",

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xacdf2ad362985ea01c48897813af8b520b49b892b50e765557644b7ba0b35b7f",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0023.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-W-0023.json"
   },
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0023",

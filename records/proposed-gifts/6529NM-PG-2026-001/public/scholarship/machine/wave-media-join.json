@@ -129,7 +129,7 @@
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
       "source_image_fixity": {"sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600, "retention": "upstream_not_retained"},
-      "credit_line": "© David Seymour/Magnum Photos 2022 All Rights Reserved",
+      "credit_line": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022. All Rights Reserved.",
       "rights_label": "All Rights Reserved",
       "media_status": "non_rendering_historical_source_locator",
       "allowed_ui_affordances": ["alt_text", "copy_citation"],
@@ -213,8 +213,6 @@
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_display_authority_withheld"},
       "load_policy": "blocked_pending_reviewed_display_authority",
-      "historical_alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
-      "historical_alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2",
       "historical_publication_media": {
         "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
         "record_revision": 1,
@@ -224,8 +222,7 @@
         "alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
         "alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"
       },
-      "current_safe_alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.",
-      "alt_text_amendment_binding": {"status": "canonical_current_safe_description", "required_after_rebase": false, "historical_seven_part_wording_preserved": true, "historical_source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", "historical_part_number": 4, "historical_alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2", "current_safe_alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground."},
+      "alt_text_amendment_binding": {"status": "canonical_current_safe_description", "historical_seven_part_wording_preserved": true, "supersedes": {"source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", "record_revision": 1, "part_number": 4, "media_index": 0, "assertion_path": "media.alt_text", "assertion_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"}},
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
