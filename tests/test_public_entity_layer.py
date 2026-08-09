@@ -120,7 +120,12 @@ class PublicEntityLayerTests(unittest.TestCase):
             "reviewer_ids": ["reviewer:test"],
             "outcome": "approved",
         }
-        reviewed = {"record_status": "reviewed", "review_status": "reviewed", "reviewer": reviewer}
+        reviewed = {
+            "created_at": GENERATED_AT,
+            "record_status": "reviewed",
+            "review_status": "reviewed",
+            "reviewer": reviewer,
+        }
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             write_records(root, [pending, pending])
@@ -153,6 +158,14 @@ class PublicEntityLayerTests(unittest.TestCase):
             other["reviewer"]["reviewed_commit"] = "d" * 40
             write_records(root, [reviewed, other])
             with self.assertRaisesRegex(ValueError, "do not share one review binding"):
+                infer_existing_review_arguments(paths, root=root)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            early = copy.deepcopy(reviewed)
+            early["reviewer"]["reviewed_at"] = GENERATED_AT
+            write_records(root, [early, early])
+            with self.assertRaisesRegex(ValueError, "at or before construction"):
                 infer_existing_review_arguments(paths, root=root)
 
     def test_magnum_machine_schema_closes_nested_contracts_and_work_rows(self) -> None:

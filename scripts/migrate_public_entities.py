@@ -1457,6 +1457,15 @@ def infer_existing_review_arguments(
             raise ValueError(f"existing generated record has an invalid review time: {relative}") from exc
         if review_time.tzinfo is None:
             raise ValueError(f"existing generated record has a review time without an offset: {relative}")
+        created_at_value = payload.get("created_at")
+        if not isinstance(created_at_value, str):
+            raise ValueError(f"existing generated record has no construction time: {relative}")
+        try:
+            created_at = datetime.datetime.fromisoformat(created_at_value.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"existing generated record has an invalid construction time: {relative}") from exc
+        if created_at.tzinfo is None or review_time <= created_at:
+            raise ValueError(f"existing generated record has a review time at or before construction: {relative}")
         reviewed_bindings.append(binding)
 
     if pending_paths and reviewed_bindings:
