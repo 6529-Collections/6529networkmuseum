@@ -24,7 +24,7 @@ Colour keeps the collage from becoming solemn: teal paint, orange cloth, and the
 
 ## Artist’s account
 
-Pranto’s submission names the work for the Bangladesh Liberation War and describes the window as a threshold between inside and outside, citizenship and freedom. It identifies one depicted woman as the artist’s mother and represents that written consent is available. The consent scope and poster source remain to be verified; no consent instrument is retained in the Museum record.
+Pranto’s submission names the work for the Bangladesh Liberation War and describes the window as a threshold between inside and outside, citizenship and freedom. The artist represents that written consent is available. The consent scope and poster source remain to be verified; no consent instrument is retained in the Museum record.
 
 ## Curatorial interpretation
 

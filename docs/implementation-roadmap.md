@@ -452,3 +452,25 @@ text; no unsupported mojibake correction narrative is claimed. The historical
 program sentence placing the ant inside Esc remains retained source text; the
 current 640 visual projection records the ant beside/below Esc. The canonical
 program Wave UUID typo was corrected and covered by a focused regression test.
+
+## 2026-08-09 — Keys and Gates reviewed candidate status
+
+The post-rebase candidate now has a complete deterministic release manifest,
+passes the full schema and semantic validator, and passes the portable Ubuntu
+and Windows publication checks. Its public graph contains the Curated
+Acquisition, sixteen Works, fifteen Artists, and Research Publication
+*Access, Control, and Exit*. Permanent Collection membership remains limited to
+the seven accessioned Casey Reas works.
+
+All Keys and Gates images are withheld from the active visitor publication.
+The current media manifest has no public widths, derivatives, display-authority
+record, or frontend delivery path. Historical review copies and their lineage
+remain evidence; they are not current presentation media. Restoring image
+delivery requires a later append-only, exact-commit authority naming the
+approved works, uses, sizes, accessibility text, rights disposition, and any
+work-specific conditions.
+
+The remaining release gates are exact-head bot and human review, governed merge
+to canonical main, and later catalog activation through the reviewed
+publication sequence. No catalog, active pointer, mint, acquisition, accession,
+or new Collection membership is created by this candidate.

@@ -171,6 +171,42 @@ class ProgramMediaTests(unittest.TestCase):
         self.assertEqual([], manifest["items"][0]["presentation"]["derivatives"])
         self.assertEqual((0, 0), (count, total_bytes))
 
+    def test_restricted_width_manifest_generates_only_allowed_variant(self) -> None:
+        accessibility = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        accessibility["items"][0]["public_widths"] = [640]
+        self.accessibility_path.write_text(json.dumps(accessibility), encoding="utf-8")
+        with self.patched_paths():
+            manifest = self.generate()
+
+        derivatives = manifest["items"][0]["presentation"]["derivatives"]
+        self.assertEqual([640], [item["width"] for item in derivatives])
+
+    def test_public_width_policy_rejects_missing_or_malformed_values(self) -> None:
+        invalid_values = (
+            ("missing", None),
+            ("not a list", "640"),
+            ("boolean width", [True]),
+            ("duplicate width", [640, 640]),
+            ("unordered widths", [1280, 640]),
+            ("unsupported width", [800]),
+            ("too many widths", [640, 1280, 2400, 3200]),
+        )
+        original = json.loads(self.accessibility_path.read_text(encoding="utf-8"))
+        for label, widths in invalid_values:
+            with self.subTest(label=label):
+                accessibility = json.loads(json.dumps(original))
+                if label == "missing":
+                    accessibility["items"][0].pop("public_widths")
+                else:
+                    accessibility["items"][0]["public_widths"] = widths
+                self.accessibility_path.write_text(
+                    json.dumps(accessibility), encoding="utf-8"
+                )
+                with self.patched_paths(), self.assertRaisesRegex(
+                    media.ProgramMediaError, "public widths"
+                ):
+                    self.generate()
+
 
 if __name__ == "__main__":
     unittest.main()

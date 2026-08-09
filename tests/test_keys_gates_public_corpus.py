@@ -609,6 +609,13 @@ class KeysAndGatesPublicCorpusTests(unittest.TestCase):
         self.assertNotIn("No person in the current frame", visitor_bundle)
         self.assertNotIn("No identifiable person in derivative", visitor_bundle)
         self.assertNotIn("No person visible in the current frame", visitor_bundle)
+        self.assertNotIn("artist’s mother", visitor_bundle)
+        self.assertNotIn("# Eric Pan (pandelic)", visitor_bundle)
+        self.assertNotIn("# Priyanka Patel (priyanka)", visitor_bundle)
+        ikertje_profile = (
+            REPO_ROOT / "records/programs/6529NM-AP-01/public/artists/ikertje.md"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("Berlin Wall Memorial", ikertje_profile)
         self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment.md", visitor_bundle)
         self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-002.md", visitor_bundle)
         self.assertNotIn("records/programs/6529NM-AP-01/public/accessibility-amendment-2026-08-08-003.md", visitor_bundle)

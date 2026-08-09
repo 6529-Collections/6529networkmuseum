@@ -128,10 +128,16 @@ def load_accessibility() -> tuple[dict[str, str], dict[str, list[int]]]:
         if record_id in result or len(alt_text) < 20:
             raise ProgramMediaError(f"invalid or duplicated accessibility entry: {record_id}")
         result[record_id] = alt_text
-        widths = item.get("public_widths", list(WIDTHS))
+        if "public_widths" not in item:
+            raise ProgramMediaError(f"missing public widths for {record_id}")
+        widths = item["public_widths"]
         if (
             not isinstance(widths, list)
             or len(widths) > len(WIDTHS)
+            or any(
+                not isinstance(width, int) or isinstance(width, bool)
+                for width in widths
+            )
             or widths != sorted(set(widths))
             or any(width not in WIDTHS for width in widths)
         ):

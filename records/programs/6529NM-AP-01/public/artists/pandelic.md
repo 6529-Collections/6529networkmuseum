@@ -1,6 +1,6 @@
-# Eric Pan (pandelic)
+# pandelic
 
-Eric Pan works publicly across composition, piano, improvisation, photography, and immersive storytelling. His artist biography describes “Music Postcards” as a combination of photography, writing, and composition, placing the camera within a broader practice of travel, listening, and multisensory narrative. The selected handle is pandelic; the public name/handle relationship remains a source-layer confirmation point.
+The selected artist is credited as pandelic in the Wave record. Public materials associated with that handle describe work across composition, piano, improvisation, photography, and immersive storytelling. An artist biography describes “Music Postcards” as a combination of photography, writing, and composition, placing the camera within a broader practice of travel, listening, and multisensory narrative. The name attached to those materials is not adopted here as an authority form until its relationship to the selected handle is confirmed.
 
 In *Now Is Our Time*, Pan photographs Berlin’s RAW-Gelände in high-contrast black and white. Industrial buildings, barred openings, lamps, and layers of graffiti frame a painted declaration. The work joins photographic observation to a musician’s sensitivity to rhythm and inscription: the slogan appears as a rhythmic mark on a site whose uses and ownership have changed. The artist’s practice context supports the image’s attention to place, inscription, and atmosphere; graffiti authorship remains open.
 

@@ -3185,3 +3185,27 @@ its Keccak commitment is
 The focused K&G corpus suite passes 26 tests, including the new stale-language
 controls. No public catalog, pointer, image delivery, mint, acquisition,
 accession, or Collection membership has been activated.
+
+## 2026-08-09 Keys and Gates exact-head review-thread correction
+
+The complete unresolved-thread audit found and corrected four remaining
+evidence-boundary defects. A public source locator is now described as
+provenance context rather than fixity evidence. The Unicode checker reads its
+codepoint assertion from the governed file rather than its own constant. The
+media generator now rejects a missing or malformed width policy instead of
+defaulting the policy open, while preserving an explicit empty list as the
+valid withheld state. Public artist and work pages no longer assert unconfirmed
+name-handle bridges or an unresolved family relationship; the unsupported
+Berlin Wall Memorial source has also been removed.
+
+The copy, bundle, and governed manifest were regenerated after those
+corrections. Counts remain 497 visitor-inventory entries, 496 bundled documents,
+317 migration records, and 732 complete-manifest entries. The replacement
+manifest SHA-256 is
+`sha256:a012eb2478d97a8d74509f56d49ff033840bb21a8a1ba4957a7cd656de3567ac`;
+its Keccak commitment is
+`0x5d33b27e9e745eb4cd30ef1ff26c14eab56e28130f236e8e311ea26ca4657fdf`.
+Program-media tests now cover withheld, one-width, missing, non-list, Boolean,
+duplicate, unordered, unsupported, and oversized policies. No public catalog,
+pointer, image delivery, mint, acquisition, accession, or Collection membership
+has been activated.

@@ -1,6 +1,6 @@
-# Priyanka Patel (priyanka)
+# priyanka
 
-Priyanka Patel is described as a photographer who moved from Indian wedding photography toward fine-art and onchain photography in the [public interview](https://paragraph.com/%40toadyhawk/vip-6-priyanka). That interview places her in Alberta, Canada, after growing up in India; her [public Farcaster profile](https://farcaster.xyz/priyanka) describes her as a photographer and generative-art learner. The identity link between those public sources and the selected handle remains a direct-confirmation point.
+The selected artist is credited as priyanka in the Wave record. A [public interview](https://paragraph.com/%40toadyhawk/vip-6-priyanka) associated with that handle describes a move from Indian wedding photography toward fine-art and onchain photography and places the photographer in Alberta, Canada, after growing up in India. A [public Farcaster profile](https://farcaster.xyz/priyanka) describes a photographer and generative-art learner. The personal name used by those sources is not adopted here as an authority form until its relationship to the selected handle is confirmed.
 
 In *the cost of open*, Patel photographs Moraine Lake as a turquoise expanse framed by evergreen forest and the Valley of the Ten Peaks. The image belongs to the tradition of sublime landscape photography, but its title redirects the view toward the systems that now mediate access: reservation, shuttle, capacity, and time. The landscape looks open; the journey is organized.
 

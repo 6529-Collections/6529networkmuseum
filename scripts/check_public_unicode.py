@@ -106,8 +106,11 @@ def scan_public(root: Path = PUBLIC_ROOT) -> list[str]:
     if work in decoded:
         title_index = decoded[work].find(EXPECTED_TITLE)
         if title_index >= 0:
+            found = decoded[work][
+                title_index : title_index + len(EXPECTED_TITLE_CODEPOINTS)
+            ]
             actual = tuple(
-                ord(char) for char in EXPECTED_TITLE[: len(EXPECTED_TITLE_CODEPOINTS)]
+                ord(char) for char in found
             )
             if actual != EXPECTED_TITLE_CODEPOINTS:
                 errors.append("Bangla title codepoint assertion failed")

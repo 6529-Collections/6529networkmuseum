@@ -10,7 +10,7 @@ In *Residual Barrier*, the artist’s interest in architecture and overlooked su
 
 **Further research:** The public practice is well documented; the preferred display form, Berlin location, visible-mark permissions, and final CC0 terms remain to be confirmed.
 
-**Sources:** [artist biography](https://ikertje.com/about-me), [Linktree](https://linktr.ee/IKERTJE), [Berlin Wall Memorial](https://www.berlin.de/en/museums/3109351-3104050-gedenkstaette-berliner-mauer.en.html).
+**Sources:** [artist biography](https://ikertje.com/about-me), [Linktree](https://linktr.ee/IKERTJE).
 
 ## Browse
 
