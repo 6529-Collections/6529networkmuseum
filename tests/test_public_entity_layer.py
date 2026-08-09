@@ -304,7 +304,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         publication_entries = {
             row["path"]: row for row in publication_inventory["entries"]
         }
-        closed_graph_controls = (
+        closed_graph_controls = {
             "schemas/common.schema.json",
             "schemas/controlled-vocabularies.json",
             "schemas/controlled-vocabularies.schema.json",
@@ -317,10 +317,16 @@ class PublicEntityLayerTests(unittest.TestCase):
             "schemas/public-relation.schema.json",
             "schemas/public-route-compatibility.json",
             "schemas/public-route-compatibility.schema.json",
+            "schemas/public-publication-inventory.schema.json",
+            "schemas/public-publication-bundle.schema.json",
             "schemas/publication-catalog-pointer.schema.json",
             "schemas/publication-catalog.schema.json",
             "schemas/record-envelope.schema.json",
             "schemas/wave-status-observation.schema.json",
+        }
+        closed_graph_controls.update(
+            f"schemas/{filename}"
+            for filename in self.vocabularies["schema_paths"].values()
         )
         for path in closed_graph_controls:
             self.assertEqual(

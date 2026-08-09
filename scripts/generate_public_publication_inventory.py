@@ -309,6 +309,21 @@ def _entries(root: Path) -> list[dict[str, Any]]:
     for relative in public_record_paths(root):
         add(_entry(relative, "public_curatorial_manuscript", "assembly_document"))
     control_paths = set(ASSEMBLY_CONTROL_PATHS)
+    vocabularies = strict_load((root / "schemas" / "controlled-vocabularies.json").read_bytes())
+    schema_paths = vocabularies.get("schema_paths")
+    if not isinstance(schema_paths, dict) or not schema_paths:
+        raise InventoryError("controlled vocabularies must declare schema_paths")
+    for record_type, filename in schema_paths.items():
+        if not isinstance(record_type, str) or not isinstance(filename, str):
+            raise InventoryError("controlled vocabulary schema_paths must map strings to strings")
+        if Path(filename).name != filename or not filename.endswith(".schema.json"):
+            raise InventoryError(f"unsafe controlled vocabulary schema path: {filename!r}")
+        relative = f"schemas/{filename}"
+        if not (root / relative).is_file():
+            raise InventoryError(
+                f"controlled vocabulary schema path does not exist: {relative}"
+            )
+        control_paths.add(relative)
     for required_paths in legacy_required_paths(root).values():
         control_paths.update(required_paths)
     for relative in sorted(control_paths):
