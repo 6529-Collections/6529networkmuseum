@@ -3146,3 +3146,22 @@ resolved all 1,010 source-record references and confirmed that permanent
 Collection membership remains exactly Casey's seven works. No publication
 catalog, active pointer, mint, acquisition, accession, or Collection membership
 has been created.
+
+## 2026-08-09 Keys and Gates exact-head publication-bundle correction
+
+Hosted Ubuntu and Windows publication checks on candidate commit
+`402e5ab544fb28506c3c34ff11f97d8b9903b807` correctly rejected the visitor
+bundle as stale. The withdrawal amendment had received a final Markdown
+formatting correction after the bundle was generated. The source inventory was
+current; the embedded copy of that amendment in the bundle was not.
+
+The bundle and complete governed manifest were regenerated from the corrected
+source. Counts remain unchanged: 497 visitor-inventory entries, 496 bundled
+documents, 317 migration records, and 732 complete-manifest entries. The
+replacement manifest SHA-256 is
+`sha256:d8bcabf12ff439511c6d09bf6445032d30bd6a00d6c679c2c869597746e43fd9`;
+its Keccak commitment is
+`0x8b637efce21bc0323226aa86fd1e2fc9d735c4f57c39fc61df170c3871ae77b6`.
+Inventory, bundle, migration, media, and complete-manifest checks pass on the
+regenerated tree. No public catalog, pointer, image delivery, mint,
+acquisition, accession, or Collection membership has been activated.

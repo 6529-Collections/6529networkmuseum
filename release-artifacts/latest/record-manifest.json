@@ -2777,8 +2777,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md",
-      "sha256": "sha256:9b808b36087df416c684da4141257e2b4d935a918686582e2c368a4fb1141988",
-      "size": 2980
+      "sha256": "sha256:73027b1205178529ccd0398907b9f13be90315df68c898eb83aeabf3e7e74c4d",
+      "size": 2974
     },
     {
       "byte_mode": "lf-normalized",
@@ -3102,10 +3102,10 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x52b9661233f510b74d5e9a2aa5e78825361673d0672659857439ae14d617f24b"
+        "digest": "0x2bc48da5d10d18c64dbaa141178110a9b60603a767e252ecaf022ab026466f57"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:bba14898ca0d74405c8e6039837096f8b043b7a376ab466a99b5d386cdda0efd",
+      "sha256": "sha256:fa1a9de50219bf28e913b44831fd8e4a9638644d2436fa47235a8557c3af15cf",
       "size": 3673803
     },
     {
@@ -6714,9 +6714,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x04f34e03d39f56da26b02f0ca49a74f88282ef44109ccaaa8afe7154652a2f78"
+    "digest": "0x8b637efce21bc0323226aa86fd1e2fc9d735c4f57c39fc61df170c3871ae77b6"
   },
-  "manifest_sha256": "sha256:757c7b8b41fcf82464941d05337ad47e7da3f0ba522e606cf98f635947cae9ca",
+  "manifest_sha256": "sha256:d8bcabf12ff439511c6d09bf6445032d30bd6a00d6c679c2c869597746e43fd9",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
