@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb297b90e04b403b585aeb41e7085cdccb4683ae0d530d9ea98ad9c79376f0924"
+      "digest": "0x49b38e9b82904b66cc33765bcc5f08ae454acce7afa3e34d277f315d099a758a"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0016",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:396fcb545ae09e15997c2bde76e055275306f848c219c0dc08f19b8048992a62",
+    "payload_sha256": "sha256:11aa025954f0f1835e4460b4be0f724efc978a544b96e99b8b3d67e7bc693e99",
     "preferred_label": "Veerendra",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "veerendra",
     "record_id": "6529NM-ART-0016",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,19 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-016"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-09T18:34:39Z",
+      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
+      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
+      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
+      "reviewer_ids": [
+        "reviewer:independent-luna-panel-closure-2026-08-09"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0017",
@@ -117,7 +128,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0016",
     "visibility": "public"
