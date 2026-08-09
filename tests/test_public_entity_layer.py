@@ -300,6 +300,77 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
         self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
 
+        publication_inventory = load_json(ROOT / "schemas/public-publication-inventory.json")
+        publication_entries = {
+            row["path"]: row for row in publication_inventory["entries"]
+        }
+        closed_graph_controls = {
+            "schemas/common.schema.json",
+            "schemas/controlled-vocabularies.json",
+            "schemas/controlled-vocabularies.schema.json",
+            "schemas/public-entity-common.schema.json",
+            "schemas/public-entity-identity-inventory.json",
+            "schemas/public-entity-identity-inventory.schema.json",
+            "schemas/public-entity.schema.json",
+            "schemas/public-relation-identity-inventory.json",
+            "schemas/public-relation-identity-inventory.schema.json",
+            "schemas/public-relation.schema.json",
+            "schemas/public-route-compatibility.json",
+            "schemas/public-route-compatibility.schema.json",
+            "schemas/public-publication-inventory.schema.json",
+            "schemas/public-publication-bundle.schema.json",
+            "schemas/publication-catalog-pointer.schema.json",
+            "schemas/publication-catalog.schema.json",
+            "schemas/record-envelope.schema.json",
+            "schemas/wave-status-observation.schema.json",
+        }
+        closed_graph_controls.update(
+            f"schemas/{filename}"
+            for filename in self.vocabularies["schema_paths"].values()
+        )
+        for path in closed_graph_controls:
+            self.assertEqual(
+                publication_entries[path],
+                {
+                    "path": path,
+                    "kind": "public_assembly_control_document",
+                    "delivery_role": "assembly_document",
+                    "required_in_catalog": True,
+                    "activation_mode": "atomic",
+                },
+            )
+            self.assertIn(path, publication_inventory["assembler"]["required_paths"])
+
+        visitor_bundle = load_json(
+            ROOT / "records/publication/visitor-corpus-bundle-v1.json"
+        )
+        bundled_paths = {row["path"] for row in visitor_bundle["entries"]}
+        self.assertTrue(set(closed_graph_controls).issubset(bundled_paths))
+
+        schema_id_paths = {}
+        for path in sorted((ROOT / "schemas").glob("*.schema.json")):
+            document = load_json(path)
+            if isinstance(document.get("$id"), str):
+                schema_id_paths[document["$id"].split("#", 1)[0]] = path.relative_to(ROOT).as_posix()
+        published_schema_paths = {
+            path
+            for path in publication_entries
+            if path.startswith("schemas/") and path.endswith(".schema.json")
+        }
+        for path in published_schema_paths:
+            nodes = [load_json(ROOT / path)]
+            while nodes:
+                node = nodes.pop()
+                if isinstance(node, dict):
+                    reference = node.get("$ref")
+                    if isinstance(reference, str) and not reference.startswith("#"):
+                        base_id = reference.split("#", 1)[0]
+                        self.assertIn(base_id, schema_id_paths, (path, reference))
+                        self.assertIn(schema_id_paths[base_id], publication_entries, (path, reference))
+                    nodes.extend(node.values())
+                elif isinstance(node, list):
+                    nodes.extend(node)
+
         interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
         self.assertEqual(len(interprets), 32)
         self.assertEqual({relation["target_entity_id"] for relation in interprets}, {"6529NM-CA-2026-002", *work_ids, *artist_ids})

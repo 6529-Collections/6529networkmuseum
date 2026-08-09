@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0d81b5028cc353c49309e48695068928d5159b4ff5aa528a50f538916b165339"
+      "digest": "0x632842c797515d2cca8e162925b76983ddd29483a26dc5fd8b624f3ed9efe3fb"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0096aacbe2f15d61c6f7578df15c7f8a5d11f15f34525c64029262f6b30b448c",
+    "payload_sha256": "sha256:a63d143284ed555c596c0ad098d540c288eef5320c72e63841b787fb5525a2fc",
     "preferred_label": "HugoFaz",
     "profile": {
       "agent_kind": "PERSON",
@@ -90,7 +90,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -98,19 +98,8 @@
       "6529NM-AP-01-OUT-002",
       "6529NM-AP-01-OUT-011"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T15:09:51.791Z",
-      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
-      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
-      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -133,7 +122,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0003",
     "visibility": "public"

@@ -79,10 +79,24 @@ EXPLICIT_MANUSCRIPTS = (
 # These JSON controls are required by the frontend assembler.  They are
 # assembly documents, not source manuscripts and not the inventory itself.
 ASSEMBLY_CONTROL_PATHS = (
+    "schemas/common.schema.json",
+    "schemas/controlled-vocabularies.json",
+    "schemas/controlled-vocabularies.schema.json",
+    "schemas/public-entity-common.schema.json",
     "schemas/public-entity-identity-inventory.json",
+    "schemas/public-entity-identity-inventory.schema.json",
+    "schemas/public-entity.schema.json",
+    "schemas/public-relation-identity-inventory.json",
+    "schemas/public-relation-identity-inventory.schema.json",
+    "schemas/public-relation.schema.json",
     "schemas/public-route-compatibility.json",
+    "schemas/public-route-compatibility.schema.json",
     "schemas/public-publication-inventory.schema.json",
     "schemas/public-publication-bundle.schema.json",
+    "schemas/publication-catalog-pointer.schema.json",
+    "schemas/publication-catalog.schema.json",
+    "schemas/record-envelope.schema.json",
+    "schemas/wave-status-observation.schema.json",
 )
 
 # Accessibility descriptions are safe visitor-facing source material. The
@@ -108,6 +122,59 @@ def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
 
 def strict_load(data: bytes | str) -> Any:
     return json.loads(data, object_pairs_hook=reject_duplicate_keys)
+
+
+def schema_dependency_paths(root: Path, seed_paths: set[str]) -> set[str]:
+    """Return the complete local schema dependency closure for seed paths."""
+
+    schema_documents: dict[str, dict[str, Any]] = {}
+    schema_id_paths: dict[str, str] = {}
+    for path in sorted((root / "schemas").glob("*.schema.json")):
+        relative = relative_path(root, path)
+        document = strict_load(path.read_bytes())
+        if not isinstance(document, dict):
+            raise InventoryError(f"schema must be a JSON object: {relative}")
+        schema_documents[relative] = document
+        schema_id = document.get("$id")
+        if isinstance(schema_id, str):
+            base_id = schema_id.split("#", 1)[0]
+            prior = schema_id_paths.get(base_id)
+            if prior is not None and prior != relative:
+                raise InventoryError(
+                    f"duplicate local schema $id {base_id!r}: {prior}, {relative}"
+                )
+            schema_id_paths[base_id] = relative
+
+    closure: set[str] = set()
+    pending = sorted(
+        path for path in seed_paths if path.startswith("schemas/") and path.endswith(".schema.json")
+    )
+    while pending:
+        relative = pending.pop()
+        if relative in closure:
+            continue
+        document = schema_documents.get(relative)
+        if document is None:
+            raise InventoryError(f"schema dependency does not exist: {relative}")
+        closure.add(relative)
+        nodes: list[Any] = [document]
+        while nodes:
+            node = nodes.pop()
+            if isinstance(node, dict):
+                reference = node.get("$ref")
+                if isinstance(reference, str) and not reference.startswith("#"):
+                    base_id = reference.split("#", 1)[0]
+                    target = schema_id_paths.get(base_id)
+                    if target is None:
+                        raise InventoryError(
+                            f"unresolved local schema dependency {reference!r} in {relative}"
+                        )
+                    if target not in closure:
+                        pending.append(target)
+                nodes.extend(node.values())
+            elif isinstance(node, list):
+                nodes.extend(node)
+    return closure
 
 
 def keccak256(data: bytes) -> bytes:
@@ -295,8 +362,24 @@ def _entries(root: Path) -> list[dict[str, Any]]:
     for relative in public_record_paths(root):
         add(_entry(relative, "public_curatorial_manuscript", "assembly_document"))
     control_paths = set(ASSEMBLY_CONTROL_PATHS)
+    vocabularies = strict_load((root / "schemas" / "controlled-vocabularies.json").read_bytes())
+    schema_paths = vocabularies.get("schema_paths")
+    if not isinstance(schema_paths, dict) or not schema_paths:
+        raise InventoryError("controlled vocabularies must declare schema_paths")
+    for record_type, filename in schema_paths.items():
+        if not isinstance(record_type, str) or not isinstance(filename, str):
+            raise InventoryError("controlled vocabulary schema_paths must map strings to strings")
+        if Path(filename).name != filename or not filename.endswith(".schema.json"):
+            raise InventoryError(f"unsafe controlled vocabulary schema path: {filename!r}")
+        relative = f"schemas/{filename}"
+        if not (root / relative).is_file():
+            raise InventoryError(
+                f"controlled vocabulary schema path does not exist: {relative}"
+            )
+        control_paths.add(relative)
     for required_paths in legacy_required_paths(root).values():
         control_paths.update(required_paths)
+    control_paths.update(schema_dependency_paths(root, control_paths))
     for relative in sorted(control_paths):
         add(_entry(relative, "public_assembly_control_document", "assembly_document"))
     for relative in MEDIA_SOURCE_MANIFEST_PATHS:

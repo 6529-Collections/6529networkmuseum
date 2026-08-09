@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5bbad8615be1e3a55b1fe92f28d881725c5cdf5e208dc106280865f3a5ab3a37"
+      "digest": "0xa7f756b95f0ef10edbe4903e035e946897f886652c8d3dc8905fda5b68c57373"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:8b9448adb4ce6b6ac16cdb3bbf81a3847a8a4357103b1ecc1822877a689f0bad",
+    "payload_sha256": "sha256:0d8f6e8bee3b70e4bd426ce15da15376072869e0627235ca0caa06d2a798b86a",
     "qualifier": {
       "role": "creator"
     },
     "record_id": "6529NM-REL-0027",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,19 +51,8 @@
     ],
     "relation_id": "6529NM-REL-0027",
     "relation_type": "ARTIST_CREATES_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T15:09:51.791Z",
-      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
-      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
-      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-ART-0019",
     "source_record_ids": [

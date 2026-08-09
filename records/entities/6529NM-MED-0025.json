@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x72ffeead209283f7034bfb44b270af77fae4fee2dc7f77ce0ce402d16728ea35"
+      "digest": "0xa6fe0a3ee5c6cec164ecbf496f321d48fbf9866207b8327ef6dc125f932404f7"
     },
     "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0025",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:e4d0a2b29a8e3607b1a5e3d2fb2fbc6b05f91ab1848291523f89534413be46e5",
+    "payload_sha256": "sha256:e550bd451a732a4ab09d18272e7fdafad24b30d2e4c063bc501b1da405470949",
     "preferred_label": "The Hostile Gate presentation record",
     "profile": {
       "media": {
@@ -134,26 +134,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0025",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-006"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T15:09:51.791Z",
-      "reviewed_commit": "de6539004fccee7d850d1e9cae7545ccbdf375bf",
-      "reviewed_manifest_keccak": "0xf73377b00c52b32aeff94f6e7784e92a9210cd4bc23d850b2731ca74673286a1",
-      "reviewed_manifest_sha256": "sha256:ab0075e159a8cd40470a8105e4c7cbf6bb1e548a040cff38f2ba48406b9a3836",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +158,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:32:21Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0025",
     "visibility": "public"

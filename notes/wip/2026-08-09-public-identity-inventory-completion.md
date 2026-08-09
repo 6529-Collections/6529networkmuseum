@@ -1,6 +1,6 @@
 # Public identity inventory completion
 
-Status: candidate A3 under qualification; reviewed projection and catalog activation pending.
+Status: completed in canonical reviewed projection B3
 
 ## Why this increment exists
 
@@ -50,3 +50,13 @@ The exact A3 manifest commitments are computed only after this ledger and every
 other governed byte are final. They are recorded in the immutable candidate
 commit and release review, avoiding a self-referential manifest claim inside a
 file covered by that manifest.
+
+## Completion
+
+Candidate A3 merged as `de6539004fccee7d850d1e9cae7545ccbdf375bf`.
+Its direct reviewed child B3 merged as
+`bf517353ef861e91f5137908daca514b81578b4d`. The first publication-catalog
+activation attempt was subsequently stopped before merge when independent
+frontend-contract review found that the relation-identity inventory was not
+yet included in the closed visitor publication. That separate correction is
+tracked in `2026-08-09-relation-identity-publication-closure.md`.
