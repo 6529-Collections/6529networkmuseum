@@ -74,6 +74,20 @@ class WP3EditorialChecks(unittest.TestCase):
     def test_public_copy_and_citations(self) -> None:
         self.assertEqual(MODULE.check_copy_citations(), [])
 
+    def test_research_cutoff_covers_source_observations(self) -> None:
+        publication_text = MODULE.PUBLICATION_RECORD.read_text(encoding="utf-8")
+        source_text = MODULE.SOURCE_REGISTER.read_text(encoding="utf-8")
+
+        publication_probe = publication_text.replace(
+            "| Research cutoff | 9 August 2026 |",
+            "| Research cutoff | 8 August 2026 |",
+        )
+        errors: list[str] = []
+        MODULE.check_research_cutoff(errors, publication_probe, source_text)
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("2026-08-09", errors[0])
+
     def test_public_corpus_includes_scholarship_readme(self) -> None:
         files = MODULE.public_files()
         self.assertIn(MODULE.ROOT / "README.md", files)

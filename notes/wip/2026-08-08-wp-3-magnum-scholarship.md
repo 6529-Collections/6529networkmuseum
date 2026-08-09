@@ -590,3 +590,19 @@ inline Markdown, reference-style Markdown, raw HTML anchors, and CSS `url()`
 syntax, plus literal and HTML-encoded tab/newline URL forms. The three
 unfinished reviews of the rejected candidate were stopped;
 all four lanes must restart on the next signed exact candidate.
+
+## 2026-08-09 research-cutoff correction
+
+Independent curatorial review rejected exact candidate
+`d812b1cc7656d39d33fa2c9e72ecb6e5521c0008`. Its publication record and all
+component headers stated a research cutoff of 8 August 2026, while source
+register entries S53 and S54 preserve observations made on 9 August and the
+rights/technical dossier relies on those observations. The edition boundary
+was therefore internally false even though every automated gate passed.
+
+The publication record and all 22 component headers now state 9 August 2026.
+The editorial validator parses the canonical cutoff and fails if any ISO-dated
+observation in the source register falls after it; an adversarial unit test
+reproduces the rejected 8 August boundary. The other three reviews of the
+rejected candidate were stopped before mutation. All four lanes must restart
+on a newly signed exact candidate.

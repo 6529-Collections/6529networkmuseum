@@ -1,6 +1,6 @@
 # Conflict at Its Edges
 
-*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](publication-record.md)*
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](publication-record.md)*
 
 ## Five Photographs of Borders, Access, and Afterlives, 1952–2016
 

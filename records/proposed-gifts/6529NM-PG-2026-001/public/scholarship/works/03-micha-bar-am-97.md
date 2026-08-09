@@ -1,6 +1,6 @@
 # Micha Bar-Am, *Demonstration, Western Wall, Jerusalem*
 
-*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
 *Short label: Demonstration, 1989 · Western Wall, Jerusalem. Historical public
 Wave proposal record; the non-rendering source locator and credit appear in

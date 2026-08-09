@@ -3481,3 +3481,17 @@ catalog activation, and frontend qualification remain open.
 - Adversarial tests cover Markdown, reference-style Markdown, HTML-anchor, and
   CSS-container forms. The other three reviews were stopped; all four lanes
   restart only after the new candidate is signed and pushed.
+
+## 2026-08-09 Magnum research-cutoff rejection
+
+- Curatorial review rejected exact candidate
+  `d812b1cc7656d39d33fa2c9e72ecb6e5521c0008`: its stated 8 August 2026
+  research cutoff preceded source-register observations S53 and S54 on 9
+  August, including an observation used by the rights/technical dossier.
+- The publication record and every component header now use a 9 August 2026
+  cutoff. A deterministic editorial gate parses the canonical cutoff and
+  rejects any later ISO-dated source-register observation; a regression test
+  restores the rejected 8 August value and requires failure.
+- The remaining three reviews were stopped before mutation. Complete
+  regeneration, validation, a new signed candidate, fresh hosted CI, and four
+  entirely fresh independent reviews remain mandatory.

@@ -1,6 +1,6 @@
 # Chronologies
 
-*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
 This dossier separates historical dates, publication dates, chain observations,
 and Museum-process observations. A date in one column does not imply an event in

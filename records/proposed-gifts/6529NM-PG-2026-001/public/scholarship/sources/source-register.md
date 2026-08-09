@@ -1,6 +1,6 @@
 # WP-3 source register
 
-*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 8 August 2026 · [Publication record and suggested citation](../publication-record.md)*
+*6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
 Access date for web sources in this register: 8 August 2026 UTC, unless a
 historical access/archive date is stated. The register is a research apparatus,

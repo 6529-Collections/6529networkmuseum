@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 import re
 import sys
@@ -14,6 +15,25 @@ PUBLICATION_RECORD = ROOT / "publication-record.md"
 FOOTNOTE_REF = re.compile(r"\[\^([^\]]+)\](?!:)")
 FOOTNOTE_DEF = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
 SOURCE_ID = re.compile(r"\bS\d{2,}\b")
+RESEARCH_CUTOFF = re.compile(
+    r"^\| Research cutoff \| (\d{1,2}) ([A-Z][a-z]+) (\d{4}) \|$",
+    re.MULTILINE,
+)
+ISO_OBSERVATION_DATE = re.compile(r"(?<!\d)(\d{4}-\d{2}-\d{2})T")
+MONTHS = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12,
+}
 
 FORBIDDEN_COPY = (
     "status-bound",
@@ -75,7 +95,7 @@ def check_publication_metadata(path: Path, text: str, errors: list[str]) -> None
             "Edition identifier | `6529NM-RP-0003/1.0.0`",
             "Institutional author | 6529 Network Museum, Curatorial Research",
             "Publication date | 9 August 2026",
-            "Research cutoff | 8 August 2026",
+            "Research cutoff | 9 August 2026",
             "**Suggested citation:**",
             "## Revision history",
             "**Exact source**",
@@ -85,12 +105,47 @@ def check_publication_metadata(path: Path, text: str, errors: list[str]) -> None
             "6529 Network Museum, Curatorial Research",
             "Edition 1.0.0",
             "Published 9 August 2026",
-            "Research through 8 August 2026",
+            "Research through 9 August 2026",
             "[Publication record and suggested citation]",
         )
     for field in required:
         if field not in text:
             errors.append(f"{path.relative_to(ROOT)}: missing publication metadata: {field}")
+
+
+def check_research_cutoff(
+    errors: list[str],
+    publication_text: str | None = None,
+    source_text: str | None = None,
+) -> None:
+    if publication_text is None:
+        publication_text = PUBLICATION_RECORD.read_text(encoding="utf-8")
+    match = RESEARCH_CUTOFF.search(publication_text)
+    if match is None:
+        errors.append("publication-record.md: missing or malformed research cutoff row")
+        return
+
+    day, month_name, year = match.groups()
+    month = MONTHS.get(month_name)
+    if month is None:
+        errors.append(f"publication-record.md: unsupported research cutoff month: {month_name}")
+        return
+    cutoff = date(int(year), month, int(day))
+
+    if source_text is None:
+        source_text = SOURCE_REGISTER.read_text(encoding="utf-8")
+    later_observations = sorted(
+        {
+            observation
+            for observation in ISO_OBSERVATION_DATE.findall(source_text)
+            if date.fromisoformat(observation) > cutoff
+        }
+    )
+    if later_observations:
+        errors.append(
+            "source-register.md: observation dates later than the research cutoff: "
+            + ", ".join(later_observations)
+        )
 
 
 def check_work_artist_prose(path: Path, text: str, errors: list[str]) -> None:
@@ -135,6 +190,7 @@ def check_copy_citations() -> list[str]:
 
     all_text = "\n".join(texts)
     check_required_sources(all_text, errors)
+    check_research_cutoff(errors)
 
     narrative = ROOT / "essays" / "acquisition-narrative.md"
     narrative_text = narrative.read_text(encoding="utf-8")
