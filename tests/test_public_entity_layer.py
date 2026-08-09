@@ -28,6 +28,7 @@ from migrate_public_entities import (  # noqa: E402
     evidence,
     generated_directory_issues,
     identity_binding_indexes,
+    infer_existing_review_arguments,
     load_json,
     relation_binding_indexes,
     resolve_identity_ids,
@@ -94,6 +95,78 @@ class PublicEntityLayerTests(unittest.TestCase):
         schema = load_json(ROOT / relative_schema)
         validator = validator_for(schema, self.schema_store)
         return [error.message for error in validator.iter_errors(payload)]
+
+    def test_existing_review_state_replay_is_closed_and_consistent(self) -> None:
+        paths = {"records/entities/E1.json": {}, "records/relations/R1.json": {}}
+
+        def write_records(root: Path, payloads: list[dict]) -> None:
+            for relative, payload in zip(paths, payloads, strict=True):
+                destination = root / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_text(json.dumps({"payload": payload}), encoding="utf-8")
+
+        pending = {
+            "record_status": "review_pending",
+            "review_status": "pending_independent_review",
+            "reviewer": None,
+        }
+        reviewer = {
+            "id": "reviewer:test",
+            "role": "reviewer",
+            "reviewed_at": TEST_REVIEWED_AT,
+            "reviewed_commit": TEST_REVIEWED_COMMIT,
+            "reviewed_manifest_sha256": TEST_REVIEWED_MANIFEST_SHA256,
+            "reviewed_manifest_keccak": TEST_REVIEWED_MANIFEST_KECCAK,
+            "reviewer_ids": ["reviewer:test"],
+            "outcome": "approved",
+        }
+        reviewed = {
+            "created_at": GENERATED_AT,
+            "record_status": "reviewed",
+            "review_status": "reviewed",
+            "reviewer": reviewer,
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_records(root, [pending, pending])
+            self.assertEqual(infer_existing_review_arguments(paths, root=root), {"reviewed": False, "reviewer_id": None})
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_records(root, [reviewed, reviewed])
+            self.assertEqual(
+                infer_existing_review_arguments(paths, root=root),
+                {
+                    "reviewed": True,
+                    "reviewer_id": "reviewer:test",
+                    "reviewed_at": TEST_REVIEWED_AT,
+                    "reviewed_commit": TEST_REVIEWED_COMMIT,
+                    "reviewed_manifest_sha256": TEST_REVIEWED_MANIFEST_SHA256,
+                    "reviewed_manifest_keccak": TEST_REVIEWED_MANIFEST_KECCAK,
+                },
+            )
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            write_records(root, [pending, reviewed])
+            with self.assertRaisesRegex(ValueError, "mix pending and reviewed"):
+                infer_existing_review_arguments(paths, root=root)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            other = copy.deepcopy(reviewed)
+            other["reviewer"]["reviewed_commit"] = "d" * 40
+            write_records(root, [reviewed, other])
+            with self.assertRaisesRegex(ValueError, "do not share one review binding"):
+                infer_existing_review_arguments(paths, root=root)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            early = copy.deepcopy(reviewed)
+            early["reviewer"]["reviewed_at"] = GENERATED_AT
+            write_records(root, [early, early])
+            with self.assertRaisesRegex(ValueError, "at or before construction"):
+                infer_existing_review_arguments(paths, root=root)
 
     def test_magnum_machine_schema_closes_nested_contracts_and_work_rows(self) -> None:
         machine_root = ROOT / "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine"

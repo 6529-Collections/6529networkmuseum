@@ -1384,6 +1384,107 @@ def generated_directory_issues(
     return unexpected, missing
 
 
+def infer_existing_review_arguments(
+    records: dict[str, dict[str, Any]],
+    *,
+    root: Path = ROOT,
+) -> dict[str, Any]:
+    """Derive one internally consistent generator mode from committed records.
+
+    This is a deterministic replay aid, not an approval mechanism. Independent
+    review authority remains enforced by the A-to-B catalog transition.
+    """
+
+    pending_paths: list[str] = []
+    reviewed_bindings: list[tuple[str, str, str, str, str]] = []
+    for relative in sorted(records):
+        source = root / relative
+        if not source.is_file():
+            continue
+        try:
+            record = load_json(source)
+        except (OSError, UnicodeError, json.JSONDecodeError, DuplicateJsonKeyError) as exc:
+            raise ValueError(f"cannot read existing generated record {relative}: {exc}") from exc
+        payload = record.get("payload") if isinstance(record, dict) else None
+        if not isinstance(payload, dict):
+            raise ValueError(f"existing generated record has no payload: {relative}")
+        record_status = payload.get("record_status")
+        review_status = payload.get("review_status")
+        reviewer = payload.get("reviewer")
+        if (
+            record_status == "review_pending"
+            and review_status in {"pending_independent_review", "review_pending"}
+            and reviewer is None
+        ):
+            pending_paths.append(relative)
+            continue
+        if record_status != "reviewed" or review_status != "reviewed" or not isinstance(reviewer, dict):
+            raise ValueError(f"existing generated record has an unsupported review state: {relative}")
+        required = {
+            "id",
+            "role",
+            "reviewed_at",
+            "reviewed_commit",
+            "reviewed_manifest_sha256",
+            "reviewed_manifest_keccak",
+            "reviewer_ids",
+            "outcome",
+        }
+        if set(reviewer) != required or reviewer.get("role") != "reviewer" or reviewer.get("outcome") != "approved":
+            raise ValueError(f"existing generated record has incomplete reviewer metadata: {relative}")
+        reviewer_id = reviewer.get("id")
+        reviewer_ids = reviewer.get("reviewer_ids")
+        if reviewer_ids != [reviewer_id] or not isinstance(reviewer_id, str) or not reviewer_id:
+            raise ValueError(f"existing generated record has an unsupported reviewer panel: {relative}")
+        binding = (
+            reviewer_id,
+            reviewer.get("reviewed_at"),
+            reviewer.get("reviewed_commit"),
+            reviewer.get("reviewed_manifest_sha256"),
+            reviewer.get("reviewed_manifest_keccak"),
+        )
+        if not all(isinstance(value, str) for value in binding):
+            raise ValueError(f"existing generated record has non-string reviewer metadata: {relative}")
+        if (
+            not re.fullmatch(r"[0-9a-f]{40}", binding[2])
+            or not re.fullmatch(r"sha256:[0-9a-f]{64}", binding[3])
+            or not re.fullmatch(r"0x[0-9a-f]{64}", binding[4])
+        ):
+            raise ValueError(f"existing generated record has invalid reviewer commitments: {relative}")
+        try:
+            review_time = datetime.datetime.fromisoformat(binding[1].replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"existing generated record has an invalid review time: {relative}") from exc
+        if review_time.tzinfo is None:
+            raise ValueError(f"existing generated record has a review time without an offset: {relative}")
+        created_at_value = payload.get("created_at")
+        if not isinstance(created_at_value, str):
+            raise ValueError(f"existing generated record has no construction time: {relative}")
+        try:
+            created_at = datetime.datetime.fromisoformat(created_at_value.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError(f"existing generated record has an invalid construction time: {relative}") from exc
+        if created_at.tzinfo is None or review_time <= created_at:
+            raise ValueError(f"existing generated record has a review time at or before construction: {relative}")
+        reviewed_bindings.append(binding)
+
+    if pending_paths and reviewed_bindings:
+        raise ValueError("existing generated records mix pending and reviewed states")
+    if not reviewed_bindings:
+        return {"reviewed": False, "reviewer_id": None}
+    if len(set(reviewed_bindings)) != 1:
+        raise ValueError("existing reviewed records do not share one review binding")
+    reviewer_id, reviewed_at, reviewed_commit, reviewed_manifest_sha256, reviewed_manifest_keccak = reviewed_bindings[0]
+    return {
+        "reviewed": True,
+        "reviewer_id": reviewer_id,
+        "reviewed_at": reviewed_at,
+        "reviewed_commit": reviewed_commit,
+        "reviewed_manifest_sha256": reviewed_manifest_sha256,
+        "reviewed_manifest_keccak": reviewed_manifest_keccak,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="verify generated bytes without writing")
@@ -1393,15 +1494,40 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--reviewed-commit", help="exact candidate A commit reviewed, required with --reviewed")
     parser.add_argument("--reviewed-manifest-sha256", help="candidate A manifest SHA-256, required with --reviewed")
     parser.add_argument("--reviewed-manifest-keccak", help="candidate A manifest Keccak-256, required with --reviewed")
-    args = parser.parse_args(argv)
-    records = build_records(
-        args.reviewed,
-        args.reviewer_id,
-        reviewed_at=args.reviewed_at,
-        reviewed_commit=args.reviewed_commit,
-        reviewed_manifest_sha256=args.reviewed_manifest_sha256,
-        reviewed_manifest_keccak=args.reviewed_manifest_keccak,
+    parser.add_argument(
+        "--check-existing-review-state",
+        action="store_true",
+        help="with --check, replay the one consistent pending or reviewed state already committed",
     )
+    args = parser.parse_args(argv)
+    explicit_review_arguments = any(
+        value is not None
+        for value in (
+            args.reviewer_id,
+            args.reviewed_at,
+            args.reviewed_commit,
+            args.reviewed_manifest_sha256,
+            args.reviewed_manifest_keccak,
+        )
+    )
+    if args.check_existing_review_state and (not args.check or args.reviewed or explicit_review_arguments):
+        parser.error("--check-existing-review-state requires --check and cannot be combined with explicit review arguments")
+    generation_arguments: dict[str, Any] = {
+        "reviewed": args.reviewed,
+        "reviewer_id": args.reviewer_id,
+        "reviewed_at": args.reviewed_at,
+        "reviewed_commit": args.reviewed_commit,
+        "reviewed_manifest_sha256": args.reviewed_manifest_sha256,
+        "reviewed_manifest_keccak": args.reviewed_manifest_keccak,
+    }
+    if args.check_existing_review_state:
+        pending_records = build_records(False, None)
+        try:
+            generation_arguments = infer_existing_review_arguments(pending_records)
+        except ValueError as exc:
+            print(f"Public entity migration review-state replay refused: {exc}")
+            return 1
+    records = build_records(**generation_arguments)
     unexpected_inventory, missing_inventory = generated_directory_issues(records)
     inventory_issues = [*unexpected_inventory, *missing_inventory]
     # Missing expected outputs are repairable in write mode; stale unexpected

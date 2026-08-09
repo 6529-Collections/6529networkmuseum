@@ -78,8 +78,12 @@ that need the whole repository or need to compare values:
   media manifest joins exactly to all sixteen selected outcomes, that every
   declared WebP exists with the committed raw-byte hash, size, geometry, and
   sRGB profile, and that no undeclared derivative is present.
-- `scripts/migrate_public_entities.py --check` verifies the deterministic
-  Stream-shaped public projection: 120 `PUBLIC_ENTITY` records, 205 closed
+- `scripts/migrate_public_entities.py --check --check-existing-review-state`
+  verifies the deterministic projection in the single internally consistent
+  pending or reviewed state already committed. This replay does not grant
+  approval; publication activation separately verifies the exact candidate-A
+  parent, reviewer binding, and review-only A-to-B delta. The command verifies
+  the Stream-shaped public projection: 120 `PUBLIC_ENTITY` records, 205 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
   (326 generated records in total). Six withdrawn draft relation assertions
   retain append-only identity tombstones and their identifiers cannot be
