@@ -3165,3 +3165,23 @@ its Keccak commitment is
 Inventory, bundle, migration, media, and complete-manifest checks pass on the
 regenerated tree. No public catalog, pointer, image delivery, mint,
 acquisition, accession, or Collection membership has been activated.
+
+## 2026-08-09 Keys and Gates final curatorial media-language correction
+
+The final curatorial reread found four current-facing references to a public,
+current, or technical derivative after active image delivery had been
+withdrawn. Those references now identify the historical 640px or review copies
+as the basis of the recorded observations. The public rights matrix and the
+*No Key, Only Light* content note no longer imply that a derivative is active.
+A visitor-bundle regression test now rejects the stale phrases.
+
+The deterministic bundle and governed manifest were regenerated after the copy
+correction. Counts remain 497 visitor-inventory entries, 496 bundled documents,
+317 migration records, and 732 complete-manifest entries. The replacement
+manifest SHA-256 is
+`sha256:0ac6d01849dc6b182c000707f7d0928f8f952a3469497710f355a1aeb33e65a9`;
+its Keccak commitment is
+`0x7c4b862177eb1da2d29227d470d29c1c185878ea5efd7612b652a3096bf847c3`.
+The focused K&G corpus suite passes 26 tests, including the new stale-language
+controls. No public catalog, pointer, image delivery, mint, acquisition,
+accession, or Collection membership has been activated.

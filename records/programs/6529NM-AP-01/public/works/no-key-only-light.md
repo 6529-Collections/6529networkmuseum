@@ -1,6 +1,6 @@
 # *No Key, Only Light*
 
-> **Content note:** Two distant silhouetted figures are described in the technical 640 derivative. The program terms exclude identifiable minors; the derivative supplies no identifying detail and leaves the figures’ ages unestablished.
+> **Content note:** Two distant silhouetted figures appear in the historical 640px review copy. The program terms exclude identifiable minors; no identifying detail was visible in that copy, and the figures’ ages remain unestablished.
 
 > **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
 

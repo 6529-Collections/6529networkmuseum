@@ -122,9 +122,10 @@ shelter, and the quiet act of leaving.
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=57c49f95-7854-4a2a-ba2c-d448bc7827fc)
 
 The artist’s submission describes the figures as “my children” and represents
-that a private release exists. The public derivative shows distant silhouettes
-from behind; the instrument is not retained or independently verified in the
-Museum record. The fort’s public history supplies the architectural context.
+that a private release exists. In the historical 640px review copy, the figures
+appear as distant silhouettes from behind. No consent instrument is retained or
+independently verified in the Museum record. The fort’s public history supplies
+the architectural context.
 
 ### 05 — *Residual Barrier* — ikertje
 

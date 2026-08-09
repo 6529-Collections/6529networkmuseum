@@ -263,8 +263,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/programs/keys-and-gates.md",
-      "sha256": "sha256:d3c5508c837b13a8a30017b673e16604d4ab78b5c23c73f8e4f3169ab1cf2ecb",
-      "size": 15394
+      "sha256": "sha256:a7935f044dccce13a2f311518ca93eb3b5759897ef1d44a2cab6c4d98e1d0f1b",
+      "size": 15428
     },
     {
       "byte_mode": "lf-normalized",
@@ -2807,8 +2807,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/programs/6529NM-AP-01/public/rights-and-consent.md",
-      "sha256": "sha256:ae331234e0c1aac79f09aac83145caf3554a38f1c16af0b3cd044d185bcb9db7",
-      "size": 12286
+      "sha256": "sha256:29c13715ca159d1b67b27019cb29a8586c49f43a133159fe4044cc41e252b878",
+      "size": 12409
     },
     {
       "byte_mode": "lf-normalized",
@@ -2861,8 +2861,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/programs/6529NM-AP-01/public/works/no-key-only-light.md",
-      "sha256": "sha256:06eb6fdaf0e8c0465274b8602d96f48f5a1bd42b38c71ffd9a89e347f1c5cd55",
-      "size": 4183
+      "sha256": "sha256:c6c0da8f2e7353f99bf9a4f51bae29c9c7bba0df0f32f13713f07aa4b3823f26",
+      "size": 4182
     },
     {
       "byte_mode": "lf-normalized",
@@ -3102,11 +3102,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x2bc48da5d10d18c64dbaa141178110a9b60603a767e252ecaf022ab026466f57"
+        "digest": "0x3164aeee22f7b89e484fe5b38d799b7f9d54df8e36fbdcbbf0e1513c34041022"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:fa1a9de50219bf28e913b44831fd8e4a9638644d2436fa47235a8557c3af15cf",
-      "size": 3673803
+      "sha256": "sha256:6ca8dedc356d165761da0a26d01e4a65193b7851143ebceac914a66842c6f845",
+      "size": 3673960
     },
     {
       "byte_mode": "lf-normalized",
@@ -6619,8 +6619,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_keys_gates_public_corpus.py",
-      "sha256": "sha256:a66bb64ccef5c3a52b3d8084a742a1b6fd5900dd1f81086ccee37ba75763fc4a",
-      "size": 33842
+      "sha256": "sha256:aac50f1cc478745934ee376b366a326aba51a1192b0217589519ad9e9750eb02",
+      "size": 34289
     },
     {
       "byte_mode": "lf-normalized",
@@ -6714,9 +6714,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x8b637efce21bc0323226aa86fd1e2fc9d735c4f57c39fc61df170c3871ae77b6"
+    "digest": "0x7c4b862177eb1da2d29227d470d29c1c185878ea5efd7612b652a3096bf847c3"
   },
-  "manifest_sha256": "sha256:d8bcabf12ff439511c6d09bf6445032d30bd6a00d6c679c2c869597746e43fd9",
+  "manifest_sha256": "sha256:0ac6d01849dc6b182c000707f7d0928f8f952a3469497710f355a1aeb33e65a9",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
