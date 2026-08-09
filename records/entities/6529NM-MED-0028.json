@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf5cf9e8b72bf8039ccddb5e2ee216cf600655bc4cb9590873d5f5828f74ed2a1"
+      "digest": "0xf9ecad3edff2347f412e9c590c8c4477a92a8a3d078b3839ac54d5d9cf390ef3"
     },
     "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0028",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6a228e0e614310512aa66949bcafcb5198ec30d99483163436b0350ed62a6aa3",
+    "payload_sha256": "sha256:b8d84ecd2eff3a6771c1e080534a367af6732fab17faf98ae9227518ee9b5cd4",
     "preferred_label": "Now Is Our Time presentation record",
     "profile": {
       "media": {
@@ -134,26 +134,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0028",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-009"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T13:57:07.746Z",
-      "reviewed_commit": "30e3dfc9c5d2056b89bd6ba7f0b9b2c67319cfd8",
-      "reviewed_manifest_keccak": "0xea5ef5ecd748cb57dff4f9a94e0f35bc21d3e02f4b2846d1a47b46b8bd566638",
-      "reviewed_manifest_sha256": "sha256:3b6283f40b0b8b0bf2eaa1e6d3bc5427eb22fdfe4c80bd4c397cd1ec68e92204",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +158,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:32:21Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0028",
     "visibility": "public"

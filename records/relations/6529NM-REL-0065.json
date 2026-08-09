@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2a2ac5258488c9e7d33147b5d26024433bed8adcc9daae1c83b760d7153d894c"
+      "digest": "0x9d6d3f387bcfbbd0f46ad8851f36506c7aaaf57b701e4ccbeeeb458adee95b14"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:85cb48b10fffb55ab6c3f2f8d0e7316ce57e9081fe960fc083d3db2ab0b60c2b",
+    "payload_sha256": "sha256:28df02e9a2aab0f49d379de3db173dd88d1b837a9a1716a62c43d7058a5b0df1",
     "qualifier": {
       "display_order": 5,
       "scope": "source_project",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0065",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,19 +53,8 @@
     ],
     "relation_id": "6529NM-REL-0065",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T13:57:07.746Z",
-      "reviewed_commit": "30e3dfc9c5d2056b89bd6ba7f0b9b2c67319cfd8",
-      "reviewed_manifest_keccak": "0xea5ef5ecd748cb57dff4f9a94e0f35bc21d3e02f4b2846d1a47b46b8bd566638",
-      "reviewed_manifest_sha256": "sha256:3b6283f40b0b8b0bf2eaa1e6d3bc5427eb22fdfe4c80bd4c397cd1ec68e92204",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-002",
     "source_record_ids": [

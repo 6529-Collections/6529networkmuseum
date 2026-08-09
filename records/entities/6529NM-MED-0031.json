@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x466c2330e14516a18566b6db2677f1373ecc967e32cfb80ddbed2e84e22679ef"
+      "digest": "0x9eec7b1caa0a6b2996b667c65e85c1b3a6678c427c2ce4aee9ca079be7976a3e"
     },
     "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0031",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6590fb87c0eda4139a402f5de2ff319f952625bf12191d3454280afb46a08d37",
+    "payload_sha256": "sha256:8721000f2824cdfbe556c009b02a3c9d12e73ab5fa8d1dc765aba92821b8e5ad",
     "preferred_label": "Rusted presentation record",
     "profile": {
       "media": {
@@ -134,26 +134,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0031",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-012"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T13:57:07.746Z",
-      "reviewed_commit": "30e3dfc9c5d2056b89bd6ba7f0b9b2c67319cfd8",
-      "reviewed_manifest_keccak": "0xea5ef5ecd748cb57dff4f9a94e0f35bc21d3e02f4b2846d1a47b46b8bd566638",
-      "reviewed_manifest_sha256": "sha256:3b6283f40b0b8b0bf2eaa1e6d3bc5427eb22fdfe4c80bd4c397cd1ec68e92204",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +158,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:32:21Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0031",
     "visibility": "public"

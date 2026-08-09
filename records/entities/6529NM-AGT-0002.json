@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7486c88baaa78fb4060bfe6033610c754a2591e9d8de6c6cfebaefe2cc91af51"
+      "digest": "0x767e664fc7d18a00e2a93be5b157df9d92db396323b0a64afa934bf956c050b3"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0002",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:00ae1d70e19ae99914e9b99dfdedf07cad6c495a99a3dfb4e4e91f353e3c352b",
+    "payload_sha256": "sha256:6e114c3bf9045ce143581a59c726df19bcdefb2952d65377c984db8214bba5cd",
     "preferred_label": "GulYildiz",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,26 +78,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0002",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T13:57:07.746Z",
-      "reviewed_commit": "30e3dfc9c5d2056b89bd6ba7f0b9b2c67319cfd8",
-      "reviewed_manifest_keccak": "0xea5ef5ecd748cb57dff4f9a94e0f35bc21d3e02f4b2846d1a47b46b8bd566638",
-      "reviewed_manifest_sha256": "sha256:3b6283f40b0b8b0bf2eaa1e6d3bc5427eb22fdfe4c80bd4c397cd1ec68e92204",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0002",
     "visibility": "public"

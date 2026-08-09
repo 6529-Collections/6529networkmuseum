@@ -90,6 +90,22 @@ PUBLIC_ENTITY_SCHEMA = "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b3
 PUBLIC_RELATION_SCHEMA = "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de"
 WAVE_STATUS_SCHEMA = "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1"
 TYPED_REFERENCE_REGISTRY_ID = "PUBLIC_TYPED_REFERENCE_REGISTRY_V1"
+IDENTITY_BINDING_ENTITY_TYPES = (
+    "INSTITUTION",
+    "COLLECTION",
+    "AGENT",
+    "ARTIST",
+    "ORGANIZATION",
+    "WORK",
+    "PROJECT_OR_SERIES",
+    "CURATED_ACQUISITION",
+    "ACQUISITION_PROGRAM",
+    "ACCESSION",
+    "RESEARCH_PUBLICATION",
+    "MEDIA_REFERENCE",
+)
+IDENTITY_BINDING_AUXILIARY_TYPES = ("WORK_LIFECYCLE_OBSERVATION",)
+IDENTITY_BINDING_TYPES = (*IDENTITY_BINDING_ENTITY_TYPES, *IDENTITY_BINDING_AUXILIARY_TYPES)
 
 
 class DuplicateJsonKeyError(ValueError):
@@ -113,8 +129,8 @@ def load_json(path: Path) -> Any:
 def identity_binding_indexes(identity_inventory: dict[str, Any]) -> dict[str, dict[str, str]]:
     """Load governed source-key → canonical-ID bindings and fail closed.
 
-    Source order is not an identity source. Every dynamic public identity is
-    assigned in the versioned inventory, and both missing and duplicate keys or
+    Source order is not an identity source. Every public identity is assigned in
+    the versioned inventory, and missing categories plus duplicate keys or
     canonical IDs are rejected before generation begins.
     """
 
@@ -123,6 +139,10 @@ def identity_binding_indexes(identity_inventory: dict[str, Any]) -> dict[str, di
         raise ValueError("public identity inventory is missing identity_bindings")
     indexes: dict[str, dict[str, str]] = {}
     patterns = identity_inventory.get("entity_id_patterns", {})
+    if not isinstance(patterns, dict) or set(patterns) != set(IDENTITY_BINDING_TYPES):
+        raise ValueError("public identity patterns must exactly cover every governed identity binding type")
+    if set(raw_bindings) != set(IDENTITY_BINDING_TYPES):
+        raise ValueError("public identity bindings must exactly cover every governed identity binding type")
     retired_rows = identity_inventory.get("retired_identity_ids", [])
     if not isinstance(retired_rows, list):
         raise ValueError("public identity inventory retired_identity_ids must be a list")
@@ -134,7 +154,7 @@ def identity_binding_indexes(identity_inventory: dict[str, Any]) -> dict[str, di
         if retired_id in retired_ids:
             raise ValueError(f"duplicate retired public identity {retired_id!r}")
         retired_ids.add(retired_id)
-    for entity_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"):
+    for entity_type in IDENTITY_BINDING_TYPES:
         rows = raw_bindings.get(entity_type)
         if not isinstance(rows, list) or not rows:
             raise ValueError(f"public identity inventory has no {entity_type} identity bindings")
@@ -785,21 +805,21 @@ def build_records(
     def fixed_observation_id(work_id: str, phase: str) -> str:
         return fixed_id("WORK_LIFECYCLE_OBSERVATION", f"{work_id}:{phase}")
 
-    institution = "6529NM-I-0001"
-    collection = "6529NM-C-0001"
+    institution = fixed_id("INSTITUTION", "6529-network-museum")
+    collection = fixed_id("COLLECTION", "permanent-collection")
     casey_agent = fixed_id("AGENT", "casey-reas")
     casey_artist = fixed_id("ARTIST", "casey-reas")
-    art_blocks = "6529NM-ORG-0001"
-    magnum_org = "6529NM-ORG-0002"
+    art_blocks = fixed_id("ORGANIZATION", "art-blocks")
+    magnum_org = fixed_id("ORGANIZATION", "magnum-photos")
     magnum_project = fixed_id("PROJECT_OR_SERIES", "magnum-photos-75")
-    gift_program = "6529NM-AP-ENT-0001"
-    keys_program = "6529NM-AP-ENT-0002"
+    gift_program = fixed_id("ACQUISITION_PROGRAM", "gift-acquisitions")
+    keys_program = fixed_id("ACQUISITION_PROGRAM", "keys-and-gates")
     project_names = ["CENTURY", "Pre-Process", "Phototaxis", "923 EMPTY ROOMS", "Ex Nihilo (Cosmos)"]
     projects = {name: fixed_id("PROJECT_OR_SERIES", f"casey-project:{name}") for name in project_names}
-    accession = "6529NM-ACC-ENT-0001"
-    publication = "6529NM-RP-0001"
-    keys_publication = "6529NM-RP-0002"
-    magnum_publication = "6529NM-RP-0003"
+    accession = fixed_id("ACCESSION", "6529NM.2026.001")
+    publication = fixed_id("RESEARCH_PUBLICATION", "the-system-in-seven-states")
+    keys_publication = fixed_id("RESEARCH_PUBLICATION", "access-control-and-exit")
+    magnum_publication = fixed_id("RESEARCH_PUBLICATION", "conflict-at-its-edges")
     media_retained = fixed_id("MEDIA_REFERENCE", "casey:retained-manifest")
     media_token = fixed_id("MEDIA_REFERENCE", "casey:token-metadata")
     media_derivative = fixed_id("MEDIA_REFERENCE", "museum:conflict-at-its-edges:cover")
@@ -1262,7 +1282,14 @@ def build_records(
         add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, magnum_media_ids_by_candidate[candidate_id], {"media_context": "source", "publication_context_entity_id": "6529NM-CA-2026-003"}, PROPOSAL_AT, [candidate_id, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal media relation", "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", PROPOSAL_AT)])
         relation_number += 1
     generated_entities = [record["payload"] for relative, record in records.items() if relative.startswith("records/entities/")]
-    for binding_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE"):
+    actual_entity_types = {payload["entity_type"] for payload in generated_entities}
+    if actual_entity_types != set(IDENTITY_BINDING_ENTITY_TYPES):
+        raise ValueError(
+            "public entity type inventory mismatch: "
+            f"missing={sorted(set(IDENTITY_BINDING_ENTITY_TYPES) - actual_entity_types)}, "
+            f"undeclared={sorted(actual_entity_types - set(IDENTITY_BINDING_ENTITY_TYPES))}"
+        )
+    for binding_type in IDENTITY_BINDING_ENTITY_TYPES:
         actual_ids = {payload["entity_id"] for payload in generated_entities if payload.get("entity_type") == binding_type}
         expected_ids = set(identity_indexes[binding_type].values())
         if actual_ids != expected_ids:

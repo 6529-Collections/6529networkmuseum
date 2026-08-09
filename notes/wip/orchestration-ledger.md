@@ -3564,3 +3564,24 @@ catalog activation, and frontend qualification remain open.
 - The command remains a reproducibility check, not review authority. Candidate
   B will be rebound to the new direct parent and manifest commitments, then the
   publication catalog will independently enforce the review-only A-to-B delta.
+
+## 2026-08-09 public identity inventory completion
+
+- Canonical reviewed B2 `311ae4281893f404472b8f7ba94454a57a2cd572`
+  passed hosted run `31318296722` on all six jobs.
+- The strict frontend assembler then identified four generated public entities
+  absent from the governed identity inventory: `6529NM-I-0001`,
+  `6529NM-C-0001`, `6529NM-ACC-ENT-0001`, and `6529NM-RP-0001`. The latter's
+  canonical research route was also absent from the slug inventory.
+- Catalog activation was interrupted before mutation. No catalog or pointer
+  artifact was created from B2.
+- Candidate A3 expands identity bindings to every generated public entity type,
+  resolves singleton identities through the inventory, enforces exact graph to
+  inventory equality, adds adversarial coverage, and restores all generated
+  records to pending review.
+- A3 retains the 776-entry release boundary. Exact commitments are computed
+  after all governed bytes are final and recorded outside this self-covered
+  ledger in the candidate review and release evidence.
+- Required continuation: qualify and merge A3; independently generate and audit
+  direct-child B3; activate catalog C only from canonical B3; then provide exact
+  C commitments to the frontend lane.

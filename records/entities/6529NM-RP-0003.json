@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x90ffb04a8d83e8346f4b3c298412a934a36eb794126162d8e1a06a860da8e441"
+      "digest": "0x70609aa03215c912a4a5da0af18d5fb1d88ec3de8e25dfed63af48148bc8cdae"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-08T14:31:26Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-RP-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:bee28567e51c53f1434217d208ece44b96e0e9c46c49c5272d21fe762b2dd299",
+    "payload_sha256": "sha256:7a349e159292a597f4f91cd068e1c0c5b2a88e63d16382c33ee0beac43ffc978",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "author_entity_ids": [
@@ -113,7 +113,7 @@
     },
     "public_slug": "conflict-at-its-edges",
     "record_id": "6529NM-RP-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -132,19 +132,8 @@
       "6529NM-W-0027",
       "6529NM-W-0028"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T13:57:07.746Z",
-      "reviewed_commit": "30e3dfc9c5d2056b89bd6ba7f0b9b2c67319cfd8",
-      "reviewed_manifest_keccak": "0xea5ef5ecd748cb57dff4f9a94e0f35bc21d3e02f4b2846d1a47b46b8bd566638",
-      "reviewed_manifest_sha256": "sha256:3b6283f40b0b8b0bf2eaa1e6d3bc5427eb22fdfe4c80bd4c397cd1ec68e92204",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0017",
@@ -178,7 +167,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-RP-0003",
     "visibility": "public"
