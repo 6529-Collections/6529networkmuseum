@@ -240,6 +240,47 @@ class WP3EditorialChecks(unittest.TestCase):
                     )
                     self.assertTrue(errors)
 
+    def test_idna_trailing_dot_restricted_locators_are_rejected(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        declared = {
+            "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
+        }
+        label = next(iter(declared))
+        restricted_urls = (
+            locator
+            for work in join["works"]
+            for locator in (work["token_source_image_url"], work["wave_media_url"])
+        )
+        for restricted_url in restricted_urls:
+            parsed = urlsplit(restricted_url)
+            for separator in ("\u3002", "\uff0e", "\uff61"):
+                variant = (
+                    f"{parsed.scheme}://{parsed.hostname}{separator}{parsed.path}"
+                )
+                documents = (
+                    variant,
+                    f"[photo]({variant})",
+                    f"[photo][source]\n\n[source]: {variant}",
+                    f'<a href="{variant}">source</a>',
+                )
+                for document in documents:
+                    with self.subTest(
+                        locator=restricted_url,
+                        separator=separator,
+                        document=document,
+                    ):
+                        reference_errors: list[str] = []
+                        REFERENCE_MODULE.check_visitor_document(
+                            label, document, declared, reference_errors
+                        )
+                        self.assertTrue(reference_errors)
+                        media_errors = (
+                            MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                                join, [("probe.md", document)]
+                            )
+                        )
+                        self.assertTrue(media_errors)
+
     def test_one_slash_restricted_locator_is_rejected_in_container_forms(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
         parsed = urlsplit(join["works"][0]["wave_media_url"])

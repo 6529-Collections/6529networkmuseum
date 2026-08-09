@@ -622,3 +622,19 @@ restricted HTTP(S) comparison. Regressions cover escaped reference links,
 HTML-entity anchors, and percent-encoded inline destinations through both
 independent validators. The replacement review was stopped before mutation;
 all four lanes must restart on the next signed candidate.
+
+## 2026-08-09 IDNA trailing-dot correction
+
+Independent rights/privacy review rejected exact candidate
+`a5ad49c945501b94b948a246d44836ed4881c176`. Both visitor gates removed an
+ASCII trailing dot before applying IDNA conversion. A browser-equivalent
+Unicode label separator such as U+3002 at the end of a restricted hostname was
+therefore mapped to an ASCII root dot only after the stripping step, leaving a
+distinct comparison key such as `arweave.net.`.
+
+Both canonicalizers now strip the DNS root marker after IDNA conversion as
+well as before it. Regressions exercise U+3002, U+FF0E, and U+FF61 across all
+five token-source and five historical Wave-upload locators, in bare,
+inline-Markdown, reference-Markdown, and raw-anchor forms, through both gates.
+The other three reviews of the rejected candidate were stopped before
+mutation. All four lanes must restart on a newly signed exact candidate.

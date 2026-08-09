@@ -83,7 +83,13 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
             ord(character) <= 32 or character in "/\\?#@" for character in host
         ):
             return None
-        host = host.encode("idna").decode("ascii")
+        # IDNA maps browser-equivalent Unicode label separators such as U+3002,
+        # U+FF0E, and U+FF61 to ASCII dots. Strip the DNS root marker only
+        # after that mapping so every trailing-dot spelling canonicalizes to
+        # the same host key.
+        host = host.encode("idna").decode("ascii").rstrip(".")
+        if not host:
+            return None
         port = parsed.port
     except (UnicodeError, ValueError):
         return None

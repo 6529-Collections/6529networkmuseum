@@ -3511,3 +3511,17 @@ catalog activation, and frontend qualification remain open.
 - The parallel replacement reviewer was stopped before mutation. A newly
   signed exact candidate, complete deterministic qualification, hosted CI, and
   four entirely fresh independent reviews remain mandatory.
+
+## 2026-08-09 Magnum IDNA trailing-dot rejection
+
+- Rights/privacy review rejected exact candidate
+  `a5ad49c945501b94b948a246d44836ed4881c176`: Unicode IDNA label separators
+  appended to restricted hosts were converted to an ASCII DNS root dot after
+  the canonicalizers had already stripped ordinary trailing dots.
+- Both visitor gates now strip the root marker after IDNA mapping. Regressions
+  cover U+3002, U+FF0E, and U+FF61 on every governed token-source and Wave media
+  locator, in bare, inline, reference, and raw-anchor forms, through both
+  independent validators.
+- The other three reviews were stopped before mutation. Complete
+  qualification, a new signed head, hosted CI, and four fresh independent
+  reviews remain mandatory.
