@@ -129,6 +129,25 @@ PUBLIC_CANONICAL_PAGE_TYPES = {
     "RESEARCH_PUBLICATION",
 }
 PUBLIC_RELATIONAL_ONLY_TYPES = {"AGENT", "ACCESSION", "MEDIA_REFERENCE"}
+PUBLIC_IDENTITY_BINDING_ENTITY_TYPES = (
+    "INSTITUTION",
+    "COLLECTION",
+    "AGENT",
+    "ARTIST",
+    "ORGANIZATION",
+    "WORK",
+    "PROJECT_OR_SERIES",
+    "CURATED_ACQUISITION",
+    "ACQUISITION_PROGRAM",
+    "ACCESSION",
+    "RESEARCH_PUBLICATION",
+    "MEDIA_REFERENCE",
+)
+PUBLIC_IDENTITY_BINDING_AUXILIARY_TYPES = ("WORK_LIFECYCLE_OBSERVATION",)
+PUBLIC_IDENTITY_BINDING_TYPES = (
+    *PUBLIC_IDENTITY_BINDING_ENTITY_TYPES,
+    *PUBLIC_IDENTITY_BINDING_AUXILIARY_TYPES,
+)
 
 
 def load_public_identity_inventory(schema_root: Path) -> dict[str, Any]:
@@ -2051,16 +2070,34 @@ def validate_public_graph(
     elif entities and not required_acquisition_ids.issubset(present_acquisition_ids):
         missing = sorted(required_acquisition_ids - present_acquisition_ids)
         issues.append(f"public entity inventory: governed bootstrap Curated Acquisition IDs are missing {missing}")
+    governed_slug_keys: set[tuple[str, str]] = set()
+    governed_slug_routes: set[str] = set()
     for row in required_acquisitions:
         if not isinstance(row, dict):
             continue
         entity_id = row.get("entity_id")
         entity = entities.get(entity_id)
-        if entity is not None and (entity[1].get("preferred_label") != row.get("preferred_label") or entity[1].get("public_slug") != row.get("public_slug")):
+        slug = row.get("public_slug")
+        route = f"/museum/network/acquisitions/{slug}" if isinstance(slug, str) else None
+        if isinstance(slug, str):
+            key = ("CURATED_ACQUISITION", slug)
+            if key in governed_slug_keys:
+                issues.append(f"public entity inventory: duplicate governed slug {slug!r} within CURATED_ACQUISITION")
+            governed_slug_keys.add(key)
+        if isinstance(route, str):
+            if route in governed_slug_routes:
+                issues.append(f"public entity inventory: duplicate governed route {route}")
+            governed_slug_routes.add(route)
+        if entity is not None and (
+            entity[1].get("preferred_label") != row.get("preferred_label")
+            or entity[1].get("public_slug") != slug
+            or entity[1].get("canonical_route") != route
+        ):
             issues.append(f"{display_path(entity[0])}: Curated Acquisition identity does not match governed inventory for {entity_id}")
     slug_rows = identity_inventory.get("public_slug_inventory", []) if isinstance(identity_inventory, dict) else []
-    slug_inventory_keys: set[tuple[str, str]] = set()
-    slug_inventory_routes: set[str] = set()
+    slug_inventory_keys = set(governed_slug_keys)
+    slug_inventory_routes = set(governed_slug_routes)
+    governed_slug_entity_ids = set(required_acquisition_ids)
     for row in slug_rows:
         if not isinstance(row, dict):
             issues.append("public entity inventory: public_slug_inventory entries must be objects")
@@ -2069,6 +2106,8 @@ def validate_public_graph(
         entity_type = row.get("entity_type")
         slug = row.get("public_slug")
         route = row.get("canonical_route")
+        if isinstance(entity_id, str):
+            governed_slug_entity_ids.add(entity_id)
         entity = entities.get(entity_id) if isinstance(entity_id, str) else None
         key = (str(entity_type), str(slug))
         if key in slug_inventory_keys:
@@ -2086,6 +2125,17 @@ def validate_public_graph(
             issues.append(f"{display_path(entity[0])}: public slug inventory mismatch for {entity_id}")
         if entity_type == "ARTIST" and isinstance(slug, str) and slug.startswith(("keys-and-gates-artist-", "conflict-at-its-edges-artist-")):
             issues.append(f"{display_path(entity[0])}: Artist public_slug must be a stable name/handle, not a generated placeholder")
+    actual_slug_entity_ids = {
+        entity_id
+        for entity_id, (_path, payload) in entities.items()
+        if isinstance(payload.get("public_slug"), str) and payload.get("entity_type") != "WORK"
+    }
+    if actual_slug_entity_ids != governed_slug_entity_ids:
+        issues.append(
+            "public entity inventory: governed slug rows do not equal generated slug-bearing entities; "
+            f"missing={sorted(governed_slug_entity_ids - actual_slug_entity_ids)}, "
+            f"unexpected={sorted(actual_slug_entity_ids - governed_slug_entity_ids)}"
+        )
     acquisition_aliases = identity_inventory.get("acquisition_aliases", []) if isinstance(identity_inventory, dict) else []
     alias_values: set[str] = set()
     for row in acquisition_aliases:
@@ -2177,7 +2227,23 @@ def validate_public_graph(
     if not isinstance(identity_bindings, dict):
         issues.append("public entity inventory: identity_bindings must be an object")
     else:
-        for binding_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE"):
+        binding_types = set(identity_bindings)
+        expected_binding_types = set(PUBLIC_IDENTITY_BINDING_TYPES)
+        if binding_types != expected_binding_types:
+            issues.append(
+                "public entity inventory: identity binding categories must be closed; "
+                f"missing={sorted(expected_binding_types - binding_types)}, "
+                f"unexpected={sorted(binding_types - expected_binding_types)}"
+            )
+        patterns = identity_inventory.get("entity_id_patterns", {})
+        pattern_types = set(patterns) if isinstance(patterns, dict) else set()
+        if pattern_types != expected_binding_types:
+            issues.append(
+                "public entity inventory: identity pattern categories must equal binding categories; "
+                f"missing={sorted(expected_binding_types - pattern_types)}, "
+                f"unexpected={sorted(pattern_types - expected_binding_types)}"
+            )
+        for binding_type in PUBLIC_IDENTITY_BINDING_ENTITY_TYPES:
             rows = identity_bindings.get(binding_type)
             if not isinstance(rows, list) or not rows:
                 issues.append(f"public entity inventory: missing {binding_type} identity bindings")

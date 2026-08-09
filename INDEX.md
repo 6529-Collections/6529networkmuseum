@@ -156,6 +156,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-08-museum-gifts-acquisition-programs-and-funding-assets-publication.md`](notes/wip/2026-08-08-museum-gifts-acquisition-programs-and-funding-assets-publication.md) | live replacement publication receipt | Punk6529 authorization, append-only withdrawal history, signed `PARTICIPATORY` identity and URL, exact content commitment, zero-voter readback, and explicit not-yet-adopted status |
 | [`notes/wip/orchestration-ledger.md`](notes/wip/orchestration-ledger.md) | operational WIP | Append-oriented mandate, fixed status facts, active phase, frontend release evidence, and next actions |
 | [`notes/wip/2026-08-08-wp-1-source-ontology-handoff.md`](notes/wip/2026-08-08-wp-1-source-ontology-handoff.md) | active WP-1 handoff | Closed public entity/relation contract, Magnum Photos 75 Project/Organization boundary, generated counts, validation evidence, and successor-main publication hold |
+| [`notes/wip/2026-08-09-public-identity-inventory-completion.md`](notes/wip/2026-08-09-public-identity-inventory-completion.md) | active release correction | Strict frontend refusal, four missing governed identities, complete binding invariant, pending A3 commitments, and required A3-to-B3-to-C release boundary |
 
 ## Generative analysis tooling
 

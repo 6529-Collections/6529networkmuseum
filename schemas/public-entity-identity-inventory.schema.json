@@ -15,7 +15,7 @@
         "type": "object",
         "properties": {
           "entity_id": {"type": "string", "minLength": 1},
-          "entity_type": {"enum": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"]},
+          "entity_type": {"enum": ["INSTITUTION", "COLLECTION", "AGENT", "ARTIST", "ORGANIZATION", "WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "ACCESSION", "RESEARCH_PUBLICATION", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"]},
           "retired_at": {"type": "string", "format": "date-time"},
           "reason": {"type": "string", "minLength": 1},
           "superseded_by": {"type": ["string", "null"]}
@@ -114,14 +114,21 @@
     "identity_bindings": {
       "type": "object",
       "properties": {
+        "INSTITUTION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "COLLECTION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "AGENT": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "ARTIST": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "ORGANIZATION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "WORK": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "PROJECT_OR_SERIES": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "CURATED_ACQUISITION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "ACQUISITION_PROGRAM": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "ACCESSION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
+        "RESEARCH_PUBLICATION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "MEDIA_REFERENCE": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}},
         "WORK_LIFECYCLE_OBSERVATION": {"$ref": "#/$defs/identityBindings", "items": {"$ref": "#/$defs/identityBinding"}}
       },
-      "required": ["AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"],
+      "required": ["INSTITUTION", "COLLECTION", "AGENT", "ARTIST", "ORGANIZATION", "WORK", "PROJECT_OR_SERIES", "CURATED_ACQUISITION", "ACQUISITION_PROGRAM", "ACCESSION", "RESEARCH_PUBLICATION", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"],
       "unevaluatedProperties": false
     },
     "route_aliases": {

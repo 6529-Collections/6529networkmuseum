@@ -982,6 +982,85 @@ class PublicEntityLayerTests(unittest.TestCase):
         for observation_id, work_id in observations.items():
             self.assertIn(work_id, self.entities())
 
+    def test_every_public_entity_is_exactly_identity_inventory_bound(self) -> None:
+        indexes = identity_binding_indexes(self.inventory)
+        expected = {
+            entity_id: entity_type
+            for entity_type in migration.IDENTITY_BINDING_ENTITY_TYPES
+            for entity_id in indexes[entity_type].values()
+        }
+        actual = {entity_id: payload["entity_type"] for entity_id, payload in self.entities().items()}
+        self.assertEqual(actual, expected)
+        self.assertEqual(len(actual), sum(len(indexes[entity_type]) for entity_type in migration.IDENTITY_BINDING_ENTITY_TYPES))
+
+    def test_static_public_identities_and_casey_research_route_fail_closed(self) -> None:
+        expected_static = {
+            "INSTITUTION": {"6529NM-I-0001"},
+            "COLLECTION": {"6529NM-C-0001"},
+            "ACCESSION": {"6529NM-ACC-ENT-0001"},
+            "RESEARCH_PUBLICATION": {"6529NM-RP-0001", "6529NM-RP-0002", "6529NM-RP-0003"},
+        }
+        indexes = identity_binding_indexes(self.inventory)
+        for entity_type, expected_ids in expected_static.items():
+            self.assertEqual(set(indexes[entity_type].values()), expected_ids)
+        casey_slug = next(row for row in self.inventory["public_slug_inventory"] if row["entity_id"] == "6529NM-RP-0001")
+        self.assertEqual(casey_slug["canonical_route"], "/museum/network/research/the-system-in-seven-states")
+
+        original_load_json = migration.load_json
+        for entity_type, source_key in (
+            ("INSTITUTION", "6529-network-museum"),
+            ("COLLECTION", "permanent-collection"),
+            ("ACCESSION", "6529NM.2026.001"),
+            ("RESEARCH_PUBLICATION", "the-system-in-seven-states"),
+        ):
+            with self.subTest(entity_type=entity_type):
+                mutated = copy.deepcopy(self.inventory)
+                mutated["identity_bindings"][entity_type] = [
+                    row for row in mutated["identity_bindings"][entity_type] if row["source_key"] != source_key
+                ]
+
+                def mutated_load_json(path: Path):
+                    if path == migration.IDENTITY_INVENTORY_PATH:
+                        return mutated
+                    return original_load_json(path)
+
+                with patch.object(migration, "load_json", side_effect=mutated_load_json):
+                    with self.assertRaises(ValueError):
+                        migration.build_records()
+
+    def test_full_validator_rejects_identity_and_slug_inventory_omissions(self) -> None:
+        tuples = [(ROOT / relative, record, record.get("payload")) for relative, record in self.records.items()]
+        for entity_type, entity_id in (
+            ("INSTITUTION", "6529NM-I-0001"),
+            ("COLLECTION", "6529NM-C-0001"),
+            ("ACCESSION", "6529NM-ACC-ENT-0001"),
+            ("RESEARCH_PUBLICATION", "6529NM-RP-0001"),
+        ):
+            with self.subTest(entity_type=entity_type):
+                mutated = copy.deepcopy(self.inventory)
+                mutated["identity_bindings"][entity_type] = [
+                    row for row in mutated["identity_bindings"][entity_type] if row["entity_id"] != entity_id
+                ]
+                issues = validate_public_graph(tuples, self.vocabularies, mutated)
+                self.assertTrue(any(f"missing {entity_type} identity bindings" in issue or f"{entity_type} identity bindings do not equal generated entities" in issue for issue in issues), issues)
+
+        missing_slug = copy.deepcopy(self.inventory)
+        missing_slug["public_slug_inventory"] = [
+            row for row in missing_slug["public_slug_inventory"] if row["entity_id"] != "6529NM-RP-0001"
+        ]
+        issues = validate_public_graph(tuples, self.vocabularies, missing_slug)
+        self.assertTrue(any("governed slug rows do not equal generated slug-bearing entities" in issue for issue in issues), issues)
+
+        drifted_route = copy.deepcopy(self.inventory)
+        next(row for row in drifted_route["public_slug_inventory"] if row["entity_id"] == "6529NM-RP-0001")["canonical_route"] = "/museum/network/research/wrong"
+        issues = validate_public_graph(tuples, self.vocabularies, drifted_route)
+        self.assertTrue(any("public slug inventory mismatch for 6529NM-RP-0001" in issue for issue in issues), issues)
+
+        duplicate_route = copy.deepcopy(self.inventory)
+        next(row for row in duplicate_route["public_slug_inventory"] if row["entity_id"] == "6529NM-RP-0001")["canonical_route"] = "/museum/network/research/access-control-and-exit"
+        issues = validate_public_graph(tuples, self.vocabularies, duplicate_route)
+        self.assertTrue(any("duplicate governed route" in issue for issue in issues), issues)
+
     def test_source_reordering_preserves_governed_entity_relation_media_and_observation_ids(self) -> None:
         baseline_entities = self.entities()
         baseline_entity_identity = {
@@ -1018,7 +1097,7 @@ class PublicEntityLayerTests(unittest.TestCase):
             rows.reverse()
         original_indexes = identity_binding_indexes(self.inventory)
         reordered_indexes = identity_binding_indexes(reordered_inventory)
-        for binding_type in ("AGENT", "ARTIST", "WORK", "PROJECT_OR_SERIES", "MEDIA_REFERENCE", "WORK_LIFECYCLE_OBSERVATION"):
+        for binding_type in migration.IDENTITY_BINDING_TYPES:
             self.assertEqual(reordered_indexes[binding_type], original_indexes[binding_type])
         self.assertEqual({entity_id: (payload["entity_type"], payload["preferred_label"], payload["public_slug"], payload["canonical_route"]) for entity_id, payload in reordered_entities.items()}, baseline_entity_identity)
         self.assertEqual({relation_id: (payload["relation_type"], payload["source_entity_id"], payload["target_entity_id"]) for relation_id, payload in reordered_relations.items()}, baseline_relations)
