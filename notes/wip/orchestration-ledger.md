@@ -3495,3 +3495,19 @@ catalog activation, and frontend qualification remain open.
 - The remaining three reviews were stopped before mutation. Complete
   regeneration, validation, a new signed candidate, fresh hosted CI, and four
   entirely fresh independent reviews remain mandatory.
+
+## 2026-08-09 Magnum escaped custom-scheme rejection
+
+- Rights/privacy review rejected exact candidate
+  `e10866237b4e3dfe57dabc4e444b6302425e645e`: a CommonMark-escaped or
+  HTML-entity-encoded `ar://<transaction-id>` reference bypassed both visitor
+  verifiers even though the rendered destination recovered the prohibited
+  custom scheme.
+- The local-reference and media-policy gates now share equivalent HTML,
+  bounded percent, control-character, and CommonMark decoding before rejecting
+  every `ar:` custom-scheme locator. Tests reproduce escaped reference-link,
+  entity-encoded HTML-anchor, and percent-encoded inline-link forms through
+  both gates.
+- The parallel replacement reviewer was stopped before mutation. A newly
+  signed exact candidate, complete deterministic qualification, hosted CI, and
+  four entirely fresh independent reviews remain mandatory.

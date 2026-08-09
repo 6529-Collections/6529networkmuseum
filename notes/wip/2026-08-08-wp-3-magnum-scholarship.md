@@ -606,3 +606,19 @@ observation in the source register falls after it; an adversarial unit test
 reproduces the rejected 8 August boundary. The other three reviews of the
 rejected candidate were stopped before mutation. All four lanes must restart
 on a newly signed exact candidate.
+
+## 2026-08-09 escaped Arweave-scheme correction
+
+Independent rights/privacy review rejected exact candidate
+`e10866237b4e3dfe57dabc4e444b6302425e645e`. Both visitor-boundary verifiers
+rejected HTTP(S) Arweave locators but accepted a custom-scheme reference whose
+punctuation was escaped under CommonMark, such as
+`ar\:\/\/<transaction-id>`, or whose scheme was HTML-entity encoded. The
+rendered link recovers the prohibited `ar://` locator.
+
+Both gates now derive the same bounded HTML-, percent-, control-, and
+CommonMark-decoded text variants and reject any `ar:` custom scheme before
+restricted HTTP(S) comparison. Regressions cover escaped reference links,
+HTML-entity anchors, and percent-encoded inline destinations through both
+independent validators. The replacement review was stopped before mutation;
+all four lanes must restart on the next signed candidate.

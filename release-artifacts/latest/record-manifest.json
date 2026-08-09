@@ -6345,14 +6345,14 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/magnum/check_local_references.py",
-      "sha256": "sha256:1fd4dccfed43db3d9b98eadafc3f802da202c11b7ae176b35978deb49ff563eb",
-      "size": 11694
+      "sha256": "sha256:0010c281357321ceb472b4acfbc1d581b7270f2db6dc70d2ff43976ed8e952a2",
+      "size": 11988
     },
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/magnum/check_media_policy.py",
-      "sha256": "sha256:434205b56f881c1a54b168d7700c987c309710f273cd746054db23adc5f309bf",
-      "size": 39331
+      "sha256": "sha256:c994ea53d8beb69cfb8fbf47a50dbceff2aac4f6e2c4e98e457df83402646561",
+      "size": 39820
     },
     {
       "byte_mode": "lf-normalized",
@@ -7023,8 +7023,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_wp3_magnum_editorial.py",
-      "sha256": "sha256:b721726bd9f022d5a0b18d24ff300d4cf664fa06f1450783ca569e96ca26fb5f",
-      "size": 12197
+      "sha256": "sha256:0ff97da580d9c924c4756e3d63b0ef479d59cc759d94e63f9744202b723fc589",
+      "size": 13470
     }
   ],
   "hash_algorithms": {
@@ -7058,9 +7058,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x6741f67c86efef60e9235c950558561946ba5589e5041f3d8202ee1143fb2ef0"
+    "digest": "0x59705536f2aa9b516f685cb5663f8d46f8c1094f8dfe0e150ff34f283610fb46"
   },
-  "manifest_sha256": "sha256:4da95c4d977b54ad92d569f0eb512acdf3b0785875d500f1a86345fabdc3b2a5",
+  "manifest_sha256": "sha256:c9ef8e2147ebc85dc6c5da45bc6fee1d70ce5a49f923bdac3df8bea43ae38541",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

@@ -163,6 +163,8 @@ class WP3EditorialChecks(unittest.TestCase):
         probes = (
             "https://arweave.net/example",
             "![photo](//arweave.net/example)",
+            r"[photo][source]\n\n[source]: ar\:\/\/example",
+            '<a href="&#x61;&#x72;&#x3a;//example">photo</a>',
             "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
             "../machine/object-schedule.json",
         )
@@ -171,6 +173,30 @@ class WP3EditorialChecks(unittest.TestCase):
                 errors: list[str] = []
                 REFERENCE_MODULE.check_visitor_document(label, probe_text, declared, errors)
                 self.assertTrue(errors, f"expected visitor-boundary rejection for {label}: {probe_text}")
+
+    def test_escaped_arweave_custom_scheme_is_rejected_by_both_gates(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        transaction_id = urlsplit(join["works"][0]["token_source_image_url"]).path.lstrip("/")
+        probes = (
+            f"[photo][source]\n\n[source]: ar\\:\\/\\/{transaction_id}",
+            f'<a href="&#x61;&#x72;&#x3a;//{transaction_id}">photo</a>',
+            f"[photo](%61r%3A%2F%2F{transaction_id})",
+        )
+        declared = {
+            "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
+        }
+        label = next(iter(declared))
+        for probe in probes:
+            with self.subTest(probe=probe):
+                reference_errors: list[str] = []
+                REFERENCE_MODULE.check_visitor_document(
+                    label, probe, declared, reference_errors
+                )
+                self.assertTrue(reference_errors)
+                media_errors = MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                    join, [("probe.md", probe)]
+                )
+                self.assertTrue(media_errors)
 
     def test_media_policy_rejects_scheme_relative_remote_media(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

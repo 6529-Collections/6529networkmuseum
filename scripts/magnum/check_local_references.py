@@ -32,7 +32,7 @@ GOVERNED_PREFIXES = (
 WEB_LOCATOR = re.compile(
     r"(?=((?:https?:[\\/]*|[\\/]{2})[^\s<>'\"\)\]]+))", re.IGNORECASE
 )
-AR_URI = re.compile(r"(?<![A-Za-z0-9+.-])ar://", re.IGNORECASE)
+AR_URI = re.compile(r"(?<![A-Za-z0-9+.-])ar:", re.IGNORECASE)
 MARKDOWN_ESCAPE = re.compile(r"\\([!\"#$%&'()*+,\-./:;<=>?@\[\]^_`{|}~])")
 COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
@@ -97,17 +97,27 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
     return host, port, path
 
 
-def web_locators(text: str) -> list[tuple[str, int | None, str]]:
-    locators: set[tuple[str, int | None, str]] = set()
+def decoded_text_variants(text: str) -> set[str]:
+    """Return browser- and CommonMark-equivalent text representations."""
+
     decoded_text = fully_unquote(html_unescape(text))
     browser_compacted_text = re.sub(r"[\t\r\n]", "", decoded_text)
     markdown_unescaped_text = MARKDOWN_ESCAPE.sub(r"\1", browser_compacted_text)
-    for candidate_text in {
+    return {
         text,
         decoded_text,
         browser_compacted_text,
         markdown_unescaped_text,
-    }:
+    }
+
+
+def contains_ar_uri(text: str) -> bool:
+    return any(AR_URI.search(candidate) for candidate in decoded_text_variants(text))
+
+
+def web_locators(text: str) -> list[tuple[str, int | None, str]]:
+    locators: set[tuple[str, int | None, str]] = set()
+    for candidate_text in decoded_text_variants(text):
         for match in WEB_LOCATOR.finditer(candidate_text):
             locator = canonical_web_locator(match.group(1))
             if locator is not None:
@@ -168,7 +178,7 @@ def check_visitor_document(
     locators = web_locators(text)
     if restricted_locators is None:
         restricted_locators = restricted_media_locators()
-    if AR_URI.search(text) or any(
+    if contains_ar_uri(text) or any(
         host == "arweave.net" or host.endswith(".arweave.net")
         for host, _, _ in locators
     ):
