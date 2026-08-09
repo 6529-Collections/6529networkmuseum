@@ -30,9 +30,10 @@ GOVERNED_PREFIXES = (
     "scripts/",
 )
 WEB_LOCATOR = re.compile(
-    r"(?=((?:https?:)?[\\/]{2}[^\s<>'\"\)\]]+))", re.IGNORECASE
+    r"(?=((?:https?:[\\/]*|[\\/]{2})[^\s<>'\"\)\]]+))", re.IGNORECASE
 )
 AR_URI = re.compile(r"(?<![A-Za-z0-9+.-])ar://", re.IGNORECASE)
+MARKDOWN_ESCAPE = re.compile(r"\\([!\"#$%&'()*+,\-./:;<=>?@\[\]^_`{|}~])")
 COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
     "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
@@ -68,10 +69,12 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
     """Return a scheme-insensitive, browser-equivalent HTTP(S) locator key."""
 
     candidate = html_unescape(value.strip().strip("<>")).rstrip(".,;!?")
+    candidate = candidate.replace("\\", "/")
     if candidate.startswith("//"):
         candidate = "https:" + candidate
-    candidate = candidate.replace("\\", "/")
-    candidate = re.sub(r"^(https?):/{2,}", r"\1://", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(
+        r"^(https?):/*", r"\1://", candidate, count=1, flags=re.IGNORECASE
+    )
     try:
         parsed = urlsplit(candidate)
         if parsed.scheme.casefold() not in {"http", "https"}:
@@ -97,7 +100,14 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
 def web_locators(text: str) -> list[tuple[str, int | None, str]]:
     locators: set[tuple[str, int | None, str]] = set()
     decoded_text = fully_unquote(html_unescape(text))
-    for candidate_text in {text, decoded_text}:
+    browser_compacted_text = re.sub(r"[\t\r\n]", "", decoded_text)
+    markdown_unescaped_text = MARKDOWN_ESCAPE.sub(r"\1", browser_compacted_text)
+    for candidate_text in {
+        text,
+        decoded_text,
+        browser_compacted_text,
+        markdown_unescaped_text,
+    }:
         for match in WEB_LOCATOR.finditer(candidate_text):
             locator = canonical_web_locator(match.group(1))
             if locator is not None:

@@ -31,8 +31,9 @@ CANONICAL_PUBLICATION_FILE = REPOSITORY / CANONICAL_PUBLICATION_PATH
 
 BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
 WEB_LOCATOR = re.compile(
-    r"(?=((?:https?:)?[\\/]{2}[^\s<>'\"\)\]]+))", re.IGNORECASE
+    r"(?=((?:https?:[\\/]*|[\\/]{2})[^\s<>'\"\)\]]+))", re.IGNORECASE
 )
+MARKDOWN_ESCAPE = re.compile(r"\\([!\"#$%&'()*+,\-./:;<=>?@\[\]^_`{|}~])")
 CURRENT_OBSERVATION = {
     "record_type": "WAVE_STATUS_OBSERVATION",
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
@@ -66,10 +67,12 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
     """Return a scheme-insensitive, browser-equivalent HTTP(S) locator key."""
 
     candidate = html_unescape(value.strip().strip("<>")).rstrip(".,;!?")
+    candidate = candidate.replace("\\", "/")
     if candidate.startswith("//"):
         candidate = "https:" + candidate
-    candidate = candidate.replace("\\", "/")
-    candidate = re.sub(r"^(https?):/{2,}", r"\1://", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(
+        r"^(https?):/*", r"\1://", candidate, count=1, flags=re.IGNORECASE
+    )
     try:
         parsed = urlsplit(candidate)
         if parsed.scheme.casefold() not in {"http", "https"}:
@@ -95,7 +98,14 @@ def canonical_web_locator(value: str) -> tuple[str, int | None, str] | None:
 def web_locators(text: str) -> list[tuple[str, int | None, str]]:
     locators: set[tuple[str, int | None, str]] = set()
     decoded_text = fully_unquote(html_unescape(text))
-    for candidate_text in {text, decoded_text}:
+    browser_compacted_text = re.sub(r"[\t\r\n]", "", decoded_text)
+    markdown_unescaped_text = MARKDOWN_ESCAPE.sub(r"\1", browser_compacted_text)
+    for candidate_text in {
+        text,
+        decoded_text,
+        browser_compacted_text,
+        markdown_unescaped_text,
+    }:
         for match in WEB_LOCATOR.finditer(candidate_text):
             locator = canonical_web_locator(match.group(1))
             if locator is not None:
@@ -222,11 +232,13 @@ def validate_visitor_markdown_media_affordances(
         if re.search(r"(?<!\\)!\[[^\]]*\]\s*(?:\(|\[)", text):
             errors.append(f"{label}: visitor manuscript must not embed media directly")
         if re.search(
-            r"<\s*(?:audio|embed|iframe|img|object|picture|source|svg|video)\b",
+            r"<\s*(?:audio|embed|iframe|img|link|meta|object|picture|script|source|style|svg|video)\b",
             text,
             flags=re.IGNORECASE,
         ):
             errors.append(f"{label}: visitor manuscript must not embed raw HTML media")
+        if re.search(r"\bstyle\s*=|\b(?:image-set|url)\s*\(|@import\b", text, re.IGNORECASE):
+            errors.append(f"{label}: visitor manuscript must not contain CSS media affordances")
         if any(locator in restricted_locators for locator in web_locators(text)):
             errors.append(
                 f"{label}: visitor manuscript exposes a restricted direct photograph locator"

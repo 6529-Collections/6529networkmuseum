@@ -3465,3 +3465,19 @@ catalog activation, and frontend qualification remain open.
   locators; the media-policy checker retains the same closed set.
 - Tests exercise Arweave and CloudFront variants through both validators. All
   four independent lanes must restart after the next signed exact candidate.
+
+## 2026-08-09 Magnum one-slash locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `29263fcd909465ec69df182be27387ee4da79267`: a restricted external locator
+  written with one or zero slash characters after `http:` could still be
+  resolved by a browser but was outside the validator extractor.
+- Both visitor gates now recognize zero-or-more slash/backslash spellings after
+  HTTP(S), normalize the scheme boundary, and compare the resulting host, port,
+  and path to the exact restricted media set. Browser-discarded tab/newline
+  controls and CommonMark punctuation escapes are removed in the decoded scan
+  before comparison; active raw HTML/CSS resource affordances are independently
+  prohibited.
+- Adversarial tests cover Markdown, reference-style Markdown, HTML-anchor, and
+  CSS-container forms. The other three reviews were stopped; all four lanes
+  restart only after the new candidate is signed and pushed.

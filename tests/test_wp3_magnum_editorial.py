@@ -46,6 +46,11 @@ def equivalent_web_variants(url: str) -> tuple[str, ...]:
         + path[character_index + 1 :]
     )
     backslash_url = "https:\\\\" + host + path.replace("/", "\\")
+    one_slash_url = "http:/" + host + path
+    one_backslash_url = "http:\\" + host + path.replace("/", "\\")
+    no_slash_url = "http:" + host + path
+    escaped_colon_url = "https\\://" + host + path
+    escaped_slashes_url = "https:\\/\\/" + host + path
     return (
         f"https://{host.upper()}{path}",
         f"https://{host}:443{path}",
@@ -53,6 +58,14 @@ def equivalent_web_variants(url: str) -> tuple[str, ...]:
         f"https://{host}/./{path.lstrip('/')}",
         f"https:////{host}{path}",
         backslash_url,
+        one_slash_url,
+        one_backslash_url,
+        no_slash_url,
+        escaped_colon_url,
+        escaped_slashes_url,
+        f"ht\ttps://{host}{path}",
+        f"https://{host[:3]}\n{host[3:]}{path}",
+        f"https://{host[:3]}&#x0A;{host[3:]}{path}",
         f"https://example.org/?source={quote(url, safe='')}",
     )
 
@@ -186,6 +199,34 @@ class WP3EditorialChecks(unittest.TestCase):
                         join, [("probe.md", f"[photo]({variant})")]
                     )
                     self.assertTrue(errors)
+
+    def test_one_slash_restricted_locator_is_rejected_in_container_forms(self) -> None:
+        join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
+        parsed = urlsplit(join["works"][0]["wave_media_url"])
+        variant = f"http:/{parsed.hostname}{parsed.path}"
+        documents = (
+            f"[photo]({variant})",
+            f"[photo][source]\n\n[source]: {variant}",
+            f'<a href="{variant}">source</a>',
+            f'<div style="background-image: url(\'{variant}\')">source</div>',
+            f'<div style="background-image: u\\72l(\'{variant}\')">source</div>',
+            f'<style>.work {{ background-image: url(\'{variant}\') }}</style>',
+        )
+        declared = {
+            "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
+        }
+        label = next(iter(declared))
+        for document in documents:
+            with self.subTest(document=document):
+                reference_errors: list[str] = []
+                REFERENCE_MODULE.check_visitor_document(
+                    label, document, declared, reference_errors
+                )
+                self.assertTrue(reference_errors)
+                media_errors = MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                    join, [("probe.md", document)]
+                )
+                self.assertTrue(media_errors)
 
     def test_media_policy_reports_malformed_shapes_without_crashing(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

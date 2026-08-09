@@ -569,3 +569,24 @@ and historical Wave locators as the media-policy gate.
 Adversarial tests cover both Arweave and CloudFront forms across every spelling
 above. A new exact candidate still requires complete regeneration, validation,
 and four entirely fresh terminal review verdicts.
+
+## 2026-08-09 one-slash browser-locator correction
+
+The fresh rights/privacy lane rejected exact candidate
+`29263fcd909465ec69df182be27387ee4da79267`. Its browser-equivalence audit
+showed that `http:/host/path`, `http:\\host\\path`, and the corresponding
+zero-slash form can resolve to an external restricted locator while the prior
+extractor required two slash characters.
+
+Both visitor validators now extract HTTP(S) candidates with zero or more slash
+or backslash separators, then normalize the scheme boundary before parsing.
+Their decoded scan also removes browser-discarded ASCII tab and newline
+characters before locator extraction and applies CommonMark punctuation
+unescaping. Active raw HTML resource tags, style attributes, `url()`,
+`image-set()`, and `@import` are rejected independently of locator spelling.
+The restricted-locator tests cover one-slash, one-backslash, and zero-slash
+forms for both governed source families. Separate container tests exercise
+inline Markdown, reference-style Markdown, raw HTML anchors, and CSS `url()`
+syntax, plus literal and HTML-encoded tab/newline URL forms. The three
+unfinished reviews of the rejected candidate were stopped;
+all four lanes must restart on the next signed exact candidate.
