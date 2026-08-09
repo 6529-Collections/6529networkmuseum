@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x58bede5c9af24a07152692f5545b8a5b22249b1a13027c26a73aea2a9de10746"
+      "digest": "0xeef1d9b8577a708cb52b301570eb8dd5ba9b97118c5c08c6297bef88b4bf69cf"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -21,11 +21,11 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
+    "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "evidence_refs": [
       {
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:86fcf3081e411a6279e4f377812b30ae03b5a485ccd94902a71b8f46ccc7caf1",
+    "payload_sha256": "sha256:c57edc35d641a0ecf195fdb1152e7bbc6239160b6262f7490a0ea25dd7a9258a",
     "qualifier": {
       "display_order": 12,
       "mint_status": "pending",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0080",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,19 +53,8 @@
     ],
     "relation_id": "6529NM-REL-0080",
     "relation_type": "PROGRAM_SELECTS_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-AP-ENT-0002",
     "source_record_ids": [

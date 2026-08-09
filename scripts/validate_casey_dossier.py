@@ -982,10 +982,20 @@ def validate(root: Path = ROOT, history_root: Path | None = None) -> list[str]:
         if payload.get("payload_sha256") != payload_sha256(payload):
             issues.append(f"Casey payload commitment is invalid: {path.relative_to(root)}")
         reviewer = payload.get("reviewer")
-        if payload.get("record_status") != "reviewed" or payload.get("review_status") != "reviewed" or not isinstance(reviewer, dict):
-            issues.append(f"Casey accession record must be substantively reviewed: {path.relative_to(root)}")
-        elif reviewer == payload.get("constructor") or reviewer.get("id") == payload.get("constructor", {}).get("id"):
-            issues.append(f"Casey constructor/reviewer separation is invalid: {path.relative_to(root)}")
+        is_nonfinal_public_projection_amendment = (
+            payload.get("record_type") == "MEDIA_PRESENTATION_AMENDMENT"
+            and (payload.get("record_status"), payload.get("review_status"))
+            in {
+                ("review_pending", "pending_independent_review"),
+                ("superseded", "superseded"),
+            }
+            and reviewer is None
+        )
+        if not is_nonfinal_public_projection_amendment:
+            if payload.get("record_status") != "reviewed" or payload.get("review_status") != "reviewed" or not isinstance(reviewer, dict):
+                issues.append(f"Casey accession record must be substantively reviewed: {path.relative_to(root)}")
+            elif reviewer == payload.get("constructor") or reviewer.get("id") == payload.get("constructor", {}).get("id"):
+                issues.append(f"Casey constructor/reviewer separation is invalid: {path.relative_to(root)}")
         signature_scheme = record.get("envelope", {}).get("signatureScheme")
         signature_digest = record.get("envelope", {}).get("signatureHash", {}).get("digest")
         if signature_scheme != "0x" + "0" * 64 or signature_digest != "0x" + "0" * 64:

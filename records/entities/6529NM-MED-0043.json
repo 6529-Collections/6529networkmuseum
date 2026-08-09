@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc50fc272b07bb1bc4d19dcc4ed6e50532709b9c14df6a8c9fd00df1418fcbc14"
+      "digest": "0x25b06d2269e9f0df9f50204812d7a2406b4e60a50672f0648d589c6567d3fc87"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
+    "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0043",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:28e98416bb0f51a726624370452115ee4cbff8702aadf141d7f87be35327aa99",
+    "payload_sha256": "sha256:013cb437d9ab2ec2bd121bd87d273c6eb6642cb16836fb2a9ebc1d763a6ccfaa",
     "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -137,7 +137,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0043",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -145,19 +145,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -174,7 +163,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0043",
     "visibility": "public"

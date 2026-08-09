@@ -3585,3 +3585,34 @@ catalog activation, and frontend qualification remain open.
 - Required continuation: qualify and merge A3; independently generate and audit
   direct-child B3; activate catalog C only from canonical B3; then provide exact
   C commitments to the frontend lane.
+
+## 2026-08-09 Casey Reas public media correction
+
+- Construction is isolated from exact canonical base
+  `a9a925861c654f71a85f0129ee5c0ba8ee71e9e4`; the dirty saved-project checkout
+  is untouched.
+- Append-only source amendment `6529NM-MEDIA-PRES-AMD-2026-08-09-001`
+  supersedes exact defective projection snapshot `...-000`. The predecessor
+  binds reviewed C4 source `2733944555ae0f80242ec895558bdb7fba7115d3`
+  and all twenty-one affected record commitments.
+- Seven official Art Blocks PNG stills use IDs `MED-0045`–`0051`, visual primary
+  order 1. Existing official generators `MED-0010`–`0016` are visual sandboxed
+  interactive media at order 2. Relations `REL-0212`–`0218` bind the stills;
+  `REL-0126`–`0132` retain generator identity with corrected order.
+- Exact per-object credit, CC BY-NC 4.0 record/link, accessibility text, source
+  URL, and observed geometry are bound. Every verified still digest is limited
+  to the exact observed mutable-host image response; future bytes and the live
+  generator are excluded, and no response is claimed as a retained preservation
+  master. Pre-Process `2400 × 1349` is PNG geometry, not canvas geometry.
+- Preservation and token JSON remain nonvisual. Magnum and Keys and Gates
+  presentation states remain unchanged and are protected by graph validation.
+- Candidate A construction is locally qualified: bootstrap checked 690 JSON
+  files; the full Museum/Casey validator passed; all 340 generated records,
+  inventory, visitor bundle, and complete manifest replay exactly; and the
+  complete suite passed 323 tests with one expected Windows platform skip.
+  Closed-affordance and exact presentation regressions were added, and the
+  constructor audit findings were resolved. The exact manifest commitments
+  remain in the generated manifest rather than this self-covered ledger.
+- Required continuation is the frozen candidate A commit, exact-head Luna-max
+  review, PR/bot/CI convergence, merge, direct reviewed B, catalog C, immediate
+  frontend #3695 rebind notice, and exact-green final merge.

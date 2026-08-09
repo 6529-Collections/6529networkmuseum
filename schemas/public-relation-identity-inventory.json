@@ -1,6 +1,6 @@
 {
     "$schema":  "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
-    "inventory_version":  "1.3.0",
+    "inventory_version":  "1.4.0",
     "identity_policy":  "Relation identity is bound to a semantic predicate and typed endpoints; source emission order and mutable assertion qualifiers never allocate a public relation ID. Withdrawn assertions retain append-only identity tombstones and their IDs are never reused.",
     "relation_key_format":  "relation_type|source_entity_id|target_entity_id",
     "relation_bindings":  [
@@ -823,6 +823,34 @@
                               {
                                   "relation_id":  "6529NM-REL-0211",
                                   "source_key":  "INSTITUTION_PUBLISHES_PUBLICATION|6529NM-I-0001|6529NM-RP-0003"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0212",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0001|6529NM-MED-0045"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0213",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0002|6529NM-MED-0046"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0214",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0003|6529NM-MED-0047"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0215",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0004|6529NM-MED-0048"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0216",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0005|6529NM-MED-0049"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0217",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0006|6529NM-MED-0050"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0218",
+                                  "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0007|6529NM-MED-0051"
                               }
                           ],
     "retired_relation_ids":  [

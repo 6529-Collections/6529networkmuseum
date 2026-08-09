@@ -38,7 +38,7 @@ from migrate_public_entities import (  # noqa: E402
     verify_evidence_paths,
 )
 
-TEST_REVIEWED_AT = "2026-08-08T16:00:00Z"
+TEST_REVIEWED_AT = "2026-08-10T00:00:00Z"
 TEST_REVIEWED_COMMIT = "a" * 40
 TEST_REVIEWED_MANIFEST_SHA256 = "sha256:" + "b" * 64
 TEST_REVIEWED_MANIFEST_KECCAK = "0x" + "c" * 64
@@ -256,17 +256,17 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 120, "PUBLIC_RELATION": 205, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 127, "PUBLIC_RELATION": 212, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "PROJECT_OR_SERIES" for payload in entities.values()), 6)
         self.assertEqual(sum(payload["entity_type"] == "WORK" for payload in entities.values()), 28)
         self.assertEqual(sum(payload["entity_type"] == "AGENT" for payload in entities.values()), 21)
-        self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 31)
+        self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 38)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "RESEARCH_PUBLICATION" for payload in entities.values()), 3)
-        self.assertEqual(len(self.relations()), 205)
+        self.assertEqual(len(self.relations()), 212)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -295,7 +295,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         relation_bindings = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["relation_bindings"]
         relation_ids = [row["relation_id"] for row in relation_bindings]
         self.assertEqual(relation_ids[:158], [f"6529NM-REL-{index:04d}" for index in range(1, 159)])
-        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 212)])
+        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 219)])
         retired = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["retired_relation_ids"]
         self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
         self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
@@ -707,6 +707,107 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertNotIn("OUT-011/1280.webp", generated_json)
         self.assertNotIn("OUT-011/2400.webp", generated_json)
 
+    def test_casey_media_presentation_correction_is_exact(self) -> None:
+        entities = self.entities()
+        relations = {relation["relation_id"]: relation for relation in self.relations()}
+        amendment = load_json(
+            ROOT / "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+        )["payload"]
+        corrections = amendment["presentation_corrections"]
+
+        self.assertEqual(len(entities), 127)
+        self.assertEqual(len(relations), 212)
+        self.assertEqual(
+            len([entity for entity in entities.values() if entity["entity_type"] == "MEDIA_REFERENCE"]),
+            38,
+        )
+        self.assertEqual(len(corrections), 7)
+
+        for index, correction in enumerate(corrections, start=1):
+            work_id = f"6529NM-W-{index:04d}"
+            still_id = f"6529NM-MED-{44 + index:04d}"
+            live_id = f"6529NM-MED-{9 + index:04d}"
+            still_relation_id = f"6529NM-REL-{211 + index:04d}"
+            live_relation_id = f"6529NM-REL-{125 + index:04d}"
+            expected_media = [still_id, live_id]
+            if index == 1:
+                expected_media.extend(["6529NM-MED-0001", "6529NM-MED-0002"])
+
+            self.assertEqual(correction["work_entity_id"], work_id)
+            self.assertEqual(correction["still_media_entity_id"], still_id)
+            self.assertEqual(correction["live_media_entity_id"], live_id)
+            self.assertEqual(entities[work_id]["media_entity_ids"], expected_media)
+
+            still = entities[still_id]["profile"]["media"]
+            self.assertTrue(still["visual"])
+            self.assertEqual(still["media_type"], "image/png")
+            self.assertEqual(still["source_observation"]["status"], "mutable_external")
+            self.assertEqual(still["fixity"]["status"], "verified")
+            self.assertEqual(still["fixity"]["digest"], correction["still"]["response_sha256"])
+            self.assertIn("exact observed Art Blocks media-proxy image response", still["fixity"]["basis"])
+            self.assertIn("future bytes may differ", still["fixity"]["basis"])
+            self.assertIn("not retained as a Museum preservation master", still["fixity"]["basis"])
+            self.assertEqual(still["accessibility_text"], correction["accessibility_text"])
+            self.assertEqual(still["credit"], correction["credit"])
+            self.assertEqual(still["rights"]["status"], "cleared_with_conditions")
+            self.assertTrue(
+                any(
+                    ref["uri"] == correction["license_url"]
+                    for ref in still["rights"]["evidence_refs"]
+                )
+            )
+            self.assertEqual(still["allowed_ui_affordances"], correction["still"]["allowed_ui_affordances"])
+            self.assertEqual((still["width"], still["height"]), (
+                correction["still"]["dimensions"]["width"],
+                correction["still"]["dimensions"]["height"],
+            ))
+
+            live = entities[live_id]["profile"]["media"]
+            self.assertTrue(live["visual"])
+            self.assertEqual(live["media_type"], "text/html")
+            self.assertEqual(live["source_observation"]["status"], "mutable_external")
+            self.assertEqual(live["fixity"]["status"], "unverified_not_retrieved")
+            self.assertIsNone(live["fixity"]["digest"])
+            self.assertEqual(live["accessibility_text"], correction["accessibility_text"])
+            self.assertEqual(live["credit"], correction["credit"])
+            self.assertEqual(live["rights"]["status"], "cleared_with_conditions")
+            self.assertIn("interact_sandboxed", live["allowed_ui_affordances"])
+            self.assertEqual(live["allowed_ui_affordances"], correction["live"]["allowed_ui_affordances"])
+
+            self.assertEqual(relations[still_relation_id]["source_entity_id"], work_id)
+            self.assertEqual(relations[still_relation_id]["target_entity_id"], still_id)
+            self.assertEqual(relations[still_relation_id]["qualifier"], {"media_context": "primary", "display_order": 1})
+            self.assertEqual(relations[live_relation_id]["source_entity_id"], work_id)
+            self.assertEqual(relations[live_relation_id]["target_entity_id"], live_id)
+            self.assertEqual(relations[live_relation_id]["qualifier"], {"media_context": "primary", "display_order": 2})
+
+        preprocess = entities["6529NM-MED-0048"]["profile"]["media"]
+        self.assertEqual((preprocess["width"], preprocess["height"]), (2400, 1349))
+        self.assertIn(
+            "PNG image response and not live canvas geometry",
+            " ".join(amendment["immutable_boundaries"]),
+        )
+
+    def test_casey_media_correction_preserves_nonvisual_boundaries(self) -> None:
+        entities = self.entities()
+        for entity_id in ("6529NM-MED-0001", "6529NM-MED-0002"):
+            media = entities[entity_id]["profile"]["media"]
+            self.assertFalse(media["visual"])
+            self.assertEqual(media["media_type"], "application/json")
+        for index in range(20, 36):
+            self.assertFalse(entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]["visual"])
+        for index in range(41, 45):
+            self.assertFalse(entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]["visual"])
+
+    def test_casey_media_amendment_affordances_are_closed(self) -> None:
+        amendment_path = ROOT / "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+        schema_path = "schemas/media-presentation-amendment.schema.json"
+        amendment = load_json(amendment_path)
+        for surface in ("still", "live"):
+            mutated = copy.deepcopy(amendment)
+            mutated["payload"]["presentation_corrections"][0][surface]["allowed_ui_affordances"].append("unsafe_unknown_affordance")
+            self.assertTrue(self.local_schema_issues(mutated["payload"], schema_path), surface)
+
     def test_collection_membership_remains_exactly_casey_seven(self) -> None:
         entities = self.entities()
         relations = self.relations()
@@ -968,7 +1069,7 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_review_pending_candidate_state_is_not_archived_and_cannot_be_final(self) -> None:
         candidate = build_records()
         candidate_entities = [record["payload"] for record in candidate.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"]
-        self.assertEqual(len(candidate_entities), 120)
+        self.assertEqual(len(candidate_entities), 127)
         self.assertTrue(all(payload["entity_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["record_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["reviewer"] is None for payload in candidate_entities))

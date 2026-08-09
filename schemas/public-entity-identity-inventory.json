@@ -1,6 +1,6 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/public-entity-identity-inventory-v1.json",
-  "inventory_version": "1.4.0",
+  "inventory_version": "1.5.0",
   "identity_policy": "Museum entity identity is independent of acquisition, program, accession, artist, chain, wallet, title, and public route key. Source aliases remain typed references and never replace the canonical entity identifier. Component and manifestation targets are either explicit authoritative records or entries in the governed typed-reference registry.",
   "entity_id_patterns": {
     "INSTITUTION": "^6529NM-I-[0-9]{4}$",
@@ -262,6 +262,13 @@
       {"source_key":"casey-live:6529NM.2026.001.05","entity_id":"6529NM-MED-0014"},
       {"source_key":"casey-live:6529NM.2026.001.06","entity_id":"6529NM-MED-0015"},
       {"source_key":"casey-live:6529NM.2026.001.07","entity_id":"6529NM-MED-0016"},
+      {"source_key":"casey-still:6529NM.2026.001.01","entity_id":"6529NM-MED-0045"},
+      {"source_key":"casey-still:6529NM.2026.001.02","entity_id":"6529NM-MED-0046"},
+      {"source_key":"casey-still:6529NM.2026.001.03","entity_id":"6529NM-MED-0047"},
+      {"source_key":"casey-still:6529NM.2026.001.04","entity_id":"6529NM-MED-0048"},
+      {"source_key":"casey-still:6529NM.2026.001.05","entity_id":"6529NM-MED-0049"},
+      {"source_key":"casey-still:6529NM.2026.001.06","entity_id":"6529NM-MED-0050"},
+      {"source_key":"casey-still:6529NM.2026.001.07","entity_id":"6529NM-MED-0051"},
       {"source_key":"keys-presentation:6529NM-AP-01-OUT-001","entity_id":"6529NM-MED-0020"},
       {"source_key":"keys-presentation:6529NM-AP-01-OUT-002","entity_id":"6529NM-MED-0021"},
       {"source_key":"keys-presentation:6529NM-AP-01-OUT-003","entity_id":"6529NM-MED-0022"},

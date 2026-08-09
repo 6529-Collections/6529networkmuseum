@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb340d81914c2653fc1d18e7600046d92d5fd6a87890c8a100f1980846b8dc40c"
+      "digest": "0x91d1e432848ec56a0cf1a2eab2853442e68d0dd6b6763ed33302b92fee362126"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
+    "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-MED-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:644e5765a72e3c28da7be88a8a4210197b32a67072300904aa901374e7b2f7d9",
+    "payload_sha256": "sha256:0656a29f46dc5153f18cc8033e81199c851a2c0f347cbb03dd7bb3135c5398ad",
     "preferred_label": "Casey retained preservation evidence manifest",
     "profile": {
       "media": {
@@ -74,7 +74,7 @@
           "basis": "Retrieved repository bytes hashed by the deterministic migration.",
           "digest": "sha256:7a5deb5a2c07d0663b7fd5e2cc60c88964c55072237b5b802f11e498a4201215",
           "status": "verified",
-          "verified_at": "2026-08-08T14:31:26Z"
+          "verified_at": "2026-08-09T23:04:32Z"
         },
         "height": null,
         "identity_inference_prohibition": null,
@@ -141,26 +141,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-ACC-2026-001",
       "6529NM.2026.001.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -176,7 +165,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0001",
     "visibility": "public"

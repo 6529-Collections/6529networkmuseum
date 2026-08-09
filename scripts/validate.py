@@ -39,7 +39,7 @@ TYPED_REFERENCE_TARGET_TYPE_MATRIX = {
 }
 METADATA_ONLY_MEDIA_AFFORDANCES = {"alt_text", "open_wave_proposal_context", "copy_citation"}
 MEDIA_RENDER_OR_DELIVERY_AFFORDANCES = {
-    "view", "thumbnail", "hero", "play", "zoom", "fullscreen", "download",
+    "view", "thumbnail", "hero", "play", "interact_sandboxed", "zoom", "fullscreen", "download",
     "open_token_source", "open_repository_path",
 }
 
@@ -905,8 +905,14 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     fixity_status = fixity.get("status") if isinstance(fixity, dict) else None
     if source_status == "retrieved" and fixity_status != "verified":
         issues.append(f"{label}: retrieved media requires verified fixity")
-    if source_status in {"not_retrieved", "source_declared", "mutable_external"} and fixity_status != "unverified_not_retrieved":
-        issues.append(f"{label}: non-retrieved or mutable media must use unverified_not_retrieved fixity")
+    if source_status in {"not_retrieved", "source_declared"} and fixity_status != "unverified_not_retrieved":
+        issues.append(f"{label}: non-retrieved or source-declared media must use unverified_not_retrieved fixity")
+    if source_status == "mutable_external" and fixity_status not in {"verified", "unverified_not_retrieved"}:
+        issues.append(f"{label}: mutable external media may bind exact observed bytes or remain explicitly unverified")
+    if source_status == "mutable_external" and fixity_status == "verified":
+        basis = fixity.get("basis") if isinstance(fixity, dict) else None
+        if not isinstance(basis, str) or "mutable" not in basis.casefold() or "not retained" not in basis.casefold():
+            issues.append(f"{label}: mutable external verified fixity must state both locator mutability and that bytes are not retained")
     role = media.get("media_role")
     publication_boundary = media.get("publication_boundary")
     expected_boundary = {
@@ -1000,6 +1006,13 @@ def validate_public_media(media: Any, label: str) -> list[str]:
         issues.append(f"{label}: {rights_status} media cannot expose visual delivery, download, zoom, fullscreen, token, or repository source opening")
     if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
         issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
+    if "interact_sandboxed" in affordances and (
+        media.get("media_type") != "text/html"
+        or visual is not True
+        or rights_status not in {"cleared", "cleared_with_conditions"}
+        or source_status != "mutable_external"
+    ):
+        issues.append(f"{label}: interact_sandboxed requires visual mutable-external text/html with cleared rights")
     if any(item in affordances for item in {"zoom", "fullscreen"}) and (visual is not True or rights_status not in {"cleared", "cleared_with_conditions"}):
         issues.append(f"{label}: zoom/fullscreen requires visual media with cleared rights")
     return issues
@@ -1656,6 +1669,7 @@ def validate_public_graph(
     entities: dict[str, tuple[Path, dict[str, Any]]] = {}
     relations: list[tuple[Path, dict[str, Any]]] = []
     wave_status_observations: dict[str, tuple[Path, dict[str, Any]]] = {}
+    media_presentation_amendments: dict[str, tuple[Path, dict[str, Any]]] = {}
     for path, _record, payload in records:
         if not isinstance(payload, dict):
             continue
@@ -1669,6 +1683,10 @@ def validate_public_graph(
             observation_id = payload.get("observation_id")
             if isinstance(observation_id, str):
                 wave_status_observations[observation_id] = (path, payload)
+        elif payload.get("record_type") == "MEDIA_PRESENTATION_AMENDMENT":
+            amendment_id = payload.get("amendment_id")
+            if isinstance(amendment_id, str):
+                media_presentation_amendments[amendment_id] = (path, payload)
 
     typed_record_index = _typed_reference_record_index(repository_root)
     typed_registry, typed_registry_issues = _typed_reference_registry_index(identity_inventory)
@@ -1895,6 +1913,113 @@ def validate_public_graph(
                 issues.append(f"{relative}: Collection relation membership qualifier must equal the Work collection membership status")
             if membership.get("collection_entity_id") != source_id:
                 issues.append(f"{relative}: Work collection_entity_id must equal the Collection relation source")
+
+    casey_amendment_entry = media_presentation_amendments.get("6529NM-MEDIA-PRES-AMD-2026-08-09-001")
+    if entities and casey_amendment_entry is None:
+        amendment_path = repository_root / "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+        try:
+            amendment_record = load_json(amendment_path)
+        except (OSError, ValueError, DuplicateJsonKeyError):
+            amendment_record = None
+        amendment_payload = amendment_record.get("payload") if isinstance(amendment_record, dict) else None
+        if (
+            isinstance(amendment_payload, dict)
+            and amendment_payload.get("record_type") == "MEDIA_PRESENTATION_AMENDMENT"
+            and amendment_payload.get("amendment_id") == "6529NM-MEDIA-PRES-AMD-2026-08-09-001"
+        ):
+            casey_amendment_entry = (amendment_path, amendment_payload)
+    if entities and casey_amendment_entry is None:
+        issues.append("Casey media presentation correction is missing from the candidate graph source set")
+    elif casey_amendment_entry is not None:
+        amendment_path, amendment = casey_amendment_entry
+        amendment_label = display_path(amendment_path)
+        corrections = amendment.get("presentation_corrections")
+        if not isinstance(corrections, list) or len(corrections) != 7:
+            issues.append(f"{amendment_label}: active Casey media correction must contain exactly seven rows")
+            corrections = []
+        expected_object_ids = {f"6529NM.2026.001.0{index}" for index in range(1, 8)}
+        if {row.get("object_id") for row in corrections if isinstance(row, dict)} != expected_object_ids:
+            issues.append(f"{amendment_label}: Casey media correction rows must exactly cover objects .01-.07")
+        active_media_relations = {
+            (relation.get("source_entity_id"), relation.get("target_entity_id")): relation
+            for _relation_path, relation in relations
+            if relation.get("relation_type") == "ENTITY_HAS_MEDIA"
+            and relation.get("record_status") != "superseded"
+            and relation.get("assertion_status") != "reserved"
+        }
+        for row in corrections:
+            if not isinstance(row, dict):
+                continue
+            object_id = row.get("object_id")
+            work_id = row.get("work_entity_id")
+            still_id = row.get("still_media_entity_id")
+            live_id = row.get("live_media_entity_id")
+            rights_id = row.get("rights_record_id")
+            license_url = row.get("license_url")
+            work_entry = entities.get(work_id) if isinstance(work_id, str) else None
+            still_entry = entities.get(still_id) if isinstance(still_id, str) else None
+            live_entry = entities.get(live_id) if isinstance(live_id, str) else None
+            if work_entry is None or still_entry is None or live_entry is None:
+                issues.append(f"{amendment_label}: {object_id} correction does not resolve its Work, still, and live entities")
+                continue
+            expected_media = [still_id, live_id]
+            if object_id == "6529NM.2026.001.01":
+                expected_media.extend(["6529NM-MED-0001", "6529NM-MED-0002"])
+            if work_entry[1].get("media_entity_ids") != expected_media:
+                issues.append(f"{display_path(work_entry[0])}: Casey Work media order must be still, live, then retained nonvisual evidence where applicable")
+            for media_id, media_entry, expected, order in (
+                (still_id, still_entry, row.get("still"), 1),
+                (live_id, live_entry, row.get("live"), 2),
+            ):
+                media = media_entry[1].get("profile", {}).get("media", {})
+                relation = active_media_relations.get((work_id, media_id))
+                if not isinstance(expected, dict) or not isinstance(media, dict):
+                    issues.append(f"{display_path(media_entry[0])}: Casey governed media profile is missing")
+                    continue
+                expected_dimensions = expected.get("dimensions") if order == 1 else expected.get("observed_canvas_dimensions")
+                if media.get("visual") is not True or media.get("media_type") != expected.get("media_type"):
+                    issues.append(f"{display_path(media_entry[0])}: Casey still/live media must be visual with the governed MIME type")
+                if not isinstance(expected_dimensions, dict) or media.get("width") != expected_dimensions.get("width") or media.get("height") != expected_dimensions.get("height"):
+                    issues.append(f"{display_path(media_entry[0])}: Casey media geometry must match the governed still-response or live-canvas dimensions")
+                locator = media.get("source_locator") if isinstance(media.get("source_locator"), dict) else {}
+                observation = media.get("source_observation") if isinstance(media.get("source_observation"), dict) else {}
+                if locator.get("uri") != expected.get("source_url") or observation.get("status") != "mutable_external":
+                    issues.append(f"{display_path(media_entry[0])}: Casey media must retain the exact official mutable Art Blocks source")
+                if media.get("accessibility_text") != (row.get("accessibility_text") if order == 1 else expected.get("accessibility_text")):
+                    issues.append(f"{display_path(media_entry[0])}: Casey media accessibility text must preserve the governed visual description")
+                if media.get("credit") != row.get("credit"):
+                    issues.append(f"{display_path(media_entry[0])}: Casey media credit must match its exact per-object source credit")
+                if media.get("allowed_ui_affordances") != expected.get("allowed_ui_affordances"):
+                    issues.append(f"{display_path(media_entry[0])}: Casey media UI affordances must match the governed presentation row")
+                rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
+                rights_uris = {item.get("uri") for item in rights.get("evidence_refs", []) if isinstance(item, dict)}
+                expected_rights_suffix = f"/records/accessions/6529NM.2026.001/rights/{rights_id}.json"
+                if rights.get("status") != "cleared_with_conditions" or license_url not in rights_uris or not any(isinstance(uri, str) and uri.endswith(expected_rights_suffix) for uri in rights_uris):
+                    issues.append(f"{display_path(media_entry[0])}: Casey media must cite its exact per-object rights record and CC BY-NC 4.0 license")
+                if relation is None or relation.get("qualifier") != {"display_order": order, "media_context": "primary"}:
+                    issues.append(f"{display_path(media_entry[0])}: Casey Work-to-media relation must carry primary context and governed display order {order}")
+                fixity = media.get("fixity") if isinstance(media.get("fixity"), dict) else {}
+                basis = str(fixity.get("basis", "")).casefold()
+                if order == 1:
+                    required_words = ("exact observed", "mutable", "future", "not retained", "preservation master")
+                    if fixity.get("status") != "verified" or fixity.get("digest") != expected.get("response_sha256") or not all(word in basis for word in required_words):
+                        issues.append(f"{display_path(media_entry[0])}: Casey still fixity must bind only the exact observed response and disclaim future mutable bytes and preservation-master retention")
+                elif fixity.get("status") != "unverified_not_retrieved" or fixity.get("digest") is not None or "no digest" not in basis or "mutable" not in basis:
+                    issues.append(f"{display_path(media_entry[0])}: Casey live generator must remain mutable with no asserted digest")
+        for evidence_media_id in ("6529NM-MED-0001", "6529NM-MED-0002"):
+            evidence_entry = entities.get(evidence_media_id)
+            evidence_media = evidence_entry[1].get("profile", {}).get("media", {}) if evidence_entry else {}
+            if evidence_media.get("visual") is not False or evidence_media.get("media_type") != "application/json":
+                issues.append(f"{evidence_media_id}: Casey preservation manifest and token metadata must remain nonvisual JSON")
+        unchanged_nonvisual_ids = {
+            "6529NM-MED-0003", "6529NM-MED-0041", "6529NM-MED-0042", "6529NM-MED-0043", "6529NM-MED-0044",
+            *{f"6529NM-MED-{index:04d}" for index in range(20, 36)},
+        }
+        for media_id in sorted(unchanged_nonvisual_ids):
+            media_entry = entities.get(media_id)
+            media = media_entry[1].get("profile", {}).get("media", {}) if media_entry else {}
+            if media.get("visual") is not False or "6529NM-MEDIA-PRES-AMD-2026-08-09-001" in media.get("source_record_ids", []):
+                issues.append(f"{media_id}: Magnum and Keys and Gates nonvisual presentation state must remain outside the Casey correction")
 
     def id_set(value: Any) -> set[str]:
         return {item for item in value if isinstance(item, str)} if isinstance(value, list) else set()

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x13afbd766df384ef232fc24432b8bfccf925bdd4c6625ce6eec87b33b0304d46"
+    },
+    "effectiveAt": 1786316672,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x15f5a6982e78ab3866e67a8b7f5b8a22fd1baa73e27f897acd5ffe1151a50225",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0214.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-09T23:04:32Z",
+    "effective_at": "2026-08-09T23:04:32Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Append-only Casey primary still relation",
+        "observed_at": "2026-08-09T23:04:32Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+      }
+    ],
+    "observed_at": "2026-08-09T23:04:32Z",
+    "payload_sha256": "sha256:6684d9ea1a958f71ab81350df00d52867b3d99a9ea239e1f3ee66631fbabfb8f",
+    "qualifier": {
+      "display_order": 1,
+      "media_context": "primary"
+    },
+    "record_id": "6529NM-REL-0214",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-MED-0047",
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
+      "6529NM-W-0003",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.RIGHTS.03",
+      "6529NM.2026.001.VO-01"
+    ],
+    "relation_id": "6529NM-REL-0214",
+    "relation_type": "ENTITY_HAS_MEDIA",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-W-0003",
+    "source_record_ids": [
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
+      "6529NM.2026.001.03",
+      "6529NM.2026.001.RIGHTS.03",
+      "6529NM.2026.001.VO-01"
+    ],
+    "subject_id": "6529NM-REL-0214",
+    "target_entity_id": "6529NM-MED-0047",
+    "visibility": "public"
+  }
+}

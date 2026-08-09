@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x85375231253736286bc8a0b013bd6a732d9934a2eabb87d1f9a5180da94d26e1"
+      "digest": "0xab83138b93906d7d8d94af536d7a096593e7c2d0aff6042a2a4c25926c8f50a4"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0007",
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
+    "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-W-0007",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -36,14 +36,21 @@
         "label": "Existing WORK_DESCRIPTION",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Append-only Casey media presentation correction",
+        "observed_at": "2026-08-09T23:04:32Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
       }
     ],
     "media_entity_ids": [
+      "6529NM-MED-0051",
       "6529NM-MED-0016"
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:10f471ce6458a7c0b6b8054235b87a3a6433981d6f641874ed2171007f808939",
+    "payload_sha256": "sha256:07396c23195f2b55c31f4df1f34b90795b81e01c32ac8c6f01ba3d73047e056d",
     "preferred_label": "Ex Nihilo (Cosmos) #248",
     "profile": {
       "accession_entity_ids": [
@@ -217,7 +224,7 @@
     },
     "public_slug": "6529NM-W-0007",
     "record_id": "6529NM-W-0007",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -225,6 +232,7 @@
       "6529NM-ACC-ENT-0001",
       "6529NM-AP-ENT-0001",
       "6529NM-CA-2026-001",
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
       "6529NM-PRJ-0005",
       "6529NM.2026.001",
       "6529NM.2026.001.07",
@@ -232,25 +240,15 @@
       "6529NM.2026.001.RIGHTS.07",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
       "6529NM-ACC-ENT-0001",
       "6529NM-AP-ENT-0001",
       "6529NM-CA-2026-001",
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
       "6529NM-PRJ-0005",
       "6529NM.2026.001",
       "6529NM.2026.001.07",
@@ -265,10 +263,16 @@
           "label": "Existing WORK_DESCRIPTION",
           "observed_at": "2026-08-02T06:30:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.07.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Append-only Casey media presentation correction",
+          "observed_at": "2026-08-09T23:04:32Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0007",
     "visibility": "public"

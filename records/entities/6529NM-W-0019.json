@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd5d2cfd3a041321c35cd0f18ae14b55036045f41310438740aaf5d4cd2e087b4"
+      "digest": "0xb6c1a8fb960906a8cb679e2d7abda64217263029633cad847df6a6e1259aff7d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0019",
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
+    "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0019",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:053e30c25e9301116d9c1c96421dc96cca1a22d4bd7b659cd2fe19ff9d3af83c",
+    "payload_sha256": "sha256:58ee69eb97d05f7ac89d6535a6fada567b395c98b05e6f24d87178dda0d424a9",
     "preferred_label": "Rusted",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0019",
     "record_id": "6529NM-W-0019",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,19 +186,8 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0013",
@@ -217,7 +206,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0019",
     "visibility": "public"

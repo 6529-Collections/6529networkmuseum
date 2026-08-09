@@ -72,6 +72,16 @@ class CaseyDossierControlsTests(unittest.TestCase):
     def test_published_descriptor_dossier_is_valid(self) -> None:
         self.assertEqual(validate(ROOT), [])
 
+    def test_public_projection_amendment_review_state_exemption_is_closed(self) -> None:
+        _, root = self.make_copy()
+        self.mutate_record(
+            root,
+            "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json",
+            lambda record: record["payload"].__setitem__("record_status", "constructed"),
+        )
+        issues = validate(root, history_root=ROOT)
+        self.assertTrue(any("must be substantively reviewed" in issue for issue in issues), issues)
+
     def test_post_accession_diligence_is_valid(self) -> None:
         self.assertEqual(validate_post_accession_diligence(ROOT), [])
 
