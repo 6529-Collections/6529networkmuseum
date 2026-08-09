@@ -38,8 +38,8 @@ Cartagena's selection.[^4]
 The selected offer contains one first-register token, Saman #44, and four
 second-register tokens: Seymour #127, Towell #145, Bar-Am #97, and Meloni #104
 ([S10–S14](../sources/source-register.md); [machine object schedule](../machine/object-schedule.json)).
-That distribution belongs to the token records. The donor's five-Work relation
-is a later formation across the registers.
+That distribution belongs to the token records. The proposed five-Work relation
+was formed later across the registers.
 
 ## Publication and token infrastructure
 
@@ -67,13 +67,13 @@ method:
 | Official launch | First collection described with 76 images, six drops, and Cartagena's selection; the page also uses 75-image wording ([S04](../sources/source-register.md)) | Announcement history |
 | Issuer metadata | Three curations and 225 images; target tokens carry sequence values within 225 ([S10–S14](../sources/source-register.md); [machine object schedule](../machine/object-schedule.json)) | Project description and token-level metadata |
 | Foundation snapshot | 148 items displayed in the retained marketplace view ([S06](../sources/source-register.md)) | Platform presentation, not a canonical mint count |
-| Chain enumeration | 149 issued `mintBase` token records across two observable curations ([S06](../sources/source-register.md)) | Time- and method-bounded chain observation |
 
 The posted dossier's finalized-block statement remains **148 live tokens at
-block `25,690,178`** ([S37](../sources/source-register.md)). The research note's
-statement remains **149 issued across two observable curations**
-([S06](../sources/source-register.md)). These are different observations and remain side
-by side. A definitive issuer release ledger, the first-curation 75/76
+block `25,690,178`** ([S37](../sources/source-register.md)). The retained
+Foundation snapshot also displays 148 items ([S06](../sources/source-register.md)).
+Neither observation establishes a complete issued-token count. A reproducible
+on-chain enumeration remains to be published before the Museum states one.
+A definitive issuer release ledger, the first-curation 75/76
 resolution, and a public third curation remain open research questions
 ([S04](../sources/source-register.md); [S07](../sources/source-register.md)).
 
@@ -82,7 +82,7 @@ resolution, and a public third curation remain open research questions
 Magnum Photos 75 makes selection legible in a form built for network
 circulation. The selected *Conflict at Its Edges* offer joins one first-register
 token to four second-register tokens, then asks how captions, access histories,
-and archive variants behave when a donor forms a new five-Work relation. The
+and archive variants behave within a new five-Work relation. The
 [Curated Acquisition page](conflict-at-its-edges.md) carries the concise case;
 the [comparative essay](../essays/conflict-at-its-edges.md) carries the
 cross-object interpretation.

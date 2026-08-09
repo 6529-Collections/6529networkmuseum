@@ -7,10 +7,10 @@ comes from the way each photograph leaves part of its meaning in another
 record—an archive number, a caption, a route into a restricted place, or a
 history of the site itself.
 
-The donor's selection joins one token identified in the Magnum Photos 75 project
+The proposal joins one token identified in the Magnum Photos 75 project
 as curation `1/3` to four identified as curation `2/3` ([S10–S14](../sources/source-register.md);
 [object schedule](../machine/object-schedule.json)). That split is an
-observable feature of this offer. The donor's rationale beyond the grouping is
+observable feature of this offer. The rationale beyond the grouping is
 unrecorded. The essay asks what the five images make visible together while
 keeping that boundary intact.[^1]
 
@@ -106,23 +106,23 @@ can make a locator durable; it cannot resolve every historical relation or
 create a rights grant ([S10–S14](../sources/source-register.md); [S38](../sources/source-register.md);
 [wave-media join](../machine/wave-media-join.json)).
 
-## The donor's sequence
+## A sequence across the archive
 
 Magnum Photos 75 gives the group its upstream vocabulary of curation. The
 project's first selection is associated with Alejandro Cartagena, while the
 second is presented in dialogue with Azu Nwagbogu's account of the “indecisive
 moment.” The selected offer places Saman's first-register token at the center of
-a later donor-made relation with four second-register tokens. That arrangement
+a later proposed relation with four second-register tokens. That arrangement
 is exact here, even though another five-image group could share a 1/3 and 2/3
 distribution ([S04–S07](../sources/source-register.md); [S10–S14](../sources/source-register.md);
 [object schedule](../machine/object-schedule.json)).[^2]
 
-The donor's sequence also changes the reading of chronology. Seymour is the
+The sequence also changes the reading of chronology. Seymour is the
 earliest date, yet Saman is the first-curation hinge; Meloni closes the visible
 run with a 2016 image whose access history is inseparable from the damaged
 site. The offer is therefore neither a Magnum-issued anthology nor a neutral
 chronological survey. It is a new relation among five independently identified
-Works, built from the donor's act of proposal and now selected by the Museum
+Works, built through the act of proposal and now selected by the Museum
 Wave for acquisition review ([S37](../sources/source-register.md);
 [integration map](../machine/integration-map.json)).
 

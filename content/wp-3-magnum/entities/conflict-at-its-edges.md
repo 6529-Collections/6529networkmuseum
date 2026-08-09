@@ -20,12 +20,12 @@ or regional record asks the viewer to consider.
 
 ## The exact proposition
 
-The donor-formed offer brings two Magnum Photos 75 selection registers into one
+The proposed offer brings two Magnum Photos 75 selection registers into one
 relation. Saman #44 is the sole `1/3` item; the other four selected Works are
 marked `2/3`. That split is specific to this five-token group and can be checked
 against the project metadata and proposal record ([S10–S14](../sources/source-register.md);
 [object schedule](../machine/object-schedule.json)). Another five-image selection
-could share the same numerical distribution. The donor's rationale beyond the
+could share the same numerical distribution. The rationale beyond the
 observable grouping remains unrecorded.[^2]
 
 ## Five selected Works
@@ -54,7 +54,8 @@ to the public history of a 2022 blockchain edition while retaining the older
 histories of reportage, print, archive, book, and exhibition. Its mission fit
 comes from making those relationships available for public research.
 
-Wave selection established curatorial approval ([S37](../sources/source-register.md);
+The result records the Museum Wave's selection of the exact five-Work proposal
+([S37](../sources/source-register.md);
 [integration map](../machine/integration-map.json)). Formal gift acceptance, title
 and custody, rights review, technical examination, preservation planning,
 accession and Collection entry will follow ([S37](../sources/source-register.md);

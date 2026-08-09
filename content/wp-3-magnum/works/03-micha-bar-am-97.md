@@ -1,9 +1,7 @@
 # Micha Bar-Am, *Demonstration, Western Wall, Jerusalem*
 
-![Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg)
-
 *Short label: Demonstration, 1989 · Western Wall, Jerusalem. Historical public
-Wave presentation media; the exact proposal-context URL and credit appear in
+Wave proposal record; the non-rendering source locator and credit appear in
 the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work
@@ -80,7 +78,7 @@ question of public access: the frame contains a sacred site, a moving body,
 and a barrier that is both visual foreground and social object. Its exact
 archive suffix and event history remain open, so its significance rests on
 the documented photograph, the attributed caption, and the observable place
-within this five-token offer. A donor rationale beyond that grouping has not
+within this five-token offer. A rationale beyond that grouping has not
 been recorded.
 
 ## Manifestations and stewardship

@@ -67,9 +67,8 @@ remain open about an archive crosswalk or reproduction authority.
 
 The five photographers have different biographies and different relationships
 to Magnum. The project name in token metadata establishes publication context.
-The donor's offer forms a new relation among their Works; it is not presented as
-an official Magnum grouping or as a statement by the agency about the donor's
-selection. The artist and Work pages retain the distinct practice and evidence
+The proposal forms a new relation among their Works. Magnum did not create or
+endorse this grouping. The artist and Work pages retain the distinct practice and evidence
 for each photograph.
 
 ## Rights note

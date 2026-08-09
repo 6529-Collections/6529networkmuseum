@@ -1,9 +1,7 @@
 # Larry Towell, *Government soldiers in a church, Suchitoto, El Salvador*
 
-![Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg)
-
 *Short label: Soldiers in church, 1986 · Suchitoto, El Salvador. Historical
-public Wave presentation media; the exact proposal-context URL and credit
+public Wave proposal record; the non-rendering source locator and credit
 appear in the [Source and rights record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work
@@ -80,7 +78,7 @@ selected offer it contributes an interior whose religious architecture makes
 military presence spatially measurable. It sits between Seymour's open
 landscape and Bar-Am's obstructed public event in the proposal order, while
 its exact contribution remains object-specific: the church identity, physical
-print relation, and assignment history still require research. The donor's
+print relation, and assignment history still require research. The proposed
 rationale beyond the observable grouping has not been recorded.
 
 ## Manifestations and stewardship

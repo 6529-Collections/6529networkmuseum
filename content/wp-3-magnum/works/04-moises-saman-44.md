@@ -1,9 +1,7 @@
 # Moisés Saman, *Tripoli, Libya*
 
-![Black-and-white photograph of a child standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg)
-
-*Short label: Tripoli, 2011 · Libya. Historical public Wave presentation media;
-the exact proposal-context URL and credit appear in the [Source and rights
+*Short label: Tripoli, 2011 · Libya. Historical public Wave proposal record;
+the non-rendering source locator and credit appear in the [Source and rights
 record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work
@@ -81,7 +79,7 @@ is the observable contribution of this Work to the offer. Its more difficult
 contribution is ethical: the selected five-token unit brings a vulnerable
 depicted subject into a public research corpus whose caption is itself
 qualified. The public page can preserve that condition without attempting to
-name the child. The donor's rationale beyond the grouping is unrecorded.
+name the child. The rationale beyond the grouping is unrecorded.
 
 ## Manifestations and stewardship
 

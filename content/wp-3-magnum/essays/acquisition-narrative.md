@@ -3,18 +3,17 @@
 ## How the selected offer was formed
 
 *Conflict at Its Edges* began with punk6529's proposal of five token-linked
-photographs published in Magnum Photos 75. The donor's act was a formation of a
+photographs published in Magnum Photos 75. The proposal formed a
 unit: one proposal record, five independently identified Works, and a proposed
 credit to the Museum ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)). Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, and the
-five photographers are not represented as having formed or endorsed this
-donor-made combination.
+five photographers did not form or endorse this combination.
 
 The project metadata places Moisés Saman's #44 in curation `1/3`, the first
 register associated with Cartagena. David Seymour #127, Larry Towell #145,
 Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`, the later register
 presented in dialogue with Nwagbogu ([S10–S14](../sources/source-register.md);
 [object schedule](../machine/object-schedule.json)).[^1] The selected offer carries those two
-selection histories as part of its provenance. The donor's wider reason for
+selection histories as part of its provenance. The wider reason for
 choosing these five has not been recorded.
 
 ## Mission fit
@@ -39,14 +38,14 @@ preservation begin.
 
 Formal acceptance would give the Museum a five-Work case study in documentary
 authorship and network circulation. The Works span different generations,
-places, and photographic practices, while the donor's selection relation is
+places, and photographic practices, while the proposed relation is
 small enough for every caption and source boundary to remain visible. The unit
 could support exhibitions, research publications, and public interpretation
 about the afterlives of photojournalism, provided each proposed use receives
 its own rights and stewardship evidence.
 
 Acceptance would also preserve a record of decision. The Museum could document
-the donor's formation of the offer, the Wave selection, the later legal and
+the formation of the offer, the Wave selection, the later legal and
 registrar instruments, and any changed caption or archive findings as one
 append-only history. The five Work projections would remain independent within
 the acquisition: token manifestation, copyright, title, custody, and
@@ -56,14 +55,14 @@ preservation would each be recorded on their own terms.
 
 The group asks the Museum to make a relation the upstream project did not make.
 Its five photographs span sixty-four years and several political geographies;
-the donor's sequence creates comparison while also creating interpretive
+the sequence creates comparison while also creating interpretive
 responsibility. The exact archive-to-negative, contact-sheet, print, and first-
 publication crosswalks remain incomplete. Caption authority is uneven, and the
 project's counts remain layered: the first release uses both 76- and 75-image
-wording, the posted dossier says 148 live tokens at block `25,690,178`, and a
-separate chain observation identifies 149 issued across two observable
-curations ([S04](../sources/source-register.md); [S06](../sources/source-register.md);
-[S37](../sources/source-register.md)).[^3]
+wording, while the posted dossier and retained Foundation snapshot each record
+148 tokens within their own observation boundaries. Neither source establishes
+a complete issued-token count ([S04](../sources/source-register.md);
+[S06](../sources/source-register.md); [S37](../sources/source-register.md)).[^3]
 
 Rights and stewardship are the second counterweight. The token records carry
 `All Rights Reserved` ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)); token transfer is a point-in-time chain observation with
@@ -84,7 +83,7 @@ into a research objective.
 Acceptance would start a separate registrar sequence: donor authority and legal
 title, transfer and custody, rights review, technical examination, preservation
 planning, accession, and any Collection publication. Each step would carry its
-own source. The acquisition record would preserve the donor-formed relation,
+own source. The acquisition record would preserve the proposed relation,
 maintain the five Work identities, and state which manifestations are actually
 held or permitted ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
 
@@ -97,7 +96,8 @@ Reserved`, and **Wave-source historical proposal media** label ([S38](../sources
 [wave-media join](../machine/wave-media-join.json)); Collection publication and
 preservation would require separate permission and records ([integration map](../machine/integration-map.json)).
 
-Wave selection established curatorial approval ([S37](../sources/source-register.md);
+The result records the Museum Wave's selection of the exact five-Work proposal
+([S37](../sources/source-register.md);
 [integration map](../machine/integration-map.json)). Formal gift acceptance, title
 and custody, rights review, technical examination, preservation planning,
 accession and Collection entry will follow ([S37](../sources/source-register.md);

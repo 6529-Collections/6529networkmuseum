@@ -79,9 +79,8 @@ itself. Each publication must preserve the source's attribution and limits.
 - **Type / class:** historical platform collection record / A-B.
 - **Supports:** historical contract/collection association and marketplace
   presentation of the issued project.
-- **Limit:** marketplace index is not a canonical mint count; it displayed 148
-  items in the retained research snapshot while the chain enumeration memo
-  identifies 149 issued token records.
+- **Limit:** the marketplace index displayed 148 items in the retained
+  snapshot. It does not establish a canonical mint or issued-token count.
 
 ### S07 — Project chronology and third-release ambiguity
 
@@ -398,8 +397,9 @@ copyright chain.
 - **Canonical current observation:** the signed-drop API readback at
   `2026-08-08T10:15:02.0167151Z` UTC reports the same drop as signed
   `WINNER`, rank `1`, realtime rating `121603214`, and `29` raters. Its public
-  status is **Selected by Museum Wave; acquisition review in progress**. Wave
-  selection established curatorial approval. Formal gift acceptance, donor
+  status is **Selected by Museum Wave; acquisition review in progress**. The
+  result records the Museum Wave's selection of the exact five-Work proposal.
+  Formal gift acceptance, donor
   authority, transfer, title and custody, rights review, technical examination,
   preservation planning, accession and Collection entry will follow.
 - **Type / class:** Museum constructed proposal plus live governance source / A-B.

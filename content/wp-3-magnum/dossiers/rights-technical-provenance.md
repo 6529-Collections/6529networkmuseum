@@ -59,8 +59,9 @@ following finalized-block observation:
   an address identified by Blockscout as Foundation Market, then transfer to
   the observed owner ([S16](../sources/source-register.md); [S37](../sources/source-register.md)).
 
-These are point-in-time chain observations. The owner address is not treated as
-the donor, copyright holder, legal-title holder, or Museum custodian. The local
+These are point-in-time chain observations. The owner address establishes none
+of the publicly credited offeror's authority, copyright ownership, legal title,
+or Museum custody. The local
 proposal records themselves say that offer, repository record, Wave submission,
 or threshold outcome does not complete gift acceptance or accession
 ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).

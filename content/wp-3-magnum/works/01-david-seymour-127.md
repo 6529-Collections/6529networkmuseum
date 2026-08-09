@@ -1,9 +1,7 @@
 # David Seymour (Chim), *Patrolling the border between the Negev Desert and Jordan*
 
-![Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg)
-
 *Short label: Border patrol, 1952 · Negev, Israel. Historical public Wave
-presentation media; the exact proposal-context URL and credit appear in the
+proposal record; the non-rendering source locator and credit appear in the
 [Source and rights record](../dossiers/source-and-rights-record.md).*
 
 ## Looking at the Work
@@ -72,7 +70,7 @@ starting condition: the viewer must infer a political edge from a body, a
 weapon, and receding ground. The image is one of four tokens identified in
 project metadata as curation `2/3` ([S10](../sources/source-register.md);
 [object schedule](../machine/object-schedule.json)). Its exact role in this offer is therefore
-observable in the token record and in the donor's grouping; the donor's wider
+observable in the token record and in the proposed grouping; the wider
 rationale remains unrecorded.
 
 ## Manifestations and stewardship

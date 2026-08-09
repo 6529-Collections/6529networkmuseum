@@ -55,9 +55,10 @@
     "verification_status": "pending_wp1_graph_binding"
   },
   "runtime_policy": {
-    "source_url_policy": "exact_allowlisted_wave_media_url_only",
+    "source_url_policy": "recorded_evidence_locator_no_runtime_fetch",
     "url_rewrite": "deny",
     "runtime_fallback": "deny",
+    "runtime_fetch": "deny",
     "repository_derivative": "deny",
     "responsive_variants": "deny",
     "download": "deny",
@@ -71,16 +72,17 @@
   },
   "display_policy": {
     "allowed": [
-      "Reference or embed the exact historical public URL only in the proposal's Wave context.",
-      "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and Wave-source label.",
-      "Use the token-linked URL as a locator; do not represent it as a Museum-preserved file.",
-      "Offer view, hero, non-identifying alt text, open historical public URL, and copy-citation affordances only."
+      "Retain the exact historical public URL as a non-rendering evidence locator in the machine record.",
+      "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and Wave-source label in the written record.",
+      "Use the token-linked URL as a recorded locator; do not fetch it or represent it as a Museum-preserved file.",
+      "Offer non-identifying accessibility text and copy-citation affordances only."
     ],
     "blocked": [
       "Download or download affordance",
       "Full-resolution delivery claim",
       "Zoom or fullscreen affordance",
       "Runtime fallback, URL rewriting, or an unallowlisted upstream source",
+      "Image rendering, view, hero, or open-source-media affordances before reviewed display authority",
       "New repository derivative, crop, thumbnail, responsive srcset, or recompression",
       "Collection publication, permanent Collection count, or accession display",
       "IIIF manifest, tiled service, or preservation-master claim"
@@ -106,8 +108,8 @@
       "source_image_fixity": {"sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600, "retention": "upstream_not_retained"},
       "credit_line": "© David Seymour/Magnum Photos 2022 All Rights Reserved",
       "rights_label": "All Rights Reserved",
-      "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "media_status": "non_rendering_historical_source_locator",
+      "allowed_ui_affordances": ["alt_text", "copy_citation"],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -117,7 +119,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "pending_wp1_graph_binding"},
-      "load_policy": "user_initiated_non_eager",
+      "load_policy": "blocked_pending_reviewed_display_authority",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -141,8 +143,8 @@
       "source_image_fixity": {"sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee", "bytes": 1813285, "width": 5369, "height": 3601, "retention": "upstream_not_retained"},
       "credit_line": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
-      "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "media_status": "non_rendering_historical_source_locator",
+      "allowed_ui_affordances": ["alt_text", "copy_citation"],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -152,7 +154,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "pending_wp1_graph_binding"},
-      "load_policy": "user_initiated_non_eager",
+      "load_policy": "blocked_pending_reviewed_display_authority",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -176,8 +178,8 @@
       "source_image_fixity": {"sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df", "bytes": 1666083, "width": 5000, "height": 3292, "retention": "upstream_not_retained"},
       "credit_line": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
-      "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "media_status": "non_rendering_historical_source_locator",
+      "allowed_ui_affordances": ["alt_text", "copy_citation"],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -187,7 +189,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "pending_wp1_graph_binding"},
-      "load_policy": "user_initiated_non_eager",
+      "load_policy": "blocked_pending_reviewed_display_authority",
       "historical_alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
       "historical_alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2",
       "historical_publication_media": {
@@ -225,8 +227,8 @@
       "source_image_fixity": {"sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "bytes": 1540870, "width": 5616, "height": 3744, "retention": "upstream_not_retained"},
       "credit_line": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
-      "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "media_status": "non_rendering_historical_source_locator",
+      "allowed_ui_affordances": ["alt_text", "copy_citation"],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -236,9 +238,9 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "pending_wp1_graph_binding"},
-      "load_policy": "user_initiated_non_eager",
+      "load_policy": "blocked_pending_reviewed_display_authority",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master", "identity_inference"],
-      "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
+      "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
       "accessibility_subject_policy": "non_identifying_child_subject",
       "child_subject": true,
       "child_display_rule": "Do not identify the child or expose sensitive identity metadata; retain the public description at the visible-fact level.",
@@ -279,8 +281,8 @@
       "source_image_fixity": {"sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2", "bytes": 16871807, "width": 5964, "height": 4768, "retention": "upstream_not_retained"},
       "credit_line": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
-      "media_status": "historical_wave_url_reference_only",
-      "allowed_ui_affordances": ["view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"],
+      "media_status": "non_rendering_historical_source_locator",
+      "allowed_ui_affordances": ["alt_text", "copy_citation"],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -290,7 +292,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "pending_wp1_graph_binding"},
-      "load_policy": "user_initiated_non_eager",
+      "load_policy": "blocked_pending_reviewed_display_authority",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",

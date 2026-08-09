@@ -28,20 +28,20 @@ Museum, or accession date.
 | 28 Nov 2022, 18:25:35–22:07:23 UTC | Tokens #97, #104, #127, and #145 are observed in mint blocks `16,070,265`, `16,070,363`, `16,070,886`, and `16,071,368`. | Chain mint chronology; the near-simultaneous timestamps do not establish public listing or sale timestamps. [S11–S12, S14, S16] |
 | 1 Dec 2022 | Digital Camera World reports the second 75-piece collection, identifies Azu Nwagbogu’s curation, and describes a six-drop schedule ending 13 December. | Reputable named-source reporting, not a recovered first-party release ledger. [S40](../sources/source-register.md) |
 | 13 Dec 2022 | The reported second-release drop window ends. | Reported schedule only; not completion proof for every announced work. [S05](../sources/source-register.md) |
-| 2 Apr 2023 | Archived Foundation collection snapshot records 148 displayed items in the retained research observation. | Platform snapshot, not a canonical total-mint count. It is preserved alongside the chain/research observation of 149 issued records. [S06](../sources/source-register.md) |
+| 2 Apr 2023 | Archived Foundation collection snapshot records 148 displayed items in the retained research observation. | Platform snapshot, not a canonical total-mint count. [S06](../sources/source-register.md) |
 
 ## Publication-count observation boundary
 
-Two statements are retained because they describe different observations:
+Two records retain the same number within different observation boundaries:
 
 | Observation | Exact statement retained | Status |
 | --- | --- | --- |
 | Posted proposal dossier | The published dossier reports **148 live tokens at finalized block 25,690,178**. | A local proposal/technical observation for that block and record. [S37](../sources/source-register.md) |
-| Research enumeration | The research note reports **149 issued across two observable curations**. | A separate research enumeration boundary; it is not silently substituted for the posted dossier count. [S06](../sources/source-register.md) |
+| Foundation snapshot | The retained marketplace view displays **148 items**. | A historical platform presentation, not a complete mint or issued-token count. [S06](../sources/source-register.md) |
 
 The project’s announced or metadata-described total of 225 and three curations
 also remains a separate statement. No item here converts the plan, sequence
-numbers, Foundation snapshot, or enumeration into proof that a third curation
+numbers, Foundation snapshot, or finalized-block observation into proof that a third curation
 was publicly released or that all 225 works were minted
 ([S04](../sources/source-register.md); [S07](../sources/source-register.md);
 [S10–S14](../sources/source-register.md)).
@@ -54,7 +54,7 @@ was publicly released or that all 225 works were minted
 | 5 Aug 2026, 17:46:53 UTC | Local read-only verification of the finalized-block proposal observation completes. | Local technical observation timestamp. [S37](../sources/source-register.md) |
 | 6 Aug 2026 | The retained Wave Storm package records publication of the seven-part proposal, with the five work parts carrying their historical public upstream JPEG URLs. | Historical public Wave presentation media. It supports the narrow reference/embed disposition in the media plan. [S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json) |
 | 8 Aug 2026, 09:06:07.985 UTC | Live `punk6529bot` readback returns drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`, `drop_type: PARTICIPATORY`, rank `1`, realtime rating `122,969,240`, and `29` raters. | Historical governance observation at that time; it did not establish selection, acceptance, acquisition, accession, or permanent-Collection membership. The later 10:15:02 observation is canonical current status. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| 8 Aug 2026, 10:15:02.0167151 UTC | Canonical current signed-drop API readback returns the same drop as signed `WINNER`, rank `1`, realtime rating `121,603,214`, and `29` raters. | Current public status: **Selected by Museum Wave; acquisition review in progress**. Wave selection established curatorial approval. Formal gift acceptance, donor authority, transfer, title and custody, rights review, technical examination, preservation planning, accession and Collection entry will follow. The earlier 09:06:07 observation remains historical-only. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [integration map](../machine/integration-map.json) |
+| 8 Aug 2026, 10:15:02.0167151 UTC | Canonical current signed-drop API readback returns the same drop as signed `WINNER`, rank `1`, realtime rating `121,603,214`, and `29` raters. | Current public status: **Selected by Museum Wave; acquisition review in progress**. The result records the Museum Wave's selection of the exact five-Work proposal. Formal gift acceptance, donor authority, transfer, title and custody, rights review, technical examination, preservation planning, accession and Collection entry will follow. The earlier 09:06:07 observation remains historical-only. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [integration map](../machine/integration-map.json) |
 
 ## Future correction rule
 

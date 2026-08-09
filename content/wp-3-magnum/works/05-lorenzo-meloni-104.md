@@ -1,9 +1,7 @@
 # Lorenzo Meloni, *Palmyra, Syria*
 
-![Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg)
-
 *Short label: Palmyra, 1 April 2016 · Syria. Historical Wave proposal
-presentation media; exact upstream URL and its stated credit remain recorded.*
+record; the non-rendering source locator and stated credit remain recorded.*
 
 ## Looking at the Work
 

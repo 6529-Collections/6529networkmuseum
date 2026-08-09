@@ -76,10 +76,11 @@ EXPECTED_CONTEXT = {
     "scope": "historical_public_wave_proposal_context_only",
     "outside_scope": "deny",
 }
-ALLOWED_AFFORDANCES = {"view", "hero", "alt_text", "open_historical_public_wave_url", "copy_citation"}
+ALLOWED_AFFORDANCES = {"alt_text", "copy_citation"}
 BLOCKED_AFFORDANCES = {"download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"}
 DENY_RUNTIME_FIELDS = {
-    "url_rewrite": "deny", "runtime_fallback": "deny", "repository_derivative": "deny",
+    "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "deny",
+    "repository_derivative": "deny",
     "responsive_variants": "deny", "download": "deny", "full_resolution_claim": "deny",
     "zoom": "deny", "fullscreen": "deny", "iiif_or_tiled_service": "deny", "preservation_claim": "deny",
 }
@@ -144,8 +145,8 @@ def validate_join(join: dict) -> list[str]:
         fail("historical Wave label must be required")
 
     runtime = join.get("runtime_policy", {})
-    if runtime.get("source_url_policy") != "exact_allowlisted_wave_media_url_only":
-        fail("runtime source policy must allow exact URLs only")
+    if runtime.get("source_url_policy") != "recorded_evidence_locator_no_runtime_fetch":
+        fail("runtime source policy must retain locators without fetching them")
     for key, expected in DENY_RUNTIME_FIELDS.items():
         if runtime.get(key) != expected:
             fail(f"runtime policy {key!r} must be {expected!r}")
@@ -180,8 +181,8 @@ def validate_join(join: dict) -> list[str]:
             fail(f"{label}: media URL is not an exact allowlisted Wave-upload URL")
         if parsed.path != BASE_URL.replace("https://d3lqz0a4bldqgf.cloudfront.net", "") + expected["wave_path"]:
             fail(f"{label}: Wave-upload URL does not match the retained part/media path")
-        if row.get("wave_media_url_type") != "historical_wave_drop_upload" or row.get("media_status") != "historical_wave_url_reference_only":
-            fail(f"{label}: Wave media must remain a historical drop-upload URL reference")
+        if row.get("wave_media_url_type") != "historical_wave_drop_upload" or row.get("media_status") != "non_rendering_historical_source_locator":
+            fail(f"{label}: Wave media must remain a non-rendering historical source locator")
         if row.get("rights_label") != "All Rights Reserved":
             fail(f"{label}: rights label must be All Rights Reserved")
         credit = row.get("credit_line", "")
@@ -194,8 +195,8 @@ def validate_join(join: dict) -> list[str]:
         display = row.get("standalone_work_display", {})
         if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "pending_wp1_graph_binding":
             fail(f"{label}: standalone Work display must fail closed pending the final graph relation")
-        if row.get("load_policy") != "user_initiated_non_eager":
-            fail(f"{label}: upstream source must be user-initiated and non-eager")
+        if row.get("load_policy") != "blocked_pending_reviewed_display_authority":
+            fail(f"{label}: upstream source loading must remain blocked pending reviewed display authority")
         alt = row.get("alt_text", "")
         if not alt or any(contains_term(alt, term) for term in ("identity", "name", "age", "tear gas")):
             fail(f"{label}: alt text must remain a non-identifying visible-fact description")
@@ -269,8 +270,12 @@ def validate_work_projections(projections: dict) -> list[str]:
             if manifestation.get("type") == "historical_wave_presentation_media":
                 if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "pending_wp1_receipt_binding":
                     errors.append(f"{row.get('canonical_work_id')}: manifestation lacks current publication observation binding")
-                if manifestation.get("standalone_route") != "deny_without_verified_work_ca_media_observation_relation":
-                    errors.append(f"{row.get('canonical_work_id')}: manifestation standalone route is not fail-closed")
+                if (
+                    manifestation.get("standalone_route") != "deny"
+                    or manifestation.get("display_scope") != "non_rendering_evidence_only"
+                    or manifestation.get("load_policy") != "blocked_pending_reviewed_display_authority"
+                ):
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation must remain non-rendering and fail closed")
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
                     if (
@@ -309,7 +314,7 @@ def validate_mutation_guards(join: dict) -> list[str]:
         ("mutated proposal presentation context", lambda value: value["works"][0]["presentation_context"].update(proposal_id="other")),
         ("presentation outside-scope permission", lambda value: value["works"][1]["presentation_context"].update(outside_scope="allow")),
         ("standalone route bypass", lambda value: value["works"][1]["standalone_work_display"].update(outside_scope="allow", verification_status="verified")),
-        ("unsupported historical URL affordance", lambda value: value["works"][2]["allowed_ui_affordances"].__setitem__(3, "open_signed_wave_source")),
+        ("unsupported historical URL affordance", lambda value: value["works"][2]["allowed_ui_affordances"].append("open_signed_wave_source")),
         ("mutated current observation time", lambda value: value["current_status_observation"].update(observed_at="2026-08-08T09:06:07.985Z")),
     )
     return [error for label, mutate in mutations if (error := mutation_test_rejects(join, mutate, label))]
@@ -325,6 +330,13 @@ def main() -> int:
 
     errors = validate_join(join)
     errors.extend(validate_work_projections(projections))
+    for work_path in sorted((ROOT / "works").glob("*.md")):
+        work_text = work_path.read_text(encoding="utf-8")
+        if re.search(r"!\[[^\]]*\]\(https?://", work_text):
+            errors.append(f"{work_path.name}: public Work manuscript must not embed remote media")
+    saman_alt = join["works"][3].get("alt_text", "").lower()
+    if "impact mark" in saman_alt or "bullet" in saman_alt or "air strike" in saman_alt:
+        errors.append("Saman accessibility text must not infer the cause of visible wall marks")
     if not errors:
         errors.extend(validate_mutation_guards(join))
     if errors:

@@ -30,8 +30,8 @@ The corpus supplies a typed handoff for the WP-1 public ontology:
   `selected_by_museum_wave_acquisition_review_in_progress` and collection
   membership `not_in_collection`. Proposal object IDs remain typed aliases
   ([object schedule](machine/object-schedule.json); [integration map](machine/integration-map.json)).
-- **Curated Acquisition:** *Conflict at Its Edges*, the donor-formed,
-  selected five-work unit under acquisition review
+- **Curated Acquisition:** *Conflict at Its Edges*, the five-Work unit formed
+  by its publicly credited offeror and selected for acquisition review
   ([S37](sources/source-register.md); [integration map](machine/integration-map.json)).
 - **Research Publications:** the institutional and project profiles, artist
   profiles, object entries, essays, chronologies, and evidence dossiers in
@@ -62,8 +62,8 @@ The 09:06:07 observation is preserved as historical-only. The canonical current
 signed-drop API readback at `2026-08-08T10:15:02.0167151Z` records the same signed
 drop as `WINNER`, rating `121603214`, and `29` raters. Current public status is
 **Selected by Museum Wave; acquisition review in progress** ([S37](sources/source-register.md);
-[object schedule](machine/object-schedule.json)). Wave selection
-established curatorial approval. Formal gift acceptance, donor authority,
+[object schedule](machine/object-schedule.json)). The result records the Museum
+Wave's selection of the exact five-Work proposal. Formal gift acceptance, donor authority,
 transfer, title and custody, rights review, technical examination, preservation
 planning, accession and Collection entry will follow. The five Work projections retain the typed
 WP-1 lifecycle and `collection_membership: not_in_collection` fields
