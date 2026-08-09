@@ -317,6 +317,8 @@ class PublicEntityLayerTests(unittest.TestCase):
             "schemas/public-relation.schema.json",
             "schemas/public-route-compatibility.json",
             "schemas/public-route-compatibility.schema.json",
+            "schemas/publication-catalog-pointer.schema.json",
+            "schemas/publication-catalog.schema.json",
             "schemas/record-envelope.schema.json",
             "schemas/wave-status-observation.schema.json",
         )

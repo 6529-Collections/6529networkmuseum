@@ -93,6 +93,8 @@ ASSEMBLY_CONTROL_PATHS = (
     "schemas/public-route-compatibility.schema.json",
     "schemas/public-publication-inventory.schema.json",
     "schemas/public-publication-bundle.schema.json",
+    "schemas/publication-catalog-pointer.schema.json",
+    "schemas/publication-catalog.schema.json",
     "schemas/record-envelope.schema.json",
     "schemas/wave-status-observation.schema.json",
 )

@@ -31,14 +31,14 @@ vocabularies, entity-identity inventory, relation-identity inventory, and route
 compatibility map, together with each governing schema and the complete schema
 dependency chain for entity, relation, lifecycle-observation, and envelope
 records. The visitor publication inventory, visitor bundle, and release
-manifest are regenerated from that closed set. Tests require all fourteen
+manifest are regenerated from that closed set. Tests require all eighteen
 controls in the inventory and bundle alongside the active bindings and retired
 tombstones.
 
-Candidate A4's regenerated publication inventory contains 530 entries: 529
-atomic assembly documents and one approved public media asset. Its 105 assembly
-controls include the fourteen closed graph-validation files. The visitor bundle
-contains all 529 assembly documents and remains below the governed
+Candidate A4's regenerated publication inventory contains 532 entries: 531
+atomic assembly documents and one approved public media asset. Its 107 assembly
+controls include the eighteen closed graph and release-validation files. The
+visitor bundle contains all 531 assembly documents and remains below the governed
 eight-megabyte ceiling.
 
 Because the publication source commitments change, the correction follows the
