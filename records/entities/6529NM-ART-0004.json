@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xcf473e2fee5ff76dee6cb3aae6968147a6251d555c787d4f050b821f9e182366",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0004.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0004.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/nasimghanizadeh",

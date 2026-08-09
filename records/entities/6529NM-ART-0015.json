@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xd4701987daac034915b366ab1f2fcd8267b618f0abca7edd7df8c138dfe338ea",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0015.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0015.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/shamspranto",

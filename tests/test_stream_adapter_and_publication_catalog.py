@@ -744,8 +744,6 @@ class PublicationCatalogTests(unittest.TestCase):
             {"path": "media/art.png", "kind": "approved_public_media", "delivery_role": "media_asset", "required_in_catalog": True, "activation_mode": "deferred_on_demand"},
             {"path": "records/entities/E.json", "kind": "public_entity_record", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/media-manifest.json", "kind": "public_media_source_manifest", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
-            {"path": "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json", "kind": "media_description_amendment", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
-            {"path": "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json", "kind": "wave_observation", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json", "kind": "wave_observation", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/relations/R.json", "kind": "public_relation_record", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "schemas/control.json", "kind": "public_assembly_control_document", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
@@ -844,7 +842,17 @@ class PublicationCatalogTests(unittest.TestCase):
         self._write_bundle(root)
         for relative in ("public-publication-inventory.schema.json", "public-publication-bundle.schema.json", "publication-catalog.schema.json", "publication-catalog-pointer.schema.json"):
             (root / "schemas" / relative).write_bytes((ROOT / "schemas" / relative).read_bytes())
-        for relative in ("generate_manifest.py", "generate_public_publication_inventory.py", "generate_public_publication_bundle.py", "bootstrap_validate.py", "validate.py"):
+        for relative in (
+            "generate_manifest.py",
+            "generate_public_publication_inventory.py",
+            "generate_public_publication_bundle.py",
+            "bootstrap_validate.py",
+            "validate.py",
+            "magnum/check_copy_citations.py",
+            "magnum/check_local_references.py",
+            "magnum/check_media_policy.py",
+            "magnum/check_public_utf8.py",
+        ):
             path = root / "scripts" / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text("raise SystemExit(0)\n", encoding="utf-8", newline="\n")
@@ -860,7 +868,10 @@ class PublicationCatalogTests(unittest.TestCase):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         candidate_sha = manifest["manifest_sha256"]
         candidate_keccak = manifest["manifest_commitment"]["digest"]
+        reviewable_paths = set(inventory["assembler"]["required_paths"])
         for relative, record in record_paths.items():
+            if relative not in reviewable_paths:
+                continue
             payload = record["payload"]
             payload["reviewer"] = {"id": "reviewer:test", "role": "reviewer", "reviewed_at": "2026-08-08T18:00:00Z", "reviewed_manifest_sha256": candidate_sha, "reviewed_manifest_keccak": candidate_keccak, "reviewed_commit": candidate, "reviewer_ids": ["reviewer:test"], "outcome": "approved"}
             payload["record_status"] = "reviewed"
@@ -961,10 +972,18 @@ class PublicationCatalogTests(unittest.TestCase):
         try:
             import publication_catalog as catalog_module
             _manifest, entries, _binding = catalog_module._read_manifest(root, reviewed)
-            missing = dict(entries)
-            missing.pop("scripts/generate_public_publication_bundle.py")
-            with self.assertRaises(CatalogError):
-                _verify_deterministic_promotion_artifacts(root, reviewed, missing)
+            for required_path in (
+                "scripts/generate_public_publication_bundle.py",
+                "scripts/magnum/check_copy_citations.py",
+                "scripts/magnum/check_local_references.py",
+                "scripts/magnum/check_media_policy.py",
+                "scripts/magnum/check_public_utf8.py",
+            ):
+                with self.subTest(required_path=required_path):
+                    missing = dict(entries)
+                    missing.pop(required_path)
+                    with self.assertRaises(CatalogError):
+                        _verify_deterministic_promotion_artifacts(root, reviewed, missing)
         finally:
             temporary.cleanup()
 

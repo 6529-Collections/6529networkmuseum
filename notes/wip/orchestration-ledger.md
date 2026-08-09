@@ -2334,7 +2334,18 @@ source build. Required remaining gates are final manifest regeneration, both
 pull-request review cycles, exact-source frontend build and visual review,
 staging deployment and E2E, production deployment and E2E, and a release note
 to the Dev Team Chat subwave using the `punk6529bot` identity.
-## 2026-08-05 proposed gifts in the Museum Wave
+## 2026-08-05 proposed gifts in the Museum Wave [HISTORICAL / SUPERSEDED]
+
+> **Handoff marker:** This entry records the pre-selection proposal state and
+> its initial construction counts. The later authenticated 2026-08-08
+> `10:15:02.0167151Z` readback is the canonical current status observation:
+> **Selected by Museum Wave; acquisition review in progress**. The earlier
+> proposal wording and the initial 15-page / 121-link / 39-source inventory are
+> historical and superseded by the selected-acquisition corpus below; they are
+> retained here for append-only lineage.
+
+> Historical source-state line retained verbatim: “Status: proposed; not yet
+> submitted to the Museum Wave”.
 
 The first proposed-gift package uses the Museum Wave rather than a standing
 website gallery. One seven-part Storm holds the exact resolution, five
@@ -2650,7 +2661,6 @@ asset acceptance awaits a versioned exact-identifier schedule; on-chain art
 packages require CAIP-19-shaped identity plus separate title, custody, and
 rights facts; and Section 10 cannot bypass Section 9's prior-approval gate for
 conversion of unsolicited non-approved assets.
-
 ## 2026-08-08 Final pre-vote policy correction
 
 Punk6529's Wave authorization covered withdrawal and replacement with the
@@ -3209,3 +3219,335 @@ Program-media tests now cover withheld, one-width, missing, non-list, Boolean,
 duplicate, unordered, unsupported, and oversized policies. No public catalog,
 pointer, image delivery, mint, acquisition, accession, or Collection membership
 has been activated.
+## 2026-08-08 WP-3 Magnum scholarship corpus [HISTORICAL / SUPERSEDED CONSTRUCTION ENTRY]
+
+> **Handoff marker:** This construction entry predates the current rewrite and
+> is retained for append-only lineage. Its proposed-gift wording and initial
+> page/link/source counts are historical; current status is the canonical
+> 10:15:02.0167151Z selected-review observation, and current corpus counts must
+> be taken from the validated files and regenerated manifest.
+
+The pre-branch green source-base check is [run 31252451827](https://github.com/6529-Collections/6529networkmuseum/actions/runs/31252451827) against canonical main `4821ea52e4cb8e0f0915824fbc2946ec0f6313b8`.
+
+WP-3 created the isolated `content/wp-3-magnum/` corpus for proposed gift
+`6529NM-PG-2026-001` and Curated Acquisition `6529NM-CA-2026-003`. It contains
+the Magnum Photos organization profile, Magnum Photos 75 project profile, five
+artist profiles, five public Work projections and essays, acquisition gateway,
+group essay, acquisition narrative, caption/evidence and chronology dossiers,
+source register, rights/technical/provenance record, media plan, and machine
+WP-1 admission drafts.
+
+The five public Work pages now use one visitor status line,
+`Proposed in the Museum Wave · Outside the permanent Collection.`, one concise
+Further research section, and a clean Source and rights colophon. They do not
+publish provisional Work IDs, raw lifecycle/collection tokens, evidence-class
+labels, machine-join/frontend directives, or repeated selection-status strings.
+Saman’s open research asks for safeguarding/consent/caption/restricted-identity
+documentation; identifying the child is not a public research goal.
+
+The exact historical Wave media URLs remain reference/embed-only proposal media
+with artist/Magnum credit, `All Rights Reserved`, and a Wave-source label. No
+repository derivative, download, full-resolution claim, IIIF, preservation copy,
+or Collection publication permission is inferred. The machine join maps each
+work to its Wave part, exact URL, token metadata, and source record.
+
+The strict decoded-byte UTF-8/no-mojibake check passes all 15 public pages; the
+local link inventory checks 121 links; all 39 source IDs resolve; and the four
+machine JSON drafts parse. WP-1 must assign acquisition-independent Work IDs,
+admit the organization/project/artists/works/Curated Acquisition/publications/
+media/relations as one release group, add the isolated root to the manifest, and
+bind the release to the reviewed commit. No shared schema or controlled
+vocabulary was changed. The 148-at-block observation and separate 149-issued
+research enumeration remain separate claims.
+
+Source PR #36 subsequently merged to exact main
+`ff26543908c5d1e1851e34b597b36ab13ff20849`; the WP-3 branch must fetch/rebase
+onto that main, preserve the policy/publication/ledger/index records, regenerate
+the release manifest, and rerun validation before its draft/ready PR. Do not
+adopt the unrelated replacement-policy draft outside this worktree.
+
+## 2026-08-09 Magnum canonical integration candidate
+
+WP-3 is rebased through canonical K&G main
+`b021b50c8c394d3f237707eded17fe6bb394b422`. Its visitor corpus has moved from
+the construction namespace into
+`records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/`. Research
+Publication `6529NM-RP-0003` and relations `6529NM-REL-0198` through
+`6529NM-REL-0211` complete the typed publication graph. The projection now
+contains 120 entities, 211 relations, and one Wave status observation.
+
+The canonical publication join uses the enveloped 8 August observation and its
+part-content hashes. The later 9 August public-safe API evidence is retained as
+supplemental URL/MIME/media-state readback. It is not the graph's canonical
+publication identity. Image delivery remains denied for all five photographs;
+the historical URLs are citation evidence only.
+
+Focused Magnum copy, links, UTF-8, media-policy checks and 38 public-entity /
+editorial tests pass. The pre-schema candidate boundary was 534 publication
+inventory entries, 533 visitor-bundle entries, and 775 manifest entries, with
+manifest SHA-256
+`sha256:617befc175f8f61897bd6150d85605a641210fdd2540cbfb4d579dae66a1bc80`
+and Keccak
+`0xed2f45eb33c639ab579345012a02dced06dc830cc066cfc0807a6f2d30979df1`.
+Those commitments were superseded when the public-safe evidence and machine
+records received required closed top-level governed schemas. The current
+candidate boundary contains 534 publication-inventory entries, 533
+visitor-bundle entries, and 777 complete-manifest entries. Its authoritative
+SHA-256 is
+`sha256:bbabfe4e198fe833782257496165374d80adacf37d163eb04388d317d563c4a9`
+and its Keccak commitment is
+`0x507e63112fb1573b866c28c89cf699f4cea51c23da702029850e10ae1aab4672`.
+Exact-head review, merge, reviewed-child promotion, catalog/pointer activation,
+frontend binding, and staging/production qualification remain open.
+
+## 2026-08-09 Magnum review correction checkpoint
+
+Candidate `93f8742cb64121cabd8a2f68ccd128879ec49a6e` was rejected by four independent
+review lanes. The correction work removes unsupported child and damage-cause
+assertions, suppresses direct restricted-photo links throughout visitor prose,
+closes all Magnum machine schemas and the seven-part public-safe Wave evidence
+schema, moves the four deterministic corpus checks into manifest-governed
+`scripts/magnum/`, and includes the scholarship README in every public copy and
+Unicode gate. The publication-catalog A-to-B verifier now requires those four
+checks unchanged.
+
+The regenerated correction boundary is 534 publication inventory entries, 533
+visitor bundle entries, and 781 complete-manifest entries. Its authoritative
+commitments live in `release-artifacts/latest/record-manifest.json`; this
+manifest-bound ledger deliberately does not duplicate them.
+Bootstrap validation, deterministic generation checks, 22-document editorial
+and UTF-8 checks, visitor-media suppression, and 40 focused schema/projection
+tests pass. Fresh exact-head review, hosted CI, merge, reviewed-child B,
+catalog-activation C, and frontend qualification remain open.
+
+## 2026-08-09 Magnum exact-evidence correction
+
+Bot review of the corrected candidate found seven final contract issues. The
+Saman and Meloni research notes now state the exact token and issuance
+boundaries. The acquisition narrative separates chain transfer evidence from
+donor authority, title, custody, rights, and accession. Machine records now use
+one exact standalone-route policy, one closed Saman identity-inference shape,
+and Work source arrays computed from the source IDs cited on each public Work
+page. The Magnum Photos Organization and five Artist projections retain both
+the original proposal evidence and the later research-profile evidence, with
+the current profile dated to research publication rather than backdated to the
+proposal. Generator compound statements were also split to satisfy the Python
+style gate.
+
+The focused editorial, media, closed-schema, provenance, and public-entity
+suite passes 40 tests. The projection, inventory, bundle, and complete manifest
+must now be regenerated; after that, a new signed exact head requires fresh
+independent review and hosted CI before candidate A may merge.
+
+The next review pass tightened the apparently-young-subject contract at all
+three layers: schema, runtime validator, and adversarial test. A public media
+record now requires non-empty accessibility text and a structural prohibition
+covering both identity and age classification; child, minor, juvenile,
+adolescent, teen, boy, girl, and infant classifications are rejected. The
+Magnum media checker now reports malformed list and policy shapes rather than
+raising an exception. The isolated A-to-B verifier also executes all four
+manifest-bound Magnum checks, and its tests prove that omitting any one of them
+fails closed. The supplemental signed-WINNER observation is recorded with its
+exact `2026-08-09T02:04:21.7672652Z` observation time.
+
+## 2026-08-09 Magnum final publication-boundary correction
+
+Exact-head curatorial and media review rejected candidate `3958696820cb37faaeda61ade97aad59b82b01a8`.
+The visitor corpus had admitted public historical Storm and voter manuscripts,
+including five restricted source-image locators and superseded Saman age
+language. The correction preserves those files as public governed evidence and
+complete-manifest entries while excluding proposed-gift Wave manuscripts,
+voter dossiers, resolutions, and status amendments from the website bundle.
+Current scholarship remains admitted atomically. An executable regression
+checks both preservation and non-delivery.
+
+Research Publication `6529NM-RP-0003` now has a shared edition and citation
+record. All 23 manuscripts carry institutional author, edition, publication
+date, research cutoff, and a publication-record link. The frontend continues
+to construct literal immutable source links from the exact reviewed commit in
+the active publication catalog. Offeror credit, proposal-origin grouping,
+Museum interpretation, artist authorship, and later donor authority are now
+explicitly separate facts.
+
+The same correction incorporates the complete bot-minor audit: URI-scheme and
+source-ID checks, exact Seymour credit, row-level rights notices, date precision,
+issuer-place spelling, Bar-Am append-only supersession, guarded file reads,
+future-safe editorial regexes, Work-publication evidence assertions, WIP table
+escaping, and targeted prose corrections. Focused gates pass; complete release
+regeneration, exact-head review, hosted CI, B/C activation, and frontend release
+remain open.
+
+## 2026-08-09 Magnum exact-record correction
+
+- Corrected generated logical URIs from duplicated `/records/records/` paths to
+  stable repository-root paths.
+- Rebound Wave-publication evidence to the exact later observation timestamp.
+- Reduced Magnum Photos 75 to one typed organization-originator relation plus
+  five Project-to-Work context relations. Photographer authorship remains at the
+  independent Work level.
+- Retired relation IDs `6529NM-REL-0159` through `0164` through append-only
+  tombstones; no identifier was reused.
+- Regenerated projection: 120 entities, 205 relations, one Wave status
+  observation. Focused 44-test, bootstrap, editorial, media, inventory, and
+  bundle checks pass.
+- Complete pre-commit qualification passed: 306 unit tests with one Windows
+  platform skip, the full Museum/Casey validator, Casey package verification,
+  the 22-file diligence-manifest check, fetch guard, manifest checks, and
+  whitespace validation. Exact-head independent review and hosted CI remain.
+
+## 2026-08-09 Magnum visitor-boundary correction
+
+Independent curatorial and rights/privacy review rejected exact candidate
+`e18bbf64135ca0b23ce6c6992a0927c568a357b0`. The visitor bundle had admitted the
+full Wave publication receipt and Bar-Am accessibility amendment, preserving
+restricted image locators, while generated graph records exposed direct paths
+into excluded decision history. Research Publication `6529NM-RP-0003` also
+described only one catalogue essay although the manuscript claimed a complete
+dossier.
+
+The correction retains all source records in the complete release manifest,
+excludes the two locator-bearing JSON records from visitor delivery, replaces
+raw decision-history locators in public graph evidence with the public Wave drop
+or exact scholarship pages, and binds lifecycle facts to the stable WINNER
+observation record ID. `6529NM-RP-0003` is now a research dossier whose machine
+profile enumerates 21 exact component manuscripts. New regression tests scan
+the JSON visitor boundary, reject missing WINNER-record bindings, and fail if
+raw proposal or Wave-history paths re-enter the public graph. The corrected
+boundary contains 518 inventory entries and 517 visitor bundle entries.
+
+Focused tests and the full Museum/Casey validator pass. Complete qualification,
+fresh exact-head independent review, hosted CI, merge, reviewed-child promotion,
+catalog activation, and frontend qualification remain open.
+
+## 2026-08-09 Magnum visitor-reference review
+
+- Exact candidate `be98961c70ccbc184c8fdf534f0f00a6b3036f47` passed hosted
+  Ubuntu, Windows, publication, catalog, and Museum validation, but independent
+  ontology review rejected its visitor-reference surface.
+- Corrected scope: ten public manuscripts, the local-reference checker, its
+  adversarial tests, and deterministic publication/manifest regeneration.
+- Public manuscripts no longer link to excluded machine records, raw Wave
+  receipt paths, or direct Arweave metadata. Stable Museum IDs, the public Wave,
+  and the public source register carry the visitor citations.
+- The new publication-inventory-aware gate fails closed when a visitor document
+  links outside the atomic website corpus or exposes a complete-manifest-only
+  evidence marker.
+- Merge remains blocked on exact-tree qualification, fresh hosted checks, and
+  terminal verdicts from independent curatorial, rights/privacy, ontology, and
+  reproducibility reviewers.
+
+## 2026-08-09 Magnum protocol-relative media rejection
+
+- Rights/privacy review rejected exact candidate
+  `f7334a5037f6f9921ee6eff5513ec6521b39919d` despite a clean current visitor
+  corpus: scheme-relative restricted image targets could evade both visitor
+  validators.
+- The corrected gates reject remote image embeds under any absolute URI scheme
+  or protocol-relative form and normalize restricted locators to their
+  scheme-relative spelling before comparison.
+- A dedicated regression reproduces the reported `//arweave.net/...` bypass.
+- The remaining three reviews of the rejected commit were stopped. All four
+  lanes must restart against the next exact candidate.
+
+## 2026-08-09 Magnum canonical-locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `21300d9eb7489c584afc93a24de9ae639096330f`: uppercase hosts, explicit default
+  ports, and percent-encoded paths could still identify a restricted asset
+  without matching its stored URL string.
+- Both visitor gates now canonicalize overlapping HTTP(S) and scheme-relative
+  locators across host case and trailing dots, IDNA, default ports, bounded
+  percent-decoding, dot segments, backslash separators, query/fragment forms,
+  encoded nested URLs, and extra post-scheme slashes; malformed host controls
+  are rejected.
+- The local-reference checker now consumes the exact five-Work media join and
+  independently rejects all ten restricted source and historical Wave
+  locators; the media-policy checker retains the same closed set.
+- Tests exercise Arweave and CloudFront variants through both validators. All
+  four independent lanes must restart after the next signed exact candidate.
+
+## 2026-08-09 Magnum one-slash locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `29263fcd909465ec69df182be27387ee4da79267`: a restricted external locator
+  written with one or zero slash characters after `http:` could still be
+  resolved by a browser but was outside the validator extractor.
+- Both visitor gates now recognize zero-or-more slash/backslash spellings after
+  HTTP(S), normalize the scheme boundary, and compare the resulting host, port,
+  and path to the exact restricted media set. Browser-discarded tab/newline
+  controls and CommonMark punctuation escapes are removed in the decoded scan
+  before comparison; active raw HTML/CSS resource affordances are independently
+  prohibited.
+- Adversarial tests cover Markdown, reference-style Markdown, HTML-anchor, and
+  CSS-container forms. The other three reviews were stopped; all four lanes
+  restart only after the new candidate is signed and pushed.
+
+## 2026-08-09 Magnum research-cutoff rejection
+
+- Curatorial review rejected exact candidate
+  `d812b1cc7656d39d33fa2c9e72ecb6e5521c0008`: its stated 8 August 2026
+  research cutoff preceded source-register observations S53 and S54 on 9
+  August, including an observation used by the rights/technical dossier.
+- The publication record and every component header now use a 9 August 2026
+  cutoff. A deterministic editorial gate parses the canonical cutoff and
+  rejects any later ISO-dated source-register observation; a regression test
+  restores the rejected 8 August value and requires failure.
+- The remaining three reviews were stopped before mutation. Complete
+  regeneration, validation, a new signed candidate, fresh hosted CI, and four
+  entirely fresh independent reviews remain mandatory.
+
+## 2026-08-09 Magnum escaped custom-scheme rejection
+
+- Rights/privacy review rejected exact candidate
+  `e10866237b4e3dfe57dabc4e444b6302425e645e`: a CommonMark-escaped or
+  HTML-entity-encoded `ar://<transaction-id>` reference bypassed both visitor
+  verifiers even though the rendered destination recovered the prohibited
+  custom scheme.
+- The local-reference and media-policy gates now share equivalent HTML,
+  bounded percent, control-character, and CommonMark decoding before rejecting
+  every `ar:` custom-scheme locator. Tests reproduce escaped reference-link,
+  entity-encoded HTML-anchor, and percent-encoded inline-link forms through
+  both gates.
+- The parallel replacement reviewer was stopped before mutation. A newly
+  signed exact candidate, complete deterministic qualification, hosted CI, and
+  four entirely fresh independent reviews remain mandatory.
+
+## 2026-08-09 Magnum IDNA trailing-dot rejection
+
+- Rights/privacy review rejected exact candidate
+  `a5ad49c945501b94b948a246d44836ed4881c176`: Unicode IDNA label separators
+  appended to restricted hosts were converted to an ASCII DNS root dot after
+  the canonicalizers had already stripped ordinary trailing dots.
+- Both visitor gates now strip the root marker after IDNA mapping. Regressions
+  cover U+3002, U+FF0E, and U+FF61 on every governed token-source and Wave media
+  locator, in bare, inline, reference, and raw-anchor forms, through both
+  independent validators.
+- The other three reviews were stopped before mutation. Complete
+  qualification, a new signed head, hosted CI, and four fresh independent
+  reviews remain mandatory.
+
+## 2026-08-09 Magnum C0-control locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `adaed1a21f31b15a18703c350a0802fa02602696`: C0 controls appended to a
+  restricted media URL survived both comparison keys even though browser URL
+  parsing discarded them and recovered the governed locator.
+- Both visitor gates now compact the complete ASCII C0 range and DEL before
+  comparison. Regressions cover every control on all ten governed locators in
+  bare, inline, reference, and raw-anchor forms through both gates.
+- Three other lanes had accepted the rejected bytes. Complete qualification,
+  a new signed head, hosted CI, and four fresh independent reviews remain
+  mandatory.
+
+## 2026-08-09 Magnum control-target path rejection
+
+- Rights/privacy review rejected exact candidate
+  `1f01f43ca717fc486593afab73f160316f188652`: NUL-prefixed and
+  scheme-inserted Markdown targets crashed the local-reference gate during
+  path resolution, although the media-policy gate rejected them.
+- Markdown targets are now bounded-decoded before classification; control
+  characters and invalid platform paths produce controlled gate errors.
+  Regressions place every C0 control and DEL at four URL boundaries for all ten
+  governed locators and four rendered forms through both gates.
+- The other three reviews were stopped. Complete qualification, a new signed
+  head, hosted CI, and four fresh reviews remain mandatory.

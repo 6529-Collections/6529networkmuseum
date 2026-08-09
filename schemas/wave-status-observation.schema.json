@@ -34,10 +34,16 @@
             "source_status": {"const": "PARTICIPATORY"},
             "observed_at": {"type": "string", "format": "date-time"},
             "source_record_id": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
-            "source_record_path": {"type": "string", "pattern": "^records/[^\\s]+$"},
+            "source_record_path": {
+              "oneOf": [
+                {"type": "string", "pattern": "^records/[^\\s]+$"},
+                {"type": "null"}
+              ]
+            },
+            "source_repository_visibility": {"const": "complete_manifest_only"},
             "source_url": {"type": "string", "format": "uri", "pattern": "^https://[^\\s]+$"}
           },
-          "required": ["source_status", "observed_at", "source_record_id", "source_record_path", "source_url"],
+          "required": ["source_status", "observed_at", "source_record_id", "source_record_path", "source_repository_visibility", "source_url"],
           "unevaluatedProperties": false
         },
         "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}}

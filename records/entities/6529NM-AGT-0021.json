@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4b2ca06a7340c77e11273f05061464b1374920f53bc92d209a6282115e931f77"
+      "digest": "0xcf8100bc814c739054ef2ecd607d724c1631ce80338eaf9bd1532519adde6cae"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x71949b4c0a903024f8fa4276d025d38b083c21abe31dca47890327de19a99c23",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-AGT-0021.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-AGT-0021.json"
   },
   "payload": {
     "canonical_route": null,
@@ -35,12 +35,12 @@
         "evidence_class": "B",
         "label": "Proposed gift object label",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:38bb87ed62bfea65d3cebbecd6eb2865bc95d3da973ffa6a1295835cc9d19d4b",
+    "payload_sha256": "sha256:6cc049ecb0dadf618f6113015471b4907370c1c8eef945b312273136e3e8f9ad",
     "preferred_label": "Moisés Saman",
     "profile": {
       "agent_kind": "PERSON",
@@ -52,7 +52,7 @@
             "evidence_class": "B",
             "label": "Proposed gift object label",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
         ]
       },
@@ -63,7 +63,7 @@
               "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -96,7 +96,7 @@
           "evidence_class": "B",
           "label": "Proposed gift object label",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

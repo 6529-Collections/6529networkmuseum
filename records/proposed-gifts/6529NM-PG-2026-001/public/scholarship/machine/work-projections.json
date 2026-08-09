@@ -1,0 +1,178 @@
+{
+  "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "role": "constructor",
+      "constructed_at": "2026-08-09T03:33:36Z"
+    },
+    "review": null
+  },
+  "local_profile": "6529NM_WP3_MAGNUM_PUBLIC_WORK_PROJECTIONS_V1",
+  "status": "canonical_review_pending_public_work_projection",
+  "public_root": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship",
+  "final_public_namespace": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship",
+  "final_public_paths_owner": "6529 Network Museum public entity contract",
+  "shared_schema_owner": "6529 Network Museum public entity contract",
+  "canonical_work_id_policy": "The governed identity inventory supplies the acquisition-independent Work IDs below; proposal object IDs remain labelled aliases.",
+  "evidence_sources_scope": "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source.",
+  "organization_entity_id": "6529NM-ORG-0002",
+  "project_entity_id": "6529NM-PRJ-0006",
+  "curated_acquisition_id": "6529NM-CA-2026-003",
+  "current_public_status": "Selected by Museum Wave; acquisition review in progress",
+  "current_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+  "current_status_observation": {
+    "record_type": "WAVE_STATUS_OBSERVATION",
+    "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097"
+  },
+  "current_publication_observation": {
+    "record_type": "WAVE_PUBLICATION_OBSERVATION",
+    "observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001",
+    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "payload_sha256": "sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995",
+    "binding_status": "bound_canonical_wave_publication_observation",
+    "receipt_path": "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
+    "receipt_sha256": "sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58"
+  },
+  "prior_wave_observation": {
+    "source_status": "PARTICIPATORY",
+    "observed_at": "2026-08-08T09:06:07.985Z",
+    "historical_only": true
+  },
+  "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+  "collection_membership": "not_in_collection",
+  "accession_record": null,
+  "object_record": null,
+  "works": [
+    {
+      "public_work_slug": "david-seymour-patrolling-negev-jordan-1952",
+      "canonical_work_id": "6529NM-W-0024",
+      "canonical_route": "/museum/network/works/6529NM-W-0024",
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-001",
+      "public_page": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/01-david-seymour-127.md",
+      "artist_slug": "david-seymour",
+      "artist_entity_id": "6529NM-ART-0017",
+      "artist_display_name": "David Seymour",
+      "title": "Patrolling the border between the Negev Desert and Jordan",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
+        "token_id": "127",
+        "metadata_uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM", "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600, "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg", "token_source_uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0003", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
+      ],
+      "evidence_sources": ["S10", "S19", "S37", "S38", "S42", "S43"]
+    },
+    {
+      "public_work_slug": "larry-towell-soldiers-church-suchitoto-1986",
+      "canonical_work_id": "6529NM-W-0025",
+      "canonical_route": "/museum/network/works/6529NM-W-0025",
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-002",
+      "public_page": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/02-larry-towell-145.md",
+      "artist_slug": "larry-towell",
+      "artist_entity_id": "6529NM-ART-0018",
+      "artist_display_name": "Larry Towell",
+      "title": "Government soldiers in a church, Suchitoto, El Salvador",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+        "token_id": "145",
+        "metadata_uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE", "sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee", "bytes": 1813285, "width": 5369, "height": 3601, "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg", "token_source_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0041", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
+      ],
+      "evidence_sources": ["S11", "S20", "S21", "S33", "S37", "S38", "S45", "S47"]
+    },
+    {
+      "public_work_slug": "micha-bar-am-demonstration-western-wall-1989",
+      "canonical_work_id": "6529NM-W-0026",
+      "canonical_route": "/museum/network/works/6529NM-W-0026",
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-003",
+      "public_page": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/03-micha-bar-am-97.md",
+      "artist_slug": "micha-bar-am",
+      "artist_entity_id": "6529NM-ART-0019",
+      "artist_display_name": "Micha Bar-Am",
+      "title": "Demonstration, Western Wall, Jerusalem",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
+        "token_id": "97",
+        "metadata_uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4", "sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df", "bytes": 1666083, "width": 5000, "height": 3292, "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg", "token_source_uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0042", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny", "alt_text_amendment_binding": {"status": "canonical_current_safe_description", "historical_seven_part_wording_preserved": true, "supersedes": {"source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", "record_revision": 1, "part_number": 4, "media_index": 0, "assertion_path": "media.alt_text", "assertion_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"}}}
+      ],
+      "evidence_sources": ["S12", "S22", "S23", "S25", "S34", "S37", "S38", "S44", "S50"]
+    },
+    {
+      "public_work_slug": "moises-saman-tripoli-2011",
+      "canonical_work_id": "6529NM-W-0027",
+      "canonical_route": "/museum/network/works/6529NM-W-0027",
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-004",
+      "public_page": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/04-moises-saman-44.md",
+      "artist_slug": "moises-saman",
+      "artist_entity_id": "6529NM-ART-0020",
+      "artist_display_name": "Moisés Saman",
+      "issuer_artist_label": "Moises Saman",
+      "title": "Tripoli, Libya",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
+        "token_id": "44",
+        "metadata_uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "bytes": 1540870, "width": 5616, "height": 3744, "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg", "token_source_uri": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0043", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny", "identity_inference": {"permitted": false, "display_policy": "non_identifying_visible_facts_only", "forbidden_inferences": ["name", "age", "identity", "consent", "unpublished location", "sensitive metadata", "age inference", "sensitive visual context", "visual cause", "weapon attribution"], "restricted_research_scope": true}}
+      ],
+      "evidence_sources": ["S10", "S13", "S14", "S26", "S27", "S28", "S37", "S38", "S51"]
+    },
+    {
+      "public_work_slug": "lorenzo-meloni-palmyra-2016",
+      "canonical_work_id": "6529NM-W-0028",
+      "canonical_route": "/museum/network/works/6529NM-W-0028",
+      "proposal_object_alias": "6529NM-PG-2026-001.OBJ-005",
+      "public_page": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/05-lorenzo-meloni-104.md",
+      "artist_slug": "lorenzo-meloni",
+      "artist_entity_id": "6529NM-ART-0021",
+      "artist_display_name": "Lorenzo Meloni",
+      "title": "Palmyra, Syria",
+      "token": {
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+        "token_id": "104",
+        "metadata_uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0",
+        "observed_at_block": 25690178
+      },
+      "components": [
+        {"type": "token_metadata", "uri": "https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0", "retention": "upstream_reference"},
+        {"type": "source_image", "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco", "sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2", "bytes": 16871807, "width": 5964, "height": 4768, "retention": "upstream_not_retained"}
+      ],
+      "manifestations": [
+        {"type": "historical_wave_presentation_media", "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg", "token_source_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco", "rights": "All Rights Reserved", "display_scope": "non_rendering_evidence_only", "media_reference_entity_id": "6529NM-MED-0044", "load_policy": "blocked_pending_reviewed_display_authority", "historical_label_required": true, "wave_publication_observation_id": "6529NM-WAVE-PUB-OBS-2026-08-08-001", "wave_publication_observation_binding": "bound_canonical_wave_publication_observation", "standalone_route": "deny"}
+      ],
+      "evidence_sources": ["S14", "S30", "S31", "S32", "S37", "S38", "S41", "S48", "S49"]
+    }
+  ]
+}

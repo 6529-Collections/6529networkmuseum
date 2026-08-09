@@ -38,7 +38,6 @@ TEXT_EXTENSIONS = {".json", ".md", ".txt", ".py", ".yml", ".yaml", ".svg", ".git
 MEDIA_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".svg"}
 PUBLIC_MEDIA_RIGHTS_STATUSES = {"cleared", "cleared_with_conditions"}
 EXCLUDED_PUBLIC_MARKDOWN = {
-    "records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md",
     # Superseded accessibility and delivery records remain in the source
     # repository but are not visitor manuscripts. The current accessibility
     # JSON, publication boundary, and withdrawal amendment carry the active
@@ -51,9 +50,20 @@ EXCLUDED_PUBLIC_MARKDOWN = {
     "records/programs/6529NM-AP-01/public/publication-authority-amendment-2026-08-08-005.md",
 }
 
+# Proposed-gift ballots and their supporting Storm manuscripts are public
+# historical evidence, not current Museum manuscripts. They remain in the
+# governed repository and complete record manifest, while the visitor bundle
+# admits only current scholarship below public/scholarship/. This general
+# boundary prevents a future proposal from silently publishing voting copy,
+# superseded descriptions, or restricted media links as collection scholarship.
+PROPOSED_GIFT_DECISION_HISTORY = re.compile(
+    r"^records/proposed-gifts/[^/]+/public/(?:"
+    r"wave-storm/|status-amendments/|voter-dossier\.md$|wave-resolution\.md$)"
+)
+
 # These are the visitor-facing and frontend-contract manuscripts that do not
-# live below records/**/public.  The records/public tree is derived in full,
-# except for the restricted voter dossier above.
+# live below records/**/public. The records/public tree is derived subject to
+# the explicit historical-evidence boundaries above.
 EXPLICIT_MANUSCRIPTS = (
     "CONTRIBUTING.md",
     "docs/curatorial-publication-standard.md",
@@ -150,6 +160,7 @@ def public_record_paths(root: Path) -> list[str]:
         for path in (root / "records").rglob("*.md")
         if "/public/" in relative_path(root, path)
         and relative_path(root, path) not in EXCLUDED_PUBLIC_MARKDOWN
+        and not PROPOSED_GIFT_DECISION_HISTORY.match(relative_path(root, path))
     }
     paths.update(EXPLICIT_MANUSCRIPTS)
     return sorted(paths)
@@ -270,12 +281,17 @@ def _entries(root: Path) -> list[dict[str, Any]]:
         add(_entry(relative_path(root, path), "public_entity_record", "assembly_document"))
     for path in sorted((root / "records/relations").glob("*.json")):
         add(_entry(relative_path(root, path), "public_relation_record", "assembly_document"))
-    for relative in (
-        "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
-        "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
-    ):
-        add(_entry(relative, "wave_observation", "assembly_document"))
-    add(_entry("records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json", "media_description_amendment", "assembly_document"))
+    # The status observation is the closed public graph's current lifecycle
+    # source. The full seven-part publication receipt and its accessibility
+    # amendment remain complete-manifest evidence only: both retain historical
+    # photographic locators that are not part of the visitor delivery surface.
+    add(
+        _entry(
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
+            "wave_observation",
+            "assembly_document",
+        )
+    )
     for relative in public_record_paths(root):
         add(_entry(relative, "public_curatorial_manuscript", "assembly_document"))
     control_paths = set(ASSEMBLY_CONTROL_PATHS)

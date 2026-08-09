@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa050d3900fbd5fb0c29deba401ed07f821b8b89dd5edf2b110776a532789224c"
+      "digest": "0x7436ab838e48cd976d171ff9e6bdc94513a7247ad63469dca8dc45df1b6bb060"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5fa30648203f373d891c802483d2541c19e7b3d9097163ed5d7eba07860baf91",
-    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0043.json"
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0043.json"
   },
   "payload": {
     "assertion_status": "asserted",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Magnum Photos 75 project context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/03-larry-towell-145.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/02-larry-towell-145.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:dd2903a66675f0dddd83a29768c2d9c9da22133bca341bfbf438948443f5cb18",
+    "payload_sha256": "sha256:22613fad4a6eeae1b4eabfa39c1ac996d3f8ef1b959fbefe1ea2a3acc98d22d1",
     "qualifier": {
       "scope": "proposal_work_set"
     },

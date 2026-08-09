@@ -126,6 +126,13 @@ jobs:
       - name: Check network fetch guard
         run: python scripts/check_fetch_guard.py
 
+      - name: Check WP-3 Magnum public corpus and media policy
+        run: |
+          python scripts/magnum/check_public_utf8.py
+          python scripts/magnum/check_local_references.py
+          python scripts/magnum/check_copy_citations.py
+          python scripts/magnum/check_media_policy.py
+
       - name: Run control-plane tests
         env:
           STREAM_SOURCE_ROOT: ${{ runner.temp }}/6529Stream
@@ -199,6 +206,10 @@ jobs:
           python scripts/bootstrap_validate.py
           python scripts/build_proposed_gift_dossiers.py --check
           python scripts/check_fetch_guard.py
+          python scripts/magnum/check_public_utf8.py
+          python scripts/magnum/check_local_references.py
+          python scripts/magnum/check_copy_citations.py
+          python scripts/magnum/check_media_policy.py
           python -m unittest discover -s tests -v
           python scripts/validate_rights_handbook.py
           python scripts/sync_rights_legal_texts.py

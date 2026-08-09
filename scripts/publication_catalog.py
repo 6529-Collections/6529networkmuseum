@@ -508,11 +508,7 @@ def _is_public_graph_record_path(path: str) -> bool:
     return (
         path.startswith("records/entities/")
         or path.startswith("records/relations/")
-        or path in {
-            "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
-            "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
-            "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json",
-        }
+        or path == "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
     ) and path.endswith(".json")
 
 
@@ -567,13 +563,13 @@ def _validate_record_commitments(record: dict[str, Any], path: str) -> None:
 
 
 def _verify_deterministic_promotion_artifacts(root: Path, commit: str, manifest_entries: dict[str, dict[str, Any]]) -> None:
-    """Run the committed B generators in an isolated Git-tree checkout.
+    """Run the committed B generators and corpus gates in an isolated checkout.
 
     A catalog must not bless an arbitrary inventory/bundle/manifest edit merely
     because its commitments are internally consistent.  The B tree is the
-    source of truth for these generators; running the committed code in a
-    temporary checkout proves the three generated artifacts are the exact
-    deterministic outputs of B.
+    source of truth for these generators and checks; running the committed code
+    in a temporary checkout proves the generated artifacts and the Magnum
+    scholarship gates are the exact deterministic outputs of B.
     """
 
     required = {
@@ -582,6 +578,10 @@ def _verify_deterministic_promotion_artifacts(root: Path, commit: str, manifest_
         "scripts/generate_public_publication_bundle.py",
         "scripts/bootstrap_validate.py",
         "scripts/validate.py",
+        "scripts/magnum/check_copy_citations.py",
+        "scripts/magnum/check_local_references.py",
+        "scripts/magnum/check_media_policy.py",
+        "scripts/magnum/check_public_utf8.py",
     }
     missing = sorted(required - set(manifest_entries))
     if missing:
@@ -618,6 +618,10 @@ def _verify_deterministic_promotion_artifacts(root: Path, commit: str, manifest_
         for script, arguments in (
             ("scripts/bootstrap_validate.py", []),
             ("scripts/validate.py", ["--root", str(tree)]),
+            ("scripts/magnum/check_copy_citations.py", []),
+            ("scripts/magnum/check_local_references.py", []),
+            ("scripts/magnum/check_media_policy.py", []),
+            ("scripts/magnum/check_public_utf8.py", []),
         ):
             result = subprocess.run(
                 [sys.executable, str(tree / script), *arguments],
@@ -720,6 +724,10 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
         "scripts/generate_public_publication_bundle.py",
         "scripts/bootstrap_validate.py",
         "scripts/validate.py",
+        "scripts/magnum/check_copy_citations.py",
+        "scripts/magnum/check_local_references.py",
+        "scripts/magnum/check_media_policy.py",
+        "scripts/magnum/check_public_utf8.py",
     }
     for generator_path in generator_paths:
         if generator_path not in candidate_manifest_entries or generator_path not in reviewed_manifest_entries:

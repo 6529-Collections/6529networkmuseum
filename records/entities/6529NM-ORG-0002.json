@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xcdb011ce191e8d60a00921e6531491eb9a5f74990d5fe996df1cda142d031aad"
+      "digest": "0x91c97e8898d7a87611b9fd7f606cc28f1fc66dffd53a5835b45dea409ab90c53"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xda63792ef7a89532bda636783de1eb7a465ec1f15fbb507da7cc44d987087dab",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ORG-0002.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ORG-0002.json"
   },
   "payload": {
     "canonical_route": "/museum/network/organizations/magnum-photos",
@@ -26,21 +26,33 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ORG-0002",
     "entity_status": "review_pending",
     "entity_type": "ORGANIZATION",
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Magnum Photos source profile",
+        "label": "Original Museum Wave publication context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Original proposed-gift context",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Magnum Photos research profile",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:3204b6da347357ead1d2e774d4402c174de5e6f6260aa84f3c4b4d1e9f94039d",
+    "payload_sha256": "sha256:0e8d3c55cc60f55bcec915b7a99722ba823d386360c6a02a92d2f07dfad1be8c",
     "preferred_label": "Magnum Photos",
     "profile": {
       "authority": {
@@ -49,21 +61,39 @@
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Magnum Photos source profile",
+            "label": "Original Museum Wave publication context",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Original proposed-gift context",
+            "observed_at": "2026-08-06T13:19:30.726Z",
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Magnum Photos research profile",
+            "observed_at": "2026-08-09T00:00:00Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
           }
         ]
       },
-      "history_summary": "Magnum Photos is the photographer cooperative and archive/publisher named by the retained Magnum Photos 75 proposal evidence. This limited public profile records its source-documented project role without asserting a Museum ownership or rights relationship.",
+      "history_summary": "Founded in 1947 as a photographer-owned cooperative, Magnum Photos joined individual authorship to a shared editorial, archival, and distribution structure. This profile follows that institutional history into Magnum Photos 75, the 2022 anniversary project from which the five Works under review were selected.",
       "name_variants": [
         {
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Name source",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+              "observed_at": "2026-08-09T00:00:00Z",
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-09T00:00:00Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
             }
           ],
           "source_kind": "published_source",
@@ -97,12 +127,24 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Magnum Photos source profile",
+          "label": "Original Museum Wave publication context",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Original proposed-gift context",
+          "observed_at": "2026-08-06T13:19:30.726Z",
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Magnum Photos research profile",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
+      "observed_at": "2026-08-09T00:00:00Z",
       "status_label": "review_pending"
     },
     "subject_id": "6529NM-ORG-0002",

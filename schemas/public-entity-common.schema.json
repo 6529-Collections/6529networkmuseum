@@ -297,13 +297,13 @@
         "height": {"type": ["integer", "null"], "minimum": 1},
         "accessibility_text": {"type": ["string", "null"], "minLength": 1},
         "accessibility_status": {"enum": ["provided", "publication_join", "pending_review", "not_applicable"]},
-        "accessibility_subject_policy": {"enum": ["not_applicable", "non_identifying_sensitive_subject", "non_identifying_child_subject"]},
+        "accessibility_subject_policy": {"enum": ["not_applicable", "non_identifying_sensitive_subject", "non_identifying_apparently_young_subject"]},
         "accessibility_publication_entity_id": {"anyOf": [{"$ref": "#/$defs/entityId"}, {"type": "null"}]},
         "identity_inference_prohibition": {
           "type": ["object", "null"],
           "properties": {
             "status": {"const": "prohibited"},
-            "scope": {"const": "subject_identity"},
+            "scope": {"enum": ["subject_identity", "subject_identity_and_age_classification"]},
             "reason": {"$ref": "#/$defs/nonEmpty"}
           },
           "required": ["status", "scope", "reason"],
@@ -381,7 +381,25 @@
           "if": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]},
           "then": {
             "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity"],
-            "allOf": [{"if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_child_subject"}}, "required": ["accessibility_subject_policy"]}, "then": {"required": ["accessibility_text", "identity_inference_prohibition"]}}],
+            "allOf": [
+              {
+                "if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_apparently_young_subject"}}, "required": ["accessibility_subject_policy"]},
+                "then": {
+                  "required": ["accessibility_text", "identity_inference_prohibition"],
+                  "properties": {
+                    "accessibility_text": {"type": "string", "minLength": 1},
+                    "identity_inference_prohibition": {
+                      "type": "object",
+                      "properties": {
+                        "status": {"const": "prohibited"},
+                        "scope": {"const": "subject_identity_and_age_classification"}
+                      },
+                      "required": ["status", "scope"]
+                    }
+                  }
+                }
+              }
+            ],
             "properties": {"publication_boundary": {"const": "historical_wave_proposal_context"}, "publication_context_entity_ids": {"contains": {"const": "6529NM-CA-2026-003"}, "minContains": 1}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}, "contains": {"const": "open_wave_proposal_context"}, "minContains": 1}}
           }
         },

@@ -207,15 +207,33 @@
       "type": "object",
       "properties": {
         "profile_type": {"const": "RESEARCH_PUBLICATION"},
-        "publication_kind": {"enum": ["catalogue_essay", "research_note", "technical_report", "collection_essay", "source_register"]},
+        "publication_kind": {"enum": ["catalogue_essay", "research_dossier", "research_note", "technical_report", "collection_essay", "source_register"]},
         "title": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
         "publication_date": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/date"},
         "version": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmpty"},
         "author_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
         "subject_entity_ids": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/nonEmptyEntityIds"},
         "publication_document_uri": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "publication_component_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^records/(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)+[A-Za-z0-9_-][A-Za-z0-9._-]*\\.md$"
+          }
+        },
         "evidence_refs": {"$ref": "https://6529networkmuseum.org/schemas/public-entity-common-v1.json#/$defs/evidenceRefs"}
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"publication_kind": {"const": "research_dossier"}},
+            "required": ["publication_kind"]
+          },
+          "then": {"required": ["publication_component_paths"]}
+        }
+      ],
       "required": ["profile_type", "publication_kind", "title", "publication_date", "version", "author_entity_ids", "subject_entity_ids", "publication_document_uri", "evidence_refs"],
       "unevaluatedProperties": false
     },

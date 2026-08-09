@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc959bd71b5d1232cb1fcdf76d5c18ae9d30ec4e9634ab75d7532540e51cbef5d"
+      "digest": "0x036f521389f95995aa1a209f4daf6b851294480b82ed538bb8e4ba5d963deff2"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x5ce17bb0a0b09f268aa96cdfd3df3cb971b03f73945f7430b1e68dc85136282a",
-    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0046.json"
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0046.json"
   },
   "payload": {
     "assertion_status": "asserted",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Magnum Photos 75 project context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/06-lorenzo-meloni-104.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/05-lorenzo-meloni-104.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:561b35841856ca8ee0856fbd8a4ebb6dfb01f96c8641bb5435f3c97a71638239",
+    "payload_sha256": "sha256:39d5825f3e9756351e27b7a889385f5d20e56873682bffc97bb892732aa3ba33",
     "qualifier": {
       "scope": "proposal_work_set"
     },

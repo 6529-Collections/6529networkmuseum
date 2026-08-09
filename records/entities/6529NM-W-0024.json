@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xae7609024805e4ec71b99f8a39600f4da3a7406ce5f2c28241c5c2ef0cf358e2"
+      "digest": "0xb790125657f3df95c476d3f405f92f1c87e34cd81d85f2ad45abc8ff24e0195f"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x9709c090d7059b05750ae54603caacd5c184362fb5cdc499aea26576aa18e169",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-W-0024.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-W-0024.json"
   },
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0024",
@@ -35,7 +35,7 @@
         "evidence_class": "B",
         "label": "Proposed gift object",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "media_entity_ids": [
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:f5600c1024c7214240ee3234f9ccce1cd47d917c31e23a68fddf00c91dc0b770",
+    "payload_sha256": "sha256:98892c426efaeee02136ce2e36bf01919f0793bbf6833404dfcb8c56ca97d164",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan",
     "profile": {
       "accession_entity_ids": [],
@@ -58,7 +58,7 @@
             "evidence_class": "B",
             "label": "WINNER has no accession effect",
             "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
         ],
         "source_record_ids": [
@@ -76,7 +76,7 @@
             "evidence_class": "B",
             "label": "Proposed gift object",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
         ],
         "latest": "1952-12-31",
@@ -92,7 +92,7 @@
             "evidence_class": "B",
             "label": "Signed-drop API WINNER status readback (is_signed=true)",
             "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           },
           {
             "evidence_class": "B",
@@ -109,13 +109,13 @@
           "evidence_class": "B",
           "label": "Signed-drop API WINNER status readback (is_signed=true)",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         },
         {
           "evidence_class": "B",
           "label": "Original proposal object",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         }
       ],
       "identity_boundary": "Work identity is independent of the proposed acquisition, candidate object alias, chain identity, token manifestation, and any later accession.",
@@ -126,7 +126,7 @@
               "evidence_class": "B",
               "label": "Original PARTICIPATORY proposal observation",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "notes": "The original published proposal observation is retained as history and is not rewritten.",
@@ -144,7 +144,7 @@
               "evidence_class": "B",
               "label": "Signed-drop API WINNER status readback (is_signed=true)",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             },
             {
               "evidence_class": "B",
@@ -172,7 +172,7 @@
               "evidence_class": "B",
               "label": "Proposed ERC-721 manifestation reference",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "record_id": "6529NM-PG-2026-001.OBJ-001.TOKEN",
@@ -192,7 +192,7 @@
             "evidence_class": "A",
             "label": "Finalized Ethereum chain observation",
             "observed_at": "2026-08-05T17:46:53.817Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
         ],
         "notes": "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
@@ -236,7 +236,7 @@
           "evidence_class": "B",
           "label": "Proposed gift object",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",

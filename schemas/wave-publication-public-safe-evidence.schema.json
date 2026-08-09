@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/wave-publication-public-safe-evidence-v1.json",
+  "title": "6529 Network Museum public-safe Wave publication evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "evidence_type",
+    "observation_id",
+    "observed_at",
+    "source_command",
+    "canonicalization",
+    "payload",
+    "payload_sha256",
+    "exclusion_note"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../../../schemas/wave-publication-public-safe-evidence.schema.json"
+    },
+    "record_control": {
+      "$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"
+    },
+    "evidence_type": {"const": "WAVE_PUBLICATION_PUBLIC_SAFE_EVIDENCE"},
+    "observation_id": {
+      "type": "string",
+      "pattern": "^6529NM-WAVE-PUB-OBS-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$"
+    },
+    "observed_at": {"$ref": "#/$defs/observedAt"},
+    "source_command": {
+      "const": "punk6529bot drops get 002bfa4f-8416-48bf-b35e-38f354e9a9f0 --json"
+    },
+    "canonicalization": {"type": "string", "minLength": 40},
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "drop_id",
+        "drop_serial_no",
+        "drop_type",
+        "is_signed",
+        "observed_at",
+        "parts",
+        "wave_id",
+        "wave_name"
+      ],
+      "properties": {
+        "drop_id": {"const": "002bfa4f-8416-48bf-b35e-38f354e9a9f0"},
+        "drop_serial_no": {"const": 1276093},
+        "drop_type": {"const": "WINNER"},
+        "is_signed": {"const": true},
+        "observed_at": {"$ref": "#/$defs/observedAt"},
+        "parts": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "prefixItems": [
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 1}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 2}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 3}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 4}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 5}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithMedia"}, {"properties": {"part_id": {"const": 6}}}]},
+            {"allOf": [{"$ref": "#/$defs/partWithoutMedia"}, {"properties": {"part_id": {"const": 7}}}]}
+          ],
+          "items": false
+        },
+        "wave_id": {"const": "5f207393-5418-4a75-8738-e40edb44a94d"},
+        "wave_name": {"const": "6529 Network Museum"}
+      }
+    },
+    "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "exclusion_note": {"type": "string", "minLength": 120}
+  },
+  "$defs": {
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "mime_type", "media_status"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/drops/"
+        },
+        "mime_type": {"enum": ["image/jpeg", "image/png"]},
+        "media_status": {"const": "ready"}
+      }
+    },
+    "partWithMedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["part_id", "media"],
+      "properties": {
+        "part_id": {"type": "integer"},
+        "media": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {"$ref": "#/$defs/media"}
+        }
+      }
+    },
+    "partWithoutMedia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["part_id", "media"],
+      "properties": {
+        "part_id": {"type": "integer"},
+        "media": {"type": "array", "maxItems": 0}
+      }
+    },
+    "observedAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,7})?Z$"
+    }
+  }
+}

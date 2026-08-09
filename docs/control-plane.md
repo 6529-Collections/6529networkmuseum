@@ -79,9 +79,11 @@ that need the whole repository or need to compare values:
   declared WebP exists with the committed raw-byte hash, size, geometry, and
   sRGB profile, and that no undeclared derivative is present.
 - `scripts/migrate_public_entities.py --check` verifies the deterministic
-  Stream-shaped public projection: 118 `PUBLIC_ENTITY` records, 153 closed
+  Stream-shaped public projection: 120 `PUBLIC_ENTITY` records, 205 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
-  (272 generated records in total).
+  (326 generated records in total). Six withdrawn draft relation assertions
+  retain append-only identity tombstones and their identifiers cannot be
+  reused.
   The graph gate covers 21 Artist entities, 2 Organization entities, 6
   Project/Series entities, 28 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist

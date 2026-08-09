@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x7ad5b73fd21d449520e52419fc6edc2bf886eba3562a8c38b5283f0ff1a27535",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-ART-0013.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0013.json"
   },
   "payload": {
     "canonical_route": "/museum/network/artists/arsonic",

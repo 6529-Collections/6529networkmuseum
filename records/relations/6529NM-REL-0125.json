@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x67653cf618a0d1c56b01eaa5be605186b81b5bad46f56f390a75575b15911fe3"
+      "digest": "0x148d0d8cc981eb80bc56ccf5c1a299e111a06050b081dc4026e9cde80847868a"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xb7e455e485f897d2c2887d2078c4c7c6909dd1b6f488068d8a825a6ee204667b",
-    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0125.json"
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0125.json"
   },
   "payload": {
     "assertion_status": "asserted",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Typed media relation",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:af63d7889363120fab5d2f1c25587a2aeb39548794edf628eeaf8c932d5aebc9",
+    "payload_sha256": "sha256:665807f260790febb64ab737cc46a725b502dc86dbd7855380350b282057a1eb",
     "qualifier": {
       "media_context": "documentation",
       "publication_context_entity_id": "6529NM-CA-2026-003"

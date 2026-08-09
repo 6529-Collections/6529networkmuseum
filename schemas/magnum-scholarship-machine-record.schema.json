@@ -1,0 +1,570 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529networkmuseum.org/schemas/magnum-scholarship-machine-record-v1.json",
+  "title": "6529 Network Museum Magnum scholarship supporting machine record",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "record_control",
+        "local_profile",
+        "status",
+        "content_root",
+        "content_root_role",
+        "final_public_namespace",
+        "publication_path_owner",
+        "publication_path_contract",
+        "shared_schema_owner",
+        "shared_schema_changes_in_this_corpus",
+        "canonical_manifest_currently_contains_content_root",
+        "curated_acquisition_id",
+        "proposed_gift_id",
+        "live_governance_observation",
+        "current_publication_observation",
+        "supplemental_public_safe_media_evidence",
+        "wp1_admission_contract",
+        "integration_dependencies",
+        "entity_projections",
+        "relations",
+        "typed_relation_dependencies",
+        "acquisition_boundary",
+        "media_policy_reference",
+        "correction_policy"
+      ],
+      "properties": {
+        "$schema": {"$ref": "#/$defs/schemaPath"},
+        "record_control": {"$ref": "#/$defs/recordControl"},
+        "local_profile": {"const": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2"},
+        "status": {"type": "string", "minLength": 1},
+        "content_root": {"type": "string", "minLength": 1},
+        "content_root_role": {"type": "string", "minLength": 1},
+        "final_public_namespace": {"type": "string", "minLength": 1},
+        "publication_path_owner": {"type": "string", "minLength": 1},
+        "publication_path_contract": {"$ref": "#/$defs/publicationPathContract"},
+        "shared_schema_owner": {"type": "string", "minLength": 1},
+        "shared_schema_changes_in_this_corpus": {"type": "boolean"},
+        "canonical_manifest_currently_contains_content_root": {"type": "boolean"},
+        "curated_acquisition_id": {"const": "6529NM-CA-2026-003"},
+        "proposed_gift_id": {"const": "6529NM-PG-2026-001"},
+        "live_governance_observation": {"$ref": "#/$defs/liveGovernanceObservation"},
+        "current_publication_observation": {"$ref": "#/$defs/publicationObservation"},
+        "supplemental_public_safe_media_evidence": {"$ref": "#/$defs/supplementalEvidence"},
+        "wp1_admission_contract": {"$ref": "#/$defs/admissionContract"},
+        "integration_dependencies": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "entity_projections": {"$ref": "#/$defs/entityProjections"},
+        "relations": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "typed_relation_dependencies": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/relationDependency"}},
+        "acquisition_boundary": {"$ref": "#/$defs/acquisitionBoundary"},
+        "media_policy_reference": {"type": "string", "minLength": 1},
+        "correction_policy": {"const": "append_only_with_supersedes"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "record_control",
+        "local_profile",
+        "status",
+        "public_work_entity_ids",
+        "organization_entity_id",
+        "project_entity_id",
+        "curated_acquisition_id",
+        "current_public_status",
+        "current_lifecycle",
+        "current_status_observation",
+        "current_publication_observation",
+        "prior_wave_observation",
+        "contract",
+        "network",
+        "chain_id",
+        "works"
+      ],
+      "properties": {
+        "$schema": {"$ref": "#/$defs/schemaPath"},
+        "record_control": {"$ref": "#/$defs/recordControl"},
+        "local_profile": {"const": "6529NM_WP3_MAGNUM_OBJECT_SCHEDULE_V1"},
+        "status": {"type": "string", "minLength": 1},
+        "public_work_entity_ids": {
+          "type": "array", "minItems": 5, "maxItems": 5,
+          "prefixItems": [
+            {"const": "6529NM-W-0024"}, {"const": "6529NM-W-0025"}, {"const": "6529NM-W-0026"},
+            {"const": "6529NM-W-0027"}, {"const": "6529NM-W-0028"}
+          ],
+          "items": false
+        },
+        "organization_entity_id": {"const": "6529NM-ORG-0002"},
+        "project_entity_id": {"const": "6529NM-PRJ-0006"},
+        "curated_acquisition_id": {"const": "6529NM-CA-2026-003"},
+        "current_public_status": {"type": "string", "minLength": 1},
+        "current_lifecycle": {"type": "string", "minLength": 1},
+        "current_status_observation": {"$ref": "#/$defs/statusObservation"},
+        "current_publication_observation": {"$ref": "#/$defs/publicationObservation"},
+        "prior_wave_observation": {"$ref": "#/$defs/priorObservation"},
+        "contract": {"type": "string", "pattern": "^0x[0-9a-f]{40}$"},
+        "network": {"const": "Ethereum mainnet"},
+        "chain_id": {"const": 1},
+        "works": {"$ref": "#/$defs/fiveObjectWorks"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "record_control",
+        "local_profile",
+        "status",
+        "proposal_id",
+        "curated_acquisition_id",
+        "wave_id",
+        "drop_id",
+        "drop_serial_no",
+        "current_public_status",
+        "lifecycle_status",
+        "current_status_observation",
+        "current_publication_observation",
+        "supplemental_public_safe_media_evidence",
+        "prior_status_observation",
+        "source_record",
+        "source_label",
+        "publication_boundary",
+        "source_evidence_boundary",
+        "authenticated_publication_receipt",
+        "authenticated_publication_receipt_sha256",
+        "publication_observation_binding",
+        "route_policy",
+        "runtime_policy",
+        "display_policy",
+        "works"
+      ],
+      "properties": {
+        "$schema": {"$ref": "#/$defs/schemaPath"},
+        "record_control": {"$ref": "#/$defs/recordControl"},
+        "local_profile": {"const": "6529NM_WP3_MAGNUM_WAVE_MEDIA_JOIN_V1"},
+        "status": {"type": "string", "minLength": 1},
+        "proposal_id": {"const": "6529NM-PG-2026-001"},
+        "curated_acquisition_id": {"const": "6529NM-CA-2026-003"},
+        "wave_id": {"type": "string", "format": "uuid"},
+        "drop_id": {"type": "string", "format": "uuid"},
+        "drop_serial_no": {"type": "integer", "minimum": 1},
+        "current_public_status": {"type": "string", "minLength": 1},
+        "lifecycle_status": {"type": "string", "minLength": 1},
+        "current_status_observation": {"$ref": "#/$defs/statusObservation"},
+        "current_publication_observation": {"$ref": "#/$defs/publicationObservation"},
+        "supplemental_public_safe_media_evidence": {"$ref": "#/$defs/supplementalEvidence"},
+        "prior_status_observation": {"$ref": "#/$defs/priorObservation"},
+        "source_record": {"type": "string", "minLength": 1},
+        "source_label": {"type": "string", "minLength": 1},
+        "publication_boundary": {"type": "string", "minLength": 1},
+        "source_evidence_boundary": {"type": "string", "minLength": 1},
+        "authenticated_publication_receipt": {"type": "string", "minLength": 1},
+        "authenticated_publication_receipt_sha256": {"$ref": "#/$defs/sha256"},
+        "publication_observation_binding": {"$ref": "#/$defs/publicationObservationBinding"},
+        "route_policy": {"$ref": "#/$defs/routePolicy"},
+        "runtime_policy": {"$ref": "#/$defs/runtimePolicy"},
+        "display_policy": {"$ref": "#/$defs/displayPolicy"},
+        "works": {"$ref": "#/$defs/fiveMediaWorks"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "record_control",
+        "local_profile",
+        "status",
+        "public_root",
+        "final_public_namespace",
+        "final_public_paths_owner",
+        "shared_schema_owner",
+        "canonical_work_id_policy",
+        "evidence_sources_scope",
+        "organization_entity_id",
+        "project_entity_id",
+        "curated_acquisition_id",
+        "current_public_status",
+        "current_lifecycle",
+        "current_status_observation",
+        "current_publication_observation",
+        "prior_wave_observation",
+        "work_lifecycle",
+        "collection_membership",
+        "accession_record",
+        "object_record",
+        "works"
+      ],
+      "properties": {
+        "$schema": {"$ref": "#/$defs/schemaPath"},
+        "record_control": {"$ref": "#/$defs/recordControl"},
+        "local_profile": {"const": "6529NM_WP3_MAGNUM_PUBLIC_WORK_PROJECTIONS_V1"},
+        "status": {"type": "string", "minLength": 1},
+        "public_root": {"type": "string", "minLength": 1},
+        "final_public_namespace": {"type": "string", "minLength": 1},
+        "final_public_paths_owner": {"type": "string", "minLength": 1},
+        "shared_schema_owner": {"type": "string", "minLength": 1},
+        "canonical_work_id_policy": {"type": "string", "minLength": 1},
+        "evidence_sources_scope": {"const": "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source."},
+        "organization_entity_id": {"const": "6529NM-ORG-0002"},
+        "project_entity_id": {"const": "6529NM-PRJ-0006"},
+        "curated_acquisition_id": {"const": "6529NM-CA-2026-003"},
+        "current_public_status": {"type": "string", "minLength": 1},
+        "current_lifecycle": {"type": "string", "minLength": 1},
+        "current_status_observation": {"$ref": "#/$defs/statusObservation"},
+        "current_publication_observation": {"$ref": "#/$defs/publicationObservation"},
+        "prior_wave_observation": {"$ref": "#/$defs/priorObservation"},
+        "work_lifecycle": {"type": "string", "minLength": 1},
+        "collection_membership": {"const": "not_in_collection"},
+        "accession_record": {"type": "null"},
+        "object_record": {"type": "null"},
+        "works": {"$ref": "#/$defs/fiveProjectedWorks"}
+      }
+    }
+  ],
+  "$defs": {
+    "schemaPath": {
+      "const": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json"
+    },
+    "recordControl": {
+      "$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"
+    },
+    "text": {"type": "string", "minLength": 1},
+    "nullableText": {"type": ["string", "null"], "minLength": 1},
+    "observedAt": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,7})?Z$"},
+    "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "workId": {"type": "string", "pattern": "^6529NM-W-00(?:24|25|26|27|28)$"},
+    "nonEmptyStringArray": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+    "publicationPathContract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["visitor_facing_wp3_path_allowed", "canonical_namespace_bound", "review_required_before_publication", "publication_actions"],
+      "properties": {
+        "visitor_facing_wp3_path_allowed": {"type": "boolean"},
+        "canonical_namespace_bound": {"type": "boolean"},
+        "review_required_before_publication": {"type": "boolean"},
+        "publication_actions": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "statusObservation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "observation_id", "observed_at", "payload_sha256"],
+      "properties": {
+        "record_type": {"const": "WAVE_STATUS_OBSERVATION"},
+        "observation_id": {"$ref": "#/$defs/text"},
+        "observed_at": {"$ref": "#/$defs/observedAt"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "publicationObservation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "observation_id", "observed_at", "payload_sha256", "receipt_path", "receipt_sha256", "binding_status"],
+      "properties": {
+        "record_type": {"const": "WAVE_PUBLICATION_OBSERVATION"},
+        "observation_id": {"$ref": "#/$defs/text"},
+        "observed_at": {"$ref": "#/$defs/observedAt"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"},
+        "receipt_path": {"$ref": "#/$defs/text"},
+        "receipt_sha256": {"$ref": "#/$defs/sha256"},
+        "binding_status": {"$ref": "#/$defs/text"},
+        "required_before_media_join_is_current": {"type": "boolean"}
+      }
+    },
+    "supplementalEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "observed_at", "payload_sha256", "path", "file_sha256", "role"],
+      "properties": {
+        "evidence_id": {"$ref": "#/$defs/text"},
+        "observed_at": {"$ref": "#/$defs/observedAt"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"},
+        "path": {"$ref": "#/$defs/text"},
+        "file_sha256": {"$ref": "#/$defs/sha256"},
+        "role": {"$ref": "#/$defs/text"}
+      }
+    },
+    "priorObservation": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["source_status", "observed_at", "historical_only"],
+          "properties": {"source_status": {"$ref": "#/$defs/text"}, "observed_at": {"$ref": "#/$defs/observedAt"}, "historical_only": {"const": true}}
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["drop_type", "rank", "realtime_rating", "rater_count", "observed_at", "historical_only", "selection_established"],
+          "properties": {
+            "drop_type": {"$ref": "#/$defs/text"}, "rank": {"type": "integer"}, "realtime_rating": {"type": "integer"},
+            "rater_count": {"type": "integer"}, "observed_at": {"$ref": "#/$defs/observedAt"},
+            "historical_only": {"const": true}, "selection_established": {"type": "boolean"}
+          }
+        }
+      ]
+    },
+    "liveGovernanceObservation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["observation_id", "drop_id", "serial_no", "drop_type", "rank", "realtime_rating", "rater_count", "observed_at", "selection_established", "public_status", "lifecycle_status", "prior_observation", "status_boundary"],
+      "properties": {
+        "observation_id": {"$ref": "#/$defs/text"}, "drop_id": {"type": "string", "format": "uuid"},
+        "serial_no": {"type": "integer", "minimum": 1}, "drop_type": {"$ref": "#/$defs/text"},
+        "rank": {"type": "integer", "minimum": 1}, "realtime_rating": {"type": "integer"}, "rater_count": {"type": "integer", "minimum": 0},
+        "observed_at": {"$ref": "#/$defs/observedAt"}, "selection_established": {"type": "boolean"},
+        "public_status": {"$ref": "#/$defs/text"}, "lifecycle_status": {"$ref": "#/$defs/text"},
+        "prior_observation": {"$ref": "#/$defs/priorObservation"}, "status_boundary": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "admissionContract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contract_owner", "contract_state", "canonical_work_id_assignment", "canonical_release_manifest", "admission_requirements"],
+      "properties": {
+        "contract_owner": {"$ref": "#/$defs/text"}, "contract_state": {"$ref": "#/$defs/text"},
+        "canonical_work_id_assignment": {"$ref": "#/$defs/text"}, "canonical_release_manifest": {"$ref": "#/$defs/text"},
+        "admission_requirements": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "projectionOrganization": {
+      "type": "object", "additionalProperties": false, "required": ["slug", "canonical_id", "page", "admit_as"],
+      "properties": {"slug": {"$ref": "#/$defs/text"}, "canonical_id": {"$ref": "#/$defs/text"}, "page": {"$ref": "#/$defs/text"}, "admit_as": {"$ref": "#/$defs/text"}}
+    },
+    "projectionProject": {
+      "type": "object", "additionalProperties": false, "required": ["slug", "canonical_id", "page", "admit_as"],
+      "properties": {"slug": {"$ref": "#/$defs/text"}, "canonical_id": {"$ref": "#/$defs/text"}, "page": {"$ref": "#/$defs/text"}, "admit_as": {"$ref": "#/$defs/text"}}
+    },
+    "projectionArtists": {
+      "type": "object", "additionalProperties": false, "required": ["canonical_ids", "admit_as", "pages"],
+      "properties": {"canonical_ids": {"$ref": "#/$defs/nonEmptyStringArray"}, "admit_as": {"$ref": "#/$defs/text"}, "pages": {"$ref": "#/$defs/nonEmptyStringArray"}}
+    },
+    "projectionWorks": {
+      "type": "object", "additionalProperties": false,
+      "required": ["canonical_ids", "id_owner", "admit_as", "lifecycle", "collection_membership", "projection_file", "pages"],
+      "properties": {
+        "canonical_ids": {"$ref": "#/$defs/nonEmptyStringArray"}, "id_owner": {"$ref": "#/$defs/text"}, "admit_as": {"$ref": "#/$defs/text"},
+        "lifecycle": {"$ref": "#/$defs/text"}, "collection_membership": {"$ref": "#/$defs/text"},
+        "projection_file": {"$ref": "#/$defs/text"}, "pages": {"$ref": "#/$defs/nonEmptyStringArray"}
+      }
+    },
+    "projectionAcquisition": {
+      "type": "object", "additionalProperties": false, "required": ["id", "admit_as", "page", "state"],
+      "properties": {"id": {"const": "6529NM-CA-2026-003"}, "admit_as": {"$ref": "#/$defs/text"}, "page": {"$ref": "#/$defs/text"}, "state": {"$ref": "#/$defs/text"}}
+    },
+    "projectionResearch": {
+      "type": "object", "additionalProperties": false, "required": ["admit_as", "canonical_id", "root", "manifest_group"],
+      "properties": {"admit_as": {"$ref": "#/$defs/text"}, "canonical_id": {"$ref": "#/$defs/text"}, "root": {"$ref": "#/$defs/text"}, "manifest_group": {"$ref": "#/$defs/text"}}
+    },
+    "projectionMedia": {
+      "type": "object", "additionalProperties": false,
+      "required": ["admit_as", "page", "machine_record", "scope", "receipt_binding", "standalone_work_route", "required_relation_fields", "historical_label_required"],
+      "properties": {
+        "admit_as": {"$ref": "#/$defs/text"}, "page": {"$ref": "#/$defs/text"}, "machine_record": {"$ref": "#/$defs/text"},
+        "scope": {"$ref": "#/$defs/text"}, "receipt_binding": {"$ref": "#/$defs/text"}, "standalone_work_route": {"const": "deny_without_verified_work_ca_media_observation_relation"},
+        "required_relation_fields": {"$ref": "#/$defs/nonEmptyStringArray"}, "historical_label_required": {"$ref": "#/$defs/text"}
+      }
+    },
+    "entityProjections": {
+      "type": "object", "additionalProperties": false,
+      "required": ["organization", "project", "artists", "works", "curated_acquisition", "research_publications", "media_references"],
+      "properties": {
+        "organization": {"$ref": "#/$defs/projectionOrganization"}, "project": {"$ref": "#/$defs/projectionProject"},
+        "artists": {"$ref": "#/$defs/projectionArtists"}, "works": {"$ref": "#/$defs/projectionWorks"},
+        "curated_acquisition": {"$ref": "#/$defs/projectionAcquisition"}, "research_publications": {"$ref": "#/$defs/projectionResearch"},
+        "media_references": {"$ref": "#/$defs/projectionMedia"}
+      }
+    },
+    "relationDependency": {
+      "type": "object", "additionalProperties": false, "required": ["relation_type"],
+      "properties": {
+        "relation_type": {"$ref": "#/$defs/text"},
+        "source_entity_id": {"$ref": "#/$defs/text"},
+        "target_entity_id": {"$ref": "#/$defs/text"},
+        "source_entity_ids": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "target_entity_ids": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "media_entity_ids": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "ordered_pairs": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "array", "prefixItems": [{"$ref": "#/$defs/text"}, {"$ref": "#/$defs/text"}], "minItems": 2, "maxItems": 2, "items": false}
+        },
+        "role": {"$ref": "#/$defs/text"}
+      },
+      "anyOf": [
+        {"required": ["source_entity_id", "target_entity_id"]},
+        {"required": ["source_entity_id", "target_entity_ids"]},
+        {"required": ["source_entity_ids", "target_entity_ids"]},
+        {"required": ["target_entity_ids", "media_entity_ids"]},
+        {"required": ["ordered_pairs"]}
+      ]
+    },
+    "acquisitionBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["accession_id", "object_record_ids", "title_binding", "custody", "condition", "preservation", "rights"],
+      "properties": {
+        "accession_id": {"type": "null"}, "object_record_ids": {"type": "null"}, "title_binding": {"type": "null"},
+        "custody": {"type": "null"}, "condition": {"type": "null"}, "preservation": {"type": "null"}, "rights": {"$ref": "#/$defs/text"}
+      }
+    },
+    "publicationObservationBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["record_type", "record_id", "payload_sha256", "receipt_path", "receipt_sha256", "required_after_rebase", "status", "source_record_currently_used"],
+      "properties": {
+        "record_type": {"const": "WAVE_PUBLICATION_OBSERVATION"}, "record_id": {"$ref": "#/$defs/text"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"}, "receipt_path": {"$ref": "#/$defs/text"}, "receipt_sha256": {"$ref": "#/$defs/sha256"},
+        "required_after_rebase": {"type": "boolean"}, "status": {"$ref": "#/$defs/text"}, "source_record_currently_used": {"$ref": "#/$defs/text"}
+      }
+    },
+    "routePolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["standalone_work_route", "required_relation_fields", "historical_label_required", "outside_scope", "fail_closed", "verification_status"],
+      "properties": {
+        "standalone_work_route": {"const": "deny_without_verified_work_ca_media_observation_relation"}, "required_relation_fields": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "historical_label_required": {"$ref": "#/$defs/text"}, "outside_scope": {"const": "deny"},
+        "fail_closed": {"const": true}, "verification_status": {"$ref": "#/$defs/text"}
+      }
+    },
+    "runtimePolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_url_policy", "url_rewrite", "runtime_fallback", "runtime_fetch", "repository_derivative", "responsive_variants", "download", "full_resolution_claim", "zoom", "fullscreen", "iiif_or_tiled_service", "preservation_claim", "alt_text_policy", "age_sensitive_subject_rule"],
+      "properties": {
+        "source_url_policy": {"$ref": "#/$defs/text"}, "url_rewrite": {"const": "deny"}, "runtime_fallback": {"const": "deny"},
+        "runtime_fetch": {"const": "deny"}, "repository_derivative": {"const": "deny"}, "responsive_variants": {"const": "deny"},
+        "download": {"const": "deny"}, "full_resolution_claim": {"const": "deny"}, "zoom": {"const": "deny"},
+        "fullscreen": {"const": "deny"}, "iiif_or_tiled_service": {"const": "deny"}, "preservation_claim": {"const": "deny"},
+        "alt_text_policy": {"$ref": "#/$defs/text"}, "age_sensitive_subject_rule": {"$ref": "#/$defs/text"}
+      }
+    },
+    "displayPolicy": {
+      "type": "object", "additionalProperties": false, "required": ["allowed", "blocked", "rights_basis"],
+      "properties": {"allowed": {"$ref": "#/$defs/nonEmptyStringArray"}, "blocked": {"$ref": "#/$defs/nonEmptyStringArray"}, "rights_basis": {"$ref": "#/$defs/text"}}
+    },
+    "sourceFixity": {
+      "type": "object", "additionalProperties": false, "required": ["sha256", "bytes", "width", "height", "retention"],
+      "properties": {"sha256": {"$ref": "#/$defs/sha256"}, "bytes": {"type": "integer", "minimum": 1}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "retention": {"$ref": "#/$defs/text"}}
+    },
+    "presentationContext": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proposal_id", "curated_acquisition_id", "wave_id", "drop_id", "scope", "outside_scope"],
+      "properties": {"proposal_id": {"const": "6529NM-PG-2026-001"}, "curated_acquisition_id": {"const": "6529NM-CA-2026-003"}, "wave_id": {"type": "string", "format": "uuid"}, "drop_id": {"type": "string", "format": "uuid"}, "scope": {"$ref": "#/$defs/text"}, "outside_scope": {"const": "deny"}}
+    },
+    "standaloneDisplay": {
+      "type": "object", "additionalProperties": false,
+      "required": ["requires_verified_graph_relation", "historical_label_required", "outside_scope", "verification_status"],
+      "properties": {"requires_verified_graph_relation": {"const": true}, "historical_label_required": {"const": true}, "outside_scope": {"const": "deny"}, "verification_status": {"$ref": "#/$defs/text"}}
+    },
+    "identityInference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["permitted", "display_policy", "forbidden_inferences", "restricted_research_scope"],
+      "properties": {"permitted": {"const": false}, "display_policy": {"const": "non_identifying_visible_facts_only"}, "forbidden_inferences": {"$ref": "#/$defs/nonEmptyStringArray"}, "restricted_research_scope": {"const": true}}
+    },
+    "historicalPublicationMedia": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_record", "record_revision", "part_number", "media_index", "wording_status", "alt_text", "alt_text_sha256"],
+      "properties": {"source_record": {"$ref": "#/$defs/text"}, "record_revision": {"type": "integer", "minimum": 1}, "part_number": {"type": "integer", "minimum": 1}, "media_index": {"type": "integer", "minimum": 0}, "wording_status": {"$ref": "#/$defs/text"}, "alt_text": {"$ref": "#/$defs/text"}, "alt_text_sha256": {"$ref": "#/$defs/sha256"}}
+    },
+    "altTextAmendment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "historical_seven_part_wording_preserved", "supersedes"],
+      "properties": {
+        "status": {"const": "canonical_current_safe_description"},
+        "historical_seven_part_wording_preserved": {"const": true},
+        "supersedes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["source_record", "record_revision", "part_number", "media_index", "assertion_path", "assertion_sha256"],
+          "properties": {
+            "source_record": {"const": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"},
+            "record_revision": {"const": 1},
+            "part_number": {"const": 4},
+            "media_index": {"const": 0},
+            "assertion_path": {"const": "media.alt_text"},
+            "assertion_sha256": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      }
+    },
+    "objectWork": {
+      "type": "object", "additionalProperties": false,
+      "required": ["work_entity_id", "proposal_object_alias", "proposal_object_id", "token_id", "caip19", "artist", "artist_entity_id", "artist_display_name", "preferred_title", "date", "date_precision", "place", "archive_number", "curation", "metadata_uri", "image_uri", "image_sha256", "image_dimensions", "rights_status", "collection_membership", "collection_membership_status", "work_lifecycle", "media_reference_entity_id"],
+      "properties": {
+        "work_entity_id": {"$ref": "#/$defs/workId"}, "proposal_object_alias": {"$ref": "#/$defs/text"}, "proposal_object_id": {"$ref": "#/$defs/text"},
+        "token_id": {"type": "string", "pattern": "^[0-9]+$"}, "caip19": {"$ref": "#/$defs/text"}, "artist": {"$ref": "#/$defs/text"},
+        "issuer_artist_label": {"$ref": "#/$defs/text"}, "artist_entity_id": {"$ref": "#/$defs/text"}, "artist_display_name": {"$ref": "#/$defs/text"},
+        "preferred_title": {"$ref": "#/$defs/text"}, "date": {"$ref": "#/$defs/text"}, "date_precision": {"enum": ["year", "day"]}, "place": {"$ref": "#/$defs/text"}, "issuer_place_label": {"$ref": "#/$defs/text"}, "archive_number": {"$ref": "#/$defs/text"},
+        "curation": {"$ref": "#/$defs/text"}, "metadata_uri": {"type": "string", "format": "uri"}, "image_uri": {"type": "string", "format": "uri"},
+        "image_sha256": {"$ref": "#/$defs/sha256"}, "image_dimensions": {"type": "string", "pattern": "^[0-9]+x[0-9]+$"}, "rights_status": {"$ref": "#/$defs/text"},
+        "collection_membership": {"const": false}, "collection_membership_status": {"const": "not_in_collection"}, "work_lifecycle": {"$ref": "#/$defs/text"}, "media_reference_entity_id": {"$ref": "#/$defs/text"}
+      },
+      "allOf": [
+        {"if": {"properties": {"date_precision": {"const": "year"}}, "required": ["date_precision"]}, "then": {"properties": {"date": {"pattern": "^[0-9]{4}$"}}}},
+        {"if": {"properties": {"date_precision": {"const": "day"}}, "required": ["date_precision"]}, "then": {"properties": {"date": {"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"}}}},
+        {"if": {"properties": {"work_entity_id": {"const": "6529NM-W-0025"}}, "required": ["work_entity_id"]}, "then": {"required": ["issuer_place_label"], "properties": {"issuer_place_label": {"const": "Suchitito, El Salvador"}}}}
+      ]
+    },
+    "mediaWork": {
+      "type": "object", "additionalProperties": false,
+      "required": ["work_entity_id", "media_reference_entity_id", "proposal_object_alias", "proposal_object_id", "part_number", "part_markdown", "artist", "title", "token_id", "caip19", "token_metadata_url", "token_source_image_url", "wave_media_url", "wave_media_url_type", "source_image_fixity", "credit_line", "rights_label", "media_status", "allowed_ui_affordances", "presentation_context", "standalone_work_display", "load_policy", "blocked_ui_affordances", "alt_text", "accessibility_subject_policy", "source_record_ids"],
+      "properties": {
+        "work_entity_id": {"$ref": "#/$defs/workId"}, "media_reference_entity_id": {"$ref": "#/$defs/text"}, "proposal_object_alias": {"$ref": "#/$defs/text"}, "proposal_object_id": {"$ref": "#/$defs/text"},
+        "part_number": {"type": "integer", "minimum": 2, "maximum": 6}, "part_markdown": {"$ref": "#/$defs/text"}, "artist": {"$ref": "#/$defs/text"}, "issuer_artist_label": {"$ref": "#/$defs/text"}, "title": {"$ref": "#/$defs/text"},
+        "token_id": {"type": "string", "pattern": "^[0-9]+$"}, "caip19": {"$ref": "#/$defs/text"}, "token_metadata_url": {"type": "string", "format": "uri"}, "token_source_image_url": {"type": "string", "format": "uri"},
+        "wave_media_url": {"type": "string", "format": "uri"}, "wave_media_url_type": {"const": "historical_wave_drop_upload"}, "source_image_fixity": {"$ref": "#/$defs/sourceFixity"},
+        "credit_line": {"$ref": "#/$defs/text"}, "rights_label": {"const": "All Rights Reserved"}, "media_status": {"const": "non_rendering_historical_source_locator"},
+        "allowed_ui_affordances": {"$ref": "#/$defs/nonEmptyStringArray"}, "presentation_context": {"$ref": "#/$defs/presentationContext"}, "standalone_work_display": {"$ref": "#/$defs/standaloneDisplay"},
+        "load_policy": {"const": "blocked_pending_reviewed_display_authority"}, "blocked_ui_affordances": {"$ref": "#/$defs/nonEmptyStringArray"}, "alt_text": {"$ref": "#/$defs/text"},
+        "accessibility_subject_policy": {"enum": ["non_identifying_sensitive_subject", "non_identifying_apparently_young_subject"]}, "source_record_ids": {"$ref": "#/$defs/nonEmptyStringArray"},
+        "historical_publication_media": {"$ref": "#/$defs/historicalPublicationMedia"}, "alt_text_amendment_binding": {"$ref": "#/$defs/altTextAmendment"},
+        "age_classification": {"const": "unverified_apparently_young_subject"}, "subject_age_documentation": {"const": "not_available_in_reviewed_public_record"},
+        "subject_display_rule": {"$ref": "#/$defs/text"}, "identity_inference": {"$ref": "#/$defs/identityInference"}
+      },
+      "allOf": [
+        {"if": {"properties": {"work_entity_id": {"const": "6529NM-W-0026"}}, "required": ["work_entity_id"]}, "then": {"required": ["historical_publication_media", "alt_text_amendment_binding"]}},
+        {"if": {"properties": {"work_entity_id": {"const": "6529NM-W-0027"}}, "required": ["work_entity_id"]}, "then": {"required": ["age_classification", "subject_age_documentation", "subject_display_rule", "identity_inference"], "properties": {"accessibility_subject_policy": {"const": "non_identifying_apparently_young_subject"}}}}
+      ]
+    },
+    "tokenProjection": {
+      "type": "object", "additionalProperties": false, "required": ["caip19", "token_id", "metadata_uri", "observed_at_block"],
+      "properties": {"caip19": {"$ref": "#/$defs/text"}, "token_id": {"type": "string", "pattern": "^[0-9]+$"}, "metadata_uri": {"type": "string", "format": "uri"}, "observed_at_block": {"type": "integer", "minimum": 1}}
+    },
+    "component": {
+      "type": "object", "additionalProperties": false, "required": ["type", "uri", "retention"],
+      "properties": {"type": {"$ref": "#/$defs/text"}, "uri": {"type": "string", "format": "uri"}, "retention": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/sha256"}, "bytes": {"type": "integer", "minimum": 1}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}}
+    },
+    "manifestation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "uri", "token_source_uri", "rights", "display_scope", "media_reference_entity_id", "load_policy", "historical_label_required", "wave_publication_observation_id", "wave_publication_observation_binding", "standalone_route"],
+      "properties": {"type": {"$ref": "#/$defs/text"}, "uri": {"type": "string", "format": "uri"}, "token_source_uri": {"type": "string", "format": "uri"}, "rights": {"$ref": "#/$defs/text"}, "display_scope": {"$ref": "#/$defs/text"}, "media_reference_entity_id": {"$ref": "#/$defs/text"}, "load_policy": {"$ref": "#/$defs/text"}, "historical_label_required": {"type": "boolean"}, "wave_publication_observation_id": {"$ref": "#/$defs/text"}, "wave_publication_observation_binding": {"$ref": "#/$defs/text"}, "standalone_route": {"$ref": "#/$defs/text"}, "alt_text_amendment_binding": {"$ref": "#/$defs/altTextAmendment"}, "identity_inference": {"$ref": "#/$defs/identityInference"}}
+    },
+    "projectedWork": {
+      "type": "object", "additionalProperties": false,
+      "required": ["public_work_slug", "canonical_work_id", "canonical_route", "proposal_object_alias", "public_page", "artist_slug", "artist_entity_id", "artist_display_name", "title", "token", "components", "manifestations", "evidence_sources"],
+      "properties": {"public_work_slug": {"$ref": "#/$defs/text"}, "canonical_work_id": {"$ref": "#/$defs/workId"}, "canonical_route": {"$ref": "#/$defs/text"}, "proposal_object_alias": {"$ref": "#/$defs/text"}, "public_page": {"$ref": "#/$defs/text"}, "artist_slug": {"$ref": "#/$defs/text"}, "artist_entity_id": {"$ref": "#/$defs/text"}, "artist_display_name": {"$ref": "#/$defs/text"}, "issuer_artist_label": {"$ref": "#/$defs/text"}, "title": {"$ref": "#/$defs/text"}, "token": {"$ref": "#/$defs/tokenProjection"}, "components": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/component"}}, "manifestations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/manifestation"}}, "evidence_sources": {"$ref": "#/$defs/nonEmptyStringArray"}}
+    },
+    "fiveObjectWorks": {
+      "type": "array", "minItems": 5, "maxItems": 5,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/objectWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0024"}}}]},
+        {"allOf": [{"$ref": "#/$defs/objectWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0025"}}}]},
+        {"allOf": [{"$ref": "#/$defs/objectWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0026"}}}]},
+        {"allOf": [{"$ref": "#/$defs/objectWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0027"}}}]},
+        {"allOf": [{"$ref": "#/$defs/objectWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0028"}}}]}
+      ], "items": false
+    },
+    "fiveMediaWorks": {
+      "type": "array", "minItems": 5, "maxItems": 5,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/mediaWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0024"}}}]},
+        {"allOf": [{"$ref": "#/$defs/mediaWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0025"}}}]},
+        {"allOf": [{"$ref": "#/$defs/mediaWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0026"}}}]},
+        {"allOf": [{"$ref": "#/$defs/mediaWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0027"}}}]},
+        {"allOf": [{"$ref": "#/$defs/mediaWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0028"}}}]}
+      ], "items": false
+    },
+    "fiveProjectedWorks": {
+      "type": "array", "minItems": 5, "maxItems": 5,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0024"}, "evidence_sources": {"const": ["S10", "S19", "S37", "S38", "S42", "S43"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0025"}, "evidence_sources": {"const": ["S11", "S20", "S21", "S33", "S37", "S38", "S45", "S47"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0026"}, "evidence_sources": {"const": ["S12", "S22", "S23", "S25", "S34", "S37", "S38", "S44", "S50"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0027"}, "evidence_sources": {"const": ["S10", "S13", "S14", "S26", "S27", "S28", "S37", "S38", "S51"]}}}]},
+        {"allOf": [{"$ref": "#/$defs/projectedWork"}, {"properties": {"canonical_work_id": {"const": "6529NM-W-0028"}, "evidence_sources": {"const": ["S14", "S30", "S31", "S32", "S37", "S38", "S41", "S48", "S49"]}}}]}
+      ], "items": false
+    }
+  }
+}

@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0x17241e05670ad6cb9474cc729ec03a4763c733ea8c82b8ca4bc0ff7fec32b76c",
-    "uri": "https://6529networkmuseum.org/records/records/entities/6529NM-RP-0001.json"
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-RP-0001.json"
   },
   "payload": {
     "canonical_route": "/museum/network/research/the-system-in-seven-states",

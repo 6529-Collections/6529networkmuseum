@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x88965d85328b6e9e81989538d30f1c701a2a1c8a8be6e94d8d506ac911273a9c"
+      "digest": "0x584ec839d645f6a489cdaf5e1e7a8cb0e7f8da2d7a1a5f87b12e94be042f32a1"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_RELATION",
@@ -16,7 +16,7 @@
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "subjectId": "0xcb07e6af89a04cd545ec9c3f860086a4779babc4f544462891bd218a7479779e",
-    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0153.json"
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0153.json"
   },
   "payload": {
     "assertion_status": "asserted",
@@ -32,17 +32,17 @@
         "evidence_class": "B",
         "label": "Gift pathway for selected proposal",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       },
       {
         "evidence_class": "B",
         "label": "Museum Wave selection observation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:92dd53743bdd8986b191aa1537e05fba0e24c446d3af2146f5405963cd6aa242",
+    "payload_sha256": "sha256:b2f9a47b423b8bca150020b0ba0b10061d68913ab6a3f9ad07001d91203cb064",
     "qualifier": {},
     "record_id": "6529NM-REL-0153",
     "record_status": "review_pending",

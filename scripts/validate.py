@@ -902,19 +902,21 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     elif publication_boundary != expected_boundary:
         issues.append(f"{label}: publication_boundary must be {expected_boundary!r} for {role}")
     accessibility_subject_policy = media.get("accessibility_subject_policy")
-    if accessibility_subject_policy == "non_identifying_child_subject":
+    if accessibility_subject_policy == "non_identifying_apparently_young_subject":
         text = media.get("accessibility_text")
         if not isinstance(text, str) or not text:
-            issues.append(f"{label}: non-identifying child-subject media requires accessibility text")
+            issues.append(f"{label}: an apparently young subject requires non-identifying accessibility text")
         elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
-            issues.append(f"{label}: child-subject accessibility text must not identify the subject")
+            issues.append(f"{label}: accessibility text for an apparently young subject must not identify the subject")
+        elif re.search(r"\b(child|children|minor|juvenile|adolescent|teen(?:ager)?|boy|girl|infant)\b", text, flags=re.IGNORECASE):
+            issues.append(f"{label}: accessibility text for an apparently young subject must not assign an age classification")
         prohibition = media.get("identity_inference_prohibition")
-        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
-            issues.append(f"{label}: child-subject media requires a structural identity_inference_prohibition")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity_and_age_classification" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
+            issues.append(f"{label}: an apparently young subject requires structural identity-and-age inference prohibition")
     elif media.get("identity_inference_prohibition") is not None:
         prohibition = media.get("identity_inference_prohibition")
-        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity":
-            issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited subject_identity object")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") not in {"subject_identity", "subject_identity_and_age_classification"}:
+            issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited identity-scope object")
     if role == "museum_retained_preservation_object" and (source_status != "retrieved" or fixity_status != "verified"):
         issues.append(f"{label}: retained preservation objects require retrieved bytes and verified fixity")
     if role == "museum_generated_public_derivative" and not isinstance(media.get("transform_profile"), str):
@@ -1284,8 +1286,12 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
                     if latest.get("source_status") != "WINNER":
                         issues.append("public entity: Museum Wave-selected Curated Acquisition requires a WINNER source observation")
-                    if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
-                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires the governed WINNER observation path")
+                    source_ids = latest.get("source_record_ids", [])
+                    if not any(
+                        isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                        for record_id in source_ids
+                    ):
+                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires a governed WINNER observation record ID")
         if entity_type == "WORK":
             pattern = public_entity_id_pattern(entity_type, identity_inventory)
             if not (isinstance(payload.get("entity_id"), str) and isinstance(pattern, str) and re.fullmatch(pattern, payload["entity_id"])):
@@ -1315,8 +1321,12 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
                 if latest.get("status") != work_status or latest.get("source_status") != "WINNER":
                     issues.append("public entity: Museum Wave-selected Work requires a latest WINNER lifecycle observation")
-                if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
-                    issues.append("public entity: Museum Wave-selected Work requires the governed WINNER observation path")
+                source_ids = latest.get("source_record_ids", [])
+                if not any(
+                    isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                    for record_id in source_ids
+                ):
+                    issues.append("public entity: Museum Wave-selected Work requires a governed WINNER observation record ID")
         if entity_type == "MEDIA_REFERENCE" and isinstance(profile.get("media"), dict):
             issues.extend(validate_public_media(profile["media"], "public entity profile.media"))
         if "image_url" in payload or has_key_recursive(profile, "image_url"):
@@ -1626,6 +1636,7 @@ def validate_public_graph(
     issues: list[str] = []
     entities: dict[str, tuple[Path, dict[str, Any]]] = {}
     relations: list[tuple[Path, dict[str, Any]]] = []
+    wave_status_observations: dict[str, tuple[Path, dict[str, Any]]] = {}
     for path, _record, payload in records:
         if not isinstance(payload, dict):
             continue
@@ -1635,6 +1646,10 @@ def validate_public_graph(
                 entities[entity_id] = (path, payload)
         elif payload.get("record_type") == PUBLIC_RELATION_TYPE:
             relations.append((path, payload))
+        elif payload.get("record_type") == "WAVE_STATUS_OBSERVATION":
+            observation_id = payload.get("observation_id")
+            if isinstance(observation_id, str):
+                wave_status_observations[observation_id] = (path, payload)
 
     typed_record_index = _typed_reference_record_index(repository_root)
     typed_registry, typed_registry_issues = _typed_reference_registry_index(identity_inventory)
@@ -1688,6 +1703,25 @@ def validate_public_graph(
             )
             issues.extend(typed_issues)
             used_registry_targets.update(used_targets)
+        profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+        if entity_type == "CURATED_ACQUISITION":
+            lifecycle = profile.get("lifecycle", {}).get("status") if isinstance(profile.get("lifecycle"), dict) else None
+            observations = profile.get("lifecycle_observations")
+        elif entity_type == "WORK":
+            lifecycle = profile.get("work_lifecycle_status")
+            observations = profile.get("lifecycle_observations")
+        else:
+            lifecycle = None
+            observations = None
+        if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
+            latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
+            winner_records = [
+                wave_status_observations[record_id][1]
+                for record_id in latest.get("source_record_ids", [])
+                if isinstance(record_id, str) and record_id in wave_status_observations
+            ]
+            if not any(record.get("source_status") == "WINNER" and record.get("drop_type") == "WINNER" for record in winner_records):
+                issues.append(f"{relative}: selected Museum Wave lifecycle must resolve to a governed WINNER observation record")
         if isinstance(slug, str):
             slug_key = (str(entity_type), slug)
             if slug_key in slug_paths and slug_paths[slug_key] != path:
@@ -1960,7 +1994,7 @@ def validate_public_graph(
         related_agents = {
             relation.get("source_entity_id")
             for _relation_path, relation in relations
-            if relation.get("relation_type") == "AGENT_PLAYS_ROLE"
+            if relation.get("relation_type") in {"AGENT_PLAYS_ROLE", "ORGANIZATION_ORIGINATES_PROJECT"}
             and relation.get("target_entity_id") == project_id
             and relation.get("record_status") != "superseded"
             and relation.get("assertion_status") != "reserved"

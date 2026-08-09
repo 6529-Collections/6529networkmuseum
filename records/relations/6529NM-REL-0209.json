@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdbf8109227b81d7fa1193baff6ea44a904585fb0c321ae699115e89c609e50c9"
+      "digest": "0xec36b37dd0bec4301a8b904fde59c04e7789269ae5158c5574e578c3f7d9b921"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786233600,
     "recordType": "PUBLIC_RELATION",
     "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "signatureHash": {
@@ -15,8 +15,8 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
     "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "subjectId": "0xaa6084fe7974714a1633b2aa093b21340ee96cecec5086fc59450c0697b0bda7",
-    "uri": "https://6529networkmuseum.org/records/records/relations/6529NM-REL-0159.json"
+    "subjectId": "0xfca0f862a5eec71a8684e1d89fd5faf24a61c86428df22c7f91155141a006a52",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0209.json"
   },
   "payload": {
     "assertion_status": "asserted",
@@ -26,40 +26,41 @@
       "role": "constructor"
     },
     "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-09T00:00:00Z",
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Magnum project origin source",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+        "label": "Conflict at Its Edges Research Publication",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:664f92c09de0de0999d24f0f09d8af437aed77eb8146bcc99eb81d7e6a63886e",
+    "observed_at": "2026-08-09T00:00:00Z",
+    "payload_sha256": "sha256:7912ccf5642b38f5e8abccd05e3f3b80ee703e140de6df3a1c2f121d98906c3a",
     "qualifier": {
-      "role": "originator"
+      "role": "subject"
     },
-    "record_id": "6529NM-REL-0159",
+    "record_id": "6529NM-REL-0209",
     "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
-      "6529NM-ORG-0002",
       "6529NM-PG-2026-001",
-      "6529NM-PRJ-0006"
+      "6529NM-RP-0003",
+      "6529NM-W-0027"
     ],
-    "relation_id": "6529NM-REL-0159",
-    "relation_type": "AGENT_PLAYS_ROLE",
+    "relation_id": "6529NM-REL-0209",
+    "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
     "review_status": "pending_independent_review",
     "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
-    "source_entity_id": "6529NM-ORG-0002",
+    "source_entity_id": "6529NM-RP-0003",
     "source_record_ids": [
-      "6529NM-PG-2026-001"
+      "6529NM-PG-2026-001",
+      "6529NM-W-0027"
     ],
-    "subject_id": "6529NM-REL-0159",
-    "target_entity_id": "6529NM-PRJ-0006",
+    "subject_id": "6529NM-REL-0209",
+    "target_entity_id": "6529NM-W-0027",
     "visibility": "public"
   }
 }
