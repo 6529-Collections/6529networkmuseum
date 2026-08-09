@@ -28,15 +28,17 @@ was activated on canonical `main`.
 The deterministic publication-inventory generator now treats the complete
 frontend graph-validation contract as atomic assembly controls: the controlled
 vocabularies, entity-identity inventory, relation-identity inventory, and route
-compatibility map, together with each governing schema. The visitor publication
-inventory, visitor bundle, and release manifest are regenerated from that
-closed set. Tests require all eight controls in the inventory and bundle
-alongside the active bindings and retired tombstones.
+compatibility map, together with each governing schema and the complete schema
+dependency chain for entity, relation, lifecycle-observation, and envelope
+records. The visitor publication inventory, visitor bundle, and release
+manifest are regenerated from that closed set. Tests require all fourteen
+controls in the inventory and bundle alongside the active bindings and retired
+tombstones.
 
-Candidate A4's regenerated publication inventory contains 524 entries: 523
-atomic assembly documents and one approved public media asset. Its 99 assembly
-controls include the eight closed graph-validation files. The visitor bundle
-contains all 523 assembly documents and remains below the governed
+Candidate A4's regenerated publication inventory contains 530 entries: 529
+atomic assembly documents and one approved public media asset. Its 105 assembly
+controls include the fourteen closed graph-validation files. The visitor bundle
+contains all 529 assembly documents and remains below the governed
 eight-megabyte ceiling.
 
 Because the publication source commitments change, the correction follows the

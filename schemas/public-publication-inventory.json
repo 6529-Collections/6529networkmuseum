@@ -517,16 +517,22 @@
       "records/relations/6529NM-REL-0209.json",
       "records/relations/6529NM-REL-0210.json",
       "records/relations/6529NM-REL-0211.json",
+      "schemas/common.schema.json",
       "schemas/controlled-vocabularies.json",
       "schemas/controlled-vocabularies.schema.json",
+      "schemas/public-entity-common.schema.json",
       "schemas/public-entity-identity-inventory.json",
       "schemas/public-entity-identity-inventory.schema.json",
+      "schemas/public-entity.schema.json",
       "schemas/public-publication-bundle.schema.json",
       "schemas/public-publication-inventory.schema.json",
       "schemas/public-relation-identity-inventory.json",
       "schemas/public-relation-identity-inventory.schema.json",
+      "schemas/public-relation.schema.json",
       "schemas/public-route-compatibility.json",
-      "schemas/public-route-compatibility.schema.json"
+      "schemas/public-route-compatibility.schema.json",
+      "schemas/record-envelope.schema.json",
+      "schemas/wave-status-observation.schema.json"
     ]
   },
   "bundle": {
@@ -538,7 +544,7 @@
   },
   "counts": {
     "approved_public_media": 1,
-    "public_assembly_control_document": 99,
+    "public_assembly_control_document": 105,
     "public_curatorial_manuscript": 97,
     "public_entity_record": 120,
     "public_media_source_manifest": 1,
@@ -4148,6 +4154,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/common.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/controlled-vocabularies.json",
       "required_in_catalog": true
     },
@@ -4162,6 +4175,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/public-entity-common.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/public-entity-identity-inventory.json",
       "required_in_catalog": true
     },
@@ -4170,6 +4190,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "schemas/public-entity-identity-inventory.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "schemas/public-entity.schema.json",
       "required_in_catalog": true
     },
     {
@@ -4204,6 +4231,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/public-relation.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/public-route-compatibility.json",
       "required_in_catalog": true
     },
@@ -4213,11 +4247,25 @@
       "kind": "public_assembly_control_document",
       "path": "schemas/public-route-compatibility.schema.json",
       "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "schemas/record-envelope.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "schemas/wave-status-observation.schema.json",
+      "required_in_catalog": true
     }
   ],
   "integrity": {
-    "body_keccak256": "0x326987c0a4df1736312c7979947a587b27972bfd8e152da619c1752db2611864",
-    "body_sha256": "sha256:da2c06809353e545afa047750bc075689a3276ca70babf7819fe345619cad4ce",
+    "body_keccak256": "0x101e8f3efdeea889997f6b57111670344fff5d021c08f839e4906d690c49d042",
+    "body_sha256": "sha256:de13700f6530d052446db9d57521069298fcfbbc29ee7741c944231ae80d2b31",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

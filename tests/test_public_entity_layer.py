@@ -305,14 +305,20 @@ class PublicEntityLayerTests(unittest.TestCase):
             row["path"]: row for row in publication_inventory["entries"]
         }
         closed_graph_controls = (
+            "schemas/common.schema.json",
             "schemas/controlled-vocabularies.json",
             "schemas/controlled-vocabularies.schema.json",
+            "schemas/public-entity-common.schema.json",
             "schemas/public-entity-identity-inventory.json",
             "schemas/public-entity-identity-inventory.schema.json",
+            "schemas/public-entity.schema.json",
             "schemas/public-relation-identity-inventory.json",
             "schemas/public-relation-identity-inventory.schema.json",
+            "schemas/public-relation.schema.json",
             "schemas/public-route-compatibility.json",
             "schemas/public-route-compatibility.schema.json",
+            "schemas/record-envelope.schema.json",
+            "schemas/wave-status-observation.schema.json",
         )
         for path in closed_graph_controls:
             self.assertEqual(
