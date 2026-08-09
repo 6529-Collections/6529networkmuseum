@@ -304,10 +304,17 @@ class PublicEntityLayerTests(unittest.TestCase):
         publication_entries = {
             row["path"]: row for row in publication_inventory["entries"]
         }
-        for path in (
+        closed_graph_controls = (
+            "schemas/controlled-vocabularies.json",
+            "schemas/controlled-vocabularies.schema.json",
+            "schemas/public-entity-identity-inventory.json",
+            "schemas/public-entity-identity-inventory.schema.json",
             "schemas/public-relation-identity-inventory.json",
             "schemas/public-relation-identity-inventory.schema.json",
-        ):
+            "schemas/public-route-compatibility.json",
+            "schemas/public-route-compatibility.schema.json",
+        )
+        for path in closed_graph_controls:
             self.assertEqual(
                 publication_entries[path],
                 {
@@ -324,10 +331,7 @@ class PublicEntityLayerTests(unittest.TestCase):
             ROOT / "records/publication/visitor-corpus-bundle-v1.json"
         )
         bundled_paths = {row["path"] for row in visitor_bundle["entries"]}
-        self.assertIn("schemas/public-relation-identity-inventory.json", bundled_paths)
-        self.assertIn(
-            "schemas/public-relation-identity-inventory.schema.json", bundled_paths
-        )
+        self.assertTrue(set(closed_graph_controls).issubset(bundled_paths))
 
         interprets = [relation for relation in self.relations() if relation["source_entity_id"] == "6529NM-RP-0002" and relation["relation_type"] == "PUBLICATION_INTERPRETS_ENTITY"]
         self.assertEqual(len(interprets), 32)
