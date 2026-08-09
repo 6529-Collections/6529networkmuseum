@@ -295,30 +295,34 @@ class WP3EditorialChecks(unittest.TestCase):
         controls = tuple(chr(codepoint) for codepoint in range(0x20)) + ("\x7f",)
         for restricted_url in restricted_urls:
             for control in controls:
-                variant = restricted_url + control
-                documents = (
-                    variant,
-                    f"[photo]({variant})",
-                    f"[photo][source]\n\n[source]: {variant}",
-                    f'<a href="{variant}">source</a>',
+                variants = (
+                    control + restricted_url,
+                    restricted_url.replace("https://", f"https{control}://", 1),
+                    restricted_url.replace("https://", f"https://{control}", 1),
+                    restricted_url + control,
                 )
-                for document in documents:
-                    with self.subTest(
-                        locator=restricted_url,
-                        control=ord(control),
-                        document=document,
-                    ):
-                        reference_errors: list[str] = []
-                        REFERENCE_MODULE.check_visitor_document(
-                            label, document, declared, reference_errors
-                        )
-                        self.assertTrue(reference_errors)
-                        media_errors = (
-                            MEDIA_MODULE.validate_visitor_markdown_media_affordances(
+                for variant in variants:
+                    documents = (
+                        variant,
+                        f"[photo]({variant})",
+                        f"[photo][source]\n\n[source]: {variant}",
+                        f'<a href="{variant}">source</a>',
+                    )
+                    for document in documents:
+                        with self.subTest(
+                            locator=restricted_url,
+                            control=ord(control),
+                            document=document,
+                        ):
+                            reference_errors: list[str] = []
+                            REFERENCE_MODULE.check_visitor_document(
+                                label, document, declared, reference_errors
+                            )
+                            self.assertTrue(reference_errors)
+                            media_errors = MEDIA_MODULE.validate_visitor_markdown_media_affordances(
                                 join, [("probe.md", document)]
                             )
-                        )
-                        self.assertTrue(media_errors)
+                            self.assertTrue(media_errors)
 
     def test_one_slash_restricted_locator_is_rejected_in_container_forms(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

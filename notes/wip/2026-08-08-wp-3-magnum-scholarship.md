@@ -654,3 +654,19 @@ in bare, inline-Markdown, reference-Markdown, and raw-anchor forms, through
 both gates. The accepted curatorial, ontology, and reproducibility reviews
 belonged to the rejected bytes; all four lanes must restart on the next signed
 candidate.
+
+## 2026-08-09 control-target path correction
+
+Independent rights/privacy review rejected exact candidate
+`1f01f43ca717fc486593afab73f160316f188652`. NUL-prefixed or
+scheme-inserted Markdown destinations were rejected by the media-policy gate,
+but the independent local-reference gate classified them as local paths and
+raised an uncaught `ValueError` during path resolution.
+
+Markdown targets are now bounded-decoded before URI/path classification.
+Targets containing ASCII controls fail closed with a controlled diagnostic,
+and local path resolution catches platform path errors instead of aborting.
+Regressions place every C0 control and DEL before the locator, inside the
+scheme, after the authority delimiter, and after the locator, across all ten
+governed URLs and four rendered forms. All four review lanes must restart on a
+new signed candidate.

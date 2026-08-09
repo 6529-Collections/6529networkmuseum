@@ -3538,3 +3538,16 @@ catalog activation, and frontend qualification remain open.
 - Three other lanes had accepted the rejected bytes. Complete qualification,
   a new signed head, hosted CI, and four fresh independent reviews remain
   mandatory.
+
+## 2026-08-09 Magnum control-target path rejection
+
+- Rights/privacy review rejected exact candidate
+  `1f01f43ca717fc486593afab73f160316f188652`: NUL-prefixed and
+  scheme-inserted Markdown targets crashed the local-reference gate during
+  path resolution, although the media-policy gate rejected them.
+- Markdown targets are now bounded-decoded before classification; control
+  characters and invalid platform paths produce controlled gate errors.
+  Regressions place every C0 control and DEL at four URL boundaries for all ten
+  governed locators and four rendered forms through both gates.
+- The other three reviews were stopped. Complete qualification, a new signed
+  head, hosted CI, and four fresh reviews remain mandatory.

@@ -126,6 +126,14 @@ def contains_ar_uri(text: str) -> bool:
     return any(AR_URI.search(candidate) for candidate in decoded_text_variants(text))
 
 
+def decoded_markdown_target(value: str) -> str:
+    """Decode one Markdown target before URI or local-path classification."""
+
+    target = value.split("#", 1)[0].strip()
+    target = fully_unquote(html_unescape(target))
+    return MARKDOWN_ESCAPE.sub(r"\1", target)
+
+
 def web_locators(text: str) -> list[tuple[str, int | None, str]]:
     locators: set[tuple[str, int | None, str]] = set()
     for candidate_text in decoded_text_variants(text):
@@ -209,10 +217,19 @@ def check_visitor_document(
     checked = 0
     source = REPOSITORY / Path(*source_relative.split("/"))
     for match in MARKDOWN_LINK.finditer(text):
-        target = unquote(match.group(1).split("#", 1)[0].strip())
+        target = decoded_markdown_target(match.group(1))
+        if ASCII_CONTROL.search(target):
+            errors.append(
+                f"{source_relative}: visitor link target contains an ASCII control character"
+            )
+            continue
         if not target or ABSOLUTE_URI.match(target) or target.startswith("//"):
             continue
-        resolved = (source.parent / target).resolve()
+        try:
+            resolved = (source.parent / target).resolve()
+        except (OSError, RuntimeError, ValueError):
+            errors.append(f"{source_relative}: visitor link target is not a valid path")
+            continue
         if not inside_repository(resolved):
             continue
         checked += 1
@@ -252,11 +269,22 @@ def check_local_links(files: list[Path], errors: list[str]) -> int:
     for source in files:
         text = source.read_text(encoding="utf-8")
         for match in MARKDOWN_LINK.finditer(text):
-            target = unquote(match.group(1).split("#", 1)[0].strip())
+            target = decoded_markdown_target(match.group(1))
+            if ASCII_CONTROL.search(target):
+                errors.append(
+                    f"{source.relative_to(REPOSITORY)}: link target contains an ASCII control character"
+                )
+                continue
             if not target or ABSOLUTE_URI.match(target) or target.startswith("//"):
                 continue
             checked += 1
-            resolved = (source.parent / target).resolve()
+            try:
+                resolved = (source.parent / target).resolve()
+            except (OSError, RuntimeError, ValueError):
+                errors.append(
+                    f"{source.relative_to(REPOSITORY)}: invalid local link: {target!r}"
+                )
+                continue
             if not inside_repository(resolved):
                 errors.append(f"{source.relative_to(REPOSITORY)}: link escapes repository: {target}")
             elif not resolved.exists():
