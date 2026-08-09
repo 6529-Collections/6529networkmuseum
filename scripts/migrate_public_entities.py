@@ -918,7 +918,7 @@ def build_records(
         },
         "6529NM-PG-2026-001.OBJ-004": {
             "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md",
-            "summary": "Moisés Saman's work follows war and political upheaval through their unstable aftermaths, often attending to the distance between official narrative and lived experience. The selected 2011 Tripoli photograph centers a young person in an interior marked by conflict while preserving uncertainty around the event.",
+            "summary": "Moisés Saman's work follows war and political upheaval through their unstable aftermaths, often attending to the distance between official narrative and lived experience. The selected 2011 Tripoli photograph centers an apparently young person before a wall marked by dark spots whose cause the image does not establish.",
             "areas": ["documentary photography", "war and political upheaval", "aftermath and uncertainty"],
         },
         "6529NM-PG-2026-001.OBJ-005": {
@@ -1040,7 +1040,12 @@ def build_records(
         candidate_id = signed_obj["candidate_object_id"]
         wave_media = wave_media_by_candidate[candidate_id]
         receipt = wave_publication_by_candidate[candidate_id]
-        accessibility_text = media_description_amendment["current_accessibility_text"] if candidate_id == "6529NM-PG-2026-001.OBJ-003" else wave_media["alt_text"]
+        if candidate_id == "6529NM-PG-2026-001.OBJ-003":
+            accessibility_text = media_description_amendment["current_accessibility_text"]
+        elif candidate_id == "6529NM-PG-2026-001.OBJ-004":
+            accessibility_text = "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp."
+        else:
+            accessibility_text = wave_media["alt_text"]
         media_source_refs = ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID]
         if candidate_id == "6529NM-PG-2026-001.OBJ-003":
             media_source_refs.append(MEDIA_DESCRIPTION_AMENDMENT_ID)
@@ -1063,8 +1068,8 @@ def build_records(
             {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection."},
             ["alt_text", "open_wave_proposal_context", "copy_citation"],
             wave_proposal_context=wave_proposal_context,
-            accessibility_subject_policy="non_identifying_child_subject" if "child" in wave_media.get("alt_text", "").casefold() else "non_identifying_sensitive_subject",
-            identity_inference_prohibition={"status": "prohibited", "scope": "subject_identity", "reason": "Do not infer or publish the identity of a child subject from this historical proposal image."} if "child" in wave_media.get("alt_text", "").casefold() else None,
+            accessibility_subject_policy="non_identifying_apparently_young_subject" if candidate_id == "6529NM-PG-2026-001.OBJ-004" else "non_identifying_sensitive_subject",
+            identity_inference_prohibition={"status": "prohibited", "scope": "subject_identity_and_age_classification", "reason": "Do not infer or publish the subject's identity or age classification from this historical proposal image."} if candidate_id == "6529NM-PG-2026-001.OBJ-004" else None,
             publication_context_entity_ids=["6529NM-CA-2026-003"],
             token_source_locator=None,
             token_source_fixity=None,

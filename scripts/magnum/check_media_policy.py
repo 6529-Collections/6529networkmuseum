@@ -3,7 +3,7 @@
 The check is fail-closed. It verifies the exact Work, proposal alias, token
 source, historical Wave-upload URL, source fixity observation, current Wave
 observation, and route/display policy. It also runs adversarial mutations for
-child safeguarding, source swaps, and standalone-route bypasses.
+age-sensitive subject safeguards, source swaps, and standalone-route bypasses.
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ import sys
 from urllib.parse import urlsplit
 
 
-REPOSITORY = Path(__file__).resolve().parents[3]
+REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 JOIN_PATH = ROOT / "machine" / "wave-media-join.json"
 PROJECTIONS_PATH = ROOT / "machine" / "work-projections.json"
@@ -127,6 +127,35 @@ def contains_term(text: str, term: str) -> bool:
 
 def canonical_payload(payload: dict) -> bytes:
     return json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode("utf-8")
+
+
+def validate_visitor_markdown_media_affordances(
+    join: dict,
+    documents: list[tuple[str | Path, str]] | None = None,
+) -> list[str]:
+    """Reject image embeds and direct restricted-photo locators in visitor prose."""
+
+    restricted_urls = {
+        url
+        for row in join.get("works", [])
+        if isinstance(row, dict)
+        for url in (row.get("token_source_image_url"), row.get("wave_media_url"))
+        if isinstance(url, str) and url
+    }
+    if documents is None:
+        documents = [
+            (path.relative_to(ROOT), path.read_text(encoding="utf-8"))
+            for path in sorted(ROOT.rglob("*.md"))
+        ]
+
+    errors: list[str] = []
+    for label, text in documents:
+        if re.search(r"!\[[^\]]*\]\(https?://", text):
+            errors.append(f"{label}: visitor manuscript must not embed remote media")
+        for url in sorted(restricted_urls):
+            if url in text:
+                errors.append(f"{label}: visitor manuscript exposes a restricted direct photograph locator")
+    return errors
 
 
 def validate_publication_evidence(evidence: dict) -> list[str]:
@@ -249,6 +278,9 @@ def validate_join(join: dict) -> list[str]:
     for key, expected in DENY_RUNTIME_FIELDS.items():
         if runtime.get(key) != expected:
             fail(f"runtime policy {key!r} must be {expected!r}")
+    age_rule = runtime.get("age_sensitive_subject_rule", "").lower()
+    if "apparently young" not in age_rule or "without assigning an age or child classification" not in age_rule:
+        fail("runtime policy must prohibit inferred age and child classification for an apparently young subject")
 
     rows = join.get("works")
     if not isinstance(rows, list) or len(rows) != len(EXPECTED):
@@ -300,13 +332,17 @@ def validate_join(join: dict) -> list[str]:
         if not alt or any(contains_term(alt, term) for term in ("identity", "name", "age", "tear gas")):
             fail(f"{label}: alt text must remain a non-identifying visible-fact description")
         if row.get("work_entity_id") == "6529NM-W-0027":
-            if row.get("child_subject") is not True or row.get("accessibility_subject_policy") != "non_identifying_child_subject":
-                fail("Saman media row must carry the exact child-safe accessibility policy")
+            if row.get("accessibility_subject_policy") != "non_identifying_apparently_young_subject":
+                fail("Saman media row must carry the exact age-sensitive accessibility policy")
+            if row.get("age_classification") != "unverified_apparently_young_subject" or row.get("subject_age_documentation") != "not_available_in_reviewed_public_record":
+                fail("Saman media row must state that age classification is unverified and undocumented")
+            if "apparently young person" not in alt.lower() or contains_term(alt, "child"):
+                fail("Saman alt text must preserve apparent youth without assigning a child classification")
             if any(contains_term(alt, term) for term in SAMAN_UNSAFE_TERMS):
-                fail("Saman child alt text must not expose identity, age, artist, location, or cause")
-            rule = row.get("child_display_rule", "").lower()
-            if "do not identify" not in rule or "visible-fact level" not in rule or any(contains_term(rule, term) for term in ("age", "consent", "sensitive context")):
-                fail("Saman child display rule must prohibit identity and sensitive-context inference")
+                fail("Saman alt text must not expose identity, age, artist, location, or cause")
+            rule = row.get("subject_display_rule", "").lower()
+            if "do not identify" not in rule or "assign an age or child classification" not in rule or "visible-fact level" not in rule:
+                fail("Saman display rule must prohibit identity, age, and child-classification inference")
             identity = row.get("identity_inference")
             if not isinstance(identity, dict):
                 fail("Saman media row must carry an identity_inference block")
@@ -402,7 +438,7 @@ def validate_mutation_guards(join: dict) -> list[str]:
         ("missing Saman identity_inference", lambda value: value["works"][3].pop("identity_inference", None)),
         ("permitted Saman identity inference", lambda value: value["works"][3]["identity_inference"].update(permitted=True)),
         ("Saman unsafe visual/context alt", lambda value: value["works"][3].update(alt_text="The identified nine-year-old child in Tripoli stands beside a house hit by an air strike.")),
-        ("Saman child rule allowing sensitive age", lambda value: value["works"][3].update(child_display_rule="Display the child's age and sensitive context.")),
+        ("Saman display rule allowing inferred age", lambda value: value["works"][3].update(subject_display_rule="Identify the child and publish an estimated age.")),
         ("Saman swapped exact source URL", lambda value: value["works"][3].update(token_source_image_url=value["works"][0]["token_source_image_url"])),
         ("Saman swapped source fixity", lambda value: value["works"][3]["source_image_fixity"].update(sha256=value["works"][0]["source_image_fixity"]["sha256"])),
         ("inferred Bar-Am tear gas alt text", lambda value: value["works"][2].update(alt_text="Black-and-white photograph of a person moving through tear gas beside an airborne canister.")),
@@ -437,10 +473,7 @@ def main() -> int:
         errors.append("canonical Wave publication observation file hash drift")
     errors.extend(validate_join(join))
     errors.extend(validate_work_projections(projections))
-    for work_path in sorted((ROOT / "works").glob("*.md")):
-        work_text = work_path.read_text(encoding="utf-8")
-        if re.search(r"!\[[^\]]*\]\(https?://", work_text):
-            errors.append(f"{work_path.name}: public Work manuscript must not embed remote media")
+    errors.extend(validate_visitor_markdown_media_affordances(join))
     saman_alt = join["works"][3].get("alt_text", "").lower()
     if "impact mark" in saman_alt or "bullet" in saman_alt or "air strike" in saman_alt:
         errors.append("Saman accessibility text must not infer the cause of visible wall marks")
@@ -451,7 +484,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print("Media-policy check passed: exact five Work/Media joins, current observations, route gates, source fixity, child safeguards, and mutation guards")
+    print("Media-policy check passed: exact five Work/Media joins, current observations, route gates, source fixity, age-sensitive safeguards, visitor locator suppression, and mutation guards")
     return 0
 
 

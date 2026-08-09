@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdc702e0c23d05134debb2ff5dabd57e268e7c8e1ad63d1176ba0001f93a2f469"
+      "digest": "0x8cbe89acb33e9e1cf2ba3bdecf0157609324d33c7aa29043426f0bf6f84320d0"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9887e6c0738b8fcf326af2edb24ade56c621c1d23b058787e81401beca91e371",
+    "payload_sha256": "sha256:a8bfdf883c614ddda8023c088ff3fb1a09d2b434dcdbbe20c4ef86a44e662333",
     "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -54,8 +54,8 @@
         ],
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
-        "accessibility_subject_policy": "non_identifying_child_subject",
-        "accessibility_text": "Black-and-white photograph of a child standing with head lowered before a white wall pocked by many impact marks, beneath a caged lamp.",
+        "accessibility_subject_policy": "non_identifying_apparently_young_subject",
+        "accessibility_text": "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
         "allowed_ui_affordances": [
           "alt_text",
           "open_wave_proposal_context",
@@ -72,8 +72,8 @@
         },
         "height": 3744,
         "identity_inference_prohibition": {
-          "reason": "Do not infer or publish the identity of a child subject from this historical proposal image.",
-          "scope": "subject_identity",
+          "reason": "Do not infer or publish the subject's identity or age classification from this historical proposal image.",
+          "scope": "subject_identity_and_age_classification",
           "status": "prohibited"
         },
         "media_role": "historical_wave_proposal_presentation",

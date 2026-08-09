@@ -421,7 +421,7 @@ copyright chain.
   `All Rights Reserved` labels recorded in the local proposal package. The
   machine join preserves the CloudFront URLs as historical URL evidence and
   retains the Arweave URLs separately as token-linked source-image locators.
-- **Exact Wave-upload URLs:** parts 2–6 are [#127](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg), [#145](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg), [#97](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg), [#44](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg), and [#104](https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg).
+- **Historical Wave presentation:** [the exact seven-part Wave proposal](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0) is the visitor-facing context. The five exact Wave-upload URL strings and token-linked source-image locators are retained only in the governed machine and evidence records.
 - **Limit:** the local `wave-storm.json` is historical proposal evidence. The
   canonical enveloped publication observation in S56 binds the signed
   seven-part publication and its content hashes. The later public-safe API

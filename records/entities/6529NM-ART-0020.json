@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc7f918910a55302abee65a65b91c51f68858aa87bfff048e69a8086fa3b26b6f"
+      "digest": "0x79004bacf7a9662725f9c1a5e44ceab915d41f4de7908caa525cb5ec8b1c8669"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a5b5bfedf0fc1aabea4eca056a35daf46b4f06a2cc373900cf19702ef4ed2d69",
+    "payload_sha256": "sha256:0a626c2a100275be37cccf6677bc4b580137e509015902d8b933a7a9e20a09e3",
     "preferred_label": "Moisés Saman",
     "profile": {
       "authority": {
@@ -99,7 +99,7 @@
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md"
           }
         ],
-        "summary": "Moisés Saman's work follows war and political upheaval through their unstable aftermaths, often attending to the distance between official narrative and lived experience. The selected 2011 Tripoli photograph centers a young person in an interior marked by conflict while preserving uncertainty around the event."
+        "summary": "Moisés Saman's work follows war and political upheaval through their unstable aftermaths, often attending to the distance between official narrative and lived experience. The selected 2011 Tripoli photograph centers an apparently young person before a wall marked by dark spots whose cause the image does not establish."
       },
       "profile_type": "ARTIST"
     },

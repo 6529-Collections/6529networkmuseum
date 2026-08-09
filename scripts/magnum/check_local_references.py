@@ -8,7 +8,7 @@ import sys
 from urllib.parse import unquote
 
 
-REPOSITORY = Path(__file__).resolve().parents[3]
+REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
 MARKDOWN_LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 CODE_SPAN = re.compile(r"`([^`]+)`")

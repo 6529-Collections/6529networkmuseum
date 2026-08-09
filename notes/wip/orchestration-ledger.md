@@ -3299,3 +3299,23 @@ and its Keccak commitment is
 `0x507e63112fb1573b866c28c89cf699f4cea51c23da702029850e10ae1aab4672`.
 Exact-head review, merge, reviewed-child promotion, catalog/pointer activation,
 frontend binding, and staging/production qualification remain open.
+
+## 2026-08-09 Magnum review correction checkpoint
+
+Candidate `93f8742cb64121cabd8a2f68ccd128879ec49a6e` was rejected by four independent
+review lanes. The correction work removes unsupported child and damage-cause
+assertions, suppresses direct restricted-photo links throughout visitor prose,
+closes all Magnum machine schemas and the seven-part public-safe Wave evidence
+schema, moves the four deterministic corpus checks into manifest-governed
+`scripts/magnum/`, and includes the scholarship README in every public copy and
+Unicode gate. The publication-catalog A-to-B verifier now requires those four
+checks unchanged.
+
+The regenerated correction boundary is 534 publication inventory entries, 533
+visitor bundle entries, and 781 complete-manifest entries. Its authoritative
+commitments live in `release-artifacts/latest/record-manifest.json`; this
+manifest-bound ledger deliberately does not duplicate them.
+Bootstrap validation, deterministic generation checks, 22-document editorial
+and UTF-8 checks, visitor-media suppression, and 40 focused schema/projection
+tests pass. Fresh exact-head review, hosted CI, merge, reviewed-child B,
+catalog-activation C, and frontend qualification remain open.

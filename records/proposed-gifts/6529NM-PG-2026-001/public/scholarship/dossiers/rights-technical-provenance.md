@@ -27,13 +27,13 @@ The Work IDs above are the acquisition-independent identities in the governed
 public entity inventory. Proposal aliases remain typed source-package
 references; they are not accession numbers and do not replace the Work records.
 
-| Work | Metadata URI | Source-image URI | Observed JPEG bytes | Dimensions | SHA-256 |
+| Work | Metadata URI | Source-image record | Observed JPEG bytes | Dimensions | SHA-256 |
 | --- | --- | --- | ---: | --- | --- |
-| Seymour #127 | [Arweave metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) | [Arweave image](https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM) | 2,518,674 | 3,056 × 4,600 | `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453` |
-| Towell #145 | [Arweave metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) | [Arweave image](https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE) | 1,813,285 | 5,369 × 3,601 | `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee` |
-| Bar-Am #97 | [Arweave metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) | [Arweave image](https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4) | 1,666,083 | 5,000 × 3,292 | `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
-| Saman #44 | [Arweave metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) | [Arweave image](https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o) | 1,540,870 | 5,616 × 3,744 | `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
-| Meloni #104 | [Arweave metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) | [Arweave image](https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco) | 16,871,807 | 5,964 × 4,768 | `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
+| Seymour #127 | [Arweave metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) | Exact URI retained in governed machine evidence; no direct visitor link | 2,518,674 | 3,056 × 4,600 | `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453` |
+| Towell #145 | [Arweave metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) | Exact URI retained in governed machine evidence; no direct visitor link | 1,813,285 | 5,369 × 3,601 | `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee` |
+| Bar-Am #97 | [Arweave metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) | Exact URI retained in governed machine evidence; no direct visitor link | 1,666,083 | 5,000 × 3,292 | `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
+| Saman #44 | [Arweave metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) | Exact URI retained in governed machine evidence; no direct visitor link | 1,540,870 | 5,616 × 3,744 | `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
+| Meloni #104 | [Arweave metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) | Exact URI retained in governed machine evidence; no direct visitor link | 16,871,807 | 5,964 × 4,768 | `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
 
 The proposal package reports that all five metadata objects and linked JPEGs
 were resolved and SHA-256 verified on 5 August 2026. The Museum visually

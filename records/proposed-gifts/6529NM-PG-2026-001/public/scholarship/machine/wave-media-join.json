@@ -91,7 +91,7 @@
     "iiif_or_tiled_service": "deny",
     "preservation_claim": "deny",
     "alt_text_policy": "non_identifying_subject_description",
-    "child_sensitive_rule": "A child-subject entry must use non-identifying alt text and must not expose inferred identity, location beyond the published caption, or sensitive metadata."
+    "age_sensitive_subject_rule": "An apparently young subject must be described without assigning an age or child classification and without exposing inferred identity, location beyond the published caption, or sensitive metadata."
   },
   "display_policy": {
     "allowed": [
@@ -263,10 +263,11 @@
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_display_authority_withheld"},
       "load_policy": "blocked_pending_reviewed_display_authority",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master", "identity_inference"],
-      "alt_text": "Black-and-white photograph of a child standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
-      "accessibility_subject_policy": "non_identifying_child_subject",
-      "child_subject": true,
-      "child_display_rule": "Do not identify the child or expose sensitive identity metadata; retain the public description at the visible-fact level.",
+      "alt_text": "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
+      "accessibility_subject_policy": "non_identifying_apparently_young_subject",
+      "age_classification": "unverified_apparently_young_subject",
+      "subject_age_documentation": "not_available_in_reviewed_public_record",
+      "subject_display_rule": "Do not identify the person or assign an age or child classification; retain the public description at the visible-fact level.",
       "identity_inference": {
         "permitted": false,
         "display_policy": "non_identifying_visible_facts_only",

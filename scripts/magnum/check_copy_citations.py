@@ -1,9 +1,4 @@
-"""Run deterministic editorial and citation checks over the public Magnum corpus.
-
-The check is local only. It includes dossiers and the source register because
-both are intended for public research publication; machine records, review
-scripts, and the construction README are excluded from visitor-copy tests.
-"""
+"""Run deterministic editorial and citation checks over the public Magnum corpus."""
 
 from __future__ import annotations
 
@@ -12,9 +7,8 @@ import re
 import sys
 
 
-REPOSITORY = Path(__file__).resolve().parents[3]
+REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
-PUBLIC_DIRS = tuple(ROOT / name for name in ("entities", "artists", "works", "essays", "dossiers", "sources"))
 SOURCE_REGISTER = ROOT / "sources" / "source-register.md"
 FOOTNOTE_REF = re.compile(r"\[\^([^\]]+)\](?!:)")
 FOOTNOTE_DEF = re.compile(r"^\[\^([^\]]+)\]:", re.MULTILINE)
@@ -39,7 +33,10 @@ FORBIDDEN_COPY = (
 
 
 def public_files() -> list[Path]:
-    return sorted(path for directory in PUBLIC_DIRS for path in directory.rglob("*.md"))
+    files = sorted(ROOT.rglob("*.md"))
+    if ROOT / "README.md" not in files:
+        raise FileNotFoundError("scholarship README.md is missing from the public corpus")
+    return files
 
 
 def source_ids() -> set[str]:

@@ -844,7 +844,17 @@ class PublicationCatalogTests(unittest.TestCase):
         self._write_bundle(root)
         for relative in ("public-publication-inventory.schema.json", "public-publication-bundle.schema.json", "publication-catalog.schema.json", "publication-catalog-pointer.schema.json"):
             (root / "schemas" / relative).write_bytes((ROOT / "schemas" / relative).read_bytes())
-        for relative in ("generate_manifest.py", "generate_public_publication_inventory.py", "generate_public_publication_bundle.py", "bootstrap_validate.py", "validate.py"):
+        for relative in (
+            "generate_manifest.py",
+            "generate_public_publication_inventory.py",
+            "generate_public_publication_bundle.py",
+            "bootstrap_validate.py",
+            "validate.py",
+            "magnum/check_copy_citations.py",
+            "magnum/check_local_references.py",
+            "magnum/check_media_policy.py",
+            "magnum/check_public_utf8.py",
+        ):
             path = root / "scripts" / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text("raise SystemExit(0)\n", encoding="utf-8", newline="\n")

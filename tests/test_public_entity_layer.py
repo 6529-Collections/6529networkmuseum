@@ -88,6 +88,69 @@ class PublicEntityLayerTests(unittest.TestCase):
         validator = validator_for(self.schema_store[schema_id], self.schema_store)
         return [error.message for error in validator.iter_errors(payload)]
 
+    def local_schema_issues(self, payload: dict, relative_schema: str) -> list[str]:
+        schema = load_json(ROOT / relative_schema)
+        validator = validator_for(schema, self.schema_store)
+        return [error.message for error in validator.iter_errors(payload)]
+
+    def test_magnum_machine_schema_closes_nested_contracts_and_work_rows(self) -> None:
+        machine_root = ROOT / "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine"
+        records = {path.name: load_json(path) for path in sorted(machine_root.glob("*.json"))}
+        for name, record in records.items():
+            self.assertEqual(
+                self.local_schema_issues(record, "schemas/magnum-scholarship-machine-record.schema.json"),
+                [],
+                name,
+            )
+
+        mutations = []
+        integration = copy.deepcopy(records["integration-map.json"])
+        integration["entity_projections"] = {}
+        mutations.append(integration)
+        integration = copy.deepcopy(records["integration-map.json"])
+        integration["publication_path_contract"]["undeclared"] = True
+        mutations.append(integration)
+        media_join = copy.deepcopy(records["wave-media-join.json"])
+        media_join["route_policy"]["undeclared"] = "allow"
+        mutations.append(media_join)
+        schedule = copy.deepcopy(records["object-schedule.json"])
+        schedule["works"][0] = {}
+        mutations.append(schedule)
+        projections = copy.deepcopy(records["work-projections.json"])
+        projections["works"][0]["token"]["undeclared"] = "drift"
+        mutations.append(projections)
+
+        for index, mutated in enumerate(mutations):
+            self.assertTrue(
+                self.local_schema_issues(mutated, "schemas/magnum-scholarship-machine-record.schema.json"),
+                f"mutation {index} unexpectedly passed",
+            )
+
+    def test_public_safe_wave_parts_are_exactly_ordered_and_distinct(self) -> None:
+        evidence = load_json(
+            ROOT / "records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json"
+        )
+        schema_path = "schemas/wave-publication-public-safe-evidence.schema.json"
+        self.assertEqual(self.local_schema_issues(evidence, schema_path), [])
+
+        duplicate = copy.deepcopy(evidence)
+        duplicate["payload"]["parts"][1]["part_id"] = 1
+        self.assertTrue(self.local_schema_issues(duplicate, schema_path))
+        missing = copy.deepcopy(evidence)
+        missing["payload"]["parts"].pop()
+        self.assertTrue(self.local_schema_issues(missing, schema_path))
+        reordered = copy.deepcopy(evidence)
+        reordered["payload"]["parts"][1], reordered["payload"]["parts"][2] = (
+            reordered["payload"]["parts"][2],
+            reordered["payload"]["parts"][1],
+        )
+        self.assertTrue(self.local_schema_issues(reordered, schema_path))
+        duplicate_media = copy.deepcopy(evidence)
+        duplicate_media["payload"]["parts"][0]["media"].append(
+            copy.deepcopy(duplicate_media["payload"]["parts"][0]["media"][0])
+        )
+        self.assertTrue(self.local_schema_issues(duplicate_media, schema_path))
+
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
         self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 120, "PUBLIC_RELATION": 211, "WAVE_STATUS_OBSERVATION": 1}))
@@ -365,11 +428,12 @@ class PublicEntityLayerTests(unittest.TestCase):
             self.assertNotIn("view", media_profile["allowed_ui_affordances"])
             self.assertNotIn("thumbnail", media_profile["allowed_ui_affordances"])
             self.assertNotIn("hero", media_profile["allowed_ui_affordances"])
-        child_media = next(value for value in magnum_media if value["entity_id"] == "6529NM-MED-0043")["profile"]["media"]
-        self.assertEqual(child_media["accessibility_subject_policy"], "non_identifying_child_subject")
-        self.assertNotRegex(child_media["accessibility_text"].lower(), r"\b(named|identified|known as)\b")
-        self.assertEqual(child_media["identity_inference_prohibition"]["status"], "prohibited")
-        self.assertEqual(child_media["identity_inference_prohibition"]["scope"], "subject_identity")
+        age_sensitive_media = next(value for value in magnum_media if value["entity_id"] == "6529NM-MED-0043")["profile"]["media"]
+        self.assertEqual(age_sensitive_media["accessibility_subject_policy"], "non_identifying_apparently_young_subject")
+        self.assertIn("apparently young person", age_sensitive_media["accessibility_text"].lower())
+        self.assertNotRegex(age_sensitive_media["accessibility_text"].lower(), r"\b(child|named|identified|known as)\b")
+        self.assertEqual(age_sensitive_media["identity_inference_prohibition"]["status"], "prohibited")
+        self.assertEqual(age_sensitive_media["identity_inference_prohibition"]["scope"], "subject_identity_and_age_classification")
         cover = media["6529NM-MED-0004"]["profile"]["media"]
         self.assertEqual(cover["media_role"], "museum_authored_public_graphic")
         self.assertEqual(cover["publication_boundary"], "public_graphic")

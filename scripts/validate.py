@@ -902,19 +902,19 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     elif publication_boundary != expected_boundary:
         issues.append(f"{label}: publication_boundary must be {expected_boundary!r} for {role}")
     accessibility_subject_policy = media.get("accessibility_subject_policy")
-    if accessibility_subject_policy == "non_identifying_child_subject":
+    if accessibility_subject_policy == "non_identifying_apparently_young_subject":
         text = media.get("accessibility_text")
         if not isinstance(text, str) or not text:
-            issues.append(f"{label}: non-identifying child-subject media requires accessibility text")
+            issues.append(f"{label}: an apparently young subject requires non-identifying accessibility text")
         elif re.search(r"\b(named|identified|known as|identified as)\b", text, flags=re.IGNORECASE):
-            issues.append(f"{label}: child-subject accessibility text must not identify the subject")
+            issues.append(f"{label}: accessibility text for an apparently young subject must not identify the subject")
         prohibition = media.get("identity_inference_prohibition")
-        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
-            issues.append(f"{label}: child-subject media requires a structural identity_inference_prohibition")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity_and_age_classification" or not isinstance(prohibition.get("reason"), str) or not prohibition["reason"]:
+            issues.append(f"{label}: an apparently young subject requires structural identity-and-age inference prohibition")
     elif media.get("identity_inference_prohibition") is not None:
         prohibition = media.get("identity_inference_prohibition")
-        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") != "subject_identity":
-            issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited subject_identity object")
+        if not isinstance(prohibition, dict) or prohibition.get("status") != "prohibited" or prohibition.get("scope") not in {"subject_identity", "subject_identity_and_age_classification"}:
+            issues.append(f"{label}: identity_inference_prohibition must be null or a closed prohibited identity-scope object")
     if role == "museum_retained_preservation_object" and (source_status != "retrieved" or fixity_status != "verified"):
         issues.append(f"{label}: retained preservation objects require retrieved bytes and verified fixity")
     if role == "museum_generated_public_derivative" and not isinstance(media.get("transform_profile"), str):

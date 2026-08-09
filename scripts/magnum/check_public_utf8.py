@@ -1,9 +1,4 @@
-"""Fail-closed UTF-8 and classic-mojibake check for public manuscripts.
-
-The construction README and ``reviews/`` scripts are intentionally excluded:
-they are control-plane material, not publication manuscripts. Dossiers and the
-source register are included because they are intended for public research use.
-"""
+"""Fail-closed UTF-8 and classic-mojibake check for every public manuscript."""
 
 from __future__ import annotations
 
@@ -11,11 +6,8 @@ from pathlib import Path
 import sys
 
 
-REPOSITORY = Path(__file__).resolve().parents[3]
+REPOSITORY = Path(__file__).resolve().parents[2]
 ROOT = REPOSITORY / "records" / "proposed-gifts" / "6529NM-PG-2026-001" / "public" / "scholarship"
-PUBLIC_MARKDOWN_DIRS = tuple(
-    ROOT / name for name in ("entities", "artists", "works", "essays", "dossiers", "sources")
-)
 # These are the UTF-8 byte prefixes produced when classic Windows-1252
 # mojibake markers (Â, Ã, â, ð) have themselves been saved as UTF-8. A marker
 # is reported only when a complete cp1252 -> UTF-8 repair round-trip succeeds
@@ -45,11 +37,10 @@ def classic_mojibake_repair(text: str, raw: bytes) -> str | None:
 
 
 def main() -> int:
-    files = sorted(
-        path
-        for directory in PUBLIC_MARKDOWN_DIRS
-        for path in directory.rglob("*.md")
-    )
+    files = sorted(ROOT.rglob("*.md"))
+    if ROOT / "README.md" not in files:
+        print("Public corpus UTF-8 check failed: scholarship README.md is missing", file=sys.stderr)
+        return 1
     errors: list[str] = []
     for path in files:
         relative = path.relative_to(ROOT).as_posix()

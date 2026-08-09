@@ -68,7 +68,7 @@ The isolated root is `content/wp-3-magnum/`.
 - Source register: `sources/source-register.md`.
 - WP-1 input: `machine/integration-map.json`, `machine/work-projections.json`,
   `machine/object-schedule.json`, and `machine/wave-media-join.json`.
-- Public corpus check: `reviews/check_public_utf8.py`.
+- Public corpus check: `scripts/magnum/check_public_utf8.py`.
 
 WP-1 must admit the Organization `6529NM-ORG-0002`, Project/Series
 `6529NM-PRJ-0006`, five Artists `6529NM-ART-0017` through `0021`, five Works
@@ -84,12 +84,10 @@ controlled vocabularies. No shared schema or vocabulary was changed here.
   section, and one source/rights colophon. No visitor-facing WP-1 placeholder,
   raw lifecycle/collection row, evidence-class label, machine-join directive,
   frontend instruction, or repeated selection-status footer remains.
-- Strict decoded-byte UTF-8/no-mojibake check passes for 21 public Markdown
-  pages, including dossiers and the source register; README and `reviews/` are
-  intentionally control-plane exclusions.
-- Deterministic local Markdown/JSON reference check passes for 121 relative
-  links and 19 governed repository paths, plus 5 source-register paths and 6
-  explicit staging paths.
+- Strict decoded-byte UTF-8/no-mojibake check passes for all 22 public Markdown
+  manuscripts, including the scholarship README, dossiers, and source register.
+- Deterministic local Markdown/JSON reference checking covers the complete
+  canonical scholarship tree and its governed repository paths.
 - Media-policy check passes for five exact Work/Media/Wave joins and fail-closed
   runtime rules.
 - All source IDs referenced by the corpus, including S40 Digital Camera World,
@@ -217,10 +215,10 @@ record is to be manufactured to fill the integration gap.
   Henri Cartier-Bresson Foundation Towell membership-date variant; and retained
   TIME/AFP excerpt and page-state caveats. The 2015 destruction chronology stays
   separate from the March/April 2016 access and demining chronology.
-- New local gates are `reviews/check_copy_citations.py` and the
+- New local gates are `scripts/magnum/check_copy_citations.py` and the
   `tests/test_wp3_magnum_editorial.py` wrapper. The media checker now validates
   current observation identity/time, exact source URL/hash/fixity, standalone
-  route denial, Bar-Am amendment binding, Saman child/identity restrictions,
+  route denial, Bar-Am amendment binding, Saman identity/age-classification restrictions,
   and adversarial mutations. No network-dependent CI behavior was added.
 
 ## 2026-08-09 independent scholarship review
@@ -308,9 +306,9 @@ record is to be manufactured to fill the integration gap.
 
 The scholarship corpus now lives under
 `records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/`, beside the
-governed proposed-gift record it interprets. The former `content/wp-3-magnum/`
-location retains only deterministic editorial, link, Unicode, and media-policy
-checks. The public index, five artist profiles, five Work entries, Magnum Photos
+governed proposed-gift record it interprets. The deterministic editorial, link,
+Unicode, and media-policy checks live under `scripts/magnum/` and are committed
+by the complete release manifest. The public index, five artist profiles, five Work entries, Magnum Photos
 and Magnum Photos 75 profiles, two acquisition essays, research dossiers, source
 register, and machine projections are all release-manifest declared.
 
@@ -353,3 +351,38 @@ its Keccak commitment is
 `0x507e63112fb1573b866c28c89cf699f4cea51c23da702029850e10ae1aab4672`.
 Independent review, deterministic reviewed-child promotion, and a release-only
 catalog/pointer activation remain separate required commits.
+
+## 2026-08-09 independent-review correction candidate
+
+Four independent exact-head reviews rejected candidate `93f8742cb64121cabd8a2f68ccd128879ec49a6e` on evidence, rights/media, schema, and reproducibility grounds. The corrected candidate resolves each finding:
+
+- The Saman record describes an **apparently young person** and expressly
+  records that age classification is unverified. Public and machine records no
+  longer assert that the subject is a child. Identity and age-classification
+  inference remain prohibited. The Artist summary now states that the cause of
+  the visible wall marks is not established by the image.
+- No visitor Markdown contains or links directly to any of the five restricted
+  CloudFront photographs or token-linked source-image URLs. Visitor pages link
+  to the exact seven-part Wave proposal context. Exact source locators and
+  fixity remain in governed machine and evidence records. A corpus-wide
+  regression rejects future direct-locator or remote-image reintroduction.
+- `schemas/magnum-scholarship-machine-record.schema.json` now closes every
+  critical nested contract and all three five-Work row shapes. It fixes Work
+  order and rejects empty projections, undeclared nested fields, malformed work
+  rows, and route-policy drift. The public-safe Wave evidence schema fixes the
+  seven ordered part identities, exactly one media item in parts 1–6, and no
+  media in part 7.
+- The four executable Magnum checks moved to `scripts/magnum/`, are committed by
+  the release manifest, and are required unchanged across candidate A and
+  reviewed child B by the publication-catalog verifier. All 22 public Markdown
+  manuscripts, including the scholarship `README.md`, are covered by Unicode
+  and editorial checks.
+
+The corrected release contains 534 publication-inventory entries, 533 visitor
+bundle entries, and 781 complete-manifest entries. The authoritative regenerated
+commitments are carried by `release-artifacts/latest/record-manifest.json`;
+they are not copied into this manifest-bound ledger because doing so would make
+the ledger change the commitment it reports.
+Focused editorial, media, schema-adversarial, projection, inventory, bundle,
+manifest, and bootstrap checks pass. A fresh exact-head independent review is
+required before merge and reviewed-child promotion.

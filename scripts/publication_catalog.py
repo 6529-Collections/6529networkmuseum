@@ -720,6 +720,10 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
         "scripts/generate_public_publication_bundle.py",
         "scripts/bootstrap_validate.py",
         "scripts/validate.py",
+        "scripts/magnum/check_copy_citations.py",
+        "scripts/magnum/check_local_references.py",
+        "scripts/magnum/check_media_policy.py",
+        "scripts/magnum/check_public_utf8.py",
     }
     for generator_path in generator_paths:
         if generator_path not in candidate_manifest_entries or generator_path not in reviewed_manifest_entries:
