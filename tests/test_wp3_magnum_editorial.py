@@ -21,6 +21,11 @@ MEDIA_SPEC = importlib.util.spec_from_file_location("wp3_media_policy", MEDIA_CH
 assert MEDIA_SPEC and MEDIA_SPEC.loader
 MEDIA_MODULE = importlib.util.module_from_spec(MEDIA_SPEC)
 MEDIA_SPEC.loader.exec_module(MEDIA_MODULE)
+REFERENCE_CHECKER = ROOT / "scripts" / "magnum" / "check_local_references.py"
+REFERENCE_SPEC = importlib.util.spec_from_file_location("wp3_local_references", REFERENCE_CHECKER)
+assert REFERENCE_SPEC and REFERENCE_SPEC.loader
+REFERENCE_MODULE = importlib.util.module_from_spec(REFERENCE_SPEC)
+REFERENCE_SPEC.loader.exec_module(REFERENCE_MODULE)
 SCRIPTS = ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 import generate_public_publication_bundle as BUNDLE_MODULE  # noqa: E402
@@ -92,6 +97,27 @@ class WP3EditorialChecks(unittest.TestCase):
             self.assertNotIn(work["token_source_image_url"], bundle_markdown)
         self.assertNotIn("A young girl stands", bundle_markdown)
         self.assertNotIn("child stands", bundle_markdown.casefold())
+
+    def test_visitor_manuscripts_link_only_inside_atomic_publication(self) -> None:
+        files = sorted(path for path in REFERENCE_MODULE.ROOT.rglob("*.md"))
+        errors: list[str] = []
+        declared_paths = REFERENCE_MODULE.publication_paths()
+        REFERENCE_MODULE.check_visitor_boundary(files, declared_paths, errors)
+        self.assertEqual(errors, [])
+
+    def test_visitor_boundary_rejects_arweave_and_complete_manifest_markers(self) -> None:
+        declared = {"records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"}
+        label = "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/probe.md"
+        probes = (
+            "https://arweave.net/example",
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
+            "../machine/object-schedule.json",
+        )
+        for probe_text in probes:
+            with self.subTest(probe=probe_text):
+                errors: list[str] = []
+                REFERENCE_MODULE.check_visitor_document(label, probe_text, declared, errors)
+                self.assertTrue(errors, f"expected visitor-boundary rejection for {label}: {probe_text}")
 
     def test_media_policy_reports_malformed_shapes_without_crashing(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

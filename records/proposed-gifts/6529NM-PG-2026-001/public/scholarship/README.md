@@ -80,15 +80,14 @@ non-identifying descriptions without copying or serving the photographic
 files. The Museum-authored proposal cover is a separate CC0 graphic; it is not
 a substitute for any of the five works.
 
-The [canonical publication observation](../../wave-publication-observation-2026-08-08.json)
-preserves the signed seven-part Wave publication and its content hashes. A
-[later public-safe API observation](../../evidence/wave-publication-observation-public-safe-2026-08-09.json)
-confirms the public image URLs, MIME types, media states, and continuing
+The [public Wave publication](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0)
+is bound to Museum observation `6529NM-WAVE-PUB-OBS-2026-08-08-001`, which
+preserves the signed seven-part publication and its content hashes. A later
+public-safe API observation confirms the public media states and continuing
 `WINNER` status. The five Works, their Media References, the acquisition, and
-the canonical publication observation are joined in the machine-readable
-record. Together they identify the historical proposal presentation; they do
-not establish copyright, title, custody, acceptance, accession, or Collection
-membership.
+the observation are joined in the governed technical record. Together they
+identify the historical proposal presentation; they do not establish
+copyright, title, custody, acceptance, accession, or Collection membership.
 
 ## Record identities
 

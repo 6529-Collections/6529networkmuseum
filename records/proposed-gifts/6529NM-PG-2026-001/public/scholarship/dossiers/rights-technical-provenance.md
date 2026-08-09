@@ -9,13 +9,13 @@ observations establish about the five token-linked manifestations. It keeps
 token identity, source-image identity, copyright, title, custody, display
 permission, and Museum accession as separate facts. The five photographs are
 public Work projections for the selected acquisition; no accession or object record is
-manufactured here ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
+manufactured here ([S37](../sources/source-register.md)).
 
 ## Technical identity schedule
 
 The five-row schedule reproduces the token, curation, and acquisition-independent
 Work bindings in the source register and machine record
-([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
+([S10–S14](../sources/source-register.md)).
 
 | Public Work | Work | Proposal alias | Token / curation | CAIP-19 | Archive reference |
 | --- | --- | --- | --- | --- | --- |
@@ -29,20 +29,20 @@ The Work IDs above are the acquisition-independent identities in the governed
 public entity inventory. Proposal aliases remain typed source-package
 references; they are not accession numbers and do not replace the Work records.
 
-| Work | Metadata URI | Source-image record | Observed JPEG bytes | Dimensions | SHA-256 |
+| Work | Metadata record | Source-image record | Observed JPEG bytes | Dimensions | SHA-256 |
 | --- | --- | --- | ---: | --- | --- |
-| Seymour #127 | [Arweave metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) | Exact URI retained in governed machine evidence; no direct visitor link | 2,518,674 | 3,056 × 4,600 | `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453` |
-| Towell #145 | [Arweave metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) | Exact URI retained in governed machine evidence; no direct visitor link | 1,813,285 | 5,369 × 3,601 | `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee` |
-| Bar-Am #97 | [Arweave metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) | Exact URI retained in governed machine evidence; no direct visitor link | 1,666,083 | 5,000 × 3,292 | `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
-| Saman #44 | [Arweave metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) | Exact URI retained in governed machine evidence; no direct visitor link | 1,540,870 | 5,616 × 3,744 | `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
-| Meloni #104 | [Arweave metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) | Exact URI retained in governed machine evidence; no direct visitor link | 16,871,807 | 5,964 × 4,768 | `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
+| Seymour #127 | Governed record S10 | Exact URI retained in complete-manifest evidence; no visitor link | 2,518,674 | 3,056 × 4,600 | `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453` |
+| Towell #145 | Governed record S11 | Exact URI retained in complete-manifest evidence; no visitor link | 1,813,285 | 5,369 × 3,601 | `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee` |
+| Bar-Am #97 | Governed record S12 | Exact URI retained in complete-manifest evidence; no visitor link | 1,666,083 | 5,000 × 3,292 | `a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df` |
+| Saman #44 | Governed record S13 | Exact URI retained in complete-manifest evidence; no visitor link | 1,540,870 | 5,616 × 3,744 | `cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816` |
+| Meloni #104 | Governed record S14 | Exact URI retained in complete-manifest evidence; no visitor link | 16,871,807 | 5,964 × 4,768 | `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
 
 The proposal package reports that all five metadata objects and linked JPEGs
 were resolved and SHA-256 verified on 5 August 2026. The Museum visually
 inspected the five upstream images on 8 August 2026; no JPEG or derivative was
 added to this repository. The local observations identify retrievable upstream
 resources at those observation times, not Museum preservation objects
-([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)).
+([S37](../sources/source-register.md)).
 
 ## Chain and contract observation
 
@@ -65,7 +65,7 @@ of the publicly credited offeror's authority, copyright ownership, legal title,
 or Museum custody. The local
 proposal records themselves say that offer, repository record, Wave submission,
 or threshold outcome does not complete gift acceptance or accession
-([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)).
+([S37](../sources/source-register.md)).
 
 ### Current finalized recheck
 
@@ -78,13 +78,13 @@ and reported ERC-721 support through ERC-165. All five `ownerOf` reads returned
 `0x6daa633c23615a29471deafae351727867e7dad1`; all five `getApproved` reads
 returned the zero address. The tokenURI reads were:
 
-| Token | tokenURI at block `25,714,155` | ownerOf | getApproved |
+| Token | tokenURI observation at block `25,714,155` | ownerOf | getApproved |
 | ---: | --- | --- | --- |
-| `#127` | [Arweave metadata](https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
-| `#145` | [Arweave metadata](https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
-| `#97` | [Arweave metadata](https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
-| `#44` | [Arweave metadata](https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
-| `#104` | [Arweave metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#127` | Governed record S10; exact URI retained outside the visitor corpus | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#145` | Governed record S11; exact URI retained outside the visitor corpus | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#97` | Governed record S12; exact URI retained outside the visitor corpus | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#44` | Governed record S13; exact URI retained outside the visitor corpus | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
+| `#104` | Governed record S14; exact URI retained outside the visitor corpus | `0x6daa633c23615a29471deafae351727867e7dad1` | `0x0000000000000000000000000000000000000000` |
 
 All fifteen mint, market, and current-owner transfer receipts returned success
 (`0x1`) and the expected ERC-721 `Transfer` event. The common observed path is
@@ -116,19 +116,16 @@ the tokenURI values before relying on a live pointer ([S15](../sources/source-re
 ## Rights and use disposition
 
 Each target token metadata record carries a photographer/Magnum copyright line
-and `All Rights Reserved` ([S10–S14](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). The proposal package records token transfer as
-asserting no copyright or reproduction grant ([S37](../sources/source-register.md);
-[integration map](../machine/integration-map.json)). Magnum’s terms distinguish an NFT
+and `All Rights Reserved` ([S10–S14](../sources/source-register.md)). The proposal package records token transfer as
+asserting no copyright or reproduction grant ([S37](../sources/source-register.md)). Magnum’s terms distinguish an NFT
 purchase from copyright in the associated photographic file ([S09](../sources/source-register.md)). Those statements
 are source records, not a complete chain-of-title or license determination.
 
-The canonical publication observation records the signed seven-part Wave
-publication at `2026-08-08T10:15:02.0167151Z`, including its part-content
-hashes. Its payload SHA-256 is
+Museum observation `6529NM-WAVE-PUB-OBS-2026-08-08-001` records the signed
+seven-part Wave publication at `2026-08-08T10:15:02.0167151Z`, including its
+part-content hashes. Its payload SHA-256 is
 `sha256:887d527756721cae1bf758a8205d1f5f7e0d1cebee2b3f27aafcab5271132995`;
-the enveloped record is
-[`records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json`](../../../wave-publication-observation-2026-08-08.json)
-with raw-file SHA-256
+the complete Museum record has raw-file SHA-256
 `sha256:b1f57fa0010bdaf0f9f21854f88e446e7f20b4a1921ab6fd075d4836c5920e58`
 ([S56](../sources/source-register.md)).
 
@@ -139,13 +136,10 @@ parts 1–7. Its public-safe evidence record binds the six public media URLs to 
 reported MIME/status values and records no media for part 7. The canonical
 payload hash is
 `sha256:93e968562297fe5acff792e027f302b938ba6fa1ac88284754c4ba684d1266a2`;
-the receipt is
-[`records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json`](../../../evidence/wave-publication-observation-public-safe-2026-08-09.json)
-with raw-file SHA-256
+the complete Museum evidence record has raw-file SHA-256
 `sha256:2d102b1e5ee4c448bad0631d3bb659949456d74a342f6203b3a1dd12d5f29d6a`.
 The receipt’s `ready` values describe the Wave publisher’s media state; they
-do not grant rendering or reproduction permission ([S54](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json)).
+do not grant rendering or reproduction permission ([S54](../sources/source-register.md)).
 
 The CloudFront URLs are Wave-upload presentation media. The Arweave image URLs
 in the technical schedule are token-source locators reached through each
@@ -155,33 +149,30 @@ grant. The exact already-published Wave URLs are retained as non-rendering
 evidence locators with the supplied artist and Magnum credits, `All Rights
 Reserved`, and the label **Wave-source historical proposal media**
 ([S38](../sources/source-register.md); [S54](../sources/source-register.md);
-[S56](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
+[S56](../sources/source-register.md)).
 The [Source and rights record](source-and-rights-record.md) and [media plan](media-plan.md)
 define that narrow disposition. Download, full-resolution delivery, crops or
 derivatives, responsive recompression, IIIF, preservation copying, and
 Collection publication remain outside the current permission boundary
-([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json);
-[integration map](../machine/integration-map.json)).
+([S38](../sources/source-register.md)).
 
 ## Accession boundary
 
 | Record or fact | Current state |
 | --- | --- |
-| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` ([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)) |
-| Collection membership | `not_in_collection` ([object schedule](../machine/object-schedule.json); [integration map](../machine/integration-map.json)) |
-| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` in the governed identity inventory; independent publication review remains pending ([integration map](../machine/integration-map.json)) |
-| Curated Acquisition | `6529NM-CA-2026-003` ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
-| Proposal record | `6529NM-PG-2026-001` ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
-| Accession number | None ([integration map](../machine/integration-map.json)) |
-| Object record | None ([integration map](../machine/integration-map.json)) |
-| Title binding to Museum custody | None ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
-| Donor authority/legal title | Unresolved ([S37](../sources/source-register.md); [integration map](../machine/integration-map.json)) |
-| Copyright/reproduction/display license | Narrow historical proposal-media disposition only ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json); [integration map](../machine/integration-map.json)) |
-| Museum custody/preservation | None; upstream files not retained ([S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json)) |
+| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` ([S37](../sources/source-register.md)) |
+| Collection membership | Outside the permanent Collection |
+| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028`; independent publication review remains pending |
+| Curated Acquisition | `6529NM-CA-2026-003` ([S37](../sources/source-register.md)) |
+| Proposal record | `6529NM-PG-2026-001` ([S37](../sources/source-register.md)) |
+| Accession number | None |
+| Object record | None |
+| Title binding to Museum custody | None ([S37](../sources/source-register.md)) |
+| Donor authority/legal title | Unresolved ([S37](../sources/source-register.md)) |
+| Copyright/reproduction/display license | Narrow historical proposal-media disposition only ([S38](../sources/source-register.md)) |
+| Museum custody/preservation | None; upstream files not retained ([S37](../sources/source-register.md)) |
 
 Sources: proposal records and live technical boundary [S37](../sources/source-register.md),
 exact token metadata [S10–S14](../sources/source-register.md), contract and
-token observations [S15–S16](../sources/source-register.md), and the retained public
-proposal record
-media [S38](../sources/source-register.md), [object schedule](../machine/object-schedule.json),
-[integration map](../machine/integration-map.json), and [wave-media join](../machine/wave-media-join.json).
+token observations [S15–S16](../sources/source-register.md), and the retained
+public proposal media [S38](../sources/source-register.md).

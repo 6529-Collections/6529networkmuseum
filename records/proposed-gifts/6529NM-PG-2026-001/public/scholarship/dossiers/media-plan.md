@@ -8,20 +8,18 @@ The five photographs appear in the retained proposal package as historical
 public media for Wave parts 2–6. The Museum record cites those exact CloudFront
 Wave-upload URLs and preserves the artist/Magnum credit, `All Rights Reserved`,
 and the label **Wave-source historical proposal media**. It does not render the
-photographs as Museum presentation media ([S38](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json)).
+photographs as Museum presentation media ([S38](../sources/source-register.md)).
 
 This is a narrow presentation disposition. It creates no repository copy and
-authorizes no new image manifestation. The exact URL-to-Work/token join and
-bound `WAVE_PUBLICATION_OBSERVATION` receipt are machine-readable in
-[`wave-media-join.json`](../machine/wave-media-join.json). The human-readable credit and rights record is [Source and rights
-record](source-and-rights-record.md). The machine disposition is also bounded by
-the [integration map](../machine/integration-map.json).
+authorizes no new image manifestation. The correspondence among the historical
+URLs, Works, tokens, credits, and publication receipt is retained in the
+complete Museum record. The visitor record is the [Source and rights
+record](source-and-rights-record.md).
 
 ## Work-to-media join
 
 The table is the five-row historical Work/media join retained for this selected
-offer ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)).
+offer ([S38](../sources/source-register.md)).
 
 | Public Work ID | Proposal alias | Wave part | Wave-upload dimensions / bytes | Token-linked source dimensions / bytes | Historical presentation record | Visitor access |
 | --- | --- | ---: | --- | --- | --- | --- |
@@ -41,27 +39,25 @@ derivative is retained.
 
 | Use | Current disposition | Required record before change |
 | --- | --- | --- |
-| Cite the exact upstream URL in the selected offer's historical Wave context | Allowed with exact URL, credit, rights label, part, token link, receipt hash, and Work relation ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Current canonical record |
-| Render the upstream photograph or show it on a standalone Work route | Blocked; the verified graph establishes identity and context, but no Museum display licence is recorded ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Written display authority and reviewed route policy |
-| Public Collection page | Blocked ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)) | Written display/publication permission and admitted Collection record |
-| Download or full-resolution delivery | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Explicit distribution permission and reviewed delivery policy |
-| Crop, thumbnail, recompression, responsive `srcset`, or other derivative | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Component-specific derivative permission and source-fixity manifest |
-| IIIF manifest or tiled service | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | IIIF-specific permission, retained source, and reviewed rights manifest |
-| Preservation copy or derivative | Blocked ([S38](../sources/source-register.md); [wave-media join](../machine/wave-media-join.json)) | Preservation permission, retained source bytes, PREMIS/provenance record, and approved storage plan |
+| Cite the exact upstream URL in the selected offer's historical Wave context | Allowed with exact URL, credit, rights label, part, token link, receipt hash, and Work relation ([S38](../sources/source-register.md)) | Current canonical record |
+| Render the upstream photograph or show it on a standalone Work route | Blocked; the verified graph establishes identity and context, but no Museum display licence is recorded ([S38](../sources/source-register.md)) | Written display authority and reviewed route policy |
+| Public Collection page | Blocked ([S38](../sources/source-register.md)) | Written display/publication permission and admitted Collection record |
+| Download or full-resolution delivery | Blocked ([S38](../sources/source-register.md)) | Explicit distribution permission and reviewed delivery policy |
+| Crop, thumbnail, recompression, responsive `srcset`, or other derivative | Blocked ([S38](../sources/source-register.md)) | Component-specific derivative permission and source-fixity manifest |
+| IIIF manifest or tiled service | Blocked ([S38](../sources/source-register.md)) | IIIF-specific permission, retained source, and reviewed rights manifest |
+| Preservation copy or derivative | Blocked ([S38](../sources/source-register.md)) | Preservation permission, retained source bytes, PREMIS/provenance record, and approved storage plan |
 
 No JPEG, thumbnail, AVIF, WebP, responsive derivative, or IIIF manifest is
 generated or committed by this corpus. A delivered upstream byte can be saved
 by a viewer; the interface therefore makes no download-prevention claim. It
-does make no download offer, uses no eager large-source load, and exposes the
-observed dimensions and byte counts ([S38](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json); [integration map](../machine/integration-map.json)).
+makes no download offer, uses no eager large-source load, and exposes the
+observed dimensions and byte counts ([S38](../sources/source-register.md)).
 
 ## Display colophon
 
 > [Artist] / Magnum Photos, [title and place], [year]. © [artist]/Magnum Photos
 > 2022. All Rights Reserved. Wave-source historical proposal media.
 
-The colophon identifies the historical presentation ([S38](../sources/source-register.md);
-[wave-media join](../machine/wave-media-join.json)). It makes no claim of
+The colophon identifies the historical presentation ([S38](../sources/source-register.md)). It makes no claim of
 download, full-resolution delivery, preservation, Collection status, or Museum
-copyright ownership ([S38](../sources/source-register.md); [integration map](../machine/integration-map.json)).
+copyright ownership ([S38](../sources/source-register.md)).

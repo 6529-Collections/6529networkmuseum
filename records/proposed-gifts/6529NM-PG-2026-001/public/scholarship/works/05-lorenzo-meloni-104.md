@@ -47,7 +47,7 @@ The Palmyra frame gives that method a concentrated form. The soldier’s obscure
 | Archive reference | `MEL2016002G0401/4032` |
 | Chain identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104` |
 | Token manifestation | Ethereum ERC-721 token `104`; sequence `104/225`; curation `2/3`; edition `1 of 1` ([S14](../sources/source-register.md)) |
-| Metadata | [Token metadata](https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0) |
+| Metadata | Governed token metadata record [S14](../sources/source-register.md) |
 | Token-linked source image | Exact URI retained in governed machine evidence; no direct visitor link |
 | Observed source image | JPEG, 5,964 × 4,768 px, 16,871,807 bytes; SHA-256 `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
 | Historical Wave presentation | [Wave proposal, part 6](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0); exact media locator retained in governed machine evidence and described in the [Source and rights record](../dossiers/source-and-rights-record.md) ([S38](../sources/source-register.md)) |

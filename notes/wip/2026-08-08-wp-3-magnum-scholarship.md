@@ -502,3 +502,28 @@ entries, five Work essays, the provenance chronology, the sources register, and
 the visual-rights notice. Machine records remain release evidence rather than
 visitor-facing scholarship. The corrected deterministic visitor boundary is
 518 inventory entries and 517 bundled entries.
+
+## 2026-08-09 visitor-reference boundary correction
+
+Independent ontology review rejected exact candidate
+`be98961c70ccbc184c8fdf534f0f00a6b3036f47` after its hosted validation had
+passed. Ten visitor manuscripts still linked into excluded `machine/` records,
+raw Wave publication evidence, or direct Arweave token metadata. The files were
+not present in the visitor bundle, but their links crossed the same publication
+boundary and would have sent readers from the finished scholarship into the
+technical release record.
+
+The corrected manuscripts cite stable Museum identifiers, the public Museum
+Wave, and the public source register. Exact metadata locators and raw receipt
+paths remain preserved in the complete release record outside the website
+corpus. A fail-closed visitor-reference check now reads the atomic public
+publication inventory and rejects direct Arweave metadata URLs, complete-
+manifest-only evidence markers, `machine/` paths, and local Markdown links to
+documents outside that inventory. Adversarial tests cover all three principal
+failure modes.
+
+The prose was reviewed with the same boundary in mind: public rights,
+provenance, media, and accession accounts describe the underlying facts and
+their evidentiary sources without substituting internal record architecture for
+scholarship. Fresh exact-head validation and four-lane independent review are
+required before this corrected candidate may merge.

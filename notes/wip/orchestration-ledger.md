@@ -3418,3 +3418,20 @@ boundary contains 518 inventory entries and 517 visitor bundle entries.
 Focused tests and the full Museum/Casey validator pass. Complete qualification,
 fresh exact-head independent review, hosted CI, merge, reviewed-child promotion,
 catalog activation, and frontend qualification remain open.
+
+## 2026-08-09 Magnum visitor-reference review
+
+- Exact candidate `be98961c70ccbc184c8fdf534f0f00a6b3036f47` passed hosted
+  Ubuntu, Windows, publication, catalog, and Museum validation, but independent
+  ontology review rejected its visitor-reference surface.
+- Corrected scope: ten public manuscripts, the local-reference checker, its
+  adversarial tests, and deterministic publication/manifest regeneration.
+- Public manuscripts no longer link to excluded machine records, raw Wave
+  receipt paths, or direct Arweave metadata. Stable Museum IDs, the public Wave,
+  and the public source register carry the visitor citations.
+- The new publication-inventory-aware gate fails closed when a visitor document
+  links outside the atomic website corpus or exposes a complete-manifest-only
+  evidence marker.
+- Merge remains blocked on exact-tree qualification, fresh hosted checks, and
+  terminal verdicts from independent curatorial, rights/privacy, ontology, and
+  reproducibility reviewers.

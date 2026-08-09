@@ -75,8 +75,7 @@ identification exercise.
 
 Saman's token is the one selected Work identified in the project metadata as
 curation `1/3`; the other four are identified as curation `2/3`
-([S13](../sources/source-register.md); [S10–S14](../sources/source-register.md);
-[object schedule](../machine/object-schedule.json)). That exact split
+([S13](../sources/source-register.md); [S10–S14](../sources/source-register.md)). That exact split
 is the observable contribution of this Work to the offer. Its more difficult
 contribution is ethical: the selected five-token unit brings a vulnerable
 depicted subject into a public research corpus whose caption is itself
@@ -89,10 +88,10 @@ identify the depicted person. The rationale beyond the grouping is unrecorded.
 | --- | --- |
 | Underlying photographic Work | The 2011 photograph identified by the issuer title, Tripoli location, and archive reference SAM2011005H2503/5482. The exact day, house, assignment, and safeguarding record remain unresolved. |
 | Token-linked JPEG | The Arweave JPEG linked from token 44: 5,616 × 3,744 pixels, 1,540,870 observed bytes, SHA-256 cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816. |
-| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context and the non-identifying display rule ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation and master status | The token-linked JPEG is an upstream rendition, not a declared negative, print master, or preservation master. The reviewed public record contains no source negative, consent documentation, rights-cleared repository derivative, or completed preservation package ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| Credit and rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved. The rights notice does not establish consent, display permission, or a reproduction grant. [S13](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
+| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context and the non-identifying display rule ([S38](../sources/source-register.md)). |
+| Preservation and master status | The token-linked JPEG is an upstream rendition, not a declared negative, print master, or preservation master. The reviewed public record contains no source negative, consent documentation, rights-cleared repository derivative, or completed preservation package ([S38](../sources/source-register.md)). |
+| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md) |
+| Credit and rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved. The rights notice does not establish consent, display permission, or a reproduction grant. [S13](../sources/source-register.md); [S38](../sources/source-register.md) |
 
 ## Further research
 

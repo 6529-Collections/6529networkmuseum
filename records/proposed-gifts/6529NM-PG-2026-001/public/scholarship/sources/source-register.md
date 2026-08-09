@@ -119,19 +119,20 @@ itself. Each publication must preserve the source's attribution and limits.
 
 ### S10–S14 — Exact token metadata
 
-Each is a public Arweave JSON object reached from the proposal's tokenURI
-observation. The object was retrieved and parsed on 8 August 2026. The
-metadata's issuer captions and attributes are evidence of what the token
-record says, not independent proof of the negative, assignment, consent, or
-copyright chain.
+Each source is a public token metadata object reached from the contract's
+`tokenURI` response and retained in governed technical evidence. The objects
+were retrieved and parsed on 8 August 2026. Their issuer captions and
+attributes are evidence of what the token records say, not independent proof
+of the negative, assignment, consent, or copyright chain. Direct metadata and
+image locators are withheld from the visitor corpus.
 
-| ID | Token | Metadata URL | Key evidence |
+| ID | Token | Record | Key evidence |
 | --- | ---: | --- | --- |
-| S10 | #127 | <https://arweave.net/fHJAhfhIB7wTpz0my7K9-b9mWDq-fpk5Yr57gqsf_pM> | Seymour, Negev, 1952; archive `SED1952003W00003/23`; curation `2/3`; issuer title/caption; image pointer and fixity fields |
-| S11 | #145 | <https://arweave.net/jHZq16_Id5lJR5vIIWcRiyGBM2ctB6dSL8sRJhLrprQ> | Towell, issuer spelling “Suchitito,” 1986; archive `TOL1986003W00045/26`; curation `2/3`; church and Guazapa caption |
-| S12 | #97 | <https://arweave.net/OOnuimyyLnY4ez3c7ZQA9vOZu_m9p06C3FO71Vo2wQY> | Bar-Am, Jerusalem, 1989; archive `BAM1989009W02477/26C`; curation `2/3`; Women of the Wall/smoke-and-canister caption |
-| S13 | #44 | <https://arweave.net/MVXFi_QJmcwGNRJyW_q6IGI8YVa5yYYDgY-JNOh_Tns> | Saman, Tripoli, 2011; archive `SAM2011005H2503/5482`; curation `1/3`; separate house-targeted and minder-evidence air-strike claims, with the officials’ account explicitly “impossible to verify” |
-| S14 | #104 | <https://arweave.net/T6wgoTW03zCJVK1Y5dZy5InfsiZD7BSoHYaVbQul7E0> | Meloni, Palmyra, 2016; archive `MEL2016002G0401/4032`; curation `2/3`; Temple of Bel caption |
+| S10 | #127 | Governed token metadata record | Seymour, Negev, 1952; archive `SED1952003W00003/23`; curation `2/3`; issuer title/caption; image pointer and fixity fields |
+| S11 | #145 | Governed token metadata record | Towell, issuer spelling “Suchitito,” 1986; archive `TOL1986003W00045/26`; curation `2/3`; church and Guazapa caption |
+| S12 | #97 | Governed token metadata record | Bar-Am, Jerusalem, 1989; archive `BAM1989009W02477/26C`; curation `2/3`; Women of the Wall/smoke-and-canister caption |
+| S13 | #44 | Governed token metadata record | Saman, Tripoli, 2011; archive `SAM2011005H2503/5482`; curation `1/3`; separate house-targeted and minder-evidence air-strike claims, with the officials’ account explicitly “impossible to verify” |
+| S14 | #104 | Governed token metadata record | Meloni, Palmyra, 2016; archive `MEL2016002G0401/4032`; curation `2/3`; Temple of Bel caption |
 
 ### S15 — Contract source and implementation
 
@@ -387,12 +388,10 @@ copyright chain.
 
 ### S37 — Local proposal and governance evidence
 
-- **Sources:** repository proposal record, retained Wave package, voter dossier,
-  and live signed-drop API readback.
-- **Paths:**
-  `records/proposed-gifts/6529NM-PG-2026-001/proposal.json`,
-  `records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json`,
-  `records/proposed-gifts/6529NM-PG-2026-001/public/voter-dossier.md`.
+- **Sources:** proposed gift `6529NM-PG-2026-001`, the retained Wave
+  publication package, and live signed-drop API readback. The proposal and
+  voting records remain in the complete Museum record rather than the visitor
+  corpus.
 - **Live observation:** drop `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial
   `1276093`, `drop_type PARTICIPATORY`, observed by `punk6529bot` at
   `2026-08-08T09:06:07.985Z` UTC. This is historical-only after the later
@@ -415,16 +414,16 @@ copyright chain.
 
 ### S38 — Historical public Wave presentation media
 
-- **Source:** the retained local Wave Storm publication record, whose work
-  parts were published to the 6529 Network Museum Wave on 6 August 2026.
-- **Path:** `records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json`.
+- **Source:** [the seven-part Wave publication](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0),
+  published to the 6529 Network Museum Wave on 6 August 2026 and retained in
+  the complete Museum record.
 - **Type / class:** historical public publication record / B-C.
 - **Supports:** historical work-part numbers, URL strings, credit lines, and
   `All Rights Reserved` labels recorded in the local proposal package. The
   machine join preserves the CloudFront URLs as historical URL evidence and
   retains the Arweave URLs separately as token-linked source-image locators.
 - **Historical Wave presentation:** [the exact seven-part Wave proposal](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0) is the visitor-facing context. The five exact Wave-upload URL strings and token-linked source-image locators are retained only in the governed machine and evidence records.
-- **Limit:** the local `wave-storm.json` is historical proposal evidence. The
+- **Limit:** the retained Storm is historical proposal evidence. The
   canonical enveloped publication observation in S56 binds the signed
   seven-part publication and its content hashes. The later public-safe API
   evidence in S54 confirms the exact part/media URL, MIME, and
@@ -626,7 +625,8 @@ copyright chain.
 
 - **Source:** live authenticated `punk6529bot` drop read, filtered in memory to
   the public publication fields only.
-- **Path:** `records/proposed-gifts/6529NM-PG-2026-001/evidence/wave-publication-observation-public-safe-2026-08-09.json`.
+- **Evidence ID:** `6529NM-WAVE-PUB-OBS-2026-08-09-001`; retained in the
+  complete Museum record.
 - **Type / class:** live governance/publication observation with Museum
   technical filtering / A-C.
 - **Source command:** `punk6529bot drops get
@@ -672,7 +672,8 @@ copyright chain.
 
 - **Source:** enveloped Museum `WAVE_PUBLICATION_OBSERVATION` recorded from the
   signed 6529 Network Museum Wave publication.
-- **Path:** `records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json`.
+- **Observation ID:** `6529NM-WAVE-PUB-OBS-2026-08-08-001`; retained in the
+  complete Museum record.
 - **Observation:** `6529NM-WAVE-PUB-OBS-2026-08-08-001`, recorded at
   `2026-08-08T10:15:02.0167151Z` for drop
   `002bfa4f-8416-48bf-b35e-38f354e9a9f0`, serial `1276093`.

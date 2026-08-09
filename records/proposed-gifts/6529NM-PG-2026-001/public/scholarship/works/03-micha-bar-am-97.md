@@ -74,7 +74,7 @@ turn either into a more specific material or chemical claim.
 ## The Work in the selected offer
 
 Bar-Am's Work is one of four tokens identified as curation `2/3`
-([S12](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). In the
+([S12](../sources/source-register.md)). In the
 selected offer it is the point at which documentary visibility becomes a
 question of public access: the frame contains a sacred site, a moving body,
 and a barrier that is both visual foreground and social object. Its exact
@@ -89,10 +89,10 @@ been recorded.
 | --- | --- |
 | Underlying photographic Work | The 1989 photograph identified through the token, artist-archive, ICP, and Museum Wales records; the exact exposure date, assignment, and archive suffix relation remain unresolved. |
 | Token-linked JPEG | The Arweave JPEG linked from token 97: 5,000 × 3,292 pixels, 1,666,083 observed bytes, SHA-256 a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df. |
-| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context ([S38](../sources/source-register.md); [media join](../machine/wave-media-join.json)). |
-| Preservation and master status | The token-linked JPEG is a recorded upstream rendition, not a declared negative, print master, or preservation master. The artist archive and museum print records describe other manifestations; no completed preservation package or rights-cleared repository derivative is recorded ([S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json)). |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md); [object schedule](../machine/object-schedule.json) |
-| Credit and rights | © Micha Bar-Am/Magnum Photos 2022 · All Rights Reserved. The notice remains separate from permission for reproduction, publication, or preservation. [S12](../sources/source-register.md); [S38](../sources/source-register.md); [object schedule](../machine/object-schedule.json); [media join](../machine/wave-media-join.json) |
+| Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context ([S38](../sources/source-register.md)). |
+| Preservation and master status | The token-linked JPEG is a recorded upstream rendition, not a declared negative, print master, or preservation master. The artist archive and museum print records describe other manifestations; no completed preservation package or rights-cleared repository derivative is recorded ([S38](../sources/source-register.md)). |
+| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md) |
+| Credit and rights | © Micha Bar-Am/Magnum Photos 2022 · All Rights Reserved. The notice remains separate from permission for reproduction, publication, or preservation. [S12](../sources/source-register.md); [S38](../sources/source-register.md) |
 
 ## Further research
 
