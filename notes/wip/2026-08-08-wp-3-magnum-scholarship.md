@@ -638,3 +638,19 @@ five token-source and five historical Wave-upload locators, in bare,
 inline-Markdown, reference-Markdown, and raw-anchor forms, through both gates.
 The other three reviews of the rejected candidate were stopped before
 mutation. All four lanes must restart on a newly signed exact candidate.
+
+## 2026-08-09 C0-control locator correction
+
+Independent rights/privacy review rejected exact candidate
+`adaed1a21f31b15a18703c350a0802fa02602696`. Appending C0 controls such as
+U+0000, U+0001, or U+000E to a restricted locator produced a distinct
+comparison key in both visitor gates, while browser URL parsing discarded the
+boundary control and recovered the governed URL.
+
+Both decoded scans now remove the complete ASCII C0 control range and DEL
+before restricted-locator comparison. Regressions exercise every C0 control
+and DEL across all five token-source and five historical Wave-upload locators,
+in bare, inline-Markdown, reference-Markdown, and raw-anchor forms, through
+both gates. The accepted curatorial, ontology, and reproducibility reviews
+belonged to the rejected bytes; all four lanes must restart on the next signed
+candidate.

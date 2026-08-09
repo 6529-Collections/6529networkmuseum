@@ -34,6 +34,7 @@ WEB_LOCATOR = re.compile(
 )
 AR_URI = re.compile(r"(?<![A-Za-z0-9+.-])ar:", re.IGNORECASE)
 MARKDOWN_ESCAPE = re.compile(r"\\([!\"#$%&'()*+,\-./:;<=>?@\[\]^_`{|}~])")
+ASCII_CONTROL = re.compile(r"[\x00-\x1f\x7f]")
 COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
     "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
@@ -107,7 +108,11 @@ def decoded_text_variants(text: str) -> set[str]:
     """Return browser- and CommonMark-equivalent text representations."""
 
     decoded_text = fully_unquote(html_unescape(text))
-    browser_compacted_text = re.sub(r"[\t\r\n]", "", decoded_text)
+    # Browsers discard ASCII tab/newline characters during URL parsing and
+    # trim other C0 controls at URL boundaries. A fail-closed visitor gate
+    # removes the complete control set (plus DEL) before comparison so a
+    # restricted locator cannot acquire a distinct key through control bytes.
+    browser_compacted_text = ASCII_CONTROL.sub("", decoded_text)
     markdown_unescaped_text = MARKDOWN_ESCAPE.sub(r"\1", browser_compacted_text)
     return {
         text,

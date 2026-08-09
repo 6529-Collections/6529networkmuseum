@@ -3525,3 +3525,16 @@ catalog activation, and frontend qualification remain open.
 - The other three reviews were stopped before mutation. Complete
   qualification, a new signed head, hosted CI, and four fresh independent
   reviews remain mandatory.
+
+## 2026-08-09 Magnum C0-control locator rejection
+
+- Rights/privacy review rejected exact candidate
+  `adaed1a21f31b15a18703c350a0802fa02602696`: C0 controls appended to a
+  restricted media URL survived both comparison keys even though browser URL
+  parsing discarded them and recovered the governed locator.
+- Both visitor gates now compact the complete ASCII C0 range and DEL before
+  comparison. Regressions cover every control on all ten governed locators in
+  bare, inline, reference, and raw-anchor forms through both gates.
+- Three other lanes had accepted the rejected bytes. Complete qualification,
+  a new signed head, hosted CI, and four fresh independent reviews remain
+  mandatory.
