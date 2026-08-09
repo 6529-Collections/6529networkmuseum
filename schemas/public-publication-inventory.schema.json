@@ -44,7 +44,6 @@
       "type": "object",
       "properties": {
         "approved_public_media": {"type": "integer", "minimum": 1},
-        "media_description_amendment": {"type": "integer", "minimum": 1},
         "public_assembly_control_document": {"type": "integer", "minimum": 1},
         "public_curatorial_manuscript": {"type": "integer", "minimum": 1},
         "public_entity_record": {"type": "integer", "minimum": 1},
@@ -54,7 +53,6 @@
       },
       "required": [
         "approved_public_media",
-        "media_description_amendment",
         "public_assembly_control_document",
         "public_curatorial_manuscript",
         "public_entity_record",
@@ -88,7 +86,6 @@
           "public_entity_record",
           "public_relation_record",
           "wave_observation",
-          "media_description_amendment",
           "public_curatorial_manuscript",
           "public_assembly_control_document",
           "public_media_source_manifest",

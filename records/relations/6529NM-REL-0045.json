@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x457f8c5742b8edac84d494e21ee5d7f285f967cef14189051a88f13b56f6151a"
+      "digest": "0xe9274de8c2f706df3cb9f0b58448d609589ae41e41bcdc9da593310091602fcd"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Magnum Photos 75 project context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/05-moises-saman-44.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/04-moises-saman-44.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:5e2884dc5c107789b981f83c76b8bf9201d5af4619a6fbe8572162129c24418c",
+    "payload_sha256": "sha256:c2eed14039fa5851a695a1f02367725821200701dab4decd10313da7ca622ff0",
     "qualifier": {
       "scope": "proposal_work_set"
     },

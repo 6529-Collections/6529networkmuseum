@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x29847b19b3409f03160fd52cc419f9cc57fca73fcc9d87a36c40738efc38d40f"
+      "digest": "0x97e866336f0b77d6fbd017570dbdd8d1c942bd08dbd5096be0ae01b8eec8e2e9"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -35,12 +35,12 @@
         "evidence_class": "B",
         "label": "Proposed gift object label",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:01b2a467eed072f62ad2348be8a0cc77941def74d89a0e51f0ccfa7935eb69b8",
+    "payload_sha256": "sha256:3f42db91e40a96b0c0d0bd7e79f0d1a555cbc08864fdcd4ad24a0e403f92b223",
     "preferred_label": "Micha Bar-Am",
     "profile": {
       "agent_kind": "PERSON",
@@ -52,7 +52,7 @@
             "evidence_class": "B",
             "label": "Proposed gift object label",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           }
         ]
       },
@@ -63,7 +63,7 @@
               "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -96,7 +96,7 @@
           "evidence_class": "B",
           "label": "Proposed gift object label",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

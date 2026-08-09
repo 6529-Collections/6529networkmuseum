@@ -3394,3 +3394,27 @@ remain open.
   platform skip, the full Museum/Casey validator, Casey package verification,
   the 22-file diligence-manifest check, fetch guard, manifest checks, and
   whitespace validation. Exact-head independent review and hosted CI remain.
+
+## 2026-08-09 Magnum visitor-boundary correction
+
+Independent curatorial and rights/privacy review rejected exact candidate
+`e18bbf64135ca0b23ce6c6992a0927c568a357b0`. The visitor bundle had admitted the
+full Wave publication receipt and Bar-Am accessibility amendment, preserving
+restricted image locators, while generated graph records exposed direct paths
+into excluded decision history. Research Publication `6529NM-RP-0003` also
+described only one catalogue essay although the manuscript claimed a complete
+dossier.
+
+The correction retains all source records in the complete release manifest,
+excludes the two locator-bearing JSON records from visitor delivery, replaces
+raw decision-history locators in public graph evidence with the public Wave drop
+or exact scholarship pages, and binds lifecycle facts to the stable WINNER
+observation record ID. `6529NM-RP-0003` is now a research dossier whose machine
+profile enumerates 21 exact component manuscripts. New regression tests scan
+the JSON visitor boundary, reject missing WINNER-record bindings, and fail if
+raw proposal or Wave-history paths re-enter the public graph. The corrected
+boundary contains 518 inventory entries and 517 visitor bundle entries.
+
+Focused tests and the full Museum/Casey validator pass. Complete qualification,
+fresh exact-head independent review, hosted CI, merge, reviewed-child promotion,
+catalog activation, and frontend qualification remain open.

@@ -508,11 +508,7 @@ def _is_public_graph_record_path(path: str) -> bool:
     return (
         path.startswith("records/entities/")
         or path.startswith("records/relations/")
-        or path in {
-            "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
-            "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
-            "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json",
-        }
+        or path == "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
     ) and path.endswith(".json")
 
 

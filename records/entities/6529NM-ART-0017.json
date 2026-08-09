@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9f908cc842dcd8e705252c830ec49b9a60a80082d854a90d64c380694c4d09e9"
+      "digest": "0x206cedd1f153697be74e312bb81f53488f0c729398164ba2e3e6f93079300145"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -35,7 +35,7 @@
         "evidence_class": "B",
         "label": "Proposed gift artist label",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       },
       {
         "evidence_class": "B",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:9caaaaba50e7f8acef9db85528afa9c611900330205b295e1ac1c943cf6995e2",
+    "payload_sha256": "sha256:863cfa58342c118f1bc90b52f4682201bbdad87be61bd9f8af45b9c3f047bdaf",
     "preferred_label": "David Seymour",
     "profile": {
       "authority": {
@@ -59,7 +59,7 @@
             "evidence_class": "B",
             "label": "Proposed gift artist label",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           },
           {
             "evidence_class": "B",
@@ -76,7 +76,7 @@
               "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -89,7 +89,7 @@
               "evidence_class": "B",
               "label": "Raw issuer label",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -139,7 +139,7 @@
           "evidence_class": "B",
           "label": "Proposed gift artist label",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         },
         {
           "evidence_class": "B",

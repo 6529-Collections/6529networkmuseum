@@ -63,6 +63,26 @@ class WP3EditorialChecks(unittest.TestCase):
         bundle_paths = [entry["path"] for entry in bundle["entries"]]
         self.assertTrue(set(scholarship_paths).issubset(bundle_paths))
         self.assertFalse(any(INVENTORY_MODULE.PROPOSED_GIFT_DECISION_HISTORY.match(path) for path in bundle_paths))
+        for complete_manifest_only_path in (
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
+            "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json",
+        ):
+            self.assertNotIn(complete_manifest_only_path, bundle_paths)
+
+        public_graph_content = "\n".join(
+            entry["content"]
+            for entry in bundle["entries"]
+            if entry["path"].startswith(("records/entities/", "records/relations/"))
+            or entry["path"].endswith("wave-status-observation-2026-08-08.json")
+        )
+        for raw_decision_path in (
+            "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
+            "records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/",
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
+            "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json",
+        ):
+            self.assertNotIn(raw_decision_path, public_graph_content)
 
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
         bundle_markdown = "\n".join(

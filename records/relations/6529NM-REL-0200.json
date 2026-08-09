@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf017d2c8aa5178b9e3b5b12c7c94627fed554782fa0f9788df55337b35659c62"
+      "digest": "0x7381ba272b614675a39d039b3c6fba479d096adb3ca15e1a11f3245421f2e2db"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Conflict at Its Edges Research Publication",
         "observed_at": "2026-08-09T00:00:00Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md"
       }
     ],
     "observed_at": "2026-08-09T00:00:00Z",
-    "payload_sha256": "sha256:dc75f346dad4403a98221921abe60264c8eb209d2cbfb08dfaed3249aaebb6da",
+    "payload_sha256": "sha256:1d16e8f121d4c0667431b69084374bbde016a2c1556e75d0892065ab37bc6a39",
     "qualifier": {
       "role": "subject"
     },

@@ -744,8 +744,6 @@ class PublicationCatalogTests(unittest.TestCase):
             {"path": "media/art.png", "kind": "approved_public_media", "delivery_role": "media_asset", "required_in_catalog": True, "activation_mode": "deferred_on_demand"},
             {"path": "records/entities/E.json", "kind": "public_entity_record", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/media-manifest.json", "kind": "public_media_source_manifest", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
-            {"path": "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json", "kind": "media_description_amendment", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
-            {"path": "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json", "kind": "wave_observation", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json", "kind": "wave_observation", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "records/relations/R.json", "kind": "public_relation_record", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
             {"path": "schemas/control.json", "kind": "public_assembly_control_document", "delivery_role": "assembly_document", "required_in_catalog": True, "activation_mode": "atomic"},
@@ -870,7 +868,10 @@ class PublicationCatalogTests(unittest.TestCase):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         candidate_sha = manifest["manifest_sha256"]
         candidate_keccak = manifest["manifest_commitment"]["digest"]
+        reviewable_paths = set(inventory["assembler"]["required_paths"])
         for relative, record in record_paths.items():
+            if relative not in reviewable_paths:
+                continue
             payload = record["payload"]
             payload["reviewer"] = {"id": "reviewer:test", "role": "reviewer", "reviewed_at": "2026-08-08T18:00:00Z", "reviewed_manifest_sha256": candidate_sha, "reviewed_manifest_keccak": candidate_keccak, "reviewed_commit": candidate, "reviewer_ids": ["reviewer:test"], "outcome": "approved"}
             payload["record_status"] = "reviewed"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc98b2c35c6ff1479475f025006ad7adeafe4acd83026cdf737a6afa3e71bd62a"
+      "digest": "0x9e751faedac2b6efca63ef4bd8518a4651f03d7978ee575e8f3fcf01074798dd"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_RELATION",
@@ -32,17 +32,17 @@
         "evidence_class": "B",
         "label": "Published proposal work set",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       },
       {
         "evidence_class": "B",
         "label": "Museum Wave selection observation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:573c74a68977edbd772162321b31883981b46fd664606a2ded7d82c53f3616c2",
+    "payload_sha256": "sha256:328984784240e7d2d2e1318a82d1a0d691fdabd2e4c5110bdfb27837b698830e",
     "qualifier": {
       "display_order": 3,
       "scope": "proposal_work_set",

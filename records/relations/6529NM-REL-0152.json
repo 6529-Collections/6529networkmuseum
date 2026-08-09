@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaa5d157c57f26cf964902c31e299431e8726cf41f3b696cd799ad59869cad035"
+      "digest": "0xcaf77c79e5232743f767f99008bf3233ad9843a7e58c1ebe7a2daf273dcdc717"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Historical public Wave proposal media relation",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:b6f018a430e985ed16f5072bb24fce4298664ac71fc630f882efe66f7f1221dc",
+    "payload_sha256": "sha256:7026ecc92ae916eecaec01c77cf71828f7531c9be040bd17997e26a5e9aefb3f",
     "qualifier": {
       "media_context": "source",
       "publication_context_entity_id": "6529NM-CA-2026-003"

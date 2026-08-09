@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf0e65b1921bc0a20b3d5051fdf67f004dd4bb53f49b9f6fd6bf845088e32c349"
+      "digest": "0x3c556ff1d311976f5650e3868eccc022aaeb7024fdcc4b3a1e64e0c8fa167396"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Magnum Photos 75 project context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/04-micha-bar-am-97.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/03-micha-bar-am-97.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:a34c08037e4b4090c375c9b25b224ef081820e8ad67e0aa0c3209f33b4c02624",
+    "payload_sha256": "sha256:e446e945022fb5039c0a3a2a1301aaa180dc68d275ed5ab04b4ca61a54933578",
     "qualifier": {
       "scope": "proposal_work_set"
     },

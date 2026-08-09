@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x12aacae3d19b5fe4bea60d1f470e43c3dac2809f2d57cb9814279b9e44028799"
+      "digest": "0xda94f0910b95d2f1ff5a0522813f5510f165b6448c8a3eaf99561b27cb53600d"
     },
     "effectiveAt": 1786184102,
     "recordType": "WAVE_STATUS_OBSERVATION",
@@ -33,7 +33,7 @@
         "evidence_class": "B",
         "label": "Original PARTICIPATORY proposal observation",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       },
       {
         "evidence_class": "B",
@@ -56,11 +56,12 @@
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
     "observation_method": "signed_drop_api_readback",
     "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:beae463453c21a3e8e51e311f8d8b0d8e516b9a63b43dd6c2000d1d441d4a097",
+    "payload_sha256": "sha256:3f1951003b9f302c286b36b86b23ea3038ea086932b5d44f752805dab67f7046",
     "prior_observation": {
       "observed_at": "2026-08-06T13:19:30.726Z",
       "source_record_id": "6529NM-PG-2026-001",
-      "source_record_path": "records/proposed-gifts/6529NM-PG-2026-001/proposal.json",
+      "source_record_path": null,
+      "source_repository_visibility": "complete_manifest_only",
       "source_status": "PARTICIPATORY",
       "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
     },

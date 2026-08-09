@@ -281,12 +281,17 @@ def _entries(root: Path) -> list[dict[str, Any]]:
         add(_entry(relative_path(root, path), "public_entity_record", "assembly_document"))
     for path in sorted((root / "records/relations").glob("*.json")):
         add(_entry(relative_path(root, path), "public_relation_record", "assembly_document"))
-    for relative in (
-        "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
-        "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json",
-    ):
-        add(_entry(relative, "wave_observation", "assembly_document"))
-    add(_entry("records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json", "media_description_amendment", "assembly_document"))
+    # The status observation is the closed public graph's current lifecycle
+    # source. The full seven-part publication receipt and its accessibility
+    # amendment remain complete-manifest evidence only: both retain historical
+    # photographic locators that are not part of the visitor delivery surface.
+    add(
+        _entry(
+            "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
+            "wave_observation",
+            "assembly_document",
+        )
+    )
     for relative in public_record_paths(root):
         add(_entry(relative, "public_curatorial_manuscript", "assembly_document"))
     control_paths = set(ASSEMBLY_CONTROL_PATHS)

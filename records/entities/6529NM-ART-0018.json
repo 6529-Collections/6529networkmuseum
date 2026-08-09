@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x30f1b15573e3ca4d7d039051de266ea465723550ba68cf84266bdb4cd704c4be"
+      "digest": "0xe992a2ec536d9327c4198cda537bb8ec20c7476966764f554b5f98c973789886"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -35,7 +35,7 @@
         "evidence_class": "B",
         "label": "Proposed gift artist label",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       },
       {
         "evidence_class": "B",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:61e3e559ee207114d250319c3fd622ca2050d2cea8bcd6744f4d20999743af56",
+    "payload_sha256": "sha256:631d76386be2c084080ac410e4943607fe60d1805b8224115fdb96142abf38ea",
     "preferred_label": "Larry Towell",
     "profile": {
       "authority": {
@@ -59,7 +59,7 @@
             "evidence_class": "B",
             "label": "Proposed gift artist label",
             "observed_at": "2026-08-06T13:19:30.726Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
           },
           {
             "evidence_class": "B",
@@ -76,7 +76,7 @@
               "evidence_class": "B",
               "label": "Name source",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -89,7 +89,7 @@
               "evidence_class": "B",
               "label": "Raw issuer label",
               "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
           "source_kind": "proposal",
@@ -139,7 +139,7 @@
           "evidence_class": "B",
           "label": "Proposed gift artist label",
           "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
         },
         {
           "evidence_class": "B",

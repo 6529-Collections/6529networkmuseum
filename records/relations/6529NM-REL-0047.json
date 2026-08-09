@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7557d0287a5d00ea409da7d774b17f64dd3d4bc778839e21e23f23fb3f31fc9e"
+      "digest": "0x78acf7f470b52ea49147d9ab255a302a1a9abb3799892402ff208b55e24850e6"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -31,12 +31,12 @@
       {
         "evidence_class": "B",
         "label": "Magnum Photos 75 project origin",
-        "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/01-resolution.md"
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos-75.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:7e223f66614195ec17982ae04ce54fc0ce635e372fd16b7d20f89a4de6c37401",
+    "payload_sha256": "sha256:169cad8c400e4147526bd8b4a44bd0ad16e750e9a8a2308f0cdd7f9d0d33e988",
     "qualifier": {
       "role": "originator"
     },

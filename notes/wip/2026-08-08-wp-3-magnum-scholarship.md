@@ -478,3 +478,27 @@ The complete pre-commit qualification subsequently passed: 306 unit tests with
 one platform skip, the full Museum/Casey validator, the Casey snapshot verifier,
 the 22-file diligence manifest check, bootstrap validation, the fetch guard, and
 all Magnum publication checks. Exact-head review and hosted CI remain required.
+## 2026-08-09 visitor-publication boundary review
+
+Independent exact-head review found that the first complete visitor bundle still
+carried two kinds of material that do not belong in the website delivery
+surface: the seven-part Wave publication receipt and its Bar-Am accessibility
+amendment, both of which preserve restricted photographic locators; and raw
+repository paths into the proposed-gift decision record carried by generated
+entities and relations. Those records remain governed, public-safe repository
+evidence and complete-manifest entries. They are no longer visitor-bundle
+documents or frontend discovery locators.
+
+The visitor graph now cites the public Museum Wave drop and current scholarship
+pages. Lifecycle claims remain bound to the stable governed WINNER observation
+ID, source status, observation time, and source-record IDs. The validator tests
+that binding directly rather than requiring the complete-manifest-only file
+path to appear in public entities.
+
+Research Publication `6529NM-RP-0003` is now a typed research dossier. Its
+publication record binds 21 exact component manuscripts: the acquisition essay,
+five artist profiles, the Magnum Photos and Magnum Photos 75 profiles, five Work
+entries, five Work essays, the provenance chronology, the sources register, and
+the visual-rights notice. Machine records remain release evidence rather than
+visitor-facing scholarship. The corrected deterministic visitor boundary is
+518 inventory entries and 517 bundled entries.

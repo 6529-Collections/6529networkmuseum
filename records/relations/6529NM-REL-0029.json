@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x64932f2368a2ad61ce7829976bbf08d358e6e9b49d8881e9a0b364838cb4f59a"
+      "digest": "0x2726ce392ee49ae8214eb26cf48de394dd5954f2f53e80f81b4f400a03b04079"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Proposed artist creator",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:696a2a34694bed54b58ae5e15f6f1ebfb972de7c063f25e48e7bbb7811e7c9ac",
+    "payload_sha256": "sha256:60f6348fe6845a95a8ef402518af82846b6d246714ded0e09d0a094d311b6d1a",
     "qualifier": {
       "role": "creator"
     },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x10fa3994eba53a684f19a5aa76560728a4f3f2cf09d88cb719509e4f9ebc6fe4"
+      "digest": "0x70609aa03215c912a4a5da0af18d5fb1d88ec3de8e25dfed63af48148bc8cdae"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -33,14 +33,20 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Conflict at Its Edges Research Publication",
+        "label": "Conflict at Its Edges publication record",
+        "observed_at": "2026-08-09T00:00:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Conflict at Its Edges catalogue essay",
         "observed_at": "2026-08-09T00:00:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
       }
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:b641cf33fe238cc4a238effb76f007ac1a45e3c6afac1c5e516737f3e0ab7365",
+    "payload_sha256": "sha256:7a349e159292a597f4f91cd068e1c0c5b2a88e63d16382c33ee0beac43ffc978",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "author_entity_ids": [
@@ -49,15 +55,44 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Conflict at Its Edges Research Publication",
+          "label": "Conflict at Its Edges publication record",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Conflict at Its Edges catalogue essay",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
         }
       ],
       "profile_type": "RESEARCH_PUBLICATION",
+      "publication_component_paths": [
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/david-seymour.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/larry-towell.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/lorenzo-meloni.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/micha-bar-am.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/artists/moises-saman.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/caption-evidence.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/chronologies.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/media-plan.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/rights-technical-provenance.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/source-and-rights-record.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/conflict-at-its-edges.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos-75.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/acquisition-narrative.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/sources/source-register.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/01-david-seymour-127.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/02-larry-towell-145.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/03-micha-bar-am-97.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/04-moises-saman-44.md",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/05-lorenzo-meloni-104.md"
+      ],
       "publication_date": "2026-08-09",
-      "publication_document_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md",
-      "publication_kind": "catalogue_essay",
+      "publication_document_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md",
+      "publication_kind": "research_dossier",
       "subject_entity_ids": [
         "6529NM-CA-2026-003",
         "6529NM-ORG-0002",
@@ -120,7 +155,13 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Conflict at Its Edges Research Publication",
+          "label": "Conflict at Its Edges publication record",
+          "observed_at": "2026-08-09T00:00:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Conflict at Its Edges catalogue essay",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
         }

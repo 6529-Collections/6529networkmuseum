@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8027ab2fd503d25d8bf562b7417025f32a06b149d446c5b2f5a00dfa56fc9f55"
+      "digest": "0x03ab15ecc5e9c123f3c50992c95cf1616aa9449133a6357f05db421dabc43930"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -32,11 +32,11 @@
         "evidence_class": "B",
         "label": "Magnum Photos 75 project context",
         "observed_at": "2026-08-06T13:19:30.726Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/wave-storm/02-david-seymour-127.md"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/01-david-seymour-127.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:9028c205142a02231fbb3c93dd1ec820b0d55c73d21710f0c553387e0322a140",
+    "payload_sha256": "sha256:2eb9fea10b90a95e5e52320a63464b39ac7faf80aa34bb972512d494ab4a8655",
     "qualifier": {
       "scope": "proposal_work_set"
     },

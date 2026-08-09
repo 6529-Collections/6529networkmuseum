@@ -1286,8 +1286,12 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
                     if latest.get("source_status") != "WINNER":
                         issues.append("public entity: Museum Wave-selected Curated Acquisition requires a WINNER source observation")
-                    if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
-                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires the governed WINNER observation path")
+                    source_ids = latest.get("source_record_ids", [])
+                    if not any(
+                        isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                        for record_id in source_ids
+                    ):
+                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires a governed WINNER observation record ID")
         if entity_type == "WORK":
             pattern = public_entity_id_pattern(entity_type, identity_inventory)
             if not (isinstance(payload.get("entity_id"), str) and isinstance(pattern, str) and re.fullmatch(pattern, payload["entity_id"])):
@@ -1317,8 +1321,12 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
                 if latest.get("status") != work_status or latest.get("source_status") != "WINNER":
                     issues.append("public entity: Museum Wave-selected Work requires a latest WINNER lifecycle observation")
-                if not any("wave-status-observation-2026-08-08.json" in ref.get("uri", "") for ref in latest.get("evidence_refs", []) if isinstance(ref, dict)):
-                    issues.append("public entity: Museum Wave-selected Work requires the governed WINNER observation path")
+                source_ids = latest.get("source_record_ids", [])
+                if not any(
+                    isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                    for record_id in source_ids
+                ):
+                    issues.append("public entity: Museum Wave-selected Work requires a governed WINNER observation record ID")
         if entity_type == "MEDIA_REFERENCE" and isinstance(profile.get("media"), dict):
             issues.extend(validate_public_media(profile["media"], "public entity profile.media"))
         if "image_url" in payload or has_key_recursive(profile, "image_url"):
@@ -1628,6 +1636,7 @@ def validate_public_graph(
     issues: list[str] = []
     entities: dict[str, tuple[Path, dict[str, Any]]] = {}
     relations: list[tuple[Path, dict[str, Any]]] = []
+    wave_status_observations: dict[str, tuple[Path, dict[str, Any]]] = {}
     for path, _record, payload in records:
         if not isinstance(payload, dict):
             continue
@@ -1637,6 +1646,10 @@ def validate_public_graph(
                 entities[entity_id] = (path, payload)
         elif payload.get("record_type") == PUBLIC_RELATION_TYPE:
             relations.append((path, payload))
+        elif payload.get("record_type") == "WAVE_STATUS_OBSERVATION":
+            observation_id = payload.get("observation_id")
+            if isinstance(observation_id, str):
+                wave_status_observations[observation_id] = (path, payload)
 
     typed_record_index = _typed_reference_record_index(repository_root)
     typed_registry, typed_registry_issues = _typed_reference_registry_index(identity_inventory)
@@ -1690,6 +1703,25 @@ def validate_public_graph(
             )
             issues.extend(typed_issues)
             used_registry_targets.update(used_targets)
+        profile = payload.get("profile") if isinstance(payload.get("profile"), dict) else {}
+        if entity_type == "CURATED_ACQUISITION":
+            lifecycle = profile.get("lifecycle", {}).get("status") if isinstance(profile.get("lifecycle"), dict) else None
+            observations = profile.get("lifecycle_observations")
+        elif entity_type == "WORK":
+            lifecycle = profile.get("work_lifecycle_status")
+            observations = profile.get("lifecycle_observations")
+        else:
+            lifecycle = None
+            observations = None
+        if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
+            latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
+            winner_records = [
+                wave_status_observations[record_id][1]
+                for record_id in latest.get("source_record_ids", [])
+                if isinstance(record_id, str) and record_id in wave_status_observations
+            ]
+            if not any(record.get("source_status") == "WINNER" and record.get("drop_type") == "WINNER" for record in winner_records):
+                issues.append(f"{relative}: selected Museum Wave lifecycle must resolve to a governed WINNER observation record")
         if isinstance(slug, str):
             slug_key = (str(entity_type), slug)
             if slug_key in slug_paths and slug_paths[slug_key] != path:
