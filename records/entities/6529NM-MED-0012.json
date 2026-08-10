@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x379bf36526f7d44153df9aaa5b0077389cd28076b89c97e8fd0f967862578055"
+      "digest": "0xb010a66b176a2a234e76975f2690483363591159c39df0eea0504dc8cf55db39"
     },
-    "effectiveAt": 1785652200,
+    "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -21,49 +21,58 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
-      "observed_at": "2026-08-08T14:31:26Z",
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "observed_at": "2026-08-09T23:04:32Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-08T14:31:26Z",
-    "effective_at": "2026-08-02T06:30:00Z",
+    "created_at": "2026-08-09T23:04:32Z",
+    "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0012",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Casey live presentation source",
+        "label": "Append-only Casey media presentation correction",
+        "observed_at": "2026-08-09T23:04:32Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Casey per-object rights statement",
         "observed_at": "2026-08-02T06:30:00Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.03.json"
       }
     ],
-    "observed_at": "2026-08-02T06:30:00Z",
+    "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d10db3dd69dec390eac13983d6ad923ae84b7d55deed13aff795ba7c349dd753",
-    "preferred_label": "CENTURY #401 live presentation source",
+    "payload_sha256": "sha256:97b4b61649bcb9737015eab4b1cde3e41ab16b8da69547c861cda25192bb2700",
+    "preferred_label": "CENTURY #401 official Art Blocks live generator",
     "profile": {
       "media": {
         "accessibility_evidence_refs": [
           {
-            "evidence_class": "B",
-            "label": "Accessibility source",
-            "observed_at": "2026-08-02T06:30:00Z",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
-          },
-          {
             "evidence_class": "C",
-            "label": "Accessibility source",
+            "label": "Casey visual observation",
             "observed_at": "2026-08-02T06:30:00Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Append-only Casey media presentation correction",
+            "observed_at": "2026-08-09T23:04:32Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
           }
         ],
         "accessibility_publication_entity_id": null,
-        "accessibility_status": "not_applicable",
+        "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",
-        "accessibility_text": null,
+        "accessibility_text": "Grayscale field with black bands, gray planes, and intersecting white lines.",
         "allowed_ui_affordances": [
           "view",
+          "alt_text",
+          "interact_sandboxed",
+          "fullscreen",
           "open_token_source",
           "copy_citation"
         ],
@@ -71,12 +80,12 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": null,
-          "basis": "The live generator is an external mutable presentation source; the Museum retains observation evidence rather than the response bytes.",
+          "basis": "The official Art Blocks live generator is mutable external HTML. No digest is asserted for the generator or future responses, and the Museum retains observation evidence rather than generator response bytes.",
           "digest": null,
           "status": "unverified_not_retrieved",
           "verified_at": null
         },
-        "height": null,
+        "height": 720,
         "identity_inference_prohibition": null,
         "media_role": "token_linked_source_media",
         "media_type": "text/html",
@@ -86,19 +95,19 @@
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Rights boundary",
+              "label": "Casey per-object rights statement",
               "observed_at": "2026-08-02T06:30:00Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.03.json"
             },
             {
-              "evidence_class": "B",
-              "label": "Rights boundary",
+              "evidence_class": "D",
+              "label": "CC BY-NC 4.0 license",
               "observed_at": "2026-08-02T06:30:00Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+              "uri": "https://creativecommons.org/licenses/by-nc/4.0/"
             }
           ],
-          "notes": "Rights state is projected from the cited source and is not inferred from media availability.",
-          "observed_at": "2026-08-02T06:30:00Z",
+          "notes": "Source rights label: CC BY-NC 4.0. Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-09T23:04:32Z",
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
@@ -110,73 +119,74 @@
           "evidence_refs": [
             {
               "evidence_class": "C",
-              "label": "Source observation",
-              "observed_at": "2026-08-02T06:30:00Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
-            },
-            {
-              "evidence_class": "C",
-              "label": "Source observation",
+              "label": "Casey live generator observation",
               "observed_at": "2026-08-02T06:30:00Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/visual-observation-record.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Append-only Casey media presentation correction",
+              "observed_at": "2026-08-09T23:04:32Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
-          "observed_at": "2026-08-02T06:30:00Z",
+          "observed_at": "2026-08-09T23:04:32Z",
           "status": "mutable_external"
         },
         "source_record_ids": [
+          "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
           "6529NM.2026.001.03",
+          "6529NM.2026.001.RIGHTS.03",
           "6529NM.2026.001.VO-01"
         ],
         "subject_entity_id": "6529NM-W-0003",
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": null,
-        "visual": false,
+        "visual": true,
         "wave_proposal_context": null,
-        "width": null
+        "width": 720
       },
       "profile_type": "MEDIA_REFERENCE"
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0012",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
       "6529NM.2026.001.03",
+      "6529NM.2026.001.RIGHTS.03",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "reviewer:independent-luna-panel-closure-2026-08-09",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-09T18:34:39Z",
-      "reviewed_commit": "623659dcd4ec84cbdbf6b7884758ee1396849ce5",
-      "reviewed_manifest_keccak": "0x7863bae68f794efb9f0383eae6f2aff06600a35dfbae62ddfdb979aca08b31ad",
-      "reviewed_manifest_sha256": "sha256:d16cffc39badfbe88f1bb4c2ff1dfff294ad658734ea24e726df664c6ac7b4b4",
-      "reviewer_ids": [
-        "reviewer:independent-luna-panel-closure-2026-08-09"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
+      "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
       "6529NM.2026.001.03",
+      "6529NM.2026.001.RIGHTS.03",
       "6529NM.2026.001.VO-01"
     ],
     "status_observation": {
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Casey live presentation source",
+          "label": "Append-only Casey media presentation correction",
+          "observed_at": "2026-08-09T23:04:32Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Casey per-object rights statement",
           "observed_at": "2026-08-02T06:30:00Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/objects/6529NM.2026.001.03.json"
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.001/rights/6529NM.2026.001.RIGHTS.03.json"
         }
       ],
-      "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "observed_at": "2026-08-09T23:04:32Z",
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0012",
     "visibility": "public"

@@ -24,9 +24,10 @@ RELATIONS_DIR = ROOT / "records" / "relations"
 VOCAB_PATH = ROOT / "schemas" / "controlled-vocabularies.json"
 IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-entity-identity-inventory.json"
 RELATION_IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-relation-identity-inventory.json"
-CONSTRUCTOR_ID = "codex-task:019fe093-6890-7d20-9685-e291642d23ef"
-GENERATED_AT = "2026-08-08T14:31:26Z"
+CONSTRUCTOR_ID = "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c"
+GENERATED_AT = "2026-08-09T23:04:32Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
+CASEY_MEDIA_AT = "2026-08-09T23:04:32Z"
 KEYS_AT = "2026-08-01T15:03:35Z"
 KEYS_PUBLICATION_AT = "2026-08-08T00:00:00Z"
 MAGNUM_PUBLICATION_AT = "2026-08-09T00:00:00Z"
@@ -42,6 +43,8 @@ WAVE_PUBLICATION_OBSERVATION_ID = "6529NM-WAVE-PUB-OBS-2026-08-08-001"
 WAVE_PUBLICATION_OBSERVATION_PATH = "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json"
 MEDIA_DESCRIPTION_AMENDMENT_ID = "6529NM-MEDIA-DESC-AMD-2026-08-08-001"
 MEDIA_DESCRIPTION_AMENDMENT_PATH = "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json"
+CASEY_MEDIA_AMENDMENT_ID = "6529NM-MEDIA-PRES-AMD-2026-08-09-001"
+CASEY_MEDIA_AMENDMENT_PATH = "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
 MAGNUM_SCHOLARSHIP_ROOT = "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship"
 MAGNUM_PUBLICATION_RECORD_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/publication-record.md"
 MAGNUM_WORK_PUBLICATION_PATHS = {
@@ -297,6 +300,8 @@ def source_repository_path(source: str) -> str:
         return WAVE_PUBLICATION_OBSERVATION_PATH
     if source == MEDIA_DESCRIPTION_AMENDMENT_ID:
         return MEDIA_DESCRIPTION_AMENDMENT_PATH
+    if source == CASEY_MEDIA_AMENDMENT_ID:
+        return CASEY_MEDIA_AMENDMENT_PATH
     if source.startswith("6529NM-GOV-"):
         return "records/governance/decisions.json"
     match = re.fullmatch(r"6529NM-AP-01-OUT-(\d{3})", source)
@@ -615,7 +620,7 @@ def entity(record_id: str, entity_type: str, label: str, slug: str | None, route
         "profile": profile,
     })
     if media_entity_ids is not None:
-        payload["media_entity_ids"] = sorted(set(media_entity_ids))
+        payload["media_entity_ids"] = list(dict.fromkeys(media_entity_ids))
     return f"records/entities/{record_id}.json", payload
 
 
@@ -838,6 +843,11 @@ def build_records(
         for obj in casey_objects
     }
     casey_media_ids = [casey_media_ids_by_object[obj["record_id"]] for obj in casey_objects]
+    casey_still_media_ids_by_object = {
+        obj["record_id"]: fixed_id("MEDIA_REFERENCE", f"casey-still:{obj['record_id']}")
+        for obj in casey_objects
+    }
+    casey_still_media_ids = [casey_still_media_ids_by_object[obj["record_id"]] for obj in casey_objects]
     accession_refs = ["6529NM.2026.001", "6529NM-ACC-2026-001"]
     institution_refs = ["6529NM-GOV-1052156", "6529NM-GOV-1052812"]
     add_entity(institution, "INSTITUTION", "6529 Network Museum", None, "/museum/network", CASEY_AT, {
@@ -909,7 +919,7 @@ def build_records(
             "collection_membership": {"status": "permanent_collection", "collection_entity_id": collection, "accession_entity_ids": [accession], "source_record_ids": ["6529NM.2026.001", "6529NM-ACC-2026-001"], "evidence_refs": [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)]},
             "project_or_series_entity_ids": [project_id], "acquisition_entity_ids": ["6529NM-CA-2026-001"], "program_entity_ids": [gift_program], "accession_entity_ids": [accession], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "accessioned"), "accessioned", "accessioned", CASEY_AT, ["6529NM-ACC-2026-001", object_id], "The Work is admitted through the completed Casey accession; mint, rights, custody, and preservation remain independently recorded facts.")],
             "component_references": [authoritative_typed_reference("component", object_id, "WORK_DESCRIPTION", [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT)])], "manifestation_references": [authoritative_typed_reference("manifestation", "6529NM.2026.001.VO-01", "VISUAL_OBSERVATION", [source_evidence("Visual observation", "6529NM.2026.001.VO-01", CASEY_AT)])], "identity_boundary": "The public Work identity is separate from the accession lot, token, component record, manifestation, title, custody, and future acquisition relations.", "evidence_refs": [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT), evidence("Chain transfer receipt", "evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json", CASEY_AT, "A"), source_evidence("Rights statement", rights_id, CASEY_AT), source_evidence("Condition report", condition_id, CASEY_AT)],
-        }, [object_id, "6529NM.2026.001", "6529NM-ACC-2026-001", rights_id, condition_id, "6529NM.2026.001.VO-01", project_id, accession, "6529NM-CA-2026-001", gift_program], [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT)], media_entity_ids=([media_retained, media_token, casey_media_ids_by_object[object_id]] if index == 0 else [casey_media_ids_by_object[object_id]]))
+        }, [object_id, "6529NM.2026.001", "6529NM-ACC-2026-001", rights_id, condition_id, "6529NM.2026.001.VO-01", CASEY_MEDIA_AMENDMENT_ID, project_id, accession, "6529NM-CA-2026-001", gift_program], [source_evidence("Existing WORK_DESCRIPTION", object_id, CASEY_AT), source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT)], media_entity_ids=([casey_still_media_ids_by_object[object_id], casey_media_ids_by_object[object_id], media_retained, media_token] if index == 0 else [casey_still_media_ids_by_object[object_id], casey_media_ids_by_object[object_id]]))
 
     add_entity(accession, "ACCESSION", "Casey Reas accession 6529NM.2026.001", None, None, CASEY_AT, {
         "profile_type": "ACCESSION", "accession_number": "6529NM.2026.001", "accession_status": "complete", "admitted_work_entity_ids": casey_work_ids, "source_accession_record_id": "6529NM-ACC-2026-001", "evidence_refs": [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)],
@@ -1051,6 +1061,11 @@ def build_records(
     wave_publication = wave_publication_record["payload"]
     media_description_record = load_json(ROOT / MEDIA_DESCRIPTION_AMENDMENT_PATH)
     media_description_amendment = media_description_record["payload"]
+    casey_media_amendment_record = load_json(ROOT / CASEY_MEDIA_AMENDMENT_PATH)
+    casey_media_amendment = casey_media_amendment_record["payload"]
+    casey_media_corrections = {
+        item["object_id"]: item for item in casey_media_amendment["presentation_corrections"]
+    }
     wave_media_by_candidate = {
         part.get("candidate_object_id"): part.get("media", [])[0]
         for part in wave_storm.get("parts", [])
@@ -1066,25 +1081,81 @@ def build_records(
     add_entity(media_token, "MEDIA_REFERENCE", "Casey token-linked metadata source", None, None, CASEY_AT, media_profile("token_linked_source_media", casey_first_object["chain_identity"]["metadata_uri"], None, "application/json", False, None, None, None, "not_applicable", casey_work_ids_by_object["6529NM.2026.001.01"], "Casey Reas, token-linked metadata source", "cleared_with_conditions", "retrieved", ["6529NM.2026.001.01", "6529NM.2026.001.RIGHTS.01"], CASEY_AT, {"status": "verified", "algorithm": "sha256", "digest": casey_first_object["chain_identity"]["metadata_sha256"], "verified_at": CASEY_AT, "basis": "Existing object record metadata snapshot fixity."}, ["view", "open_token_source", "copy_citation"]), ["6529NM.2026.001.01", "6529NM.2026.001.RIGHTS.01"], [source_evidence("Token-linked metadata record", "6529NM.2026.001.01", CASEY_AT)])
     for index, obj in enumerate(casey_objects):
         object_id = obj["record_id"]
-        add_entity(casey_media_ids_by_object[obj["record_id"]], "MEDIA_REFERENCE", f"{obj['title']} live presentation source", None, None, CASEY_AT, media_profile(
+        correction = casey_media_corrections[object_id]
+        rights_id = correction["rights_record_id"]
+        common_source_refs = [object_id, rights_id, "6529NM.2026.001.VO-01", CASEY_MEDIA_AMENDMENT_ID]
+        rights_evidence_refs = [
+            source_evidence("Casey per-object rights statement", rights_id, CASEY_AT),
+            evidence("CC BY-NC 4.0 license", correction["license_url"], CASEY_AT, "D"),
+        ]
+        accessibility_evidence_refs = [
+            source_evidence("Casey visual observation", "6529NM.2026.001.VO-01", CASEY_AT),
+            source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT),
+        ]
+        still = correction["still"]
+        still_dimensions = still["dimensions"]
+        add_entity(casey_still_media_ids_by_object[object_id], "MEDIA_REFERENCE", f"{obj['title']} official Art Blocks still", None, None, CASEY_MEDIA_AT, media_profile(
             "token_linked_source_media",
-            obj["chain_identity"]["generator_uri"],
+            still["source_url"],
             None,
-            "text/html",
-            False,
-            None,
-            None,
-            None,
-            "not_applicable",
+            still["media_type"],
+            True,
+            still_dimensions["width"],
+            still_dimensions["height"],
+            correction["accessibility_text"],
+            "provided",
             casey_work_ids_by_object[object_id],
-            obj["credit_line"],
+            correction["credit"],
             "cleared_with_conditions",
             "mutable_external",
-            [object_id, "6529NM.2026.001.VO-01"],
-            CASEY_AT,
-            {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The live generator is an external mutable presentation source; the Museum retains observation evidence rather than the response bytes."},
-            ["view", "open_token_source", "copy_citation"],
-        ), [object_id, "6529NM.2026.001.VO-01"], [source_evidence("Casey live presentation source", object_id, CASEY_AT)])
+            common_source_refs,
+            CASEY_MEDIA_AT,
+            {
+                "status": "verified",
+                "algorithm": "sha256",
+                "digest": still["response_sha256"],
+                "verified_at": CASEY_MEDIA_AT,
+                "basis": "Verified only for the exact observed Art Blocks media-proxy image response at the recorded observation. The external locator remains mutable; future bytes may differ, and the observed response bytes were not retained as a Museum preservation master.",
+            },
+            still["allowed_ui_affordances"],
+            rights_label="CC BY-NC 4.0",
+            rights_evidence_refs=rights_evidence_refs,
+            source_observation_evidence_refs=[
+                evidence("Exact observed Art Blocks media-proxy image response", still["source_url"], CASEY_MEDIA_AT, "C"),
+                source_evidence("Casey visual observation", "6529NM.2026.001.VO-01", CASEY_AT),
+                source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT),
+            ],
+            accessibility_evidence_refs=accessibility_evidence_refs,
+        ), common_source_refs, [source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT), source_evidence("Casey per-object rights statement", rights_id, CASEY_AT)])
+
+        live = correction["live"]
+        live_dimensions = live["observed_canvas_dimensions"]
+        add_entity(casey_media_ids_by_object[obj["record_id"]], "MEDIA_REFERENCE", f"{obj['title']} official Art Blocks live generator", None, None, CASEY_MEDIA_AT, media_profile(
+            "token_linked_source_media",
+            live["source_url"],
+            None,
+            live["media_type"],
+            True,
+            live_dimensions["width"],
+            live_dimensions["height"],
+            live["accessibility_text"],
+            "provided",
+            casey_work_ids_by_object[object_id],
+            correction["credit"],
+            "cleared_with_conditions",
+            "mutable_external",
+            common_source_refs,
+            CASEY_MEDIA_AT,
+            {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The official Art Blocks live generator is mutable external HTML. No digest is asserted for the generator or future responses, and the Museum retains observation evidence rather than generator response bytes."},
+            live["allowed_ui_affordances"],
+            rights_label="CC BY-NC 4.0",
+            rights_evidence_refs=rights_evidence_refs,
+            source_observation_evidence_refs=[
+                source_evidence("Casey live generator observation", "6529NM.2026.001.VO-01", CASEY_AT),
+                source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT),
+            ],
+            accessibility_evidence_refs=accessibility_evidence_refs,
+        ), common_source_refs, [source_evidence("Append-only Casey media presentation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT), source_evidence("Casey per-object rights statement", rights_id, CASEY_AT)])
     signed_obj = proposal["objects"][0]
     wave_proposal_context = {
         "wave_id": wave_publication["wave_id"],
@@ -1271,7 +1342,8 @@ def build_records(
         relation_number += 1
     for index, work_id in enumerate(casey_work_ids):
         object_id = casey_objects[index]["record_id"]
-        add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, casey_media_ids_by_object[object_id], {"media_context": "primary"}, CASEY_AT, [object_id], [source_evidence("Casey Work presentation media relation", object_id, CASEY_AT)])
+        rights_id = casey_media_corrections[object_id]["rights_record_id"]
+        add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, casey_media_ids_by_object[object_id], {"media_context": "primary", "display_order": 2}, CASEY_MEDIA_AT, [object_id, rights_id, "6529NM.2026.001.VO-01", CASEY_MEDIA_AMENDMENT_ID], [source_evidence("Append-only Casey live presentation relation correction", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT)])
         relation_number += 1
     for index, work_id in enumerate(keys_work_ids):
         outcome_id = outcomes[index]["record_id"]
@@ -1280,6 +1352,11 @@ def build_records(
     for candidate_id in magnum_work_source_ids[1:]:
         work_id = magnum_work_ids_by_candidate[candidate_id]
         add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, magnum_media_ids_by_candidate[candidate_id], {"media_context": "source", "publication_context_entity_id": "6529NM-CA-2026-003"}, PROPOSAL_AT, [candidate_id, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal media relation", "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", PROPOSAL_AT)])
+        relation_number += 1
+    for index, work_id in enumerate(casey_work_ids):
+        object_id = casey_objects[index]["record_id"]
+        rights_id = casey_media_corrections[object_id]["rights_record_id"]
+        add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, casey_still_media_ids_by_object[object_id], {"media_context": "primary", "display_order": 1}, CASEY_MEDIA_AT, [object_id, rights_id, "6529NM.2026.001.VO-01", CASEY_MEDIA_AMENDMENT_ID], [source_evidence("Append-only Casey primary still relation", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT)])
         relation_number += 1
     generated_entities = [record["payload"] for relative, record in records.items() if relative.startswith("records/entities/")]
     actual_entity_types = {payload["entity_type"] for payload in generated_entities}

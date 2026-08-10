@@ -158,6 +158,7 @@ Status vocabulary:
 | [`notes/wip/2026-08-08-wp-1-source-ontology-handoff.md`](notes/wip/2026-08-08-wp-1-source-ontology-handoff.md) | active WP-1 handoff | Closed public entity/relation contract, Magnum Photos 75 Project/Organization boundary, generated counts, validation evidence, and successor-main publication hold |
 | [`notes/wip/2026-08-09-public-identity-inventory-completion.md`](notes/wip/2026-08-09-public-identity-inventory-completion.md) | completed release correction | Strict frontend refusal, four missing governed identities, complete binding invariant, and canonical A3-to-B3 completion evidence |
 | [`notes/wip/2026-08-09-relation-identity-publication-closure.md`](notes/wip/2026-08-09-relation-identity-publication-closure.md) | active release correction | Rejected pre-merge catalog activation, omitted relation-identity control and tombstones, corrected atomic publication boundary, and required A4-to-B4-to-C release sequence |
+| [`notes/wip/2026-08-09-casey-media-presentation-correction.md`](notes/wip/2026-08-09-casey-media-presentation-correction.md) | active append-only release correction | Seven official Casey stills, sandboxed live generators, exact Work/media ordering, per-object rights/accessibility bindings, mutable-source fixity boundary, and required A/B/C continuation |
 
 ## Generative analysis tooling
 

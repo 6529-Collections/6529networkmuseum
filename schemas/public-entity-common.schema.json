@@ -344,7 +344,7 @@
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"]}
+          "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "interact_sandboxed", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"]}
         }
       },
       "required": ["media_role", "publication_boundary", "source_locator", "token_source_locator", "media_type", "visual", "width", "height", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "identity_inference_prohibition", "subject_entity_id", "credit", "rights", "source_observation", "accessibility_evidence_refs", "fixity", "token_source_fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "wave_proposal_context", "publication_context_entity_ids", "allowed_ui_affordances"],
@@ -433,7 +433,7 @@
         },
         {
           "if": {"properties": {"source_observation": {"properties": {"status": {"const": "mutable_external"}}, "required": ["status"]}}, "required": ["source_observation"]},
-          "then": {"properties": {"fixity": {"$ref": "#/$defs/fixityUnverified"}}}
+          "then": {"properties": {"fixity": {"$ref": "#/$defs/fixity"}}}
         },
         {
           "if": {"properties": {"source_observation": {"properties": {"status": {"const": "retrieved"}}, "required": ["status"]}}, "required": ["source_observation"]},

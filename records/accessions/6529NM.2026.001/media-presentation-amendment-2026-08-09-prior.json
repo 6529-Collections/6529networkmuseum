@@ -1,0 +1,170 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xc30c7db6edd9aa373d6af6da5c4bddbde3f0eb4085361d31f4dab63c0f1fd063"
+    },
+    "effectiveAt": 1786316672,
+    "recordType": "MEDIA_PRESENTATION_AMENDMENT",
+    "schemaId": "0xf73b3115605e448cec9d5599dbc5e32dab4f3c91ab119bca2bac4aadc1f6ec9b",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x74027749f1618ba7ccc677c8be42e49cea09016a862e72829f9e18496ed52d6b",
+    "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09-prior.json"
+  },
+  "payload": {
+    "record_id": "6529NM-MEDIA-PRES-AMD-2026-08-09-000",
+    "record_type": "MEDIA_PRESENTATION_AMENDMENT",
+    "schema_id": "0xf73b3115605e448cec9d5599dbc5e32dab4f3c91ab119bca2bac4aadc1f6ec9b",
+    "subject_id": "6529NM-MEDIA-PRES-AMD-2026-08-09-000",
+    "visibility": "public",
+    "record_version": "1.0.0",
+    "created_at": "2026-08-09T23:04:32Z",
+    "observed_at": "2026-08-09T23:04:32Z",
+    "effective_at": "2026-08-09T23:04:32Z",
+    "constructor": {
+      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
+      "role": "constructor",
+      "observed_at": "2026-08-09T23:04:32Z"
+    },
+    "reviewer": null,
+    "record_status": "superseded",
+    "review_status": "superseded",
+    "payload_sha256": "sha256:9ad86106947408ae2535f991ef76c347ddb3d94ae1cd6b2606c884ddf10073aa",
+    "amendment_id": "6529NM-MEDIA-PRES-AMD-2026-08-09-000",
+    "accession_lot_id": "6529NM.2026.001",
+    "amendment_state": "superseded_projection_snapshot",
+    "prior_catalog": {
+      "catalog_id": "6529NM-PUBCAT-2733944555ae0f80242ec895558bdb7fba7115d3",
+      "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-2733944555ae0f80242ec895558bdb7fba7115d3.json",
+      "source_commit": "2733944555ae0f80242ec895558bdb7fba7115d3",
+      "catalog_file_sha256": "sha256:dda487e41681eb42b51fa1f37dd7b38695e12b9e2471962d7b2aed6838575839",
+      "catalog_envelope_content_hash": "0x83a1c0169c1451a79fe4d0858d9d2cea3a53197f0b9cf37dfa97512482757ee3"
+    },
+    "prior_public_record_commitments": [
+      {
+        "record_id": "6529NM-W-0001",
+        "payload_sha256": "sha256:d1afc4a0e2af4b6c63c401af39ca68b33acaf5124a79bc1d56af3ca95a17b217",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0002",
+        "payload_sha256": "sha256:53d860a21c5b94a813baf0cc7a283dde8e51089d2793ecd3ecf746065ce0ac70",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0003",
+        "payload_sha256": "sha256:e2177038e63d298fc2fc61599bea00cccdb6d16b0c5f1f83247bfbb9acc1de0f",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0004",
+        "payload_sha256": "sha256:470e389163455935d827d1265af8679c599ce672e9daf5601e62cb5a3fcd04d5",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0005",
+        "payload_sha256": "sha256:c403e2df836474477bc5f977677d80cf439456716ba7069da8e5054868de58b0",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0006",
+        "payload_sha256": "sha256:0678ae0c713c7b10f7ca36f0409c7dd472a63b2592b372862b7c693906717e54",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-W-0007",
+        "payload_sha256": "sha256:10f471ce6458a7c0b6b8054235b87a3a6433981d6f641874ed2171007f808939",
+        "defect": "No official primary visual still was attached to the Work."
+      },
+      {
+        "record_id": "6529NM-MED-0010",
+        "payload_sha256": "sha256:0755f82b3f7bd0a2c3e2a9791d1ae8fb170df494c55a793de201c2069acc6839",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0011",
+        "payload_sha256": "sha256:bc4860b1ac77acde179511ed62a61c259864e4cfd02ad174f0fd8044b123bb99",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0012",
+        "payload_sha256": "sha256:d10db3dd69dec390eac13983d6ad923ae84b7d55deed13aff795ba7c349dd753",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0013",
+        "payload_sha256": "sha256:f6f80d6dfd8fd17252ef7317c8abbb8a0116042f5569889ec303d0be4dedaa83",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0014",
+        "payload_sha256": "sha256:0c446cae4d16981d40fbb345e82bc222c7bc8566708c7209e4d645a1934be700",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0015",
+        "payload_sha256": "sha256:6e4edc78561e1d1a6c44b6016f69617f7afbcfaeae1c0dcd0e33c20aaf86e8a7",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-MED-0016",
+        "payload_sha256": "sha256:ef2d0a7f88f6d9c42ee9d220b95ff8cae4fd65966933f6681983636a6f15c01f",
+        "defect": "The official live generator was incorrectly projected as nonvisual."
+      },
+      {
+        "record_id": "6529NM-REL-0126",
+        "payload_sha256": "sha256:39c404c2395a544f4fb3d766eb62efd361007bf5e842b5a0df615d16bcff12be",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0127",
+        "payload_sha256": "sha256:d178ee119f5cbd1ac1626391e5f462dc2ca8dbc465137897ef6da5c2a3e237d8",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0128",
+        "payload_sha256": "sha256:3478cab3933ecdf589e7a578f6f57ef4d8a43600b3712b3e2bd3958217e7cda9",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0129",
+        "payload_sha256": "sha256:8136cd47001dc3de3359cb8596eb822fa6747685384aa4e6f36159e590998e62",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0130",
+        "payload_sha256": "sha256:f849525b4b1dc44dc7f6685fe1de1aed75765dbc7995fbd2df7cb4176f8c8816",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0131",
+        "payload_sha256": "sha256:d24f3a141cb36e6bb6033457d33a26186103f386036efaeb480c1ede57e024a2",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      },
+      {
+        "record_id": "6529NM-REL-0132",
+        "payload_sha256": "sha256:c68012221cb7b44cb0bb9ba6758779f9217d05d57d2967917fc3bf4456ebc538",
+        "defect": "The Work-to-generator relation had no art-first display order."
+      }
+    ],
+    "defect_statement": "The reviewed public graph omitted an official Art Blocks still for each Casey Reas Work and marked each official live generator nonvisual, leaving all seven accessioned Works without public visual art media.",
+    "correction_scope": "Snapshot of the exact reviewed projection being superseded; no correction rows are active in this predecessor record.",
+    "presentation_corrections": [],
+    "immutable_boundaries": [
+      "The preservation manifest and token metadata remain nonvisual evidence records.",
+      "The observed Art Blocks image response bytes were not retained as Museum preservation masters.",
+      "Magnum and Keys and Gates presentation states are outside this correction."
+    ],
+    "source_record_ids": [
+      "6529NM.2026.001",
+      "6529NM.2026.001.VO-01"
+    ]
+  }
+}

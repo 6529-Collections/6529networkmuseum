@@ -474,3 +474,26 @@ The remaining release gates are exact-head bot and human review, governed merge
 to canonical main, and later catalog activation through the reviewed
 publication sequence. No catalog, active pointer, mint, acquisition, accession,
 or new Collection membership is created by this candidate.
+
+## 2026-08-09 — Casey Reas art-first media correction
+
+The public graph correction restores one official Art Blocks still and one
+sandboxed official live generator to each of the seven accessioned Casey Reas
+Works. Governed IDs and order are fixed: stills `6529NM-MED-0045` through
+`0051` are primary/order 1; existing generators `6529NM-MED-0010` through
+`0016` are visual interactive/order 2; new relations `6529NM-REL-0212` through
+`0218` bind the stills. The preservation manifest and token metadata remain
+nonvisual JSON. Magnum and Keys and Gates media state is unchanged.
+
+The still digests bind only the exact observed mutable-host PNG responses at
+the amendment observation. They do not bind the live generators or future URL
+responses, and no observed response is represented as a Museum preservation
+master. Pre-Process `2400 × 1349` is explicitly the PNG response geometry;
+its live canvas remains separately recorded as `1280 × 720` CSS pixels.
+
+Candidate A has completed deterministic inventory, visitor-bundle, and
+manifest regeneration plus local schema, semantic, replay, and complete-suite
+qualification. It must now receive exact-head independent review, hosted PR
+gates, and merge. A direct reviewed child B and immutable catalog activation C
+must follow before frontend PR #3695 is rebound. No catalog activation is
+inferred here.
