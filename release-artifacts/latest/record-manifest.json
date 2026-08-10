@@ -86,8 +86,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/control-plane.md",
-      "sha256": "sha256:a5ecd9d1bd19338367d6c80c369fda9292244ed0dfb016581ad523d4f57849f2",
-      "size": 13273
+      "sha256": "sha256:a74077fcb7338f2b2788ecd87f2b0f3847caa0d96f3f6bedc5a58f664ecc7c21",
+      "size": 13406
     },
     {
       "byte_mode": "lf-normalized",
@@ -7168,8 +7168,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_public_entity_layer.py",
-      "sha256": "sha256:efc6fcb4fb1b3b8895c8f1452e265a8c272f02f6a55545d9ca346ae1d0e61475",
-      "size": 94291
+      "sha256": "sha256:99a0ea436cdff1f272ef8a1be3cbd5eeaa5f767fb23f25f05ba76c880ca1112a",
+      "size": 95023
     },
     {
       "byte_mode": "lf-normalized",
@@ -7245,9 +7245,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xe1a66e81fdf8ee3c269969e6a967c3a1aebbdbf319b3c976d943e2b25a35e0cb"
+    "digest": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1"
   },
-  "manifest_sha256": "sha256:c25ea7761cd87f8e2a02e9955a2d3a91c0c6678a9fde88bcdb5a5bb571f65ea3",
+  "manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

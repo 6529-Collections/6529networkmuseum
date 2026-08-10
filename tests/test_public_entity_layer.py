@@ -1081,6 +1081,16 @@ class PublicEntityLayerTests(unittest.TestCase):
         issues = validate_public_payload(finalised_candidate, self.vocabularies, self.inventory)
         self.assertTrue(any("reviewed publication must use entity_status published" in issue for issue in issues))
 
+    def test_control_plane_projection_totals_and_presentation_states_are_current(self) -> None:
+        control_plane = (ROOT / "docs/control-plane.md").read_text(encoding="utf-8")
+        self.assertIn("127 `PUBLIC_ENTITY` records, 212 closed", control_plane)
+        self.assertIn("(340 generated records in total)", control_plane)
+        self.assertIn("all 7 Casey Works have an official visual still", control_plane)
+        self.assertIn("16 Keys and Gates and 5 signed-Wave", control_plane)
+        self.assertIn("remain structurally metadata-only", control_plane)
+        self.assertNotIn("120 `PUBLIC_ENTITY` records, 205 closed", control_plane)
+        self.assertNotIn("(326 generated records in total)", control_plane)
+
     def test_wave_receipt_and_visual_amendment_are_exact_and_mutation_safe(self) -> None:
         receipt = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-publication-observation-2026-08-08.json")
         amendment = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json")

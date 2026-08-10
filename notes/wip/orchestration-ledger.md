@@ -3616,3 +3616,23 @@ catalog activation, and frontend qualification remain open.
 - Required continuation is the frozen candidate A commit, exact-head Luna-max
   review, PR/bot/CI convergence, merge, direct reviewed B, catalog C, immediate
   frontend #3695 rebind notice, and exact-green final merge.
+
+## 2026-08-10 Casey media candidate A1 review boundary
+
+- Exact candidate A1 `c008b95af07576622528930b642e0a8f6a6a3d65` passed all six hosted jobs in
+  GitHub Actions run `31343115128`.
+- The first independent Luna-max lane re-fetched and matched all seven official
+  Art Blocks PNG responses and live generators and found no substantive media,
+  rights, accessibility, ordering, source-amendment, Magnum, Keys and Gates, or
+  release-integrity defect in the reachable A1 tree.
+- That lane's formal exact-head verdict is non-authorizing because it failed an
+  unrequested one-nibble candidate spelling rather than the supplied A1 SHA.
+  Its actor will not be used to generate reviewed B.
+- Independent release preflight also confirmed `docs/control-plane.md` retained
+  the pre-correction `120 / 205 / 326` projection counts and obsolete
+  all-Works-displayable wording. Candidate A2 corrects those statements to the
+  current `127 / 212 / 340` graph and the intentional Casey-visual versus Keys
+  and Gates/Magnum metadata-only boundary, with a regression test.
+- Required continuation is deterministic regeneration and qualification of a
+  new frozen A2 head, fresh exact-head Luna-max review by a different actor,
+  hosted bot/CI convergence, and only then direct reviewed B and catalog C.

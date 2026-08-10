@@ -1,6 +1,6 @@
 # Casey Reas public media presentation correction
 
-Status: active append-only release correction; candidate A is constructed but not yet independently reviewed, merged, or catalog-activated.
+Status: active append-only release correction; candidate A2 is under qualification and is not yet independently reviewed, merged, or catalog-activated.
 
 ## Defect and authority
 
@@ -31,6 +31,8 @@ The Pre-Process still is `2400 × 1349` because that was the exact observed PNG 
 
 The schema permits verified fixity for mutable external media only as an exact observed-response commitment; semantic validation requires explicit mutability and non-retention language. Graph validation joins every correction row to its Work, still, live generator, rights record, accessibility text, affordances, exact source URL, dimensions, and display-order relations. It also fixes the preservation/metadata records as nonvisual JSON and keeps the Magnum and Keys and Gates nonvisual presentation records outside this amendment.
 
-Candidate A construction and local qualification are complete. The deterministic inventory, visitor bundle, and complete manifest are current; bootstrap and full Museum/Casey validation pass; the 340-record migration replays exactly; the complete 323-test suite passes with one expected Windows platform skip; and the closed-affordance, response-fixity, display-order, and unchanged-boundary regressions pass. The exact manifest commitments live in the generated manifest to avoid a self-reference from this manifest-covered note.
+Candidate A construction and local qualification are complete. The deterministic inventory, visitor bundle, and complete manifest are current; bootstrap and full Museum/Casey validation pass; the 340-record migration replays exactly; the complete 324-test suite passes with one expected Windows platform skip; and the closed-affordance, response-fixity, display-order, current-control-plane, and unchanged-boundary regressions pass. The exact manifest commitments live in the generated manifest to avoid a self-reference from this manifest-covered note.
 
 Remaining gates are a frozen candidate A commit; independent Luna-max exact-head review; hosted PR checks and review bots; direct reviewed-child B generation; immutable catalog C activation; frontend PR #3695 rebinding; and exact-green merges. No A, B, or C state is asserted before those gates complete.
+
+Candidate A1 `c008b95af07576622528930b642e0a8f6a6a3d65` passed all six hosted jobs in run `31343115128`. Its first independent lane also re-fetched and matched all seven official PNG responses, generator responses, rights/accessibility joins, relation order, old-C4 binding, and release commitments. That lane's formal verdict cannot authorize review promotion because it evaluated an unrequested one-nibble candidate spelling when issuing its exact-head result. It separately identified that `docs/control-plane.md` still carried the pre-correction `120 / 205 / 326` graph counts and an obsolete all-Works-displayable description. Candidate A2 corrects those current-control-plane statements to `127 / 212 / 340`, describes the intentional Casey visual versus Keys and Gates/Magnum metadata-only boundary, and adds a regression assertion. A fresh independent actor must review the new frozen A2 head and commitments from scratch.
