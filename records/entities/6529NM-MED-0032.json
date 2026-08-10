@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2f95e87f5245c10b50dcba680c3d726ebb8b18c2d80b0861c89ca2034a0f08e1"
+      "digest": "0x8ad536e3241f4d01c86bced419750d60cf34ccfa34b794c4949879d51a7cd6cc"
     },
     "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0032",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:886de873069cfee367903a2483ac1ea918969d3031490f9ee41861eb8551fed5",
+    "payload_sha256": "sha256:edb750811b35070703debd5e1ada692735eaaa3be6874397694294d575c373bd",
     "preferred_label": "Nowhere To Esc. presentation record",
     "profile": {
       "media": {
@@ -134,15 +134,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0032",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-013"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-10T01:08:04Z",
+      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
+      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
+      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewer_ids": [
+        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -158,7 +169,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:32:21Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0032",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6dd67d6a8633a69b82666fee538025052f8d22d7009dbabe49f28d9ebfff9a30"
+      "digest": "0x3bc9b35c158cb4738ea487904aa637fd767d380f0fdb1176195282a50c90986c"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0009",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b35d23e31d34caa34f0736a1f10b1f6d9c5d89cc547f00c7db837ccea6106a57",
+    "payload_sha256": "sha256:b4359d7486c23737d08472b3585ff2ae79173c883b3b961ec8aad2f8ba3d7c28",
     "preferred_label": "Rakesh",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,15 +78,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0009",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-008"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-10T01:08:04Z",
+      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
+      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
+      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewer_ids": [
+        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -102,7 +113,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AGT-0009",
     "visibility": "public"

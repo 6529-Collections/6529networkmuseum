@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x891fccfd2150db45f2098b4199a04510c40c50c3ac2649e1d736b89862691bc8"
+      "digest": "0xdfd82cbc9eb4487aa8930f7842d832c1c14829175b0fc1ec3a9e2395561f665b"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-CA-2026-002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "CURATED_ACQUISITION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:1c687e8335e468aa4be124476dbbc01c08d03469165f0af14ccf2937805e71ac",
+    "payload_sha256": "sha256:531fa559f6cdb6b1cc0b686cad922716c2de9c5e6cd01a0309ce882bb8729783",
     "preferred_label": "Keys and Gates",
     "profile": {
       "acquisition_method": "purchase",
@@ -255,7 +255,7 @@
     },
     "public_slug": "keys-and-gates",
     "record_id": "6529NM-CA-2026-002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -294,8 +294,19 @@
       "6529NM-W-0022",
       "6529NM-W-0023"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-10T01:08:04Z",
+      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
+      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
+      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewer_ids": [
+        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -349,7 +360,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-CA-2026-002",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5fed95ba06608737b2a7ff4d778032da3f9a45b462841db895d580dbd4b83293"
+      "digest": "0xb1927068766afeb796e84bc604d859d52732097423e2880d36a3c9f6e3a700f9"
     },
     "effectiveAt": 1786235541,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-09T23:04:32Z",
     "effective_at": "2026-08-09T00:32:21Z",
     "entity_id": "6529NM-MED-0030",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-09T00:32:21Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a90fb161acd450982a2e4b911500d885741b2657fc8a9a508f158f246d59e331",
+    "payload_sha256": "sha256:35015853a5174e271e0a997397fb4aac6e4073ed6bc2d740a71e9272fa6dc1a0",
     "preferred_label": "Sina Beizavi in Brazil presentation record",
     "profile": {
       "media": {
@@ -134,15 +134,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0030",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-011"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-10T01:08:04Z",
+      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
+      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
+      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewer_ids": [
+        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -158,7 +169,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:32:21Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0030",
     "visibility": "public"
