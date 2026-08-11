@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x12265fa139f8c82ce76cfe7cf7545798cbc6348d6bb4e97d40735ae4601ee694"
+      "digest": "0x821095403620e4fb2f52e5c5e8830a1475ae17fd0dced5c2c6e700e112666aae"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0012",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b09ec604ccf03a2e32f467a645d805912d3ecf41a71e036a304c36daaa5fc705",
+    "payload_sha256": "sha256:a91e6ab2f49bc5eaa4d56ec2548d7755f98d825f10c9ac847bf1ab7e51e15a67",
     "preferred_label": "CENTURY #401 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -152,7 +152,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0012",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -161,8 +161,19 @@
       "6529NM.2026.001.RIGHTS.03",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewer_ids": [
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -186,7 +197,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0012",
     "visibility": "public"

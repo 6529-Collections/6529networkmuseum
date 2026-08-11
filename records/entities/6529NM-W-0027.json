@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3901065a57e859c0ba9289bd6d87eff4d558bf79f50ca3386de840f8ca516d70"
+      "digest": "0x1f1ac9c82f59ff2787866053e9f0b83e5c1097e09a3c69eac08102e33f83f588"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0027",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:022825e89b399fdbc07c4563bf947c95069ab51ae990fc72e5b2b49013b4a821",
+    "payload_sha256": "sha256:e2ddd35aee2d63c11e5bfd39ab31b32866316741e341d88041b4bb8f3f0aea37",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [],
@@ -210,7 +210,7 @@
     },
     "public_slug": "6529NM-W-0027",
     "record_id": "6529NM-W-0027",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,8 +220,19 @@
       "6529NM-PG-2026-001.OBJ-004",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewer_ids": [
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0021",
@@ -240,7 +251,7 @@
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0027",
     "visibility": "public"

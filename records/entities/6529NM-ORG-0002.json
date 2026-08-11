@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x34ac09c5114349be06428538dcac1f4ddc2fee4c8722acf501c66c804e80e7f3"
+      "digest": "0x9aa38e5620c1973e718dab98401f9a76d7d3575b1ba4a867289a2f6ea3717a6f"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ORG-0002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ORGANIZATION",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ca42be603a45d3f4422447e6810d4ba7fb12e7c10c076632e354c91afc843b00",
+    "payload_sha256": "sha256:5577d79743cc82c0b37a7d84b2fd8e939a21497b7771541611254bb8a2cc167b",
     "preferred_label": "Magnum Photos",
     "profile": {
       "authority": {
@@ -111,14 +111,25 @@
     },
     "public_slug": "magnum-photos",
     "record_id": "6529NM-ORG-0002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewer_ids": [
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-PG-2026-001"
@@ -145,7 +156,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ORG-0002",
     "visibility": "public"
