@@ -416,7 +416,12 @@
           "then": {"properties": {"publication_boundary": {"const": "token_source"}}, "required": ["publication_boundary"]}
         },
         {
-          "if": {"properties": {"rights": {"properties": {"status": {"enum": ["restricted", "unknown"]}}, "required": ["status"]}}, "required": ["rights"]},
+          "if": {
+            "allOf": [
+              {"properties": {"rights": {"properties": {"status": {"enum": ["restricted", "unknown"]}}, "required": ["status"]}}, "required": ["rights"]},
+              {"not": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]}}
+            ]
+          },
           "then": {
             "properties": {
               "visual": {"const": false},

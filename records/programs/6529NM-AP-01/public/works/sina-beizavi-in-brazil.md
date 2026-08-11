@@ -2,11 +2,11 @@
 
 > **Content note:** Full-frontal nudity and a pictured travel document. In the historical 640px presentation review, the document appeared at a distance and personal identifiers were not readable; none are transcribed here.
 
-> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
+> **Image presentation:** A 640-pixel contextual presentation copy is authorized under the [current display authority](../media-display-authorization-amendment-2026-08-11.md). The pictured document is not legible; reuse is not granted.
 
-> **Constructed visual description (pending independent review):** A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; no text is readable on the object.
+> **Visual description:** A nude figure reclines on an ornate gold chair, wearing bright sandals, with one hand lowering a small dark booklet or document toward the floor; no text is readable on it.
 
-**Public-size note:** The active media record retains the visual description and source observation but no image derivative. Historical delivery and fixity remain in the append-only source record; source originals and high-resolution preservation masters are not public.
+**Public-size note:** The active media record admits only the 640-pixel presentation derivative. Source originals and high-resolution preservation masters are not public.
 
 ## Object data
 
@@ -44,7 +44,7 @@ The submission places the photograph at Casa NUA in São Paulo; that statement i
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** OUT-011 has no visual-display approval. The artist represents written consent documentation is available on request, but no consent instrument is retained in the Museum record; direct subject approval, document-legibility, venue, sensitive-biography, and publication-scope review remain pending. The OUT-011 delivery amendment records technical invalidation/readback and 640-only lineage; it is not approval for delivery. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-011 is authorized for 640-pixel contextual Museum display. The artist represents written consent documentation is available on request, but no consent instrument is retained in the Museum record; the public evidence does not independently establish direct subject approval, venue permission, or the scope of publication consent. The Museum publishes no document transcription or sensitive biography, makes no additional identity claim, and grants no reuse right. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

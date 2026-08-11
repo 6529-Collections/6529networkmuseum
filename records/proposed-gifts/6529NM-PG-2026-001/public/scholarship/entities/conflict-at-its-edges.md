@@ -14,7 +14,7 @@ The proposal crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1
 | Proposal record | `6529NM-PG-2026-001` |
 | Public credit / offeror | punk6529 |
 | Formation | Donor-formed across Magnum Photos 75 curations `1/3` and `2/3` |
-| Current status | Selected by Museum Wave; acquisition review in progress ([S37](../sources/source-register.md)) |
+| Current status | Selected by Museum Wave; accession processing in progress ([S37](../sources/source-register.md)) |
 | Collection status | Outside the permanent Collection |
 
 ## The five Works
@@ -49,7 +49,12 @@ The countercase establishes the terms on which the group can be published. The f
 
 Under those conditions, the group becomes a precise research relation. Its value lies in the way it lets viewers study how documentary photographs acquire meaning at the meeting point of image, caption, access, place, archive, and later circulation. The proposal has been selected by the Museum Wave, while formal acceptance, title and custody, rights review, technical examination, preservation planning, accession, and Collection entry remain unresolved.[^4]
 
-The historical Wave presentation remains part of the proposal record. Its image URLs are retained as non-rendering evidence locators with the supplied artist and Magnum credits and the label `All Rights Reserved`; the five photographs are not served from this publication ([S38](../sources/source-register.md)).
+The historical Wave presentation remains part of the proposal record. The five
+exact signed Wave image URLs may render only in acquisition, artist, or Work
+context under authority `6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001`, with
+the supplied artist and Magnum credits and the label `All Rights Reserved`.
+The authority permits contextual encounter only: no download, zoom, fullscreen,
+derivative, preservation, or permanent-Collection inference follows ([S38](../sources/source-register.md)).
 
 [^1]: Exact Magnum 75 metadata and local proposal record, [S10–S14](../sources/source-register.md) and [S37](../sources/source-register.md).
 [^2]: Magnum Photos, Magnum Photos 75, ICP, and the five Work records, [S01](../sources/source-register.md), [S04–S05](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S39](../sources/source-register.md).

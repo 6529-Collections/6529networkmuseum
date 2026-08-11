@@ -36,6 +36,7 @@
       "properties": {
         "$schema": {"$ref": "#/$defs/schemaPath"},
         "record_control": {"$ref": "#/$defs/recordControl"},
+        "amendment_history": {"$ref": "#/$defs/amendmentHistory"},
         "local_profile": {"const": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2"},
         "status": {"type": "string", "minLength": 1},
         "content_root": {"type": "string", "minLength": 1},
@@ -86,6 +87,7 @@
       "properties": {
         "$schema": {"$ref": "#/$defs/schemaPath"},
         "record_control": {"$ref": "#/$defs/recordControl"},
+        "amendment_history": {"$ref": "#/$defs/amendmentHistory"},
         "local_profile": {"const": "6529NM_WP3_MAGNUM_OBJECT_SCHEDULE_V1"},
         "status": {"type": "string", "minLength": 1},
         "public_work_entity_ids": {
@@ -144,6 +146,7 @@
       "properties": {
         "$schema": {"$ref": "#/$defs/schemaPath"},
         "record_control": {"$ref": "#/$defs/recordControl"},
+        "amendment_history": {"$ref": "#/$defs/amendmentHistory"},
         "local_profile": {"const": "6529NM_WP3_MAGNUM_WAVE_MEDIA_JOIN_V1"},
         "status": {"type": "string", "minLength": 1},
         "proposal_id": {"const": "6529NM-PG-2026-001"},
@@ -201,6 +204,7 @@
       "properties": {
         "$schema": {"$ref": "#/$defs/schemaPath"},
         "record_control": {"$ref": "#/$defs/recordControl"},
+        "amendment_history": {"$ref": "#/$defs/amendmentHistory"},
         "local_profile": {"const": "6529NM_WP3_MAGNUM_PUBLIC_WORK_PROJECTIONS_V1"},
         "status": {"type": "string", "minLength": 1},
         "public_root": {"type": "string", "minLength": 1},
@@ -231,6 +235,21 @@
     },
     "recordControl": {
       "$ref": "https://6529.network/museum/schemas/proposed-gift-register/v1#/$defs/recordControl"
+    },
+    "amendmentHistory": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256"],
+        "properties": {
+          "revision": {"type": "integer", "minimum": 1},
+          "superseded_at": {"type": "string", "format": "date-time"},
+          "supersedes": {"$ref": "#/$defs/sha256"},
+          "prior_payload_sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
     },
     "text": {"type": "string", "minLength": 1},
     "nullableText": {"type": ["string", "null"], "minLength": 1},
@@ -425,7 +444,7 @@
       "required": ["source_url_policy", "url_rewrite", "runtime_fallback", "runtime_fetch", "repository_derivative", "responsive_variants", "download", "full_resolution_claim", "zoom", "fullscreen", "iiif_or_tiled_service", "preservation_claim", "alt_text_policy", "age_sensitive_subject_rule"],
       "properties": {
         "source_url_policy": {"$ref": "#/$defs/text"}, "url_rewrite": {"const": "deny"}, "runtime_fallback": {"const": "deny"},
-        "runtime_fetch": {"const": "deny"}, "repository_derivative": {"const": "deny"}, "responsive_variants": {"const": "deny"},
+        "runtime_fetch": {"const": "exact_signed_wave_publication_part_only"}, "repository_derivative": {"const": "deny"}, "responsive_variants": {"const": "deny"},
         "download": {"const": "deny"}, "full_resolution_claim": {"const": "deny"}, "zoom": {"const": "deny"},
         "fullscreen": {"const": "deny"}, "iiif_or_tiled_service": {"const": "deny"}, "preservation_claim": {"const": "deny"},
         "alt_text_policy": {"$ref": "#/$defs/text"}, "age_sensitive_subject_rule": {"$ref": "#/$defs/text"}
@@ -505,9 +524,9 @@
         "part_number": {"type": "integer", "minimum": 2, "maximum": 6}, "part_markdown": {"$ref": "#/$defs/text"}, "artist": {"$ref": "#/$defs/text"}, "issuer_artist_label": {"$ref": "#/$defs/text"}, "title": {"$ref": "#/$defs/text"},
         "token_id": {"type": "string", "pattern": "^[0-9]+$"}, "caip19": {"$ref": "#/$defs/text"}, "token_metadata_url": {"type": "string", "format": "uri"}, "token_source_image_url": {"type": "string", "format": "uri"},
         "wave_media_url": {"type": "string", "format": "uri"}, "wave_media_url_type": {"const": "historical_wave_drop_upload"}, "source_image_fixity": {"$ref": "#/$defs/sourceFixity"},
-        "credit_line": {"$ref": "#/$defs/text"}, "rights_label": {"const": "All Rights Reserved"}, "media_status": {"const": "non_rendering_historical_source_locator"},
+        "credit_line": {"$ref": "#/$defs/text"}, "rights_label": {"const": "All Rights Reserved"}, "media_status": {"const": "contextual_historical_presentation"},
         "allowed_ui_affordances": {"$ref": "#/$defs/nonEmptyStringArray"}, "presentation_context": {"$ref": "#/$defs/presentationContext"}, "standalone_work_display": {"$ref": "#/$defs/standaloneDisplay"},
-        "load_policy": {"const": "blocked_pending_reviewed_display_authority"}, "blocked_ui_affordances": {"$ref": "#/$defs/nonEmptyStringArray"}, "alt_text": {"$ref": "#/$defs/text"},
+        "load_policy": {"const": "exact_signed_wave_publication_url"}, "blocked_ui_affordances": {"$ref": "#/$defs/nonEmptyStringArray"}, "alt_text": {"$ref": "#/$defs/text"},
         "accessibility_subject_policy": {"enum": ["non_identifying_sensitive_subject", "non_identifying_apparently_young_subject"]}, "source_record_ids": {"$ref": "#/$defs/nonEmptyStringArray"},
         "historical_publication_media": {"$ref": "#/$defs/historicalPublicationMedia"}, "alt_text_amendment_binding": {"$ref": "#/$defs/altTextAmendment"},
         "age_classification": {"const": "unverified_apparently_young_subject"}, "subject_age_documentation": {"const": "not_available_in_reviewed_public_record"},

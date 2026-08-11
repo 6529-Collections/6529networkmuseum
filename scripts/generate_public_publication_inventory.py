@@ -99,11 +99,13 @@ ASSEMBLY_CONTROL_PATHS = (
     "schemas/wave-status-observation.schema.json",
 )
 
-# Accessibility descriptions are safe visitor-facing source material. The
-# program media manifest remains governed repository evidence, but its direct
-# derivative locators are excluded from the visitor corpus until rights clear.
+# Accessibility descriptions and the active responsive manifest are safe
+# visitor-facing controls. Delivery still fails closed: MEDIA_REFERENCE rights
+# activate each Work, and the manifest may supply only that Work's exact sibling
+# derivatives under the reviewed display authority.
 MEDIA_SOURCE_MANIFEST_PATHS = (
     "media/programs/6529NM-AP-01/accessibility.json",
+    "records/programs/6529NM-AP-01/public/presentation-manifest.json",
 )
 
 
@@ -324,6 +326,43 @@ def _program_media_paths(root: Path) -> set[str]:
     return paths
 
 
+def _approved_responsive_program_media_paths(
+    root: Path, active_paths: set[str]
+) -> set[str]:
+    """Expand an approved program image to its exact responsive derivative set.
+
+    The active MEDIA_REFERENCE remains the rights gate. The program manifest
+    may add only sibling derivatives of that same governed item, and only while
+    its reviewed display authority is the active delivery status.
+    """
+
+    manifest_relative = "records/programs/6529NM-AP-01/media-manifest.json"
+    manifest = _load_record(root, manifest_relative)
+    delivery = manifest.get("delivery")
+    if (
+        not isinstance(delivery, dict)
+        or delivery.get("status") != "approved_by_reviewed_display_authority"
+        or not isinstance(delivery.get("authority_record_id"), str)
+    ):
+        return set()
+
+    approved: set[str] = set()
+    for item in manifest.get("items", []):
+        if not isinstance(item, dict):
+            continue
+        presentation = item.get("presentation")
+        derivatives = presentation.get("derivatives", []) if isinstance(presentation, dict) else []
+        item_paths = {
+            derivative.get("repository_path")
+            for derivative in derivatives
+            if isinstance(derivative, dict)
+            and isinstance(derivative.get("repository_path"), str)
+        }
+        if item_paths & active_paths:
+            approved.update(item_paths)
+    return approved
+
+
 def _entry(path: str, kind: str, role: str) -> dict[str, Any]:
     activation_mode = "atomic" if role == "assembly_document" else "deferred_on_demand"
     return {
@@ -385,13 +424,16 @@ def _entries(root: Path) -> list[dict[str, Any]]:
     for relative in MEDIA_SOURCE_MANIFEST_PATHS:
         add(_entry(relative, "public_media_source_manifest", "assembly_document"))
 
-    # The program manifest remains a governed exact inventory, but it is not a
-    # public-display grant. Validate its local bytes without admitting them to
-    # the visitor corpus. A derivative becomes deliverable only through an
-    # active MEDIA_REFERENCE whose effective rights status is explicitly
-    # cleared above.
-    _program_media_paths(root)
+    # The manifest is an exact responsive inventory, while each active
+    # MEDIA_REFERENCE remains the rights gate for its Work. Once one governed
+    # derivative is active, the reviewed display authority admits only that
+    # item's declared sibling sizes; it cannot activate another Work.
+    program_media_paths = _program_media_paths(root)
     all_media_paths = _active_media_repository_paths(root)
+    responsive_paths = _approved_responsive_program_media_paths(root, all_media_paths)
+    if not responsive_paths.issubset(program_media_paths):
+        raise InventoryError("approved responsive media escaped the governed program manifest")
+    all_media_paths.update(responsive_paths)
     for relative in sorted(all_media_paths):
         suffix = Path(relative).suffix.casefold()
         if suffix in MEDIA_EXTENSIONS:

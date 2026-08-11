@@ -3,8 +3,10 @@
 *6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
 *Short label: Demonstration, 1989 · Western Wall, Jerusalem. Historical public
-Wave proposal record; the non-rendering source locator and credit appear in
-the [Source and rights record](../dossiers/source-and-rights-record.md).*
+Wave proposal record; its exact signed image URL may render in this acquisition,
+artist, or Work context under the [current display authority](../dossiers/public-presentation.md),
+with the supplied credit and `All Rights Reserved`. The authority permits no
+download, zoom, fullscreen, derivative, preservation, or Collection inference.*
 
 ## Looking at the Work
 
@@ -91,7 +93,7 @@ been recorded.
 | Token-linked JPEG | The Arweave JPEG linked from token 97: 5,000 × 3,292 pixels, 1,666,083 observed bytes, SHA-256 a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df. |
 | Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context ([S38](../sources/source-register.md)). |
 | Preservation and master status | The token-linked JPEG is a recorded upstream rendition, not a declared negative, print master, or preservation master. The artist archive and museum print records describe other manifestations; no completed preservation package or rights-cleared repository derivative is recorded ([S38](../sources/source-register.md)). |
-| Museum status | Selected by Museum Wave; acquisition review in progress · Outside the permanent Collection. [S37](../sources/source-register.md) |
+| Museum status | Selected by Museum Wave; accession processing in progress · Outside the permanent Collection. [S37](../sources/source-register.md) |
 | Credit and rights | © Micha Bar-Am/Magnum Photos 2022 · All Rights Reserved. The notice remains separate from permission for reproduction, publication, or preservation. [S12](../sources/source-register.md); [S38](../sources/source-register.md) |
 
 ## Further research

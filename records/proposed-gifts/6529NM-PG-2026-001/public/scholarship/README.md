@@ -13,10 +13,14 @@ five photographs together across two curations in Magnum Photos 75. The Museum
 publishes the relation as a curatorial proposition distinct from those source
 curations and from the larger Magnum archive.
 
-The Museum Wave selected the five-work proposal for acquisition review. Formal
-acceptance, donor authority, legal title, transfer, custody, rights review,
-technical examination, preservation, and accession will follow. Until those
-steps are complete, the works remain outside the permanent Collection.
+The Museum Wave selected the five-work acquisition, and accession processing is
+in progress. This edition contains the resulting object identification,
+scholarship, provenance research, rights and technical review, contextual image
+presentation, and preservation planning. The rights and technical findings are
+complete for the present evidence and carry stated conditions, including
+transfer-time rechecks. Title transfer, custody receipt, certificate delivery,
+formal accession, and Collection membership remain open until their own
+evidence is recorded.
 
 ## The acquisition
 

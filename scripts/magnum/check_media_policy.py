@@ -195,12 +195,19 @@ EXPECTED_CONTEXT = {
     "scope": "historical_public_wave_proposal_context_only",
     "outside_scope": "deny",
 }
-ALLOWED_AFFORDANCES = {"alt_text", "copy_citation"}
+ALLOWED_AFFORDANCES = {
+    "view",
+    "thumbnail",
+    "hero",
+    "alt_text",
+    "open_wave_proposal_context",
+    "copy_citation",
+}
 BLOCKED_AFFORDANCES = {"download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"}
 EXPECTED_ROUTE_POLICY = "deny_without_verified_work_ca_media_observation_relation"
 EXPECTED_EVIDENCE_SCOPE = "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source."
 DENY_RUNTIME_FIELDS = {
-    "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "deny",
+    "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "exact_signed_wave_publication_part_only",
     "repository_derivative": "deny",
     "responsive_variants": "deny", "download": "deny", "full_resolution_claim": "deny",
     "zoom": "deny", "fullscreen": "deny", "iiif_or_tiled_service": "deny", "preservation_claim": "deny",
@@ -363,10 +370,10 @@ def validate_join(join: dict) -> list[str]:
     def fail(message: str) -> None:
         errors.append(message)
 
-    if join.get("current_public_status") != "Selected by Museum Wave; acquisition review in progress":
+    if join.get("current_public_status") != "Selected by Museum Wave; accession processing in progress":
         fail("media join must carry the canonical current selected-review status")
-    if join.get("publication_boundary") != "historical_public_wave_url_only":
-        fail("media join must be historical public URL evidence only")
+    if join.get("publication_boundary") != "historical_public_wave_contextual_presentation":
+        fail("media join must remain inside the historical public Wave contextual presentation")
     if join.get("source_evidence_boundary") != "historical_public_wave_url_with_publication_observation":
         fail("media join must declare the historical URL plus live publication-observation boundary")
     if join.get("source_record") != "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json":
@@ -385,8 +392,8 @@ def validate_join(join: dict) -> list[str]:
         fail("historical Wave label must be required")
 
     runtime = join.get("runtime_policy", {})
-    if runtime.get("source_url_policy") != "recorded_evidence_locator_no_runtime_fetch":
-        fail("runtime source policy must retain locators without fetching them")
+    if runtime.get("source_url_policy") != "exact_signed_wave_publication_part_only":
+        fail("runtime source policy must allow only the exact signed Wave publication part")
     for key, expected in DENY_RUNTIME_FIELDS.items():
         if runtime.get(key) != expected:
             fail(f"runtime policy {key!r} must be {expected!r}")
@@ -426,8 +433,8 @@ def validate_join(join: dict) -> list[str]:
             fail(f"{label}: media URL is not an exact allowlisted Wave-upload URL")
         if parsed.path != BASE_URL.replace("https://d3lqz0a4bldqgf.cloudfront.net", "") + expected["wave_path"]:
             fail(f"{label}: Wave-upload URL does not match the retained part/media path")
-        if row.get("wave_media_url_type") != "historical_wave_drop_upload" or row.get("media_status") != "non_rendering_historical_source_locator":
-            fail(f"{label}: Wave media must remain a non-rendering historical source locator")
+        if row.get("wave_media_url_type") != "historical_wave_drop_upload" or row.get("media_status") != "contextual_historical_presentation":
+            fail(f"{label}: Wave media must remain a contextual historical presentation")
         if row.get("rights_label") != "All Rights Reserved":
             fail(f"{label}: rights label must be All Rights Reserved")
         credit = row.get("credit_line", "")
@@ -440,10 +447,10 @@ def validate_join(join: dict) -> list[str]:
         if row.get("presentation_context") != EXPECTED_CONTEXT:
             fail(f"{label}: display and hero use must be bound to the exact proposal context")
         display = row.get("standalone_work_display", {})
-        if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "canonical_graph_verified_display_authority_withheld":
-            fail(f"{label}: standalone Work display must remain closed despite a verified graph because display authority is withheld")
-        if row.get("load_policy") != "blocked_pending_reviewed_display_authority":
-            fail(f"{label}: upstream source loading must remain blocked pending reviewed display authority")
+        if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "canonical_graph_verified_contextual_display_authorized":
+            fail(f"{label}: Work display must remain bound to the verified acquisition graph and contextual authority")
+        if row.get("load_policy") != "exact_signed_wave_publication_url":
+            fail(f"{label}: only the exact signed Wave publication URL may load")
         alt = row.get("alt_text", "")
         if not alt or any(contains_term(alt, term) for term in ("identity", "name", "age", "tear gas")):
             fail(f"{label}: alt text must remain a non-identifying visible-fact description")
@@ -511,7 +518,7 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
         errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
     if projections.get("current_publication_observation") != PROJECTION_PUBLICATION:
         errors.append("work projections must carry the exact bound public-safe publication receipt")
-    if projections.get("current_public_status") != "Selected by Museum Wave; acquisition review in progress":
+    if projections.get("current_public_status") != "Selected by Museum Wave; accession processing in progress":
         errors.append("work projections must use the selected-review public status")
     if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
         errors.append("work projections must preserve selected-review lifecycle and outside-Collection membership")
@@ -544,11 +551,11 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
                 if manifestation.get("wave_publication_observation_id") != CURRENT_PUBLICATION["observation_id"] or manifestation.get("wave_publication_observation_binding") != "bound_canonical_wave_publication_observation":
                     errors.append(f"{row.get('canonical_work_id')}: manifestation lacks current publication observation binding")
                 if (
-                    manifestation.get("standalone_route") != "deny"
-                    or manifestation.get("display_scope") != "non_rendering_evidence_only"
-                    or manifestation.get("load_policy") != "blocked_pending_reviewed_display_authority"
+                    manifestation.get("standalone_route") != "verified_graph_relation_only"
+                    or manifestation.get("display_scope") != "historical_wave_proposal_contextual_presentation"
+                    or manifestation.get("load_policy") != "exact_signed_wave_publication_url"
                 ):
-                    errors.append(f"{row.get('canonical_work_id')}: manifestation must remain non-rendering and fail closed")
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation must remain bound to contextual Wave presentation authority")
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
                     supersedes = binding.get("supersedes", {})

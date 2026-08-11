@@ -2,9 +2,9 @@
 
 > **Content note:** Nudity and partial concealment. The subject’s identity and location are unspecified; the public record gives no age determination.
 
-> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
+> **Image presentation:** Contextual Museum display is authorized under the [current display authority](../media-display-authorization-amendment-2026-08-11.md). Reuse is not granted by that presentation.
 
-> **Constructed visual description (pending independent review):** A bare torso emerges from folds of black fabric against a nearly black background.
+> **Visual description:** A bare torso emerges from folds of black fabric against a nearly black background.
 
 ## Object data
 
@@ -27,7 +27,7 @@ Black fabric gathers around the torso like a narrow aperture. Its folds give the
 
 ## Artist’s account
 
-The submission describes a body shaped by decisions about clothing, movement, and visibility, and locates the work within a personal realization about bodily ownership. The artist identifies the source file as a digital photograph with Lightroom colour work and Photoshop background retouching. Identity, adult status, self-portrait status, and consent remain questions for future registrar review; no private instrument is retained in the Museum record.
+The submission describes a body shaped by decisions about clothing, movement, and visibility, and locates the work within a personal realization about bodily ownership. The artist identifies the source file as a digital photograph with Lightroom colour work and Photoshop background retouching. The public evidence does not establish identity, adult status, self-portrait status, or the scope of consent; no private instrument is retained in the Museum record. The Museum therefore presents the image only in its selected-work context, without making those claims or granting reuse.
 
 ## Curatorial interpretation
 
@@ -40,7 +40,7 @@ The artist’s public profile describes a self-taught portrait practice. The sub
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** OUT-010 has no visual-display approval. The submission includes a conditional CC0 declaration and represents that written documentation can be supplied, but subject identity, adult status, self-portrait status, and publication consent remain to be verified; no consent instrument is retained in the Museum record. The image is not approved for delivery. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-010 is authorized for contextual Museum display. The submission includes a conditional CC0 declaration and represents that written documentation can be supplied, but the public evidence does not establish subject identity, adult status, self-portrait status, or publication-consent scope; no consent instrument is retained in the Museum record. The Museum makes none of those claims, provides no reuse grant, and keeps the image within the selected-work context. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

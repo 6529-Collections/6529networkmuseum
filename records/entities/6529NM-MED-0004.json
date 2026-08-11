@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1635f4846a2664d8e4c072a36f035814fcb24c36c74415a078adc4b16d0254a2"
+      "digest": "0x1fe1c7949b3bd1f572e5ef03fe33f0729e63b1b0d32186e1a30a17fe6f586dec"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0004",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:beae5969569d8a640e5ed63fb350b9f7f441ab32ead561f2248afa772dbe2df4",
+    "payload_sha256": "sha256:85bde0bd2a88405756c115f5ba80e8f12e6d12b494235367a5ba1c144d7ce989",
     "preferred_label": "Conflict at Its Edges historical proposal cover graphic",
     "profile": {
       "media": {
@@ -48,7 +48,7 @@
           {
             "evidence_class": "C",
             "label": "Retrieved Museum-authored cover bytes for accessibility",
-            "observed_at": "2026-08-09T23:04:32Z",
+            "observed_at": "2026-08-11T21:56:04Z",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
           }
         ],
@@ -70,7 +70,7 @@
           "basis": "Retrieved Museum-authored repository bytes hashed by the deterministic migration.",
           "digest": "sha256:082d690ed07297a1583efa70167fd1735e611a9530cd0652dae9cfaee9482d77",
           "status": "verified",
-          "verified_at": "2026-08-09T23:04:32Z"
+          "verified_at": "2026-08-11T21:56:04Z"
         },
         "height": 1600,
         "identity_inference_prohibition": null,
@@ -101,7 +101,7 @@
             {
               "evidence_class": "C",
               "label": "Retrieved Museum-authored cover bytes",
-              "observed_at": "2026-08-09T23:04:32Z",
+              "observed_at": "2026-08-11T21:56:04Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/media/conflict-at-its-edges-cover.png"
             }
           ],
@@ -125,7 +125,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0004",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -133,19 +133,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
-      "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -162,7 +151,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0004",
     "visibility": "public"

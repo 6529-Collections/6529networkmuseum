@@ -8,7 +8,7 @@ The selected offer consists of five token-linked photographs published through M
 
 That relation crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`, while David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The split is exact and publicly checkable. It records the upstream selection histories of the tokens; it does not explain why the offeror selected these five. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group.[^1]
 
-The current status is **Selected by Museum Wave; acquisition review in progress**. The five Works remain outside the permanent Collection.
+The current status is **Selected by Museum Wave; accession processing in progress**. This scholarship, the five object records, rights and technical review, provenance work, and public presentation form the active accession package. The five Works remain outside the permanent Collection until the accession gates and final certificate are complete.
 
 ## The relation among the photographs
 

@@ -69,11 +69,11 @@ Before an outcome can move from selection toward acquisition or accession, the p
 10. accession statement and individual object record; and
 11. second-person review.
 
-The current [rights and consent register](rights-and-consent.md) and [media join register](media-joins.md) document the open gates. Direct artist questions remain to be resolved. No consent or private source instrument is retained in this Museum record; if a future document is received, it would enter the registrar layer. The open questions are evidence boundaries, not completion evidence.
+The current [rights and consent register](rights-and-consent.md), [media join register](media-joins.md), and [independent accessibility review](accessibility-review-2026-08-11.md) record the review already completed and the facts that remain open. No consent or private source instrument is retained in this public Museum record; later documents enter the appropriate registrar layer. Open facts remain evidence boundaries, not a reason to leave the present review unwritten.
 
 ## Public/restricted boundary
 
-Public now: selection identifiers, artist handles and approved public-source biographies, artist-attributed submission readings, constructed visual descriptions from the historical presentation review, source links, current non-delivering media joins, and explicit unknowns.
+Public now: selection identifiers, artist handles and approved public-source biographies, artist-attributed submission readings, reviewed visual descriptions, contextual presentation copies, source links, typed media joins, and explicit unknowns.
 
 Not retained or still to be established: legal identity documents, direct contact details, model releases, consent instruments, sensitive locations, unredacted passport/document details, original high-resolution bytes, layered source files, exact site permissions, title documents, transaction evidence, custody receipts, and technical preservation packages. No consent or source instrument is represented as being held in this record; future receipt would be handled in a restricted registrar layer.
 
@@ -81,13 +81,13 @@ The public corpus does not publish private contact information or treat a platfo
 
 ## Media and rights boundary
 
-The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted-source observations, source fixity, the deterministic transform, and the current delivery control. The source bytes were fixity-checked during the historical derivation and are not retained in the repository. The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) closes the active derivative inventory at zero and records the earlier candidate commitment. Historical presentation surrogates remain distinct from source originals, preservation masters, tokenized artworks, and evidence that rights have become effective.
+The existing [`PROGRAM_MEDIA_MANIFEST`](../media-manifest.json) identifies submitted-source observations, source fixity, the deterministic transform, and the current delivery control. The source bytes were fixity-checked during derivation and are not retained in the repository. The [current display authority](media-display-authorization-amendment-2026-08-11.md) admits 44 exact presentation derivatives: three widths for fourteen Works and a 640-pixel copy for OUT-004 and OUT-011. Presentation surrogates remain distinct from source originals, preservation masters, tokenized artworks, and evidence that rights have become effective.
 
 The manifest’s `rights_effective_status` remains controlling for each outcome. Artist statements that say “CC0,” “CCO,” or that all rights are held are submission assertions until the Museum receives and reviews an effective rights instrument, authorship/title evidence, third-party-material status, and any required depicted-person consent.
 
 Creative Commons’ public guidance also separates copyright dedication from personality, privacy, publicity, and trademark rights. The [rights register](rights-and-consent.md) applies that distinction to people, minors, nudity, passports, graffiti, posters, sites, and physical miniatures.
 
-The historical visual descriptions and their typed projections are documented in the [initial accessibility amendment](accessibility-amendment.md), the [OUT-013 amendment](accessibility-amendment-2026-08-08-002.md), and [amendment 003](accessibility-amendment-2026-08-08-003.md). The historical OUT-011 and OUT-004 delivery readbacks remain in the source repository. The [publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md) separates complete written scholarship from pending exact-commit review, image display, accessibility, and sensitive-subject authorization. The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) withholds all sixteen images. These derived records do not change source bytes, selected-outcome status, or `rights_effective_status`.
+The historical visual descriptions and their typed projections are documented in the [initial accessibility amendment](accessibility-amendment.md), the [OUT-013 amendment](accessibility-amendment-2026-08-08-002.md), and [amendment 003](accessibility-amendment-2026-08-08-003.md). The historical OUT-011 and OUT-004 delivery readbacks and the 9 August withdrawal remain in the append-only source history. The [11 August accessibility review](accessibility-review-2026-08-11.md) and [display authority](media-display-authorization-amendment-2026-08-11.md) control the present edition. These derived records do not change source bytes, selected-outcome status, or `rights_effective_status`.
 
 ## Transcription and correction note
 
@@ -97,7 +97,7 @@ The same source discipline applies to other title or credit questions: OUT-002 p
 
 ## WP-1 integration dependencies
 
-The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [current publication integration record](publication-integration.md). WP-4 has not modified shared entity vocabularies, lifecycle values, Stream envelopes, CAIP-19 conventions, or rights registries. Its program-media control records constructed descriptions as `constructed_visual_description_pending_independent_review` and requires a reviewed display-authority record before any public derivative can be generated.
+The content layer depends on the shared definitions listed in [schema-dependencies.md](schema-dependencies.md) and the [current publication integration record](publication-integration.md). The program-media control records all sixteen descriptions as `constructed_visual_description_reviewed` and requires the exact display-authority record before any public derivative can be admitted.
 
 Integration must preserve:
 
@@ -110,7 +110,7 @@ Integration must preserve:
 
 ## Presentation and publication boundary
 
-The [publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md) records the textual status for this edition. Museum-authored scholarship and catalogue text are complete as constructed text, while exact-commit independent review remains pending. Accessibility descriptions, image display, sensitive-subject authorization, and image delivery remain pending. The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) withholds every image and preserves the historical candidate commitment. OUT-004, OUT-010, and OUT-011 retain additional unresolved consent, identity or age, document, venue, and privacy questions. The earlier [publication-authority candidate](publication-authority-amendment-2026-08-08-005.md) remains historical. The controlling technical profile is documented in [`docs/program-media-delivery.md`](../../../../docs/program-media-delivery.md), and the program terms remain in [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md).
+The written scholarship, contextual image presentation, responsive derivative set, and reviewed visual descriptions form the current accession-publication candidate. OUT-004, OUT-010, and OUT-011 retain explicit consent, identity or age, document, venue, and privacy boundaries; OUT-004 and OUT-011 remain 640 pixels only. The controlling records are the [display authority](media-display-authorization-amendment-2026-08-11.md), [accessibility review](accessibility-review-2026-08-11.md), [`docs/program-media-delivery.md`](../../../../docs/program-media-delivery.md), and [`docs/programs/keys-and-gates.md`](../../../../docs/programs/keys-and-gates.md). Earlier publication and withdrawal amendments remain historical.
 
 ## Exact non-claims retained for audit
 
@@ -120,7 +120,7 @@ The public corpus does not establish:
 - purchase, payment, sale completion, title passage, or acquisition completion;
 - transfer to or receipt by `networkmuseum.6529.eth`;
 - effective CC0, model release, depicted-person consent, or unrestricted reproduction rights;
-- preservation-master creation, technical completion, or display readiness;
+- preservation-master creation or token-level technical completion;
 - accession, accession number, Collection membership, or permanent-holding status; or
 - that all sixteen selected works will ultimately be acquired.
 

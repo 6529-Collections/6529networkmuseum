@@ -3636,3 +3636,25 @@ catalog activation, and frontend qualification remain open.
 - Required continuation is deterministic regeneration and qualification of a
   new frozen A2 head, fresh exact-head Luna-max review by a different actor,
   hosted bot/CI convergence, and only then direct reviewed B and catalog C.
+
+## 2026-08-11 exhibition media and accession presentation
+
+- Keys and Gates now has 44 active Museum-hosted WebP presentation derivatives
+  for all sixteen selected Works. OUT-004 and OUT-011 remain 640 pixels only.
+- Independent visual review completed with four accessibility corrections and
+  no unsafe contextual-display finding. The current accessibility state is
+  `constructed_visual_description_reviewed`.
+- Conflict at Its Edges now projects the five exact signed Wave images with
+  credits, All Rights Reserved labels, fixity, and closed UI affordances.
+- The current Conflict status is “Selected by Museum Wave; accession processing
+  in progress.” Scholarship, provenance, rights, technical, display, and
+  preservation work are the downstream accession package. Only title transfer,
+  custody receipt, certificate delivery, final accession, and Collection entry
+  remain open.
+- The frontend rebuild is art-first and tiered: Works first, curatorial reading
+  second, accession record and sources third. Artist and Work routes resolve
+  media only through explicit governed relations.
+- Source validation passes with 691 JSON files, 340 pending generated records,
+  109 focused tests, 44 derivative checks, and the exact Magnum media-policy
+  guard. Candidate A must now be frozen, independently reviewed, advanced to a
+  reviewed direct child, and catalog-activated before frontend release.

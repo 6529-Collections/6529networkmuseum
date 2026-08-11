@@ -18,13 +18,17 @@ The complete gift is offered by punk6529. The Wave considers all five works as o
 
 ## Current status
 
-**Selected by Museum Wave; acquisition review in progress.** The five-work
-proposal remains outside the permanent Collection. The authenticated `WINNER`
-readback establishes the current Wave selection; it does not establish formal
-acceptance, donor authority, transfer, title, custody, rights clearance,
-technical or preservation completion, accession, or Collection membership. See
-the append-only [status amendment](status-amendments/2026-08-08-winner.md) for
-the exact readback and the prior `PARTICIPATORY` observation.
+**Selected by Museum Wave; accession processing in progress.** The five-work
+acquisition remains outside the permanent Collection while its accession is
+being completed. The authenticated `WINNER` readback establishes the Wave
+selection. Scholarship, object identification, donor and title review, rights,
+technical and provenance review, image presentation, preservation planning,
+and accession-record construction now form the Museum's downstream accession
+work. Title transfer, custody receipt, certificate delivery, formal accession,
+and Collection membership remain open until supported by their own evidence.
+See the append-only [current processing amendment](status-amendments/2026-08-11-accession-processing.md),
+which preserves the exact `WINNER` readback and prior `PARTICIPATORY` history,
+and the [historical selection amendment](status-amendments/2026-08-08-winner.md).
 
 ## Effect (historical publication rule)
 

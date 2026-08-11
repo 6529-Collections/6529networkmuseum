@@ -45,7 +45,7 @@ Within the selected five-Work group, Seymour supplies the earliest image and a f
 | Token identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127`; Magnum Photos 75 #127; edition 1/1; curation `2/3`. [S10](../sources/source-register.md) |
 | Archive reference | `SED1952003W00003/23`. [S10](../sources/source-register.md) |
 | Token-linked rendition | JPEG, 3,056 × 4,600 pixels, 2,518,674 observed bytes; SHA-256 `65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453`. [S10](../sources/source-register.md) |
-| Museum status | Selected by Museum Wave; acquisition review in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
+| Museum status | Selected by Museum Wave; accession processing in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
 | Credit and rights | © David Seymour/Magnum Photos 2022 · All Rights Reserved. The notice supplies a rights statement; broader reproduction, display, preservation, and Collection-publication authority remain unresolved. [S10](../sources/source-register.md), [S38](../sources/source-register.md) |
 
 The exact assignment, first publication, negative, contact sheet, estate-to-Magnum crosswalk, and future rights authority remain research questions. The upstream JPEG is an observed token-linked rendition; the repository retains its URL and fixity record, with no original negative or preservation master.

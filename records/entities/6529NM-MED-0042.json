@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc0e1527f7a0d666554bd890d7b04e7749df3b9515b41a5ef55b0c1ef859488fc"
+      "digest": "0xf1ccdbda55743d318d6794691fecbdad616f729c513b4a5a05dab09b57f2f3cf"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0042",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -36,11 +36,17 @@
         "label": "Historical public Wave proposal presentation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Contextual public presentation authority",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:bffb160b9c9422cba53c7dfadcceb70db6c59adc82fa08063be9698ae3a6a221",
+    "payload_sha256": "sha256:6f488cbef97ac24911b2b016e6a7e350662f2d18221f3b2e708a7db6b401854a",
     "preferred_label": "Demonstration, Western Wall, Jerusalem historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,6 +63,9 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
         "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -64,11 +73,11 @@
         "credit": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": null,
-          "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection.",
-          "digest": null,
-          "status": "unverified_not_retrieved",
-          "verified_at": null
+          "algorithm": "sha256",
+          "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master.",
+          "digest": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
+          "status": "verified",
+          "verified_at": "2026-08-08T10:15:02.0167151Z"
         },
         "height": 3292,
         "identity_inference_prohibition": null,
@@ -94,7 +103,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": null
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -103,6 +112,12 @@
               "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Contextual public presentation authority",
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
@@ -118,7 +133,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": null,
-        "visual": false,
+        "visual": true,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
@@ -134,7 +149,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0042",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -143,19 +158,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
-      "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -170,10 +174,16 @@
           "label": "Historical public Wave proposal presentation",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0042",
     "visibility": "public"

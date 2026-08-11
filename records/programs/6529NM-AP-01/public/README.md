@@ -57,7 +57,7 @@ Artist intent is attributed to the artist's submission. Public biographical mate
 
 ## Media boundary
 
-The program media manifest preserves source observations, deterministic transform metadata, and constructed visual descriptions. The [current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) withholds all sixteen images from the active visitor publication: every public-width allowlist is empty, no active derivative is retained, and the typed Media records expose documentation only. The written scholarship is complete as a constructed editorial edition, while exact-commit review, accessibility, image display, and sensitive-subject authorization remain pending under the [publication boundary](publication-authority-amendment-2026-08-08-007.md). A later image release requires its own reviewed, exact-commit display-authority record.
+The program media manifest preserves source observations, deterministic transform metadata, and constructed visual descriptions. The [current image presentation authorization](media-display-authorization-amendment-2026-08-11.md), authority `6529NM-AP-01-MEDIA-DISPLAY-2026-08-11-009`, releases contextual Museum-hosted presentation surrogates for all sixteen selected works. The active set contains **44 responsive WebP derivatives**: fourteen works at 640, 1280, and 2400 pixels, and OUT-004 and OUT-011 at 640 pixels only. The authorization is for visual encounter in the Museum publication; it does not complete minting or acquisition, activate prospective CC0 terms, admit a work to the Collection, or permit downloads. The earlier [media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md) remains in the append-only history.
 
 ## Review state
 

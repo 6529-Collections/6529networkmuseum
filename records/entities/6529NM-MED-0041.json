@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x41b3f1f3d394ed24833c77b8138f89cb3555ac60a402163ce97c102dd5bd3b67"
+      "digest": "0x4d75aa9d804dc1e9e2d2ea55c8aec72c55edefa4d4dc52f257151e21ec288632"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0041",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -36,11 +36,17 @@
         "label": "Historical public Wave proposal presentation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Contextual public presentation authority",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:919a9b83bc995dfb394ac87d5e3a2e8bf4e08ecc34ed6da53ce718e44f88e4cc",
+    "payload_sha256": "sha256:fb903f519ee75ea2a3c238c469b436bcf7efe593c3095088ec5e73f261ba93aa",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,6 +63,9 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
         "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -64,11 +73,11 @@
         "credit": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": null,
-          "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection.",
-          "digest": null,
-          "status": "unverified_not_retrieved",
-          "verified_at": null
+          "algorithm": "sha256",
+          "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master.",
+          "digest": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
+          "status": "verified",
+          "verified_at": "2026-08-08T10:15:02.0167151Z"
         },
         "height": 3601,
         "identity_inference_prohibition": null,
@@ -94,7 +103,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": null
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -103,6 +112,12 @@
               "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Contextual public presentation authority",
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
@@ -117,7 +132,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": null,
-        "visual": false,
+        "visual": true,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
@@ -133,7 +148,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0041",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -141,19 +156,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
-      "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -167,10 +171,16 @@
           "label": "Historical public Wave proposal presentation",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0041",
     "visibility": "public"

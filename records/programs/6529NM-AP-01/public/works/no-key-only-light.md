@@ -2,9 +2,9 @@
 
 > **Content note:** Two distant silhouetted figures appear in the historical 640px review copy. The program terms exclude identifiable minors; no identifying detail was visible in that copy, and the figures’ ages remain unestablished.
 
-> **Image delivery:** Withheld. The active media record exposes no derivative or image locator; visual-display approval remains pending under the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md).
+> **Image presentation:** A 640-pixel contextual presentation copy is authorized under the [current display authority](../media-display-authorization-amendment-2026-08-11.md). No identifying detail is visible; reuse is not granted.
 
-> **Constructed visual description (pending independent review):** Two silhouetted figures walk toward daylight at the end of a rough stone passage.
+> **Visual description:** Two silhouetted figures walk toward daylight at the end of a rough stone passage.
 
 ## Object data
 
@@ -27,7 +27,7 @@ A rough passage narrows the image before a white doorway opens it into glare. Th
 
 ## Artist’s account
 
-The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It attributes the association with surveillance, colonial defence, revolution, military control, and the 1983 invasion to the artist’s account. The public description leaves the figures unidentified. The artist represents that consent documentation is available on request; no consent instrument is retained in the Museum record, and future acquisition review remains separate.
+The artist’s submission describes the figures as family members and recounts an Australian family’s months of confinement aboard a sailboat before permission to enter Grenada. It attributes the association with surveillance, colonial defence, revolution, military control, and the 1983 invasion to the artist’s account. The public description leaves the figures unidentified. The artist represents that consent documentation is available on request; no consent instrument is retained in the Museum record. The Museum's accession review therefore keeps the figures unidentified, limits presentation to 640 pixels, and grants no reuse right.
 
 ## Curatorial interpretation
 
@@ -40,7 +40,7 @@ The [context register](../contexts/index.md#fort-frederick-grenada-out-004) and 
 ## Status and source note
 
 > **Status:** **Selected; not yet minted or accessioned; not in the permanent Collection.**
-> **Rights/source note:** OUT-004 has no visual-display approval. The artist represents consent documentation is available on request, but no instrument is retained in the Museum record; the figures’ ages and privacy/consent scope remain unverified. Historical delivery evidence remains in the append-only source record identified by the [current media-delivery amendment](../media-delivery-withdrawal-amendment-2026-08-09.md). Future acquisition, source, and high-resolution review remain separate. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
+> **Rights/source note:** OUT-004 is authorized for 640-pixel contextual Museum display. The artist represents consent documentation is available on request, but no instrument is retained in the Museum record; the figures’ ages and privacy/consent scope remain unverified. The Museum leaves them unidentified, publishes no larger derivative, and grants no reuse right. See the [rights and source record](../rights-and-consent.md#work-by-work-matrix) and [institutional record](../institutional-record.md).
 
 ## Browse
 

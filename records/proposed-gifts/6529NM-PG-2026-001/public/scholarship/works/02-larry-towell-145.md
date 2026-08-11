@@ -49,7 +49,7 @@ Within the selected group, Towell follows Seymour’s open border landscape with
 | Token identity | `eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145`; Magnum Photos 75 #145; edition 1/1; curation `2/3`. [S11](../sources/source-register.md) |
 | Archive reference | `TOL1986003W00045/26`. [S11](../sources/source-register.md) |
 | Token-linked rendition | JPEG, 5,369 × 3,601 pixels, 1,813,285 observed bytes; SHA-256 `e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee`. [S11](../sources/source-register.md) |
-| Museum status | Selected by Museum Wave; acquisition review in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
+| Museum status | Selected by Museum Wave; accession processing in progress; outside the permanent Collection. [S37](../sources/source-register.md) |
 | Credit and rights | © Larry Towell/Magnum Photos 2022 · All Rights Reserved. The notice supplies a rights statement; broader reproduction, display, preservation, and Collection-publication authority remain unresolved. [S11](../sources/source-register.md), [S38](../sources/source-register.md) |
 
 The church identity, soldiers and unit, operation, assignment, first publication, archive-neighbor sequence, physical-print equivalence, spelling history, and future rights authority remain open research questions.

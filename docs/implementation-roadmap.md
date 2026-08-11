@@ -462,18 +462,36 @@ Acquisition, sixteen Works, fifteen Artists, and Research Publication
 *Access, Control, and Exit*. Permanent Collection membership remains limited to
 the seven accessioned Casey Reas works.
 
-All Keys and Gates images are withheld from the active visitor publication.
-The current media manifest has no public widths, derivatives, display-authority
-record, or frontend delivery path. Historical review copies and their lineage
-remain evidence; they are not current presentation media. Restoring image
-delivery requires a later append-only, exact-commit authority naming the
-approved works, uses, sizes, accessibility text, rights disposition, and any
-work-specific conditions.
+The current Keys and Gates publication presents all sixteen selected works
+through 44 Museum-hosted responsive WebP derivatives under the append-only
+authority `6529NM-AP-01-MEDIA-DISPLAY-2026-08-11-009`. Fourteen works have 640,
+1280, and 2400 pixel presentations; OUT-004 and OUT-011 have 640 pixel
+presentations only. These are contextual presentation copies, not source
+originals, preservation masters, downloads, rights grants, acquisition
+evidence, or Collection membership. A later edition may add authority-bound
+media only through another append-only record.
 
 The remaining release gates are exact-head bot and human review, governed merge
 to canonical main, and later catalog activation through the reviewed
 publication sequence. No catalog, active pointer, mint, acquisition, accession,
 or new Collection membership is created by this candidate.
+
+## 2026-08-11 — Keys and Gates visual-review closure
+
+An independent reviewer compared all sixteen 640-pixel presentation copies with
+the accessibility and media records. Four descriptions were corrected for
+objective wording or visible text; all sixteen then passed. The current state is
+`constructed_visual_description_reviewed`. Fourteen Works retain 640, 1280,
+and 2400 pixel presentations; OUT-004 and OUT-011 remain 640 pixels only.
+
+The image review is part of the Museum's accession work. Rights and technical
+review are complete for the current public evidence with explicit conditions;
+source originals, future token manifestations, effective CC0 instruments,
+purchase, title, and custody remain independent facts. The public catalogue now
+has the images, captions, artist and Work scholarship, content notes, credits,
+rights labels, and exact display boundaries needed for a finished visitor
+edition while the selected acquisition remains unminted and outside the
+permanent Collection.
 
 ## 2026-08-09 — Casey Reas art-first media correction
 

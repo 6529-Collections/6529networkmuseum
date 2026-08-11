@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://6529.network/museum/schemas/program-media-presentation/v1",
+  "title": "6529 Network Museum public program media presentation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "record_control",
+    "record_type",
+    "schema_profile",
+    "program_id",
+    "source_manifest_revision",
+    "generated_at",
+    "transform_profile",
+    "delivery",
+    "items"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../../../schemas/program-media-presentation.schema.json"
+    },
+    "record_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "record_status", "constructor", "review"],
+      "properties": {
+        "revision": { "type": "integer", "minimum": 1 },
+        "record_status": { "enum": ["constructed", "reviewed"] },
+        "constructor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["actor_id", "role", "constructed_at"],
+          "properties": {
+            "actor_id": { "type": "string", "minLength": 1 },
+            "role": { "const": "constructor" },
+            "constructed_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "review": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["reviewer_id", "role", "reviewed_at", "outcome", "scope"],
+              "properties": {
+                "reviewer_id": { "type": "string", "minLength": 1 },
+                "role": { "const": "reviewer" },
+                "reviewed_at": { "type": "string", "format": "date-time" },
+                "outcome": { "enum": ["approved", "approved_with_corrections"] },
+                "scope": { "type": "string", "minLength": 1 }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "record_type": { "const": "PROGRAM_MEDIA_PRESENTATION" },
+    "schema_profile": { "const": "6529NM_PROGRAM_MEDIA_PRESENTATION_V1" },
+    "program_id": { "const": "6529NM-AP-01" },
+    "source_manifest_revision": { "type": "integer", "minimum": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "transform_profile": {
+      "const": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "authority_record_id", "cache_control"],
+      "properties": {
+        "status": { "const": "approved_by_reviewed_display_authority" },
+        "authority_record_id": { "type": "string", "minLength": 1 },
+        "cache_control": {
+          "const": "public, max-age=31536000, immutable"
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["record_id", "presentation"],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "pattern": "^6529NM-AP-01-OUT-[0-9]{3}$"
+          },
+          "presentation": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "role",
+              "alt_text",
+              "alt_text_status",
+              "public_widths",
+              "derivatives"
+            ],
+            "properties": {
+              "role": { "const": "web_presentation_surrogate" },
+              "alt_text": { "type": "string", "minLength": 20 },
+              "alt_text_status": {
+                "const": "constructed_visual_description_reviewed"
+              },
+              "public_widths": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "uniqueItems": true,
+                "items": { "enum": [640, 1280, 2400] }
+              },
+              "derivatives": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": { "$ref": "#/$defs/derivative" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "derivative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "mime_type",
+        "sha256",
+        "byte_size",
+        "repository_path",
+        "url",
+        "cache_control"
+      ],
+      "properties": {
+        "width": { "enum": [640, 1280, 2400] },
+        "height": { "type": "integer", "minimum": 1 },
+        "mime_type": { "const": "image/webp" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "byte_size": { "type": "integer", "minimum": 1 },
+        "repository_path": {
+          "type": "string",
+          "pattern": "^media/programs/6529NM-AP-01/6529NM-AP-01-OUT-[0-9]{3}/[0-9a-f]{64}/webp-v2-q82-m6-fixed-icc/(640|1280|2400)\\.webp$"
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/museum/programs/6529NM-AP-01/"
+        },
+        "cache_control": {
+          "const": "public, max-age=31536000, immutable"
+        }
+      }
+    }
+  }
+}

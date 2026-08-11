@@ -1,96 +1,102 @@
 {
   "program_id": "6529NM-AP-01",
-  "status": "constructed_visual_description_pending_independent_review",
+  "status": "constructed_visual_description_reviewed",
   "record_control": {
-    "revision": 3,
-    "record_status": "constructed",
+    "revision": 5,
+    "record_status": "reviewed",
     "constructor": {
-      "actor_id": "codex-task:019fce9c-b4c5-7783-9ca5-fee275851e9b",
+      "actor_id": "codex-task:network-museum-exhibition-media-2026-08-11",
       "role": "constructor",
-      "constructed_at": "2026-08-09T00:32:21Z"
+      "constructed_at": "2026-08-11T21:56:04Z"
     },
-    "review": null
+    "review": {
+      "reviewer_id": "codex-review:keys-gates-accessibility-2026-08-11-01",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-11T22:44:52.647Z",
+      "outcome": "approved_with_corrections",
+      "finding": "All sixteen descriptions approved after four objective-language and visible-text corrections; no unsafe contextual-display concern found."
+    }
   },
   "items": [
     {
       "record_id": "6529NM-AP-01-OUT-001",
       "alt_text": "A lone figure stands before a tall blue patterned gate as sunlight casts long geometric shadows across a stone hall.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-002",
-      "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined performer seated in a small white tub or boat on the roadway.",
-      "public_widths": []
+      "alt_text": "An elevated view shows blurred buses and traffic around a sharply defined person seated in a small blue tub or boat on the roadway.",
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-003",
       "alt_text": "A rider on a rearing white horse rises above a herd of brown horses on a wide plain beneath hazy mountains.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-004",
       "alt_text": "Two silhouetted figures walk toward daylight at the end of a rough stone passage.",
-      "public_widths": []
+      "public_widths": [640]
     },
     {
       "record_id": "6529NM-AP-01-OUT-005",
       "alt_text": "A long weathered concrete barrier with faded graffiti divides a pale sky from a dark foreground.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-006",
-      "alt_text": "A shirtless man opens a refrigerator covered in colorful magnets in a domestic kitchen.",
-      "public_widths": []
+      "alt_text": "A shirtless person opens a refrigerator covered in colorful magnets in a kitchen.",
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-007",
       "alt_text": "A turquoise mountain lake is bordered by evergreen forest and a jagged, snow-dusted mountain range.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-008",
       "alt_text": "A vertical aerial view shows dense residential roofs meeting an ordered palm plantation along a sharp boundary.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-009",
       "alt_text": "Black-and-white industrial buildings sit beneath a cloudy sky, with the words NOW IS OUR TIME painted on a wall.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-010",
       "alt_text": "A bare torso emerges from folds of black fabric against a nearly black background.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-011",
-      "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals and holding a small dark booklet or document; no text is readable on the object.",
-      "public_widths": []
+      "alt_text": "A nude figure reclines on an ornate gold chair, wearing bright sandals, with one hand lowering a small dark booklet or document toward the floor; no text is readable on it.",
+      "public_widths": [640]
     },
     {
       "record_id": "6529NM-AP-01-OUT-012",
       "alt_text": "A person stands framed by successive arched doorways inside a heavily damaged building.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-013",
-      "alt_text": "Black keyboard keys spell NO / WHERE / TO on a white surface, while the Esc key sits apart below beside a small ant.",
-      "public_widths": []
+      "alt_text": "Black keyboard keys spell NO / WHERE / TU on a white surface, while the Esc key sits apart below beside a small ant.",
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-014",
       "alt_text": "The camera looks upward through a dark, fluted circular structure toward a small opening of sky.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-015",
       "alt_text": "Two people lean from the windows of a weathered teal train; one wears a bright orange head covering.",
-      "public_widths": []
+      "public_widths": [640, 1280, 2400]
     },
     {
       "record_id": "6529NM-AP-01-OUT-016",
-      "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a warning sign and a person-like silhouette.",
-      "public_widths": []
+      "alt_text": "A small white house with a red roof stands on a hill beneath a starry sky, beyond a lit gate with a posted sign and a silhouetted figure.",
+      "public_widths": [640, 1280, 2400]
     }
   ]
 }

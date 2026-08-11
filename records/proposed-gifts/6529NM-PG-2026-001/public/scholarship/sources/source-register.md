@@ -399,15 +399,17 @@ image locators are withheld from the visitor corpus.
 - **Canonical current observation:** the signed-drop API readback at
   `2026-08-08T10:15:02.0167151Z` UTC reports the same drop as signed
   `WINNER`, rank `1`, realtime rating `121603214`, and `29` raters. Its public
-  status is **Selected by Museum Wave; acquisition review in progress**. The
+  status is **Selected by Museum Wave; accession processing in progress**. The
   result records the Museum Wave's selection of the exact five-Work proposal.
-  Formal gift acceptance, donor
-  authority, transfer, title and custody, rights review, technical examination,
-  preservation planning, accession and Collection entry will follow.
+  The Museum's downstream accession package now supplies object identification,
+  scholarship, provenance research, a conditional rights determination,
+  technical examination, contextual image authority, and preservation planning.
+  Title transfer, custody receipt, certificate delivery, formal accession, and
+  Collection entry remain open.
 - **Type / class:** Museum constructed proposal plus live governance source / A-B.
 - **Supports:** exact decision unit, five objects, proposal boundary, retained
   block observation, package fixity, media labels, and current status.
-- **Limit:** the proposal package is not an accession; the live status is
+- **Limit:** the proposal package is not the final accession record; the live status is
   mutable and must be refreshed before future reporting. The 10:15:02
   observation is the canonical current status observation; the 09:06:07
   observation is historical-only.
@@ -428,11 +430,12 @@ image locators are withheld from the visitor corpus.
   seven-part publication and its content hashes. The later public-safe API
   evidence in S54 confirms the exact part/media URL, MIME, and
   publisher-status fields, but retains no raw media bytes or per-part content
-  hashes. `ready` is a Wave publication state, not display permission. The
-  URLs are retained as non-rendering evidence locators; no copyright, download,
-  full-resolution, Collection-publication, IIIF, derivative, preservation,
-  donor-authority, title, or custody claim is inferred. The canonical graph
-  preserves the Work and proposal context while image display remains blocked.
+  hashes. `ready` is a Wave publication state, not display permission. Separate
+  authority `6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001` permits the five
+  exact signed Wave image URLs to render in the verified acquisition, artist,
+  and Work contexts. No copyright, download, full-resolution delivery,
+  Collection publication, IIIF, derivative, preservation, donor-authority,
+  title, or custody claim is inferred.
 
 ### S39 — Independent institutional history of Magnum
 

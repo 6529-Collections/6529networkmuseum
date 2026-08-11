@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdfd82cbc9eb4487aa8930f7842d832c1c14829175b0fc1ec3a9e2395561f665b"
+      "digest": "0x7a6bcddc7442f65af5c081d8660c0d6d815fd8957e98bb378cb7c22744f87a17"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/keys-and-gates",
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-CA-2026-002",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "CURATED_ACQUISITION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:531fa559f6cdb6b1cc0b686cad922716c2de9c5e6cd01a0309ce882bb8729783",
+    "payload_sha256": "sha256:f96496e7f0ca8f2bca039ef5c0390b9130df47d97cfce28610714c49f9dd43dc",
     "preferred_label": "Keys and Gates",
     "profile": {
       "acquisition_method": "purchase",
@@ -80,17 +80,17 @@
           "status": "unverified"
         },
         "display": {
-          "as_of": "2026-08-01T15:03:35Z",
+          "as_of": "2026-08-11T21:56:04Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
             }
           ],
-          "notes": "No display authorization is recorded.",
-          "status": "not_started"
+          "notes": "Museum-hosted presentation derivatives are authorized for contextual public display. This authority does not establish mint, acquisition, title, custody, accession, CC0 effectiveness, download, or reuse rights.",
+          "status": "verified_with_conditions"
         },
         "mint": {
           "as_of": "2026-08-01T15:03:35Z",
@@ -119,43 +119,49 @@
           "status": "planned"
         },
         "preservation": {
-          "as_of": "2026-08-01T15:03:35Z",
+          "as_of": "2026-08-11T21:56:04Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
             }
           ],
-          "notes": "No preservation completion is recorded.",
-          "status": "not_started"
+          "notes": "Presentation-surrogate fixity and reproducible transforms are recorded; source originals and future token manifestations are not yet Museum preservation objects.",
+          "status": "in_progress"
         },
         "rights": {
-          "as_of": "2026-08-01T15:03:35Z",
+          "as_of": "2026-08-11T21:56:04Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-01T15:03:35Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
             }
           ],
-          "notes": "Conditional program terms are not an effective rights grant.",
-          "status": "unverified"
+          "notes": "The accession review records the source rights assertions, work-specific consent and privacy cautions, and contextual Museum display authority. No effective CC0, title transfer, or general reuse grant is inferred.",
+          "status": "verified_with_conditions"
         },
         "technical": {
-          "as_of": "2026-08-01T15:03:35Z",
+          "as_of": "2026-08-11T21:56:04Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-01T15:03:35Z",
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-11T21:56:04Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/program.json"
             }
           ],
-          "notes": "No completed technical review is recorded.",
-          "status": "not_started"
+          "notes": "The accession review verifies submitted-source dimensions and fixity, the deterministic WebP transform, derivative hashes, colour profile, and active public widths. Mint and token-manifestation checks remain open.",
+          "status": "verified_with_conditions"
         },
         "title": {
           "as_of": "2026-08-01T15:03:35Z",
@@ -255,7 +261,7 @@
     },
     "public_slug": "keys-and-gates",
     "record_id": "6529NM-CA-2026-002",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -294,19 +300,8 @@
       "6529NM-W-0022",
       "6529NM-W-0023"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
-      "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -360,7 +355,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-CA-2026-002",
     "visibility": "public"

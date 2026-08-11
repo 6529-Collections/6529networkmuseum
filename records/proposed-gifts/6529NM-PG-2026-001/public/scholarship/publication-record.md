@@ -8,7 +8,7 @@
 | Institutional author | 6529 Network Museum, Curatorial Research |
 | Publication date | 9 August 2026 |
 | Research cutoff | 9 August 2026 |
-| Museum status | Selected by Museum Wave; acquisition review in progress |
+| Museum status | Selected by Museum Wave; accession processing in progress |
 | Permanent Collection | The five Works remain outside the permanent Collection until acceptance and accession are complete. |
 | Stable source root | [Magnum scholarship in the Museum repository](https://github.com/6529-Collections/6529networkmuseum/tree/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship) |
 | Research apparatus | [Source register](sources/source-register.md) and linked notes, technical records, rights record, and chronology |
