@@ -75,6 +75,17 @@ bytes.
 - The PR must not be merged until the exact final head is independently
   reviewed, all threads are resolved, and required CI is green.
 
+### Final PR checkpoint — 2026-08-12
+
+- Final head `31d6f3c2c246bf5786df6132a074a6c2b3f1cb08` passed all six required
+  jobs in GitHub Actions run `31602796374`, including deterministic Windows.
+- The CodeRabbit cache-retention finding was fixed in `0e63c74`; its thread is
+  resolved and outdated. Fresh CodeRabbit re-review requests were externally
+  rate-limited, so that bot result does not substitute for maintainer review.
+- The `6529seize-maintainers` team remains requested, with no approval recorded
+  yet. PR #57 therefore remains intentionally unmerged pending the required
+  exact-head review gate.
+
 ## Reproduction commands
 
 From the repository root:

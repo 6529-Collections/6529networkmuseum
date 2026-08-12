@@ -3757,3 +3757,11 @@ catalog activation, and frontend qualification remain open.
   in 458.866 seconds. The fix head `0e63c74` has all six required CI jobs
   green, and the addressed thread is resolved/outdated. A fresh CodeRabbit
   re-review was rate-limited; maintainer approval remains open.
+
+- Final PR head `31d6f3c2c246bf5786df6132a074a6c2b3f1cb08` completed the fresh
+  exact-head CI run `31602796374` green on all six required jobs, including
+  deterministic Windows. The addressed CodeRabbit thread remains
+  resolved/outdated; fresh bot re-review was externally rate-limited. The
+  `6529seize-maintainers` team is still requested but has not approved, so PR
+  #57 remains intentionally unmerged until the required exact-head review gate
+  is satisfied.
