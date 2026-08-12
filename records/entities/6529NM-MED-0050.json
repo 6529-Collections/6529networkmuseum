@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfcce2b43d088177bfe49e07b7ee1d177cc292fc7a91040ca054eec3134ca74b8"
+      "digest": "0x6382c166a7595fdd87eb7218f77f659777119f3e0f79dc890535f9316702e49e"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:326c170d78ff43475a807b4144c1326ad72bcc9ac23949e621ba4a2fb0f7ef8a",
+    "payload_sha256": "sha256:0840615ab52bb5d6bb78f12cbd05dde049b9f4bac0895b70de6fd6ec8c59a543",
     "preferred_label": "923 EMPTY ROOMS #713 official Art Blocks still",
     "profile": {
       "media": {
@@ -173,14 +173,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:zeno-019ff532",
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
       "reviewer_ids": [
-        "codex-review:zeno-019ff532"
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
       ],
       "role": "reviewer"
     },

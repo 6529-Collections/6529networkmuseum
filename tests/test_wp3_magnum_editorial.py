@@ -174,6 +174,27 @@ class WP3EditorialChecks(unittest.TestCase):
                 REFERENCE_MODULE.check_visitor_document(label, probe_text, declared, errors)
                 self.assertTrue(errors, f"expected visitor-boundary rejection for {label}: {probe_text}")
 
+    def test_visitor_boundary_admits_only_the_exact_media_continuity_control(self) -> None:
+        control_path = next(iter(REFERENCE_MODULE.VISITOR_MACHINE_CONTROL_PATHS))
+        control_text = (
+            '{"display_token_source_uri":"https://arweave.net/example",'
+            '"path":"public/scholarship/machine/example.json"}'
+        )
+        errors: list[str] = []
+        REFERENCE_MODULE.check_visitor_document(
+            control_path, control_text, {control_path}, errors
+        )
+        self.assertEqual(errors, [])
+
+        adjacent_path = control_path.replace(
+            "media-source-continuity-amendment.json", "unreviewed-amendment.json"
+        )
+        adjacent_errors: list[str] = []
+        REFERENCE_MODULE.check_visitor_document(
+            adjacent_path, control_text, {adjacent_path}, adjacent_errors
+        )
+        self.assertTrue(adjacent_errors)
+
     def test_escaped_arweave_custom_scheme_is_rejected_by_both_gates(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))
         transaction_id = urlsplit(join["works"][0]["token_source_image_url"]).path.lstrip("/")

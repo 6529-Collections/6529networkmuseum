@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3d4e7a834e69af5f270086c92e14ceaf15e23b550be7e3b7f0b4e9bb02af27b4"
+      "digest": "0xd32af22065f21c6afd7627ba900a5a31a000f6a57db025541bd0b749f368d86e"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9830377c0c7546e72ada2550e5baaf57807ae7d6d61fb4e50b3e55235d50143a",
+    "payload_sha256": "sha256:8f90a34774485648eed89adab86295e80e32bc6eea34f9cb4d18cd9c98678888",
     "preferred_label": "Ex Nihilo (Cosmos) #248 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -165,14 +165,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:zeno-019ff532",
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
       "reviewer_ids": [
-        "codex-review:zeno-019ff532"
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
       ],
       "role": "reviewer"
     },

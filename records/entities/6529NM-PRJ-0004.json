@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x730749dfb8b5e608a1690c9600ada431d4aba83431c31c78ef893e8cf1dc361a"
+      "digest": "0xb6fbdff9f940b017a3cc81c4f68a722d61124624b4721ca5c05427066d89c1ab"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2745b0163e1edff01b9fc54343dd479414c8da67f749bc39c36ccb0d489674ec",
+    "payload_sha256": "sha256:0258a237ba6cd65b44179f9021d0c9ea9fb8e54070a80f464e804521148152bc",
     "preferred_label": "923 EMPTY ROOMS",
     "profile": {
       "agent_entity_ids": [
@@ -78,14 +78,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:zeno-019ff532",
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
       "reviewer_ids": [
-        "codex-review:zeno-019ff532"
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
       ],
       "role": "reviewer"
     },

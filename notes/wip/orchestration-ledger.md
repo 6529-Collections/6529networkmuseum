@@ -3703,3 +3703,27 @@ catalog activation, and frontend qualification remain open.
 - Required continuation is corrected candidate A generation and validation,
   independent exact-head review, reviewed B, catalogue C activation, frontend
   adapter qualification, and a fresh staging visual/E2E pass before production.
+
+## 2026-08-12 atomic downstream accession amendment publication
+
+- Independent frontend review found that duplicated inline Media fields alone
+  could not prove the exact per-Work mapping in the active media-source
+  continuity amendment. The amendment is now an atomic visitor-publication
+  control document so the adapter can verify every displayed source against it.
+- Proposal-time facts retain proposal dates. Rights and technical conclusions
+  created by downstream accession review use the amendment observation time;
+  Media labels no longer make proposal evidence read as a pre-selection
+  accession conclusion.
+- The Wave remains the acquisition decision. This correction governs the
+  downstream accession record and display source only; it creates no title,
+  custody, preservation master, accession, accession number, or Collection
+  membership.
+- Candidate A CI exposed one expected policy collision: the visitor-reference
+  checker treated the newly atomic control JSON as visitor prose. The checker
+  now admits only the exact media continuity control path; its general
+  manuscript and adjacent-path prohibitions remain closed and are tested.
+- Exact follow-up candidate A is `363ab8c0910bab523ec69a754112fb8ce50e054c`.
+  Its complete manifest is
+  `sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b`
+  / `0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda`.
+  Fresh exact-head CI and independent review are in progress.

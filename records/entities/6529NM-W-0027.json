@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x84a970214fccd032bae3e12412da9cc947238e46af9c6a2481b6ebf3e8108fc1"
+      "digest": "0x427964d06e262dc5dc7f62c1877f0bb3c8da4760e908c31798c8c458f832df5c"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2f0b7ff6b5bad29628819b15474b58596386eb6edb18e968830f4eccec285559",
+    "payload_sha256": "sha256:0d2a04c12d1866a3994056024045cb8104b387d35c4559849187170919ad326d",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [],
@@ -222,14 +222,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:zeno-019ff532",
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
       "reviewer_ids": [
-        "codex-review:zeno-019ff532"
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
       ],
       "role": "reviewer"
     },

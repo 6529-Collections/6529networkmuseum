@@ -44,6 +44,12 @@ COMPLETE_MANIFEST_ONLY_MARKERS = (
     "records/proposed-gifts/6529NM-PG-2026-001/media-description-amendment-2026-08-08.json",
     "/machine/",
 )
+VISITOR_MACHINE_CONTROL_PATHS = frozenset(
+    {
+        "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/"
+        "media-source-continuity-amendment.json"
+    }
+)
 
 
 def inside_repository(path: Path) -> bool:
@@ -197,23 +203,25 @@ def check_visitor_document(
     locators = web_locators(text)
     if restricted_locators is None:
         restricted_locators = restricted_media_locators()
-    if contains_ar_uri(text) or any(
-        host == "arweave.net" or host.endswith(".arweave.net")
-        for host, _, _ in locators
-    ):
-        errors.append(
-            f"{source_relative}: visitor manuscript exposes a governed Arweave metadata locator"
-        )
-    if any(locator in restricted_locators for locator in locators):
-        errors.append(
-            f"{source_relative}: visitor manuscript exposes a restricted direct photograph locator"
-        )
-    normalized_text = text.replace("\\", "/")
-    for marker in COMPLETE_MANIFEST_ONLY_MARKERS:
-        if marker in normalized_text:
+    is_machine_control = source_relative in VISITOR_MACHINE_CONTROL_PATHS
+    if not is_machine_control:
+        if contains_ar_uri(text) or any(
+            host == "arweave.net" or host.endswith(".arweave.net")
+            for host, _, _ in locators
+        ):
             errors.append(
-                f"{source_relative}: visitor manuscript names complete-manifest-only material: {marker}"
+                f"{source_relative}: visitor manuscript exposes a governed Arweave metadata locator"
             )
+        if any(locator in restricted_locators for locator in locators):
+            errors.append(
+                f"{source_relative}: visitor manuscript exposes a restricted direct photograph locator"
+            )
+        normalized_text = text.replace("\\", "/")
+        for marker in COMPLETE_MANIFEST_ONLY_MARKERS:
+            if marker in normalized_text:
+                errors.append(
+                    f"{source_relative}: visitor manuscript names complete-manifest-only material: {marker}"
+                )
     checked = 0
     source = REPOSITORY / Path(*source_relative.split("/"))
     for match in MARKDOWN_LINK.finditer(text):

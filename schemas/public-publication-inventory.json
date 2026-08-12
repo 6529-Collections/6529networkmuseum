@@ -317,6 +317,7 @@
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos.md",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/acquisition-narrative.md",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md",
+      "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/sources/source-register.md",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/01-david-seymour-127.md",
@@ -582,7 +583,7 @@
   },
   "counts": {
     "approved_public_media": 45,
-    "public_assembly_control_document": 125,
+    "public_assembly_control_document": 126,
     "public_curatorial_manuscript": 100,
     "public_entity_record": 127,
     "public_media_source_manifest": 2,
@@ -3099,6 +3100,13 @@
     {
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
       "kind": "public_curatorial_manuscript",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md",
       "required_in_catalog": true
@@ -4876,8 +4884,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0xc81e77d99484d442e0f4f9beccafc434fa46fc4c660a4d7059044cf1590b45e5",
-    "body_sha256": "sha256:b0549c4a63310b4817ae06ac0cfca5b8fa86f73c468ca46b1ec8910a89439825",
+    "body_keccak256": "0x065af8ba46c35b008d294a1380d917d3666bfd131f1a236321f46139b188a583",
+    "body_sha256": "sha256:6782a0b703b1414db7511bda951371bdb8e2edca37b61b6c4434e7259c87b338",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

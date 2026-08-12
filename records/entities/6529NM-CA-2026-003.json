@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x378f49a76fcba0d85cdde5a8cd01a3cb0027fbbb6b850501e91c85e9b168800f"
+      "digest": "0x603954a895225816f1f74d63c4a1f015af751b97bef25ef56841bb0a9ec76c6e"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -73,7 +73,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4ab83b470621768f7245432341f5ccacae6e2a271c47817814c4a077cdbb2e2f",
+    "payload_sha256": "sha256:75a3e2c413c0df4d5f85e2862b3dff3de89ca5f0c23ff8f22cdf8578b47ee4ed",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -189,29 +189,29 @@
           "status": "not_started"
         },
         "rights": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T07:37:56.984246Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "label": "Accession-media source continuity amendment",
+              "observed_at": "2026-08-12T07:37:56.984246Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
             }
           ],
-          "notes": "The accession review retains All Rights Reserved and authorizes only contextual presentation of the five accession-reviewed images; copyright transfer and broader reproduction rights are not established.",
+          "notes": "Downstream accession review retains All Rights Reserved and authorizes only contextual presentation of the five reviewed images; copyright transfer and broader reproduction rights are not established.",
           "status": "verified_with_conditions"
         },
         "technical": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T07:37:56.984246Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "label": "Accession-media source continuity amendment",
+              "observed_at": "2026-08-12T07:37:56.984246Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
             }
           ],
-          "notes": "The accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required.",
+          "notes": "Downstream accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required.",
           "status": "verified_with_conditions"
         },
         "title": {
@@ -342,14 +342,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:zeno-019ff532",
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
       "reviewer_ids": [
-        "codex-review:zeno-019ff532"
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
       ],
       "role": "reviewer"
     },
