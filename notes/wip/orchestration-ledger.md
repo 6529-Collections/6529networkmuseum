@@ -3718,3 +3718,12 @@ catalog activation, and frontend qualification remain open.
   downstream accession record and display source only; it creates no title,
   custody, preservation master, accession, accession number, or Collection
   membership.
+- Candidate A CI exposed one expected policy collision: the visitor-reference
+  checker treated the newly atomic control JSON as visitor prose. The checker
+  now admits only the exact media continuity control path; its general
+  manuscript and adjacent-path prohibitions remain closed and are tested.
+- Exact follow-up candidate A is `363ab8c0910bab523ec69a754112fb8ce50e054c`.
+  Its complete manifest is
+  `sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b`
+  / `0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda`.
+  Fresh exact-head CI and independent review are in progress.
