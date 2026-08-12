@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf941c0b1439553bdb7cab7bdce0855eb96d56416d33ab1dfc44ce7fa79f521c6"
+      "digest": "0x4966d42e5e7a4ae3cbad1de0a09fc5cfca4eeb0ae6ec0291468ff0b5e578515c"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": "/museum/network/organizations/art-blocks",
     "constructor": {
-      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
-      "observed_at": "2026-08-11T21:56:04Z",
+      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "observed_at": "2026-08-12T07:37:56Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-11T21:56:04Z",
+    "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-ORG-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ORGANIZATION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:527ea37c70d9f594078e9d632fc350ff8d285d43744d6c148294d137eda84984",
+    "payload_sha256": "sha256:61e7707981a5a8d907c00955e7a94c90f625cc9d61c489e333dbb485def8a859",
     "preferred_label": "Art Blocks",
     "profile": {
       "authority": {
@@ -80,25 +80,14 @@
     },
     "public_slug": "art-blocks",
     "record_id": "6529NM-ORG-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.001.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:independent-reviewer",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-12T03:09:26.493Z",
-      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
-      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
-      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
-      "reviewer_ids": [
-        "codex-review:independent-reviewer"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM.2026.001.01"
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ORG-0001",
     "visibility": "public"

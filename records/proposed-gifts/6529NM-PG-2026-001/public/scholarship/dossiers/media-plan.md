@@ -4,6 +4,12 @@
 
 ## Current public use
 
+The downstream accession-media review of 12 August 2026 supersedes the
+browser-locator choice in this record. The CloudFront URLs
+remain exact historical Wave-publication evidence. Current display uses the
+corresponding fixity-verified Arweave token-source locators under the same
+rights, credit, context, and interface restrictions.
+
 The five photographs appear in the retained proposal package as historical
 public media for Wave parts 2–6. The Museum record cites those exact CloudFront
 Wave-upload URLs and preserves the artist/Magnum credit, `All Rights Reserved`,

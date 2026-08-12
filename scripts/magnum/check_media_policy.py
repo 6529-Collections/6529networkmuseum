@@ -207,7 +207,7 @@ BLOCKED_AFFORDANCES = {"download", "full_resolution", "zoom", "fullscreen", "iii
 EXPECTED_ROUTE_POLICY = "deny_without_verified_work_ca_media_observation_relation"
 EXPECTED_EVIDENCE_SCOPE = "Each Work array is the complete set of source-register IDs explicitly cited on that public Work page, including contextual cross-references and the shared historical Wave-publication source."
 DENY_RUNTIME_FIELDS = {
-    "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "exact_signed_wave_publication_part_only",
+    "url_rewrite": "deny", "runtime_fallback": "deny", "runtime_fetch": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
     "repository_derivative": "deny",
     "responsive_variants": "deny", "download": "deny", "full_resolution_claim": "deny",
     "zoom": "deny", "fullscreen": "deny", "iiif_or_tiled_service": "deny", "preservation_claim": "deny",
@@ -392,8 +392,8 @@ def validate_join(join: dict) -> list[str]:
         fail("historical Wave label must be required")
 
     runtime = join.get("runtime_policy", {})
-    if runtime.get("source_url_policy") != "exact_signed_wave_publication_part_only":
-        fail("runtime source policy must allow only the exact signed Wave publication part")
+    if runtime.get("source_url_policy") != "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment":
+        fail("runtime source policy must allow only the exact fixity-verified token-source URI under the active accession-media amendment")
     for key, expected in DENY_RUNTIME_FIELDS.items():
         if runtime.get(key) != expected:
             fail(f"runtime policy {key!r} must be {expected!r}")
@@ -449,8 +449,8 @@ def validate_join(join: dict) -> list[str]:
         display = row.get("standalone_work_display", {})
         if display.get("requires_verified_graph_relation") is not True or display.get("historical_label_required") is not True or display.get("outside_scope") != "deny" or display.get("verification_status") != "canonical_graph_verified_contextual_display_authorized":
             fail(f"{label}: Work display must remain bound to the verified acquisition graph and contextual authority")
-        if row.get("load_policy") != "exact_signed_wave_publication_url":
-            fail(f"{label}: only the exact signed Wave publication URL may load")
+        if row.get("load_policy") != "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment":
+            fail(f"{label}: only the exact fixity-verified token-source URI may load under the active accession-media amendment")
         alt = row.get("alt_text", "")
         if not alt or any(contains_term(alt, term) for term in ("identity", "name", "age", "tear gas")):
             fail(f"{label}: alt text must remain a non-identifying visible-fact description")
@@ -553,9 +553,12 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
                 if (
                     manifestation.get("standalone_route") != "verified_graph_relation_only"
                     or manifestation.get("display_scope") != "historical_wave_proposal_contextual_presentation"
-                    or manifestation.get("load_policy") != "exact_signed_wave_publication_url"
+                    or manifestation.get("load_policy") != "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment"
                 ):
                     errors.append(f"{row.get('canonical_work_id')}: manifestation must remain bound to contextual Wave presentation authority")
+                joined = join_by_work.get(work_id, {})
+                if manifestation.get("uri") != joined.get("token_source_image_url") or manifestation.get("token_source_uri") != joined.get("token_source_image_url"):
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation must use the exact fixity-verified token-source URI")
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
                     supersedes = binding.get("supersedes", {})

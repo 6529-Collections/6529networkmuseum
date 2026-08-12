@@ -894,10 +894,8 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     )
     if contextual_wave_presentation:
         uri = locator.get("uri")
-        if not uri.startswith(
-            "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
-        ):
-            issues.append(f"{label}: historical Wave presentation must use an exact signed proposal-part locator")
+        if not re.fullmatch(r"https://arweave\.net/[A-Za-z0-9_-]{43}", uri):
+            issues.append(f"{label}: historical Wave presentation must use an exact token-source display locator")
         if "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md" not in json.dumps(
             media.get("source_observation", {}).get("evidence_refs", []),
             ensure_ascii=False,
@@ -964,6 +962,13 @@ def validate_public_media(media: Any, label: str) -> list[str]:
         basis = fixity.get("basis") if isinstance(fixity, dict) else None
         if not isinstance(basis, str) or "mutable" not in basis.casefold() or "not retained" not in basis.casefold():
             issues.append(f"{label}: mutable external verified fixity must state both locator mutability and that bytes are not retained")
+    if role == "historical_wave_proposal_presentation":
+        token_locator = media.get("token_source_locator")
+        token_fixity = media.get("token_source_fixity")
+        if not isinstance(token_locator, dict) or token_locator != locator:
+            issues.append(f"{label}: accession display locator must equal the governed token-source locator")
+        if not isinstance(token_fixity, dict) or token_fixity.get("status") != "verified" or token_fixity.get("algorithm") != fixity.get("algorithm") or token_fixity.get("digest") != fixity.get("digest"):
+            issues.append(f"{label}: accession display fixity must equal the governed token-source fixity")
     publication_boundary = media.get("publication_boundary")
     expected_boundary = {
         "museum_retained_preservation_object": "preservation_record",

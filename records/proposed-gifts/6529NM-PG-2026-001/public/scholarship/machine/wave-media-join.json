@@ -86,10 +86,10 @@
     "verification_status": "canonical_graph_verified_contextual_display_authorized"
   },
   "runtime_policy": {
-    "source_url_policy": "exact_signed_wave_publication_part_only",
+    "source_url_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
     "url_rewrite": "deny",
     "runtime_fallback": "deny",
-    "runtime_fetch": "exact_signed_wave_publication_part_only",
+    "runtime_fetch": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
     "repository_derivative": "deny",
     "responsive_variants": "deny",
     "download": "deny",
@@ -103,21 +103,21 @@
   },
   "display_policy": {
     "allowed": [
-      "Render the exact historical public Wave proposal URL in its acquisition, artist, and work context.",
+      "Render the exact fixity-verified token-source image in its acquisition, artist, and work context.",
       "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and Wave-source label in the written record.",
-      "Use the token-linked URL as a recorded locator; do not fetch it or represent it as a Museum-preserved file.",
+      "Retain the exact historical Wave URL as publication evidence; do not use it as the browser display source or represent either upstream source as a Museum-preserved file.",
       "Offer non-identifying accessibility text, proposal-source opening, and copy-citation affordances."
     ],
     "blocked": [
       "Download or download affordance",
       "Full-resolution delivery claim",
       "Zoom or fullscreen affordance",
-      "Runtime fallback, URL rewriting, or an unallowlisted upstream source",
+      "Runtime fallback, URL rewriting, or an unallowlisted upstream source outside the active accession-media amendment",
       "New repository derivative, crop, thumbnail, responsive srcset, or recompression",
       "Collection publication, permanent Collection count, or accession display",
       "IIIF manifest, tiled service, or preservation-master claim"
     ],
-    "rights_basis": "Contextual presentation reuses the exact images already published in the selected signed Wave proposal, with recorded credits and All Rights Reserved labels. No copyright transfer, general reproduction licence, download right, preservation right, or Collection-publication licence is inferred."
+    "rights_basis": "Contextual presentation uses the exact fixity-verified token-source bytes bound to the same five Works and selected Wave proposal, with recorded credits and All Rights Reserved labels. The historical Wave locators remain publication evidence. No copyright transfer, general reproduction licence, download right, preservation right, or Collection-publication licence is inferred."
   },
   "works": [
     {
@@ -149,7 +149,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
-      "load_policy": "exact_signed_wave_publication_url",
+      "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -184,7 +184,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
-      "load_policy": "exact_signed_wave_publication_url",
+      "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
@@ -219,7 +219,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
-      "load_policy": "exact_signed_wave_publication_url",
+      "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "historical_publication_media": {
         "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
         "record_revision": 1,
@@ -265,7 +265,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
-      "load_policy": "exact_signed_wave_publication_url",
+      "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master", "identity_inference"],
       "alt_text": "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
       "accessibility_subject_policy": "non_identifying_apparently_young_subject",
@@ -320,7 +320,7 @@
         "outside_scope": "deny"
       },
       "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
-      "load_policy": "exact_signed_wave_publication_url",
+      "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
       "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
