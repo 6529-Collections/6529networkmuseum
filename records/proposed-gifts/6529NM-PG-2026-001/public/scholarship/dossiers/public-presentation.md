@@ -11,8 +11,8 @@ The downstream accession-media review of 12 August 2026 preserves the
 historical Wave URLs as publication evidence and assigns the exact,
 fixity-verified token sources as the current browser display sources.
 
-The five photographs are presented on the Museum website as part of the
-accession work for *Conflict at Its Edges*. The display allows the acquisition
+The five photographs are presented on the Museum website as the accessioned
+group *Conflict at Its Edges*. The display allows the acquisition
 to be studied as a five-work argument and connects each photograph to its
 artist, caption, object entry, project history, and curatorial reading.
 
@@ -25,16 +25,17 @@ download, responsive image set, IIIF service, or preservation master. Each
 image remains bound to the proposal part in which it appeared and to the
 canonical Wave publication observation.
 
-All five images remain **All Rights Reserved**. Their public availability and
-the donor's ownership of the tokens do not transfer copyright or establish a
-general reproduction licence. The Museum supplies no download, zoom,
-fullscreen, token-source, or reuse affordance. Credits and the Wave proposal
-source remain attached to every presentation.
+All five images remain **All Rights Reserved**. As with works held by other
+museums, the Museum interprets ownership as permitting ordinary, credited
+institutional display, publication, and accessibility uses. That position does
+not transfer copyright or establish a commercial or general reproduction,
+derivative, licensing, or AI-training right. The Museum supplies no download,
+zoom, fullscreen, token-source, or reuse affordance. Credits and source context
+remain attached to every presentation.
 
-This display is one part of accession processing. It does not, by itself,
-prove transfer, Museum custody, legal title, accession completion, or entry
-into the permanent Collection. Those facts remain controlled by their own
-records and will be updated when evidence is available.
+Display is distinct from accession authority. The gift acceptance, transfer,
+custody, title, technical, rights, and accession records independently support
+the completed accession and permanent-Collection membership.
 
 The description of the Moisés Saman photograph remains non-identifying. The
 Museum does not assign the depicted person's age or identity and does not

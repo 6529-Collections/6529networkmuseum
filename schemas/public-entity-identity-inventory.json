@@ -1,6 +1,6 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/public-entity-identity-inventory-v1.json",
-  "inventory_version": "1.5.0",
+  "inventory_version": "1.6.0",
   "identity_policy": "Museum entity identity is independent of acquisition, program, accession, artist, chain, wallet, title, and public route key. Source aliases remain typed references and never replace the canonical entity identifier. Component and manifestation targets are either explicit authoritative records or entries in the governed typed-reference registry.",
   "entity_id_patterns": {
     "INSTITUTION": "^6529NM-I-[0-9]{4}$",
@@ -43,7 +43,7 @@
       "entity_id": "6529NM-CA-2026-003",
       "preferred_label": "Conflict at Its Edges",
       "public_slug": "conflict-at-its-edges",
-      "source_aliases": ["6529NM-PG-2026-001", "002bfa4f-8416-48bf-b35e-38f354e9a9f0"]
+      "source_aliases": ["6529NM-PG-2026-001", "002bfa4f-8416-48bf-b35e-38f354e9a9f0", "6529NM.2026.002", "6529NM-ACC-2026-002"]
     }
   ],
   "acquisition_aliases": [
@@ -51,7 +51,9 @@
     {"alias": "6529NM-AP-01", "canonical_entity_id": "6529NM-AP-ENT-0002", "alias_kind": "source_program"},
     {"alias": "6529NM-PG-2026-001", "canonical_entity_id": "6529NM-CA-2026-003", "alias_kind": "proposal"},
     {"alias": "6529NM.2026.001", "canonical_entity_id": "6529NM-CA-2026-001", "alias_kind": "accession_lot"},
-    {"alias": "6529NM-ACC-2026-001", "canonical_entity_id": "6529NM-CA-2026-001", "alias_kind": "accession_record"}
+    {"alias": "6529NM-ACC-2026-001", "canonical_entity_id": "6529NM-CA-2026-001", "alias_kind": "accession_record"},
+    {"alias": "6529NM.2026.002", "canonical_entity_id": "6529NM-CA-2026-003", "alias_kind": "accession_lot"},
+    {"alias": "6529NM-ACC-2026-002", "canonical_entity_id": "6529NM-CA-2026-003", "alias_kind": "accession_record"}
   ],
   "source_aliases": [
     {"alias": "6529NM-AP-GIFT-01", "alias_type": "program_route_key", "canonical_entity_id": "6529NM-AP-ENT-0001", "route_target": true},
@@ -59,7 +61,9 @@
     {"alias": "6529NM-AP-01", "alias_type": "source_acquisition_context", "canonical_entity_id": "6529NM-CA-2026-002", "route_target": false},
     {"alias": "6529NM-PG-2026-001", "alias_type": "proposal", "canonical_entity_id": "6529NM-CA-2026-003", "route_target": true},
     {"alias": "6529NM.2026.001", "alias_type": "accession_lot", "canonical_entity_id": "6529NM-CA-2026-001", "route_target": true},
-    {"alias": "6529NM-ACC-2026-001", "alias_type": "accession_record", "canonical_entity_id": "6529NM-CA-2026-001", "route_target": false}
+    {"alias": "6529NM-ACC-2026-001", "alias_type": "accession_record", "canonical_entity_id": "6529NM-CA-2026-001", "route_target": false},
+    {"alias": "6529NM.2026.002", "alias_type": "accession_lot", "canonical_entity_id": "6529NM-CA-2026-003", "route_target": true},
+    {"alias": "6529NM-ACC-2026-002", "alias_type": "accession_record", "canonical_entity_id": "6529NM-CA-2026-003", "route_target": false}
   ],
   "work_aliases": [
     {"alias": "6529NM.2026.001.01", "canonical_entity_id": "6529NM-W-0001", "alias_kind": "accession_object"},
@@ -89,7 +93,12 @@
     {"alias": "6529NM-PG-2026-001.OBJ-002", "canonical_entity_id": "6529NM-W-0025", "alias_kind": "proposal_candidate_object"},
     {"alias": "6529NM-PG-2026-001.OBJ-003", "canonical_entity_id": "6529NM-W-0026", "alias_kind": "proposal_candidate_object"},
     {"alias": "6529NM-PG-2026-001.OBJ-004", "canonical_entity_id": "6529NM-W-0027", "alias_kind": "proposal_candidate_object"},
-    {"alias": "6529NM-PG-2026-001.OBJ-005", "canonical_entity_id": "6529NM-W-0028", "alias_kind": "proposal_candidate_object"}
+    {"alias": "6529NM-PG-2026-001.OBJ-005", "canonical_entity_id": "6529NM-W-0028", "alias_kind": "proposal_candidate_object"},
+    {"alias": "6529NM.2026.002.01", "canonical_entity_id": "6529NM-W-0024", "alias_kind": "accession_object"},
+    {"alias": "6529NM.2026.002.02", "canonical_entity_id": "6529NM-W-0025", "alias_kind": "accession_object"},
+    {"alias": "6529NM.2026.002.03", "canonical_entity_id": "6529NM-W-0026", "alias_kind": "accession_object"},
+    {"alias": "6529NM.2026.002.04", "canonical_entity_id": "6529NM-W-0027", "alias_kind": "accession_object"},
+    {"alias": "6529NM.2026.002.05", "canonical_entity_id": "6529NM-W-0028", "alias_kind": "accession_object"}
   ],
   "typed_reference_registry": [
     {
@@ -243,7 +252,8 @@
       {"source_key": "keys-and-gates", "entity_id": "6529NM-AP-ENT-0002"}
     ],
     "ACCESSION": [
-      {"source_key": "6529NM.2026.001", "entity_id": "6529NM-ACC-ENT-0001"}
+      {"source_key": "6529NM.2026.001", "entity_id": "6529NM-ACC-ENT-0001"},
+      {"source_key": "6529NM.2026.002", "entity_id": "6529NM-ACC-ENT-0002"}
     ],
     "RESEARCH_PUBLICATION": [
       {"source_key": "the-system-in-seven-states", "entity_id": "6529NM-RP-0001"},
@@ -323,7 +333,12 @@
       {"source_key":"6529NM-W-0025:selected_by_museum_wave_acquisition_review_in_progress","entity_id":"6529NM-W-OBS-0030"},
       {"source_key":"6529NM-W-0026:selected_by_museum_wave_acquisition_review_in_progress","entity_id":"6529NM-W-OBS-0031"},
       {"source_key":"6529NM-W-0027:selected_by_museum_wave_acquisition_review_in_progress","entity_id":"6529NM-W-OBS-0032"},
-      {"source_key":"6529NM-W-0028:selected_by_museum_wave_acquisition_review_in_progress","entity_id":"6529NM-W-OBS-0033"}
+      {"source_key":"6529NM-W-0028:selected_by_museum_wave_acquisition_review_in_progress","entity_id":"6529NM-W-OBS-0033"},
+      {"source_key":"6529NM-W-0024:accessioned","entity_id":"6529NM-W-OBS-0034"},
+      {"source_key":"6529NM-W-0025:accessioned","entity_id":"6529NM-W-OBS-0035"},
+      {"source_key":"6529NM-W-0026:accessioned","entity_id":"6529NM-W-OBS-0036"},
+      {"source_key":"6529NM-W-0027:accessioned","entity_id":"6529NM-W-OBS-0037"},
+      {"source_key":"6529NM-W-0028:accessioned","entity_id":"6529NM-W-OBS-0038"}
     ]
   },
   "route_aliases": [
@@ -355,6 +370,11 @@
     {"legacy_route": "/museum/network/works/6529NM-PG-2026-001.OBJ-003", "canonical_route": "/museum/network/works/6529NM-W-0026", "canonical_entity_id": "6529NM-W-0026"},
     {"legacy_route": "/museum/network/works/6529NM-PG-2026-001.OBJ-004", "canonical_route": "/museum/network/works/6529NM-W-0027", "canonical_entity_id": "6529NM-W-0027"},
     {"legacy_route": "/museum/network/works/6529NM-PG-2026-001.OBJ-005", "canonical_route": "/museum/network/works/6529NM-W-0028", "canonical_entity_id": "6529NM-W-0028"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.002.01", "canonical_route": "/museum/network/works/6529NM-W-0024", "canonical_entity_id": "6529NM-W-0024"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.002.02", "canonical_route": "/museum/network/works/6529NM-W-0025", "canonical_entity_id": "6529NM-W-0025"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.002.03", "canonical_route": "/museum/network/works/6529NM-W-0026", "canonical_entity_id": "6529NM-W-0026"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.002.04", "canonical_route": "/museum/network/works/6529NM-W-0027", "canonical_entity_id": "6529NM-W-0027"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.002.05", "canonical_route": "/museum/network/works/6529NM-W-0028", "canonical_entity_id": "6529NM-W-0028"},
     {"legacy_route": "/museum/network/acquisition-programs/6529NM-AP-01", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates", "canonical_entity_id": "6529NM-AP-ENT-0002"},
     {"legacy_route": "/museum/network/programs/6529NM-AP-01", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates", "canonical_entity_id": "6529NM-AP-ENT-0002"}
   ],

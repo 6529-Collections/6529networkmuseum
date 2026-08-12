@@ -1,0 +1,1462 @@
+{
+  "assertions": {
+    "all_expected_transfer_receipts_successful": true,
+    "all_ownerOf_reads_match_museum": true,
+    "all_reads_share_one_finalized_block_hash": true,
+    "all_transfer_logs_match_donor_museum_contract_token_and_log_index": true,
+    "token_level_approvals_are_zero": true
+  },
+  "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+  "donor_address": "0x6daa633c23615a29471deafae351727867e7dad1",
+  "finalized_block": {
+    "hash": "0x8581c55db52accfd3750ec3af9972430fd4717f3486ac51bc7c1e0b00c335731",
+    "number": 25741809,
+    "timestamp": "2026-08-12T22:08:23Z"
+  },
+  "limitations": [
+    "This package proves the observed on-chain transfer and custody state only.",
+    "It does not itself prove the donor's legal authority, copyright transfer, or the terms of the gift instrument.",
+    "The exact transfer receipts are bound to the Museum accession package; the finalized block is the common state observation."
+  ],
+  "museum_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+  "network": "Ethereum mainnet",
+  "objects": [
+    {
+      "block_number": 25741708,
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-001",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "log_index": 696,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.002.01",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_id": 127,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0x606b583b10979190d122533d4d07421801c48e3fd37881bbb772b6c23223b4e6",
+      "transfer_block_timestamp": "2026-08-12T21:48:11Z",
+      "tx_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c"
+    },
+    {
+      "block_number": 25741724,
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-002",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "log_index": 229,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.002.02",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_id": 145,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0xd635b2e75469eba7fe79d691a6d5e5f5abb7741382652bdc0498227aa7c33cc0",
+      "transfer_block_timestamp": "2026-08-12T21:51:23Z",
+      "tx_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d"
+    },
+    {
+      "block_number": 25741718,
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-003",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "log_index": 430,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.002.03",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_id": 97,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0x006c30a6e3724ef21cd9c7a077c6bfff29f6ce20f881d81f2fadd80f11ce425e",
+      "transfer_block_timestamp": "2026-08-12T21:50:11Z",
+      "tx_hash": "0x0ff08ed5fb29cc8e83dd50191e1156615ad23d584e05c9d1803af39151ecb33d"
+    },
+    {
+      "block_number": 25741721,
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-004",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "log_index": 207,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.002.04",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_id": 44,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0x41af8155132ac8d9aaf281723191caaa688b0605a3c7bd0f54e804d96e75055d",
+      "transfer_block_timestamp": "2026-08-12T21:50:47Z",
+      "tx_hash": "0x9fbef477914c51b2d4e3ae13f791d36499a5ac0516e7ce13a0b40531bc833e74"
+    },
+    {
+      "block_number": 25741705,
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+      "candidate_object_id": "6529NM-PG-2026-001.OBJ-005",
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "log_index": 385,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.002.05",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "token_id": 104,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0x0f55c354edb97114b212545ed51f5aa90cd2cdf2e158f41b4431945a0348436a",
+      "transfer_block_timestamp": "2026-08-12T21:47:35Z",
+      "tx_hash": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07"
+    }
+  ],
+  "observed_at": "2026-08-12T22:24:36.387Z",
+  "raw_evidence": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/chain/sha256-f18dcb7d06f641f9c03604e0818408fbfcadbd5a3109aa5c6a9d90413a1c6310.json",
+      "request_sha256": "sha256:39bf6f857936a123751aeff7dc65271fdfff959c4d7805283b8c47b04f139036",
+      "request_size": 71,
+      "sha256": "sha256:f18dcb7d06f641f9c03604e0818408fbfcadbd5a3109aa5c6a9d90413a1c6310",
+      "size": 51,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 51,
+        "byte_sha256": "f18dcb7d06f641f9c03604e0818408fbfcadbd5a3109aa5c6a9d90413a1c6310",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 51,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:12.233Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ],
+              [
+                "content-length",
+                "51"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:12.233Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "content-length",
+            "51"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/finalized-block/sha256-c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418.json",
+      "request_sha256": "sha256:1df979126696483bd85f479768b191dc897adab2ade595aefb0155ceafaa4c89",
+      "request_size": 106,
+      "sha256": "sha256:c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418",
+      "size": 18628,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 18628,
+        "byte_sha256": "c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 18628,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:13.326Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:13.326Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/receipt-127/sha256-23fa872c96e95f1c97517f5b3de14497b32abbe6bf4c8ae99a90fbf6dc90741c.json",
+      "request_sha256": "sha256:c6e598c5cfc84f64f00972d6c11f005d9988c6dae58d06859befc7d8903ff61a",
+      "request_size": 167,
+      "sha256": "sha256:23fa872c96e95f1c97517f5b3de14497b32abbe6bf4c8ae99a90fbf6dc90741c",
+      "size": 2342,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 2342,
+        "byte_sha256": "23fa872c96e95f1c97517f5b3de14497b32abbe6bf4c8ae99a90fbf6dc90741c",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 2342,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:14.433Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:14.433Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/transfer-block-127/sha256-537f05375cc25965c7ee6c049594776b21b4cb4ce54be8bca7a0402f4de4de0e.json",
+      "request_sha256": "sha256:66c0a8c6899b241e5bb8fc5b52554a5aee24bafd7f9dcc455b71a4fa45e57b30",
+      "request_size": 106,
+      "sha256": "sha256:537f05375cc25965c7ee6c049594776b21b4cb4ce54be8bca7a0402f4de4de0e",
+      "size": 46462,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 46462,
+        "byte_sha256": "537f05375cc25965c7ee6c049594776b21b4cb4ce54be8bca7a0402f4de4de0e",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 46462,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:15.527Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:15.527Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner-127/sha256-048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d.json",
+      "request_sha256": "sha256:4cb4b77622570b191b5ae04de326049060292c24de117be5bec9c6b9f893a72c",
+      "request_size": 307,
+      "sha256": "sha256:048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:16.630Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:16.630Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval-127/sha256-6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf.json",
+      "request_sha256": "sha256:508dfc080a34727515710c0c2adc14f3cf1eabadef4914f3c4405feb17850b54",
+      "request_size": 307,
+      "sha256": "sha256:6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:17.726Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:17.726Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/receipt-145/sha256-f5672f6f02053939e33f0c5b9f17d6081ef09fad92762881f2abbc99d87cd0ea.json",
+      "request_sha256": "sha256:33f0f042caa60c3c50dadd62427ecd876fa8d47be88cfc48b1deb7f096e072f3",
+      "request_size": 167,
+      "sha256": "sha256:f5672f6f02053939e33f0c5b9f17d6081ef09fad92762881f2abbc99d87cd0ea",
+      "size": 2335,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 2335,
+        "byte_sha256": "f5672f6f02053939e33f0c5b9f17d6081ef09fad92762881f2abbc99d87cd0ea",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 2335,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:18.827Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:18.827Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/transfer-block-145/sha256-00528c04f651a5fa39207c2431cfc159a43692ff9612d1e4b7e9281fe9c624b9.json",
+      "request_sha256": "sha256:6fffa43f8edc3a6528ea284d5d8d3f3fa594cfc8433e6932f3e316f2e82cf4a7",
+      "request_size": 106,
+      "sha256": "sha256:00528c04f651a5fa39207c2431cfc159a43692ff9612d1e4b7e9281fe9c624b9",
+      "size": 39494,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 39494,
+        "byte_sha256": "00528c04f651a5fa39207c2431cfc159a43692ff9612d1e4b7e9281fe9c624b9",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 39494,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:19.936Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:19.936Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner-145/sha256-048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d.json",
+      "request_sha256": "sha256:10fbd3479ca1fe5c0e13b14ff0ae544a73b3594841652f36fd3f5476ff90d2d3",
+      "request_size": 307,
+      "sha256": "sha256:048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:21.027Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:21.027Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval-145/sha256-6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf.json",
+      "request_sha256": "sha256:97422c8286cdbc44158b6e36a48d3c0a139f4a9a29215152661c597da6a4e8cd",
+      "request_size": 307,
+      "sha256": "sha256:6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:22.129Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:22.129Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/receipt-97/sha256-98bba5aa8209103a0d796f1517380ee853617d256dad29c91204d19f24da9420.json",
+      "request_sha256": "sha256:5cebc15d6ba132fa412d607cb04b5f81c1ff91f104aa9a9be90c376409729416",
+      "request_size": 167,
+      "sha256": "sha256:98bba5aa8209103a0d796f1517380ee853617d256dad29c91204d19f24da9420",
+      "size": 2339,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 2339,
+        "byte_sha256": "98bba5aa8209103a0d796f1517380ee853617d256dad29c91204d19f24da9420",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 2339,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:23.232Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:23.232Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/transfer-block-97/sha256-66194da356223fa382b1c8ea878ff832bd5f9816ef692a959d36d9452aec595a.json",
+      "request_sha256": "sha256:344fcd083cc233f0961121b67fc054ae405f12479cf8996eb0eaf2544be3e0c9",
+      "request_size": 106,
+      "sha256": "sha256:66194da356223fa382b1c8ea878ff832bd5f9816ef692a959d36d9452aec595a",
+      "size": 62442,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 62442,
+        "byte_sha256": "66194da356223fa382b1c8ea878ff832bd5f9816ef692a959d36d9452aec595a",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 62442,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:24.331Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:24.331Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner-97/sha256-048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d.json",
+      "request_sha256": "sha256:0f2fc6870fb21fbdf881749d43af683257bb38de3fa6e7b5de45c942d13f2b90",
+      "request_size": 307,
+      "sha256": "sha256:048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:25.424Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:25.424Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval-97/sha256-6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf.json",
+      "request_sha256": "sha256:c132f3c40e929eb6bbdbe81eb0e265c85eb07bf9ebec6413939910f6bb274857",
+      "request_size": 307,
+      "sha256": "sha256:6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:26.520Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:26.520Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/receipt-44/sha256-7f51b72174f3426a89ca40181f9e8b43fc04fe3981e207d8901a1c73fdb6a97d.json",
+      "request_sha256": "sha256:829e2a2bc6c131a4d10876a1c25330c198b98c385e6b3dfbcf48ddeaad881461",
+      "request_size": 167,
+      "sha256": "sha256:7f51b72174f3426a89ca40181f9e8b43fc04fe3981e207d8901a1c73fdb6a97d",
+      "size": 2336,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 2336,
+        "byte_sha256": "7f51b72174f3426a89ca40181f9e8b43fc04fe3981e207d8901a1c73fdb6a97d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 2336,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:27.615Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:27.615Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/transfer-block-44/sha256-5c20252ef994d82fed14f9dc679162b03105592a053dce93f2cf677c44159dba.json",
+      "request_sha256": "sha256:eedba21b220fd4e3a3c2ed6c4d36cfd65d9d01d04d49b48ca9b6589b3a3c9de3",
+      "request_size": 106,
+      "sha256": "sha256:5c20252ef994d82fed14f9dc679162b03105592a053dce93f2cf677c44159dba",
+      "size": 18037,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 18037,
+        "byte_sha256": "5c20252ef994d82fed14f9dc679162b03105592a053dce93f2cf677c44159dba",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 18037,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:28.709Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:28.709Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner-44/sha256-048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d.json",
+      "request_sha256": "sha256:30c4f735e5694ada56b0c0683ae72f92e97929022c46244f046beda46358b0a2",
+      "request_size": 307,
+      "sha256": "sha256:048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:29.814Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:29.814Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval-44/sha256-6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf.json",
+      "request_sha256": "sha256:576c3d686d993dc21f90fbdc84c23bb12ebcb571558508007c41cc5fd810dece",
+      "request_size": 307,
+      "sha256": "sha256:6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:30.916Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:30.916Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/receipt-104/sha256-7143e617a7744480151ee5c684fab94efaa62ad57baedc36fcb35f8eb77c3f0f.json",
+      "request_sha256": "sha256:0557d802ff0b04392f2833031e537615f56fb2263c8ac67844bd1c4bbd9ff4a0",
+      "request_size": 167,
+      "sha256": "sha256:7143e617a7744480151ee5c684fab94efaa62ad57baedc36fcb35f8eb77c3f0f",
+      "size": 2339,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 2339,
+        "byte_sha256": "7143e617a7744480151ee5c684fab94efaa62ad57baedc36fcb35f8eb77c3f0f",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 2339,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:32.020Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:32.020Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/transfer-block-104/sha256-e9b9d0eec485f68f9735976b896418b3458b22e2071f369b1e536e9abaaf6e16.json",
+      "request_sha256": "sha256:6b0584d639ba852112ca2879cb01e91185dc30e8d6fcdeba280b7447dbbf616f",
+      "request_size": 106,
+      "sha256": "sha256:e9b9d0eec485f68f9735976b896418b3458b22e2071f369b1e536e9abaaf6e16",
+      "size": 12832,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 12832,
+        "byte_sha256": "e9b9d0eec485f68f9735976b896418b3458b22e2071f369b1e536e9abaaf6e16",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 12832,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:33.104Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:33.104Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner-104/sha256-048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d.json",
+      "request_sha256": "sha256:5c72fa1b3e67487c110636190b83432c3972c8692f433a45412087be76019bb0",
+      "request_size": 307,
+      "sha256": "sha256:048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "048b007d0ea81f0c51c3e94cb5c5101a0d8adff312504827bbabdaa572338d9d",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:34.208Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:34.208Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval-104/sha256-6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf.json",
+      "request_sha256": "sha256:d17531bfa386f696ed82afcef38736b5adb1acdd227065c6f0dc969573c802b8",
+      "request_size": 307,
+      "sha256": "sha256:6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 111,
+        "byte_sha256": "6c2f01b523ea2a986a0961d415a505896eada205dfcec1fe304b9b6ec31fedaf",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 111,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:35.306Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:35.306Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/finalized-block-after/sha256-c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418.json",
+      "request_sha256": "sha256:1df979126696483bd85f479768b191dc897adab2ade595aefb0155ceafaa4c89",
+      "request_size": 106,
+      "sha256": "sha256:c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418",
+      "size": 18628,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "byte_length": 18628,
+        "byte_sha256": "c2cb84c58f0370a80e22540edb73d2c0cec68b5262791227f5354a5a10e6e418",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 18628,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-08-12T22:24:36.385Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-12T22:24:36.385Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200,
+        "url": "https://eth-mainnet.public.blastapi.io"
+      }
+    }
+  ],
+  "record_id": "6529NM.2026.002.CUSTODY-EVIDENCE-01",
+  "record_type": "MAGNUM_75_CUSTODY_OBSERVATION",
+  "rpc_endpoint": "https://eth-mainnet.public.blastapi.io",
+  "state_selector": {
+    "blockHash": "0x8581c55db52accfd3750ec3af9972430fd4717f3486ac51bc7c1e0b00c335731",
+    "requireCanonical": true
+  }
+}

@@ -714,7 +714,8 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(label=label):
                 record = json.loads(source.read_text(encoding="utf-8"))
                 mutate(record)
-                record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
+                if isinstance(record["record_control"].get("review"), dict):
+                    record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
                 path.write_text(json.dumps(record), encoding="utf-8")
                 with patch.object(bootstrap_validate, "ROOT", root), patch.object(bootstrap_validate, "fail", side_effect=raise_failure):
                     with self.assertRaisesRegex(ValueError, expected):

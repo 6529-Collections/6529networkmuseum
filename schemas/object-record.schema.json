@@ -12,11 +12,20 @@
     "sourceHeads": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["casey_research_head", "control_plane_head"],
       "properties": {
         "casey_research_head": {"$ref": "#/$defs/commit"},
-        "control_plane_head": {"$ref": "#/$defs/commit"}
-      }
+        "control_plane_head": {"$ref": "#/$defs/commit"},
+        "source_record_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}
+        }
+      },
+      "oneOf": [
+        {"required": ["casey_research_head", "control_plane_head"]},
+        {"required": ["source_record_ids"]}
+      ]
     },
     "artist": {
       "type": "object",
@@ -231,10 +240,10 @@
       "properties": {
         "token": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
         "metadata": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
-        "script": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
-        "dependencies": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "script": {"type": "string", "enum": ["green", "amber", "red", "not_assessed", "not_applicable"]},
+        "dependencies": {"type": "string", "enum": ["green", "amber", "red", "not_assessed", "not_applicable"]},
         "rendering": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
-        "behavior": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
+        "behavior": {"type": "string", "enum": ["green", "amber", "red", "not_assessed", "not_applicable"]},
         "documentation": {"type": "string", "enum": ["green", "amber", "red", "not_assessed"]},
         "protocol_state": {"type": "string", "minLength": 1},
         "method": {"type": "string", "minLength": 1},

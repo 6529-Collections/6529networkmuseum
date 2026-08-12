@@ -38,7 +38,7 @@ from migrate_public_entities import (  # noqa: E402
     verify_evidence_paths,
 )
 
-TEST_REVIEWED_AT = "2026-08-12T08:00:00Z"
+TEST_REVIEWED_AT = "2026-08-13T00:00:00Z"
 TEST_REVIEWED_COMMIT = "a" * 40
 TEST_REVIEWED_MANIFEST_SHA256 = "sha256:" + "b" * 64
 TEST_REVIEWED_MANIFEST_KECCAK = "0x" + "c" * 64
@@ -256,7 +256,7 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_exact_projection_counts_and_profile_counts(self) -> None:
         counts = Counter(payload["record_type"] for payload in self.payloads())
-        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 127, "PUBLIC_RELATION": 212, "WAVE_STATUS_OBSERVATION": 1}))
+        self.assertEqual(counts, Counter({"PUBLIC_ENTITY": 128, "PUBLIC_RELATION": 222, "WAVE_STATUS_OBSERVATION": 1}))
         entities = self.entities()
         self.assertEqual(sum(payload["entity_type"] == "ARTIST" for payload in entities.values()), 21)
         self.assertEqual(sum(payload["entity_type"] == "ORGANIZATION" for payload in entities.values()), 2)
@@ -266,7 +266,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(sum(payload["entity_type"] == "MEDIA_REFERENCE" for payload in entities.values()), 38)
         self.assertEqual(sum(payload["entity_type"] == "ACQUISITION_PROGRAM" for payload in entities.values()), 2)
         self.assertEqual(sum(payload["entity_type"] == "RESEARCH_PUBLICATION" for payload in entities.values()), 3)
-        self.assertEqual(len(self.relations()), 212)
+        self.assertEqual(len(self.relations()), 222)
         sample = next(iter(entities.values()))
         self.assertEqual(sample["reviewer"]["reviewed_at"], TEST_REVIEWED_AT)
         self.assertEqual(sample["reviewer"]["reviewed_commit"], TEST_REVIEWED_COMMIT)
@@ -295,7 +295,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         relation_bindings = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["relation_bindings"]
         relation_ids = [row["relation_id"] for row in relation_bindings]
         self.assertEqual(relation_ids[:158], [f"6529NM-REL-{index:04d}" for index in range(1, 159)])
-        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 219)])
+        self.assertEqual(relation_ids[158:], [f"6529NM-REL-{index:04d}" for index in range(165, 229)])
         retired = load_json(ROOT / "schemas/public-relation-identity-inventory.json")["retired_relation_ids"]
         self.assertEqual([row["relation_id"] for row in retired], [f"6529NM-REL-{index:04d}" for index in range(159, 165)])
         self.assertEqual(retired[0]["superseded_by"], "6529NM-REL-0047")
@@ -622,7 +622,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         )
         self.assertNotEqual(entities["6529NM-PRJ-0006"]["entity_id"], "6529NM-CA-2026-003")
         self.assertTrue(all(work["profile"]["project_or_series_entity_ids"] == ["6529NM-PRJ-0006"] for work in (entities[f"6529NM-W-{index:04d}"] for index in range(24, 29))))
-        self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "not_in_collection" for relation in project_relations))
+        self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "permanent_collection" for relation in project_relations))
 
     def test_every_work_has_typed_media_and_no_media_reuse(self) -> None:
         entities = self.entities()
@@ -735,8 +735,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         )["payload"]
         corrections = amendment["presentation_corrections"]
 
-        self.assertEqual(len(entities), 127)
-        self.assertEqual(len(relations), 212)
+        self.assertEqual(len(entities), 128)
+        self.assertEqual(len(relations), 222)
         self.assertEqual(
             len([entity for entity in entities.values() if entity["entity_type"] == "MEDIA_REFERENCE"]),
             38,
@@ -832,18 +832,23 @@ class PublicEntityLayerTests(unittest.TestCase):
             mutated["payload"]["presentation_corrections"][0][surface]["allowed_ui_affordances"].append("unsafe_unknown_affordance")
             self.assertTrue(self.local_schema_issues(mutated["payload"], schema_path), surface)
 
-    def test_collection_membership_remains_exactly_casey_seven(self) -> None:
+    def test_collection_membership_is_exactly_the_two_completed_accessions(self) -> None:
         entities = self.entities()
         relations = self.relations()
         collection_relations = [relation for relation in relations if relation["relation_type"] == "COLLECTION_CONTAINS_WORK"]
         accession_relations = [relation for relation in relations if relation["relation_type"] == "ACCESSION_ADMITS_WORK"]
-        self.assertEqual(len(collection_relations), 7)
-        self.assertEqual(len(accession_relations), 7)
-        self.assertEqual({relation["target_entity_id"] for relation in collection_relations}, {f"6529NM-W-{index:04d}" for index in range(1, 8)})
+        expected = {
+            *{f"6529NM-W-{index:04d}" for index in range(1, 8)},
+            *{f"6529NM-W-{index:04d}" for index in range(24, 29)},
+        }
+        self.assertEqual(len(collection_relations), 12)
+        self.assertEqual(len(accession_relations), 12)
+        self.assertEqual({relation["target_entity_id"] for relation in collection_relations}, expected)
         self.assertTrue(all(entities[relation["target_entity_id"]]["profile"]["collection_membership"]["status"] == "permanent_collection" for relation in collection_relations))
         permanent_work_ids = {entity_id for entity_id, payload in entities.items() if payload["entity_type"] == "WORK" and payload["profile"]["collection_membership"]["status"] == "permanent_collection"}
         self.assertEqual(permanent_work_ids, {relation["target_entity_id"] for relation in accession_relations})
-        self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["collection_membership"]["status"] == "not_in_collection" for index in range(24, 29)))
+        self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["collection_membership"]["status"] == "permanent_collection" for index in range(24, 29)))
+        self.assertTrue(all(entities[f"6529NM-W-{index:04d}"]["profile"]["collection_membership"]["status"] == "not_in_collection" for index in range(8, 24)))
 
     def test_membership_relation_lists_and_reverse_fields_fail_closed(self) -> None:
         mutations = (
@@ -887,33 +892,30 @@ class PublicEntityLayerTests(unittest.TestCase):
         membership_work["profile"]["collection_membership"]["collection_entity_id"] = "6529NM-C-9999"
         self.assertTrue(any("Work collection_entity_id must equal" in issue for issue in self.graph_issues(membership_source)))
 
-    def test_magnum_mint_and_acquisition_mint_are_chain_verified_but_not_museum_acquisition(self) -> None:
+    def test_magnum_mint_is_chain_verified_independently_of_completed_accession(self) -> None:
         entities = self.entities()
         for index in range(24, 29):
             work = entities[f"6529NM-W-{index:04d}"]["profile"]
             self.assertEqual(work["mint_fact"]["status"], "verified")
             self.assertEqual(work["mint_fact"]["evidence_refs"][0]["evidence_class"], "A")
-            self.assertEqual(
-                work["mint_fact"]["evidence_refs"][0]["uri"],
-                "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
-            )
-            self.assertEqual(work["collection_membership"]["status"], "not_in_collection")
-            self.assertEqual(work["accession_entity_ids"], [])
+            self.assertTrue(work["mint_fact"]["evidence_refs"][0]["uri"].endswith("evidence/magnum-75-custody/summary.json"))
+            self.assertIn("independently of title, custody, rights, and accession", work["mint_fact"]["notes"])
+            self.assertEqual(work["collection_membership"]["status"], "permanent_collection")
+            self.assertEqual(work["accession_entity_ids"], ["6529NM-ACC-ENT-0002"])
         ca3 = entities["6529NM-CA-2026-003"]["profile"]
         self.assertEqual(ca3["independent_acquisition_facts"]["mint"]["status"], "verified")
         self.assertEqual(ca3["independent_acquisition_facts"]["mint"]["evidence_refs"][0]["evidence_class"], "A")
-        self.assertIn("existing external ERC-721 token manifestation only", ca3["independent_acquisition_facts"]["mint"]["notes"])
-        self.assertIn("does not establish Museum acquisition", ca3["independent_acquisition_facts"]["mint"]["notes"])
+        self.assertIn("independently of title, custody, rights, and accession", ca3["independent_acquisition_facts"]["mint"]["notes"])
 
     def test_conflict_downstream_accession_facts_follow_wave_selection(self) -> None:
         entities = self.entities()
         ca3 = entities["6529NM-CA-2026-003"]["profile"]
-        selection_at = ca3["lifecycle"]["as_of"]
+        selection_at = ca3["lifecycle_observations"][1]["observed_at"]
         for fact_name in ("rights", "technical", "display"):
             accession_fact = ca3["independent_acquisition_facts"][fact_name]
             self.assertEqual(accession_fact["status"], "verified_with_conditions")
             self.assertGreater(accession_fact["as_of"], selection_at)
-            self.assertIn("Downstream accession", accession_fact["notes"])
+            self.assertTrue(accession_fact["notes"])
         for media_id in ("6529NM-MED-0003", "6529NM-MED-0041", "6529NM-MED-0042", "6529NM-MED-0043", "6529NM-MED-0044"):
             media = entities[media_id]
             self.assertGreater(media["effective_at"], selection_at)
@@ -1105,7 +1107,7 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_review_pending_candidate_state_is_not_archived_and_cannot_be_final(self) -> None:
         candidate = build_records()
         candidate_entities = [record["payload"] for record in candidate.values() if record["payload"].get("record_type") == "PUBLIC_ENTITY"]
-        self.assertEqual(len(candidate_entities), 127)
+        self.assertEqual(len(candidate_entities), 128)
         self.assertTrue(all(payload["entity_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["record_status"] == "review_pending" for payload in candidate_entities))
         self.assertTrue(all(payload["reviewer"] is None for payload in candidate_entities))
@@ -1119,11 +1121,11 @@ class PublicEntityLayerTests(unittest.TestCase):
 
     def test_control_plane_projection_totals_and_presentation_states_are_current(self) -> None:
         control_plane = (ROOT / "docs/control-plane.md").read_text(encoding="utf-8")
-        self.assertIn("127 `PUBLIC_ENTITY` records, 212 closed", control_plane)
-        self.assertIn("(340 generated records in total)", control_plane)
+        self.assertIn("128 `PUBLIC_ENTITY` records, 222 closed", control_plane)
+        self.assertIn("(351 generated records in total)", control_plane)
         self.assertIn("all 7 Casey Works have an official visual still", control_plane)
-        self.assertIn("16 Keys and Gates and 5 signed-Wave", control_plane)
-        self.assertIn("remain structurally metadata-only", control_plane)
+        self.assertIn("12 permanent Collection memberships", control_plane)
+        self.assertIn("five accessioned Magnum", control_plane)
         self.assertNotIn("120 `PUBLIC_ENTITY` records, 205 closed", control_plane)
         self.assertNotIn("(326 generated records in total)", control_plane)
 
@@ -1194,9 +1196,9 @@ class PublicEntityLayerTests(unittest.TestCase):
             for observation in work["profile"]["lifecycle_observations"]
         }
         expected = {row["entity_id"] for row in self.inventory["identity_bindings"]["WORK_LIFECYCLE_OBSERVATION"]}
-        self.assertEqual(len(observations), 33)
+        self.assertEqual(len(observations), 38)
         self.assertEqual(set(observations), expected)
-        self.assertEqual(len(set(observations)), 33)
+        self.assertEqual(len(set(observations)), 38)
         for observation_id, work_id in observations.items():
             self.assertIn(work_id, self.entities())
 
@@ -1215,7 +1217,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         expected_static = {
             "INSTITUTION": {"6529NM-I-0001"},
             "COLLECTION": {"6529NM-C-0001"},
-            "ACCESSION": {"6529NM-ACC-ENT-0001"},
+            "ACCESSION": {"6529NM-ACC-ENT-0001", "6529NM-ACC-ENT-0002"},
             "RESEARCH_PUBLICATION": {"6529NM-RP-0001", "6529NM-RP-0002", "6529NM-RP-0003"},
         }
         indexes = identity_binding_indexes(self.inventory)
@@ -1349,19 +1351,19 @@ class PublicEntityLayerTests(unittest.TestCase):
     def test_winner_observation_and_append_only_lifecycle_are_exact(self) -> None:
         entities = self.entities()
         ca = entities["6529NM-CA-2026-003"]["profile"]
-        self.assertEqual(ca["lifecycle"]["status"], "selected_by_museum_wave_acquisition_review_in_progress")
-        self.assertEqual([item["source_status"] for item in ca["lifecycle_observations"]], ["PARTICIPATORY", "WINNER"])
-        self.assertEqual(ca["lifecycle_observations"][-1]["observed_at"], WINNER_AT)
-        self.assertIn(WINNER_OBSERVATION_ID, ca["lifecycle_observations"][-1]["source_record_ids"])
-        self.assertIn(migration.WINNER_SOURCE_URL, json.dumps(ca["lifecycle_observations"][-1]))
-        self.assertEqual(ca["collection_effect"], "none")
+        self.assertEqual(ca["lifecycle"]["status"], "accessioned_into_permanent_collection")
+        self.assertEqual([item["source_status"] for item in ca["lifecycle_observations"]], ["PARTICIPATORY", "WINNER", "accessioned"])
+        self.assertEqual(ca["lifecycle_observations"][1]["observed_at"], WINNER_AT)
+        self.assertIn(WINNER_OBSERVATION_ID, ca["lifecycle_observations"][1]["source_record_ids"])
+        self.assertIn(migration.WINNER_SOURCE_URL, json.dumps(ca["lifecycle_observations"][1]))
+        self.assertEqual(ca["collection_effect"], "permanent_collection")
         for index in range(24, 29):
             profile = entities[f"6529NM-W-{index:04d}"]["profile"]
-            self.assertEqual(profile["work_lifecycle_status"], "selected_by_museum_wave_acquisition_review_in_progress")
-            self.assertEqual(profile["current_museum_relation"]["relation_status"], "selected_by_museum_wave")
-            self.assertEqual(profile["collection_membership"]["status"], "not_in_collection")
-            self.assertEqual([item["source_status"] for item in profile["lifecycle_observations"]], ["PARTICIPATORY", "WINNER"])
-            self.assertIn(WINNER_OBSERVATION_ID, profile["lifecycle_observations"][-1]["source_record_ids"])
+            self.assertEqual(profile["work_lifecycle_status"], "accessioned")
+            self.assertEqual(profile["current_museum_relation"]["relation_status"], "permanent_collection")
+            self.assertEqual(profile["collection_membership"]["status"], "permanent_collection")
+            self.assertEqual([item["source_status"] for item in profile["lifecycle_observations"]], ["PARTICIPATORY", "WINNER", "accessioned"])
+            self.assertIn(WINNER_OBSERVATION_ID, profile["lifecycle_observations"][1]["source_record_ids"])
         observation = next(payload for payload in self.payloads() if payload.get("record_type") == "WAVE_STATUS_OBSERVATION")
         self.assertEqual(observation["observation_id"], WINNER_OBSERVATION_ID)
         self.assertEqual(observation["serial_no"], 1276093)
@@ -1375,7 +1377,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(observation["prior_observation"]["source_repository_visibility"], "complete_manifest_only")
 
         missing_acquisition_binding = copy.deepcopy(entities["6529NM-CA-2026-003"])
-        missing_acquisition_binding["profile"]["lifecycle_observations"][-1]["source_record_ids"].remove(WINNER_OBSERVATION_ID)
+        missing_acquisition_binding["profile"]["lifecycle_observations"][1]["source_record_ids"].remove(WINNER_OBSERVATION_ID)
+        missing_acquisition_binding["references"].remove(WINNER_OBSERVATION_ID)
         self.assertTrue(
             any(
                 "requires a governed WINNER observation record ID" in issue
@@ -1384,7 +1387,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         )
 
         missing_work_binding = copy.deepcopy(entities["6529NM-W-0024"])
-        missing_work_binding["profile"]["lifecycle_observations"][-1]["source_record_ids"].remove(WINNER_OBSERVATION_ID)
+        missing_work_binding["profile"]["lifecycle_observations"][1]["source_record_ids"].remove(WINNER_OBSERVATION_ID)
         self.assertTrue(
             any(
                 "requires a governed WINNER observation record ID" in issue
@@ -1398,7 +1401,7 @@ class PublicEntityLayerTests(unittest.TestCase):
             for record in unresolved_binding.values()
             if record["payload"].get("entity_id") == "6529NM-CA-2026-003"
         )
-        acquisition["profile"]["lifecycle_observations"][-1]["source_record_ids"][-1] = (
+        acquisition["profile"]["lifecycle_observations"][1]["source_record_ids"][-1] = (
             "6529NM-WAVE-OBS-2026-08-08-999"
         )
         self.assertTrue(

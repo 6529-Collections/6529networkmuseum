@@ -24,8 +24,8 @@ RELATIONS_DIR = ROOT / "records" / "relations"
 VOCAB_PATH = ROOT / "schemas" / "controlled-vocabularies.json"
 IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-entity-identity-inventory.json"
 RELATION_IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-relation-identity-inventory.json"
-CONSTRUCTOR_ID = "codex-task:magnum-accession-media-continuity-2026-08-12"
-GENERATED_AT = "2026-08-12T07:37:56Z"
+CONSTRUCTOR_ID = "codex-task:magnum-completed-accession-correction-2026-08-12"
+GENERATED_AT = "2026-08-12T23:15:00Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
 CASEY_MEDIA_AT = "2026-08-09T23:04:32Z"
 KEYS_AT = "2026-08-01T15:03:35Z"
@@ -38,7 +38,12 @@ KEYS_MEDIA_DISPLAY_AUTHORITY_PATH = "records/programs/6529NM-AP-01/public/media-
 KEYS_ACCESSIBILITY_REVIEW_AT = "2026-08-11T22:44:52.647Z"
 KEYS_ACCESSIBILITY_REVIEW_PATH = "records/programs/6529NM-AP-01/public/accessibility-review-2026-08-11.md"
 PROPOSAL_AT = "2026-08-06T13:19:30.726Z"
-MAGNUM_CHAIN_AT = "2026-08-05T17:46:53.817Z"
+MAGNUM_CHAIN_AT = "2026-08-12T22:24:36.387Z"
+MAGNUM_CUSTODY_EVIDENCE_PATH = "evidence/magnum-75-custody/summary.json"
+MAGNUM_ACCESSION_LOT = "6529NM.2026.002"
+MAGNUM_ACCESSION_CERTIFICATE_ID = "6529NM-ACC-2026-002"
+MAGNUM_ACCESSION_CERTIFICATE_PATH = "records/accessions/6529NM.2026.002/accession-certificate.json"
+MAGNUM_GAA_ID = "6529NM.2026.002.GAA-01"
 WINNER_AT = "2026-08-08T10:15:02.0167151Z"
 DIRECT_VISUAL_AT = "2026-08-08T14:25:44Z"
 WINNER_OBSERVATION_ID = "6529NM-WAVE-OBS-2026-08-08-001"
@@ -54,7 +59,7 @@ MAGNUM_SCHOLARSHIP_ROOT = "records/proposed-gifts/6529NM-PG-2026-001/public/scho
 MAGNUM_PUBLICATION_RECORD_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/publication-record.md"
 MAGNUM_PRESENTATION_AUTHORITY_ID = "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
 MAGNUM_PRESENTATION_AUTHORITY_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/dossiers/public-presentation.md"
-MAGNUM_ACCESSION_STATUS_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+MAGNUM_ACCESSION_STATUS_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
 MAGNUM_MEDIA_CONTINUITY_AT = "2026-08-12T07:37:56.984246Z"
 MAGNUM_MEDIA_CONTINUITY_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
 MAGNUM_MEDIA_CONTINUITY_ID = "6529NM-MEDIA-CONT-AMD-2026-08-12-001"
@@ -298,12 +303,14 @@ def source_repository_path(source: str) -> str:
         return source
     if re.fullmatch(r"6529NM\.2026\.001\.\d{2}", source):
         return f"records/accessions/6529NM.2026.001/objects/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.001\.RIGHTS\.\d{2}", source)
+    if re.fullmatch(r"6529NM\.2026\.002\.\d{2}", source):
+        return f"records/accessions/6529NM.2026.002/objects/{source}.json"
+    match = re.fullmatch(r"6529NM\.2026\.(001|002)\.RIGHTS\.(\d{2})", source)
     if match:
-        return f"records/accessions/6529NM.2026.001/rights/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.001\.COND\.(\d{2})", source)
+        return f"records/accessions/6529NM.2026.{match.group(1)}/rights/{source}.json"
+    match = re.fullmatch(r"6529NM\.2026\.(001|002)\.COND\.(\d{2})", source)
     if match:
-        return f"records/accessions/6529NM.2026.001/technical/6529NM.2026.001.{match.group(1)}.json"
+        return f"records/accessions/6529NM.2026.{match.group(1)}/technical/6529NM.2026.{match.group(1)}.{match.group(2)}.json"
     if source == "6529NM.2026.001":
         return "records/accessions/6529NM.2026.001/accession-statement.json"
     if source == "6529NM-ACC-2026-001":
@@ -312,6 +319,12 @@ def source_repository_path(source: str) -> str:
         return "records/accessions/6529NM.2026.001/visual-observation-record.json"
     if source == "6529NM.2026.001.DILIGENCE-01":
         return "records/accessions/6529NM.2026.001/post-accession-diligence.json"
+    if source == MAGNUM_ACCESSION_LOT:
+        return "records/accessions/6529NM.2026.002/accession-statement.json"
+    if source == MAGNUM_ACCESSION_CERTIFICATE_ID:
+        return MAGNUM_ACCESSION_CERTIFICATE_PATH
+    if source == MAGNUM_GAA_ID:
+        return "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
     if source == WINNER_OBSERVATION_ID:
         return WINNER_SOURCE_PATH
     if source == WAVE_PUBLICATION_OBSERVATION_ID:
@@ -372,7 +385,7 @@ def source_record_evidence_class(source: str) -> str:
         repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/accessions/"))
         or source_text.startswith("https://6529.io/")
         or re.fullmatch(r"6529NM-(?:GOV|AP|AP-01-OUT|PG|ACC|CA|WAVE|REL|MED|ORG|ART|AGT|PRJ|W)-[A-Za-z0-9.-]+", source)
-        or re.fullmatch(r"6529NM\.2026\.001(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
+        or re.fullmatch(r"6529NM\.2026\.(?:001|002)(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
     ):
         return "B"
     raise ValueError(f"unclassified evidence source family: source={source!r}")
@@ -847,6 +860,7 @@ def build_records(
     project_names = ["CENTURY", "Pre-Process", "Phototaxis", "923 EMPTY ROOMS", "Ex Nihilo (Cosmos)"]
     projects = {name: fixed_id("PROJECT_OR_SERIES", f"casey-project:{name}") for name in project_names}
     accession = fixed_id("ACCESSION", "6529NM.2026.001")
+    magnum_accession = fixed_id("ACCESSION", MAGNUM_ACCESSION_LOT)
     publication = fixed_id("RESEARCH_PUBLICATION", "the-system-in-seven-states")
     keys_publication = fixed_id("RESEARCH_PUBLICATION", "access-control-and-exit")
     magnum_publication = fixed_id("RESEARCH_PUBLICATION", "conflict-at-its-edges")
@@ -873,7 +887,12 @@ def build_records(
         for obj in casey_objects
     }
     casey_still_media_ids = [casey_still_media_ids_by_object[obj["record_id"]] for obj in casey_objects]
-    accession_refs = ["6529NM.2026.001", "6529NM-ACC-2026-001"]
+    accession_refs = [
+        "6529NM.2026.001",
+        "6529NM-ACC-2026-001",
+        MAGNUM_ACCESSION_LOT,
+        MAGNUM_ACCESSION_CERTIFICATE_ID,
+    ]
     institution_refs = ["6529NM-GOV-1052156", "6529NM-GOV-1052812"]
     add_entity(institution, "INSTITUTION", "6529 Network Museum", None, "/museum/network", CASEY_AT, {
         "profile_type": "INSTITUTION", "institution_kind": "network_museum", "mission": "A public, evidence-led museum for network-native art and its long-term care.",
@@ -881,9 +900,9 @@ def build_records(
         "name_variants": names("6529 Network Museum", "museum_record", institution_refs), "collection_entity_id": collection,
     }, institution_refs, [source_evidence("Museum governance source", "6529NM-GOV-1052156", CASEY_AT)])
     add_entity(collection, "COLLECTION", "6529 Network Museum permanent Collection", None, "/museum/network/collection", CASEY_AT, {
-        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": casey_work_ids,
-        "evidence_refs": [source_evidence("Casey accession register", "6529NM.2026.001", CASEY_AT)],
-    }, [institution, *accession_refs], [source_evidence("Accession-only membership rule", "6529NM.2026.001", CASEY_AT)])
+        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": [*casey_work_ids, "6529NM-W-0024", "6529NM-W-0025", "6529NM-W-0026", "6529NM-W-0027", "6529NM-W-0028"],
+        "evidence_refs": [source_evidence("Casey accession register", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)],
+    }, [institution, *accession_refs], [source_evidence("Accession-only membership rule", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
     add_entity(casey_agent, "AGENT", "Casey REAS", "casey-reas-agent", "/museum/network/agents/casey-reas-agent", CASEY_AT, {
         "profile_type": "AGENT", "agent_kind": "PERSON", "authority": {"authority_status": "established", "authority_record_ids": [], "evidence_refs": [source_evidence("Casey object records", object_paths[0].relative_to(ROOT).as_posix(), CASEY_AT)]},
         "name_variants": names("Casey REAS", "artist_statement", ["6529NM.2026.001.01"]), "role_contexts": ["artist", "creator", "donated-work subject"],
@@ -1017,6 +1036,9 @@ def build_records(
     }
     magnum_media_ids = [magnum_media_ids_by_candidate[candidate_id] for candidate_id in magnum_work_source_ids]
     first_magnum_candidate = magnum_work_source_ids[0]
+    add_entity(magnum_accession, "ACCESSION", "Conflict at Its Edges accession 6529NM.2026.002", None, None, MAGNUM_CHAIN_AT, {
+        "profile_type": "ACCESSION", "accession_number": MAGNUM_ACCESSION_LOT, "accession_status": "complete", "admitted_work_entity_ids": magnum_works, "source_accession_record_id": MAGNUM_ACCESSION_CERTIFICATE_ID, "evidence_refs": [evidence("Finalized Magnum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)],
+    }, [MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_GAA_ID, *magnum_works], [evidence("Finalized Magnum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
     media_wave = magnum_media_ids_by_candidate[first_magnum_candidate]
     magnum_artist_publications = {
         "6529NM-PG-2026-001.OBJ-001": {
@@ -1145,6 +1167,174 @@ def build_records(
         "Selected by the Museum Wave; accession processing in progress"
     )
     records[conflict_path] = finish(conflict_payload, conflict_path)
+
+    # Append the completed-accession observation without rewriting the proposal
+    # and selection observations that established the earlier lifecycle states.
+    for index, candidate_id in enumerate(magnum_work_source_ids, start=1):
+        work_id = magnum_work_ids_by_candidate[candidate_id]
+        object_id = f"{MAGNUM_ACCESSION_LOT}.{index:02d}"
+        rights_id = f"{MAGNUM_ACCESSION_LOT}.RIGHTS.{index:02d}"
+        condition_id = f"{MAGNUM_ACCESSION_LOT}.COND.{index:02d}"
+        relative = f"records/entities/{work_id}.json"
+        payload = records[relative]["payload"]
+        profile = payload["profile"]
+        completion_evidence = [
+            evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"),
+            source_evidence("Accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT),
+            source_evidence("Accession object record", object_id, MAGNUM_CHAIN_AT),
+        ]
+        profile["work_lifecycle_status"] = "accessioned"
+        profile["current_museum_relation"] = {
+            "museum_entity_id": institution,
+            "relation_status": "permanent_collection",
+            "as_of": MAGNUM_CHAIN_AT,
+            "evidence_refs": completion_evidence,
+        }
+        profile["collection_membership"] = {
+            "status": "permanent_collection",
+            "collection_entity_id": collection,
+            "accession_entity_ids": [magnum_accession],
+            "source_record_ids": [MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID, object_id],
+            "evidence_refs": completion_evidence,
+        }
+        profile["accession_entity_ids"] = [magnum_accession]
+        profile["component_references"] = [
+            authoritative_typed_reference(
+                "component",
+                object_id,
+                "WORK_DESCRIPTION",
+                [source_evidence("Accession object record", object_id, MAGNUM_CHAIN_AT)],
+                source_status="verified",
+            )
+        ]
+        profile["lifecycle_observations"].append(
+            lifecycle_observation(
+                fixed_observation_id(work_id, "accessioned"),
+                "accessioned",
+                "accessioned",
+                MAGNUM_CHAIN_AT,
+                [MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID, object_id],
+                "The completed gift admits the Work to the Museum's permanent Collection. Title, custody, rights, technical condition, preservation, and display remain separately documented facts.",
+                completion_evidence,
+            )
+        )
+        profile["identity_boundary"] = (
+            "Work identity remains independent of the Curated Acquisition, accession lot, "
+            "token manifestation, title, custody, rights, and public route."
+        )
+        profile["evidence_refs"] = list({
+            json.dumps(item, sort_keys=True): item
+            for item in [*profile["evidence_refs"], *completion_evidence]
+        }.values())
+        payload["effective_at"] = MAGNUM_CHAIN_AT
+        payload["observed_at"] = MAGNUM_CHAIN_AT
+        payload["status_observation"]["observed_at"] = MAGNUM_CHAIN_AT
+        payload["status_observation"]["evidence_refs"] = completion_evidence
+        payload["references"] = sorted(set([
+            *payload["references"],
+            magnum_accession,
+            MAGNUM_ACCESSION_LOT,
+            MAGNUM_ACCESSION_CERTIFICATE_ID,
+            MAGNUM_GAA_ID,
+            object_id,
+            rights_id,
+            condition_id,
+        ]))
+        payload["source_record_ids"] = list(payload["references"])
+        payload["evidence_refs"] = list({
+            json.dumps(item, sort_keys=True): item
+            for item in [*payload["evidence_refs"], *completion_evidence]
+        }.values())
+        records[relative] = finish(payload, relative)
+
+    conflict_payload = records[conflict_path]["payload"]
+    conflict_profile = conflict_payload["profile"]
+    conflict_profile["thesis"] = (
+        "Five photographs made between 1952 and 2016 approach conflict through "
+        "borders, religious and domestic space, smoke, ruins, and the uncertain "
+        "aftermath of violence. Accessioned together from two Magnum Photos 75 "
+        "curations, they test what documentary evidence can show and what remains unresolved."
+    )
+    conflict_profile["lifecycle"] = {
+        "status": "accessioned_into_permanent_collection",
+        "as_of": MAGNUM_CHAIN_AT,
+        "evidence_refs": [
+            evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"),
+            source_evidence("Accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT),
+        ],
+    }
+    conflict_profile["lifecycle_observations"].append(
+        lifecycle_observation(
+            "6529NM-CA-OBS-0005",
+            "accessioned_into_permanent_collection",
+            "accessioned",
+            MAGNUM_CHAIN_AT,
+            [MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_GAA_ID],
+            "The completed gift is formally accepted and its five Works are accessioned into the permanent Collection.",
+            [
+                evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"),
+                source_evidence("Accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT),
+            ],
+        )
+    )
+    conflict_profile["collection_effect"] = "permanent_collection"
+    conflict_profile["public_credit"] = "Gift of punk6529"
+    conflict_profile["source_work_record_ids"] = [
+        *magnum_work_source_ids,
+        *[f"{MAGNUM_ACCESSION_LOT}.{index:02d}" for index in range(1, 6)],
+    ]
+    conflict_profile["independent_acquisition_facts"] = {
+        "mint": fact("verified", MAGNUM_CHAIN_AT, [MAGNUM_ACCESSION_CERTIFICATE_ID], "The five external ERC-721 token manifestations are verified independently of accession."),
+        "payment": fact("not_applicable", MAGNUM_CHAIN_AT, [MAGNUM_GAA_ID], "The completed acquisition is a gift; no Museum purchase is recorded."),
+        "title": fact("verified", MAGNUM_CHAIN_AT, [MAGNUM_GAA_ID, MAGNUM_ACCESSION_CERTIFICATE_ID], "The donor's full-gift offer, formal acceptance, and object schedule bind title to the five token manifestations. Copyright is not transferred."),
+        "custody": fact("verified", MAGNUM_CHAIN_AT, [MAGNUM_ACCESSION_CERTIFICATE_ID], "Finalized Ethereum observations place all five token manifestations in the Museum Safe.", evidence_refs=[evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A")]),
+        "rights": fact("verified_with_conditions", MAGNUM_CHAIN_AT, [f"{MAGNUM_ACCESSION_LOT}.RIGHTS.01"], "The works remain All Rights Reserved. Credited, contextual Museum display is documented; copyright transfer and broader reuse rights are not claimed."),
+        "technical": fact("verified_with_conditions", MAGNUM_CHAIN_AT, [f"{MAGNUM_ACCESSION_LOT}.COND.01"], "Token identity, transfer receipts, ownership, metadata, source-image fixity, and display conditions are documented for the accession."),
+        "preservation": fact("in_progress", MAGNUM_CHAIN_AT, [f"{MAGNUM_ACCESSION_LOT}.COND.01"], "Source-image retention, redundant replication, and continuing provenance enrichment are active stewardship work."),
+        "display": fact("verified_with_conditions", MAGNUM_CHAIN_AT, [f"{MAGNUM_ACCESSION_LOT}.RIGHTS.01", f"{MAGNUM_ACCESSION_LOT}.COND.01"], "The five works are ready for credited, contextual Museum display subject to their recorded rights and source conditions."),
+    }
+    conflict_payload["effective_at"] = MAGNUM_CHAIN_AT
+    conflict_payload["observed_at"] = MAGNUM_CHAIN_AT
+    conflict_payload["status_observation"]["observed_at"] = MAGNUM_CHAIN_AT
+    conflict_payload["references"] = sorted(set([
+        *conflict_payload["references"],
+        magnum_accession,
+        MAGNUM_ACCESSION_LOT,
+        MAGNUM_ACCESSION_CERTIFICATE_ID,
+        MAGNUM_GAA_ID,
+        *[f"{MAGNUM_ACCESSION_LOT}.{index:02d}" for index in range(1, 6)],
+    ]))
+    conflict_payload["source_record_ids"] = list(conflict_payload["references"])
+    completion_evidence = [
+        evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"),
+        source_evidence("Accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT),
+        source_evidence("Completed public accession status", MAGNUM_ACCESSION_STATUS_PATH, MAGNUM_CHAIN_AT),
+    ]
+    conflict_payload["evidence_refs"] = list({
+        json.dumps(item, sort_keys=True): item
+        for item in [*conflict_payload["evidence_refs"], *completion_evidence]
+    }.values())
+    conflict_profile["evidence_refs"] = list({
+        json.dumps(item, sort_keys=True): item
+        for item in [*conflict_profile["evidence_refs"], *completion_evidence]
+    }.values())
+    records[conflict_path] = finish(conflict_payload, conflict_path)
+
+    project_relative = f"records/entities/{magnum_project}.json"
+    project_payload = records[project_relative]["payload"]
+    project_payload["profile"]["scope_statement"] = (
+        "Magnum Photos 75 was a 2022 anniversary project that brought photographs "
+        "from the Magnum archive into a tokenized publication context. This record "
+        "concerns the five Works now accessioned through Conflict at Its Edges."
+    )
+    project_payload["profile"]["ownership_boundary"] = (
+        "Magnum Photos 75 is the broader source project. Conflict at Its Edges is "
+        "the Museum's Curated Acquisition; each photograph remains an independent "
+        "Work, represented in the Collection by its accessioned token manifestation."
+    )
+    project_payload["references"] = sorted(set([*project_payload["references"], MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID]))
+    project_payload["source_record_ids"] = list(project_payload["references"])
+    records[project_relative] = finish(project_payload, project_relative)
     magnum_essay_path = f"{MAGNUM_SCHOLARSHIP_ROOT}/essays/conflict-at-its-edges.md"
     add_entity(magnum_publication, "RESEARCH_PUBLICATION", "Conflict at Its Edges", "conflict-at-its-edges", "/museum/network/research/conflict-at-its-edges", MAGNUM_PUBLICATION_AT, {
         "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "research_dossier", "title": "Conflict at Its Edges", "publication_date": "2026-08-09", "version": "1.0.0", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-003", magnum_org, magnum_project, *magnum_artist_ids, *magnum_works], "publication_document_uri": github_uri(MAGNUM_PUBLICATION_RECORD_PATH), "publication_component_paths": list(MAGNUM_PUBLICATION_COMPONENT_PATHS), "evidence_refs": [source_evidence("Conflict at Its Edges publication record", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT), source_evidence("Conflict at Its Edges catalogue essay", magnum_essay_path, MAGNUM_PUBLICATION_AT)],
@@ -1442,13 +1632,19 @@ def build_records(
         add_relation(f"6529NM-REL-{relation_number:04d}", "PROGRAM_SELECTS_WORK", keys_program, work_id, {"display_order": index + 1, "selection_status": "selected_unminted", "mint_status": "pending"}, KEYS_AT, [outcome_id], [source_evidence("Keys and Gates selected outcome", outcome_id, KEYS_AT)])
         relation_number += 1
     for index, work_id in enumerate(magnum_works):
-        add_relation(f"6529NM-REL-{relation_number:04d}", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", "6529NM-CA-2026-003", work_id, {"display_order": index + 1, "selection_status": "selected", "scope": "proposal_work_set"}, WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], [source_evidence("Published proposal work set", "6529NM-PG-2026-001", PROPOSAL_AT), source_evidence("Museum Wave selection observation", WINNER_SOURCE_PATH, WINNER_AT)])
+        add_relation(f"6529NM-REL-{relation_number:04d}", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", "6529NM-CA-2026-003", work_id, {"display_order": index + 1, "selection_status": "selected", "scope": "museum_curatorial_grouping"}, MAGNUM_CHAIN_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID, MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID], [source_evidence("Published proposal work set", "6529NM-PG-2026-001", PROPOSAL_AT), source_evidence("Museum Wave selection observation", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Completed accession", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
         relation_number += 1
     for index, work_id in enumerate(casey_work_ids):
         object_id = casey_objects[index]["record_id"]
         add_relation(f"6529NM-REL-{relation_number:04d}", "ACCESSION_ADMITS_WORK", accession, work_id, {"accession_object_id": object_id}, CASEY_AT, ["6529NM-ACC-2026-001", object_id], [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)])
         relation_number += 1
         add_relation(f"6529NM-REL-{relation_number:04d}", "COLLECTION_CONTAINS_WORK", collection, work_id, {"collection_membership_status": "permanent_collection"}, CASEY_AT, ["6529NM-ACC-2026-001", object_id], [source_evidence("Collection accession relation", "6529NM-ACC-2026-001", CASEY_AT)])
+        relation_number += 1
+    for index, work_id in enumerate(magnum_works, start=1):
+        object_id = f"{MAGNUM_ACCESSION_LOT}.{index:02d}"
+        add_relation(f"6529NM-REL-{relation_number:04d}", "ACCESSION_ADMITS_WORK", magnum_accession, work_id, {"accession_object_id": object_id}, MAGNUM_CHAIN_AT, [MAGNUM_ACCESSION_CERTIFICATE_ID, object_id], [evidence("Finalized Museum custody observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A"), source_evidence("Accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
+        relation_number += 1
+        add_relation(f"6529NM-REL-{relation_number:04d}", "COLLECTION_CONTAINS_WORK", collection, work_id, {"collection_membership_status": "permanent_collection"}, MAGNUM_CHAIN_AT, [MAGNUM_ACCESSION_CERTIFICATE_ID, object_id], [source_evidence("Collection accession relation", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
         relation_number += 1
     for target in ["6529NM-CA-2026-001", *projects.values(), *casey_work_ids]:
         add_relation(f"6529NM-REL-{relation_number:04d}", "PUBLICATION_INTERPRETS_ENTITY", publication, target, {"role": "subject"}, CASEY_AT, ["6529NM.2026.001"], [source_evidence("The System in Seven States", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)])
@@ -1548,9 +1744,8 @@ def build_records(
     cover_media["source_record_ids"] = ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID]
     records[cover_relative] = finish(cover_record["payload"], cover_relative)
 
-    # The retained proposal contains finalized Ethereum verification for all
-    # five Magnum objects. Replace the provisional construction fact with the
-    # explicit A-class chain observation before returning the envelope.
+    # The accession package contains finalized Ethereum verification for all
+    # five Magnum objects. Keep mint, custody, and accession as distinct facts.
     for work_id in magnum_works:
         relative = f"records/entities/{work_id}.json"
         record = records[relative]
@@ -1558,8 +1753,8 @@ def build_records(
             "verified",
             MAGNUM_CHAIN_AT,
             ["6529NM-PG-2026-001"],
-            "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
-            evidence_refs=[evidence("Finalized Ethereum chain observation", WINNER_SOURCE_URL, MAGNUM_CHAIN_AT, "A")],
+            "Finalized Ethereum chain evidence verifies the existing ERC-721 token manifestation independently of title, custody, rights, and accession.",
+            evidence_refs=[evidence("Finalized Ethereum custody and token observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A")],
         )
         records[relative] = finish(record["payload"], relative)
 
@@ -1571,20 +1766,20 @@ def build_records(
         "verified",
         MAGNUM_CHAIN_AT,
         ["6529NM-PG-2026-001"],
-        "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
-        evidence_refs=[evidence("Finalized Ethereum chain observation", WINNER_SOURCE_URL, MAGNUM_CHAIN_AT, "A")],
+        "Finalized Ethereum chain evidence verifies the existing ERC-721 token manifestations independently of title, custody, rights, and accession.",
+        evidence_refs=[evidence("Finalized Ethereum custody and token observation", MAGNUM_CUSTODY_EVIDENCE_PATH, MAGNUM_CHAIN_AT, "A")],
     )
-    ca3_record["payload"]["profile"]["public_credit"] = "Selected by the Museum Wave; accession processing in progress"
+    ca3_record["payload"]["profile"]["public_credit"] = "Gift of punk6529"
     ca3_record["payload"]["evidence_refs"].extend(
         [
-            source_evidence("Current accession-processing status", MAGNUM_ACCESSION_STATUS_PATH, GENERATED_AT),
+            source_evidence("Completed accession status", MAGNUM_ACCESSION_STATUS_PATH, GENERATED_AT),
             source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT),
             source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT),
         ]
     )
     ca3_record["payload"]["profile"]["evidence_refs"].extend(
         [
-            source_evidence("Current accession-processing status", MAGNUM_ACCESSION_STATUS_PATH, GENERATED_AT),
+            source_evidence("Completed accession status", MAGNUM_ACCESSION_STATUS_PATH, GENERATED_AT),
             source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT),
             source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT),
         ]

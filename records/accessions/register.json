@@ -1,24 +1,17 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 3,
-    "record_status": "reviewed",
+    "revision": 4,
+    "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:019fbd8c-2797-7ae0-91a3-672d82624fa7",
+      "actor_id": "codex-task:magnum-completed-accession-correction",
       "role": "constructor",
-      "constructed_at": "2026-08-02T06:30:00Z"
+      "constructed_at": "2026-08-12T22:24:36.387Z"
     },
-    "review": {
-      "actor_id": "codex-review:019fc04f-6d34-7242-992f-3de8ff2b6346",
-      "role": "reviewer",
-      "reviewed_at": "2026-08-02T08:39:53Z",
-      "reviewed_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
-      "outcome": "approved",
-      "payload_sha256": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f"
-    }
+    "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-02T06:30:00Z",
+  "snapshot_at": "2026-08-12T22:24:36.387Z",
   "amendment_history": [
     {
       "revision": 1,
@@ -35,6 +28,14 @@
       "prior_payload_sha256": "sha256:ec046435a6e33e5d0e5290d72cc2344b9087bef6ac2f4ed0e51c5b3594327149",
       "prior_review_commit": "1abf5a81a080f3fdbc7f74fcf06647ed12336170",
       "reason": "Replaced the intake-stage view with the completed Casey REAS accession, reviewed title and rights determinations, technical and curatorial decisions, and concrete continuing stewardship actions."
+    },
+    {
+      "revision": 3,
+      "superseded_at": "2026-08-12T22:24:36.387Z",
+      "supersedes": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f",
+      "prior_payload_sha256": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f",
+      "prior_review_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
+      "reason": "Appended the completed five-work Magnum Photos 75 gift accession after finalized transfer and custody evidence bound all five objects to the Museum address."
     }
   ],
   "lots": [
@@ -78,6 +79,83 @@
         "Two-environment render and interaction verification",
         "Rights-compliant documentation-byte retention",
         "Replica, fixity, recovery, custody, and provenance maintenance"
+      ]
+    },
+    {
+      "accession_lot_id": "6529NM.2026.002",
+      "preferred_title": "Conflict at Its Edges, five photographs from Magnum Photos 75",
+      "object_count": 5,
+      "donation_status": "formally_accepted",
+      "accession_status": "accessioned",
+      "formal_acceptance_status": "formally_accepted",
+      "gift_acceptance_authorization_record": "6529NM.2026.002.GAA-01",
+      "donor_public_credit": "Gift of punk6529",
+      "custody": {
+        "ens": "networkmuseum.6529.eth",
+        "chain_id": "eip155:1",
+        "address": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "finalized_block": 25741809,
+        "finalized_block_hash": "0x8581c55db52accfd3750ec3af9972430fd4717f3486ac51bc7c1e0b00c335731",
+        "token_count": 5,
+        "evidence_class": "A"
+      },
+      "receipt_event": {
+        "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+        "block_number": 25741724,
+        "block_time": "2026-08-12T21:51:23Z",
+        "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+        "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "transfer_count": 5,
+        "receipt_status": "0x1",
+        "evidence_class": "A",
+        "transactions": [
+          {
+            "token_id": 127,
+            "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
+            "block_number": 25741708,
+            "log_index": 696
+          },
+          {
+            "token_id": 145,
+            "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+            "block_number": 25741724,
+            "log_index": 229
+          },
+          {
+            "token_id": 97,
+            "transaction_hash": "0x0ff08ed5fb29cc8e83dd50191e1156615ad23d584e05c9d1803af39151ecb33d",
+            "block_number": 25741718,
+            "log_index": 430
+          },
+          {
+            "token_id": 44,
+            "transaction_hash": "0x9fbef477914c51b2d4e3ae13f791d36499a5ac0516e7ce13a0b40531bc833e74",
+            "block_number": 25741721,
+            "log_index": 207
+          },
+          {
+            "token_id": 104,
+            "transaction_hash": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+            "block_number": 25741705,
+            "log_index": 385
+          }
+        ]
+      },
+      "evidence_refs": [
+        "records/accessions/6529NM.2026.002/accession-certificate.json",
+        "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
+        "records/accessions/6529NM.2026.002/public/technical-and-condition-review.md",
+        "records/accessions/6529NM.2026.002/public/curatorial-accession-review.md",
+        "evidence/magnum-75-custody/summary.json",
+        "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
+      ],
+      "completion_limits": [],
+      "accession_certificate_record": "6529NM-ACC-2026-002",
+      "ongoing_stewardship_actions": [
+        "Retain the source metadata and credited display bytes with fixity.",
+        "Maintain rights-compliant display and attribution.",
+        "Enrich provenance and preservation records as new evidence becomes available."
       ]
     }
   ]

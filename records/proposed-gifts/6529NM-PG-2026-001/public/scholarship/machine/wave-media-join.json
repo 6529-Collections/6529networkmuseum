@@ -1,12 +1,12 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 3,
+    "revision": 4,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "actor_id": "codex-task:magnum-completed-accession-correction",
       "role": "constructor",
-      "constructed_at": "2026-08-12T07:37:56.984246Z"
+      "constructed_at": "2026-08-12T22:24:36.387Z"
     },
     "review": null
   },
@@ -22,6 +22,12 @@
       "superseded_at": "2026-08-12T07:37:56.984246Z",
       "supersedes": "sha256:f4f2cd48c9ec234570ddcd7fe8a964797b2143c86df2c4ca7b8cf58193eb964b",
       "prior_payload_sha256": "sha256:f4f2cd48c9ec234570ddcd7fe8a964797b2143c86df2c4ca7b8cf58193eb964b"
+    },
+    {
+      "revision": 3,
+      "superseded_at": "2026-08-12T22:24:36.387Z",
+      "supersedes": "sha256:c31e2f6d403cd7878333db15e946a147d043da2400afa360f5e9ccb78e005d54",
+      "prior_payload_sha256": "sha256:c31e2f6d403cd7878333db15e946a147d043da2400afa360f5e9ccb78e005d54"
     }
   ],
   "local_profile": "6529NM_WP3_MAGNUM_WAVE_MEDIA_JOIN_V1",
@@ -31,8 +37,8 @@
   "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
   "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
   "drop_serial_no": 1276093,
-  "current_public_status": "Selected by Museum Wave; accession processing in progress",
-  "lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress",
+  "current_public_status": "Accessioned into the permanent Collection",
+  "lifecycle_status": "accessioned_into_permanent_collection",
   "current_status_observation": {
     "record_type": "WAVE_STATUS_OBSERVATION",
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
@@ -147,11 +153,24 @@
       "token_source_image_url": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM",
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
-      "source_image_fixity": {"sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453", "bytes": 2518674, "width": 3056, "height": 4600, "retention": "upstream_not_retained"},
+      "source_image_fixity": {
+        "sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
+        "bytes": 2518674,
+        "width": 3056,
+        "height": 4600,
+        "retention": "upstream_not_retained"
+      },
       "credit_line": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022. All Rights Reserved.",
       "rights_label": "All Rights Reserved",
       "media_status": "contextual_historical_presentation",
-      "allowed_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+      "allowed_ui_affordances": [
+        "view",
+        "thumbnail",
+        "hero",
+        "alt_text",
+        "open_wave_proposal_context",
+        "copy_citation"
+      ],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -160,12 +179,28 @@
         "scope": "historical_public_wave_proposal_context_only",
         "outside_scope": "deny"
       },
-      "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
+      "standalone_work_display": {
+        "requires_verified_graph_relation": true,
+        "historical_label_required": true,
+        "outside_scope": "deny",
+        "verification_status": "canonical_graph_verified_contextual_display_authorized"
+      },
       "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
-      "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
+      "blocked_ui_affordances": [
+        "download",
+        "full_resolution",
+        "zoom",
+        "fullscreen",
+        "iiif",
+        "preservation_master"
+      ],
       "alt_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
-      "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-001", "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"]
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-001",
+        "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
+      ]
     },
     {
       "work_entity_id": "6529NM-W-0025",
@@ -182,11 +217,24 @@
       "token_source_image_url": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
-      "source_image_fixity": {"sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee", "bytes": 1813285, "width": 5369, "height": 3601, "retention": "upstream_not_retained"},
+      "source_image_fixity": {
+        "sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
+        "bytes": 1813285,
+        "width": 5369,
+        "height": 3601,
+        "retention": "upstream_not_retained"
+      },
       "credit_line": "Larry Towell, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "contextual_historical_presentation",
-      "allowed_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+      "allowed_ui_affordances": [
+        "view",
+        "thumbnail",
+        "hero",
+        "alt_text",
+        "open_wave_proposal_context",
+        "copy_citation"
+      ],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -195,12 +243,28 @@
         "scope": "historical_public_wave_proposal_context_only",
         "outside_scope": "deny"
       },
-      "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
+      "standalone_work_display": {
+        "requires_verified_graph_relation": true,
+        "historical_label_required": true,
+        "outside_scope": "deny",
+        "verification_status": "canonical_graph_verified_contextual_display_authorized"
+      },
       "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
-      "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
+      "blocked_ui_affordances": [
+        "download",
+        "full_resolution",
+        "zoom",
+        "fullscreen",
+        "iiif",
+        "preservation_master"
+      ],
       "alt_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
-      "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-002", "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"]
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-002",
+        "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
+      ]
     },
     {
       "work_entity_id": "6529NM-W-0026",
@@ -217,11 +281,24 @@
       "token_source_image_url": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4",
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
-      "source_image_fixity": {"sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df", "bytes": 1666083, "width": 5000, "height": 3292, "retention": "upstream_not_retained"},
+      "source_image_fixity": {
+        "sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
+        "bytes": 1666083,
+        "width": 5000,
+        "height": 3292,
+        "retention": "upstream_not_retained"
+      },
       "credit_line": "Micha Bar-Am, Jerusalem, 1989. © Micha Bar-Am/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "contextual_historical_presentation",
-      "allowed_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+      "allowed_ui_affordances": [
+        "view",
+        "thumbnail",
+        "hero",
+        "alt_text",
+        "open_wave_proposal_context",
+        "copy_citation"
+      ],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -230,7 +307,12 @@
         "scope": "historical_public_wave_proposal_context_only",
         "outside_scope": "deny"
       },
-      "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
+      "standalone_work_display": {
+        "requires_verified_graph_relation": true,
+        "historical_label_required": true,
+        "outside_scope": "deny",
+        "verification_status": "canonical_graph_verified_contextual_display_authorized"
+      },
       "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
       "historical_publication_media": {
         "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
@@ -241,11 +323,33 @@
         "alt_text": "Black-and-white photograph of a person running through tear gas at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
         "alt_text_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"
       },
-      "alt_text_amendment_binding": {"status": "canonical_current_safe_description", "historical_seven_part_wording_preserved": true, "supersedes": {"source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json", "record_revision": 1, "part_number": 4, "media_index": 0, "assertion_path": "media.alt_text", "assertion_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"}},
-      "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
+      "alt_text_amendment_binding": {
+        "status": "canonical_current_safe_description",
+        "historical_seven_part_wording_preserved": true,
+        "supersedes": {
+          "source_record": "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json",
+          "record_revision": 1,
+          "part_number": 4,
+          "media_index": 0,
+          "assertion_path": "media.alt_text",
+          "assertion_sha256": "sha256:ac2b178e1cb05f3f8c33aee655e763fc2d18261b2c1e6e67f72d77d16f4fc9a2"
+        }
+      },
+      "blocked_ui_affordances": [
+        "download",
+        "full_resolution",
+        "zoom",
+        "fullscreen",
+        "iiif",
+        "preservation_master"
+      ],
       "alt_text": "Black-and-white photograph of a person moving beside smoke and an airborne canister at the Western Wall, with a metal menorah barrier in the foreground.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
-      "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-003", "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"]
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-003",
+        "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
+      ]
     },
     {
       "work_entity_id": "6529NM-W-0027",
@@ -263,11 +367,24 @@
       "token_source_image_url": "https://arweave.net/zLifpzu3AQWqjg59nuy9jeRqHPA5o5-LpwwBqNRcD5o",
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
-      "source_image_fixity": {"sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816", "bytes": 1540870, "width": 5616, "height": 3744, "retention": "upstream_not_retained"},
+      "source_image_fixity": {
+        "sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
+        "bytes": 1540870,
+        "width": 5616,
+        "height": 3744,
+        "retention": "upstream_not_retained"
+      },
       "credit_line": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "contextual_historical_presentation",
-      "allowed_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+      "allowed_ui_affordances": [
+        "view",
+        "thumbnail",
+        "hero",
+        "alt_text",
+        "open_wave_proposal_context",
+        "copy_citation"
+      ],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -276,9 +393,22 @@
         "scope": "historical_public_wave_proposal_context_only",
         "outside_scope": "deny"
       },
-      "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
+      "standalone_work_display": {
+        "requires_verified_graph_relation": true,
+        "historical_label_required": true,
+        "outside_scope": "deny",
+        "verification_status": "canonical_graph_verified_contextual_display_authorized"
+      },
       "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
-      "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master", "identity_inference"],
+      "blocked_ui_affordances": [
+        "download",
+        "full_resolution",
+        "zoom",
+        "fullscreen",
+        "iiif",
+        "preservation_master",
+        "identity_inference"
+      ],
       "alt_text": "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
       "accessibility_subject_policy": "non_identifying_apparently_young_subject",
       "age_classification": "unverified_apparently_young_subject",
@@ -293,15 +423,19 @@
           "identity",
           "consent",
           "unpublished location",
-          "sensitive metadata"
-          ,"age inference"
-          ,"sensitive visual context"
-          ,"visual cause"
-          ,"weapon attribution"
+          "sensitive metadata",
+          "age inference",
+          "sensitive visual context",
+          "visual cause",
+          "weapon attribution"
         ],
         "restricted_research_scope": true
       },
-      "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-004", "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"]
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-004",
+        "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
+      ]
     },
     {
       "work_entity_id": "6529NM-W-0028",
@@ -318,11 +452,24 @@
       "token_source_image_url": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
       "wave_media_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg",
       "wave_media_url_type": "historical_wave_drop_upload",
-      "source_image_fixity": {"sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2", "bytes": 16871807, "width": 5964, "height": 4768, "retention": "upstream_not_retained"},
+      "source_image_fixity": {
+        "sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
+        "bytes": 16871807,
+        "width": 5964,
+        "height": 4768,
+        "retention": "upstream_not_retained"
+      },
       "credit_line": "Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022.",
       "rights_label": "All Rights Reserved",
       "media_status": "contextual_historical_presentation",
-      "allowed_ui_affordances": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+      "allowed_ui_affordances": [
+        "view",
+        "thumbnail",
+        "hero",
+        "alt_text",
+        "open_wave_proposal_context",
+        "copy_citation"
+      ],
       "presentation_context": {
         "proposal_id": "6529NM-PG-2026-001",
         "curated_acquisition_id": "6529NM-CA-2026-003",
@@ -331,12 +478,28 @@
         "scope": "historical_public_wave_proposal_context_only",
         "outside_scope": "deny"
       },
-      "standalone_work_display": {"requires_verified_graph_relation": true, "historical_label_required": true, "outside_scope": "deny", "verification_status": "canonical_graph_verified_contextual_display_authorized"},
+      "standalone_work_display": {
+        "requires_verified_graph_relation": true,
+        "historical_label_required": true,
+        "outside_scope": "deny",
+        "verification_status": "canonical_graph_verified_contextual_display_authorized"
+      },
       "load_policy": "exact_fixity_verified_token_source_uri_under_active_accession_media_amendment",
-      "blocked_ui_affordances": ["download", "full_resolution", "zoom", "fullscreen", "iiif", "preservation_master"],
+      "blocked_ui_affordances": [
+        "download",
+        "full_resolution",
+        "zoom",
+        "fullscreen",
+        "iiif",
+        "preservation_master"
+      ],
       "alt_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
       "accessibility_subject_policy": "non_identifying_sensitive_subject",
-      "source_record_ids": ["6529NM-PG-2026-001", "6529NM-PG-2026-001.OBJ-005", "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"]
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-PG-2026-001.OBJ-005",
+        "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
+      ]
     }
   ]
 }

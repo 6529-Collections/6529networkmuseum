@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb6b6d0a8ad4e84bde23c0ffabe0448fe71f2bdccbc7163df093705201856dd05"
+      "digest": "0xf71791f78cfac70a4baf1ee0a89421656197ed035275a6c13c49561d06a5218b"
     },
-    "effectiveAt": 1786184102,
+    "effectiveAt": 1786573476,
     "recordType": "PUBLIC_RELATION",
     "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "signatureHash": {
@@ -21,12 +21,12 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
-    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
     "evidence_refs": [
       {
         "evidence_class": "B",
@@ -39,45 +39,44 @@
         "label": "Museum Wave selection observation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Completed accession",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
       }
     ],
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:f07362dd0ef2fbf3503e15a5c166902526b60b710e54f91b6a2b5fa7cdf74ed1",
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:e52b7e92556e4cb696c817755c7fd3ae8234ce6fdf5134fe894c9bf81706f43e",
     "qualifier": {
       "display_order": 3,
-      "scope": "proposal_work_set",
+      "scope": "museum_curatorial_grouping",
       "selection_status": "selected"
     },
     "record_id": "6529NM-REL-0091",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-ACC-2026-002",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
       "6529NM-W-0026",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002"
     ],
     "relation_id": "6529NM-REL-0091",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
-      "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-003",
     "source_record_ids": [
+      "6529NM-ACC-2026-002",
       "6529NM-PG-2026-001",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002"
     ],
     "subject_id": "6529NM-REL-0091",
     "target_entity_id": "6529NM-W-0026",

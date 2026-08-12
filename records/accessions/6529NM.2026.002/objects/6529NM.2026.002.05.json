@@ -1,0 +1,283 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "WORK_DESCRIPTION",
+    "subjectId": "0xc4cb1f0cd9e4e4399f579aa63e1d96581151fa776bdc2f0f13a89db5c23c5eea",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x037d1b6588f3be96f1e76facf0d140878dbf2ea5647e21f0206a7136dabb4730",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json",
+    "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1786573476
+  },
+  "payload": {
+    "accession_lot_id": "6529NM.2026.002",
+    "artist": {
+      "claim_type": "source_credit",
+      "evidence_class": "B",
+      "preferred_name": "Lorenzo Meloni",
+      "source_refs": [
+        "6529NM-PG-2026-001.OBJ-005"
+      ]
+    },
+    "chain_identity": {
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+      "chain_id": 1,
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "104",
+      "token_standard": "ERC-721",
+      "mint_transaction": "0x455147b6272e8924d8559dd8adc8543470e83dc13cba47605afe37b3a566554f",
+      "acquisition_transaction": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+      "custody_receipt_transaction": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+      "custody_receipt_block": 25741705,
+      "custody_receipt_log": 385,
+      "custody_account": "eip155:1:0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_status": "verified",
+      "custody_verified_at": "2026-08-12T22:24:36.387Z",
+      "custody_block": 25741809
+    },
+    "claims": {
+      "artist_statement": "The source record identifies the photograph as a work by Lorenzo Meloni.",
+      "documented_fact": "The source record identifies the title, date, and place as Palmyra, Syria, 2016, Palmyra.",
+      "evidence_class": "B",
+      "museum_interpretation": "The Museum presents this photograph within Conflict at Its Edges, a five-work group concerned with documentary evidence and its edges.",
+      "technical_observation": "The ERC-721 identity, transfer receipt, and finalized ownerOf observation are recorded separately from interpretation."
+    },
+    "condition": {
+      "token": "green",
+      "metadata": "green",
+      "script": "not_applicable",
+      "dependencies": "not_applicable",
+      "rendering": "green",
+      "behavior": "not_applicable",
+      "documentation": "amber",
+      "protocol_state": "ERC-721 photographic object; no executable generator or software dependency is asserted.",
+      "method": "Reviewed source metadata, image reference, chain receipt, and common finalized-block ownership observation.",
+      "narrative": "The object is catalogued and displayable in the credited accession context. Source-image retention and rights stewardship remain active.",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction",
+      "role": "constructor",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "created_at": "2026-08-12T22:24:36.387Z",
+    "creator": "Lorenzo Meloni",
+    "credit_line": "Gift of punk6529. Lorenzo Meloni, Palmyra, Syria, 2016. © Lorenzo Meloni/Magnum Photos 2022 All Rights Reserved",
+    "current_state": "accessioned",
+    "display": {
+      "status": "ready_with_conditions",
+      "manifest_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+      "credit_line": "Lorenzo Meloni, Palmyra, Syria. © Lorenzo Meloni/Magnum Photos 2022 All Rights Reserved",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "effective_at": "2026-08-12T22:24:36.387Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "label": "Finalized Magnum custody observation",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:486a7f0e5738a9789514739844b3db4b8a59ef34e665dfc13cc3e92721dad2aa"
+      },
+      {
+        "label": "Ethereum receipt for token 104",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/raw/receipt-104/sha256-7143e617a7744480151ee5c684fab94efaa62ad57baedc36fcb35f8eb77c3f0f.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:7143e617a7744480151ee5c684fab94efaa62ad57baedc36fcb35f8eb77c3f0f"
+      },
+      {
+        "label": "Original proposed gift and full-gift offer",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Proposed object record",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/05-lorenzo-meloni-104.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Public accession status",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      }
+    ],
+    "medium": "photograph (source image presented from the credited external source)",
+    "museum_observations": {
+      "observed_at": "2026-08-12T22:24:36.387Z",
+      "observation_record": "6529NM.2026.002.VO-01",
+      "documentation_surrogate": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+      "static_visual_observation": "The credited source image is available for accession-context display.",
+      "live_behavior_observation": "Not applicable to this photographic object.",
+      "interpretive_boundary": "The image is read through its caption, source history, and visual evidence; unresolved scene-specific claims remain unresolved."
+    },
+    "object_id": "6529NM.2026.002.05",
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:f50dc3166fb719b8071362bd6abce3e2e30104e61aeab4f881e16079519b7969",
+    "preservation": {
+      "status": "in_progress",
+      "package_uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco",
+      "fixity_sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
+      "render_environment": "Museum source-image presentation; preservation master and source-byte retention remain stewardship actions.",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "record_id": "6529NM.2026.002.05",
+    "record_status": "review_pending",
+    "record_type": "WORK_DESCRIPTION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.002",
+      "6529NM-ACC-2026-002",
+      "6529NM.2026.002.RIGHTS.05",
+      "6529NM.2026.002.COND.05",
+      "6529NM-PG-2026-001.OBJ-005"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights": {
+      "reproduction": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "publication": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "exhibition": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "print": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-005"
+      },
+      "derivative_use": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-005"
+      },
+      "ai_training": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-005"
+      },
+      "preservation": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "migration_emulation": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "accessibility": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      }
+    },
+    "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-WAVE-OBS-2026-08-08-001"
+      ]
+    },
+    "source_refs": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-005",
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002.TITLE-01"
+    ],
+    "state_history": [
+      {
+        "state": "offered",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "evidence_refs": [
+          "6529NM-PG-2026-001"
+        ]
+      },
+      {
+        "state": "authorized",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "evidence_refs": [
+          "6529NM-WAVE-OBS-2026-08-08-001"
+        ]
+      },
+      {
+        "state": "acquired",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM.2026.002.GAA-01"
+        ]
+      },
+      {
+        "state": "received_onchain",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM.2026.002.GAA-01",
+          "6529NM-WAVE-OBS-2026-08-08-001"
+        ]
+      },
+      {
+        "state": "accessioned",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-002",
+          "6529NM.2026.002.RIGHTS.05",
+          "6529NM.2026.002.COND.05"
+        ]
+      }
+    ],
+    "subject_id": "6529NM.2026.002.05",
+    "title": "Palmyra, Syria",
+    "title_binding": {
+      "object_id": "6529NM.2026.002.05",
+      "status": "executed",
+      "instrument_sha256": "sha256:a03e733b1bd6f9b431f103138e735b85910c1751d2d02252249611b2130e8f39",
+      "custodian_reference": "networkmuseum.6529.eth",
+      "transfer_transaction": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+      "block_number": 25741705,
+      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "bound_at": "2026-08-12T22:24:36.387Z",
+      "basis": "The donor's full-gift offer and the Museum maintainer's completion instruction, corroborated by the exact transfer receipt for this token, bind the donor's transferable token interest to this accession object."
+    },
+    "uncertainties": [
+      "TIME independently corroborates the same caption and dates the frame 1 April 2016, five days after government and allied forces seized Palmyra from ISIL.",
+      "The photograph records aftermath under Syrian government permission; it does not show the 2015 destruction of the Temple of Bel or support identifying the soldier.",
+      "The Museum does not assert copyright ownership or a general reproduction licence.",
+      "The source image is not yet retained as a Museum preservation master."
+    ],
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.002.VO-01",
+    "state_history_semantics": "The source proposal, token delivery, and Museum accession are recorded as separate historical states. The common finalized observation confirms current custody; it does not replace the institutional accession decision."
+  }
+}

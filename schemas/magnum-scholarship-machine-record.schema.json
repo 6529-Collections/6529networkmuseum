@@ -201,8 +201,8 @@
         "prior_wave_observation",
         "work_lifecycle",
         "collection_membership",
-        "accession_record",
-        "object_record",
+        "accession_record_id",
+        "object_record_ids",
         "active_media_source_amendment",
         "works"
       ],
@@ -227,9 +227,16 @@
         "current_publication_observation": {"$ref": "#/$defs/publicationObservation"},
         "prior_wave_observation": {"$ref": "#/$defs/priorObservation"},
         "work_lifecycle": {"type": "string", "minLength": 1},
-        "collection_membership": {"const": "not_in_collection"},
-        "accession_record": {"type": "null"},
-        "object_record": {"type": "null"},
+        "collection_membership": {"const": "permanent_collection"},
+        "accession_record_id": {"const": "6529NM-ACC-2026-002"},
+        "object_record_ids": {
+          "type": "array", "minItems": 5, "maxItems": 5,
+          "prefixItems": [
+            {"const": "6529NM.2026.002.01"}, {"const": "6529NM.2026.002.02"}, {"const": "6529NM.2026.002.03"},
+            {"const": "6529NM.2026.002.04"}, {"const": "6529NM.2026.002.05"}
+          ],
+          "items": false
+        },
         "active_media_source_amendment": {"$ref": "#/$defs/activeMediaSourceAmendment"},
         "works": {"$ref": "#/$defs/fiveProjectedWorks"}
       }
@@ -496,8 +503,20 @@
       "type": "object", "additionalProperties": false,
       "required": ["accession_id", "object_record_ids", "title_binding", "custody", "condition", "preservation", "rights"],
       "properties": {
-        "accession_id": {"type": "null"}, "object_record_ids": {"type": "null"}, "title_binding": {"type": "null"},
-        "custody": {"type": "null"}, "condition": {"type": "null"}, "preservation": {"type": "null"}, "rights": {"$ref": "#/$defs/text"}
+        "accession_id": {"const": "6529NM.2026.002"},
+        "object_record_ids": {
+          "type": "array", "minItems": 5, "maxItems": 5,
+          "prefixItems": [
+            {"const": "6529NM.2026.002.01"}, {"const": "6529NM.2026.002.02"}, {"const": "6529NM.2026.002.03"},
+            {"const": "6529NM.2026.002.04"}, {"const": "6529NM.2026.002.05"}
+          ],
+          "items": false
+        },
+        "title_binding": {"$ref": "#/$defs/text"},
+        "custody": {"$ref": "#/$defs/text"},
+        "condition": {"$ref": "#/$defs/text"},
+        "preservation": {"const": "continuing_stewardship"},
+        "rights": {"$ref": "#/$defs/text"}
       }
     },
     "publicationObservationBinding": {
@@ -579,7 +598,7 @@
     },
     "objectWork": {
       "type": "object", "additionalProperties": false,
-      "required": ["work_entity_id", "proposal_object_alias", "proposal_object_id", "token_id", "caip19", "artist", "artist_entity_id", "artist_display_name", "preferred_title", "date", "date_precision", "place", "archive_number", "curation", "metadata_uri", "image_uri", "image_sha256", "image_dimensions", "rights_status", "collection_membership", "collection_membership_status", "work_lifecycle", "media_reference_entity_id"],
+      "required": ["work_entity_id", "proposal_object_alias", "proposal_object_id", "token_id", "caip19", "artist", "artist_entity_id", "artist_display_name", "preferred_title", "date", "date_precision", "place", "archive_number", "curation", "metadata_uri", "image_uri", "image_sha256", "image_dimensions", "rights_status", "collection_membership", "collection_membership_status", "work_lifecycle", "accession_record_id", "object_record_id", "media_reference_entity_id"],
       "properties": {
         "work_entity_id": {"$ref": "#/$defs/workId"}, "proposal_object_alias": {"$ref": "#/$defs/text"}, "proposal_object_id": {"$ref": "#/$defs/text"},
         "token_id": {"type": "string", "pattern": "^[0-9]+$"}, "caip19": {"$ref": "#/$defs/text"}, "artist": {"$ref": "#/$defs/text"},
@@ -587,7 +606,9 @@
         "preferred_title": {"$ref": "#/$defs/text"}, "date": {"$ref": "#/$defs/text"}, "date_precision": {"enum": ["year", "day"]}, "place": {"$ref": "#/$defs/text"}, "issuer_place_label": {"$ref": "#/$defs/text"}, "archive_number": {"$ref": "#/$defs/text"},
         "curation": {"$ref": "#/$defs/text"}, "metadata_uri": {"type": "string", "format": "uri"}, "image_uri": {"type": "string", "format": "uri"},
         "image_sha256": {"$ref": "#/$defs/sha256"}, "image_dimensions": {"type": "string", "pattern": "^[0-9]+x[0-9]+$"}, "rights_status": {"$ref": "#/$defs/text"},
-        "collection_membership": {"const": false}, "collection_membership_status": {"const": "not_in_collection"}, "work_lifecycle": {"$ref": "#/$defs/text"}, "media_reference_entity_id": {"$ref": "#/$defs/text"}
+        "collection_membership": {"const": true}, "collection_membership_status": {"const": "permanent_collection"}, "work_lifecycle": {"const": "accessioned"},
+        "accession_record_id": {"const": "6529NM-ACC-2026-002"}, "object_record_id": {"type": "string", "pattern": "^6529NM\\.2026\\.002\\.0[1-5]$"},
+        "media_reference_entity_id": {"$ref": "#/$defs/text"}
       },
       "allOf": [
         {"if": {"properties": {"date_precision": {"const": "year"}}, "required": ["date_precision"]}, "then": {"properties": {"date": {"pattern": "^[0-9]{4}$"}}}},

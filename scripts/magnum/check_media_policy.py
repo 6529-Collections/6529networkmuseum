@@ -370,8 +370,8 @@ def validate_join(join: dict) -> list[str]:
     def fail(message: str) -> None:
         errors.append(message)
 
-    if join.get("current_public_status") != "Selected by Museum Wave; accession processing in progress":
-        fail("media join must carry the canonical current selected-review status")
+    if join.get("current_public_status") != "Accessioned into the permanent Collection":
+        fail("media join must carry the canonical completed-accession status")
     if join.get("publication_boundary") != "historical_public_wave_contextual_presentation":
         fail("media join must remain inside the historical public Wave contextual presentation")
     if join.get("source_evidence_boundary") != "historical_public_wave_url_with_publication_observation":
@@ -518,10 +518,10 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
         errors.append("work projections must carry the exact current WINNER observation ID, time, and payload hash")
     if projections.get("current_publication_observation") != PROJECTION_PUBLICATION:
         errors.append("work projections must carry the exact bound public-safe publication receipt")
-    if projections.get("current_public_status") != "Selected by Museum Wave; accession processing in progress":
-        errors.append("work projections must use the selected-review public status")
-    if projections.get("current_lifecycle") != "selected_by_museum_wave_acquisition_review_in_progress" or projections.get("collection_membership") != "not_in_collection":
-        errors.append("work projections must preserve selected-review lifecycle and outside-Collection membership")
+    if projections.get("current_public_status") != "Accessioned into the permanent Collection":
+        errors.append("work projections must use the completed accession public status")
+    if projections.get("current_lifecycle") != "accessioned_into_permanent_collection" or projections.get("collection_membership") != "permanent_collection":
+        errors.append("work projections must carry accessioned lifecycle and permanent-Collection membership")
     if projections.get("evidence_sources_scope") != EXPECTED_EVIDENCE_SCOPE:
         errors.append("work projections must define evidence_sources as the complete cited source-register set")
     integration_media = integration.get("entity_projections", {}).get("media_references", {})

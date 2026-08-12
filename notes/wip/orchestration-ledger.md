@@ -3765,3 +3765,33 @@ catalog activation, and frontend qualification remain open.
   `6529seize-maintainers` team is still requested but has not approved, so PR
   #57 remains intentionally unmerged until the required exact-head review gate
   is satisfied.
+
+## 2026-08-12 Magnum accession and full-site correction
+
+- The institutional current state is fixed: Casey Reas accession
+  `6529NM.2026.001` and Magnum accession `6529NM.2026.002` are completed gifts
+  in the permanent Collection; Keys and Gates remains selected, unminted, in
+  process, and outside the Collection.
+- Finalized custody evidence at Ethereum block `25,741,809` binds all five
+  Magnum token manifestations and transfer receipts to the Museum Safe.
+  Custody remains distinct from selection and accession authority.
+- The Magnum display position now records the Museum's interpretation that
+  ordinary credited institutional display, publication, and accessibility use
+  follow ownership as they do for another museum. Copyright, commercial
+  reproduction, derivatives, licensing, print, and AI-training rights are not
+  claimed.
+- Candidate records add accession `6529NM.2026.002`, five object/rights/technical
+  records, formal gift acceptance, title review, an accession certificate, a
+  completed-status amendment, one Accession entity, five accession relations,
+  and five permanent Collection relations.
+- Public machine projections now require the accessioned state instead of the
+  superseded selected/outside-Collection state. Historical PARTICIPATORY and
+  WINNER observations remain append-only and are still governed by exact source
+  records after the later accession observation.
+- The pending graph is 128 entities, 222 relations, and one Wave observation.
+  The permanent Collection is exactly 12 Works: seven Casey and five Magnum.
+  Bootstrap and full Museum validation are green; complete unit tests are
+  running. Independent exact-head review, reviewed B, catalogue C, canonical
+  and frontend PR review, staging, production, and every-route audit remain.
+- Durable detailed handoff:
+  `notes/wip/2026-08-12-magnum-accession-and-full-site-correction.md`.

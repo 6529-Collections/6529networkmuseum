@@ -1,0 +1,206 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "subjectId": "0xc106de4ca6a438190896cc77ec61d837f405a6bec08284ff423fa4b3a6b4f553",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xe65f4771555a7c76d1e6838999e14a8a363fa58ed6a8cd78c2c6b7f2f2eca9a5",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/gift-acceptance-authorization.json",
+    "schemaId": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1786573476
+  },
+  "payload": {
+    "acquisition_method": "donation",
+    "assets": [
+      {
+        "object_id": "6529NM.2026.002.01",
+        "title": "Patrolling the border between the Negev Desert and Jordan",
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/127",
+        "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+        "token_id": "127",
+        "custody_receipt_log": 696
+      },
+      {
+        "object_id": "6529NM.2026.002.02",
+        "title": "Government soldiers in a church, Suchitoto, El Salvador",
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+        "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+        "token_id": "145",
+        "custody_receipt_log": 229
+      },
+      {
+        "object_id": "6529NM.2026.002.03",
+        "title": "Demonstration, Western Wall, Jerusalem",
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/97",
+        "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+        "token_id": "97",
+        "custody_receipt_log": 430
+      },
+      {
+        "object_id": "6529NM.2026.002.04",
+        "title": "Tripoli, Libya",
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/44",
+        "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+        "token_id": "44",
+        "custody_receipt_log": 207
+      },
+      {
+        "object_id": "6529NM.2026.002.05",
+        "title": "Palmyra, Syria",
+        "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/104",
+        "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+        "token_id": "104",
+        "custody_receipt_log": 385
+      }
+    ],
+    "authorization_id": "6529NM.2026.002.GAA-01",
+    "authorization_kind": "gift_acceptance_and_accession_authorization",
+    "authorization_status": "formally_accepted",
+    "completion_blockers": [],
+    "completion_boundary": {
+      "current_state": "accessioned",
+      "accession_status": "complete",
+      "external_work_accession_certificate": "executed",
+      "title_binding": "executed",
+      "rights": "reviewed_with_conditions",
+      "condition": "reviewed_pass_with_conditions",
+      "preservation": "in_progress",
+      "independent_review": "pending"
+    },
+    "consideration": {
+      "status": "none",
+      "statement": "No consideration is recorded for this intentional gift. This record makes no valuation, tax, accounting, or legal characterization claim."
+    },
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction",
+      "role": "constructor",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "created_at": "2026-08-12T22:24:36.387Z",
+    "custody_receipt": {
+      "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
+      "block_number": 25741708,
+      "block_time": "2026-08-12T21:48:11Z",
+      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_ens": "networkmuseum.6529.eth",
+      "transfer_count": 5,
+      "receipt_status": "0x1"
+    },
+    "donor_authority_declaration": {
+      "source_type": "user_supplied_donor_and_authority_fact",
+      "statement": "The donor's full-gift offer covers the five scheduled tokens and the donor's entire transferable interest in them, without consideration or retained donor interest.",
+      "authentication": "The Museum records that declaration as the title basis. Exact on-chain delivery corroborates transfer of the five tokenized objects; no separate private instrument is represented in this public record.",
+      "limitations": [
+        "The gift transfers the tokenized objects and donor-held transferable interests; it does not assign the photographers' copyright.",
+        "Copyright and reproduction permission remain subject to the All Rights Reserved source position.",
+        "The Museum's credited institutional display position is distinct from copyright ownership and commercial licensing."
+      ]
+    },
+    "donor_public_credit": "punk6529",
+    "effective_at": "2026-08-12T22:24:36.387Z",
+    "evidence_refs": [
+      {
+        "label": "Original proposed gift and full-gift offer",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Public accession status",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Finalized Magnum custody observation",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:486a7f0e5738a9789514739844b3db4b8a59ef34e665dfc13cc3e92721dad2aa"
+      }
+    ],
+    "formal_acceptance_date": "2026-08-12T22:24:36.387Z",
+    "governing_basis": [
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-WAVE-OBS-2026-08-08-001",
+        "wave_serial": 1276093,
+        "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "title": "Conflict at Its Edges acquisition proposal",
+        "observed_wave_status": "WINNER",
+        "governance_effect": "adopted",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "effect_basis": "direct_wave_observation",
+        "governance_record_ref": "6529NM-WAVE-OBS-2026-08-08-001",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-08T10:15:02.0167151Z",
+        "governance_effect_basis": "The signed-drop API records the proposal as WINNER; that cleared the TDH threshold for this acquisition.",
+        "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-GOV-1052812",
+        "wave_serial": 1052812,
+        "drop_id": "86e43beb-b55d-42f0-9eea-a3c115b08abc",
+        "title": "Donation Acceptance Policy",
+        "observed_wave_status": "WINNER",
+        "governance_effect": "adopted",
+        "observed_at": "2026-08-01T15:01:05Z",
+        "effect_basis": "reviewed_governance_record",
+        "governance_record_ref": "6529NM-GOV-REGISTER",
+        "live_api_field": "drop_type",
+        "live_api_status": "WINNER",
+        "live_api_observed_at": "2026-08-01T15:01:05Z",
+        "governance_effect_basis": "The reviewed governance register records adoption from the authenticated Wave API WINNER status.",
+        "source_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/policies/donation-acceptance.md"
+      }
+    ],
+    "institutional_decision_authority": {
+      "authority_basis": "user_authorized_institutional_decision",
+      "decision_status": "formally_accepted",
+      "documentation_qa_status": "pending_independent_review",
+      "effective_at": "2026-08-12T22:24:36.387Z",
+      "publication_semantics": "The Museum records the completed gift and accession on the basis of the donor's full-gift offer and maintainer instruction; constructor and reviewer fields keep documentary production separate from institutional authority."
+    },
+    "non_claims": [
+      "The accession does not transfer copyright or create a general reproduction licence.",
+      "All Rights Reserved source notices remain in force.",
+      "No valuation, tax, or commercial-rights determination is made."
+    ],
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "outcome": "formally_accepted_gift_and_accession_authorization",
+    "payload_sha256": "sha256:c85d64de0c1522feaa359b831a578fd493dc3949e2ca1104ce275bc34fe3e8dc",
+    "permanent_collection_intent": "The Museum formally accepts this five-object gift for the permanent Collection under the adopted donation pathway and ordinary collection stewardship responsibilities.",
+    "record_id": "6529NM.2026.002.GAA-01",
+    "record_status": "review_pending",
+    "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-002",
+      "6529NM-CA-2026-003",
+      "6529NM-PG-2026-001"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-WAVE-OBS-2026-08-08-001"
+      ]
+    },
+    "subject_id": "6529NM.2026.002",
+    "visibility": "public"
+  }
+}

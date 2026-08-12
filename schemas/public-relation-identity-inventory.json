@@ -1,6 +1,6 @@
 {
     "$schema":  "https://6529networkmuseum.org/schemas/public-relation-identity-inventory-v1.json",
-    "inventory_version":  "1.4.0",
+    "inventory_version":  "1.5.0",
     "identity_policy":  "Relation identity is bound to a semantic predicate and typed endpoints; source emission order and mutable assertion qualifiers never allocate a public relation ID. Withdrawn assertions retain append-only identity tombstones and their IDs are never reused.",
     "relation_key_format":  "relation_type|source_entity_id|target_entity_id",
     "relation_bindings":  [
@@ -851,6 +851,46 @@
                               {
                                   "relation_id":  "6529NM-REL-0218",
                                   "source_key":  "ENTITY_HAS_MEDIA|6529NM-W-0007|6529NM-MED-0051"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0219",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0002|6529NM-W-0024"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0220",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0024"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0221",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0002|6529NM-W-0025"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0222",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0025"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0223",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0002|6529NM-W-0026"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0224",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0026"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0225",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0002|6529NM-W-0027"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0226",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0027"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0227",
+                                  "source_key":  "ACCESSION_ADMITS_WORK|6529NM-ACC-ENT-0002|6529NM-W-0028"
+                              },
+                              {
+                                  "relation_id":  "6529NM-REL-0228",
+                                  "source_key":  "COLLECTION_CONTAINS_WORK|6529NM-C-0001|6529NM-W-0028"
                               }
                           ],
     "retired_relation_ids":  [
