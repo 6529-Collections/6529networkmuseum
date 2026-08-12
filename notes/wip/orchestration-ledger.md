@@ -3743,5 +3743,9 @@ catalog activation, and frontend qualification remain open.
   `docs/control-plane.md` and
   `notes/wip/2026-08-12-publication-catalog-batched-git-reads.md`. This work
   is intentionally non-blocking for the active art-first production release.
-- Next gates are manifest regeneration, complete local validation, exact-head
-  bot/CI review, maintainer approval, resolved threads, and only then merge.
+- Manifest regeneration and complete local validation are green. PR #57 is
+  ready at commit `ae6f833`, with all six required Ubuntu/Windows jobs still
+  pending and the `6529seize-maintainers` team requested. CodeRabbit reported
+  a temporary review-rate limit without actionable findings. Exact-head bot
+  or maintainer review, resolved threads, and green required CI remain gates;
+  merge is not authorized by this ledger until all are satisfied.

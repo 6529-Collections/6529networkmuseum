@@ -58,8 +58,13 @@ bytes.
 - The release manifest was regenerated after the control-plane source,
   documentation, tests, INDEX, and this note settled; `generate_manifest.py
   --check` is green.
-- Full repository validation, deterministic Windows/Ubuntu checks, review bots,
-  PR review, and required maintainer approval remain open.
+- Full local discovery is green: 330 tests, one skipped, in 464.891 seconds.
+- Commit `ae6f833` is published as ready PR #57 on
+  `codex/publication-catalog-batched-git-reads-v2`; the six required
+  Ubuntu/Windows GitHub jobs are still pending, and the maintainer team was
+  requested for review.
+- CodeRabbit received the PR but reported a temporary review-rate limit, so it
+  supplied no actionable review and remains an external open gate.
 - No Museum records, evidence, media, or frontend presentation files are in
   scope; any release-manifest change is a control-plane commitment only.
 - The PR must not be merged until the exact final head is independently
