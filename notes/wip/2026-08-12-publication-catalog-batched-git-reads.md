@@ -58,16 +58,18 @@ bytes.
 - The release manifest was regenerated after the control-plane source,
   documentation, tests, INDEX, and this note settled; `generate_manifest.py
   --check` is green.
-- Full local discovery is green: 330 tests, one skipped, in 464.891 seconds.
-- Commit `ae6f833` is published as ready PR #57 on
+- Full local discovery is green on the cache-fix head: 331 tests, one skipped,
+  in 458.866 seconds.
+- Commit `0e63c74` is published as ready PR #57 on
   `codex/publication-catalog-batched-git-reads-v2`; the six required
-  Ubuntu/Windows GitHub jobs are still pending, and the maintainer team was
-  requested for review.
-- CodeRabbit completed its review with one actionable memory-retention finding:
+  Ubuntu/Windows GitHub jobs are green, the addressed CodeRabbit thread is
+  resolved/outdated, and the maintainer team was requested for review.
+- CodeRabbit completed its review with one actionable memory-retention finding
+  on the prior head:
   the reader cache is now bounded to two commit readers, exposes an explicit
   `clear_cached_git_tree_readers()` release helper, and the catalog CLI invokes
-  it in `finally`; the new focused suite is 42 tests, OK. Re-review of the
-  fix head and maintainer approval remain open.
+  it in `finally`; the new focused suite is 42 tests, OK. A fresh bot
+  re-review was rate-limited after the fix; maintainer approval remains open.
 - No Museum records, evidence, media, or frontend presentation files are in
   scope; any release-manifest change is a control-plane commitment only.
 - The PR must not be merged until the exact final head is independently

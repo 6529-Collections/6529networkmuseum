@@ -3753,5 +3753,7 @@ catalog activation, and frontend qualification remain open.
 - CodeRabbit then completed review at `079f44c` and identified one valid
   memory-retention issue in the reader cache. The fix bounds the cache to two
   commit readers and adds explicit CLI/finally release; the focused suite is
-  green at 42 tests. The fix head must receive fresh CI/re-review, and the
-  maintainer approval/thread gate remains open.
+  green at 42 tests. The full local suite is green at 331 tests (one skipped)
+  in 458.866 seconds. The fix head `0e63c74` has all six required CI jobs
+  green, and the addressed thread is resolved/outdated. A fresh CodeRabbit
+  re-review was rate-limited; maintainer approval remains open.
