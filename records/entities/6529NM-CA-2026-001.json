@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5272fa56ae36e419dec3e1328265aad24164f67e230312d366634dcc2fa3722a"
+      "digest": "0x19e2ed44a9875b73fbf5ee0068d3915064e882b30f5ebc3cefb0cf91b4f9faef"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/the-system-in-seven-states",
     "constructor": {
-      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
-      "observed_at": "2026-08-11T21:56:04Z",
+      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "observed_at": "2026-08-12T07:37:56Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-11T21:56:04Z",
+    "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-CA-2026-001",
     "entity_status": "published",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:95800ad705b01d744a321c9f51b8a5587ffa8066ecf57968990fa111f789f8d5",
+    "payload_sha256": "sha256:0cfb72c91e1db0f40a0d0766f3023b518d66c75fc12c4f532750be175ffb3a29",
     "preferred_label": "The System in Seven States",
     "profile": {
       "acquisition_method": "donation",
@@ -262,14 +262,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:independent-reviewer",
+      "id": "codex-review:zeno-019ff532",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T03:09:26.493Z",
-      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
-      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
-      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
       "reviewer_ids": [
-        "codex-review:independent-reviewer"
+        "codex-review:zeno-019ff532"
       ],
       "role": "reviewer"
     },

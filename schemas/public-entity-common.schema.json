@@ -291,6 +291,22 @@
         "token_source_locator": {
           "anyOf": [{"$ref": "#/$defs/mediaLocator"}, {"type": "null"}]
         },
+        "active_display_source_amendment": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["amendment_id", "path", "status", "observed_at"],
+              "properties": {
+                "amendment_id": {"const": "6529NM-MEDIA-CONT-AMD-2026-08-12-001"},
+                "path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json"},
+                "status": {"const": "active_downstream_accession_display_source"},
+                "observed_at": {"const": "2026-08-12T07:37:56.984246Z"}
+              }
+            },
+            {"type": "null"}
+          ]
+        },
         "media_type": {"type": "string", "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]*/[a-z0-9][a-z0-9!#$&^_.+-]*$"},
         "visual": {"type": "boolean"},
         "width": {"type": ["integer", "null"], "minimum": 1},
@@ -382,7 +398,7 @@
         {
           "if": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]},
           "then": {
-            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity", "source_byte_size", "publication_part_number"],
+            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity", "active_display_source_amendment", "source_byte_size", "publication_part_number"],
             "allOf": [
               {
                 "if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_apparently_young_subject"}}, "required": ["accessibility_subject_policy"]},

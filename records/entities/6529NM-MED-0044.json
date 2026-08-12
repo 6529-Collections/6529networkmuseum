@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb432d4eea0a5742c1a6ff617b20bd164758649e34a539571b7235e32b33b805e"
+      "digest": "0x063bff065c1a6ba0d2596cc488f7daff37584007df094c12e3efa30f37356ec0"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
-      "observed_at": "2026-08-11T21:56:04Z",
+      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "observed_at": "2026-08-12T07:37:56Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-11T21:56:04Z",
+    "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0044",
     "entity_status": "published",
@@ -40,14 +40,20 @@
       {
         "evidence_class": "B",
         "label": "Contextual public presentation authority",
-        "observed_at": "2026-08-11T21:56:04Z",
+        "observed_at": "2026-08-12T07:37:56Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession-media source continuity amendment",
+        "observed_at": "2026-08-12T07:37:56.984246Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:7e2df8958badbbc2211ea8d22fa802269e21590f2366171938846b22b011e44c",
-    "preferred_label": "Palmyra, Syria historical Wave proposal presentation source",
+    "payload_sha256": "sha256:e88590235902b61ac596a01e86a04c0aa6a11ac8b180401c4c2a01173c0411e9",
+    "preferred_label": "Palmyra, Syria accession-reviewed historical proposal image",
     "profile": {
       "media": {
         "accessibility_evidence_refs": [
@@ -62,6 +68,12 @@
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
+        "active_display_source_amendment": {
+          "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+          "status": "active_downstream_accession_display_source"
+        },
         "allowed_ui_affordances": [
           "view",
           "thumbnail",
@@ -74,7 +86,7 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
-          "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master.",
+          "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master.",
           "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
@@ -118,8 +130,14 @@
             {
               "evidence_class": "B",
               "label": "Contextual public presentation authority",
-              "observed_at": "2026-08-11T21:56:04Z",
+              "observed_at": "2026-08-12T07:37:56Z",
               "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession-media source continuity amendment",
+              "observed_at": "2026-08-12T07:37:56.984246Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
@@ -131,8 +149,17 @@
           "6529NM-WAVE-PUB-OBS-2026-08-08-001"
         ],
         "subject_entity_id": "6529NM-W-0028",
-        "token_source_fixity": null,
-        "token_source_locator": null,
+        "token_source_fixity": {
+          "algorithm": "sha256",
+          "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master.",
+          "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
+          "status": "verified",
+          "verified_at": "2026-08-08T10:15:02.0167151Z"
+        },
+        "token_source_locator": {
+          "repository_path": null,
+          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco"
+        },
         "transform_profile": null,
         "visual": true,
         "wave_proposal_context": {
@@ -160,14 +187,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:independent-reviewer",
+      "id": "codex-review:zeno-019ff532",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T03:09:26.493Z",
-      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
-      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
-      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
       "reviewer_ids": [
-        "codex-review:independent-reviewer"
+        "codex-review:zeno-019ff532"
       ],
       "role": "reviewer"
     },
@@ -188,8 +215,14 @@
         {
           "evidence_class": "B",
           "label": "Contextual public presentation authority",
-          "observed_at": "2026-08-11T21:56:04Z",
+          "observed_at": "2026-08-12T07:37:56Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession-media source continuity amendment",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

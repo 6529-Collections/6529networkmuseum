@@ -7,15 +7,22 @@
 **Issued:** 11 August 2026
 **Scope:** the exact five photographs published with the selected Museum Wave proposal
 
+The downstream accession-media review of 12 August 2026 preserves the
+historical Wave URLs as publication evidence and assigns the exact,
+fixity-verified token sources as the current browser display sources.
+
 The five photographs are presented on the Museum website as part of the
 accession work for *Conflict at Its Edges*. The display allows the acquisition
 to be studied as a five-work argument and connects each photograph to its
 artist, caption, object entry, project history, and curatorial reading.
 
-The website uses the exact image locators already published in the signed
-Museum Wave proposal. It does not make a new repository copy, derivative,
-crop, download, responsive image set, IIIF service, or preservation master.
-Each image remains bound to the proposal part in which it appeared and to the
+The website originally used the exact image locators already published in the
+signed Museum Wave proposal. The 12 August technical review supersedes that
+locator selection after real-browser delivery failed. The current display uses
+the exact Arweave token-source locators already bound to the same Works and
+fixity records. It does not make a new repository copy, derivative, crop,
+download, responsive image set, IIIF service, or preservation master. Each
+image remains bound to the proposal part in which it appeared and to the
 canonical Wave publication observation.
 
 All five images remain **All Rights Reserved**. Their public availability and

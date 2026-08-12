@@ -12,7 +12,7 @@
 | Permanent Collection | The five Works remain outside the permanent Collection until acceptance and accession are complete. |
 | Stable source root | [Magnum scholarship in the Museum repository](https://github.com/6529-Collections/6529networkmuseum/tree/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship) |
 | Research apparatus | [Source register](sources/source-register.md) and linked notes, technical records, rights record, and chronology |
-| Visitor edition | This publication record and 21 component manuscripts |
+| Visitor edition | This publication record and 22 component manuscripts |
 
 ## Edition and citation
 
@@ -30,7 +30,7 @@ Photographs of Borders, Access, and Afterlives, 1952–2016,” edition 1.0.0,
 The visitor edition includes the acquisition profile and narrative, catalogue
 essay, five artist profiles, five Work entries, Magnum Photos and Magnum Photos
 75 profiles, and the supporting chronology, caption, rights, technical, media,
-and source manuscripts. Its Research Publication entity binds the 21 component
+and source manuscripts. Its Research Publication entity binds the 22 component
 paths as one dossier. Facts and quotations are supported in the numbered notes
 and source register. Interpretations belong to the Museum unless another voice
 is expressly attributed. The public proposal credits punk6529 as offeror;
@@ -47,3 +47,8 @@ visitor publication bundle.
   Museum Wave selection, with object-level entries, artist and institutional
   profiles, catalogue and acquisition essays, caption and chronology research,
   rights and media boundaries, and deterministic machine records.
+- **1.0.1, 12 August 2026:** Added an append-only downstream accession-media
+  source-continuity record after real-browser review found the historical Wave
+  upload URLs unreliable for visitor delivery. Current display uses the exact
+  governed Arweave token-source locators; historical Wave locators remain
+  publication evidence and all rights and interface restrictions remain.

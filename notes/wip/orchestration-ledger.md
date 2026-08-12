@@ -3675,3 +3675,31 @@ catalog activation, and frontend qualification remain open.
 - Candidate-A regeneration now covers 694 JSON files and 340 pending generated
   records. Bootstrap, schema/record validation, manifest idempotence, and the
   complete repository suite are running before the candidate is frozen.
+
+## 2026-08-12 Conflict accession-media delivery continuity
+
+- Retained staging visual review of frontend runtime `b175c5341aaba7db7aa08da7d867cfc33d0e30c5`
+  found the first Conflict photograph blank. Chromium reported
+  `net::ERR_BLOCKED_BY_ORB` for the historical Wave-upload CDN locator. The
+  automated staging packs had passed, so this is also a retained test-coverage
+  finding; production promotion was withheld.
+- The five exact Arweave token-source locators, byte sizes, dimensions, and
+  SHA-256 digests were already governed in the accession machine package.
+  A schema-validated append-only amendment makes those fixity-verified sources
+  the active display sources while retaining the Wave-upload locators in each
+  Media Reference and manifestation as historical publication evidence.
+- This is downstream accession work: technical review, contextual image
+  delivery, accessibility, rights, and catalogue publication follow Wave
+  selection. It is not a second curatorial decision and does not alter title,
+  custody, preservation, formal accession, or permanent Collection status.
+- The active restrictions remain All Rights Reserved, acquisition/artist/Work
+  context only, no download, zoom, fullscreen, source opening, derivative,
+  responsive recompression, IIIF, or preservation-master claim. The 16.9 MB
+  Palmyra source remains deliberate-load only.
+- The machine amendment binds the prior revision-2 file hashes and prior Media
+  payload hashes; integration, join, and Work projections are now revision 3.
+  Fixity remains the exact 8 August observation. The 12 August event is the
+  browser delivery review and display-source decision, not a new byte claim.
+- Required continuation is corrected candidate A generation and validation,
+  independent exact-head review, reviewed B, catalogue C activation, frontend
+  adapter qualification, and a fresh staging visual/E2E pass before production.

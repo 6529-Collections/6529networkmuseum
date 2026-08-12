@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe553c8e0fcabbc6378ab849fc8f989b8f1383414a200117c1ad142169666e32b"
+      "digest": "0x73181f689c3ce63765c63120dbbd4db8c8c5cadb6c6785e1291529750f62cd8e"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_RELATION",
@@ -21,11 +21,11 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
-      "observed_at": "2026-08-11T21:56:04Z",
+      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "observed_at": "2026-08-12T07:37:56Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-11T21:56:04Z",
+    "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "evidence_refs": [
       {
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-09T00:00:00Z",
-    "payload_sha256": "sha256:b0fc13ed0d5ce5e5c06227b79007e6634961bb54aa260918ffe3dcf8d3058d41",
+    "payload_sha256": "sha256:66df5a16e7ba8785792cb259a523fd4562202733fc8094623f1bcab05a3ad4bf",
     "qualifier": {
       "role": "subject"
     },
@@ -53,14 +53,14 @@
     "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:independent-reviewer",
+      "id": "codex-review:zeno-019ff532",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T03:09:26.493Z",
-      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
-      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
-      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
       "reviewer_ids": [
-        "codex-review:independent-reviewer"
+        "codex-review:zeno-019ff532"
       ],
       "role": "reviewer"
     },

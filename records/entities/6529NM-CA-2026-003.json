@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc27885a18744840f4fac33cdbadc8a03e81038a85049d3718ab8dc93dcf12d0e"
+      "digest": "0x378f49a76fcba0d85cdde5a8cd01a3cb0027fbbb6b850501e91c85e9b168800f"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/conflict-at-its-edges",
     "constructor": {
-      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
-      "observed_at": "2026-08-11T21:56:04Z",
+      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "observed_at": "2026-08-12T07:37:56Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-11T21:56:04Z",
+    "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-CA-2026-003",
     "entity_status": "published",
@@ -52,14 +52,20 @@
       {
         "evidence_class": "B",
         "label": "Current accession-processing status",
-        "observed_at": "2026-08-11T21:56:04Z",
+        "observed_at": "2026-08-12T07:37:56Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
       },
       {
         "evidence_class": "B",
         "label": "Contextual public presentation authority",
-        "observed_at": "2026-08-11T21:56:04Z",
+        "observed_at": "2026-08-12T07:37:56Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession-media source continuity amendment",
+        "observed_at": "2026-08-12T07:37:56.984246Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
       }
     ],
     "media_entity_ids": [
@@ -67,7 +73,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:902cf26fea0c0e89939919ce413bcf6c4ed5c19bab493453a186d082fdd2dfb8",
+    "payload_sha256": "sha256:4ab83b470621768f7245432341f5ccacae6e2a271c47817814c4a077cdbb2e2f",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -94,14 +100,20 @@
         {
           "evidence_class": "B",
           "label": "Current accession-processing status",
-          "observed_at": "2026-08-11T21:56:04Z",
+          "observed_at": "2026-08-12T07:37:56Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
         },
         {
           "evidence_class": "B",
           "label": "Contextual public presentation authority",
-          "observed_at": "2026-08-11T21:56:04Z",
+          "observed_at": "2026-08-12T07:37:56Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession-media source continuity amendment",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
         }
       ],
       "independent_acquisition_facts": {
@@ -119,16 +131,22 @@
           "status": "unverified"
         },
         "display": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T07:37:56.984246Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "label": "Historical Wave publication observation",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Active accession-media source continuity amendment",
+              "observed_at": "2026-08-12T07:37:56.984246Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
             }
           ],
-          "notes": "Contextual public presentation is authorized only for the exact signed Wave publication images in acquisition, artist, and Work pages, with credits and no download, zoom, fullscreen, derivative, or preservation claim.",
+          "notes": "Downstream accession review preserves the historical Wave locators and uses the exact fixity-verified token-source bytes for contextual acquisition, artist, and Work display. Download, zoom, fullscreen, derivative, and preservation claims remain blocked.",
           "status": "verified_with_conditions"
         },
         "mint": {
@@ -180,7 +198,7 @@
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
-          "notes": "The accession review retains All Rights Reserved and authorizes only contextual presentation of the exact signed Wave publication images; copyright transfer and broader reproduction rights are not established.",
+          "notes": "The accession review retains All Rights Reserved and authorizes only contextual presentation of the five accession-reviewed images; copyright transfer and broader reproduction rights are not established.",
           "status": "verified_with_conditions"
         },
         "technical": {
@@ -324,14 +342,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:independent-reviewer",
+      "id": "codex-review:zeno-019ff532",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T03:09:26.493Z",
-      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
-      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
-      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
       "reviewer_ids": [
-        "codex-review:independent-reviewer"
+        "codex-review:zeno-019ff532"
       ],
       "role": "reviewer"
     },
@@ -373,14 +391,20 @@
         {
           "evidence_class": "B",
           "label": "Current accession-processing status",
-          "observed_at": "2026-08-11T21:56:04Z",
+          "observed_at": "2026-08-12T07:37:56Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
         },
         {
           "evidence_class": "B",
           "label": "Contextual public presentation authority",
-          "observed_at": "2026-08-11T21:56:04Z",
+          "observed_at": "2026-08-12T07:37:56Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession-media source continuity amendment",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
