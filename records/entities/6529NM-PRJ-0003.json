@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd07644062979f2898d42f5ab01195050e61a925ac37055e0125627a1ce697795"
+      "digest": "0xa25e2698db9ccc1ea0d5b9a66a297fbe5fb3f7076865ca44eba532810a211b33"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0003",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:284772b6958b791be152923b5745d8ce8bb66473fe141c1d734da33580a0cdc0",
+    "payload_sha256": "sha256:d530649dc2db7be98534440c6eb6e2ab40ae824e9c34edf64b56751e13772f1c",
     "preferred_label": "Phototaxis",
     "profile": {
       "agent_entity_ids": [
@@ -68,7 +68,7 @@
     },
     "public_slug": "phototaxis",
     "record_id": "6529NM-PRJ-0003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -76,8 +76,19 @@
       "6529NM-ORG-0001",
       "6529NM-W-0005"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewer_ids": [
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -94,7 +105,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-PRJ-0003",
     "visibility": "public"

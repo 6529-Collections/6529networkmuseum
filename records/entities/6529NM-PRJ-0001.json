@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf6fd99bab1fdfeba12b604b1e09d27ee6f586374c835b7c328aae6a577a47798"
+      "digest": "0xfd1a827051b844f19859c7239fd15749964f7b8a312c7e5a846a77a8a90de350"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:07594a6285bffecc68c183095244f90bbcce91d7d8e436404caa49e4b645de56",
+    "payload_sha256": "sha256:9c6b6750f0c3d1aa208ac967bee83161a2caee35aec3b6adf29ebccad959779b",
     "preferred_label": "CENTURY",
     "profile": {
       "agent_entity_ids": [
@@ -72,7 +72,7 @@
     },
     "public_slug": "century",
     "record_id": "6529NM-PRJ-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -82,8 +82,19 @@
       "6529NM-W-0002",
       "6529NM-W-0003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewer_ids": [
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -102,7 +113,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-PRJ-0001",
     "visibility": "public"

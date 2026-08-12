@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x50542c46db73c97814d24b885ccba839d3310a76acd11a4fe39575c476e3c04f"
+      "digest": "0xf25827e2ed91d5df7e645f2ff37c1a720d443e1185408b9be3cd027a5a4f72c7"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0044",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:3e5f137a8a220429dd9f00ec04b50f87c895822232464e2bad65940733431905",
+    "payload_sha256": "sha256:289fef870399e525e13421009d838a7f1bca0533235b5147f739c9d86c952278",
     "preferred_label": "Palmyra, Syria downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -177,7 +177,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0044",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -185,8 +185,19 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewer_ids": [
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -215,7 +226,7 @@
         }
       ],
       "observed_at": "2026-08-12T07:37:56.984246Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0044",
     "visibility": "public"

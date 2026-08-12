@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x904f91b0f8a6a906a5d584cb10a58393164c534f6b2e8c05194b82d58d8c535f"
+      "digest": "0xde6e90496690bc62db19ac4bca8f54fdb6132fdabe864672a36f0f269a563516"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0010",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:cb46ac7746a08722800a7dcadf06410ccf6f40b7e0446bc7f43f2651ccac9676",
+    "payload_sha256": "sha256:8979228a1f688ba158eefca79fe17429ee791248c3f1df2754ca63d0a44c8913",
     "preferred_label": "Managed Freedom",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0010",
     "record_id": "6529NM-W-0010",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,8 +186,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T11:05:56.912308Z",
+      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
+      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
+      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewer_ids": [
+        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0004",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0010",
     "visibility": "public"
