@@ -557,8 +557,8 @@ def validate_work_projections(projections: dict, join: dict, integration: dict) 
                 ):
                     errors.append(f"{row.get('canonical_work_id')}: manifestation must remain bound to contextual Wave presentation authority")
                 joined = join_by_work.get(work_id, {})
-                if manifestation.get("uri") != joined.get("token_source_image_url") or manifestation.get("token_source_uri") != joined.get("token_source_image_url"):
-                    errors.append(f"{row.get('canonical_work_id')}: manifestation must use the exact fixity-verified token-source URI")
+                if manifestation.get("uri") != joined.get("wave_media_url") or manifestation.get("token_source_uri") != joined.get("token_source_image_url"):
+                    errors.append(f"{row.get('canonical_work_id')}: manifestation must preserve the historical Wave URI and bind the exact token-source display URI")
                 if row.get("canonical_work_id") == "6529NM-W-0026":
                     binding = manifestation.get("alt_text_amendment_binding", {})
                     supersedes = binding.get("supersedes", {})

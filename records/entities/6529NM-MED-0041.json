@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1c44e509f868847bc53b5480c11de95064adaca34b8a36e3ac6a07b382827bb5"
+      "digest": "0x3ce63fb2525c71ac4406a2c0aaaae3c0d700ba76b137e086070149ed87f9fce8"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b6b74e5c80af265276b18d8732aec503caafa68df4a619c1303ab8157c6bd1e8",
+    "payload_sha256": "sha256:f9e6362942b299f162846789668117a67df72b5b14b16457ba19e51859dcd6e5",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -68,6 +68,12 @@
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Black-and-white photograph of two armed soldiers standing symmetrically inside a church beneath a large crucifix.",
+        "active_display_source_amendment": {
+          "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+          "status": "active_downstream_accession_display_source"
+        },
         "allowed_ui_affordances": [
           "view",
           "thumbnail",
@@ -80,7 +86,7 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
-          "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master.",
+          "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master.",
           "digest": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
@@ -111,7 +117,7 @@
         "source_byte_size": 1813285,
         "source_locator": {
           "repository_path": null,
-          "uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE"
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/3e2fbdea-cf3c-4949-b3d2-f081cb12de00/magnum-75-145.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -145,7 +151,7 @@
         "subject_entity_id": "6529NM-W-0025",
         "token_source_fixity": {
           "algorithm": "sha256",
-          "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master.",
+          "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master.",
           "digest": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"

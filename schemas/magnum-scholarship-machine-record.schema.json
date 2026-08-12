@@ -31,6 +31,7 @@
         "typed_relation_dependencies",
         "acquisition_boundary",
         "media_policy_reference",
+        "active_media_source_amendment",
         "correction_policy"
       ],
       "properties": {
@@ -59,6 +60,7 @@
         "typed_relation_dependencies": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/relationDependency"}},
         "acquisition_boundary": {"$ref": "#/$defs/acquisitionBoundary"},
         "media_policy_reference": {"type": "string", "minLength": 1},
+        "active_media_source_amendment": {"$ref": "#/$defs/activeMediaSourceAmendment"},
         "correction_policy": {"const": "append_only_with_supersedes"}
       }
     },
@@ -141,6 +143,7 @@
         "route_policy",
         "runtime_policy",
         "display_policy",
+        "active_media_source_amendment",
         "works"
       ],
       "properties": {
@@ -170,6 +173,7 @@
         "route_policy": {"$ref": "#/$defs/routePolicy"},
         "runtime_policy": {"$ref": "#/$defs/runtimePolicy"},
         "display_policy": {"$ref": "#/$defs/displayPolicy"},
+        "active_media_source_amendment": {"$ref": "#/$defs/activeMediaSourceAmendment"},
         "works": {"$ref": "#/$defs/fiveMediaWorks"}
       }
     },
@@ -199,6 +203,7 @@
         "collection_membership",
         "accession_record",
         "object_record",
+        "active_media_source_amendment",
         "works"
       ],
       "properties": {
@@ -225,7 +230,33 @@
         "collection_membership": {"const": "not_in_collection"},
         "accession_record": {"type": "null"},
         "object_record": {"type": "null"},
+        "active_media_source_amendment": {"$ref": "#/$defs/activeMediaSourceAmendment"},
         "works": {"$ref": "#/$defs/fiveProjectedWorks"}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["$schema", "record_control", "local_profile", "status", "amendment_id", "authority", "effective_at", "observed_at", "supersession_reason", "superseded_machine_records", "works", "immutable_boundaries"],
+      "properties": {
+        "$schema": {"$ref": "#/$defs/schemaPath"},
+        "record_control": {"$ref": "#/$defs/recordControl"},
+        "local_profile": {"const": "6529NM_WP3_MAGNUM_MEDIA_SOURCE_CONTINUITY_AMENDMENT_V1"},
+        "status": {"const": "active_downstream_accession_display_source"},
+        "amendment_id": {"const": "6529NM-MEDIA-CONT-AMD-2026-08-12-001"},
+        "authority": {"$ref": "#/$defs/mediaContinuityAuthority"},
+        "effective_at": {"$ref": "#/$defs/observedAt"},
+        "observed_at": {"$ref": "#/$defs/observedAt"},
+        "supersession_reason": {"$ref": "#/$defs/text"},
+        "superseded_machine_records": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/supersededMachineRecord"}},
+        "works": {
+          "type": "array", "minItems": 5, "maxItems": 5,
+          "prefixItems": [
+            {"$ref": "#/$defs/mediaContinuityWork0024"}, {"$ref": "#/$defs/mediaContinuityWork0025"}, {"$ref": "#/$defs/mediaContinuityWork0026"}, {"$ref": "#/$defs/mediaContinuityWork0027"}, {"$ref": "#/$defs/mediaContinuityWork0028"}
+          ],
+          "items": false
+        },
+        "immutable_boundaries": {"$ref": "#/$defs/nonEmptyStringArray"}
       }
     }
   ],
@@ -256,6 +287,54 @@
     "observedAt": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,7})?Z$"},
     "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
     "workId": {"type": "string", "pattern": "^6529NM-W-00(?:24|25|26|27|28)$"},
+    "activeMediaSourceAmendment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["amendment_id", "path", "status", "observed_at"],
+      "properties": {
+        "amendment_id": {"const": "6529NM-MEDIA-CONT-AMD-2026-08-12-001"},
+        "path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json"},
+        "status": {"const": "active_downstream_accession_display_source"},
+        "observed_at": {"const": "2026-08-12T07:37:56.984246Z"}
+      }
+    },
+    "mediaContinuityAuthority": {
+      "type": "object", "additionalProperties": false,
+      "required": ["presentation_authority_path", "browser_review_finding_path", "decision_scope"],
+      "properties": {
+        "presentation_authority_path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"},
+        "browser_review_finding_path": {"const": "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"},
+        "decision_scope": {"const": "downstream_accession_technical_review_and_public_display_delivery"}
+      }
+    },
+    "supersededMachineRecord": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "prior_revision", "prior_file_sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/(?:integration-map|wave-media-join|work-projections)\\.json$"},
+        "prior_revision": {"const": 2},
+        "prior_file_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "mediaContinuityWork": {
+      "type": "object", "additionalProperties": false,
+      "required": ["work_entity_id", "media_reference_entity_id", "prior_media_payload_sha256", "historical_wave_uri", "display_token_source_uri", "sha256", "bytes", "width", "height", "fixity_verified_at", "display_policy"],
+      "properties": {
+        "work_entity_id": {"$ref": "#/$defs/workId"},
+        "media_reference_entity_id": {"type": "string", "pattern": "^6529NM-MED-(?:0003|0041|0042|0043|0044)$"},
+        "prior_media_payload_sha256": {"$ref": "#/$defs/sha256"},
+        "historical_wave_uri": {"type": "string", "format": "uri", "pattern": "^https://d3lqz0a4bldqgf\\.cloudfront\\.net/drops/"},
+        "display_token_source_uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/[A-Za-z0-9_-]{43}$"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 1}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1},
+        "fixity_verified_at": {"const": "2026-08-08T10:15:02.0167151Z"},
+        "display_policy": {"const": "historical_wave_locator_preserved_token_source_used_for_accession_display"}
+      }
+    },
+    "mediaContinuityWork0024": {"allOf": [{"$ref": "#/$defs/mediaContinuityWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0024"}, "media_reference_entity_id": {"const": "6529NM-MED-0003"}}, "required": ["work_entity_id", "media_reference_entity_id"]}]},
+    "mediaContinuityWork0025": {"allOf": [{"$ref": "#/$defs/mediaContinuityWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0025"}, "media_reference_entity_id": {"const": "6529NM-MED-0041"}}, "required": ["work_entity_id", "media_reference_entity_id"]}]},
+    "mediaContinuityWork0026": {"allOf": [{"$ref": "#/$defs/mediaContinuityWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0026"}, "media_reference_entity_id": {"const": "6529NM-MED-0042"}}, "required": ["work_entity_id", "media_reference_entity_id"]}]},
+    "mediaContinuityWork0027": {"allOf": [{"$ref": "#/$defs/mediaContinuityWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0027"}, "media_reference_entity_id": {"const": "6529NM-MED-0043"}}, "required": ["work_entity_id", "media_reference_entity_id"]}]},
+    "mediaContinuityWork0028": {"allOf": [{"$ref": "#/$defs/mediaContinuityWork"}, {"properties": {"work_entity_id": {"const": "6529NM-W-0028"}, "media_reference_entity_id": {"const": "6529NM-MED-0044"}}, "required": ["work_entity_id", "media_reference_entity_id"]}]},
     "nonEmptyStringArray": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
     "publicationPathContract": {
       "type": "object", "additionalProperties": false,

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2afc1e1bd14d55f27b18efe7a5134ad5ce6d174511eb6ce6dc688520d03f7060"
+      "digest": "0xe5e8986bbc9b70e418e558725632b256e132d6849a8d99a6e3df445e9cc4fd3c"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b445d790b348243ffe8cf8c4f67c3a67a55cef1727f75bd8d112c9e4e62b7a80",
+    "payload_sha256": "sha256:67351da26b9d5a29c694998b0b687baefd00d4eb1a86edcb2a6974537e73473a",
     "preferred_label": "Palmyra, Syria accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -68,6 +68,12 @@
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Color photograph of a soldier holding a helmet to his face while seated among pale rubble and standing columns at Palmyra under a clear blue sky.",
+        "active_display_source_amendment": {
+          "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+          "status": "active_downstream_accession_display_source"
+        },
         "allowed_ui_affordances": [
           "view",
           "thumbnail",
@@ -80,7 +86,7 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
-          "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master.",
+          "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master.",
           "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
@@ -111,7 +117,7 @@
         "source_byte_size": 16871807,
         "source_locator": {
           "repository_path": null,
-          "uri": "https://arweave.net/oz0t0DJj2BgFCux1WXskxisxvzV2KA0ukqaVbQ1Ckco"
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/4526b19e-76df-493b-86ac-105782c061ea/magnum-75-104.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -145,7 +151,7 @@
         "subject_entity_id": "6529NM-W-0028",
         "token_source_fixity": {
           "algorithm": "sha256",
-          "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master.",
+          "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master.",
           "digest": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"

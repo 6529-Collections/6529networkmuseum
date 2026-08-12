@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0454e90b58eee7e1f277364385aeaf66f43d9fae4895bcfd9eebe4175296bd48"
+      "digest": "0xc82729b9d0093da41460ad7f3a3cc942515ebfa4796ee08d45ac740b2c456aae"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:ac86e187063b2382b8062894bee32b01db8146f1969c17fcb4f9fb17131f2de7",
+    "payload_sha256": "sha256:c8db506c0ebd88d948d77f941c45ed353956e7b07f5abc03632a23d70fdbcf17",
     "preferred_label": "Demonstration, Western Wall, Jerusalem accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -68,6 +68,12 @@
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Black-and-white photograph of a person running through smoke at the Western Wall, with a canister in the air and a metal menorah barrier in the foreground.",
+        "active_display_source_amendment": {
+          "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+          "status": "active_downstream_accession_display_source"
+        },
         "allowed_ui_affordances": [
           "view",
           "thumbnail",
@@ -80,7 +86,7 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
-          "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master.",
+          "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master.",
           "digest": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
@@ -111,7 +117,7 @@
         "source_byte_size": 1666083,
         "source_locator": {
           "repository_path": null,
-          "uri": "https://arweave.net/vRmOcFJRTK84ILXp2Tkjz5KoS4iXXbMqki7rxhTYlr4"
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/2146f5f7-9352-47e6-bf60-cba46e52c07f/magnum-75-97.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -146,7 +152,7 @@
         "subject_entity_id": "6529NM-W-0026",
         "token_source_fixity": {
           "algorithm": "sha256",
-          "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master.",
+          "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master.",
           "digest": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"

@@ -894,8 +894,8 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     )
     if contextual_wave_presentation:
         uri = locator.get("uri")
-        if not re.fullmatch(r"https://arweave\.net/[A-Za-z0-9_-]{43}", uri):
-            issues.append(f"{label}: historical Wave presentation must use an exact token-source display locator")
+        if not re.fullmatch(r"https://d3lqz0a4bldqgf\.cloudfront\.net/drops/.+", uri):
+            issues.append(f"{label}: historical Wave presentation must preserve its exact Wave-upload locator")
         if "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md" not in json.dumps(
             media.get("source_observation", {}).get("evidence_refs", []),
             ensure_ascii=False,
@@ -965,8 +965,20 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     if role == "historical_wave_proposal_presentation":
         token_locator = media.get("token_source_locator")
         token_fixity = media.get("token_source_fixity")
-        if not isinstance(token_locator, dict) or token_locator != locator:
-            issues.append(f"{label}: accession display locator must equal the governed token-source locator")
+        active_amendment = media.get("active_display_source_amendment")
+        if (
+            not isinstance(token_locator, dict)
+            or not re.fullmatch(r"https://arweave\.net/[A-Za-z0-9_-]{43}", str(token_locator.get("uri", "")))
+            or token_locator.get("repository_path") is not None
+        ):
+            issues.append(f"{label}: accession display must use an exact governed Arweave token-source locator")
+        if (
+            not isinstance(active_amendment, dict)
+            or active_amendment.get("amendment_id") != "6529NM-MEDIA-CONT-AMD-2026-08-12-001"
+            or active_amendment.get("path") != "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json"
+            or active_amendment.get("status") != "active_downstream_accession_display_source"
+        ):
+            issues.append(f"{label}: token-source display must bind the active downstream accession amendment")
         if not isinstance(token_fixity, dict) or token_fixity.get("status") != "verified" or token_fixity.get("algorithm") != fixity.get("algorithm") or token_fixity.get("digest") != fixity.get("digest"):
             issues.append(f"{label}: accession display fixity must equal the governed token-source fixity")
     publication_boundary = media.get("publication_boundary")

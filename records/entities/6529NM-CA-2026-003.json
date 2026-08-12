@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb1192c5c51d3ea69bf7706868de8d861d475950cd7c03a783d454eefd3c8f1f7"
+      "digest": "0xdadb8c2acb6e71c8e77dd5b9bab4fde2b0ad9ec3d27ce2b35836f077dc1a4979"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -73,7 +73,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:44bac4e358af0a476752dc3614ab7a12c98b42978004737bf8469af1d68830cd",
+    "payload_sha256": "sha256:47091eb5a5a81ad7eccb2de7d18fcbb52778676e9d5bc5688835aade0cc5a47d",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -131,16 +131,22 @@
           "status": "unverified"
         },
         "display": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T07:37:56.984246Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
-              "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
+              "label": "Historical Wave publication observation",
+              "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Active accession-media source continuity amendment",
+              "observed_at": "2026-08-12T07:37:56.984246Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
             }
           ],
-          "notes": "Contextual public presentation uses the fixity-verified token-source images in acquisition, artist, and Work pages. Historical Wave locators remain publication evidence; download, zoom, fullscreen, derivative, and preservation claims remain blocked.",
+          "notes": "Downstream accession review preserves the historical Wave locators and uses the exact fixity-verified token-source bytes for contextual acquisition, artist, and Work display. Download, zoom, fullscreen, derivative, and preservation claims remain blocked.",
           "status": "verified_with_conditions"
         },
         "mint": {

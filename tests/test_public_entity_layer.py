@@ -649,9 +649,11 @@ class PublicEntityLayerTests(unittest.TestCase):
         }
         for value in magnum_media:
             media_profile = value["profile"]["media"]
-            self.assertTrue(media_profile["source_locator"]["uri"].startswith("https://arweave.net/"))
+            self.assertTrue(media_profile["source_locator"]["uri"].startswith("https://d3lqz0a4bldqgf.cloudfront.net/drops/"))
             self.assertIsNone(media_profile["source_locator"]["repository_path"])
-            self.assertEqual(media_profile["token_source_locator"], media_profile["source_locator"])
+            self.assertTrue(media_profile["token_source_locator"]["uri"].startswith("https://arweave.net/"))
+            self.assertIsNone(media_profile["token_source_locator"]["repository_path"])
+            self.assertEqual(media_profile["active_display_source_amendment"]["amendment_id"], "6529NM-MEDIA-CONT-AMD-2026-08-12-001")
             self.assertEqual(media_profile["token_source_fixity"]["digest"], media_profile["fixity"]["digest"])
             self.assertTrue(media_profile["visual"])
             self.assertEqual(media_profile["fixity"]["status"], "verified")
@@ -1428,7 +1430,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertTrue(validate_public_media(signed, "test.signed"))
         signed = copy.deepcopy(next(value for value in entities.values() if value["entity_id"] == "6529NM-MED-0041")["profile"]["media"])
         signed["source_locator"]["uri"] = "https://example.org/not-the-signed-wave-part.jpg"
-        self.assertTrue(any("exact token-source display locator" in issue for issue in validate_public_media(signed, "test.signed-source")))
+        self.assertTrue(any("preserve its exact Wave-upload locator" in issue for issue in validate_public_media(signed, "test.signed-source")))
         signed["publication_context_entity_ids"] = []
         self.assertTrue(validate_public_media(signed, "test.historical-context"))
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])

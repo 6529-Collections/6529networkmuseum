@@ -1,12 +1,12 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 2,
+    "revision": 3,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "actor_id": "codex-task:magnum-accession-media-continuity-2026-08-12",
       "role": "constructor",
-      "constructed_at": "2026-08-11T21:56:04Z"
+      "constructed_at": "2026-08-12T07:37:56.984246Z"
     },
     "review": null
   },
@@ -16,6 +16,12 @@
       "superseded_at": "2026-08-11T21:56:03Z",
       "supersedes": "sha256:1400a4c9e7b599efd2daa1b66dbdd3d3bdcd627c80804383da6a0e19650895db",
       "prior_payload_sha256": "sha256:1400a4c9e7b599efd2daa1b66dbdd3d3bdcd627c80804383da6a0e19650895db"
+    },
+    {
+      "revision": 2,
+      "superseded_at": "2026-08-12T07:37:56.984246Z",
+      "supersedes": "sha256:f4f2cd48c9ec234570ddcd7fe8a964797b2143c86df2c4ca7b8cf58193eb964b",
+      "prior_payload_sha256": "sha256:f4f2cd48c9ec234570ddcd7fe8a964797b2143c86df2c4ca7b8cf58193eb964b"
     }
   ],
   "local_profile": "6529NM_WP3_MAGNUM_WAVE_MEDIA_JOIN_V1",
@@ -118,6 +124,12 @@
       "IIIF manifest, tiled service, or preservation-master claim"
     ],
     "rights_basis": "Contextual presentation uses the exact fixity-verified token-source bytes bound to the same five Works and selected Wave proposal, with recorded credits and All Rights Reserved labels. The historical Wave locators remain publication evidence. No copyright transfer, general reproduction licence, download right, preservation right, or Collection-publication licence is inferred."
+  },
+  "active_media_source_amendment": {
+    "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+    "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+    "status": "active_downstream_accession_display_source",
+    "observed_at": "2026-08-12T07:37:56.984246Z"
   },
   "works": [
     {

@@ -57,6 +57,8 @@ MAGNUM_PRESENTATION_AUTHORITY_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/dossiers/public
 MAGNUM_ACCESSION_STATUS_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
 MAGNUM_MEDIA_CONTINUITY_AT = "2026-08-12T07:37:56.984246Z"
 MAGNUM_MEDIA_CONTINUITY_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
+MAGNUM_MEDIA_CONTINUITY_ID = "6529NM-MEDIA-CONT-AMD-2026-08-12-001"
+MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/machine/media-source-continuity-amendment.json"
 MAGNUM_WORK_PUBLICATION_PATHS = {
     "6529NM-PG-2026-001.OBJ-001": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/01-david-seymour-127.md",
     "6529NM-PG-2026-001.OBJ-002": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/02-larry-towell-145.md",
@@ -98,6 +100,7 @@ MAGNUM_PUBLIC_EVIDENCE_LOCATORS = {
     MAGNUM_PRESENTATION_AUTHORITY_PATH: MAGNUM_PRESENTATION_AUTHORITY_PATH,
     MAGNUM_ACCESSION_STATUS_PATH: MAGNUM_ACCESSION_STATUS_PATH,
     MAGNUM_MEDIA_CONTINUITY_PATH: MAGNUM_MEDIA_CONTINUITY_PATH,
+    MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH: MAGNUM_MEDIA_CONTINUITY_PATH,
     **MAGNUM_WORK_PUBLICATION_PATHS,
 }
 JCS_ID = "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
@@ -439,7 +442,7 @@ def fact(
 
 
 def lifecycle_observation(observation_id: str, status: str, source_status: str, observed_at: str, refs: list[str], notes: str, evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
-    return {
+    profile = {
         "observation_id": observation_id,
         "status": status,
         "source_status": source_status,
@@ -448,6 +451,7 @@ def lifecycle_observation(observation_id: str, status: str, source_status: str, 
         "evidence_refs": evidence_refs or [source_evidence("Lifecycle source", ref, observed_at) for ref in refs],
         "notes": notes,
     }
+    return profile
 
 
 def authoritative_typed_reference(
@@ -524,7 +528,7 @@ def governed_typed_reference(
 
 
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
-    return {
+    profile = {
         "record_id": record_id,
         "record_type": record_type,
         "schema_id": PUBLIC_ENTITY_SCHEMA if record_type == "PUBLIC_ENTITY" else PUBLIC_RELATION_SCHEMA if record_type == "PUBLIC_RELATION" else WAVE_STATUS_SCHEMA,
@@ -542,6 +546,7 @@ def common(record_type: str, record_id: str, effective_at: str, refs: list[str],
         "references": sorted(set(refs)),
         "evidence_refs": evidence_refs,
     }
+    return profile
 
 
 def finalize(
@@ -654,7 +659,7 @@ def relation(record_id: str, relation_type: str, source: str, target: str, quali
     return f"records/relations/{record_id}.json", payload
 
 
-def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, source_byte_size: int | None = None, publication_part_number: int | None = None, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None, accessibility_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, source_byte_size: int | None = None, publication_part_number: int | None = None, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, active_display_source_amendment: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None, accessibility_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     publication_boundary = {
         "museum_retained_preservation_object": "preservation_record",
         "museum_generated_public_derivative": "public_derivative",
@@ -678,7 +683,7 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
                 source_evidence_refs.append(evidence("Source observation", ref, observed_at, "C"))
     if accessibility_evidence_refs is None:
         accessibility_evidence = [source_evidence("Accessibility source", ref, observed_at) for ref in source_refs]
-    return {
+    profile = {
         "profile_type": "MEDIA_REFERENCE",
         "media": {
             "media_role": role,
@@ -711,6 +716,9 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
             "allowed_ui_affordances": affordances,
         },
     }
+    if active_display_source_amendment is not None:
+        profile["media"]["active_display_source_amendment"] = active_display_source_amendment
+    return profile
 
 
 def verify_evidence_paths(records: dict[str, dict[str, Any]]) -> None:
@@ -1092,6 +1100,16 @@ def build_records(
         "Museum-hosted presentation derivatives are authorized for contextual public display. This authority does not establish mint, acquisition, title, custody, accession, CC0 effectiveness, download, or reuse rights.",
     )
     acquisition_facts_proposal = {key: fact(status, PROPOSAL_AT, ["6529NM-PG-2026-001"], note) for key, status, note in [("mint", "verified", "The proposal source and finalized chain observations establish the five external ERC-721 manifestations, not Museum acquisition."), ("payment", "not_established", "No Museum purchase is recorded."), ("title", "not_established", "No Museum title binding is recorded."), ("custody", "unverified", "Observed external owner is not Museum custody."), ("rights", "verified_with_conditions", "The accession review retains All Rights Reserved and authorizes only contextual presentation of the five accession-reviewed images; copyright transfer and broader reproduction rights are not established."), ("technical", "verified_with_conditions", "The accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required."), ("preservation", "not_started", "The upstream files are not Museum preservation objects."), ("display", "verified_with_conditions", "Contextual public presentation uses the fixity-verified token-source images in acquisition, artist, and Work pages. Historical Wave locators remain publication evidence; download, zoom, fullscreen, derivative, and preservation claims remain blocked.")]}
+    acquisition_facts_proposal["display"] = fact(
+        "verified_with_conditions",
+        MAGNUM_MEDIA_CONTINUITY_AT,
+        ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID],
+        "Downstream accession review preserves the historical Wave locators and uses the exact fixity-verified token-source bytes for contextual acquisition, artist, and Work display. Download, zoom, fullscreen, derivative, and preservation claims remain blocked.",
+        evidence_refs=[
+            source_evidence("Historical Wave publication observation", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT),
+            source_evidence("Active accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH, MAGNUM_MEDIA_CONTINUITY_AT),
+        ],
+    )
     add_entity("6529NM-CA-2026-001", "CURATED_ACQUISITION", "The System in Seven States", "the-system-in-seven-states", "/museum/network/acquisitions/the-system-in-seven-states", CASEY_AT, {"profile_type": "CURATED_ACQUISITION", "title": "The System in Seven States", "thesis": "A Museum curatorial grouping reads seven accessioned Casey Reas works through related computational systems without claiming an artist-defined canonical group.", "acquisition_method": "donation", "program_or_pathway": {"kind": "acquisition_program", "entity_ids": [gift_program], "source_record_ids": institution_refs}, "work_entity_ids": casey_work_ids, "source_work_record_ids": [obj["record_id"] for obj in casey_objects], "lifecycle": {"status": "accessioned_into_permanent_collection", "as_of": CASEY_AT, "evidence_refs": [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)]}, "lifecycle_observations": [lifecycle_observation("6529NM-CA-OBS-0001", "accessioned_into_permanent_collection", "accessioned", CASEY_AT, ["6529NM-ACC-2026-001"], "The completed Casey donation is accessioned into the permanent Collection.")], "collection_effect": "permanent_collection", "independent_acquisition_facts": acquisition_facts_casey, "public_credit": "Gift of punk6529", "evidence_refs": [source_evidence("Casey accession lot", "6529NM.2026.001", CASEY_AT), evidence("Curated acquisition thesis", "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md", CASEY_AT, "E")]}, [gift_program, accession, *casey_work_ids, *[obj["record_id"] for obj in casey_objects], "6529NM-ACC-2026-001"], [source_evidence("Casey accession lot", "6529NM.2026.001", CASEY_AT), evidence("Curated acquisition thesis", "records/accessions/6529NM.2026.001/public/curatorial-accession-review.md", CASEY_AT, "E")])
     add_entity("6529NM-CA-2026-002", "CURATED_ACQUISITION", "Keys and Gates", "keys-and-gates", "/museum/network/acquisitions/keys-and-gates", KEYS_AT, {"profile_type": "CURATED_ACQUISITION", "title": "Keys and Gates", "thesis": "The program\u2019s selected group brings together photographs of access, exclusion, permission, surveillance, custody, autonomy, and exit; selection is complete, while acquisition and minting remain pending.", "acquisition_method": "purchase", "program_or_pathway": {"kind": "acquisition_program", "entity_ids": [keys_program], "source_record_ids": [keys_program_source]}, "work_entity_ids": keys_work_ids, "source_work_record_ids": [row["record_id"] for row in outcomes], "lifecycle": {"status": "selected_through_acquisition_program_acquisition_pending", "as_of": KEYS_AT, "evidence_refs": [source_evidence("Keys and Gates selected-works index", keys_program_source, KEYS_AT)]}, "lifecycle_observations": [lifecycle_observation("6529NM-CA-OBS-0002", "selected_through_acquisition_program_acquisition_pending", "selected_unminted", KEYS_AT, [keys_program_source], "Keys and Gates remains selected through its acquisition program with acquisition pending.")], "collection_effect": "none", "independent_acquisition_facts": acquisition_facts_keys, "public_credit": "Selected through the Keys and Gates acquisition program; acquisition pending", "evidence_refs": [source_evidence("Keys and Gates program record", "records/programs/6529NM-AP-01/program.json", KEYS_AT), evidence("Curated acquisition thesis", "records/programs/6529NM-AP-01/program.json", KEYS_AT, "E")]}, [keys_program, keys_program_source, *keys_work_ids, *[row["record_id"] for row in outcomes]], [source_evidence("Keys and Gates program record", "records/programs/6529NM-AP-01/program.json", KEYS_AT), evidence("Curated acquisition thesis", "records/programs/6529NM-AP-01/program.json", KEYS_AT, "E")])
     add_entity("6529NM-CA-2026-003", "CURATED_ACQUISITION", "Conflict at Its Edges", "conflict-at-its-edges", "/museum/network/acquisitions/conflict-at-its-edges", WINNER_AT, {"profile_type": "CURATED_ACQUISITION", "title": "Conflict at Its Edges", "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Presented together by the selected proposal across two Magnum Photos 75 curations, they form a Museum acquisition under review whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.", "acquisition_method": "donation", "program_or_pathway": {"kind": "acquisition_program", "entity_ids": [gift_program], "source_record_ids": ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID]}, "work_entity_ids": magnum_works, "source_work_record_ids": ["6529NM-PG-2026-001", *magnum_work_source_ids], "lifecycle": {"status": "selected_by_museum_wave_acquisition_review_in_progress", "as_of": WINNER_AT, "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)]}, "lifecycle_observations": [lifecycle_observation("6529NM-CA-OBS-0003", "proposed_in_museum_wave", "PARTICIPATORY", PROPOSAL_AT, ["6529NM-PG-2026-001"], "The original PARTICIPATORY proposal observation remains part of the append-only lifecycle history.", [source_evidence("Original PARTICIPATORY proposal observation", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)]), lifecycle_observation("6529NM-CA-OBS-0004", "selected_by_museum_wave_acquisition_review_in_progress", "WINNER", WINNER_AT, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID], "Signed-drop API WINNER status readback selects the proposed identity for Museum acquisition review only; it creates no accession or Collection membership.", [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Museum Wave drop page readback", WINNER_SOURCE_URL, WINNER_AT)])], "collection_effect": "none", "independent_acquisition_facts": acquisition_facts_proposal, "public_credit": "Selected by the Museum Wave; acquisition review in progress", "evidence_refs": [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Original proposed gift record", "6529NM-PG-2026-001", PROPOSAL_AT), evidence("Curated acquisition thesis", "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md", MAGNUM_PUBLICATION_AT, "E")]}, ["6529NM-PG-2026-001", WINNER_OBSERVATION_ID, *magnum_works, *magnum_work_source_ids], [source_evidence("Signed-drop API WINNER status readback (is_signed=true)", WINNER_SOURCE_PATH, WINNER_AT), source_evidence("Original proposed gift record", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT), evidence("Curated acquisition thesis", "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md", MAGNUM_PUBLICATION_AT, "E")], media_entity_ids=[media_derivative])
@@ -1237,9 +1255,10 @@ def build_records(
     }
     first_receipt = wave_publication_by_candidate[signed_obj["candidate_object_id"]]
     first_source = wave_join_by_candidate[signed_obj["candidate_object_id"]]
-    add_entity(media_wave, "MEDIA_REFERENCE", "Conflict at Its Edges accession-reviewed historical proposal image", None, None, PROPOSAL_AT, media_profile(
+    media_continuity_binding = {"amendment_id": MAGNUM_MEDIA_CONTINUITY_ID, "path": MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH, "status": "active_downstream_accession_display_source", "observed_at": MAGNUM_MEDIA_CONTINUITY_AT}
+    add_entity(media_wave, "MEDIA_REFERENCE", "Conflict at Its Edges historical Wave proposal image with accession-reviewed display source", None, None, PROPOSAL_AT, media_profile(
         "historical_wave_proposal_presentation",
-        first_source["token_source_image_url"],
+        first_receipt["media_url"],
         None,
         first_receipt["mime_type"],
         True,
@@ -1253,7 +1272,7 @@ def build_records(
         "mutable_external",
         ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID],
         PROPOSAL_AT,
-        {"status": "verified", "algorithm": "sha256", "digest": first_source["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master."},
+        {"status": "verified", "algorithm": "sha256", "digest": first_source["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master."},
         ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
         source_byte_size=wave_join_by_candidate[signed_obj["candidate_object_id"]]["source_image_fixity"]["bytes"],
         publication_part_number=wave_join_by_candidate[signed_obj["candidate_object_id"]]["part_number"],
@@ -1261,7 +1280,8 @@ def build_records(
         accessibility_subject_policy="non_identifying_sensitive_subject",
         publication_context_entity_ids=["6529NM-CA-2026-003"],
         token_source_locator={"uri": first_source["token_source_image_url"], "repository_path": None},
-        token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": first_source["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master."},
+        token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": first_source["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master."},
+        active_display_source_amendment=media_continuity_binding,
         rights_label=first_receipt["rights_label"],
         source_observation_evidence_refs=[source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT), source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT), source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT)],
     ), ["6529NM-PG-2026-001", WAVE_PUBLICATION_OBSERVATION_ID, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT), source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT), source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT)])
@@ -1279,9 +1299,9 @@ def build_records(
         if candidate_id == "6529NM-PG-2026-001.OBJ-003":
             media_source_refs.append(MEDIA_DESCRIPTION_AMENDMENT_ID)
         source_fixity = wave_join_by_candidate[candidate_id]["source_image_fixity"]
-        add_entity(magnum_media_ids_by_candidate[signed_obj["candidate_object_id"]], "MEDIA_REFERENCE", f"{signed_obj['title']} accession-reviewed historical proposal image", None, None, PROPOSAL_AT, media_profile(
+        add_entity(magnum_media_ids_by_candidate[signed_obj["candidate_object_id"]], "MEDIA_REFERENCE", f"{signed_obj['title']} historical Wave proposal image with accession-reviewed display source", None, None, PROPOSAL_AT, media_profile(
             "historical_wave_proposal_presentation",
-            wave_join_by_candidate[candidate_id]["token_source_image_url"],
+            receipt["media_url"],
             None,
             receipt["mime_type"],
             True,
@@ -1295,7 +1315,7 @@ def build_records(
             "mutable_external",
             media_source_refs,
             PROPOSAL_AT,
-            {"status": "verified", "algorithm": "sha256", "digest": source_fixity["sha256"], "verified_at": WINNER_AT, "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master."},
+            {"status": "verified", "algorithm": "sha256", "digest": source_fixity["sha256"], "verified_at": WINNER_AT, "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master."},
             ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
             source_byte_size=wave_join_by_candidate[candidate_id]["source_image_fixity"]["bytes"],
             publication_part_number=wave_join_by_candidate[candidate_id]["part_number"],
@@ -1304,7 +1324,8 @@ def build_records(
             identity_inference_prohibition={"status": "prohibited", "scope": "subject_identity_and_age_classification", "reason": "Do not infer or publish the subject's identity or age classification from this historical proposal image."} if candidate_id == "6529NM-PG-2026-001.OBJ-004" else None,
             publication_context_entity_ids=["6529NM-CA-2026-003"],
             token_source_locator={"uri": wave_join_by_candidate[candidate_id]["token_source_image_url"], "repository_path": None},
-            token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": source_fixity["sha256"], "verified_at": WINNER_AT, "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master."},
+            token_source_fixity={"status": "verified", "algorithm": "sha256", "digest": source_fixity["sha256"], "verified_at": WINNER_AT, "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master."},
+            active_display_source_amendment=media_continuity_binding,
             rights_label=receipt["rights_label"],
             source_observation_evidence_refs=[source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT), source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT), source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT)],
         ), [*media_source_refs, "6529NM-CA-2026-003"], [source_evidence("Historical public Wave proposal presentation", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT), source_evidence("Contextual public presentation authority", MAGNUM_PRESENTATION_AUTHORITY_PATH, GENERATED_AT), source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_PATH, MAGNUM_MEDIA_CONTINUITY_AT)])

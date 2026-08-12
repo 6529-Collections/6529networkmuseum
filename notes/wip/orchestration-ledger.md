@@ -3685,9 +3685,9 @@ catalog activation, and frontend qualification remain open.
   finding; production promotion was withheld.
 - The five exact Arweave token-source locators, byte sizes, dimensions, and
   SHA-256 digests were already governed in the accession machine package.
-  The correction makes those fixity-verified sources the active display
-  locators. Historical Wave URLs remain unchanged in the canonical signed
-  publication observation and remain provenance evidence.
+  A schema-validated append-only amendment makes those fixity-verified sources
+  the active display sources while retaining the Wave-upload locators in each
+  Media Reference and manifestation as historical publication evidence.
 - This is downstream accession work: technical review, contextual image
   delivery, accessibility, rights, and catalogue publication follow Wave
   selection. It is not a second curatorial decision and does not alter title,
@@ -3696,6 +3696,10 @@ catalog activation, and frontend qualification remain open.
   context only, no download, zoom, fullscreen, source opening, derivative,
   responsive recompression, IIIF, or preservation-master claim. The 16.9 MB
   Palmyra source remains deliberate-load only.
-- Required continuation is pending candidate A generation and validation,
+- The machine amendment binds the prior revision-2 file hashes and prior Media
+  payload hashes; integration, join, and Work projections are now revision 3.
+  Fixity remains the exact 8 August observation. The 12 August event is the
+  browser delivery review and display-source decision, not a new byte claim.
+- Required continuation is corrected candidate A generation and validation,
   independent exact-head review, reviewed B, catalogue C activation, frontend
   adapter qualification, and a fresh staging visual/E2E pass before production.

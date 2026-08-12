@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9089c20a321829b5bfd01df7863f61b49d75d28500adc1b50e867f0d5b87bf87"
+      "digest": "0xef1dfa77e0c1ce392835509bbf2c81e376f0e8447e5a584dabb417c2f710ce86"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:db71257b4ecf01b0c016fe94cf64750170265d0985fa9e7192380cfcfd5fd3ad",
+    "payload_sha256": "sha256:dff8e49cd3ac4bf078b06e054a00637c75fe5372e036609b5f213cd6d14a3fb7",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -68,6 +68,12 @@
         "accessibility_status": "provided",
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
+        "active_display_source_amendment": {
+          "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",
+          "observed_at": "2026-08-12T07:37:56.984246Z",
+          "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
+          "status": "active_downstream_accession_display_source"
+        },
         "allowed_ui_affordances": [
           "view",
           "thumbnail",
@@ -80,7 +86,7 @@
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
-          "basis": "The exact observed Arweave token-source response is fixity-verified. The upstream metadata pointer remains administratively mutable and the image bytes are not retained as a Museum preservation master.",
+          "basis": "The exact Arweave token-source response was fixity-verified on 8 August 2026 in the accession media review. The historical Wave locator remains administratively mutable, and the bytes are not retained as a Museum preservation master.",
           "digest": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
@@ -111,7 +117,7 @@
         "source_byte_size": 2518674,
         "source_locator": {
           "repository_path": null,
-          "uri": "https://arweave.net/VE0zO2N1zVTsbEUHdUFazEgvuMbmVOi6OfaWfQOWkaM"
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -145,7 +151,7 @@
         "subject_entity_id": "6529NM-W-0024",
         "token_source_fixity": {
           "algorithm": "sha256",
-          "basis": "The source locator is the exact observed Arweave token-source response. The bytes are not retained as a Museum preservation master.",
+          "basis": "The token-source locator is the exact Arweave response observed and fixity-verified on 8 August 2026. The bytes are not retained as a Museum preservation master.",
           "digest": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
           "status": "verified",
           "verified_at": "2026-08-08T10:15:02.0167151Z"
