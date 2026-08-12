@@ -74,6 +74,7 @@ class CatalogError(ValueError):
 
 
 GIT_BATCH_OBJECT_LIMIT = 256
+GIT_READER_CACHE_SIZE = 2
 GIT_OBJECT_ID = re.compile(r"^[0-9a-f]{40,64}$")
 
 
@@ -323,9 +324,15 @@ class GitTreeReader:
         return entry.mode, entry.object_id
 
 
-@lru_cache(maxsize=8)
+@lru_cache(maxsize=GIT_READER_CACHE_SIZE)
 def _cached_git_tree_reader(root: str, commit: str) -> GitTreeReader:
     return GitTreeReader(Path(root), commit)
+
+
+def clear_cached_git_tree_readers() -> None:
+    """Release cached commit trees and their prefetched blob bytes."""
+
+    _cached_git_tree_reader.cache_clear()
 
 
 def _reader_for(root: Path, commit: str, reader: GitTreeReader | None = None) -> GitTreeReader:

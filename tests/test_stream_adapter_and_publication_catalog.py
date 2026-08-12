@@ -989,6 +989,25 @@ class PublicationCatalogTests(unittest.TestCase):
         finally:
             temporary.cleanup()
 
+    def test_cached_readers_have_explicit_bounded_release(self) -> None:
+        import publication_catalog as catalog_module
+
+        temporary, root, _candidate, reviewed = self.fixture_repo()
+        try:
+            catalog_module.clear_cached_git_tree_readers()
+            reader = catalog_module._reader_for(root, reviewed)
+            reader.read("docs/page.md")
+            self.assertEqual(
+                catalog_module._cached_git_tree_reader.cache_info().maxsize,
+                catalog_module.GIT_READER_CACHE_SIZE,
+            )
+            self.assertGreater(catalog_module._cached_git_tree_reader.cache_info().currsize, 0)
+            catalog_module.clear_cached_git_tree_readers()
+            self.assertEqual(catalog_module._cached_git_tree_reader.cache_info().currsize, 0)
+        finally:
+            catalog_module.clear_cached_git_tree_readers()
+            temporary.cleanup()
+
     def test_catalog_build_uses_bounded_batches_instead_of_per_file_git_reads(self) -> None:
         import publication_catalog as catalog_module
 

@@ -63,8 +63,11 @@ bytes.
   `codex/publication-catalog-batched-git-reads-v2`; the six required
   Ubuntu/Windows GitHub jobs are still pending, and the maintainer team was
   requested for review.
-- CodeRabbit received the PR but reported a temporary review-rate limit, so it
-  supplied no actionable review and remains an external open gate.
+- CodeRabbit completed its review with one actionable memory-retention finding:
+  the reader cache is now bounded to two commit readers, exposes an explicit
+  `clear_cached_git_tree_readers()` release helper, and the catalog CLI invokes
+  it in `finally`; the new focused suite is 42 tests, OK. Re-review of the
+  fix head and maintainer approval remain open.
 - No Museum records, evidence, media, or frontend presentation files are in
   scope; any release-manifest change is a control-plane commitment only.
 - The PR must not be merged until the exact final head is independently

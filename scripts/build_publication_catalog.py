@@ -15,6 +15,7 @@ from publication_catalog import (
     build_pointer,
     check_catalog_git_transition,
     check_append_only_catalog,
+    clear_cached_git_tree_readers,
     git_head_commit,
     retained_catalog_from_git_tree,
     retained_release_json,
@@ -241,6 +242,8 @@ def main(argv: list[str] | None = None) -> int:
     except (OSError, ValueError, CatalogError) as exc:
         print(f"publication catalog build/check failed: {exc}")
         return 1
+    finally:
+        clear_cached_git_tree_readers()
 
 
 if __name__ == "__main__":

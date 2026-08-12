@@ -224,7 +224,11 @@ is not a substitute for that tree. The verifier must therefore:
    with the retained commit-tree bytes.
 
 The reader cache is scoped to a repository root and full commit ID for the
-current process only. It is an optimization boundary, not a new authority:
+current process only, and is bounded to two commit readers: the maximum needed
+for candidate/reviewed or previous/current comparisons. The catalog CLI clears
+that cache in a `finally` block after every command; direct library callers
+should call `clear_cached_git_tree_readers()` after a verification lifecycle.
+It is an optimization boundary, not a new authority:
 the commit tree, object type, object ID, raw bytes, byte mode, SHA-256, and
 JSON Keccak/JCS commitment remain independently checked. Missing paths,
 non-ordinary entries, missing objects, wrong or reordered object responses,

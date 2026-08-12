@@ -3749,3 +3749,9 @@ catalog activation, and frontend qualification remain open.
   a temporary review-rate limit without actionable findings. Exact-head bot
   or maintainer review, resolved threads, and green required CI remain gates;
   merge is not authorized by this ledger until all are satisfied.
+
+- CodeRabbit then completed review at `079f44c` and identified one valid
+  memory-retention issue in the reader cache. The fix bounds the cache to two
+  commit readers and adds explicit CLI/finally release; the focused suite is
+  green at 42 tests. The fix head must receive fresh CI/re-review, and the
+  maintainer approval/thread gate remains open.
