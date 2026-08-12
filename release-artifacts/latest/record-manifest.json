@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:b25ffaa1ec59039d8b0dc5ec73b56f2bb53e042876ef40261d9734d4e958bd48",
-      "size": 49722
+      "sha256": "sha256:e7d8ba41805dc445ce6499ab21bb3514600d126b2123594d33c91dd66bcd983a",
+      "size": 50036
     },
     {
       "byte_mode": "lf-normalized",
@@ -86,8 +86,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/control-plane.md",
-      "sha256": "sha256:a74077fcb7338f2b2788ecd87f2b0f3847caa0d96f3f6bedc5a58f664ecc7c21",
-      "size": 13406
+      "sha256": "sha256:8f84e04383cca05f4ce5107efb9ace2e0d609939922f74a78a7c84d44e3fafcb",
+      "size": 15357
     },
     {
       "byte_mode": "lf-normalized",
@@ -6895,8 +6895,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/publication_catalog.py",
-      "sha256": "sha256:23d270ce7ff51e534b050199403bc0bcc35f624ecfe644ed3c465862a3cbe7a3",
-      "size": 76474
+      "sha256": "sha256:c7ce4158758a34a5a3a2c98fb110c5e54cca094536c85e2daa4527a595bd5537",
+      "size": 88436
     },
     {
       "byte_mode": "lf-normalized",
@@ -7531,8 +7531,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_stream_adapter_and_publication_catalog.py",
-      "sha256": "sha256:90ad334eb00173548adfb1076a6109ef82f89c83f99ffbf439305757e8b1c946",
-      "size": 57133
+      "sha256": "sha256:1036716f27ff10da25e1d63891977a323c111b47a9bdc6138fc1dc402fe66bf2",
+      "size": 62016
     },
     {
       "byte_mode": "lf-normalized",
@@ -7572,9 +7572,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x7d528d03251cbd804b07e6f96ca003f2b3cec5692f06263b95eb4f7dd457a354"
+    "digest": "0xd41bc0875962f52ca7eab8b646b46cb80fb034f63443a81970355f65da14cb32"
   },
-  "manifest_sha256": "sha256:a6a374b2ca651ff96aefda43c006f871554eaca28aa242f72cf7bacc4cd68ef0",
+  "manifest_sha256": "sha256:3bcdd5a5f17f0be4e327fb9f74f22f53eb6a37aae75e5d9f2e9d537983b61601",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

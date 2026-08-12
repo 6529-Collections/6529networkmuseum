@@ -222,6 +222,7 @@ Status vocabulary:
 | [`.github/workflows/museum-validation.yml`](.github/workflows/museum-validation.yml) | required CI | Required `Museum validation` check on pull requests and main pushes |
 | [`docs/control-plane.md`](docs/control-plane.md) | working standard | Control-plane contract and local commands |
 | [`release-artifacts/latest/record-manifest.json`](release-artifacts/latest/record-manifest.json) | canonical release commitment | Deterministic manifest for governed records and control-plane source |
+| [`notes/wip/2026-08-12-publication-catalog-batched-git-reads.md`](notes/wip/2026-08-12-publication-catalog-batched-git-reads.md) | active future-process engineering ledger | Windows per-file Git-spawn diagnosis, exact-tree batched reader, benchmarks, tests, control-plane contract, and open PR/CI/review gates |
 | [`notes/wip/2026-08-12-conflict-downstream-accession-publication.md`](notes/wip/2026-08-12-conflict-downstream-accession-publication.md) | durable implementation note | Museum Wave selection versus downstream accession review, chronology, and atomic media-amendment publication boundary |
 | [`schemas/accession-program.schema.json`](schemas/accession-program.schema.json) | active local schema | Rigorous Keys and Gates program record contract |
 | [`schemas/program-outcome-index.schema.json`](schemas/program-outcome-index.schema.json) | active local schema | Sixteen-row selected-work index contract |

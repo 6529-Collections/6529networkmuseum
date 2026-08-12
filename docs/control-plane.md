@@ -204,6 +204,40 @@ The program-media verifier separately parses every WebP and reconciles its raw
 bytes with the constructed program media manifest. Binary media is never passed
 through line-ending normalization.
 
+## Publication/catalog Git-read contract
+
+Publication catalog construction and approval are exact-tree operations. The
+full lowercase reviewed commit is the only Git source selector; the worktree
+is not a substitute for that tree. The verifier must therefore:
+
+1. index the commit's NUL-delimited `git ls-tree -r --full-tree` output once
+   per commit and accept only an exact path whose mode is `100644` or `100755`
+   and whose object type is `blob`;
+2. derive the requested object IDs from the already-validated release manifest,
+   public inventory, bundle, and review-record path sets;
+3. sort and de-duplicate those IDs, read them through
+   `git cat-file --batch` in deterministic batches of at most 256 objects, and
+   parse each response by its declared byte length; and
+4. compare the resulting bytes and LF-normalized/JSON commitments against the
+   existing manifest and publication bindings. Pointer and immutable-catalog
+   activation checks additionally compare the current worktree bytes directly
+   with the retained commit-tree bytes.
+
+The reader cache is scoped to a repository root and full commit ID for the
+current process only. It is an optimization boundary, not a new authority:
+the commit tree, object type, object ID, raw bytes, byte mode, SHA-256, and
+JSON Keccak/JCS commitment remain independently checked. Missing paths,
+non-ordinary entries, missing objects, wrong or reordered object responses,
+truncated bodies, malformed headers, duplicate paths, and unexpected trailing
+bytes are errors. There is no per-file Git fallback, because a fallback would
+reintroduce the Windows process-spawn defect and make the control-plane
+performance depend on the number of publication files.
+
+The batch size is a resource bound only. It does not change the commitment
+domain or the result: two platforms reading the same full commit and the same
+closed path set must produce byte-identical catalog entries and catalog
+commitments.
+
 ## Local commands
 
 From the repository root:

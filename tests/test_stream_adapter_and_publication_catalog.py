@@ -10,6 +10,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from jsonschema import Draft202012Validator
 
@@ -908,6 +909,113 @@ class PublicationCatalogTests(unittest.TestCase):
     def test_release_artifacts_is_the_manifest_self_reference_boundary(self) -> None:
         paths = [path.relative_to(ROOT).as_posix() for path in inventory_paths(ROOT)]
         self.assertFalse(any(path.startswith("release-artifacts/") for path in paths))
+
+    def test_batched_tree_reader_is_byte_identical_to_direct_git_objects(self) -> None:
+        import publication_catalog as catalog_module
+
+        temporary, root, _candidate, reviewed = self.fixture_repo()
+        try:
+            paths = [
+                "docs/page.md",
+                "media/art.png",
+                "records/entities/E.json",
+                "records/media-manifest.json",
+            ]
+            expected = {
+                path: subprocess.check_output(
+                    ["git", "-C", str(root), "show", f"{reviewed}:{path}"]
+                )
+                for path in paths
+            }
+            reader = catalog_module.GitTreeReader(root, reviewed)
+            git_commands: list[list[str]] = []
+            original_run = catalog_module.subprocess.run
+
+            def tracked_run(*args, **kwargs):
+                command = args[0]
+                if isinstance(command, list) and command and command[0] == "git":
+                    git_commands.append(command)
+                return original_run(*args, **kwargs)
+
+            with mock.patch.object(catalog_module.subprocess, "run", side_effect=tracked_run):
+                actual = reader.read_many(paths)
+                repeated = reader.read_many(reversed(paths))
+            self.assertEqual(actual, expected)
+            self.assertEqual(repeated, {path: expected[path] for path in reversed(paths)})
+            self.assertEqual(
+                sum(1 for command in git_commands if "cat-file" in command and "--batch" in command),
+                1,
+            )
+            self.assertFalse(any("cat-file" in command and "blob" in command for command in git_commands))
+        finally:
+            temporary.cleanup()
+
+    def test_batched_reader_fails_closed_for_missing_and_malformed_objects(self) -> None:
+        import publication_catalog as catalog_module
+
+        object_id = "a" * 40
+        malformed_cases = (
+            (f"{object_id} missing\n".encode(), "missing from the object database"),
+            (f"{object_id} tree 1\nx\n".encode(), "wrong object"),
+            (f"{object_id} blob 4\nabc".encode(), "truncated"),
+            (f"{object_id} blob nope\n\n".encode(), "invalid blob size"),
+            (f"{object_id} blob 0\n\nextra".encode(), "unexpected trailing"),
+        )
+        for response, message in malformed_cases:
+            with self.subTest(message=message):
+                with self.assertRaisesRegex(CatalogError, message):
+                    catalog_module._parse_git_batch_output([object_id], response)
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with self.assertRaisesRegex(CatalogError, "missing from the object database"):
+                with mock.patch.object(
+                    catalog_module.subprocess,
+                    "run",
+                    return_value=subprocess.CompletedProcess(
+                        ["git", "cat-file", "--batch"],
+                        0,
+                        stdout=f"{object_id} missing\n".encode(),
+                        stderr=b"",
+                    ),
+                ):
+                    catalog_module._read_git_objects_batch(root, [object_id])
+
+        temporary, root, _candidate, reviewed = self.fixture_repo()
+        try:
+            reader = catalog_module.GitTreeReader(root, reviewed)
+            with self.assertRaisesRegex(CatalogError, "absent or ambiguous"):
+                reader.read("docs/does-not-exist.md")
+        finally:
+            temporary.cleanup()
+
+    def test_catalog_build_uses_bounded_batches_instead_of_per_file_git_reads(self) -> None:
+        import publication_catalog as catalog_module
+
+        temporary, root, _candidate, reviewed = self.fixture_repo()
+        try:
+            git_commands: list[list[str]] = []
+            original_run = catalog_module.subprocess.run
+
+            def tracked_run(*args, **kwargs):
+                command = args[0]
+                if isinstance(command, list) and command and command[0] == "git":
+                    git_commands.append(command)
+                return original_run(*args, **kwargs)
+
+            with mock.patch.object(catalog_module.subprocess, "run", side_effect=tracked_run):
+                catalog_module.build_catalog(
+                    root,
+                    reviewed_source_head_commit=reviewed,
+                    accepted_paths=None,
+                    created_at="2026-08-08T19:00:00Z",
+                )
+            batches = [command for command in git_commands if "cat-file" in command and "--batch" in command]
+            self.assertGreaterEqual(len(batches), 1)
+            self.assertLessEqual(len(batches), 4)
+            self.assertFalse(any("cat-file" in command and "blob" in command for command in git_commands))
+        finally:
+            temporary.cleanup()
 
     def test_catalog_binds_exact_git_objects_and_pointer(self) -> None:
         temporary, root, _candidate, reviewed = self.fixture_repo()

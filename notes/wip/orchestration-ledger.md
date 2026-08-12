@@ -3727,3 +3727,21 @@ catalog activation, and frontend qualification remain open.
   `sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b`
   / `0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda`.
   Fresh exact-head CI and independent review are in progress.
+
+## 2026-08-12 future publication/catalog verification performance
+
+- A separate future-process implementation replaces publication/catalog
+  per-file `ls-tree`/`cat-file blob` spawning with one exact commit-tree index
+  and deterministic, bounded `git cat-file --batch` reads. The batch reader
+  is commitment-driven and fail-closed; it does not change Museum content or
+  frontend presentation.
+- The matched fixture benchmark moved from 25.640 seconds / 863 Git
+  subprocesses to 0.938 seconds / 23 Git subprocesses, with four batch reads
+  and zero legacy blob reads. Exact byte, missing-object, malformed-response,
+  and no-per-file-spawn tests are in place.
+- The durable process contract and benchmark ledger are in
+  `docs/control-plane.md` and
+  `notes/wip/2026-08-12-publication-catalog-batched-git-reads.md`. This work
+  is intentionally non-blocking for the active art-first production release.
+- Next gates are manifest regeneration, complete local validation, exact-head
+  bot/CI review, maintainer approval, resolved threads, and only then merge.

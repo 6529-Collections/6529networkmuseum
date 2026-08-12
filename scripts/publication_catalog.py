@@ -10,9 +10,11 @@ import subprocess
 import sys
 import tempfile
 import zipfile
+from dataclasses import dataclass
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable, Sequence
 
 from Crypto.Hash import keccak
 from jsonschema import Draft202012Validator, FormatChecker
@@ -69,6 +71,270 @@ MAX_BUNDLE_BYTES = 8_000_000
 
 class CatalogError(ValueError):
     """Raised when a catalog, pointer, or source binding violates release rules."""
+
+
+GIT_BATCH_OBJECT_LIMIT = 256
+GIT_OBJECT_ID = re.compile(r"^[0-9a-f]{40,64}$")
+
+
+@dataclass(frozen=True)
+class _GitTreeEntry:
+    mode: str
+    object_type: str
+    object_id: str
+
+
+def _parse_git_tree_entries(output: bytes) -> dict[str, _GitTreeEntry]:
+    """Parse an exact NUL-delimited ``ls-tree`` result.
+
+    The path is decoded only after the record boundary is established. A
+    malformed row, duplicate path, invalid mode, or invalid object ID is a
+    hard failure: a partial tree index is never safe for publication.
+    """
+
+    entries: dict[str, _GitTreeEntry] = {}
+    for row in (row for row in output.split(b"\0") if row):
+        header, separator, raw_path = row.partition(b"\t")
+        if not separator:
+            raise CatalogError("Git tree output contains a malformed entry")
+        try:
+            fields = header.decode("ascii").split()
+            path = raw_path.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise CatalogError("Git tree output contains a non-UTF-8 path or non-ASCII header") from exc
+        if len(fields) != 3:
+            raise CatalogError(f"Git tree output contains a malformed entry: {path!r}")
+        mode, object_type, object_id = fields
+        if (
+            not re.fullmatch(r"[0-9]{6}", mode)
+            or object_type not in {"blob", "commit", "tree"}
+            or not GIT_OBJECT_ID.fullmatch(object_id)
+        ):
+            raise CatalogError(f"Git tree output contains an invalid object entry: {path!r}")
+        if path in entries:
+            raise CatalogError(f"Git tree output contains a duplicate path: {path!r}")
+        entries[path] = _GitTreeEntry(mode, object_type, object_id)
+    return entries
+
+
+def _parse_git_batch_output(requested_ids: Sequence[str], output: bytes) -> dict[str, bytes]:
+    """Parse the length-delimited response from one ``git cat-file --batch``.
+
+    Git places a separator newline after each object body. Parsing by the
+    declared byte length, rather than searching for a delimiter, preserves
+    arbitrary binary content and makes truncated, extra, reordered, missing,
+    and malformed responses fail closed.
+    """
+
+    for object_id in requested_ids:
+        if not GIT_OBJECT_ID.fullmatch(object_id):
+            raise CatalogError(f"invalid Git object ID in batch response: {object_id!r}")
+    offset = 0
+    parsed: dict[str, bytes] = {}
+    for expected_id in requested_ids:
+        header_end = output.find(b"\n", offset)
+        if header_end < 0:
+            raise CatalogError(f"Git batch response is truncated before object {expected_id}")
+        header = output[offset:header_end]
+        offset = header_end + 1
+        fields = header.split(b" ")
+        if len(fields) == 2 and fields[0] == expected_id.encode("ascii") and fields[1] == b"missing":
+            raise CatalogError(f"Git object is missing from the object database: {expected_id}")
+        if len(fields) != 3:
+            raise CatalogError(f"Git batch response has a malformed header for object {expected_id}")
+        object_id, object_type, size_bytes = fields
+        if object_id != expected_id.encode("ascii") or object_type != b"blob":
+            raise CatalogError(f"Git batch response returned the wrong object for {expected_id}")
+        try:
+            size_text = size_bytes.decode("ascii")
+            size = int(size_text, 10)
+        except (UnicodeDecodeError, ValueError) as exc:
+            raise CatalogError(f"Git batch response has an invalid blob size for object {expected_id}") from exc
+        if size < 0:
+            raise CatalogError(f"Git batch response has a negative blob size for object {expected_id}")
+        body_end = offset + size
+        if body_end >= len(output) or output[body_end:body_end + 1] != b"\n":
+            raise CatalogError(f"Git batch response is truncated or missing its separator for object {expected_id}")
+        if expected_id in parsed:
+            raise CatalogError(f"Git batch response duplicated object {expected_id}")
+        parsed[expected_id] = output[offset:body_end]
+        offset = body_end + 1
+    if offset != len(output):
+        raise CatalogError("Git batch response contains unexpected trailing bytes")
+    return parsed
+
+
+def _read_git_objects_batch(root: Path, object_ids: Sequence[str]) -> dict[str, bytes]:
+    """Read validated blob IDs in one bounded ``cat-file --batch`` call."""
+
+    unique_ids = sorted(set(object_ids))
+    if not unique_ids:
+        return {}
+    if len(unique_ids) > GIT_BATCH_OBJECT_LIMIT:
+        raise CatalogError(
+            f"Git object batch exceeds the {GIT_BATCH_OBJECT_LIMIT}-object bound"
+        )
+    for object_id in unique_ids:
+        if not GIT_OBJECT_ID.fullmatch(object_id):
+            raise CatalogError(f"invalid Git object ID: {object_id!r}")
+    request = b"".join(object_id.encode("ascii") + b"\n" for object_id in unique_ids)
+    result = subprocess.run(
+        ["git", "-C", str(root), "cat-file", "--batch"],
+        input=request,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        detail = (result.stderr or result.stdout).strip().decode("utf-8", errors="replace")
+        raise CatalogError(f"Git batch object read failed: {detail}")
+    return _parse_git_batch_output(unique_ids, result.stdout)
+
+
+def _read_git_tree_entries(root: Path, commit: str) -> dict[str, _GitTreeEntry]:
+    """Index every exact path in one commit tree with one Git invocation."""
+
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(root),
+            "--literal-pathspecs",
+            "ls-tree",
+            "-r",
+            "-z",
+            "--full-tree",
+            commit,
+        ],
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        detail = (result.stderr or result.stdout).strip().decode("utf-8", errors="replace")
+        raise CatalogError(f"Git tree lookup failed at {commit}: {detail}")
+    return _parse_git_tree_entries(result.stdout)
+
+
+class GitTreeReader:
+    """Read exact commit-tree blobs without per-file Git process spawning.
+
+    The tree index is immutable for a full commit ID. Requested ordinary blob
+    IDs are sorted and read in deterministic batches, then cached for every
+    later commitment, JSON, and worktree comparison in the same verification.
+    """
+
+    def __init__(self, root: Path, commit: str) -> None:
+        self.root = root.resolve(strict=False)
+        self.commit = commit
+        require_commit_object(self.root, commit)
+        self._entries = _read_git_tree_entries(self.root, commit)
+        self._blobs: dict[str, bytes] = {}
+
+    def _entry(
+        self,
+        path: str,
+        *,
+        allow_manifest: bool = False,
+        allow_release_artifact: bool = False,
+    ) -> _GitTreeEntry:
+        if allow_release_artifact:
+            if path != POINTER_PATH and not re.fullmatch(
+                rf"{re.escape(CATALOG_DIR)}/6529NM-PUBCAT-[0-9a-f]{{40}}\.json",
+                path,
+            ):
+                raise CatalogError(f"invalid release-artifact path: {path!r}")
+        else:
+            validate_accepted_path(path, allow_manifest=allow_manifest)
+        entry = self._entries.get(path)
+        if entry is None:
+            if allow_release_artifact:
+                raise CatalogError(f"release artifact is absent or ambiguous at {self.commit}:{path}")
+            raise CatalogError(f"Git path is absent or ambiguous at {self.commit}:{path}")
+        if entry.mode not in {"100644", "100755"} or entry.object_type != "blob":
+            if allow_release_artifact:
+                raise CatalogError(f"release artifact is not an exact ordinary blob: {self.commit}:{path}")
+            raise CatalogError(f"Git path is not an ordinary file blob at {self.commit}:{path}")
+        return entry
+
+    def prefetch(
+        self,
+        paths: Iterable[str],
+        *,
+        allow_manifest_paths: Iterable[str] = (),
+        allow_release_paths: Iterable[str] = (),
+    ) -> None:
+        allowed_manifests = set(allow_manifest_paths)
+        allowed_releases = set(allow_release_paths)
+        entries = [
+            self._entry(
+                path,
+                allow_manifest=path in allowed_manifests,
+                allow_release_artifact=path in allowed_releases,
+            )
+            for path in paths
+        ]
+        object_ids = sorted({entry.object_id for entry in entries if entry.object_id not in self._blobs})
+        for start in range(0, len(object_ids), GIT_BATCH_OBJECT_LIMIT):
+            batch = object_ids[start:start + GIT_BATCH_OBJECT_LIMIT]
+            self._blobs.update(_read_git_objects_batch(self.root, batch))
+
+    def read_many(
+        self,
+        paths: Iterable[str],
+        *,
+        allow_manifest_paths: Iterable[str] = (),
+        allow_release_paths: Iterable[str] = (),
+    ) -> dict[str, bytes]:
+        path_list = list(paths)
+        allowed_manifests = set(allow_manifest_paths)
+        allowed_releases = set(allow_release_paths)
+        self.prefetch(
+            path_list,
+            allow_manifest_paths=allowed_manifests,
+            allow_release_paths=allowed_releases,
+        )
+        result: dict[str, bytes] = {}
+        for path in path_list:
+            entry = self._entry(
+                path,
+                allow_manifest=path in allowed_manifests,
+                allow_release_artifact=path in allowed_releases,
+            )
+            try:
+                result[path] = self._blobs[entry.object_id]
+            except KeyError as exc:
+                raise CatalogError(f"Git object was not returned for {self.commit}:{path}") from exc
+        return result
+
+    def read(
+        self,
+        path: str,
+        *,
+        allow_manifest: bool = False,
+        allow_release_artifact: bool = False,
+    ) -> bytes:
+        return self.read_many(
+            [path],
+            allow_manifest_paths={path} if allow_manifest else (),
+            allow_release_paths={path} if allow_release_artifact else (),
+        )[path]
+
+    def entry(self, path: str, *, allow_manifest: bool = False) -> tuple[str, str]:
+        entry = self._entry(path, allow_manifest=allow_manifest)
+        return entry.mode, entry.object_id
+
+
+@lru_cache(maxsize=8)
+def _cached_git_tree_reader(root: str, commit: str) -> GitTreeReader:
+    return GitTreeReader(Path(root), commit)
+
+
+def _reader_for(root: Path, commit: str, reader: GitTreeReader | None = None) -> GitTreeReader:
+    resolved_root = root.resolve(strict=False)
+    if reader is not None:
+        if reader.root != resolved_root or reader.commit != commit:
+            raise CatalogError("Git tree reader is bound to a different repository or commit")
+        return reader
+    return _cached_git_tree_reader(str(resolved_root), commit)
 
 
 def strict_load(data: bytes | str) -> Any:
@@ -152,38 +418,37 @@ def require_commit_object(root: Path, commit: str) -> None:
         raise CatalogError(f"source head is not a Git commit object: {commit}")
 
 
-def _tree_entry(root: Path, commit: str, path: str, *, allow_manifest: bool = False) -> tuple[str, str]:
-    require_commit_object(root, commit)
-    validate_accepted_path(path, allow_manifest=allow_manifest)
-    result = subprocess.run(
-        ["git", "-C", str(root), "--literal-pathspecs", "ls-tree", "-r", "-z", "--full-tree", commit, "--", path],
-        capture_output=True,
-        check=False,
-    )
-    if result.returncode:
-        raise CatalogError(f"Git tree lookup failed at {commit}:{path}")
-    rows = [row for row in result.stdout.split(b"\0") if row]
-    if len(rows) != 1:
-        raise CatalogError(f"Git path is absent or ambiguous at {commit}:{path}")
-    header, tab, raw_path = rows[0].partition(b"\t")
-    if not tab or raw_path.decode("utf-8") != path:
-        raise CatalogError(f"Git path lookup was not exact at {commit}:{path}")
-    fields = header.decode("ascii").split()
-    if len(fields) != 3 or fields[1] != "blob" or fields[0] not in {"100644", "100755"}:
-        raise CatalogError(f"Git path is not an ordinary file blob at {commit}:{path}")
-    return fields[0], fields[2]
+def _tree_entry(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    allow_manifest: bool = False,
+    reader: GitTreeReader | None = None,
+) -> tuple[str, str]:
+    return _reader_for(root, commit, reader).entry(path, allow_manifest=allow_manifest)
 
 
-def git_bytes(root: Path, commit: str, path: str, *, allow_manifest: bool = False) -> bytes:
-    _tree_entry(root, commit, path, allow_manifest=allow_manifest)
-    result = subprocess.run(["git", "-C", str(root), "cat-file", "blob", f"{commit}:{path}"], capture_output=True, check=False)
-    if result.returncode:
-        raise CatalogError(f"Git object is absent at {commit}:{path}")
-    return result.stdout
+def git_bytes(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    allow_manifest: bool = False,
+    reader: GitTreeReader | None = None,
+) -> bytes:
+    return _reader_for(root, commit, reader).read(path, allow_manifest=allow_manifest)
 
 
-def git_mode(root: Path, commit: str, path: str, *, allow_manifest: bool = False) -> str:
-    return _tree_entry(root, commit, path, allow_manifest=allow_manifest)[0]
+def git_mode(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    allow_manifest: bool = False,
+    reader: GitTreeReader | None = None,
+) -> str:
+    return _tree_entry(root, commit, path, allow_manifest=allow_manifest, reader=reader)[0]
 
 
 def immutable_blob_url(commit: str, path: str) -> str:
@@ -208,10 +473,17 @@ def normalized_bytes(path: str, data: bytes) -> tuple[bytes, str]:
     return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n"), "lf-normalized"
 
 
-def document_entry(root: Path, commit: str, path: str) -> dict[str, Any]:
+def document_entry(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> dict[str, Any]:
     validate_accepted_path(path)
-    git_mode(root, commit, path)
-    raw = git_bytes(root, commit, path)
+    tree_reader = _reader_for(root, commit, reader)
+    tree_reader.entry(path)
+    raw = tree_reader.read(path)
     data, byte_mode = normalized_bytes(path, raw)
     jcs_keccak: str | None = None
     if path.casefold().endswith(".json"):
@@ -238,8 +510,14 @@ def _schema_instance(value: Any, schema: dict[str, Any], label: str) -> None:
         raise CatalogError(detail)
 
 
-def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, dict[str, Any]], dict[str, Any]]:
-    raw = git_bytes(root, commit, MANIFEST_PATH, allow_manifest=True)
+def _read_manifest(
+    root: Path,
+    commit: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> tuple[dict[str, Any], dict[str, dict[str, Any]], dict[str, Any]]:
+    tree_reader = _reader_for(root, commit, reader)
+    raw = tree_reader.read(MANIFEST_PATH, allow_manifest=True)
     manifest = strict_load(raw)
     if not isinstance(manifest, dict):
         raise CatalogError("committed record manifest must be an object")
@@ -324,9 +602,13 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
         "immutable_source_url": immutable_blob_url(commit, MANIFEST_PATH),
         "immutable_raw_url": immutable_raw_url(commit, MANIFEST_PATH),
     }
+    # Fetch every whole-release blob in deterministic bounded batches before
+    # hashing. This is the only object read phase for this commit; all later
+    # checks consume the cached exact bytes.
+    tree_reader.prefetch(by_path)
     # Verify every whole-release manifest entry against the exact B Git tree.
     for path, entry in by_path.items():
-        actual = document_entry(root, commit, path)
+        actual = document_entry(root, commit, path, reader=tree_reader)
         if entry["size"] != actual["file_size"] or entry["sha256"] != actual["sha256"] or entry["byte_mode"] != actual["byte_mode"]:
             raise CatalogError(f"committed manifest entry does not describe the exact B bytes: {path}")
         if path.casefold().endswith(".json"):
@@ -347,14 +629,26 @@ def _read_manifest(root: Path, commit: str) -> tuple[dict[str, Any], dict[str, d
     return manifest, by_path, binding
 
 
-def publication_paths_from_manifest(root: Path, commit: str) -> list[str]:
+def publication_paths_from_manifest(
+    root: Path,
+    commit: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> list[str]:
     """Return the complete whole-release path set; it is not the visitor corpus."""
 
-    return list(_read_manifest(root, commit)[1])
+    return list(_read_manifest(root, commit, reader=reader)[1])
 
 
-def _inventory_binding(root: Path, commit: str, inventory: dict[str, Any]) -> dict[str, Any]:
-    raw = git_bytes(root, commit, PUBLICATION_INVENTORY_PATH)
+def _inventory_binding(
+    root: Path,
+    commit: str,
+    inventory: dict[str, Any],
+    *,
+    reader: GitTreeReader | None = None,
+) -> dict[str, Any]:
+    tree_reader = _reader_for(root, commit, reader)
+    raw = tree_reader.read(PUBLICATION_INVENTORY_PATH)
     body = canonicalize(inventory)
     return {
         "path": PUBLICATION_INVENTORY_PATH,
@@ -370,10 +664,17 @@ def _inventory_binding(root: Path, commit: str, inventory: dict[str, Any]) -> di
     }
 
 
-def _read_inventory(root: Path, commit: str, manifest_entries: dict[str, dict[str, Any]]) -> tuple[dict[str, Any], list[str], list[str], dict[str, Any]]:
-    raw = git_bytes(root, commit, PUBLICATION_INVENTORY_PATH)
+def _read_inventory(
+    root: Path,
+    commit: str,
+    manifest_entries: dict[str, dict[str, Any]],
+    *,
+    reader: GitTreeReader | None = None,
+) -> tuple[dict[str, Any], list[str], list[str], dict[str, Any]]:
+    tree_reader = _reader_for(root, commit, reader)
+    raw = tree_reader.read(PUBLICATION_INVENTORY_PATH)
     inventory = strict_load(raw)
-    schema = strict_load(git_bytes(root, commit, "schemas/public-publication-inventory.schema.json"))
+    schema = strict_load(tree_reader.read("schemas/public-publication-inventory.schema.json"))
     if not isinstance(inventory, dict) or not isinstance(schema, dict):
         raise CatalogError("B lacks a usable public publication inventory/schema")
     _schema_instance(inventory, schema, "public publication inventory")
@@ -396,6 +697,7 @@ def _read_inventory(root: Path, commit: str, manifest_entries: dict[str, dict[st
     assembly: list[str] = []
     media: list[str] = []
     count: dict[str, int] = {}
+    tree_reader.prefetch(paths + ["schemas/public-publication-inventory.schema.json"])
     for entry in entries:
         if not isinstance(entry, dict) or entry.get("required_in_catalog") is not True:
             raise CatalogError("every inventory entry must be required_in_catalog")
@@ -403,7 +705,7 @@ def _read_inventory(root: Path, commit: str, manifest_entries: dict[str, dict[st
         validate_accepted_path(path)
         if path not in manifest_entries:
             raise CatalogError(f"public inventory path is absent from the whole B manifest: {path}")
-        actual = document_entry(root, commit, path)
+        actual = document_entry(root, commit, path, reader=tree_reader)
         manifest_entry = manifest_entries[path]
         if manifest_entry["size"] != actual["file_size"] or manifest_entry["sha256"] != actual["sha256"] or manifest_entry["byte_mode"] != actual["byte_mode"]:
             raise CatalogError(f"public inventory path does not match its whole-manifest entry: {path}")
@@ -429,12 +731,21 @@ def _read_inventory(root: Path, commit: str, manifest_entries: dict[str, dict[st
         raise CatalogError("visitor bundle must be bound separately and never embedded in inventory entries")
     if PUBLICATION_BUNDLE_PATH not in manifest_entries:
         raise CatalogError("visitor bundle is absent from the whole B manifest")
-    return inventory, assembly, media, _inventory_binding(root, commit, inventory)
+    return inventory, assembly, media, _inventory_binding(root, commit, inventory, reader=tree_reader)
 
 
-def _bundle_binding(root: Path, commit: str, inventory: dict[str, Any], assembly_paths: list[str], inventory_binding: dict[str, Any]) -> dict[str, Any]:
-    raw = git_bytes(root, commit, PUBLICATION_BUNDLE_PATH)
-    schema = strict_load(git_bytes(root, commit, BUNDLE_SCHEMA_PATH))
+def _bundle_binding(
+    root: Path,
+    commit: str,
+    inventory: dict[str, Any],
+    assembly_paths: list[str],
+    inventory_binding: dict[str, Any],
+    *,
+    reader: GitTreeReader | None = None,
+) -> dict[str, Any]:
+    tree_reader = _reader_for(root, commit, reader)
+    raw = tree_reader.read(PUBLICATION_BUNDLE_PATH)
+    schema = strict_load(tree_reader.read(BUNDLE_SCHEMA_PATH))
     bundle = strict_load(raw)
     if not isinstance(schema, dict) or not isinstance(bundle, dict):
         raise CatalogError("B lacks a usable visitor bundle/schema")
@@ -448,15 +759,14 @@ def _bundle_binding(root: Path, commit: str, inventory: dict[str, Any], assembly
     inventory_keccak = "0x" + keccak256(inventory_body).hex()
     if bundle.get("source_inventory_body_sha256") != inventory_sha or bundle.get("source_inventory_body_keccak256") != inventory_keccak:
         raise CatalogError("visitor bundle is bound to a different inventory body")
+    tree_reader.prefetch(paths + [BUNDLE_SCHEMA_PATH])
     content_bytes = 0
     for entry in entries:
         content = entry.get("content")
         if not isinstance(content, str):
             raise CatalogError(f"visitor bundle content is not UTF-8 text: {entry.get('path')}")
         data = content.encode("utf-8")
-        source_bytes, source_mode = normalized_bytes(
-            entry["path"], git_bytes(root, commit, entry["path"])
-        )
+        source_bytes, source_mode = normalized_bytes(entry["path"], tree_reader.read(entry["path"]))
         if entry.get("byte_mode") != source_mode or data != source_bytes:
             raise CatalogError(
                 "visitor bundle content does not match the exact Git-tree file: "
@@ -498,8 +808,14 @@ def _commit_parents(root: Path, commit: str) -> list[str]:
     return result.stdout.strip().split() if result.stdout.strip() else []
 
 
-def _record_review_state(root: Path, commit: str, path: str) -> tuple[dict[str, Any], dict[str, Any] | None]:
-    value = strict_load(git_bytes(root, commit, path))
+def _record_review_state(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
+    value = strict_load(_reader_for(root, commit, reader).read(path))
     payload = value.get("payload") if isinstance(value, dict) else None
     return value, payload if isinstance(payload, dict) else None
 
@@ -512,10 +828,15 @@ def _is_public_graph_record_path(path: str) -> bool:
     ) and path.endswith(".json")
 
 
-def _reviewable_record_paths(root: Path, commit: str) -> list[str]:
+def _reviewable_record_paths(
+    root: Path,
+    commit: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> list[str]:
     """Return the exact generated public record set, never a prefix expansion."""
 
-    manifest_paths = publication_paths_from_manifest(root, commit)
+    manifest_paths = publication_paths_from_manifest(root, commit, reader=reader)
     return sorted(path for path in manifest_paths if _is_public_graph_record_path(path))
 
 
@@ -647,7 +968,15 @@ def _parse_utc(value: Any, label: str) -> datetime:
     return parsed.astimezone(timezone.utc)
 
 
-def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_paths: list[str]) -> dict[str, Any]:
+def _review_binding(
+    root: Path,
+    commit: str,
+    assembly_paths: list[str],
+    media_paths: list[str],
+    *,
+    reader: GitTreeReader | None = None,
+) -> dict[str, Any]:
+    reviewed_reader = _reader_for(root, commit, reader)
     reviewer_panel: tuple[Any, ...] | None = None
     primary_reviewer_id: str | None = None
     reviewed_at: str | None = None
@@ -659,7 +988,7 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
     if not reviewed_paths:
         raise CatalogError("catalog source context has no closed public record set")
     for path in reviewed_paths:
-        _, payload = _record_review_state(root, commit, path)
+        _, payload = _record_review_state(root, commit, path, reader=reviewed_reader)
         if payload is None or "record_status" not in payload:
             raise CatalogError(f"reviewed B public record lacks a payload/status: {path}")
         checked_records += 1
@@ -703,14 +1032,24 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
     require_commit_object(root, candidate)
     if candidate not in _commit_parents(root, commit):
         raise CatalogError("candidate A is not a direct parent of reviewed B")
-    _, candidate_manifest_entries, candidate_manifest_binding = _read_manifest(root, candidate)
-    candidate_inventory, candidate_assembly, candidate_media, candidate_inventory_binding = _read_inventory(
-        root, candidate, candidate_manifest_entries
+    candidate_reader = _reader_for(root, candidate)
+    _, candidate_manifest_entries, candidate_manifest_binding = _read_manifest(
+        root, candidate, reader=candidate_reader
     )
-    _bundle_binding(root, candidate, candidate_inventory, candidate_assembly, candidate_inventory_binding)
-    _, reviewed_manifest_entries, _ = _read_manifest(root, commit)
+    candidate_inventory, candidate_assembly, candidate_media, candidate_inventory_binding = _read_inventory(
+        root, candidate, candidate_manifest_entries, reader=candidate_reader
+    )
+    _bundle_binding(
+        root,
+        candidate,
+        candidate_inventory,
+        candidate_assembly,
+        candidate_inventory_binding,
+        reader=candidate_reader,
+    )
+    _, reviewed_manifest_entries, _ = _read_manifest(root, commit, reader=reviewed_reader)
     reviewed_inventory, reviewed_assembly, reviewed_media, _ = _read_inventory(
-        root, commit, reviewed_manifest_entries
+        root, commit, reviewed_manifest_entries, reader=reviewed_reader
     )
     if candidate_inventory != reviewed_inventory:
         raise CatalogError("candidate A and reviewed B publication inventories differ")
@@ -736,17 +1075,17 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
             raise CatalogError(f"deterministic generator path changed across A to B: {generator_path}")
     if candidate_sha != candidate_manifest_binding["body_sha256"] or candidate_keccak != candidate_manifest_binding["body_keccak256"]:
         raise CatalogError("reviewed B reviewer metadata does not bind candidate A's actual manifest body commitments")
-    candidate_paths = _reviewable_record_paths(root, candidate)
+    candidate_paths = _reviewable_record_paths(root, candidate, reader=candidate_reader)
     if candidate_paths != reviewed_paths:
         raise CatalogError("candidate A and reviewed B public record sets differ")
     # A must still be the constructed/review-pending candidate, and B may only
     # apply the deterministic review promotion fields to those exact records.
     for path in candidate_paths:
-        a_record, a_payload = _record_review_state(root, candidate, path)
+        a_record, a_payload = _record_review_state(root, candidate, path, reader=candidate_reader)
         _validate_record_commitments(a_record, path)
         if not isinstance(a_payload, dict) or a_payload.get("record_status") != "review_pending" or a_payload.get("review_status") not in {"pending_independent_review", "review_pending"}:
             raise CatalogError(f"candidate A is not review-pending: {path}")
-        b_record, b_payload = _record_review_state(root, commit, path)
+        b_record, b_payload = _record_review_state(root, commit, path, reader=reviewed_reader)
         _validate_record_commitments(b_record, path)
         if not isinstance(a_payload, dict) or not isinstance(b_payload, dict):
             raise CatalogError(f"A/B public record payload is unavailable: {path}")
@@ -786,7 +1125,11 @@ def _review_binding(root: Path, commit: str, assembly_paths: list[str], media_pa
             f"unexpected={sorted(changed - allowed_changed)}, "
             f"missing_reviewed_records={sorted(set(reviewed_paths) - changed)}"
         )
-    _verify_deterministic_promotion_artifacts(root, commit, _read_manifest(root, commit)[1])
+    _verify_deterministic_promotion_artifacts(
+        root,
+        commit,
+        _read_manifest(root, commit, reader=reviewed_reader)[1],
+    )
     return {"candidate_commit": candidate, "reviewed_at": reviewed_at, "reviewer_ids": list(reviewer_panel), "manifest_sha256": candidate_sha, "manifest_keccak": candidate_keccak}
 
 
@@ -794,13 +1137,31 @@ def build_catalog(root: Path, *, reviewed_source_head_commit: str, accepted_path
     """Construct C from exact Git objects at reviewed B; no catalog/pointer is read."""
 
     require_commit_object(root, reviewed_source_head_commit)
-    _, manifest_entries, manifest_binding = _read_manifest(root, reviewed_source_head_commit)
-    inventory, assembly_paths, media_paths, inventory_binding = _read_inventory(root, reviewed_source_head_commit, manifest_entries)
+    reader = _reader_for(root, reviewed_source_head_commit)
+    _, manifest_entries, manifest_binding = _read_manifest(
+        root, reviewed_source_head_commit, reader=reader
+    )
+    inventory, assembly_paths, media_paths, inventory_binding = _read_inventory(
+        root, reviewed_source_head_commit, manifest_entries, reader=reader
+    )
     all_paths = sorted(assembly_paths + media_paths)
     if accepted_paths is not None and accepted_paths != all_paths:
         raise CatalogError("accepted_documents input must equal the closed inventory union exactly")
-    bundle_binding = _bundle_binding(root, reviewed_source_head_commit, inventory, assembly_paths, inventory_binding)
-    review_binding = _review_binding(root, reviewed_source_head_commit, assembly_paths, media_paths)
+    bundle_binding = _bundle_binding(
+        root,
+        reviewed_source_head_commit,
+        inventory,
+        assembly_paths,
+        inventory_binding,
+        reader=reader,
+    )
+    review_binding = _review_binding(
+        root,
+        reviewed_source_head_commit,
+        assembly_paths,
+        media_paths,
+        reader=reader,
+    )
     catalog_id = f"6529NM-PUBCAT-{reviewed_source_head_commit}"
     payload = {
         "catalog_id": catalog_id,
@@ -812,8 +1173,14 @@ def build_catalog(root: Path, *, reviewed_source_head_commit: str, accepted_path
         "manifest_binding": manifest_binding,
         "publication_inventory_binding": inventory_binding,
         "bundle_binding": bundle_binding,
-        "assembly_documents": [document_entry(root, reviewed_source_head_commit, path) for path in assembly_paths],
-        "media_assets": [document_entry(root, reviewed_source_head_commit, path) for path in media_paths],
+        "assembly_documents": [
+            document_entry(root, reviewed_source_head_commit, path, reader=reader)
+            for path in assembly_paths
+        ],
+        "media_assets": [
+            document_entry(root, reviewed_source_head_commit, path, reader=reader)
+            for path in media_paths
+        ],
         "activation_policy": "frontend_activates_only_verified_catalog",
     }
     payload_hash = "0x" + keccak256(canonicalize(payload)).hex()
@@ -894,27 +1261,37 @@ def validate_catalog(catalog: dict[str, Any], *, root: Path | None = None, expec
         return issues
     try:
         require_commit_object(root, commit)
+        reader = _reader_for(root, commit)
         # The release decision is about the exact B tree.  Re-evaluate the
         # catalog wire schema from B itself rather than trusting a mutable
         # checkout-side schema while inspecting another commit.
-        exact_catalog_schema = strict_load(git_bytes(root, commit, CATALOG_SCHEMA_PATH))
+        exact_catalog_schema = strict_load(reader.read(CATALOG_SCHEMA_PATH))
         _schema_instance(catalog, exact_catalog_schema, "publication catalog at exact B")
-        _, manifest_entries, manifest_binding = _read_manifest(root, commit)
-        inventory, expected_assembly, expected_media, inventory_binding = _read_inventory(root, commit, manifest_entries)
+        _, manifest_entries, manifest_binding = _read_manifest(root, commit, reader=reader)
+        inventory, expected_assembly, expected_media, inventory_binding = _read_inventory(
+            root, commit, manifest_entries, reader=reader
+        )
         if assembly_paths != expected_assembly or media_paths != expected_media or set(assembly_paths + media_paths) != set(expected_assembly + expected_media):
             issues.append("catalog assembly/media documents do not equal the closed inventory role sets")
         if payload.get("manifest_binding") != manifest_binding:
             issues.append("catalog manifest binding drifted from exact B")
         if payload.get("publication_inventory_binding") != inventory_binding:
             issues.append("catalog public inventory binding drifted from exact B")
-        expected_bundle = _bundle_binding(root, commit, inventory, expected_assembly, inventory_binding)
+        expected_bundle = _bundle_binding(
+            root,
+            commit,
+            inventory,
+            expected_assembly,
+            inventory_binding,
+            reader=reader,
+        )
         if payload.get("bundle_binding") != expected_bundle:
             issues.append("catalog visitor bundle binding drifted from exact B")
-        actual_assembly = [document_entry(root, commit, path) for path in expected_assembly]
-        actual_media = [document_entry(root, commit, path) for path in expected_media]
+        actual_assembly = [document_entry(root, commit, path, reader=reader) for path in expected_assembly]
+        actual_media = [document_entry(root, commit, path, reader=reader) for path in expected_media]
         if actual_assembly != assembly_documents or actual_media != media_assets:
             issues.append("catalog document digests/URLs drifted from exact B Git objects")
-        _review_binding(root, commit, expected_assembly, expected_media)
+        _review_binding(root, commit, expected_assembly, expected_media, reader=reader)
     except CatalogError as exc:
         issues.append(str(exc))
     return issues
@@ -1137,51 +1514,22 @@ def check_append_only_catalog(
     return issues
 
 
-def _release_blob_bytes(root: Path, commit: str, path: str) -> bytes:
-    """Read one exact catalog/pointer blob without widening publication paths."""
+def _release_blob_bytes(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> bytes:
+    """Read one exact catalog/pointer blob through the bounded batch reader."""
 
     validate_full_commit(commit)
     if path != POINTER_PATH and not re.fullmatch(
         rf"{re.escape(CATALOG_DIR)}/6529NM-PUBCAT-[0-9a-f]{{40}}\.json", path
     ):
         raise CatalogError(f"invalid release-artifact path: {path!r}")
-    result = subprocess.run(
-        [
-            "git",
-            "-C",
-            str(root),
-            "--literal-pathspecs",
-            "ls-tree",
-            "-z",
-            "--full-tree",
-            commit,
-            "--",
-            path,
-        ],
-        capture_output=True,
-        check=False,
-    )
-    rows = [row for row in result.stdout.split(b"\0") if row]
-    if result.returncode or len(rows) != 1:
-        raise CatalogError(f"release artifact is absent or ambiguous at {commit}:{path}")
-    header, separator, raw_path = rows[0].partition(b"\t")
-    fields = header.decode("ascii").split()
-    if (
-        not separator
-        or raw_path.decode("utf-8") != path
-        or len(fields) != 3
-        or fields[0] not in {"100644", "100755"}
-        or fields[1] != "blob"
-    ):
-        raise CatalogError(f"release artifact is not an exact ordinary blob: {commit}:{path}")
-    blob = subprocess.run(
-        ["git", "-C", str(root), "cat-file", "blob", fields[2]],
-        capture_output=True,
-        check=False,
-    )
-    if blob.returncode:
-        raise CatalogError(f"release artifact blob is unreadable at {commit}:{path}")
-    return blob.stdout
+    tree_reader = _reader_for(root, commit, reader)
+    return tree_reader.read(path, allow_release_artifact=True)
 
 
 def git_head_commit(root: Path) -> str:
@@ -1200,21 +1548,33 @@ def git_head_commit(root: Path) -> str:
     return commit
 
 
-def retained_release_json(root: Path, commit: str, path: str) -> tuple[dict[str, Any], bytes]:
+def retained_release_json(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> tuple[dict[str, Any], bytes]:
     """Read one exact JSON release artifact from a retained Git tree."""
 
-    raw = _release_blob_bytes(root, commit, path)
+    raw = _release_blob_bytes(root, commit, path, reader=reader)
     value = strict_load(raw)
     if not isinstance(value, dict):
         raise CatalogError(f"retained release artifact is not a JSON object: {commit}:{path}")
     return value, raw
 
 
-def retained_catalog_from_git_tree(root: Path, commit: str, catalog_id: str) -> tuple[dict[str, Any], bytes]:
+def retained_catalog_from_git_tree(
+    root: Path,
+    commit: str,
+    catalog_id: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> tuple[dict[str, Any], bytes]:
     """Read and identity-check one exact immutable catalog blob from Git."""
 
     path = f"{CATALOG_DIR}/{catalog_id}.json"
-    value, raw = retained_release_json(root, commit, path)
+    value, raw = retained_release_json(root, commit, path, reader=reader)
     payload = _catalog_payload(value)
     if payload["catalog_id"] != catalog_id:
         raise CatalogError(f"retained Git-tree catalog identity does not match its path: {catalog_id}")
@@ -1236,11 +1596,16 @@ def _worktree_release_path(root: Path, path: str) -> Path:
 
 
 def assert_worktree_release_matches_git_tree(
-    root: Path, commit: str, path: str, *, label: str
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    label: str,
+    reader: GitTreeReader | None = None,
 ) -> bytes:
     """Require one worktree release artifact to equal its retained Git blob."""
 
-    retained_bytes = _release_blob_bytes(root, commit, path)
+    retained_bytes = _release_blob_bytes(root, commit, path, reader=reader)
     worktree_path = _worktree_release_path(root, path)
     if not worktree_path.is_file():
         raise CatalogError(f"{label} worktree file is missing: {path}")
@@ -1260,18 +1625,29 @@ def verify_active_release_worktree(
 ) -> tuple[dict[str, Any], bytes, dict[str, Any], bytes]:
     """Verify the active pointer and catalog against retained HEAD bytes."""
 
-    pointer, pointer_bytes = retained_release_json(root, commit, POINTER_PATH)
+    reader = _reader_for(root, commit)
+    pointer, pointer_bytes = retained_release_json(root, commit, POINTER_PATH, reader=reader)
     assert_worktree_release_matches_git_tree(
-        root, commit, POINTER_PATH, label="active activation pointer"
+        root,
+        commit,
+        POINTER_PATH,
+        label="active activation pointer",
+        reader=reader,
     )
     catalog_path = pointer.get("catalog_path")
     validate_canonical_catalog_path(catalog_path)
     catalog_id = _pointer_catalog_id(pointer)
     if catalog_id is None:
         raise CatalogError("retained active pointer has an invalid catalog path")
-    catalog, catalog_bytes = retained_catalog_from_git_tree(root, commit, catalog_id)
+    catalog, catalog_bytes = retained_catalog_from_git_tree(
+        root, commit, catalog_id, reader=reader
+    )
     assert_worktree_release_matches_git_tree(
-        root, commit, catalog_path, label="active catalog"
+        root,
+        commit,
+        catalog_path,
+        label="active catalog",
+        reader=reader,
     )
     return pointer, pointer_bytes, catalog, catalog_bytes
 
@@ -1320,9 +1696,15 @@ def _catalog_tree_blobs(root: Path, commit: str) -> dict[str, str]:
     return entries
 
 
-def _optional_release_json(root: Path, commit: str, path: str) -> dict[str, Any] | None:
+def _optional_release_json(
+    root: Path,
+    commit: str,
+    path: str,
+    *,
+    reader: GitTreeReader | None = None,
+) -> dict[str, Any] | None:
     try:
-        value = strict_load(_release_blob_bytes(root, commit, path))
+        value = strict_load(_release_blob_bytes(root, commit, path, reader=reader))
     except CatalogError as exc:
         if "absent or ambiguous" in str(exc):
             return None
@@ -1396,7 +1778,11 @@ def _check_catalog_git_transition_adjacent(root: Path, previous_commit: str, cur
             issues.append(f"immutable historical catalog was deleted or rewritten: {path}")
     additions = set(current_blobs) - set(previous_blobs)
 
-    current_pointer = _optional_release_json(root, current_commit, POINTER_PATH)
+    previous_reader = _reader_for(root, previous_commit)
+    current_reader = _reader_for(root, current_commit)
+    current_pointer = _optional_release_json(
+        root, current_commit, POINTER_PATH, reader=current_reader
+    )
     if current_pointer is None:
         return [*issues, "current catalog transition has no activation pointer"]
     current_id = _pointer_catalog_id(current_pointer)
@@ -1404,14 +1790,18 @@ def _check_catalog_git_transition_adjacent(root: Path, previous_commit: str, cur
         return [*issues, "current activation pointer has an invalid catalog path"]
     current_path = f"{CATALOG_DIR}/{current_id}.json"
     try:
-        current_catalog_bytes = _release_blob_bytes(root, current_commit, current_path)
+        current_catalog_bytes = _release_blob_bytes(
+            root, current_commit, current_path, reader=current_reader
+        )
     except CatalogError as exc:
         return [*issues, str(exc)]
     current_catalog = strict_load(current_catalog_bytes)
     if not isinstance(current_catalog, dict):
         return [*issues, "current pointer target is not a catalog object"]
 
-    previous_pointer = _optional_release_json(root, previous_commit, POINTER_PATH)
+    previous_pointer = _optional_release_json(
+        root, previous_commit, POINTER_PATH, reader=previous_reader
+    )
     previous_active_id = _pointer_catalog_id(previous_pointer)
     previous_catalog: dict[str, Any] | None = None
     if previous_pointer is not None:
@@ -1420,7 +1810,9 @@ def _check_catalog_git_transition_adjacent(root: Path, previous_commit: str, cur
         else:
             previous_path = f"{CATALOG_DIR}/{previous_active_id}.json"
             try:
-                previous_bytes = _release_blob_bytes(root, previous_commit, previous_path)
+                previous_bytes = _release_blob_bytes(
+                    root, previous_commit, previous_path, reader=previous_reader
+                )
             except CatalogError as exc:
                 issues.append(str(exc))
                 previous_bytes = None
