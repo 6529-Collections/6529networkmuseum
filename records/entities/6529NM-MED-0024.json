@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc3617c9046ef5e6df94ab22e699062b27615f6be889dcdc02ea02abb453d3f30"
+      "digest": "0x5903aceb6da01e19f1dd7210a2244c42c4b312197f9e3ffce9fe641be39d9c00"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0024",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:90c7f284915cdbe36988451771babda899c1593765f99b5019a151d2d0385afb",
+    "payload_sha256": "sha256:a15f3842def07a1c8f4eee5e8564d19c2eacaf99009533cf3075079fb3e0565d",
     "preferred_label": "Residual Barrier presentation record",
     "profile": {
       "media": {
@@ -145,15 +145,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0024",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-005"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:zeno-019ff532",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewer_ids": [
+        "codex-review:zeno-019ff532"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +180,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0024",
     "visibility": "public"

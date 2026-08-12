@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd4750b78280c465dbd1544b4c43913c6969390459bf22436e67696abd4469a09"
+      "digest": "0x87a5e4bdf624b6827ae64bcda0642827101c631a296495434313945e437d54d4"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0028",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4ce0b91c063b50d0c0b3146d78b617607f0071b22e07acc1b517397b55ce6f68",
+    "payload_sha256": "sha256:d8f55d4743ddb16bb851c303862cc8742ea73cae038c403a203562a76523f10e",
     "preferred_label": "Palmyra, Syria",
     "profile": {
       "accession_entity_ids": [],
@@ -210,7 +210,7 @@
     },
     "public_slug": "6529NM-W-0028",
     "record_id": "6529NM-W-0028",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,8 +220,19 @@
       "6529NM-PG-2026-001.OBJ-005",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:zeno-019ff532",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewer_ids": [
+        "codex-review:zeno-019ff532"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0022",
@@ -240,7 +251,7 @@
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0028",
     "visibility": "public"

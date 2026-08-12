@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xce130181342590ff5b8e9811e882fdd786f2747fdc7aa0aa7ca6ac38c58fc8f4"
+      "digest": "0x5ffb03aaa8c244a5a1bfa9e858b12824dd5b0c0480df5657cc109d1b9676acd6"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-C-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "COLLECTION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:0deb1f22c3b1547b81428b04e918a8c8f14d1bd79c55c68ea1aa1ef24d4fb9da",
+    "payload_sha256": "sha256:0cea4448fd770c47ac89786735a677f180b1e0497b93257bca3e02ade1a7d061",
     "preferred_label": "6529 Network Museum permanent Collection",
     "profile": {
       "admitted_work_entity_ids": [
@@ -67,7 +67,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-C-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -75,8 +75,19 @@
       "6529NM-I-0001",
       "6529NM.2026.001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-review:zeno-019ff532",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-12T09:26:00Z",
+      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
+      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
+      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
+      "reviewer_ids": [
+        "codex-review:zeno-019ff532"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -93,7 +104,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-C-0001",
     "visibility": "public"
