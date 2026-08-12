@@ -1099,7 +1099,25 @@ def build_records(
         [KEYS_MEDIA_DISPLAY_AUTHORITY_PATH],
         "Museum-hosted presentation derivatives are authorized for contextual public display. This authority does not establish mint, acquisition, title, custody, accession, CC0 effectiveness, download, or reuse rights.",
     )
-    acquisition_facts_proposal = {key: fact(status, PROPOSAL_AT, ["6529NM-PG-2026-001"], note) for key, status, note in [("mint", "verified", "The proposal source and finalized chain observations establish the five external ERC-721 manifestations, not Museum acquisition."), ("payment", "not_established", "No Museum purchase is recorded."), ("title", "not_established", "No Museum title binding is recorded."), ("custody", "unverified", "Observed external owner is not Museum custody."), ("rights", "verified_with_conditions", "The accession review retains All Rights Reserved and authorizes only contextual presentation of the five accession-reviewed images; copyright transfer and broader reproduction rights are not established."), ("technical", "verified_with_conditions", "The accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required."), ("preservation", "not_started", "The upstream files are not Museum preservation objects."), ("display", "verified_with_conditions", "Contextual public presentation uses the fixity-verified token-source images in acquisition, artist, and Work pages. Historical Wave locators remain publication evidence; download, zoom, fullscreen, derivative, and preservation claims remain blocked.")]}
+    acquisition_facts_proposal = {key: fact(status, PROPOSAL_AT, ["6529NM-PG-2026-001"], note) for key, status, note in [("mint", "verified", "The proposal source and finalized chain observations establish the five external ERC-721 manifestations, not Museum acquisition."), ("payment", "not_established", "No Museum purchase is recorded."), ("title", "not_established", "No Museum title binding is recorded."), ("custody", "unverified", "Observed external owner is not Museum custody."), ("rights", "unknown", "The proposal records All Rights Reserved. Downstream accession review of contextual display rights follows Museum Wave selection."), ("technical", "not_started", "Downstream accession technical review follows Museum Wave selection."), ("preservation", "not_started", "The upstream files are not Museum preservation objects."), ("display", "not_started", "Downstream accession display review follows Museum Wave selection.")]}
+    acquisition_facts_proposal["rights"] = fact(
+        "verified_with_conditions",
+        MAGNUM_MEDIA_CONTINUITY_AT,
+        ["6529NM-PG-2026-001", MAGNUM_MEDIA_CONTINUITY_ID],
+        "Downstream accession review retains All Rights Reserved and authorizes "
+        "only contextual presentation of the five reviewed images; copyright "
+        "transfer and broader reproduction rights are not established.",
+        evidence_refs=[source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH, MAGNUM_MEDIA_CONTINUITY_AT)],
+    )
+    acquisition_facts_proposal["technical"] = fact(
+        "verified_with_conditions",
+        MAGNUM_MEDIA_CONTINUITY_AT,
+        ["6529NM-PG-2026-001", MAGNUM_MEDIA_CONTINUITY_ID],
+        "Downstream accession review verifies token identity, metadata, image "
+        "fixity, finalized chain observations, and administrative mutability; "
+        "transfer-time rechecks remain required.",
+        evidence_refs=[source_evidence("Accession-media source continuity amendment", MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH, MAGNUM_MEDIA_CONTINUITY_AT)],
+    )
     acquisition_facts_proposal["display"] = fact(
         "verified_with_conditions",
         MAGNUM_MEDIA_CONTINUITY_AT,
@@ -1256,7 +1274,7 @@ def build_records(
     first_receipt = wave_publication_by_candidate[signed_obj["candidate_object_id"]]
     first_source = wave_join_by_candidate[signed_obj["candidate_object_id"]]
     media_continuity_binding = {"amendment_id": MAGNUM_MEDIA_CONTINUITY_ID, "path": MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH, "status": "active_downstream_accession_display_source", "observed_at": MAGNUM_MEDIA_CONTINUITY_AT}
-    add_entity(media_wave, "MEDIA_REFERENCE", "Conflict at Its Edges historical Wave proposal image with accession-reviewed display source", None, None, PROPOSAL_AT, media_profile(
+    add_entity(media_wave, "MEDIA_REFERENCE", "Conflict at Its Edges historical Wave proposal image with downstream-accession display source", None, None, MAGNUM_MEDIA_CONTINUITY_AT, media_profile(
         "historical_wave_proposal_presentation",
         first_receipt["media_url"],
         None,
@@ -1299,7 +1317,7 @@ def build_records(
         if candidate_id == "6529NM-PG-2026-001.OBJ-003":
             media_source_refs.append(MEDIA_DESCRIPTION_AMENDMENT_ID)
         source_fixity = wave_join_by_candidate[candidate_id]["source_image_fixity"]
-        add_entity(magnum_media_ids_by_candidate[signed_obj["candidate_object_id"]], "MEDIA_REFERENCE", f"{signed_obj['title']} historical Wave proposal image with accession-reviewed display source", None, None, PROPOSAL_AT, media_profile(
+        add_entity(magnum_media_ids_by_candidate[signed_obj["candidate_object_id"]], "MEDIA_REFERENCE", f"{signed_obj['title']} historical Wave proposal image with downstream-accession display source", None, None, MAGNUM_MEDIA_CONTINUITY_AT, media_profile(
             "historical_wave_proposal_presentation",
             receipt["media_url"],
             None,
@@ -1498,7 +1516,7 @@ def build_records(
         media_relative = f"records/entities/{magnum_media_ids_by_candidate[obj['candidate_object_id']]}.json"
         media_record = records[media_relative]
         media_payload = media_record["payload"]
-        media_payload["preferred_label"] = f"{obj['title']} accession-reviewed historical proposal image"
+        media_payload["preferred_label"] = f"{obj['title']} downstream-accession-reviewed historical proposal image"
         media = media_payload["profile"]["media"]
         media["source_observation"]["status"] = "mutable_external"
         wave_rights_evidence = [source_evidence("Signed-drop API rights-context readback", WAVE_PUBLICATION_OBSERVATION_ID, WINNER_AT)]

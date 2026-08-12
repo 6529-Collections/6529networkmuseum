@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5c8d2017f858410773f25ed25ea52e5d29fd477b2de46f5a5ccce67709fed36a"
+      "digest": "0x9872128441eceb8f9cb54df669b5f973f7d8739df9278911afffef7a17f21f98"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T07:37:56Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-RP-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4ea5bf4e53383b30ccea6c8b41ff29a7fd779409d0f14db277ba6119c864d0e1",
+    "payload_sha256": "sha256:862b79b9bcd426a1ad3e9dd1b1a18e50bea87d9b49807062e59f9e82416a666a",
     "preferred_label": "The System in Seven States",
     "profile": {
       "author_entity_ids": [
@@ -78,7 +78,7 @@
     },
     "public_slug": "the-system-in-seven-states",
     "record_id": "6529NM-RP-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -97,19 +97,8 @@
       "6529NM-W-0007",
       "6529NM.2026.001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:zeno-019ff532",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
-      "reviewer_ids": [
-        "codex-review:zeno-019ff532"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-001",
@@ -137,7 +126,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-RP-0001",
     "visibility": "public"

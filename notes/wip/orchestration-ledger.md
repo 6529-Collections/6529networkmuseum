@@ -3703,3 +3703,18 @@ catalog activation, and frontend qualification remain open.
 - Required continuation is corrected candidate A generation and validation,
   independent exact-head review, reviewed B, catalogue C activation, frontend
   adapter qualification, and a fresh staging visual/E2E pass before production.
+
+## 2026-08-12 atomic downstream accession amendment publication
+
+- Independent frontend review found that duplicated inline Media fields alone
+  could not prove the exact per-Work mapping in the active media-source
+  continuity amendment. The amendment is now an atomic visitor-publication
+  control document so the adapter can verify every displayed source against it.
+- Proposal-time facts retain proposal dates. Rights and technical conclusions
+  created by downstream accession review use the amendment observation time;
+  Media labels no longer make proposal evidence read as a pre-selection
+  accession conclusion.
+- The Wave remains the acquisition decision. This correction governs the
+  downstream accession record and display source only; it creates no title,
+  custody, preservation master, accession, accession number, or Collection
+  membership.

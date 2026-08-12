@@ -79,6 +79,7 @@ EXPLICIT_MANUSCRIPTS = (
 # These JSON controls are required by the frontend assembler.  They are
 # assembly documents, not source manuscripts and not the inventory itself.
 ASSEMBLY_CONTROL_PATHS = (
+    "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
     "schemas/common.schema.json",
     "schemas/controlled-vocabularies.json",
     "schemas/controlled-vocabularies.schema.json",

@@ -905,6 +905,20 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertIn("existing external ERC-721 token manifestation only", ca3["independent_acquisition_facts"]["mint"]["notes"])
         self.assertIn("does not establish Museum acquisition", ca3["independent_acquisition_facts"]["mint"]["notes"])
 
+    def test_conflict_downstream_accession_facts_follow_wave_selection(self) -> None:
+        entities = self.entities()
+        ca3 = entities["6529NM-CA-2026-003"]["profile"]
+        selection_at = ca3["lifecycle"]["as_of"]
+        for fact_name in ("rights", "technical", "display"):
+            accession_fact = ca3["independent_acquisition_facts"][fact_name]
+            self.assertEqual(accession_fact["status"], "verified_with_conditions")
+            self.assertGreater(accession_fact["as_of"], selection_at)
+            self.assertIn("Downstream accession", accession_fact["notes"])
+        for media_id in ("6529NM-MED-0003", "6529NM-MED-0041", "6529NM-MED-0042", "6529NM-MED-0043", "6529NM-MED-0044"):
+            media = entities[media_id]
+            self.assertGreater(media["effective_at"], selection_at)
+            self.assertIn("downstream-accession", media["preferred_label"])
+
     def test_program_pathways_and_produced_acquisitions_are_exact(self) -> None:
         entities = self.entities()
         programs = {entity_id: payload for entity_id, payload in entities.items() if payload["entity_type"] == "ACQUISITION_PROGRAM"}

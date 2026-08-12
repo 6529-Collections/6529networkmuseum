@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbde5a0c14961c16a6713748177a1319879993107328ecc386eb80a314681b3f0"
+      "digest": "0xf5e071e0eca4624252b8e4401e259c69c93fcb50d72e8544f13f904084e59bd8"
     },
-    "effectiveAt": 1786022370,
+    "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -26,9 +26,9 @@
       "role": "constructor"
     },
     "created_at": "2026-08-12T07:37:56Z",
-    "effective_at": "2026-08-06T13:19:30.726Z",
+    "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0042",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -50,10 +50,10 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
       }
     ],
-    "observed_at": "2026-08-06T13:19:30.726Z",
+    "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:eb6628e49c2980eedded5e7d1281e57d32635915abbb3a8b921d6666335afd25",
-    "preferred_label": "Demonstration, Western Wall, Jerusalem accession-reviewed historical proposal image",
+    "payload_sha256": "sha256:e26a26fb181e90f9318121a2a39a834f87788ae331e3c34d77f4d41d01cfc589",
+    "preferred_label": "Demonstration, Western Wall, Jerusalem downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
         "accessibility_evidence_refs": [
@@ -178,7 +178,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0042",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -187,19 +187,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:zeno-019ff532",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-12T09:26:00Z",
-      "reviewed_commit": "1702717e9ad05d9291c723b7521429199daf1cae",
-      "reviewed_manifest_keccak": "0xf2bd2577c6baa5b875ddfaf425b521e6ce0589e00e169d62a96e03e629839c3e",
-      "reviewed_manifest_sha256": "sha256:dce346bec74ce12d38bee2f6786168854c6317f959bade4bbf558abd2e0d6a4a",
-      "reviewer_ids": [
-        "codex-review:zeno-019ff532"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -228,8 +217,8 @@
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
         }
       ],
-      "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "observed_at": "2026-08-12T07:37:56.984246Z",
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0042",
     "visibility": "public"
