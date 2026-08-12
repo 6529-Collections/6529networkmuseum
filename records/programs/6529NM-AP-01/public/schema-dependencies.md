@@ -15,7 +15,7 @@ The content layer expects downstream integration to use the existing WP-1-owned 
 - Stream-compatible record envelopes, subject derivation, schema identifiers, hash algorithms, and CAIP-19-shaped on-chain citations;
 - rights vocabulary and object-specific rights-effective status;
 - program media-manifest joins and the source/presentation-surrogate/preservation-object boundary;
-- the existing `schemas/program-media-manifest.schema.json` control, whose accessibility status vocabulary now uses `constructed_visual_description_pending_independent_review` until the completed visual audit is independently reviewed; and
+- the existing `schemas/program-media-manifest.schema.json` control, whose accessibility status vocabulary records the independently reviewed state `constructed_visual_description_reviewed`; and
 - public/restricted record separation and public-safety scanning.
 
 ## Suggested future content relations

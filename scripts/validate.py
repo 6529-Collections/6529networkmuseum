@@ -873,7 +873,58 @@ def validate_public_media(media: Any, label: str) -> list[str]:
     rights = media.get("rights") if isinstance(media.get("rights"), dict) else {}
     rights_status = rights.get("status")
     affordances = media.get("allowed_ui_affordances", [])
-    if rights_status in {"restricted", "unknown"}:
+    role = media.get("media_role")
+    contextual_wave_presentation = (
+        rights_status == "restricted"
+        and role == "historical_wave_proposal_presentation"
+        and media.get("visual") is True
+        and isinstance(locator, dict)
+        and isinstance(locator.get("uri"), str)
+        and locator.get("repository_path") is None
+        and isinstance(affordances, list)
+        and "view" in affordances
+        and set(affordances).issubset({"view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"})
+    )
+    keys_gates_contextual_derivative = (
+        role == "museum_generated_public_derivative"
+        and any(
+            isinstance(item, str) and item.startswith("6529NM-AP-01-OUT-")
+            for item in media.get("source_record_ids", [])
+        )
+    )
+    if contextual_wave_presentation:
+        uri = locator.get("uri")
+        if not uri.startswith(
+            "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/"
+        ):
+            issues.append(f"{label}: historical Wave presentation must use an exact signed proposal-part locator")
+        if "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md" not in json.dumps(
+            media.get("source_observation", {}).get("evidence_refs", []),
+            ensure_ascii=False,
+        ):
+            issues.append(f"{label}: historical Wave presentation must cite its contextual display authority")
+    if keys_gates_contextual_derivative:
+        repository_path = locator.get("repository_path") if isinstance(locator, dict) else None
+        uri = locator.get("uri") if isinstance(locator, dict) else None
+        if (
+            rights_status != "cleared_with_conditions"
+            or media.get("visual") is not True
+            or not isinstance(repository_path, str)
+            or not repository_path.startswith("media/programs/6529NM-AP-01/")
+            or not isinstance(uri, str)
+            or not uri.startswith("https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/")
+        ):
+            issues.append(f"{label}: Keys and Gates display authority requires the exact retained Museum derivative")
+        if not isinstance(affordances, list) or not set(affordances).issubset(
+            {"view", "thumbnail", "hero", "alt_text", "copy_citation"}
+        ):
+            issues.append(f"{label}: Keys and Gates contextual derivatives cannot expose download, zoom, fullscreen, token, or repository affordances")
+        if "records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md" not in json.dumps(
+            media.get("source_observation", {}).get("evidence_refs", []),
+            ensure_ascii=False,
+        ):
+            issues.append(f"{label}: Keys and Gates contextual derivatives must cite their display authority")
+    if rights_status in {"restricted", "unknown"} and not contextual_wave_presentation:
         if media.get("visual") is not False:
             issues.append(f"{label}: {rights_status} media must be metadata-only with visual false")
         if not isinstance(locator, dict) or locator.get("uri") is not None or locator.get("repository_path") is not None:
@@ -913,7 +964,6 @@ def validate_public_media(media: Any, label: str) -> list[str]:
         basis = fixity.get("basis") if isinstance(fixity, dict) else None
         if not isinstance(basis, str) or "mutable" not in basis.casefold() or "not retained" not in basis.casefold():
             issues.append(f"{label}: mutable external verified fixity must state both locator mutability and that bytes are not retained")
-    role = media.get("media_role")
     publication_boundary = media.get("publication_boundary")
     expected_boundary = {
         "museum_retained_preservation_object": "preservation_record",
@@ -1002,7 +1052,7 @@ def validate_public_media(media: Any, label: str) -> list[str]:
             issues.append(f"{label}: historical Wave proposal media cannot expose download, zoom, fullscreen, or play by default")
         if any(item in affordances for item in {"open_token_source", "open_repository_path"}):
             issues.append(f"{label}: historical Wave media cannot expose token or repository source affordances")
-    if rights_status in {"restricted", "unknown"} and any(item in affordances for item in MEDIA_RENDER_OR_DELIVERY_AFFORDANCES):
+    if rights_status in {"restricted", "unknown"} and not contextual_wave_presentation and any(item in affordances for item in MEDIA_RENDER_OR_DELIVERY_AFFORDANCES):
         issues.append(f"{label}: {rights_status} media cannot expose visual delivery, download, zoom, fullscreen, token, or repository source opening")
     if "download" in affordances and rights_status not in {"cleared", "cleared_with_conditions"}:
         issues.append(f"{label}: download requires cleared or cleared_with_conditions rights")
@@ -2011,15 +2061,15 @@ def validate_public_graph(
             evidence_media = evidence_entry[1].get("profile", {}).get("media", {}) if evidence_entry else {}
             if evidence_media.get("visual") is not False or evidence_media.get("media_type") != "application/json":
                 issues.append(f"{evidence_media_id}: Casey preservation manifest and token metadata must remain nonvisual JSON")
-        unchanged_nonvisual_ids = {
+        non_casey_presentation_ids = {
             "6529NM-MED-0003", "6529NM-MED-0041", "6529NM-MED-0042", "6529NM-MED-0043", "6529NM-MED-0044",
             *{f"6529NM-MED-{index:04d}" for index in range(20, 36)},
         }
-        for media_id in sorted(unchanged_nonvisual_ids):
+        for media_id in sorted(non_casey_presentation_ids):
             media_entry = entities.get(media_id)
             media = media_entry[1].get("profile", {}).get("media", {}) if media_entry else {}
-            if media.get("visual") is not False or "6529NM-MEDIA-PRES-AMD-2026-08-09-001" in media.get("source_record_ids", []):
-                issues.append(f"{media_id}: Magnum and Keys and Gates nonvisual presentation state must remain outside the Casey correction")
+            if media.get("visual") is not True or "6529NM-MEDIA-PRES-AMD-2026-08-09-001" in media.get("source_record_ids", []):
+                issues.append(f"{media_id}: Magnum and Keys and Gates contextual presentation must remain visual and outside the Casey correction")
 
     def id_set(value: Any) -> set[str]:
         return {item for item in value if isinstance(item, str)} if isinstance(value, list) else set()

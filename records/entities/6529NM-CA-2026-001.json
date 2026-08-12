@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8d73b9ce0b671e81400ff812a96042f90c36100763dca477f6d50f3b2f622297"
+      "digest": "0x430eda3950c96c6f0b7800ae3ab16f737347db4dfae28c5acf540116ddf34ac0"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/the-system-in-seven-states",
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-CA-2026-001",
     "entity_status": "published",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2ccccf9b994361f08ac48812ba6cd174493cea98c3b5746e4768c9582b84d2ef",
+    "payload_sha256": "sha256:9f2a8b0d3100d57f71282d05274bd79f1d68289a6328824a3eec770d8b27aefb",
     "preferred_label": "The System in Seven States",
     "profile": {
       "acquisition_method": "donation",
@@ -262,14 +262,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
       "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
       "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
       ],
       "role": "reviewer"
     },

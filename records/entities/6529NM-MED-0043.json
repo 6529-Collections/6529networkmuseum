@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf3f7a66f49f79571e17921d0962cf23a11f5d9a24a4149ba435bd93b5ae73186"
+      "digest": "0x2bf630fc59d4c78d5dd8f170b53e0528c0b794a21861e0182f0fd1e3afe2caa3"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0043",
     "entity_status": "published",
@@ -36,11 +36,17 @@
         "label": "Historical public Wave proposal presentation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Contextual public presentation authority",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8cb6ab563ba483577f9773347f35a37f90ccc8ab6a57ef83688991a004c60941",
+    "payload_sha256": "sha256:a88d01dfffcef72ea169bfb6b99956ce71686d368560fe56e79b0d781cdd2750",
     "preferred_label": "Tripoli, Libya historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,6 +63,9 @@
         "accessibility_subject_policy": "non_identifying_apparently_young_subject",
         "accessibility_text": "Black-and-white photograph of an apparently young person standing with head lowered before a white wall marked by many dark spots, beneath a caged lamp.",
         "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -64,11 +73,11 @@
         "credit": "Moisés Saman, Tripoli, Libya, 2011. © Moisés Saman/Magnum Photos 2022.",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": null,
-          "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection.",
-          "digest": null,
-          "status": "unverified_not_retrieved",
-          "verified_at": null
+          "algorithm": "sha256",
+          "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master.",
+          "digest": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
+          "status": "verified",
+          "verified_at": "2026-08-08T10:15:02.0167151Z"
         },
         "height": 3744,
         "identity_inference_prohibition": {
@@ -98,7 +107,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": null
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/5d6d9bf0-7ff3-4afd-ac69-c6b34079fbf9/magnum-75-44.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -107,6 +116,12 @@
               "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Contextual public presentation authority",
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
@@ -121,7 +136,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": null,
-        "visual": false,
+        "visual": true,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
@@ -147,14 +162,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
       "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
       "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
       ],
       "role": "reviewer"
     },
@@ -171,6 +186,12 @@
           "label": "Historical public Wave proposal presentation",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

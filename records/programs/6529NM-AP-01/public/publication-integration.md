@@ -1,7 +1,7 @@
 # Keys and Gates publication integration — current state
 
 **Record ID:** `6529NM-AP-01-PUBLICATION-INTEGRATION-2026-08-08`<br>
-**Scope:** current text-only public candidate for Curated Acquisition `6529NM-CA-2026-002`<br>
+**Scope:** current illustrated accession-publication candidate for Curated Acquisition `6529NM-CA-2026-002`<br>
 **Record role:** public integration state; not a schema, release manifest, catalog, acquisition, accession, or rights decision
 
 The typed projection is now present as a governed, review-pending candidate. It
@@ -33,18 +33,17 @@ available.
 
 ## Current public boundary
 
-Candidate A is text-only. The Work pages retain captions, close looking,
-source links, and media-record links, but no direct Markdown image embeds.
-Constructed visual descriptions remain in the governed accessibility and
-media records. The typed Media projection remains `profile.media.visual:
-false` and `review_pending`; it exposes no image locator or active derivative.
-Constructed accessibility descriptions remain
-`constructed_visual_description_pending_independent_review`, as recorded in
-the [current publication-boundary amendment](publication-authority-amendment-2026-08-08-007.md)
-and [media-delivery withdrawal](media-delivery-withdrawal-amendment-2026-08-09.md).
+The Work pages combine captions, close looking, sources, and typed Media
+references. All sixteen Works have Museum-hosted WebP presentation media under
+[the current display authority](media-display-authorization-amendment-2026-08-11.md).
+Fourteen use 640, 1280, and 2400 pixel derivatives; OUT-004 and OUT-011 use the
+640 pixel derivative only. The images appear in program, acquisition, artist,
+and Work contexts without download, IIIF, preservation-master, mint, title,
+custody, accession, or Collection claims. All sixteen accessibility
+descriptions are `constructed_visual_description_reviewed` under the
+[independent review record](accessibility-review-2026-08-11.md).
 
-All sixteen images are currently withheld. The special unresolved image
-cautions remain explicit: OUT-004 has unverified
+The special image cautions remain explicit: OUT-004 has unverified
 depicted-figure ages and consent/privacy scope; OUT-010 has unresolved identity,
 adult-status, self-portrait, and consent/publication-scope questions; and
 OUT-011 has unresolved direct subject approval, document legibility, venue
@@ -68,7 +67,7 @@ The public relationship set remains:
 
 Public activation remains pending a fresh exact-commit independent review and a
 catalog pointer/readback that binds RP `6529NM-RP-0002`, the governed typed
-records, the text-only candidate, and the atomic visitor release. Until both
+records, the illustrated candidate, and the atomic visitor release. Until both
 gates are complete, this record must not be treated as a published catalog
 entry or activation receipt.
 

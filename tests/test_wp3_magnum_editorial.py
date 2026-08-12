@@ -91,7 +91,7 @@ class WP3EditorialChecks(unittest.TestCase):
     def test_public_corpus_includes_scholarship_readme(self) -> None:
         files = MODULE.public_files()
         self.assertIn(MODULE.ROOT / "README.md", files)
-        self.assertEqual(len(files), 23)
+        self.assertEqual(len(files), 24)
 
     def test_visitor_manuscripts_expose_no_restricted_photo_locator(self) -> None:
         join = json.loads(MEDIA_MODULE.JOIN_PATH.read_text(encoding="utf-8"))

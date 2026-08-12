@@ -22,6 +22,14 @@ OUTCOME_ROOT = REPO_ROOT / "records" / "programs" / PROGRAM_ID / "outcomes"
 SELECTED_WORKS_PATH = REPO_ROOT / "records" / "programs" / PROGRAM_ID / "selected-works.json"
 ACCESSIBILITY_PATH = REPO_ROOT / "media" / "programs" / PROGRAM_ID / "accessibility.json"
 MANIFEST_PATH = REPO_ROOT / "records" / "programs" / PROGRAM_ID / "media-manifest.json"
+PUBLIC_PRESENTATION_PATH = (
+    REPO_ROOT
+    / "records"
+    / "programs"
+    / PROGRAM_ID
+    / "public"
+    / "presentation-manifest.json"
+)
 MEDIA_ROOT = REPO_ROOT / "media" / "programs" / PROGRAM_ID
 CDN_BASE_URL = "https://d3lqz0a4bldqgf.cloudfront.net"
 CDN_KEY_PREFIX = f"museum/programs/{PROGRAM_ID}"
@@ -34,7 +42,7 @@ QUALITY = 82
 METHOD = 6
 CACHE_CONTROL = "public, max-age=31536000, immutable"
 EXPECTED_OUTCOME_COUNT = 16
-ALT_TEXT_STATUS = "constructed_visual_description_pending_independent_review"
+ALT_TEXT_STATUS = "constructed_visual_description_reviewed"
 SHA256_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 RECORD_ID_PATTERN = re.compile(r"^6529NM-AP-01-OUT-[0-9]{3}$")
 SRGB_ICC_SHA256 = "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86"
@@ -114,7 +122,7 @@ def load_accessibility() -> tuple[dict[str, str], dict[str, list[int]]]:
     if accessibility.get("program_id") != PROGRAM_ID:
         raise ProgramMediaError("accessibility program_id does not match")
     if accessibility.get("status") != ALT_TEXT_STATUS:
-        raise ProgramMediaError("accessibility review status is not the expected constructed status")
+        raise ProgramMediaError("accessibility review status is not the expected reviewed status")
     items = accessibility.get("items")
     if not isinstance(items, list) or len(items) != EXPECTED_OUTCOME_COUNT:
         raise ProgramMediaError("accessibility inventory must contain exactly 16 items")
@@ -439,6 +447,76 @@ def expected_selected_ids() -> set[str]:
     return result
 
 
+def public_presentation_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
+    """Project only reviewed browser-delivery fields from the source manifest."""
+
+    delivery = manifest.get("delivery")
+    transform = manifest.get("transform")
+    items = manifest.get("items")
+    if not isinstance(delivery, dict) or not isinstance(transform, dict):
+        raise ProgramMediaError("media manifest delivery or transform is missing")
+    if not isinstance(items, list):
+        raise ProgramMediaError("media manifest items are missing")
+    projected_items: list[dict[str, Any]] = []
+    for item in items:
+        if not isinstance(item, dict) or not isinstance(item.get("presentation"), dict):
+            raise ProgramMediaError("media manifest presentation item is malformed")
+        projected_items.append(
+            {
+                "record_id": require_string(item.get("record_id"), "record_id"),
+                "presentation": item["presentation"],
+            }
+        )
+    source_control = manifest.get("record_control")
+    if not isinstance(source_control, dict) or not isinstance(
+        source_control.get("constructor"), dict
+    ):
+        raise ProgramMediaError("media manifest record control is missing")
+    return {
+        "$schema": "../../../../schemas/program-media-presentation.schema.json",
+        "record_control": {
+            "revision": 1,
+            "record_status": "constructed",
+            "constructor": source_control["constructor"],
+            "review": None,
+        },
+        "record_type": "PROGRAM_MEDIA_PRESENTATION",
+        "schema_profile": "6529NM_PROGRAM_MEDIA_PRESENTATION_V1",
+        "program_id": PROGRAM_ID,
+        "source_manifest_revision": manifest.get("record_control", {}).get("revision"),
+        "generated_at": manifest.get("generated_at"),
+        "transform_profile": transform.get("profile"),
+        "delivery": {
+            "status": delivery.get("status"),
+            "authority_record_id": delivery.get("authority_record_id"),
+            "cache_control": delivery.get("cache_control"),
+        },
+        "items": projected_items,
+    }
+
+
+def verify_public_presentation(manifest: dict[str, Any]) -> None:
+    delivery = manifest.get("delivery")
+    if not isinstance(delivery, dict):
+        raise ProgramMediaError("media manifest delivery control is missing")
+    if delivery.get("status") != APPROVED_DELIVERY_STATUS:
+        if PUBLIC_PRESENTATION_PATH.exists():
+            raise ProgramMediaError(
+                "withheld media delivery cannot retain a public presentation manifest"
+            )
+        return
+    expected = public_presentation_manifest(manifest)
+    actual = load_json(PUBLIC_PRESENTATION_PATH)
+    if actual != expected:
+        raise ProgramMediaError("public presentation manifest is not the exact source-safe projection")
+    serialized = PUBLIC_PRESENTATION_PATH.read_text(encoding="utf-8")
+    for forbidden in ("submitted_high_resolution_source", '"source"', '"retention_status"'):
+        if forbidden in serialized:
+            raise ProgramMediaError(
+                f"public presentation manifest exposes source-only field: {forbidden}"
+            )
+
+
 def verify_webp(path: Path, width: int, height: int) -> None:
     try:
         with Image.open(path) as image:
@@ -577,12 +655,18 @@ def verify_manifest() -> tuple[int, int]:
         missing = sorted(declared_paths - actual_paths)
         extra = sorted(actual_paths - declared_paths)
         raise ProgramMediaError(f"derivative inventory is not closed; missing={missing}, extra={extra}")
+    verify_public_presentation(manifest)
     return len(declared_paths), total_bytes
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="verify the committed manifest and derivatives")
+    parser.add_argument(
+        "--write-public-projection",
+        action="store_true",
+        help="write the source-safe browser presentation projection from the committed manifest",
+    )
     parser.add_argument("--source-dir", type=Path, help="directory containing record-ID-named source images")
     parser.add_argument("--source-observed-at", help="UTC observation time for the downloaded source bytes")
     parser.add_argument("--constructed-at", help="UTC construction time for the generated manifest")
@@ -593,6 +677,15 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
     try:
+        if args.write_public_projection:
+            manifest = load_json(MANIFEST_PATH)
+            write_json(PUBLIC_PRESENTATION_PATH, public_presentation_manifest(manifest))
+            count, total_bytes = verify_manifest()
+            print(
+                f"wrote {PUBLIC_PRESENTATION_PATH.relative_to(REPO_ROOT)}: "
+                f"{count} derivatives, {total_bytes} bytes"
+            )
+            return 0
         if args.check:
             count, total_bytes = verify_manifest()
             print(f"program media manifest is current: {count} derivatives, {total_bytes} bytes")

@@ -14,11 +14,11 @@ any presentation copy, as an accessioned preservation master.
 The first implementation applies to the sixteen selected works in Keys and
 Gates (`6529NM-AP-01`). On 2026-08-04 UTC, the sixteen public submission files
 totaled 233,601,493 bytes. Individual files ranged from 4.1 MB to 46.7 MB and
-reached 10,080 by 5,670 pixels. A candidate release derived a 15,408,782-byte
-closed set of responsive presentation copies from those sources. The current
-publication withholds that complete derivative set pending reviewed display
-authority. It retains each submitted source locator as provenance evidence but
-offers no source, high-resolution, or presentation-image link to visitors.
+reached 10,080 by 5,670 pixels. The active release derives a 15,408,782-byte
+closed set of responsive presentation copies from those sources under the
+11 August 2026 image presentation authorization. It retains each submitted
+source locator as provenance evidence without offering the source or a
+high-resolution download to visitors.
 
 ## Three distinct media roles
 
@@ -60,17 +60,17 @@ Profile: `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC`.
 
 `scripts/generate_program_media.py` generates approved derivatives from a
 local source directory and fails rather than replacing different bytes at an
-existing content-addressed path. Its current withheld-state check requires an
-empty width allowlist, no display-authority record, no derivative entries, and
-no local WebP files. If a later reviewed authority restores image delivery,
-the same checker verifies byte fixity, WebP structure, pixel geometry, ICC
+existing content-addressed path. Its active-state check requires the exact
+width allowlist, the display-authority record, the complete derivative entries,
+and the corresponding local WebP files. The checker verifies byte fixity,
+WebP structure, pixel geometry, ICC
 presence, source/outcome agreement, rights-status agreement, accessibility
 text, selected-work membership, and the exact authority-bound width inventory
 without a network request.
 
 ## Delivery contract
 
-Any later authority-approved presentation files use immutable CloudFront keys:
+Authority-approved presentation files use immutable CloudFront keys:
 
 ```text
 museum/programs/{program_id}/{record_id}/{source_sha256}/{transform_profile}/{width}.webp
@@ -83,7 +83,8 @@ Cache-Control: public, max-age=31536000, immutable
 Content-Disposition: inline
 ```
 
-Publishing is additive and is currently inactive for Keys and Gates. A
+Publishing is additive and active for the authorized Keys and Gates
+presentation set. A
 publisher checks the target namespace before upload,
 stores the declared SHA-256 as object metadata, requests an S3 SHA-256 checksum,
 and must not overwrite an existing key whose bytes or metadata differ. The
@@ -98,21 +99,22 @@ distinction is explicit in each release-manifest entry.
 
 ## Public presentation
 
-The current Keys and Gates publication is text-only. Its media manifest carries
-no active widths or derivatives, and the typed Media records expose no image
-locator, dimensions, current-file fixity, or visual affordance. If reviewed
-authority later restores an image, the program grid uses `srcset` and `sizes`
-so the browser selects the smallest declared derivative appropriate to the
-rendered card. Object pages use the same responsive set without cropping and
-reserve the declared aspect ratio to prevent layout shift. A submitted source
-URL or historical derivative never authorizes visitor display.
+The current Keys and Gates publication presents all sixteen selected images.
+The program grid uses `srcset` and `sizes` so the browser selects the smallest
+declared derivative appropriate to the rendered image. Work pages use the same
+responsive set without cropping and reserve the declared aspect ratio to
+prevent layout shift. OUT-004 and OUT-011 are limited to their 640 pixel
+surrogates. A submitted source URL or historical derivative does not authorize
+visitor display outside the active manifest and display-authority record.
 
 Every item has a concise visual description in
-`media/programs/6529NM-AP-01/accessibility.json`. These descriptions are
-constructed and pending independent visual review. The current corrections,
-per-work size restriction, and status transition are recorded in the append-only
-public accessibility amendments; the descriptions do not replace the artist
-statement or add a curatorial interpretation.
+`media/programs/6529NM-AP-01/accessibility.json`. All sixteen descriptions were
+independently checked against the 640-pixel presentation copies and approved
+after four objective-language or visible-text corrections. The review,
+per-work size restrictions, and current status are recorded in the
+[append-only accessibility review](../records/programs/6529NM-AP-01/public/accessibility-review-2026-08-11.md);
+the descriptions do not replace the artist statement or add a curatorial
+interpretation.
 
 Historically, OUT-004's 640px URL returned HTTP 200 with 45,202 bytes after the
 2026-08-08 invalidation, while the exact 1280px and 2400px URLs returned HTTP
@@ -129,9 +131,8 @@ expose delivery-origin identifiers.
 
 The outcome record's `rights_effective_status` remains controlling. Derivation
 and delivery do not activate a conditional CC0 declaration or grant downstream
-reuse rights. The media manifest remains deliberately `constructed`; its
-independent visual review is pending, while rights, source, and acquisition
-controls remain separate gates.
+reuse rights. The media manifest remains deliberately `constructed`; rights,
+source, acquisition, accessibility, and presentation remain distinct records.
 
 The current live evidence still supports `selected_unminted`: the sixteen works
 won the Keys and Gates vote, but the Museum has no primary mint, purchase,

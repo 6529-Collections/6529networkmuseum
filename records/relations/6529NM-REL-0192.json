@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf68a64f14de8a587196449ac09bb3051e2371267a4f7308fb3fe78fa1f6bbda2"
+      "digest": "0xcd6db7f633e27b7eded0291eba48d7669f526e7e421b5d99143890fa75a06ba2"
     },
     "effectiveAt": 1786147200,
     "recordType": "PUBLIC_RELATION",
@@ -21,11 +21,11 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-08T00:00:00Z",
     "evidence_refs": [
       {
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-08T00:00:00Z",
-    "payload_sha256": "sha256:efb562a6caaf7f52a4d443369483d9870fa421cc5a8e32a20f45869adf8534a5",
+    "payload_sha256": "sha256:92d92a316825361cc613461148e7550877c17ccc61ffd945c43b9a23754c2c94",
     "qualifier": {
       "role": "subject"
     },
@@ -53,14 +53,14 @@
     "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
       "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
       "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
       ],
       "role": "reviewer"
     },

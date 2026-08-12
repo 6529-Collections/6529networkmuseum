@@ -58,7 +58,7 @@ archive histories.
 
 Magnum Photos 75 supplies the project context and the technical route through which these photographs now circulate. The donor supplies the grouping. The Museum’s essay supplies the interpretation. Keeping those authorships separate allows the project’s networked edition to become part of the photographs’ afterlives without turning it into evidence of an upstream curatorial intention.
 
-The selected proposal’s current status is **Selected by Museum Wave; acquisition review in progress**. The five Works remain outside the permanent Collection ([S37](../sources/source-register.md)).
+The selected proposal’s current status is **Selected by Museum Wave; accession processing in progress**. The five Works remain outside the permanent Collection ([S37](../sources/source-register.md)).
 
 [^1]: Magnum Photos 75 project record and exact token metadata, [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^2]: Archived Magnum launch page, [S04](../sources/source-register.md).

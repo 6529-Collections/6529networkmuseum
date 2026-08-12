@@ -14,7 +14,7 @@ Reserved Curated Acquisition identifiers are:
 |---|---|---|
 | `6529NM-CA-2026-001` | The System in Seven States | Casey seven-work accession and publication records; separate from accession `6529NM.2026.001` |
 | `6529NM-CA-2026-002` | Keys and Gates | Acquisition Program `6529NM-AP-ENT-0002` (source alias `6529NM-AP-01`); selected, unminted, and not accessioned |
-| `6529NM-CA-2026-003` | Conflict at Its Edges | Proposed gift `6529NM-PG-2026-001` with an append-only signed-drop API `WINNER` status observation (`is_signed:true` as reported by the API); selected by Museum Wave for acquisition review, with no Collection effect |
+| `6529NM-CA-2026-003` | Conflict at Its Edges | Proposed gift `6529NM-PG-2026-001` with an append-only signed-drop API `WINNER` status observation (`is_signed:true` as reported by the API); selected by Museum Wave and undergoing accession processing, with no Collection effect until accession is complete |
 
 The same Curated Acquisition identity advances by append-only correction. Rejection closes it as `closed_without_selection`; it is not deleted or silently rewritten.
 

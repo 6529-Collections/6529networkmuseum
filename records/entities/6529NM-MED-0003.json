@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6009d765a3fbb5df97cc2c263f6fe91ee6cdc562f2016a9d5750204b2d803c58"
+      "digest": "0xe87d8ccdf9b8b99515b9354a416cd70471755058ccea428b7442829752040e75"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0003",
     "entity_status": "published",
@@ -36,11 +36,17 @@
         "label": "Historical public Wave proposal presentation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Contextual public presentation authority",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:45a4c09e5d162b7a50f0a81dc8f39fc04aba207f3d1894f1e999e80ad5697315",
+    "payload_sha256": "sha256:b9e5cedaf523c4c859bbdb6dcb696e5047dbab90bc27098d8f54f2d90d96cbc5",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan historical Wave proposal presentation source",
     "profile": {
       "media": {
@@ -57,6 +63,9 @@
         "accessibility_subject_policy": "non_identifying_sensitive_subject",
         "accessibility_text": "Vertical black-and-white photograph of a back-facing armed figure and rifle overlooking a canvas shelter in a rocky desert valley.",
         "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
           "alt_text",
           "open_wave_proposal_context",
           "copy_citation"
@@ -64,11 +73,11 @@
         "credit": "David Seymour, Negev, 1952. © David Seymour/Magnum Photos 2022.",
         "derived_from_media_entity_id": null,
         "fixity": {
-          "algorithm": null,
-          "basis": "The signed-drop API readback records the Wave upload locator; the upload bytes were not independently retrieved in this projection.",
-          "digest": null,
-          "status": "unverified_not_retrieved",
-          "verified_at": null
+          "algorithm": "sha256",
+          "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master.",
+          "digest": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
+          "status": "verified",
+          "verified_at": "2026-08-08T10:15:02.0167151Z"
         },
         "height": 4600,
         "identity_inference_prohibition": null,
@@ -94,7 +103,7 @@
         },
         "source_locator": {
           "repository_path": null,
-          "uri": null
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/d498d837-3331-4650-a30e-27ca18d53521/magnum-75-127.jpg"
         },
         "source_observation": {
           "evidence_refs": [
@@ -103,6 +112,12 @@
               "label": "Historical Wave presentation locator observation",
               "observed_at": "2026-08-08T10:15:02.0167151Z",
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Contextual public presentation authority",
+              "observed_at": "2026-08-11T21:56:04Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
             }
           ],
           "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
@@ -117,7 +132,7 @@
         "token_source_fixity": null,
         "token_source_locator": null,
         "transform_profile": null,
-        "visual": false,
+        "visual": true,
         "wave_proposal_context": {
           "api_endpoint": "https://api.6529.io/api/drops/002bfa4f-8416-48bf-b35e-38f354e9a9f0",
           "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
@@ -143,14 +158,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
       "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
       "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
       ],
       "role": "reviewer"
     },
@@ -167,6 +182,12 @@
           "label": "Historical public Wave proposal presentation",
           "observed_at": "2026-08-08T10:15:02.0167151Z",
           "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",

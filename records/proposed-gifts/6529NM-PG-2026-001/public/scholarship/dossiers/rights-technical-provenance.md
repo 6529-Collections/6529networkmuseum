@@ -8,8 +8,12 @@ This dossier records what the proposal package and public chain/metadata
 observations establish about the five token-linked manifestations. It keeps
 token identity, source-image identity, copyright, title, custody, display
 permission, and Museum accession as separate facts. The five photographs are
-public Work projections for the selected acquisition; no accession or object record is
-manufactured here ([S37](../sources/source-register.md)).
+public Work projections for the selected acquisition. This scholarship, object
+identification, technical and rights review, provenance work, image
+presentation, and public record construction are the downstream accession work
+now underway; donor authority, title transfer, Museum custody, the accession
+certificate, and permanent Collection membership remain separate open facts
+([S37](../sources/source-register.md)).
 
 ## Technical identity schedule
 
@@ -109,7 +113,7 @@ EIP-1967 admin slot read zero; and the verified source reported contract owner
 implementation ABI exposed `setTokenURI` and `setBaseTokenURI`, guarded by
 `adminRequired`. I found no public proxy-upgrade mutator in that verified ABI
 at the observation, but this is not an immutability claim: token URIs and the
-base URI are administratively mutable. A future technical review must re-read
+base URI are administratively mutable. Accession processing must re-read
 the tokenURI values before relying on a live pointer ([S15](../sources/source-register.md);
 [S53](../sources/source-register.md); [S55](../sources/source-register.md)).
 
@@ -145,9 +149,12 @@ The CloudFront URLs are Wave-upload presentation media. The Arweave image URLs
 in the technical schedule are token-source locators reached through each
 token’s metadata. A matching byte hash observed in memory does not collapse
 those publication contexts, create preservation custody, or create a rights
-grant. The exact already-published Wave URLs are retained as non-rendering
-evidence locators with the supplied artist and Magnum credits, `All Rights
-Reserved`, and the label **Wave-source historical proposal media**
+grant. The exact already-published Wave URLs may render only in acquisition,
+artist, or Work context under the current display authority, with the supplied
+artist and Magnum credits and the label `All Rights Reserved`. They remain
+Wave-source historical proposal media for provenance purposes; no download,
+zoom, fullscreen, derivative, preservation, or Collection inference is
+authorized
 ([S38](../sources/source-register.md); [S54](../sources/source-register.md);
 [S56](../sources/source-register.md)).
 The [Source and rights record](source-and-rights-record.md) and [media plan](media-plan.md)

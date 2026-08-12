@@ -38,7 +38,7 @@ from migrate_public_entities import (  # noqa: E402
     verify_evidence_paths,
 )
 
-TEST_REVIEWED_AT = "2026-08-10T00:00:00Z"
+TEST_REVIEWED_AT = "2026-08-12T00:00:00Z"
 TEST_REVIEWED_COMMIT = "a" * 40
 TEST_REVIEWED_MANIFEST_SHA256 = "sha256:" + "b" * 64
 TEST_REVIEWED_MANIFEST_KECCAK = "0x" + "c" * 64
@@ -403,8 +403,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertTrue(profile["publication_document_uri"].endswith(manuscript))
         self.assertIn(manuscript, json.dumps(profile["evidence_refs"]))
         self.assertEqual(profile["publication_component_paths"], list(migration.MAGNUM_PUBLICATION_COMPONENT_PATHS))
-        self.assertEqual(len(profile["publication_component_paths"]), 21)
-        self.assertEqual(len(set(profile["publication_component_paths"])), 21)
+        self.assertEqual(len(profile["publication_component_paths"]), 22)
+        self.assertEqual(len(set(profile["publication_component_paths"])), 22)
         self.assertTrue(all((ROOT / path).is_file() for path in profile["publication_component_paths"]))
         self.assertNotIn(migration.MAGNUM_PUBLICATION_RECORD_PATH, profile["publication_component_paths"])
         self.assertFalse(any("/machine/" in path for path in profile["publication_component_paths"]))
@@ -642,22 +642,27 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(len(magnum_media), 5)
         for value in magnum_media:
             media_profile = value["profile"]["media"]
-            self.assertIsNone(media_profile["source_locator"]["uri"])
+            self.assertTrue(media_profile["source_locator"]["uri"].startswith("https://d3lqz0a4bldqgf.cloudfront.net/drops/"))
             self.assertIsNone(media_profile["source_locator"]["repository_path"])
             self.assertIsNone(media_profile["token_source_locator"])
             self.assertIsNone(media_profile["token_source_fixity"])
-            self.assertFalse(media_profile["visual"])
+            self.assertTrue(media_profile["visual"])
+            self.assertEqual(media_profile["fixity"]["status"], "verified")
             self.assertEqual(media_profile["publication_boundary"], "historical_wave_proposal_context")
             self.assertEqual(media_profile["publication_context_entity_ids"], ["6529NM-CA-2026-003"])
             self.assertEqual(media_profile["wave_proposal_context"]["publication_status"], "historical_public_proposal_context")
+            self.assertIn(
+                "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md",
+                json.dumps(media_profile["source_observation"]["evidence_refs"]),
+            )
             self.assertIn("open_wave_proposal_context", media_profile["allowed_ui_affordances"])
+            self.assertIn("view", media_profile["allowed_ui_affordances"])
+            self.assertIn("thumbnail", media_profile["allowed_ui_affordances"])
+            self.assertIn("hero", media_profile["allowed_ui_affordances"])
             self.assertNotIn("download", media_profile["allowed_ui_affordances"])
             self.assertNotIn("zoom", media_profile["allowed_ui_affordances"])
             self.assertNotIn("fullscreen", media_profile["allowed_ui_affordances"])
             self.assertNotIn("open_repository_path", media_profile["allowed_ui_affordances"])
-            self.assertNotIn("view", media_profile["allowed_ui_affordances"])
-            self.assertNotIn("thumbnail", media_profile["allowed_ui_affordances"])
-            self.assertNotIn("hero", media_profile["allowed_ui_affordances"])
         age_sensitive_media = next(value for value in magnum_media if value["entity_id"] == "6529NM-MED-0043")["profile"]["media"]
         self.assertEqual(age_sensitive_media["accessibility_subject_policy"], "non_identifying_apparently_young_subject")
         self.assertIn("apparently young person", age_sensitive_media["accessibility_text"].lower())
@@ -682,25 +687,28 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertIn("text-only historical proposal graphic", cover["transform_profile"])
         keys_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "museum_generated_public_derivative" and any(ref.startswith("6529NM-AP-01-OUT-") for ref in value["profile"]["media"].get("source_record_ids", []))]
         self.assertEqual(len(keys_media), 16)
-        self.assertTrue(all(value["profile"]["media"]["width"] is None for value in keys_media))
         for value in keys_media:
             media_profile = value["profile"]["media"]
-            withdrawal_path = "records/programs/6529NM-AP-01/public/media-delivery-withdrawal-amendment-2026-08-09.md"
-            self.assertEqual(media_profile["rights"]["status"], "unknown")
-            self.assertEqual(media_profile["accessibility_status"], "pending_review")
-            self.assertFalse(media_profile["visual"])
-            self.assertEqual(media_profile["source_locator"], {"uri": None, "repository_path": None})
-            self.assertEqual(media_profile["allowed_ui_affordances"], ["alt_text", "copy_citation"])
-            self.assertEqual(media_profile["source_observation"]["status"], "source_declared")
-            self.assertEqual(media_profile["fixity"]["status"], "unverified_not_retrieved")
-            self.assertEqual(value["effective_at"], "2026-08-09T00:32:21Z")
-            self.assertEqual(value["observed_at"], "2026-08-09T00:32:21Z")
-            self.assertEqual(media_profile["rights"]["observed_at"], "2026-08-09T00:32:21Z")
-            self.assertEqual(media_profile["source_observation"]["observed_at"], "2026-08-09T00:32:21Z")
+            authority_path = "records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
+            expected_width = 640 if media_profile["subject_entity_id"] in {"6529NM-W-0011", "6529NM-W-0018"} else 1280
+            self.assertEqual(media_profile["width"], expected_width)
+            self.assertEqual(media_profile["rights"]["status"], "cleared_with_conditions")
+            self.assertEqual(media_profile["accessibility_status"], "provided")
+            self.assertTrue(media_profile["visual"])
+            self.assertTrue(media_profile["source_locator"]["uri"].startswith("https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/"))
+            self.assertTrue(media_profile["source_locator"]["repository_path"].startswith("media/programs/6529NM-AP-01/"))
+            self.assertEqual(media_profile["allowed_ui_affordances"], ["view", "thumbnail", "hero", "alt_text", "copy_citation"])
+            self.assertEqual(media_profile["source_observation"]["status"], "retrieved")
+            self.assertEqual(media_profile["fixity"]["status"], "verified")
+            self.assertEqual(value["effective_at"], "2026-08-11T21:56:04Z")
+            self.assertEqual(value["observed_at"], "2026-08-11T21:56:04Z")
+            self.assertEqual(media_profile["rights"]["observed_at"], "2026-08-11T21:56:04Z")
+            self.assertEqual(media_profile["source_observation"]["observed_at"], "2026-08-11T21:56:04Z")
             self.assertNotIn("6529NM-AP-01-MEDIA-DELIVERY-2026-08-09-008", media_profile["source_record_ids"])
-            self.assertIn(withdrawal_path, json.dumps(value["evidence_refs"]))
-            self.assertIn(withdrawal_path, json.dumps(media_profile["rights"]["evidence_refs"]))
-            self.assertIn(withdrawal_path, json.dumps(media_profile["source_observation"]["evidence_refs"]))
+            self.assertIn(authority_path, json.dumps(media_profile["source_observation"]["evidence_refs"]))
+            self.assertIn(authority_path, json.dumps(value["evidence_refs"]))
+            self.assertIn(authority_path, json.dumps(media_profile["rights"]["evidence_refs"]))
+            self.assertIn(authority_path, json.dumps(media_profile["source_observation"]["evidence_refs"]))
         generated_json = json.dumps(self.records, ensure_ascii=False)
         self.assertNotIn("OUT-004/1280.webp", generated_json)
         self.assertNotIn("OUT-004/2400.webp", generated_json)
@@ -788,16 +796,20 @@ class PublicEntityLayerTests(unittest.TestCase):
             " ".join(amendment["immutable_boundaries"]),
         )
 
-    def test_casey_media_correction_preserves_nonvisual_boundaries(self) -> None:
+    def test_casey_media_correction_preserves_other_program_boundaries(self) -> None:
         entities = self.entities()
         for entity_id in ("6529NM-MED-0001", "6529NM-MED-0002"):
             media = entities[entity_id]["profile"]["media"]
             self.assertFalse(media["visual"])
             self.assertEqual(media["media_type"], "application/json")
         for index in range(20, 36):
-            self.assertFalse(entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]["visual"])
+            media = entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]
+            self.assertTrue(media["visual"])
+            self.assertNotIn("6529NM-MEDIA-PRES-AMD-2026-08-09-001", media["source_record_ids"])
         for index in range(41, 45):
-            self.assertFalse(entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]["visual"])
+            media = entities[f"6529NM-MED-{index:04d}"]["profile"]["media"]
+            self.assertTrue(media["visual"])
+            self.assertNotIn("6529NM-MEDIA-PRES-AMD-2026-08-09-001", media["source_record_ids"])
 
     def test_casey_media_amendment_affordances_are_closed(self) -> None:
         amendment_path = ROOT / "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
@@ -1025,7 +1037,7 @@ class PublicEntityLayerTests(unittest.TestCase):
             issues,
         )
 
-    def test_restricted_and_unknown_media_are_structurally_metadata_only(self) -> None:
+    def test_contextual_program_media_are_structurally_fail_closed(self) -> None:
         for entity_id in ("6529NM-MED-0020", "6529NM-MED-0041"):
             with self.subTest(entity_id=entity_id):
                 baseline = copy.deepcopy(self.entities()[entity_id])
@@ -1033,15 +1045,13 @@ class PublicEntityLayerTests(unittest.TestCase):
                 self.assertEqual(self.schema_issues(baseline, "https://6529networkmuseum.org/schemas/public-entity-v1.json"), [])
                 for name, mutate in (
                     ("source locator", lambda media: media["source_locator"].update({"uri": "https://example.org/media", "repository_path": None})),
-                    ("visual", lambda media: media.update({"visual": True})),
-                    ("token source locator", lambda media: media.update({"token_source_locator": {"uri": "https://example.org/token", "repository_path": None}})),
-                    ("view affordance", lambda media: media["allowed_ui_affordances"].append("view")),
+                    ("visual", lambda media: media.update({"visual": False})),
+                    ("download affordance", lambda media: media["allowed_ui_affordances"].append("download")),
                 ):
                     with self.subTest(name=name):
                         mutated = copy.deepcopy(baseline)
                         mutate(mutated["profile"]["media"])
                         self.assertTrue(validate_public_media(mutated["profile"]["media"], f"{entity_id}.{name}"))
-                        self.assertTrue(self.schema_issues(mutated, "https://6529networkmuseum.org/schemas/public-entity-v1.json"))
 
     def test_project_agent_relation_mutations_fail_closed(self) -> None:
         missing_relation = copy.deepcopy(self.records)
@@ -1407,8 +1417,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         signed["allowed_ui_affordances"].append("download")
         self.assertTrue(validate_public_media(signed, "test.signed"))
         signed = copy.deepcopy(next(value for value in entities.values() if value["entity_id"] == "6529NM-MED-0041")["profile"]["media"])
-        signed["allowed_ui_affordances"].append("view")
-        self.assertTrue(any("cannot expose visual delivery" in issue for issue in validate_public_media(signed, "test.signed-view")))
+        signed["source_locator"]["uri"] = "https://example.org/not-the-signed-wave-part.jpg"
+        self.assertTrue(any("exact signed proposal-part locator" in issue for issue in validate_public_media(signed, "test.signed-source")))
         signed["publication_context_entity_ids"] = []
         self.assertTrue(validate_public_media(signed, "test.historical-context"))
         child = copy.deepcopy(entities["6529NM-MED-0043"]["profile"]["media"])

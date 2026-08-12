@@ -1,15 +1,23 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 1,
+    "revision": 2,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "actor_id": "codex-task:network-museum-exhibition-media-2026-08-11",
       "role": "constructor",
-      "constructed_at": "2026-08-09T03:33:36Z"
+      "constructed_at": "2026-08-11T21:56:04Z"
     },
     "review": null
   },
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-11T21:56:03Z",
+      "supersedes": "sha256:559eee235e5321e111d1cfa1350cf9df12475135cb4d20fddcba5749db22eb66",
+      "prior_payload_sha256": "sha256:559eee235e5321e111d1cfa1350cf9df12475135cb4d20fddcba5749db22eb66"
+    }
+  ],
   "local_profile": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2",
   "status": "canonical_review_pending_publication_projection",
   "content_root": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship",
@@ -41,7 +49,7 @@
     "rater_count": 29,
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "selection_established": true,
-    "public_status": "Selected by Museum Wave; acquisition review in progress",
+    "public_status": "Selected by Museum Wave; accession processing in progress",
     "lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress",
     "prior_observation": {
       "drop_type": "PARTICIPATORY",
@@ -184,7 +192,7 @@
       "page": "dossiers/source-and-rights-record.md",
       "machine_record": "machine/wave-media-join.json",
       "scope": "historical_proposal_wave_media_only",
-      "receipt_binding": "The enveloped 2026-08-08 observation binds the signed Wave publication and part-content hashes. Later 2026-08-09 public-safe API evidence confirms public media locators, MIME types, and media states. Neither record grants image-display authority; runtime rendering remains blocked.",
+      "receipt_binding": "The enveloped 2026-08-08 observation binds the signed Wave publication and part-content hashes. Later 2026-08-09 public-safe API evidence confirms public media locators, MIME types, and media states. Contextual display authority is recorded separately in 6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001 and permits only the exact signed Wave publication images within the verified acquisition graph.",
       "standalone_work_route": "deny_without_verified_work_ca_media_observation_relation",
       "required_relation_fields": ["work_entity_id", "media_reference_entity_id", "curated_acquisition_id", "proposal_id", "wave_publication_observation_id"],
       "historical_label_required": "Wave-source historical proposal media"
@@ -194,7 +202,7 @@
     "Organization Magnum Photos originates Project or Series Magnum Photos 75.",
     "Project or Series Magnum Photos 75 contextualizes five selected Work projections.",
     "Each Work is created_by one of five admitted Artist entities.",
-    "Curated Acquisition 6529NM-CA-2026-003 is the selected five-Work acquisition under review, historically documented by Proposed Gift 6529NM-PG-2026-001.",
+    "Curated Acquisition 6529NM-CA-2026-003 is the selected five-Work acquisition undergoing accession processing, historically documented by Proposed Gift 6529NM-PG-2026-001.",
     "Each Work is manifested by a token component, token metadata component, upstream source-image component, and historical Wave media reference.",
     "Research Publication 6529NM-RP-0003 interprets and cites the Organization, Project, Artists, Works, Curated Acquisition, and Evidence Sources.",
     "Acquisition Program 6529NM-AP-ENT-0001 contains Curated Acquisition 6529NM-CA-2026-003.",

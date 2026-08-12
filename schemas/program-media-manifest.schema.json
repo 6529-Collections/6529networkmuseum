@@ -28,7 +28,7 @@
       "required": ["revision", "record_status", "constructor", "review"],
       "properties": {
         "revision": { "type": "integer", "minimum": 1 },
-        "record_status": { "const": "constructed" },
+        "record_status": { "enum": ["constructed", "reviewed"] },
         "constructor": {
           "type": "object",
           "additionalProperties": false,
@@ -39,8 +39,34 @@
             "constructed_at": { "type": "string", "format": "date-time" }
           }
         },
-        "review": { "const": null }
-      }
+        "review": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["reviewer_id", "role", "reviewed_at", "outcome", "scope"],
+              "properties": {
+                "reviewer_id": { "type": "string", "minLength": 1 },
+                "role": { "const": "reviewer" },
+                "reviewed_at": { "type": "string", "format": "date-time" },
+                "outcome": { "enum": ["approved", "approved_with_corrections"] },
+                "scope": { "type": "string", "minLength": 1 }
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "record_status": { "const": "reviewed" } } },
+          "then": { "properties": { "review": { "type": "object" } } }
+        },
+        {
+          "if": { "properties": { "record_status": { "const": "constructed" } } },
+          "then": { "properties": { "review": { "type": "null" } } }
+        }
+      ]
     },
     "amendment_history": {
       "type": "array",
@@ -212,7 +238,10 @@
               "role": { "const": "web_presentation_surrogate" },
               "alt_text": { "type": "string", "minLength": 20 },
               "alt_text_status": {
-                "const": "constructed_visual_description_pending_independent_review"
+                "enum": [
+                  "constructed_visual_description_pending_independent_review",
+                  "constructed_visual_description_reviewed"
+                ]
               },
               "public_widths": {
                 "type": "array",

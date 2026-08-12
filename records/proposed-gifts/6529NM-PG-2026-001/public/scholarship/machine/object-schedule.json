@@ -1,15 +1,23 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 1,
+    "revision": 2,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:019fe093-6890-7d20-9685-e291642d23ef",
+      "actor_id": "codex-task:network-museum-exhibition-media-2026-08-11",
       "role": "constructor",
-      "constructed_at": "2026-08-09T03:33:36Z"
+      "constructed_at": "2026-08-11T21:56:04Z"
     },
     "review": null
   },
+  "amendment_history": [
+    {
+      "revision": 1,
+      "superseded_at": "2026-08-11T21:56:03Z",
+      "supersedes": "sha256:815fd7a207a0ebe85383d753e9e0c0e07681c35e1d69cad90ef451832154f5e3",
+      "prior_payload_sha256": "sha256:815fd7a207a0ebe85383d753e9e0c0e07681c35e1d69cad90ef451832154f5e3"
+    }
+  ],
   "local_profile": "6529NM_WP3_MAGNUM_OBJECT_SCHEDULE_V1",
   "status": "canonical_review_pending_public_work_projection",
   "public_work_entity_ids": [
@@ -22,7 +30,7 @@
   "organization_entity_id": "6529NM-ORG-0002",
   "project_entity_id": "6529NM-PRJ-0006",
   "curated_acquisition_id": "6529NM-CA-2026-003",
-  "current_public_status": "Selected by Museum Wave; acquisition review in progress",
+  "current_public_status": "Selected by Museum Wave; accession processing in progress",
   "current_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
   "current_status_observation": {
     "record_type": "WAVE_STATUS_OBSERVATION",

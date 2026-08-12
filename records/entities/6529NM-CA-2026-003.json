@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x27830a65e25d8c97454e449e2643b43c7b86cb562d9aa5f9701de4166be7f391"
+      "digest": "0xbd26447b3b17f119a7844331073e2cec0f38c53a112e279e1765c25655ddb357"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/conflict-at-its-edges",
     "constructor": {
-      "id": "codex-task:019fe8c0-306f-73c1-822c-f997dda66b2c",
-      "observed_at": "2026-08-09T23:04:32Z",
+      "id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "observed_at": "2026-08-11T21:56:04Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-09T23:04:32Z",
+    "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-CA-2026-003",
     "entity_status": "published",
@@ -48,6 +48,18 @@
         "label": "Curated acquisition thesis",
         "observed_at": "2026-08-09T00:00:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Current accession-processing status",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Contextual public presentation authority",
+        "observed_at": "2026-08-11T21:56:04Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       }
     ],
     "media_entity_ids": [
@@ -55,7 +67,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:98841afe84a2180567172357d9a07a48d5cf5a5fd89652f4f24d6b6da1231878",
+    "payload_sha256": "sha256:80e9b21a56cfb9da656c6d5a363aba787a6418e315ce0a36eded7f81f45af5a0",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
@@ -78,6 +90,18 @@
           "label": "Curated acquisition thesis",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Current accession-processing status",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "independent_acquisition_facts": {
@@ -104,8 +128,8 @@
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
-          "notes": "Proposal presentation is not display authorization.",
-          "status": "not_started"
+          "notes": "Contextual public presentation is authorized only for the exact signed Wave publication images in acquisition, artist, and Work pages, with credits and no download, zoom, fullscreen, derivative, or preservation claim.",
+          "status": "verified_with_conditions"
         },
         "mint": {
           "as_of": "2026-08-05T17:46:53.817Z",
@@ -156,8 +180,8 @@
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
-          "notes": "All Rights Reserved is retained as source fact.",
-          "status": "unverified"
+          "notes": "The accession review retains All Rights Reserved and authorizes only contextual presentation of the exact signed Wave publication images; copyright transfer and broader reproduction rights are not established.",
+          "status": "verified_with_conditions"
         },
         "technical": {
           "as_of": "2026-08-06T13:19:30.726Z",
@@ -169,8 +193,8 @@
               "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
             }
           ],
-          "notes": "Proposal-level technical evidence is not an accession review.",
-          "status": "pending_review"
+          "notes": "The accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required.",
+          "status": "verified_with_conditions"
         },
         "title": {
           "as_of": "2026-08-06T13:19:30.726Z",
@@ -260,7 +284,7 @@
           "6529NM-WAVE-OBS-2026-08-08-001"
         ]
       },
-      "public_credit": "Selected by the Museum Wave; acquisition review in progress",
+      "public_credit": "Selected by the Museum Wave; accession processing in progress",
       "source_work_record_ids": [
         "6529NM-PG-2026-001",
         "6529NM-PG-2026-001.OBJ-001",
@@ -269,7 +293,7 @@
         "6529NM-PG-2026-001.OBJ-004",
         "6529NM-PG-2026-001.OBJ-005"
       ],
-      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Presented together by the selected proposal across two Magnum Photos 75 curations, they form a Museum acquisition under review whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.",
+      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Selected across two Magnum Photos 75 curations, they form a Museum acquisition undergoing accession processing whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.",
       "title": "Conflict at Its Edges",
       "work_entity_ids": [
         "6529NM-W-0024",
@@ -300,14 +324,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46",
+      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
       "outcome": "approved",
-      "reviewed_at": "2026-08-10T01:08:04Z",
-      "reviewed_commit": "124e4a494f0a2ee5b30a9f19a2ad90d5a84b5521",
-      "reviewed_manifest_keccak": "0x38fde6fa4c39d1b4404d7704b2ec5cc53f66d55c181a9826af401939447c5eb1",
-      "reviewed_manifest_sha256": "sha256:316bccf9e636003c80e6d726140cea21fdf7aebe2497384e95ab1d040575b22a",
+      "reviewed_at": "2026-08-11T23:46:06.821Z",
+      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
+      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
+      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
       "reviewer_ids": [
-        "codex-review:019fe929-1b6f-7d00-9d7a-3abfe177bb46"
+        "codex-review:museum-media-candidate-a-2026-08-11-01"
       ],
       "role": "reviewer"
     },
@@ -345,6 +369,18 @@
           "label": "Curated acquisition thesis",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Current accession-processing status",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Contextual public presentation authority",
+          "observed_at": "2026-08-11T21:56:04Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",

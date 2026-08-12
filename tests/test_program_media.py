@@ -26,6 +26,9 @@ class ProgramMediaTests(unittest.TestCase):
         self.outcome_root.mkdir(parents=True)
         self.selected_path = self.outcome_root.parent / "selected-works.json"
         self.manifest_path = self.outcome_root.parent / "media-manifest.json"
+        self.public_presentation_path = (
+            self.outcome_root.parent / "public" / "presentation-manifest.json"
+        )
         self.media_root = self.root / "media" / "programs" / media.PROGRAM_ID
         self.media_root.mkdir(parents=True)
         self.accessibility_path = self.media_root / "accessibility.json"
@@ -82,6 +85,13 @@ class ProgramMediaTests(unittest.TestCase):
         stack.enter_context(patch.object(media, "SELECTED_WORKS_PATH", self.selected_path))
         stack.enter_context(patch.object(media, "ACCESSIBILITY_PATH", self.accessibility_path))
         stack.enter_context(patch.object(media, "MANIFEST_PATH", self.manifest_path))
+        stack.enter_context(
+            patch.object(
+                media,
+                "PUBLIC_PRESENTATION_PATH",
+                self.public_presentation_path,
+            )
+        )
         stack.enter_context(patch.object(media, "MEDIA_ROOT", self.media_root))
         stack.enter_context(patch.object(media, "EXPECTED_OUTCOME_COUNT", 1))
         return stack
@@ -95,10 +105,18 @@ class ProgramMediaTests(unittest.TestCase):
             "test:reviewed-display-authority",
         )
 
+    def write_manifest(self, manifest: dict[str, object]) -> None:
+        media.write_json(self.manifest_path, manifest)
+        if manifest["delivery"]["status"] == media.APPROVED_DELIVERY_STATUS:
+            media.write_json(
+                self.public_presentation_path,
+                media.public_presentation_manifest(manifest),
+            )
+
     def test_generation_is_deterministic_and_closed(self) -> None:
         with self.patched_paths():
             first = self.generate()
-            media.write_json(self.manifest_path, first)
+            self.write_manifest(first)
             count, total_bytes = media.verify_manifest()
             paths = sorted(self.media_root.rglob("*.webp"))
             first_bytes = [path.read_bytes() for path in paths]
@@ -133,7 +151,7 @@ class ProgramMediaTests(unittest.TestCase):
     def test_fixity_check_rejects_changed_derivative(self) -> None:
         with self.patched_paths():
             manifest = self.generate()
-            media.write_json(self.manifest_path, manifest)
+            self.write_manifest(manifest)
             derivative = next(self.media_root.rglob("*.webp"))
             derivative.write_bytes(derivative.read_bytes() + b"changed")
             with self.assertRaisesRegex(media.ProgramMediaError, "fixity mismatch"):
@@ -148,7 +166,7 @@ class ProgramMediaTests(unittest.TestCase):
                 [(item["width"], item["height"]) for item in derivatives],
             )
             derivatives[0]["height"] = 511
-            media.write_json(self.manifest_path, manifest)
+            self.write_manifest(manifest)
             with self.assertRaisesRegex(media.ProgramMediaError, "aspect ratio differs"):
                 media.verify_manifest()
 
@@ -163,7 +181,7 @@ class ProgramMediaTests(unittest.TestCase):
                 "2026-08-04T00:00:01Z",
                 "codex-task:test-constructor",
             )
-            media.write_json(self.manifest_path, manifest)
+            self.write_manifest(manifest)
             count, total_bytes = media.verify_manifest()
 
         self.assertEqual(media.WITHHELD_DELIVERY_STATUS, manifest["delivery"]["status"])
