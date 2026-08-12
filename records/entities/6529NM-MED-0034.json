@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x246fd58a31bd1bf27b66588882249993441aefbb63a76c45674611aeaf84ed4b"
+      "digest": "0xa867951fa1bd6cb3b42960e29b8740d9253aa82818226a07e750cc2fdd885b45"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:3571828f7a06ed69a80aadc4ed4fd684e62c172abb709654927d79a9810713e6",
+    "payload_sha256": "sha256:6f2fa1aa0ce89f86caedd279aaf034610e9a00fee57b47cfd3f3c30f21d40b3d",
     "preferred_label": "মুক্তিযুদ্ধ - Fight for Freedom presentation record",
     "profile": {
       "media": {
@@ -84,6 +84,7 @@
         "media_type": "image/webp",
         "publication_boundary": "public_derivative",
         "publication_context_entity_ids": [],
+        "publication_part_number": null,
         "rights": {
           "evidence_refs": [
             {
@@ -104,6 +105,7 @@
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
+        "source_byte_size": null,
         "source_locator": {
           "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp",
           "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-015/2e2a0c1d7ace2f24a15d5a0e2c448b38756c86fab8e31b66a04d797ba3d22a12/webp-v2-q82-m6-fixed-icc/1280.webp"
@@ -152,14 +154,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "id": "codex-review:independent-reviewer",
       "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewed_at": "2026-08-12T03:09:26.493Z",
+      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
+      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
+      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
       "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
+        "codex-review:independent-reviewer"
       ],
       "role": "reviewer"
     },

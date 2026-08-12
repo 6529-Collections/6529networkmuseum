@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x627f5faf053883ba870d264826477e873cdb1d677a6124b3126339d958598fc5"
+      "digest": "0xcb3359035bdd4daaf1bc9038c214110520cdb893f8a6f6a926cd4e924faa5fc9"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8443badddb1053198172e8c0cef3dec6d8619442a18a9b0fe4a5499fe6ce1100",
+    "payload_sha256": "sha256:7792c6f217e5ea01e68e71b2c3226c44e265d03455f367db61c6c14c96009c3b",
     "preferred_label": "Rakesh",
     "profile": {
       "agent_kind": "PERSON",
@@ -87,14 +87,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "id": "codex-review:independent-reviewer",
       "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewed_at": "2026-08-12T03:09:26.493Z",
+      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
+      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
+      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
       "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
+        "codex-review:independent-reviewer"
       ],
       "role": "reviewer"
     },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x78b8614494b8bcc3ce26e215d5157ecb4a1b8fed5812d35e6c5f28305ad683ae"
+      "digest": "0x425e327e7b6bfdf0363807aef8b58a768d3453df1abb958c42c321246148d6c8"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9a932e1fee46058f3cee0fd844f1eec8fa9bdee108c6bf2ce4ab16c6a0e68299",
+    "payload_sha256": "sha256:e3ab0346773f7e9c929f9cf222bd78ceb37e6114c366adce3a34fbaa7d4d7134",
     "preferred_label": "CENTURY #401 official Art Blocks still",
     "profile": {
       "media": {
@@ -93,6 +93,7 @@
         "media_type": "image/png",
         "publication_boundary": "token_source",
         "publication_context_entity_ids": [],
+        "publication_part_number": null,
         "rights": {
           "evidence_refs": [
             {
@@ -113,6 +114,7 @@
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
+        "source_byte_size": null,
         "source_locator": {
           "repository_path": null,
           "uri": "https://media-proxy.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000401.png"
@@ -171,14 +173,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "id": "codex-review:independent-reviewer",
       "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewed_at": "2026-08-12T03:09:26.493Z",
+      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
+      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
+      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
       "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
+        "codex-review:independent-reviewer"
       ],
       "role": "reviewer"
     },

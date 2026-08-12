@@ -651,7 +651,7 @@ def relation(record_id: str, relation_type: str, source: str, target: str, quali
     return f"records/relations/{record_id}.json", payload
 
 
-def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None, accessibility_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+def media_profile(role: str, locator_uri: str | None, repository_path: str | None, media_type: str, visual: bool, width: int | None, height: int | None, accessibility_text: str | None, accessibility_status: str, subject: str, credit: str, rights_status: str, source_status: str, source_refs: list[str], observed_at: str, fixity: dict[str, Any], affordances: list[str], *, source_byte_size: int | None = None, publication_part_number: int | None = None, derived_from: str | None = None, transform: str | None = None, wave_proposal_context: dict[str, Any] | None = None, accessibility_subject_policy: str = "not_applicable", identity_inference_prohibition: dict[str, Any] | None = None, publication_context_entity_ids: list[str] | None = None, token_source_locator: dict[str, Any] | None = None, token_source_fixity: dict[str, Any] | None = None, rights_label: str | None = None, rights_evidence_refs: list[dict[str, Any]] | None = None, source_observation_evidence_refs: list[dict[str, Any]] | None = None, accessibility_evidence_refs: list[dict[str, Any]] | None = None) -> dict[str, Any]:
     publication_boundary = {
         "museum_retained_preservation_object": "preservation_record",
         "museum_generated_public_derivative": "public_derivative",
@@ -685,6 +685,8 @@ def media_profile(role: str, locator_uri: str | None, repository_path: str | Non
             "visual": visual,
             "width": width,
             "height": height,
+            "source_byte_size": source_byte_size,
+            "publication_part_number": publication_part_number,
             "accessibility_text": accessibility_text,
             "accessibility_status": accessibility_status,
             "accessibility_subject_policy": accessibility_subject_policy,
@@ -1249,6 +1251,8 @@ def build_records(
         PROPOSAL_AT,
         {"status": "verified", "algorithm": "sha256", "digest": wave_join_by_candidate[signed_obj["candidate_object_id"]]["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master."},
         ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+        source_byte_size=wave_join_by_candidate[signed_obj["candidate_object_id"]]["source_image_fixity"]["bytes"],
+        publication_part_number=wave_join_by_candidate[signed_obj["candidate_object_id"]]["part_number"],
         wave_proposal_context=wave_proposal_context,
         accessibility_subject_policy="non_identifying_sensitive_subject",
         publication_context_entity_ids=["6529NM-CA-2026-003"],
@@ -1287,6 +1291,8 @@ def build_records(
             PROPOSAL_AT,
             {"status": "verified", "algorithm": "sha256", "digest": wave_join_by_candidate[candidate_id]["source_image_fixity"]["sha256"], "verified_at": WINNER_AT, "basis": "The exact signed Wave proposal image response was verified at the recorded observation. The external locator remains mutable and the bytes are not retained as a Museum preservation master."},
             ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"],
+            source_byte_size=wave_join_by_candidate[candidate_id]["source_image_fixity"]["bytes"],
+            publication_part_number=wave_join_by_candidate[candidate_id]["part_number"],
             wave_proposal_context=wave_proposal_context,
             accessibility_subject_policy="non_identifying_apparently_young_subject" if candidate_id == "6529NM-PG-2026-001.OBJ-004" else "non_identifying_sensitive_subject",
             identity_inference_prohibition={"status": "prohibited", "scope": "subject_identity_and_age_classification", "reason": "Do not infer or publish the subject's identity or age classification from this historical proposal image."} if candidate_id == "6529NM-PG-2026-001.OBJ-004" else None,

@@ -3658,3 +3658,20 @@ catalog activation, and frontend qualification remain open.
   109 focused tests, 44 derivative checks, and the exact Magnum media-policy
   guard. Candidate A must now be frozen, independently reviewed, advanced to a
   reviewed direct child, and catalog-activated before frontend release.
+
+## 2026-08-12 downstream accession media boundary correction
+
+- The Museum confirmed that image review and public catalogue treatment belong
+  to downstream accession work. They are not a separate presentation or
+  governance process.
+- The five Conflict Media entities now project exact observed byte size and
+  Wave publication part from the existing accession evidence. This preserves
+  the deliberate-load gate for the 16,871,807-byte Palmyra image while keeping
+  the raw Wave receipt and token-source locators outside the visitor corpus.
+- The schema requires both facts for historical Wave media. The deterministic
+  generator emits null for other media roles and exact values for all five
+  Conflict records; a focused regression binds Media IDs 0003 and 0041-0044 to
+  parts 2-6 and their observed byte sizes.
+- Candidate-A regeneration now covers 694 JSON files and 340 pending generated
+  records. Bootstrap, schema/record validation, manifest idempotence, and the
+  complete repository suite are running before the candidate is frozen.

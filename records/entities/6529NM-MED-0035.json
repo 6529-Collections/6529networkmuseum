@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa7868ad60009045621643e9ae03091701f601654a7266ec5b10aee1dafc7ae6f"
+      "digest": "0x7edf1a0e9f4fe293b0f079be5d2bbc66dea9b5205b85f124cf353ecc34c617b7"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a3e6ea1e6dbc7c7542b7abc82477570847d4ae18b10903b2e4e646a8bbafd945",
+    "payload_sha256": "sha256:cdae8cb8fb7393ccc513a1692acf0f24a3857d4a50f4118fcc8ad084bdacd7f7",
     "preferred_label": "No Access presentation record",
     "profile": {
       "media": {
@@ -84,6 +84,7 @@
         "media_type": "image/webp",
         "publication_boundary": "public_derivative",
         "publication_context_entity_ids": [],
+        "publication_part_number": null,
         "rights": {
           "evidence_refs": [
             {
@@ -104,6 +105,7 @@
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
+        "source_byte_size": null,
         "source_locator": {
           "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp",
           "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-016/6f2e18606cc3fc4c3af0fadb3a275ef0a739c00463481bfb5fa511be238f5b73/webp-v2-q82-m6-fixed-icc/1280.webp"
@@ -152,14 +154,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
+      "id": "codex-review:independent-reviewer",
       "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
+      "reviewed_at": "2026-08-12T03:09:26.493Z",
+      "reviewed_commit": "943ec3856ec40dada9503b848a6ab7adf82934a4",
+      "reviewed_manifest_keccak": "0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2",
+      "reviewed_manifest_sha256": "sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2",
       "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
+        "codex-review:independent-reviewer"
       ],
       "role": "reviewer"
     },

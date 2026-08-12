@@ -36,6 +36,10 @@ reviewer.
   `6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001`.
 - Their All Rights Reserved labels, credits, exact signed Wave URLs, fixity,
   and no-download/no-zoom/no-fullscreen/no-derivative boundary are retained.
+- Each reviewed Media entity records the exact observed image byte size and
+  Wave publication part. These are downstream accession facts used to preserve
+  deliberate loading for large media without publishing the raw Wave receipt
+  or unrelated token-source locators.
 - Object identification, scholarship, provenance research, present-evidence
   rights and technical review, image presentation, preservation planning, and
   accession-record construction are complete for this edition.
@@ -61,8 +65,8 @@ The pending public graph has 340 generated entity/relation records. The closed
 visitor inventory, visitor bundle, and whole-repository manifest have been
 regenerated. Candidate-A commitments at the pre-commit checkpoint are:
 
-- SHA-256: pending final Candidate-A regeneration
-- Keccak-256: pending final Candidate-A regeneration
+- SHA-256: `sha256:49363f697e3ed808cc9a83791e58ef4f2ff1ab2225ef668fccd3910b20368ee2`
+- Keccak-256: `0xfa420cc591d54167b2a68cd3fb3415e431f5c917856febc10707d818ab6692d2`
 
 These commitments change if any governed byte changes before the frozen
 Candidate A commit. The required release sequence remains Candidate A,
