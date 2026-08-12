@@ -295,6 +295,8 @@
         "visual": {"type": "boolean"},
         "width": {"type": ["integer", "null"], "minimum": 1},
         "height": {"type": ["integer", "null"], "minimum": 1},
+        "source_byte_size": {"type": ["integer", "null"], "minimum": 1},
+        "publication_part_number": {"type": ["integer", "null"], "minimum": 1},
         "accessibility_text": {"type": ["string", "null"], "minLength": 1},
         "accessibility_status": {"enum": ["provided", "publication_join", "pending_review", "not_applicable"]},
         "accessibility_subject_policy": {"enum": ["not_applicable", "non_identifying_sensitive_subject", "non_identifying_apparently_young_subject"]},
@@ -347,7 +349,7 @@
           "items": {"enum": ["view", "thumbnail", "hero", "alt_text", "play", "interact_sandboxed", "zoom", "fullscreen", "download", "open_token_source", "open_wave_proposal_context", "open_repository_path", "copy_citation"]}
         }
       },
-      "required": ["media_role", "publication_boundary", "source_locator", "token_source_locator", "media_type", "visual", "width", "height", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "identity_inference_prohibition", "subject_entity_id", "credit", "rights", "source_observation", "accessibility_evidence_refs", "fixity", "token_source_fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "wave_proposal_context", "publication_context_entity_ids", "allowed_ui_affordances"],
+      "required": ["media_role", "publication_boundary", "source_locator", "token_source_locator", "media_type", "visual", "width", "height", "source_byte_size", "publication_part_number", "accessibility_text", "accessibility_status", "accessibility_subject_policy", "accessibility_publication_entity_id", "identity_inference_prohibition", "subject_entity_id", "credit", "rights", "source_observation", "accessibility_evidence_refs", "fixity", "token_source_fixity", "source_record_ids", "derived_from_media_entity_id", "transform_profile", "wave_proposal_context", "publication_context_entity_ids", "allowed_ui_affordances"],
       "unevaluatedProperties": false,
       "allOf": [
         {
@@ -380,7 +382,7 @@
         {
           "if": {"properties": {"media_role": {"const": "historical_wave_proposal_presentation"}}, "required": ["media_role"]},
           "then": {
-            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity"],
+            "required": ["wave_proposal_context", "publication_boundary", "publication_context_entity_ids", "token_source_locator", "token_source_fixity", "source_byte_size", "publication_part_number"],
             "allOf": [
               {
                 "if": {"properties": {"accessibility_subject_policy": {"const": "non_identifying_apparently_young_subject"}}, "required": ["accessibility_subject_policy"]},
@@ -400,7 +402,7 @@
                 }
               }
             ],
-            "properties": {"publication_boundary": {"const": "historical_wave_proposal_context"}, "publication_context_entity_ids": {"contains": {"const": "6529NM-CA-2026-003"}, "minContains": 1}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}, "contains": {"const": "open_wave_proposal_context"}, "minContains": 1}}
+            "properties": {"source_byte_size": {"type": "integer", "minimum": 1}, "publication_part_number": {"type": "integer", "minimum": 1}, "publication_boundary": {"const": "historical_wave_proposal_context"}, "publication_context_entity_ids": {"contains": {"const": "6529NM-CA-2026-003"}, "minContains": 1}, "allowed_ui_affordances": {"items": {"enum": ["view", "thumbnail", "hero", "alt_text", "open_wave_proposal_context", "copy_citation"]}, "contains": {"const": "open_wave_proposal_context"}, "minContains": 1}}
           }
         },
         {

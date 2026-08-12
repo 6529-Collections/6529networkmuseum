@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4a5841a6a709c5f3ceeb41a534d5787ab9e72063d9a1127f8f65885fef6bc854"
+      "digest": "0x41ba991d2660b0f3dcb64ec7001befb553497143625037fe3eeca365db456d2d"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-08T10:15:02.0167151Z",
     "entity_id": "6529NM-W-0028",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:92ee728a4351a0ab5d2382da27778ec1632a8857bd40c286bdf132a0e82ef0c0",
+    "payload_sha256": "sha256:4c376184ab9ac8c51fb0be110b69022d51266409d8ea43fd9980a5c3a3bb24b0",
     "preferred_label": "Palmyra, Syria",
     "profile": {
       "accession_entity_ids": [],
@@ -210,7 +210,7 @@
     },
     "public_slug": "6529NM-W-0028",
     "record_id": "6529NM-W-0028",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -220,19 +220,8 @@
       "6529NM-PG-2026-001.OBJ-005",
       "6529NM-PRJ-0006"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
-      "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0022",
@@ -251,7 +240,7 @@
         }
       ],
       "observed_at": "2026-08-08T10:15:02.0167151Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0028",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4b873735e13a44579e00b76948620881759cfa08c912efa29bf111505f65aa50"
+      "digest": "0x9442de800b13fb89ffe4c535a3517796deebc0becf0341141d8022ff265963a7"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0032",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a8f04a6fb83a747e656f47f7f66bb51e42c7873ffc821efdf48b65121f5f836d",
+    "payload_sha256": "sha256:f6055037c069cf39a5b4b5236a4269aeacc3faee3caef09b27e47bf79c17d6bb",
     "preferred_label": "Nowhere To Esc. presentation record",
     "profile": {
       "media": {
@@ -84,6 +84,7 @@
         "media_type": "image/webp",
         "publication_boundary": "public_derivative",
         "publication_context_entity_ids": [],
+        "publication_part_number": null,
         "rights": {
           "evidence_refs": [
             {
@@ -104,6 +105,7 @@
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
+        "source_byte_size": null,
         "source_locator": {
           "repository_path": "media/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp",
           "uri": "https://d3lqz0a4bldqgf.cloudfront.net/museum/programs/6529NM-AP-01/6529NM-AP-01-OUT-013/dab5b9e0e5c82cff338f9f75c401cffe6a8b2a2f13e0b875526753cbc438d541/webp-v2-q82-m6-fixed-icc/1280.webp"
@@ -143,26 +145,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0032",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-013"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
-      "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -178,7 +169,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0032",
     "visibility": "public"

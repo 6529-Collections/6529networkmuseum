@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x92c059066d8b5cf2dfaf91855cb044c84c600fb94a5913a67cf226dc10ded12f"
+      "digest": "0x8d9c2beda2fad719f64cd4cb59edb0a1f9b32a320205cef31ae68b856963afdb"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-11T21:56:04Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0010",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:eb12e48bc21f47863adcdcbebf2f671cb2e98e26da9972c4e16570a65ffb810e",
+    "payload_sha256": "sha256:08d26b6306d14c6dcf9aa39ede70571afe0ce5166f35034bd426bd18f9ce997a",
     "preferred_label": "CENTURY #31 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -91,6 +91,7 @@
         "media_type": "text/html",
         "publication_boundary": "token_source",
         "publication_context_entity_ids": [],
+        "publication_part_number": null,
         "rights": {
           "evidence_refs": [
             {
@@ -111,6 +112,7 @@
           "statement_entity_id": null,
           "status": "cleared_with_conditions"
         },
+        "source_byte_size": null,
         "source_locator": {
           "repository_path": null,
           "uri": "https://generator.artblocks.io/1/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/100000031"
@@ -152,7 +154,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0010",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -161,19 +163,8 @@
       "6529NM.2026.001.RIGHTS.01",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-review:museum-media-candidate-a-2026-08-11-01",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-11T23:46:06.821Z",
-      "reviewed_commit": "34c6b7e2e74659bd642954eb2ebda035d84e4e0c",
-      "reviewed_manifest_keccak": "0xb244a20ed94fc1dbb24b3e00b2f4fc83b5753ffeddc0c249a78c17a684484b46",
-      "reviewed_manifest_sha256": "sha256:800403bc30688b6a830a3e9bd24184fd381689cf014083da3a74de0b9d018dfd",
-      "reviewer_ids": [
-        "codex-review:museum-media-candidate-a-2026-08-11-01"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -197,7 +188,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0010",
     "visibility": "public"

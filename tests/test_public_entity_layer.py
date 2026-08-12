@@ -640,6 +640,13 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertEqual(len([relation for relation in media_relations if relation["target_entity_id"] in {value["entity_id"] for value in keys_media}]), 16)
         magnum_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "historical_wave_proposal_presentation"]
         self.assertEqual(len(magnum_media), 5)
+        expected_wave_parts_and_sizes = {
+            "6529NM-MED-0003": (2, 2_518_674),
+            "6529NM-MED-0041": (3, 1_813_285),
+            "6529NM-MED-0042": (4, 1_666_083),
+            "6529NM-MED-0043": (5, 1_540_870),
+            "6529NM-MED-0044": (6, 16_871_807),
+        }
         for value in magnum_media:
             media_profile = value["profile"]["media"]
             self.assertTrue(media_profile["source_locator"]["uri"].startswith("https://d3lqz0a4bldqgf.cloudfront.net/drops/"))
@@ -650,6 +657,9 @@ class PublicEntityLayerTests(unittest.TestCase):
             self.assertEqual(media_profile["fixity"]["status"], "verified")
             self.assertEqual(media_profile["publication_boundary"], "historical_wave_proposal_context")
             self.assertEqual(media_profile["publication_context_entity_ids"], ["6529NM-CA-2026-003"])
+            expected_part, expected_size = expected_wave_parts_and_sizes[value["entity_id"]]
+            self.assertEqual(media_profile["publication_part_number"], expected_part)
+            self.assertEqual(media_profile["source_byte_size"], expected_size)
             self.assertEqual(media_profile["wave_proposal_context"]["publication_status"], "historical_public_proposal_context")
             self.assertIn(
                 "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md",
