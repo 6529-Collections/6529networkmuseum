@@ -3727,3 +3727,41 @@ catalog activation, and frontend qualification remain open.
   `sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b`
   / `0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda`.
   Fresh exact-head CI and independent review are in progress.
+
+## 2026-08-12 future publication/catalog verification performance
+
+- A separate future-process implementation replaces publication/catalog
+  per-file `ls-tree`/`cat-file blob` spawning with one exact commit-tree index
+  and deterministic, bounded `git cat-file --batch` reads. The batch reader
+  is commitment-driven and fail-closed; it does not change Museum content or
+  frontend presentation.
+- The matched fixture benchmark moved from 25.640 seconds / 863 Git
+  subprocesses to 0.938 seconds / 23 Git subprocesses, with four batch reads
+  and zero legacy blob reads. Exact byte, missing-object, malformed-response,
+  and no-per-file-spawn tests are in place.
+- The durable process contract and benchmark ledger are in
+  `docs/control-plane.md` and
+  `notes/wip/2026-08-12-publication-catalog-batched-git-reads.md`. This work
+  is intentionally non-blocking for the active art-first production release.
+- Manifest regeneration and complete local validation are green. PR #57 is
+  ready at commit `ae6f833`, with all six required Ubuntu/Windows jobs still
+  pending and the `6529seize-maintainers` team requested. CodeRabbit reported
+  a temporary review-rate limit without actionable findings. Exact-head bot
+  or maintainer review, resolved threads, and green required CI remain gates;
+  merge is not authorized by this ledger until all are satisfied.
+
+- CodeRabbit then completed review at `079f44c` and identified one valid
+  memory-retention issue in the reader cache. The fix bounds the cache to two
+  commit readers and adds explicit CLI/finally release; the focused suite is
+  green at 42 tests. The full local suite is green at 331 tests (one skipped)
+  in 458.866 seconds. The fix head `0e63c74` has all six required CI jobs
+  green, and the addressed thread is resolved/outdated. A fresh CodeRabbit
+  re-review was rate-limited; maintainer approval remains open.
+
+- Final PR head `31d6f3c2c246bf5786df6132a074a6c2b3f1cb08` completed the fresh
+  exact-head CI run `31602796374` green on all six required jobs, including
+  deterministic Windows. The addressed CodeRabbit thread remains
+  resolved/outdated; fresh bot re-review was externally rate-limited. The
+  `6529seize-maintainers` team is still requested but has not approved, so PR
+  #57 remains intentionally unmerged until the required exact-head review gate
+  is satisfied.
