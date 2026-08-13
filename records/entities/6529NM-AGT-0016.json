@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa9c1a27e5177db6de655744e8a507d94a8e65e633231664018416de2454feffd"
+      "digest": "0xa88a8475be74074541a84fac0da9be46dec10e523d5b0c9cdcfb6b53db8143b4"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
+    "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0016",
     "entity_status": "published",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:3b57131d128dbd5927f0dcc0b50b9bf316ec2973dd484405d1789b0ff1036407",
+    "payload_sha256": "sha256:19bf4ae68236ac407cba754d673fcb3659ceb6eddb9e6622aff566e728e58c69",
     "preferred_label": "shamspranto",
     "profile": {
       "agent_kind": "PERSON",
@@ -87,14 +87,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
       "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
       ],
       "role": "reviewer"
     },

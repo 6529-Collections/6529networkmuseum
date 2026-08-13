@@ -4,11 +4,21 @@
 
 ## How the selected offer was formed
 
-The selected offer consists of five token-linked photographs published through Magnum Photos 75. The public proposal credits punk6529 as offeror and presents the five under the title *Conflict at Its Edges*. The artists made five independent Works; the proposal places them in relation. Formal donor authority remains part of acquisition diligence.
+The selected offer consists of five token-linked photographs published through
+Magnum Photos 75. The public proposal credits punk6529 as offeror and presents
+the five under the title *Conflict at Its Edges*. The artists made five
+independent Works; the proposal places them in relation. The completed
+accession record documents the donor’s authority and the gift of all five Works
+under accession `6529NM.2026.002`.
 
 That relation crosses two Magnum 75 curations. Moisés Saman’s #44 is marked `1/3`, while David Seymour #127, Larry Towell #145, Micha Bar-Am #97, and Lorenzo Meloni #104 are marked `2/3`. The split is exact and publicly checkable. It records the upstream selection histories of the tokens; it does not explain why the offeror selected these five. The reviewed public records contain no statement or evidence that Magnum Photos, Alejandro Cartagena, Azu Nwagbogu, or any of the five artists endorsed the resulting group.[^1]
 
-The current status is **Selected by Museum Wave; accession processing in progress**. This scholarship, the five object records, rights and technical review, provenance work, and public presentation form the active accession package. The five Works remain outside the permanent Collection until the accession gates and final certificate are complete.
+The current status is **completed gift; accessioned into the permanent
+Collection as `6529NM.2026.002`**. This scholarship, the five object records,
+rights and technical review, provenance work, public presentation, and
+accession certificate form the current accession package. The five Works
+remain individually catalogued; provenance, source-image, rights, and
+preservation stewardship continue after accession.
 
 ## The relation among the photographs
 
@@ -46,21 +56,47 @@ The donor’s group also crosses curatorial intentions. Saman’s token belongs 
 
 The evidentiary record remains uneven. Seymour’s archive-to-estate crosswalk is incomplete. Towell’s church and assignment remain unidentified. Bar-Am’s archive suffix and event date require clarification. Saman’s damage account remains qualified, and the reviewed public record supplies no age, identity, or consent documentation for the apparently young person shown. Meloni’s route into Palmyra is documented through contemporary reporting without a frame-specific permission record.
 
-Rights and stewardship create a further limit. The token notices read `All Rights Reserved`; the proposal records no copyright or reproduction grant. The historical Wave URLs may be referenced in their narrow proposal context with supplied credits. The Museum holds no preservation master or rights-cleared derivative for the five photographs.[^4]
+Rights and stewardship create a continuing limit. The token notices read `All
+Rights Reserved`; the accession record interprets ordinary credited
+institutional display, publication, and accessibility in accession, Collection,
+and scholarship contexts as permissible. That interpretation does not transfer
+copyright or grant commercial or general reproduction, derivative, licensing,
+download, or AI-training rights. The historical Wave URLs remain proposal
+evidence, while governed token-linked presentation locators may be used under
+the accession display authority. No preservation master is claimed by this
+public record for the five photographs.[^4]
 
 ## Response
 
-These objections describe the group’s proper form. The acquisition should preserve the five Works as independent objects and publish the title as a proposal-origin proposition. The publication should disclose the two Magnum 75 curations, the fact that reviewed public records contain no statement or evidence of endorsement, the separate authority of captions and image observations, and the unresolved questions that materially affect interpretation.
+These objections describe the group’s proper form. The five photographs remain
+five Works. The title is presented as a proposal-origin curatorial proposition,
+with its sources and limits visible. Each caption remains attributed; each
+archive discrepancy remains legible; Saman’s subject requires a safeguarding
+boundary; and any use beyond the Museum’s current credited institutional
+display, publication, and accessibility interpretation requires separate rights
+analysis. The publication continues to disclose the two Magnum 75 curations,
+the absence of a recorded endorsement of the resulting group, and the
+unresolved questions that materially affect interpretation.
 
 The acquisition record would preserve the proposal’s five-object relation while keeping each Work’s title, caption, token manifestation, rights, provenance, and custody history separate. The relation becomes a curatorial hypothesis with a stable object list. It proposes a comparison among exact Works and makes no new classification. It asks how a photograph acquires historical weight through the relation among frame, caption, access, place, archive, and later circulation.
 
-## What acceptance would make possible
+## What accession makes possible
 
-If accepted, the group could support exhibitions, object publications, and research into the afterlives of documentary photography in a networked edition. The public benefit would depend on keeping the individual histories intact. The Museum would need to verify donor authority, legal title, and custody separately for each exact token; record any transfer as chain provenance for the token manifestation only; establish rights for each intended use; preserve the permitted source material; and handle Saman’s photograph through an appropriate safeguarding record.
+The accession supports exhibitions, object publications, and research into the
+afterlives of documentary photography in a networked edition. Its public value
+depends on keeping the individual histories intact. The Museum records donor
+authority, legal title, custody, and provenance separately for each token
+manifestation; applies the accession rights determination to ordinary credited
+institutional display, publication, and accessibility; and handles Saman’s
+photograph through an appropriate safeguarding boundary. New uses outside that
+scope require fresh rights analysis.
 
 The intellectual work would continue after acceptance. New caption sheets, archive crosswalks, permission records, or artist and Magnum correspondence could change the account. Those changes should enter the publication as dated amendments while preserving the prior record.
 
-*Conflict at Its Edges* deserves consideration because its five photographs make the institutions around documentary evidence visible. Its value will depend on whether the Museum can hold the donor’s relation firmly enough to study and lightly enough to revise.
+*Conflict at Its Edges* enters the permanent Collection because its five
+photographs make the institutions around documentary evidence visible. Its
+value will depend on whether the Museum can hold the donor’s relation firmly
+enough to study and lightly enough to revise.
 
 [^1]: Exact Magnum 75 metadata and proposal record, [S04–S05](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S37](../sources/source-register.md).
 [^2]: Five Work records and caption/context sources, [S10–S14](../sources/source-register.md), [S19](../sources/source-register.md), [S23–S25](../sources/source-register.md), [S27–S32](../sources/source-register.md), and [S41](../sources/source-register.md).

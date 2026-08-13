@@ -693,6 +693,7 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
     issues: list[str] = []
     assets = payload.get("assets")
     receipt = payload.get("custody_receipt")
+    receipts = payload.get("custody_receipts")
     if not isinstance(assets, list) or not all(isinstance(asset, dict) for asset in assets):
         return ["GIFT_ACCEPTANCE_AUTHORIZATION.assets must be an array of objects"]
     receipt = receipt if isinstance(receipt, dict) else {}
@@ -713,7 +714,21 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
         frozen = [json.dumps(value, sort_keys=True, separators=(",", ":"), default=str) for value in values]
         if len(frozen) != len(set(frozen)):
             issues.append(f"GIFT_ACCEPTANCE_AUTHORIZATION.assets contains duplicate {label}")
-    if receipt.get("transfer_count") != len(assets):
+    if isinstance(receipts, list):
+        receipt_logs = [
+            log
+            for item in receipts
+            if isinstance(item, dict)
+            for log in item.get("logs", [])
+            if isinstance(log, dict)
+        ]
+        if sum(item.get("transfer_count", 0) for item in receipts if isinstance(item, dict)) != len(assets):
+            issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipts transfer counts must equal assets.length")
+        expected = sorted((asset.get("object_id"), asset.get("custody_receipt_log")) for asset in assets)
+        actual = sorted((log.get("object_id"), log.get("log_index")) for log in receipt_logs)
+        if actual != expected:
+            issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipts logs must exactly cover assets")
+    elif receipt.get("transfer_count") != len(assets):
         issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
     return issues
 
@@ -1379,6 +1394,15 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 issues.append("public entity: proposed/selected Curated Acquisition cannot have permanent_collection effect")
             observations = profile.get("lifecycle_observations")
             if isinstance(observations, list) and observations:
+                for observation in observations:
+                    if observation.get("source_status") != "WINNER":
+                        continue
+                    source_ids = observation.get("source_record_ids", [])
+                    if not any(
+                        isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                        for record_id in source_ids
+                    ):
+                        issues.append("public entity: Museum Wave-selected Curated Acquisition requires a governed WINNER observation record ID")
                 latest = max(observations, key=lambda item: item.get("observed_at", ""))
                 if latest.get("status") != lifecycle:
                     issues.append("public entity: Curated Acquisition lifecycle must equal its latest append-only observation")
@@ -1411,12 +1435,22 @@ def validate_public_payload(payload: dict[str, Any], vocabularies: dict[str, Any
                 issues.append("public entity: proposed/selected/not-in-collection Work cannot be a permanent Collection member")
             if work_status == "accessioned" and membership != "permanent_collection":
                 issues.append("public entity: accessioned Work requires permanent Collection membership")
+            observations = profile.get("lifecycle_observations")
+            if isinstance(observations, list):
+                for observation in observations:
+                    if observation.get("source_status") != "WINNER":
+                        continue
+                    source_ids = observation.get("source_record_ids", [])
+                    if not any(
+                        isinstance(record_id, str) and re.fullmatch(r"6529NM-WAVE-OBS-\d{4}-\d{2}-\d{2}-\d{3}", record_id)
+                        for record_id in source_ids
+                    ):
+                        issues.append("public entity: Museum Wave-selected Work requires a governed WINNER observation record ID")
             if work_status == "selected_by_museum_wave_acquisition_review_in_progress":
                 if museum_relation != "selected_by_museum_wave":
                     issues.append("public entity: Museum Wave-selected Work requires the selected_by_museum_wave current relation")
                 if membership != "not_in_collection":
                     issues.append("public entity: Museum Wave-selected Work must remain outside the permanent Collection")
-                observations = profile.get("lifecycle_observations")
                 latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
                 if latest.get("status") != work_status or latest.get("source_status") != "WINNER":
                     issues.append("public entity: Museum Wave-selected Work requires a latest WINNER lifecycle observation")
@@ -1817,15 +1851,20 @@ def validate_public_graph(
         else:
             lifecycle = None
             observations = None
-        if lifecycle == "selected_by_museum_wave_acquisition_review_in_progress":
-            latest = max(observations, key=lambda item: item.get("observed_at", "")) if isinstance(observations, list) and observations else {}
+        winner_observations = [
+            observation
+            for observation in observations or []
+            if isinstance(observation, dict) and observation.get("source_status") == "WINNER"
+        ]
+        if winner_observations:
+            latest = max(winner_observations, key=lambda item: item.get("observed_at", ""))
             winner_records = [
                 wave_status_observations[record_id][1]
                 for record_id in latest.get("source_record_ids", [])
                 if isinstance(record_id, str) and record_id in wave_status_observations
             ]
             if not any(record.get("source_status") == "WINNER" and record.get("drop_type") == "WINNER" for record in winner_records):
-                issues.append(f"{relative}: selected Museum Wave lifecycle must resolve to a governed WINNER observation record")
+                issues.append(f"{relative}: Museum Wave WINNER lifecycle observation must resolve to a governed WINNER observation record")
         if isinstance(slug, str):
             slug_key = (str(entity_type), slug)
             if slug_key in slug_paths and slug_paths[slug_key] != path:

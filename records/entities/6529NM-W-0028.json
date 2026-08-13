@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x57eb8322720c30a25df8cf09eea4f1b955ed00b021ff8988b0314c2fdd21acf9"
+      "digest": "0x4d26d6f3895e538b26a5dbe41cb112959043c07cbbe596e6613ed9b060a5f661"
     },
-    "effectiveAt": 1786184102,
+    "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -21,12 +21,12 @@
   "payload": {
     "canonical_route": "/museum/network/works/6529NM-W-0028",
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
-    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-W-0028",
     "entity_status": "published",
     "entity_type": "WORK",
@@ -36,38 +36,91 @@
         "label": "Proposed gift object",
         "observed_at": "2026-08-06T13:19:30.726Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Finalized Museum custody observation",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession object record",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
       }
     ],
     "media_entity_ids": [
       "6529NM-MED-0044"
     ],
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ea48f1e1a5368f4a9fbefab735b88b309f5cc2a878c39258be8e2ed7cfee8bd8",
+    "payload_sha256": "sha256:628b772626462c4e7f8399f84f36ac55be18c7dbaf31f91b03a459ab97ff1fe2",
     "preferred_label": "Palmyra, Syria",
     "profile": {
-      "accession_entity_ids": [],
+      "accession_entity_ids": [
+        "6529NM-ACC-ENT-0002"
+      ],
       "acquisition_entity_ids": [
         "6529NM-CA-2026-003"
       ],
       "collection_membership": {
-        "accession_entity_ids": [],
-        "collection_entity_id": null,
+        "accession_entity_ids": [
+          "6529NM-ACC-ENT-0002"
+        ],
+        "collection_entity_id": "6529NM-C-0001",
         "evidence_refs": [
           {
+            "evidence_class": "A",
+            "label": "Finalized Museum custody observation",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+          },
+          {
             "evidence_class": "B",
-            "label": "WINNER has no accession effect",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "label": "Accession certificate",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accession object record",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
           }
         ],
         "source_record_ids": [
-          "6529NM-PG-2026-001",
-          "6529NM-WAVE-OBS-2026-08-08-001"
+          "6529NM.2026.002",
+          "6529NM-ACC-2026-002",
+          "6529NM.2026.002.05"
         ],
-        "status": "not_in_collection"
+        "status": "permanent_collection"
       },
-      "component_references": [],
+      "component_references": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Accession object record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
+            }
+          ],
+          "record_id": "6529NM.2026.002.05",
+          "reference_type": "component",
+          "registry_id": null,
+          "source_record_id": "6529NM.2026.002.05",
+          "source_status": "verified",
+          "target_kind": "authoritative_record",
+          "target_type": "WORK_DESCRIPTION"
+        }
+      ],
       "creation_date": {
         "display": "2016",
         "earliest": "2016-01-01",
@@ -86,23 +139,29 @@
         "6529NM-ART-0021"
       ],
       "current_museum_relation": {
-        "as_of": "2026-08-08T10:15:02.0167151Z",
+        "as_of": "2026-08-12T22:24:36.387Z",
         "evidence_refs": [
           {
-            "evidence_class": "B",
-            "label": "Signed-drop API WINNER status readback (is_signed=true)",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "evidence_class": "A",
+            "label": "Finalized Museum custody observation",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
           },
           {
             "evidence_class": "B",
-            "label": "Museum Wave drop page readback",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "label": "Accession certificate",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Accession object record",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
           }
         ],
         "museum_entity_id": "6529NM-I-0001",
-        "relation_status": "selected_by_museum_wave"
+        "relation_status": "permanent_collection"
       },
       "evidence_refs": [
         {
@@ -116,9 +175,27 @@
           "label": "Original proposal object",
           "observed_at": "2026-08-06T13:19:30.726Z",
           "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Finalized Museum custody observation",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession object record",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
         }
       ],
-      "identity_boundary": "Work identity is independent of the proposed acquisition, candidate object alias, chain identity, token manifestation, and any later accession.",
+      "identity_boundary": "Work identity remains independent of the Curated Acquisition, accession lot, token manifestation, title, custody, rights, and public route.",
       "lifecycle_observations": [
         {
           "evidence_refs": [
@@ -162,6 +239,38 @@
           ],
           "source_status": "WINNER",
           "status": "selected_by_museum_wave_acquisition_review_in_progress"
+        },
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized Museum custody observation",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession object record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
+            }
+          ],
+          "notes": "The completed gift admits the Work to the Museum's permanent Collection. Title, custody, rights, technical condition, preservation, and display remain separately documented facts.",
+          "observation_id": "6529NM-W-OBS-0038",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-002",
+            "6529NM.2026.002",
+            "6529NM.2026.002.05"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned"
         }
       ],
       "manifestation_references": [
@@ -186,16 +295,16 @@
       ],
       "medium": "photograph",
       "mint_fact": {
-        "as_of": "2026-08-05T17:46:53.817Z",
+        "as_of": "2026-08-12T22:24:36.387Z",
         "evidence_refs": [
           {
             "evidence_class": "A",
-            "label": "Finalized Ethereum chain observation",
-            "observed_at": "2026-08-05T17:46:53.817Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "label": "Finalized Ethereum custody and token observation",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
           }
         ],
-        "notes": "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
+        "notes": "Finalized Ethereum chain evidence verifies the existing ERC-721 token manifestation independently of title, custody, rights, and accession.",
         "status": "verified"
       },
       "profile_type": "WORK",
@@ -206,7 +315,7 @@
         "6529NM-PRJ-0006"
       ],
       "title": "Palmyra, Syria",
-      "work_lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress"
+      "work_lifecycle_status": "accessioned"
     },
     "public_slug": "6529NM-W-0028",
     "record_id": "6529NM-W-0028",
@@ -214,43 +323,69 @@
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-ACC-2026-002",
+      "6529NM-ACC-ENT-0002",
       "6529NM-AGT-0022",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-005",
-      "6529NM-PRJ-0006"
+      "6529NM-PRJ-0006",
+      "6529NM.2026.002",
+      "6529NM.2026.002.05",
+      "6529NM.2026.002.COND.05",
+      "6529NM.2026.002.GAA-01",
+      "6529NM.2026.002.RIGHTS.05"
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
       "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
       ],
       "role": "reviewer"
     },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
+      "6529NM-ACC-2026-002",
+      "6529NM-ACC-ENT-0002",
       "6529NM-AGT-0022",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-005",
-      "6529NM-PRJ-0006"
+      "6529NM-PRJ-0006",
+      "6529NM.2026.002",
+      "6529NM.2026.002.05",
+      "6529NM.2026.002.COND.05",
+      "6529NM.2026.002.GAA-01",
+      "6529NM.2026.002.RIGHTS.05"
     ],
     "status_observation": {
       "evidence_refs": [
         {
+          "evidence_class": "A",
+          "label": "Finalized Museum custody observation",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+        },
+        {
           "evidence_class": "B",
-          "label": "Proposed gift object",
-          "observed_at": "2026-08-06T13:19:30.726Z",
-          "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+          "label": "Accession certificate",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession object record",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.05.json"
         }
       ],
-      "observed_at": "2026-08-08T10:15:02.0167151Z",
+      "observed_at": "2026-08-12T22:24:36.387Z",
       "status_label": "published"
     },
     "subject_id": "6529NM-W-0028",

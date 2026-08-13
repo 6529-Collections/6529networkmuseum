@@ -10,7 +10,7 @@ catalogue records, direct visual observation of the published JPEG, and Museum
 interpretation. A caption is retained as a historical statement by its source;
 it is not silently converted into an independently verified event description.
 
-The five works are public Work projections for the selected acquisition and are linked to
+The five works are public Work projections for the completed accession and are linked to
 their proposal object aliases in the machine records
 ([S37](../sources/source-register.md)). The governed identity inventory
 binds them to `6529NM-W-0024` through `6529NM-W-0028`; independent review

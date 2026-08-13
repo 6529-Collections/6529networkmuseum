@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x10f2eb83c9b6c62857b976a4f6f3568737426d5ba212e8a6ba1054b8a5a266ab"
+      "digest": "0x0d25f5bb5afc6216c32866f65fa089b6b4533d98ef7ed41f3ef9f0749d09711f"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -21,11 +21,11 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
+    "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "evidence_refs": [
       {
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:255f44f7b9fe2c2446386237a739923de577144c8e4877d54ce9c2b930061575",
+    "payload_sha256": "sha256:80a1656e1315ef270e7c43cfbbfc4a320691049050b7fd8210c1315cfcd46835",
     "qualifier": {
       "media_context": "documentation"
     },
@@ -53,14 +53,14 @@
     "relation_type": "ENTITY_HAS_MEDIA",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
       "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
       ],
       "role": "reviewer"
     },

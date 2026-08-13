@@ -12,12 +12,16 @@
     "sourceHeads": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["casey_research_head", "control_plane_head", "casey_collection_snapshot_package_published_source_commit"],
       "properties": {
         "casey_research_head": {"$ref": "#/$defs/commit"},
         "control_plane_head": {"$ref": "#/$defs/commit"},
-        "casey_collection_snapshot_package_published_source_commit": {"$ref": "#/$defs/commit"}
-      }
+        "casey_collection_snapshot_package_published_source_commit": {"$ref": "#/$defs/commit"},
+        "source_record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"}}
+      },
+      "oneOf": [
+        {"required": ["casey_research_head", "control_plane_head", "casey_collection_snapshot_package_published_source_commit"]},
+        {"required": ["source_record_ids"]}
+      ]
     },
     "claim": {
       "type": "object",
@@ -331,7 +335,7 @@
         "source": {"$ref": "#/$defs/sourceHeads"},
         "controlled_decision": {"$ref": "#/$defs/controlledDecision"},
         "collection_curatorial_statement": {"$ref": "#/$defs/collectionCuratorialStatement"},
-        "object_identities": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/objectIdentity"}},
+        "object_identities": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/objectIdentity"}},
         "receipt_summary": {"$ref": "#/$defs/receiptSummary"},
         "provenance_schedule": {"$ref": "https://6529.network/museum/schemas/transaction-provenance/v1#/$defs/provenanceSchedule"},
         "donation_rights_schedule": {"$ref": "#/$defs/donationRightsSchedule"},
@@ -355,7 +359,7 @@
           },
           "required": ["manifest_sha256", "manifest_uri", "objects", "raw_generator_status", "raw_metadata_status", "status", "fixity_sha256", "active_stewardship_actions"]
         },
-        "public_inventory": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/publicInventoryItem"}},
+        "public_inventory": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/publicInventoryItem"}},
         "restricted_registrar_annex": {"$ref": "#/$defs/restrictedAnnex"},
         "trait_analysis": {"$ref": "#/$defs/traitAnalysis"},
         "remaining_gates": {"type": "array", "items": {"type": "string"}},

@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa0c5327303400dbc387f15e3dc3638af8d1e12ec9c813d6b9f4a099ab433609c"
+      "digest": "0x96fe377c7cd765fab0ca547e696b6695a00bd5f971667c0f9cae3d344321a1f5"
     },
-    "effectiveAt": 1786184102,
+    "effectiveAt": 1786573476,
     "recordType": "PUBLIC_RELATION",
     "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "signatureHash": {
@@ -21,12 +21,12 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
-    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
     "evidence_refs": [
       {
         "evidence_class": "B",
@@ -39,13 +39,19 @@
         "label": "Museum Wave selection observation",
         "observed_at": "2026-08-08T10:15:02.0167151Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Completed accession",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
       }
     ],
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:e7380e6b8c8ae554f1591b32e9257793a3f087876c9c5f95f1f1cba563cb1ce1",
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:46cb25786f2d878112567a98a10d7d6428465b42646706b0bb8371ea4f61c7e1",
     "qualifier": {
       "display_order": 5,
-      "scope": "proposal_work_set",
+      "scope": "museum_curatorial_grouping",
       "selection_status": "selected"
     },
     "record_id": "6529NM-REL-0093",
@@ -53,31 +59,35 @@
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-ACC-2026-002",
       "6529NM-CA-2026-003",
       "6529NM-PG-2026-001",
       "6529NM-W-0028",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002"
     ],
     "relation_id": "6529NM-REL-0093",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
       "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
       ],
       "role": "reviewer"
     },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-003",
     "source_record_ids": [
+      "6529NM-ACC-2026-002",
       "6529NM-PG-2026-001",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002"
     ],
     "subject_id": "6529NM-REL-0093",
     "target_entity_id": "6529NM-W-0028",

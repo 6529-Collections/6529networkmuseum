@@ -31,7 +31,7 @@ from generate_manifest import (  # noqa: E402
     normalized_bytes,
 )
 from safe_fetch import SAFE_FETCH_POLICY, SAFE_FETCH_POLICY_JSON, FetchPolicyError, SafeHTTPSFetcher, canonicalize_https_url  # noqa: E402
-from validate import keccak256, load_schemas, validate_provenance_schedule, validate_records, validate_state_machine, validate_vocabularies, validator_for  # noqa: E402
+from validate import keccak256, load_schemas, validate_gift_acceptance_authorization, validate_provenance_schedule, validate_records, validate_state_machine, validate_vocabularies, validator_for  # noqa: E402
 
 
 VALID_FIXTURES = TESTS_DIR / "fixtures" / "valid"
@@ -188,6 +188,39 @@ class ControlPlaneTests(unittest.TestCase):
         mismatched_log = json.loads(json.dumps(schedule))
         mismatched_log["common_receipt"]["log_indices"][first["object_id"]] += 1
         self.assertTrue(any("museum_receipt must equal" in issue for issue in validate_provenance_schedule(mismatched_log)))
+
+    def test_gift_authorization_supports_exact_multi_transaction_receipts(self) -> None:
+        _vocabularies, _envelope, store = load_schemas(REPO_ROOT)
+        schema = json.loads((REPO_ROOT / "schemas/gift-acceptance-authorization.schema.json").read_text(encoding="utf-8"))
+        validator = validator_for(schema, store)
+        magnum = json.loads((REPO_ROOT / "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json").read_text(encoding="utf-8"))["payload"]
+        self.assertEqual([], list(validator.iter_errors(magnum)))
+        self.assertNotIn("custody_receipt", magnum)
+        self.assertEqual(5, len(magnum["custody_receipts"]))
+        self.assertEqual(5, len({receipt["transaction_hash"] for receipt in magnum["custody_receipts"]}))
+        self.assertTrue(all(receipt["transfer_count"] == 1 and len(receipt["logs"]) == 1 for receipt in magnum["custody_receipts"]))
+        self.assertEqual([], validate_gift_acceptance_authorization(magnum))
+
+        mismatched = json.loads(json.dumps(magnum))
+        mismatched["custody_receipts"][0]["logs"][0] = mismatched["custody_receipts"][1]["logs"][0]
+        self.assertTrue(any("exactly cover assets" in issue for issue in validate_gift_acceptance_authorization(mismatched)))
+
+        casey = json.loads((REPO_ROOT / "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json").read_text(encoding="utf-8"))["payload"]
+        self.assertEqual([], list(validator.iter_errors(casey)))
+        self.assertIn("custody_receipt", casey)
+        self.assertNotIn("custody_receipts", casey)
+
+    def test_magnum_rights_separate_museum_display_from_general_reuse(self) -> None:
+        for index in range(1, 6):
+            rights_id = f"6529NM.2026.002.RIGHTS.{index:02d}"
+            payload = json.loads((REPO_ROOT / "records/accessions/6529NM.2026.002/rights" / f"{rights_id}.json").read_text(encoding="utf-8"))["payload"]
+            grants = payload["grants"]
+            self.assertEqual("granted_with_conditions", grants["publication"]["grant_status"])
+            self.assertEqual("granted_with_conditions", grants["exhibition"]["grant_status"])
+            self.assertEqual("granted_with_conditions", grants["accessibility"]["grant_status"])
+            for use in ("reproduction", "print", "derivative_use", "ai_training", "preservation"):
+                self.assertEqual("denied", grants[use]["grant_status"], (rights_id, use))
+            self.assertEqual("not_applicable", grants["migration_emulation"]["grant_status"])
 
     def test_unresolved_cross_reference_is_rejected(self) -> None:
         temporary, records = self.make_records_root()
@@ -714,7 +747,8 @@ class ControlPlaneTests(unittest.TestCase):
             with self.subTest(label=label):
                 record = json.loads(source.read_text(encoding="utf-8"))
                 mutate(record)
-                record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
+                if isinstance(record["record_control"].get("review"), dict):
+                    record["record_control"]["review"]["payload_sha256"] = bootstrap_validate.canonical_payload_hash(record)
                 path.write_text(json.dumps(record), encoding="utf-8")
                 with patch.object(bootstrap_validate, "ROOT", root), patch.object(bootstrap_validate, "fail", side_effect=raise_failure):
                     with self.assertRaisesRegex(ValueError, expected):

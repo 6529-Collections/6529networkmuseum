@@ -1,0 +1,78 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x545f3d8d3b0d09d07150128cce202d646fa873d829877baafd04bf9029718539"
+    },
+    "effectiveAt": 1786573476,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x2c013cbcb8eaf38fed12bc35249f062a9bbf38a451bb4aa2295aac12252c7442",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0222.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Collection accession relation",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:ebbed0a09cbf6999ad1e6b377432bd90fd4c8d2361521aa3b8050841c02a99a5",
+    "qualifier": {
+      "collection_membership_status": "permanent_collection"
+    },
+    "record_id": "6529NM-REL-0222",
+    "record_status": "reviewed",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-002",
+      "6529NM-C-0001",
+      "6529NM-W-0025",
+      "6529NM.2026.002.02"
+    ],
+    "relation_id": "6529NM-REL-0222",
+    "relation_type": "COLLECTION_CONTAINS_WORK",
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
+      "reviewer_ids": [
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-C-0001",
+    "source_record_ids": [
+      "6529NM-ACC-2026-002",
+      "6529NM.2026.002.02"
+    ],
+    "subject_id": "6529NM-REL-0222",
+    "target_entity_id": "6529NM-W-0025",
+    "visibility": "public"
+  }
+}

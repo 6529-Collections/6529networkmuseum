@@ -83,28 +83,31 @@ that need the whole repository or need to compare values:
   pending or reviewed state already committed. This replay does not grant
   approval; publication activation separately verifies the exact candidate-A
   parent, reviewer binding, and review-only A-to-B delta. The command verifies
-  the Stream-shaped public projection: 127 `PUBLIC_ENTITY` records, 212 closed
+  the Stream-shaped public projection: 128 `PUBLIC_ENTITY` records, 222 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
-  (340 generated records in total). Six withdrawn draft relation assertions
+  (351 generated records in total). Six withdrawn draft relation assertions
   retain append-only identity tombstones and their identifiers cannot be
   reused.
   The graph gate covers 21 Artist entities, 2 Organization entities, 6
   Project/Series entities, 28 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
-  creator relations, 7 Casey Collection memberships, 16 Keys and Gates
-  selections, and the five Magnum Work identities.
+  creator relations, 12 permanent Collection memberships across the completed
+  Casey and Magnum accessions, and 16 Keys and Gates selections outside the
+  Collection.
 - `tests/test_public_entity_layer.py` verifies every Work/media join against its
   governed presentation state: all 7 Casey Works have an official visual still
-  and sandboxed live generator, while the 16 Keys and Gates and 5 signed-Wave
-  Magnum presentation records remain structurally metadata-only. It fails
+  and sandboxed live generator, while the 16 Keys and Gates derivatives and
+  five accessioned Magnum photographs retain their distinct rights, source,
+  accessibility, fixity, and affordance controls. It fails
   closed on cross-work media reuse, rights/affordance expansion, generic image
   URLs, collection membership without accession, proposal-as-method,
   route/profile mismatches, and nonexistent evidence paths.
-- The live Magnum status is an append-only observation. `WINNER` selection
-  advances `6529NM-CA-2026-003` and Works `6529NM-W-0024` through `0028` to
-  `selected_by_museum_wave_acquisition_review_in_progress`, while mint,
-  acceptance, transfer, title, custody, rights, technical/preservation,
-  accession, and Collection membership remain independent facts.
+- The Magnum lifecycle is append-only. The original `PARTICIPATORY` proposal
+  and signed `WINNER` selection remain historical observations. Formal
+  acceptance, five verified transfers, and accession `6529NM.2026.002` then
+  advance `6529NM-CA-2026-003` and Works `6529NM-W-0024` through `0028` into
+  the permanent Collection. Mint, title, custody, rights, technical condition,
+  preservation, and display remain independently evidenced facts.
 
 The bootstrap layer additionally verifies that governance decisions reproduce
 the source snapshot, `WINNER`/`PARTICIPATORY` effects are not reclassified,

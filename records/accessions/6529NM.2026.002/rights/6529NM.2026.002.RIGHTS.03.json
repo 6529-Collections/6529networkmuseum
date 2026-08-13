@@ -1,0 +1,167 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "RIGHTS_STATEMENT",
+    "subjectId": "0x403223a675851c7d8a1f00569909a5c87e49662a467f94121f4737018553d3d4",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x161b554cd703aa33a6b894036523ea74bc6bb9bc2ecb7034c2f9ff7f51dd6b6e",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.03.json",
+    "schemaId": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1786573476
+  },
+  "payload": {
+    "basis": "The source metadata and public proposal identify the photograph as All Rights Reserved. The Museum interprets acquisition as including ordinary credited museum display, publication, and accessibility uses; copyright ownership, commercial reproduction, derivative use, licensing, and AI training remain separate.",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction",
+      "role": "constructor",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "created_at": "2026-08-12T22:24:36.387Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
+    "events": [
+      {
+        "event_id": "6529NM.2026.002.RIGHTS.03.EVENT.rights_assertion.25741809",
+        "event_type": "rights_assertion",
+        "occurred_at": "2026-08-12T22:24:36.387Z",
+        "authority_reference": "6529NM-ACC-2026-002",
+        "evidence_refs": [
+          {
+            "label": "Proposed object record",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/03-micha-bar-am-97.md",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "evidence_class": "B"
+          },
+          {
+            "label": "Public accession status",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "evidence_class": "B"
+          }
+        ]
+      }
+    ],
+    "evidence_refs": [
+      {
+        "label": "Finalized Magnum custody observation",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:486a7f0e5738a9789514739844b3db4b8a59ef34e665dfc13cc3e92721dad2aa"
+      },
+      {
+        "label": "Ethereum receipt for token 97",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/raw/receipt-97/sha256-98bba5aa8209103a0d796f1517380ee853617d256dad29c91204d19f24da9420.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:98bba5aa8209103a0d796f1517380ee853617d256dad29c91204d19f24da9420"
+      },
+      {
+        "label": "Original proposed gift and full-gift offer",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Proposed object record",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/03-micha-bar-am-97.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Public accession status",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      }
+    ],
+    "grants": {
+      "reproduction": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-003"
+      },
+      "publication": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "exhibition": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "print": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-003"
+      },
+      "derivative_use": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-003"
+      },
+      "ai_training": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-003"
+      },
+      "preservation": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum has an ongoing preservation responsibility, but the current record does not assert a preservation-master or general preservation-copy right for the source photograph.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-003"
+      },
+      "migration_emulation": {
+        "grant_status": "not_applicable",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "Migration or emulation is not required to display this static photographic manifestation; no broader migration right is asserted.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "accessibility": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      }
+    },
+    "object_id": "6529NM.2026.002.03",
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:330e45fb0185c717883f26a25e5daf4393e954d7ac6ab0a50342aff62df23177",
+    "record_id": "6529NM.2026.002.RIGHTS.03",
+    "record_status": "review_pending",
+    "record_type": "RIGHTS_STATEMENT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-002",
+      "6529NM.2026.002",
+      "6529NM.2026.002.03"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights_holder_reference": "Micha Bar-Am / Magnum Photos",
+    "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-ACC-2026-002"
+      ]
+    },
+    "subject_id": "6529NM.2026.002.RIGHTS.03",
+    "visibility": "public"
+  }
+}

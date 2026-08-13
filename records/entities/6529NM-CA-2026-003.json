@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x603954a895225816f1f74d63c4a1f015af751b97bef25ef56841bb0a9ec76c6e"
+      "digest": "0xe2a2efae1f9cdf74917a3dcd52da8e365726d1ffc62a55e3febda984efe23620"
     },
-    "effectiveAt": 1786184102,
+    "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -21,12 +21,12 @@
   "payload": {
     "canonical_route": "/museum/network/acquisitions/conflict-at-its-edges",
     "constructor": {
-      "id": "codex-task:magnum-accession-media-continuity-2026-08-12",
-      "observed_at": "2026-08-12T07:37:56Z",
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T07:37:56Z",
-    "effective_at": "2026-08-08T10:15:02.0167151Z",
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-CA-2026-003",
     "entity_status": "published",
     "entity_type": "CURATED_ACQUISITION",
@@ -50,15 +50,33 @@
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
       },
       {
+        "evidence_class": "A",
+        "label": "Finalized Museum custody observation",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+      },
+      {
         "evidence_class": "B",
-        "label": "Current accession-processing status",
-        "observed_at": "2026-08-12T07:37:56Z",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+        "label": "Accession certificate",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Completed public accession status",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Completed accession status",
+        "observed_at": "2026-08-12T23:15:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
       },
       {
         "evidence_class": "B",
         "label": "Contextual public presentation authority",
-        "observed_at": "2026-08-12T07:37:56Z",
+        "observed_at": "2026-08-12T23:15:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
       },
       {
@@ -71,13 +89,13 @@
     "media_entity_ids": [
       "6529NM-MED-0004"
     ],
-    "observed_at": "2026-08-08T10:15:02.0167151Z",
+    "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:75a3e2c413c0df4d5f85e2862b3dff3de89ca5f0c23ff8f22cdf8578b47ee4ed",
+    "payload_sha256": "sha256:7e12a9e33f950cad5883d2da35805dba8840d4aa1eb69ba545d68f2e6ebe92e4",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "acquisition_method": "donation",
-      "collection_effect": "none",
+      "collection_effect": "permanent_collection",
       "evidence_refs": [
         {
           "evidence_class": "B",
@@ -98,15 +116,33 @@
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
         },
         {
+          "evidence_class": "A",
+          "label": "Finalized Museum custody observation",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+        },
+        {
           "evidence_class": "B",
-          "label": "Current accession-processing status",
-          "observed_at": "2026-08-12T07:37:56Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
+          "label": "Accession certificate",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Completed public accession status",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Completed accession status",
+          "observed_at": "2026-08-12T23:15:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
         },
         {
           "evidence_class": "B",
           "label": "Contextual public presentation authority",
-          "observed_at": "2026-08-12T07:37:56Z",
+          "observed_at": "2026-08-12T23:15:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
         },
         {
@@ -118,133 +154,139 @@
       ],
       "independent_acquisition_facts": {
         "custody": {
-          "as_of": "2026-08-06T13:19:30.726Z",
-          "evidence_refs": [
-            {
-              "evidence_class": "B",
-              "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
-            }
-          ],
-          "notes": "Observed external owner is not Museum custody.",
-          "status": "unverified"
-        },
-        "display": {
-          "as_of": "2026-08-12T07:37:56.984246Z",
-          "evidence_refs": [
-            {
-              "evidence_class": "B",
-              "label": "Historical Wave publication observation",
-              "observed_at": "2026-08-08T10:15:02.0167151Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
-            },
-            {
-              "evidence_class": "B",
-              "label": "Active accession-media source continuity amendment",
-              "observed_at": "2026-08-12T07:37:56.984246Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
-            }
-          ],
-          "notes": "Downstream accession review preserves the historical Wave locators and uses the exact fixity-verified token-source bytes for contextual acquisition, artist, and Work display. Download, zoom, fullscreen, derivative, and preservation claims remain blocked.",
-          "status": "verified_with_conditions"
-        },
-        "mint": {
-          "as_of": "2026-08-05T17:46:53.817Z",
+          "as_of": "2026-08-12T22:24:36.387Z",
           "evidence_refs": [
             {
               "evidence_class": "A",
-              "label": "Finalized Ethereum chain observation",
-              "observed_at": "2026-08-05T17:46:53.817Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "label": "Finalized Museum custody observation",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
             }
           ],
-          "notes": "Finalized Ethereum chain observation proves an existing external ERC-721 token manifestation only; it does not establish Museum acquisition, title, custody, rights, accession, or Collection membership.",
+          "notes": "Finalized Ethereum observations place all five token manifestations in the Museum Safe.",
+          "status": "verified"
+        },
+        "display": {
+          "as_of": "2026-08-12T22:24:36.387Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.01.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/technical/6529NM.2026.002.01.json"
+            }
+          ],
+          "notes": "The five works are ready for credited, contextual Museum display subject to their recorded rights and source conditions.",
+          "status": "verified_with_conditions"
+        },
+        "mint": {
+          "as_of": "2026-08-12T22:24:36.387Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized Ethereum custody and token observation",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+            }
+          ],
+          "notes": "Finalized Ethereum chain evidence verifies the existing ERC-721 token manifestations independently of title, custody, rights, and accession.",
           "status": "verified"
         },
         "payment": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T22:24:36.387Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
             }
           ],
-          "notes": "No Museum purchase is recorded.",
-          "status": "not_established"
+          "notes": "The completed acquisition is a gift; no Museum purchase is recorded.",
+          "status": "not_applicable"
         },
         "preservation": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T22:24:36.387Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/technical/6529NM.2026.002.01.json"
+            }
+          ],
+          "notes": "Source-image retention, redundant replication, and continuing provenance enrichment are active stewardship work.",
+          "status": "in_progress"
+        },
+        "rights": {
+          "as_of": "2026-08-12T22:24:36.387Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.01.json"
             }
           ],
-          "notes": "The upstream files are not Museum preservation objects.",
-          "status": "not_started"
-        },
-        "rights": {
-          "as_of": "2026-08-12T07:37:56.984246Z",
-          "evidence_refs": [
-            {
-              "evidence_class": "B",
-              "label": "Accession-media source continuity amendment",
-              "observed_at": "2026-08-12T07:37:56.984246Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
-            }
-          ],
-          "notes": "Downstream accession review retains All Rights Reserved and authorizes only contextual presentation of the five reviewed images; copyright transfer and broader reproduction rights are not established.",
+          "notes": "The works remain All Rights Reserved. Credited, contextual Museum display is documented; copyright transfer and broader reuse rights are not claimed.",
           "status": "verified_with_conditions"
         },
         "technical": {
-          "as_of": "2026-08-12T07:37:56.984246Z",
+          "as_of": "2026-08-12T22:24:36.387Z",
           "evidence_refs": [
             {
-              "evidence_class": "B",
-              "label": "Accession-media source continuity amendment",
-              "observed_at": "2026-08-12T07:37:56.984246Z",
-              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
+              "evidence_class": "C",
+              "label": "Source record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/technical/6529NM.2026.002.01.json"
             }
           ],
-          "notes": "Downstream accession review verifies token identity, metadata, image fixity, finalized chain observations, and administrative mutability; transfer-time rechecks remain required.",
+          "notes": "Token identity, transfer receipts, ownership, metadata, source-image fixity, and display conditions are documented for the accession.",
           "status": "verified_with_conditions"
         },
         "title": {
-          "as_of": "2026-08-06T13:19:30.726Z",
+          "as_of": "2026-08-12T22:24:36.387Z",
           "evidence_refs": [
             {
               "evidence_class": "B",
               "label": "Source record",
-              "observed_at": "2026-08-06T13:19:30.726Z",
-              "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Source record",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
             }
           ],
-          "notes": "No Museum title binding is recorded.",
-          "status": "not_established"
+          "notes": "The donor's full-gift offer, formal acceptance, and object schedule bind title to the five token manifestations. Copyright is not transferred.",
+          "status": "verified"
         }
       },
       "lifecycle": {
-        "as_of": "2026-08-08T10:15:02.0167151Z",
+        "as_of": "2026-08-12T22:24:36.387Z",
         "evidence_refs": [
           {
-            "evidence_class": "B",
-            "label": "Signed-drop API WINNER status readback (is_signed=true)",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "evidence_class": "A",
+            "label": "Finalized Museum custody observation",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
           },
           {
             "evidence_class": "B",
-            "label": "Museum Wave drop page readback",
-            "observed_at": "2026-08-08T10:15:02.0167151Z",
-            "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0"
+            "label": "Accession certificate",
+            "observed_at": "2026-08-12T22:24:36.387Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
           }
         ],
-        "status": "selected_by_museum_wave_acquisition_review_in_progress"
+        "status": "accessioned_into_permanent_collection"
       },
       "lifecycle_observations": [
         {
@@ -289,6 +331,32 @@
           ],
           "source_status": "WINNER",
           "status": "selected_by_museum_wave_acquisition_review_in_progress"
+        },
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized Museum custody observation",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-08-12T22:24:36.387Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+            }
+          ],
+          "notes": "The completed gift is formally accepted and its five Works are accessioned into the permanent Collection.",
+          "observation_id": "6529NM-CA-OBS-0005",
+          "observed_at": "2026-08-12T22:24:36.387Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-002",
+            "6529NM.2026.002",
+            "6529NM.2026.002.GAA-01"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned_into_permanent_collection"
         }
       ],
       "profile_type": "CURATED_ACQUISITION",
@@ -302,16 +370,20 @@
           "6529NM-WAVE-OBS-2026-08-08-001"
         ]
       },
-      "public_credit": "Selected by the Museum Wave; accession processing in progress",
+      "public_credit": "Gift of punk6529",
       "source_work_record_ids": [
-        "6529NM-PG-2026-001",
         "6529NM-PG-2026-001.OBJ-001",
         "6529NM-PG-2026-001.OBJ-002",
         "6529NM-PG-2026-001.OBJ-003",
         "6529NM-PG-2026-001.OBJ-004",
-        "6529NM-PG-2026-001.OBJ-005"
+        "6529NM-PG-2026-001.OBJ-005",
+        "6529NM.2026.002.01",
+        "6529NM.2026.002.02",
+        "6529NM.2026.002.03",
+        "6529NM.2026.002.04",
+        "6529NM.2026.002.05"
       ],
-      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Selected across two Magnum Photos 75 curations, they form a Museum acquisition undergoing accession processing whose coherence lies in how each image tests what documentary evidence can show and what remains unresolved.",
+      "thesis": "Five photographs made between 1952 and 2016 approach conflict through borders, religious and domestic space, smoke, ruins, and the uncertain aftermath of violence. Accessioned together from two Magnum Photos 75 curations, they test what documentary evidence can show and what remains unresolved.",
       "title": "Conflict at Its Edges",
       "work_entity_ids": [
         "6529NM-W-0024",
@@ -327,6 +399,8 @@
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
+      "6529NM-ACC-2026-002",
+      "6529NM-ACC-ENT-0002",
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-001",
       "6529NM-PG-2026-001.OBJ-002",
@@ -338,23 +412,32 @@
       "6529NM-W-0026",
       "6529NM-W-0027",
       "6529NM-W-0028",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002",
+      "6529NM.2026.002.01",
+      "6529NM.2026.002.02",
+      "6529NM.2026.002.03",
+      "6529NM.2026.002.04",
+      "6529NM.2026.002.05",
+      "6529NM.2026.002.GAA-01"
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3",
+      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
       "outcome": "approved",
-      "reviewed_at": "2026-08-12T11:05:56.912308Z",
-      "reviewed_commit": "c326825445ce1c2ea70623cb75d721164be36619",
-      "reviewed_manifest_keccak": "0xac73dfbdff1e299ebcb5c6d1bb6e190d5900b4d58d10019562f3092743773eda",
-      "reviewed_manifest_sha256": "sha256:0b4f8a83095ce3496524f6bd9196fde813aa6754c6d18714633c7b217c34c01b",
+      "reviewed_at": "2026-08-13T01:03:10.259Z",
+      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
+      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
+      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
       "reviewer_ids": [
-        "019ff59d-d5d1-71c1-9d78-6a3f0b6d86e3"
+        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
       ],
       "role": "reviewer"
     },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
+      "6529NM-ACC-2026-002",
+      "6529NM-ACC-ENT-0002",
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-001",
       "6529NM-PG-2026-001.OBJ-002",
@@ -366,7 +449,14 @@
       "6529NM-W-0026",
       "6529NM-W-0027",
       "6529NM-W-0028",
-      "6529NM-WAVE-OBS-2026-08-08-001"
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002",
+      "6529NM.2026.002.01",
+      "6529NM.2026.002.02",
+      "6529NM.2026.002.03",
+      "6529NM.2026.002.04",
+      "6529NM.2026.002.05",
+      "6529NM.2026.002.GAA-01"
     ],
     "status_observation": {
       "evidence_refs": [
@@ -387,27 +477,9 @@
           "label": "Curated acquisition thesis",
           "observed_at": "2026-08-09T00:00:00Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md"
-        },
-        {
-          "evidence_class": "B",
-          "label": "Current accession-processing status",
-          "observed_at": "2026-08-12T07:37:56Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-11-accession-processing.md"
-        },
-        {
-          "evidence_class": "B",
-          "label": "Contextual public presentation authority",
-          "observed_at": "2026-08-12T07:37:56Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/dossiers/public-presentation.md"
-        },
-        {
-          "evidence_class": "B",
-          "label": "Accession-media source continuity amendment",
-          "observed_at": "2026-08-12T07:37:56.984246Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
         }
       ],
-      "observed_at": "2026-08-08T10:15:02.0167151Z",
+      "observed_at": "2026-08-12T22:24:36.387Z",
       "status_label": "published"
     },
     "subject_id": "6529NM-CA-2026-003",

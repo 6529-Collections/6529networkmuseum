@@ -1,12 +1,12 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 3,
+    "revision": 4,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:magnum-accession-media-continuity-2026-08-12",
+      "actor_id": "codex-task:magnum-completed-accession-correction",
       "role": "constructor",
-      "constructed_at": "2026-08-12T07:37:56.984246Z"
+      "constructed_at": "2026-08-12T22:24:36.387Z"
     },
     "review": null
   },
@@ -22,10 +22,16 @@
       "superseded_at": "2026-08-12T07:37:56.984246Z",
       "supersedes": "sha256:bf3f88f57f413d2b76a4a57700a155d4888c80b76fc12555aa73daca3fa98685",
       "prior_payload_sha256": "sha256:bf3f88f57f413d2b76a4a57700a155d4888c80b76fc12555aa73daca3fa98685"
+    },
+    {
+      "revision": 3,
+      "superseded_at": "2026-08-12T22:24:36.387Z",
+      "supersedes": "sha256:b88248357580422a4e96bc0589b2e6f72c26c7e51cb2be6396ce79ca2e5f34ce",
+      "prior_payload_sha256": "sha256:b88248357580422a4e96bc0589b2e6f72c26c7e51cb2be6396ce79ca2e5f34ce"
     }
   ],
   "local_profile": "6529NM_WP3_MAGNUM_SCHOLARSHIP_V2",
-  "status": "canonical_review_pending_publication_projection",
+  "status": "canonical_review_pending_accessioned_publication_projection",
   "content_root": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship",
   "content_root_role": "governed_public_scholarship",
   "final_public_namespace": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship",
@@ -55,7 +61,7 @@
     "rater_count": 29,
     "observed_at": "2026-08-08T10:15:02.0167151Z",
     "selection_established": true,
-    "public_status": "Selected by Museum Wave; accession processing in progress",
+    "public_status": "Historical Wave status observed 8 August 2026: selected; accession processing then remained in progress",
     "lifecycle_status": "selected_by_museum_wave_acquisition_review_in_progress",
     "prior_observation": {
       "drop_type": "PARTICIPATORY",
@@ -67,15 +73,9 @@
       "selection_established": false
     },
     "status_boundary": [
-      "formal acceptance",
-      "donor authority",
-      "transfer and legal title",
-      "Museum custody",
-      "rights clearance",
-      "technical review",
-      "preservation completion",
-      "accession",
-      "permanent Collection membership"
+      "The Wave observation establishes historical selection of the exact five-Work proposal.",
+      "Accession 6529NM.2026.002 separately establishes formal acceptance, donor authority, title transfer, Museum custody, rights and technical review, accession, and permanent Collection membership.",
+      "Preservation and provenance enrichment remain continuing stewardship after accession."
     ]
   },
   "current_publication_observation": {
@@ -105,8 +105,10 @@
       "Review the Organization, Project, five Artists, five Works, Curated Acquisition, Research Publication, Media References, and declared relations as one coherent publication group.",
       "Retain the canonical scholarship and machine projections in the release manifest.",
       "Keep each Work's governed ID, proposal object alias, token CAIP-19, archive number, token component, metadata component, source-image component, and historical Wave manifestation distinct.",
-      "Keep lifecycle selected_by_museum_wave_acquisition_review_in_progress and collection membership not_in_collection; retain the proposal-origin observation in lifecycle history.",
-      "Keep accession, title binding, custody, condition, preservation, and object-record admission as later records; do not manufacture them in this projection.",
+      "Treat the 2026-08-08 WINNER as a historical Wave selection observation and retain it in lifecycle history.",
+      "Admit completed accession 6529NM.2026.002 into the permanent Collection with object records 6529NM.2026.002.01 through 6529NM.2026.002.05 and separate title, custody, rights, condition, and preservation records.",
+      "Allow exact fixity-verified token-source images to display with credit in accession, Collection, acquisition, artist, Work, and scholarship contexts under the current Museum determination.",
+      "Do not infer copyright transfer, general reproduction, commercial, licensing, crop, recompression, download, preservation-master, or AI-training rights from accession or custody.",
       "Bind the admitted release group to the exact reviewed commit and regenerated manifest."
     ]
   },
@@ -170,8 +172,8 @@
       ],
       "id_owner": "governed public entity identity inventory",
       "admit_as": "Work",
-      "lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "collection_membership": "not_in_collection",
+      "lifecycle": "accessioned",
+      "collection_membership": "permanent_collection",
       "projection_file": "machine/work-projections.json",
       "pages": [
         "works/01-david-seymour-127.md",
@@ -185,7 +187,7 @@
       "id": "6529NM-CA-2026-003",
       "admit_as": "Curated Acquisition",
       "page": "entities/conflict-at-its-edges.md",
-      "state": "selected_by_museum_wave_acquisition_review_in_progress"
+      "state": "accessioned_into_permanent_collection"
     },
     "research_publications": {
       "admit_as": "Research Publication",
@@ -197,18 +199,24 @@
       "admit_as": "Media Reference",
       "page": "dossiers/source-and-rights-record.md",
       "machine_record": "machine/wave-media-join.json",
-      "scope": "historical_proposal_wave_media_only",
-      "receipt_binding": "The enveloped 2026-08-08 observation binds the signed Wave publication and part-content hashes. Later 2026-08-09 public-safe API evidence confirms historical Wave media locators, MIME types, and media states. Contextual display authority is recorded in 6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001; the 2026-08-12 accession-media source-continuity amendment selects the exact fixity-verified token-source images for display while retaining the Wave locators as publication evidence.",
+      "scope": "historical_wave_media_and_accessioned_collection_display",
+      "receipt_binding": "The enveloped 2026-08-08 observation binds the signed Wave publication and part-content hashes. Later public-safe API evidence confirms historical Wave media locators, MIME types, and media states. The 2026-08-12 accession-media source-continuity amendment selects exact fixity-verified token-source images for credited display in accession, Collection, acquisition, artist, Work, and scholarship contexts while retaining the Wave locators as historical publication evidence.",
       "standalone_work_route": "deny_without_verified_work_ca_media_observation_relation",
-      "required_relation_fields": ["work_entity_id", "media_reference_entity_id", "curated_acquisition_id", "proposal_id", "wave_publication_observation_id"],
+      "required_relation_fields": [
+        "work_entity_id",
+        "media_reference_entity_id",
+        "curated_acquisition_id",
+        "proposal_id",
+        "wave_publication_observation_id"
+      ],
       "historical_label_required": "Wave-source historical proposal media"
     }
   },
   "relations": [
     "Organization Magnum Photos originates Project or Series Magnum Photos 75.",
-    "Project or Series Magnum Photos 75 contextualizes five selected Work projections.",
+    "Project or Series Magnum Photos 75 contextualizes five accessioned Work projections.",
     "Each Work is created_by one of five admitted Artist entities.",
-    "Curated Acquisition 6529NM-CA-2026-003 is the selected five-Work acquisition undergoing accession processing, historically documented by Proposed Gift 6529NM-PG-2026-001.",
+    "Curated Acquisition 6529NM-CA-2026-003 is the completed five-Work accession in the permanent Collection, historically proposed by Proposed Gift 6529NM-PG-2026-001.",
     "Each Work is manifested by a token component, token metadata component, upstream source-image component, and historical Wave media reference.",
     "Research Publication 6529NM-RP-0003 interprets and cites the Organization, Project, Artists, Works, Curated Acquisition, and Evidence Sources.",
     "Acquisition Program 6529NM-AP-ENT-0001 contains Curated Acquisition 6529NM-CA-2026-003.",
@@ -249,11 +257,26 @@
         "6529NM-W-0028"
       ],
       "ordered_pairs": [
-        ["6529NM-ART-0017", "6529NM-W-0024"],
-        ["6529NM-ART-0018", "6529NM-W-0025"],
-        ["6529NM-ART-0019", "6529NM-W-0026"],
-        ["6529NM-ART-0020", "6529NM-W-0027"],
-        ["6529NM-ART-0021", "6529NM-W-0028"]
+        [
+          "6529NM-ART-0017",
+          "6529NM-W-0024"
+        ],
+        [
+          "6529NM-ART-0018",
+          "6529NM-W-0025"
+        ],
+        [
+          "6529NM-ART-0019",
+          "6529NM-W-0026"
+        ],
+        [
+          "6529NM-ART-0020",
+          "6529NM-W-0027"
+        ],
+        [
+          "6529NM-ART-0021",
+          "6529NM-W-0028"
+        ]
       ]
     },
     {
@@ -284,11 +307,26 @@
         "6529NM-MED-0044"
       ],
       "ordered_pairs": [
-        ["6529NM-W-0024", "6529NM-MED-0003"],
-        ["6529NM-W-0025", "6529NM-MED-0041"],
-        ["6529NM-W-0026", "6529NM-MED-0042"],
-        ["6529NM-W-0027", "6529NM-MED-0043"],
-        ["6529NM-W-0028", "6529NM-MED-0044"]
+        [
+          "6529NM-W-0024",
+          "6529NM-MED-0003"
+        ],
+        [
+          "6529NM-W-0025",
+          "6529NM-MED-0041"
+        ],
+        [
+          "6529NM-W-0026",
+          "6529NM-MED-0042"
+        ],
+        [
+          "6529NM-W-0027",
+          "6529NM-MED-0043"
+        ],
+        [
+          "6529NM-W-0028",
+          "6529NM-MED-0044"
+        ]
       ]
     },
     {
@@ -305,12 +343,30 @@
     {
       "relation_type": "AGENT_PLAYS_ROLE",
       "ordered_pairs": [
-        ["6529NM-ORG-0002", "6529NM-PRJ-0006"],
-        ["6529NM-ART-0017", "6529NM-PRJ-0006"],
-        ["6529NM-ART-0018", "6529NM-PRJ-0006"],
-        ["6529NM-ART-0019", "6529NM-PRJ-0006"],
-        ["6529NM-ART-0020", "6529NM-PRJ-0006"],
-        ["6529NM-ART-0021", "6529NM-PRJ-0006"]
+        [
+          "6529NM-ORG-0002",
+          "6529NM-PRJ-0006"
+        ],
+        [
+          "6529NM-ART-0017",
+          "6529NM-PRJ-0006"
+        ],
+        [
+          "6529NM-ART-0018",
+          "6529NM-PRJ-0006"
+        ],
+        [
+          "6529NM-ART-0019",
+          "6529NM-PRJ-0006"
+        ],
+        [
+          "6529NM-ART-0020",
+          "6529NM-PRJ-0006"
+        ],
+        [
+          "6529NM-ART-0021",
+          "6529NM-PRJ-0006"
+        ]
       ]
     },
     {
@@ -339,13 +395,19 @@
     }
   ],
   "acquisition_boundary": {
-    "accession_id": null,
-    "object_record_ids": null,
-    "title_binding": null,
-    "custody": null,
-    "condition": null,
-    "preservation": null,
-    "rights": "source notices and narrow proposal-media disposition only; no general reproduction grant"
+    "accession_id": "6529NM.2026.002",
+    "object_record_ids": [
+      "6529NM.2026.002.01",
+      "6529NM.2026.002.02",
+      "6529NM.2026.002.03",
+      "6529NM.2026.002.04",
+      "6529NM.2026.002.05"
+    ],
+    "title_binding": "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
+    "custody": "evidence/magnum-75-custody/summary.json",
+    "condition": "records/accessions/6529NM.2026.002/public/technical-and-condition-review.md",
+    "preservation": "continuing_stewardship",
+    "rights": "records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.01.json"
   },
   "media_policy_reference": "dossiers/source-and-rights-record.md",
   "active_media_source_amendment": {

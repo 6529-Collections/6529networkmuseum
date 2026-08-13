@@ -13,14 +13,13 @@ five photographs together across two curations in Magnum Photos 75. The Museum
 publishes the relation as a curatorial proposition distinct from those source
 curations and from the larger Magnum archive.
 
-The Museum Wave selected the five-work acquisition, and accession processing is
-in progress. This edition contains the resulting object identification,
-scholarship, provenance research, rights and technical review, contextual image
-presentation, and preservation planning. The rights and technical findings are
-complete for the present evidence and carry stated conditions, including
-transfer-time rechecks. Title transfer, custody receipt, certificate delivery,
-formal accession, and Collection membership remain open until their own
-evidence is recorded.
+The Museum Wave selected the five-work acquisition, which is now a completed
+gift accessioned into the permanent Collection as `6529NM.2026.002`. This
+edition contains the resulting object identification, scholarship, provenance
+research, rights and technical review, contextual image presentation, and
+accession record. The five Works remain individually catalogued within the
+accession; provenance, source-image, rights, and preservation stewardship
+continue as active Museum work.
 
 ## The acquisition
 
@@ -45,8 +44,8 @@ what remains beyond the frame.
 
 Each work page separates the photograph, its published caption history, its
 token manifestation, and the Museum's interpretation. Token IDs establish the
-five digital manifestations under review; they do not determine the chronology
-or identity of the photographs themselves.
+five digital manifestations in the accessioned group; they do not determine the
+chronology or identity of the photographs themselves.
 
 ## Magnum contexts
 
@@ -76,31 +75,36 @@ visible in the dossiers.
 
 ## Images, rights, and source records
 
-The historical Wave publication and token metadata provide public locators for
+The historical Wave publication and token metadata provide source records for
 the five photographs. The issuer records identify the works as All Rights
-Reserved, and no separate Museum display licence has been recorded. The
-repository therefore preserves citations, credits, dimensions, hashes, and
-non-identifying descriptions without copying or serving the photographic
-files. The Museum-authored proposal cover is a separate CC0 graphic; it is not
-a substitute for any of the five works.
+Reserved. The Museum interprets ordinary credited institutional display,
+publication, and accessibility in accession, Collection, and scholarship
+contexts as permissible. That interpretation does not transfer copyright or
+grant commercial or general reproduction, derivative, licensing, download, or
+AI-training rights. The repository preserves citations, credits, dimensions,
+hashes, and non-identifying descriptions; the token-linked renditions are not
+described as preservation masters. The Museum-authored proposal cover is a
+separate CC0 graphic and is not a substitute for any of the five works.
 
 The [public Wave publication](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0)
 is bound to Museum observation `6529NM-WAVE-PUB-OBS-2026-08-08-001`, which
 preserves the signed seven-part publication and its content hashes. A later
-public-safe API observation confirms the public media states and continuing
-`WINNER` status. The five Works, their Media References, the acquisition, and
-the observation are joined in the governed technical record. Together they
-identify the historical proposal presentation; they do not establish
-copyright, title, custody, acceptance, accession, or Collection membership.
+public-safe API observation confirms the public media states and `WINNER`
+status. The five Works, their Media References, the acquisition, the
+observation, and accession `6529NM.2026.002` are joined in the governed
+technical record. The Wave material documents the historical proposal
+presentation; the later accession records establish the Museum's current
+acceptance, title, custody, and Collection relation.
 
 ## Record identities
 
 - Curated Acquisition: `6529NM-CA-2026-003`
+- Accession: `6529NM.2026.002`
 - Research Publication: `6529NM-RP-0003`
 - Works: `6529NM-W-0024` through `6529NM-W-0028`
 - Proposed gift and historical decision record: `6529NM-PG-2026-001`
 
 These identifiers keep the acquisition, works, proposal, token manifestations,
-and eventual accession records distinct. Corrections are recorded as
+and completed accession records distinct. Corrections are recorded as
 append-only amendments so that later scholarship can improve the record without
 erasing its history.

@@ -52,7 +52,7 @@ The public lifecycle is intentionally independent from transaction and stewardsh
 6. `closed_without_selection`
 7. `withdrawn`
 
-The layer records mint, payment, title, custody, rights, technical, preservation, and display as typed independent facts with their own evidence and observation times. None is inferred from a lifecycle label, wallet custody, a transfer, a `WINNER` label, or a selected outcome. The Keys and Gates projection therefore retains `selected_through_acquisition_program_acquisition_pending`, selected outcome references, and null/unverified downstream facts. The Magnum projection retains the earlier `PARTICIPATORY` proposal observation and appends the signed-drop API `WINNER` observation as `selected_by_museum_wave_acquisition_review_in_progress`; all five Works remain outside Collection. The Casey projection records the completed accession boundary without claiming that software preservation is complete.
+The layer records mint, payment, title, custody, rights, technical, preservation, and display as typed independent facts with their own evidence and observation times. None is inferred from a lifecycle label, wallet custody, a transfer, a `WINNER` label, or a selected outcome. The Keys and Gates projection therefore retains `selected_through_acquisition_program_acquisition_pending`, selected outcome references, and null/unverified downstream facts. The Magnum projection preserves the earlier `PARTICIPATORY` and `WINNER` observations, then appends formal acceptance and accession `6529NM.2026.002`; its five Works enter the permanent Collection through the accession relations. The Casey projection records its completed accession boundary without claiming that software preservation is complete.
 
 ## Relations and direction
 

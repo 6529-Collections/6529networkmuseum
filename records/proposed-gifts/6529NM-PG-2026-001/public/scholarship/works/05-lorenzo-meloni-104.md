@@ -2,7 +2,7 @@
 
 *6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
-*Short label: Palmyra, Syria · 1 April 2016. Selected five-Work proposal; accession processing in progress.*
+*Short label: Palmyra, Syria · 1 April 2016. Accessioned gift in the permanent Collection under `6529NM.2026.002`; the Wave proposal remains part of the work’s recorded origin.*
 
 ## Looking at the Work
 
@@ -51,8 +51,8 @@ The Palmyra frame gives that method a concentrated form. The soldier’s obscure
 | Token-linked source image | Exact URI retained in governed machine evidence; no direct visitor link |
 | Observed source image | JPEG, 5,964 × 4,768 px, 16,871,807 bytes; SHA-256 `49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2` |
 | Historical Wave presentation | [Wave proposal, part 6](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0); exact media locator retained in governed machine evidence and described in the [Source and rights record](../dossiers/source-and-rights-record.md) ([S38](../sources/source-register.md)) |
-| Status | Selected by Museum Wave; accession processing in progress · Outside the permanent Collection ([S37](../sources/source-register.md)) |
-| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved ([S14](../sources/source-register.md); [S38](../sources/source-register.md)) |
+| Status | Completed gift; accessioned into the permanent Collection as `6529NM.2026.002` ([S37](../sources/source-register.md)) |
+| Credit / rights | © Lorenzo Meloni/Magnum Photos 2022 · All Rights Reserved. The Museum interprets ordinary credited institutional display, publication, and accessibility in accession, Collection, and scholarship contexts as permissible. This does not transfer copyright or grant commercial or general reproduction, derivative, licensing, download, or AI-training rights ([S14](../sources/source-register.md); [S38](../sources/source-register.md)) |
 
 ## Manifestations and stewardship
 
@@ -62,11 +62,14 @@ presentation/source file, not a declared negative or preservation master. The
 repository retains no source bytes or preservation master. The observed 16.9
 MB source remains an upstream evidence locator and is not served by the Museum.
 
-The historical CloudFront URL is evidence of public Wave presentation media.
-It may render only in this acquisition, artist, or Work context under the
-current display authority, with its supplied credit and `All Rights Reserved`
-notice. No download, zoom, fullscreen, derivative, preservation, or Collection
-inference follows ([S38](../sources/source-register.md)).
+The historical CloudFront URL remains evidence of public Wave presentation
+media. The accessioned presentation may render in accession, Collection,
+artist, Work, and scholarship contexts under the current display authority,
+with its supplied credit and `All Rights Reserved` notice. The Museum's
+interpretation covers ordinary credited institutional display, publication,
+and accessibility in those contexts; it does not grant copyright, commercial or
+general reproduction, derivative, licensing, download, or AI-training rights
+([S38](../sources/source-register.md)).
 
 Meloni’s image is the fifth work in the selected group *Conflict at Its Edges*. Its chronological position and `2/3` curation mark are exact features of the token record. Its interpretation within the group remains a Museum argument about borders, access, damaged sites, captions, and documentary afterlives.
 

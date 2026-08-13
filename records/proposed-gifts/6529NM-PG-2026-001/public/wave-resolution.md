@@ -18,20 +18,17 @@ The complete gift is offered by punk6529. The Wave considers all five works as o
 
 ## Current status
 
-**Selected by Museum Wave; accession processing in progress.** The five-work
-acquisition remains outside the permanent Collection while its accession is
-being completed. The authenticated `WINNER` readback establishes the Wave
-selection. Scholarship, object identification, donor and title review, rights,
-technical and provenance review, image presentation, preservation planning,
-and accession-record construction now form the Museum's downstream accession
-work. Title transfer, custody receipt, certificate delivery, formal accession,
-and Collection membership remain open until supported by their own evidence.
-See the append-only [current processing amendment](status-amendments/2026-08-11-accession-processing.md),
-which preserves the exact `WINNER` readback and prior `PARTICIPATORY` history,
-and the [historical selection amendment](status-amendments/2026-08-08-winner.md).
+**Completed gift; accessioned into the permanent Collection as accession
+`6529NM.2026.002`.** The five Works were selected by the Museum Wave and were
+subsequently accepted and accessioned as one gift from punk6529. The accession
+record covers the five token manifestations and preserves their individual
+object, provenance, title, custody, rights, technical, and accession records.
+Provenance, source-image, rights, and preservation stewardship remain active
+after accession. See the [completed accession amendment](status-amendments/2026-08-12-accession-completed.md),
+which records the transition, alongside the [historical selection amendment](status-amendments/2026-08-08-winner.md).
 
 ## Effect (historical publication rule)
 
-The following conditional is retained as the historical publication rule for the proposal's original Wave decision: if the Wave drop carrying this candidate clears the applicable TDH threshold, the five-work gift is selected. Identity, donor authority, legal title, rights, technical review, transfer, custody receipt, formal acceptance, preservation, and accession will follow.
+The following conditional is retained as the historical publication rule for the proposal's original Wave decision: if the Wave drop carrying this candidate clears the applicable TDH threshold, the five-work gift is selected. Under the operating rule in force at that time, identity, donor authority, legal title, rights, technical review, transfer, custody receipt, formal acceptance, preservation, and accession would follow. Those subsequent steps are now documented by accession `6529NM.2026.002`.
 
 Otherwise, the proposal closes without selection and has no collection-status effect. Closure applies only to this proposal; future gifts from Magnum Photos 75 and works by these photographers remain open to consideration on their own terms.

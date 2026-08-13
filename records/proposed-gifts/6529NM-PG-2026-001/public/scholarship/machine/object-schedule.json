@@ -1,12 +1,12 @@
 {
   "$schema": "../../../../../../schemas/magnum-scholarship-machine-record.schema.json",
   "record_control": {
-    "revision": 2,
+    "revision": 3,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:network-museum-exhibition-media-2026-08-11",
+      "actor_id": "codex-task:magnum-completed-accession-correction",
       "role": "constructor",
-      "constructed_at": "2026-08-11T21:56:04Z"
+      "constructed_at": "2026-08-12T22:24:36.387Z"
     },
     "review": null
   },
@@ -16,10 +16,16 @@
       "superseded_at": "2026-08-11T21:56:03Z",
       "supersedes": "sha256:815fd7a207a0ebe85383d753e9e0c0e07681c35e1d69cad90ef451832154f5e3",
       "prior_payload_sha256": "sha256:815fd7a207a0ebe85383d753e9e0c0e07681c35e1d69cad90ef451832154f5e3"
+    },
+    {
+      "revision": 2,
+      "superseded_at": "2026-08-12T22:24:36.387Z",
+      "supersedes": "sha256:8e0350b1eac1a7fae41f0ab523f36df288de0ef8dc4eabce6aeba34383283532",
+      "prior_payload_sha256": "sha256:8e0350b1eac1a7fae41f0ab523f36df288de0ef8dc4eabce6aeba34383283532"
     }
   ],
   "local_profile": "6529NM_WP3_MAGNUM_OBJECT_SCHEDULE_V1",
-  "status": "canonical_review_pending_public_work_projection",
+  "status": "canonical_review_pending_accessioned_object_schedule",
   "public_work_entity_ids": [
     "6529NM-W-0024",
     "6529NM-W-0025",
@@ -30,8 +36,8 @@
   "organization_entity_id": "6529NM-ORG-0002",
   "project_entity_id": "6529NM-PRJ-0006",
   "curated_acquisition_id": "6529NM-CA-2026-003",
-  "current_public_status": "Selected by Museum Wave; accession processing in progress",
-  "current_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
+  "current_public_status": "Accessioned into the permanent Collection",
+  "current_lifecycle": "accessioned_into_permanent_collection",
   "current_status_observation": {
     "record_type": "WAVE_STATUS_OBSERVATION",
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
@@ -76,10 +82,12 @@
       "image_sha256": "sha256:65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453",
       "image_dimensions": "3056x4600",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false,
-      "collection_membership_status": "not_in_collection",
-      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "media_reference_entity_id": "6529NM-MED-0003"
+      "collection_membership": true,
+      "collection_membership_status": "permanent_collection",
+      "work_lifecycle": "accessioned",
+      "media_reference_entity_id": "6529NM-MED-0003",
+      "accession_record_id": "6529NM-ACC-2026-002",
+      "object_record_id": "6529NM.2026.002.01"
     },
     {
       "work_entity_id": "6529NM-W-0025",
@@ -102,10 +110,12 @@
       "image_sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
       "image_dimensions": "5369x3601",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false,
-      "collection_membership_status": "not_in_collection",
-      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "media_reference_entity_id": "6529NM-MED-0041"
+      "collection_membership": true,
+      "collection_membership_status": "permanent_collection",
+      "work_lifecycle": "accessioned",
+      "media_reference_entity_id": "6529NM-MED-0041",
+      "accession_record_id": "6529NM-ACC-2026-002",
+      "object_record_id": "6529NM.2026.002.02"
     },
     {
       "work_entity_id": "6529NM-W-0026",
@@ -127,10 +137,12 @@
       "image_sha256": "sha256:a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df",
       "image_dimensions": "5000x3292",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false,
-      "collection_membership_status": "not_in_collection",
-      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "media_reference_entity_id": "6529NM-MED-0042"
+      "collection_membership": true,
+      "collection_membership_status": "permanent_collection",
+      "work_lifecycle": "accessioned",
+      "media_reference_entity_id": "6529NM-MED-0042",
+      "accession_record_id": "6529NM-ACC-2026-002",
+      "object_record_id": "6529NM.2026.002.03"
     },
     {
       "work_entity_id": "6529NM-W-0027",
@@ -153,10 +165,12 @@
       "image_sha256": "sha256:cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816",
       "image_dimensions": "5616x3744",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false,
-      "collection_membership_status": "not_in_collection",
-      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "media_reference_entity_id": "6529NM-MED-0043"
+      "collection_membership": true,
+      "collection_membership_status": "permanent_collection",
+      "work_lifecycle": "accessioned",
+      "media_reference_entity_id": "6529NM-MED-0043",
+      "accession_record_id": "6529NM-ACC-2026-002",
+      "object_record_id": "6529NM.2026.002.04"
     },
     {
       "work_entity_id": "6529NM-W-0028",
@@ -178,10 +192,12 @@
       "image_sha256": "sha256:49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2",
       "image_dimensions": "5964x4768",
       "rights_status": "All Rights Reserved; Museum reuse unspecified",
-      "collection_membership": false,
-      "collection_membership_status": "not_in_collection",
-      "work_lifecycle": "selected_by_museum_wave_acquisition_review_in_progress",
-      "media_reference_entity_id": "6529NM-MED-0044"
+      "collection_membership": true,
+      "collection_membership_status": "permanent_collection",
+      "work_lifecycle": "accessioned",
+      "media_reference_entity_id": "6529NM-MED-0044",
+      "accession_record_id": "6529NM-ACC-2026-002",
+      "object_record_id": "6529NM.2026.002.05"
     }
   ]
 }

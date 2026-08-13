@@ -1,0 +1,283 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "WORK_DESCRIPTION",
+    "subjectId": "0x0c04bab047bd57b641613ceae053fb546353fe2287dacc260949f5701ba18bc2",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xfd6fefc51362d62f2f27d074b97c95614ba7bc622a04685df71b07511d4908b6",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/objects/6529NM.2026.002.02.json",
+    "schemaId": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1786573476
+  },
+  "payload": {
+    "accession_lot_id": "6529NM.2026.002",
+    "artist": {
+      "claim_type": "source_credit",
+      "evidence_class": "B",
+      "preferred_name": "Larry Towell",
+      "source_refs": [
+        "6529NM-PG-2026-001.OBJ-002"
+      ]
+    },
+    "chain_identity": {
+      "caip19": "eip155:1/erc721:0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91/145",
+      "chain_id": 1,
+      "contract": "0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91",
+      "token_id": "145",
+      "token_standard": "ERC-721",
+      "mint_transaction": "0xa8fecaea9a0eafbabf61a186e87f9c5ba14158e7b9422752c19994c16109a1e4",
+      "acquisition_transaction": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+      "custody_receipt_transaction": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+      "custody_receipt_block": 25741724,
+      "custody_receipt_log": 229,
+      "custody_account": "eip155:1:0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "custody_status": "verified",
+      "custody_verified_at": "2026-08-12T22:24:36.387Z",
+      "custody_block": 25741809
+    },
+    "claims": {
+      "artist_statement": "The source record identifies the photograph as a work by Larry Towell.",
+      "documented_fact": "The source record identifies the title, date, and place as Government soldiers in a church, Suchitoto, El Salvador, 1986, Suchitoto.",
+      "evidence_class": "B",
+      "museum_interpretation": "The Museum presents this photograph within Conflict at Its Edges, a five-work group concerned with documentary evidence and its edges.",
+      "technical_observation": "The ERC-721 identity, transfer receipt, and finalized ownerOf observation are recorded separately from interpretation."
+    },
+    "condition": {
+      "token": "green",
+      "metadata": "green",
+      "script": "not_applicable",
+      "dependencies": "not_applicable",
+      "rendering": "green",
+      "behavior": "not_applicable",
+      "documentation": "amber",
+      "protocol_state": "ERC-721 photographic object; no executable generator or software dependency is asserted.",
+      "method": "Reviewed source metadata, image reference, chain receipt, and common finalized-block ownership observation.",
+      "narrative": "The object is catalogued and displayable in the credited accession context. Source-image retention and rights stewardship remain active.",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction",
+      "role": "constructor",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "created_at": "2026-08-12T22:24:36.387Z",
+    "creator": "Larry Towell",
+    "credit_line": "Gift of punk6529. Larry Towell, Government soldiers in a church, Suchitoto, El Salvador, 1986. © Larry Towell/Magnum Photos 2022 All Rights Reserved",
+    "current_state": "accessioned",
+    "display": {
+      "status": "ready_with_conditions",
+      "manifest_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+      "credit_line": "Larry Towell, Government soldiers in a church, Suchitoto, El Salvador. © Larry Towell/Magnum Photos 2022 All Rights Reserved",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "effective_at": "2026-08-12T22:24:36.387Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "label": "Finalized Magnum custody observation",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/summary.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:486a7f0e5738a9789514739844b3db4b8a59ef34e665dfc13cc3e92721dad2aa"
+      },
+      {
+        "label": "Ethereum receipt for token 145",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/magnum-75-custody/raw/receipt-145/sha256-f5672f6f02053939e33f0c5b9f17d6081ef09fad92762881f2abbc99d87cd0ea.json",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "A",
+        "sha256": "sha256:f5672f6f02053939e33f0c5b9f17d6081ef09fad92762881f2abbc99d87cd0ea"
+      },
+      {
+        "label": "Original proposed gift and full-gift offer",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Proposed object record",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/02-larry-towell-145.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      },
+      {
+        "label": "Public accession status",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_class": "B"
+      }
+    ],
+    "medium": "photograph (source image presented from the credited external source)",
+    "museum_observations": {
+      "observed_at": "2026-08-12T22:24:36.387Z",
+      "observation_record": "6529NM.2026.002.VO-01",
+      "documentation_surrogate": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+      "static_visual_observation": "The credited source image is available for accession-context display.",
+      "live_behavior_observation": "Not applicable to this photographic object.",
+      "interpretive_boundary": "The image is read through its caption, source history, and visual evidence; unresolved scene-specific claims remain unresolved."
+    },
+    "object_id": "6529NM.2026.002.02",
+    "observed_at": "2026-08-12T22:24:36.387Z",
+    "payload_sha256": "sha256:6382559f3080e1fd4324878c8624bdef2eff78d0714e18544882b0f96c393588",
+    "preservation": {
+      "status": "in_progress",
+      "package_uri": "https://arweave.net/r0bUW6Mtxq897pgig0V01Ad43S_Ldwv3tARjwmjrqpE",
+      "fixity_sha256": "sha256:e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee",
+      "render_environment": "Museum source-image presentation; preservation master and source-byte retention remain stewardship actions.",
+      "observed_at": "2026-08-12T22:24:36.387Z"
+    },
+    "record_id": "6529NM.2026.002.02",
+    "record_status": "review_pending",
+    "record_type": "WORK_DESCRIPTION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.002",
+      "6529NM-ACC-2026-002",
+      "6529NM.2026.002.RIGHTS.02",
+      "6529NM.2026.002.COND.02",
+      "6529NM-PG-2026-001.OBJ-002"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "rights": {
+      "reproduction": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-002"
+      },
+      "publication": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "exhibition": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "print": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-002"
+      },
+      "derivative_use": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-002"
+      },
+      "ai_training": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-002"
+      },
+      "preservation": {
+        "grant_status": "denied",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum has an ongoing preservation responsibility, but the current record does not assert a preservation-master or general preservation-copy right for the source photograph.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-002"
+      },
+      "migration_emulation": {
+        "grant_status": "not_applicable",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "Migration or emulation is not required to display this static photographic manifestation; no broader migration right is asserted.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      },
+      "accessibility": {
+        "grant_status": "granted_with_conditions",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "evidence_ref": "6529NM.2026.002.TITLE-01"
+      }
+    },
+    "schema_id": "0x5bb3543c4c007f4396474b74ec81dd8bca13028b6d945020e4b48ff236b26a3c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-001",
+        "6529NM-WAVE-OBS-2026-08-08-001"
+      ]
+    },
+    "source_refs": [
+      "6529NM-PG-2026-001",
+      "6529NM-PG-2026-001.OBJ-002",
+      "6529NM-WAVE-OBS-2026-08-08-001",
+      "6529NM.2026.002.TITLE-01"
+    ],
+    "state_history": [
+      {
+        "state": "offered",
+        "observed_at": "2026-08-06T13:19:30.726Z",
+        "evidence_refs": [
+          "6529NM-PG-2026-001"
+        ]
+      },
+      {
+        "state": "authorized",
+        "observed_at": "2026-08-08T10:15:02.0167151Z",
+        "evidence_refs": [
+          "6529NM-WAVE-OBS-2026-08-08-001"
+        ]
+      },
+      {
+        "state": "acquired",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM.2026.002.GAA-01"
+        ]
+      },
+      {
+        "state": "received_onchain",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM.2026.002.GAA-01",
+          "6529NM-WAVE-OBS-2026-08-08-001"
+        ]
+      },
+      {
+        "state": "accessioned",
+        "observed_at": "2026-08-12T22:24:36.387Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-002",
+          "6529NM.2026.002.RIGHTS.02",
+          "6529NM.2026.002.COND.02"
+        ]
+      }
+    ],
+    "subject_id": "6529NM.2026.002.02",
+    "title": "Government soldiers in a church, Suchitoto, El Salvador",
+    "title_binding": {
+      "object_id": "6529NM.2026.002.02",
+      "status": "executed",
+      "instrument_sha256": "sha256:a03e733b1bd6f9b431f103138e735b85910c1751d2d02252249611b2130e8f39",
+      "custodian_reference": "networkmuseum.6529.eth",
+      "transfer_transaction": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+      "block_number": 25741724,
+      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "bound_at": "2026-08-12T22:24:36.387Z",
+      "basis": "The donor's full-gift offer and the Museum maintainer's completion instruction, corroborated by the exact transfer receipt for this token, bind the donor's transferable token interest to this accession object."
+    },
+    "uncertainties": [
+      "The token metadata spells the place Suchitito; institutional and geographic sources support the normalized spelling Suchitoto.",
+      "Broad church-persecution and liberation-theology context is documented, but the exact church, unit, operation, assignment, and scene-specific causal claim remain unresolved.",
+      "The Museum does not assert copyright ownership or a general reproduction licence.",
+      "The source image is not yet retained as a Museum preservation master."
+    ],
+    "visibility": "public",
+    "visual_observation_record": "6529NM.2026.002.VO-01",
+    "state_history_semantics": "The source proposal, token delivery, and Museum accession are recorded as separate historical states. The common finalized observation confirms current custody; it does not replace the institutional accession decision."
+  }
+}
