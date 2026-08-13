@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x62985a691dbe80819b102216426d4c0ab4c03c1ab362d8b6e8a811eb296b1129"
+      "digest": "0xc2d300c5c22388bf13cd6e7ac82b2dc316e61e68d195d31efcea5b0d288e67e9"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-02T06:30:00Z",
-    "payload_sha256": "sha256:0a5d384d43ffbc3b40b2d94fb59dd3eac3bbd58d8a7bbccbc66d52eecd063098",
+    "payload_sha256": "sha256:e437572b93b3c57c64e4aa37d0e704905c971d70dcb9270ed47fc0b51a24a400",
     "qualifier": {
       "role": "creator"
     },
     "record_id": "6529NM-REL-0008",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,19 +51,8 @@
     ],
     "relation_id": "6529NM-REL-0008",
     "relation_type": "ARTIST_CREATES_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-13T01:03:10.259Z",
-      "reviewed_commit": "8d9c6d51769ca53cda02737dfae208293fef8698",
-      "reviewed_manifest_keccak": "0x46cd66c3315095a57560d0cbb1f9815ca8a67e7d30ed395941aa647f0ec3b69e",
-      "reviewed_manifest_sha256": "sha256:23f615423576634d9b6a232b4aacd9346cb1c267a4623c4b3701d5d053ed2d5a",
-      "reviewer_ids": [
-        "codex-agent:019ff898-caaf-7fc2-befc-948bbeaffd58"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-ART-0001",
     "source_record_ids": [

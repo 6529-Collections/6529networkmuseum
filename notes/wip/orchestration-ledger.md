@@ -3841,3 +3841,7 @@ catalog activation, and frontend qualification remain open.
   checks green. The candidate still requires an exact-commit independent
   review, reviewed-B promotion, catalogue activation, hosted CI/bots, merge,
   frontend qualification, staging, production, and every-route live audit.
+- Source PR #59 now carries the required review-pending public projection for
+  this changed publication. This is candidate A: no visitor-facing catalogue
+  pointer moves until an independent reviewer records reviewed B against this
+  exact candidate and the append-only catalogue activation is merged.
