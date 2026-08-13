@@ -340,9 +340,10 @@ def verify() -> tuple[int, int]:
                 f"{width}.webp",
             ).as_posix()
             expected_url = f"{CDN_BASE}/{CDN_PREFIX}/{work_id}/{source_digest}/{TRANSFORM_PATH}/{width}.webp"
-            expected_height = max(
-                1,
-                round(int(source.get("pixel_height")) * int(width) / int(source.get("pixel_width"))),
+            expected_height = transform.derivative_height(
+                int(source.get("pixel_width")),
+                int(source.get("pixel_height")),
+                int(width),
             )
             if (
                 relative != expected_relative
@@ -365,7 +366,7 @@ def verify() -> tuple[int, int]:
             total += path.stat().st_size
     actual_paths = {
         path.relative_to(ROOT).as_posix()
-        for path in MEDIA_ROOT.rglob("*.webp")
+        for path in MEDIA_ROOT.rglob("*")
         if path.is_file()
     }
     if actual_paths != expected_paths:

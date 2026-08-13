@@ -4,6 +4,9 @@ record_type: ACCESSION_DISPLAY_AUTHORITY
 accession_lot_id: 6529NM.2026.002
 status: active
 effective_at: 2026-08-13T12:40:00Z
+supersedes: 6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001
+supersession_scope: proposal_stage_responsive_image_restriction_only
+supersession_reason: Accessioned works require proportion-preserving responsive delivery copies for practical and accessible Museum display.
 ---
 
 # Web presentation of *Conflict at Its Edges*

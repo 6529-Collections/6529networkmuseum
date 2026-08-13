@@ -334,11 +334,28 @@ def _accession_media_paths(root: Path) -> set[str]:
     manifest_relative = "records/accessions/6529NM.2026.002/public/presentation-manifest.json"
     manifest = _load_record(root, manifest_relative)
     delivery = manifest.get("delivery")
+    authority_relative = "records/accessions/6529NM.2026.002/public/web-presentation-authority.md"
+    authority_path = require_file(root, authority_relative)
+    authority_lines = authority_path.read_text(encoding="utf-8").splitlines()
+    if len(authority_lines) < 3 or authority_lines[0] != "---":
+        return set()
+    try:
+        boundary = authority_lines.index("---", 1)
+    except ValueError:
+        return set()
+    authority: dict[str, str] = {}
+    for line in authority_lines[1:boundary]:
+        key, separator, value = line.partition(":")
+        if not separator or not key.strip() or key.strip() in authority:
+            return set()
+        authority[key.strip()] = value.strip()
     if (
         not isinstance(delivery, dict)
         or delivery.get("status") != "approved_for_contextual_museum_display"
-        or delivery.get("authority_path")
-        != "records/accessions/6529NM.2026.002/public/web-presentation-authority.md"
+        or delivery.get("authority_path") != authority_relative
+        or authority.get("record_id") != "6529NM.2026.002.DISPLAY-01"
+        or authority.get("accession_lot_id") != "6529NM.2026.002"
+        or authority.get("status") != "active"
     ):
         return set()
     paths: set[str] = set()
@@ -359,15 +376,23 @@ def _accession_media_paths(root: Path) -> set[str]:
             )
             if isinstance(repository_path, str):
                 require_file(root, repository_path)
+                if Path(repository_path).suffix.casefold() not in MEDIA_EXTENSIONS:
+                    raise InventoryError(
+                        f"accession media derivative is not a governed media extension: {repository_path}"
+                    )
                 paths.add(repository_path)
     media_root = root / "media/accessions/6529NM.2026.002"
     actual = {
         relative_path(root, path)
-        for path in media_root.rglob("*.webp")
+        for path in media_root.rglob("*")
         if path.is_file()
     }
     if actual != paths:
-        raise InventoryError("accession media manifest is not an exact local asset inventory")
+        missing = sorted(paths - actual)
+        extra = sorted(actual - paths)
+        raise InventoryError(
+            f"accession media manifest is not an exact local asset inventory; missing={missing}, extra={extra}"
+        )
     return paths
 
 

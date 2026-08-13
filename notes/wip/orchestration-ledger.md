@@ -3818,9 +3818,11 @@ catalog activation, and frontend qualification remain open.
   and desktop widths that ordinary scrolling never requests an Arweave source.
 - Museum source validation and the responsive manifest verifier are green.
   Publication inventory, visitor bundle, and release manifest were regenerated.
-  Remaining gates are exact schema validation, repository upload with immutable
-  caching and byte readback, source PR/bots/CI/merge, frontend integration,
-  staging E2E, production E2E, and live visual/network audit.
+  Exact schema validation, immutable S3 upload/header readback, and a public
+  CDN byte-hash readback are complete. Source PR #59 is open with its primary
+  validation lanes green; remaining gates are final bot disposition and merge,
+  frontend integration, staging E2E, production E2E, and live visual/network
+  audit.
 
 - The completed-accession candidate now records five distinct Magnum receipt
   transactions rather than one false aggregate event. Each token is bound to
