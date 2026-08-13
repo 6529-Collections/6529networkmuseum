@@ -35,6 +35,14 @@ ACQUISITION_ID = "6529NM-CA-2026-003"
 WINNER_OBSERVATION_ID = migration.WINNER_OBSERVATION_ID
 SUMMARY_RELATIVE = "evidence/magnum-75-custody/summary.json"
 CONSTRUCTOR_ID = "codex-task:magnum-completed-accession-correction"
+ACCESSION_DISPLAY_CONTEXTS = (
+    "accession",
+    "Collection",
+    "acquisition",
+    "artist",
+    "Work",
+    "scholarship",
+)
 
 
 def load_json(path: Path) -> Any:
@@ -334,7 +342,7 @@ rights position.
             "migration_emulation",
             "accessibility",
         ):
-            if grant in {"reproduction", "publication", "exhibition", "preservation", "migration_emulation", "accessibility"}:
+            if grant in {"publication", "exhibition", "accessibility"}:
                 grant_status = "granted_with_conditions"
                 basis = (
                     "The Museum interprets its acquisition of the tokenized object "
@@ -342,6 +350,19 @@ rights position.
                     "publish, and make the work accessible in a credited museum "
                     "context. This position does not transfer copyright or create "
                     "a commercial or general reproduction licence."
+                )
+            elif grant == "preservation":
+                grant_status = "denied"
+                basis = (
+                    "The Museum has an ongoing preservation responsibility, but the "
+                    "current record does not assert a preservation-master or general "
+                    "preservation-copy right for the source photograph."
+                )
+            elif grant == "migration_emulation":
+                grant_status = "not_applicable"
+                basis = (
+                    "Migration or emulation is not required to display this static "
+                    "photographic manifestation; no broader migration right is asserted."
                 )
             else:
                 grant_status = "denied"
@@ -353,7 +374,7 @@ rights position.
                 "grant_status": grant_status,
                 "observed_at": observed_at,
                 "basis": basis,
-                "evidence_ref": TITLE_ID if grant_status == "granted_with_conditions" else candidate_id,
+                "evidence_ref": TITLE_ID if grant_status in {"granted_with_conditions", "not_applicable"} else candidate_id,
             }
 
         title_binding = {
@@ -871,16 +892,25 @@ Reserved.
                 }
                 for row in object_rows
             ],
-            "custody_receipt": {
-                "transaction_hash": custody_objects[object_rows[0]["source_object_id"]]["tx_hash"],
-                "block_number": custody_objects[object_rows[0]["source_object_id"]]["block_number"],
-                "block_time": custody_objects[object_rows[0]["source_object_id"]]["transfer_block_timestamp"],
-                "from": DONOR,
-                "to": MUSEUM,
-                "custody_ens": "networkmuseum.6529.eth",
-                "transfer_count": 5,
-                "receipt_status": "0x1",
-            },
+            "custody_receipts": [
+                {
+                    "transaction_hash": custody_objects[row["source_object_id"]]["tx_hash"],
+                    "block_number": custody_objects[row["source_object_id"]]["block_number"],
+                    "block_time": custody_objects[row["source_object_id"]]["transfer_block_timestamp"],
+                    "from": DONOR,
+                    "to": MUSEUM,
+                    "custody_ens": "networkmuseum.6529.eth",
+                    "transfer_count": 1,
+                    "receipt_status": "0x1",
+                    "logs": [
+                        {
+                            "object_id": row["accession_object_id"],
+                            "log_index": custody_objects[row["source_object_id"]]["log_index"],
+                        }
+                    ],
+                }
+                for row in object_rows
+            ],
             "donor_authority_declaration": {
                 "source_type": "user_supplied_donor_and_authority_fact",
                 "statement": "The donor's full-gift offer covers the five scheduled tokens and the donor's entire transferable interest in them, without consideration or retained donor interest.",
@@ -945,6 +975,7 @@ Reserved.
             "source": {"source_record_ids": [PROPOSAL_ID, WINNER_OBSERVATION_ID]},
         }
     )
+    gaa.pop("custody_receipt", None)
     write_enveloped(
         f"records/accessions/{ACCESSION}/gift-acceptance-authorization.json", gaa
     )
@@ -1103,6 +1134,30 @@ generator, or software dependency is asserted for these photographic objects.
     def update_wave_join(record: dict[str, Any]) -> None:
         record["current_public_status"] = "Accessioned into the permanent Collection"
         record["lifecycle_status"] = "accessioned_into_permanent_collection"
+        record["display_policy"]["allowed"] = [
+            "Render the exact fixity-verified token-source image with credit in accession, Collection, acquisition, artist, Work, and scholarship contexts.",
+            "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and historical Wave-source label in the written record.",
+            "Retain the exact historical Wave URL as publication evidence; do not use it as the browser display source or represent either upstream source as a Museum-preserved file.",
+            "Offer non-identifying accessibility text, proposal-source opening, and copy-citation affordances.",
+        ]
+        record["display_policy"]["blocked"] = [
+            "Download or download affordance",
+            "Full-resolution delivery claim",
+            "Zoom or fullscreen affordance",
+            "Runtime fallback, URL rewriting, or an unallowlisted upstream source outside the active accession-media amendment",
+            "New repository derivative, crop, thumbnail, responsive srcset, or recompression",
+            "Use outside the accession, Collection, acquisition, artist, Work, and scholarship contexts",
+            "IIIF manifest, tiled service, or preservation-master claim",
+        ]
+        record["display_policy"]["rights_basis"] = (
+            "The completed accession carries the ordinary institutional ability to "
+            "display, publish, and make the exact fixity-verified token-source bytes "
+            "accessible with credit in accession, Collection, acquisition, artist, "
+            "Work, and scholarship contexts. The historical Wave locators remain "
+            "publication evidence. No copyright transfer, general reproduction "
+            "licence, commercial, licensing, derivative, download, preservation-master, "
+            "or AI-training right is inferred."
+        )
     amend_machine_record(wave_join_path, observed_at, update_wave_join)
 
     integration_path = (
@@ -1111,11 +1166,52 @@ generator, or software dependency is asserted for these photographic objects.
     )
     def update_integration(record: dict[str, Any]) -> None:
         record["status"] = "canonical_review_pending_accessioned_publication_projection"
+        record.pop("public_status", None)
+        record.pop("lifecycle_status", None)
+        record["live_governance_observation"]["public_status"] = (
+            "Historical Wave status observed 8 August 2026: selected; accession processing then remained in progress"
+        )
         works = record["entity_projections"]["works"]
         works["lifecycle"] = "accessioned"
         works["collection_membership"] = "permanent_collection"
         acquisition = record["entity_projections"]["curated_acquisition"]
         acquisition["state"] = "accessioned_into_permanent_collection"
+        record["live_governance_observation"]["status_boundary"] = [
+            "The Wave observation establishes historical selection of the exact five-Work proposal.",
+            "Accession 6529NM.2026.002 separately establishes formal acceptance, donor authority, title transfer, Museum custody, rights and technical review, accession, and permanent Collection membership.",
+            "Preservation and provenance enrichment remain continuing stewardship after accession.",
+        ]
+        record["wp1_admission_contract"]["admission_requirements"] = [
+            "Review the Organization, Project, five Artists, five Works, Curated Acquisition, Research Publication, Media References, and declared relations as one coherent publication group.",
+            "Retain the canonical scholarship and machine projections in the release manifest.",
+            "Keep each Work's governed ID, proposal object alias, token CAIP-19, archive number, token component, metadata component, source-image component, and historical Wave manifestation distinct.",
+            "Treat the 2026-08-08 WINNER as a historical Wave selection observation and retain it in lifecycle history.",
+            "Admit completed accession 6529NM.2026.002 into the permanent Collection with object records 6529NM.2026.002.01 through 6529NM.2026.002.05 and separate title, custody, rights, condition, and preservation records.",
+            "Allow exact fixity-verified token-source images to display with credit in accession, Collection, acquisition, artist, Work, and scholarship contexts under the current Museum determination.",
+            "Do not infer copyright transfer, general reproduction, commercial, licensing, crop, recompression, download, preservation-master, or AI-training rights from accession or custody.",
+            "Bind the admitted release group to the exact reviewed commit and regenerated manifest.",
+        ]
+        media = record["entity_projections"]["media_references"]
+        media["scope"] = "historical_wave_media_and_accessioned_collection_display"
+        media["receipt_binding"] = (
+            "The enveloped 2026-08-08 observation binds the signed Wave publication "
+            "and part-content hashes. Later public-safe API evidence confirms historical "
+            "Wave media locators, MIME types, and media states. The 2026-08-12 "
+            "accession-media source-continuity amendment selects exact fixity-verified "
+            "token-source images for credited display in accession, Collection, "
+            "acquisition, artist, Work, and scholarship contexts while retaining the Wave "
+            "locators as historical publication evidence."
+        )
+        record["relations"] = [
+            relation.replace(
+                "Project or Series Magnum Photos 75 contextualizes five selected Work projections.",
+                "Project or Series Magnum Photos 75 contextualizes five accessioned Work projections.",
+            ).replace(
+                "Curated Acquisition 6529NM-CA-2026-003 is the selected five-Work acquisition undergoing accession processing, historically documented by Proposed Gift 6529NM-PG-2026-001.",
+                "Curated Acquisition 6529NM-CA-2026-003 is the completed five-Work accession in the permanent Collection, historically proposed by Proposed Gift 6529NM-PG-2026-001.",
+            )
+            for relation in record.get("relations", [])
+        ]
         record["acquisition_boundary"] = {
             "accession_id": ACCESSION,
             "object_record_ids": [row["accession_object_id"] for row in object_rows],
@@ -1198,25 +1294,21 @@ generator, or software dependency is asserted for these photographic objects.
                 "token_count": 5,
                 "evidence_class": "A",
             },
-            "receipt_event": {
-                "transaction_hash": final_receipt["tx_hash"],
-                "block_number": final_receipt["block_number"],
-                "block_time": final_receipt["transfer_block_timestamp"],
-                "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
-                "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
-                "transfer_count": 5,
-                "receipt_status": "0x1",
-                "evidence_class": "A",
-                "transactions": [
-                    {
-                        "token_id": row["token_id"],
-                        "transaction_hash": custody_objects[row["source_object_id"]]["tx_hash"],
-                        "block_number": custody_objects[row["source_object_id"]]["block_number"],
-                        "log_index": custody_objects[row["source_object_id"]]["log_index"],
-                    }
-                    for row in object_rows
-                ],
-            },
+            "receipt_events": [
+                {
+                    "transaction_hash": custody_objects[row["source_object_id"]]["tx_hash"],
+                    "block_number": custody_objects[row["source_object_id"]]["block_number"],
+                    "block_time": custody_objects[row["source_object_id"]]["transfer_block_timestamp"],
+                    "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+                    "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+                    "transfer_count": 1,
+                    "receipt_status": "0x1",
+                    "evidence_class": "A",
+                    "token_id": row["token_id"],
+                    "log_index": custody_objects[row["source_object_id"]]["log_index"],
+                }
+                for row in object_rows
+            ],
             "evidence_refs": [
                 f"records/accessions/{ACCESSION}/accession-certificate.json",
                 f"records/accessions/{ACCESSION}/public/title-rights-and-accession-review.md",

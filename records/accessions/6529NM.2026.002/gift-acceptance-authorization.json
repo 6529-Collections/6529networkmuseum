@@ -5,7 +5,7 @@
     "subjectId": "0xc106de4ca6a438190896cc77ec61d837f405a6bec08284ff423fa4b3a6b4f553",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xe65f4771555a7c76d1e6838999e14a8a363fa58ed6a8cd78c2c6b7f2f2eca9a5",
+      "digest": "0x82763a42bdb6e02512ecbea521abbdb99a999d772dd305ea99102a03c1bd9b37",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/gift-acceptance-authorization.json",
@@ -86,16 +86,6 @@
       "observed_at": "2026-08-12T22:24:36.387Z"
     },
     "created_at": "2026-08-12T22:24:36.387Z",
-    "custody_receipt": {
-      "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
-      "block_number": 25741708,
-      "block_time": "2026-08-12T21:48:11Z",
-      "from": "0x6daa633c23615a29471deafae351727867e7dad1",
-      "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
-      "custody_ens": "networkmuseum.6529.eth",
-      "transfer_count": 5,
-      "receipt_status": "0x1"
-    },
     "donor_authority_declaration": {
       "source_type": "user_supplied_donor_and_authority_fact",
       "statement": "The donor's full-gift offer covers the five scheduled tokens and the donor's entire transferable interest in them, without consideration or retained donor interest.",
@@ -180,7 +170,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:c85d64de0c1522feaa359b831a578fd493dc3949e2ca1104ce275bc34fe3e8dc",
+    "payload_sha256": "sha256:c324d695c326deb5395b33d25d7f5338225678a47768ff5834e6715f2c94694d",
     "permanent_collection_intent": "The Museum formally accepts this five-object gift for the permanent Collection under the adopted donation pathway and ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.002.GAA-01",
     "record_status": "review_pending",
@@ -201,6 +191,88 @@
       ]
     },
     "subject_id": "6529NM.2026.002",
-    "visibility": "public"
+    "visibility": "public",
+    "custody_receipts": [
+      {
+        "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
+        "block_number": 25741708,
+        "block_time": "2026-08-12T21:48:11Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.002.01",
+            "log_index": 696
+          }
+        ]
+      },
+      {
+        "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+        "block_number": 25741724,
+        "block_time": "2026-08-12T21:51:23Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.002.02",
+            "log_index": 229
+          }
+        ]
+      },
+      {
+        "transaction_hash": "0x0ff08ed5fb29cc8e83dd50191e1156615ad23d584e05c9d1803af39151ecb33d",
+        "block_number": 25741718,
+        "block_time": "2026-08-12T21:50:11Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.002.03",
+            "log_index": 430
+          }
+        ]
+      },
+      {
+        "transaction_hash": "0x9fbef477914c51b2d4e3ae13f791d36499a5ac0516e7ce13a0b40531bc833e74",
+        "block_number": 25741721,
+        "block_time": "2026-08-12T21:50:47Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.002.04",
+            "log_index": 207
+          }
+        ]
+      },
+      {
+        "transaction_hash": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+        "block_number": 25741705,
+        "block_time": "2026-08-12T21:47:35Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.002.05",
+            "log_index": 385
+          }
+        ]
+      }
+    ]
   }
 }

@@ -43,9 +43,13 @@ That uncertainty is part of the project’s material history. Network publicatio
 Each target token links to JSON metadata and an Arweave JPEG through a common Ethereum ERC-721 contract. Token number, sequence, curation, archive reference, metadata pointer, image pointer, and transfer history are technical publication facts. “1 of 1” describes the token edition. It does not describe the total number of photographic manifestations or resolve the copyright history of the image.
 
 The `All Rights Reserved` notice attached to the token records remains a rights
-statement. The Museum cites the historical Wave and token sources with their
-artist and Magnum credits without serving the five photographic files
-([S09–S16](../sources/source-register.md); [S38](../sources/source-register.md)).
+statement. The Museum interprets ordinary credited institutional display,
+publication, and accessibility in accession, Collection, and scholarship
+contexts as permissible. That interpretation does not transfer copyright or
+grant commercial or general reproduction, derivative, licensing, download, or
+AI-training rights. The Museum cites the historical Wave and token sources with
+their artist and Magnum credits; the token-linked renditions are not described
+as preservation masters ([S09–S16](../sources/source-register.md); [S38](../sources/source-register.md)).
 
 ## Relation to *Conflict at Its Edges*
 
@@ -58,7 +62,10 @@ archive histories.
 
 Magnum Photos 75 supplies the project context and the technical route through which these photographs now circulate. The donor supplies the grouping. The Museum’s essay supplies the interpretation. Keeping those authorships separate allows the project’s networked edition to become part of the photographs’ afterlives without turning it into evidence of an upstream curatorial intention.
 
-The selected proposal’s current status is **Selected by Museum Wave; accession processing in progress**. The five Works remain outside the permanent Collection ([S37](../sources/source-register.md)).
+The proposal’s current Museum status is **completed gift; accessioned into the
+permanent Collection as `6529NM.2026.002`**. The five Works remain linked to
+Magnum Photos 75 as their project context while their Museum accession and
+individual object identities remain distinct ([S37](../sources/source-register.md)).
 
 [^1]: Magnum Photos 75 project record and exact token metadata, [S04](../sources/source-register.md) and [S10–S14](../sources/source-register.md).
 [^2]: Archived Magnum launch page, [S04](../sources/source-register.md).

@@ -3795,3 +3795,21 @@ catalog activation, and frontend qualification remain open.
   and frontend PR review, staging, production, and every-route audit remain.
 - Durable detailed handoff:
   `notes/wip/2026-08-12-magnum-accession-and-full-site-correction.md`.
+
+- The completed-accession candidate now records five distinct Magnum receipt
+  transactions rather than one false aggregate event. Each token is bound to
+  its exact receipt and Transfer log; the control-plane regression covers both
+  this multi-transaction lot and Casey's legacy single-transaction lot.
+- The rights projection now separates ordinary credited museum display,
+  publication, and accessibility from copyright and general reuse. General
+  reproduction, print, derivatives, AI training, and preservation-master use
+  are denied; static-image migration/emulation is not applicable.
+- An independent audit found and the constructor corrected two current-state
+  prose errors: the technical dossier no longer says accession is open, and
+  the 9 August donor-ownership observation is explicitly historical and
+  superseded for current custody by the 12 August finalized record.
+- Full local canonical validation is green at 332 tests (one platform skip),
+  with Casey package verification and all Magnum editorial/media/integrity
+  checks green. The candidate still requires an exact-commit independent
+  review, reviewed-B promotion, catalogue activation, hosted CI/bots, merge,
+  frontend qualification, staging, production, and every-route live audit.

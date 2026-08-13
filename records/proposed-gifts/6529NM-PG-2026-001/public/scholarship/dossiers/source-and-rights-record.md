@@ -37,22 +37,25 @@ The source metadata and local proposal records identify photographer/Magnum
 copyright notices and record token transfer without a copyright or reproduction
 grant. A URL, checksum, or upstream persistence locator identifies an observed
 resource; it does not transfer copyright, establish Museum custody, or authorize
-a new manifestation ([S10–S16](../sources/source-register.md)). Current rights terms, transaction-specific permissions,
-and component-level display/preservation authority remain research questions
+a new manifestation ([S10–S16](../sources/source-register.md)). The Museum
+interprets ordinary credited institutional display, publication, and
+accessibility of the accessioned works as permissible in accession, Collection,
+acquisition, artist, Work, and scholarship contexts
 ([S09](../sources/source-register.md)).
 
 The historical public presentation supports citation to its source record. The
-canonical graph now binds the selected Work, Media Reference, Curated
-Acquisition, proposal, and Wave publication observation. Image rendering on an
-Acquisition or standalone Work route remains closed because the graph is
-evidence of identity and context, not permission. Download, full-resolution delivery, new
-crop or derivative, responsive recompression, IIIF service, preservation master,
-and permanent Collection publication require written, component-specific
-permission and a reviewed media/preservation record ([S38](../sources/source-register.md)).
+canonical graph now binds the accessioned Work, Media Reference, Curated
+Acquisition, proposal, Wave publication observation, and accession. The
+accession and rights records supply the current presentation basis. Copyright
+ownership, commercial or general reproduction, new crops or derivatives,
+licensing, download offers, responsive recompression, IIIF service,
+preservation-master claims, and AI training remain outside that basis
+([S38](../sources/source-register.md)).
 
 ## Source record
 
 The exact part numbers, token-linked metadata observations, CAIP-19 identities,
 source fixity observations, and canonical joins are preserved in the complete
 Museum record; see [S38](../sources/source-register.md). This dossier is a
-presentation and rights summary, not an accession or legal opinion.
+presentation and rights summary for accession `6529NM.2026.002`, not a transfer
+of copyright or a general reuse licence.

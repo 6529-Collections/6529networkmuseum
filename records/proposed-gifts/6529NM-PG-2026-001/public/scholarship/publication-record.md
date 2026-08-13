@@ -8,8 +8,8 @@
 | Institutional author | 6529 Network Museum, Curatorial Research |
 | Publication date | 9 August 2026 |
 | Research cutoff | 9 August 2026 |
-| Museum status | Selected by Museum Wave; accession processing in progress |
-| Permanent Collection | The five Works remain outside the permanent Collection until acceptance and accession are complete. |
+| Museum status | Completed gift; accessioned into the permanent Collection as `6529NM.2026.002` |
+| Permanent Collection | Five Works accessioned as one gift under accession `6529NM.2026.002` |
 | Stable source root | [Magnum scholarship in the Museum repository](https://github.com/6529-Collections/6529networkmuseum/tree/main/records/proposed-gifts/6529NM-PG-2026-001/public/scholarship) |
 | Research apparatus | [Source register](sources/source-register.md) and linked notes, technical records, rights record, and chronology |
 | Visitor edition | This publication record and 22 component manuscripts |
@@ -33,8 +33,9 @@ essay, five artist profiles, five Work entries, Magnum Photos and Magnum Photos
 and source manuscripts. Its Research Publication entity binds the 22 component
 paths as one dossier. Facts and quotations are supported in the numbered notes
 and source register. Interpretations belong to the Museum unless another voice
-is expressly attributed. The public proposal credits punk6529 as offeror;
-formal donor authority remains an acquisition-diligence question.
+is expressly attributed. The public proposal credits punk6529 as offeror; the
+completed accession record documents the authority and title basis for the
+gift.
 
 Four deterministic machine records remain in the complete repository manifest
 as governed research apparatus. They are not visitor documents or display
@@ -52,3 +53,7 @@ visitor publication bundle.
   upload URLs unreliable for visitor delivery. Current display uses the exact
   governed Arweave token-source locators; historical Wave locators remain
   publication evidence and all rights and interface restrictions remain.
+- **1.0.2, 12 August 2026:** Corrected the current lifecycle to the completed
+  five-Work gift accessioned as `6529NM.2026.002` and recorded the Museum's
+  bounded interpretation of ordinary credited institutional display,
+  publication, and accessibility rights.

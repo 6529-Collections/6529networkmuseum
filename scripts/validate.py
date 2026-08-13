@@ -693,6 +693,7 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
     issues: list[str] = []
     assets = payload.get("assets")
     receipt = payload.get("custody_receipt")
+    receipts = payload.get("custody_receipts")
     if not isinstance(assets, list) or not all(isinstance(asset, dict) for asset in assets):
         return ["GIFT_ACCEPTANCE_AUTHORIZATION.assets must be an array of objects"]
     receipt = receipt if isinstance(receipt, dict) else {}
@@ -713,7 +714,21 @@ def validate_gift_acceptance_authorization(payload: dict[str, Any]) -> list[str]
         frozen = [json.dumps(value, sort_keys=True, separators=(",", ":"), default=str) for value in values]
         if len(frozen) != len(set(frozen)):
             issues.append(f"GIFT_ACCEPTANCE_AUTHORIZATION.assets contains duplicate {label}")
-    if receipt.get("transfer_count") != len(assets):
+    if isinstance(receipts, list):
+        receipt_logs = [
+            log
+            for item in receipts
+            if isinstance(item, dict)
+            for log in item.get("logs", [])
+            if isinstance(log, dict)
+        ]
+        if sum(item.get("transfer_count", 0) for item in receipts if isinstance(item, dict)) != len(assets):
+            issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipts transfer counts must equal assets.length")
+        expected = sorted((asset.get("object_id"), asset.get("custody_receipt_log")) for asset in assets)
+        actual = sorted((log.get("object_id"), log.get("log_index")) for log in receipt_logs)
+        if actual != expected:
+            issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipts logs must exactly cover assets")
+    elif receipt.get("transfer_count") != len(assets):
         issues.append("GIFT_ACCEPTANCE_AUTHORIZATION.custody_receipt.transfer_count must equal assets.length")
     return issues
 

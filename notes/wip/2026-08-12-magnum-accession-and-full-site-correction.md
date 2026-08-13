@@ -47,11 +47,28 @@ relations, and one Wave-status observation, 351 generated graph records in
 total. Its permanent Collection contains exactly 12 Works: seven Casey Reas
 Works and five Magnum Works. The 16 Keys and Gates Works remain outside it.
 
+The corrected custody model records five distinct receipt transactions, each
+with one token, one Transfer log, and `transfer_count: 1`; it no longer carries
+the obsolete aggregate receipt. The rights model explicitly grants the
+Museum's credited publication, exhibition, and accessibility uses while
+denying general reproduction, print, derivative, AI-training, and
+preservation-master use. Static-image migration/emulation is not applicable.
+The current dossier and source register now label the 9 August donor-ownership
+read as historical and identify the 12 August finalized Museum-custody record
+as current.
+
 `python scripts/bootstrap_validate.py`, `python scripts/validate.py`, and the
 focused public-entity tests are green after the state correction. The full
 repository suite, independent exact-head review, reviewed-B promotion,
 catalogue activation, frontend qualification, staging, production, and the
 every-route live audit remain required before release completion.
+
+The complete local repository suite is green at 332 tests with one intentional
+platform skip. Casey package verification, Magnum copy/citation, local-link,
+media-policy, UTF-8, deterministic publication inventory/bundle, and manifest
+checks are green. Exact review-candidate commitments are recorded after the
+candidate is frozen so this governed ledger does not introduce a
+self-referential manifest commitment.
 
 ## Frontend correction contract
 
@@ -88,4 +105,3 @@ locally; they must not silently remove a completed acquisition from a listing.
 8. Deploy and test staging, then production.
 9. Audit every Museum route family for HTTP state, factual state, copy,
    responsive layout, imagery, console errors, and canonical navigation.
-

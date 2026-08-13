@@ -5,7 +5,7 @@
     "subjectId": "0xe8c01eaf0b1a4d2e7bebcfd3434d43fdb527fc9a275d756ffe49f391be047386",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xac50af28513f9401773b6d3979db4f005b6f2a453954c003c855fa158deea57d",
+      "digest": "0x671a90fcad7e38b12fafb506ddfa9ad72cdb9e8f33e9b378f39ea1339d003c99",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://6529networkmuseum.org/records/accessions/6529NM.2026.002/rights/6529NM.2026.002.RIGHTS.04.json",
@@ -85,10 +85,10 @@
     ],
     "grants": {
       "reproduction": {
-        "grant_status": "granted_with_conditions",
+        "grant_status": "denied",
         "observed_at": "2026-08-12T22:24:36.387Z",
-        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
-        "evidence_ref": "6529NM.2026.002.TITLE-01"
+        "basis": "The source record states All Rights Reserved. The accession records no general grant for this use.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-004"
       },
       "publication": {
         "grant_status": "granted_with_conditions",
@@ -121,15 +121,15 @@
         "evidence_ref": "6529NM-PG-2026-001.OBJ-004"
       },
       "preservation": {
-        "grant_status": "granted_with_conditions",
+        "grant_status": "denied",
         "observed_at": "2026-08-12T22:24:36.387Z",
-        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
-        "evidence_ref": "6529NM.2026.002.TITLE-01"
+        "basis": "The Museum has an ongoing preservation responsibility, but the current record does not assert a preservation-master or general preservation-copy right for the source photograph.",
+        "evidence_ref": "6529NM-PG-2026-001.OBJ-004"
       },
       "migration_emulation": {
-        "grant_status": "granted_with_conditions",
+        "grant_status": "not_applicable",
         "observed_at": "2026-08-12T22:24:36.387Z",
-        "basis": "The Museum interprets its acquisition of the tokenized object as carrying the ordinary institutional right to display, publish, and make the work accessible in a credited museum context. This position does not transfer copyright or create a commercial or general reproduction licence.",
+        "basis": "Migration or emulation is not required to display this static photographic manifestation; no broader migration right is asserted.",
         "evidence_ref": "6529NM.2026.002.TITLE-01"
       },
       "accessibility": {
@@ -141,7 +141,7 @@
     },
     "object_id": "6529NM.2026.002.04",
     "observed_at": "2026-08-12T22:24:36.387Z",
-    "payload_sha256": "sha256:4e84661ce8ca1d0deaa732298f875cd67772eed190f717a0f50ae7f002bf72a7",
+    "payload_sha256": "sha256:475b2fe6d1a5ae63a8db6feeb77c0e4649183468e77462b22bf4e30c09be3fa9",
     "record_id": "6529NM.2026.002.RIGHTS.04",
     "record_status": "review_pending",
     "record_type": "RIGHTS_STATEMENT",

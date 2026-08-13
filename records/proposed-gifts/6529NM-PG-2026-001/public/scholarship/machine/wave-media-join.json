@@ -115,8 +115,8 @@
   },
   "display_policy": {
     "allowed": [
-      "Render the exact fixity-verified token-source image in its acquisition, artist, and work context.",
-      "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and Wave-source label in the written record.",
+      "Render the exact fixity-verified token-source image with credit in accession, Collection, acquisition, artist, Work, and scholarship contexts.",
+      "Show the artist credit, Magnum credit where supplied, All Rights Reserved, and historical Wave-source label in the written record.",
       "Retain the exact historical Wave URL as publication evidence; do not use it as the browser display source or represent either upstream source as a Museum-preserved file.",
       "Offer non-identifying accessibility text, proposal-source opening, and copy-citation affordances."
     ],
@@ -126,10 +126,10 @@
       "Zoom or fullscreen affordance",
       "Runtime fallback, URL rewriting, or an unallowlisted upstream source outside the active accession-media amendment",
       "New repository derivative, crop, thumbnail, responsive srcset, or recompression",
-      "Collection publication, permanent Collection count, or accession display",
+      "Use outside the accession, Collection, acquisition, artist, Work, and scholarship contexts",
       "IIIF manifest, tiled service, or preservation-master claim"
     ],
-    "rights_basis": "Contextual presentation uses the exact fixity-verified token-source bytes bound to the same five Works and selected Wave proposal, with recorded credits and All Rights Reserved labels. The historical Wave locators remain publication evidence. No copyright transfer, general reproduction licence, download right, preservation right, or Collection-publication licence is inferred."
+    "rights_basis": "The completed accession carries the ordinary institutional ability to display, publish, and make the exact fixity-verified token-source bytes accessible with credit in accession, Collection, acquisition, artist, Work, and scholarship contexts. The historical Wave locators remain publication evidence. No copyright transfer, general reproduction licence, commercial, licensing, derivative, download, preservation-master, or AI-training right is inferred."
   },
   "active_media_source_amendment": {
     "amendment_id": "6529NM-MEDIA-CONT-AMD-2026-08-12-001",

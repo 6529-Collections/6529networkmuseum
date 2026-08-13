@@ -2,11 +2,9 @@
 
 *6529 Network Museum, Curatorial Research · Edition 1.0.0 · Published 9 August 2026 · Research through 9 August 2026 · [Publication record and suggested citation](../publication-record.md)*
 
-*Short label: Tripoli, 2011 · Libya. Historical public Wave proposal record;
-its exact signed image URL may render in this acquisition, artist, or Work
-context under the [current display authority](../dossiers/public-presentation.md),
-with the supplied credit and `All Rights Reserved`. The authority permits no
-download, zoom, fullscreen, derivative, preservation, or Collection inference.*
+*Short label: Tripoli, 2011 · Libya. Accessioned gift in the permanent
+Collection under `6529NM.2026.002`; the Wave proposal remains part of the
+work’s recorded origin.*
 
 ## Looking at the Work
 
@@ -92,8 +90,8 @@ identify the depicted person. The rationale beyond the grouping is unrecorded.
 | Token-linked JPEG | The Arweave JPEG linked from token 44: 5,616 × 3,744 pixels, 1,540,870 observed bytes, SHA-256 cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816. |
 | Historical Wave-upload presentation | The exact CloudFront upload used in the historical Wave work part is recorded in the [Source and rights record](../dossiers/source-and-rights-record.md). Its public reference is limited to the selected offer's proposal context and the non-identifying display rule ([S38](../sources/source-register.md)). |
 | Preservation and master status | The token-linked JPEG is an upstream rendition, not a declared negative, print master, or preservation master. The reviewed public record contains no source negative, consent documentation, rights-cleared repository derivative, or completed preservation package ([S38](../sources/source-register.md)). |
-| Museum status | Selected by Museum Wave; accession processing in progress · Outside the permanent Collection. [S37](../sources/source-register.md) |
-| Credit and rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved. The rights notice does not establish consent, display permission, or a reproduction grant. [S13](../sources/source-register.md); [S38](../sources/source-register.md) |
+| Museum status | Completed gift; accessioned into the permanent Collection as `6529NM.2026.002`. [S37](../sources/source-register.md) |
+| Credit and rights | © Moisés Saman/Magnum Photos 2022 · All Rights Reserved. The Museum interprets ordinary credited institutional display, publication, and accessibility in accession, Collection, and scholarship contexts as permissible. This does not transfer copyright or grant commercial or general reproduction, derivative, licensing, download, or AI-training rights; safeguarding and consent questions remain separately recorded. [S13](../sources/source-register.md); [S38](../sources/source-register.md) |
 
 ## Further research
 

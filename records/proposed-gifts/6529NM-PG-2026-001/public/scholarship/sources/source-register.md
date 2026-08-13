@@ -396,23 +396,20 @@ image locators are withheld from the visitor corpus.
   `1276093`, `drop_type PARTICIPATORY`, observed by `punk6529bot` at
   `2026-08-08T09:06:07.985Z` UTC. This is historical-only after the later
   signed-drop API readback.
-- **Canonical current observation:** the signed-drop API readback at
+- **Historical selection observation:** the signed-drop API readback at
   `2026-08-08T10:15:02.0167151Z` UTC reports the same drop as signed
   `WINNER`, rank `1`, realtime rating `121603214`, and `29` raters. Its public
-  status is **Selected by Museum Wave; accession processing in progress**. The
-  result records the Museum Wave's selection of the exact five-Work proposal.
-  The Museum's downstream accession package now supplies object identification,
-  scholarship, provenance research, a conditional rights determination,
-  technical examination, contextual image authority, and preservation planning.
-  Title transfer, custody receipt, certificate delivery, formal accession, and
-  Collection entry remain open.
+  status was **Selected by Museum Wave**. The result records the Museum Wave's
+  selection of the exact five-Work proposal. The later accession record
+  `6529NM.2026.002` establishes formal acceptance, title transfer, Museum
+  custody, rights and technical review, accession, and permanent Collection
+  membership. Preservation and provenance enrichment continue after accession.
 - **Type / class:** Museum constructed proposal plus live governance source / A-B.
 - **Supports:** exact decision unit, five objects, proposal boundary, retained
-  block observation, package fixity, media labels, and current status.
-- **Limit:** the proposal package is not the final accession record; the live status is
-  mutable and must be refreshed before future reporting. The 10:15:02
-  observation is the canonical current status observation; the 09:06:07
-  observation is historical-only.
+  block observation, package fixity, media labels, and historical selection.
+- **Limit:** the proposal and Wave observations do not establish accession. The
+  10:15:02 observation superseded the earlier `PARTICIPATORY` readback for the
+  selection event; both are now historical beside accession `6529NM.2026.002`.
 
 ### S38 — Historical public Wave presentation media
 
@@ -431,11 +428,12 @@ image locators are withheld from the visitor corpus.
   evidence in S54 confirms the exact part/media URL, MIME, and
   publisher-status fields, but retains no raw media bytes or per-part content
   hashes. `ready` is a Wave publication state, not display permission. Separate
-  authority `6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001` permits the five
-  exact signed Wave image URLs to render in the verified acquisition, artist,
-  and Work contexts. No copyright, download, full-resolution delivery,
-  Collection publication, IIIF, derivative, preservation, donor-authority,
-  title, or custody claim is inferred.
+  accession-media continuity record retains those Wave locators as historical
+  evidence and selects the exact fixity-verified token-source images for
+  credited display in accession, Collection, acquisition, artist, Work, and
+  scholarship contexts. No copyright transfer, commercial or general
+  reproduction, derivative, licensing, download, preservation-master, or
+  AI-training right is inferred.
 
 ### S39 — Independent institutional history of Magnum
 
@@ -597,18 +595,19 @@ image locators are withheld from the visitor corpus.
 - **Limit:** the date differs from Magnum's public 1988 biography in S20; the
   discrepancy is preserved rather than resolved here.
 
-### S53 — Current finalized Ethereum observation
+### S53 — Pre-accession finalized Ethereum observation, 9 August 2026
 
 - **Source:** direct read-only Ethereum JSON-RPC observation through dRPC,
   cross-linked to the public block explorers.
 - **URLs:** <https://eth.drpc.org>, <https://etherscan.io/block/25714155>,
   <https://eth.blockscout.com/block/25714155>
 - **Type / class:** finalized chain-state observation / A.
-- **Supports:** finalized block `25,714,155` (`0x1885deb`), hash
+- **Supports:** the pre-accession state at finalized block `25,714,155`
+  (`0x1885deb`), hash
   `0x9ec59a4b6029e30f52491f6ebfbf34c521a4338056fa1a0b9a5cff12bb9ac767`,
   timestamp `2026-08-09T01:33:11Z`; contract name `Magnum Photos 75`, symbol
   `MPA75`, ERC-165 ERC-721 support; the five exact tokenURI reads; all five
-  `ownerOf` reads returning
+  `ownerOf` reads then returning
   `0x6daa633c23615a29471deafae351727867e7dad1`; and zero token-level
   approvals. The fifteen linked transfer receipts each returned status `0x1`
   with the expected `Transfer` event.
@@ -619,7 +618,9 @@ image locators are withheld from the visitor corpus.
   curl.exe -sS https://eth.drpc.org -H "content-type: application/json" --data-raw '{"jsonrpc":"2.0","id":2,"method":"eth_call","params":[{"to":"0xe628b59d34f42b16c53f4d697f1ffd4d8d987b91","data":"0x6352211e000000000000000000000000000000000000000000000000000000000000007f"},"0x1885deb"]}'
   ```
 
-- **Limit:** the block and calls are time-bound chain observations. They do not
+- **Limit:** this is a historical pre-accession observation, superseded for
+  current custody by S38. The block and calls are time-bound chain observations.
+  They do not
   establish donor authority, legal title, copyright, Museum custody, formal
   acceptance, accession, Collection membership, or display permission. An
   explorer market label does not establish legal title.

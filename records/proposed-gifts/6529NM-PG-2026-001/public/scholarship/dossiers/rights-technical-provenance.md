@@ -8,12 +8,12 @@ This dossier records what the proposal package and public chain/metadata
 observations establish about the five token-linked manifestations. It keeps
 token identity, source-image identity, copyright, title, custody, display
 permission, and Museum accession as separate facts. The five photographs are
-public Work projections for the selected acquisition. This scholarship, object
-identification, technical and rights review, provenance work, image
-presentation, and public record construction are the downstream accession work
-now underway; donor authority, title transfer, Museum custody, the accession
-certificate, and permanent Collection membership remain separate open facts
-([S37](../sources/source-register.md)).
+public Work projections for the completed acquisition. The donor's full-gift
+offer, five on-chain transfers, Museum custody, accession certificate, and
+permanent Collection membership are recorded in the completed accession. This
+dossier keeps those facts distinct from continuing provenance, rights, source
+image, and preservation stewardship ([S37](../sources/source-register.md);
+[S38](../sources/source-register.md)).
 
 ## Technical identity schedule
 
@@ -149,35 +149,37 @@ The CloudFront URLs are Wave-upload presentation media. The Arweave image URLs
 in the technical schedule are token-source locators reached through each
 token’s metadata. A matching byte hash observed in memory does not collapse
 those publication contexts, create preservation custody, or create a rights
-grant. The exact already-published Wave URLs may render only in acquisition,
-artist, or Work context under the current display authority, with the supplied
-artist and Magnum credits and the label `All Rights Reserved`. They remain
-Wave-source historical proposal media for provenance purposes; no download,
-zoom, fullscreen, derivative, preservation, or Collection inference is
-authorized
+grant. The Wave URLs remain historical publication evidence. Current
+presentation uses the fixity-verified token-source images with the supplied
+artist and Magnum credits and the label `All Rights Reserved` in accession,
+Collection, acquisition, artist, Work, and scholarship contexts. The Museum
+interprets ordinary credited institutional display, publication, and
+accessibility in those contexts as permissible. No copyright transfer,
+commercial or general reproduction, derivative, licensing, download,
+preservation-master, or AI-training right is asserted
 ([S38](../sources/source-register.md); [S54](../sources/source-register.md);
 [S56](../sources/source-register.md)).
 The [Source and rights record](source-and-rights-record.md) and [media plan](media-plan.md)
-define that narrow disposition. Download, full-resolution delivery, crops or
-derivatives, responsive recompression, IIIF, preservation copying, and
-Collection publication remain outside the current permission boundary
+define that disposition. Download offers, full-resolution delivery claims,
+crops or derivatives, responsive recompression, IIIF, and preservation-master
+claims remain outside the current authority
 ([S38](../sources/source-register.md)).
 
 ## Accession boundary
 
 | Record or fact | Current state |
 | --- | --- |
-| Public Work lifecycle | `selected_by_museum_wave_acquisition_review_in_progress` ([S37](../sources/source-register.md)) |
-| Collection membership | Outside the permanent Collection |
-| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028`; independent publication review remains pending |
+| Public Work lifecycle | `accessioned_into_permanent_collection` |
+| Collection membership | Five Works in the permanent Collection |
+| Canonical Work IDs | `6529NM-W-0024` through `6529NM-W-0028` |
 | Curated Acquisition | `6529NM-CA-2026-003` ([S37](../sources/source-register.md)) |
 | Proposal record | `6529NM-PG-2026-001` ([S37](../sources/source-register.md)) |
-| Accession number | None |
-| Object record | None |
-| Title binding to Museum custody | None ([S37](../sources/source-register.md)) |
-| Donor authority/legal title | Unresolved ([S37](../sources/source-register.md)) |
-| Copyright/reproduction/display license | Narrow historical proposal-media disposition only ([S38](../sources/source-register.md)) |
-| Museum custody/preservation | None; upstream files not retained ([S37](../sources/source-register.md)) |
+| Accession number | `6529NM.2026.002` |
+| Object records | `6529NM.2026.002.01` through `6529NM.2026.002.05` |
+| Title binding to Museum custody | Executed for the donor's transferable interest in each tokenized object |
+| Donor authority/legal title | Accepted on the recorded full-gift declaration and completed transfers |
+| Copyright/reproduction/display position | Ordinary credited institutional display, publication, and accessibility; no copyright transfer or commercial/general reproduction, derivative, licensing, or AI-training right |
+| Museum custody/preservation | Five tokens in Museum custody; token-source images are display sources, not declared preservation masters |
 
 Sources: proposal records and live technical boundary [S37](../sources/source-register.md),
 exact token metadata [S10–S14](../sources/source-register.md), contract and

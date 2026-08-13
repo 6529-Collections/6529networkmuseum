@@ -31,7 +31,7 @@ Exhibitions remain a reserved future area. No Exhibition page, placeholder, or r
 
 Existing Casey gift and Keys and Gates routes are compatibility redirects into these identities. The redirect is not a duplicate record and must not make `/gifts/6529NM.2026.001` look like the Curated Acquisition identifier. Existing source IDs, proposal IDs, program IDs, accession numbers, and object IDs remain displayed as provenance links. A slug amendment creates a permanent redirect and does not change the entity identity.
 
-The canonical Project/Series example is **Magnum Photos 75**, published at `/museum/network/projects/magnum-photos-75` (`6529NM-PRJ-0006`). Retained proposal evidence names it as a 2022 anniversary-year release context drawn from the Magnum archive. The five selected Works undergoing Museum accession processing and their ERC-721 token manifestations are linked to that source context without conflating the Project with the Museum's `Conflict at Its Edges` Curated Acquisition, the independent Work identities, or Collection membership.
+The canonical Project/Series example is **Magnum Photos 75**, published at `/museum/network/projects/magnum-photos-75` (`6529NM-PRJ-0006`). Retained proposal evidence names it as a 2022 anniversary-year release context drawn from the Magnum archive. The five accessioned Works and their ERC-721 token manifestations remain linked to that source context without conflating the Project with the Museum's `Conflict at Its Edges` Curated Acquisition, the independent Work identities, or the accessioned Collection relation.
 
 ### How works enter the Museum
 
@@ -43,6 +43,18 @@ Agents are not automatically Artists. Generic `AGENT` entities are reached only 
 
 ## Publication states
 
-Cards and lists show visitor-facing Curated Acquisition labels, not the machine token `selected_unminted`. A formal proposal that has not changed status may say **Proposed in the Museum Wave**. The current Conflict at Its Edges card says **Selected by Museum Wave—accession processing in progress**; its scholarship, object records, diligence, and presentation are the downstream accession work now underway, while uncompleted title, custody, rights, technical, certificate, and Collection facts remain separate. A Keys and Gates card says **Selected through an acquisition program; acquisition pending**, with the qualifier **Not yet minted; minting route under consideration.** The exact `selected_unminted` status stays in the source record layer. Selected works do not appear in Collection. Casey appears in Collection only through the accessioned Work and Collection relations.
+Cards and lists show visitor-facing Curated Acquisition labels, not the machine token `selected_unminted`. A formal proposal that has not changed status may say **Proposed in the Museum Wave**. The current Conflict at Its Edges card says **Completed gift; accessioned into the permanent Collection** and identifies accession `6529NM.2026.002`. Its proposal, scholarship, object records, diligence, and accession documents remain linked as one record of the gift. A Keys and Gates card says **Selected through an acquisition program; acquisition pending**, with the qualifier **Not yet minted; minting route under consideration.** The exact `selected_unminted` status stays in the source record layer. Selected Keys and Gates works do not appear in Collection. Casey and Magnum appear in Collection through their accessioned Work and Collection relations.
 
-Media components consume the typed media contract. The five Magnum image records are historical/public Wave proposal presentation evidence, explicitly bound to `6529NM-CA-2026-003` and the linked Work relation. The retained signed-drop API publication observation binds all seven parts, exact source-byte hashes, the actual CloudFront presentation URLs, credits, rights labels, and separate token-linked Arweave locators; `is_signed:true` remains an API-reported state, not an independently verified signature or license. The only external locator affordance is the non-licensing `open_wave_proposal_context`, and download, zoom, fullscreen, token-source, and repository-source affordances are prohibited. The text-only proposal cover is an independently authored Museum `museum_authored_public_graphic` with CC0-1.0 rights, no derivation, and no selected-acquisition hero use. A frontend may render only the affordances listed by the source record; it must not synthesize a download, zoom, fullscreen, credit, or rights state from a URL or MIME type.
+Media components consume the typed media contract. The five Magnum image records
+retain their historical Wave publication evidence and are also linked to the
+accessioned Works under `6529NM.2026.002`. The retained signed-drop API
+publication observation binds all seven parts, exact source-byte hashes, the
+actual CloudFront presentation URLs, credits, rights labels, and separate
+token-linked Arweave locators; `is_signed:true` remains an API-reported state,
+not an independently verified signature or license. The Museum interprets
+ordinary credited institutional display, publication, and accessibility in
+accession, Collection, and scholarship contexts as permissible. That
+interpretation does not transfer copyright or grant commercial or general
+reproduction, derivative, licensing, download, or AI-training rights. A
+frontend may render only the governed affordances listed by the source record;
+it must not synthesize a rights state from a URL or MIME type.

@@ -67,10 +67,32 @@
         "to": {"$ref": "#/$defs/chainReference"},
         "custody_ens": {"type": "string", "minLength": 1},
         "transfer_count": {"type": "integer", "minimum": 1},
-        "receipt_status": {"const": "0x1"}
+        "receipt_status": {"const": "0x1"},
+        "logs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/receiptLog"}}
       },
       "required": ["transaction_hash", "block_number", "block_time", "from", "to", "custody_ens", "transfer_count", "receipt_status"],
       "unevaluatedProperties": false
+    },
+    "receiptLog": {
+      "type": "object",
+      "properties": {
+        "object_id": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.\\d+$"},
+        "log_index": {"type": "integer", "minimum": 0}
+      },
+      "required": ["object_id", "log_index"],
+      "unevaluatedProperties": false
+    },
+    "receiptWithLogs": {
+      "allOf": [
+        {"$ref": "#/$defs/receipt"},
+        {
+          "type": "object",
+          "properties": {
+            "logs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/receiptLog"}}
+          },
+          "required": ["logs"]
+        }
+      ]
     },
     "authorityDeclaration": {
       "type": "object",
@@ -157,6 +179,7 @@
         "donor_authority_declaration": {"$ref": "#/$defs/authorityDeclaration"},
         "governing_basis": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/governingBasis"}},
         "custody_receipt": {"$ref": "#/$defs/receipt"},
+        "custody_receipts": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/receiptWithLogs"}},
         "assets": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/asset"}},
         "institutional_decision_authority": {"$ref": "#/$defs/institutionalDecisionAuthority"},
         "completion_boundary": {"$ref": "#/$defs/completionBoundary"},
@@ -164,7 +187,11 @@
         "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
         "payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
       },
-      "required": ["authorization_id", "authorization_kind", "authorization_status", "outcome", "formal_acceptance_date", "acquisition_method", "donor_public_credit", "permanent_collection_intent", "consideration", "donor_authority_declaration", "governing_basis", "custody_receipt", "assets", "institutional_decision_authority", "completion_boundary", "completion_blockers", "non_claims", "payload_sha256"]
+      "oneOf": [
+        {"required": ["custody_receipt"], "not": {"required": ["custody_receipts"]}},
+        {"required": ["custody_receipts"], "not": {"required": ["custody_receipt"]}}
+      ],
+      "required": ["authorization_id", "authorization_kind", "authorization_status", "outcome", "formal_acceptance_date", "acquisition_method", "donor_public_credit", "permanent_collection_intent", "consideration", "donor_authority_declaration", "governing_basis", "assets", "institutional_decision_authority", "completion_boundary", "completion_blockers", "non_claims", "payload_sha256"]
     }
   ],
   "unevaluatedProperties": false

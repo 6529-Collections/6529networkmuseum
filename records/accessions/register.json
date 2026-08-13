@@ -100,48 +100,68 @@
         "token_count": 5,
         "evidence_class": "A"
       },
-      "receipt_event": {
-        "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
-        "block_number": 25741724,
-        "block_time": "2026-08-12T21:51:23Z",
-        "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
-        "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
-        "transfer_count": 5,
-        "receipt_status": "0x1",
-        "evidence_class": "A",
-        "transactions": [
-          {
-            "token_id": 127,
-            "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
-            "block_number": 25741708,
-            "log_index": 696
-          },
-          {
-            "token_id": 145,
-            "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
-            "block_number": 25741724,
-            "log_index": 229
-          },
-          {
-            "token_id": 97,
-            "transaction_hash": "0x0ff08ed5fb29cc8e83dd50191e1156615ad23d584e05c9d1803af39151ecb33d",
-            "block_number": 25741718,
-            "log_index": 430
-          },
-          {
-            "token_id": 44,
-            "transaction_hash": "0x9fbef477914c51b2d4e3ae13f791d36499a5ac0516e7ce13a0b40531bc833e74",
-            "block_number": 25741721,
-            "log_index": 207
-          },
-          {
-            "token_id": 104,
-            "transaction_hash": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
-            "block_number": 25741705,
-            "log_index": 385
-          }
-        ]
-      },
+      "receipt_events": [
+        {
+          "transaction_hash": "0xa7c3ac876453a9b5af10b53402a284e6f14d66a29df197e4b148c3c23970836c",
+          "block_number": 25741708,
+          "block_time": "2026-08-12T21:48:11Z",
+          "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+          "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+          "transfer_count": 1,
+          "receipt_status": "0x1",
+          "evidence_class": "A",
+          "token_id": 127,
+          "log_index": 696
+        },
+        {
+          "transaction_hash": "0xe4af0f51779cf14b18297aa922876029640734c102395c02f0d054c55e630b8d",
+          "block_number": 25741724,
+          "block_time": "2026-08-12T21:51:23Z",
+          "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+          "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+          "transfer_count": 1,
+          "receipt_status": "0x1",
+          "evidence_class": "A",
+          "token_id": 145,
+          "log_index": 229
+        },
+        {
+          "transaction_hash": "0x0ff08ed5fb29cc8e83dd50191e1156615ad23d584e05c9d1803af39151ecb33d",
+          "block_number": 25741718,
+          "block_time": "2026-08-12T21:50:11Z",
+          "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+          "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+          "transfer_count": 1,
+          "receipt_status": "0x1",
+          "evidence_class": "A",
+          "token_id": 97,
+          "log_index": 430
+        },
+        {
+          "transaction_hash": "0x9fbef477914c51b2d4e3ae13f791d36499a5ac0516e7ce13a0b40531bc833e74",
+          "block_number": 25741721,
+          "block_time": "2026-08-12T21:50:47Z",
+          "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+          "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+          "transfer_count": 1,
+          "receipt_status": "0x1",
+          "evidence_class": "A",
+          "token_id": 44,
+          "log_index": 207
+        },
+        {
+          "transaction_hash": "0x443e02349d0b5538fd33acb392edbb6ce63a6479917b3be0d71cd5069cdaaa07",
+          "block_number": 25741705,
+          "block_time": "2026-08-12T21:47:35Z",
+          "from": "0x6DAA633C23615a29471dEaFae351727867E7dAD1",
+          "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+          "transfer_count": 1,
+          "receipt_status": "0x1",
+          "evidence_class": "A",
+          "token_id": 104,
+          "log_index": 385
+        }
+      ],
       "evidence_refs": [
         "records/accessions/6529NM.2026.002/accession-certificate.json",
         "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
