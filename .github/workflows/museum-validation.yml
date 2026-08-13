@@ -146,6 +146,9 @@ jobs:
       - name: Check Keys and Gates media derivatives
         run: python scripts/generate_program_media.py --check
 
+      - name: Check accession media derivatives
+        run: python scripts/generate_accession_media.py --check
+
       - name: Check institutional source inventory
         run: python scripts/generate_institutional_source_inventory.py --check
 
@@ -214,6 +217,7 @@ jobs:
           python scripts/validate_rights_handbook.py
           python scripts/sync_rights_legal_texts.py
           python scripts/generate_program_media.py --check
+          python scripts/generate_accession_media.py --check
           python scripts/generate_institutional_source_inventory.py --check
           python scripts/migrate_public_entities.py --check --check-existing-review-state
           python scripts/validate_full_with_casey.py

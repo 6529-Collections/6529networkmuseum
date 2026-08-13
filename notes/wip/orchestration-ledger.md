@@ -3796,6 +3796,32 @@ catalog activation, and frontend qualification remain open.
 - Durable detailed handoff:
   `notes/wip/2026-08-12-magnum-accession-and-full-site-correction.md`.
 
+## 2026-08-13 responsive Magnum Collection delivery
+
+- The live Collection exposed exact source files as ordinary card payloads. The
+  five Magnum JPEGs total 24.4 MB, including a 16.9 MB Palmyra source. Lazy
+  loading delayed the transfer but did not reduce it; the page supplied no
+  `srcset` or smaller approved source.
+- The corrective package applies the Museum's existing deterministic
+  `6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC` profile at 640, 1280, and
+  2400 pixels to all five fixity-verified sources. It creates fifteen immutable
+  content-addressed WebP copies totaling 4,456,502 bytes and records every
+  source/derivative hash, dimension, byte size, colour conversion, and CDN key.
+- `6529NM.2026.002.DISPLAY-01` records the narrow institutional-display basis:
+  no crop, watermark, retouching, content alteration, download right, general
+  reproduction, commercial reuse, licensing, derivative licence, or AI
+  training. The Arweave files remain the recorded sources and are not the
+  default page payload.
+- The frontend follow-up must read the accession presentation manifest from the
+  exact catalog-bound source, emit responsive `srcset`/`sizes` on every Magnum
+  card/hero/detail image, and prove with a cache-disabled browser trace at 390
+  and desktop widths that ordinary scrolling never requests an Arweave source.
+- Museum source validation and the responsive manifest verifier are green.
+  Publication inventory, visitor bundle, and release manifest were regenerated.
+  Remaining gates are exact schema validation, repository upload with immutable
+  caching and byte readback, source PR/bots/CI/merge, frontend integration,
+  staging E2E, production E2E, and live visual/network audit.
+
 - The completed-accession candidate now records five distinct Magnum receipt
   transactions rather than one false aggregate event. Each token is bound to
   its exact receipt and Transfer log; the control-plane regression covers both
