@@ -225,12 +225,18 @@ def normalize_colour(image: Image.Image, source_icc: bytes | None) -> tuple[Imag
     return rgb, status, output_icc
 
 
+def derivative_height(source_width: int, source_height: int, width: int) -> int:
+    """Return the canonical proportional derivative height."""
+
+    return max(1, round(source_height * width / source_width))
+
+
 def webp_bytes(image: Image.Image, width: int, output_icc: bytes) -> tuple[bytes, int]:
     if image.width < width:
         raise ProgramMediaError(
             f"source width {image.width} is smaller than required derivative width {width}"
         )
-    height = max(1, round(image.height * width / image.width))
+    height = derivative_height(image.width, image.height, width)
     resized = image.resize(
         (width, height),
         resample=Image.Resampling.LANCZOS,
@@ -623,7 +629,7 @@ def verify_manifest() -> tuple[int, int]:
             )
             if not isinstance(width, int) or not isinstance(height, int):
                 raise ProgramMediaError(f"{record_id} derivative dimensions are invalid")
-            expected_height = max(1, round(source_height * width / source_width))
+            expected_height = derivative_height(source_width, source_height, width)
             if height != expected_height:
                 raise ProgramMediaError(
                     f"{record_id} derivative aspect ratio differs from its source at width {width}"

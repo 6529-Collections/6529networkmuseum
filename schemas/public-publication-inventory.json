@@ -103,8 +103,10 @@
       "records/accessions/6529NM.2026.002/public/curatorial-accession-review.md",
       "records/accessions/6529NM.2026.002/public/gift-acceptance-authorization.md",
       "records/accessions/6529NM.2026.002/public/maintainer-authoritative-completion.md",
+      "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
       "records/accessions/6529NM.2026.002/public/technical-and-condition-review.md",
       "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
+      "records/accessions/6529NM.2026.002/public/web-presentation-authority.md",
       "records/entities/6529NM-ACC-ENT-0001.json",
       "records/entities/6529NM-ACC-ENT-0002.json",
       "records/entities/6529NM-AGT-0001.json",
@@ -604,11 +606,11 @@
     "schema": "https://6529networkmuseum.org/schemas/public-publication-bundle-v1.json"
   },
   "counts": {
-    "approved_public_media": 45,
+    "approved_public_media": 60,
     "public_assembly_control_document": 126,
-    "public_curatorial_manuscript": 111,
+    "public_curatorial_manuscript": 112,
     "public_entity_record": 128,
-    "public_media_source_manifest": 2,
+    "public_media_source_manifest": 3,
     "public_relation_record": 222,
     "wave_observation": 1
   },
@@ -856,6 +858,111 @@
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "docs/rights/registry.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0024/65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453/webp-v2-q82-m6-fixed-icc/1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0024/65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453/webp-v2-q82-m6-fixed-icc/2400.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0024/65abf8b6a182bb641787a43b40d10f0b6471357e5c90777aacccf9eb73ea1453/webp-v2-q82-m6-fixed-icc/640.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0025/e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee/webp-v2-q82-m6-fixed-icc/1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0025/e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee/webp-v2-q82-m6-fixed-icc/2400.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0025/e60f2d2c56b702981597606315c6c77e07dedf4dd9a95804ae2da720d0f5bcee/webp-v2-q82-m6-fixed-icc/640.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0026/a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df/webp-v2-q82-m6-fixed-icc/1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0026/a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df/webp-v2-q82-m6-fixed-icc/2400.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0026/a59d8624c8da11758c5f1c0b64484229e4ffb68167b8e5783cdbafa9628b74df/webp-v2-q82-m6-fixed-icc/640.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0027/cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816/webp-v2-q82-m6-fixed-icc/1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0027/cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816/webp-v2-q82-m6-fixed-icc/2400.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0027/cf1ec75dc4e3de3bcd85cffd9954c75395d9af2bff38374468440e403352b816/webp-v2-q82-m6-fixed-icc/640.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0028/49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2/webp-v2-q82-m6-fixed-icc/1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0028/49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2/webp-v2-q82-m6-fixed-icc/2400.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.002/6529NM-W-0028/49c45762f344fcc058a1f1167b01e9c298b1f4cff5e200e9033577f9c1023ad2/webp-v2-q82-m6-fixed-icc/640.webp",
       "required_in_catalog": true
     },
     {
@@ -1617,6 +1724,13 @@
     {
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
+      "kind": "public_media_source_manifest",
+      "path": "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
       "kind": "public_curatorial_manuscript",
       "path": "records/accessions/6529NM.2026.002/public/technical-and-condition-review.md",
       "required_in_catalog": true
@@ -1626,6 +1740,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_curatorial_manuscript",
       "path": "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.002/public/web-presentation-authority.md",
       "required_in_catalog": true
     },
     {
@@ -5060,8 +5181,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x919fe993d2db227927937b2888512e6d7098cf0ad68d61bcd66d50a71b9ce271",
-    "body_sha256": "sha256:8700dffecad31591901dfb9d93df07542603701899ef5efb46bda048f301a925",
+    "body_keccak256": "0xdbfe655defd49e4f21a2bc2248f8a65a7ce665efeecf2de4eb89814defbd4b47",
+    "body_sha256": "sha256:937047bc11cdc235b335454f703f37c6ca9a59a43eef0b91ddd44b05c58476c1",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

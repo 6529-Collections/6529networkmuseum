@@ -52,6 +52,7 @@ Contract design is in progress; deployment and activation remain pending. See
 | Proposed gift Wave standard | [`docs/proposed-gift-wave-standard.md`](docs/proposed-gift-wave-standard.md) | Public Storm dossier, decision language, minimum evidence, respectful closure, and accession handoff |
 | Public Museum experience | [`docs/public-museum-experience-standard.md`](docs/public-museum-experience-standard.md) | Art-first replacement frontend standard, including media, scholarship, discovery, accessibility, and release acceptance |
 | Program media delivery | [`docs/program-media-delivery.md`](docs/program-media-delivery.md) | Deterministic responsive derivatives, source fixity, immutable CDN keys, high-resolution access, rights boundaries, and verification |
+| Accession media delivery | [`records/accessions/6529NM.2026.002/public/presentation-manifest.json`](records/accessions/6529NM.2026.002/public/presentation-manifest.json) | Five Magnum source images and fifteen content-addressed 640/1280/2400 WebP delivery copies for credited Museum display; source originals, copyright, and no-reuse boundaries remain explicit |
 | Open Museum | [`docs/open-museum.md`](docs/open-museum.md) | Public, group-editable repository phase and durable separation between record and display |
 | On-chain transition | [`docs/onchain-transition.md`](docs/onchain-transition.md) | Visitor-facing Fall 2026 target, contract/content-addressed boundary, and explicit non-deployment status |
 | Contributing | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Public contribution paths, evidence expectations, correction rules, validation, and safety boundary |
@@ -93,6 +94,7 @@ python scripts/sync_rights_legal_texts.py
 python scripts/validate.py
 python scripts/generate_institutional_source_inventory.py --check
 python scripts/generate_program_media.py --check
+python scripts/generate_accession_media.py --check
 python scripts/migrate_public_entities.py --check --check-existing-review-state
 python scripts/build_casey_diligence_manifest.py --check
 python scripts/generate_manifest.py --check

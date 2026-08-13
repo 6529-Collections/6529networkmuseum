@@ -107,6 +107,7 @@ ASSEMBLY_CONTROL_PATHS = (
 MEDIA_SOURCE_MANIFEST_PATHS = (
     "media/programs/6529NM-AP-01/accessibility.json",
     "records/programs/6529NM-AP-01/public/presentation-manifest.json",
+    "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
 )
 
 
@@ -327,6 +328,74 @@ def _program_media_paths(root: Path) -> set[str]:
     return paths
 
 
+def _accession_media_paths(root: Path) -> set[str]:
+    """Collect the accession's exact reviewed responsive derivative inventory."""
+
+    manifest_relative = "records/accessions/6529NM.2026.002/public/presentation-manifest.json"
+    manifest = _load_record(root, manifest_relative)
+    delivery = manifest.get("delivery")
+    authority_relative = "records/accessions/6529NM.2026.002/public/web-presentation-authority.md"
+    authority_path = require_file(root, authority_relative)
+    authority_lines = authority_path.read_text(encoding="utf-8").splitlines()
+    if len(authority_lines) < 3 or authority_lines[0] != "---":
+        return set()
+    try:
+        boundary = authority_lines.index("---", 1)
+    except ValueError:
+        return set()
+    authority: dict[str, str] = {}
+    for line in authority_lines[1:boundary]:
+        key, separator, value = line.partition(":")
+        if not separator or not key.strip() or key.strip() in authority:
+            return set()
+        authority[key.strip()] = value.strip()
+    if (
+        not isinstance(delivery, dict)
+        or delivery.get("status") != "approved_for_contextual_museum_display"
+        or delivery.get("authority_path") != authority_relative
+        or authority.get("record_id") != "6529NM.2026.002.DISPLAY-01"
+        or authority.get("accession_lot_id") != "6529NM.2026.002"
+        or authority.get("status") != "active"
+    ):
+        return set()
+    paths: set[str] = set()
+    for item in manifest.get("items", []):
+        if not isinstance(item, dict):
+            continue
+        presentation = item.get("presentation")
+        derivatives = (
+            presentation.get("derivatives", [])
+            if isinstance(presentation, dict)
+            else []
+        )
+        for derivative in derivatives:
+            repository_path = (
+                derivative.get("repository_path")
+                if isinstance(derivative, dict)
+                else None
+            )
+            if isinstance(repository_path, str):
+                require_file(root, repository_path)
+                if Path(repository_path).suffix.casefold() not in MEDIA_EXTENSIONS:
+                    raise InventoryError(
+                        f"accession media derivative is not a governed media extension: {repository_path}"
+                    )
+                paths.add(repository_path)
+    media_root = root / "media/accessions/6529NM.2026.002"
+    actual = {
+        relative_path(root, path)
+        for path in media_root.rglob("*")
+        if path.is_file()
+    }
+    if actual != paths:
+        missing = sorted(paths - actual)
+        extra = sorted(actual - paths)
+        raise InventoryError(
+            f"accession media manifest is not an exact local asset inventory; missing={missing}, extra={extra}"
+        )
+    return paths
+
+
 def _approved_responsive_program_media_paths(
     root: Path, active_paths: set[str]
 ) -> set[str]:
@@ -435,6 +504,7 @@ def _entries(root: Path) -> list[dict[str, Any]]:
     if not responsive_paths.issubset(program_media_paths):
         raise InventoryError("approved responsive media escaped the governed program manifest")
     all_media_paths.update(responsive_paths)
+    all_media_paths.update(_accession_media_paths(root))
     for relative in sorted(all_media_paths):
         suffix = Path(relative).suffix.casefold()
         if suffix in MEDIA_EXTENSIONS:
