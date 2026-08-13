@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5c4aeec7d24554685bc67accc6d4b7b2ea12e18822d76fac19672bab26ce83fc"
+      "digest": "0x95f026abdabe8c0550e940cb8970043d47fbad03427f8ef55fe6cc40431888c9"
     },
     "effectiveAt": 1786147200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-08T00:00:00Z",
     "entity_id": "6529NM-RP-0002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-08T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:56d9f13ac8502fbbaf12ea80651175f2e7c1ddab846c94928c7fa5eff4711efe",
+    "payload_sha256": "sha256:23edcf70f738a3bfa2881715c9df4d10a5235067a8cbb3cd2e3b7a13b6989a4e",
     "preferred_label": "Access, Control, and Exit",
     "profile": {
       "author_entity_ids": [
@@ -97,7 +97,7 @@
     },
     "public_slug": "access-control-and-exit",
     "record_id": "6529NM-RP-0002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -135,8 +135,19 @@
       "6529NM-W-0022",
       "6529NM-W-0023"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-agent:019ffb70-d909-71c3-a959-1224f9535646",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-13T14:06:33.935Z",
+      "reviewed_commit": "32637be32992a1e17981ba2919b53aac19c218a4",
+      "reviewed_manifest_keccak": "0xaf3a67d6995d5883282d7ba37d0757dda3fbef8a055b7cd00e42c9263f003d37",
+      "reviewed_manifest_sha256": "sha256:beac2e0796ae4cbfc4245a997de06f605a85d8eee77f46fd33c770d56158cc99",
+      "reviewer_ids": [
+        "codex-agent:019ffb70-d909-71c3-a959-1224f9535646"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -183,7 +194,7 @@
         }
       ],
       "observed_at": "2026-08-08T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0002",
     "visibility": "public"

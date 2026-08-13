@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1faf41fa37f40db95818109e057410f440ae2614a60d51964714aaf0c34ca7cf"
+      "digest": "0x4bf0b1e7a4b02bdab2c9d1e24d7089981a2661dfb94bc6632893009256533b46"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-MED-0004",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:600abbdfa4acb00e861845b5994ee2d7f2434f5fb10ce01faafcca0e0a6866ed",
+    "payload_sha256": "sha256:b77bae6986d89b5b5b3a0d2163cadf6e265cd2a018c5370360f31885f03d4eab",
     "preferred_label": "Conflict at Its Edges historical proposal cover graphic",
     "profile": {
       "media": {
@@ -127,7 +127,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0004",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -135,8 +135,19 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-agent:019ffb70-d909-71c3-a959-1224f9535646",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-13T14:06:33.935Z",
+      "reviewed_commit": "32637be32992a1e17981ba2919b53aac19c218a4",
+      "reviewed_manifest_keccak": "0xaf3a67d6995d5883282d7ba37d0757dda3fbef8a055b7cd00e42c9263f003d37",
+      "reviewed_manifest_sha256": "sha256:beac2e0796ae4cbfc4245a997de06f605a85d8eee77f46fd33c770d56158cc99",
+      "reviewer_ids": [
+        "codex-agent:019ffb70-d909-71c3-a959-1224f9535646"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -153,7 +164,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0004",
     "visibility": "public"
