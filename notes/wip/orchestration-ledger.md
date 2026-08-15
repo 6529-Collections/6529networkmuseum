@@ -3862,3 +3862,16 @@ catalog activation, and frontend qualification remain open.
   validation, exact-head independent review, reviewed B, immutable catalogue C,
   then frontend production-build full-page screenshot review at desktop,
   tablet, and mobile before any frontend PR.
+- Candidate A `4fc04577367a6fd650916ea47d7913babd2d0448` was independently
+  blocked by `codex-reviewer:museum-publication-source-001` at
+  2026-08-15T17:49:08Z. The review identified a stale `1.5.0` Casey source
+  version and an accidental removal of the data-architecture publication's
+  explicit `not an adopted governance policy` boundary.
+- The Casey source version is now `1.5.1`, matching its public essay and
+  Research Publication record. The policy boundary is restored verbatim.
+  Generated entities, inventory, visitor bundle, and release manifest were
+  regenerated; the corrected manifest is SHA-256
+  `sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d`
+  and Keccak
+  `0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303`.
+  Repeat deterministic validation and fresh exact-head review remain required.

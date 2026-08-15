@@ -1,7 +1,7 @@
 # Research publication copy and routing correction
 
 Date: 2026-08-15  
-Status: candidate construction and review pending
+Status: corrected candidate A; repeat exact-head review pending
 
 ## Scope
 
@@ -34,6 +34,12 @@ acceptance gate before its pull request opens.
 
 ## Open state
 
-- Candidate generation, deterministic validation, and exact-head review remain
+- Candidate A `4fc04577367a6fd650916ea47d7913babd2d0448` was independently
+  blocked on 2026-08-15T17:49:08Z. The reviewer found one stale Casey
+  manuscript version and an accidental loss of the data-architecture page's
+  explicit non-adoption boundary.
+- Both findings are corrected. Generated entities, publication inventory,
+  visitor bundle, and release manifest have been regenerated. Repeat
+  deterministic validation and a fresh exact-head independent review remain
   pending.
 - No visitor-facing catalogue pointer has changed at this note's creation.

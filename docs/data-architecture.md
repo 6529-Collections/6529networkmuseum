@@ -1,6 +1,6 @@
 # How the Museum knows and cares for art
 
-Working Museum data architecture standard · published for education and review
+Status: working Museum data architecture and public education standard; not an adopted governance policy
 
 A museum record begins with ordinary questions. What is the work? Who made it?
 Which object entered the collection? What happened before and after it arrived?

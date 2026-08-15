@@ -1,7 +1,7 @@
 ---
 title: "The System in Seven States: Casey Reas in the 6529 Network Museum"
 publication_id: "6529NM.PUB.CASEY.COLLECTION"
-version: "1.5.0"
+version: "1.5.1"
 status: "completed_publication_manuscript"
 institutional_author: "6529 Network Museum"
 publication_date: "2026-08-02"
