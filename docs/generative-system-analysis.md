@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-Generative art should be encountered before it is audited.
+A reproducible method for documenting generative-art systems, outputs, and dependencies.
 
 A museum account of generative art should explain more than what an output
 looks like and more than which metadata traits it carries. It should make the

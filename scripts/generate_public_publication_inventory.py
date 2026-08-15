@@ -67,6 +67,8 @@ PROPOSED_GIFT_DECISION_HISTORY = re.compile(
 EXPLICIT_MANUSCRIPTS = (
     "CONTRIBUTING.md",
     "docs/curatorial-publication-standard.md",
+    "docs/generative-system-analysis.md",
+    "docs/generative-trait-analysis.md",
     "docs/onchain-design.md",
     "docs/onchain-transition.md",
     "docs/open-museum.md",

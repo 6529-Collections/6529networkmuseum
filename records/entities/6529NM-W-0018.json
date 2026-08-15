@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3d8a2ef69b137d1c9cb80901e43a5267851ce9ccb937a4c0bf0a4b9cbcc45a4f"
+      "digest": "0x46ea8b52b593d936e799ba4fcfb00be3679c9f8d471be20c1a683553f5893ab3"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a1977926567dcaf7d5b7196583502e9a47d05313ce31297efcaaead06dbcbf44",
+    "payload_sha256": "sha256:9981a792ea15d052d54c9cf36d28e232c0e1c1381973bca06b703b5ddfb003f7",
     "preferred_label": "Sina Beizavi in Brazil",
     "profile": {
       "accession_entity_ids": [],
@@ -188,14 +188,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-agent:019ffb70-d909-71c3-a959-1224f9535646",
+      "id": "codex-reviewer:museum-research-copy-004",
       "outcome": "approved",
-      "reviewed_at": "2026-08-13T14:06:33.935Z",
-      "reviewed_commit": "32637be32992a1e17981ba2919b53aac19c218a4",
-      "reviewed_manifest_keccak": "0xaf3a67d6995d5883282d7ba37d0757dda3fbef8a055b7cd00e42c9263f003d37",
-      "reviewed_manifest_sha256": "sha256:beac2e0796ae4cbfc4245a997de06f605a85d8eee77f46fd33c770d56158cc99",
+      "reviewed_at": "2026-08-15T22:07:24.876Z",
+      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
+      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
+      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
       "reviewer_ids": [
-        "codex-agent:019ffb70-d909-71c3-a959-1224f9535646"
+        "codex-reviewer:museum-research-copy-004"
       ],
       "role": "reviewer"
     },

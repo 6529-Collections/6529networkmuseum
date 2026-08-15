@@ -4,7 +4,7 @@
 - **Series:** A field of practice
 - **Status:** public scholarship
 - **Institutional author:** 6529 Network Museum
-- **Version:** 1.1.3
+- **Version:** 1.1.4
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
 - **Research apparatus:** [primary-source register](source-register.md)
@@ -36,9 +36,8 @@ The study follows four connected questions:
 4. Which parts of a method depend on specific labor, rights, budgets, or
    technical infrastructure?
 
-The profiles follow the operational questions they answer. The order
-establishes a reading path; it carries no claim about reputation, scale,
-quality, chronology, or comparative rank.
+Profiles are grouped by the museum problem they illuminate and arranged as a
+reading sequence.
 
 ## Selection method
 
@@ -67,8 +66,8 @@ completed institutional capability.
 The study excludes prestige, collection size, visitor numbers, awards,
 marketplace metrics, generic technology claims, and institutional promotion as
 selection grounds. Broad institutional history appears only when it explains a
-specific record, work, decision, or dependency. No profile is an endorsement of
-the institution as a whole.
+specific record, work, decision, or dependency. Each profile is limited to the
+documented practice and sources named on its page.
 
 ## Thematic pathways
 
@@ -170,10 +169,9 @@ for the change.
 
 ### Test transfer at the field level
 
-The transferable unit is usually a field, form, workflow, source path, or
-record relationship—not an institution's entire model. For each case, state
-what the Museum can adopt, what requires adaptation, and which dependency keeps
-the analogy bounded.
+For each case, the study identifies the field, form, workflow, source path, or
+record relationship the Museum could adapt. It also states the work that
+adaptation would require and the dependency that limits the comparison.
 
 ## Profiles by question
 
@@ -210,15 +208,17 @@ as a comparative study without turning it into a directory.
 - [Curatorial publication standard](../../docs/curatorial-publication-standard.md)
 - [Digital art stewardship standard](../../docs/digital-art-stewardship-standard.md)
 
-The source register explains the research apparatus and retains the detailed
-original register. Every new profile carries its own exact
-source notes; the deterministic inventory reconciles all 237 cited web sources
-to the manuscripts in which they appear. The adjacent chain-native-practice
-study applies the same evidence discipline to technical, institutional, and
-collection records that sit beside this comparative publication.
+The source register lists the sources used for each profile, together with
+access dates, gaps, and unresolved questions. The adjacent
+chain-native-practice study applies the same evidence discipline to technical,
+institutional, and collection records that sit beside this comparative
+publication.
 
 ## Revision history
 
+- `1.1.4` — 2026-08-15: copy-edited the public Research edition for direct
+  museum language; the study's institutions, sources, and conclusions are
+  unchanged.
 - `1.1.3` — 2026-08-04: replaced a residual edition-production reference
   with the study's permanent public description.
 
