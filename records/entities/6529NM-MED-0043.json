@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0e9de73e37d856deaebf0a9a80b55c71e62197b5455ffdbfd7651581acd74342"
+      "digest": "0x3fcb1e1a5dc43aa53b33eea24e6f00e4d1a6aee034bcc368d2dfe5f47d06589f"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0043",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:acc5a9d8b3902d50f8f0d286091b17b2ee0ec3ac1480cb642bd4f22f4a08bf16",
+    "payload_sha256": "sha256:830d3ea7797de10aa050b9efe046e6cb8353ca4c235d995456d03af32c79c1bb",
     "preferred_label": "Tripoli, Libya downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -181,7 +181,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0043",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -189,8 +189,19 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -219,7 +230,7 @@
         }
       ],
       "observed_at": "2026-08-12T07:37:56.984246Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0043",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd840daa3f351db865949bbfea391c14e3d626bdf27729a2c75940e0ab4f01501"
+      "digest": "0x0943c416749946f508d7fdaebee8a387e252d76cf3111bee55d6ff1595905b2c"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-C-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "COLLECTION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:eef931184c8e218e3b717856d66ebaf4cd0fb4073fd199ba9de9002e6e13e89e",
+    "payload_sha256": "sha256:ed933f0c41e6de5c395ebb30b2b4972b7fba4715025718c2ecd17dda2f45a635",
     "preferred_label": "6529 Network Museum permanent Collection",
     "profile": {
       "admitted_work_entity_ids": [
@@ -84,7 +84,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-C-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -94,8 +94,19 @@
       "6529NM.2026.001",
       "6529NM.2026.002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -120,7 +131,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-C-0001",
     "visibility": "public"

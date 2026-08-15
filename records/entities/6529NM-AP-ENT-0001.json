@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf2773ad3547b4540253db523d2a2fa4d4934542683a25a3716d2c002e5ceb6d2"
+      "digest": "0x648e9711ab4930164604116937333d1f2d510d4c002302009728ff1bc015d117"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-AP-ENT-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ACQUISITION_PROGRAM",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:db2055480ebd7d042b80abacbf71d05a425215dd1c147998d93b5909422c1461",
+    "payload_sha256": "sha256:54776fed769c1b1f328100d8e7c3200aaafdc86b284f5e6870db4b7a2c31bdcb",
     "preferred_label": "Gift Acquisitions",
     "profile": {
       "authority_record_ids": [
@@ -68,15 +68,26 @@
     },
     "public_slug": "gift-acquisitions",
     "record_id": "6529NM-AP-ENT-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-GOV-1052156",
       "6529NM-GOV-1052812"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-GOV-1052156",
@@ -92,7 +103,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AP-ENT-0001",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf756af340dca6f02d845a350ee21be4cffc9d4c3131c38e4416f53bc1d7e05ec"
+      "digest": "0x0a34992b4f81fc59cb43f81c0c3f65e5359d9e0d9d9c075e5898a84287c3dbe6"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-AGT-0018",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:cf684ceda1c2b3309299e6d7ca695436c8c04d627faf04f1c1beffe4920bdb79",
+    "payload_sha256": "sha256:66ce567ceb87c23e273be566e0c5b7774ace5575cd130a48c007a2979e76c8ea",
     "preferred_label": "David Seymour",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,14 +78,25 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0018",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-PG-2026-001"
@@ -100,7 +111,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AGT-0018",
     "visibility": "public"

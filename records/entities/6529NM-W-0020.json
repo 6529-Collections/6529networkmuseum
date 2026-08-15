@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x38d7f83658b51d165ba74a1b36782a53a7bc13afa8f60f70d85d538425cef18c"
+      "digest": "0x0a0ae8eb85d78a87600ffea8aa7acb629efdffc6066fac85bf039179ca750b8d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0020",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ff5fc42fe7ac1a1a8c2e8c3e5969e9165ac6dfe81306640e432e0c0cf8728af8",
+    "payload_sha256": "sha256:ba92f56aff4dd31c1ed9a55edb85ad1eea36806e9859b8085d401b05ca8750a6",
     "preferred_label": "Nowhere To Esc.",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0020",
     "record_id": "6529NM-W-0020",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,8 +186,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0014",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0020",
     "visibility": "public"

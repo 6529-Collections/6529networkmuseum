@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5582291a5e37cd16203321da17da83580148e63b1a564d24c4eaf1c0e7844ba4"
+      "digest": "0xefdca0143025a2c98f34029f7f6006f8dae33adf782be36aca1462f892996e32"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0009",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:d162c4ee1788be60d2d4db6f93a1fdc129987bb0f9a0adb5006061bc08057d79",
+    "payload_sha256": "sha256:05885b26cd8e69d5ecb1fb736500df516ce9edab0148cd8e119d664141cc0ad4",
     "preferred_label": "the Artist in teh Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0009",
     "record_id": "6529NM-W-0009",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,8 +186,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-publication-source-002",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T18:05:46.399Z",
+      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
+      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
+      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
+      "reviewer_ids": [
+        "codex-reviewer:museum-publication-source-002"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0009",
     "visibility": "public"
