@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4a0b1886c42b02a49b83a9177fb2d10320e67ed267eedd9c51ca53056e79bfc0"
+      "digest": "0x0a251b16846ccc58d9ecfa7c34eccf5609320079e814e7cc3193e5e5ff4abf20"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ART-0021",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:95c86236bcbb742804254781e604a8678746d2859efce6f822e653e3c2523a41",
+    "payload_sha256": "sha256:14c9ac973eb5a6a2314dbd36be25d3372e67c1adc835ed81775de56fb5058bcf",
     "preferred_label": "Lorenzo Meloni",
     "profile": {
       "authority": {
@@ -117,7 +117,7 @@
     },
     "public_slug": "lorenzo-meloni",
     "record_id": "6529NM-ART-0021",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -125,19 +125,8 @@
       "6529NM-PG-2026-001",
       "6529NM-PG-2026-001.OBJ-005"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-source-002",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T18:05:46.399Z",
-      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
-      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
-      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-source-002"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0022",
@@ -160,7 +149,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0021",
     "visibility": "public"

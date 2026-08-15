@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x25c7b7019000bc230265c0cdb6286ddab56de7318f369a738cce037beba1417d"
+      "digest": "0xf9acbc202340aec4368a878829b44338381608ac9fdf0ed10c74a19fff813bbd"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0013",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:dfc598690841462f2c2c7218a135472bb84988e48e024092aa25425e4ac5b037",
+    "payload_sha256": "sha256:a7639d2949626c58c456a38178cef776489fedb18e988f728d2184e984c00cb9",
     "preferred_label": "Pre-Process #63 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -154,7 +154,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0013",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -163,19 +163,8 @@
       "6529NM.2026.001.RIGHTS.04",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-source-002",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T18:05:46.399Z",
-      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
-      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
-      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-source-002"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -199,7 +188,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0013",
     "visibility": "public"

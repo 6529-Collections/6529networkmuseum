@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x53f1143be8f2cc04f609e20cacf00bbc840f03750fd007ce36d2310f668a5b5b"
+      "digest": "0xa2673e82887aa09eae8d03a65b0eb5d8ffda09f84a75f554c7cf404eae7cf47f"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-PRJ-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:552b21fa810ad70abf256eb01e3d4730d313ea73873a3c7aad111cdf5292f9ab",
+    "payload_sha256": "sha256:71e2599b33dc165e929dccabd22a79b938915d1e3b93cd9b24bd1bef959686f1",
     "preferred_label": "CENTURY",
     "profile": {
       "agent_entity_ids": [
@@ -72,7 +72,7 @@
     },
     "public_slug": "century",
     "record_id": "6529NM-PRJ-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -82,19 +82,8 @@
       "6529NM-W-0002",
       "6529NM-W-0003"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-source-002",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T18:05:46.399Z",
-      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
-      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
-      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-source-002"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0001",
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-PRJ-0001",
     "visibility": "public"

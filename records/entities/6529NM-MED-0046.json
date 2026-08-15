@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb00c22360d2c040bdc4d805157feaf68639a59e64e3912bac81e88fc17eb7f36"
+      "digest": "0xf05e4a3c9117555db7a352234682bdb4c858cd89810abdde4167861732b8902d"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0046",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:af8f828a12930986a9dc717c0ccb2da6a8aa7ac6dba554bdc8a3ef3d6420eeec",
+    "payload_sha256": "sha256:6ebe7be3eaadd02436b74652c6a077ed7d6776f71a8ece167f6ab3c09aa23f77",
     "preferred_label": "CENTURY #724 official Art Blocks still",
     "profile": {
       "media": {
@@ -162,7 +162,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0046",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -171,19 +171,8 @@
       "6529NM.2026.001.RIGHTS.02",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-source-002",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T18:05:46.399Z",
-      "reviewed_commit": "f006ad41970965e149fc8996aa5c2c4651d9a3cf",
-      "reviewed_manifest_keccak": "0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303",
-      "reviewed_manifest_sha256": "sha256:599762baf3757a319be23b6cfb0cac4e2a5c9c98ee2e36c8a58f745bfddca78d",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-source-002"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -207,7 +196,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0046",
     "visibility": "public"
