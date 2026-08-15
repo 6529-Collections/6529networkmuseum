@@ -4109,11 +4109,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xb3ec50d043e962895369fa241639377d39829f36a60e7fcc25dce8f16a5a5cf7"
+        "digest": "0x5f4211fdbb4139fb305462a1aba68622e5c4b78814bb7d61337f6903328ddf96"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:cabb72e7bf258fd865f795b8089737d25e9bbfe178191205858e9f904459b0f6",
-      "size": 4765878
+      "sha256": "sha256:b9a9ccf9b566dc61eac4704692faf61b1f9cd7a3ce03079fbcd7740cf2330fc4",
+      "size": 4805087
     },
     {
       "byte_mode": "lf-normalized",
@@ -7019,11 +7019,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xbed31b9ac59a14fc6533a99564b3ff579d0ba3672f199c6c26baa7f8842f11c1"
+        "digest": "0xfe17f3f73af3f44300cfca4f911aad9eca782b3fdd7bc71242ee23eb1f2168e7"
       },
       "path": "schemas/public-publication-inventory.json",
-      "sha256": "sha256:6686e88a769ce123c692dc17883cfafbb48d717d3571b76a4004dfdd497cc083",
-      "size": 198008
+      "sha256": "sha256:d690acda46967d92dfb5de3e7514a9eb9abaec8d06b15a8a2334b1d7ff132db1",
+      "size": 198542
     },
     {
       "byte_mode": "lf-normalized",
@@ -7368,8 +7368,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/generate_public_publication_inventory.py",
-      "sha256": "sha256:efafa641a774f49eb99539a3234818b0d63c53b580599e8c1ba06567b80f92a2",
-      "size": 32730
+      "sha256": "sha256:c4956badad405199c95f68acc1e338bfb35a93f6150d2de8bb4fef71d90c736d",
+      "size": 32813
     },
     {
       "byte_mode": "lf-normalized",
@@ -8022,8 +8022,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_public_entity_layer.py",
-      "sha256": "sha256:f677352c81d6d980401a5148452e2f4ea1d1f9b8e6ca5a5eb90477071377e7b4",
-      "size": 97911
+      "sha256": "sha256:4901275b8a240afbf21dbc75f68aa848a61379ae8e4b1c59c4b96edfa29bb485",
+      "size": 98060
     },
     {
       "byte_mode": "lf-normalized",
@@ -8099,9 +8099,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xca419ac3b10439494e9078732b04a9e94bf90855400f5135c5074dd36bc2f65c"
+    "digest": "0x60921aa3573a9cc2e4f0fd5e4ba145b0e598404a47d0ae9b21a67c7dbd2c26b0"
   },
-  "manifest_sha256": "sha256:181222fee5e996c18eb68213ae90d6b11167ee486907a04d88b8b43de794f953",
+  "manifest_sha256": "sha256:08d55b7c5d157bbd00de29ef07dce8c3e7730041d750d5cf940d5e47d2ce0c28",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

@@ -346,6 +346,8 @@ class PublicEntityLayerTests(unittest.TestCase):
         )
         bundled_paths = {row["path"] for row in visitor_bundle["entries"]}
         self.assertTrue(set(closed_graph_controls).issubset(bundled_paths))
+        self.assertIn("docs/generative-system-analysis.md", bundled_paths)
+        self.assertIn("docs/generative-trait-analysis.md", bundled_paths)
 
         schema_id_paths = {}
         for path in sorted((ROOT / "schemas").glob("*.schema.json")):
