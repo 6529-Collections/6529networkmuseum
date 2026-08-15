@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x36fa37f6f3e87d9b20f3cd7d343c4701a54afe06d7f0579f3621be61bf671429"
+      "digest": "0xd62f1d354df1694d2514b1e5d6c4de45c6e0628da51246493e8a0661989a364d"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:44260e55fe0ae17c657163c7d7ed3bdcbffa588070ae430bf389b7a845ae8324",
+    "payload_sha256": "sha256:082e53a65f513345c7567591769e381b2a38a7c09b4ef62df5496f4201146a48",
     "qualifier": {
       "display_order": 13,
       "scope": "source_project",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0081",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,8 +53,19 @@
     ],
     "relation_id": "6529NM-REL-0081",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-copy-004",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T22:07:24.876Z",
+      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
+      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
+      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-copy-004"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-002",
     "source_record_ids": [

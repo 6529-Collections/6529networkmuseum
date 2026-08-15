@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x839d34980a4e82ecce190b96be8c89499e80f03ff06c3434be089ccbf71f352d"
+      "digest": "0x2e5436da6d8306597024dde60a1f55815fd3673e9a437fef3f05889550e8c307"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-CA-2026-002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "CURATED_ACQUISITION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:3f714996c2b92149b3a7a0d233245b635c0862ef25265158104e03ba260333db",
+    "payload_sha256": "sha256:1d8c7e2a76bb253356084e43c1379d41c0df8c0cda2afa07ad1c6ca1e192b1ed",
     "preferred_label": "Keys and Gates",
     "profile": {
       "acquisition_method": "purchase",
@@ -261,7 +261,7 @@
     },
     "public_slug": "keys-and-gates",
     "record_id": "6529NM-CA-2026-002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -300,8 +300,19 @@
       "6529NM-W-0022",
       "6529NM-W-0023"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-copy-004",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T22:07:24.876Z",
+      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
+      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
+      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-copy-004"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -355,7 +366,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-CA-2026-002",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xeecd97d4ab3f30f42098accf31db90ebae2106692126d9a65f7180748cddc851"
+      "digest": "0x9249582ea0d9383b66c4bde26bdecfc162a6e81bc6664d0f5263355750a06c58"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0014",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:20cb46c8e9d966d451ae60fa771057e891813b6519b685428b7f6235d1149c76",
+    "payload_sha256": "sha256:dbbe6ea05e71b543551ffe63ab0e6a3e90bd4fc9cc8c28ed4aa9e41da0017e3a",
     "preferred_label": "Zoku",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "zoku",
     "record_id": "6529NM-ART-0014",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,19 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-014"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-copy-004",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T22:07:24.876Z",
+      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
+      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
+      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-copy-004"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0015",
@@ -117,7 +128,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0014",
     "visibility": "public"

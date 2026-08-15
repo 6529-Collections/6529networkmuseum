@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf3a92eb984acf4b83a42b93af05d10139232be2e0cec5a43c7ba7e8dae527dd2"
+      "digest": "0xa8b8e7826d81591dda347fb8b9c3059cfcf3ed37f866799d8161982b7af880b6"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0007",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:85e398743b9ae13be0395025029cc4c590bb67cf14dca816e88dd9642e1adbd9",
+    "payload_sha256": "sha256:e606c7dd3574d05c80c527a043703af8ea42dfe6ddd00a7677ded46284215ae5",
     "preferred_label": "GIANT",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "giant",
     "record_id": "6529NM-ART-0007",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,19 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-006"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-copy-004",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T22:07:24.876Z",
+      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
+      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
+      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-copy-004"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0007",
@@ -117,7 +128,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0007",
     "visibility": "public"
