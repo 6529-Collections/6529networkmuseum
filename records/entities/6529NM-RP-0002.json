@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaf77e285327d2ca0b3968a76e553ac7725d0e5d50480dc59d3edf7df2f8c96b2"
+      "digest": "0xb087c85ed0f6bb32c4d92cba903d3596e1da3d9a89557a18aa85b951d14d974b"
     },
     "effectiveAt": 1786147200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-08T00:00:00Z",
     "entity_id": "6529NM-RP-0002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-08T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:2fb8b0414f9d7ab53a61d523f345d798e98441bce698efb38364c425f3986fae",
+    "payload_sha256": "sha256:cf9ada7ea52dc90f52670c10a3c1e0fc2267925a18f7c1392e624ac6d3eb5192",
     "preferred_label": "Access, Control, and Exit",
     "profile": {
       "author_entity_ids": [
@@ -97,7 +97,7 @@
     },
     "public_slug": "access-control-and-exit",
     "record_id": "6529NM-RP-0002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -135,8 +135,19 @@
       "6529NM-W-0022",
       "6529NM-W-0023"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-publication-003",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-15T21:17:03.818Z",
+      "reviewed_commit": "4276a7b57ed06c0ff4cffe97c9695716b7ce5505",
+      "reviewed_manifest_keccak": "0xc86db5414a7db946211ac79a75ee846f742e07a195b362c9b9760b07efc8ab4e",
+      "reviewed_manifest_sha256": "sha256:461b4d259ff471570fcf0b949a231c50637e0a1f8f2b54e1e37329dd5b554bf8",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-publication-003"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -183,7 +194,7 @@
         }
       ],
       "observed_at": "2026-08-08T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0002",
     "visibility": "public"
