@@ -1,22 +1,21 @@
 # How the Museum knows and cares for art
 
-Status: working Museum data architecture and public education standard; not an adopted governance policy
+Working Museum data architecture standard · published for education and review
 
 A museum record begins with ordinary questions. What is the work? Who made it?
 Which object entered the collection? What happened before and after it arrived?
 What may the Museum do with it? What must survive for somebody to experience it
 in fifty years? Which image is the work, and which image merely documents it?
 
-No single record can answer all of those questions. The Museum therefore uses
-several complementary standards. Each has a defined responsibility, and the
-same work or event can appear in more than one layer without becoming a
-different thing.
+The Museum uses several complementary records. Each has a defined
+responsibility, and the same work or event may appear in more than one layer
+while retaining its own identity and purpose.
 
 The explanation begins in ordinary language and then gives the machine-facing
 detail needed by artists, collectors, visitors, researchers, registrars,
 conservators, developers, data partners, and a future on-chain registry.
 
-## Eleven questions, eleven standards
+## Eleven questions, eleven standards and vocabularies
 
 | A question the Museum must answer | Tool | Its job |
 |---|---|---|
@@ -109,11 +108,11 @@ The following separations are mandatory in Museum records:
    completeness, legality, or significance.
 4. A signature binds a signed statement to a signing key within a stated trust
    model. The statement itself still needs review.
-5. An ontology gives the Museum shared concepts and relationships. It helps
-   records describe events; it does not itself decide collection policy, create
-   legal rights, or prove that an event happened.
-6. A public page is one rights- and privacy-reviewed view of a record. It is not
-   the whole registrar or preservation file.
+5. An ontology gives the Museum shared concepts and relationships for
+   describing events. Collection policy, legal rights, and event verification
+   remain separate decisions.
+6. A public page is the rights- and privacy-reviewed view of a record.
+   Registrar and preservation records retain the supporting detail.
 7. When the Museum does not know a fact, the record says so. It does not turn
    silence into a negative claim.
 
@@ -204,3 +203,10 @@ an authority publishes a new stable release. Drafts are identified as drafts.
 Museum examples distinguish existing artifacts from planned implementations.
 Corrections are made through a reviewed commit and deterministic release
 manifest; they do not erase the prior publication.
+
+## Revision history
+
+- `1.0.1` — 2026-08-15: copy-edited the public Research edition for direct
+  museum language; no standard, implementation status, or interoperability
+  claim changed.
+- `1.0.0` — 2026-08-05: initial public Museum data architecture standard.

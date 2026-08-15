@@ -1,15 +1,10 @@
 # Rights in digital art
 
 Copyright shapes how an artwork can be shown, studied, preserved, circulated,
-and transformed. A public license can make those choices legible in advance.
-This handbook explains the terms the 6529 Network Museum is likely to
-encounter and shows how each one bears on museum work and public reuse.
-
-The subject belongs in the galleries as well as the accession file. Artists
-decide how a work may enter culture. Collectors become custodians of files,
-instructions, and evidence. Museums publish and preserve works over long spans
-of time. Clear rights information helps all three groups care for art with
-confidence.
+and transformed. Artists, collectors, and museums hold different
+responsibilities for those uses. A public license can make the terms legible in
+advance. This handbook explains the rights language the 6529 Network Museum is
+likely to encounter and how each term bears on museum work and public reuse.
 
 ## Copyright in brief
 
@@ -40,11 +35,9 @@ own a painting while the artist or the artist's estate controls reproduction
 rights. Digital art follows the same basic pattern. The token, the work, and
 copyright are separate interests unless an agreement joins them.
 
-This leaves plenty for a collector to own. The token can be authentic and
-scarce. It can establish a place in an edition, carry on-chain material, and
-serve as the transferable object around which display and preservation are
-organized. Copyright ownership answers a different question: who controls
-certain uses of the artistic expression.
+A collector may own the token, its place in an edition, and the associated
+files or records, subject to the governing terms. Copyright ownership answers
+who controls certain uses of the artistic expression.
 
 ### The public domain is where much of art history lives
 
@@ -200,13 +193,13 @@ three describe unresolved status. They give visitors a concise status signal
 and a stable URI. The detailed Museum rights record remains the place for the
 underlying evidence, permissions, restrictions, and component-level detail.
 
-These statements are descriptive metadata. They do not operate as a row of
-red lights. “In Copyright” already assumes that the institution has a basis
-for making the item available. “Copyright Not Evaluated” and “Copyright
-Undetermined” describe the state of research. “No Known Copyright” records a
-reasoned conclusion without presenting it as certainty. In each case the
-Museum pairs the statement with the practical basis for display,
-documentation, scholarship, preservation, and any broader reuse.
+These statements describe rights status and reuse conditions. “In Copyright”
+assumes that the institution has a basis for making the item available.
+“Copyright Not Evaluated” and “Copyright Undetermined” describe the state of
+research. “No Known Copyright” records a reasoned conclusion without
+presenting it as certainty. The Museum pairs each label with the evidence
+supporting display, documentation, scholarship, preservation, and broader
+reuse.
 
 The rights registry in this repository contains all twelve statements and
 links to their official definitions. A rights statement should appear close
@@ -247,3 +240,10 @@ Primary sources:
 - [RightsStatements.org, Documentation](https://rightsstatements.org/en/documentation/)
 - [RightsStatements.org, Usage Guidelines](https://rightsstatements.org/en/documentation/usage_guidelines)
 - [RightsStatements.org, where statements apply](https://rightsstatements.org/en/2018/12/where-statements-apply.html)
+
+## Revision history
+
+- `1.0.1` - 2026-08-15: copy-edited the public Research edition for direct
+  museum language; no rights determination, legal source, or reuse condition
+  changed.
+- `1.0.0` - 2026-08-03: initial public handbook.

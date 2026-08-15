@@ -284,7 +284,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         profile = publication["profile"]
         self.assertEqual(profile["publication_kind"], "catalogue_essay")
         self.assertEqual(profile["publication_date"], "2026-08-08")
-        self.assertEqual(profile["version"], "1.1")
+        self.assertEqual(profile["version"], "1.2")
         self.assertEqual(profile["author_entity_ids"], ["6529NM-I-0001"])
         work_ids = [f"6529NM-W-{index:04d}" for index in range(8, 24)]
         artist_ids = [f"6529NM-ART-{index:04d}" for index in range(2, 17)]
@@ -393,15 +393,16 @@ class PublicEntityLayerTests(unittest.TestCase):
         profile = publication["profile"]
         self.assertEqual(profile["publication_kind"], "research_dossier")
         self.assertEqual(profile["publication_date"], "2026-08-09")
-        self.assertEqual(profile["version"], "1.0.0")
+        self.assertEqual(profile["version"], "1.0.1")
         self.assertEqual(profile["author_entity_ids"], ["6529NM-I-0001"])
         artist_ids = [f"6529NM-ART-{index:04d}" for index in range(17, 22)]
         work_ids = [f"6529NM-W-{index:04d}" for index in range(24, 29)]
         subjects = ["6529NM-CA-2026-003", "6529NM-ORG-0002", "6529NM-PRJ-0006", *artist_ids, *work_ids]
         self.assertEqual(profile["subject_entity_ids"], subjects)
-        manuscript = migration.MAGNUM_PUBLICATION_RECORD_PATH
+        manuscript = migration.MAGNUM_CATALOGUE_ESSAY_PATH
         self.assertTrue(profile["publication_document_uri"].endswith(manuscript))
         self.assertIn(manuscript, json.dumps(profile["evidence_refs"]))
+        self.assertFalse(profile["publication_document_uri"].endswith(migration.MAGNUM_PUBLICATION_RECORD_PATH))
         self.assertEqual(profile["publication_component_paths"], list(migration.MAGNUM_PUBLICATION_COMPONENT_PATHS))
         self.assertEqual(len(profile["publication_component_paths"]), 22)
         self.assertEqual(len(set(profile["publication_component_paths"])), 22)

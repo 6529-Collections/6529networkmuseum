@@ -3,7 +3,7 @@
 - **Status:** active editorial and implementation standard
 - **Institutional author:** 6529 Network Museum
 - **Subtitle:** Scholarship and editorial standard
-- **Version:** 1.1.0
+- **Version:** 1.1.1
 - **Initial publication:** 2026-08-03
 - **Publication date:** 2026-08-04
 - **Research cutoff:** 2026-08-04
@@ -53,13 +53,11 @@ The Museum's records distinguish chain evidence, artist statements, platform rec
 
 The body of an essay should be fluent and direct. Notes carry most factual attribution. A caveat belongs in the body only when it changes the meaning of the work—for example, when a still image cannot represent a continuous software performance, when an unresolved date changes chronology, or when a work widely described as autonomous depends on a mutable service.
 
-Avoid prose such as:
-
-- “This is a Museum interpretation and not a claim about artist intent” after every interpretive sentence;
-- “The source does not establish value, quality, or title” when none of those claims is being made;
-- long lists of what a document does not prove;
-- descriptions organized one source at a time;
-- technical qualifications inserted before the reader has encountered the artwork.
+Attribute artist intention only when a source supports it. Place formal limits
+in the appropriate note or record rather than appending boilerplate to every
+sentence. Avoid long lists of what a document cannot prove, descriptions
+organized one source at a time, and technical qualifications inserted before
+the reader has encountered the artwork.
 
 Use notes, source registers, rights statements, condition reports, and provenance records for those functions. The essay should synthesize their consequences.
 
@@ -427,19 +425,12 @@ tool, or argument in which the change can be observed.
 ### 12.4 Use contrast sparingly
 
 A contrast earns its place when the distinction is necessary to the argument.
-Repeated “not X but Y,” “more than,” and “rather than” constructions produce a
-mechanical voice and make the rejected term carry the sentence. State the
-positive claim directly whenever it can stand on its own.
+Avoid repeated contrast formulas. State the positive claim directly whenever
+it can stand on its own.
 
-Weak:
-
-> The token is not merely a certificate but a new form of cultural memory.
-
-Stronger:
-
-> The token fixes an edition and transfer history. The Museum's accession,
-> provenance, rights, and preservation records supply the institutional memory
-> that the token does not contain.
+The token fixes an edition and transfer history. Accession, provenance, rights,
+and preservation records place that object within the Museum's institutional
+history.
 
 ### 12.5 Keep institutional language proportionate
 
@@ -599,6 +590,9 @@ If any answer is no, the text is not ready.
 
 ## Revision history
 
+- `1.1.1` — 2026-08-15: removed residual formulaic contrast and process
+  boilerplate from the public Research edition; the editorial tests and
+  evidence requirements are unchanged.
 - `1.1.0` — 2026-08-04: expanded the standard through the Museum's
   twenty-seven-profile institutional study; added publication genres,
   controlled knowledge states, sentence-level editorial rules, technical-case

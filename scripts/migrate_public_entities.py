@@ -57,6 +57,7 @@ CASEY_MEDIA_AMENDMENT_ID = "6529NM-MEDIA-PRES-AMD-2026-08-09-001"
 CASEY_MEDIA_AMENDMENT_PATH = "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json"
 MAGNUM_SCHOLARSHIP_ROOT = "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship"
 MAGNUM_PUBLICATION_RECORD_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/publication-record.md"
+MAGNUM_CATALOGUE_ESSAY_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/essays/conflict-at-its-edges.md"
 MAGNUM_PRESENTATION_AUTHORITY_ID = "6529NM-PG-2026-001-MEDIA-DISPLAY-2026-08-11-001"
 MAGNUM_PRESENTATION_AUTHORITY_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/dossiers/public-presentation.md"
 MAGNUM_ACCESSION_STATUS_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-accession-completed.md"
@@ -969,7 +970,7 @@ def build_records(
         "profile_type": "ACCESSION", "accession_number": "6529NM.2026.001", "accession_status": "complete", "admitted_work_entity_ids": casey_work_ids, "source_accession_record_id": "6529NM-ACC-2026-001", "evidence_refs": [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)],
     }, ["6529NM.2026.001", "6529NM-ACC-2026-001", *casey_work_ids], [source_evidence("Accession certificate", "6529NM-ACC-2026-001", CASEY_AT)])
     add_entity(publication, "RESEARCH_PUBLICATION", "The System in Seven States", "the-system-in-seven-states", "/museum/network/research/the-system-in-seven-states", CASEY_AT, {
-        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "collection_essay", "title": "The System in Seven States", "publication_date": "2026-08-02", "version": "1.5.0", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-001", *projects.values(), *casey_work_ids], "publication_document_uri": github_uri("records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"), "evidence_refs": [source_evidence("Published collection essay", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)],
+        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "collection_essay", "title": "The System in Seven States", "publication_date": "2026-08-02", "version": "1.5.1", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-001", *projects.values(), *casey_work_ids], "publication_document_uri": github_uri("records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md"), "evidence_refs": [source_evidence("Published collection essay", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)],
     }, ["6529NM.2026.001", "6529NM-CA-2026-001", *projects.values(), *casey_work_ids], [source_evidence("Published collection essay", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)])
 
     keys_agent_ids_by_outcome: dict[str, str] = {}
@@ -1011,7 +1012,7 @@ def build_records(
     keys_artist_ids = sorted((fixed_id("ARTIST", artist_key) for artist_key in grouped_keys_rows), key=lambda entity_id: int(entity_id.rsplit("-", 1)[-1]))
     keys_essay_path = "records/programs/6529NM-AP-01/public/curatorial-essay.md"
     add_entity(keys_publication, "RESEARCH_PUBLICATION", "Access, Control, and Exit", slug_inventory[keys_publication]["public_slug"], slug_inventory[keys_publication]["canonical_route"], KEYS_PUBLICATION_AT, {
-        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "catalogue_essay", "title": "Access, Control, and Exit", "publication_date": "2026-08-08", "version": "1.1", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-002", *keys_work_ids, *keys_artist_ids], "publication_document_uri": github_uri(keys_essay_path), "evidence_refs": [source_evidence("Keys and Gates Research Publication", keys_essay_path, KEYS_PUBLICATION_AT)],
+        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "catalogue_essay", "title": "Access, Control, and Exit", "publication_date": "2026-08-08", "version": "1.2", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-002", *keys_work_ids, *keys_artist_ids], "publication_document_uri": github_uri(keys_essay_path), "evidence_refs": [source_evidence("Keys and Gates Research Publication", keys_essay_path, KEYS_PUBLICATION_AT)],
     }, [keys_program_source, "6529NM-CA-2026-002", *keys_work_ids, *keys_artist_ids], [source_evidence("Keys and Gates Research Publication", keys_essay_path, KEYS_PUBLICATION_AT)])
 
     proposal = load_json(ROOT / "records/proposed-gifts/6529NM-PG-2026-001/proposal.json")
@@ -1335,9 +1336,9 @@ def build_records(
     project_payload["references"] = sorted(set([*project_payload["references"], MAGNUM_ACCESSION_LOT, MAGNUM_ACCESSION_CERTIFICATE_ID]))
     project_payload["source_record_ids"] = list(project_payload["references"])
     records[project_relative] = finish(project_payload, project_relative)
-    magnum_essay_path = f"{MAGNUM_SCHOLARSHIP_ROOT}/essays/conflict-at-its-edges.md"
+    magnum_essay_path = MAGNUM_CATALOGUE_ESSAY_PATH
     add_entity(magnum_publication, "RESEARCH_PUBLICATION", "Conflict at Its Edges", "conflict-at-its-edges", "/museum/network/research/conflict-at-its-edges", MAGNUM_PUBLICATION_AT, {
-        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "research_dossier", "title": "Conflict at Its Edges", "publication_date": "2026-08-09", "version": "1.0.0", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-003", magnum_org, magnum_project, *magnum_artist_ids, *magnum_works], "publication_document_uri": github_uri(MAGNUM_PUBLICATION_RECORD_PATH), "publication_component_paths": list(MAGNUM_PUBLICATION_COMPONENT_PATHS), "evidence_refs": [source_evidence("Conflict at Its Edges publication record", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT), source_evidence("Conflict at Its Edges catalogue essay", magnum_essay_path, MAGNUM_PUBLICATION_AT)],
+        "profile_type": "RESEARCH_PUBLICATION", "publication_kind": "research_dossier", "title": "Conflict at Its Edges", "publication_date": "2026-08-09", "version": "1.0.1", "author_entity_ids": [institution], "subject_entity_ids": ["6529NM-CA-2026-003", magnum_org, magnum_project, *magnum_artist_ids, *magnum_works], "publication_document_uri": github_uri(magnum_essay_path), "publication_component_paths": list(MAGNUM_PUBLICATION_COMPONENT_PATHS), "evidence_refs": [source_evidence("Conflict at Its Edges catalogue essay", magnum_essay_path, MAGNUM_PUBLICATION_AT), source_evidence("Conflict at Its Edges publication record", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT)],
     }, ["6529NM-PG-2026-001", "6529NM-CA-2026-003", magnum_org, magnum_project, *magnum_artist_ids, *magnum_works], [source_evidence("Conflict at Its Edges publication record", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT), source_evidence("Conflict at Its Edges catalogue essay", magnum_essay_path, MAGNUM_PUBLICATION_AT)])
 
     retained_path = ROOT / "evidence/casey-reas/manifest.json"
@@ -1657,9 +1658,9 @@ def build_records(
     add_relation(f"6529NM-REL-{relation_number:04d}", "INSTITUTION_PUBLISHES_PUBLICATION", institution, keys_publication, {}, KEYS_PUBLICATION_AT, [keys_program_source, keys_publication], [source_evidence("Keys and Gates Research Publication", keys_essay_path, KEYS_PUBLICATION_AT)])
     relation_number += 1
     for target in ["6529NM-CA-2026-003", magnum_org, magnum_project, *magnum_artist_ids, *magnum_works]:
-        add_relation(f"6529NM-REL-{relation_number:04d}", "PUBLICATION_INTERPRETS_ENTITY", magnum_publication, target, {"role": "subject"}, MAGNUM_PUBLICATION_AT, ["6529NM-PG-2026-001", target], [source_evidence("Conflict at Its Edges Research Publication", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT)])
+        add_relation(f"6529NM-REL-{relation_number:04d}", "PUBLICATION_INTERPRETS_ENTITY", magnum_publication, target, {"role": "subject"}, MAGNUM_PUBLICATION_AT, ["6529NM-PG-2026-001", target], [source_evidence("Conflict at Its Edges Research Publication", magnum_essay_path, MAGNUM_PUBLICATION_AT)])
         relation_number += 1
-    add_relation(f"6529NM-REL-{relation_number:04d}", "INSTITUTION_PUBLISHES_PUBLICATION", institution, magnum_publication, {}, MAGNUM_PUBLICATION_AT, ["6529NM-PG-2026-001", magnum_publication], [source_evidence("Conflict at Its Edges Research Publication", MAGNUM_PUBLICATION_RECORD_PATH, MAGNUM_PUBLICATION_AT)])
+    add_relation(f"6529NM-REL-{relation_number:04d}", "INSTITUTION_PUBLISHES_PUBLICATION", institution, magnum_publication, {}, MAGNUM_PUBLICATION_AT, ["6529NM-PG-2026-001", magnum_publication], [source_evidence("Conflict at Its Edges Research Publication", magnum_essay_path, MAGNUM_PUBLICATION_AT)])
     relation_number += 1
     for source, target, context, refs, observed, publication_context in [(casey_work_ids_by_object[casey_object_ids[0]], media_retained, "preservation", ["6529NM-ACC-2026-001"], CASEY_AT, None), (casey_work_ids_by_object[casey_object_ids[0]], media_token, "source", ["6529NM.2026.001.01"], CASEY_AT, None), (magnum_work_ids_by_candidate[first_magnum_candidate], media_wave, "source", ["6529NM-PG-2026-001"], PROPOSAL_AT, "6529NM-CA-2026-003"), ("6529NM-CA-2026-003", media_derivative, "documentation", ["6529NM-PG-2026-001", "6529NM-CA-2026-003"], PROPOSAL_AT, "6529NM-CA-2026-003")]:
         qualifier = {"media_context": context}

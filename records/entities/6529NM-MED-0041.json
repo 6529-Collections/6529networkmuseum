@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa7f3a2d24cd7193c9cbf6d01d9392c70ec3db0abb3fe4e985806906f59da0da2"
+      "digest": "0x34d33f12c33f0c53c1e24f6157378275c66f530b2791a511df468c7e968dd738"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0041",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a5ac9cf66b3339a8af20cf7207ab246b194f582c9b0920a6f2ca99019365274b",
+    "payload_sha256": "sha256:8d53918d72f150c5882f9aef46e834ca7a98a1c7b04636ebe8d3cf5ce92ab3a7",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -177,7 +177,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0041",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -185,19 +185,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-agent:019ffb70-d909-71c3-a959-1224f9535646",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-13T14:06:33.935Z",
-      "reviewed_commit": "32637be32992a1e17981ba2919b53aac19c218a4",
-      "reviewed_manifest_keccak": "0xaf3a67d6995d5883282d7ba37d0757dda3fbef8a055b7cd00e42c9263f003d37",
-      "reviewed_manifest_sha256": "sha256:beac2e0796ae4cbfc4245a997de06f605a85d8eee77f46fd33c770d56158cc99",
-      "reviewer_ids": [
-        "codex-agent:019ffb70-d909-71c3-a959-1224f9535646"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -226,7 +215,7 @@
         }
       ],
       "observed_at": "2026-08-12T07:37:56.984246Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0041",
     "visibility": "public"

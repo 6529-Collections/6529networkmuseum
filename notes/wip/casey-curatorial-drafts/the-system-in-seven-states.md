@@ -16,7 +16,7 @@ supersession_scope: "visitor-facing interpretation of the seven-work group only;
 
 ## Casey Reas in the 6529 Network Museum
 
-Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and geometry emerging from black form the Museum's seven-work study of Casey Reas. Together they disclose an artistic system through markedly different images. The tokens are recent; their lineages reach from code begun in 2003 to a project released in 2026. Across the group, variation becomes Reas's way of thinking about authorship, history, duration, and the unstable life of an image.
+Three fractured modernist fields, a panoramic record of collision, a pale circulation of artificial lives, an optical room, and geometry emerging from black form the Museum's seven-work study of Casey Reas. Together, the seven works let the Museum compare how Reas turns rules, duration, and changing image states into composition. The tokens are recent; their lineages reach from code begun in 2003 to a project released in 2026.
 
 ## I. A collection begins with difference
 
@@ -54,7 +54,7 @@ The result is spatial but not perspectivally coherent. A black upright can read 
 
 Together, the three pictures reject the average output as a sufficient account of generative art. #31, #724, and #401 disclose a range through contrast. Density becomes legible beside openness; color beside grayscale; numerous slices beside fewer. None stands for the population, but each makes the population more thinkable.
 
-Rarity is the wrong interpretive instrument. A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Marketplace rarity ranks scarcity; a museum judges form.
+A frequency table can show how often a palette or feature occurs. It cannot determine whether the lower-right crescent in #724 holds its field, whether #31's seams create tension, or whether #401's translucency sustains unstable depth. Those judgments require close looking.
 
 The live generators add duration to this comparison. The official static outputs permit exact scrutiny of one state. Execution allows the slices to move and the composition to renegotiate itself. Stillness makes relation inspectable; movement makes contingency visible. The works inhabit both modes.
 
@@ -68,7 +68,7 @@ The 120 works realize every significant permutation of eight surfaces, three ori
 
 The width changes the work's temporality. In a square composition, the eye might search for a center. Here it travels laterally from one zone of activity to another. The repeated horizontal bands offer order, but events exceed their compartments. Arcs cross local boundaries; black masses interrupt flow; pale repetitions suggest that a form has occupied several positions.
 
-The picture does not depict one hundred agents as characters. It condenses their relations into density. Collision appears as darkening or blockage; continued movement appears as an arc; repeated passage produces a ghosted surface. Like long-exposure photography, the still gathers duration, but unlike a photograph it records a world composed through rules rather than light reflected from an external event.
+The picture records the relations among one hundred agents. Collision appears as darkening or blockage; continued movement appears as an arc; repeated passage produces a ghosted surface. Like a long-exposure photograph, the still gathers duration, while its rules determine the world being recorded.
 
 The return to early code is part of the work. In 2022, Reas revisited an unresolved 2003 system, selected what remained generative, and gave it a finished public structure. *Pre-Process* turns software history into material.
 
@@ -96,7 +96,7 @@ The static image is dominated by an acid-green diagonal raster across charcoal. 
 
 The strongest effect comes from simultaneous recession and vibration. Parallel diagonals imply a surface turning through space, while their high contrast keeps them optically active on the screen. The room appears to deepen and flatten at once. Vasarely's legacy is present not as borrowed motif but as a problem of perception: how can a flat arrangement make spatial certainty unstable?
 
-Code and diagram can explain how the state was generated. They cannot replace the event of seeing a room gather from absence. The work's emptiness is not lack of content. It is an engineered interval into which perception enters.
+Code and diagram explain how the state was generated. The work engineers an interval in which the viewer constructs a room from partial visual evidence.
 
 *Ex Nihilo (Cosmos)* extends the *Still Life* and *Atomism* lineages in 2026. Art Blocks and Reas describe its 256 works as continuous, non-repeating displays made through code, line, channel, and changing geometry. The Museum reads the title—“from nothing”—as a tension within a computational work: every state depends on code, libraries, token hash, runtime, hardware, and display. This is a curatorial interpretation, not an assertion of the artist's stated intention. Blackness appears empty because its conditions recede from view.[^7]
 
@@ -106,7 +106,7 @@ The recorded features—RGB false, CHUNK 3, COSMOS 3, and white active—locate 
 
 The work runs continuously. Pausing produces a state for scrutiny; changing speed alters the pace at which structures can be recognized; channel and regeneration controls change the encounter. The official still is indispensable as documentation and insufficient as a substitute. It converts becoming into one exact arrangement.
 
-Together, #713 and #248 show Reas using absence at two scales. One solicits an interior large enough to enter; the other solicits a geometric body small or cosmic enough to evade measure. The room and cosmos are not opposites. Both are provisional orders composed across gaps.
+Together, #713 and #248 show Reas using absence at two scales. One solicits an interior large enough to enter; the other solicits a geometric body small or cosmic enough to evade measure. The room and cosmos use the same device at different scales: each suggests an ordered space through gaps, interruptions, and incomplete forms.
 
 ## V. A history of return
 
@@ -122,7 +122,7 @@ These distinctions are part of the work's condition. A *CENTURY* still can be re
 
 The works make preservation a form of interpretation. Migrating code may preserve behavior while altering timing or rendering. Recording video may preserve duration while removing interaction. A screenshot may preserve an exact state while losing movement. The Museum must retain multiple forms of evidence and state what each one can and cannot do.
 
-Reas's own history offers a model of responsible change, but not a blanket authorization. His migrations are artist-led revisions. A future museum emulation will be an institutional interpretation and should be documented as such. Continuity is not sameness; it is an accountable relation across difference.
+Reas's own history offers a model of responsible change, with each migration documented as an artist-led revision. A future museum emulation will be an institutional interpretation. The Museum can describe continuity only by documenting what changes between the earlier and later manifestations.
 
 ## VI. What seven works cannot say
 
@@ -191,6 +191,7 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.5.1 — 15 August 2026:** Copy-edited the public Research edition for direct museum language; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.5.0 — 4 August 2026:** Removed an internal production label from the published opening; the interpretation and evidence are unchanged.
 - **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk, clarified title and chain-history boundaries, and attributed the project's non-repetition claim.
 - **Version 1.3.0 — 4 August 2026:** Deep copy-edited the public essay for curatorial cadence and directness; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
