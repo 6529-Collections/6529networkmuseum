@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x90ae2f3ee432603bb789c3f5d627423aff5af6cf9af0c30169f4a82e2034daee"
+      "digest": "0x7da89006e9bc5c37ec45596b30f7ee6416898df152ca26b1d82fb240164ad2fc"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-AGT-0022",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:cfd3f5d77898b818877ece70f2c63fec5c1161c095a9dd4238f7df69ac0ca77a",
+    "payload_sha256": "sha256:937090365b01220c4f0c326ceb12761075c5de0b53df7ce2d7cb659434a8617b",
     "preferred_label": "Lorenzo Meloni",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,25 +78,14 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0022",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-publication-003",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T21:17:03.818Z",
-      "reviewed_commit": "4276a7b57ed06c0ff4cffe97c9695716b7ce5505",
-      "reviewed_manifest_keccak": "0xc86db5414a7db946211ac79a75ee846f742e07a195b362c9b9760b07efc8ab4e",
-      "reviewed_manifest_sha256": "sha256:461b4d259ff471570fcf0b949a231c50637e0a1f8f2b54e1e37329dd5b554bf8",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-publication-003"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-PG-2026-001"
@@ -111,7 +100,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0022",
     "visibility": "public"

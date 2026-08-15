@@ -228,7 +228,7 @@ Dates are grouped by what the source can support. “Begun,” “released,” �
 | Reas and Allison Parrish, *Compressed Cinema* (Anteism, 2023) | Artist book and project-scale source | Primary collaborative publication |
 | Reas, *Process Compendium 2004-2010* | Primary visual/text archive of Process | Bibliographic source only in this release; no unverified page-specific claim is made |
 
-## 9. Conflicts, naming problems, and do-not-collapse rules
+## 9. Conflicts, naming problems, and distinctions to preserve
 
 ### 9.1 Phototaxis date
 

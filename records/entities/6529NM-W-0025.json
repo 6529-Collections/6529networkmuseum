@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xee0b09bf373ff4abb0fd7a212e7b6df2317665cabf9d1c8587477bdc2c5b17b5"
+      "digest": "0xe5814621c5cb1272fafa543c7edb8de51fbc71b42c3531b10714f9bab084d366"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-W-0025",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:789d98662dee1df065c0c875470630e5cb4006f55a4507b0b5bf13cd74c2a8b8",
+    "payload_sha256": "sha256:20402d775a43d1b7fe6784a9cd7866c98de37f493f5cbaabeca234fc1712ae81",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador",
     "profile": {
       "accession_entity_ids": [
@@ -319,7 +319,7 @@
     },
     "public_slug": "6529NM-W-0025",
     "record_id": "6529NM-W-0025",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -336,19 +336,8 @@
       "6529NM.2026.002.GAA-01",
       "6529NM.2026.002.RIGHTS.02"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-publication-003",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T21:17:03.818Z",
-      "reviewed_commit": "4276a7b57ed06c0ff4cffe97c9695716b7ce5505",
-      "reviewed_manifest_keccak": "0xc86db5414a7db946211ac79a75ee846f742e07a195b362c9b9760b07efc8ab4e",
-      "reviewed_manifest_sha256": "sha256:461b4d259ff471570fcf0b949a231c50637e0a1f8f2b54e1e37329dd5b554bf8",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-publication-003"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -386,7 +375,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0025",
     "visibility": "public"

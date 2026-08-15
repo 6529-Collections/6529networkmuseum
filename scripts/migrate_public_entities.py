@@ -1550,6 +1550,9 @@ def build_records(
             (row for row in derivatives if row["width"] == 1280),
             max(derivatives, key=lambda row: row["width"]),
         )
+        display_credit = f"{outcome['artist']} — {outcome['title']}"
+        if outcome["title"] == "the Artist in teh Open Sea":
+            display_credit += " (title spelling retained as submitted)"
         add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{outcome['title']} presentation record", None, None, KEYS_MEDIA_DISPLAY_AT, media_profile(
             "museum_generated_public_derivative",
             public_derivative["url"],
@@ -1561,7 +1564,7 @@ def build_records(
             item["presentation"]["alt_text"],
             "provided",
             keys_work_ids_by_outcome[outcome_id],
-            f"{outcome['artist']} — {outcome['title']}; Keys and Gates presentation record",
+            f"{display_credit}; Keys and Gates presentation record",
             "cleared_with_conditions",
             "retrieved",
             [outcome_id, keys_program_source],
