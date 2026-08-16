@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdac43146b4164ce871f069e9afe4eb7b75b19096d86669e6f46e4e68666e3690"
+      "digest": "0x89b06b3697b321fd21f27efc67404ca13fb6ada6e5f431e0662ee1f9b2aa8725"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-CA-2026-001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "CURATED_ACQUISITION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:d2603f610afe366b540a583fe61cbea2d4a8aab154fc7d47801e3ed7f1ba506b",
+    "payload_sha256": "sha256:499325ed98a0c32396c57c6cc547c61c9e977cac0d6dfdbfd88352ecdbf3c18c",
     "preferred_label": "The System in Seven States",
     "profile": {
       "acquisition_method": "donation",
@@ -238,7 +238,7 @@
     },
     "public_slug": "the-system-in-seven-states",
     "record_id": "6529NM-CA-2026-001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -260,8 +260,19 @@
       "6529NM.2026.001.06",
       "6529NM.2026.001.07"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-copy-v11b",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-copy-v11b"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -298,7 +309,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-CA-2026-001",
     "visibility": "public"
