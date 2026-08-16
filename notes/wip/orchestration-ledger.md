@@ -3875,3 +3875,19 @@ catalog activation, and frontend qualification remain open.
   and Keccak
   `0x8864081c5c94d29a6400649fe84f64ee227126646a6c50538eefb26ba0a1b303`.
   Repeat deterministic validation and fresh exact-head review remain required.
+
+## 2026-08-16 Research exact-page screenshot gate
+
+- Frontend candidate `e0b0652b4382f07555cb76c7b6895d148ff026e6` rendered
+  eleven Research routes at desktop, tablet, and mobile as a 33-image corpus.
+  Mechanical checks reported zero blockers.
+- Independent museum/curatorial and UX/visual reviews passed all 33 images.
+  Independent copy/editorial review blocked six visible public-copy defects.
+- Source corrections now remove the internal chronology and architecture
+  instructions, duplicated generative/on-chain openings, Casey contrast
+  formula, and Keys and Gates opaque metaphor. No collection or status fact
+  changes.
+- Required continuation: regenerate public projections and commitments,
+  perform exact-head reviewed-B/catalogue activation, merge the source PR,
+  rebuild the frontend against that exact source, and repeat the complete
+  screenshot and three-lens adversarial review before frontend merge.

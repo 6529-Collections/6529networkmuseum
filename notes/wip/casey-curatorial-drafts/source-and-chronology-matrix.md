@@ -137,7 +137,7 @@ Dates are grouped by what the source can support. “Begun,” “released,” �
 | 2022 | *Pre-Process* completed and released as every significant `8 × 3 × 5` permutation: 120 works | Process archaeology and return | [Process history](https://reas.com/process); [Art Blocks interview](https://www.artblocks.io/articles/in-conversation-with-casey-reas-on-pre-process) |
 | 2023 | LACMA commissions/presents *METAVASARELY* and *An Empty Room*; Art Blocks and Bright Moments present *923 EMPTY ROOMS* in Tokyo, Berlin, London, New York, Mexico City, and Los Angeles; bitforms presents *It Doesn't Exist (In Any Other Form)* | Distributed exhibition, Atomism/Still Life synthesis | [LACMA](https://unframed.lacma.org/2023/02/13/introducing-metavasarely-and-empty-room-two-part-digital-work-casey-reas); [Bright Moments](https://www.brightmoments.io/923emptyrooms); [bitforms](https://www.bitforms.art/exhibition/casey-reas/); [Atomism](https://reas.com/atomism) |
 | 2024 | LACMA *Digital Witness* presents Reas; curators publish “Digital art is a kind of performance” interview | Mature self-account of performance, image, and preservation | [LACMA *Unframed*, 13 November 2024](https://unframed.lacma.org/node/3771) |
-| 2024-2025 | The current artist site indicates further CENTURY, Atomism, and machine-learning development | Current-practice research lead only; do not publish exact object titles or dates from this row | [artist current site](https://reas.com/); [CENTURY](https://reas.com/century); [Atomism](https://reas.com/atomism); [In Silico](https://reas.com/in-silico) |
+| 2024-2025 | The current artist site indicates further CENTURY, Atomism, and machine-learning development | Context for later developments in Reas’s practice; exact object titles and dates remain outside this chronology’s verified scope | [artist current site](https://reas.com/); [CENTURY](https://reas.com/century); [Atomism](https://reas.com/atomism); [In Silico](https://reas.com/in-silico) |
 | 2025 | DAM Projects presents *Purely Platonic*; the artist documents *In Silico*; Toledo Museum of Art publishes *Infinite Images: Casey Reas* | Recent work and renewed physical drawing | [DAM Projects](https://www.damprojects.org/en/exhibitions/purely-platonic-exhibition); [In Silico](https://reas.com/in-silico); [Toledo Museum of Art](https://infiniteimages.toledomuseum.org/artist/casey-reas) |
 | 2026 | Art Blocks and Feral File present *Ex Nihilo (Cosmos)*; the platform record describes 256 outputs, with 255 distributed through ranked auction | Latest Still Life / on-chain work | [Art Blocks release](https://www.artblocks.io/collection/ex-nihilo-cosmos-by-casey-reas/purchase); [Atomism](https://reas.com/atomism) |
 | 2026-08-01 | Seven works delivered to Museum custody and full gift formally accepted | Gift narrative | [raw receipt](../../../evidence/casey-reas/raw/rpc/eth-get-transaction-receipt-0xbdde33b32d4b70335b10cbd37c0b00a027844f14c900d82aa4f75b7a7b390498.json); [gift authorization](../../../records/accessions/6529NM.2026.001/gift-acceptance-authorization.json) |
@@ -373,6 +373,8 @@ accession amendment is required.
 
 ## Revision history
 
+- **1.1.4 — 2026-08-16:** replaced an internal publication instruction with a
+  public statement of the chronology's verified scope.
 - **1.1.3 — 2026-08-04:** replaced the working matrix title with a public
   research title; the source classes, chronology, factual boundaries, and
   correction record are unchanged.

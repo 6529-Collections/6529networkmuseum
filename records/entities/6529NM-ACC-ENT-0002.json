@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdbcc77022236949d8c2b485f6153581a51647d1c824aa80824135ab78b9ae613"
+      "digest": "0xb07b45f079783e663bfc822a2652caba3e71c57bda026a48d62a58ecabb7a990"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-ACC-ENT-0002",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACCESSION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:229858a6edd613477894024a6cf3a6403c35d485772d2c242d9150fe6dfd38c7",
+    "payload_sha256": "sha256:9f76ac2de0f6324181fc57bc8a7db36c66c04c37dba0f65d1a6b2d14bca07360",
     "preferred_label": "Conflict at Its Edges accession 6529NM.2026.002",
     "profile": {
       "accession_number": "6529NM.2026.002",
@@ -77,7 +77,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-ACC-ENT-0002",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -90,19 +90,8 @@
       "6529NM.2026.002",
       "6529NM.2026.002.GAA-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -130,7 +119,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ACC-ENT-0002",
     "visibility": "public"

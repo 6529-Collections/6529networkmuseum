@@ -136,7 +136,7 @@ The art deserves full presentation: live software with duration, scale, and cont
 
 The seven-work group supports argument at several scales. Within *CENTURY*, three states reveal how difference makes a system visible. Across *Pre-Process* and *Phototaxis*, behavior becomes trace. Across *923* and *Ex Nihilo*, absence becomes space. Across all seven, a recent token can contain an older artistic history without becoming identical to it.
 
-The system is not behind these images like a secret answer. It is active in their seams, paths, voids, and interruptions. To see the collection well is to move between knowledge and perception: from code to color, from identifier to duration, from the exact fact of a gift to the open work of public interpretation.
+Systems become visible in the images’ seams, paths, voids, and interruptions. Code structures colour and movement; identifiers bind works to their histories; duration reveals behaviour unavailable in a still. The accession keeps these forms of evidence together and open to public interpretation.
 
 ## Works in the group
 
@@ -177,6 +177,9 @@ The system is not behind these images like a secret answer. It is active in thei
 ## Publication metadata and revision history
 
 - **Publication date:** 2 August 2026.
+- **Version 1.5.2 — 16 August 2026:** Replaced an abstract closing contrast
+  with a direct account of system, evidence, and duration; no factual,
+  evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.5.1 — 15 August 2026:** Copy-edited the public Research edition for direct museum language; no factual, evidentiary, rights, provenance, or collection-status assertion changed.
 - **Version 1.5.0 — 4 August 2026:** Removed an internal production label from the published opening; the interpretation and evidence are unchanged.
 - **Version 1.4.0 — 4 August 2026:** Completed the publication copy desk, clarified title and chain-history boundaries, and attributed the project's non-repetition claim.
