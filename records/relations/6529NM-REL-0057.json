@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x00d05663652f536a39019e7124d8ac78a87225ab38ca829be2895541f1b6324c"
+      "digest": "0x0fd608dc42e6740c729bff037d668dec8d1e75bf740ecdbebe887131bee2dbe6"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:77ea758a4d048f2d981d3f91fc73b9cbf9a2c4306b12a1e4136ddf281f952c0c",
+    "payload_sha256": "sha256:8a01c75178b4db6f1632ea4aa6e8a1149c3e062d929c648e472403d53a42bf2e",
     "qualifier": {
       "display_order": 1,
       "scope": "source_project",
@@ -55,14 +55,14 @@
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },

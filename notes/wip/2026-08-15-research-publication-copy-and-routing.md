@@ -1,7 +1,7 @@
 # Research publication copy and routing correction
 
 Date: 2026-08-15  
-Status: corrected candidate A; repeat exact-head review pending
+Status: screenshot-review corrections in candidate preparation
 
 ## Scope
 
@@ -43,3 +43,24 @@ acceptance gate before its pull request opens.
   deterministic validation and a fresh exact-head independent review remain
   pending.
 - No visitor-facing catalogue pointer has changed at this note's creation.
+
+## Full-page screenshot review correction — 2026-08-16
+
+The exact frontend candidate `e0b0652b4382f07555cb76c7b6895d148ff026e6`
+was rendered as 33 full-page screenshots: eleven Research routes at 1440,
+820, and 390 pixels. Independent museum/curatorial and UX/visual reviews
+passed. The independent copy/editorial review blocked release on six visible
+defects:
+
+1. an internal publication instruction in the Casey chronology;
+2. an internal implementation direction in the data-architecture study;
+3. a duplicated generative-analysis lede;
+4. a duplicated repository-to-chain status line;
+5. a formulaic, abstract closing passage in the Casey acquisition essay; and
+6. an opaque metaphor in the Keys and Gates essay.
+
+This source correction replaces all six with direct public museum prose. It
+does not change an accession, program, rights, custody, evidence, or policy
+status. The publication bundle, inventory, release manifest, reviewed-B
+package, and catalogue activation must be regenerated before the frontend
+candidate is rebuilt and the full screenshot gate is repeated.

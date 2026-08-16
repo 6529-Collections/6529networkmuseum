@@ -1,7 +1,7 @@
 # From public repository to on-chain Museum record
 
-Status: working public migration statement. Contract design is in progress;
-audit, deployment, activation, and record migration remain pending.
+This document sets out the proposed migration of the Museum's public record
+from GitHub to a custom on-chain registry.
 
 ## Purpose
 

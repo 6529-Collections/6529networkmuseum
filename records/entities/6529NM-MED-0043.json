@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc2c0fc5f793212e02060b672738f8c39a227c616503e98a43ac354c5db9d153b"
+      "digest": "0x4ef5c7e773db27b05c74492b43bf91375bba788dfd941d5fdafbaa08b7906e07"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6f977cf1699d477f1e0c03667a301e7544eca7db31832cc9f7f94cc4b43e8c65",
+    "payload_sha256": "sha256:57beb9d73bd376e655225c323c2cba7e54205fc89abfa7448a7fbd88972e0bba",
     "preferred_label": "Tripoli, Libya downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -191,14 +191,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },

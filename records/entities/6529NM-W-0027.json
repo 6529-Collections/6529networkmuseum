@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd47bccb201172136b2d5eb959b4722c692fd61219453b81f29bfd0cbfa0c7b21"
+      "digest": "0x970165f7fb413d33bf0a84185c24a3405e1690864628ed144023b816633262fa"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:19ad7ce2d8bb1e8f7c1812e6b07f5d9abae14ad9914bdbae0747681af2b56853",
+    "payload_sha256": "sha256:d25cd7818063e39d7b76f6d3eaa169479bfbd91ec1c926585b9ff7d651a09d91",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [
@@ -338,14 +338,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },

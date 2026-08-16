@@ -42,7 +42,7 @@ Minalisa’s [*Checkpoint*](works/checkpoint.md) gives the body a different kind
 
 In [*Sina Beizavi in Brazil*](works/sina-beizavi-in-brazil.md), HugoFaz places the sitter in an ornate gold chair with bright sandals and a small dark booklet or document. In the historical 640px presentation review, its text was not readable. Gold ornament supplies a theatrical welcome; the object in the sitter’s hand introduces administration into the room. The catalogue uses “the sitter” and leaves personal biography and identifiers outside the public interpretation. The arrangement places ease, display, and proof in the same chair.[^5]
 
-arsonic’s [*Nowhere To Esc.*](works/nowhere-to-esc.md) reduces the credential to keyboard scale. Black keys spell “NO / WHERE / TO,” while the Esc key sits apart beside a small ant. The separation changes the phrase’s rhythm: the command is readable, and the promised exit remains physically displaced. The ant supplies a vulnerable scale against the hard certainty of the keys. Interface language becomes a still life about an exit that exists as a sign before it exists as a route.
+arsonic’s [*Nowhere To Esc.*](works/nowhere-to-esc.md) reduces the credential to keyboard scale. Black keys spell “NO / WHERE / TO,” while the Esc key sits apart beside a small ant. The separation changes the phrase’s rhythm: the command is readable, and the promised exit remains physically displaced. The ant supplies a vulnerable scale against the hard certainty of the keys. The Esc key names an exit from the far edge of the layout; its separation makes escape legible and physically remote.
 
 ## A material comparison
 
@@ -60,6 +60,9 @@ Across the group, light breaks into bands; traffic and herds set competing tempo
 
 ## Revision history
 
+- `1.3` — 2026-08-16: replaced an opaque interface metaphor with a direct
+  account of the Esc key's position and visual effect; no selection,
+  attribution, evidence, rights, or program status changed.
 - `1.2` — 2026-08-15: copy-edited the public Research edition for direct
   museum language; no selection, attribution, evidence, rights, or program
   status changed.

@@ -172,8 +172,8 @@ objects, and Spectrum-derived accession controls are operational in the Museum
 workflow. The data can support substantial CIDOC CRM, LIDO, PREMIS, and PROV-O
 projections, but conformant exports have not yet been published. Getty authority
 reconciliation, IIIF manifests, C2PA manifests, RFC 8493 bags, and an OCFL
-repository remain unimplemented. The website and repository must say so
-plainly.
+repository remain unimplemented. The current public record identifies each as
+future work.
 
 ## Education is part of stewardship
 
@@ -206,6 +206,8 @@ manifest; they do not erase the prior publication.
 
 ## Revision history
 
+- `1.0.2` — 2026-08-16: replaced an internal publication instruction with a
+  public statement of the capabilities that remain future work.
 - `1.0.1` — 2026-08-15: copy-edited the public Research edition for direct
   museum language; no standard, implementation status, or interoperability
   claim changed.

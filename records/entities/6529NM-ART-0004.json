@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa5c892084faf67c491c1ab9614c9f4f8f7a1d1fa20055e399875f38991e3a3c0"
+      "digest": "0xdfc41110dea528473a035f990a5bf22472b2d1164cebbc9412da2d4ad34a3799"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:fdb17177f72c014f5b5b2b7aeaa2c4b581f2e7359cba2aca153719744780dea9",
+    "payload_sha256": "sha256:45bed15b61caffc81b324a074538454aa2019484f86f15c342f3d1a2a3607fc7",
     "preferred_label": "nasimghanizadeh",
     "profile": {
       "authority": {
@@ -101,14 +101,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa17e4e8ae95c15437a26077f0f8759f551fc3017511c37841ca78f8c43adb746"
+      "digest": "0x0850a2f7982c087838ace095443d38dc9d90212acc8865eacc7b6d16c8c8d119"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:19a38348cf950f41fb5ceb8706171fa7e1bc85382d97996de1c635cea8492e1a",
+    "payload_sha256": "sha256:e393515a6205a865b39983824729d3a218bf8b4b6ed5bb3b8db0c2ff33716293",
     "preferred_label": "David Seymour",
     "profile": {
       "authority": {
@@ -127,14 +127,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },

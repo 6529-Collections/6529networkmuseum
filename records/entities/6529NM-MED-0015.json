@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x066c55727aba754f79c296ce47eb4396527b8d4c6c6689af6ef7b45189ccc0b7"
+      "digest": "0xeac31e6c5e619eeb0b2eb5c3a4376bfc6c9cf2f97ebf89c1572685813e5bf50b"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:1efd3d1f498e2c8f70d23f0308d3fd4af0d3c4e9ff625f4854f66354bf598235",
+    "payload_sha256": "sha256:e91a6f59749d29d48d1ae6e94ce3df6b9147b8f315ebd7edd03f4d4b82d77b97",
     "preferred_label": "923 EMPTY ROOMS #713 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -165,14 +165,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-004",
+      "id": "codex-reviewer:museum-research-copy-v11b",
       "outcome": "approved",
-      "reviewed_at": "2026-08-15T22:07:24.876Z",
-      "reviewed_commit": "2415856babbe77cc33fefb8f0f7069a5dbd13605",
-      "reviewed_manifest_keccak": "0xff334711279c7a86b09c8c1aea769eb9fe3174564bdf884d6681ab4510e21f4c",
-      "reviewed_manifest_sha256": "sha256:2fd84e89e16796f78f3d87665b862a2fb01bdae9bc00c21b514ee6a7c4f31b40",
+      "reviewed_at": "2026-08-16T04:28:21.361Z",
+      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
+      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
+      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-004"
+        "codex-reviewer:museum-research-copy-v11b"
       ],
       "role": "reviewer"
     },
