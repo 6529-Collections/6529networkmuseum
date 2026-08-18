@@ -173,7 +173,10 @@ jobs:
   deterministic:
     name: deterministic-${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
+    # The complete portable suite currently takes just over 15 minutes on the
+    # hosted Windows runner. Keep the cross-platform replay fail-closed without
+    # allowing runner startup variance to cancel an otherwise healthy suite.
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
