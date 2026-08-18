@@ -67,6 +67,9 @@ candidate is rebuilt and the full screenshot gate is repeated.
 
 ## Final exact-pixel copy review correction — 2026-08-16
 
+Supersedes: the six-item candidate-preparation state immediately above for
+this release only. The earlier checkpoint remains part of the release history.
+
 The next complete 33-screenshot candidate passed independent museum and visual
 review. Copy review identified one publication blocker and six editorial
 corrections. The blocker was the absence of the required “All Rights Reserved”

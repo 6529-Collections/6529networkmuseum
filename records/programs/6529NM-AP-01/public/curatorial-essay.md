@@ -60,7 +60,7 @@ Across the group, light breaks into bands; traffic and herds set competing tempo
 
 ## Revision history
 
-- `1.4` — 2026-08-16: replaced three abstract or grammatically awkward
+- `1.4` (`supersedes: 1.3`) — 2026-08-16: replaced three abstract or grammatically awkward
   formulations with direct descriptions of the photographs and their access
   evidence; no selection, attribution, rights, or program status changed.
 - `1.3` — 2026-08-16: replaced an opaque interface metaphor with a direct

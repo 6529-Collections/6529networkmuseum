@@ -57,7 +57,7 @@ visitor publication bundle.
   five-Work gift accessioned as `6529NM.2026.002` and recorded the Museum's
   bounded interpretation of ordinary credited institutional display,
   publication, and accessibility rights.
-- **1.0.3, 16 August 2026:** Replaced an abstract closing formulation in the
+- **1.0.3, 16 August 2026** (`supersedes: 1.0.2`): Replaced an abstract closing formulation in the
   catalogue essay with a direct statement of the four evidentiary layers the
   interpretation keeps separate; no object, attribution, rights, accession,
   or source claim changed.

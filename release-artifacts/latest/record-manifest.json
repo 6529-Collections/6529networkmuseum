@@ -3527,8 +3527,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/programs/6529NM-AP-01/public/curatorial-essay.md",
-      "sha256": "sha256:5998b9b5efa54547484777715274af4319a89695f2dacc1fa98de5ca156bfac0",
-      "size": 12216
+      "sha256": "sha256:cc083ceaaff8b3f0faa0732c37c1c747b1c90ea1ab6fd94b4dd8f0bc7d629d5d",
+      "size": 12236
     },
     {
       "byte_mode": "lf-normalized",
@@ -3937,8 +3937,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md",
-      "sha256": "sha256:8810203525bfb17b331e0c04975a464f5a9c61b788d26793c9df4762b0b1f4f8",
-      "size": 3789
+      "sha256": "sha256:2b5e474053a335e97f92f66ff19f4d1acc5af3a48a01505abd79f9f024a013e7",
+      "size": 3811
     },
     {
       "byte_mode": "lf-normalized",
@@ -8099,9 +8099,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x3d2222abf9e98ec94f4146ddd061868c47dfe6e8b4cf7110d2f05c9c70fa01dc"
+    "digest": "0x516cfda6a5852b5058f8a7e8f83bf49e06ef7a7087f40582fa2b61f9ccb92669"
   },
-  "manifest_sha256": "sha256:de7251401ff85bd7f66f0e8801d93089c9574e7db6265a6131262203e4f9eb9d",
+  "manifest_sha256": "sha256:fb6d7d4e6a74e0ed41860dd257004b047a569084f42b6b5958ba75a16fe1b78d",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
