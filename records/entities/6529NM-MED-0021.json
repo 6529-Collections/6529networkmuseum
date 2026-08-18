@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc4ef0261b141382e3d51fb655455fd01baf083f4eebf9791b521404173f6b485"
+      "digest": "0xfc21f6a0cd37529abad92ff187a8bb08bfb8e3b7d9f31c4e3965eb2e334c1323"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0021",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:4dcdf58a281f566e8e8596986cac66ea983c191494815686e3f2715157b059a9",
+    "payload_sha256": "sha256:caa63a393ff14523e07526d38f498f0a3ee7afa390c240fc3581125afd4b1602",
     "preferred_label": "the Artist in the Open Sea presentation record",
     "profile": {
       "media": {
@@ -151,26 +151,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0021",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-002"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-title-display-amendment-hegel",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-18T13:21:58.924Z",
-      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
-      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
-      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
-      "reviewer_ids": [
-        "codex-reviewer:museum-title-display-amendment-hegel"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -192,7 +181,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0021",
     "visibility": "public"

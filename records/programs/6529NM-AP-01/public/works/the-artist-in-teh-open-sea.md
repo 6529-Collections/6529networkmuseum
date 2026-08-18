@@ -1,11 +1,10 @@
-# *the Artist in teh Open Sea*
+# *the Artist in the Open Sea*
 
 
 ## Object data
 
 **Artist:** [Hugo Faz (HugoFaz)](../artists/hugofaz.md)  
-**Title:** *the Artist in teh Open Sea*  
-**Title note:** The spelling is retained exactly as submitted; confirmation is requested.  
+**Title:** *the Artist in the Open Sea*
 **Selection:** place 2 · serial `1171592` · [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9)  
 **Source alias:** OUT-002
 **Submitted location/date:** São Paulo, Brazil · 6 July 2026  

@@ -95,7 +95,7 @@ the weight of authority. The submission connects the threshold to ownership
 and responsibility: a key can move control toward the individual, but it also
 removes the excuse of the gatekeeper.
 
-### 02 — *the Artist in teh Open Sea* — HugoFaz
+### 02 — *the Artist in the Open Sea* — HugoFaz
 
 [Outcome record](../../records/programs/6529NM-AP-01/outcomes/OUT-002.json) ·
 [Wave submission](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9)

@@ -16,7 +16,7 @@ Veerendra’s [*No Access*](works/no-access.md) builds the barrier by hand. A wh
 
 ## Managed movement
 
-In HugoFaz’s [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md), a sharply defined performer sits in a white tub or boat amid traffic streaked by long exposure. The road is all speed and directional force; the performer occupies a still pocket inside it. The submitted title keeps its exact spelling, and the artist’s marketplace analogy gives the composite a social charge. What the image contributes is a body held at a different tempo from the infrastructure carrying everything around it.
+In HugoFaz’s [*the Artist in the Open Sea*](works/the-artist-in-teh-open-sea.md), a sharply defined performer sits in a white tub or boat amid traffic streaked by long exposure. The road is all speed and directional force; the performer occupies a still pocket inside it. The artist’s marketplace analogy gives the composite a social charge. What the image contributes is a body held at a different tempo from the infrastructure carrying everything around it.
 
 In [*Managed Freedom*](works/managed-freedom.md), a rider and a white rearing horse rise above a crowded herd. The lifted horse creates an instant of vertical force, but the animals below fill the plain with pressure, command, and collective direction. The artist associates the scene with migration, shelter, refusal, and negotiated freedom. The photograph’s openness comes with a choreography: bodies move through a field whose apparent breadth never removes the structures that direct them.
 
