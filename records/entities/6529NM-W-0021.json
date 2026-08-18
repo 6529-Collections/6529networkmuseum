@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2cbac5f4445fc5e3a4e05fa0869c1c46f6c4448941b2e18a1d211cddfde4b39e"
+      "digest": "0x18a7854659b6b054e275e5af226aa9e98e5f834c3637c2087eb736ec7928f680"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:408a9d1b9335e5e168fd975175ce582ce4fd764c681cfe68b3852d64b79dbf3b",
+    "payload_sha256": "sha256:6f6cf9f810fa353439b32e942b2eb12904da79d9f8fe86781f2d74491bc83077",
     "preferred_label": "Morning Glory",
     "profile": {
       "accession_entity_ids": [],
@@ -188,14 +188,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T13:21:58.924Z",
-      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
-      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
-      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
       "reviewer_ids": [
-        "codex-reviewer:museum-title-display-amendment-hegel"
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
       ],
       "role": "reviewer"
     },

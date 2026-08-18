@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb047d7c753ddd13d1749b20c9274c4537f3977d2b1d0ddcf8569429352a1344c"
+      "digest": "0x15a493768f541d0e2bb4242125ccc5c3f4df4b2f62d232e63bc6a3cf668f86d8"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -49,7 +49,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:80d23b6f4a63102d2c1db01809b075cdf5e64de060ea6abc3a03decd616e713f",
+    "payload_sha256": "sha256:3ea7988661ad2230181da2cb7373c35ce8928e29d8b3c1e003fe0f3423037a3b",
     "preferred_label": "the Artist in the Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -200,14 +200,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T13:21:58.924Z",
-      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
-      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
-      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
       "reviewer_ids": [
-        "codex-reviewer:museum-title-display-amendment-hegel"
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
       ],
       "role": "reviewer"
     },

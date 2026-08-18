@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc621ffff45ba4c2b271400065640cf7192ce0a7cbef1bb999d28cf05b4ed1ad1"
+      "digest": "0x833e2ce43cb58289ca8c939930514aadb2fa95621f8ce91abd1d785e8bc5c2a0"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:e7d4a36a66932485f9565c26cb8d0b3d6e8cf1f09d199a9dbce6a55d8cba8aaf",
+    "payload_sha256": "sha256:0e39f41c782bf88ee474feab06b7efdf836fade75a3b94f8889b3c92faa578f7",
     "preferred_label": "priyanka",
     "profile": {
       "agent_kind": "PERSON",
@@ -87,14 +87,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T13:21:58.924Z",
-      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
-      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
-      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
       "reviewer_ids": [
-        "codex-reviewer:museum-title-display-amendment-hegel"
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
       ],
       "role": "reviewer"
     },

@@ -22,7 +22,7 @@ The public catalogue is linked to Acquisition Program `6529NM-AP-01` and its pro
 ## Work index
 
 - [OUT-001 — *Take the Key!*](works/take-the-key.md)
-- [OUT-002 — *the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md)
+- [OUT-002 — *the Artist in the Open Sea*](works/the-artist-in-teh-open-sea.md)
 - [OUT-003 — *Managed Freedom*](works/managed-freedom.md)
 - [OUT-004 — *No Key, Only Light*](works/no-key-only-light.md)
 - [OUT-005 — *Residual Barrier*](works/residual-barrier.md)

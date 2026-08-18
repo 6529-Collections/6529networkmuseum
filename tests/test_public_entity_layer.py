@@ -1492,6 +1492,32 @@ class PublicEntityLayerTests(unittest.TestCase):
                 break
         self.assertTrue(self.graph_issues(bad_route))
 
+    def test_keys_and_gates_publications_use_authorized_display_title(self) -> None:
+        visitor_paths = (
+            "docs/programs/keys-and-gates.md",
+            "records/programs/6529NM-AP-01/public/README.md",
+            "records/programs/6529NM-AP-01/public/curated-acquisition.md",
+            "records/programs/6529NM-AP-01/public/curatorial-essay.md",
+            "records/programs/6529NM-AP-01/public/sources-and-bibliography.md",
+            "records/programs/6529NM-AP-01/public/artists/hugofaz.md",
+            "records/programs/6529NM-AP-01/public/works/managed-freedom.md",
+            "records/programs/6529NM-AP-01/public/works/no-access.md",
+            "records/programs/6529NM-AP-01/public/works/the-artist-in-teh-open-sea.md",
+        )
+        for relative_path in visitor_paths:
+            text = (ROOT / relative_path).read_text(encoding="utf-8")
+            self.assertNotIn("teh Open Sea", text, relative_path)
+
+        archival_outcome = load_json(
+            ROOT / "records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+        )
+        self.assertEqual(archival_outcome["title"], "the Artist in teh Open Sea")
+        amendment = (
+            ROOT
+            / "records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("the Artist in teh Open Sea", amendment)
+
 
 if __name__ == "__main__":
     unittest.main()

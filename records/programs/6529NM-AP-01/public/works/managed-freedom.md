@@ -39,4 +39,4 @@ The submission places the work in Kayseri, Turkey. The [source register](../sour
 
 ## Browse
 
-[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/nasimghanizadeh.md) · [Previous: *the Artist in teh Open Sea*](the-artist-in-teh-open-sea.md) · [Next: *the cost of open*](the-cost-of-open.md)
+[Curated Acquisition](../curated-acquisition.md) · [Research Publication](../curatorial-essay.md) · [Artist profile](../artists/nasimghanizadeh.md) · [Previous: *the Artist in the Open Sea*](the-artist-in-teh-open-sea.md) · [Next: *the cost of open*](the-cost-of-open.md)

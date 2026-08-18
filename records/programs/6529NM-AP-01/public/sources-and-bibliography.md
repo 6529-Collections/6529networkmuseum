@@ -15,7 +15,7 @@ This register supports the public corpus. It distinguishes canonical Museum reco
 | Source | Use |
 |---|---|
 | [`program.json`](../program.json) | Program rules, status, Wave, price, planned custody reference, registrar gates, and non-claims. Grade A. |
-| [selected-works.json](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A; the source title spelling is retained and the public display transcription follows the exact UTF-8 submission/media evidence. |
+| [selected-works.json](../selected-works.json) | Sixteen ranked outcomes, handles, titles, selection status, and submission identifiers. Grade A for the submitted record; visitor-facing titles follow the Museum’s recorded display amendments. |
 | [`outcomes/OUT-001.json`](../outcomes/OUT-001.json) through [`OUT-016.json`](../outcomes/OUT-016.json) | Direct submission text, artist declarations, source fixity, media linkage, and per-work rights/consent assertions. Grade A for the submitted assertion; not an executed rights instrument. |
 | [`media-manifest.json`](../media-manifest.json) | Source observations, source hash/dimensions, deterministic transform metadata, and the current zero-derivative delivery state. Grade A for the recorded technical observation; not preservation or rights evidence. |
 | [Current media-delivery amendment](media-delivery-withdrawal-amendment-2026-08-09.md) | Current all-sixteen image withdrawal, exact prior candidate commitment, and restoration gate. Grade A for the repository state and technical control. |
@@ -31,7 +31,7 @@ Every link below opens the program Wave at the selected submission drop. The dir
 | Outcome | Rank / serial | Artist | Title | Direct source | Submission-content SHA-256 |
 |---|---:|---|---|---|---|
 | OUT-001 | 1 / 1085874 | GulYildiz | *Take the Key!* | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=c3283930-101e-4e3a-b921-57d81649ca81) | `sha256:9ea93ea62fd6bd805cd298169e78dbb6628f29f957ad6935bae209cab9582138` |
-| OUT-002 | 2 / 1171592 | HugoFaz | *the Artist in teh Open Sea* | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9) | `sha256:1984e94dbe7417b071dcf35af0b359f6375e5b14a242817880aaef9093c304a3` |
+| OUT-002 | 2 / 1171592 | HugoFaz | *the Artist in the Open Sea* ([display amendment](title-display-amendment-2026-08-18.md)) | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=35efbf4c-2633-4b14-aa6a-82ea7660b6b9) | `sha256:1984e94dbe7417b071dcf35af0b359f6375e5b14a242817880aaef9093c304a3` |
 | OUT-003 | 3 / 980507 | nasimghanizadeh | *Managed Freedom* | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=b47b7d58-6276-45ba-b707-ec0f623e39e2) | `sha256:48d3c7657b0c3b51402580b788e536e378c45c17d8df1bb54cdabad2aaf57052` |
 | OUT-004 | 4 / 1152154 | intrepid | *No Key, Only Light* | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=57c49f95-7854-4a2a-ba2c-d448bc7827fc) | `sha256:4eb3da8002606b875c5e8be662244d09337be77eb00b6a570d7256712f06d054` |
 | OUT-005 | 5 / 981298 | ikertje | *Residual Barrier* | [Wave drop](https://6529.io/waves/4ff022b3-aa17-4a0a-ba78-58f64ff1d427?drop=52631c54-fcce-46e7-b88c-5100de46734c) | `sha256:87ef3daea36e02e1c5517ea18d26cc17e83dfa0bc72cc42188c60972cf71de4a` |
