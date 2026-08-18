@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6a222407555dacf10b35f44db88617d7d603f490da3451bf6a2afbf94d412674"
+      "digest": "0xde3833ccbb0918d1e3023238f74f2d8ed925ee0ec5422f7930f61ec6a7dc23fb"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:52c0d26c5e078004b490c7c42d0d3720a1585b2b5e5c97f60e0675e2e858d754",
+    "payload_sha256": "sha256:7d05610f0ab8d9f545bf4db01184c9b7bb2657136c5fa69e207500cd6ff09ee9",
     "qualifier": {
       "media_context": "documentation"
     },
     "record_id": "6529NM-REL-0136",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,19 +51,8 @@
     ],
     "relation_id": "6529NM-REL-0136",
     "relation_type": "ENTITY_HAS_MEDIA",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-W-0011",
     "source_record_ids": [

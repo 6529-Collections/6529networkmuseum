@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9c49b10e0c8011460a48148164d8bcb48f9855a52b3da49b7fd522df7ad1cd9d"
+      "digest": "0x20aa200e2088db549b29027747f40f265c5597387df245ae1d94d21bf7246bf7"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0015",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9a07812771f6e4a268e8c3f25a011353b2fcecd138784ca0ca257634630361cf",
+    "payload_sha256": "sha256:25136776b4fcbd2feeb76476bdd9bf556d1a31131be0b897fa5574c2d21d9817",
     "preferred_label": "Zoku",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,26 +78,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0015",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-014"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0015",
     "visibility": "public"

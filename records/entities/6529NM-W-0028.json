@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdd986e053b226b7a00ab510a1cd329892fde978134cb707be6068ac54a1c14c2"
+      "digest": "0xa2721f27fc56fdf77382aed54d7d61474a830b68ce71c4ce520264ecb98f1010"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-W-0028",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:6db7c1f7e7a5c582c6a23921d5e67e0ba44a4248e1f6e62aeb616b78292b24d9",
+    "payload_sha256": "sha256:e3da851e2bd81afe12b355529c418f077ed246283cfac228012da271a7b9d442",
     "preferred_label": "Palmyra, Syria",
     "profile": {
       "accession_entity_ids": [
@@ -319,7 +319,7 @@
     },
     "public_slug": "6529NM-W-0028",
     "record_id": "6529NM-W-0028",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -336,19 +336,8 @@
       "6529NM.2026.002.GAA-01",
       "6529NM.2026.002.RIGHTS.05"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -386,7 +375,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0028",
     "visibility": "public"

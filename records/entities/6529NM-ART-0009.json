@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xed150be9a7dd95d9c674efea3ac7c5da641d4d251205477994bebd80aebfc863"
+      "digest": "0x5fc57096fc66c91275d9e26938a8aa1fda577b463f264e0123558d463be50b29"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0009",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:939a916fab088166258a95f0a8b164d119f745ab44daba3b3d8ba8656e6f98b1",
+    "payload_sha256": "sha256:364509774c80001e4c9cbaf2429949f1a10cd203126e79a049904dae1b49f896",
     "preferred_label": "Rakesh",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "rakesh",
     "record_id": "6529NM-ART-0009",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,19 +99,8 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-008"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0009",
@@ -128,7 +117,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ART-0009",
     "visibility": "public"
