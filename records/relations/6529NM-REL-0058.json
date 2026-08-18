@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x447140477081695764ea3239b1623c57d4c42ed8621b4816f64c13789a884f6d"
+      "digest": "0xc722be7a88bac69fda817af4d58b7ecd3547818dbb0a723ccfdef23f4e7a336b"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:957871373d36f0eeb8114112975dd03f59f08807b2c75acef55de3e521b4d800",
+    "payload_sha256": "sha256:fc69bd95ee56603a4547e3f15f3ee3fca896cb7894816ee1a49605154fa2392c",
     "qualifier": {
       "display_order": 1,
       "mint_status": "pending",
@@ -55,14 +55,14 @@
     "relation_type": "PROGRAM_SELECTS_WORK",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-final-heisenberg",
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T10:26:18.755Z",
-      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
-      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
-      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-final-heisenberg"
+        "codex-reviewer:museum-title-display-amendment-hegel"
       ],
       "role": "reviewer"
     },

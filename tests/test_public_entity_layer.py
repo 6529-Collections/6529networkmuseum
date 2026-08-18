@@ -526,6 +526,9 @@ class PublicEntityLayerTests(unittest.TestCase):
         self.assertTrue(all(entities[relation["source_entity_id"]]["entity_type"] == "ARTIST" for relation in creator_relations))
         hugo = next(payload for payload in artists.values() if payload["preferred_label"] == "HugoFaz")
         self.assertEqual({relation["target_entity_id"] for relation in creator_relations if relation["source_entity_id"] == hugo["entity_id"]}, {"6529NM-W-0009", "6529NM-W-0018"})
+        self.assertEqual(works["6529NM-W-0009"]["preferred_label"], "the Artist in the Open Sea")
+        self.assertEqual(works["6529NM-W-0009"]["profile"]["title"], "the Artist in the Open Sea")
+        self.assertIn(migration.KEYS_TITLE_DISPLAY_AMENDMENT_PATH, {item["uri"].split("/blob/main/", 1)[-1] for item in works["6529NM-W-0009"]["evidence_refs"]})
         moises = artists["6529NM-ART-0020"]
         self.assertEqual(moises["preferred_label"], "Moisés Saman")
         self.assertTrue(any(variant["variant_role"] == "source_label" and variant["value"] == "Moisés Saman" for variant in moises["profile"]["name_variants"]))
@@ -641,6 +644,10 @@ class PublicEntityLayerTests(unittest.TestCase):
         keys_media = [value for key, value in media.items() if 20 <= int(key.rsplit("-", 1)[1]) <= 35]
         self.assertEqual(len(keys_media), 16)
         self.assertEqual(len([relation for relation in media_relations if relation["target_entity_id"] in {value["entity_id"] for value in keys_media}]), 16)
+        title_corrected_media = media["6529NM-MED-0021"]
+        self.assertEqual(title_corrected_media["preferred_label"], "the Artist in the Open Sea presentation record")
+        self.assertEqual(title_corrected_media["profile"]["media"]["credit"], "HugoFaz — the Artist in the Open Sea; Keys and Gates presentation record")
+        self.assertNotIn("teh Open Sea", json.dumps(title_corrected_media))
         magnum_media = [value for value in media.values() if value["profile"]["media"].get("media_role") == "historical_wave_proposal_presentation"]
         self.assertEqual(len(magnum_media), 5)
         expected_wave_parts_and_sizes = {

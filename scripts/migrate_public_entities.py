@@ -37,6 +37,11 @@ KEYS_MEDIA_DISPLAY_AUTHORITY_ID = "6529NM-AP-01-MEDIA-DISPLAY-2026-08-11-009"
 KEYS_MEDIA_DISPLAY_AUTHORITY_PATH = "records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
 KEYS_ACCESSIBILITY_REVIEW_AT = "2026-08-11T22:44:52.647Z"
 KEYS_ACCESSIBILITY_REVIEW_PATH = "records/programs/6529NM-AP-01/public/accessibility-review-2026-08-11.md"
+KEYS_TITLE_DISPLAY_AMENDMENT_AT = "2026-08-18T12:45:00Z"
+KEYS_TITLE_DISPLAY_AMENDMENT_PATH = "records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
+KEYS_WORK_DISPLAY_TITLES = {
+    "6529NM-AP-01-OUT-002": "the Artist in the Open Sea",
+}
 PROPOSAL_AT = "2026-08-06T13:19:30.726Z"
 MAGNUM_CHAIN_AT = "2026-08-12T22:24:36.387Z"
 MAGNUM_CUSTODY_EVIDENCE_PATH = "evidence/magnum-75-custody/summary.json"
@@ -1005,9 +1010,15 @@ def build_records(
         keys_work_ids.append(work_id)
         outcome_id = row["record_id"]
         keys_work_ids_by_outcome[outcome_id] = work_id
-        add_entity(work_id, "WORK", row["title"], work_id, f"/museum/network/works/{work_id}", KEYS_AT, {
-            "profile_type": "WORK", "creator_entity_ids": [keys_artist_ids_by_outcome[outcome_id]], "title": row["title"], "creation_date": {"display": "not established", "status": "not_established", "earliest": None, "latest": None, "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)]}, "medium": "photographic submission; final technical and identity state unverified", "work_lifecycle_status": "selected_through_acquisition_program", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_through_acquisition_program", "as_of": KEYS_AT, "evidence_refs": [source_evidence("Keys and Gates selected-works index", outcome_id, KEYS_AT)]}, "mint_fact": fact("pending", KEYS_AT, [outcome_id], "The source outcome is selected_unminted; minting is an independent pending fact and does not establish acquisition or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": [outcome_id], "evidence_refs": [source_evidence("Selected outcome is not an accession", outcome_id, KEYS_AT)]}, "project_or_series_entity_ids": [], "acquisition_entity_ids": ["6529NM-CA-2026-002"], "program_entity_ids": [keys_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "selected_unminted"), "selected_through_acquisition_program", "selected_unminted", KEYS_AT, [outcome_id, keys_program_source], "The program selection remains a historical source outcome; minting, acquisition, accession, and Collection membership are independent facts.")], "component_references": [authoritative_typed_reference("component", outcome_id, "PROGRAM_OUTCOME", [source_evidence("Selected outcome source", outcome_id, KEYS_AT)], source_status="selected_unminted")], "manifestation_references": [], "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.", "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)],
-        }, [outcome_id, keys_program_source, keys_program, "6529NM-CA-2026-002", keys_agent_ids_by_outcome[outcome_id]], [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)], media_entity_ids=[keys_media_ids_by_outcome[outcome_id]])
+        display_title = KEYS_WORK_DISPLAY_TITLES.get(outcome_id, row["title"])
+        display_title_evidence = (
+            [source_evidence("Keys and Gates title-display amendment", KEYS_TITLE_DISPLAY_AMENDMENT_PATH, KEYS_TITLE_DISPLAY_AMENDMENT_AT)]
+            if outcome_id in KEYS_WORK_DISPLAY_TITLES
+            else []
+        )
+        add_entity(work_id, "WORK", display_title, work_id, f"/museum/network/works/{work_id}", KEYS_AT, {
+            "profile_type": "WORK", "creator_entity_ids": [keys_artist_ids_by_outcome[outcome_id]], "title": display_title, "creation_date": {"display": "not established", "status": "not_established", "earliest": None, "latest": None, "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT)]}, "medium": "photographic submission; final technical and identity state unverified", "work_lifecycle_status": "selected_through_acquisition_program", "current_museum_relation": {"museum_entity_id": institution, "relation_status": "selected_through_acquisition_program", "as_of": KEYS_AT, "evidence_refs": [source_evidence("Keys and Gates selected-works index", outcome_id, KEYS_AT)]}, "mint_fact": fact("pending", KEYS_AT, [outcome_id], "The source outcome is selected_unminted; minting is an independent pending fact and does not establish acquisition or Collection membership."), "collection_membership": {"status": "not_in_collection", "collection_entity_id": None, "accession_entity_ids": [], "source_record_ids": [outcome_id], "evidence_refs": [source_evidence("Selected outcome is not an accession", outcome_id, KEYS_AT)]}, "project_or_series_entity_ids": [], "acquisition_entity_ids": ["6529NM-CA-2026-002"], "program_entity_ids": [keys_program], "accession_entity_ids": [], "lifecycle_observations": [lifecycle_observation(fixed_observation_id(work_id, "selected_unminted"), "selected_through_acquisition_program", "selected_unminted", KEYS_AT, [outcome_id, keys_program_source], "The program selection remains a historical source outcome; minting, acquisition, accession, and Collection membership are independent facts.")], "component_references": [authoritative_typed_reference("component", outcome_id, "PROGRAM_OUTCOME", [source_evidence("Selected outcome source", outcome_id, KEYS_AT)], source_status="selected_unminted")], "manifestation_references": [], "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.", "evidence_refs": [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT), *display_title_evidence],
+        }, [outcome_id, keys_program_source, keys_program, "6529NM-CA-2026-002", keys_agent_ids_by_outcome[outcome_id]], [source_evidence("Keys and Gates outcome", outcome_id, KEYS_AT), *display_title_evidence], media_entity_ids=[keys_media_ids_by_outcome[outcome_id]])
 
     keys_artist_ids = sorted((fixed_id("ARTIST", artist_key) for artist_key in grouped_keys_rows), key=lambda entity_id: int(entity_id.rsplit("-", 1)[-1]))
     keys_essay_path = "records/programs/6529NM-AP-01/public/curatorial-essay.md"
@@ -1550,10 +1561,14 @@ def build_records(
             (row for row in derivatives if row["width"] == 1280),
             max(derivatives, key=lambda row: row["width"]),
         )
-        display_credit = f"{outcome['artist']} — {outcome['title']}"
-        if outcome["title"] == "the Artist in teh Open Sea":
-            display_credit += " (title spelling retained as submitted)"
-        add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{outcome['title']} presentation record", None, None, KEYS_MEDIA_DISPLAY_AT, media_profile(
+        display_title = KEYS_WORK_DISPLAY_TITLES.get(outcome_id, outcome["title"])
+        display_credit = f"{outcome['artist']} — {display_title}"
+        title_display_evidence = (
+            [source_evidence("Keys and Gates title-display amendment", KEYS_TITLE_DISPLAY_AMENDMENT_PATH, KEYS_TITLE_DISPLAY_AMENDMENT_AT)]
+            if outcome_id in KEYS_WORK_DISPLAY_TITLES
+            else []
+        )
+        add_entity(keys_media_ids_by_outcome[outcome_id], "MEDIA_REFERENCE", f"{display_title} presentation record", None, None, KEYS_MEDIA_DISPLAY_AT, media_profile(
             "museum_generated_public_derivative",
             public_derivative["url"],
             public_derivative["repository_path"],
@@ -1586,7 +1601,7 @@ def build_records(
                     KEYS_ACCESSIBILITY_REVIEW_AT,
                 ),
             ],
-        ), [outcome_id, keys_program_source], [source_evidence("Keys and Gates contextual public presentation", KEYS_MEDIA_DISPLAY_AUTHORITY_PATH, KEYS_MEDIA_DISPLAY_AT)])
+        ), [outcome_id, keys_program_source], [source_evidence("Keys and Gates contextual public presentation", KEYS_MEDIA_DISPLAY_AUTHORITY_PATH, KEYS_MEDIA_DISPLAY_AT), *title_display_evidence])
 
     add_relation("6529NM-REL-0001", "INSTITUTION_HOLDS_COLLECTION", institution, collection, {}, CASEY_AT, institution_refs, [source_evidence("Institution collection relation", "6529NM.2026.001", CASEY_AT)])
     for index, work_id in enumerate(casey_work_ids):
