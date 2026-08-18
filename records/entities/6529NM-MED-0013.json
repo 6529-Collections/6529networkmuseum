@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x44e5e4110cab790941d70a7d666657f380a6957e12e61cef7fcba696ed1e5961"
+      "digest": "0x8e42c7f3e1f0c67e409e702772a1bbe4def8453005213220e658a0ec26529143"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d6be199b445490b58b1f2212621a8e15b9a5b4a34bafbca4164ac85a0d6bb440",
+    "payload_sha256": "sha256:1f7d83baa707a7652a5c90f58556080e0ac98f48fbf16fc2a9b9f040917de032",
     "preferred_label": "Pre-Process #63 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -165,14 +165,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
+      "id": "codex-reviewer:museum-research-final-heisenberg",
       "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
+        "codex-reviewer:museum-research-final-heisenberg"
       ],
       "role": "reviewer"
     },

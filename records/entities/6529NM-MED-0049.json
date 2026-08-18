@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x55262882c98bd2e6d2ad32ed2f442dcc298e67d7b524ae065840ecc55e3c3fd8"
+      "digest": "0xda8dc7a4f752e59286decf1b5f9a3e7bafacf02c63cec9dad4d9a2442639cc50"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:da59e79ea1aa684bb346668648315390b27af2356bfe85592e1bc2ffc41324b3",
+    "payload_sha256": "sha256:813f061987f4b3c4f7eb0d9a1e48d7b7872f56e7d7149aa2aa31cfca5ad59952",
     "preferred_label": "Phototaxis #308 official Art Blocks still",
     "profile": {
       "media": {
@@ -173,14 +173,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-research-copy-v11b",
+      "id": "codex-reviewer:museum-research-final-heisenberg",
       "outcome": "approved",
-      "reviewed_at": "2026-08-16T04:28:21.361Z",
-      "reviewed_commit": "21d4510e4f224d673b5091c3491a504699c8844f",
-      "reviewed_manifest_keccak": "0xb6e1beba50364503e4aab093e225942bdfb3c23177783c79b15f08abebbaed0e",
-      "reviewed_manifest_sha256": "sha256:7453ad01b36903cfd52c6b719f353f3dfd73ae9ef31b32887ab30926668a40d9",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
       "reviewer_ids": [
-        "codex-reviewer:museum-research-copy-v11b"
+        "codex-reviewer:museum-research-final-heisenberg"
       ],
       "role": "reviewer"
     },

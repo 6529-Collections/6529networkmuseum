@@ -16,11 +16,11 @@ Veerendra’s [*No Access*](works/no-access.md) builds the barrier by hand. A wh
 
 ## Managed movement
 
-HugoFaz’s [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md) places a sharply defined performer in a white tub or boat amid traffic streaked by long exposure. The road is all speed and directional force; the performer occupies a still pocket inside it. The submitted title keeps its exact spelling, and the artist’s marketplace analogy gives the composite a social charge. What the image contributes is a body held at a different tempo from the infrastructure carrying everything around it.
+In HugoFaz’s [*the Artist in teh Open Sea*](works/the-artist-in-teh-open-sea.md), a sharply defined performer sits in a white tub or boat amid traffic streaked by long exposure. The road is all speed and directional force; the performer occupies a still pocket inside it. The submitted title keeps its exact spelling, and the artist’s marketplace analogy gives the composite a social charge. What the image contributes is a body held at a different tempo from the infrastructure carrying everything around it.
 
 In [*Managed Freedom*](works/managed-freedom.md), a rider and a white rearing horse rise above a crowded herd. The lifted horse creates an instant of vertical force, but the animals below fill the plain with pressure, command, and collective direction. The artist associates the scene with migration, shelter, refusal, and negotiated freedom. The photograph’s openness comes with a choreography: bodies move through a field whose apparent breadth never removes the structures that direct them.
 
-Priyanka’s [*the cost of open*](works/the-cost-of-open.md) offers the most conventionally inviting view in the group—turquoise water, dark forest, and the Valley of the Ten Peaks under snow. Its access machinery stays outside the frame. Parks Canada currently states that Moraine Lake Road is closed to personal vehicles year-round and that shuttle access requires a reservation; the artist’s submission relates those conditions to queues, capacity, time, and cost. The image’s calm horizon therefore carries a schedule that the landscape cannot show.[^2]
+In Priyanka’s [*the cost of open*](works/the-cost-of-open.md), turquoise water, dark forest, and the Valley of the Ten Peaks under snow form the group’s most conventionally inviting view. Its access machinery stays outside the frame. Parks Canada currently states that Moraine Lake Road is closed to personal vehicles year-round and that shuttle access requires a reservation; the artist’s submission relates those conditions to queues, capacity, time, and cost. Nothing in the calm view discloses the reservation, shuttle, queue, time, and cost required to reach it.[^2]
 
 Rakesh Pulapa’s aerial [*Dichotomy.*](works/dichotomy.md) compresses movement into a diagram. Dense roofs meet a regimented palm plantation along an edge drawn almost ruler-straight across the frame. The submission calls the cultivated side a prison garden and the other side a neighbourhood; the facility remains unidentified in the public record. From above, land use becomes pattern, and the question of access includes the unequal viewpoints from which a boundary can be mapped.
 
@@ -48,7 +48,7 @@ arsonic’s [*Nowhere To Esc.*](works/nowhere-to-esc.md) reduces the credential 
 
 Read in curatorial order, the group moves from openings that admit light to routes that choreograph bodies, then to infrastructures whose former controls survive as wall, industrial site, waterwork, and train. The final register brings the question into the body and the interface: a refrigerator door, a concealed torso, a document, and an Esc key.
 
-Across the group, light breaks into bands; traffic and herds set competing tempos; the lake and palm boundary expose access systems beyond the frame; walls, water, and train windows carry histories forward; bodies and objects make proof visible. Access becomes a changing visual condition, encountered through scale, timing, residue, and the things a photograph asks us to read.
+Across the group, light breaks into bands; traffic and herds set competing tempos; the lake and palm boundary expose access systems beyond the frame; walls, water, and train windows carry histories forward; bodies and objects make proof visible. The comparison rests on those specific forms: broken light, blocked paths, directed bodies, surviving walls, controlled water, train windows, documents, and a displaced Esc key.
 
 ## Notes and source record
 
@@ -60,6 +60,9 @@ Across the group, light breaks into bands; traffic and herds set competing tempo
 
 ## Revision history
 
+- `1.4` (`supersedes: 1.3`) — 2026-08-16: replaced three abstract or grammatically awkward
+  formulations with direct descriptions of the photographs and their access
+  evidence; no selection, attribution, rights, or program status changed.
 - `1.3` — 2026-08-16: replaced an opaque interface metaphor with a direct
   account of the Esc key's position and visual effect; no selection,
   attribution, evidence, rights, or program status changed.

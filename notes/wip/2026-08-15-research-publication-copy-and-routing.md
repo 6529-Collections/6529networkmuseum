@@ -64,3 +64,24 @@ does not change an accession, program, rights, custody, evidence, or policy
 status. The publication bundle, inventory, release manifest, reviewed-B
 package, and catalogue activation must be regenerated before the frontend
 candidate is rebuilt and the full screenshot gate is repeated.
+
+## Final exact-pixel copy review correction — 2026-08-16
+
+Supersedes: the six-item candidate-preparation state immediately above for
+this release only. The earlier checkpoint remains part of the release history.
+
+The next complete 33-screenshot candidate passed independent museum and visual
+review. Copy review identified one publication blocker and six editorial
+corrections. The blocker was the absence of the required “All Rights Reserved”
+and accession-context notice where Magnum images reappeared on the Research
+landing page and within the five-Work essay. The frontend correction repeats
+that bounded notice at every affected display.
+
+The source correction in this release removes three remaining abstract or
+grammatically awkward passages from the Keys and Gates essay, preserves the
+submitted lowercase Work titles, and replaces the Magnum essay's abstract
+closing with a direct statement of its four evidentiary layers. The frontend
+correction also distinguishes completed gifts from current selection work,
+shows the full Magnum accession title and lot, removes duplicated study ledes,
+and labels selected institutional-practice extracts accurately. None of these
+changes alters accession, program, rights, custody, evidence, or policy status.

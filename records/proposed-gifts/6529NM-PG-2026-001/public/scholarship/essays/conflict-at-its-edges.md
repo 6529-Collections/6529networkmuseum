@@ -132,9 +132,9 @@ turning those sources into a claim of copyright, custody, or accession.[^8]
 The five photographs describe violence at its margins and show how documentary
 authority is made: by what enters the frame, by who grants access, by the words
 attached afterward, and by the institutions that keep an image in circulation.
-The group is strongest where those sources meet without being collapsed. Its
-subject is the exact distance between what was seen and what can responsibly be
-said.
+The catalogue keeps four layers distinct: what appears in the frame, what the
+contemporary caption adds, what later research establishes, and what remains
+unresolved.
 
 [^1]: Exact Magnum 75 metadata and proposal record, [S04–S05](../sources/source-register.md), [S10–S14](../sources/source-register.md), and [S37](../sources/source-register.md).
 [^2]: David Seymour estate, ICP, United Nations, and United States Department of State records, [S18–S19](../sources/source-register.md) and [S42–S43](../sources/source-register.md).
