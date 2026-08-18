@@ -4109,11 +4109,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xb1c49aebab38c39eb9ae7a919c23dc7bde4e14920a8c9b35436b4e70f3dc48a9"
+        "digest": "0x164b39ccd1c11ccd6122cdacbfab463f38054fa9fbbf4a1e78198366a5600b93"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:c92b5ae45bc84f9486835803e1653f806f6fff6bc8648135a0361f38a6ccdd54",
-      "size": 4808616
+      "sha256": "sha256:e80ada6fd402a7cf692d4c6eb5a70edde44f2a70b73e65a7b816f9541167c3b0",
+      "size": 4808658
     },
     {
       "byte_mode": "lf-normalized",
@@ -8099,9 +8099,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x516cfda6a5852b5058f8a7e8f83bf49e06ef7a7087f40582fa2b61f9ccb92669"
+    "digest": "0xc38cab32167f158a520fa49842594a954c0c30dc082328918cf70c5568cd8cc2"
   },
-  "manifest_sha256": "sha256:fb6d7d4e6a74e0ed41860dd257004b047a569084f42b6b5958ba75a16fe1b78d",
+  "manifest_sha256": "sha256:d71c5be183dcccac3a279b8c9a8383d5a38600a69ddcf2c87ebbb42379c935d1",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
