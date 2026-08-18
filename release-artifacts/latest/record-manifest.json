@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:53e03319e60f8512e66f7945d61cac72540aa44b4634f95e024dc86d67136b1c",
-      "size": 52224
+      "sha256": "sha256:2560fe9b05bfb3ae389c891f7961ab754792044e024cae5c2c6548f059f10471",
+      "size": 52248
     },
     {
       "byte_mode": "lf-normalized",
@@ -3527,8 +3527,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/programs/6529NM-AP-01/public/curatorial-essay.md",
-      "sha256": "sha256:4989d0b3dc14ea2ec7e6e4bf359ea76ec0558e55b8934ac6026c691e12484e53",
-      "size": 11932
+      "sha256": "sha256:5998b9b5efa54547484777715274af4319a89695f2dacc1fa98de5ca156bfac0",
+      "size": 12216
     },
     {
       "byte_mode": "lf-normalized",
@@ -3876,8 +3876,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/essays/conflict-at-its-edges.md",
-      "sha256": "sha256:00015344c230bc66772103832b7d7af5e364f9f4fdcad1ace00a5337bc701cbb",
-      "size": 15044
+      "sha256": "sha256:232a81933240b590e8eb64c1f37ea1c01f5662dda46b361dbe97a632ba549272",
+      "size": 15048
     },
     {
       "byte_mode": "lf-normalized",
@@ -3937,8 +3937,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/publication-record.md",
-      "sha256": "sha256:d2f7cb3983cd7fba695d048374f525e6127017f2673534dd1c9a5a774c8f9bed",
-      "size": 3532
+      "sha256": "sha256:8810203525bfb17b331e0c04975a464f5a9c61b788d26793c9df4762b0b1f4f8",
+      "size": 3789
     },
     {
       "byte_mode": "lf-normalized",
@@ -4109,11 +4109,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xac242193104081784dd2d009f9ee1a49ae44466f7a91093cf4972557d087ad64"
+        "digest": "0x63fefedb274783d76a0245048e67fdf1cedd8bdfa2119e8ebc474a66e9ac7aa3"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:3e50cb85d522576225d7ea6bee4f2dc1f2a40fa0a4a6b32be3dd00e3a3f8088e",
-      "size": 4803150
+      "sha256": "sha256:6d6c625fc7fd2c3f1239c8092f10385411abe65d8c711f2a889cecd18bf83e91",
+      "size": 4803702
     },
     {
       "byte_mode": "lf-normalized",
@@ -8099,9 +8099,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x6ddc35e0be40761affa4f20b73d177e918fcd18b2b940fb8191bd66aa7f66f76"
+    "digest": "0x59c237a8579fe545960a67deefc11a6eb9feef585142c50c0e5d3ca4a9d94d36"
   },
-  "manifest_sha256": "sha256:06b2ae4494b39f485e44b64540cf3000fa976dd0e3c18c039044e3bee871b5e1",
+  "manifest_sha256": "sha256:ecaff6c89f4532ca18d1bc97d0d93d5f526b5c148275f2e708012d6403b2adc1",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
