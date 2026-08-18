@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x69b3bbcab34be5d21e4415c9a45811de8dd3a83e3f8f01015d659a7f90b20290"
+      "digest": "0xbf0ecac0c6ada71449c9fa18cc93526cce0d2b5f90683149c4b37ad0d46343e1"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0034",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:ef5129bd969c9d21d7131c6aea7b59e2fcbb820dc9de5e8d40785f96ef6ab3b5",
+    "payload_sha256": "sha256:ee8733f303a9532ec503644c596d22db4cb2b0458551a92392e30942f26c7987",
     "preferred_label": "মুক্তিযুদ্ধ - Fight for Freedom presentation record",
     "profile": {
       "media": {
@@ -145,15 +145,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0034",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-015"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +180,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0034",
     "visibility": "public"

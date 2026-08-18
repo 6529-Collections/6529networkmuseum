@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xce00cd508eb3e91e70254785a5b31f1ddfd4205a0a010f79b3b642b2ce5664cd"
+      "digest": "0xa326da7fb2667984285eb8b4bdb1aea76974cfc1bec524d328dbf78110b84931"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-RP-0003",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:bb3fe15c1d08c3dff344c255c3b5d8559478a022811832cafe8f8dfeb0fce2a0",
+    "payload_sha256": "sha256:c6c5458c01092e4e830915d122317318fd225fd04a1d6a36c61a00af71483004",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "author_entity_ids": [
@@ -114,7 +114,7 @@
     },
     "public_slug": "conflict-at-its-edges",
     "record_id": "6529NM-RP-0003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -133,8 +133,19 @@
       "6529NM-W-0027",
       "6529NM-W-0028"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0017",
@@ -168,7 +179,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0003",
     "visibility": "public"

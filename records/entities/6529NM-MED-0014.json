@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7013b629e425ad9bb7f5d632fc6b0b9e61206b40a34a6afd0e3d980f4d59b368"
+      "digest": "0x32647c9ead3fad9a4c6db5a61233c996907ee74f3abab9c58cf2f233df6bb0ce"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0014",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:31a32f7298f3c88c0ffffc8d36d914d6c60a81f424f580014408d216804c9d97",
+    "payload_sha256": "sha256:e004d1ef8f4ef5f60698af472b45b42d986b5c331daf12124badcb04aeef0321",
     "preferred_label": "Phototaxis #308 official Art Blocks live generator",
     "profile": {
       "media": {
@@ -154,7 +154,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0014",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -163,8 +163,19 @@
       "6529NM.2026.001.RIGHTS.05",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -188,7 +199,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0014",
     "visibility": "public"

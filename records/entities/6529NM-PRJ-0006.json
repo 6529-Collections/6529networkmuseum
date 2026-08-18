@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2076af84bb182a2f5678a64ef6ccb27b9d0fa8e0bb1013270a5428fe47d40033"
+      "digest": "0x0c77a142b8d9e44744dd7ffd0a3a31282ad468df4edfb52b84edf49c42128399"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-06T13:19:30.726Z",
     "entity_id": "6529NM-PRJ-0006",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "PROJECT_OR_SERIES",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:b126c29d30d96acf4c94e4e5da0aacef13923eb0cb0945653eee4e1eeaf29b23",
+    "payload_sha256": "sha256:192d77d1d7a37fbe79106c7e6a80df758f678f7682d53ed598992b57c6373406",
     "preferred_label": "Magnum Photos 75",
     "profile": {
       "agent_entity_ids": [
@@ -89,7 +89,7 @@
     },
     "public_slug": "magnum-photos-75",
     "record_id": "6529NM-PRJ-0006",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -103,8 +103,19 @@
       "6529NM-W-0028",
       "6529NM.2026.002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -133,7 +144,7 @@
         }
       ],
       "observed_at": "2026-08-06T13:19:30.726Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-PRJ-0006",
     "visibility": "public"

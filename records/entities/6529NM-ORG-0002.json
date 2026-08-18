@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x9c9eef108adf068df4f957b0256e4903dd1c620354e3a70aa64da5085c54c827"
+      "digest": "0xb0202a3ccce5a056d1cf9211b548707d1527cc7d59d4b6d1a3527aa67b7a754c"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-ORG-0002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ORGANIZATION",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a598f0e53de62f76b09e6bfc04ae2f468263b7d057b2003dee5012da3c7bbed2",
+    "payload_sha256": "sha256:88d8d2a601593e74524fa363c5f59042e90ae3c2d6db4ccff051b6670abdceb9",
     "preferred_label": "Magnum Photos",
     "profile": {
       "authority": {
@@ -111,14 +111,25 @@
     },
     "public_slug": "magnum-photos",
     "record_id": "6529NM-ORG-0002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-PG-2026-001"
@@ -145,7 +156,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ORG-0002",
     "visibility": "public"

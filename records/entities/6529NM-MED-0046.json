@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf05e4a3c9117555db7a352234682bdb4c858cd89810abdde4167861732b8902d"
+      "digest": "0x82ea10efdf61db6314b22cd80f6505e9ce9ca93a03c05be0f459b434d3d6473d"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0046",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6ebe7be3eaadd02436b74652c6a077ed7d6776f71a8ece167f6ab3c09aa23f77",
+    "payload_sha256": "sha256:88fcaf1a6dc1fe8abfd8338ec6326ce4c310fd5f3aad7f56d4e57f2383d93ad8",
     "preferred_label": "CENTURY #724 official Art Blocks still",
     "profile": {
       "media": {
@@ -162,7 +162,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0046",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -171,8 +171,19 @@
       "6529NM.2026.001.RIGHTS.02",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T14:15:24Z",
+      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
+      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
+      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-publication-projection-hubble"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -196,7 +207,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0046",
     "visibility": "public"
