@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xae29377261e892925ceae5be68d0672b86809d312dd917bac37b097d0244bda3"
+      "digest": "0x103a5c4fd249c2058205a0baa4e9649a241b3dc4d092911ae1217e7c667adc5b"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-09T00:00:00Z",
-    "payload_sha256": "sha256:78aca9a51c1b7968eae7ceaa7ebb0937e41983ff01675b3b4c54fb27ddb3437e",
+    "payload_sha256": "sha256:329f5e322c9c6526b51f759e873a40324a0a557ae5c0fc586dbe6b2d629ef960",
     "qualifier": {
       "role": "subject"
     },
     "record_id": "6529NM-REL-0203",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,8 +51,19 @@
     ],
     "relation_id": "6529NM-REL-0203",
     "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-amendment-hegel"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-RP-0003",
     "source_record_ids": [

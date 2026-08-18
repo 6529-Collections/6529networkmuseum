@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x2954c0ff7a4535d10c483db3776886e2704899a469e7fe24c9f9a5ad93ee22b0"
+      "digest": "0x176db7aff2e5f5538cd2378e8a3b27aa927f2d013e0b7caef2006bb6ec8b742f"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-I-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "INSTITUTION",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:717ddee30a90ab30b66a90bbee32c3d8cc72199e5ee9de1216eadd5ac9af4b50",
+    "payload_sha256": "sha256:c8ce7b1bf52dbaca4853b52834b7b5aed7bd7a617961db0cdb1493c43d68496e",
     "preferred_label": "6529 Network Museum",
     "profile": {
       "authority": {
@@ -80,15 +80,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-I-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-GOV-1052156",
       "6529NM-GOV-1052812"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-amendment-hegel"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-GOV-1052156",
@@ -104,7 +115,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-I-0001",
     "visibility": "public"

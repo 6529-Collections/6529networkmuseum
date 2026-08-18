@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x713b82ebe682897ee99a0940c75afca901410913e47dbe493cf09360dfead667"
+      "digest": "0x388d6bd45f5e05c09b84c89f3a9c63104c09fcaf411f53b6d75e390593dba466"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0022",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b50f21f7e7b513ac746779a5528d93af51b4f79bac70be4fea6ebc732e7a4290",
+    "payload_sha256": "sha256:ebb912c9a3fa96d6a557f3a1a08bdfa583daaef4988bf84c4c4281e488a29161",
     "preferred_label": "Managed Freedom presentation record",
     "profile": {
       "media": {
@@ -145,15 +145,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0022",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-amendment-hegel"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +180,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0022",
     "visibility": "public"

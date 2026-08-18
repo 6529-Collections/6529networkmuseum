@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x928d695485cb740e126cb97dcc6f5d75ecbff397332cae67e18235b3cc911003"
+      "digest": "0x88778b6423d133f5f09d7a66b7f0f22dc784b8f7dcf05d5a4f7201713721b27f"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-MED-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:ad869688eb5be1ee5413aed77c045299b1aedefea5133f26b335c9ed77da2eed",
+    "payload_sha256": "sha256:46700bb9cad1a93ba1ae14ba18e8ea00cd0ec2322903776d456f3c0c74e0c9b8",
     "preferred_label": "Casey retained preservation evidence manifest",
     "profile": {
       "media": {
@@ -143,15 +143,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-ACC-2026-001",
       "6529NM.2026.001.01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-amendment-hegel"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -167,7 +178,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0001",
     "visibility": "public"

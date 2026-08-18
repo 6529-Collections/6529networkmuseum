@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf38d7ac3a96b9c538dd583a3166721c6d118749ba37c63bc54f5155b9412aade"
+      "digest": "0x6272a5dd0e1ca2b1d1b44748e19362bd9b767ed089d39bbb33d7ca2168ff7a5a"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-ART-0005",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ARTIST",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a05685144b3264072578adb9ad8cf9716907a28e077ff7f185d4171b4f65b542",
+    "payload_sha256": "sha256:4bf94de2b0431a9e0bd77c5cc4e662705aab0d94c81a4a34079a27b00ab61141",
     "preferred_label": "intrepid",
     "profile": {
       "authority": {
@@ -91,7 +91,7 @@
     },
     "public_slug": "intrepid",
     "record_id": "6529NM-ART-0005",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -99,8 +99,19 @@
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-004"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-title-display-amendment-hegel",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T13:21:58.924Z",
+      "reviewed_commit": "6e549755a83f4c89c407d3c2cb9abefd3c20b04e",
+      "reviewed_manifest_keccak": "0x7d58a7deed8698e6be9d583ae5f4b9deca140b936546402edb6d903c4747e4b0",
+      "reviewed_manifest_sha256": "sha256:6cef1c9d5c26c33062a3c86dadf5670ba9b0d309016dbab3c5dce252b52cd0ab",
+      "reviewer_ids": [
+        "codex-reviewer:museum-title-display-amendment-hegel"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0005",
@@ -117,7 +128,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ART-0005",
     "visibility": "public"
