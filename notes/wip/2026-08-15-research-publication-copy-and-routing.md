@@ -88,6 +88,9 @@ changes alters accession, program, rights, custody, evidence, or policy status.
 
 ## Final reviewed source and catalogue activation — 2026-08-18
 
+Supersedes: the pending-validation checkpoint under **Open state** above. Its
+historical assertions remain part of the release record.
+
 - Independent review accepted source commit
   `f52fe5513423d8049bb557749a9fce1070ace64b`; canonical source main is
   `6fe93bf17f0c30b79889d3d7bfabaebae3369ef7`.
