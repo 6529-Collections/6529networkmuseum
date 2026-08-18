@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4125cca4e1bd9096af4cc4088fb6bacc3e96eb8c7affe2e12f0a03276b1712c1"
+      "digest": "0xac94f98c2c97341bdc00f34b24abf7ba1de4616ce8a22a7635415d5dcc89e823"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0013",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c5341a981a15a770a6accd62432ba34a90ca622b94c479dc53524f7f34c9dbe6",
+    "payload_sha256": "sha256:55bdd5693813c5a54766cd161668d7bdac7525c1006650b7d581186ed5bf0b91",
     "preferred_label": "The Hostile Gate",
     "profile": {
       "accession_entity_ids": [],
@@ -176,7 +176,7 @@
     },
     "public_slug": "6529NM-W-0013",
     "record_id": "6529NM-W-0013",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,8 +186,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-final-heisenberg",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-final-heisenberg"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0007",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0013",
     "visibility": "public"

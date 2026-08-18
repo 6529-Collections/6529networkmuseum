@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x27051f62552b07f6449dc0c447ee78960adda7f94ff18b51fc4188daad142196"
+      "digest": "0xe5dbdedafccec83ca426603d1d331aeb9a15b75c52fb9c5fc3a6a1c657b84a24"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0032",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8f7960730edf6b53ff10568800fab4c8c43aa65b84d5d5ed730f42111ee4f2c8",
+    "payload_sha256": "sha256:aa5b4f67bc47fdfb122df75cc977c344793efa4d029c0fb2b494ea7498fb712c",
     "preferred_label": "Nowhere To Esc. presentation record",
     "profile": {
       "media": {
@@ -145,15 +145,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0032",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-013"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-final-heisenberg",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-final-heisenberg"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -169,7 +180,7 @@
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0032",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5b1fce6eb45f61f4994ffc3bf02573b558e6b1aa83bfc539ebcc19fa7ffd1a5e"
+      "digest": "0x696b39481ed65573a456547ac2dc551f8bfa5d2c6cfa2a1a53eeda6329dc63b3"
     },
     "effectiveAt": 1786022370,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-06T13:19:30.726Z",
-    "payload_sha256": "sha256:8c580aa47541557690e2676d0a46725f5a5be657de668df1739b9bab6856590d",
+    "payload_sha256": "sha256:52222d2244fc6da11f20a34b89166bc16fd559fd66c703120b0886de9a887ed4",
     "qualifier": {
       "role": "creator"
     },
     "record_id": "6529NM-REL-0028",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,8 +51,19 @@
     ],
     "relation_id": "6529NM-REL-0028",
     "relation_type": "ARTIST_CREATES_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-final-heisenberg",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-final-heisenberg"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-ART-0020",
     "source_record_ids": [

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8421c6769bc45cf0a81e8ac11b95d37fe16f07c5db7d24f55700805c60ff4054"
+      "digest": "0x3823711dc2baf99fd128ea1dee95cfda15e6eb9b30375084b46c6de5727e1432"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0006",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:68fd9f6435137a7298c915ad87ca320146c5fae08b6c82bc66e6f311095c0166",
+    "payload_sha256": "sha256:1ad46fdb1be30e04284d28ad9102a7a0d79cac4b9528d792cc92cf46d2741f62",
     "preferred_label": "ikertje",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,15 +78,26 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0006",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-005"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:museum-research-final-heisenberg",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-18T10:26:18.755Z",
+      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
+      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
+      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
+      "reviewer_ids": [
+        "codex-reviewer:museum-research-final-heisenberg"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -102,7 +113,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-AGT-0006",
     "visibility": "public"
