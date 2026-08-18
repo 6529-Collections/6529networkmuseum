@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb3274a03d84892e06402983b2dedb1c482006c797abd9dd6d75b7f3e909a1b7c"
+      "digest": "0xdfd5655c7f19aed52a4d2ab51215fb9e9c2795f6751b7080617e210e75f405c1"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0009",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -36,6 +36,12 @@
         "label": "Keys and Gates outcome",
         "observed_at": "2026-08-01T15:03:35Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates title-display amendment",
+        "observed_at": "2026-08-18T12:45:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
       }
     ],
     "media_entity_ids": [
@@ -43,8 +49,8 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:23ebf645f68da60d50159118711b8cacb6fdf5cc184b6e41b339aea2db7638fb",
-    "preferred_label": "the Artist in teh Open Sea",
+    "payload_sha256": "sha256:7c5705d5657678545353014e3947e91a205b486b71160e0db02357b5c883679e",
+    "preferred_label": "the Artist in the Open Sea",
     "profile": {
       "accession_entity_ids": [],
       "acquisition_entity_ids": [
@@ -121,6 +127,12 @@
           "label": "Keys and Gates outcome",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates title-display amendment",
+          "observed_at": "2026-08-18T12:45:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
         }
       ],
       "identity_boundary": "This Work identity is independent of the acquisition, program outcome, mint, payment, title, custody, rights, technical review, preservation, display, and any later accession.",
@@ -171,12 +183,12 @@
         "6529NM-AP-ENT-0002"
       ],
       "project_or_series_entity_ids": [],
-      "title": "the Artist in teh Open Sea",
+      "title": "the Artist in the Open Sea",
       "work_lifecycle_status": "selected_through_acquisition_program"
     },
     "public_slug": "6529NM-W-0009",
     "record_id": "6529NM-W-0009",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -186,19 +198,8 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-final-heisenberg",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-18T10:26:18.755Z",
-      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
-      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
-      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-final-heisenberg"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
@@ -214,10 +215,16 @@
           "label": "Keys and Gates outcome",
           "observed_at": "2026-08-01T15:03:35Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/outcomes/OUT-002.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates title-display amendment",
+          "observed_at": "2026-08-18T12:45:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0009",
     "visibility": "public"

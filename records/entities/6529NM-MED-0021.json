@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x81ce23a6f7c15ffcc2db87434ef01e09ab4effc02c90881ab15f425da408b672"
+      "digest": "0xfc21f6a0cd37529abad92ff187a8bb08bfb8e3b7d9f31c4e3965eb2e334c1323"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-11T21:56:04Z",
     "entity_id": "6529NM-MED-0021",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -36,12 +36,18 @@
         "label": "Keys and Gates contextual public presentation",
         "observed_at": "2026-08-11T21:56:04Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Keys and Gates title-display amendment",
+        "observed_at": "2026-08-18T12:45:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
       }
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:224cdeecebc6cca8b985d33fdf630a2155bbe42149050d06d2c275ce10289e77",
-    "preferred_label": "the Artist in teh Open Sea presentation record",
+    "payload_sha256": "sha256:caa63a393ff14523e07526d38f498f0a3ee7afa390c240fc3581125afd4b1602",
+    "preferred_label": "the Artist in the Open Sea presentation record",
     "profile": {
       "media": {
         "accessibility_evidence_refs": [
@@ -69,7 +75,7 @@
           "alt_text",
           "copy_citation"
         ],
-        "credit": "HugoFaz — the Artist in teh Open Sea (title spelling retained as submitted); Keys and Gates presentation record",
+        "credit": "HugoFaz — the Artist in the Open Sea; Keys and Gates presentation record",
         "derived_from_media_entity_id": null,
         "fixity": {
           "algorithm": "sha256",
@@ -145,26 +151,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0021",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-002"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-research-final-heisenberg",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-18T10:26:18.755Z",
-      "reviewed_commit": "0a0545181daa07761e6aeaf30788db842fa68f58",
-      "reviewed_manifest_keccak": "0x967091d2f67a5646ab829db25cddf7fb57421830f91004a0956b232fb34577a5",
-      "reviewed_manifest_sha256": "sha256:887227b6cf21c19095b7ef15839e3d9e7c56ac376a7ed680860e769d0380fea6",
-      "reviewer_ids": [
-        "codex-reviewer:museum-research-final-heisenberg"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -177,10 +172,16 @@
           "label": "Keys and Gates contextual public presentation",
           "observed_at": "2026-08-11T21:56:04Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/media-display-authorization-amendment-2026-08-11.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Keys and Gates title-display amendment",
+          "observed_at": "2026-08-18T12:45:00Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/programs/6529NM-AP-01/public/title-display-amendment-2026-08-18.md"
         }
       ],
       "observed_at": "2026-08-11T21:56:04Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0021",
     "visibility": "public"
