@@ -85,3 +85,19 @@ correction also distinguishes completed gifts from current selection work,
 shows the full Magnum accession title and lot, removes duplicated study ledes,
 and labels selected institutional-practice extracts accurately. None of these
 changes alters accession, program, rights, custody, evidence, or policy status.
+
+## Final reviewed source and catalogue activation — 2026-08-18
+
+Supersedes: the pending-validation checkpoint under **Open state** above. Its
+historical assertions remain part of the release record.
+
+- Independent review accepted source commit
+  `f52fe5513423d8049bb557749a9fce1070ace64b`; canonical source main is
+  `6fe93bf17f0c30b79889d3d7bfabaebae3369ef7`.
+- The prior active publication pointer still referenced source commit
+  `75171e81587c9da313e4e3967b12cfe0aa6bbf46`, so the first final screenshot
+  corpus correctly failed its visitor-copy gate despite the merged source.
+- Catalogue `6529NM-PUBCAT-f52fe5513423d8049bb557749a9fce1070ace64b`
+  and its activation pointer are the exact corrective release boundary. The
+  frontend must bind the canonical merge that contains this pointer before a
+  new screenshot corpus can qualify.
