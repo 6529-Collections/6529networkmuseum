@@ -1,0 +1,1 @@
+{"id":"storage-beacon","jsonrpc":"2.0","method":"eth_getStorageAt","params":["0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d","0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50",{"blockHash":"0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5","requireCanonical":true}]}

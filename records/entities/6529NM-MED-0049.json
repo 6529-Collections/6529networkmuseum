@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x4ad4ca3b9276f4ea5d68781f352e702f0959fb595604b0770237063f92d3db47"
+      "digest": "0x6a24267a7ee440536a11c3e9d27eebaedd57d414c48a489a4451e8ae9bde63c3"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:2ccd144aa6550c2fe2b9e8bbc2e663e358f302c64beb7e7e8313cd6f2717d27f",
+    "payload_sha256": "sha256:222e75016065c21f51798d3fb475bd14887c8fef0d1b638cb2835a4cba6c6439",
     "preferred_label": "Phototaxis #308 official Art Blocks still",
     "profile": {
       "media": {
@@ -173,14 +173,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T14:15:24Z",
-      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
-      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
-      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
+      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:museum-title-display-publication-projection-hubble"
+        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
       ],
       "role": "reviewer"
     },

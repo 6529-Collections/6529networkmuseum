@@ -3891,3 +3891,224 @@ catalog activation, and frontend qualification remain open.
   perform exact-head reviewed-B/catalogue activation, merge the source PR,
   rebuild the frontend against that exact source, and repeat the complete
   screenshot and three-lens adversarial review before frontend merge.
+### 2026-08-23 - Vera Molnár accession and production release opened
+
+Authenticated exact-drop readback reports Museum Wave proposal serial
+`1296797`, drop `d09d3c3b-d354-4e39-9e1f-1e676e3cb62e`, as `WINNER`.
+The selected object is *Themes and Variations* #210,
+`eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210`.
+
+Ethereum transaction
+`0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd`
+succeeded in block `25,816,958` at 2026-08-23 09:27:59 UTC and transferred
+token `210` from `social.6529.eth` to `networkmuseum.6529.eth`. Independent
+latest-head `ownerOf` reads across four RPC transports returned the Museum
+address. Finalized-block `ownerOf` and `getApproved` reads then returned the
+Museum address and zero approval at block `25,816,984`, hash
+`0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5`.
+
+The six-hour release is tracked in
+`notes/wip/2026-08-23-vera-molnar-accession-and-release.md`. Source work runs
+on branch `codex/vera-molnar-accession` from canonical base `a3977a8f`.
+Required output includes the complete accession/evidence/reviewer package,
+finished artist/project/acquisition/object scholarship, governed responsive
+media, atomic frontend activation, exact 1440/820/390 full-page adversarial
+museum/UX/copy review, source and frontend PR review/CI, staging E2E,
+production E2E and live visual readback.
+
+The custody package completed against finalized block `25,816,984`, hash
+`0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5`.
+It retains the successful receipt, exact Transfer log and EIP-1898
+`ownerOf(210)` / `getApproved(210)` reads under summary SHA-256
+`sha256:a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b`.
+The official Art Blocks metadata, 2400-pixel preview and exact Wave publication
+are retained under source-evidence manifest SHA-256
+`sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5`.
+The exact on-chain project scripts and runtime responses are retained in the
+technical evidence package, whose manifest SHA-256 is
+`sha256:da5fb28d5c55bc0ae480bf76582e0f47d1db246f4cdd691aa1b2ae162e1d4ccb`.
+
+### 2026-08-23 11:15 UTC - Vera source candidate ready for exact review
+
+The complete constructed accession, evidence, public scholarship, responsive
+media, and public-entity projection now pass the bootstrap and full Museum
+validators. Focused accession/proposal/entity regression is 88/88. The
+candidate projection contains 136 public entities and 233 relations; the
+release manifest is SHA-256
+`sha256:6ea2956b80d1049fba3fb44751e3de5df21e316c9ec32b0cd1d8b7b611105502`
+and Keccak
+`0x84d29232bbddfee5b9654bd584ffb12cfe78e1a3e833f140e3e085a8582c64e0`.
+The media manifest remains constructed and pending review until candidate A
+is committed. The next source mutation is the exact-review B transition.
+
+### 2026-08-23 11:48 UTC - Vera source candidate A2 sealed
+
+Independent registrar review confirmed the accession facts, transfer,
+finalized custody, title, rights, Stream-compatible envelopes, entity graph,
+and public media mapping. It also caught two publication-package defects: a
+raw-byte evidence manifest that did not survive Linux checkout and a stale
+visitor corpus bundle. The retained technical text files are now LF-stable;
+the evidence package can refresh its manifest from retained observations
+without another network acquisition; and the visitor bundle, Stream
+commitments, release manifest, and accession condition report have been
+regenerated. The corrected source candidate passes bootstrap validation, the
+full Museum validator, and the exact manifest check with release SHA-256
+`sha256:f197aa99627e150601156109ff90557463d1e899c5b046d97a20a0e7ad1bb476`
+and Keccak
+`0x8230d2915ab9e9ba0e4ac08afb13caae842d3bb5d4489fb69065fb33ae13a956`.
+The complete deterministic test suite and exact-candidate independent review
+are running in parallel.
+
+### 2026-08-23 12:02 UTC - Vera candidate A3 curatorial corrections
+
+Candidate A2 passed independent registrar/technical review at
+`2026-08-23T11:54:43.724Z`. Independent curatorial/editorial review then
+blocked release on an incorrect proposal edition value, an imprecise media
+description, overstatement of the Wave API `is_signed` field, one chronology
+fragment, and several process-sounding or categorical sentences. Those
+findings are corrected in candidate A3. The entity generator now preserves
+the historical constructor for existing records and assigns the Vera task
+constructor only to the nineteen new Vera entity/relation records. Candidate
+A remains intentionally review-pending under the repository's A-to-B control
+plane; no review-pending projection will be merged or published.
+
+The three immutable WebP derivatives are present at their governed CDN URLs.
+Browser-equivalent HTTP readback returned 200 for 640, 1,280, and 2,400 pixels;
+each response matched its declared byte size and SHA-256 and carried
+`image/webp` plus `public, max-age=31536000, immutable`. Three temporary copies
+uploaded under an incorrect unused prefix were deleted after exact-key
+verification. The corrected source candidate passes bootstrap and full
+validation, entity migration replay, media verification, and manifest replay
+with release SHA-256
+`sha256:3ee2d934f6bd1a6b7c889b5e8c4dffc13b425899e9e244da0ac37f7224000c47`
+and Keccak
+`0xdc0065dde654ad35aae58016b3f56d6b21bd7ff1c42bfbdb0f8d229ade91743d`.
+The media generator now rejects locale-formatted timestamps and preserves
+canonical RFC 3339 UTC in both the manifest and its constructor record.
+
+Registrar review of A3 found that the public-entity test fixture still used a
+13 August review time, now earlier than the Vera records' 23 August
+construction. The production generator correctly rejected that impossible
+sequence. Candidate A4 advances the fixture beyond construction and is
+subject to a new exact-commit full-suite run and independent review.
+
+Candidate A4 also removes ambiguous “signed Wave” language from the Vera
+publication. The retained API field is now named `api_reported_is_signed`, the
+method is `wave_api_status_readback`, and the public record states that no
+independent cryptographic signature evidence is asserted. Martin Grasser's
+collaboration paragraph is consolidated. The corrected candidate passes
+bootstrap and full validation with release SHA-256
+`sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931`
+and Keccak
+`0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15`.
+
+### 2026-08-23 13:06 UTC - Vera candidate A5 publication boundary
+
+The first reviewed promotion exposed a real catalog defect and was withheld:
+the visitor inventory admitted Vera's generated entity graph but omitted the
+accession certificate, statement, gift authorization, object, rights,
+technical, Wave observation, reviewed presentation manifest, and responsive
+media from the immutable review boundary. Candidate A5 corrects the boundary
+before publication. It adds deterministic pending/reviewed transitions for
+the direct accession records and presentation manifest, requires those exact
+records in both candidate A and reviewed B, and constrains B to review fields,
+delivery approval, and deterministic bundle/manifest consequences. The
+frontend does not consume the two superseded Casey media-amendment controls;
+they remain in the complete repository manifest but are removed from the
+visitor assembly bundle so a pending legacy control cannot leak into the
+active corpus. Candidate A5 is review-pending; it is not a publishable tree.
+
+### 2026-08-23 13:24 UTC - Vera reviewed source and catalog activation
+
+Independent review approved exact Candidate A
+`2e6e05f1e0b60983b0a1d27cc767326c2d84d00c` at
+`2026-08-23T13:22:21Z`, bound to manifest SHA-256
+`sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08`
+and Keccak
+`0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb`.
+Reviewed B is `8878c4eec8290a0f25975693d44259aa2109600a`.
+The exact A-to-B verifier accepted the 380-path delta: 377 envelope records,
+the Vera presentation manifest, visitor bundle, and whole-release manifest.
+Catalog C is
+`6529NM-PUBCAT-8878c4eec8290a0f25975693d44259aa2109600a`, activated at
+`2026-08-23T13:24:38Z` with catalog file SHA-256
+`sha256:e043d6258c8615e209081f99ea7d5b04e1aa9367ed71e2f78e580bd0a59ed327`.
+
+### 2026-08-23 13:40 UTC - Vera stable work route correction
+
+The exact source-to-frontend compatibility probe rejected the first catalog
+activation with `public_entity_graph_work_route`. The generated Vera Work had
+used a descriptive slug, while public Work routes are keyed by their stable
+Museum Work identifier. The generator now emits `6529NM-W-0029` and
+`/museum/network/works/6529NM-W-0029`. The corrected graph is regenerated in
+pending state for exact-commit review before a replacement reviewed release
+and catalog activation; the rejected catalog is not being merged to `main`.
+
+Independent review approved exact correction candidate
+`def27e6e7d31e7d685cfea08f7cbe01099a03895` at
+`2026-08-23T13:56:37.569Z`, bound to manifest SHA-256
+`sha256:3134aabd0b1967c7655593dd7a9511855d21d0b187faaf8d3569a751e12da96f`
+and Keccak
+`0x6d48677fdb943d9f71e99fbeaf1987928651b85329fac388c97734e3c6147a8f`.
+The reviewed projection has been regenerated from that exact candidate and
+passes the complete Museum validator.
+
+The replacement catalog correctly rejected a mixed review panel: the corrected
+entity graph carried the new review while the seven accession records and
+presentation manifest retained the prior panel. The whole Vera publication
+unit is therefore reopened in pending state. This candidate binds the stable
+Work route, all seven direct accession records, the 370-record public graph,
+and the presentation manifest to one exact review boundary.
+
+Independent review approved exact unified candidate
+`b0483da0943078d49e1a4309776570e258e98f67` at
+`2026-08-23T14:08:53.109Z`, bound to manifest SHA-256
+`sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491`
+and Keccak
+`0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d`.
+The exact boundary is 380 release paths: 369 entity/relation records, the
+generated Magnum status observation, seven direct Vera records, the Vera
+presentation manifest, visitor bundle, and whole-release manifest. A rapid
+secondary review's path-count concern was a category-label mismatch, not a
+missing path or content finding; these exact counts reconcile it.
+
+Reviewed B is `a7f1da116cc96ff03e285736f0e0dea34a8dab6b` and passed the
+exact append-only A-to-B verifier. Exact catalog transition C is
+`8c0715cfd5ae842297db12b6b09fc39fed1273a8`. Catalog
+`6529NM-PUBCAT-a7f1da116cc96ff03e285736f0e0dea34a8dab6b` was activated at
+`2026-08-23T14:12:48Z`; its file SHA-256 is
+`sha256:fc2fbe4dfc03bf367951f35378cb75fe3f7be79fd57b791a7f1cb7f8a19bb76c`
+and envelope content hash is
+`0x8838e55be5fee4930d44ff8975d214b5e9945b763983156ea2c2a8ca5091a838`.
+
+### 2026-08-23 14:53 UTC - Vera visitor-copy correction reopened for review
+
+Adversarial curatorial and copy review of the rendered frontend found two
+source-level statements that required correction before release. The Curated
+Acquisition thesis now describes accession of one unique output from the
+500-work edition; it no longer implies that the Museum accessioned the entire
+project system or completed autonomous preservation. Martin Grasser's public
+profile now describes the Museum's presentation of output #210 without
+machine-record language. The public graph has been regenerated in pending
+state. This replacement candidate is subject to a fresh exact-commit review,
+reviewed promotion, release manifest, and catalog activation; the prior PR
+head must not merge.
+
+### 2026-08-23 15:22 UTC - Vera corrected reviewed release and catalog
+
+Independent exact-commit review approved unified candidate
+`3eab50914a90c079fe0383624e760fc0a954e709`, bound to candidate manifest
+SHA-256
+`sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080`
+and Keccak
+`0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313`.
+Reviewed B is `92966f2836ebf2af06edfe0fe2cff25041307c92`; its 380-file
+delta from candidate A is the deterministic review promotion only. Catalog C
+is `65a7b04bd1b6e76c9bace5426d2966e27b3dd2c1` and activates immutable
+catalog `6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92`.
+
+The first complete Windows suite found one stale test expectation for the
+superseded descriptive Vera Work slug. The public route is intentionally keyed
+by stable Work identifier `6529NM-W-0029`; the test now asserts that same rule
+for all Work records. This test-only repair follows catalog activation and does
+not alter the reviewed publication or active catalog.

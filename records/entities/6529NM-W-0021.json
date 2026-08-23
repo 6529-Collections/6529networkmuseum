@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x18a7854659b6b054e275e5af226aa9e98e5f834c3637c2087eb736ec7928f680"
+      "digest": "0x23f0e3f74405988f85a390f1146c6e1102e2587c58282bfedf9586f759bde9ac"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:6f6cf9f810fa353439b32e942b2eb12904da79d9f8fe86781f2d74491bc83077",
+    "payload_sha256": "sha256:867762ec0662c3851eadfa96a52012bb133f594a2a3cc43ea43b45bbd76fd77a",
     "preferred_label": "Morning Glory",
     "profile": {
       "accession_entity_ids": [],
@@ -188,14 +188,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-title-display-publication-projection-hubble",
+      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
       "outcome": "approved",
-      "reviewed_at": "2026-08-18T14:15:24Z",
-      "reviewed_commit": "b639c42ef5a37ac13cdc528434bd10f2c54ecea4",
-      "reviewed_manifest_keccak": "0x43e3bc5f4b22d7f3f5627d78c4d842d92182a930290475014e38e78b18e582ba",
-      "reviewed_manifest_sha256": "sha256:d83c278672c707154006e38c9374471cb8ebb0bde40bfd5f9c7ba966a6fe75de",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
+      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:museum-title-display-publication-projection-hubble"
+        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
       ],
       "role": "reviewer"
     },

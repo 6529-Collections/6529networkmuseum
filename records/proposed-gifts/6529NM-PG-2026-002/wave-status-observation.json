@@ -1,0 +1,105 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x9a3b879c8777c63f24459bde18e9ac146538a4c68964300d58163625f2b74f17"
+    },
+    "effectiveAt": 1787478025,
+    "recordType": "WAVE_STATUS_OBSERVATION",
+    "schemaId": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x309faa2dabc3e5d5545bd2b5ecf5577edeb02b71fa9ddc3c56ef38419633d6fa",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json"
+  },
+  "payload": {
+    "api_reported_is_signed": true,
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:40:25.465Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:40:25.465Z",
+    "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+    "drop_type": "WINNER",
+    "effective_at": "2026-08-23T09:40:25.465Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Original PARTICIPATORY proposal observation",
+        "observed_at": "2026-08-13T19:19:40.216Z",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Wave API WINNER status readback (is_signed=true)",
+        "observed_at": "2026-08-23T09:40:25.465Z",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+      }
+    ],
+    "non_effects": [
+      "acceptance_not_established",
+      "transfer_not_established",
+      "title_not_established",
+      "custody_not_established",
+      "rights_not_established",
+      "technical_not_established",
+      "preservation_not_established",
+      "accession_not_established",
+      "collection_membership_not_established"
+    ],
+    "observation_id": "6529NM-WAVE-OBS-2026-08-23-002",
+    "observation_method": "wave_api_status_readback",
+    "observed_at": "2026-08-23T09:40:25.465Z",
+    "payload_sha256": "sha256:67e83867a11034ccca9ac8e1a096be3be792b1460e13cd8393437677f5cc3e77",
+    "prior_observation": {
+      "observed_at": "2026-08-13T19:19:40.216Z",
+      "source_record_id": "6529NM-PG-2026-002",
+      "source_record_path": null,
+      "source_repository_visibility": "complete_manifest_only",
+      "source_status": "PARTICIPATORY",
+      "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+    },
+    "proposal_id": "6529NM-PG-2026-002",
+    "rater_count": 23,
+    "rating": 140257872,
+    "realtime_rating": 140257872,
+    "record_id": "6529NM-WAVE-OBS-2026-08-23-002",
+    "record_status": "reviewed",
+    "record_type": "WAVE_STATUS_OBSERVATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-002"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
+      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
+    "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+    "serial_no": 1296797,
+    "source_record_ids": [
+      "6529NM-PG-2026-002"
+    ],
+    "source_status": "WINNER",
+    "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+    "subject_id": "6529NM-WAVE-OBS-2026-08-23-002",
+    "visibility": "public",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+  }
+}

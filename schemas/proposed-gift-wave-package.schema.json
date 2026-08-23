@@ -269,46 +269,55 @@
       "additionalProperties": false,
       "required": ["uri", "media_type", "alt_text", "credit_line", "rights_label"],
       "properties": {
-        "uri": {"type": "string", "format": "uri", "pattern": "^https://arweave\\.net/"},
-        "media_type": {"const": "image/jpeg"},
+        "uri": {"type": "string", "format": "uri", "pattern": "^(https://|ipfs://|ar://)"},
+        "media_type": {"type": "string", "enum": ["image/jpeg", "image/png", "image/webp", "image/svg+xml"]},
         "alt_text": {"type": "string", "minLength": 1},
         "credit_line": {"type": "string", "minLength": 1},
-        "rights_label": {"const": "All Rights Reserved"}
+        "rights_label": {"type": "string", "minLength": 1}
       }
     },
     "coverMedia": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "asset_path",
-        "source_asset_path",
-        "media_type",
-        "width",
-        "height",
-        "byte_length",
-        "sha256",
-        "source_sha256",
-        "color_profile",
-        "opaque",
-        "alt_text",
-        "credit_line",
-        "rights_label"
-      ],
-      "properties": {
-        "asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.png$"},
-        "source_asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.svg$"},
-        "media_type": {"const": "image/png"},
-        "width": {"const": 1600},
-        "height": {"const": 1600},
-        "byte_length": {"type": "integer", "minimum": 1},
-        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-        "color_profile": {"const": "sRGB IEC61966-2.1"},
-        "opaque": {"const": true},
-        "alt_text": {"type": "string", "minLength": 1},
-        "credit_line": {"type": "string", "minLength": 1},
-        "rights_label": {"const": "CC0-1.0"}
-      }
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["asset_path", "source_asset_path", "media_type", "width", "height", "byte_length", "sha256", "source_sha256", "color_profile", "opaque", "alt_text", "credit_line", "rights_label"],
+          "properties": {
+            "asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.png$"},
+            "source_asset_path": {"type": "string", "pattern": "^public/media/[a-z0-9-]+\\.svg$"},
+            "media_type": {"const": "image/png"},
+            "width": {"const": 1600},
+            "height": {"const": 1600},
+            "byte_length": {"type": "integer", "minimum": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "color_profile": {"const": "sRGB IEC61966-2.1"},
+            "opaque": {"const": true},
+            "alt_text": {"type": "string", "minLength": 1},
+            "credit_line": {"type": "string", "minLength": 1},
+            "rights_label": {"const": "CC0-1.0"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_kind", "uri", "media_type", "width", "height", "byte_length", "sha256", "color_profile", "opaque", "alt_text", "credit_line", "rights_label"],
+          "properties": {
+            "source_kind": {"const": "retained_external_source"},
+            "uri": {"type": "string", "format": "uri", "pattern": "^https://"},
+            "media_type": {"const": "image/png"},
+            "width": {"const": 2400},
+            "height": {"const": 2400},
+            "byte_length": {"type": "integer", "minimum": 1},
+            "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "color_profile": {"type": "string", "minLength": 1},
+            "opaque": {"type": "boolean"},
+            "alt_text": {"type": "string", "minLength": 1},
+            "credit_line": {"type": "string", "minLength": 1},
+            "rights_label": {"type": "string", "minLength": 1}
+          }
+        }
+      ]
     }
   }
 }

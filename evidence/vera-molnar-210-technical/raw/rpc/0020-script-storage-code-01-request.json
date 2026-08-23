@@ -1,0 +1,1 @@
+{"id":"script-storage-code-01","jsonrpc":"2.0","method":"eth_getCode","params":["0x8292d1b5f93f88725be87b0955c66162019cb246",{"blockHash":"0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5","requireCanonical":true}]}

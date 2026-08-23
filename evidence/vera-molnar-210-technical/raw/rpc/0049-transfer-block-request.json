@@ -1,0 +1,1 @@
+{"id":"transfer-block","jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x3af2d05ec6a4f942ff56f3b049c62b639aec66bcece84c006ed3ec879257d7be",false]}

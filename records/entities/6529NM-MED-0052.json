@@ -1,0 +1,191 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x156b8d815e76bb56a9200e4a0939fd4cd45e410f2306f1febbfea4436c7e6ef9"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x84d140cfc99a6b9e9f9e3e0931b4ca5bcbd2d371ec58e4cad5fca348c580fbf1",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0052.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:46:57.326Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "entity_id": "6529NM-MED-0052",
+    "entity_status": "published",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Official preview",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/raw/official-preview.png"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Source-evidence manifest",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:3ad84d62c2d4bdd68c28e09620310489105680f55883a949db804b47c41c99cc",
+    "preferred_label": "Official preview: Themes and Variations #210",
+    "profile": {
+      "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accession alt text",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/public/alt-text.md"
+          }
+        ],
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": "A square generative composition in dark cobalt blue and warm white. Large blue fields occupy the upper right and lower left. White T forms descend through the lower-left field, with a small white F at the left edge. The lower-right area combines a thin horizontal rule, vertical lines, an offset blue block, and a dense rectangular pattern.",
+        "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
+          "alt_text",
+          "open_token_source",
+          "copy_citation"
+        ],
+        "credit": "Vera Molnár, in collaboration with Martin Grasser, Themes and Variations #210, 2023. Licensed under CC BY-NC 4.0.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Official Art Blocks preview retained in the Museum source-evidence package.",
+          "digest": "sha256:c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+          "status": "verified",
+          "verified_at": "2026-08-23T09:46:57.326Z"
+        },
+        "height": 2400,
+        "identity_inference_prohibition": null,
+        "media_role": "token_linked_source_media",
+        "media_type": "image/png",
+        "publication_boundary": "token_source",
+        "publication_context_entity_ids": [],
+        "publication_part_number": null,
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Rights statement",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json"
+            }
+          ],
+          "notes": "Source rights label: CC BY-NC 4.0. Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "statement_entity_id": null,
+          "status": "cleared_with_conditions"
+        },
+        "source_byte_size": 330363,
+        "source_locator": {
+          "repository_path": "evidence/vera-molnar-210-sources/raw/official-preview.png",
+          "uri": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Official preview fixity",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/raw/official-preview.png"
+            },
+            {
+              "evidence_class": "A",
+              "label": "Source-evidence manifest",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM.2026.003.01",
+          "6529NM.2026.003.RIGHTS.01"
+        ],
+        "subject_entity_id": "6529NM-W-0029",
+        "token_source_fixity": null,
+        "token_source_locator": null,
+        "transform_profile": null,
+        "visual": true,
+        "wave_proposal_context": null,
+        "width": 2400
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0052",
+    "record_status": "reviewed",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.RIGHTS.01"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
+      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.RIGHTS.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "A",
+          "label": "Official preview",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/raw/official-preview.png"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Source-evidence manifest",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+        }
+      ],
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "status_label": "published"
+    },
+    "subject_id": "6529NM-MED-0052",
+    "visibility": "public"
+  }
+}

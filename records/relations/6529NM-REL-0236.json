@@ -1,0 +1,85 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x19f2fc66fbe695e2c0307637d5eae0924bba43e45e7baa488e6b316bb6e091f6"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x690122e24a978e037b768035baf1a8767c13c121f58f9001724c71db0fcdda8f",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0236.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:46:57.326Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Official still relation",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/public/presentation-manifest.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Official preview fixity",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/raw/official-preview.png"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "payload_sha256": "sha256:afaa3923bf3db547c54106ef612e88add7cbfab9a7359640907eabee30fba377",
+    "qualifier": {
+      "display_order": 1,
+      "media_context": "primary"
+    },
+    "record_id": "6529NM-REL-0236",
+    "record_status": "reviewed",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-MED-0052",
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.RIGHTS.01"
+    ],
+    "relation_id": "6529NM-REL-0236",
+    "relation_type": "ENTITY_HAS_MEDIA",
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
+      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-W-0029",
+    "source_record_ids": [
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.RIGHTS.01"
+    ],
+    "subject_id": "6529NM-REL-0236",
+    "target_entity_id": "6529NM-MED-0052",
+    "visibility": "public"
+  }
+}

@@ -37,9 +37,8 @@ class ProposedGiftValidationTests(unittest.TestCase):
             REPO_ROOT / "records/proposed-gifts/6529NM-PG-2026-001/wave-storm.json"
         ).resolve()
         self.loaded = {
-            self.register_path: json.loads(self.register_path.read_text(encoding="utf-8")),
-            self.proposal_path: json.loads(self.proposal_path.read_text(encoding="utf-8")),
-            self.package_path: json.loads(self.package_path.read_text(encoding="utf-8")),
+            path.resolve(): json.loads(path.read_text(encoding="utf-8"))
+            for path in (REPO_ROOT / "records/proposed-gifts").rglob("*.json")
         }
 
     def issues_after(self, mutate) -> list[str]:
@@ -77,7 +76,7 @@ class ProposedGiftValidationTests(unittest.TestCase):
         self.assertEqual(drop["status"], "WINNER")
         self.assertEqual(drop["status_observed_at"], "2026-08-08T10:15:02.0167151Z")
         self.assertEqual(package["status"], "selected")
-        self.assertEqual(register["snapshot_at"], "2026-08-08T10:15:02.0167151Z")
+        self.assertEqual(register["snapshot_at"], "2026-08-23T09:46:57.326Z")
         self.assertEqual(register["proposals"][0]["status"], "selected")
         self.assertEqual(register["proposals"][0]["wave_status"], "selected")
         self.assertEqual(
@@ -137,7 +136,7 @@ class ProposedGiftValidationTests(unittest.TestCase):
         self.assertIn("## Effect (historical publication rule)", resolution)
         self.assertIn("historical publication rule", resolution)
 
-    def test_magnum_revision_two_binds_exact_revision_one_snapshots(self) -> None:
+    def test_magnum_revision_two_bindings_survive_later_register_revision(self) -> None:
         expected = {
             self.proposal_path: (
                 self.proposal_path.parent / "history/revision-1-proposal.json.snapshot",
@@ -154,13 +153,22 @@ class ProposedGiftValidationTests(unittest.TestCase):
         }
         for current_path, (snapshot_path, expected_hash) in expected.items():
             current = self.loaded[current_path]
-            self.assertEqual(current["record_control"]["revision"], 2)
+            expected_revision = 3 if current_path == self.register_path else 2
+            expected_constructed_at = (
+                "2026-08-23T09:46:57.326Z"
+                if current_path == self.register_path
+                else "2026-08-08T10:15:02.0167151Z"
+            )
+            self.assertEqual(current["record_control"]["revision"], expected_revision)
             self.assertEqual(
                 current["record_control"]["constructor"]["constructed_at"],
-                "2026-08-08T10:15:02.0167151Z",
+                expected_constructed_at,
             )
             history = current["amendment_history"]
-            self.assertEqual([entry["revision"] for entry in history], [1])
+            self.assertEqual(
+                [entry["revision"] for entry in history],
+                [1, 2] if current_path == self.register_path else [1],
+            )
             entry = history[0]
             self.assertEqual(entry["supersedes"], expected_hash)
             self.assertEqual(entry["prior_payload_sha256"], expected_hash)

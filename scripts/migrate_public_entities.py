@@ -25,6 +25,18 @@ VOCAB_PATH = ROOT / "schemas" / "controlled-vocabularies.json"
 IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-entity-identity-inventory.json"
 RELATION_IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-relation-identity-inventory.json"
 CONSTRUCTOR_ID = "codex-task:magnum-completed-accession-correction-2026-08-12"
+VERA_CONSTRUCTOR_ID = "codex-task:vera-molnar-accession-2026-08-23"
+VERA_CONSTRUCTED_RECORD_IDS = {
+    "6529NM-ACC-ENT-0003",
+    "6529NM-ART-0022",
+    "6529NM-ART-0023",
+    "6529NM-CA-2026-004",
+    "6529NM-MED-0052",
+    "6529NM-MED-0053",
+    "6529NM-PRJ-0007",
+    "6529NM-W-0029",
+    *(f"6529NM-REL-{index:04d}" for index in range(229, 240)),
+}
 GENERATED_AT = "2026-08-12T23:15:00Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
 CASEY_MEDIA_AT = "2026-08-09T23:04:32Z"
@@ -70,6 +82,35 @@ MAGNUM_MEDIA_CONTINUITY_AT = "2026-08-12T07:37:56.984246Z"
 MAGNUM_MEDIA_CONTINUITY_PATH = "records/proposed-gifts/6529NM-PG-2026-001/public/status-amendments/2026-08-12-media-source-continuity.md"
 MAGNUM_MEDIA_CONTINUITY_ID = "6529NM-MEDIA-CONT-AMD-2026-08-12-001"
 MAGNUM_MEDIA_CONTINUITY_MACHINE_PATH = f"{MAGNUM_SCHOLARSHIP_ROOT}/machine/media-source-continuity-amendment.json"
+VERA_AT = "2026-08-23T09:46:57.326Z"
+VERA_PROPOSAL_ID = "6529NM-PG-2026-002"
+VERA_WAVE_OBSERVATION_ID = "6529NM-WAVE-OBS-2026-08-23-002"
+VERA_ACCESSION_LOT = "6529NM.2026.003"
+VERA_ACCESSION_CERTIFICATE_ID = "6529NM-ACC-2026-003"
+VERA_GAA_ID = "6529NM.2026.003.GAA-01"
+VERA_OBJECT_ID = "6529NM.2026.003.01"
+VERA_RIGHTS_ID = "6529NM.2026.003.RIGHTS.01"
+VERA_CONDITION_ID = "6529NM.2026.003.COND.01"
+VERA_PROPOSAL_ROOT = "records/proposed-gifts/6529NM-PG-2026-002"
+VERA_SCHOLARSHIP_ROOT = f"{VERA_PROPOSAL_ROOT}/public/scholarship"
+VERA_ACCESSION_ROOT = "records/accessions/6529NM.2026.003"
+VERA_ACCESSION_STATEMENT_PATH = f"{VERA_ACCESSION_ROOT}/accession-statement.json"
+VERA_ACCESSION_CERTIFICATE_PATH = f"{VERA_ACCESSION_ROOT}/accession-certificate.json"
+VERA_GAA_PATH = f"{VERA_ACCESSION_ROOT}/gift-acceptance-authorization.json"
+VERA_OBJECT_PATH = f"{VERA_ACCESSION_ROOT}/objects/6529NM.2026.003.01.json"
+VERA_RIGHTS_PATH = f"{VERA_ACCESSION_ROOT}/rights/6529NM.2026.003.RIGHTS.01.json"
+VERA_TECHNICAL_PATH = f"{VERA_ACCESSION_ROOT}/technical/6529NM.2026.003.01.json"
+VERA_PRESENTATION_MANIFEST_PATH = f"{VERA_ACCESSION_ROOT}/public/presentation-manifest.json"
+VERA_PRESENTATION_AUTHORITY_PATH = f"{VERA_ACCESSION_ROOT}/public/web-presentation-authority.md"
+VERA_CUSTODY_EVIDENCE_PATH = "evidence/vera-molnar-210-custody/summary.json"
+VERA_SOURCE_MANIFEST_PATH = "evidence/vera-molnar-210-sources/manifest.json"
+VERA_OFFICIAL_STILL_PATH = "evidence/vera-molnar-210-sources/raw/official-preview.png"
+VERA_TECHNICAL_MANIFEST_PATH = "evidence/vera-molnar-210-technical/manifest.json"
+VERA_TECHNICAL_SUMMARY_PATH = "evidence/vera-molnar-210-technical/summary.json"
+VERA_GENERATOR_URL = "https://generator.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+VERA_PREVIEW_URL = "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
+VERA_TOKEN_URI = "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+VERA_CAIP19 = "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
 MAGNUM_WORK_PUBLICATION_PATHS = {
     "6529NM-PG-2026-001.OBJ-001": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/01-david-seymour-127.md",
     "6529NM-PG-2026-001.OBJ-002": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/02-larry-towell-145.md",
@@ -307,14 +348,13 @@ def logical_record_uri(repository_path: str) -> str:
 def source_repository_path(source: str) -> str:
     if source.startswith(("records/", "evidence/", "schemas/", "docs/")):
         return source
-    if re.fullmatch(r"6529NM\.2026\.001\.\d{2}", source):
-        return f"records/accessions/6529NM.2026.001/objects/{source}.json"
-    if re.fullmatch(r"6529NM\.2026\.002\.\d{2}", source):
-        return f"records/accessions/6529NM.2026.002/objects/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002)\.RIGHTS\.(\d{2})", source)
+    if re.fullmatch(r"6529NM\.2026\.(001|002|003)\.\d{2}", source):
+        accession_year = source.split(".")[2]
+        return f"records/accessions/6529NM.2026.{accession_year}/objects/{source}.json"
+    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.RIGHTS\.(\d{2})", source)
     if match:
         return f"records/accessions/6529NM.2026.{match.group(1)}/rights/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002)\.COND\.(\d{2})", source)
+    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.COND\.(\d{2})", source)
     if match:
         return f"records/accessions/6529NM.2026.{match.group(1)}/technical/6529NM.2026.{match.group(1)}.{match.group(2)}.json"
     if source == "6529NM.2026.001":
@@ -331,6 +371,14 @@ def source_repository_path(source: str) -> str:
         return MAGNUM_ACCESSION_CERTIFICATE_PATH
     if source == MAGNUM_GAA_ID:
         return "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
+    if source == VERA_ACCESSION_LOT:
+        return VERA_ACCESSION_STATEMENT_PATH
+    if source == VERA_ACCESSION_CERTIFICATE_ID:
+        return VERA_ACCESSION_CERTIFICATE_PATH
+    if source == VERA_GAA_ID:
+        return VERA_GAA_PATH
+    if source == VERA_WAVE_OBSERVATION_ID:
+        return f"{VERA_PROPOSAL_ROOT}/wave-status-observation.json"
     if source == WINNER_OBSERVATION_ID:
         return WINNER_SOURCE_PATH
     if source == WAVE_PUBLICATION_OBSERVATION_ID:
@@ -348,6 +396,8 @@ def source_repository_path(source: str) -> str:
         return "records/programs/6529NM-AP-01/program.json"
     if source.startswith("6529NM-PG-2026-001"):
         return "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
+    if source.startswith(VERA_PROPOSAL_ID):
+        return f"{VERA_PROPOSAL_ROOT}/proposal.json"
     if re.fullmatch(r"6529NM-(?:I|C|AGT|ART|ORG|W|PRJ|CA|AP-ENT|ACC-ENT|RP|MED|REL)-[A-Za-z0-9.-]+", source):
         if source.startswith("6529NM-REL-"):
             return f"records/relations/{source}.json"
@@ -391,7 +441,7 @@ def source_record_evidence_class(source: str) -> str:
         repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/accessions/"))
         or source_text.startswith("https://6529.io/")
         or re.fullmatch(r"6529NM-(?:GOV|AP|AP-01-OUT|PG|ACC|CA|WAVE|REL|MED|ORG|ART|AGT|PRJ|W)-[A-Za-z0-9.-]+", source)
-        or re.fullmatch(r"6529NM\.2026\.(?:001|002)(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
+        or re.fullmatch(r"6529NM\.2026\.(?:001|002|003)(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
     ):
         return "B"
     raise ValueError(f"unclassified evidence source family: source={source!r}")
@@ -547,6 +597,9 @@ def governed_typed_reference(
 
 
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
+    is_vera_record = record_id in VERA_CONSTRUCTED_RECORD_IDS
+    constructor_id = VERA_CONSTRUCTOR_ID if is_vera_record else CONSTRUCTOR_ID
+    constructed_at = VERA_AT if is_vera_record else GENERATED_AT
     profile = {
         "record_id": record_id,
         "record_type": record_type,
@@ -554,10 +607,10 @@ def common(record_type: str, record_id: str, effective_at: str, refs: list[str],
         "subject_id": record_id,
         "visibility": "public",
         "record_version": "1.0.0",
-        "created_at": GENERATED_AT,
+        "created_at": constructed_at,
         "observed_at": effective_at,
         "effective_at": effective_at,
-        "constructor": {"id": CONSTRUCTOR_ID, "role": "constructor", "observed_at": GENERATED_AT},
+        "constructor": {"id": constructor_id, "role": "constructor", "observed_at": constructed_at},
         "reviewer": None,
         "record_status": "review_pending",
         "review_status": "pending_independent_review",
@@ -873,6 +926,14 @@ def build_records(
     media_retained = fixed_id("MEDIA_REFERENCE", "casey:retained-manifest")
     media_token = fixed_id("MEDIA_REFERENCE", "casey:token-metadata")
     media_derivative = fixed_id("MEDIA_REFERENCE", "museum:conflict-at-its-edges:cover")
+    vera_artist = fixed_id("ARTIST", "6529NM-PG-2026-002.OBJ-001.Vera-Molnár")
+    martin_grasser_artist = fixed_id("ARTIST", "6529NM-PG-2026-002.OBJ-001.Martin-Grasser")
+    vera_work = fixed_id("WORK", VERA_PROPOSAL_ID + ".OBJ-001")
+    vera_project = fixed_id("PROJECT_OR_SERIES", "vera-molnar:themes-and-variations")
+    vera_acquisition = fixed_id("CURATED_ACQUISITION", "a-gift-of-themes-and-variations-210")
+    vera_accession = fixed_id("ACCESSION", VERA_ACCESSION_LOT)
+    vera_still_media = fixed_id("MEDIA_REFERENCE", "vera-molnar:6529NM.2026.003.01:official-preview")
+    vera_live_media = fixed_id("MEDIA_REFERENCE", "vera-molnar:6529NM.2026.003.01:live-generator")
 
     object_paths = sorted((ROOT / "records/accessions/6529NM.2026.001/objects").glob("*.json"))
     casey_objects = [load_json(path)["payload"] for path in object_paths]
@@ -906,7 +967,7 @@ def build_records(
         "name_variants": names("6529 Network Museum", "museum_record", institution_refs), "collection_entity_id": collection,
     }, institution_refs, [source_evidence("Museum governance source", "6529NM-GOV-1052156", CASEY_AT)])
     add_entity(collection, "COLLECTION", "6529 Network Museum permanent Collection", None, "/museum/network/collection", CASEY_AT, {
-        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": [*casey_work_ids, "6529NM-W-0024", "6529NM-W-0025", "6529NM-W-0026", "6529NM-W-0027", "6529NM-W-0028"],
+        "profile_type": "COLLECTION", "collection_kind": "permanent_collection", "institution_entity_id": institution, "membership_rule": "accession_only", "admitted_work_entity_ids": [*casey_work_ids, "6529NM-W-0024", "6529NM-W-0025", "6529NM-W-0026", "6529NM-W-0027", "6529NM-W-0028", vera_work],
         "evidence_refs": [source_evidence("Casey accession register", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)],
     }, [institution, *accession_refs], [source_evidence("Accession-only membership rule", "6529NM.2026.001", CASEY_AT), source_evidence("Magnum accession certificate", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
     add_entity(casey_agent, "AGENT", "Casey REAS", "casey-reas-agent", "/museum/network/agents/casey-reas-agent", CASEY_AT, {
@@ -931,7 +992,7 @@ def build_records(
         "authority": {"authority_status": "provisional", "authority_record_ids": [], "evidence_refs": [magnum_org_original_evidence, magnum_org_proposal_evidence, magnum_org_research_evidence]}, "name_variants": names("Magnum Photos", "published_source", [WINNER_SOURCE_URL, "6529NM-PG-2026-001", magnum_org_profile_path], MAGNUM_PUBLICATION_AT),
     }, ["6529NM-PG-2026-001"], [magnum_org_original_evidence, magnum_org_proposal_evidence, magnum_org_research_evidence])
     add_entity(gift_program, "ACQUISITION_PROGRAM", "Gift Acquisitions", slug_inventory[gift_program]["public_slug"], slug_inventory[gift_program]["canonical_route"], CASEY_AT, {
-        "profile_type": "ACQUISITION_PROGRAM", "program_kind": "donation_pathway", "program_id": gift_program, "authority_record_ids": institution_refs, "rules_summary": "A standing donation pathway governed by adopted Museum donation and collection-scope decisions; each gift retains its own review and accession gates.", "program_status": "active", "produced_acquisition_entity_ids": ["6529NM-CA-2026-001", "6529NM-CA-2026-003"], "selected_outcome_record_ids": [], "evidence_refs": [source_evidence("Adopted donation decision", "6529NM-GOV-1052812", CASEY_AT)],
+        "profile_type": "ACQUISITION_PROGRAM", "program_kind": "donation_pathway", "program_id": gift_program, "authority_record_ids": institution_refs, "rules_summary": "A standing donation pathway governed by adopted Museum donation and collection-scope decisions; each gift retains its own review and accession gates.", "program_status": "active", "produced_acquisition_entity_ids": ["6529NM-CA-2026-001", "6529NM-CA-2026-003", vera_acquisition], "selected_outcome_record_ids": [], "evidence_refs": [source_evidence("Adopted donation decision", "6529NM-GOV-1052812", CASEY_AT)],
     }, institution_refs, [source_evidence("Adopted donation decision", "6529NM-GOV-1052812", CASEY_AT)])
     keys_program_source = "6529NM-AP-01"
     program = load_json(ROOT / "records/programs/6529NM-AP-01/program.json")
@@ -1100,6 +1161,130 @@ def build_records(
     add_entity(magnum_project, "PROJECT_OR_SERIES", "Magnum Photos 75", slug_inventory[magnum_project]["public_slug"], slug_inventory[magnum_project]["canonical_route"], PROPOSAL_AT, {
         "profile_type": "PROJECT_OR_SERIES", "project_type": "series", "project_relation_basis": "proposal_work_set", "scope_statement": "Magnum Photos 75 was a 2022 anniversary project that brought photographs from the Magnum archive into a tokenized publication context. This record concerns the five Works selected for Museum acquisition review and preserves the distinction among the Project, each Work, its token manifestation, and the Museum's Curated Acquisition.", "agent_entity_ids": [magnum_org], "work_entity_ids": magnum_works, "ownership_boundary": "Magnum Photos 75 is a broader source project and tokenized release context, distinct from the Museum's Conflict at Its Edges Curated Acquisition and from each independent Work identity. Token manifestations and source media do not establish Museum title, custody, rights, or Collection membership.", "source_record_ids": ["6529NM-PG-2026-001", *magnum_work_source_ids], "evidence_refs": [source_evidence("Magnum Photos 75 research profile", "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos-75.md", MAGNUM_PUBLICATION_AT), source_evidence("Five-work proposal set", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)],
     }, [magnum_org, *magnum_works, "6529NM-PG-2026-001"], [source_evidence("Magnum Photos 75 research profile", "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/entities/magnum-photos-75.md", MAGNUM_PUBLICATION_AT), source_evidence("Five-work proposal set", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json", PROPOSAL_AT)])
+
+    vera_profile_paths = {
+        "vera": f"{VERA_SCHOLARSHIP_ROOT}/artists/vera-molnar.md",
+        "martin": f"{VERA_SCHOLARSHIP_ROOT}/artists/martin-grasser.md",
+        "work": f"{VERA_SCHOLARSHIP_ROOT}/works/01-vera-molnar-210.md",
+        "curatorial": f"{VERA_SCHOLARSHIP_ROOT}/dossiers/curatorial-accession-review.md",
+        "technical": f"{VERA_SCHOLARSHIP_ROOT}/dossiers/technical-and-condition-review.md",
+        "rights": f"{VERA_SCHOLARSHIP_ROOT}/dossiers/title-rights-and-accession-review.md",
+        "preservation": f"{VERA_SCHOLARSHIP_ROOT}/dossiers/preservation-and-display.md",
+        "chronology": f"{VERA_SCHOLARSHIP_ROOT}/dossiers/source-and-chronology.md",
+    }
+
+    def vera_evidence(label: str, source: str, evidence_class: str = "B") -> dict[str, Any]:
+        return evidence(label, source, VERA_AT, evidence_class)
+
+    vera_artist_evidence = [
+        vera_evidence("Vera Molnár artist profile", vera_profile_paths["vera"], "E"),
+        vera_evidence("Vera Molnár source and chronology", vera_profile_paths["chronology"], "E"),
+    ]
+    martin_artist_evidence = [
+        vera_evidence("Martin Grasser artist profile", vera_profile_paths["martin"], "E"),
+        vera_evidence("Themes and Variations work record", vera_profile_paths["work"], "E"),
+    ]
+    vera_source_records = [
+        VERA_PROPOSAL_ID,
+        VERA_WAVE_OBSERVATION_ID,
+        VERA_ACCESSION_LOT,
+        VERA_GAA_ID,
+        VERA_ACCESSION_CERTIFICATE_ID,
+        VERA_OBJECT_ID,
+        VERA_RIGHTS_ID,
+        VERA_CONDITION_ID,
+    ]
+    vera_work_evidence = [
+        vera_evidence("Themes and Variations work study", vera_profile_paths["work"], "E"),
+        vera_evidence("Accession object record", VERA_OBJECT_PATH, "B"),
+        vera_evidence("Finalized custody summary", VERA_CUSTODY_EVIDENCE_PATH, "A"),
+        vera_evidence("On-chain technical evidence", VERA_TECHNICAL_SUMMARY_PATH, "A"),
+    ]
+
+    add_entity(vera_artist, "ARTIST", "Vera Molnár", "vera-molnar", "/museum/network/artists/vera-molnar", VERA_AT, {
+        "profile_type": "ARTIST",
+        "authority": {"authority_status": "established", "authority_record_ids": [], "evidence_refs": vera_artist_evidence},
+        "practice": {
+            "summary": "Vera Molnár made geometric abstraction through drawing, plotting, and code. She used rules to set a field in motion, then allowed repetition, error, and variation to alter what the system could produce.",
+            "areas": ["geometric abstraction", "computer art", "plotter drawing", "generative systems"],
+            "evidence_refs": vera_artist_evidence,
+        },
+        "name_variants": names("Vera Molnár", "proposal", [VERA_PROPOSAL_ID], VERA_AT),
+    }, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], vera_artist_evidence)
+    add_entity(martin_grasser_artist, "ARTIST", "Martin Grasser", "martin-grasser", "/museum/network/artists/martin-grasser", VERA_AT, {
+        "profile_type": "ARTIST",
+        "authority": {"authority_status": "established", "authority_record_ids": [], "evidence_refs": martin_artist_evidence},
+        "practice": {
+            "summary": "Martin Grasser works with letterforms, code, and systems that turn language into visual form. In Themes and Variations, his collaboration with Vera Molnár gives the project a rule-based structure in which letters become shapes, fields, and measured changes.",
+            "areas": ["typography", "letterform abstraction", "generative systems", "creative coding"],
+            "evidence_refs": martin_artist_evidence,
+        },
+        "name_variants": names("Martin Grasser", "proposal", [VERA_PROPOSAL_ID], VERA_AT),
+    }, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], martin_artist_evidence)
+    add_entity(vera_project, "PROJECT_OR_SERIES", "Themes and Variations", "themes-and-variations", "/museum/network/projects/themes-and-variations", VERA_AT, {
+        "profile_type": "PROJECT_OR_SERIES",
+        "project_type": "project",
+        "project_relation_basis": "source_project_record",
+        "scope_statement": "Themes and Variations is a generative project by Vera Molnár and Martin Grasser. A fixed edition of 500 Ethereum tokens combines a letter, a grid, and a limited palette through a shared set of rules; each token records one distinct output.",
+        "agent_entity_ids": [vera_artist, martin_grasser_artist],
+        "work_entity_ids": [vera_work],
+        "ownership_boundary": "The project is the artists' work and its publishing context. The Museum holds one tokenized output through a separate gift accession.",
+        "source_record_ids": [VERA_PROPOSAL_ID, VERA_OBJECT_ID, VERA_CONDITION_ID],
+        "evidence_refs": [vera_evidence("Themes and Variations project record", vera_profile_paths["work"], "E"), vera_evidence("Token metadata", "evidence/vera-molnar-210-sources/raw/token-metadata.json", "A"), vera_evidence("On-chain project evidence", VERA_TECHNICAL_SUMMARY_PATH, "A")],
+    }, [vera_artist, martin_grasser_artist, vera_work, VERA_PROPOSAL_ID, VERA_OBJECT_ID, VERA_CONDITION_ID], [vera_evidence("Themes and Variations project record", vera_profile_paths["work"], "E"), vera_evidence("On-chain project evidence", VERA_TECHNICAL_SUMMARY_PATH, "A")])
+    vera_acquisition_facts = {
+        "mint": fact("verified", VERA_AT, [VERA_CONDITION_ID], "The token was minted before the Museum received it; minting and donation are separate facts.", evidence_refs=[vera_evidence("On-chain technical evidence", VERA_TECHNICAL_SUMMARY_PATH, "A")]),
+        "payment": fact("not_applicable", VERA_AT, [VERA_GAA_ID], "The work entered the Museum as an intentional gift.", evidence_refs=[vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B")]),
+        "title": fact("verified", VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID], "The accession certificate records the Museum's title to the donated token interest; copyright remains a separate matter.", evidence_refs=[vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")]),
+        "custody": fact("verified", VERA_AT, [VERA_CUSTODY_EVIDENCE_PATH], "Finalized Ethereum evidence records receipt by the Museum custody address.", evidence_refs=[vera_evidence("Finalized custody summary", VERA_CUSTODY_EVIDENCE_PATH, "A")]),
+        "rights": fact("verified_with_conditions", VERA_AT, [VERA_RIGHTS_ID], "The source records CC BY-NC 4.0. Museum publication and display follow that licence and its attribution and noncommercial conditions.", evidence_refs=[vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")]),
+        "technical": fact("verified_with_conditions", VERA_AT, [VERA_CONDITION_ID], "The contract, token hash, project state, scripts, and runtime were recorded at the finalized block; service endpoints and browser behavior remain dated observations.", evidence_refs=[vera_evidence("Technical and condition record", VERA_TECHNICAL_PATH, "B"), vera_evidence("On-chain technical evidence", VERA_TECHNICAL_SUMMARY_PATH, "A")]),
+        "preservation": fact("in_progress", VERA_AT, [VERA_OBJECT_ID, VERA_CONDITION_ID], "The Museum retains source responses and presentation derivatives; ongoing care includes repeated runtime capture and format review.", evidence_refs=[vera_evidence("Source-evidence manifest", VERA_SOURCE_MANIFEST_PATH, "A"), vera_evidence("Presentation manifest", VERA_PRESENTATION_MANIFEST_PATH, "B")]),
+        "display": fact("verified_with_conditions", VERA_AT, [VERA_OBJECT_ID, VERA_RIGHTS_ID], "The Museum may show the credited work in a noncommercial institutional context under the recorded licence boundary.", evidence_refs=[vera_evidence("Web presentation authority", VERA_PRESENTATION_AUTHORITY_PATH, "B"), vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")]),
+    }
+    add_entity(vera_work, "WORK", "Vera Molnár and Martin Grasser, Themes and Variations #210", "6529NM-W-0029", "/museum/network/works/6529NM-W-0029", VERA_AT, {
+        "profile_type": "WORK",
+        "creator_entity_ids": [vera_artist, martin_grasser_artist],
+        "title": "Themes and Variations #210",
+        "creation_date": {"display": "2023", "status": "established", "earliest": "2023-01-01", "latest": "2023-12-31", "evidence_refs": [vera_evidence("Themes and Variations work record", vera_profile_paths["work"], "E")]},
+        "medium": "On-chain generative software; Ethereum ERC-721 token; live browser generator",
+        "work_lifecycle_status": "accessioned",
+        "current_museum_relation": {"museum_entity_id": institution, "relation_status": "permanent_collection", "as_of": VERA_AT, "evidence_refs": [vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")]},
+        "mint_fact": vera_acquisition_facts["mint"],
+        "collection_membership": {"status": "permanent_collection", "collection_entity_id": collection, "accession_entity_ids": [vera_accession], "source_record_ids": [VERA_ACCESSION_LOT, VERA_ACCESSION_CERTIFICATE_ID], "evidence_refs": [vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")]},
+        "project_or_series_entity_ids": [vera_project],
+        "acquisition_entity_ids": [vera_acquisition],
+        "program_entity_ids": [gift_program],
+        "accession_entity_ids": [vera_accession],
+        "lifecycle_observations": [lifecycle_observation(fixed_observation_id(vera_work, "accessioned"), "accessioned_into_permanent_collection", "accessioned", VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID, VERA_OBJECT_ID], "The exact tokenized output was accepted as a gift and accessioned into the permanent Collection.", [vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")])],
+        "component_references": [authoritative_typed_reference("component", VERA_OBJECT_ID, "WORK_DESCRIPTION", [vera_evidence("Accession object record", VERA_OBJECT_PATH, "B")])],
+        "manifestation_references": [governed_typed_reference(identity_inventory, "manifestation", "6529NM.2026.003.01.TOKEN", "6529NM.2026.003.01", [vera_evidence("Token manifestation", VERA_OBJECT_PATH, "A")], source_status="verified")],
+        "identity_boundary": "This Work is one exact output from the Themes and Variations edition. Its token, custody, title, rights, source image, live generator, and Museum accession are recorded as separate facts.",
+        "evidence_refs": vera_work_evidence,
+    }, vera_source_records + [vera_project, vera_acquisition, gift_program, vera_accession], vera_work_evidence, media_entity_ids=[vera_still_media, vera_live_media])
+    add_entity(vera_accession, "ACCESSION", "Vera Molnár accession 6529NM.2026.003", None, None, VERA_AT, {
+        "profile_type": "ACCESSION", "accession_number": VERA_ACCESSION_LOT, "accession_status": "complete", "admitted_work_entity_ids": [vera_work], "source_accession_record_id": VERA_ACCESSION_LOT, "evidence_refs": [vera_evidence("Accession statement", VERA_ACCESSION_STATEMENT_PATH, "B"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B"), vera_evidence("Finalized custody summary", VERA_CUSTODY_EVIDENCE_PATH, "A")],
+    }, [VERA_ACCESSION_LOT, VERA_ACCESSION_CERTIFICATE_ID, VERA_GAA_ID, vera_work], [vera_evidence("Accession statement", VERA_ACCESSION_STATEMENT_PATH, "B"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B"), vera_evidence("Finalized custody summary", VERA_CUSTODY_EVIDENCE_PATH, "A")])
+    add_entity(vera_acquisition, "CURATED_ACQUISITION", "A Gift of Themes and Variations #210", "a-gift-of-themes-and-variations-210", "/museum/network/acquisitions/a-gift-of-themes-and-variations-210", VERA_AT, {
+        "profile_type": "CURATED_ACQUISITION", "title": "A Gift of Themes and Variations #210", "thesis": "The Museum accepted Themes and Variations #210, one unique output from the project's fixed edition of 500. The accession records the work as a visual composition and a live, browser-rendered generative program.", "acquisition_method": "donation", "program_or_pathway": {"kind": "acquisition_program", "entity_ids": [gift_program], "source_record_ids": [VERA_GAA_ID, "6529NM-GOV-1052812"]}, "work_entity_ids": [vera_work], "source_work_record_ids": [VERA_OBJECT_ID], "lifecycle": {"status": "accessioned_into_permanent_collection", "as_of": VERA_AT, "evidence_refs": [vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B"), vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B")]}, "lifecycle_observations": [lifecycle_observation("6529NM-CA-OBS-0005", "accessioned_into_permanent_collection", "accessioned", VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID, VERA_GAA_ID], "The gift was accepted, received, and accessioned into the permanent Collection.", [vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")])], "collection_effect": "permanent_collection", "independent_acquisition_facts": vera_acquisition_facts, "public_credit": "Gift of punk6529", "evidence_refs": [vera_evidence("Curatorial accession review", vera_profile_paths["curatorial"], "E"), vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")],
+    }, [gift_program, vera_accession, vera_work, VERA_PROPOSAL_ID, VERA_GAA_ID, VERA_ACCESSION_CERTIFICATE_ID], [vera_evidence("Curatorial accession review", vera_profile_paths["curatorial"], "E"), vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")])
+
+    source_manifest = load_json(ROOT / VERA_SOURCE_MANIFEST_PATH)
+    official_preview = next(entry for entry in source_manifest["entries"] if entry.get("path") == "raw/official-preview.png")
+    add_entity(vera_still_media, "MEDIA_REFERENCE", "Official preview: Themes and Variations #210", None, None, VERA_AT, media_profile(
+        "token_linked_source_media", VERA_PREVIEW_URL, VERA_OFFICIAL_STILL_PATH, "image/png", True, 2400, 2400,
+        "A square generative composition in dark cobalt blue and warm white. Large blue fields occupy the upper right and lower left. White T forms descend through the lower-left field, with a small white F at the left edge. The lower-right area combines a thin horizontal rule, vertical lines, an offset blue block, and a dense rectangular pattern.", "provided", vera_work,
+        "Vera Molnár, in collaboration with Martin Grasser, Themes and Variations #210, 2023. Licensed under CC BY-NC 4.0.", "cleared_with_conditions", "retrieved", [VERA_OBJECT_ID, VERA_RIGHTS_ID], VERA_AT,
+        {"status": "verified", "algorithm": "sha256", "digest": sha256_file(ROOT / VERA_OFFICIAL_STILL_PATH), "verified_at": VERA_AT, "basis": "Official Art Blocks preview retained in the Museum source-evidence package."},
+        ["view", "thumbnail", "hero", "alt_text", "open_token_source", "copy_citation"], source_byte_size=official_preview["size"], rights_label="CC BY-NC 4.0", rights_evidence_refs=[vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")], source_observation_evidence_refs=[vera_evidence("Official preview fixity", VERA_OFFICIAL_STILL_PATH, "A"), vera_evidence("Source-evidence manifest", VERA_SOURCE_MANIFEST_PATH, "A")], accessibility_evidence_refs=[vera_evidence("Accession alt text", f"{VERA_ACCESSION_ROOT}/public/alt-text.md", "B")]
+    ), [VERA_OBJECT_ID, VERA_RIGHTS_ID, vera_work], [vera_evidence("Official preview", VERA_OFFICIAL_STILL_PATH, "A"), vera_evidence("Source-evidence manifest", VERA_SOURCE_MANIFEST_PATH, "A")])
+    add_entity(vera_live_media, "MEDIA_REFERENCE", "Live generator: Themes and Variations #210", None, None, VERA_AT, media_profile(
+        "token_linked_source_media", VERA_GENERATOR_URL, None, "text/html", True, 2400, 2400,
+        "Live Art Blocks generator for Themes and Variations #210. The browser-rendered work is the current display of the token; the retained PNG is the dated still used for fixed presentation.", "provided", vera_work,
+        "Vera Molnár and Martin Grasser, Themes and Variations #210. Live generator source.", "cleared_with_conditions", "mutable_external", [VERA_OBJECT_ID, VERA_CONDITION_ID, VERA_RIGHTS_ID], VERA_AT,
+        {"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The official Art Blocks generator is mutable external HTML. The Museum records the exact locator and technical observation but does not assert a digest for future generator responses."},
+        ["interact_sandboxed", "open_token_source", "copy_citation"], token_source_locator={"uri": VERA_TOKEN_URI, "repository_path": None}, token_source_fixity={"status": "unverified_not_retrieved", "algorithm": None, "digest": None, "verified_at": None, "basis": "The live token source is mutable external HTML; no generator response bytes are retained in the public source package."}, rights_label="CC BY-NC 4.0", rights_evidence_refs=[vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")], source_observation_evidence_refs=[vera_evidence("Token metadata observation", VERA_OBJECT_PATH, "A"), vera_evidence("Technical evidence manifest", VERA_TECHNICAL_MANIFEST_PATH, "A")], accessibility_evidence_refs=[vera_evidence("Accession alt text", f"{VERA_ACCESSION_ROOT}/public/alt-text.md", "B")]
+    ), [VERA_OBJECT_ID, VERA_CONDITION_ID, VERA_RIGHTS_ID, vera_work], [vera_evidence("Token metadata observation", VERA_OBJECT_PATH, "A"), vera_evidence("Technical evidence manifest", VERA_TECHNICAL_MANIFEST_PATH, "A")])
 
     acquisition_facts_casey = {"mint": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Existing accession records contain the token identity and receipt evidence."), "payment": fact("not_applicable", CASEY_AT, ["6529NM.2026.001"], "The completed gift is recorded as a donation."), "title": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Title binding is recorded separately and is not copyright."), "custody": fact("verified", CASEY_AT, ["6529NM-ACC-2026-001"], "Custody receipt is recorded separately."), "rights": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.RIGHTS.01"], "Rights are recorded per object with attribution and noncommercial conditions."), "technical": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.COND.01"], "Technical and condition review passed with conditions."), "preservation": fact("in_progress", CASEY_AT, ["6529NM.2026.001.DILIGENCE-01"], "Autonomous generator preservation remains active stewardship."), "display": fact("verified_with_conditions", CASEY_AT, ["6529NM.2026.001.COND.01"], "Display is ready with conditions where the object record says so.")}
     acquisition_facts_keys = {key: fact(status, KEYS_AT, [keys_program_source], note) for key, status, note in [("mint", "not_established", "No primary mint evidence is recorded."), ("payment", "planned", "Program terms describe a planned purchase price only."), ("title", "not_established", "No title binding is recorded."), ("custody", "unverified", "Planned custody reference is not custody evidence."), ("rights", "unverified", "Conditional program terms are not an effective rights grant."), ("technical", "not_started", "No completed technical review is recorded."), ("preservation", "not_started", "No preservation completion is recorded."), ("display", "not_started", "No display authorization is recorded.")]}
@@ -1665,6 +1850,28 @@ def build_records(
         relation_number += 1
         add_relation(f"6529NM-REL-{relation_number:04d}", "COLLECTION_CONTAINS_WORK", collection, work_id, {"collection_membership_status": "permanent_collection"}, MAGNUM_CHAIN_AT, [MAGNUM_ACCESSION_CERTIFICATE_ID, object_id], [source_evidence("Collection accession relation", MAGNUM_ACCESSION_CERTIFICATE_ID, MAGNUM_CHAIN_AT)])
         relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ARTIST_CREATES_WORK", vera_artist, vera_work, {"role": "creator"}, VERA_AT, [VERA_OBJECT_ID], [vera_evidence("Vera Molnár creator credit", vera_profile_paths["work"], "E")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ARTIST_CREATES_WORK", martin_grasser_artist, vera_work, {"role": "creator"}, VERA_AT, [VERA_OBJECT_ID], [vera_evidence("Martin Grasser collaboration credit", vera_profile_paths["work"], "E")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "PROJECT_CONTEXTUALIZES_WORK", vera_project, vera_work, {"scope": "source_project"}, VERA_AT, [VERA_OBJECT_ID, VERA_CONDITION_ID], [vera_evidence("Themes and Variations project context", vera_profile_paths["work"], "E"), vera_evidence("On-chain project evidence", VERA_TECHNICAL_SUMMARY_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION", gift_program, vera_acquisition, {}, VERA_AT, ["6529NM-GOV-1052812", VERA_GAA_ID], [source_evidence("Gift acquisition pathway", "6529NM-GOV-1052812", CASEY_AT), vera_evidence("Gift acceptance authorization", VERA_GAA_PATH, "B")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK", vera_acquisition, vera_work, {"display_order": 1, "selection_status": "selected", "scope": "museum_curatorial_grouping"}, VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID, VERA_OBJECT_ID], [vera_evidence("Curated acquisition record", vera_profile_paths["curatorial"], "E"), vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ACCESSION_ADMITS_WORK", vera_accession, vera_work, {"accession_object_id": VERA_OBJECT_ID}, VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID, VERA_OBJECT_ID], [vera_evidence("Accession certificate", VERA_ACCESSION_CERTIFICATE_PATH, "B"), vera_evidence("Finalized custody summary", VERA_CUSTODY_EVIDENCE_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "COLLECTION_CONTAINS_WORK", collection, vera_work, {"collection_membership_status": "permanent_collection"}, VERA_AT, [VERA_ACCESSION_CERTIFICATE_ID, VERA_OBJECT_ID], [vera_evidence("Permanent Collection accession relation", VERA_ACCESSION_CERTIFICATE_PATH, "B")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", vera_work, vera_still_media, {"media_context": "primary", "display_order": 1}, VERA_AT, [VERA_OBJECT_ID, VERA_RIGHTS_ID], [vera_evidence("Official still relation", VERA_PRESENTATION_MANIFEST_PATH, "B"), vera_evidence("Official preview fixity", VERA_OFFICIAL_STILL_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", vera_work, vera_live_media, {"media_context": "source", "display_order": 2}, VERA_AT, [VERA_OBJECT_ID, VERA_CONDITION_ID, VERA_RIGHTS_ID], [vera_evidence("Live generator relation", VERA_PRESENTATION_AUTHORITY_PATH, "B"), vera_evidence("Technical generator observation", VERA_TECHNICAL_MANIFEST_PATH, "A")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", vera_artist, vera_project, {"role": "creator"}, VERA_AT, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], [vera_evidence("Vera Molnár project credit", vera_profile_paths["work"], "E")])
+    relation_number += 1
+    add_relation(f"6529NM-REL-{relation_number:04d}", "AGENT_PLAYS_ROLE", martin_grasser_artist, vera_project, {"role": "creator"}, VERA_AT, [VERA_PROPOSAL_ID, VERA_OBJECT_ID], [vera_evidence("Martin Grasser project credit", vera_profile_paths["work"], "E")])
+    relation_number += 1
     for target in ["6529NM-CA-2026-001", *projects.values(), *casey_work_ids]:
         add_relation(f"6529NM-REL-{relation_number:04d}", "PUBLICATION_INTERPRETS_ENTITY", publication, target, {"role": "subject"}, CASEY_AT, ["6529NM.2026.001"], [source_evidence("The System in Seven States", "records/accessions/6529NM.2026.001/public/casey-reas-collection-essay.md", CASEY_AT)])
         relation_number += 1

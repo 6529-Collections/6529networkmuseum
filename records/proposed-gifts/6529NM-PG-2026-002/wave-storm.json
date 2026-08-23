@@ -1,0 +1,128 @@
+{
+  "$schema": "../../../schemas/proposed-gift-wave-package.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
+      "role": "constructor",
+      "constructed_at": "2026-08-23T09:46:57.326Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_GIFT_WAVE_PACKAGE",
+  "schema_profile": "6529NM_PROPOSED_GIFT_WAVE_PACKAGE_V1",
+  "proposal_id": "6529NM-PG-2026-002",
+  "status": "selected",
+  "target_wave": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "wave_type": "APPROVE",
+    "credit_type": "TDH",
+    "credit_scope": "DROP"
+  },
+  "drop_title": "Proposed gift: Vera Molnár, Themes and Variations #210",
+  "single_voting_object": true,
+  "publication_profile": {
+    "profile": "6529NM_WAVE_STORM_PUBLICATION_V1",
+    "source_text_encoding": "UTF-8",
+    "source_line_endings": "LF",
+    "counting_basis": "raw_markdown_including_final_lf",
+    "limits": {
+      "per_part_utf16_code_units": 25000,
+      "per_part_utf8_bytes": 65535,
+      "total_utf16_code_units": 50000,
+      "total_media_files": 8
+    },
+    "editorial_targets": {
+      "per_part_utf16_code_units": 20000,
+      "per_part_utf8_bytes": 60000,
+      "total_utf16_code_units": 45000
+    },
+    "observed_production": {
+      "frontend_commit": "c807f6da8efea7e39405fba8185de153096bf95d",
+      "backend_commit": "e1ca97c54d42f83c5f7bd613fcfa5a4476b93eb6",
+      "observed_at": "2026-08-06T11:18:41.858Z"
+    },
+    "target_observation": {
+      "observed_at": "2026-08-23T09:40:25.465Z",
+      "posting_profile_handle": "punk6529bot",
+      "wave_open": true,
+      "eligible_to_participate": true,
+      "eligible_to_vote": true,
+      "eligible_to_chat": true,
+      "admin": true,
+      "winning_threshold": 69000000,
+      "winning_threshold_min_duration_ms": 86400000,
+      "time_lock_ms": 86400000,
+      "signature_required": true
+    },
+    "part_metrics": [
+      {"part_number": 1, "utf16_code_units": 670, "utf8_bytes": 671, "media_count": 1},
+      {"part_number": 2, "utf16_code_units": 846, "utf8_bytes": 851, "media_count": 1},
+      {"part_number": 3, "utf16_code_units": 827, "utf8_bytes": 828, "media_count": 0}
+    ],
+    "totals": {"utf16_code_units": 2343, "utf8_bytes": 2350, "media_count": 2},
+    "leaderboard": {
+      "media_selection": "parts[0].media[0]",
+      "cover_part_number": 1,
+      "cover_media_index": 0,
+      "object_fit": "contain",
+      "preview_checks_px": [267, 450, 1600]
+    }
+  },
+  "parts": [
+    {
+      "part_number": 1,
+      "role": "resolution",
+      "title": "Proposed gift: Vera Molnár, Themes and Variations #210",
+      "markdown_path": "public/wave-storm/01-resolution.md",
+      "media": [
+        {
+          "source_kind": "retained_external_source",
+          "uri": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png",
+          "media_type": "image/png",
+          "width": 2400,
+          "height": 2400,
+          "byte_length": 330363,
+          "sha256": "sha256:c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+          "color_profile": "RGBA source response; responsive derivative not generated in this package",
+          "opaque": false,
+          "alt_text": "A square generative image of dark-blue and warm-white fields, grid lines, and the letter F from Vera Molnár's Themes and Variations #210.",
+          "credit_line": "Vera Molnár, in collaboration with Martin Grasser, Themes and Variations #210, 2023. CC BY-NC 4.0.",
+          "rights_label": "CC BY-NC 4.0"
+        }
+      ]
+    },
+    {
+      "part_number": 2,
+      "role": "work",
+      "title": "Vera Molnár — Themes and Variations #210",
+      "markdown_path": "public/wave-storm/02-themes-and-variations-210.md",
+      "candidate_object_id": "6529NM-PG-2026-002.OBJ-001",
+      "media": [
+        {
+          "uri": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+          "media_type": "image/png",
+          "alt_text": "A square generative image of dark-blue and warm-white fields, grid lines, and the letter F from Vera Molnár's Themes and Variations #210.",
+          "credit_line": "Themes and Variations #210, 2023. Licensed CC BY-NC 4.0. Vera Molnár, in collaboration with Martin Grasser.",
+          "rights_label": "CC BY-NC 4.0"
+        }
+      ]
+    },
+    {
+      "part_number": 3,
+      "role": "synthesis",
+      "title": "Vera Molnár, Themes and Variations #210",
+      "markdown_path": "public/wave-storm/03-case-and-decision.md",
+      "media": []
+    }
+  ],
+  "submission_notes": [
+    "The four-part proposal is retained through the exact Wave drop and source-evidence package; the current API readback is WINNER, serial 1296797.",
+    "The exact ERC-721 object is the single voting object; the Museum accession and custody records use 6529NM.2026.003 and 6529NM.2026.003.01.",
+    "The cover reuses the retained official proposal PNG bytes by external URI and fixity. This package deliberately creates no 1600-pixel cover derivative, SVG, responsive WebP, or other binary derivative.",
+    "The responsive accession-media manifest and binary derivatives are a separate downstream handoff; the assigned public work and media IDs are 6529NM-W-0029 and 6529NM-MED-0052.",
+    "The selected result does not itself grant copyright, title, or unrestricted reproduction rights."
+  ]
+}
