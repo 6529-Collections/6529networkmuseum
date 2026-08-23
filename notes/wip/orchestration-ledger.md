@@ -4017,3 +4017,19 @@ frontend does not consume the two superseded Casey media-amendment controls;
 they remain in the complete repository manifest but are removed from the
 visitor assembly bundle so a pending legacy control cannot leak into the
 active corpus. Candidate A5 is review-pending; it is not a publishable tree.
+
+### 2026-08-23 13:24 UTC - Vera reviewed source and catalog activation
+
+Independent review approved exact Candidate A
+`2e6e05f1e0b60983b0a1d27cc767326c2d84d00c` at
+`2026-08-23T13:22:21Z`, bound to manifest SHA-256
+`sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08`
+and Keccak
+`0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb`.
+Reviewed B is `8878c4eec8290a0f25975693d44259aa2109600a`.
+The exact A-to-B verifier accepted the 380-path delta: 377 envelope records,
+the Vera presentation manifest, visitor bundle, and whole-release manifest.
+Catalog C is
+`6529NM-PUBCAT-8878c4eec8290a0f25975693d44259aa2109600a`, activated at
+`2026-08-23T13:24:38Z` with catalog file SHA-256
+`sha256:e043d6258c8615e209081f99ea7d5b04e1aa9367ed71e2f78e580bd0a59ed327`.
