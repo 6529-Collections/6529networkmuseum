@@ -6,6 +6,16 @@ Deadline: 2026-08-23 15:34 UTC
 Constructor branch: `codex/vera-molnar-accession`  
 Constructor base: `a3977a8f020f58d0c9e79f23bc4f37245be65879`
 
+## Publication-boundary correction
+
+The release binds the public scholarship, generated entity graph, seven
+direct accession/Wave machine records, the reviewed media-presentation
+manifest, and its exact 640/1280/2400 WebP derivatives into one immutable
+catalog. Candidate A remains review-pending. Reviewed B may change only the
+declared review states and the presentation delivery approval, plus exact
+deterministic bundle and release-manifest outputs. The catalog builder verifies
+that transition directly.
+
 ## Mandate
 
 Complete the gift accession of Vera Molnár, in collaboration with Martin

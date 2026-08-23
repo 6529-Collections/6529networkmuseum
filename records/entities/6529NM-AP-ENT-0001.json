@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x1597451b4142ef07eea42092dfc5909be549667a5bd5ff17e06f076e4b16435c"
+      "digest": "0x5310e19ced7b3eaf4aab3233a33309f9dcebf270f6e1ee660e1dd0d797343951"
     },
     "effectiveAt": 1785652200,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-02T06:30:00Z",
     "entity_id": "6529NM-AP-ENT-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACQUISITION_PROGRAM",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-02T06:30:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:9774e1f033f2eeb9ebd70c16b7c4eb7bdd4b2493829f41b73d213f52b218f3c9",
+    "payload_sha256": "sha256:33ad4ecd81fb669f7dcee3ac1148b140ed98b3a3c54eeb13f4f2f575ee36f0b4",
     "preferred_label": "Gift Acquisitions",
     "profile": {
       "authority_record_ids": [
@@ -69,26 +69,15 @@
     },
     "public_slug": "gift-acquisitions",
     "record_id": "6529NM-AP-ENT-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-GOV-1052156",
       "6529NM-GOV-1052812"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T12:27:28Z",
-      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
-      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
-      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-GOV-1052156",
@@ -104,7 +93,7 @@
         }
       ],
       "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AP-ENT-0001",
     "visibility": "public"

@@ -91,11 +91,17 @@ def normalize_payload(
     payload: dict[str, Any],
     path: Path,
     review: dict[str, str] | None = None,
+    *,
+    pending: bool = False,
 ) -> dict[str, Any]:
     payload = rewrite(payload)
     payload["payload_sha256"] = "sha256:" + "0" * 64
 
-    if review is not None:
+    if pending:
+        payload["reviewer"] = None
+        payload["record_status"] = "review_pending"
+        payload["review_status"] = "pending_independent_review"
+    elif review is not None:
         created_at = datetime.fromisoformat(
             str(payload["created_at"]).replace("Z", "+00:00")
         )
@@ -283,7 +289,7 @@ def normalize_payload(
 
 
 def seal(
-    path: Path, review: dict[str, str] | None = None
+    path: Path, review: dict[str, str] | None = None, *, pending: bool = False
 ) -> dict[str, Any]:
     source = load(path)
     payload_source = source.get("payload")
@@ -291,7 +297,7 @@ def seal(
         payload = payload_source
     else:
         payload = {key: value for key, value in source.items() if key != "$schema"}
-    payload = normalize_payload(payload, path, review)
+    payload = normalize_payload(payload, path, review, pending=pending)
     record_type = str(payload["record_type"])
     subject_id = str(payload["subject_id"])
     schema_id = str(payload["schema_id"])
@@ -328,7 +334,9 @@ def encoded(value: dict[str, Any]) -> bytes:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
-    parser.add_argument("--reviewed", action="store_true")
+    state = parser.add_mutually_exclusive_group()
+    state.add_argument("--pending", action="store_true")
+    state.add_argument("--reviewed", action="store_true")
     parser.add_argument("--reviewer-id")
     parser.add_argument("--reviewed-at")
     parser.add_argument("--reviewed-commit")
@@ -368,7 +376,7 @@ def main() -> int:
     paths.append(WAVE_STATUS)
     stale: list[str] = []
     for path in paths:
-        expected = encoded(seal(path, review))
+        expected = encoded(seal(path, review, pending=args.pending))
         if args.check:
             if path.read_bytes() != expected:
                 stale.append(path.relative_to(ROOT).as_posix())

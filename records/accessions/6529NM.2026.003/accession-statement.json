@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb7755a2b233d8e4f513c33fdf46b9f3a4a81063bc65672de4b5bca4770ab93cb"
+      "digest": "0x084a18c2e1a65e810ebe5d72d33ad380b823b0d6766c5b458be559a88ce8ac7a"
     },
     "effectiveAt": 1787478417,
     "recordType": "ACCESSION_LOT",
@@ -64,7 +64,7 @@
       "6529NM.2026.003.01"
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:e0cd7d4bcab21cc516325fad1a7703547492b8a7d42efe29427f5f80cd054380",
+    "payload_sha256": "sha256:3f78e3fff1e133c181bf7bb3ccbcc7df76f278a26c231d6fb9f9083a6ea4f185",
     "preservation_manifest": {
       "active_stewardship_actions": [
         "retain dated runtime and service captures",
@@ -89,7 +89,7 @@
       "status": "in_progress"
     },
     "record_id": "6529NM.2026.003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "ACCESSION_LOT",
     "record_version": "1.0.0",
     "references": [
@@ -100,19 +100,8 @@
       "6529NM.2026.003.01"
     ],
     "remaining_gates": [],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T12:27:28Z",
-      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
-      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
-      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
     "source": {
       "source_record_ids": [

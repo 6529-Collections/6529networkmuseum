@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbd38ac07d5b05268292b73b61d4bebb685177e465c94b54054a7b89abcfff1aa"
+      "digest": "0xdfa8f0b78d5f1e6054bd521b048423455831cb7ffe64551858a3b17114dfc00a"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-MED-0053",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a993a89b03c8659bcc36f8c4bd4d2a5f0b6faee216e1897b0ce66ec0353a7e08",
+    "payload_sha256": "sha256:0795a38d2a59d7cecefd3b7f8db6d11cd0320b0bfb7a732abafd740e5cb7d7ad",
     "preferred_label": "Live generator: Themes and Variations #210",
     "profile": {
       "media": {
@@ -147,7 +147,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0053",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -156,19 +156,8 @@
       "6529NM.2026.003.COND.01",
       "6529NM.2026.003.RIGHTS.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T12:27:28Z",
-      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
-      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
-      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-W-0029",
@@ -192,7 +181,7 @@
         }
       ],
       "observed_at": "2026-08-23T09:46:57.326Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0053",
     "visibility": "public"

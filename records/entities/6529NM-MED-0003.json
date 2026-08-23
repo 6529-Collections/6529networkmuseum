@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7ac0a01590cea5ca49a59fe4789d7e3c05e4cc79a6e799b3dc737784cc0e8464"
+      "digest": "0x5e1490dff64301b1ae172a8298cc142fc02dd12bd4fa5225da1cc29bcc388b45"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6749062ae87a4a771701ac5fe37ce27c313e0831dd70c12c245f249d23af1e31",
+    "payload_sha256": "sha256:bbc92de418a8371cbde93a43b62ee230d4bfd962098d04c714e2776fc57cc64d",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -177,7 +177,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -185,19 +185,8 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T12:27:28Z",
-      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
-      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
-      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -226,7 +215,7 @@
         }
       ],
       "observed_at": "2026-08-12T07:37:56.984246Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-MED-0003",
     "visibility": "public"

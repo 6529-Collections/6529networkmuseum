@@ -4001,3 +4001,19 @@ bootstrap and full validation with release SHA-256
 `sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931`
 and Keccak
 `0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15`.
+
+### 2026-08-23 13:06 UTC - Vera candidate A5 publication boundary
+
+The first reviewed promotion exposed a real catalog defect and was withheld:
+the visitor inventory admitted Vera's generated entity graph but omitted the
+accession certificate, statement, gift authorization, object, rights,
+technical, Wave observation, reviewed presentation manifest, and responsive
+media from the immutable review boundary. Candidate A5 corrects the boundary
+before publication. It adds deterministic pending/reviewed transitions for
+the direct accession records and presentation manifest, requires those exact
+records in both candidate A and reviewed B, and constrains B to review fields,
+delivery approval, and deterministic bundle/manifest consequences. The
+frontend does not consume the two superseded Casey media-amendment controls;
+they remain in the complete repository manifest but are removed from the
+visitor assembly bundle so a pending legacy control cannot leak into the
+active corpus. Candidate A5 is review-pending; it is not a publishable tree.

@@ -67,6 +67,18 @@ TEXT_EXTENSIONS = {".json", ".json.snapshot", ".md", ".py", ".txt", ".yml", ".ya
 BINARY_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".woff", ".woff2", ".ttf"}
 MEDIA_ASSET_EXTENSIONS = BINARY_EXTENSIONS | {".svg"}
 MAX_BUNDLE_BYTES = 8_000_000
+VERA_PRESENTATION_PATH = (
+    "records/accessions/6529NM.2026.003/public/presentation-manifest.json"
+)
+VERA_DIRECT_RECORD_PATHS = {
+    "records/accessions/6529NM.2026.003/accession-certificate.json",
+    "records/accessions/6529NM.2026.003/accession-statement.json",
+    "records/accessions/6529NM.2026.003/gift-acceptance-authorization.json",
+    "records/accessions/6529NM.2026.003/objects/6529NM.2026.003.01.json",
+    "records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json",
+    "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
+    "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
+}
 
 
 class CatalogError(ValueError):
@@ -832,7 +844,75 @@ def _is_public_graph_record_path(path: str) -> bool:
         path.startswith("records/entities/")
         or path.startswith("records/relations/")
         or path == "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
+        or path in VERA_DIRECT_RECORD_PATHS
     ) and path.endswith(".json")
+
+
+def _presentation_without_review(value: dict[str, Any]) -> dict[str, Any]:
+    normalized = json.loads(json.dumps(value))
+    control = normalized.get("record_control")
+    delivery = normalized.get("delivery")
+    if isinstance(control, dict):
+        control["record_status"] = "constructed"
+        control["review"] = None
+    if isinstance(delivery, dict):
+        delivery["status"] = "prepared_for_contextual_museum_display_pending_review"
+    return normalized
+
+
+def _validate_presentation_promotion(
+    *,
+    candidate_reader: GitTreeReader,
+    reviewed_reader: GitTreeReader,
+    candidate: str,
+    reviewed_at: str,
+    primary_reviewer_id: str,
+) -> None:
+    a_value = strict_load(candidate_reader.read(VERA_PRESENTATION_PATH))
+    b_value = strict_load(reviewed_reader.read(VERA_PRESENTATION_PATH))
+    if not isinstance(a_value, dict) or not isinstance(b_value, dict):
+        raise CatalogError("Vera presentation manifest is not an object")
+    a_control = a_value.get("record_control")
+    b_control = b_value.get("record_control")
+    a_delivery = a_value.get("delivery")
+    b_delivery = b_value.get("delivery")
+    if (
+        not isinstance(a_control, dict)
+        or a_control.get("record_status") != "constructed"
+        or a_control.get("review") is not None
+        or not isinstance(a_delivery, dict)
+        or a_delivery.get("status")
+        != "prepared_for_contextual_museum_display_pending_review"
+    ):
+        raise CatalogError("candidate A Vera presentation is not review-pending")
+    review = b_control.get("review") if isinstance(b_control, dict) else None
+    if (
+        not isinstance(b_control, dict)
+        or b_control.get("record_status") != "reviewed"
+        or not isinstance(review, dict)
+        or set(review)
+        != {
+            "actor_id",
+            "role",
+            "reviewed_at",
+            "reviewed_commit",
+            "outcome",
+            "payload_sha256",
+        }
+        or review.get("actor_id") != primary_reviewer_id
+        or review.get("role") != "reviewer"
+        or review.get("reviewed_at") != reviewed_at
+        or review.get("reviewed_commit") != candidate
+        or review.get("outcome") != "approved"
+        or not isinstance(b_delivery, dict)
+        or b_delivery.get("status") != "approved_for_contextual_museum_display"
+    ):
+        raise CatalogError("reviewed B Vera presentation has an invalid review promotion")
+    material = {key: item for key, item in b_value.items() if key != "record_control"}
+    if review.get("payload_sha256") != sha256_prefixed(canonicalize(material)):
+        raise CatalogError("reviewed B Vera presentation payload commitment is invalid")
+    if _presentation_without_review(a_value) != _presentation_without_review(b_value):
+        raise CatalogError("reviewed B changed non-review Vera presentation fields")
 
 
 def _reviewable_record_paths(
@@ -1075,6 +1155,15 @@ def _review_binding(
         "scripts/magnum/check_media_policy.py",
         "scripts/magnum/check_public_utf8.py",
     }
+    if VERA_PRESENTATION_PATH in assembly_paths:
+        generator_paths.update(
+            {
+                "scripts/finalize_vera_accession.py",
+                "scripts/generate_vera_molnar_media.py",
+                "scripts/migrate_public_entities.py",
+                "scripts/publication_catalog.py",
+            }
+        )
     for generator_path in generator_paths:
         if generator_path not in candidate_manifest_entries or generator_path not in reviewed_manifest_entries:
             raise CatalogError(f"deterministic generator path is not present in both candidate A and reviewed B: {generator_path}")
@@ -1118,9 +1207,19 @@ def _review_binding(
             raise CatalogError(f"reviewed B changed non-review payload fields: {path}")
         if _envelope_without_review_hash(a_record.get("envelope", {})) != _envelope_without_review_hash(b_record.get("envelope", {})):
             raise CatalogError(f"reviewed B changed non-review envelope fields: {path}")
+    if VERA_PRESENTATION_PATH in assembly_paths:
+        _validate_presentation_promotion(
+            candidate_reader=candidate_reader,
+            reviewed_reader=reviewed_reader,
+            candidate=candidate,
+            reviewed_at=reviewed_at,
+            primary_reviewer_id=str(primary_reviewer_id),
+        )
     diff = subprocess.run(["git", "-C", str(root), "diff", "--name-only", candidate, commit, "--"], capture_output=True, text=True, check=True).stdout.splitlines()
     generated_paths = {PUBLICATION_INVENTORY_PATH, PUBLICATION_BUNDLE_PATH, MANIFEST_PATH}
     allowed_changed = set(reviewed_paths) | generated_paths
+    if VERA_PRESENTATION_PATH in assembly_paths:
+        allowed_changed.add(VERA_PRESENTATION_PATH)
     changed = set(diff)
     # Every reviewed public record must be promoted.  The inventory/bundle/
     # manifest are deterministic consequences and are allowed to remain byte

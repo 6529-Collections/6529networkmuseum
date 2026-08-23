@@ -4,14 +4,18 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import json
+from datetime import datetime
 from pathlib import Path
 import re
 import sys
 from typing import Any
 
 from PIL import Image, ImageOps
+
+from canonical import canonicalize
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -253,6 +257,46 @@ def generate(
     }
 
 
+def promote_reviewed(
+    value: dict[str, Any], *, reviewer_id: str, reviewed_at: str, reviewed_commit: str
+) -> dict[str, Any]:
+    """Apply the sole permitted review promotion to a constructed manifest."""
+
+    if not RFC3339_UTC.fullmatch(reviewed_at):
+        raise VeraMediaError("reviewed-at must be a canonical RFC 3339 UTC timestamp")
+    if not re.fullmatch(r"[0-9a-f]{40}", reviewed_commit):
+        raise VeraMediaError("reviewed-commit must be 40 lowercase hexadecimal characters")
+    control = value.get("record_control")
+    delivery = value.get("delivery")
+    if (
+        not isinstance(control, dict)
+        or control.get("record_status") != "constructed"
+        or control.get("review") is not None
+        or not isinstance(delivery, dict)
+        or delivery.get("status")
+        != "prepared_for_contextual_museum_display_pending_review"
+    ):
+        raise VeraMediaError("presentation manifest is not a review-pending candidate")
+    constructed_at = str(control.get("constructor", {}).get("constructed_at", ""))
+    if datetime.fromisoformat(reviewed_at.replace("Z", "+00:00")) <= datetime.fromisoformat(
+        constructed_at.replace("Z", "+00:00")
+    ):
+        raise VeraMediaError("reviewed-at must follow construction")
+    promoted = json.loads(json.dumps(value))
+    promoted["delivery"]["status"] = "approved_for_contextual_museum_display"
+    material = {key: item for key, item in promoted.items() if key != "record_control"}
+    promoted["record_control"]["record_status"] = "reviewed"
+    promoted["record_control"]["review"] = {
+        "actor_id": reviewer_id,
+        "role": "reviewer",
+        "reviewed_at": reviewed_at,
+        "reviewed_commit": reviewed_commit,
+        "outcome": "approved",
+        "payload_sha256": "sha256:" + hashlib.sha256(canonicalize(material)).hexdigest(),
+    }
+    return promoted
+
+
 def verify() -> tuple[int, int]:
     value = load_json(MANIFEST_PATH)
     if (
@@ -360,11 +404,32 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--media-reference-entity-id")
     parser.add_argument("--generated-at")
     parser.add_argument("--actor-id")
+    parser.add_argument("--promote-reviewed", action="store_true")
+    parser.add_argument("--reviewer-id")
+    parser.add_argument("--reviewed-at")
+    parser.add_argument("--reviewed-commit")
     args = parser.parse_args(argv)
     try:
         if args.check:
             count, total = verify()
             print(f"Vera presentation manifest is current: {count} derivatives, {total} bytes")
+            return 0
+        if args.promote_reviewed:
+            if not all((args.reviewer_id, args.reviewed_at, args.reviewed_commit)):
+                raise VeraMediaError(
+                    "review promotion requires reviewer-id, reviewed-at and reviewed-commit"
+                )
+            write_json(
+                MANIFEST_PATH,
+                promote_reviewed(
+                    load_json(MANIFEST_PATH),
+                    reviewer_id=args.reviewer_id,
+                    reviewed_at=args.reviewed_at,
+                    reviewed_commit=args.reviewed_commit,
+                ),
+            )
+            count, total = verify()
+            print(f"promoted {MANIFEST_PATH.relative_to(ROOT)}: {count} derivatives, {total} bytes")
             return 0
         if not all(
             (

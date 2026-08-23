@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x78c4e693a5295a32506f6959b3e23d5e5b46034ac5462a8bc4502d6e899e17a8"
+      "digest": "0x95d995b3b62e5e6709da24904728a2bd10c4bbea6fa7b131c473b2268c91f1d0"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-ACC-ENT-0003",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACCESSION",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:55a522357522a9923ef916dd3becedb921f26787c9931fbf1f18e148b04ccce3",
+    "payload_sha256": "sha256:8f97d3e27f630d3c7d53a17c5c0b7329ce01c3e19e2469afff88812849794301",
     "preferred_label": "Vera Molnár accession 6529NM.2026.003",
     "profile": {
       "accession_number": "6529NM.2026.003",
@@ -85,7 +85,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-ACC-ENT-0003",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -94,19 +94,8 @@
       "6529NM.2026.003",
       "6529NM.2026.003.GAA-01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T12:27:28Z",
-      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
-      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
-      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-003",
@@ -136,7 +125,7 @@
         }
       ],
       "observed_at": "2026-08-23T09:46:57.326Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-ACC-ENT-0003",
     "visibility": "public"

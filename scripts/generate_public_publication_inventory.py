@@ -81,6 +81,13 @@ EXPLICIT_MANUSCRIPTS = (
 # These JSON controls are required by the frontend assembler.  They are
 # assembly documents, not source manuscripts and not the inventory itself.
 ASSEMBLY_CONTROL_PATHS = (
+    "records/accessions/6529NM.2026.003/accession-certificate.json",
+    "records/accessions/6529NM.2026.003/accession-statement.json",
+    "records/accessions/6529NM.2026.003/gift-acceptance-authorization.json",
+    "records/accessions/6529NM.2026.003/objects/6529NM.2026.003.01.json",
+    "records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json",
+    "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
+    "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
     "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/machine/media-source-continuity-amendment.json",
     "schemas/common.schema.json",
     "schemas/controlled-vocabularies.json",
@@ -110,7 +117,13 @@ MEDIA_SOURCE_MANIFEST_PATHS = (
     "media/programs/6529NM-AP-01/accessibility.json",
     "records/programs/6529NM-AP-01/public/presentation-manifest.json",
     "records/accessions/6529NM.2026.002/public/presentation-manifest.json",
+    "records/accessions/6529NM.2026.003/public/presentation-manifest.json",
 )
+
+EXCLUDED_LEGACY_CASEY_CONTROLS = {
+    "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09.json",
+    "records/accessions/6529NM.2026.001/media-presentation-amendment-2026-08-09-prior.json",
+}
 
 
 class InventoryError(ValueError):
@@ -244,6 +257,7 @@ def legacy_required_paths(root: Path) -> dict[str, set[str]]:
 
     casey_root = root / "records/accessions/6529NM.2026.001"
     casey = {relative_path(root, path) for path in casey_root.rglob("*.json")}
+    casey.difference_update(EXCLUDED_LEGACY_CASEY_CONTROLS)
     institutional = {relative_path(root, path) for path in (root / "records/institutional-practice").rglob("*") if path.is_file()}
     data_architecture = {"docs/data-architecture.md"}
     data_architecture.update(relative_path(root, path) for path in (root / "docs/data-architecture").rglob("*") if path.is_file())
@@ -330,13 +344,13 @@ def _program_media_paths(root: Path) -> set[str]:
     return paths
 
 
-def _accession_media_paths(root: Path) -> set[str]:
-    """Collect the accession's exact reviewed responsive derivative inventory."""
+def _accession_media_paths_for(root: Path, accession_id: str) -> set[str]:
+    """Collect one accession's exact responsive derivative inventory."""
 
-    manifest_relative = "records/accessions/6529NM.2026.002/public/presentation-manifest.json"
+    manifest_relative = f"records/accessions/{accession_id}/public/presentation-manifest.json"
     manifest = _load_record(root, manifest_relative)
     delivery = manifest.get("delivery")
-    authority_relative = "records/accessions/6529NM.2026.002/public/web-presentation-authority.md"
+    authority_relative = f"records/accessions/{accession_id}/public/web-presentation-authority.md"
     authority_path = require_file(root, authority_relative)
     authority_lines = authority_path.read_text(encoding="utf-8").splitlines()
     if len(authority_lines) < 3 or authority_lines[0] != "---":
@@ -353,10 +367,13 @@ def _accession_media_paths(root: Path) -> set[str]:
         authority[key.strip()] = value.strip()
     if (
         not isinstance(delivery, dict)
-        or delivery.get("status") != "approved_for_contextual_museum_display"
+        or delivery.get("status") not in {
+            "prepared_for_contextual_museum_display_pending_review",
+            "approved_for_contextual_museum_display",
+        }
         or delivery.get("authority_path") != authority_relative
-        or authority.get("record_id") != "6529NM.2026.002.DISPLAY-01"
-        or authority.get("accession_lot_id") != "6529NM.2026.002"
+        or authority.get("record_id") != f"{accession_id}.DISPLAY-01"
+        or authority.get("accession_lot_id", authority.get("accession_number")) != accession_id
         or authority.get("status") != "active"
     ):
         return set()
@@ -383,7 +400,7 @@ def _accession_media_paths(root: Path) -> set[str]:
                         f"accession media derivative is not a governed media extension: {repository_path}"
                     )
                 paths.add(repository_path)
-    media_root = root / "media/accessions/6529NM.2026.002"
+    media_root = root / "media" / "accessions" / accession_id
     actual = {
         relative_path(root, path)
         for path in media_root.rglob("*")
@@ -395,6 +412,13 @@ def _accession_media_paths(root: Path) -> set[str]:
         raise InventoryError(
             f"accession media manifest is not an exact local asset inventory; missing={missing}, extra={extra}"
         )
+    return paths
+
+
+def _accession_media_paths(root: Path) -> set[str]:
+    paths: set[str] = set()
+    for accession_id in ("6529NM.2026.002", "6529NM.2026.003"):
+        paths.update(_accession_media_paths_for(root, accession_id))
     return paths
 
 

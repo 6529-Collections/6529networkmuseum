@@ -156,6 +156,27 @@ class VeraMolnarMediaTests(unittest.TestCase):
                     "codex-task:test-constructor",
                 )
 
+    def test_review_promotion_changes_only_review_and_delivery_state(self) -> None:
+        with self.patched_paths():
+            candidate = self.generate()
+            reviewed = media.promote_reviewed(
+                candidate,
+                reviewer_id="codex-reviewer:test-independent",
+                reviewed_at="2026-08-23T12:00:00Z",
+                reviewed_commit="a" * 40,
+            )
+        self.assertEqual("constructed", candidate["record_control"]["record_status"])
+        self.assertIsNone(candidate["record_control"]["review"])
+        self.assertEqual("reviewed", reviewed["record_control"]["record_status"])
+        self.assertEqual(
+            "approved_for_contextual_museum_display",
+            reviewed["delivery"]["status"],
+        )
+        normalized = json.loads(json.dumps(reviewed))
+        normalized["record_control"] = candidate["record_control"]
+        normalized["delivery"]["status"] = candidate["delivery"]["status"]
+        self.assertEqual(candidate, normalized)
+
 
 if __name__ == "__main__":
     unittest.main()
