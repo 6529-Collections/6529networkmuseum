@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0676a4d4c337e601f3c78e34d70517409e35e48b019cf5ff16e5c716f4c56b52"
+      "digest": "0x5b1a8db104aabd638e7dae5baff2f4f929412ed147f65a4141b1ecdf488c434c"
     },
     "effectiveAt": 1787478417,
     "recordType": "RIGHTS_STATEMENT",
@@ -92,28 +92,17 @@
     },
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:ec86a12eba09336026b8a54eae5b711f7b8163782d10995f6de9b58ee4ed9b2f",
+    "payload_sha256": "sha256:6605a23ac56524ca6989e1bede8f0f34130cb61c451550bd2f2ce6bc376dc804",
     "record_id": "6529NM.2026.003.RIGHTS.01",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "RIGHTS_STATEMENT",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.003",
       "6529NM.2026.003.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T13:22:21Z",
-      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
-      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
-      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "rights_holder_reference": "Vera Molnár / Martin Grasser; legal rights-holder chain not separately asserted",
     "schema_id": "0xdfdea1c86219c12e182b4023d399be35bd5602461ef1dc727784c18d7742b967",
     "source": {

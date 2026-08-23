@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x509d2c221869772c6da36c0bccf4557646b604cfa3ef1d43892e9e701caf7fff"
+      "digest": "0x20aa200e2088db549b29027747f40f265c5597387df245ae1d94d21bf7246bf7"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AGT-0015",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "AGENT",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:6be8b04df0d27779984b3fb0f2dc562969660bacc90c6b7f8710dbdfd267c044",
+    "payload_sha256": "sha256:25136776b4fcbd2feeb76476bdd9bf556d1a31131be0b897fa5574c2d21d9817",
     "preferred_label": "Zoku",
     "profile": {
       "agent_kind": "PERSON",
@@ -78,26 +78,15 @@
     },
     "public_slug": null,
     "record_id": "6529NM-AGT-0015",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
       "6529NM-AP-01",
       "6529NM-AP-01-OUT-014"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-stable-work-route-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T13:56:37.569Z",
-      "reviewed_commit": "def27e6e7d31e7d685cfea08f7cbe01099a03895",
-      "reviewed_manifest_keccak": "0x6d48677fdb943d9f71e99fbeaf1987928651b85329fac388c97734e3c6147a8f",
-      "reviewed_manifest_sha256": "sha256:3134aabd0b1967c7655593dd7a9511855d21d0b187faaf8d3569a751e12da96f",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-stable-work-route-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -113,7 +102,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AGT-0015",
     "visibility": "public"

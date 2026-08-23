@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc88b791e083eb64f6f03db16d2f040b456c4d769adc5e43f3617cad8a7e231a0"
+      "digest": "0x0ec019ae2fd2df7edb812533f3669dd03f714a92eee3d7bb5f136c0b1989bcab"
     },
     "effectiveAt": 1787478417,
     "recordType": "WORK_DESCRIPTION",
@@ -88,7 +88,7 @@
     "medium": "On-chain generative software; Ethereum ERC-721 token; live browser generator",
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:dd422bf00b3015cf8238880ff1b0ca57aeae07cccc2a51d70bb4ec993d60a94c",
+    "payload_sha256": "sha256:fc31e8e88e81c5347abbf9aff0515e437cb3b4992671a04e426fd86eb127258b",
     "preservation": {
       "fixity_sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
       "observed_at": "2026-08-23T09:46:57.326Z",
@@ -107,7 +107,7 @@
       "script_type_and_version": "js@na; GenArt721CoreV3_Engine_Flex v3.1.3"
     },
     "record_id": "6529NM.2026.003.01",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
@@ -117,19 +117,8 @@
       "6529NM.2026.003.RIGHTS.01",
       "6529NM.2026.003.COND.01"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T13:22:21Z",
-      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
-      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
-      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "rights": {
       "accessibility": {
         "basis": "Credited accessibility publication within the institutional presentation boundary.",

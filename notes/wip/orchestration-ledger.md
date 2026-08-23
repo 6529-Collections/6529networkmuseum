@@ -4052,3 +4052,10 @@ and Keccak
 `0x6d48677fdb943d9f71e99fbeaf1987928651b85329fac388c97734e3c6147a8f`.
 The reviewed projection has been regenerated from that exact candidate and
 passes the complete Museum validator.
+
+The replacement catalog correctly rejected a mixed review panel: the corrected
+entity graph carried the new review while the seven accession records and
+presentation manifest retained the prior panel. The whole Vera publication
+unit is therefore reopened in pending state. This candidate binds the stable
+Work route, all seven direct accession records, the 370-record public graph,
+and the presentation manifest to one exact review boundary.
