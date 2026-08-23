@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xb07b45f079783e663bfc822a2652caba3e71c57bda026a48d62a58ecabb7a990"
+      "digest": "0x5c4cdc2d4de3c68aff590f3c537cb159befe2996aa2673e24569ec7cfb176f09"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-ACC-ENT-0002",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "ACCESSION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:9f76ac2de0f6324181fc57bc8a7db36c66c04c37dba0f65d1a6b2d14bca07360",
+    "payload_sha256": "sha256:53274cf5c3fa2f529a29c1ed0c97bc8477ea175aac32398ba08b4f997b06d8ca",
     "preferred_label": "Conflict at Its Edges accession 6529NM.2026.002",
     "profile": {
       "accession_number": "6529NM.2026.002",
@@ -77,7 +77,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-ACC-ENT-0002",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -90,8 +90,19 @@
       "6529NM.2026.002",
       "6529NM.2026.002.GAA-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -119,7 +130,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-ACC-ENT-0002",
     "visibility": "public"

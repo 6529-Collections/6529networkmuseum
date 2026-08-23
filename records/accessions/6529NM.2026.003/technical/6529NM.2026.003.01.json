@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa273922e6d18a99c29e260cd68274563dd1b18a5930ffe8daff99d934fe80cf4"
+      "digest": "0xc410a06d1f0d5937cc453c0348f560adf07362c6da62dbef2782cf3d7972a9b2"
     },
     "effectiveAt": 1787478417,
     "recordType": "CONDITION_REPORT",
@@ -70,18 +70,29 @@
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "Pass with conditions: token identity, hash, finalized custody, and on-chain script match; service-layer metadata and runtime replay require dated captures.",
-    "payload_sha256": "sha256:6b9612197e6f214f455a2a0fdac1b74a2ad664964ccd7f395640abcf291c55cd",
+    "payload_sha256": "sha256:96bfa21252a37de1b8243c196c4beafe244678a6b63e800ecacee03c45d5ede8",
     "protocol_state": "ERC-721 non-static generative software; live browser renderer",
     "record_id": "6529NM.2026.003.COND.01",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "CONDITION_REPORT",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.003",
       "6529NM.2026.003.01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
     "source": {
       "source_record_ids": [

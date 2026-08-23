@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe4c25fd745e0ceaeaa87557d739821da547a8741c4d689d8958d9584ae68f94e"
+      "digest": "0x31aec77075d2155ad477da6fa3b78dceb0a59f9389e1e66f48014700660d092d"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_RELATION",
@@ -36,12 +36,12 @@
       }
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:a336c676bf37c0bdb0749ea0ecc24557e20e4f87b9f8c696791e6cc76c19e610",
+    "payload_sha256": "sha256:15ac091e82f389f333076a79a969d5317d72f0f29ac1560db3266a45c77edcfa",
     "qualifier": {
       "role": "creator"
     },
     "record_id": "6529NM-REL-0230",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -51,8 +51,19 @@
     ],
     "relation_id": "6529NM-REL-0230",
     "relation_type": "ARTIST_CREATES_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-ART-0023",
     "source_record_ids": [

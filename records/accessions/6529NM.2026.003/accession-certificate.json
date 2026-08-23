@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x755fdd1afd2ad6b08e4e42d15a0512f95d539e5e3870be156d31d40375cd0187"
+      "digest": "0x9bad0566833fa3a586416a043908c8cb37b3b4392770e866515e388c09897469"
     },
     "effectiveAt": 1787478417,
     "recordType": "ACCESSION",
@@ -151,9 +151,9 @@
       "maintain credited noncommercial display",
       "capture runtime in a second environment"
     ],
-    "payload_sha256": "sha256:571131700ddce7b42f7ec1552b8f883d3ff51a9f0b6fc4caca2a4b38942de616",
+    "payload_sha256": "sha256:828c928c2f0f4644c0ac81e88afc6729d0af47b60bead9ea2e2b8ea0c1415ab3",
     "record_id": "6529NM-ACC-2026-003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "ACCESSION",
     "record_version": "1.0.0",
     "references": [
@@ -172,8 +172,19 @@
       "rights": "pass with CC BY-NC 4.0 conditions",
       "title": "pass by named institutional title declaration"
     },
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
     "source": {
       "custody_evidence": "evidence/vera-molnar-210-custody/summary.json",

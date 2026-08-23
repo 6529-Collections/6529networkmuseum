@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x64ba1c50f040ae47cfa2bc94c2feebb608533392058627bbf5dc613fae909024"
+      "digest": "0x98b4dd65acbc51cfdbf9a3ca7bffc130329dcd51dd65efedd20094be86e37c6d"
     },
     "effectiveAt": 1787478417,
     "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
@@ -136,10 +136,10 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:072b5a909f150a9e9941b99891cee67818773d563c0c877e2c91e2f17e9491b7",
+    "payload_sha256": "sha256:67c9354265a4c75e0840a66f3ea285843eff727387bae68c11532535b9f3da55",
     "permanent_collection_intent": "The Museum accepts this exact token for the permanent Collection under ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.003.GAA-01",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
     "record_version": "1.0.0",
     "references": [
@@ -147,8 +147,19 @@
       "6529NM-WAVE-OBS-2026-08-23-002",
       "6529NM-ACC-2026-003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
     "source": {
       "source_record_ids": [

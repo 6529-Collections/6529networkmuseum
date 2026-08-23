@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0ec019ae2fd2df7edb812533f3669dd03f714a92eee3d7bb5f136c0b1989bcab"
+      "digest": "0xff9bb4f8e8fb6339829b7540aa5c7718687acc45237efa794e4c0fa7a8d3bb09"
     },
     "effectiveAt": 1787478417,
     "recordType": "WORK_DESCRIPTION",
@@ -88,7 +88,7 @@
     "medium": "On-chain generative software; Ethereum ERC-721 token; live browser generator",
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:fc31e8e88e81c5347abbf9aff0515e437cb3b4992671a04e426fd86eb127258b",
+    "payload_sha256": "sha256:80da6b53431764eda48f3e359b137573add7905817ea5984d05aebdb6aef3313",
     "preservation": {
       "fixity_sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
       "observed_at": "2026-08-23T09:46:57.326Z",
@@ -107,7 +107,7 @@
       "script_type_and_version": "js@na; GenArt721CoreV3_Engine_Flex v3.1.3"
     },
     "record_id": "6529NM.2026.003.01",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "WORK_DESCRIPTION",
     "record_version": "1.0.0",
     "references": [
@@ -117,8 +117,19 @@
       "6529NM.2026.003.RIGHTS.01",
       "6529NM.2026.003.COND.01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T14:08:53.109Z",
+      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
+      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
+      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-a8-unified-release-independent"
+      ],
+      "role": "reviewer"
+    },
     "rights": {
       "accessibility": {
         "basis": "Credited accessibility publication within the institutional presentation boundary.",
