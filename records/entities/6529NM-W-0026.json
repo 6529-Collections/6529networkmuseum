@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3506fa89486f8a72799ed295ed6bbb8f9d2e1bc283df886cc9ecee7f5eae07ff"
+      "digest": "0xa5e72612693992dc61909be670bfb83998aecde58a5b734a1ed9ddafe889dcc4"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:263aa490545dee20c81440d818c16915b9c95c3932d87efc3f8b800244c1ae9f",
+    "payload_sha256": "sha256:dd2e9afd47d1597fcb4c095d14f80d62e7fe3b86728993a4883a79e0af2bf24e",
     "preferred_label": "Demonstration, Western Wall, Jerusalem",
     "profile": {
       "accession_entity_ids": [
@@ -338,14 +338,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

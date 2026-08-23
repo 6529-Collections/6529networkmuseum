@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd0cd7ff9911d02508d86f2a1af87b7048a61a19025d337e4b1fff93b4c924df8"
+      "digest": "0x6a9e7fd724be3866a567fd2bcbee95ef202d7bfe904f5532fdd2733881a04a36"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -43,7 +43,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:4731db892106350ce6a86dba161b140ffdb5510a073eab4206dcdf66e8f51845",
+    "payload_sha256": "sha256:c179a6581273b46477a84b2ef8c6e2ef3242367e9c1caf29ac7a9c1729f63ca7",
     "preferred_label": "Managed Freedom",
     "profile": {
       "accession_entity_ids": [],
@@ -188,14 +188,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

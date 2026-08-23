@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x16dc83b8f386cc0a6bdbf35bb2a184cf9b92768de8309d45619c0bccd0e0df3c"
+      "digest": "0xfe15665b444796dcac4769e7fd293fe995cd96e22d08ccba1ef02e3f8c48a418"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:f09a39710dfc306cbbffc167d323af132f4ffc4987946baf03d3dcecea3f02e8",
+    "payload_sha256": "sha256:24bcb53008e8712ad56bc0e80f06644c933f6adea97f8ae9eff1b6bc472147a5",
     "preferred_label": "Patrolling the border between the Negev Desert and Jordan",
     "profile": {
       "accession_entity_ids": [
@@ -338,14 +338,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

@@ -4112,3 +4112,20 @@ superseded descriptive Vera Work slug. The public route is intentionally keyed
 by stable Work identifier `6529NM-W-0029`; the test now asserts that same rule
 for all Work records. This test-only repair follows catalog activation and does
 not alter the reviewed publication or active catalog.
+
+### 2026-08-23 15:49 UTC - reviewer attribution correction
+
+Post-merge audit confirmed that the reviewed content boundary was complete,
+but its reviewer actor ID inaccurately described the review as Vera-specific
+even though the approved boundary covered the whole regenerated public entity
+and relation graph. The 25 legacy records retain their original reviewer; the
+377 records in the 2026-08-23 publication review now use the accurately scoped
+actor `codex-reviewer:museum-publication-2026-08-23-independent`.
+
+No approved content or candidate commitment changed. The correction updates
+the reviewer attribution and consequent payload, envelope, bundle, and
+release-manifest hashes only. The former Vera-specific actor has zero remaining
+record occurrences. Bootstrap validation (911 JSON files), deterministic
+entity replay (370 records), publication inventory and bundle checks, Vera
+media validation, release-manifest validation, and the complete Museum/Casey
+validator all pass on the correction branch.

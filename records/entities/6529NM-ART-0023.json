@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7a431fac096b8c6b79424dbe872851ad8def670104375540322718ee84328449"
+      "digest": "0x3370ff4951e8c080cf7a20b366838d4894386fad12d4e5a26f81f1ba91d9cfd9"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:a9ca8c74ab9a7a0ebfa62a5a2eb0d899320c00f2c7b713c712fd19bb1e14a47f",
+    "payload_sha256": "sha256:12f23f17d38de6f1e1d666519f16add65e8bb5f6edc67d431d51584a25ffe792",
     "preferred_label": "Martin Grasser",
     "profile": {
       "authority": {
@@ -118,14 +118,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

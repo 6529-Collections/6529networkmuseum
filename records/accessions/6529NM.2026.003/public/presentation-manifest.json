@@ -9,7 +9,7 @@
       "constructed_at": "2026-08-23T10:15:00Z"
     },
     "review": {
-      "actor_id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "actor_id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "role": "reviewer",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",

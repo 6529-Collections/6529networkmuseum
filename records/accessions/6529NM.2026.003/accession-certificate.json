@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xaca8b9688849b8f14fa1e6262b3a57ecb26b426017aa79a48c795a808bbc7a5f"
+      "digest": "0x456a570595af40afdb138b84c6db1b56313de985dafe20d9024705a6fb2eaa9f"
     },
     "effectiveAt": 1787478417,
     "recordType": "ACCESSION",
@@ -151,7 +151,7 @@
       "maintain credited noncommercial display",
       "capture runtime in a second environment"
     ],
-    "payload_sha256": "sha256:03419178274d0a94ade0fc00d42c82df806d741c5f6ef81d0623288128777605",
+    "payload_sha256": "sha256:eeee482da08c755696fce84e7c0dbc1be1c178b3696a93990e288f852f08568f",
     "record_id": "6529NM-ACC-2026-003",
     "record_status": "reviewed",
     "record_type": "ACCESSION",
@@ -174,14 +174,14 @@
     },
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0a0fa6c91e6835d936fcbb4fa9cf352bd8f6af35edd8c3ae97c1c793f8165fc2"
+      "digest": "0x7524d7e061fa76ad64f2619807d53cb82300fd9579800d2c4f2db9a45785691a"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8a4f7d0e14498d208a47b0d91f1ff0c2c9a3030551aeabfa4a1dc89921d730c0",
+    "payload_sha256": "sha256:8bd0d06fc63c128d6923467c4aa0ff3473cefd504851a3ec903d4357f8311b67",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -187,14 +187,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },
