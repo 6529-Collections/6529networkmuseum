@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5c662bfc62ec6f39cce7881be74b9bf3f388218437b8085d97bb21b1ad075ca9"
+      "digest": "0x95d995b3b62e5e6709da24904728a2bd10c4bbea6fa7b131c473b2268c91f1d0"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-ACC-ENT-0003",
     "entity_status": "review_pending",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:aad0a0e7ff85d41162197697ea8e96af1a5b8d97ed2975cedf21d1588106b34b",
+    "payload_sha256": "sha256:8f97d3e27f630d3c7d53a17c5c0b7329ce01c3e19e2469afff88812849794301",
     "preferred_label": "Vera Molnár accession 6529NM.2026.003",
     "profile": {
       "accession_number": "6529NM.2026.003",

@@ -1632,49 +1632,49 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/gift-acceptance-authorization.md",
-      "sha256": "sha256:150d38388af45ab801366b9fc3889ef0549a12a01bb5f52fa639b665fc1611ab",
-      "size": 773
+      "sha256": "sha256:af0ba8dd586aed1702f390de37ecff9524d5142804a3b0e93bd1785afbb81ea8",
+      "size": 814
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/gift-and-acquisition.md",
-      "sha256": "sha256:ab708705fc2b90f9d6513c0866c0b2c3ed641f52f3878a7df86b21dad1297299",
-      "size": 2415
+      "sha256": "sha256:53a8de4321493dbc16aa0b4f03065ca75a06aac57e11a98322f59a3e13bd0b71",
+      "size": 2431
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/martin-grasser-artist-practice.md",
-      "sha256": "sha256:9425fdb57670c1dc4995491f967535b238b04b32a2fa86bb0ba31087206382b1",
-      "size": 2625
+      "sha256": "sha256:81893c4dec30a0b16d22b2f7a8e8616b972f4604811fe7dae1f8188bc0421e77",
+      "size": 2619
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x1151de743f0a1161825ee5722d314bc22c45ee38b602d62384bc89db03307b47"
+        "digest": "0x88f99f6117d84d00ea4908f3f29e92d6f523ea92dbc84db3af5947db974eded0"
       },
       "path": "records/accessions/6529NM.2026.003/public/presentation-manifest.json",
-      "sha256": "sha256:110c44636dfaec46d0e54351756197f54ae22786be38908540586ea9dbd2d31e",
-      "size": 5621
+      "sha256": "sha256:7c9712d2b383674380c517955706862fc2e5d580500aecdb61c8fc476856a68e",
+      "size": 5738
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/source-and-chronology.md",
-      "sha256": "sha256:a4851986829b87b21bfa1c7a8de88f794f1a00dc8401631693063db5fe3bfeb0",
-      "size": 2159
+      "sha256": "sha256:22765840cbfddf04764bf501b1ad97f6b69e57f7490689d5c85697687a014754",
+      "size": 2215
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/themes-and-variations-project.md",
-      "sha256": "sha256:14c413ae7211d79213d6c209963cd3fdc1c83d6bae2f8e11b9f1a72865551664",
-      "size": 4422
+      "sha256": "sha256:f32f2af308e9134d0e12fe3543755c0dd43e2c0b40f4fa5ad66f1213b733b5eb",
+      "size": 4387
     },
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.003/public/vera-molnar-artist-practice.md",
-      "sha256": "sha256:5d67d531c766cf9d0fbb92596882dbf8daf57584aed152eada779811e7ca3b89",
-      "size": 5407
+      "sha256": "sha256:e63fb903f16073606edd1e499fa8db83d5c98412c2688e1a8349a764b2be0dba",
+      "size": 5333
     },
     {
       "byte_mode": "lf-normalized",
@@ -1753,11 +1753,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x4ffd59762517fbe270c9936c57cf45eb5d15d3dcb3f9ba703d58fc4469483bdd"
+        "digest": "0x35414cd1defc6bf6ddda9b960b0e7ca15e944d07e86617175eb8f1c9598ab1f8"
       },
       "path": "records/entities/6529NM-ACC-ENT-0003.json",
-      "sha256": "sha256:85b1ab50b8c644e0fecd2e821d0c9641894e2fc3d4717a5f90ffa1f7616d7e4f",
-      "size": 5401
+      "sha256": "sha256:c561482c309c83288f32c95a3882f44c149c82a76a72636f50ca8460c8d9a239",
+      "size": 5393
     },
     {
       "byte_mode": "lf-normalized",
@@ -2248,22 +2248,22 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x08b762ec4ca81278cd46d1ec496d8c7c90129f0c03c133f8886e13453db25476"
+        "digest": "0x61ffaed814b0c371a8a669e541b55854720a3b42915935e03572af678fa50cd7"
       },
       "path": "records/entities/6529NM-ART-0022.json",
-      "sha256": "sha256:b33740ab112cb01e6246c8235fe54b3c0391cf72063831483c27abbc012b8de2",
-      "size": 6252
+      "sha256": "sha256:b209d69d63ceff7e8c3198fa69b539bec81148502f88cc59281388ac980a1dba",
+      "size": 6244
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x58b6a3c7657f259e60ec69235f900fd29060b083be47ab85c6002d623bcbfcf4"
+        "digest": "0x13d0b1190c7b737d842f0b635e9c1cb28a1c799575b36b796c498f1d3d86d92d"
       },
       "path": "records/entities/6529NM-ART-0023.json",
-      "sha256": "sha256:a97d700e5a7b19a76f0d92dde8c283dde09dd12b8d89effce9ad190b4d8ca462",
-      "size": 6308
+      "sha256": "sha256:5a1c1e1a5ca516d86ff9395978d54f184e2b467760d8091d92d1dc5851ee83af",
+      "size": 6300
     },
     {
       "byte_mode": "lf-normalized",
@@ -2314,11 +2314,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x6f47adc6d680345252fcc96e092c6c7535435638a2892da82321b30a6cc79c1d"
+        "digest": "0x9c4d7b19da83948c40ed47f55b28e4b3893ae188f8d31e5062b6bfde37794deb"
       },
       "path": "records/entities/6529NM-CA-2026-004.json",
-      "sha256": "sha256:8b37fa384b356b593177062a9ddfbe52da99d386e47dfab1d7ec3f9182710ebb",
-      "size": 14410
+      "sha256": "sha256:3183370a2ed4c080b500ecc96d9bf3f946b73142f51c69a07c386b0e106b9c69",
+      "size": 14402
     },
     {
       "byte_mode": "lf-normalized",
@@ -2754,22 +2754,22 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x30615a8ef7c7fba2b15b88533fdab44c617327a572c98ea123100f81808677c3"
+        "digest": "0xd540d0142e31198e323cd499e73e948d683ffc024a6707915fb2ab723c9b7ad0"
       },
       "path": "records/entities/6529NM-MED-0052.json",
-      "sha256": "sha256:789fbed08cbf9f5fc7fd6e68804d087ef10812b9b0c56e3e6dabeccdc6a37b03",
-      "size": 7655
+      "sha256": "sha256:490d9951a90a4a843331ea648c25e00e9e876e082a418fcb4b88ae60a803a4dd",
+      "size": 7764
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x03d01539935d63dcb3afa955f3d5872db9266622a5c2d8c3c75b7a431376d0b2"
+        "digest": "0xbb3dad700c884e7db856db14cb22d7fc0326c8247395793e694c0f011e56be72"
       },
       "path": "records/entities/6529NM-MED-0053.json",
-      "sha256": "sha256:dc9ce5bc56dcf29351925c72e613bcc0244de96f91c25dc32394de90ab03afa9",
-      "size": 8094
+      "sha256": "sha256:3d6b860ecd3db27ea98f5798bacc2064ad45c816af0bcc9e01dff9ca06a9e859",
+      "size": 8086
     },
     {
       "byte_mode": "lf-normalized",
@@ -2864,11 +2864,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe5dfb28674bcf8416c5944937814e918fb72907966eb82a4db2ecf9f59dee807"
+        "digest": "0x624d57e72e203786e925e4be711da2683a7d43185dcb361df6f1c48776f34469"
       },
       "path": "records/entities/6529NM-PRJ-0007.json",
-      "sha256": "sha256:e59bc87a17080b47aaf2ccae959020120c2b0c560ad8c61d4e68076c0906ef54",
-      "size": 5703
+      "sha256": "sha256:1ebec4ccc11dc3b4ba38e7b373f7dcae12da9a31b9e35dda6335f7ed0fa0c15f",
+      "size": 5695
     },
     {
       "byte_mode": "lf-normalized",
@@ -3216,11 +3216,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x87d253a31053eeaf51fd0c7c901be78528e0cfe26c673e9d6473de336d2d39cd"
+        "digest": "0xd96a23097aed9510740418bbd4e8d9dc7a2eda59cac2516a698248e4ff9ea43f"
       },
       "path": "records/entities/6529NM-W-0029.json",
-      "sha256": "sha256:be54ae5a5a27369faf649b23c2d6d2cc511e317c646e1bbed3cbbe2f8bf7811e",
-      "size": 12344
+      "sha256": "sha256:f270fdef5a71ac11afced8902b42a6fb5c2c8ae0c770b8a04d147b027aa2eced",
+      "size": 12336
     },
     {
       "byte_mode": "lf-normalized",
@@ -4353,11 +4353,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe2b2112d6450a84f089bc2ac9b00cbf344519fef3f8775fd009a41bbb6919a48"
+        "digest": "0x9ce61da2f5627249fc7e85baa717278b91b5d376e1ae8af0161ebfe0879a099e"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-002/proposal.json",
-      "sha256": "sha256:45ffb3531e927155630849a27b051b5a09a0cee250063d90fe48dcdd73cc5529",
-      "size": 9331
+      "sha256": "sha256:c102cc0c591e12ff914a7598a3c3269e674cb1a0b464a8fa8cfab5d7e2934a3d",
+      "size": 9368
     },
     {
       "byte_mode": "lf-normalized",
@@ -4428,8 +4428,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/proposed-gifts/6529NM-PG-2026-002/public/wave-resolution.md",
-      "sha256": "sha256:e9f80a51587c0434983f056c9bfca2392357d9ef4b6cc713a0a349afd0a3b639",
-      "size": 1553
+      "sha256": "sha256:db48d5d47e1a6141cfcc1510da2f3e88b3795c5a88b5431eb6ce070b60955458",
+      "size": 1573
     },
     {
       "byte_mode": "lf-normalized",
@@ -4454,11 +4454,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x73bdaf68c3594ae90cef5410367b1deb97f9fcd46f697c9cdec1df97dd25a58b"
+        "digest": "0xbfb1c2bf7caac0132b43817a1dd000db8f2ec38952128267a77ed9f8aac071da"
       },
       "path": "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
-      "sha256": "sha256:085a784d7f035c032c2f7d261f1521e6741631e7e415fe30c1e9b5242342ac5f",
-      "size": 3997
+      "sha256": "sha256:244ac7a340ee4033e5963e45b8e35fac4cdec8d07060b7aa73f9708ccc8a4db1",
+      "size": 3990
     },
     {
       "byte_mode": "lf-normalized",
@@ -4493,11 +4493,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x1036ce2b8e7337dcc852a85ba3022e1c2791b6e1d3cf6d3f91610d906d8c053e"
+        "digest": "0xae7dbb67350f55f414c6e7f96c84de779712b2d65bbc0f6be338907921af31d3"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:576c130ab464f5b7c5364ed0b66633f72a6eb85d174bce904fad93c2fea872cb",
-      "size": 4778807
+      "sha256": "sha256:c6d65691f4c23027afd48c5855e5eea8adb3e0efa1c14db0024678315d1f9850",
+      "size": 4778770
     },
     {
       "byte_mode": "lf-normalized",
@@ -6946,10 +6946,21 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x8b6300b67e33bfcf83089d76d92dc78b1f4f1ed3f975e84035c567613d761a47"
+        "digest": "0x0036909fd812d4bca5a1c8e5d691530f49839c3a21faf4883701ee5ec3ed1c98"
       },
       "path": "records/relations/6529NM-REL-0229.json",
-      "sha256": "sha256:639d4747d070933ec2da6a5914f1e954d5ac3d20fd558b2463c55ab425de4a3d",
+      "sha256": "sha256:da5bdcdba59336969f8659b407ff65a718e4305a0fb7e510ffbedae5bfb6935a",
+      "size": 2537
+    },
+    {
+      "byte_mode": "lf-normalized",
+      "content_hash": {
+        "algorithm": 1,
+        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+        "digest": "0x976ccab8cf997a4ba4c25142150a83f06005fda03d9a01a824a18c155325a3f9"
+      },
+      "path": "records/relations/6529NM-REL-0230.json",
+      "sha256": "sha256:25c993d8a2ea16199a8df88ef64aeb8069ab17641191045d20dd4d0c1a78d601",
       "size": 2545
     },
     {
@@ -6957,110 +6968,99 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xe91a82c8d29b2f32008cf9dcb380f4e48aba1183329dd516d3b5deecf295bb2a"
-      },
-      "path": "records/relations/6529NM-REL-0230.json",
-      "sha256": "sha256:75a92ec6327b7ea55bcb42b851544189aa5da3bdda13e4f012233d52805627f2",
-      "size": 2553
-    },
-    {
-      "byte_mode": "lf-normalized",
-      "content_hash": {
-        "algorithm": 1,
-        "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x7a3e442510ebe9530231a9c08f9d4ff2243e9474b471523d536e03cdda0b1492"
+        "digest": "0x05e27436684e21562a83ae9bbf19efd2f288221de9b2bd8ea36fc98844035481"
       },
       "path": "records/relations/6529NM-REL-0231.json",
-      "sha256": "sha256:fe769c750d2c9a527d17c775544b035d0e2b947a17a4592a535be2b3cd561341",
-      "size": 2911
+      "sha256": "sha256:450864c87ef2c2f00978f731cfb74875e1ec63283987d2e4ecc6feda8954f5b5",
+      "size": 2903
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x5315d827290ca8f1275b7e05a4825a4dea4b568844c08822a9d3be5fc899d665"
+        "digest": "0x3b091d13004fd97585b3b507fca223c9a4265a60a96c4e720e0d17a6f7f4740e"
       },
       "path": "records/relations/6529NM-REL-0232.json",
-      "sha256": "sha256:03641a74dbc61488b310592b07e7ce6ab7fea3e89d7fa23a882422ef1c4bf9aa",
-      "size": 2855
+      "sha256": "sha256:3d1cea03060c4332c3e945cd74dc8bb5746f09f63f6acc1dae07e008824c1226",
+      "size": 2847
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x10851e96ba95e097dd44feb052f524871e682856582d57e3cb37b6fc24e6e63d"
+        "digest": "0x589f23cb7aedeff43de5c9d8787ade8bf5f860758e17107978ec4083bf395d41"
       },
       "path": "records/relations/6529NM-REL-0233.json",
-      "sha256": "sha256:d34d37d0f7601a3a5d69a2c6a3d8ae231f1a2f8440dd6c4333503ca6c7898796",
-      "size": 3009
+      "sha256": "sha256:e44384480957211e06d801b2663d2ba8d6cfb1fb75e0c19a1a9ebdcfba23c738",
+      "size": 3001
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xf83e1d01819ddc21bdcc13be5ab3b2bde8a901e33f965e7171b169cad0937992"
+        "digest": "0x0bc931df97087ca62a25c90948a607b670734d76a5541609eb8fdf602b366473"
       },
       "path": "records/relations/6529NM-REL-0234.json",
-      "sha256": "sha256:a759384a76351bd277ddb145216d28805e0e2c56cb219c0ef82ecf564c958862",
-      "size": 2878
+      "sha256": "sha256:9257732e771b7ffce39befa878572f066a4e0e5c53aec30d83082ca23aed9eea",
+      "size": 2870
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xfaae98353557a36b87af6e473c1c0a3ca1d37ee26f51877424880cf682deb655"
+        "digest": "0x2d4c20879ea6984cc34dac895e1c6b14e94cf91ffa49e06f456e70ff46644be8"
       },
       "path": "records/relations/6529NM-REL-0235.json",
-      "sha256": "sha256:db7da5a5488416a368fb0b257505004640b6cd647b7468b0e27e3682412fd81d",
-      "size": 2626
+      "sha256": "sha256:44d31481576159e0794c934bfd6ad68c3eed0fd254a6b28a2bc223c2b4c01481",
+      "size": 2618
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xc618bcc926473e97aaa9b519686df7011fa290353c92f54c04024c5887b91b99"
+        "digest": "0x9d2e35d915d375b46ab8ec0e8c4822b630695e4f124489ccb39144727ce0851a"
       },
       "path": "records/relations/6529NM-REL-0236.json",
-      "sha256": "sha256:f5b268685d03ffb722d54e3a05a975fe81773eb7435d46db2e9c3da643099f2c",
-      "size": 2905
+      "sha256": "sha256:d3687eebc3e9224887bb9a343d6e9866272a69ae7ae23ccb5ccd414372100e6a",
+      "size": 2897
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xee09449cc26c12d98ba2913e3d83a02f36cf1771a23d2354ae0d41b7dd462cc0"
+        "digest": "0xbd7ba0b844e9cdc9d477d7adfdcd065cd5727b0c96608d998d7cd5c27fd96863"
       },
       "path": "records/relations/6529NM-REL-0237.json",
-      "sha256": "sha256:7fefcffce1cd1e91ff47e5ca217de53459c2fc54463256f3de6eeee7648daeaa",
-      "size": 2972
+      "sha256": "sha256:ee8225badc934c9e1e47a72c8a21674557008f9b1927529e3454938cb26b661e",
+      "size": 2964
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd923da4e6b8f3ac33f72352a47d6bf58a8edc31bdc1016ecea42315f381a211f"
+        "digest": "0x4ea72c39e18f97c397b3dc037c232c602d892b3d21c3083f79b9b06abf719853"
       },
       "path": "records/relations/6529NM-REL-0238.json",
-      "sha256": "sha256:5fbef0fac6d7fb3322a48e58aef073f7c4cb5b74c97bb658f87bfda1a7c8e014",
-      "size": 2602
+      "sha256": "sha256:ac04e5ec2a28a0c18d3f56010d51f04f586746034cb1a020341d30092a33992f",
+      "size": 2594
     },
     {
       "byte_mode": "lf-normalized",
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xc8794b95713aa938abb72db2ded8486808b5f3947d42597fc215594ba319c43f"
+        "digest": "0xce8d1eb056a32381a87b15202aae71eb2fb47064e93451ad8a877f003475d212"
       },
       "path": "records/relations/6529NM-REL-0239.json",
-      "sha256": "sha256:1d805cd932d866c2dfab92bead60f6eb17dfc1c03bdec7ea44bc4b02c573cb33",
-      "size": 2604
+      "sha256": "sha256:f4582979848ca0b2b509a9bd6fa34d88b5fb077c910f4ece0541bec832ee9b48",
+      "size": 2596
     },
     {
       "byte_mode": "lf-normalized",
@@ -7458,11 +7458,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xf294efe889f457ad02cec0b9ec7321df431a637c0e740bfba8e7e95464436529"
+        "digest": "0x19661a9720e672ba13ea2bc739c213d613af73e35cb162843ff9ab0109a9343c"
       },
       "path": "schemas/proposed-gift.schema.json",
-      "sha256": "sha256:b47f6b58bcbadffaa17b9e08bce42a70594515d6d59eb9e36a8c6f06b6d58220",
-      "size": 13221
+      "sha256": "sha256:53415828c129d63d37290aa2c1bbb596e2d321d13f9a0a366df9064339c54637",
+      "size": 13254
     },
     {
       "byte_mode": "lf-normalized",
@@ -7872,8 +7872,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/finalize_vera_accession.py",
-      "sha256": "sha256:14c13780f963d73aaab53c9259485f228e1966019f47015c038218574caa002c",
-      "size": 12879
+      "sha256": "sha256:7b8d4f2266e63ed6808f660949b5aca6be37d292998fb5326c5d99366c5267c5",
+      "size": 12939
     },
     {
       "byte_mode": "lf-normalized",
@@ -7914,8 +7914,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/generate_vera_molnar_media.py",
-      "sha256": "sha256:c189a6e8108685be71dc1a7ba3e728bd59fc9b20b523d9b65190e6e731d6c14d",
-      "size": 15567
+      "sha256": "sha256:5502460c820d326809a32dbc2978bdf53de202d1edbab51f693096afd34b844c",
+      "size": 15989
     },
     {
       "byte_mode": "lf-normalized",
@@ -7950,8 +7950,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/migrate_public_entities.py",
-      "sha256": "sha256:f1337d48b935d9f785a41247ea858b55626e880031108cfab4c21bdf35aff63e",
-      "size": 184216
+      "sha256": "sha256:548da2100f0cef4aa9305b2e898d2dce0a02f5170bbad770b8b8ef6528a09fb8",
+      "size": 184897
     },
     {
       "byte_mode": "lf-normalized",
@@ -8616,8 +8616,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_vera_molnar_media.py",
-      "sha256": "sha256:550b97ef37da73b0a74376b8fa99a4c6fb8018c4e32518a992fa97a0de98a05d",
-      "size": 6000
+      "sha256": "sha256:4c9398dc72489365bb5d2af311c65415b75e4dee9ecf57446bd7c438e8284182",
+      "size": 6412
     },
     {
       "byte_mode": "lf-normalized",
@@ -8657,9 +8657,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x8230d2915ab9e9ba0e4ac08afb13caae842d3bb5d4489fb69065fb33ae13a956"
+    "digest": "0xdc0065dde654ad35aae58016b3f56d6b21bd7ff1c42bfbdb0f8d229ade91743d"
   },
-  "manifest_sha256": "sha256:f197aa99627e150601156109ff90557463d1e899c5b046d97a20a0e7ad1bb476",
+  "manifest_sha256": "sha256:3ee2d934f6bd1a6b7c889b5e8c4dffc13b425899e9e244da0ac37f7224000c47",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }

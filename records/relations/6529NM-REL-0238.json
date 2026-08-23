@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xee4251da8ca8fcb3e16c000d3ef711229dcc007efb1ff35734caf3bc90dc22e1"
+      "digest": "0x218d5164a4da15a3da2508b5e330c9ddf717c53d986d0dc26b8f9448a5cbf4e7"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_RELATION",
@@ -21,11 +21,11 @@
   "payload": {
     "assertion_status": "asserted",
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "evidence_refs": [
       {
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:36725e7e7fffb4908636df6aa6405f3abd12921c3ba14c2beade396d33fcb166",
+    "payload_sha256": "sha256:85e013a20881bf1475cae83f993a00e3e45a465f489ef42495664b5bf2f29805",
     "qualifier": {
       "role": "creator"
     },

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xe1b28cd67caf823fad2b6cce282733a503c4869324639ef3dc5ed5b30b0d8d49"
+      "digest": "0xf7e5b9767375e8ed53de214138d3d8ff388d9858616396609a4cfbd14b1fe801"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/artists/vera-molnar",
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-ART-0022",
     "entity_status": "review_pending",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:467a4c7d17cdf1aa9734741f3d7afb2c7555632fbc768ef1e99eb801bee6b1a0",
+    "payload_sha256": "sha256:676ea8c724b97bce17c40b0beb9721b0f5d50331ab102cd63ce601bc8590b5c5",
     "preferred_label": "Vera Molnár",
     "profile": {
       "authority": {

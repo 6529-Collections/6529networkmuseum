@@ -118,11 +118,12 @@ def normalize_payload(payload: dict[str, Any], path: Path) -> dict[str, Any]:
             },
             {
                 "evidence_class": "B",
-                "label": "Signed-drop API WINNER status readback (is_signed=true)",
+                "label": "Wave API WINNER status readback (is_signed=true)",
                 "observed_at": "2026-08-23T09:40:25.465Z",
                 "uri": wave_url,
             },
         ]
+        payload["observation_method"] = "signed_drop_api_readback"
         payload["prior_observation"] = {
             "source_status": "PARTICIPATORY",
             "observed_at": "2026-08-13T19:19:40.216Z",

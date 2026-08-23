@@ -248,7 +248,7 @@
         "country": {"type": ["string", "null"]},
         "archive_number": {"type": "string", "minLength": 1},
         "source_notes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-        "edition": {"const": "1 of 1"},
+        "edition": {"type": "string", "minLength": 1, "maxLength": 200},
         "curation": {"enum": ["1/3", "2/3", "3/3"]},
         "metadata": {"$ref": "#/$defs/fixedResource"},
         "image": {"$ref": "#/$defs/fixedImageResource"},

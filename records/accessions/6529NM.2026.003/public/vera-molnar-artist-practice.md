@@ -18,11 +18,11 @@ Molnár worked across painting, drawing, plotter output, photography, polyptychs
 
 Letters became especially productive because they could be read and seen at once. A glyph carries language, proportion, contour, and cultural memory. Molnár could repeat it until recognition weakened, then recover it through a small shift in scale or position. Later works involving Dürer’s monogram, handwriting, and the letters N, F, and T extend this movement between sign and image.
 
-Molnár’s position in modern and digital-art history is now widely established. The Museum of Modern Art and the National Gallery of Art hold works from her pre-computer and computational periods. The 2022 Venice Biennale presented her early computer drawings. Centre Pompidou’s 2024 retrospective, *Speak to the Eye*, followed her work from geometric abstraction through plotters, photography, sculpture, installation, and late digital projects.
+The Museum of Modern Art and the National Gallery of Art hold works from Molnár’s pre-computer and computational periods. The 2022 Venice Biennale presented her early computer drawings. Centre Pompidou’s 2024 retrospective, *Speak to the Eye*, followed her work from geometric abstraction through plotters, photography, sculpture, installation, and late digital projects.
 
 ## *Themes and Variations*
 
-*Themes and Variations* belongs to Molnár’s final body of work. Drawn studies of the letters N, F, and T supplied its starting forms. The project credits Martin Grasser as collaborating artist and coder. Its system translates those studies into programmable relations among position, scale, weight, repetition, colour, and density.
+*Themes and Variations* is a late project in Molnár’s practice. Drawn studies of the letters N, F, and T supplied its starting forms. The project credits Martin Grasser as collaborating artist and coder. Its system translates those studies into programmable relations among position, scale, weight, repetition, colour, and density.
 
 The project carries Molnár’s method into a browser-rendered generative system. Its fixed script and each token’s hash determine one output within an edition of 500. The edition and token history are recorded on Ethereum; the image appears through software. Across the series, letters remain legible, become geometric structures, dissolve into texture, and return as marks carrying an unstable memory of language.
 

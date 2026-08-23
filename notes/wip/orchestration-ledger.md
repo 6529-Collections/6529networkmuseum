@@ -3958,3 +3958,30 @@ and Keccak
 `0x8230d2915ab9e9ba0e4ac08afb13caae842d3bb5d4489fb69065fb33ae13a956`.
 The complete deterministic test suite and exact-candidate independent review
 are running in parallel.
+
+### 2026-08-23 12:02 UTC - Vera candidate A3 curatorial corrections
+
+Candidate A2 passed independent registrar/technical review at
+`2026-08-23T11:54:43.724Z`. Independent curatorial/editorial review then
+blocked release on an incorrect proposal edition value, an imprecise media
+description, overstatement of the Wave API `is_signed` field, one chronology
+fragment, and several process-sounding or categorical sentences. Those
+findings are corrected in candidate A3. The entity generator now preserves
+the historical constructor for existing records and assigns the Vera task
+constructor only to the nineteen new Vera entity/relation records. Candidate
+A remains intentionally review-pending under the repository's A-to-B control
+plane; no review-pending projection will be merged or published.
+
+The three immutable WebP derivatives are present at their governed CDN URLs.
+Browser-equivalent HTTP readback returned 200 for 640, 1,280, and 2,400 pixels;
+each response matched its declared byte size and SHA-256 and carried
+`image/webp` plus `public, max-age=31536000, immutable`. Three temporary copies
+uploaded under an incorrect unused prefix were deleted after exact-key
+verification. The corrected source candidate passes bootstrap and full
+validation, entity migration replay, media verification, and manifest replay
+with release SHA-256
+`sha256:3ee2d934f6bd1a6b7c889b5e8c4dffc13b425899e9e244da0ac37f7224000c47`
+and Keccak
+`0xdc0065dde654ad35aae58016b3f56d6b21bd7ff1c42bfbdb0f8d229ade91743d`.
+The media generator now rejects locale-formatted timestamps and preserves
+canonical RFC 3339 UTC in both the manifest and its constructor record.

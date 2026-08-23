@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdb43530701c877d33cc9e6e09ac16e4649f78c3fb1985986b3809b9eecf3612e"
+      "digest": "0x3d3a6fe9ff26262e18cccd4dfdbdf2f3b7e6d1a79d45eb256269ba2188d08273"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/works/vera-molnar-themes-and-variations-210",
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-W-0029",
     "entity_status": "review_pending",
@@ -62,7 +62,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:ab99e6c5ba789da51ac44754281bdd8c34d0100f5881c47f987e3e0f06bcb07b",
+    "payload_sha256": "sha256:0f3d9070880e912d1b73968e9dfd3dc73d72049950c11cb028e881a5f392333d",
     "preferred_label": "Vera Molnár and Martin Grasser, Themes and Variations #210",
     "profile": {
       "accession_entity_ids": [

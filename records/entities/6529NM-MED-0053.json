@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x74e31c85535f9173d490a500f6e2679e3915edc6335a79f9d3d1161603c30a28"
+      "digest": "0xdfa8f0b78d5f1e6054bd521b048423455831cb7ffe64551858a3b17114dfc00a"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-MED-0053",
     "entity_status": "review_pending",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:f9a86f9a3b43da4527af7a7cf21c8c1653259cabeb96c35bdbd7af352f5aaae5",
+    "payload_sha256": "sha256:0795a38d2a59d7cecefd3b7f8db6d11cd0320b0bfb7a732abafd740e5cb7d7ad",
     "preferred_label": "Live generator: Themes and Variations #210",
     "profile": {
       "media": {

@@ -8,7 +8,7 @@ Grasser’s practice includes type design, identity systems, hand-drawn alphabet
 
 *Themes and Variations* credits Grasser as collaborating artist and coder. The project began with Vera Molnár’s drawn studies of N, F, and T. Its system turns those studies into programmable relations among position, scale, weight, distribution, colour, and arrangement.
 
-The available project sources support shared artistic and technical authorship within the collaboration. They do not support a narrower description of Grasser as a technician executing a complete design supplied by Molnár. The Museum therefore preserves the project’s full credit: “Vera Molnár, in collaboration with Martin Grasser.”
+Grasser is credited as collaborating artist and coder. His contribution belongs to the work’s artistic construction: he and Molnár developed the programmable relations through which her drawn studies become a varied edition. The Museum preserves the project’s full credit: “Vera Molnár, in collaboration with Martin Grasser.”
 
 Grasser’s contribution is legible in the project’s typographic intelligence. A letter can keep its identity while changing scale, then become a block, a linear scaffold, or a repeated texture. Across 500 outputs, the system holds that movement between sign and image in active variation.
 

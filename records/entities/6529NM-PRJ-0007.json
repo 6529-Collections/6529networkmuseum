@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x3af28e3ef8ef76f7283c959527cdf5447f44114c37d28b383bd66370821c0aef"
+      "digest": "0xa8a6880458761cf39f01433d1df229517bcc99b211a238b81b814d1a7987a80d"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": "/museum/network/projects/themes-and-variations",
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-PRJ-0007",
     "entity_status": "review_pending",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:233214a863fccef9269079ec7ad3c0461f44e7c0f96b269fa9977f9330e3725d",
+    "payload_sha256": "sha256:b3a160f57b2d63291b3c150d4f1f00fb0e001f5ff221fc598d2477795a771ac0",
     "preferred_label": "Themes and Variations",
     "profile": {
       "agent_entity_ids": [

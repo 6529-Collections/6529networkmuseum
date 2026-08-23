@@ -146,6 +146,16 @@ class VeraMolnarMediaTests(unittest.TestCase):
             with self.assertRaisesRegex(media.VeraMediaError, "official preview fixity mismatch"):
                 self.generate()
 
+    def test_generation_rejects_locale_formatted_timestamp(self) -> None:
+        with self.patched_paths():
+            with self.assertRaisesRegex(media.VeraMediaError, "canonical RFC 3339 UTC"):
+                media.generate(
+                    self.work_id,
+                    self.media_id,
+                    "08/23/2026 10:00:00",
+                    "codex-task:test-constructor",
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

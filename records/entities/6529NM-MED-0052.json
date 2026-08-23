@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x7c1ae90397a607d52d9cf0486f31275f896d0b15b05b1b3457a6a399fe01eaa5"
+      "digest": "0xa6a0bfa2ed9a422eae7c457ecff890544a399e647179fb669114e50f2c33a302"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -21,11 +21,11 @@
   "payload": {
     "canonical_route": null,
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
+    "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-MED-0052",
     "entity_status": "review_pending",
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:a3fd2a72107d8990353cd783a52469f81183bb61e26a2c119ff8669a750398ac",
+    "payload_sha256": "sha256:947d7d1c98166af69eae465d37eccf47b9a7a871419c4d31c02abfa72b0f47fd",
     "preferred_label": "Official preview: Themes and Variations #210",
     "profile": {
       "media": {
@@ -61,7 +61,7 @@
         "accessibility_publication_entity_id": null,
         "accessibility_status": "provided",
         "accessibility_subject_policy": "not_applicable",
-        "accessibility_text": "Square generative composition in cobalt blue and warm white. Rough-edged blue forms press into the field; five white T shapes descend below a horizontal line, with a small F at left and a stippled blue panel at lower right.",
+        "accessibility_text": "A square generative composition in dark cobalt blue and warm white. Large blue fields occupy the upper right and lower left. White T forms descend through the lower-left field, with a small white F at the left edge. The lower-right area combines a thin horizontal rule, vertical lines, an offset blue block, and a dense rectangular pattern.",
         "allowed_ui_affordances": [
           "view",
           "thumbnail",

@@ -25,6 +25,18 @@ VOCAB_PATH = ROOT / "schemas" / "controlled-vocabularies.json"
 IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-entity-identity-inventory.json"
 RELATION_IDENTITY_INVENTORY_PATH = ROOT / "schemas" / "public-relation-identity-inventory.json"
 CONSTRUCTOR_ID = "codex-task:magnum-completed-accession-correction-2026-08-12"
+VERA_CONSTRUCTOR_ID = "codex-task:vera-molnar-accession-2026-08-23"
+VERA_CONSTRUCTED_RECORD_IDS = {
+    "6529NM-ACC-ENT-0003",
+    "6529NM-ART-0022",
+    "6529NM-ART-0023",
+    "6529NM-CA-2026-004",
+    "6529NM-MED-0052",
+    "6529NM-MED-0053",
+    "6529NM-PRJ-0007",
+    "6529NM-W-0029",
+    *(f"6529NM-REL-{index:04d}" for index in range(229, 240)),
+}
 GENERATED_AT = "2026-08-12T23:15:00Z"
 CASEY_AT = "2026-08-02T06:30:00Z"
 CASEY_MEDIA_AT = "2026-08-09T23:04:32Z"
@@ -585,6 +597,9 @@ def governed_typed_reference(
 
 
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
+    is_vera_record = record_id in VERA_CONSTRUCTED_RECORD_IDS
+    constructor_id = VERA_CONSTRUCTOR_ID if is_vera_record else CONSTRUCTOR_ID
+    constructed_at = VERA_AT if is_vera_record else GENERATED_AT
     profile = {
         "record_id": record_id,
         "record_type": record_type,
@@ -592,10 +607,10 @@ def common(record_type: str, record_id: str, effective_at: str, refs: list[str],
         "subject_id": record_id,
         "visibility": "public",
         "record_version": "1.0.0",
-        "created_at": GENERATED_AT,
+        "created_at": constructed_at,
         "observed_at": effective_at,
         "effective_at": effective_at,
-        "constructor": {"id": CONSTRUCTOR_ID, "role": "constructor", "observed_at": GENERATED_AT},
+        "constructor": {"id": constructor_id, "role": "constructor", "observed_at": constructed_at},
         "reviewer": None,
         "record_status": "review_pending",
         "review_status": "pending_independent_review",
@@ -1258,7 +1273,7 @@ def build_records(
     official_preview = next(entry for entry in source_manifest["entries"] if entry.get("path") == "raw/official-preview.png")
     add_entity(vera_still_media, "MEDIA_REFERENCE", "Official preview: Themes and Variations #210", None, None, VERA_AT, media_profile(
         "token_linked_source_media", VERA_PREVIEW_URL, VERA_OFFICIAL_STILL_PATH, "image/png", True, 2400, 2400,
-        "Square generative composition in cobalt blue and warm white. Rough-edged blue forms press into the field; five white T shapes descend below a horizontal line, with a small F at left and a stippled blue panel at lower right.", "provided", vera_work,
+        "A square generative composition in dark cobalt blue and warm white. Large blue fields occupy the upper right and lower left. White T forms descend through the lower-left field, with a small white F at the left edge. The lower-right area combines a thin horizontal rule, vertical lines, an offset blue block, and a dense rectangular pattern.", "provided", vera_work,
         "Vera Molnár, in collaboration with Martin Grasser, Themes and Variations #210, 2023. Licensed under CC BY-NC 4.0.", "cleared_with_conditions", "retrieved", [VERA_OBJECT_ID, VERA_RIGHTS_ID], VERA_AT,
         {"status": "verified", "algorithm": "sha256", "digest": sha256_file(ROOT / VERA_OFFICIAL_STILL_PATH), "verified_at": VERA_AT, "basis": "Official Art Blocks preview retained in the Museum source-evidence package."},
         ["view", "thumbnail", "hero", "alt_text", "open_token_source", "copy_citation"], source_byte_size=official_preview["size"], rights_label="CC BY-NC 4.0", rights_evidence_refs=[vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")], source_observation_evidence_refs=[vera_evidence("Official preview fixity", VERA_OFFICIAL_STILL_PATH, "A"), vera_evidence("Source-evidence manifest", VERA_SOURCE_MANIFEST_PATH, "A")], accessibility_evidence_refs=[vera_evidence("Accession alt text", f"{VERA_ACCESSION_ROOT}/public/alt-text.md", "B")]

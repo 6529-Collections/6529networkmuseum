@@ -4,7 +4,7 @@
 
 ## From drawing to system
 
-Molnár drew variations on the three capital letters within a square. The letters name the project’s technological setting while also serving as geometric material. A stem can become a bar; a crosspiece can establish an interval; a repeated glyph can turn into rhythm or pattern.
+Molnár drew variations on the three capital letters within a square. The letters are both the project’s subject and its material. A stem can become a bar; a crosspiece can establish an interval; a repeated glyph can turn into rhythm or pattern.
 
 The project credits Martin Grasser as collaborating artist and coder. Available accounts describe Molnár and Grasser working together on a system that governs position, scale, weight, distribution, colour, and arrangement. The collaboration joins Molnár’s drawn studies and long practice of rule-based variation to Grasser’s work with typography, letterform abstraction, and generative code.
 
@@ -24,7 +24,7 @@ The 6529 Network Museum holds *Themes and Variations* #210, accessioned as `6529
 
 #210 carries all three source letters within a cobalt-blue and warm-white field. Five T forms descend through the lower-left area; a small F sits near the left edge; lines and a dense rectangular panel occupy the lower right. Large blue masses give these smaller elements their scale. The output moves from glyph to diagram to texture while remaining one balanced composition.
 
-Token #210 is one complete work within the 500-output series. Through it, visitors can study the project’s procedure, visual language, release history, and material dependencies.
+Token #210 is one unique output in the fixed edition of 500. Through it, visitors can study the project’s procedure, visual language, release history, and material dependencies.
 
 ## Sources
 

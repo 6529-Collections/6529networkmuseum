@@ -7,6 +7,7 @@ import argparse
 import importlib.util
 import json
 from pathlib import Path
+import re
 import sys
 from typing import Any
 
@@ -33,6 +34,7 @@ WIDTHS = (640, 1280, 2400)
 TRANSFORM_PATH = "webp-v2-q82-m6-fixed-icc"
 TRANSFORM_PROFILE = "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC"
 CACHE_CONTROL = "public, max-age=31536000, immutable"
+RFC3339_UTC = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$")
 DISPLAY_AUTHORITY_ID = "6529NM.2026.003.DISPLAY-01"
 DISPLAY_AUTHORITY_PATH = (
     "records/accessions/6529NM.2026.003/public/web-presentation-authority.md"
@@ -199,6 +201,8 @@ def generate_item(work_id: str, media_id: str, transform) -> dict[str, Any]:
 def generate(
     work_id: str, media_id: str, generated_at: str, actor_id: str
 ) -> dict[str, Any]:
+    if not RFC3339_UTC.fullmatch(generated_at):
+        raise VeraMediaError("generated-at must be a canonical RFC 3339 UTC timestamp")
     transform = load_transform_module()
     return {
         "$schema": "../../../../schemas/accession-media-presentation-v2.schema.json",
@@ -257,6 +261,9 @@ def verify() -> tuple[int, int]:
         or value.get("record_type") != "ACCESSION_MEDIA_PRESENTATION"
         or value.get("schema_profile") != "6529NM_ACCESSION_MEDIA_PRESENTATION_V2"
         or value.get("accession_lot_id") != ACCESSION_ID
+        or not RFC3339_UTC.fullmatch(str(value.get("generated_at", "")))
+        or value.get("record_control", {}).get("constructor", {}).get("constructed_at")
+        != value.get("generated_at")
         or value.get("delivery", {}).get("authority_record_id")
         != DISPLAY_AUTHORITY_ID
         or value.get("delivery", {}).get("authority_path")
