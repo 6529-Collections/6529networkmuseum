@@ -4033,3 +4033,13 @@ Catalog C is
 `6529NM-PUBCAT-8878c4eec8290a0f25975693d44259aa2109600a`, activated at
 `2026-08-23T13:24:38Z` with catalog file SHA-256
 `sha256:e043d6258c8615e209081f99ea7d5b04e1aa9367ed71e2f78e580bd0a59ed327`.
+
+### 2026-08-23 13:40 UTC - Vera stable work route correction
+
+The exact source-to-frontend compatibility probe rejected the first catalog
+activation with `public_entity_graph_work_route`. The generated Vera Work had
+used a descriptive slug, while public Work routes are keyed by their stable
+Museum Work identifier. The generator now emits `6529NM-W-0029` and
+`/museum/network/works/6529NM-W-0029`. The corrected graph is regenerated in
+pending state for exact-commit review before a replacement reviewed release
+and catalog activation; the rejected catalog is not being merged to `main`.

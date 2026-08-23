@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x8e879f133de1ae8c7faf9bef99d8eb4fdae6826e592191ca3066876a899e305d"
+      "digest": "0xf73d465e4562010fadffe0e3be34ec53de40daab8459d674e2bbbb80b39a066c"
     },
     "effectiveAt": 1786184102,
     "recordType": "PUBLIC_RELATION",
@@ -42,10 +42,10 @@
       }
     ],
     "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:5d448e384e13178da05beb9bc665d9bcc728e85cea50bde1e8af5ca2f29f4a30",
+    "payload_sha256": "sha256:b6ec53a437ad72dbc8dd65e0a283ce168e4225e960ea368baa8a703a12df3fa0",
     "qualifier": {},
     "record_id": "6529NM-REL-0153",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -56,19 +56,8 @@
     ],
     "relation_id": "6529NM-REL-0153",
     "relation_type": "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T13:22:21Z",
-      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
-      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
-      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-AP-ENT-0001",
     "source_record_ids": [

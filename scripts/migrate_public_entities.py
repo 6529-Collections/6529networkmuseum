@@ -1242,7 +1242,7 @@ def build_records(
         "preservation": fact("in_progress", VERA_AT, [VERA_OBJECT_ID, VERA_CONDITION_ID], "The Museum retains source responses and presentation derivatives; ongoing care includes repeated runtime capture and format review.", evidence_refs=[vera_evidence("Source-evidence manifest", VERA_SOURCE_MANIFEST_PATH, "A"), vera_evidence("Presentation manifest", VERA_PRESENTATION_MANIFEST_PATH, "B")]),
         "display": fact("verified_with_conditions", VERA_AT, [VERA_OBJECT_ID, VERA_RIGHTS_ID], "The Museum may show the credited work in a noncommercial institutional context under the recorded licence boundary.", evidence_refs=[vera_evidence("Web presentation authority", VERA_PRESENTATION_AUTHORITY_PATH, "B"), vera_evidence("Rights statement", VERA_RIGHTS_PATH, "B")]),
     }
-    add_entity(vera_work, "WORK", "Vera Molnár and Martin Grasser, Themes and Variations #210", "vera-molnar-themes-and-variations-210", "/museum/network/works/vera-molnar-themes-and-variations-210", VERA_AT, {
+    add_entity(vera_work, "WORK", "Vera Molnár and Martin Grasser, Themes and Variations #210", "6529NM-W-0029", "/museum/network/works/6529NM-W-0029", VERA_AT, {
         "profile_type": "WORK",
         "creator_entity_ids": [vera_artist, martin_grasser_artist],
         "title": "Themes and Variations #210",

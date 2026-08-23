@@ -407,8 +407,8 @@
     {"legacy_route": "/museum/network/works/6529NM.2026.002.03", "canonical_route": "/museum/network/works/6529NM-W-0026", "canonical_entity_id": "6529NM-W-0026"},
     {"legacy_route": "/museum/network/works/6529NM.2026.002.04", "canonical_route": "/museum/network/works/6529NM-W-0027", "canonical_entity_id": "6529NM-W-0027"},
     {"legacy_route": "/museum/network/works/6529NM.2026.002.05", "canonical_route": "/museum/network/works/6529NM-W-0028", "canonical_entity_id": "6529NM-W-0028"},
-    {"legacy_route": "/museum/network/works/6529NM-PG-2026-002.OBJ-001", "canonical_route": "/museum/network/works/vera-molnar-themes-and-variations-210", "canonical_entity_id": "6529NM-W-0029"},
-    {"legacy_route": "/museum/network/works/6529NM.2026.003.01", "canonical_route": "/museum/network/works/vera-molnar-themes-and-variations-210", "canonical_entity_id": "6529NM-W-0029"},
+    {"legacy_route": "/museum/network/works/6529NM-PG-2026-002.OBJ-001", "canonical_route": "/museum/network/works/6529NM-W-0029", "canonical_entity_id": "6529NM-W-0029"},
+    {"legacy_route": "/museum/network/works/6529NM.2026.003.01", "canonical_route": "/museum/network/works/6529NM-W-0029", "canonical_entity_id": "6529NM-W-0029"},
     {"legacy_route": "/museum/network/acquisition-programs/6529NM-AP-01", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates", "canonical_entity_id": "6529NM-AP-ENT-0002"},
     {"legacy_route": "/museum/network/programs/6529NM-AP-01", "canonical_route": "/museum/network/acquisition-programs/keys-and-gates", "canonical_entity_id": "6529NM-AP-ENT-0002"}
   ],

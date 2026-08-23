@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x98e64148f4b8e5a6d39a01f6570faa49f0ee8086f9e3c4dd39e5802bad1dd1e3"
+      "digest": "0x9846d012ed0970d987303425a65c4186f0a87cb89973e73ed7850f3d9c3da51c"
     },
     "effectiveAt": 1786573476,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T22:24:36.387Z",
     "entity_id": "6529NM-W-0027",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -61,7 +61,7 @@
     ],
     "observed_at": "2026-08-12T22:24:36.387Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7919ce803b92422b82ca9b50736a97657e6bea36f3290c925b85f18fba7ea5c4",
+    "payload_sha256": "sha256:27283dfbad1552e980d0b66b325ca5614bc20bdb8b19344572e2c798b932d1c5",
     "preferred_label": "Tripoli, Libya",
     "profile": {
       "accession_entity_ids": [
@@ -319,7 +319,7 @@
     },
     "public_slug": "6529NM-W-0027",
     "record_id": "6529NM-W-0027",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -336,19 +336,8 @@
       "6529NM.2026.002.GAA-01",
       "6529NM.2026.002.RIGHTS.04"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T13:22:21Z",
-      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
-      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
-      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-002",
@@ -386,7 +375,7 @@
         }
       ],
       "observed_at": "2026-08-12T22:24:36.387Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-W-0027",
     "visibility": "public"
