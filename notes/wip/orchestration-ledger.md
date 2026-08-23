@@ -4093,3 +4093,22 @@ machine-record language. The public graph has been regenerated in pending
 state. This replacement candidate is subject to a fresh exact-commit review,
 reviewed promotion, release manifest, and catalog activation; the prior PR
 head must not merge.
+
+### 2026-08-23 15:22 UTC - Vera corrected reviewed release and catalog
+
+Independent exact-commit review approved unified candidate
+`3eab50914a90c079fe0383624e760fc0a954e709`, bound to candidate manifest
+SHA-256
+`sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080`
+and Keccak
+`0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313`.
+Reviewed B is `92966f2836ebf2af06edfe0fe2cff25041307c92`; its 380-file
+delta from candidate A is the deterministic review promotion only. Catalog C
+is `65a7b04bd1b6e76c9bace5426d2966e27b3dd2c1` and activates immutable
+catalog `6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92`.
+
+The first complete Windows suite found one stale test expectation for the
+superseded descriptive Vera Work slug. The public route is intentionally keyed
+by stable Work identifier `6529NM-W-0029`; the test now asserts that same rule
+for all Work records. This test-only repair follows catalog activation and does
+not alter the reviewed publication or active catalog.

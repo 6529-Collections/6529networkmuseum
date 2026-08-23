@@ -501,11 +501,7 @@ class PublicEntityLayerTests(unittest.TestCase):
         works = {key: value for key, value in entities.items() if value["entity_type"] == "WORK"}
         self.assertEqual(set(works), {f"6529NM-W-{index:04d}" for index in range(1, 30)})
         for work_id, work in works.items():
-            expected_slug = (
-                "vera-molnar-themes-and-variations-210"
-                if work_id == "6529NM-W-0029"
-                else work_id
-            )
+            expected_slug = work_id
             self.assertEqual(work["public_slug"], expected_slug)
             self.assertEqual(work["canonical_route"], f"/museum/network/works/{expected_slug}")
         artists = {payload["entity_id"]: payload for payload in entities.values() if payload["entity_type"] == "ARTIST"}

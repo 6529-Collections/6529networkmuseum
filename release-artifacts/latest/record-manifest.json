@@ -8568,8 +8568,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_public_entity_layer.py",
-      "sha256": "sha256:6e75b671efaedba968b0a28b733fb9fc38a062aaea0556b3286633f332a4f77a",
-      "size": 100836
+      "sha256": "sha256:8031becd3c232e72b8a4c6c4a3d229e7be806713f8f3d9b2e911653c3a6b3f77",
+      "size": 100697
     },
     {
       "byte_mode": "lf-normalized",
@@ -8657,9 +8657,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x6a5bd5206c4ce9868e7f4bbe8116565cb25302843de84809c6c0137ae2817164"
+    "digest": "0x51972b6bcae31fcff7716348100bfde300d4a7d85ddbe6cf705491265bd217a7"
   },
-  "manifest_sha256": "sha256:3ce9acb89b6673d769d1317603c76d433b7f207473b7638def4848ee127670e7",
+  "manifest_sha256": "sha256:3c24dac28055f94ab2a6d987e614dbf51e67bd735f5eebf0746251584c1d68f9",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
