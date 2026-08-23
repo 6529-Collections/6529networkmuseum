@@ -16,6 +16,6 @@ The source package at `evidence/vera-molnar-210-sources` retains the signed four
 
 The custody package at `evidence/vera-molnar-210-custody` retains the transfer receipt, finalized block, and ownership response. Its summary SHA-256 is `a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b`.
 
-The technical package at `evidence/vera-molnar-210-technical` retains the locked project script in safe textual form, runtime responses, contract calls, and verification notes. Its manifest SHA-256 is `d2f2767197d70f52d0870ca2eb8df30cc782a7905d6786ab2bf2a7cfe112a6cc`.
+The technical package at `evidence/vera-molnar-210-technical` retains the locked project script in safe textual form, runtime responses, contract calls, and verification notes. Its manifest SHA-256 is `da5fb28d5c55bc0ae480bf76582e0f47d1db246f4cdd691aa1b2ae162e1d4ccb`.
 
 The transfer history documents the token’s movement and current on-chain custody. Donor authority, legal title, copyright, and reproduction terms are recorded in the linked acceptance, title, and rights records.

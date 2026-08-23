@@ -114,13 +114,24 @@
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["reviewer_id", "role", "reviewed_at", "outcome", "scope"],
+              "required": [
+                "actor_id",
+                "role",
+                "reviewed_at",
+                "reviewed_commit",
+                "outcome",
+                "payload_sha256"
+              ],
               "properties": {
-                "reviewer_id": { "type": "string", "minLength": 1 },
+                "actor_id": { "type": "string", "minLength": 1 },
                 "role": { "const": "reviewer" },
                 "reviewed_at": { "type": "string", "format": "date-time" },
-                "outcome": { "enum": ["approved", "approved_with_corrections"] },
-                "scope": { "type": "string", "minLength": 1 }
+                "reviewed_commit": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                },
+                "outcome": { "const": "approved" },
+                "payload_sha256": { "$ref": "#/$defs/sha256" }
               }
             }
           ]

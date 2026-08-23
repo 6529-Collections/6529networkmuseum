@@ -785,12 +785,96 @@ def run(recover_partial: bool = False) -> dict[str, Any]:
     }
 
 
+def refresh_manifest_from_retained_observation() -> dict[str, Any]:
+    """Rebuild package commitments after byte-preserving normalization.
+
+    This mode performs no network requests and does not alter the retained
+    observation. It exists so line-ending normalization can be verified and
+    committed portably without reacquiring a different chain head.
+    """
+    summary_path = OUTPUT / "summary.json"
+    if not summary_path.is_file():
+        raise EvidenceError("technical evidence summary is missing")
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    observation = summary.get("observation")
+    if not isinstance(observation, dict):
+        raise EvidenceError("technical evidence summary has no observation")
+
+    entries: list[dict[str, Any]] = []
+    for path in sorted(OUTPUT.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(OUTPUT).as_posix()
+        if relative in {"manifest.json", "summary.json"}:
+            continue
+        data = path.read_bytes()
+        media_type = {
+            ".js": "text/javascript",
+            ".json": "application/json",
+            ".txt": "text/plain",
+        }.get(path.suffix.lower())
+        if media_type is None:
+            raise EvidenceError(f"technical evidence media type is not declared: {relative}")
+        entries.append(
+            {
+                "path": relative,
+                "size": len(data),
+                "sha256": sha256(data),
+                "media_type": media_type,
+                "byte_mode": "raw",
+            }
+        )
+
+    package_content_sha256 = sha256(canonical_json(entries))
+    manifest = {
+        "schema": "6529-museum-technical-evidence-manifest-v1",
+        "hash_algorithm": "sha256",
+        "byte_mode": "raw",
+        "record_id": observation["record_id"],
+        "finalized_block": observation["finalized_block"],
+        "contract": CONTRACT,
+        "token_id": TOKEN_ID,
+        "package_content_sha256": f"sha256:{package_content_sha256}",
+        "entries": entries,
+    }
+    manifest_bytes = (
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    ).encode("utf-8")
+    manifest_sha256 = sha256(manifest_bytes)
+    write_bytes("manifest.json", manifest_bytes)
+    refreshed_summary = {
+        "record_id": observation["record_id"],
+        "manifest": "manifest.json",
+        "manifest_sha256": f"sha256:{manifest_sha256}",
+        "package_content_sha256": f"sha256:{package_content_sha256}",
+        "observation": observation,
+    }
+    summary_bytes = (
+        json.dumps(refreshed_summary, ensure_ascii=False, indent=2, sort_keys=True)
+        + "\n"
+    ).encode("utf-8")
+    write_bytes("summary.json", summary_bytes)
+    return {
+        "summary_sha256": f"sha256:{sha256(summary_bytes)}",
+        "manifest_sha256": f"sha256:{manifest_sha256}",
+        "package_content_sha256": f"sha256:{package_content_sha256}",
+        "file_count": len(entries),
+        "finalized_block": observation["finalized_block"]["number"],
+        "finalized_block_hash": observation["finalized_block"]["hash"],
+    }
+
+
 def main() -> int:
     try:
         recover_partial = len(sys.argv) == 2 and sys.argv[1] == "--recover-partial"
-        if len(sys.argv) > 1 and not recover_partial:
-            raise EvidenceError("only --recover-partial is accepted, and only for a manifest-free collector partial")
-        result = run(recover_partial=recover_partial)
+        refresh_manifest = len(sys.argv) == 2 and sys.argv[1] == "--refresh-manifest"
+        if len(sys.argv) > 1 and not recover_partial and not refresh_manifest:
+            raise EvidenceError("accepted modes are --recover-partial and --refresh-manifest")
+        result = (
+            refresh_manifest_from_retained_observation()
+            if refresh_manifest
+            else run(recover_partial=recover_partial)
+        )
     except (EvidenceError, OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"Vera Molnar technical evidence acquisition refused: {exc}")
         return 1

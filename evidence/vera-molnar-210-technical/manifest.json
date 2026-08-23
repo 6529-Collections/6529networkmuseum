@@ -6,8 +6,8 @@
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/contract-runtime-bytecode.hex.txt",
-      "sha256": "c4fcc1ef1265cab9230f6fe09af39f99132b99407688249d8ac804fb393c2312",
-      "size": 48850
+      "sha256": "2823301ebad0fc4b27435cca4c8d41444bf0d3ea3272efc19e16cf7e00938b5c",
+      "size": 48849
     },
     {
       "byte_mode": "raw",
@@ -20,78 +20,78 @@
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/00-runtime.hex.txt",
-      "sha256": "48b7fd25836303bb86ea42b9953d6b364076ae2966b0706939c3bbe9a95dd8bb",
-      "size": 47238
+      "sha256": "7300206dccc9465bc5c61e762b597152ac0e81250ea77c37660fcaea882600ee",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/01-runtime.hex.txt",
-      "sha256": "f7f329583b3da232dd0d63fd01ec9a7c563903816cb3d002e8dc753058c7e342",
-      "size": 47238
+      "sha256": "21cf460111d6936c9417f0917f3bdde1c29502f85d49441c87645827d7bd2521",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/02-runtime.hex.txt",
-      "sha256": "cae4afacdb89d878ad803278e5638db54cc627540a3b5bca92b9d01951c58da6",
-      "size": 47238
+      "sha256": "4b9788a445ab1d2ebacdea3ca71448ce1e156b0aa28618b31a514c502fe524b3",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/03-runtime.hex.txt",
-      "sha256": "355f3f8abcd61b1bb7363da64640a018558bf8f1d16245aa104d714c84edaeb0",
-      "size": 47238
+      "sha256": "915c8297d29cb866a9dfd3d4d0568f0ed155f3739571710c817e23e23d462508",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/04-runtime.hex.txt",
-      "sha256": "f9f98974671797762dafcdb0907a3d2422b5733f9fdd29bdd614a17d049f5eb5",
-      "size": 47238
+      "sha256": "9e5bed54fd8a0b7547d1b36ed5f2c0782e46d0e6e9552abbafa0d4ddb7653518",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/05-runtime.hex.txt",
-      "sha256": "83534af8ddb1e540084d2a8009cb265312743cc3ddad27eb9e062a672ee016f2",
-      "size": 47238
+      "sha256": "6ca6ca5322efe64030ec6f04b3330bc723d6e59373ce77308b4dd79b59677bee",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/06-runtime.hex.txt",
-      "sha256": "5972cf3f60bd7a0b96e998ef451a6052f0bafcf2afd328e4637bf5af3ed4447b",
-      "size": 47238
+      "sha256": "88a4479a04eca0f0cee78d9984c73d43c789575d4eae59de5c091827e2ce7f58",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/07-runtime.hex.txt",
-      "sha256": "1c2808a306af0989daf6d528d04af2aa62f6342efdaa01fd380e9f46f7b23c04",
-      "size": 47238
+      "sha256": "e026583f945efba0163f6f3d9218491f09246a04ad60e511643f96fb13dbf0db",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/08-runtime.hex.txt",
-      "sha256": "67232cacc98ece513b8079d27c4607f59ba9f974e17a99e52d0fd63fe5db74d5",
-      "size": 47238
+      "sha256": "78c13dc34f0de6f245fcd278c3ef85b8f96d972ba2409fadb1bc18dcc86f087d",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/09-runtime.hex.txt",
-      "sha256": "ffe1286a61cca7ef91920dacc5d01290309d06bd870d4662bb711465cb352c11",
-      "size": 47238
+      "sha256": "3a9edc763b5ffb4cfc92782cc0e0b2b9b11972701a961a5002f3185163795d30",
+      "size": 47237
     },
     {
       "byte_mode": "raw",
       "media_type": "text/plain",
       "path": "derived/script-storage/10-runtime.hex.txt",
-      "sha256": "5f52494c0be39f950d6876171e1bd81bda67bb69bc0574ce8cba7409c53bfda3",
-      "size": 31420
+      "sha256": "e71eca9462de8729f594f278d635fddac0a1f202eb792c2535a879ef4c51adbd",
+      "size": 31419
     },
     {
       "byte_mode": "raw",
@@ -895,7 +895,7 @@
     "timestamp": "2026-08-23T09:33:11Z"
   },
   "hash_algorithm": "sha256",
-  "package_content_sha256": "sha256:d13987bb95bac11578eb6d53eeca7e70e43de0c695dd5dda9c30fe38be986510",
+  "package_content_sha256": "sha256:3f1e8ecff6c21059381d06284e892478f7de73996e9915c302ca20d6d03ccb1c",
   "record_id": "6529NM.2026.003.TECHNICAL-EVIDENCE-01",
   "schema": "6529-museum-technical-evidence-manifest-v1",
   "token_id": 210

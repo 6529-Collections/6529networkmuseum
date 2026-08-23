@@ -3926,7 +3926,7 @@ are retained under source-evidence manifest SHA-256
 `sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5`.
 The exact on-chain project scripts and runtime responses are retained in the
 technical evidence package, whose manifest SHA-256 is
-`sha256:d2f2767197d70f52d0870ca2eb8df30cc782a7905d6786ab2bf2a7cfe112a6cc`.
+`sha256:da5fb28d5c55bc0ae480bf76582e0f47d1db246f4cdd691aa1b2ae162e1d4ccb`.
 
 ### 2026-08-23 11:15 UTC - Vera source candidate ready for exact review
 
@@ -3940,3 +3940,21 @@ and Keccak
 `0x84d29232bbddfee5b9654bd584ffb12cfe78e1a3e833f140e3e085a8582c64e0`.
 The media manifest remains constructed and pending review until candidate A
 is committed. The next source mutation is the exact-review B transition.
+
+### 2026-08-23 11:48 UTC - Vera source candidate A2 sealed
+
+Independent registrar review confirmed the accession facts, transfer,
+finalized custody, title, rights, Stream-compatible envelopes, entity graph,
+and public media mapping. It also caught two publication-package defects: a
+raw-byte evidence manifest that did not survive Linux checkout and a stale
+visitor corpus bundle. The retained technical text files are now LF-stable;
+the evidence package can refresh its manifest from retained observations
+without another network acquisition; and the visitor bundle, Stream
+commitments, release manifest, and accession condition report have been
+regenerated. The corrected source candidate passes bootstrap validation, the
+full Museum validator, and the exact manifest check with release SHA-256
+`sha256:f197aa99627e150601156109ff90557463d1e899c5b046d97a20a0e7ad1bb476`
+and Keccak
+`0x8230d2915ab9e9ba0e4ac08afb13caae842d3bb5d4489fb69065fb33ae13a956`.
+The complete deterministic test suite and exact-candidate independent review
+are running in parallel.

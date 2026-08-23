@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd09cd8630df4c36546c059996728596466e241fe49acd496329a7adf08583127"
+      "digest": "0xa273922e6d18a99c29e260cd68274563dd1b18a5930ffe8daff99d934fe80cf4"
     },
     "effectiveAt": 1787478417,
     "recordType": "CONDITION_REPORT",
@@ -59,7 +59,7 @@
             "evidence_class": "A",
             "label": "On-chain project technical manifest",
             "observed_at": "2026-08-23T09:46:57.326Z",
-            "sha256": "sha256:d2f2767197d70f52d0870ca2eb8df30cc782a7905d6786ab2bf2a7cfe112a6cc",
+            "sha256": "sha256:da5fb28d5c55bc0ae480bf76582e0f47d1db246f4cdd691aa1b2ae162e1d4ccb",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/manifest.json"
           }
         ],
@@ -70,7 +70,7 @@
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "Pass with conditions: token identity, hash, finalized custody, and on-chain script match; service-layer metadata and runtime replay require dated captures.",
-    "payload_sha256": "sha256:0d6ad49d3708902257c2d5040026da85c1b7b860604859d9aefb1db811f0daf2",
+    "payload_sha256": "sha256:6b9612197e6f214f455a2a0fdac1b74a2ad664964ccd7f395640abcf291c55cd",
     "protocol_state": "ERC-721 non-static generative software; live browser renderer",
     "record_id": "6529NM.2026.003.COND.01",
     "record_status": "review_pending",
