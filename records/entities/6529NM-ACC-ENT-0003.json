@@ -1,0 +1,133 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x5c662bfc62ec6f39cce7881be74b9bf3f388218437b8085d97bb21b1ad075ca9"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xfeba4408ce9ac277b299e15535d36832d3a7a9810cc2180fe7802e8c0c0c7008",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ACC-ENT-0003.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "entity_id": "6529NM-ACC-ENT-0003",
+    "entity_status": "review_pending",
+    "entity_type": "ACCESSION",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Accession statement",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-statement.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:aad0a0e7ff85d41162197697ea8e96af1a5b8d97ed2975cedf21d1588106b34b",
+    "preferred_label": "Vera Molnár accession 6529NM.2026.003",
+    "profile": {
+      "accession_number": "6529NM.2026.003",
+      "accession_status": "complete",
+      "admitted_work_entity_ids": [
+        "6529NM-W-0029"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession statement",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-statement.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Finalized custody summary",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+        }
+      ],
+      "profile_type": "ACCESSION",
+      "source_accession_record_id": "6529NM.2026.003"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-ACC-ENT-0003",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-003",
+      "6529NM-W-0029",
+      "6529NM.2026.003",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-003",
+      "6529NM-W-0029",
+      "6529NM.2026.003",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "B",
+          "label": "Accession statement",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-statement.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Finalized custody summary",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+        }
+      ],
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ACC-ENT-0003",
+    "visibility": "public"
+  }
+}

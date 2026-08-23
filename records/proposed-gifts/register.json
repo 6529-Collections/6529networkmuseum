@@ -1,12 +1,12 @@
 {
   "$schema": "../../schemas/proposed-gift-register.schema.json",
   "record_control": {
-    "revision": 2,
+    "revision": 3,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:019fd2d4-e37e-7a10-be08-6c5a048cb80f",
+      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
       "role": "constructor",
-      "constructed_at": "2026-08-08T10:15:02.0167151Z"
+      "constructed_at": "2026-08-23T09:46:57.326Z"
     },
     "review": null
   },
@@ -19,10 +19,19 @@
       "prior_source_commit": "4821ea52e4cb8e0f0915824fbc2946ec0f6313b8",
       "prior_snapshot_path": "records/proposed-gifts/6529NM-PG-2026-001/history/revision-1-register.json.snapshot",
       "reason": "Superseded the revision-one proposed-gift register snapshot with the current authenticated Museum Wave selection projection; no formal acceptance or Collection membership is recorded."
+    },
+    {
+      "revision": 2,
+      "superseded_at": "2026-08-23T09:46:57.326Z",
+      "supersedes": "sha256:d0a75cc1c1778a6eceb97827d6d8bb40ed0f4eef86c77de3051d692e46170224",
+      "prior_payload_sha256": "sha256:d0a75cc1c1778a6eceb97827d6d8bb40ed0f4eef86c77de3051d692e46170224",
+      "prior_source_commit": "36ac78a1172327dab5ba55f7b8f96d6d45dc5d85",
+      "prior_snapshot_path": "records/proposed-gifts/6529NM-PG-2026-002/history/revision-2-register.json.snapshot",
+      "reason": "Appended the selected proposal for the full gift of Themes and Variations #210. Formal acceptance and accession remain recorded in the accession register rather than inferred from this proposal register."
     }
   ],
   "register_id": "6529NM-PROPOSED-GIFT-REGISTER",
-  "snapshot_at": "2026-08-08T10:15:02.0167151Z",
+  "snapshot_at": "2026-08-23T09:46:57.326Z",
   "proposals": [
     {
       "proposal_id": "6529NM-PG-2026-001",
@@ -31,6 +40,16 @@
       "object_count": 5,
       "donor_public_credit": "Offered by punk6529",
       "proposal_record": "6529NM-PG-2026-001/proposal.json",
+      "wave_status": "selected",
+      "collection_status_effect": "none_until_later_formal_acceptance_and_accession"
+    },
+    {
+      "proposal_id": "6529NM-PG-2026-002",
+      "title": "Proposed gift: Vera Molnár, Themes and Variations #210",
+      "status": "selected",
+      "object_count": 1,
+      "donor_public_credit": "Gift of punk6529",
+      "proposal_record": "6529NM-PG-2026-002/proposal.json",
       "wave_status": "selected",
       "collection_status_effect": "none_until_later_formal_acceptance_and_accession"
     }

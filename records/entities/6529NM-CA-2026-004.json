@@ -1,0 +1,321 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xeb40dc5d13c960684d2080989425d47544a2f40362ee0260ab41e1c80e1a2c95"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xfef64694037affbbaca22f93bcf32eebe2a315db21261424f1c47115fc3f9f56",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-CA-2026-004.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/a-gift-of-themes-and-variations-210",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "entity_id": "6529NM-CA-2026-004",
+    "entity_status": "review_pending",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Curatorial accession review",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/curatorial-accession-review.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Gift acceptance authorization",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Accession certificate",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:4a0e91f22dde1bd31638cb64ff9024196e31690729cd8294b4d6e5b3caca6b2c",
+    "preferred_label": "A Gift of Themes and Variations #210",
+    "profile": {
+      "acquisition_method": "donation",
+      "collection_effect": "permanent_collection",
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Curatorial accession review",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/curatorial-accession-review.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Gift acceptance authorization",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized custody summary",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+            }
+          ],
+          "notes": "Finalized Ethereum evidence records receipt by the Museum custody address.",
+          "status": "verified"
+        },
+        "display": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Web presentation authority",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/public/web-presentation-authority.md"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Rights statement",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json"
+            }
+          ],
+          "notes": "The Museum may show the credited work in a noncommercial institutional context under the recorded licence boundary.",
+          "status": "verified_with_conditions"
+        },
+        "mint": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "On-chain technical evidence",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+            }
+          ],
+          "notes": "The token was minted before the Museum received it; minting and donation are separate facts.",
+          "status": "verified"
+        },
+        "payment": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Gift acceptance authorization",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+            }
+          ],
+          "notes": "The work entered the Museum as an intentional gift.",
+          "status": "not_applicable"
+        },
+        "preservation": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Source-evidence manifest",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Presentation manifest",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/public/presentation-manifest.json"
+            }
+          ],
+          "notes": "The Museum retains source responses and presentation derivatives; ongoing care includes repeated runtime capture and format review.",
+          "status": "in_progress"
+        },
+        "rights": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Rights statement",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json"
+            }
+          ],
+          "notes": "The source records CC BY-NC 4.0. Museum publication and display follow that licence and its attribution and noncommercial conditions.",
+          "status": "verified_with_conditions"
+        },
+        "technical": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Technical and condition record",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json"
+            },
+            {
+              "evidence_class": "A",
+              "label": "On-chain technical evidence",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+            }
+          ],
+          "notes": "The contract, token hash, project state, scripts, and runtime were recorded at the finalized block; service endpoints and browser behavior remain dated observations.",
+          "status": "verified_with_conditions"
+        },
+        "title": {
+          "as_of": "2026-08-23T09:46:57.326Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+            }
+          ],
+          "notes": "The accession certificate records the Museum's title to the donated token interest; copyright remains a separate matter.",
+          "status": "verified"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-08-23T09:46:57.326Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Accession certificate",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+          },
+          {
+            "evidence_class": "B",
+            "label": "Gift acceptance authorization",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+          }
+        ],
+        "status": "accessioned_into_permanent_collection"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Gift acceptance authorization",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+            },
+            {
+              "evidence_class": "B",
+              "label": "Accession certificate",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+            }
+          ],
+          "notes": "The gift was accepted, received, and accessioned into the permanent Collection.",
+          "observation_id": "6529NM-CA-OBS-0005",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-003",
+            "6529NM.2026.003.GAA-01"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned_into_permanent_collection"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [
+          "6529NM-AP-ENT-0001"
+        ],
+        "kind": "acquisition_program",
+        "source_record_ids": [
+          "6529NM.2026.003.GAA-01",
+          "6529NM-GOV-1052812"
+        ]
+      },
+      "public_credit": "Gift of punk6529",
+      "source_work_record_ids": [
+        "6529NM.2026.003.01"
+      ],
+      "thesis": "The Museum's gift acquisition of one Themes and Variations output places Vera Molnár and Martin Grasser's shared system in the permanent Collection. The accession preserves the work as both a visual composition and a live, rule-based software object.",
+      "title": "A Gift of Themes and Variations #210",
+      "work_entity_ids": [
+        "6529NM-W-0029"
+      ]
+    },
+    "public_slug": "a-gift-of-themes-and-variations-210",
+    "record_id": "6529NM-CA-2026-004",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-003",
+      "6529NM-ACC-ENT-0003",
+      "6529NM-AP-ENT-0001",
+      "6529NM-PG-2026-002",
+      "6529NM-W-0029",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-003",
+      "6529NM-ACC-ENT-0003",
+      "6529NM-AP-ENT-0001",
+      "6529NM-PG-2026-002",
+      "6529NM-W-0029",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Curatorial accession review",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/curatorial-accession-review.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Gift acceptance authorization",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Accession certificate",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-certificate.json"
+        }
+      ],
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-CA-2026-004",
+    "visibility": "public"
+  }
+}

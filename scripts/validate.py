@@ -1727,25 +1727,44 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
         if source_status == "PARTICIPATORY" and decision_status == "adopted":
             issues.append("governance evidence: PARTICIPATORY cannot be recorded as adopted")
     if record_type == "WAVE_STATUS_OBSERVATION":
-        expected = {
-            "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
-            "proposal_id": "6529NM-PG-2026-001",
-            "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
-            "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
-            "serial_no": 1276093,
-            "signed": True,
-            "drop_type": "WINNER",
-            "source_status": "WINNER",
-            "rating": 121603214,
-            "realtime_rating": 121603214,
-            "rater_count": 29,
-            "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+        expected_observations = {
+            "6529NM-WAVE-OBS-2026-08-08-001": {
+                "proposal_id": "6529NM-PG-2026-001",
+                "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+                "drop_id": "002bfa4f-8416-48bf-b35e-38f354e9a9f0",
+                "serial_no": 1276093,
+                "signed": True,
+                "drop_type": "WINNER",
+                "source_status": "WINNER",
+                "rating": 121603214,
+                "realtime_rating": 121603214,
+                "rater_count": 29,
+                "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+            },
+            "6529NM-WAVE-OBS-2026-08-23-002": {
+                "proposal_id": "6529NM-PG-2026-002",
+                "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+                "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+                "serial_no": 1296797,
+                "signed": True,
+                "drop_type": "WINNER",
+                "source_status": "WINNER",
+                "rating": 140257872,
+                "realtime_rating": 140257872,
+                "rater_count": 23,
+                "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+            },
         }
+        observation_id = payload.get("observation_id")
+        expected = expected_observations.get(observation_id)
+        if expected is None:
+            issues.append("WAVE_STATUS_OBSERVATION.observation_id is not in the governed exact-readback inventory")
+            expected = {}
         for key, value in expected.items():
             if payload.get(key) != value:
                 issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the signed-drop API WINNER status readback")
         prior = payload.get("prior_observation") if isinstance(payload.get("prior_observation"), dict) else {}
-        if prior.get("source_status") != "PARTICIPATORY" or prior.get("source_record_id") != "6529NM-PG-2026-001":
+        if prior.get("source_status") != "PARTICIPATORY" or prior.get("source_record_id") != payload.get("proposal_id"):
             issues.append("WAVE_STATUS_OBSERVATION must retain the earlier PARTICIPATORY proposal observation")
         if payload.get("observation_method") != "signed_drop_api_readback":
             issues.append("WAVE_STATUS_OBSERVATION must use the precise signed_drop_api_readback method")

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xd09cd8630df4c36546c059996728596466e241fe49acd496329a7adf08583127"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "CONDITION_REPORT",
+    "schemaId": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xe489749b7133f6a25854fffde467e9e16c05351dc4e7471540bc24dfce2b4bfe",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json"
+  },
+  "payload": {
+    "assessments": {
+      "behavior": "amber",
+      "dependencies": "green",
+      "documentation": "amber",
+      "metadata": "amber",
+      "rendering": "amber",
+      "script": "green",
+      "token": "green"
+    },
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:46:57.326Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "events": [
+      {
+        "authority_reference": "6529NM-ACC-2026-003",
+        "event_id": "6529NM.2026.003.COND.01.EVENT.condition_assessment.25816984",
+        "event_type": "condition_assessment",
+        "evidence_refs": [
+          {
+            "evidence_class": "A",
+            "label": "Finalized custody summary",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "sha256": "sha256:a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+          },
+          {
+            "evidence_class": "A",
+            "label": "Official source-evidence manifest",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+          },
+          {
+            "evidence_class": "A",
+            "label": "On-chain project technical manifest",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "sha256": "sha256:d2f2767197d70f52d0870ca2eb8df30cc782a7905d6786ab2bf2a7cfe112a6cc",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/manifest.json"
+          }
+        ],
+        "occurred_at": "2026-08-23T09:46:57.326Z"
+      }
+    ],
+    "method": "Reviewed exact token, source manifest, receipt, finalized owner, metadata, generator, and PNG observations.",
+    "object_id": "6529NM.2026.003.01",
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "outcome": "Pass with conditions: token identity, hash, finalized custody, and on-chain script match; service-layer metadata and runtime replay require dated captures.",
+    "payload_sha256": "sha256:0d6ad49d3708902257c2d5040026da85c1b7b860604859d9aefb1db811f0daf2",
+    "protocol_state": "ERC-721 non-static generative software; live browser renderer",
+    "record_id": "6529NM.2026.003.COND.01",
+    "record_status": "review_pending",
+    "record_type": "CONDITION_REPORT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM.2026.003",
+      "6529NM.2026.003.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-002",
+        "6529NM.2026.003.01"
+      ]
+    },
+    "subject_id": "6529NM.2026.003.COND.01",
+    "visibility": "public"
+  }
+}

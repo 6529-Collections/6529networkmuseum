@@ -1,0 +1,73 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0ec95a06cd387c990ce94c4c2412d7979fb78af4fc657312646f7360cfdf8140"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x6bab7b5ef4a83dc1dd839c764177de446e1fb492bc97e51640b52aed56087672",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0231.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Themes and Variations project context",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md"
+      },
+      {
+        "evidence_class": "A",
+        "label": "On-chain project evidence",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "payload_sha256": "sha256:8d2a1c5190f1b9a8af96903f1ebc3b24da39ba43b386ef8dc538f3920c82e2b6",
+    "qualifier": {
+      "scope": "source_project"
+    },
+    "record_id": "6529NM-REL-0231",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PRJ-0007",
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.COND.01"
+    ],
+    "relation_id": "6529NM-REL-0231",
+    "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-PRJ-0007",
+    "source_record_ids": [
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.COND.01"
+    ],
+    "subject_id": "6529NM-REL-0231",
+    "target_entity_id": "6529NM-W-0029",
+    "visibility": "public"
+  }
+}

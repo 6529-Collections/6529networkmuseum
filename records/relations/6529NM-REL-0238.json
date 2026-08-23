@@ -1,0 +1,67 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xee4251da8ca8fcb3e16c000d3ef711229dcc007efb1ff35734caf3bc90dc22e1"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x52a3475376d5a1a285894b1004ec57744eed1fcbc9c02b37395a15d5088292ec",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0238.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Vera Molnár project credit",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "payload_sha256": "sha256:36725e7e7fffb4908636df6aa6405f3abd12921c3ba14c2beade396d33fcb166",
+    "qualifier": {
+      "role": "creator"
+    },
+    "record_id": "6529NM-REL-0238",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0022",
+      "6529NM-PG-2026-002",
+      "6529NM-PRJ-0007",
+      "6529NM.2026.003.01"
+    ],
+    "relation_id": "6529NM-REL-0238",
+    "relation_type": "AGENT_PLAYS_ROLE",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-ART-0022",
+    "source_record_ids": [
+      "6529NM-PG-2026-002",
+      "6529NM.2026.003.01"
+    ],
+    "subject_id": "6529NM-REL-0238",
+    "target_entity_id": "6529NM-PRJ-0007",
+    "visibility": "public"
+  }
+}

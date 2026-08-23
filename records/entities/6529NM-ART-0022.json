@@ -1,0 +1,147 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xe1b28cd67caf823fad2b6cce282733a503c4869324639ef3dc5ed5b30b0d8d49"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x0453426b757deee27e087b3a50d4c438e53130fbefebdc51ee5940b007195f21",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0022.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/vera-molnar",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "entity_id": "6529NM-ART-0022",
+    "entity_status": "review_pending",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Vera Molnár artist profile",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md"
+      },
+      {
+        "evidence_class": "E",
+        "label": "Vera Molnár source and chronology",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:467a4c7d17cdf1aa9734741f3d7afb2c7555632fbc768ef1e99eb801bee6b1a0",
+    "preferred_label": "Vera Molnár",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [],
+        "authority_status": "established",
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "Vera Molnár artist profile",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md"
+          },
+          {
+            "evidence_class": "E",
+            "label": "Vera Molnár source and chronology",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Name source",
+              "observed_at": "2026-08-23T09:46:57.326Z",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/proposal.json"
+            }
+          ],
+          "source_kind": "proposal",
+          "value": "Vera Molnár",
+          "variant_role": "preferred"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "geometric abstraction",
+          "computer art",
+          "plotter drawing",
+          "generative systems"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "Vera Molnár artist profile",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md"
+          },
+          {
+            "evidence_class": "E",
+            "label": "Vera Molnár source and chronology",
+            "observed_at": "2026-08-23T09:46:57.326Z",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md"
+          }
+        ],
+        "summary": "Vera Molnár made geometric abstraction through drawing, plotting, and code. She used rules to set a field in motion, then allowed repetition, error, and variation to alter what the system could produce."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "vera-molnar",
+    "record_id": "6529NM-ART-0022",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-002",
+      "6529NM.2026.003.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-PG-2026-002",
+      "6529NM.2026.003.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Vera Molnár artist profile",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md"
+        },
+        {
+          "evidence_class": "E",
+          "label": "Vera Molnár source and chronology",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md"
+        }
+      ],
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ART-0022",
+    "visibility": "public"
+  }
+}

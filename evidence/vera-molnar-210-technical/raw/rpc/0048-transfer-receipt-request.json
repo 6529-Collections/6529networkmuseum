@@ -1,0 +1,1 @@
+{"id":"transfer-receipt","jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd"]}

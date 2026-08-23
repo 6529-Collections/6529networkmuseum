@@ -1,0 +1,405 @@
+{
+  "accession_id": "6529NM.2026.003",
+  "assertions": {
+    "live_generator_url_is_recorded_from_official_metadata": true,
+    "official_metadata_matches_exact_object": true,
+    "wave_cover_matches_official_preview_bytes": true,
+    "wave_decision_is_winner": true
+  },
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/token-metadata.json",
+      "sha256": "0e513d3982144bfbc2bf8f3a7890086a3f34566927c62581d4f74370deba8409",
+      "size": 3676,
+      "source_id": "token-metadata",
+      "transport": {
+        "address_set": [
+          "104.26.0.141",
+          "104.26.1.141",
+          "172.67.72.54"
+        ],
+        "address_set_sha256": "670e2a41c407cd4be1491343b33f179abb0a740c5a2876625a4dcd6789875e35",
+        "byte_length": 3676,
+        "byte_sha256": "0e513d3982144bfbc2bf8f3a7890086a3f34566927c62581d4f74370deba8409",
+        "canonical_url": "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+        "hops": [
+          {
+            "address_set": [
+              "104.26.0.141",
+              "104.26.1.141",
+              "172.67.72.54"
+            ],
+            "address_set_sha256": "670e2a41c407cd4be1491343b33f179abb0a740c5a2876625a4dcd6789875e35",
+            "byte_length": 167,
+            "canonical_url": "https://token.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+            "media_type": "text/html",
+            "observed_at": "2026-08-23T09:40:19.066Z",
+            "peer_ip": "104.26.0.141",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=UTF-8"
+              ],
+              [
+                "location",
+                "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+              ]
+            ],
+            "selected_ip": "104.26.0.141",
+            "status": 301
+          },
+          {
+            "address_set": [
+              "104.26.0.141",
+              "104.26.1.141",
+              "172.67.72.54"
+            ],
+            "address_set_sha256": "670e2a41c407cd4be1491343b33f179abb0a740c5a2876625a4dcd6789875e35",
+            "byte_length": 3676,
+            "canonical_url": "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+            "media_type": "application/json",
+            "observed_at": "2026-08-23T09:40:19.158Z",
+            "peer_ip": "104.26.0.141",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.26.0.141",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-23T09:40:19.158Z",
+        "peer_ip": "104.26.0.141",
+        "redirect_chain": [
+          "https://token.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+          "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.26.0.141",
+        "status": 200
+      },
+      "url": "https://token.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/official-preview.png",
+      "sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+      "size": 330363,
+      "source_id": "official-preview",
+      "transport": {
+        "address_set": [
+          "16.15.183.51",
+          "16.15.207.215",
+          "16.15.213.190",
+          "16.15.236.155",
+          "16.182.65.177",
+          "52.216.24.108",
+          "52.217.78.100",
+          "52.217.231.121"
+        ],
+        "address_set_sha256": "0093c209dad6e1aebf84710830bf79ab4c7018cc4ee33b94194350555f6770d4",
+        "byte_length": 330363,
+        "byte_sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+        "canonical_url": "https://sothebys-gen-art-mainnet.s3.amazonaws.com/210.png",
+        "hops": [
+          {
+            "address_set": [
+              "104.26.0.141",
+              "104.26.1.141",
+              "172.67.72.54"
+            ],
+            "address_set_sha256": "670e2a41c407cd4be1491343b33f179abb0a740c5a2876625a4dcd6789875e35",
+            "byte_length": 167,
+            "canonical_url": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+            "media_type": "text/html",
+            "observed_at": "2026-08-23T09:40:21.638Z",
+            "peer_ip": "104.26.0.141",
+            "response_headers": [
+              [
+                "content-type",
+                "text/html; charset=UTF-8"
+              ],
+              [
+                "location",
+                "https://core-api.artblocks.io/media/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
+              ]
+            ],
+            "selected_ip": "104.26.0.141",
+            "status": 301
+          },
+          {
+            "address_set": [
+              "104.26.0.141",
+              "104.26.1.141",
+              "172.67.72.54"
+            ],
+            "address_set_sha256": "670e2a41c407cd4be1491343b33f179abb0a740c5a2876625a4dcd6789875e35",
+            "byte_length": 0,
+            "canonical_url": "https://core-api.artblocks.io/media/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+            "media_type": "text/plain",
+            "observed_at": "2026-08-23T09:40:21.729Z",
+            "peer_ip": "104.26.0.141",
+            "response_headers": [
+              [
+                "content-type",
+                "text/plain;charset=UTF-8"
+              ],
+              [
+                "location",
+                "https://sothebys-gen-art-mainnet.s3.amazonaws.com/210.png"
+              ]
+            ],
+            "selected_ip": "104.26.0.141",
+            "status": 302
+          },
+          {
+            "address_set": [
+              "16.15.183.51",
+              "16.15.207.215",
+              "16.15.213.190",
+              "16.15.236.155",
+              "16.182.65.177",
+              "52.216.24.108",
+              "52.217.78.100",
+              "52.217.231.121"
+            ],
+            "address_set_sha256": "0093c209dad6e1aebf84710830bf79ab4c7018cc4ee33b94194350555f6770d4",
+            "byte_length": 330363,
+            "canonical_url": "https://sothebys-gen-art-mainnet.s3.amazonaws.com/210.png",
+            "media_type": "image/png",
+            "observed_at": "2026-08-23T09:40:21.844Z",
+            "peer_ip": "16.15.183.51",
+            "response_headers": [
+              [
+                "content-type",
+                "image/png"
+              ],
+              [
+                "content-length",
+                "330363"
+              ]
+            ],
+            "selected_ip": "16.15.183.51",
+            "status": 200
+          }
+        ],
+        "media_type": "image/png",
+        "observed_at": "2026-08-23T09:40:21.844Z",
+        "peer_ip": "16.15.183.51",
+        "redirect_chain": [
+          "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+          "https://core-api.artblocks.io/media/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+          "https://sothebys-gen-art-mainnet.s3.amazonaws.com/210.png"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "image/png"
+          ],
+          [
+            "content-length",
+            "330363"
+          ]
+        ],
+        "selected_ip": "16.15.183.51",
+        "status": 200
+      },
+      "url": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave-drop.json",
+      "sha256": "bdcc595b21a984bfd88157b5498e7c624e68655ffaebbe2b1e725686f15227c3",
+      "size": 35432,
+      "source_id": "wave-drop",
+      "transport": {
+        "address_set": [
+          "34.235.210.130",
+          "44.218.222.181",
+          "100.56.128.98"
+        ],
+        "address_set_sha256": "030b0dd65c474901f7deab84995cd476581466b7de67c0a6a61a266665efc760",
+        "byte_length": 35432,
+        "byte_sha256": "bdcc595b21a984bfd88157b5498e7c624e68655ffaebbe2b1e725686f15227c3",
+        "canonical_url": "https://api.6529.io/api/drops/d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+        "hops": [
+          {
+            "address_set": [
+              "34.235.210.130",
+              "44.218.222.181",
+              "100.56.128.98"
+            ],
+            "address_set_sha256": "030b0dd65c474901f7deab84995cd476581466b7de67c0a6a61a266665efc760",
+            "byte_length": 35432,
+            "canonical_url": "https://api.6529.io/api/drops/d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+            "media_type": "application/json",
+            "observed_at": "2026-08-23T09:40:23.185Z",
+            "peer_ip": "34.235.210.130",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "35432"
+              ]
+            ],
+            "selected_ip": "34.235.210.130",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-08-23T09:40:23.185Z",
+        "peer_ip": "34.235.210.130",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "35432"
+          ]
+        ],
+        "selected_ip": "34.235.210.130",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/drops/d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/wave-cover.png",
+      "sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+      "size": 330363,
+      "source_id": "wave-cover",
+      "transport": {
+        "address_set": [
+          "3.170.43.19",
+          "3.170.43.74",
+          "3.170.43.150",
+          "3.170.43.185"
+        ],
+        "address_set_sha256": "e5501e6f9eda77af8f44277c8475893426a5d9b4271c7a269d1f35f46627622f",
+        "byte_length": 330363,
+        "byte_sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+        "canonical_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png",
+        "hops": [
+          {
+            "address_set": [
+              "3.170.43.19",
+              "3.170.43.74",
+              "3.170.43.150",
+              "3.170.43.185"
+            ],
+            "address_set_sha256": "e5501e6f9eda77af8f44277c8475893426a5d9b4271c7a269d1f35f46627622f",
+            "byte_length": 330363,
+            "canonical_url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png",
+            "media_type": "image/png",
+            "observed_at": "2026-08-23T09:40:24.819Z",
+            "peer_ip": "3.170.43.19",
+            "response_headers": [
+              [
+                "content-type",
+                "image/png"
+              ],
+              [
+                "content-length",
+                "330363"
+              ]
+            ],
+            "selected_ip": "3.170.43.19",
+            "status": 200
+          }
+        ],
+        "media_type": "image/png",
+        "observed_at": "2026-08-23T09:40:24.819Z",
+        "peer_ip": "3.170.43.19",
+        "redirect_chain": [
+          "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "image/png"
+          ],
+          [
+            "content-length",
+            "330363"
+          ]
+        ],
+        "selected_ip": "3.170.43.19",
+        "status": 200
+      },
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png"
+    }
+  ],
+  "limitations": [
+    "These are point-in-time public-source responses and do not establish legal title or copyright ownership.",
+    "Active generator HTML is not retained in this public package. The exact on-chain scripts are captured separately in the technical evidence package; service-exit reconstruction remains preservation work."
+  ],
+  "media": {
+    "byte_identical": true,
+    "official_preview": {
+      "height": 2400,
+      "mode": "RGBA",
+      "width": 2400
+    },
+    "sha256": "sha256:c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+    "wave_cover": {
+      "height": 2400,
+      "mode": "RGBA",
+      "width": 2400
+    }
+  },
+  "object": {
+    "artist_credit": "Vera Molnár, in collaboration with Martin Grasser",
+    "authenticity_signature": "0xdbc429acd6e4ff740768cc295a88aca1f1c508bc53bf365af3627bea89dc67e00a22417661ab8e50c4c0b1e0cf6a8b9d48cf0581bb261552a1a11c12ac07622c1c",
+    "caip19": "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+    "engine_type": "flex",
+    "features": {
+      "Grid": "6x6",
+      "Letters": "NFT",
+      "Palette": "b #00188D, b #F3F0E9",
+      "Vera Letter": "F bold"
+    },
+    "is_static": false,
+    "license": "CC BY-NC 4.0",
+    "name": "Themes and Variations #210",
+    "token_hash": "0xd0a3be9aa1a3e101a12ec038ceb71a18846dbc62eac3e91fb425232e7820a318"
+  },
+  "object_id": "6529NM.2026.003.01",
+  "observed_at": "2026-08-23T09:40:25.465Z",
+  "record_id": "6529NM.2026.003.SOURCE-EVIDENCE-01",
+  "record_type": "DIGITAL_ART_SOURCE_OBSERVATION",
+  "wave": {
+    "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+    "serial_no": 1296797,
+    "status": "WINNER",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+  }
+}

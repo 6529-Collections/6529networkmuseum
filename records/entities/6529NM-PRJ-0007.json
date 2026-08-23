@@ -1,0 +1,135 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x3af28e3ef8ef76f7283c959527cdf5447f44114c37d28b383bd66370821c0aef"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xdfc152db84e00119e11b5cd7e93969e40ad83fdcd6ef2a57f9bb13ffc00a6d67",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-PRJ-0007.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/projects/themes-and-variations",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "entity_id": "6529NM-PRJ-0007",
+    "entity_status": "review_pending",
+    "entity_type": "PROJECT_OR_SERIES",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Themes and Variations project record",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md"
+      },
+      {
+        "evidence_class": "A",
+        "label": "On-chain project evidence",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:233214a863fccef9269079ec7ad3c0461f44e7c0f96b269fa9977f9330e3725d",
+    "preferred_label": "Themes and Variations",
+    "profile": {
+      "agent_entity_ids": [
+        "6529NM-ART-0022",
+        "6529NM-ART-0023"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Themes and Variations project record",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md"
+        },
+        {
+          "evidence_class": "A",
+          "label": "Token metadata",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/raw/token-metadata.json"
+        },
+        {
+          "evidence_class": "A",
+          "label": "On-chain project evidence",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+        }
+      ],
+      "ownership_boundary": "The project is the artists' work and its publishing context. The Museum holds one tokenized output through a separate gift accession.",
+      "profile_type": "PROJECT_OR_SERIES",
+      "project_relation_basis": "source_project_record",
+      "project_type": "project",
+      "scope_statement": "Themes and Variations is a generative project by Vera Molnár and Martin Grasser. A fixed edition of 500 Ethereum tokens combines a letter, a grid, and a limited palette through a shared set of rules; each token records one distinct output.",
+      "source_record_ids": [
+        "6529NM-PG-2026-002",
+        "6529NM.2026.003.01",
+        "6529NM.2026.003.COND.01"
+      ],
+      "work_entity_ids": [
+        "6529NM-W-0029"
+      ]
+    },
+    "public_slug": "themes-and-variations",
+    "record_id": "6529NM-PRJ-0007",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ART-0022",
+      "6529NM-ART-0023",
+      "6529NM-PG-2026-002",
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.COND.01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ART-0022",
+      "6529NM-ART-0023",
+      "6529NM-PG-2026-002",
+      "6529NM-W-0029",
+      "6529NM.2026.003.01",
+      "6529NM.2026.003.COND.01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Themes and Variations project record",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md"
+        },
+        {
+          "evidence_class": "A",
+          "label": "On-chain project evidence",
+          "observed_at": "2026-08-23T09:46:57.326Z",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-technical/summary.json"
+        }
+      ],
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-PRJ-0007",
+    "visibility": "public"
+  }
+}

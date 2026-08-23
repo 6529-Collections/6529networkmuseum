@@ -1,0 +1,193 @@
+{
+  "$schema": "../../../schemas/proposed-gift.schema.json",
+  "record_control": {
+    "revision": 1,
+    "record_status": "constructed",
+    "constructor": {
+      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
+      "role": "constructor",
+      "constructed_at": "2026-08-23T09:46:57.326Z"
+    },
+    "review": null
+  },
+  "record_type": "PROPOSED_GIFT",
+  "schema_profile": "6529NM_PROPOSED_GIFT_V1",
+  "proposal_id": "6529NM-PG-2026-002",
+  "title": "Proposed gift: Vera Molnár, Themes and Variations #210",
+  "subtitle": "A single tokenized generative work from the 2023 project",
+  "status": "selected",
+  "status_as_of": "2026-08-23T09:40:25.465Z",
+  "offer": {
+    "donor_public_credit": "Gift of punk6529",
+    "acquisition_method": "donation",
+    "scope": "full_gift",
+    "object_count": 1,
+    "decision_unit": "exact_group",
+    "conditions": []
+  },
+  "preapproval": {
+    "collection_name": "Art Blocks collections",
+    "collection_preapproved": true,
+    "register_path": "records/collections/approved-collections.json",
+    "checked_at": "2026-08-23T09:46:57.326Z",
+    "policy_consequence": "The adopted Art Blocks donation pathway removes collection-specific pre-authorization only; exact project, contract, token identity, donor authority, title, rights, technical, condition, preservation, and accession evidence remain required."
+  },
+  "wave_authority": {
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "wave_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_type": "APPROVE",
+    "credit_type": "TDH",
+    "credit_scope": "DROP",
+    "winning_threshold": 69000000,
+    "winning_threshold_min_duration_ms": 86400000,
+    "observed_at": "2026-08-23T09:40:25.465Z",
+    "proposal_drop": {
+      "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+      "serial_no": 1296797,
+      "status": "WINNER",
+      "status_observed_at": "2026-08-23T09:40:25.465Z"
+    }
+  },
+  "contract_observation": {
+    "block_number": 25816984,
+    "block_hash": "0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5",
+    "block_timestamp": "2026-08-23T09:33:11Z",
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "contract_owner": null,
+    "admins": [],
+    "implementation": null,
+    "proxy_upgrade_path": "not_observed_in_current_package",
+    "token_uri_mutability": "not_observed_in_current_package",
+    "extensions": [],
+    "royalty_amount_at_10000": null
+  },
+  "resolution": {
+    "question": "Should the 6529 Network Museum select exactly Themes and Variations #210, token 210 in the stated Ethereum contract, as a proposed gift for the permanent Collection?",
+    "threshold_cleared_effect": "gift_selected",
+    "threshold_not_cleared_effect": "proposal_closes_without_selection",
+    "later_required_events": [
+      "identity_verification",
+      "donor_authority",
+      "title_review",
+      "rights_review",
+      "technical_review",
+      "transfer",
+      "custody_receipt",
+      "formal_acceptance",
+      "preservation",
+      "accession"
+    ]
+  },
+  "objects": [
+    {
+      "candidate_object_id": "6529NM-PG-2026-002.OBJ-001",
+      "caip19": "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+      "chain_id": "eip155:1",
+      "contract": "0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d",
+      "token_id": "210",
+      "artist": "Vera Molnár, in collaboration with Martin Grasser",
+      "title": "Themes and Variations #210",
+      "date": 2023,
+      "location": "Ethereum mainnet / Art Blocks and Sotheby's Gen Art",
+      "country": null,
+      "archive_number": "Art Blocks token 210",
+      "source_notes": [
+        "The official token metadata identifies the work, artist credit, token hash, Flex engine, non-static status, features, and CC BY-NC 4.0 label.",
+        "The retained generator response binds the exact token ID and token hash; its served HTML is evidence of the observed manifestation, not a complete preservation package.",
+        "The Wave WINNER selects this exact candidate; it does not by itself establish copyright ownership or unrestricted reproduction rights."
+      ],
+      "edition": "1 of 1",
+      "curation": "3/3",
+      "metadata": {
+        "uri": "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+        "sha256": "sha256:0e513d3982144bfbc2bf8f3a7890086a3f34566927c62581d4f74370deba8409",
+        "bytes": 3676,
+        "observed_at": "2026-08-23T09:40:19.158Z"
+      },
+      "image": {
+        "uri": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png",
+        "sha256": "sha256:c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+        "bytes": 330363,
+        "observed_at": "2026-08-23T09:40:21.844Z",
+        "media_type": "image/png",
+        "width": 2400,
+        "height": 2400,
+        "preservation_status": "retained_in_museum_evidence_package"
+      },
+      "rights": {
+        "copyright_notice": "Vera Molnár, in collaboration with Martin Grasser",
+        "license": "CC BY-NC 4.0",
+        "copyright_holder": "Vera Molnár and Martin Grasser; exact legal rights-holder chain remains under review",
+        "token_transfer_rights_effect": "no_copyright_or_reproduction_grant_asserted"
+      },
+      "provenance": {
+        "transfers": [
+          {
+            "role": "mint",
+            "tx_hash": "0x6838200beb692a066e6a9cc0fd83e06ef58aecb716ce75423c4331270ffaaaa8",
+            "block_number": 17778260,
+            "from": "0x0000000000000000000000000000000000000000",
+            "to": "0x061600d3515b387d562504eed5a1a485f9ae0ee4",
+            "receipt_status": "success"
+          },
+          {
+            "role": "secondary_transfer",
+            "tx_hash": "0x137dfa137b08d7354107ecd13eab8d27da81a461925f7253e42be3af1e62fa5e",
+            "block_number": 17784550,
+            "from": "0x061600d3515b387d562504eed5a1a485f9ae0ee4",
+            "to": "0xac6fd50bf975ac144b5a58bb4fae0fd64308c8aa",
+            "receipt_status": "success"
+          },
+          {
+            "role": "secondary_transfer",
+            "tx_hash": "0xf4bc7b31ea60c8aea19084d40e0715fd96030c77cf170f75784ee17b598dbf2b",
+            "block_number": 17784944,
+            "from": "0xac6fd50bf975ac144b5a58bb4fae0fd64308c8aa",
+            "to": "0xe564d9afc3e8d7ddc99912dbc5db58925b414024",
+            "receipt_status": "success"
+          },
+          {
+            "role": "donor_acquisition",
+            "tx_hash": "0x214abec0fbe817a27dffe0900ccb3dff2c47d75cc34dc61dac4b27e8b9b8f50d",
+            "block_number": 25747940,
+            "from": "0xe564d9afc3e8d7ddc99912dbc5db58925b414024",
+            "to": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "receipt_status": "success"
+          },
+          {
+            "role": "museum_receipt",
+            "tx_hash": "0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd",
+            "block_number": 25816958,
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "receipt_status": "success"
+          }
+        ]
+      },
+      "chain_observation": {
+        "status": "verified_at_finalized_block",
+        "block_number": 25816984,
+        "block_hash": "0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "token_uri": "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+        "approval": "0x0000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "documents": {
+    "voter_dossier": "records/proposed-gifts/6529NM-PG-2026-002/public/voter-dossier.md",
+    "wave_storm_package": "records/proposed-gifts/6529NM-PG-2026-002/wave-storm.json",
+    "wave_resolution": "records/proposed-gifts/6529NM-PG-2026-002/public/wave-resolution.md"
+  },
+  "rights_summary": "The retained official metadata labels the project CC BY-NC 4.0. The Museum records that label as source evidence, not as a complete legal determination: the exact licensor, scope, attribution, notice, preservation, migration, accessibility, exhibition, catalogue, and website consequences remain documented with conditions in the rights statement.",
+  "technical_summary": "The exact ERC-721 identity, token hash, metadata response, generator response, official 2,400 × 2,400 PNG, receipt, Transfer log, zero approval, and ownerOf result are retained. The live work is non-static and Flex-based; script, dependency, runtime, deterministic-render, mutability, and service-exit preservation work remains active.",
+  "non_claims": [
+    "The candidate object ID is not the accession number.",
+    "The WINNER result is an adopted Museum Wave selection and does not by itself establish title or copyright ownership.",
+    "The Museum's token custody and accession do not create an unrestricted reproduction, commercial, derivative, AI-training, or preservation licence.",
+    "The official PNG is a documentation/display manifestation and is not the whole non-static work.",
+    "No OpenSea or other marketplace rarity metric is used; the recorded feature data comes from the official token metadata and exact-token source package."
+  ]
+}

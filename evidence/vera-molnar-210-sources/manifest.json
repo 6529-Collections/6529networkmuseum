@@ -1,0 +1,53 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/token-metadata.json",
+      "sha256": "0e513d3982144bfbc2bf8f3a7890086a3f34566927c62581d4f74370deba8409",
+      "size": 3676,
+      "source_id": "token-metadata",
+      "url": "https://token.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/official-preview.png",
+      "sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+      "size": 330363,
+      "source_id": "official-preview",
+      "url": "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/wave-drop.json",
+      "sha256": "bdcc595b21a984bfd88157b5498e7c624e68655ffaebbe2b1e725686f15227c3",
+      "size": 35432,
+      "source_id": "wave-drop",
+      "url": "https://api.6529.io/api/drops/d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "image/png",
+      "path": "raw/wave-cover.png",
+      "sha256": "c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166",
+      "size": 330363,
+      "source_id": "wave-cover",
+      "url": "https://d3lqz0a4bldqgf.cloudfront.net/drops/author_7ee51a67-07b7-4c91-87ed-464c56446c43/a4025328-fdeb-446f-a593-020988420a25/vera-molnar-themes-and-variations-210.png"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "75e38b203be94aedf8f13af3aa25f81b18d7856ccd9a8cc08ffb2d889b4777d0",
+      "size": 14776,
+      "source_id": "summary"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_VERA_MOLNAR_210_SOURCE_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "subject_id": "6529NM.2026.003.01"
+}

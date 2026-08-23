@@ -1,0 +1,116 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x084a18c2e1a65e810ebe5d72d33ad380b823b0d6766c5b458be559a88ce8ac7a"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "ACCESSION_LOT",
+    "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x1a05624d8b515cf5c5af06f4efab1f3eade57f194ff56fd08e0099a34c47824a",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/accession-statement.json"
+  },
+  "payload": {
+    "acceptance_date": "2026-08-23T09:46:57.326Z",
+    "accession_number": "6529NM.2026.003",
+    "accession_status": "complete",
+    "acquisition_method": "donation",
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:46:57.326Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "sha256": "sha256:a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Official source-evidence manifest",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json"
+      }
+    ],
+    "formal_acceptance_date": "2026-08-23T09:46:57.326Z",
+    "formal_acceptance_status": "formally_accepted",
+    "gift_acceptance_authorization_record": "6529NM.2026.003.GAA-01",
+    "governing_references": [
+      "6529NM-WAVE-OBS-2026-08-23-002",
+      "6529NM.2026.003.GAA-01",
+      "6529NM-ACC-2026-003"
+    ],
+    "intake_status": "accessioned",
+    "non_claims": [
+      "The accession does not assign copyright or create a commercial reproduction licence.",
+      "The source CC BY-NC 4.0 label is retained without expanding its scope."
+    ],
+    "object_ids": [
+      "6529NM.2026.003.01"
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "payload_sha256": "sha256:3f78e3fff1e133c181bf7bb3ccbcc7df76f278a26c231d6fb9f9083a6ea4f185",
+    "preservation_manifest": {
+      "active_stewardship_actions": [
+        "retain dated runtime and service captures",
+        "repeat rendering in a second environment and record the results"
+      ],
+      "fixity_sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
+      "manifest_sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
+      "manifest_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-sources/manifest.json",
+      "objects": [
+        {
+          "generator_raw_status": "retained_source_response",
+          "generator_sha256": "sha256:3283658de7b4cce1e5913495aa6cd50e888e1eb285dcd2c488eb97c6d038936c",
+          "generator_uri": "https://generator.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+          "metadata_raw_path": "evidence/vera-molnar-210-sources/raw/token-metadata.json",
+          "metadata_sha256": "sha256:0e513d3982144bfbc2bf8f3a7890086a3f34566927c62581d4f74370deba8409",
+          "metadata_uri": "https://token.artblocks.io/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+          "object_id": "6529NM.2026.003.01"
+        }
+      ],
+      "raw_generator_status": "retained",
+      "raw_metadata_status": "retained",
+      "status": "in_progress"
+    },
+    "record_id": "6529NM.2026.003",
+    "record_status": "review_pending",
+    "record_type": "ACCESSION_LOT",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-002",
+      "6529NM-WAVE-OBS-2026-08-23-002",
+      "6529NM.2026.003.GAA-01",
+      "6529NM-ACC-2026-003",
+      "6529NM.2026.003.01"
+    ],
+    "remaining_gates": [],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-002",
+        "6529NM-WAVE-OBS-2026-08-23-002",
+        "6529NM.2026.003.GAA-01"
+      ]
+    },
+    "subject_id": "6529NM.2026.003",
+    "visibility": "public"
+  }
+}

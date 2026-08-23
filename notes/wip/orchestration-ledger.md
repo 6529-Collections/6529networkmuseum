@@ -3891,3 +3891,52 @@ catalog activation, and frontend qualification remain open.
   perform exact-head reviewed-B/catalogue activation, merge the source PR,
   rebuild the frontend against that exact source, and repeat the complete
   screenshot and three-lens adversarial review before frontend merge.
+### 2026-08-23 - Vera Molnár accession and production release opened
+
+Authenticated exact-drop readback reports Museum Wave proposal serial
+`1296797`, drop `d09d3c3b-d354-4e39-9e1f-1e676e3cb62e`, as `WINNER`.
+The selected object is *Themes and Variations* #210,
+`eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210`.
+
+Ethereum transaction
+`0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd`
+succeeded in block `25,816,958` at 2026-08-23 09:27:59 UTC and transferred
+token `210` from `social.6529.eth` to `networkmuseum.6529.eth`. Independent
+latest-head `ownerOf` reads across four RPC transports returned the Museum
+address. Finalized-block `ownerOf` and `getApproved` reads then returned the
+Museum address and zero approval at block `25,816,984`, hash
+`0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5`.
+
+The six-hour release is tracked in
+`notes/wip/2026-08-23-vera-molnar-accession-and-release.md`. Source work runs
+on branch `codex/vera-molnar-accession` from canonical base `a3977a8f`.
+Required output includes the complete accession/evidence/reviewer package,
+finished artist/project/acquisition/object scholarship, governed responsive
+media, atomic frontend activation, exact 1440/820/390 full-page adversarial
+museum/UX/copy review, source and frontend PR review/CI, staging E2E,
+production E2E and live visual readback.
+
+The custody package completed against finalized block `25,816,984`, hash
+`0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5`.
+It retains the successful receipt, exact Transfer log and EIP-1898
+`ownerOf(210)` / `getApproved(210)` reads under summary SHA-256
+`sha256:a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b`.
+The official Art Blocks metadata, 2400-pixel preview and exact Wave publication
+are retained under source-evidence manifest SHA-256
+`sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5`.
+The exact on-chain project scripts and runtime responses are retained in the
+technical evidence package, whose manifest SHA-256 is
+`sha256:d2f2767197d70f52d0870ca2eb8df30cc782a7905d6786ab2bf2a7cfe112a6cc`.
+
+### 2026-08-23 11:15 UTC - Vera source candidate ready for exact review
+
+The complete constructed accession, evidence, public scholarship, responsive
+media, and public-entity projection now pass the bootstrap and full Museum
+validators. Focused accession/proposal/entity regression is 88/88. The
+candidate projection contains 136 public entities and 233 relations; the
+release manifest is SHA-256
+`sha256:6ea2956b80d1049fba3fb44751e3de5df21e316c9ec32b0cd1d8b7b611105502`
+and Keccak
+`0x84d29232bbddfee5b9654bd584ffb12cfe78e1a3e833f140e3e085a8582c64e0`.
+The media manifest remains constructed and pending review until candidate A
+is committed. The next source mutation is the exact-review B transition.

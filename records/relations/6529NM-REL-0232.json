@@ -1,0 +1,71 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x855c715a0c9a2ef6f24fc9a401fa6573a3a15dc073bcb7e0884a47f24a935d1e"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x6c2f555ea5bf2e581f303dac6e8debffc9da2aa8839465fc28dc31d8e7bd4b35",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0232.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
+      "observed_at": "2026-08-12T23:15:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-12T23:15:00Z",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Gift acquisition pathway",
+        "observed_at": "2026-08-02T06:30:00Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Gift acceptance authorization",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+      }
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "payload_sha256": "sha256:40bcbd8e6e8f8a952e39642e451685fa1cca3fb89aaad5477aff61896cb4eb19",
+    "qualifier": {},
+    "record_id": "6529NM-REL-0232",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-AP-ENT-0001",
+      "6529NM-CA-2026-004",
+      "6529NM-GOV-1052812",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "relation_id": "6529NM-REL-0232",
+    "relation_type": "ACQUISITION_PROGRAM_PRODUCES_ACQUISITION",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-AP-ENT-0001",
+    "source_record_ids": [
+      "6529NM-GOV-1052812",
+      "6529NM.2026.003.GAA-01"
+    ],
+    "subject_id": "6529NM-REL-0232",
+    "target_entity_id": "6529NM-CA-2026-004",
+    "visibility": "public"
+  }
+}

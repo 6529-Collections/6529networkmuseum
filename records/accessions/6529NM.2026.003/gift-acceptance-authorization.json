@@ -1,0 +1,162 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x5611eb4fa99b4cdb90fdacecd7b4d14e6e70c90bab2f433014a54a2cbc1dc58d"
+    },
+    "effectiveAt": 1787478417,
+    "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "schemaId": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xa86b36cdf7db97565b17cce5d9d3c1bb95c5eb7b73393ff2bd2452a97eb2b138",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.003/gift-acceptance-authorization.json"
+  },
+  "payload": {
+    "acquisition_method": "donation",
+    "assets": [
+      {
+        "caip19": "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210",
+        "contract": "0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d",
+        "custody_receipt_log": 315,
+        "object_id": "6529NM.2026.003.01",
+        "title": "Themes and Variations #210",
+        "token_id": "210"
+      }
+    ],
+    "authorization_id": "6529NM.2026.003.GAA-01",
+    "authorization_kind": "gift_acceptance_and_accession_authorization",
+    "authorization_status": "formally_accepted",
+    "completion_blockers": [
+      "independent_review",
+      "runtime_capture_in_second_environment"
+    ],
+    "completion_boundary": {
+      "accession_status": "complete",
+      "condition": "reviewed_pass_with_conditions",
+      "current_state": "accessioned",
+      "external_work_accession_certificate": "executed",
+      "independent_review": "pending",
+      "preservation": "in_progress",
+      "rights": "reviewed_with_conditions",
+      "title_binding": "executed"
+    },
+    "consideration": {
+      "statement": "No consideration is recorded for this intentional gift. This record makes no valuation, tax, accounting, or legal characterization claim.",
+      "status": "none"
+    },
+    "constructor": {
+      "id": "codex-task:vera-molnar-accession-2026-08-23",
+      "observed_at": "2026-08-23T09:46:57.326Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-08-23T09:46:57.326Z",
+    "custody_receipts": [
+      {
+        "block_number": 25816958,
+        "block_time": "2026-08-23T09:27:59Z",
+        "custody_ens": "networkmuseum.6529.eth",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "logs": [
+          {
+            "log_index": 315,
+            "object_id": "6529NM.2026.003.01"
+          }
+        ],
+        "receipt_status": "0x1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "transaction_hash": "0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd",
+        "transfer_count": 1
+      }
+    ],
+    "donor_authority_declaration": {
+      "authentication": "The signed Wave drop, exact object identity, and finalized owner observation are retained together.",
+      "limitations": [
+        "Token custody is distinct from copyright ownership.",
+        "CC BY-NC 4.0 is retained as the source metadata licence label.",
+        "No commercial or unrestricted reproduction licence is asserted."
+      ],
+      "source_type": "user_supplied_donor_and_authority_fact",
+      "statement": "The accepted full-gift proposal covers the exact token and the donor's transferable interest; successful receipt corroborates delivery to Museum custody."
+    },
+    "donor_public_credit": "punk6529",
+    "effective_at": "2026-08-23T09:46:57.326Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Signed WINNER drop",
+        "observed_at": "2026-08-23T09:40:25.465Z",
+        "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
+      },
+      {
+        "evidence_class": "A",
+        "label": "Finalized custody summary",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "sha256": "sha256:a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/vera-molnar-210-custody/summary.json"
+      }
+    ],
+    "formal_acceptance_date": "2026-08-23T09:46:57.326Z",
+    "governing_basis": [
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-WAVE-OBS-2026-08-23-002",
+        "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+        "effect_basis": "direct_wave_observation",
+        "governance_effect": "adopted",
+        "governance_effect_basis": "The signed-drop API records the exact proposal as WINNER.",
+        "governance_record_ref": "6529NM-WAVE-OBS-2026-08-23-002",
+        "live_api_field": "drop_type",
+        "live_api_observed_at": "2026-08-23T09:40:25.465Z",
+        "live_api_status": "WINNER",
+        "observed_at": "2026-08-23T09:40:25.465Z",
+        "observed_wave_status": "WINNER",
+        "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
+        "title": "Proposed gift: Vera Molnár, Themes and Variations #210",
+        "wave_serial": 1296797
+      }
+    ],
+    "institutional_decision_authority": {
+      "authority_basis": "user_authorized_institutional_decision",
+      "decision_status": "formally_accepted",
+      "documentation_qa_status": "pending_independent_review",
+      "effective_at": "2026-08-23T09:46:57.326Z",
+      "publication_semantics": "The Museum publishes the accepted gift and accession through the named authorization and certificate records."
+    },
+    "non_claims": [
+      "The accession does not transfer copyright.",
+      "The source licence does not clear commercial use or AI training.",
+      "No valuation or tax characterization is made."
+    ],
+    "observed_at": "2026-08-23T09:46:57.326Z",
+    "outcome": "formally_accepted_gift_and_accession_authorization",
+    "payload_sha256": "sha256:7de743e3e3c117220d381697d4ab3ce1a307a36264003631fb9298aab4eea547",
+    "permanent_collection_intent": "The Museum accepts this exact token for the permanent Collection under ordinary collection stewardship responsibilities.",
+    "record_id": "6529NM.2026.003.GAA-01",
+    "record_status": "review_pending",
+    "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-PG-2026-002",
+      "6529NM-WAVE-OBS-2026-08-23-002",
+      "6529NM-ACC-2026-003"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-002",
+        "6529NM-WAVE-OBS-2026-08-23-002"
+      ]
+    },
+    "subject_id": "6529NM.2026.003",
+    "visibility": "public"
+  }
+}

@@ -109,8 +109,19 @@
       "records/accessions/6529NM.2026.002/public/technical-and-condition-review.md",
       "records/accessions/6529NM.2026.002/public/title-rights-and-accession-review.md",
       "records/accessions/6529NM.2026.002/public/web-presentation-authority.md",
+      "records/accessions/6529NM.2026.003/public/6529NM.2026.003.01.md",
+      "records/accessions/6529NM.2026.003/public/accession-certificate.md",
+      "records/accessions/6529NM.2026.003/public/alt-text.md",
+      "records/accessions/6529NM.2026.003/public/gift-acceptance-authorization.md",
+      "records/accessions/6529NM.2026.003/public/gift-and-acquisition.md",
+      "records/accessions/6529NM.2026.003/public/martin-grasser-artist-practice.md",
+      "records/accessions/6529NM.2026.003/public/source-and-chronology.md",
+      "records/accessions/6529NM.2026.003/public/themes-and-variations-project.md",
+      "records/accessions/6529NM.2026.003/public/vera-molnar-artist-practice.md",
+      "records/accessions/6529NM.2026.003/public/web-presentation-authority.md",
       "records/entities/6529NM-ACC-ENT-0001.json",
       "records/entities/6529NM-ACC-ENT-0002.json",
+      "records/entities/6529NM-ACC-ENT-0003.json",
       "records/entities/6529NM-AGT-0001.json",
       "records/entities/6529NM-AGT-0002.json",
       "records/entities/6529NM-AGT-0003.json",
@@ -155,10 +166,13 @@
       "records/entities/6529NM-ART-0019.json",
       "records/entities/6529NM-ART-0020.json",
       "records/entities/6529NM-ART-0021.json",
+      "records/entities/6529NM-ART-0022.json",
+      "records/entities/6529NM-ART-0023.json",
       "records/entities/6529NM-C-0001.json",
       "records/entities/6529NM-CA-2026-001.json",
       "records/entities/6529NM-CA-2026-002.json",
       "records/entities/6529NM-CA-2026-003.json",
+      "records/entities/6529NM-CA-2026-004.json",
       "records/entities/6529NM-I-0001.json",
       "records/entities/6529NM-MED-0001.json",
       "records/entities/6529NM-MED-0002.json",
@@ -198,6 +212,8 @@
       "records/entities/6529NM-MED-0049.json",
       "records/entities/6529NM-MED-0050.json",
       "records/entities/6529NM-MED-0051.json",
+      "records/entities/6529NM-MED-0052.json",
+      "records/entities/6529NM-MED-0053.json",
       "records/entities/6529NM-ORG-0001.json",
       "records/entities/6529NM-ORG-0002.json",
       "records/entities/6529NM-PRJ-0001.json",
@@ -206,6 +222,7 @@
       "records/entities/6529NM-PRJ-0004.json",
       "records/entities/6529NM-PRJ-0005.json",
       "records/entities/6529NM-PRJ-0006.json",
+      "records/entities/6529NM-PRJ-0007.json",
       "records/entities/6529NM-RP-0001.json",
       "records/entities/6529NM-RP-0002.json",
       "records/entities/6529NM-RP-0003.json",
@@ -237,6 +254,7 @@
       "records/entities/6529NM-W-0026.json",
       "records/entities/6529NM-W-0027.json",
       "records/entities/6529NM-W-0028.json",
+      "records/entities/6529NM-W-0029.json",
       "records/institutional-practice/a-field-of-practice.md",
       "records/institutional-practice/adjacent-chain-native-practice.md",
       "records/institutional-practice/profiles/acmi.md",
@@ -343,6 +361,15 @@
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/04-moises-saman-44.md",
       "records/proposed-gifts/6529NM-PG-2026-001/public/scholarship/works/05-lorenzo-meloni-104.md",
       "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/02-themes-and-variations-210.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/martin-grasser.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/curatorial-accession-review.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/preservation-and-display.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/technical-and-condition-review.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/title-rights-and-accession-review.md",
+      "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md",
       "records/relations/6529NM-REL-0001.json",
       "records/relations/6529NM-REL-0002.json",
       "records/relations/6529NM-REL-0003.json",
@@ -565,6 +592,17 @@
       "records/relations/6529NM-REL-0226.json",
       "records/relations/6529NM-REL-0227.json",
       "records/relations/6529NM-REL-0228.json",
+      "records/relations/6529NM-REL-0229.json",
+      "records/relations/6529NM-REL-0230.json",
+      "records/relations/6529NM-REL-0231.json",
+      "records/relations/6529NM-REL-0232.json",
+      "records/relations/6529NM-REL-0233.json",
+      "records/relations/6529NM-REL-0234.json",
+      "records/relations/6529NM-REL-0235.json",
+      "records/relations/6529NM-REL-0236.json",
+      "records/relations/6529NM-REL-0237.json",
+      "records/relations/6529NM-REL-0238.json",
+      "records/relations/6529NM-REL-0239.json",
       "schemas/accession-lot.schema.json",
       "schemas/accession-program.schema.json",
       "schemas/accession.schema.json",
@@ -611,10 +649,10 @@
   "counts": {
     "approved_public_media": 60,
     "public_assembly_control_document": 126,
-    "public_curatorial_manuscript": 115,
-    "public_entity_record": 128,
+    "public_curatorial_manuscript": 134,
+    "public_entity_record": 136,
     "public_media_source_manifest": 3,
-    "public_relation_record": 222,
+    "public_relation_record": 233,
     "wave_observation": 1
   },
   "entries": [
@@ -1769,6 +1807,76 @@
     {
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/6529NM.2026.003.01.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/accession-certificate.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/alt-text.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/gift-acceptance-authorization.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/gift-and-acquisition.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/martin-grasser-artist-practice.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/source-and-chronology.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/themes-and-variations-project.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/vera-molnar-artist-practice.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.003/public/web-presentation-authority.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-ACC-ENT-0001.json",
       "required_in_catalog": true
@@ -1778,6 +1886,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-ACC-ENT-0002.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-ACC-ENT-0003.json",
       "required_in_catalog": true
     },
     {
@@ -2092,6 +2207,20 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
+      "path": "records/entities/6529NM-ART-0022.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-ART-0023.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
       "path": "records/entities/6529NM-C-0001.json",
       "required_in_catalog": true
     },
@@ -2114,6 +2243,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-CA-2026-003.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-CA-2026-004.json",
       "required_in_catalog": true
     },
     {
@@ -2393,6 +2529,20 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0052.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0053.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
       "path": "records/entities/6529NM-ORG-0001.json",
       "required_in_catalog": true
     },
@@ -2443,6 +2593,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-PRJ-0006.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-PRJ-0007.json",
       "required_in_catalog": true
     },
     {
@@ -2660,6 +2817,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-W-0028.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0029.json",
       "required_in_catalog": true
     },
     {
@@ -3409,6 +3573,69 @@
       "delivery_role": "assembly_document",
       "kind": "wave_observation",
       "path": "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/02-themes-and-variations-210.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/martin-grasser.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/artists/vera-molnar.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/curatorial-accession-review.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/preservation-and-display.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/source-and-chronology.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/technical-and-condition-review.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/dossiers/title-rights-and-accession-review.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/proposed-gifts/6529NM-PG-2026-002/public/scholarship/works/01-vera-molnar-210.md",
       "required_in_catalog": true
     },
     {
@@ -4968,6 +5195,83 @@
     {
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0229.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0230.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0231.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0232.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0233.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0234.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0235.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0236.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0237.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0238.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0239.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "schemas/accession-lot.schema.json",
       "required_in_catalog": true
@@ -5205,8 +5509,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x5ec916c827c695edae8310cdd391a6eaac7adf12226aac2056e5b9189748eaf5",
-    "body_sha256": "sha256:fe5246b33b93c34246726585aaa751bfd8f1ed7ef5d17c1bb0414c4bb294255a",
+    "body_keccak256": "0x841b6be1ef8e1cb6e62a85de65d3c06a9aa94e4104527a86d7b31e52cedc3c0e",
+    "body_sha256": "sha256:58e588a7b3ca8f131a5f169eba668811a3369d04d863b8ccbd0d3ede86aa66fa",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

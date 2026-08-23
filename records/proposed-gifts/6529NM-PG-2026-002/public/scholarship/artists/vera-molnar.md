@@ -1,0 +1,11 @@
+# Vera Molnár: Order, Variation, and the Line
+
+Vera Molnár (1924–2023) worked with a small vocabulary—squares, lines, circles, grids, and letters—and with the pressure of repeating that vocabulary under changing rules. Her images are not illustrations of a system placed behind them. They show a system being tested: alignment gives way to deviation, a form is repeated until it becomes rhythm, and a familiar sign begins to behave like a field of marks.
+
+In 1959 Molnár described an imagined procedure of instructions, constraints, prohibitions, and transformations: the “machine imaginaire.” The phrase names a method as much as a machine. It allowed her to make decisions deliberately and to leave room for configurations that could not have been pictured in advance. Her computer and plotter work extended this method into serial drawing, where a rule could be held steady while one condition changed.
+
+Molnár’s history is not a simple passage from painting to computers. Geometric abstraction, drawing, plotter output, polyptych, photography, sculpture, installation, diary, and late digital collaboration meet in an inquiry into how order is perceived. Her work treats repetition as a way to make difference visible.
+
+*Themes and Variations* continues that inquiry in a collaborative generative system. Molnár’s drawn studies of the letters N, F, and T become forms that can be positioned, enlarged, weighted, distributed, and recoloured. Martin Grasser is credited as collaborating artist and coder; his work on the generative system belongs to the project’s shared artistic authorship. The letters can remain legible, but they can also become blocks, bars, texture, or a near-abstract pattern.
+
+Sources: [Centre Pompidou retrospective](https://www.centrepompidou.fr/en/program/calendar/event/PA7jRZ5), [Centre Pompidou, “Vera Molnár, aux sources du code”](https://www.centrepompidou.fr/en/pompidou-plus/magazine/article/vera-molnar-aux-sources-du-code), [MoMA artist record](https://www.moma.org/artists/37083-vera-molnar), [National Gallery of Art artist record](https://www.nga.gov/artists/49303-vera-molnar), and [La Biennale di Venezia, 2022](https://www.labiennale.org/en/art/2022/milk-dreams/vera-moln%C3%A1r).

@@ -1,17 +1,17 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 4,
+    "revision": 5,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:magnum-completed-accession-correction",
+      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
       "role": "constructor",
-      "constructed_at": "2026-08-12T22:24:36.387Z"
+      "constructed_at": "2026-08-23T09:46:57.326Z"
     },
     "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-12T22:24:36.387Z",
+  "snapshot_at": "2026-08-23T09:46:57.326Z",
   "amendment_history": [
     {
       "revision": 1,
@@ -36,6 +36,14 @@
       "prior_payload_sha256": "sha256:0bd254e59ae0dfb60018914c8df55ab7aa76317ac9dfc520737430f5f731409f",
       "prior_review_commit": "514cb18aee37b0d04c3eeb59703b411ea34f6bf9",
       "reason": "Appended the completed five-work Magnum Photos 75 gift accession after finalized transfer and custody evidence bound all five objects to the Museum address."
+    },
+    {
+      "revision": 4,
+      "superseded_at": "2026-08-23T09:46:57.326Z",
+      "supersedes": "sha256:f3d5829c06bbd0617caefc028d17f7eb2f33efd19e3f31f3e0f4d83cc09cb3ac",
+      "prior_payload_sha256": "sha256:f3d5829c06bbd0617caefc028d17f7eb2f33efd19e3f31f3e0f4d83cc09cb3ac",
+      "prior_review_commit": "a5b64f7eb586a5a07024b56a0604d8b8ae0ea574",
+      "reason": "Appended the completed gift accession of Themes and Variations #210 after the Museum Wave selection, formal acceptance, transfer, and finalized custody evidence."
     }
   ],
   "lots": [
@@ -176,6 +184,55 @@
         "Retain the source metadata and credited display bytes with fixity.",
         "Maintain rights-compliant display and attribution.",
         "Enrich provenance and preservation records as new evidence becomes available."
+      ]
+    },
+    {
+      "accession_lot_id": "6529NM.2026.003",
+      "preferred_title": "Vera Molnár and Martin Grasser, Themes and Variations #210",
+      "object_count": 1,
+      "donation_status": "formally_accepted",
+      "accession_status": "accessioned",
+      "formal_acceptance_status": "formally_accepted",
+      "gift_acceptance_authorization_record": "6529NM.2026.003.GAA-01",
+      "donor_public_credit": "Gift of punk6529",
+      "custody": {
+        "ens": "networkmuseum.6529.eth",
+        "chain_id": "eip155:1",
+        "address": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "observed_at": "2026-08-23T09:46:57.326Z",
+        "finalized_block": 25816984,
+        "finalized_block_hash": "0x4f478846f35928cf4ead31161b54ffc601e9a9a519e035c73767aa3284b119d5",
+        "token_count": 1,
+        "evidence_class": "A"
+      },
+      "receipt_event": {
+        "transaction_hash": "0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd",
+        "block_number": 25816958,
+        "block_time": "2026-08-23T09:27:59Z",
+        "from": "0x6DAA633C23615a29471deafae351727867E7dAD1",
+        "to": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+        "transfer_count": 1,
+        "receipt_status": "0x1",
+        "evidence_class": "A",
+        "token_id": 210,
+        "log_index": 315
+      },
+      "evidence_refs": [
+        "records/accessions/6529NM.2026.003/accession-certificate.json",
+        "evidence/vera-molnar-210-custody/summary.json",
+        "evidence/vera-molnar-210-sources/manifest.json",
+        "evidence/vera-molnar-210-technical/summary.json",
+        "records/accessions/6529NM.2026.003/public/presentation-manifest.json"
+      ],
+      "completion_limits": [
+        "independent_review",
+        "runtime_capture_in_second_environment"
+      ],
+      "accession_certificate_record": "6529NM-ACC-2026-003",
+      "ongoing_stewardship_actions": [
+        "Retain source responses, on-chain script records, and fixity.",
+        "Maintain credited noncommercial display under CC BY-NC 4.0.",
+        "Repeat runtime capture across supported environments and preserve dated results."
       ]
     }
   ]

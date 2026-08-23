@@ -435,22 +435,29 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
 
             provenance = obj.get("provenance")
             transfers = provenance.get("transfers") if isinstance(provenance, dict) else None
-            if not isinstance(transfers, list) or len(transfers) != 3 or not all(
+            if not isinstance(transfers, list) or len(transfers) < 3 or not all(
                 isinstance(transfer, dict) for transfer in transfers
             ):
-                issues.append(f"{proposal_id}: incomplete three-event provenance for {object_id}")
+                issues.append(f"{proposal_id}: incomplete provenance for {object_id}")
             else:
-                expected_roles = ["mint", "foundation_market_escrow", "current_owner_transfer"]
-                if [transfer.get("role") for transfer in transfers] != expected_roles:
-                    issues.append(f"{proposal_id}: provenance roles are missing or out of order for {object_id}")
+                roles = [transfer.get("role") for transfer in transfers]
+                if len(transfers) == 3:
+                    expected_roles = ["mint", "foundation_market_escrow", "current_owner_transfer"]
+                    if roles != expected_roles:
+                        issues.append(f"{proposal_id}: provenance roles are missing or out of order for {object_id}")
+                elif roles != ["mint", "secondary_transfer", "secondary_transfer", "donor_acquisition", "museum_receipt"]:
+                    issues.append(f"{proposal_id}: extended provenance roles are missing or out of order for {object_id}")
                 tx_hashes = [transfer.get("tx_hash") for transfer in transfers]
                 if len(tx_hashes) != len(set(tx_hashes)):
                     issues.append(f"{proposal_id}: provenance repeats a transaction hash for {object_id}")
                 if transfers[0].get("from") != "0x0000000000000000000000000000000000000000":
                     issues.append(f"{proposal_id}: provenance does not begin with mint for {object_id}")
-                if transfers[0].get("to") != transfers[1].get("from") or transfers[1].get("to") != transfers[2].get("from"):
+                if any(
+                    left.get("to") != right.get("from")
+                    for left, right in zip(transfers, transfers[1:])
+                ):
                     issues.append(f"{proposal_id}: provenance transfer chain is discontinuous for {object_id}")
-                if transfers[2].get("to") != observation.get("owner"):
+                if transfers[-1].get("to") != observation.get("owner"):
                     issues.append(f"{proposal_id}: provenance does not terminate at observed owner for {object_id}")
                 blocks = [transfer.get("block_number") for transfer in transfers]
                 if not all(isinstance(block, int) for block in blocks) or blocks != sorted(blocks):
@@ -683,10 +690,19 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                     issues.append(f"{proposal_id}: resolution Storm part must carry exactly one cover image")
                 else:
                     cover = media[0]
-                    cover_path = resolve_candidate_file(candidate_dir, cover.get("asset_path"))
-                    source_asset_path = resolve_candidate_file(candidate_dir, cover.get("source_asset_path"))
+                    external_source = cover.get("source_kind") == "retained_external_source"
+                    cover_path = None if external_source else resolve_candidate_file(candidate_dir, cover.get("asset_path"))
+                    source_asset_path = None if external_source else resolve_candidate_file(candidate_dir, cover.get("source_asset_path"))
+                    if external_source:
+                        if not isinstance(cover.get("uri"), str) or not cover["uri"].startswith("https://"):
+                            issues.append(f"{proposal_id}: external cover must retain an HTTPS source URI")
+                        if cover.get("width") != 2400 or cover.get("height") != 2400:
+                            issues.append(f"{proposal_id}: external cover dimensions must match the retained official preview")
+                        if cover.get("byte_length") != 330363 or cover.get("sha256") != "sha256:c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166":
+                            issues.append(f"{proposal_id}: external cover fixity must match the retained official preview")
                     if cover_path is None:
-                        issues.append(f"{proposal_id}: cover image path is missing, unsafe, or escaping")
+                        if not external_source:
+                            issues.append(f"{proposal_id}: cover image path is missing, unsafe, or escaping")
                     else:
                         cover_bytes = cover_path.read_bytes()
                         if cover.get("byte_length") != len(cover_bytes):
@@ -706,9 +722,9 @@ def proposed_gift_issues(root: Path, loaded: dict[Path, object]) -> list[str]:
                                 issues.append(f"{proposal_id}: cover PNG must be opaque 8-bit truecolor")
                             if not has_srgb_profile:
                                 issues.append(f"{proposal_id}: cover PNG lacks an embedded sRGB profile")
-                    if source_asset_path is None:
+                    if source_asset_path is None and not external_source:
                         issues.append(f"{proposal_id}: cover source path is missing, unsafe, or escaping")
-                    else:
+                    elif not external_source:
                         source_bytes = source_asset_path.read_bytes()
                         if cover.get("source_sha256") != hashlib.sha256(source_bytes).hexdigest():
                             issues.append(f"{proposal_id}: cover source SHA-256 does not match the retained asset")
