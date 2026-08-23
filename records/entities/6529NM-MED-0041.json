@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x34d33f12c33f0c53c1e24f6157378275c66f530b2791a511df468c7e968dd738"
+      "digest": "0xba0e5871b5a230727a4645398594b00d22e259110c34df06161d0b219a5c1fb4"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-12T07:37:56.984246Z",
     "entity_id": "6529NM-MED-0041",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:8d53918d72f150c5882f9aef46e834ca7a98a1c7b04636ebe8d3cf5ce92ab3a7",
+    "payload_sha256": "sha256:5484349b14e3eb9669c11ef6c63f827e398af2c253aec9c8789827f8c01f2933",
     "preferred_label": "Government soldiers in a church, Suchitoto, El Salvador downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -177,7 +177,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0041",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -185,8 +185,19 @@
       "6529NM-PG-2026-001",
       "6529NM-WAVE-PUB-OBS-2026-08-08-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T12:27:28Z",
+      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
+      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
+      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-CA-2026-003",
@@ -215,7 +226,7 @@
         }
       ],
       "observed_at": "2026-08-12T07:37:56.984246Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0041",
     "visibility": "public"

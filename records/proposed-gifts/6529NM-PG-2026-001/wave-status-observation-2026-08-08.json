@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x0b1010a1f9890646ef8868fc8bee47113d1f564f22981f9d8395ef82759160f6"
+      "digest": "0x9c2df2dcfacb873e0ff2729b58220735f1c2d0a06a4b4e632c26c2f2d908ee62"
     },
     "effectiveAt": 1786184102,
     "recordType": "WAVE_STATUS_OBSERVATION",
@@ -56,7 +56,7 @@
     "observation_id": "6529NM-WAVE-OBS-2026-08-08-001",
     "observation_method": "signed_drop_api_readback",
     "observed_at": "2026-08-08T10:15:02.0167151Z",
-    "payload_sha256": "sha256:5993ca284375cc557968b4ed65ab6ddac56c532feb1dbe0d06c3243539822fc9",
+    "payload_sha256": "sha256:647e36c7d3c168b1f6d2461022b81308aac8dbf52f5140c201c066d7cddab416",
     "prior_observation": {
       "observed_at": "2026-08-06T13:19:30.726Z",
       "source_record_id": "6529NM-PG-2026-001",
@@ -70,14 +70,25 @@
     "rating": 121603214,
     "realtime_rating": 121603214,
     "record_id": "6529NM-WAVE-OBS-2026-08-08-001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "WAVE_STATUS_OBSERVATION",
     "record_version": "1.0.0",
     "references": [
       "6529NM-PG-2026-001"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T12:27:28Z",
+      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
+      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
+      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
     "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
     "serial_no": 1276093,

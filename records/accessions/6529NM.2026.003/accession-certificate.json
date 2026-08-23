@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x755fdd1afd2ad6b08e4e42d15a0512f95d539e5e3870be156d31d40375cd0187"
+      "digest": "0xa080f60b73df4e37978f7acd7fd2222eb175cce89509fa80b796602d7356c010"
     },
     "effectiveAt": 1787478417,
     "recordType": "ACCESSION",
@@ -151,9 +151,9 @@
       "maintain credited noncommercial display",
       "capture runtime in a second environment"
     ],
-    "payload_sha256": "sha256:571131700ddce7b42f7ec1552b8f883d3ff51a9f0b6fc4caca2a4b38942de616",
+    "payload_sha256": "sha256:a92f755ad1384552161fff1016a30308e2b7b6c786ee723b1e9fe17f5f9c7b2c",
     "record_id": "6529NM-ACC-2026-003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "ACCESSION",
     "record_version": "1.0.0",
     "references": [
@@ -172,8 +172,19 @@
       "rights": "pass with CC BY-NC 4.0 conditions",
       "title": "pass by named institutional title declaration"
     },
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T12:27:28Z",
+      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
+      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
+      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
     "source": {
       "custody_evidence": "evidence/vera-molnar-210-custody/summary.json",

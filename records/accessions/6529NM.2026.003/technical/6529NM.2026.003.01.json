@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xa273922e6d18a99c29e260cd68274563dd1b18a5930ffe8daff99d934fe80cf4"
+      "digest": "0xdeac551da3beaa10c1cad7a8fb175f915336f76d0474bd9216c99c6250f9e178"
     },
     "effectiveAt": 1787478417,
     "recordType": "CONDITION_REPORT",
@@ -70,18 +70,29 @@
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "Pass with conditions: token identity, hash, finalized custody, and on-chain script match; service-layer metadata and runtime replay require dated captures.",
-    "payload_sha256": "sha256:6b9612197e6f214f455a2a0fdac1b74a2ad664964ccd7f395640abcf291c55cd",
+    "payload_sha256": "sha256:69b6d66e7565423571a170822c7674bf4c70a17b3a9d702132604c063c2fa327",
     "protocol_state": "ERC-721 non-static generative software; live browser renderer",
     "record_id": "6529NM.2026.003.COND.01",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "CONDITION_REPORT",
     "record_version": "1.0.0",
     "references": [
       "6529NM.2026.003",
       "6529NM.2026.003.01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T12:27:28Z",
+      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
+      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
+      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0x858704877558aaf0b797c652bf8620387145320c89bc6b31b997be9073b65e44",
     "source": {
       "source_record_ids": [

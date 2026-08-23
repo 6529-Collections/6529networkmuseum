@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xce00cd508eb3e91e70254785a5b31f1ddfd4205a0a010f79b3b642b2ce5664cd"
+      "digest": "0x5cdc450f4fd8560629bf7712173af9c20e7dbcc352d2f9bde2af8b752f7bb1d3"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T00:00:00Z",
     "entity_id": "6529NM-RP-0003",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "RESEARCH_PUBLICATION",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T00:00:00Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:bb3fe15c1d08c3dff344c255c3b5d8559478a022811832cafe8f8dfeb0fce2a0",
+    "payload_sha256": "sha256:5acdca4ec2867db765ed5ac88efd4c3646bc6d11d0584c702199fc5fb895aca2",
     "preferred_label": "Conflict at Its Edges",
     "profile": {
       "author_entity_ids": [
@@ -114,7 +114,7 @@
     },
     "public_slug": "conflict-at-its-edges",
     "record_id": "6529NM-RP-0003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -133,8 +133,19 @@
       "6529NM-W-0027",
       "6529NM-W-0028"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T12:27:28Z",
+      "reviewed_commit": "5587bac420b9a6348aa6045613e322f57bb7c306",
+      "reviewed_manifest_keccak": "0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15",
+      "reviewed_manifest_sha256": "sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ART-0017",
@@ -168,7 +179,7 @@
         }
       ],
       "observed_at": "2026-08-09T00:00:00Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-RP-0003",
     "visibility": "public"

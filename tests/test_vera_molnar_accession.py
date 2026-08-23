@@ -55,6 +55,32 @@ class VeraMolnarAccessionTest(unittest.TestCase):
             self.assertNotIn("signed WINNER", text)
             self.assertNotIn("signed Wave", text)
 
+    def test_direct_accession_records_share_the_approved_review_binding(self):
+        paths = sorted(
+            path
+            for path in (ROOT / "records/accessions/6529NM.2026.003").rglob("*.json")
+            if path.name != "presentation-manifest.json"
+        )
+        paths.append(
+            ROOT
+            / "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json"
+        )
+        self.assertEqual(7, len(paths))
+        for path in paths:
+            payload = json.loads(path.read_text(encoding="utf-8"))["payload"]
+            self.assertEqual("reviewed", payload["record_status"])
+            self.assertEqual("reviewed", payload["review_status"])
+            reviewer = payload["reviewer"]
+            self.assertEqual(
+                "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+                reviewer["id"],
+            )
+            self.assertEqual(
+                "5587bac420b9a6348aa6045613e322f57bb7c306",
+                reviewer["reviewed_commit"],
+            )
+            self.assertEqual("approved", reviewer["outcome"])
+
 
 if __name__ == "__main__":
     unittest.main()

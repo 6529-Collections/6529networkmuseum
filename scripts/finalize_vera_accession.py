@@ -8,6 +8,7 @@ import hashlib
 import json
 from datetime import datetime
 from pathlib import Path
+import re
 from typing import Any
 
 from canonical import canonicalize
@@ -86,9 +87,35 @@ def unix_seconds(value: str) -> int:
     return int(datetime.fromisoformat(value.replace("Z", "+00:00")).timestamp())
 
 
-def normalize_payload(payload: dict[str, Any], path: Path) -> dict[str, Any]:
+def normalize_payload(
+    payload: dict[str, Any],
+    path: Path,
+    review: dict[str, str] | None = None,
+) -> dict[str, Any]:
     payload = rewrite(payload)
     payload["payload_sha256"] = "sha256:" + "0" * 64
+
+    if review is not None:
+        created_at = datetime.fromisoformat(
+            str(payload["created_at"]).replace("Z", "+00:00")
+        )
+        reviewed_at = datetime.fromisoformat(
+            review["reviewed_at"].replace("Z", "+00:00")
+        )
+        if reviewed_at <= created_at:
+            raise ValueError("--reviewed-at must be after every record's created_at")
+        payload["reviewer"] = {
+            "id": review["reviewer_id"],
+            "role": "reviewer",
+            "reviewed_at": review["reviewed_at"],
+            "reviewed_manifest_sha256": review["reviewed_manifest_sha256"],
+            "reviewed_manifest_keccak": review["reviewed_manifest_keccak"],
+            "reviewed_commit": review["reviewed_commit"],
+            "reviewer_ids": [review["reviewer_id"]],
+            "outcome": "approved",
+        }
+        payload["record_status"] = "reviewed"
+        payload["review_status"] = "reviewed"
 
     def bind_title(value: Any) -> None:
         if isinstance(value, dict):
@@ -255,14 +282,16 @@ def normalize_payload(payload: dict[str, Any], path: Path) -> dict[str, Any]:
     return payload
 
 
-def seal(path: Path) -> dict[str, Any]:
+def seal(
+    path: Path, review: dict[str, str] | None = None
+) -> dict[str, Any]:
     source = load(path)
     payload_source = source.get("payload")
     if isinstance(payload_source, dict):
         payload = payload_source
     else:
         payload = {key: value for key, value in source.items() if key != "$schema"}
-    payload = normalize_payload(payload, path)
+    payload = normalize_payload(payload, path, review)
     record_type = str(payload["record_type"])
     subject_id = str(payload["subject_id"])
     schema_id = str(payload["schema_id"])
@@ -299,7 +328,38 @@ def encoded(value: dict[str, Any]) -> bytes:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--reviewed", action="store_true")
+    parser.add_argument("--reviewer-id")
+    parser.add_argument("--reviewed-at")
+    parser.add_argument("--reviewed-commit")
+    parser.add_argument("--reviewed-manifest-sha256")
+    parser.add_argument("--reviewed-manifest-keccak")
     args = parser.parse_args()
+    review_fields = {
+        "reviewer_id": args.reviewer_id,
+        "reviewed_at": args.reviewed_at,
+        "reviewed_commit": args.reviewed_commit,
+        "reviewed_manifest_sha256": args.reviewed_manifest_sha256,
+        "reviewed_manifest_keccak": args.reviewed_manifest_keccak,
+    }
+    explicit_review_fields = any(value is not None for value in review_fields.values())
+    if not args.reviewed and explicit_review_fields:
+        parser.error("review binding arguments require --reviewed")
+    review: dict[str, str] | None = None
+    if args.reviewed:
+        if not all(isinstance(value, str) and value for value in review_fields.values()):
+            parser.error("--reviewed requires every review binding argument")
+        review = {key: str(value) for key, value in review_fields.items()}
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:-]{2,127}", review["reviewer_id"]):
+            parser.error("--reviewer-id is not a valid Museum actor ID")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z", review["reviewed_at"]):
+            parser.error("--reviewed-at must be a canonical RFC 3339 UTC timestamp")
+        if not re.fullmatch(r"[0-9a-f]{40}", review["reviewed_commit"]):
+            parser.error("--reviewed-commit must be 40 lowercase hexadecimal characters")
+        if not re.fullmatch(r"sha256:[0-9a-f]{64}", review["reviewed_manifest_sha256"]):
+            parser.error("--reviewed-manifest-sha256 must be sha256:<64 lowercase hex>")
+        if not re.fullmatch(r"0x[0-9a-f]{64}", review["reviewed_manifest_keccak"]):
+            parser.error("--reviewed-manifest-keccak must be 0x<64 lowercase hex>")
     paths = sorted(
         path
         for path in ACCESSION.rglob("*.json")
@@ -308,7 +368,7 @@ def main() -> int:
     paths.append(WAVE_STATUS)
     stale: list[str] = []
     for path in paths:
-        expected = encoded(seal(path))
+        expected = encoded(seal(path, review))
         if args.check:
             if path.read_bytes() != expected:
                 stale.append(path.relative_to(ROOT).as_posix())
