@@ -123,7 +123,9 @@ def normalize_payload(payload: dict[str, Any], path: Path) -> dict[str, Any]:
                 "uri": wave_url,
             },
         ]
-        payload["observation_method"] = "signed_drop_api_readback"
+        payload.pop("signed", None)
+        payload["api_reported_is_signed"] = True
+        payload["observation_method"] = "wave_api_status_readback"
         payload["prior_observation"] = {
             "source_status": "PARTICIPATORY",
             "observed_at": "2026-08-13T19:19:40.216Z",

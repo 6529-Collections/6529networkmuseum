@@ -1746,7 +1746,7 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
                 "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
                 "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
                 "serial_no": 1296797,
-                "signed": True,
+                "api_reported_is_signed": True,
                 "drop_type": "WINNER",
                 "source_status": "WINNER",
                 "rating": 140257872,
@@ -1762,12 +1762,17 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
             expected = {}
         for key, value in expected.items():
             if payload.get(key) != value:
-                issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the signed-drop API WINNER status readback")
+                issues.append(f"WAVE_STATUS_OBSERVATION.{key} must preserve the Wave API WINNER status readback")
         prior = payload.get("prior_observation") if isinstance(payload.get("prior_observation"), dict) else {}
         if prior.get("source_status") != "PARTICIPATORY" or prior.get("source_record_id") != payload.get("proposal_id"):
             issues.append("WAVE_STATUS_OBSERVATION must retain the earlier PARTICIPATORY proposal observation")
-        if payload.get("observation_method") != "signed_drop_api_readback":
-            issues.append("WAVE_STATUS_OBSERVATION must use the precise signed_drop_api_readback method")
+        expected_method = (
+            "wave_api_status_readback"
+            if observation_id == "6529NM-WAVE-OBS-2026-08-23-002"
+            else "signed_drop_api_readback"
+        )
+        if payload.get("observation_method") != expected_method:
+            issues.append(f"WAVE_STATUS_OBSERVATION must use the precise {expected_method} method")
     if record_type == "WAVE_PUBLICATION_OBSERVATION":
         issues.extend(validate_wave_publication_observation(payload, repository_root))
     if record_type == "MEDIA_DESCRIPTION_AMENDMENT":

@@ -38,7 +38,7 @@ from migrate_public_entities import (  # noqa: E402
     verify_evidence_paths,
 )
 
-TEST_REVIEWED_AT = "2026-08-13T00:00:00Z"
+TEST_REVIEWED_AT = "2026-08-24T00:00:00Z"
 TEST_REVIEWED_COMMIT = "a" * 40
 TEST_REVIEWED_MANIFEST_SHA256 = "sha256:" + "b" * 64
 TEST_REVIEWED_MANIFEST_KECCAK = "0x" + "c" * 64

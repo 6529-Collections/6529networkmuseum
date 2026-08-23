@@ -36,6 +36,25 @@ class VeraMolnarAccessionTest(unittest.TestCase):
         self.assertIn("6529NM-ACC-2026-003", text)
         self.assertNotIn("1/1 of 500", text)
 
+    def test_wave_api_status_does_not_claim_signature_verification(self):
+        observation = self.load(
+            "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json"
+        )["payload"]
+        self.assertTrue(observation["api_reported_is_signed"])
+        self.assertNotIn("signed", observation)
+        self.assertEqual(observation["observation_method"], "wave_api_status_readback")
+        public_paths = [
+            "records/accessions/6529NM.2026.003/public/source-and-chronology.md",
+            "records/proposed-gifts/6529NM-PG-2026-002/public/status-amendments/2026-08-23-winner-and-accession.md",
+            "records/proposed-gifts/6529NM-PG-2026-002/public/voter-dossier.md",
+            "records/proposed-gifts/6529NM-PG-2026-002/public/wave-storm/01-resolution.md",
+            "records/proposed-gifts/6529NM-PG-2026-002/public/wave-storm/03-case-and-decision.md",
+        ]
+        for path in public_paths:
+            text = (ROOT / path).read_text(encoding="utf-8")
+            self.assertNotIn("signed WINNER", text)
+            self.assertNotIn("signed Wave", text)
+
 
 if __name__ == "__main__":
     unittest.main()

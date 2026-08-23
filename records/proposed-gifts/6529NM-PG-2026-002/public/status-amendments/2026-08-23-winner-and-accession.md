@@ -1,6 +1,6 @@
 # Status amendment: WINNER selection and accession of *Themes and Variations* #210
 
-On 23 August 2026 the Museum’s signed Wave readback for serial `1296797`, drop `d09d3c3b-d354-4e39-9e1f-1e676e3cb62e`, reported `WINNER`. The selection identifies one object: `eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210`.
+On 23 August 2026 the Museum read the Wave API response for serial `1296797`, drop `d09d3c3b-d354-4e39-9e1f-1e676e3cb62e`; it reported `WINNER`. The selection identifies one object: `eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210`.
 
 The object is accessioned as `6529NM.2026.003.01` within accession `6529NM.2026.003`. Successful receipt transaction `0x618603d9f21dc09a4a7b2d6b6b242cc337127e8052116d0ee28c6c25f012a5cd` transferred the token from `0x6DAA633C23615a29471deafae351727867E7dAD1` to Museum address `0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c` at block `25,816,958`.
 

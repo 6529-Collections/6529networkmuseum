@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x5611eb4fa99b4cdb90fdacecd7b4d14e6e70c90bab2f433014a54a2cbc1dc58d"
+      "digest": "0x64ba1c50f040ae47cfa2bc94c2feebb608533392058627bbf5dc613fae909024"
     },
     "effectiveAt": 1787478417,
     "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
@@ -76,7 +76,7 @@
       }
     ],
     "donor_authority_declaration": {
-      "authentication": "The signed Wave drop, exact object identity, and finalized owner observation are retained together.",
+      "authentication": "The Wave API status response, exact object identity, and finalized owner observation are retained together.",
       "limitations": [
         "Token custody is distinct from copyright ownership.",
         "CC BY-NC 4.0 is retained as the source metadata licence label.",
@@ -90,7 +90,7 @@
     "evidence_refs": [
       {
         "evidence_class": "B",
-        "label": "Signed WINNER drop",
+        "label": "Wave API WINNER status readback",
         "observed_at": "2026-08-23T09:40:25.465Z",
         "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
       },
@@ -110,7 +110,7 @@
         "drop_id": "d09d3c3b-d354-4e39-9e1f-1e676e3cb62e",
         "effect_basis": "direct_wave_observation",
         "governance_effect": "adopted",
-        "governance_effect_basis": "The signed-drop API records the exact proposal as WINNER.",
+        "governance_effect_basis": "The Wave API records the exact proposal as WINNER.",
         "governance_record_ref": "6529NM-WAVE-OBS-2026-08-23-002",
         "live_api_field": "drop_type",
         "live_api_observed_at": "2026-08-23T09:40:25.465Z",
@@ -136,7 +136,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:7de743e3e3c117220d381697d4ab3ce1a307a36264003631fb9298aab4eea547",
+    "payload_sha256": "sha256:072b5a909f150a9e9941b99891cee67818773d563c0c877e2c91e2f17e9491b7",
     "permanent_collection_intent": "The Museum accepts this exact token for the permanent Collection under ordinary collection stewardship responsibilities.",
     "record_id": "6529NM.2026.003.GAA-01",
     "record_status": "review_pending",

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x77e901b7c5add9908285ca5a90797c3e8b1c8090ac96cb2bff5fd6e53edd8f1a"
+      "digest": "0xe486a438cfa789ddb148ecf5aec1c3a9fc5db44bf98e0aab5a6f417ccd9a52a2"
     },
     "effectiveAt": 1787478025,
     "recordType": "WAVE_STATUS_OBSERVATION",
@@ -19,6 +19,7 @@
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json"
   },
   "payload": {
+    "api_reported_is_signed": true,
     "constructor": {
       "id": "codex-task:vera-molnar-accession-2026-08-23",
       "observed_at": "2026-08-23T09:40:25.465Z",
@@ -54,9 +55,9 @@
       "collection_membership_not_established"
     ],
     "observation_id": "6529NM-WAVE-OBS-2026-08-23-002",
-    "observation_method": "signed_drop_api_readback",
+    "observation_method": "wave_api_status_readback",
     "observed_at": "2026-08-23T09:40:25.465Z",
-    "payload_sha256": "sha256:9b6fc8256ece0593b679f1024f830b528284d50b55b478e26ee178e42ee91e96",
+    "payload_sha256": "sha256:acf195a7ce6d2ab4ec6855ca7c89be454fe06e0b98625b3d1482ccd47f8aa3f5",
     "prior_observation": {
       "observed_at": "2026-08-13T19:19:40.216Z",
       "source_record_id": "6529NM-PG-2026-002",
@@ -81,7 +82,6 @@
     "schema_id": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
     "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
     "serial_no": 1296797,
-    "signed": true,
     "source_record_ids": [
       "6529NM-PG-2026-002"
     ],

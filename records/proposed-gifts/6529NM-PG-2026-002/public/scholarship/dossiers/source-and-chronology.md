@@ -1,6 +1,6 @@
 # Source and chronology: *Themes and Variations* #210
 
-The Museum’s source package retains the signed four-part Wave publication, the Art Blocks metadata response, and the official PNG preview. The exact on-chain project scripts are retained separately in the technical package. The source manifest at `evidence/vera-molnar-210-sources` has SHA-256 `71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5`. The custody package at `evidence/vera-molnar-210-custody` has summary SHA-256 `a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b`.
+The Museum’s source package retains the four-part Wave publication, the Art Blocks metadata response, and the official PNG preview. The exact on-chain project scripts are retained separately in the technical package. The source manifest at `evidence/vera-molnar-210-sources` has SHA-256 `71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5`. The custody package at `evidence/vera-molnar-210-custody` has summary SHA-256 `a4f3b10199b566c619c164e352be85072bb71197e2328834ab2d6f2efdd5987b`.
 
 | Date | Event |
 |---|---|

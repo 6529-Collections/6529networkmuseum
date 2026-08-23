@@ -58,11 +58,11 @@
       "signature_required": true
     },
     "part_metrics": [
-      {"part_number": 1, "utf16_code_units": 645, "utf8_bytes": 646, "media_count": 1},
+      {"part_number": 1, "utf16_code_units": 670, "utf8_bytes": 671, "media_count": 1},
       {"part_number": 2, "utf16_code_units": 846, "utf8_bytes": 851, "media_count": 1},
-      {"part_number": 3, "utf16_code_units": 808, "utf8_bytes": 809, "media_count": 0}
+      {"part_number": 3, "utf16_code_units": 827, "utf8_bytes": 828, "media_count": 0}
     ],
-    "totals": {"utf16_code_units": 2299, "utf8_bytes": 2306, "media_count": 2},
+    "totals": {"utf16_code_units": 2343, "utf8_bytes": 2350, "media_count": 2},
     "leaderboard": {
       "media_selection": "parts[0].media[0]",
       "cover_part_number": 1,
@@ -119,7 +119,7 @@
     }
   ],
   "submission_notes": [
-    "The signed four-part proposal is retained through the exact Wave drop and source-evidence package; the current API readback is WINNER, serial 1296797.",
+    "The four-part proposal is retained through the exact Wave drop and source-evidence package; the current API readback is WINNER, serial 1296797.",
     "The exact ERC-721 object is the single voting object; the Museum accession and custody records use 6529NM.2026.003 and 6529NM.2026.003.01.",
     "The cover reuses the retained official proposal PNG bytes by external URI and fixity. This package deliberately creates no 1600-pixel cover derivative, SVG, responsive WebP, or other binary derivative.",
     "The responsive accession-media manifest and binary derivatives are a separate downstream handoff; the assigned public work and media IDs are 6529NM-W-0029 and 6529NM-MED-0052.",

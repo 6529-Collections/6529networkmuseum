@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xffd70a6900937fddd5ab5ce27d99082a4202a13b4e40536d6114f71342fd8605"
+      "digest": "0x755fdd1afd2ad6b08e4e42d15a0512f95d539e5e3870be156d31d40375cd0187"
     },
     "effectiveAt": 1787478417,
     "recordType": "ACCESSION",
@@ -53,7 +53,7 @@
         "evidence_refs": [
           {
             "evidence_class": "B",
-            "label": "Signed WINNER drop",
+            "label": "Wave API WINNER status readback",
             "observed_at": "2026-08-23T09:40:25.465Z",
             "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=d09d3c3b-d354-4e39-9e1f-1e676e3cb62e"
           }
@@ -151,7 +151,7 @@
       "maintain credited noncommercial display",
       "capture runtime in a second environment"
     ],
-    "payload_sha256": "sha256:ebeffe8495d21f420b801a5c2da00925671c0096d9e10bd233f3bd5650b0a4d1",
+    "payload_sha256": "sha256:571131700ddce7b42f7ec1552b8f883d3ff51a9f0b6fc4caca2a4b38942de616",
     "record_id": "6529NM-ACC-2026-003",
     "record_status": "review_pending",
     "record_type": "ACCESSION",

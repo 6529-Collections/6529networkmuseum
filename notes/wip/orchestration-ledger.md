@@ -3985,3 +3985,19 @@ and Keccak
 `0xdc0065dde654ad35aae58016b3f56d6b21bd7ff1c42bfbdb0f8d229ade91743d`.
 The media generator now rejects locale-formatted timestamps and preserves
 canonical RFC 3339 UTC in both the manifest and its constructor record.
+
+Registrar review of A3 found that the public-entity test fixture still used a
+13 August review time, now earlier than the Vera records' 23 August
+construction. The production generator correctly rejected that impossible
+sequence. Candidate A4 advances the fixture beyond construction and is
+subject to a new exact-commit full-suite run and independent review.
+
+Candidate A4 also removes ambiguous “signed Wave” language from the Vera
+publication. The retained API field is now named `api_reported_is_signed`, the
+method is `wave_api_status_readback`, and the public record states that no
+independent cryptographic signature evidence is asserted. Martin Grasser's
+collaboration paragraph is consolidated. The corrected candidate passes
+bootstrap and full validation with release SHA-256
+`sha256:6dea14f6c9cba6d7f08933f24bc60c2770ca26d4c2f18133c51c72454db6c931`
+and Keccak
+`0xbc100acb049cc99548eb3d3314b8f4ce0c07813e9fea65490f41c25745341c15`.
