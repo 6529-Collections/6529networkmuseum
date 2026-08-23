@@ -1,14 +1,14 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/publication-catalog-pointer-v1.json",
   "activation": {
-    "activated_at": "2026-08-23T13:24:38Z",
-    "actor_id": "codex-release:vera-molnar-accession-2026-08-23",
+    "activated_at": "2026-08-23T14:12:48Z",
+    "actor_id": "codex-release:vera-molnar-accession-unified-2026-08-23",
     "mode": "activate",
-    "prior_catalog_id": "6529NM-PUBCAT-f52fe5513423d8049bb557749a9fce1070ace64b"
+    "prior_catalog_id": "6529NM-PUBCAT-8878c4eec8290a0f25975693d44259aa2109600a"
   },
-  "catalog_envelope_content_hash": "0x2ed20cf7d627c97c6547f7288f5d4efd5dc408ea74bde6f418c2a238a46c14ee",
-  "catalog_file_sha256": "sha256:e043d6258c8615e209081f99ea7d5b04e1aa9367ed71e2f78e580bd0a59ed327",
-  "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-8878c4eec8290a0f25975693d44259aa2109600a.json",
+  "catalog_envelope_content_hash": "0x8838e55be5fee4930d44ff8975d214b5e9945b763983156ea2c2a8ca5091a838",
+  "catalog_file_sha256": "sha256:fc2fbe4dfc03bf367951f35378cb75fe3f7be79fd57b791a7f1cb7f8a19bb76c",
+  "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-a7f1da116cc96ff03e285736f0e0dea34a8dab6b.json",
   "pointer_version": "1.0.0",
-  "source_commit": "8878c4eec8290a0f25975693d44259aa2109600a"
+  "source_commit": "a7f1da116cc96ff03e285736f0e0dea34a8dab6b"
 }
