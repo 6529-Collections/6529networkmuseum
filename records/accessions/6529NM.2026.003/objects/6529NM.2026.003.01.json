@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x95d820beb99924cb0fa8ae2861f5c8ed928932d51072ec5c25703d4b76516fdd"
+      "digest": "0xf4dcad64000200bc51a4958068eb47a2a0f1d0e1df99c05ff4586db43a9e6b6c"
     },
     "effectiveAt": 1787478417,
     "recordType": "WORK_DESCRIPTION",
@@ -88,7 +88,7 @@
     "medium": "On-chain generative software; Ethereum ERC-721 token; live browser generator",
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
-    "payload_sha256": "sha256:1d10f899444fd0ea565b36f692624c9329e663be6e8b5afc364b4524076f2800",
+    "payload_sha256": "sha256:e133aebd9f0e11199dc637728337dd0127ead04596b1b8a49ad2ea9dff01318f",
     "preservation": {
       "fixity_sha256": "sha256:71fb6066e1113e22c8586e195bfb8d553dcc8c4d7dec5b33de3ae47d3ebcafe5",
       "observed_at": "2026-08-23T09:46:57.326Z",
@@ -119,14 +119,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },

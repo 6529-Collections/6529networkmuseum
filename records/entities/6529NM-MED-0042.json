@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x11998e1cd4eed3cffa36c11c0205db2c38a0306e225227d5805c697fee94d36b"
+      "digest": "0x3b7c4f1d662c25626259cd9ceb7ad3c6201e664904e144c544a2caf8885f8f04"
     },
     "effectiveAt": 1786520276,
     "recordType": "PUBLIC_ENTITY",
@@ -52,7 +52,7 @@
     ],
     "observed_at": "2026-08-12T07:37:56.984246Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:d4b1c8ba01a0ae683343d24b71b17a5e9e24e97bdcbf91f8ae23df59c14dfbb4",
+    "payload_sha256": "sha256:c7b7bacaa73640f0576fc4107397f8af076bbe7397a98ebdf954f8a838d31c94",
     "preferred_label": "Demonstration, Western Wall, Jerusalem downstream-accession-reviewed historical proposal image",
     "profile": {
       "media": {
@@ -189,14 +189,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
       "outcome": "approved",
       "reviewed_at": "2026-08-23T15:10:17.867Z",
       "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
       "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
       "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
       "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a9-copy-correction-independent"
+        "codex-reviewer:museum-publication-2026-08-23-independent"
       ],
       "role": "reviewer"
     },
