@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdfd5655c7f19aed52a4d2ab51215fb9e9c2795f6751b7080617e210e75f405c1"
+      "digest": "0x1c0f3caecb4b724798ce427d7bbe50eb4dbd25e96be0e7462236966df0d7a0b6"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-W-0009",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "WORK",
     "evidence_refs": [
       {
@@ -49,7 +49,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:7c5705d5657678545353014e3947e91a205b486b71160e0db02357b5c883679e",
+    "payload_sha256": "sha256:d7d3a3af34317d4f6a9a83e037a89a361c4d39caa2da247edad49cba45b27b74",
     "preferred_label": "the Artist in the Open Sea",
     "profile": {
       "accession_entity_ids": [],
@@ -188,7 +188,7 @@
     },
     "public_slug": "6529NM-W-0009",
     "record_id": "6529NM-W-0009",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -198,8 +198,19 @@
       "6529NM-AP-ENT-0002",
       "6529NM-CA-2026-002"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-stable-work-route-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T13:56:37.569Z",
+      "reviewed_commit": "def27e6e7d31e7d685cfea08f7cbe01099a03895",
+      "reviewed_manifest_keccak": "0x6d48677fdb943d9f71e99fbeaf1987928651b85329fac388c97734e3c6147a8f",
+      "reviewed_manifest_sha256": "sha256:3134aabd0b1967c7655593dd7a9511855d21d0b187faaf8d3569a751e12da96f",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-stable-work-route-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AGT-0003",
@@ -224,7 +235,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-W-0009",
     "visibility": "public"

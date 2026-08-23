@@ -4043,3 +4043,12 @@ Museum Work identifier. The generator now emits `6529NM-W-0029` and
 `/museum/network/works/6529NM-W-0029`. The corrected graph is regenerated in
 pending state for exact-commit review before a replacement reviewed release
 and catalog activation; the rejected catalog is not being merged to `main`.
+
+Independent review approved exact correction candidate
+`def27e6e7d31e7d685cfea08f7cbe01099a03895` at
+`2026-08-23T13:56:37.569Z`, bound to manifest SHA-256
+`sha256:3134aabd0b1967c7655593dd7a9511855d21d0b187faaf8d3569a751e12da96f`
+and Keccak
+`0x6d48677fdb943d9f71e99fbeaf1987928651b85329fac388c97734e3c6147a8f`.
+The reviewed projection has been regenerated from that exact candidate and
+passes the complete Museum validator.
