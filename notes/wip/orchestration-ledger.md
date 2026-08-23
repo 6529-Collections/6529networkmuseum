@@ -4059,3 +4059,24 @@ presentation manifest retained the prior panel. The whole Vera publication
 unit is therefore reopened in pending state. This candidate binds the stable
 Work route, all seven direct accession records, the 370-record public graph,
 and the presentation manifest to one exact review boundary.
+
+Independent review approved exact unified candidate
+`b0483da0943078d49e1a4309776570e258e98f67` at
+`2026-08-23T14:08:53.109Z`, bound to manifest SHA-256
+`sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491`
+and Keccak
+`0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d`.
+The exact boundary is 380 release paths: 369 entity/relation records, the
+generated Magnum status observation, seven direct Vera records, the Vera
+presentation manifest, visitor bundle, and whole-release manifest. A rapid
+secondary review's path-count concern was a category-label mismatch, not a
+missing path or content finding; these exact counts reconcile it.
+
+Reviewed B is `a7f1da116cc96ff03e285736f0e0dea34a8dab6b` and passed the
+exact append-only A-to-B verifier. Exact catalog transition C is
+`8c0715cfd5ae842297db12b6b09fc39fed1273a8`. Catalog
+`6529NM-PUBCAT-a7f1da116cc96ff03e285736f0e0dea34a8dab6b` was activated at
+`2026-08-23T14:12:48Z`; its file SHA-256 is
+`sha256:fc2fbe4dfc03bf367951f35378cb75fe3f7be79fd57b791a7f1cb7f8a19bb76c`
+and envelope content hash is
+`0x8838e55be5fee4930d44ff8975d214b5e9945b763983156ea2c2a8ca5091a838`.
