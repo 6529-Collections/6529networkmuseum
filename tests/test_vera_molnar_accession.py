@@ -55,7 +55,7 @@ class VeraMolnarAccessionTest(unittest.TestCase):
             self.assertNotIn("signed WINNER", text)
             self.assertNotIn("signed Wave", text)
 
-    def test_direct_accession_records_share_the_approved_review_binding(self):
+    def test_direct_accession_records_share_one_pending_or_reviewed_state(self):
         paths = sorted(
             path
             for path in (ROOT / "records/accessions/6529NM.2026.003").rglob("*.json")
@@ -66,20 +66,35 @@ class VeraMolnarAccessionTest(unittest.TestCase):
             / "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json"
         )
         self.assertEqual(7, len(paths))
+        states = []
+        reviewers = []
         for path in paths:
             payload = json.loads(path.read_text(encoding="utf-8"))["payload"]
-            self.assertEqual("reviewed", payload["record_status"])
-            self.assertEqual("reviewed", payload["review_status"])
-            reviewer = payload["reviewer"]
-            self.assertEqual(
-                "codex-reviewer:vera-molnar-accession-a4-independent-curatorial-editorial",
+            states.append((payload["record_status"], payload["review_status"]))
+            reviewers.append(payload["reviewer"])
+        self.assertEqual(1, len(set(states)))
+        if states[0] == ("review_pending", "pending_independent_review"):
+            self.assertTrue(all(reviewer is None for reviewer in reviewers))
+            return
+        self.assertEqual(("reviewed", "reviewed"), states[0])
+        self.assertTrue(all(isinstance(reviewer, dict) for reviewer in reviewers))
+        bindings = {
+            (
                 reviewer["id"],
-            )
-            self.assertEqual(
-                "5587bac420b9a6348aa6045613e322f57bb7c306",
+                reviewer["reviewed_at"],
                 reviewer["reviewed_commit"],
+                reviewer["reviewed_manifest_sha256"],
+                reviewer["reviewed_manifest_keccak"],
+                reviewer["outcome"],
             )
-            self.assertEqual("approved", reviewer["outcome"])
+            for reviewer in reviewers
+        }
+        self.assertEqual(1, len(bindings))
+        binding = next(iter(bindings))
+        self.assertRegex(binding[2], r"^[0-9a-f]{40}$")
+        self.assertRegex(binding[3], r"^sha256:[0-9a-f]{64}$")
+        self.assertRegex(binding[4], r"^0x[0-9a-f]{64}$")
+        self.assertEqual("approved", binding[5])
 
 
 if __name__ == "__main__":

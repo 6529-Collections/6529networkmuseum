@@ -8610,8 +8610,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_vera_molnar_accession.py",
-      "sha256": "sha256:cf08d9c4875735087566f0802f43361e11df0ef19044878f9e9090fd8fe361c8",
-      "size": 4332
+      "sha256": "sha256:c5e67a6a3338eb32db06e16c266019c8aa39e81c11bbe94f25680bc5c7d6cdeb",
+      "size": 4980
     },
     {
       "byte_mode": "lf-normalized",
@@ -8657,9 +8657,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0xd601dbb9d806d1dc0eba8c007a5ae4fa2f1c99884514a95332365e95c00d6407"
+    "digest": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb"
   },
-  "manifest_sha256": "sha256:34ab289705eae8e538b049d3b4eccf94ae454b2964afbf5c47180a4e3774a555",
+  "manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
