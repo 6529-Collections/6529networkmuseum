@@ -10,7 +10,7 @@ Grasser’s practice includes type design, identity systems, hand-drawn alphabet
 
 Grasser’s contribution is legible in the project’s typographic intelligence. A letter can keep its identity while changing scale, then become a block, a linear scaffold, or a repeated texture. Across 500 outputs, the system holds that movement between sign and image in active variation.
 
-The 6529 Network Museum holds *Themes and Variations* #210. Its six-by-six field combines repeated T forms, a small F, heavy blue masses, narrow lines, and a dense panel of marks. The work records the collaboration through one exact output and through the script, token hash, and project evidence linked to its accession.
+The 6529 Network Museum holds *Themes and Variations* #210. Its six-by-six field combines repeated T forms, a small F, heavy blue masses, narrow lines, and a dense panel of marks. The Museum presents #210 as one output from that collaboration, alongside the project information that places it within the 500-work edition.
 
 ## Sources
 

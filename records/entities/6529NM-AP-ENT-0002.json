@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x85f586216a56693ed413fba2e2a28a66d59472906073441ae2990e2150ece7ab"
+      "digest": "0x733f4da0ebeccb520efd0d857b36bc424464426ba29084e6863d45a50df11cf5"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-01T15:03:35Z",
     "entity_id": "6529NM-AP-ENT-0002",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACQUISITION_PROGRAM",
     "evidence_refs": [
       {
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-01T15:03:35Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:97e75daeefc11fb16ac0b6d9058642c863469918f9b589a8569dfd407b440ffc",
+    "payload_sha256": "sha256:54f33505cd58014ef1eb0c46e0e55f9771a072706c15c83063a8a3fcb830ae05",
     "preferred_label": "Keys and Gates",
     "profile": {
       "authority_record_ids": [
@@ -83,7 +83,7 @@
     },
     "public_slug": "keys-and-gates",
     "record_id": "6529NM-AP-ENT-0002",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -105,19 +105,8 @@
       "6529NM-AP-01-OUT-015",
       "6529NM-AP-01-OUT-016"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T14:08:53.109Z",
-      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
-      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
-      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a8-unified-release-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-AP-01",
@@ -148,7 +137,7 @@
         }
       ],
       "observed_at": "2026-08-01T15:03:35Z",
-      "status_label": "published"
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AP-ENT-0002",
     "visibility": "public"

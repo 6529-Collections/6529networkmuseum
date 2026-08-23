@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xf0701aa0bf0f22593c6eb09556b86afa8da50f67fe0d2633b5c292f809cb6fc6"
+      "digest": "0x80482098822126c77f3af70f0527f46bc2519161c5bb4ff11a0971ea2b6d82c0"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:0b0b8fa047e9dcd33575de01b9d13f3a23844a83186ebd7895cfb90b18dedb01",
+    "payload_sha256": "sha256:2a5998123ef583a51f32b0c70b2269282a4c489cf40b875722d42bfa50fb3ef1",
     "qualifier": {
       "display_order": 3,
       "scope": "source_project",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0061",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,19 +53,8 @@
     ],
     "relation_id": "6529NM-REL-0061",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:vera-molnar-a8-unified-release-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T14:08:53.109Z",
-      "reviewed_commit": "b0483da0943078d49e1a4309776570e258e98f67",
-      "reviewed_manifest_keccak": "0x22f38906804d77c99f70e0f1bb9e000cb3491c8d4a1263686a4061bd8c3bcd5d",
-      "reviewed_manifest_sha256": "sha256:138e97e0ce113762b7aa5400b3875b31f3246d4e524da0375281a1a03118d491",
-      "reviewer_ids": [
-        "codex-reviewer:vera-molnar-a8-unified-release-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-002",
     "source_record_ids": [

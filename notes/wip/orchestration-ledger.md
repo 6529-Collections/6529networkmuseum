@@ -4080,3 +4080,16 @@ exact append-only A-to-B verifier. Exact catalog transition C is
 `sha256:fc2fbe4dfc03bf367951f35378cb75fe3f7be79fd57b791a7f1cb7f8a19bb76c`
 and envelope content hash is
 `0x8838e55be5fee4930d44ff8975d214b5e9945b763983156ea2c2a8ca5091a838`.
+
+### 2026-08-23 14:53 UTC - Vera visitor-copy correction reopened for review
+
+Adversarial curatorial and copy review of the rendered frontend found two
+source-level statements that required correction before release. The Curated
+Acquisition thesis now describes accession of one unique output from the
+500-work edition; it no longer implies that the Museum accessioned the entire
+project system or completed autonomous preservation. Martin Grasser's public
+profile now describes the Museum's presentation of output #210 without
+machine-record language. The public graph has been regenerated in pending
+state. This replacement candidate is subject to a fresh exact-commit review,
+reviewed promotion, release manifest, and catalog activation; the prior PR
+head must not merge.
