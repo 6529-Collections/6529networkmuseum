@@ -2,13 +2,20 @@
   "$schema": "../../../../schemas/accession-media-presentation-v2.schema.json",
   "record_control": {
     "revision": 1,
-    "record_status": "constructed",
+    "record_status": "reviewed",
     "constructor": {
       "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
       "role": "constructor",
       "constructed_at": "2026-08-23T10:15:00Z"
     },
-    "review": null
+    "review": {
+      "actor_id": "codex-reviewer:vera-molnar-a9-copy-correction-independent",
+      "role": "reviewer",
+      "reviewed_at": "2026-08-23T15:10:17.867Z",
+      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "outcome": "approved",
+      "payload_sha256": "sha256:eadc36341a359520b092fa318cf38167fc963fa55562d6e10e2e34639f066799"
+    }
   },
   "record_type": "ACCESSION_MEDIA_PRESENTATION",
   "schema_profile": "6529NM_ACCESSION_MEDIA_PRESENTATION_V2",
@@ -33,7 +40,7 @@
     "metadata": "source metadata stripped; output sRGB ICC profile retained"
   },
   "delivery": {
-    "status": "prepared_for_contextual_museum_display_pending_review",
+    "status": "approved_for_contextual_museum_display",
     "authority_record_id": "6529NM.2026.003.DISPLAY-01",
     "authority_path": "records/accessions/6529NM.2026.003/public/web-presentation-authority.md",
     "cdn_base_url": "https://d3lqz0a4bldqgf.cloudfront.net",
