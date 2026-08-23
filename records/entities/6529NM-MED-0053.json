@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xdfa8f0b78d5f1e6054bd521b048423455831cb7ffe64551858a3b17114dfc00a"
+      "digest": "0x4ee7f4ccd212b369bf72153fc323117eceb9322b25e4778f997a49dbde30bb35"
     },
     "effectiveAt": 1787478417,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-23T09:46:57.326Z",
     "effective_at": "2026-08-23T09:46:57.326Z",
     "entity_id": "6529NM-MED-0053",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-23T09:46:57.326Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0795a38d2a59d7cecefd3b7f8db6d11cd0320b0bfb7a732abafd740e5cb7d7ad",
+    "payload_sha256": "sha256:8c365aec771f0a7ad32adbaaf979173cd8d31d642c82753a97a727eb24b4ec3b",
     "preferred_label": "Live generator: Themes and Variations #210",
     "profile": {
       "media": {
@@ -147,7 +147,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0053",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -156,8 +156,19 @@
       "6529NM.2026.003.COND.01",
       "6529NM.2026.003.RIGHTS.01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T13:22:21Z",
+      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
+      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
+      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-W-0029",
@@ -181,7 +192,7 @@
         }
       ],
       "observed_at": "2026-08-23T09:46:57.326Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0053",
     "visibility": "public"

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x6c2521861443a9e836b000867e2d5ffc2315aae3e54bd19b846bdf89e425e547"
+      "digest": "0xb0651de5bbb5bfb09bab16d6661408f83a45d0deffc72a977053510591a0d12e"
     },
     "effectiveAt": 1785596615,
     "recordType": "PUBLIC_RELATION",
@@ -36,14 +36,14 @@
       }
     ],
     "observed_at": "2026-08-01T15:03:35Z",
-    "payload_sha256": "sha256:ee47a2fd3521263bdd739eb0cbf0e21e0ccd9e799b1453f476c9da9b89ad2d6c",
+    "payload_sha256": "sha256:53570e1f13ff90c1d1011e2a233047267c1d4345fd7424a87356b6390fcc848d",
     "qualifier": {
       "display_order": 1,
       "scope": "source_project",
       "selection_status": "selected_unminted"
     },
     "record_id": "6529NM-REL-0057",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -53,8 +53,19 @@
     ],
     "relation_id": "6529NM-REL-0057",
     "relation_type": "CURATED_ACQUISITION_BRINGS_TOGETHER_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T13:22:21Z",
+      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
+      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
+      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-CA-2026-002",
     "source_record_ids": [

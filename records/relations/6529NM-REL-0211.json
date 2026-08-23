@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc4e2a4fcd791e40f912aef171d4b2e15dc240bb3bdf3a27f672f500401e76a9c"
+      "digest": "0x56b7424c761cd1b1bb886b335aa8cb37faf4a376783d0253ceaac966f24f9c35"
     },
     "effectiveAt": 1786233600,
     "recordType": "PUBLIC_RELATION",
@@ -36,10 +36,10 @@
       }
     ],
     "observed_at": "2026-08-09T00:00:00Z",
-    "payload_sha256": "sha256:cd1ec8f809ee212c76aea3e240af86d4d6095edde4559eafe694389b9cb9525f",
+    "payload_sha256": "sha256:836cc7f4a8610ad603863eea0a46e74b9cf6730a8131ebe58b4d8cb9dab189b8",
     "qualifier": {},
     "record_id": "6529NM-REL-0211",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -49,8 +49,19 @@
     ],
     "relation_id": "6529NM-REL-0211",
     "relation_type": "INSTITUTION_PUBLISHES_PUBLICATION",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T13:22:21Z",
+      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
+      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
+      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-I-0001",
     "source_record_ids": [

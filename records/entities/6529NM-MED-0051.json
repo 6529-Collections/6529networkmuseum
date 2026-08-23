@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xcca00848cc269c9586368ee1f97d9442eff40bdeb5be4dfa0e175735e9fa513a"
+      "digest": "0x1d510c8dd970ddbac30a39f79bf1ed77798f972b9a593d9aba7c05b0e3a0b030"
     },
     "effectiveAt": 1786316672,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-08-12T23:15:00Z",
     "effective_at": "2026-08-09T23:04:32Z",
     "entity_id": "6529NM-MED-0051",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -46,7 +46,7 @@
     ],
     "observed_at": "2026-08-09T23:04:32Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:763e6f31274707ea6812e43a836f73b373baa2fd7a2d7e66a25a89788d6b6f61",
+    "payload_sha256": "sha256:e3933315570ab3b434bf6a44308e2fd32f3d937ec428a7a88490758e03c1fc7d",
     "preferred_label": "Ex Nihilo (Cosmos) #248 official Art Blocks still",
     "profile": {
       "media": {
@@ -162,7 +162,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0051",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -171,8 +171,19 @@
       "6529NM.2026.001.RIGHTS.07",
       "6529NM.2026.001.VO-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary",
+      "outcome": "approved",
+      "reviewed_at": "2026-08-23T13:22:21Z",
+      "reviewed_commit": "2e6e05f1e0b60983b0a1d27cc767326c2d84d00c",
+      "reviewed_manifest_keccak": "0x4d6c76a0cd08e7ce6fd54945b1f378c55b39581c9c897ec274fdb4ad9dffdedb",
+      "reviewed_manifest_sha256": "sha256:f6c720b94f7aceb2cdfcfe6b619fabdc476c9939de9cf18a5bc77b29b0284b08",
+      "reviewer_ids": [
+        "codex-reviewer:vera-molnar-accession-a5-independent-publication-boundary"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-MEDIA-PRES-AMD-2026-08-09-001",
@@ -196,7 +207,7 @@
         }
       ],
       "observed_at": "2026-08-09T23:04:32Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0051",
     "visibility": "public"
