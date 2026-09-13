@@ -1,0 +1,329 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x3d8e2c6911e732feeea3a3314537d01d9e7c2ea787f2ce3bdb2b5a827d5107c1"
+    },
+    "effectiveAt": 1789339283,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x1742efe21d50f03686d9f0884e98d23617dc35a1b69473e35977a441183b2aa2",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-CA-2026-005.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/acquisitions/forest-water-and-community",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "entity_id": "6529NM-CA-2026-005",
+    "entity_status": "review_pending",
+    "entity_type": "CURATED_ACQUISITION",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Collection essay",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Salgado accession certificate",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Unrestricted gift acceptance",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:dc187c0c99ecf19eae1d719045fee95ff85d8efb90b797e8a1d41a3ef8336c40",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json"
+      }
+    ],
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:5b2103045b62d7652bd70e1aa47de01a2326b81f076c7350ddd4013122c1f347",
+    "preferred_label": "Amazônia: Forest, Water, and Community",
+    "profile": {
+      "acquisition_method": "donation",
+      "collection_effect": "permanent_collection",
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Collection essay",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Unrestricted gift acceptance",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:dc187c0c99ecf19eae1d719045fee95ff85d8efb90b797e8a1d41a3ef8336c40",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json"
+        }
+      ],
+      "independent_acquisition_facts": {
+        "custody": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Finalized custody",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-custody/summary.json"
+            }
+          ],
+          "notes": "The six tokens were verified at finalized Ethereum block 25971024.",
+          "status": "verified"
+        },
+        "display": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Museum display and rights determination",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+            }
+          ],
+          "notes": "Full-frame, credited and accessible Museum presentation is ready.",
+          "status": "verified_with_conditions"
+        },
+        "mint": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "A",
+              "label": "Mint-to-Museum receipt verification",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:42c491b6833adb8cace7acb07cab994b6e1b8f57af6441844afbdb1d9a82619d",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-provenance/summary.json"
+            }
+          ],
+          "notes": "The tokens were minted in 2022 before this gift.",
+          "status": "verified"
+        },
+        "payment": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Unrestricted gift acceptance",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:dc187c0c99ecf19eae1d719045fee95ff85d8efb90b797e8a1d41a3ef8336c40",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json"
+            }
+          ],
+          "notes": "The six works were donated without consideration.",
+          "status": "not_applicable"
+        },
+        "preservation": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Two regional source-package restoration tests",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-preservation/restoration-summary.json"
+            }
+          ],
+          "notes": "Both source archives passed restoration; subsequent publication editions are retained through separate captures.",
+          "status": "in_progress"
+        },
+        "rights": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Museum display and rights determination",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+            }
+          ],
+          "notes": "Ordinary credited Museum use is recorded; no general third-party reuse licence is asserted.",
+          "status": "verified_with_conditions"
+        },
+        "technical": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source image and metadata characterization",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+            }
+          ],
+          "notes": "The JPEGs decode and display; mutable metadata authority and retrieval dependencies remain documented.",
+          "status": "verified_with_conditions"
+        },
+        "title": {
+          "as_of": "2026-09-13T22:41:23.205Z",
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Salgado accession certificate",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+            }
+          ],
+          "notes": "The Museum records the donor’s transferable token interest separately from copyright.",
+          "status": "verified"
+        }
+      },
+      "lifecycle": {
+        "as_of": "2026-09-13T22:41:23.205Z",
+        "evidence_refs": [
+          {
+            "evidence_class": "B",
+            "label": "Salgado accession certificate",
+            "observed_at": "2026-09-13T22:41:23.205Z",
+            "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+          }
+        ],
+        "status": "accessioned_into_permanent_collection"
+      },
+      "lifecycle_observations": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Salgado accession certificate",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+            }
+          ],
+          "notes": "The independently reviewed six-work gift is admitted to the permanent Collection.",
+          "observation_id": "6529NM-CA-OBS-0006",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "source_record_ids": [
+            "6529NM-ACC-2026-004",
+            "6529NM.2026.004.GAA-01"
+          ],
+          "source_status": "accessioned",
+          "status": "accessioned_into_permanent_collection"
+        }
+      ],
+      "profile_type": "CURATED_ACQUISITION",
+      "program_or_pathway": {
+        "entity_ids": [
+          "6529NM-AP-ENT-0001"
+        ],
+        "kind": "acquisition_program",
+        "source_record_ids": [
+          "6529NM.2026.004.GAA-01"
+        ]
+      },
+      "public_credit": "Gift of punk6529",
+      "source_work_record_ids": [
+        "6529NM.2026.004.01",
+        "6529NM.2026.004.02",
+        "6529NM.2026.004.03",
+        "6529NM.2026.004.04",
+        "6529NM.2026.004.05",
+        "6529NM.2026.004.06"
+      ],
+      "thesis": "Six photographs bring forest vegetation, ridges, clouds, river courses and Indigenous communities into a Museum selection from Amazônia.",
+      "title": "Amazônia: Forest, Water, and Community",
+      "work_entity_ids": [
+        "6529NM-W-0030",
+        "6529NM-W-0031",
+        "6529NM-W-0032",
+        "6529NM-W-0033",
+        "6529NM-W-0034",
+        "6529NM-W-0035"
+      ]
+    },
+    "public_slug": "forest-water-and-community",
+    "record_id": "6529NM-CA-2026-005",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-004",
+      "6529NM-ACC-ENT-0004",
+      "6529NM-AP-ENT-0001",
+      "6529NM-W-0030",
+      "6529NM-W-0031",
+      "6529NM-W-0032",
+      "6529NM-W-0033",
+      "6529NM-W-0034",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-004",
+      "6529NM-ACC-ENT-0004",
+      "6529NM-AP-ENT-0001",
+      "6529NM-W-0030",
+      "6529NM-W-0031",
+      "6529NM-W-0032",
+      "6529NM-W-0033",
+      "6529NM-W-0034",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Collection essay",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Unrestricted gift acceptance",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:dc187c0c99ecf19eae1d719045fee95ff85d8efb90b797e8a1d41a3ef8336c40",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json"
+        }
+      ],
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-CA-2026-005",
+    "visibility": "public"
+  }
+}

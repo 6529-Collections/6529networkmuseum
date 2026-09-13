@@ -1,0 +1,18 @@
+{
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "path": "admission-amendment.json",
+      "sha256": "d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+      "size": 11042,
+      "media_type": "application/json"
+    },
+    {
+      "path": "register-revision-5.json",
+      "sha256": "51b959b0a2ab0acbf6e40f10302b43a26fe2ca131091f5479d0a38f022e60894",
+      "size": 10929,
+      "media_type": "application/json"
+    }
+  ]
+}

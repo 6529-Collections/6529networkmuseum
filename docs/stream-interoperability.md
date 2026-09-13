@@ -421,3 +421,17 @@ algorithm/digest pairs fail closed. Future Stream admission requires a
 field-by-field schema comparison, deterministic JCS/Keccak commitment check,
 implemented PREMIS/LIDO round trip, and readback of the exact source/evidence
 boundaries.
+
+### Salgado local record amendments — 13 September 2026
+
+The local accession-register amendment profile now permits a prior source
+commit and retained snapshot when the superseded register had no recorded
+review. A prior review commit remains supported for reviewed predecessors;
+the two forms are exclusive. This avoids representing an unreviewed snapshot
+as reviewed and does not change the Stream envelope or accession event profile.
+
+Public-entity replay maintains the earlier catalogue review scope separately
+from the Salgado scope. The latter includes its new records and the two
+membership projections it changes. Each scope must independently have a
+consistent review binding; the existing mixed-state rejection applies within
+each scope. No earlier review is applied to new Salgado assertions.

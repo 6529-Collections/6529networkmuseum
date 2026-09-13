@@ -5,7 +5,7 @@
     "subjectId": "0xb5e974e5b02ca654891d55aafb01bdd09e5dd326f09e7b28cf855c5fc10a927d",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x437a865f2b3506c13c20b78c8e4feea8d452859c9b83b7099af236a13c224750",
+      "digest": "0xccb720f7aeac66ff327c093b21e90297df42fd521691d8c4ba7d80b94c327e93",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/accession-statement.json",
@@ -16,12 +16,12 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
-    "effectiveAt": 1789335192
+    "effectiveAt": 1789339283
   },
   "payload": {
     "acceptance_date": "2026-09-13T21:33:12.534Z",
     "accession_number": "6529NM.2026.004",
-    "accession_status": "not_complete",
+    "accession_status": "complete",
     "acquisition_method": "donation",
     "constructor": {
       "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
@@ -29,7 +29,7 @@
       "observed_at": "2026-09-13T21:33:12.534Z"
     },
     "created_at": "2026-09-13T21:33:12.534Z",
-    "effective_at": "2026-09-13T21:33:12.534Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "evidence_grade": "A/B/C",
     "evidence_refs": [
       {
@@ -62,7 +62,7 @@
       },
       {
         "label": "Donor declaration and Museum display determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
         "evidence_class": "B",
         "observed_at": "2026-09-13T21:33:12.534Z",
         "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -80,6 +80,20 @@
         "evidence_class": "B",
         "observed_at": "2026-09-13T22:14:05.515Z",
         "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
       }
     ],
     "formal_acceptance_date": "2026-09-13T21:33:12.534Z",
@@ -89,10 +103,10 @@
       "6529NM.2026.004.GAA-01",
       "6529NM-WAVE-OBS-2026-09-13-003"
     ],
-    "intake_status": "accepted_for_accession_processing",
+    "intake_status": "accessioned",
     "non_claims": [
-      "Unrestricted donor gift is separate from copyright ownership.",
-      "Identifiers are allocated for processing; permanent Collection admission is not yet asserted."
+      "An unrestricted token gift does not transfer the artist copyright.",
+      "Preservation of the source package and archival capture of later publication editions have distinct scopes."
     ],
     "object_ids": [
       "6529NM.2026.004.01",
@@ -102,12 +116,12 @@
       "6529NM.2026.004.05",
       "6529NM.2026.004.06"
     ],
-    "observed_at": "2026-09-13T22:14:05.515Z",
-    "payload_sha256": "sha256:04ca7e99e68aab0b46bb9162d2eb894e321caea9d47280682a1f84d4c19936d6",
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "payload_sha256": "sha256:aae971c91498a16dded9489ba7ca77ec1b73c93e102b278fefe2d00310e3f7ff",
     "record_id": "6529NM.2026.004",
     "record_status": "review_pending",
     "record_type": "ACCESSION_LOT",
-    "record_version": "1.0.1",
+    "record_version": "1.1.0",
     "references": [
       "6529NM.2026.004.GAA-01",
       "6529NM-WAVE-OBS-2026-09-13-003",
@@ -116,12 +130,10 @@
       "6529NM.2026.004.03",
       "6529NM.2026.004.04",
       "6529NM.2026.004.05",
-      "6529NM.2026.004.06"
+      "6529NM.2026.004.06",
+      "6529NM-ACC-2026-004"
     ],
-    "remaining_gates": [
-      "independent_review",
-      "execute_accession_certificate_after_review"
-    ],
+    "remaining_gates": [],
     "review_status": "pending_independent_review",
     "reviewer": null,
     "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
@@ -132,6 +144,18 @@
       ]
     },
     "subject_id": "6529NM.2026.004",
-    "visibility": "public"
+    "visibility": "public",
+    "ongoing_stewardship_actions": [
+      {
+        "action": "Archive the final reviewed admission and publication edition with its commit and review receipts.",
+        "status": "pending_final_edition",
+        "priority": "high"
+      },
+      {
+        "action": "Maintain source fixity, recoverable copies, credited full-frame display and dated custody/control observations.",
+        "status": "ongoing",
+        "priority": "normal"
+      }
+    ]
   }
 }

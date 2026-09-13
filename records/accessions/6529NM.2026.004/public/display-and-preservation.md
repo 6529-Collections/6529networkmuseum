@@ -3,7 +3,7 @@
 **Scope:** Six finished photographic JPEG manifestations and their token,
 metadata, provenance, title and catalogue documentation.  
 **Status:** Source retention, two regional replicas and offline restoration
-verified; final catalogue edition and binding Museum review remain pending.
+verified; independent intake review is approved. Later admission/publication editions have a separate archive scope.
 
 The source JPEGs remain unchanged. Each file has a recorded SHA-256 digest,
 byte count, decoded dimensions, orientation and embedded colour profile. The

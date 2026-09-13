@@ -65,3 +65,7 @@ permission letter by default.
 This draft records the gift and the intended-use determination. Accession
 admission, independent review and public publication retain their own events
 and evidence; they are not asserted to have occurred by this draft.
+
+## Admission amendment — 13 September 2026
+
+The title determination above was independently approved in the intake edition at commit `4939941ae69d5edf0eec86712186add1666ab410`. Its original bytes and checksum remain the title instrument bound to all six transfers. The [accession certificate](../accession-certificate.json) records the subsequent admission act. This addendum supersedes the earlier pending-review status; it does not change the gift or rights determination.

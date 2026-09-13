@@ -5,7 +5,7 @@
     "subjectId": "0x1fc7edd75c38e0c03f12c11bd4504ff1a0d4db43488daef87e254e013a26a526",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0x3e85557f496584ae1475a0ebb7ce0347200c5836fb05bddfe77b28466aa8700d",
+      "digest": "0xec66db3e63c4cc16c758597d06ffa56af7f95fda28280fbdebf6578a2f930f93",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.05.json",
@@ -16,14 +16,14 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
-    "effectiveAt": 1789335192
+    "effectiveAt": 1789339283
   },
   "payload": {
     "record_id": "6529NM.2026.004.05",
     "subject_id": "6529NM.2026.004.05",
     "created_at": "2026-09-13T21:33:12.534Z",
-    "observed_at": "2026-09-13T22:14:05.515Z",
-    "effective_at": "2026-09-13T21:33:12.534Z",
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "constructor": {
       "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
       "role": "constructor",
@@ -32,11 +32,12 @@
     "reviewer": null,
     "record_status": "review_pending",
     "review_status": "pending_independent_review",
-    "record_version": "1.0.1",
-    "payload_sha256": "sha256:098f24f8b6875c03ca54e5cc79acb8ae9bf488859af2e1b00accb65f11dfe8a9",
+    "record_version": "1.1.0",
+    "payload_sha256": "sha256:d21c608086b7f83bd89187e8350e56a1b55bbe828733d04fa7f1e7e84f18e569",
     "references": [
       "6529NM.2026.004.GAA-01",
-      "6529NM-WAVE-OBS-2026-09-13-003"
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM-ACC-2026-004"
     ],
     "evidence_refs": [
       {
@@ -69,7 +70,7 @@
       },
       {
         "label": "Donor declaration and Museum display determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
         "evidence_class": "B",
         "observed_at": "2026-09-13T21:33:12.534Z",
         "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -87,6 +88,20 @@
         "evidence_class": "B",
         "observed_at": "2026-09-13T22:14:05.515Z",
         "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
       }
     ],
     "source": {
@@ -104,7 +119,7 @@
     "creator": "Sebastião Salgado",
     "medium": "Black-and-white digital photograph; JPEG associated with an ERC-721 token",
     "credit_line": "Gift of punk6529. Photograph © Sebastião Salgado.",
-    "current_state": "received_onchain",
+    "current_state": "technically_verified",
     "chain_identity": {
       "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/2768",
       "chain_id": 1,
@@ -201,7 +216,7 @@
       "documentation": "amber",
       "protocol_state": "Static JPEG associated with Ethereum ERC-721; mutable metadata authority and gateway retrieval dependencies recorded separately.",
       "method": "Exact receipt/log and pinned finalized custody; source hash matching, full JPEG decode, ICC/geometry characterization and full-frame visual examination.",
-      "narrative": "Readable, fixity-verified source manifestation. Both regional source archives passed restoration and all 18 display copies rebuilt identically. Binding Museum review and archival capture of the final publication edition remain pending.",
+      "narrative": "Readable, fixity-verified source manifestation. Both regional source archives passed restoration and all 18 display copies rebuilt identically. Independent intake review is approved. The final admission/publication edition requires a subsequent archive capture.",
       "observed_at": "2026-09-13T22:12:10.539Z"
     },
     "state_history": [
@@ -234,9 +249,30 @@
           "6529NM.2026.004.GAA-01",
           "6529NM-WAVE-OBS-2026-09-13-003"
         ]
+      },
+      {
+        "state": "accessioned",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-004"
+        ]
+      },
+      {
+        "state": "catalogued",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-004"
+        ]
+      },
+      {
+        "state": "technically_verified",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "evidence_refs": [
+          "6529NM-ACC-2026-004"
+        ]
       }
     ],
-    "state_history_semantics": "The receipt occurred at 2026-09-13T20:15:35Z; this state records subsequent finalized verification. Admission awaits independent review and an executed accession certificate.",
+    "state_history_semantics": "The original four intake observations are unchanged. The later three states record admission and recognition of the independently reviewed catalogue and technical assessment at this amendment time.",
     "preservation": {
       "status": "in_progress",
       "package_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-preservation/restoration-summary.json",
@@ -267,8 +303,7 @@
     "uncertainties": [
       "Issuer date-code suffix is not established as a calendar month.",
       "The source JPEG is a finished edition manifestation; camera originals are not held.",
-      "Specific book/exhibition appearance of this exact image is not established.",
-      "Accession record and scholarship await independent review."
+      "Specific book/exhibition appearance of this exact image is not established."
     ]
   }
 }

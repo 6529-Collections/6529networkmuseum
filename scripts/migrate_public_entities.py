@@ -823,6 +823,7 @@ def build_records(
     reviewed_commit: str | None = None,
     reviewed_manifest_sha256: str | None = None,
     reviewed_manifest_keccak: str | None = None,
+    salgado_review_arguments: dict[str, Any] | None = None,
 ) -> dict[str, dict[str, Any]]:
     vocab = load_json(VOCAB_PATH)
     identity_inventory = load_json(IDENTITY_INVENTORY_PATH)
@@ -1911,6 +1912,11 @@ def build_records(
         rights_id = casey_media_corrections[object_id]["rights_record_id"]
         add_relation(f"6529NM-REL-{relation_number:04d}", "ENTITY_HAS_MEDIA", work_id, casey_still_media_ids_by_object[object_id], {"media_context": "primary", "display_order": 1}, CASEY_MEDIA_AT, [object_id, rights_id, "6529NM.2026.001.VO-01", CASEY_MEDIA_AMENDMENT_ID], [source_evidence("Append-only Casey primary still relation", CASEY_MEDIA_AMENDMENT_ID, CASEY_MEDIA_AT)])
         relation_number += 1
+    import salgado_public_entities
+    salgado_public_entities.add_records(
+        sys.modules[__name__], records, relation_indexes, used_relation_keys,
+        identity_inventory, salgado_review_arguments,
+    )
     generated_entities = [record["payload"] for relative, record in records.items() if relative.startswith("records/entities/")]
     actual_entity_types = {payload["entity_type"] for payload in generated_entities}
     if actual_entity_types != set(IDENTITY_BINDING_ENTITY_TYPES):
@@ -2198,7 +2204,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.check_existing_review_state:
         pending_records = build_records(False, None)
         try:
-            generation_arguments = infer_existing_review_arguments(pending_records)
+            import salgado_public_entities
+            salgado_scope = {p: r for p, r in pending_records.items()
+                             if r['payload']['constructor']['id'] == salgado_public_entities.ACTOR}
+            earlier_scope = {p: r for p, r in pending_records.items() if p not in salgado_scope}
+            generation_arguments = infer_existing_review_arguments(earlier_scope)
+            generation_arguments['salgado_review_arguments'] = infer_existing_review_arguments(salgado_scope)
         except ValueError as exc:
             print(f"Public entity migration review-state replay refused: {exc}")
             return 1

@@ -1,7 +1,7 @@
 # Amazônia: photographs, books and a digital edition
 
-**Project study** · 6529 Network Museum · Version 0.1.1 · 13 September 2026  
-**Editorial status:** review pending
+**Project study** · 6529 Network Museum · Version 1.0.0 · 13 September 2026  
+**Editorial status:** scholarship reviewed; release preparation
 
 The photographs in *Amazônia* move between expanses of forest and encounters
 with people. Their differences in scale are substantial. A ridge can
@@ -124,11 +124,13 @@ allows those differences to remain part of the encounter.
 ## Edition record
 
 **Authorship:** 6529 Network Museum; constructed with Codex.  
-**Research cutoff and draft date:** 13 September 2026.  
-**Status:** Version 0.1.1, independent review pending; not a published edition.  
+**Research cutoff:** 13 September 2026.  
+**Status:** Version 1.0.0; scholarship reviewed; release preparation.  
 **Records:** [Accession dossier](README.md) and [source register](source-and-chronology.md).  
 **Stable source:** [amazonia-project.md](https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/amazonia-project.md).
 
-The immutable edition link and publication date will be recorded when this draft is released. For review, cite: 6529 Network Museum, “Amazônia: photographs, books and a digital edition”, draft version 0.1.1, 13 September 2026, lot 6529NM.2026.004.
+The release record will bind the final edition to its immutable commit. Cite: 6529 Network Museum, “Amazônia: photographs, books and a digital edition”, version 1.0.0, 13 September 2026, lot 6529NM.2026.004.
 
 **Revision history:** 0.1.0, initial construction; 0.1.1, corrected image reading carried through the catalogue, checked source attribution and added publication apparatus. These revisions supersede the construction draft without changing source images or the gift schedule.
+
+Version 1.0.0 supersedes the intake edition at commit `4939941ae69d5edf0eec86712186add1666ab410`: independent scholarship review approved; accession status and edition apparatus updated. The photographic descriptions and source attributions are unchanged.

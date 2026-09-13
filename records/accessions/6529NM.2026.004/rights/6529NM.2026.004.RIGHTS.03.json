@@ -5,7 +5,7 @@
     "subjectId": "0xe6a545004146c7413496e206bea0c4782bccde18a34f59c15fd0ad4b02f2a52e",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xc202e9e97c1e4a5de4da607cd11abd556a64bd06a2b544d848fef0dc1d436066",
+      "digest": "0xd4fc3da8b6caaef8d9c634e0a0049b7a54338bb1cfec1f4d26bcea518ece3be4",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.03.json",
@@ -16,7 +16,7 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
-    "effectiveAt": 1789335192
+    "effectiveAt": 1789339283
   },
   "payload": {
     "basis": "Unrestricted gift and ordinary Museum display determination; donor imposes no restrictions. Existing copyright and attribution remain separate.",
@@ -26,7 +26,7 @@
       "observed_at": "2026-09-13T21:33:12.534Z"
     },
     "created_at": "2026-09-13T21:33:12.534Z",
-    "effective_at": "2026-09-13T21:33:12.534Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "events": [
       {
         "event_id": "6529NM.2026.004.RIGHTS.03.EVENT.01",
@@ -36,7 +36,7 @@
         "evidence_refs": [
           {
             "label": "Donor declaration and Museum display determination",
-            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
             "evidence_class": "B",
             "observed_at": "2026-09-13T21:33:12.534Z",
             "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -75,7 +75,7 @@
       },
       {
         "label": "Donor declaration and Museum display determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
         "evidence_class": "B",
         "observed_at": "2026-09-13T21:33:12.534Z",
         "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -93,6 +93,20 @@
         "evidence_class": "B",
         "observed_at": "2026-09-13T22:14:05.515Z",
         "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
       }
     ],
     "grants": {
@@ -152,15 +166,16 @@
       }
     },
     "object_id": "6529NM.2026.004.03",
-    "observed_at": "2026-09-13T22:14:05.515Z",
-    "payload_sha256": "sha256:75541724cb3dd167eba9320a47e7dcaef054a756fa58174fc551a78a00bf7310",
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "payload_sha256": "sha256:2fafaf54b237ff9703dc4580e8103ebd656827052416f7da8e39eacfdb0cc757",
     "record_id": "6529NM.2026.004.RIGHTS.03",
     "record_status": "review_pending",
     "record_type": "RIGHTS_STATEMENT",
-    "record_version": "1.0.1",
+    "record_version": "1.1.0",
     "references": [
       "6529NM.2026.004.GAA-01",
-      "6529NM-WAVE-OBS-2026-09-13-003"
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM-ACC-2026-004"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,

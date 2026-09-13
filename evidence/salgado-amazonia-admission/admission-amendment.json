@@ -1,0 +1,152 @@
+{
+  "amendment_id": "6529NM.2026.004.AMENDMENT-20260913-01",
+  "observed_at": "2026-09-13T22:41:23.205Z",
+  "source_commit": "4939941ae69d5edf0eec86712186add1666ab410",
+  "constructor_id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+  "basis": "User-authorized unrestricted gift; adopted exact Museum Wave proposal; independently reviewed intake and catalogue.",
+  "reviewer_kind": "independent_ai_agent",
+  "review_receipt": "notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+  "reason": "Supersedes the intake-only current view with the formal accession act. Earlier receipts, observations, rights boundaries and source bytes remain unchanged.",
+  "superseded_records": [
+    {
+      "path": "records/accessions/6529NM.2026.004/accession-statement.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:04ca7e99e68aab0b46bb9162d2eb894e321caea9d47280682a1f84d4c19936d6",
+      "prior_raw_sha256": "sha256:9c02393a38f3b9561a15512c78041e4f9863733b429438567c43672fd0207230",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/accession-statement.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:62b571d35b41c66a3ea2c44cda54f9799b676797d69251ece47461f6d8b5b0f2",
+      "prior_raw_sha256": "sha256:fe8845644d08d4633d0995c3c29f16ddad7d2c9c7ccf4ef800790c217767d719",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.01.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:56bf400b83a3c10d5cfd25a590f83bbed77119fddbcb9a6270d6ada0f4ab363c",
+      "prior_raw_sha256": "sha256:45eb8d6470c46c592d4ee0b2c2ee64b4e3dc8a1ece8cfdc5719ffc5c4eef825e",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.01.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.02.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:21dafa69bfe60441b2416c0d681be09c2ca66d3ae3f90fc3fe9441bf9abca7a5",
+      "prior_raw_sha256": "sha256:a7a4f6f02b97ba9e54086168a3786ddfb8de954290e3a0bad6cf3e683ac7a5c1",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.02.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.03.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:fca2920f966bf962b3f51523b1c56baf97c282c1f64055b6f5fd6d381b42556d",
+      "prior_raw_sha256": "sha256:d7cebbf41adf4b39e04a543b7352e5f2215839c93de9e4d6a619d80d9403dce2",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.03.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.04.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:e38cb397fd44a939898002b404086c0081ea8d672b9b6466883726d451cc53dc",
+      "prior_raw_sha256": "sha256:4d42d714a710cd2b73438472861487b965eace4098cf1db2c3c8bad5e2b6d789",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.04.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.05.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:098f24f8b6875c03ca54e5cc79acb8ae9bf488859af2e1b00accb65f11dfe8a9",
+      "prior_raw_sha256": "sha256:216213cd1def9f6f38381ee0bc9549a0d3f7dc308174f4db2c1d4667dc7b1caf",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.05.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.06.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:6a84443b9d2e557aa8c6dc0ce504e4350dca23e213dfdeb43a99a00e14f356bb",
+      "prior_raw_sha256": "sha256:6f38ef787d78ed5cf0842bc8b38f139976c30a5db0f990f26caf2b14d9a5e92d",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/objects/6529NM.2026.004.06.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.01.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:fc659ff11bf36a4193b2f52c9c30c5ab3e4e0779a75b0758a740618203adeed5",
+      "prior_raw_sha256": "sha256:9f4fe282f48c10ae8bfa17902898cc82d56bb41ef1d7791120c31351c8ae467d",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.01.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.02.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:fa85495ca19dd920368dd70b4755564bb4e6dfaca46a87764a557bbfd0d9fbb7",
+      "prior_raw_sha256": "sha256:4ae4749aa4aa0e4fe910fceed77536687aac929de33bb2e0271a1ac159ab968f",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.02.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.03.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:75541724cb3dd167eba9320a47e7dcaef054a756fa58174fc551a78a00bf7310",
+      "prior_raw_sha256": "sha256:916295f6147af2ccd9f129f6caa32e37bcbd325272f9929927e5c8020dc87543",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.03.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.04.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:6f389424ebfdc9229c88df1a9daa3a8d77cf039e5faf1d166587adab3e4c8d10",
+      "prior_raw_sha256": "sha256:cee2039d5c0f7a7ecfdb4b06c2b02431a0c543c24d905a881d4e33fa7fa77066",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.04.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.05.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:a2aa139e3f820100b6588881adfed93f06d277f2e0f040b7859caffd978420aa",
+      "prior_raw_sha256": "sha256:8c5b444e9d2f4d2ea87bc0faeb269b4dc0b64fdc2596cf1e8f4c3ada62963900",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.05.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.06.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:a11f044fe63ff464282af01351ab30c7d8e49bb5d698aab900f3f167f02cc170",
+      "prior_raw_sha256": "sha256:df95c9337da4def7e18632c57281643af72cdab2d0e30ce4a74ba2eba688fd3f",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.06.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.01.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:6b0930425a6e63628b93663d0fc07ec9c4963e9a206555809261f292c10f634c",
+      "prior_raw_sha256": "sha256:6e63077abd22581b6d152f32f8cf96604ef7842b259baa6a527d833888b2620c",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.01.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.02.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:b60481e317c9f21fe9b7678196f9c3b3b58e156f7df331a9d972935efa9caab7",
+      "prior_raw_sha256": "sha256:fca89fb6ad5f36b693aaabf1c6499d4e04ed5212bb0ccf5e3f538342a4f09565",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.02.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.03.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:38213d9ddd36e986cd0d7e068137adeca14e3bbf289448d570954330ccb62045",
+      "prior_raw_sha256": "sha256:27b7be308c3df19bf10830c56d58b32ee2fbcb4323e1f3afb7511012f6931e8d",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.03.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.04.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:082ab3f43e132434b503686797798526a97b1bec2f2f6b729647debea8d08919",
+      "prior_raw_sha256": "sha256:db97e37593143983c45db7e5d1ccb796ea3997272a04245f245a180d014918a9",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.04.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.05.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:c1ea85abdbcd89daed47bf2152d1b376160e2d57260f305b10369d8113131272",
+      "prior_raw_sha256": "sha256:fe67035704098376d3d22955400c59392241b64a25417d9833cc026bcb995463",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.05.json"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.06.json",
+      "prior_version": "1.0.1",
+      "supersedes": "sha256:ce654b1ed08a450a954c4a2cac34eee2026cd57ee0507f5aa231d24128a31a0a",
+      "prior_raw_sha256": "sha256:2697094398e56896ce320fa8c9a10464541cf379f75d0e78c182adfbe99c060f",
+      "prior_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.06.json"
+    }
+  ]
+}

@@ -576,7 +576,13 @@ def validate_state_machine(payload: dict[str, Any], vocabularies: dict[str, Any]
             issues.append("completion gate: accessioned requires an executed TITLE_BINDING")
         if chain.get("custody_status") != "verified":
             issues.append("completion gate: accessioned requires verified custody")
-        if any(grant.get("grant_status") in {None, "unspecified"} for grant in rights.values()):
+        # Accession does not require a creative-derivative or AI-training licence.
+        # Those uses must remain explicitly unspecified when no grant exists.
+        if any(
+            grant.get("grant_status") is None
+            or (grant.get("grant_status") == "unspecified" and use not in {"derivative_use", "ai_training"})
+            for use, grant in rights.items()
+        ):
             issues.append("completion gate: accessioned requires an explicit status for every rights use class")
         if any(value == "not_assessed" for value in condition.values() if isinstance(value, str)):
             issues.append("completion gate: accessioned requires condition assessment")

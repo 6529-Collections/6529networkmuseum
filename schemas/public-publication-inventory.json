@@ -131,6 +131,7 @@
       "records/accessions/6529NM.2026.004/public/6529NM.2026.004.05.md",
       "records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md",
       "records/accessions/6529NM.2026.004/public/README.md",
+      "records/accessions/6529NM.2026.004/public/accession.md",
       "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
       "records/accessions/6529NM.2026.004/public/amazonia-project.md",
       "records/accessions/6529NM.2026.004/public/display-and-preservation.md",
@@ -143,6 +144,7 @@
       "records/entities/6529NM-ACC-ENT-0001.json",
       "records/entities/6529NM-ACC-ENT-0002.json",
       "records/entities/6529NM-ACC-ENT-0003.json",
+      "records/entities/6529NM-ACC-ENT-0004.json",
       "records/entities/6529NM-AGT-0001.json",
       "records/entities/6529NM-AGT-0002.json",
       "records/entities/6529NM-AGT-0003.json",
@@ -189,11 +191,13 @@
       "records/entities/6529NM-ART-0021.json",
       "records/entities/6529NM-ART-0022.json",
       "records/entities/6529NM-ART-0023.json",
+      "records/entities/6529NM-ART-0024.json",
       "records/entities/6529NM-C-0001.json",
       "records/entities/6529NM-CA-2026-001.json",
       "records/entities/6529NM-CA-2026-002.json",
       "records/entities/6529NM-CA-2026-003.json",
       "records/entities/6529NM-CA-2026-004.json",
+      "records/entities/6529NM-CA-2026-005.json",
       "records/entities/6529NM-I-0001.json",
       "records/entities/6529NM-MED-0001.json",
       "records/entities/6529NM-MED-0002.json",
@@ -235,6 +239,12 @@
       "records/entities/6529NM-MED-0051.json",
       "records/entities/6529NM-MED-0052.json",
       "records/entities/6529NM-MED-0053.json",
+      "records/entities/6529NM-MED-0054.json",
+      "records/entities/6529NM-MED-0055.json",
+      "records/entities/6529NM-MED-0056.json",
+      "records/entities/6529NM-MED-0057.json",
+      "records/entities/6529NM-MED-0058.json",
+      "records/entities/6529NM-MED-0059.json",
       "records/entities/6529NM-ORG-0001.json",
       "records/entities/6529NM-ORG-0002.json",
       "records/entities/6529NM-PRJ-0001.json",
@@ -244,9 +254,11 @@
       "records/entities/6529NM-PRJ-0005.json",
       "records/entities/6529NM-PRJ-0006.json",
       "records/entities/6529NM-PRJ-0007.json",
+      "records/entities/6529NM-PRJ-0008.json",
       "records/entities/6529NM-RP-0001.json",
       "records/entities/6529NM-RP-0002.json",
       "records/entities/6529NM-RP-0003.json",
+      "records/entities/6529NM-RP-0004.json",
       "records/entities/6529NM-W-0001.json",
       "records/entities/6529NM-W-0002.json",
       "records/entities/6529NM-W-0003.json",
@@ -276,6 +288,12 @@
       "records/entities/6529NM-W-0027.json",
       "records/entities/6529NM-W-0028.json",
       "records/entities/6529NM-W-0029.json",
+      "records/entities/6529NM-W-0030.json",
+      "records/entities/6529NM-W-0031.json",
+      "records/entities/6529NM-W-0032.json",
+      "records/entities/6529NM-W-0033.json",
+      "records/entities/6529NM-W-0034.json",
+      "records/entities/6529NM-W-0035.json",
       "records/institutional-practice/a-field-of-practice.md",
       "records/institutional-practice/adjacent-chain-native-practice.md",
       "records/institutional-practice/profiles/acmi.md",
@@ -625,6 +643,46 @@
       "records/relations/6529NM-REL-0237.json",
       "records/relations/6529NM-REL-0238.json",
       "records/relations/6529NM-REL-0239.json",
+      "records/relations/6529NM-REL-0240.json",
+      "records/relations/6529NM-REL-0241.json",
+      "records/relations/6529NM-REL-0242.json",
+      "records/relations/6529NM-REL-0243.json",
+      "records/relations/6529NM-REL-0244.json",
+      "records/relations/6529NM-REL-0245.json",
+      "records/relations/6529NM-REL-0246.json",
+      "records/relations/6529NM-REL-0247.json",
+      "records/relations/6529NM-REL-0248.json",
+      "records/relations/6529NM-REL-0249.json",
+      "records/relations/6529NM-REL-0250.json",
+      "records/relations/6529NM-REL-0251.json",
+      "records/relations/6529NM-REL-0252.json",
+      "records/relations/6529NM-REL-0253.json",
+      "records/relations/6529NM-REL-0254.json",
+      "records/relations/6529NM-REL-0255.json",
+      "records/relations/6529NM-REL-0256.json",
+      "records/relations/6529NM-REL-0257.json",
+      "records/relations/6529NM-REL-0258.json",
+      "records/relations/6529NM-REL-0259.json",
+      "records/relations/6529NM-REL-0260.json",
+      "records/relations/6529NM-REL-0261.json",
+      "records/relations/6529NM-REL-0262.json",
+      "records/relations/6529NM-REL-0263.json",
+      "records/relations/6529NM-REL-0264.json",
+      "records/relations/6529NM-REL-0265.json",
+      "records/relations/6529NM-REL-0266.json",
+      "records/relations/6529NM-REL-0267.json",
+      "records/relations/6529NM-REL-0268.json",
+      "records/relations/6529NM-REL-0269.json",
+      "records/relations/6529NM-REL-0270.json",
+      "records/relations/6529NM-REL-0271.json",
+      "records/relations/6529NM-REL-0272.json",
+      "records/relations/6529NM-REL-0273.json",
+      "records/relations/6529NM-REL-0274.json",
+      "records/relations/6529NM-REL-0275.json",
+      "records/relations/6529NM-REL-0276.json",
+      "records/relations/6529NM-REL-0277.json",
+      "records/relations/6529NM-REL-0278.json",
+      "records/relations/6529NM-REL-0279.json",
       "schemas/accession-lot.schema.json",
       "schemas/accession-program.schema.json",
       "schemas/accession.schema.json",
@@ -669,12 +727,12 @@
     "schema": "https://6529networkmuseum.org/schemas/public-publication-bundle-v1.json"
   },
   "counts": {
-    "approved_public_media": 63,
+    "approved_public_media": 69,
     "public_assembly_control_document": 131,
-    "public_curatorial_manuscript": 150,
-    "public_entity_record": 136,
+    "public_curatorial_manuscript": 151,
+    "public_entity_record": 153,
     "public_media_source_manifest": 4,
-    "public_relation_record": 233,
+    "public_relation_record": 273,
     "wave_observation": 1
   },
   "entries": [
@@ -1061,6 +1119,48 @@
       "delivery_role": "media_asset",
       "kind": "approved_public_media",
       "path": "media/accessions/6529NM.2026.003/6529NM-W-0029/c1b6541832f2a237555adffae2f4870143a976549e591e2dbaa4d3d87f75d166/webp-v2-q82-m6-fixed-icc/640.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/1117-1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/2059-1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/2216-1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/226-1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/2768-1280.webp",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "deferred_on_demand",
+      "delivery_role": "media_asset",
+      "kind": "approved_public_media",
+      "path": "media/accessions/6529NM.2026.004/4697-1280.webp",
       "required_in_catalog": true
     },
     {
@@ -2005,6 +2105,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/accession.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
       "path": "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
       "required_in_catalog": true
     },
@@ -2083,6 +2190,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-ACC-ENT-0003.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-ACC-ENT-0004.json",
       "required_in_catalog": true
     },
     {
@@ -2411,6 +2525,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
+      "path": "records/entities/6529NM-ART-0024.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
       "path": "records/entities/6529NM-C-0001.json",
       "required_in_catalog": true
     },
@@ -2440,6 +2561,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-CA-2026-004.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-CA-2026-005.json",
       "required_in_catalog": true
     },
     {
@@ -2733,6 +2861,48 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0054.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0055.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0056.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0057.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0058.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-MED-0059.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
       "path": "records/entities/6529NM-ORG-0001.json",
       "required_in_catalog": true
     },
@@ -2796,6 +2966,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
+      "path": "records/entities/6529NM-PRJ-0008.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
       "path": "records/entities/6529NM-RP-0001.json",
       "required_in_catalog": true
     },
@@ -2811,6 +2988,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-RP-0003.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-RP-0004.json",
       "required_in_catalog": true
     },
     {
@@ -3014,6 +3198,48 @@
       "delivery_role": "assembly_document",
       "kind": "public_entity_record",
       "path": "records/entities/6529NM-W-0029.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0030.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0031.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0032.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0033.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0034.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_entity_record",
+      "path": "records/entities/6529NM-W-0035.json",
       "required_in_catalog": true
     },
     {
@@ -5469,6 +5695,286 @@
     {
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0240.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0241.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0242.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0243.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0244.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0245.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0246.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0247.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0248.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0249.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0250.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0251.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0252.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0253.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0254.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0255.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0256.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0257.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0258.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0259.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0260.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0261.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0262.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0263.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0264.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0265.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0266.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0267.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0268.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0269.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0270.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0271.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0272.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0273.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0274.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0275.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0276.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0277.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0278.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_relation_record",
+      "path": "records/relations/6529NM-REL-0279.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "schemas/accession-lot.schema.json",
       "required_in_catalog": true
@@ -5706,8 +6212,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x17296e27c6fef1bd9748ec811329df51ea33f97cfeaa9a237b2931948ca0f040",
-    "body_sha256": "sha256:78da6aa4da3d2de29380a56bf372a7f177935fdb46200c1444f67a1850116854",
+    "body_keccak256": "0x69dcfc55ecdd708ad31f23c2a2ab8dadb0798af6aa9aaf3c8e666c4a30296819",
+    "body_sha256": "sha256:1983e27e1e6c44c7afe28db0b8d4bd2de4759436bec4bb6e96e0ecb1b997df7c",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

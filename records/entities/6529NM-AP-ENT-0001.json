@@ -4,9 +4,9 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x185537522024438f50debb46f88b10900d4b4b75aeaa5f2e71e8170e7e96551d"
+      "digest": "0xcfb8aadf6d487250d4f318dd25a9fd14bb734d7a7a452c813b495de7219d70e4"
     },
-    "effectiveAt": 1785652200,
+    "effectiveAt": 1789339283,
     "recordType": "PUBLIC_ENTITY",
     "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "signatureHash": {
@@ -21,14 +21,14 @@
   "payload": {
     "canonical_route": "/museum/network/acquisition-programs/gift-acquisitions",
     "constructor": {
-      "id": "codex-task:magnum-completed-accession-correction-2026-08-12",
-      "observed_at": "2026-08-12T23:15:00Z",
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
       "role": "constructor"
     },
-    "created_at": "2026-08-12T23:15:00Z",
-    "effective_at": "2026-08-02T06:30:00Z",
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "entity_id": "6529NM-AP-ENT-0001",
-    "entity_status": "published",
+    "entity_status": "review_pending",
     "entity_type": "ACQUISITION_PROGRAM",
     "evidence_refs": [
       {
@@ -36,11 +36,24 @@
         "label": "Adopted donation decision",
         "observed_at": "2026-08-02T06:30:00Z",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Salgado accession certificate",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Superseded membership projection, preserved intake commit",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/entities/6529NM-AP-ENT-0001.json"
       }
     ],
-    "observed_at": "2026-08-02T06:30:00Z",
+    "observed_at": "2026-09-13T22:41:23.205Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:575341fea5a8343a6c7f6e902cb24463f7e6d6e88665a85fc0c36b9fffccc96e",
+    "payload_sha256": "sha256:41756f6f8d6c8635f4335c0575279d5bfc350eea1a23844941ab98cc6423e46b",
     "preferred_label": "Gift Acquisitions",
     "profile": {
       "authority_record_ids": [
@@ -58,7 +71,8 @@
       "produced_acquisition_entity_ids": [
         "6529NM-CA-2026-001",
         "6529NM-CA-2026-003",
-        "6529NM-CA-2026-004"
+        "6529NM-CA-2026-004",
+        "6529NM-CA-2026-005"
       ],
       "profile_type": "ACQUISITION_PROGRAM",
       "program_id": "6529NM-AP-ENT-0001",
@@ -69,26 +83,16 @@
     },
     "public_slug": "gift-acquisitions",
     "record_id": "6529NM-AP-ENT-0001",
-    "record_status": "reviewed",
+    "record_status": "review_pending",
     "record_type": "PUBLIC_ENTITY",
-    "record_version": "1.0.0",
+    "record_version": "1.1.0",
     "references": [
+      "6529NM-ACC-2026-004",
       "6529NM-GOV-1052156",
       "6529NM-GOV-1052812"
     ],
-    "review_status": "reviewed",
-    "reviewer": {
-      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
-      "outcome": "approved",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
-      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
-      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
-      "reviewer_ids": [
-        "codex-reviewer:museum-publication-2026-08-23-independent"
-      ],
-      "role": "reviewer"
-    },
+    "review_status": "pending_independent_review",
+    "reviewer": null,
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-GOV-1052156",
@@ -98,13 +102,14 @@
       "evidence_refs": [
         {
           "evidence_class": "B",
-          "label": "Adopted donation decision",
-          "observed_at": "2026-08-02T06:30:00Z",
-          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/decisions.json"
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
         }
       ],
-      "observed_at": "2026-08-02T06:30:00Z",
-      "status_label": "published"
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "status_label": "review_pending"
     },
     "subject_id": "6529NM-AP-ENT-0001",
     "visibility": "public"

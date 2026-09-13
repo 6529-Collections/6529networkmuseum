@@ -532,3 +532,11 @@ artifacts and outstanding work. Public release has not occurred.
 ### 13 September 2026 — Salgado preservation and review update
 
 Explicit user approval closed the archive-upload authorization condition. Two private regional source archives passed exact-version restoration, all 341-file fixity checks and byte-identical regeneration of eighteen display copies. The separate Ultra agent review is recorded in notes/wip/2026-09-13-salgado-independent-review.md; source-class, citation and publication-apparatus findings were corrected. Scoped registration diligence is documented. Binding review, accession-certificate execution, final-edition capture and public entity integration remain pending; no human reviewer or Collection admission is fabricated. See the Salgado construction note for exact scope and evidence.
+
+### Salgado admission — 13 September 2026
+
+Independent Ultra intake review is approved and bound to commit 4939941a.
+The six-work certificate, register amendment, scholarly catalogue and public
+entity/media projection are constructed. Final record review, publication
+edition archival capture and protected pull-request controls remain in progress.
+The two regional source copies and both restore tests are complete.

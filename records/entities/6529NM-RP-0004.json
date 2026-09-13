@@ -1,0 +1,169 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xcd5787217de1342781e53c9110ecefcf1012faff5d73688cedcdc49dde1952ea"
+    },
+    "effectiveAt": 1789339283,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0xa50c715def6e61123aee5bf65737423f240f61d560406984790c776841b09d6b",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-RP-0004.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/research/forest-water-and-community",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "entity_id": "6529NM-RP-0004",
+    "entity_status": "review_pending",
+    "entity_type": "RESEARCH_PUBLICATION",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Collection essay",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Salgado accession certificate",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+      }
+    ],
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:caf888ad2d91c9f879b0552322b1bb35affa7ee30e9a3def624bbc71cb730a56",
+    "preferred_label": "Amazônia: Forest, Water, and Community",
+    "profile": {
+      "author_entity_ids": [
+        "6529NM-I-0001"
+      ],
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Collection essay",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+        }
+      ],
+      "profile_type": "RESEARCH_PUBLICATION",
+      "publication_component_paths": [
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.01.md",
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.02.md",
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.03.md",
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.04.md",
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.05.md",
+        "records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md",
+        "records/accessions/6529NM.2026.004/public/README.md",
+        "records/accessions/6529NM.2026.004/public/accession.md",
+        "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
+        "records/accessions/6529NM.2026.004/public/amazonia-project.md",
+        "records/accessions/6529NM.2026.004/public/display-and-preservation.md",
+        "records/accessions/6529NM.2026.004/public/forest-water-and-community.md",
+        "records/accessions/6529NM.2026.004/public/registration-diligence.md",
+        "records/accessions/6529NM.2026.004/public/sebastiao-salgado.md",
+        "records/accessions/6529NM.2026.004/public/source-and-chronology.md",
+        "records/accessions/6529NM.2026.004/public/technical-and-condition-review.md",
+        "records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+      ],
+      "publication_date": "2026-09-13",
+      "publication_document_uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md",
+      "publication_kind": "research_dossier",
+      "subject_entity_ids": [
+        "6529NM-CA-2026-005",
+        "6529NM-ART-0024",
+        "6529NM-PRJ-0008",
+        "6529NM-W-0030",
+        "6529NM-W-0031",
+        "6529NM-W-0032",
+        "6529NM-W-0033",
+        "6529NM-W-0034",
+        "6529NM-W-0035"
+      ],
+      "title": "Amazônia: Forest, Water, and Community",
+      "version": "1.0.0"
+    },
+    "public_slug": "forest-water-and-community",
+    "record_id": "6529NM-RP-0004",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-004",
+      "6529NM-ART-0024",
+      "6529NM-CA-2026-005",
+      "6529NM-PRJ-0008",
+      "6529NM-W-0030",
+      "6529NM-W-0031",
+      "6529NM-W-0032",
+      "6529NM-W-0033",
+      "6529NM-W-0034",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-004",
+      "6529NM-ART-0024",
+      "6529NM-CA-2026-005",
+      "6529NM-PRJ-0008",
+      "6529NM-W-0030",
+      "6529NM-W-0031",
+      "6529NM-W-0032",
+      "6529NM-W-0033",
+      "6529NM-W-0034",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Collection essay",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
+        }
+      ],
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-RP-0004",
+    "visibility": "public"
+  }
+}

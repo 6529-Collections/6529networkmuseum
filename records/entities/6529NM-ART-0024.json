@@ -1,0 +1,150 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0xaa8c4402a7b537483c7dfd30e8df75d74672f24c5cfe90b2a0c735ff9a63d72d"
+    },
+    "effectiveAt": 1789339283,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x211845a7d54cbade4a082abe8f3bfba24b0c8add5d7ca16cf78008681018b3ad",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-ART-0024.json"
+  },
+  "payload": {
+    "canonical_route": "/museum/network/artists/sebastiao-salgado",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "entity_id": "6529NM-ART-0024",
+    "entity_status": "review_pending",
+    "entity_type": "ARTIST",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Sebastião Salgado artist study",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:54f1bf523b708c8f977273af2f0f87fe37e245f417cd83e6b10cefe5c02bcf7e",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/sebastiao-salgado.md"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Source image and metadata characterization",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+      }
+    ],
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "page_exposure": "canonical_page",
+    "payload_sha256": "sha256:0284c79dc857b3b510cf84b3f51cb3208180ed291d6bf5f3eb0ed5312f7004cc",
+    "preferred_label": "Sebastião Salgado",
+    "profile": {
+      "authority": {
+        "authority_record_ids": [],
+        "authority_status": "established",
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "Sebastião Salgado artist study",
+            "observed_at": "2026-09-13T22:41:23.205Z",
+            "sha256": "sha256:54f1bf523b708c8f977273af2f0f87fe37e245f417cd83e6b10cefe5c02bcf7e",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/sebastiao-salgado.md"
+          },
+          {
+            "evidence_class": "C",
+            "label": "Source image and metadata characterization",
+            "observed_at": "2026-09-13T22:41:23.205Z",
+            "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+          }
+        ]
+      },
+      "name_variants": [
+        {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source image and metadata characterization",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+            }
+          ],
+          "source_kind": "published_source",
+          "value": "Sebastião Salgado",
+          "variant_role": "preferred"
+        }
+      ],
+      "practice": {
+        "areas": [
+          "photography",
+          "documentary photography",
+          "landscape"
+        ],
+        "evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "Sebastião Salgado artist study",
+            "observed_at": "2026-09-13T22:41:23.205Z",
+            "sha256": "sha256:54f1bf523b708c8f977273af2f0f87fe37e245f417cd83e6b10cefe5c02bcf7e",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/sebastiao-salgado.md"
+          }
+        ],
+        "summary": "Salgado developed long photographic projects through travel, repeated visits and the sequencing of black-and-white photographs. Amazônia brings forest landscapes and Indigenous communities into that serial practice."
+      },
+      "profile_type": "ARTIST"
+    },
+    "public_slug": "sebastiao-salgado",
+    "record_id": "6529NM-ART-0024",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-004",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-004",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "E",
+          "label": "Sebastião Salgado artist study",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:54f1bf523b708c8f977273af2f0f87fe37e245f417cd83e6b10cefe5c02bcf7e",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/sebastiao-salgado.md"
+        },
+        {
+          "evidence_class": "C",
+          "label": "Source image and metadata characterization",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+        }
+      ],
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "status_label": "review_pending"
+    },
+    "subject_id": "6529NM-ART-0024",
+    "visibility": "public"
+  }
+}

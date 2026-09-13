@@ -1,6 +1,6 @@
 # Technical and condition review
 
-**Constructed:** 13 September 2026 · Independent review pending
+**Constructed:** 13 September 2026 · Independent intake review approved
 
 The six objects are ERC-721 tokens associated with static JPEG photographs.
 Their presentation does not require a generative program, animation or user

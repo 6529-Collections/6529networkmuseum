@@ -264,3 +264,6 @@ Before ending a substantive design or research turn:
 - [Salgado independent Ultra review](notes/wip/2026-09-13-salgado-independent-review.md): file-bound advisory review, findings and follow-up record.
 - [Salgado registration diligence](records/accessions/6529NM.2026.004/public/registration-diligence.md): title/control scope and exact-address screening.
 - [Salgado restoration evidence](evidence/salgado-amazonia-preservation/restoration-summary.json): two regional archives, all 341 internal files and eighteen rebuilt images per copy.
+
+- [Salgado binding review receipt](notes/wip/2026-09-13-salgado-commit-review-receipt.json): exact 70-file intake approval at commit 4939941a.
+- [Salgado accession statement](records/accessions/6529NM.2026.004/public/accession.md): six-work admission, catalogue and continuing care; final admission/projection review in progress.

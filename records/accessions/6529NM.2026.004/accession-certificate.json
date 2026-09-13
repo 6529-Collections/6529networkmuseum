@@ -1,0 +1,345 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION",
+    "subjectId": "0x957e79ac0e0fdbe7decfda51dd4daaac49985ad8064ec2600c1b014817e9dfbb",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xb89b5dfbf6a6ba04e8ba25cebe7680d90b96adff40f11450673a0104db235552",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/accession-certificate.json",
+    "schemaId": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1789339283
+  },
+  "payload": {
+    "record_type": "ACCESSION",
+    "schema_id": "0xc04bb48f95c8db4fe7f26a20106533f987003843f2fed36fd6d89f207ddfbd86",
+    "visibility": "public",
+    "record_id": "6529NM-ACC-2026-004",
+    "subject_id": "6529NM.2026.004",
+    "record_version": "1.0.0",
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "role": "constructor",
+      "observed_at": "2026-09-13T22:41:23.205Z"
+    },
+    "accession_number": "6529NM.2026.004",
+    "acquiring_institution": "6529 Network Museum",
+    "acquisition_method": "donation",
+    "acceptance_date": "2026-09-13T21:33:12.534Z",
+    "object_ids": [
+      "6529NM.2026.004.01",
+      "6529NM.2026.004.02",
+      "6529NM.2026.004.03",
+      "6529NM.2026.004.04",
+      "6529NM.2026.004.05",
+      "6529NM.2026.004.06"
+    ],
+    "title_bindings": [
+      {
+        "object_id": "6529NM.2026.004.01",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      },
+      {
+        "object_id": "6529NM.2026.004.02",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      },
+      {
+        "object_id": "6529NM.2026.004.03",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      },
+      {
+        "object_id": "6529NM.2026.004.04",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      },
+      {
+        "object_id": "6529NM.2026.004.05",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      },
+      {
+        "object_id": "6529NM.2026.004.06",
+        "status": "executed",
+        "instrument_sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "custodian_reference": "networkmuseum.6529.eth",
+        "transfer_transaction": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "bound_at": "2026-09-13T21:33:12.534Z",
+        "basis": "Unrestricted donor declaration and authorized Museum acceptance, corroborated by delivery of the exact token. Copyright remains separate."
+      }
+    ],
+    "references": [
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01",
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM.2026.004.01",
+      "6529NM.2026.004.02",
+      "6529NM.2026.004.03",
+      "6529NM.2026.004.04",
+      "6529NM.2026.004.05",
+      "6529NM.2026.004.06"
+    ],
+    "evidence_refs": [
+      {
+        "label": "Finalized custody and exact transfer receipts",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-custody/summary.json",
+        "evidence_class": "A",
+        "observed_at": "2026-09-13T21:06:04.882Z",
+        "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423"
+      },
+      {
+        "label": "Unrestricted gift and Museum title/display determination, reviewed intake edition",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T21:33:12.534Z"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      }
+    ],
+    "source": {
+      "source_record_ids": [
+        "6529NM.2026.004",
+        "6529NM.2026.004.GAA-01",
+        "6529NM-WAVE-OBS-2026-09-13-003"
+      ],
+      "reviewed_intake_commit": "4939941ae69d5edf0eec86712186add1666ab410"
+    },
+    "review_outcomes": {
+      "institutional_authority": "Adopted exact proposal and user-authorized unrestricted gift.",
+      "identity_and_custody": "Six exact tokens verified at finalized block 25971024.",
+      "title": "Executed donor declaration and Museum title determination bound to the exact six transfer logs.",
+      "provenance": "Continuous indexed mint-to-Museum transfers independently matched to 25 successful receipts.",
+      "rights": "Ordinary credited Museum use; creative-derivative and AI-training rights remain unspecified.",
+      "condition_and_technical": "Pass with documented metadata authority and retrieval dependencies.",
+      "curatorial": "Approved group study, artist and project studies, acquisition narrative and six individual entries.",
+      "preservation": "Two regional source copies restored and 18 derivatives reproduced from each; later edition capture remains an ongoing action.",
+      "display": "Ready with ordinary attribution, full-frame presentation and accessible descriptions.",
+      "independent_review": "User-appointed Ultra AI reviewer; exact 70-file intake commit approval. Final admission amendment review is recorded separately."
+    },
+    "ongoing_stewardship_actions": [
+      "Archive the final reviewed admission/publication edition.",
+      "Maintain fixity and regional recovery checks.",
+      "Maintain credited full-frame display, accessibility, custody and metadata-authority observations."
+    ],
+    "events": [
+      {
+        "event_type": "receipt",
+        "event_name": "six_token_delivery",
+        "occurred_at": "2026-09-13T20:15:35Z",
+        "authority_reference": "6529NM.2026.004.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Finalized custody and exact transfer receipts",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-custody/summary.json",
+            "evidence_class": "A",
+            "observed_at": "2026-09-13T21:06:04.882Z",
+            "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423"
+          }
+        ]
+      },
+      {
+        "event_type": "acceptance",
+        "event_name": "formal_gift_acceptance",
+        "occurred_at": "2026-09-13T21:33:12.534Z",
+        "authority_reference": "6529NM.2026.004.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Unrestricted gift and Museum title/display determination, reviewed intake edition",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+            "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+            "evidence_class": "B",
+            "observed_at": "2026-09-13T21:33:12.534Z"
+          }
+        ]
+      },
+      {
+        "event_type": "acquisition",
+        "event_name": "unrestricted_donation_acquisition",
+        "occurred_at": "2026-09-13T21:33:12.534Z",
+        "authority_reference": "6529NM.2026.004.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Unrestricted gift and Museum title/display determination, reviewed intake edition",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+            "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+            "evidence_class": "B",
+            "observed_at": "2026-09-13T21:33:12.534Z"
+          }
+        ]
+      },
+      {
+        "event_type": "title_passage",
+        "event_name": "institutional_title_registration",
+        "occurred_at": "2026-09-13T21:33:12.534Z",
+        "authority_reference": "6529NM.2026.004.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Unrestricted gift and Museum title/display determination, reviewed intake edition",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+            "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+            "evidence_class": "B",
+            "observed_at": "2026-09-13T21:33:12.534Z"
+          }
+        ],
+        "instrument": {
+          "kind": "institutional_gift_title_declaration",
+          "reference": "6529NM.2026.004.GAA-01",
+          "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+          "custodian_reference": "networkmuseum.6529.eth"
+        }
+      },
+      {
+        "event_type": "custody_receipt",
+        "event_name": "institutional_custody_registration",
+        "occurred_at": "2026-09-13T21:33:12.534Z",
+        "source_occurred_at": "2026-09-13T20:15:35Z",
+        "event_semantics": "Administrative registration after finalized verification; the source receipt time remains distinct.",
+        "authority_reference": "6529NM.2026.004.GAA-01",
+        "evidence_refs": [
+          {
+            "label": "Finalized custody and exact transfer receipts",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-custody/summary.json",
+            "evidence_class": "A",
+            "observed_at": "2026-09-13T21:06:04.882Z",
+            "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423"
+          }
+        ],
+        "custody_paths": [
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.01",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.02",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.03",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.04",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.05",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          },
+          {
+            "kind": "onchain_token",
+            "object_id": "6529NM.2026.004.06",
+            "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+            "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+            "custodian_reference": "networkmuseum.6529.eth"
+          }
+        ]
+      },
+      {
+        "event_type": "accession",
+        "event_name": "permanent_collection_accession",
+        "occurred_at": "2026-09-13T22:41:23.205Z",
+        "authority_reference": "6529NM-ACC-2026-004",
+        "evidence_refs": [
+          {
+            "label": "Independent Ultra review bound to the exact intake commit",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+            "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+            "evidence_class": "B",
+            "observed_at": "2026-09-13T22:41:23.205Z"
+          },
+          {
+            "label": "Dated admission amendment with immutable intake predecessors",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+            "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+            "evidence_class": "B",
+            "observed_at": "2026-09-13T22:41:23.205Z"
+          }
+        ]
+      }
+    ],
+    "record_status": "review_pending",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "payload_sha256": "sha256:a6197ad23f1d37bb3ff72b6cfd20bdaf4a3095b48ee290afe7d415c9600a2090"
+  }
+}

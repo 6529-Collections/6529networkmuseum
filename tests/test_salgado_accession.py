@@ -3,6 +3,11 @@ import hashlib
 import json
 from pathlib import Path
 import unittest
+from copy import deepcopy
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+from validate import validate_state_machine
 
 ROOT = Path(__file__).resolve().parents[1]
 LOT = "6529NM.2026.004"
@@ -53,17 +58,54 @@ class SalgadoEvidenceJoinTests(unittest.TestCase):
         self.assertEqual(record["prior_observation"]["observed_at"], old["observed_at"])
         self.assertEqual(record["prior_observation"]["source_status"], old["drop_type"])
 
-    def test_unrestricted_gift_display_is_separate_from_admission(self):
+    def test_admission_preserves_intake_and_exact_title_transfer_bindings(self):
         lot = load(f"records/accessions/{LOT}/accession-statement.json")["payload"]
         self.assertEqual(lot["formal_acceptance_status"], "formally_accepted")
-        self.assertEqual(lot["accession_status"], "not_complete")
-        self.assertIsNone(lot["reviewer"])
+        self.assertEqual(lot["accession_status"], "complete")
+        certificate = load(f"records/accessions/{LOT}/accession-certificate.json")["payload"]
+        self.assertEqual(certificate['object_ids'], lot['object_ids'])
+        self.assertEqual([e['event_type'] for e in certificate['events']],
+                         ['receipt', 'acceptance', 'acquisition', 'title_passage', 'custody_receipt', 'accession'])
+        self.assertLess(certificate['events'][0]['occurred_at'], certificate['events'][-1]['occurred_at'])
+        instrument = certificate['events'][3]['instrument']
         for oid in lot["object_ids"]:
             obj = load(f"records/accessions/{LOT}/objects/{oid}.json")["payload"]
-            self.assertEqual(obj["current_state"], "received_onchain")
-            self.assertIsNone(obj["reviewer"])
+            self.assertIn(obj["current_state"], ['technically_verified', 'preservation_complete', 'display_ready'])
+            self.assertEqual([s['state'] for s in obj['state_history'][:4]],
+                             ['offered', 'authorized', 'acquired', 'received_onchain'])
+            binding = next(x for x in certificate['title_bindings'] if x['object_id'] == oid)
+            self.assertEqual(binding, obj['title_binding'])
+            self.assertEqual(binding['instrument_sha256'], instrument['sha256'])
+            self.assertEqual(binding['transfer_transaction'], obj['chain_identity']['acquisition_transaction'])
             for use in ["exhibition", "publication", "preservation", "accessibility"]:
                 self.assertEqual(obj["rights"][use]["grant_status"], "granted_with_conditions")
+
+    def test_optional_reuse_is_not_an_invented_licence_or_a_display_grant(self):
+        obj = load(f"records/accessions/{LOT}/objects/{LOT}.01.json")['payload']
+        vocab = load('schemas/controlled-vocabularies.json')
+        self.assertEqual(obj['rights']['derivative_use']['grant_status'], 'unspecified')
+        self.assertEqual(obj['rights']['ai_training']['grant_status'], 'unspecified')
+        self.assertEqual(validate_state_machine(obj, vocab), [])
+        for use in ['exhibition', 'reproduction', 'preservation', 'ai_training']:
+            bad = deepcopy(obj)
+            bad['rights'][use].pop('grant_status')
+            self.assertTrue(validate_state_machine(bad, vocab))
+        bad = deepcopy(obj)
+        bad['rights']['exhibition']['grant_status'] = 'unspecified'
+        self.assertTrue(validate_state_machine(bad, vocab))
+
+    def test_public_media_match_reviewed_hashes_and_have_no_exif_or_xmp(self):
+        from PIL import Image
+        display = load('evidence/salgado-amazonia-preservation/display-preparation.json')
+        for obj in display['items']:
+            for derivative in obj['derivatives']:
+                path = ROOT / 'media/accessions' / LOT / derivative['filename']
+                self.assertEqual('sha256:' + hashlib.sha256(path.read_bytes()).hexdigest(), derivative['sha256'])
+                with Image.open(path) as im:
+                    im.load()
+                    self.assertEqual(im.size, (derivative['width'], derivative['height']))
+                    self.assertNotIn('exif', im.info)
+                    self.assertNotIn('xmp', im.info)
 
 
 if __name__ == "__main__":

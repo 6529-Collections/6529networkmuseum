@@ -34,11 +34,9 @@ extend beyond the environmental argument of the group. These differences
 give the acquisition a more particular shape than a survey of the project's
 categories alone.
 
-**Registration status:** Gift accepted for accession processing under the
-donor's and Museum maintainer's instruction. Lot `6529NM.2026.004` and six
-object identifiers are allocated for that work. The completed draft records
-require independent review and execution of the accession certificate before
-permanent Collection admission is recorded.
+**Registration status:** The six photographs are accessioned as lot
+`6529NM.2026.004`. The independent intake review and accession certificate
+record their admission to the permanent Collection.
 
 [^1]: [Museum Wave proposal, serial 1344468](https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=4eeb759a-74e8-43b6-a155-f9b015f003df).
     The original offer calls the group non-severable; the donor's subsequent
@@ -60,11 +58,13 @@ permanent Collection admission is recorded.
 ## Edition record
 
 **Authorship:** 6529 Network Museum; constructed with Codex.  
-**Research cutoff and draft date:** 13 September 2026.  
-**Status:** Version 0.1.1, independent review pending; not a published edition.  
+**Research cutoff:** 13 September 2026.  
+**Status:** Version 1.0.0; scholarship reviewed; release preparation.  
 **Records:** [Accession dossier](README.md) and [source register](source-and-chronology.md).  
 **Stable source:** [acquisition-narrative.md](https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/acquisition-narrative.md).
 
-The immutable edition link and publication date will be recorded when this draft is released. For review, cite: 6529 Network Museum, “A gift of six Amazônia photographs”, draft version 0.1.1, 13 September 2026, lot 6529NM.2026.004.
+The release record will bind the final edition to its immutable commit. Cite: 6529 Network Museum, “A gift of six Amazônia photographs”, version 1.0.0, 13 September 2026, lot 6529NM.2026.004.
 
 **Revision history:** 0.1.0, initial construction; 0.1.1, corrected image reading carried through the catalogue, checked source attribution and added publication apparatus. These revisions supersede the construction draft without changing source images or the gift schedule.
+
+Version 1.0.0 supersedes the intake edition at commit `4939941ae69d5edf0eec86712186add1666ab410`: independent scholarship review approved; accession status and edition apparatus updated. The photographic descriptions and source attributions are unchanged.

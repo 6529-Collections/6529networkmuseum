@@ -1,17 +1,17 @@
 {
   "$schema": "../../schemas/accession-register.schema.json",
   "record_control": {
-    "revision": 5,
+    "revision": 6,
     "record_status": "constructed",
     "constructor": {
-      "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
+      "actor_id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
       "role": "constructor",
-      "constructed_at": "2026-08-23T09:46:57.326Z"
+      "constructed_at": "2026-09-13T22:41:23.205Z"
     },
     "review": null
   },
   "register_id": "6529NM-ACCESSION-REGISTER",
-  "snapshot_at": "2026-08-23T09:46:57.326Z",
+  "snapshot_at": "2026-09-13T22:41:23.205Z",
   "amendment_history": [
     {
       "revision": 1,
@@ -44,6 +44,15 @@
       "prior_payload_sha256": "sha256:f3d5829c06bbd0617caefc028d17f7eb2f33efd19e3f31f3e0f4d83cc09cb3ac",
       "prior_review_commit": "a5b64f7eb586a5a07024b56a0604d8b8ae0ea574",
       "reason": "Appended the completed gift accession of Themes and Variations #210 after the Museum Wave selection, formal acceptance, transfer, and finalized custody evidence."
+    },
+    {
+      "revision": 5,
+      "superseded_at": "2026-09-13T22:41:23.205Z",
+      "supersedes": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
+      "prior_payload_sha256": "sha256:ef5af4a3a10824b30b828a4d4038a6c1dca2d005c6357eaf220896eefebd634d",
+      "prior_source_commit": "4939941ae69d5edf0eec86712186add1666ab410",
+      "prior_snapshot_path": "evidence/salgado-amazonia-admission/register-revision-5.json",
+      "reason": "Append the independently reviewed Salgado six-work gift. Revision five was constructed with no recorded reviewer; its exact source snapshot is preserved without inventing a prior review."
     }
   ],
   "lots": [
@@ -233,6 +242,48 @@
         "Retain source responses, on-chain script records, and fixity.",
         "Maintain credited noncommercial display under CC BY-NC 4.0.",
         "Repeat runtime capture across supported environments and preserve dated results."
+      ]
+    },
+    {
+      "accession_lot_id": "6529NM.2026.004",
+      "preferred_title": "Amazônia: Forest, Water, and Community",
+      "object_count": 6,
+      "donation_status": "formally_accepted",
+      "accession_status": "accessioned",
+      "formal_acceptance_status": "formally_accepted",
+      "gift_acceptance_authorization_record": "6529NM.2026.004.GAA-01",
+      "accession_certificate_record": "6529NM-ACC-2026-004",
+      "donor_public_credit": "Gift of punk6529",
+      "custody": {
+        "ens": "networkmuseum.6529.eth",
+        "chain_id": "eip155:1",
+        "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "observed_at": "2026-09-13T21:06:04.882Z",
+        "finalized_block": 25971024,
+        "finalized_block_hash": "0x1fdc3989d9b07cd1bd2c48811da35e3ffcd676f30d02424ea57e759c8b85eed9",
+        "token_count": 6,
+        "evidence_class": "A"
+      },
+      "receipt_event": {
+        "transaction_hash": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "block_time": "2026-09-13T20:15:35Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "transfer_count": 6,
+        "receipt_status": "0x1",
+        "evidence_class": "A"
+      },
+      "evidence_refs": [
+        "records/accessions/6529NM.2026.004/accession-certificate.json",
+        "records/accessions/6529NM.2026.004/public/README.md",
+        "evidence/salgado-amazonia-admission/admission-amendment.json"
+      ],
+      "completion_limits": [],
+      "ongoing_stewardship_actions": [
+        "Archive the final reviewed admission/publication edition.",
+        "Maintain fixity and regional recovery checks.",
+        "Maintain credited full-frame display, accessibility, custody and metadata-authority observations."
       ]
     }
   ]

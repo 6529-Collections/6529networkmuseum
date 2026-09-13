@@ -1,0 +1,68 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x7a69db6c521a3fc58e21e8cfcde9530d710f9e0aaa7c674688758a4d9d87b9ba"
+    },
+    "effectiveAt": 1789339283,
+    "recordType": "PUBLIC_RELATION",
+    "schemaId": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x81d75bcddeb7530c9e9c4c88a2168616479aa26758d511de625f6b1b58eaf53d",
+    "uri": "https://6529networkmuseum.org/records/relations/6529NM-REL-0277.json"
+  },
+  "payload": {
+    "assertion_status": "asserted",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "E",
+        "label": "Collection essay",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/forest-water-and-community.md"
+      }
+    ],
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "payload_sha256": "sha256:f8c8b7e1763f82523a44763e2f3c8b65e889929ad90db3f816827b9e4d82aa7a",
+    "qualifier": {},
+    "record_id": "6529NM-REL-0277",
+    "record_status": "review_pending",
+    "record_type": "PUBLIC_RELATION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-004",
+      "6529NM-CA-2026-005",
+      "6529NM-RP-0004",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "relation_id": "6529NM-REL-0277",
+    "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
+    "source_entity_id": "6529NM-RP-0004",
+    "source_record_ids": [
+      "6529NM-ACC-2026-004",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "subject_id": "6529NM-REL-0277",
+    "target_entity_id": "6529NM-CA-2026-005",
+    "visibility": "public"
+  }
+}

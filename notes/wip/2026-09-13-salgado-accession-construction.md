@@ -237,3 +237,43 @@ platform skip; the missing regenerated inventory caused the error. Retesting
 follows the fix. Current remote main remains 3926d78faacf67a62b8d9b48e15d26c43b52eae9;
 GitHub identity punk6529 has admin/maintain authority. No merge or release
 permission is inferred from account permissions alone.
+
+## 13 September 2026 — binding intake approval and admission construction
+
+The user-appointed independent Ultra AI review approved 70 exact intake files
+at 22:28:02 UTC. All 70 Git blobs were verified against that receipt in commit
+4939941ae69d5edf0eec86712186add1666ab410; the separate commit-binding receipt
+preserves the original file receipt and reviewer statement unchanged.
+This supersedes the earlier pending-binding-review status and human-only
+interpretation. The appointed AI reviewer is identified honestly; protected
+GitHub approval is separate.
+
+Accession certificate 6529NM-ACC-2026-004 and the dated admission amendment
+now bind the six exact objects to the gift, title declaration and transfers.
+Receipt, acceptance, acquisition, title passage, custody registration and
+accession are separate events. The register preserves revision five with its
+source commit and exact snapshot: its missing prior review is not invented.
+The title instrument remains bound to its immutable intake edition. The
+unrestricted gift and ordinary Museum-use determination are unchanged.
+
+The catalogue projection adds artist, project, acquisition, accession,
+research, six work and six display-media entities. Forty governed relations
+connect them. Collection and gift-program membership are amended under the
+new review scope; earlier generated records retain their own review binding.
+The eighteen reviewed WebPs are public presentation copies with EXIF/XMP
+removed. Original JPEGs and private archive access receipts remain restricted.
+
+The accession lifecycle gate now permits explicitly unspecified creative-
+derivative and AI-training rights; it still rejects missing rights statuses
+and unspecified ordinary Museum-use classes. This records the absence of
+those optional licences without fabricating a grant or blocking admission.
+Six evidence/media tests pass. The complete suite and final independent
+admission/projection review follow. The source archives are verified; later
+admission/publication edition capture remains a separate outstanding step.
+No production site deployment or Wave announcement is claimed.
+
+The historical proposal's original six-part publication is retained. A full
+retrospective proposal-profile backfill is not invented: the current generic
+storm validator assumes a different part structure. Its original resolution,
+readback and adopted status remain directly cited for this accession.
+

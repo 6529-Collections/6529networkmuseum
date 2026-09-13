@@ -5,7 +5,7 @@
     "subjectId": "0x630ec17f970e457c7e6001c3ae308abc36c9c76c3ec39224fd14f7e5ce631c24",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xca822f52cbe781c198c967d7a992e2f661312fe5acc91faf86e532f9a9c06483",
+      "digest": "0x39614b90a8e6eaa0b27859c0d1bdddddcc64932acda6a7856e9dfe1fb15ec9b3",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/technical/6529NM.2026.004.06.json",
@@ -16,7 +16,7 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
-    "effectiveAt": 1789335192
+    "effectiveAt": 1789339283
   },
   "payload": {
     "assessments": {
@@ -34,7 +34,7 @@
       "observed_at": "2026-09-13T21:33:12.534Z"
     },
     "created_at": "2026-09-13T21:33:12.534Z",
-    "effective_at": "2026-09-13T21:33:12.534Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "events": [
       {
         "event_id": "6529NM.2026.004.COND.06.EVENT.01",
@@ -105,7 +105,7 @@
       },
       {
         "label": "Donor declaration and Museum display determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
         "evidence_class": "B",
         "observed_at": "2026-09-13T21:33:12.534Z",
         "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -123,21 +123,36 @@
         "evidence_class": "B",
         "observed_at": "2026-09-13T22:14:05.515Z",
         "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
       }
     ],
     "method": "Exact receipt/log and pinned finalized custody; source hash matching, full JPEG decode, ICC/geometry characterization and full-frame visual examination.",
     "object_id": "6529NM.2026.004.06",
-    "observed_at": "2026-09-13T22:14:05.515Z",
+    "observed_at": "2026-09-13T22:41:23.205Z",
     "outcome": "Readable, fixity-verified source manifestation. Both regional source archives passed restoration and all 18 display copies rebuilt identically. Binding Museum review and archival capture of the final publication edition remain pending.",
-    "payload_sha256": "sha256:ce654b1ed08a450a954c4a2cac34eee2026cd57ee0507f5aa231d24128a31a0a",
+    "payload_sha256": "sha256:2ed3b1df17e3b787d1d259bf2fa722de8fd0881cea6936e319a804d754a8b430",
     "protocol_state": "Static JPEG associated with Ethereum ERC-721; mutable metadata authority and gateway retrieval dependencies recorded separately.",
     "record_id": "6529NM.2026.004.COND.06",
     "record_status": "review_pending",
     "record_type": "CONDITION_REPORT",
-    "record_version": "1.0.1",
+    "record_version": "1.1.0",
     "references": [
       "6529NM.2026.004.GAA-01",
-      "6529NM-WAVE-OBS-2026-09-13-003"
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM-ACC-2026-004"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,

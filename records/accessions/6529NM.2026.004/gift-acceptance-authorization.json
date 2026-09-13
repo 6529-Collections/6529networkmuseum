@@ -5,7 +5,7 @@
     "subjectId": "0x616d117bfd5ca6c1d7bddb608944042c9c996000a39e4a4df8bbf27961d54de8",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xbf20e2f5660cb1ef9f42d61117ff4cc1e703a364d58a4e74e049f23a06e23f04",
+      "digest": "0x514afc82190e010d8231ea98a4cdced1c2600fb6f005ad9bbc9c0dc8999927e7",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
     "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
@@ -16,7 +16,7 @@
       "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
     },
-    "effectiveAt": 1789335192
+    "effectiveAt": 1789339283
   },
   "payload": {
     "acquisition_method": "donation",
@@ -73,18 +73,15 @@
     "authorization_id": "6529NM.2026.004.GAA-01",
     "authorization_kind": "gift_acceptance_and_accession_authorization",
     "authorization_status": "formally_accepted",
-    "completion_blockers": [
-      "independent_review",
-      "execute_accession_certificate_after_review"
-    ],
+    "completion_blockers": [],
     "completion_boundary": {
-      "current_state": "received_onchain",
-      "accession_status": "not_complete",
-      "external_work_accession_certificate": "pending",
-      "independent_review": "pending",
+      "current_state": "accessioned",
+      "accession_status": "complete",
+      "external_work_accession_certificate": "executed",
+      "independent_review": "reviewed",
       "preservation": "in_progress",
-      "rights": "pending",
-      "condition": "pending",
+      "rights": "reviewed_with_conditions",
+      "condition": "reviewed_pass_with_conditions",
       "title_binding": "executed"
     },
     "consideration": {
@@ -146,7 +143,7 @@
       ]
     },
     "donor_public_credit": "punk6529",
-    "effective_at": "2026-09-13T21:33:12.534Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
     "evidence_refs": [
       {
         "label": "Finalized custody and exact transfer receipts",
@@ -178,7 +175,7 @@
       },
       {
         "label": "Donor declaration and Museum display determination",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
         "evidence_class": "B",
         "observed_at": "2026-09-13T21:33:12.534Z",
         "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
@@ -196,6 +193,20 @@
         "evidence_class": "B",
         "observed_at": "2026-09-13T22:14:05.515Z",
         "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      },
+      {
+        "label": "Independent Ultra review bound to the exact intake commit",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+        "sha256": "sha256:217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
+      },
+      {
+        "label": "Dated admission amendment with immutable intake predecessors",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-admission/admission-amendment.json",
+        "sha256": "sha256:d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:41:23.205Z"
       }
     ],
     "formal_acceptance_date": "2026-09-13T21:33:12.534Z",
@@ -221,23 +232,23 @@
     "institutional_decision_authority": {
       "authority_basis": "user_authorized_institutional_decision",
       "decision_status": "formally_accepted",
-      "documentation_qa_status": "pending_independent_review",
+      "documentation_qa_status": "reviewed",
       "effective_at": "2026-09-13T21:33:12.534Z",
-      "publication_semantics": "Authorized gift acceptance and accession processing; this constructed record does not execute the accession certificate or claim public release."
+      "publication_semantics": "The reviewed gift acceptance is followed by accession certificate 6529NM-ACC-2026-004. GitHub publication review is a separate control."
     },
     "non_claims": [
       "Copyright assignment is not recorded.",
       "No general third-party reuse licence is granted.",
-      "Independent review and accession admission have not occurred."
+      "Final publication and any production website deployment are separate from admission."
     ],
-    "observed_at": "2026-09-13T22:14:05.515Z",
+    "observed_at": "2026-09-13T22:41:23.205Z",
     "outcome": "formally_accepted_gift_and_accession_authorization",
-    "payload_sha256": "sha256:62b571d35b41c66a3ea2c44cda54f9799b676797d69251ece47461f6d8b5b0f2",
+    "payload_sha256": "sha256:c71c8fb082697097c32b0e76ba557d3c605296a302fe76077ee28400d98c7f7c",
     "permanent_collection_intent": "The Museum accepts the exact six-work unrestricted gift for permanent Collection accession processing. The group is the gift decision unit, without a perpetual joint-display condition.",
     "record_id": "6529NM.2026.004.GAA-01",
     "record_status": "review_pending",
     "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
-    "record_version": "1.0.1",
+    "record_version": "1.1.0",
     "references": [
       "6529NM-WAVE-OBS-2026-09-13-003",
       "6529NM.2026.004.01",
@@ -245,7 +256,8 @@
       "6529NM.2026.004.03",
       "6529NM.2026.004.04",
       "6529NM.2026.004.05",
-      "6529NM.2026.004.06"
+      "6529NM.2026.004.06",
+      "6529NM-ACC-2026-004"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,

@@ -1,7 +1,7 @@
 # Registration diligence
 
 **Scope:** Six Amazônia photographs, lot 6529NM.2026.004.  
-**Prepared:** 13 September 2026; independent review pending.
+**Prepared:** 13 September 2026; independent intake review approved.
 
 The donor's unrestricted-gift declaration, the exact proposal and the
 completed delivery supply the Museum's title and acceptance basis. The

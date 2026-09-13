@@ -2,7 +2,7 @@
 
 **Research cutoff:** 13 September 2026. Source statements, technical
 observations and Museum interpretations are distinguished in the object
-entries and evidence records. All publication texts remain under review.
+entries and evidence records. The intake scholarship has passed the appointed independent Ultra review.
 
 ## Object chronology
 
@@ -31,7 +31,8 @@ file dimensions are recorded in the source manifest.
 | 13 September 2026, 21:06:04.882 UTC | Custody evidence capture completed at finalized block 25971024 | Raw requests/responses, ownerOf, approval, tokenURI, ENS and block-hash recheck |
 | 13 September 2026, 21:31:09.964 UTC | Mint-to-Museum indexed transfer verification completed | 25 distinct successful receipts with canonical block hashes |
 | 13 September 2026, 21:32:17.667 UTC | Fresh authenticated proposal readback reports `WINNER` | Retained helper output and timed observation descriptor |
-| Pending | Independent record and catalogue review; accession-certificate execution; public Collection admission | No completed event is asserted |
+| 13 September 2026, 22:28:02 UTC | Independent intake and catalogue review approved | Exact file receipt, subsequently bound to commit 4939941a |
+| 2026-09-13T22:41:23.205Z | Accession certificate and register admission amendment constructed under the approved gift authority | Certificate 6529NM-ACC-2026-004; final amendment review recorded separately |
 
 The readback times record observation completion. They do not establish the
 instant at which the Wave changed status. Receipt time is taken from its block;

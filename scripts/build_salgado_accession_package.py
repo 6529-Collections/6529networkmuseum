@@ -6,6 +6,8 @@ from pathlib import Path
 import migrate_public_entities as m
 
 ROOT=Path(__file__).resolve().parents[1]
+if (ROOT/'records/accessions/6529NM.2026.004/accession-certificate.json').exists():
+ raise SystemExit('Intake construction is closed: an accession certificate exists. Use a dated amendment.')
 LOT='6529NM.2026.004'; PG='6529NM-PG-2026-003'; GAA=LOT+'.GAA-01'; WAVE='6529NM-WAVE-OBS-2026-09-13-003'
 ACTOR='codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066'
 BASE=f'records/accessions/{LOT}'

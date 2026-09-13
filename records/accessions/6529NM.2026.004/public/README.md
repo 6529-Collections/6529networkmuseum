@@ -1,7 +1,7 @@
 # Amazônia: Forest, Water, and Community
 
-Six photographs by Sebastião Salgado. Gift of punk6529. Lot
-`6529NM.2026.004`, allocated for accession processing.
+Six photographs by Sebastião Salgado. Gift of punk6529. Accession
+`6529NM.2026.004`, objects .01–.06.
 
 The donor has confirmed an unrestricted gift. The Museum's ordinary display,
 publication, educational use and faithful copies for care are recorded in
@@ -34,28 +34,27 @@ No further donor rights information is required.
 - [Accession processing record](../accession-statement.json)
 
 The exact transfer, finalized custody, source-file fixity, photographic
-characterization and indexed provenance are documented. The record package
-includes six object records, six rights statements, six condition reports,
-the gift authorization, accession-processing record and a fresh Wave status
-observation. All 21 typed records retain pending independent-review status.
+characterization and indexed provenance are documented in six object records,
+six rights statements and six condition reports. The [accession certificate](../accession-certificate.json)
+records admission following the appointed independent Ultra review of the
+catalogue and intake evidence. Gift acceptance, title, custody and accession
+have separate dated entries.
 
-The source preservation package has been retained in two private regional
-archives. Both exact versions were downloaded, all 341 internal files checked,
-and the 18 display copies rebuilt identically from each archive. The public
-website's entity integration, accession certificate and
-Collection admission remain to be completed after the independent review;
-this edition does not claim that they have occurred.
+Both private regional source archives passed exact-version restoration:
+341 files verified and eighteen display images rebuilt identically from each.
+The source package and later publication editions retain distinct archive
+scopes. The [admission statement](accession.md) describes the act and continuing care.
 
-## Review scope
+## Review and editions
 
-Review the exact image-to-token joins, descriptions, source attributions,
-gift and display determination, technical limitations and preservation scope.
-The constructor's corrections and tests are documented separately from the
-required independent review. In particular, the first construction draft
-misread token 226 as a reflection scene; the corrected entry describes the
-verified forest image and the correction is carried through the related texts.
+The Museum appointed a separate Ultra AI reviewer under the donor's explicit
+authorization. The [review receipt](../../../../notes/wip/2026-09-13-salgado-commit-review-receipt.json)
+binds approval to the exact intake commit. The AI reviewer is distinct from
+the constructor; no human or GitHub approval is implied by that appointment.
+The admission amendment and catalogue projection receive a separate final review.
 
-The [accession standard](../../../../docs/accession-standard.md) requires that
-“a second person has reviewed the record.” The [review policy](../../../../governance/pull-request-review-policy.md)
-requires a binding review by an identified reviewer who is not the constructor.
-No such review or approval is fabricated in this package.
+Version 1.0.0 supersedes the intake status. The original intake commit and the
+[detailed amendment](../../../../evidence/salgado-amazonia-admission/admission-amendment.json)
+preserve the earlier assertions. In the first construction draft, token 226
+was misread as a reflection scene; the corrected catalogue describes the
+verified forest image. That correction remains recorded in the source chronology.
