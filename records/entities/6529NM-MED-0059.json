@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x14ff5fee71e618533cd0e4cce4b49b719d31224a5e997d44ee170cb12b5c28e5"
+      "digest": "0x40004823dd379710bb360990f4e3421794fac01eb327411d012aafd39a80eb33"
     },
     "effectiveAt": 1789339283,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-09-13T22:41:23.205Z",
     "effective_at": "2026-09-13T22:41:23.205Z",
     "entity_id": "6529NM-MED-0059",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -55,7 +55,7 @@
     ],
     "observed_at": "2026-09-13T22:41:23.205Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:b570c3bb76f0c0b36432ef4fe76de7a55c5877abd795ddb860616c390441dbdc",
+    "payload_sha256": "sha256:68ccff1f465abb4dea88c560d9ee71ff775f1769ed324baf0891c6612b3522b9",
     "preferred_label": "Nova Esperança community, Rio Gregório Yawanawá Indigenous Territory, Acre — Museum display copy",
     "profile": {
       "media": {
@@ -161,7 +161,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0059",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -171,8 +171,19 @@
       "6529NM.2026.004.06",
       "6529NM.2026.004.GAA-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+      "reviewed_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+      "reviewed_manifest_keccak": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+      "reviewed_manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-004",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-09-13T22:41:23.205Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0059",
     "visibility": "public"

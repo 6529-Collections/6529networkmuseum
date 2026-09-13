@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x48ce00f28ae20c6f4a90b9e9ec9f4c4bca020de23c16f3be46a35ff4ca4b50f0"
+      "digest": "0x84e599d91b55bc63bd97ffd470ead7d546893a2b308f54f87d57d306be84a5c8"
     },
     "effectiveAt": 1789339283,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-09-13T22:41:23.205Z",
     "effective_at": "2026-09-13T22:41:23.205Z",
     "entity_id": "6529NM-MED-0056",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "MEDIA_REFERENCE",
     "evidence_refs": [
       {
@@ -55,7 +55,7 @@
     ],
     "observed_at": "2026-09-13T22:41:23.205Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:34ca14460d2ae9546cda88c9d99b90b9b1b98060ee658a1802da791ce32ff9dd",
+    "payload_sha256": "sha256:cd456388cdbb85ec6eac0ab84489fa8b476d8d47b19d03fe03c16c604d869824",
     "preferred_label": "Aerial view, Roraima: clouds and rain — Museum display copy",
     "profile": {
       "media": {
@@ -161,7 +161,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-MED-0056",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.0.0",
     "references": [
@@ -171,8 +171,19 @@
       "6529NM.2026.004.03",
       "6529NM.2026.004.GAA-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+      "reviewed_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+      "reviewed_manifest_keccak": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+      "reviewed_manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-004",
@@ -206,7 +217,7 @@
         }
       ],
       "observed_at": "2026-09-13T22:41:23.205Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-MED-0056",
     "visibility": "public"

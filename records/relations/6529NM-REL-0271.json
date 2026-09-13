@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfbbac5ebe76e7aba5ef06a6bca9a9b367178ce12243fdd736c4c34b39a2096e9"
+      "digest": "0x8ab3279b0522582a967c21f1ffb50e0066b8ea9aee1cecbe5f76800eae4191a0"
     },
     "effectiveAt": 1789339283,
     "recordType": "PUBLIC_RELATION",
@@ -32,7 +32,7 @@
         "evidence_class": "B",
         "label": "Salgado accession certificate",
         "observed_at": "2026-09-13T22:41:23.205Z",
-        "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+        "sha256": "sha256:eb51018e3ace309a9ea2588baa87f91a053cd177569613dcc9e91f01fa289e0e",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
       },
       {
@@ -44,10 +44,10 @@
       }
     ],
     "observed_at": "2026-09-13T22:41:23.205Z",
-    "payload_sha256": "sha256:f4c9aa144506eaf47910649b85d73e4f64d54dd1cfec10b0e35e63f74a1ae98c",
+    "payload_sha256": "sha256:7b3b87fbd63a4fa57c9aaea3c9772bceef697c82b5418323442958e651e8282b",
     "qualifier": {},
     "record_id": "6529NM-REL-0271",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_RELATION",
     "record_version": "1.0.0",
     "references": [
@@ -59,8 +59,19 @@
     ],
     "relation_id": "6529NM-REL-0271",
     "relation_type": "PROJECT_CONTEXTUALIZES_WORK",
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+      "reviewed_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+      "reviewed_manifest_keccak": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+      "reviewed_manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xaa76f1b93e01ae7a1cff2717b0c814df772fd26d3997a47847a1887cba6756de",
     "source_entity_id": "6529NM-PRJ-0008",
     "source_record_ids": [

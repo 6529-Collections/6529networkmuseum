@@ -1,29 +1,29 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
   "envelope": {
-    "recordType": "WAVE_STATUS_OBSERVATION",
-    "subjectId": "0x4c21d9eaf102ad6849e589ad64fe41c88f101b8b90d4a4d9b7d8aee868143d08",
     "contentHash": {
       "algorithm": 1,
-      "digest": "0xd603882877849b513079fc51796bddb1c23f3b8f11c5891419b0bf2f69382303",
-      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x7b11e5c2d55ed1ebc33289ebe9ecc92423710b5064f0f9f00aeb1317ad8a1d44"
     },
-    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/proposed-gifts/6529NM-PG-2026-003/wave-status-observation.json",
+    "effectiveAt": 1789335137,
+    "recordType": "WAVE_STATUS_OBSERVATION",
     "schemaId": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
-    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
     "signatureHash": {
       "algorithm": 2,
-      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
-      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
-    "effectiveAt": 1789335137
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x4c21d9eaf102ad6849e589ad64fe41c88f101b8b90d4a4d9b7d8aee868143d08",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/proposed-gifts/6529NM-PG-2026-003/wave-status-observation.json"
   },
   "payload": {
     "api_reported_is_signed": true,
     "constructor": {
       "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
-      "role": "constructor",
-      "observed_at": "2026-09-13T21:33:12.534Z"
+      "observed_at": "2026-09-13T21:33:12.534Z",
+      "role": "constructor"
     },
     "created_at": "2026-09-13T21:33:12.534Z",
     "drop_id": "4eeb759a-74e8-43b6-a155-f9b015f003df",
@@ -31,11 +31,11 @@
     "effective_at": "2026-09-13T21:32:17.6672350Z",
     "evidence_refs": [
       {
-        "label": "Authenticated exact proposal readback",
-        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-wave/response.json",
         "evidence_class": "B",
+        "label": "Authenticated exact proposal readback",
         "observed_at": "2026-09-13T21:32:17.6672350Z",
-        "sha256": "sha256:7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13"
+        "sha256": "sha256:7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-wave/response.json"
       }
     ],
     "non_effects": [
@@ -52,13 +52,13 @@
     "observation_id": "6529NM-WAVE-OBS-2026-09-13-003",
     "observation_method": "wave_api_status_readback",
     "observed_at": "2026-09-13T21:32:17.6672350Z",
-    "payload_sha256": "sha256:e2a9ada12e885507295e46e50c8fdd18edf8668220abd6f5eb2a2d10f07d69b2",
+    "payload_sha256": "sha256:71e840cf1672d9d412861f0b93113ff38673a14097bea3f57d3a3ff0430f4ad4",
     "prior_observation": {
-      "source_status": "PARTICIPATORY",
       "observed_at": "2026-08-25T21:56:48.461Z",
       "source_record_id": "6529NM-PG-2026-003",
       "source_record_path": null,
       "source_repository_visibility": "complete_manifest_only",
+      "source_status": "PARTICIPATORY",
       "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=4eeb759a-74e8-43b6-a155-f9b015f003df"
     },
     "proposal_id": "6529NM-PG-2026-003",
@@ -66,17 +66,33 @@
     "rating": 73600740,
     "realtime_rating": 73600740,
     "record_id": "6529NM-WAVE-OBS-2026-09-13-003",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "WAVE_STATUS_OBSERVATION",
     "record_version": "1.0.1",
     "references": [
       "6529NM-PG-2026-003"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T22:38:04.809635+00:00",
+      "reviewed_commit": "4939941ae69d5edf0eec86712186add1666ab410",
+      "reviewed_manifest_keccak": "0x782a80c6d21ddcf0b543024706109e0ab3d396baf7d871d4a4ac7e268a28ae05",
+      "reviewed_manifest_sha256": "sha256:e7e2e765e3c713086f6ea8c840bdb58776fb40997f2da81df5fa09d523541cfc",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xfe0b5244859ffb994766ff3aeace88f12961e07bb97941c647044327737c9be1",
     "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
     "serial_no": 1344468,
+    "source": {
+      "source_record_ids": [
+        "6529NM-PG-2026-003"
+      ]
+    },
     "source_record_ids": [
       "6529NM-PG-2026-003"
     ],
@@ -84,11 +100,6 @@
     "source_url": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=4eeb759a-74e8-43b6-a155-f9b015f003df",
     "subject_id": "6529NM-WAVE-OBS-2026-09-13-003",
     "visibility": "public",
-    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
-    "source": {
-      "source_record_ids": [
-        "6529NM-PG-2026-003"
-      ]
-    }
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
   }
 }

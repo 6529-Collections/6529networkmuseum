@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xc117c7d69a8564af0d89b1c11629aeaac04003213600a5d82eaed760d38ecb23"
+      "digest": "0x0b122dc6a32027f517ce86be341961e948efba89111acbc29b767b1537b6b274"
     },
     "effectiveAt": 1789339283,
     "recordType": "PUBLIC_ENTITY",
@@ -28,7 +28,7 @@
     "created_at": "2026-09-13T22:41:23.205Z",
     "effective_at": "2026-09-13T22:41:23.205Z",
     "entity_id": "6529NM-C-0001",
-    "entity_status": "review_pending",
+    "entity_status": "published",
     "entity_type": "COLLECTION",
     "evidence_refs": [
       {
@@ -47,7 +47,7 @@
         "evidence_class": "B",
         "label": "Salgado accession certificate",
         "observed_at": "2026-09-13T22:41:23.205Z",
-        "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+        "sha256": "sha256:eb51018e3ace309a9ea2588baa87f91a053cd177569613dcc9e91f01fa289e0e",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
       },
       {
@@ -59,7 +59,7 @@
     ],
     "observed_at": "2026-09-13T22:41:23.205Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:86e3ce33738bc611dbf753de6d082190af6921073ae05e37654d2cca84b8e416",
+    "payload_sha256": "sha256:adda69150a46451da98b89666ebc69cdaaf70de8b9234e711940ecdf4838a3b8",
     "preferred_label": "6529 Network Museum permanent Collection",
     "profile": {
       "admitted_work_entity_ids": [
@@ -101,7 +101,7 @@
           "evidence_class": "B",
           "label": "Salgado accession certificate",
           "observed_at": "2026-09-13T22:41:23.205Z",
-          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "sha256": "sha256:eb51018e3ace309a9ea2588baa87f91a053cd177569613dcc9e91f01fa289e0e",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
         }
       ],
@@ -111,7 +111,7 @@
     },
     "public_slug": null,
     "record_id": "6529NM-C-0001",
-    "record_status": "review_pending",
+    "record_status": "reviewed",
     "record_type": "PUBLIC_ENTITY",
     "record_version": "1.1.0",
     "references": [
@@ -124,8 +124,19 @@
       "6529NM.2026.004",
       "6529NM.2026.004.GAA-01"
     ],
-    "review_status": "pending_independent_review",
-    "reviewer": null,
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+      "reviewed_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+      "reviewed_manifest_keccak": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+      "reviewed_manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
     "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
     "source_record_ids": [
       "6529NM-ACC-2026-001",
@@ -143,12 +154,12 @@
           "evidence_class": "B",
           "label": "Salgado accession certificate",
           "observed_at": "2026-09-13T22:41:23.205Z",
-          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "sha256": "sha256:eb51018e3ace309a9ea2588baa87f91a053cd177569613dcc9e91f01fa289e0e",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
         }
       ],
       "observed_at": "2026-09-13T22:41:23.205Z",
-      "status_label": "review_pending"
+      "status_label": "published"
     },
     "subject_id": "6529NM-C-0001",
     "visibility": "public"

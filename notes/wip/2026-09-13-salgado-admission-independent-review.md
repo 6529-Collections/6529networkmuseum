@@ -35,3 +35,19 @@ Disposition: changes requested for two code gates and one source-anchor complete
 ## Remaining controls
 
 After correction, the exact amended commit must receive this reviewer's new disposition. Receipt-bound review sealing and final edition capture remain separate steps. The source archives were already verified; no later publication archive capture is presumed. The constructor's required full tests, deterministic replay, complete validator and manifest check must report their exact source/result. GitHub integration and protected-PR controls remain separate from this independent AI record review.
+
+## Corrected commit disposition — 2026-09-13T23:12:43.441632+00:00
+
+**Approved**, as the user-appointed independent AI record reviewer, for the exact admission and public projection scope at `c8165b5dff7e8a3a3a15601f057215c941d971fa`. The first review and its findings above remain historical evidence; all three findings are resolved. No material record finding remains. The appended registration-diligence statement also correctly distinguishes this binding AI appointment from separate GitHub approval.
+
+The [machine-readable admission review receipt](2026-09-13-salgado-admission-review-receipt.json) contains all 140 changed-file raw Git-blob hashes and the precise approval scope. Its SHA-256 is `cc14cb269c9a0e13e5bc08f256f47c23faca6d088d61da5c018406608a414418`; its file-inventory SHA-256 is `e2dac8c2ce7761d2ccf9e493d12d3a19092c13ed5a42826afbd5341b26014cf1`. This binds bytes at the reviewed commit, not a line-ending-dependent working-tree copy. The original intake review receipts remain unchanged.
+
+The exact approved manifest is `sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765`, Keccak-256 `0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff`. Both commitments were independently recomputed from its committed canonical body. The eight Salgado tests passed independently; the constructor reports all 49 public projection tests passed. The entire final suite is not claimed passed here: isolated Windows Git-clone path-length reruns were still in progress.
+
+F1 now requires exact approval/identity/commit fields, both source artifacts and the identical complete 70-file inventory with active fixity checks. F2 now rejects every mixed or partial predecessor form tested. F3 is present in both committed membership records, including source IDs and profile evidence. Caption, image, rights and provenance substance remains unchanged from the already reviewed package.
+
+The record-review gate is satisfied for this exact source. Receipt-bound review sealing, verification of the resulting review-only delta, the outstanding release tests, final edition archival capture and separate GitHub integration controls remain. The receipt supplies an openly AI reviewer identity for the approved scope; it supplies no human signature, GitHub approval, protected-PR override, or approval of unrelated future changes.
+
+### Validation update received after receipt issuance — 2026-09-13T23:13:09.188136+00:00
+
+The constructor subsequently reported that commit `c8165b5dff7e8a3a3a15601f057215c941d971fa` passes bootstrap (1,291 JSON files), the full validator with Casey, deterministic replay of 427 records, all 17 Casey snapshot mutation tests using child-only Git longpaths, all 49 public entity tests and all eight Salgado tests. The six previously reported Windows clone-path failures are resolved in those targeted reruns. This is attributed constructor evidence; it supplements the receipt's accurately timed account without rewriting it. Final review sealing, final-edition archive/readback and separate GitHub integration controls remain.
