@@ -124,6 +124,22 @@
       "records/accessions/6529NM.2026.003/public/web-presentation-authority.md",
       "records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json",
       "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.01.md",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.02.md",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.03.md",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.04.md",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.05.md",
+      "records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md",
+      "records/accessions/6529NM.2026.004/public/README.md",
+      "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
+      "records/accessions/6529NM.2026.004/public/amazonia-project.md",
+      "records/accessions/6529NM.2026.004/public/display-and-preservation.md",
+      "records/accessions/6529NM.2026.004/public/forest-water-and-community.md",
+      "records/accessions/6529NM.2026.004/public/registration-diligence.md",
+      "records/accessions/6529NM.2026.004/public/sebastiao-salgado.md",
+      "records/accessions/6529NM.2026.004/public/source-and-chronology.md",
+      "records/accessions/6529NM.2026.004/public/technical-and-condition-review.md",
+      "records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
       "records/entities/6529NM-ACC-ENT-0001.json",
       "records/entities/6529NM-ACC-ENT-0002.json",
       "records/entities/6529NM-ACC-ENT-0003.json",
@@ -655,7 +671,7 @@
   "counts": {
     "approved_public_media": 63,
     "public_assembly_control_document": 131,
-    "public_curatorial_manuscript": 134,
+    "public_curatorial_manuscript": 150,
     "public_entity_record": 136,
     "public_media_source_manifest": 4,
     "public_relation_record": 233,
@@ -1934,6 +1950,118 @@
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.01.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.02.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.03.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.04.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.05.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/README.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/amazonia-project.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/display-and-preservation.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/forest-water-and-community.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/registration-diligence.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/sebastiao-salgado.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/source-and-chronology.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/technical-and-condition-review.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_curatorial_manuscript",
+      "path": "records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
       "required_in_catalog": true
     },
     {
@@ -5578,8 +5706,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x076d53eba9c53fd6043e50a1db86fab69889ee8650cc34a566720c2089b619e7",
-    "body_sha256": "sha256:128d4e0795a71057c5d58a1d634fc81663dc41ccc7d8a58e8527e827fc784b5b",
+    "body_keccak256": "0x17296e27c6fef1bd9748ec811329df51ea33f97cfeaa9a237b2931948ca0f040",
+    "body_sha256": "sha256:78da6aa4da3d2de29380a56bf372a7f177935fdb46200c1444f67a1850116854",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",

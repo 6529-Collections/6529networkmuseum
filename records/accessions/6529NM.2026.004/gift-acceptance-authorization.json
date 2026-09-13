@@ -1,0 +1,261 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "subjectId": "0x616d117bfd5ca6c1d7bddb608944042c9c996000a39e4a4df8bbf27961d54de8",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0xbf20e2f5660cb1ef9f42d61117ff4cc1e703a364d58a4e74e049f23a06e23f04",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
+    "schemaId": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1789335192
+  },
+  "payload": {
+    "acquisition_method": "donation",
+    "assets": [
+      {
+        "object_id": "6529NM.2026.004.01",
+        "title": "Forest, Jaú River, Jaú National Park, Amazonas",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/226",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "226",
+        "custody_receipt_log": 1121
+      },
+      {
+        "object_id": "6529NM.2026.004.02",
+        "title": "Imeri mountain range, Amazonas",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/1117",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "1117",
+        "custody_receipt_log": 1129
+      },
+      {
+        "object_id": "6529NM.2026.004.03",
+        "title": "Aerial view, Roraima: clouds and rain",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/2059",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "2059",
+        "custody_receipt_log": 1125
+      },
+      {
+        "object_id": "6529NM.2026.004.04",
+        "title": "Village of Maronal, Vale do Javari Indigenous Territory, Amazonas",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/2216",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "2216",
+        "custody_receipt_log": 1123
+      },
+      {
+        "object_id": "6529NM.2026.004.05",
+        "title": "River through forest, Roraima",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/2768",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "2768",
+        "custody_receipt_log": 1131
+      },
+      {
+        "object_id": "6529NM.2026.004.06",
+        "title": "Nova Esperança community, Rio Gregório Yawanawá Indigenous Territory, Acre",
+        "caip19": "eip155:1/erc721:0xf1f036cebb4b64f138e4f57754edbceb64fb80fc/4697",
+        "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+        "token_id": "4697",
+        "custody_receipt_log": 1127
+      }
+    ],
+    "authorization_id": "6529NM.2026.004.GAA-01",
+    "authorization_kind": "gift_acceptance_and_accession_authorization",
+    "authorization_status": "formally_accepted",
+    "completion_blockers": [
+      "independent_review",
+      "execute_accession_certificate_after_review"
+    ],
+    "completion_boundary": {
+      "current_state": "received_onchain",
+      "accession_status": "not_complete",
+      "external_work_accession_certificate": "pending",
+      "independent_review": "pending",
+      "preservation": "in_progress",
+      "rights": "pending",
+      "condition": "pending",
+      "title_binding": "executed"
+    },
+    "consideration": {
+      "status": "none",
+      "statement": "The donor gives these six tokenized objects without consideration."
+    },
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "role": "constructor",
+      "observed_at": "2026-09-13T21:33:12.534Z"
+    },
+    "created_at": "2026-09-13T21:33:12.534Z",
+    "custody_receipts": [
+      {
+        "transaction_hash": "0xd1c9986c1e885a5c29b03eb15ef5194ae890678ebf6d0ab84d607af8affc3808",
+        "block_number": 25970845,
+        "block_time": "2026-09-13T20:15:35Z",
+        "from": "0x6daa633c23615a29471deafae351727867e7dad1",
+        "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+        "custody_ens": "networkmuseum.6529.eth",
+        "transfer_count": 6,
+        "receipt_status": "0x1",
+        "logs": [
+          {
+            "object_id": "6529NM.2026.004.01",
+            "log_index": 1121
+          },
+          {
+            "object_id": "6529NM.2026.004.02",
+            "log_index": 1129
+          },
+          {
+            "object_id": "6529NM.2026.004.03",
+            "log_index": 1125
+          },
+          {
+            "object_id": "6529NM.2026.004.04",
+            "log_index": 1123
+          },
+          {
+            "object_id": "6529NM.2026.004.05",
+            "log_index": 1131
+          },
+          {
+            "object_id": "6529NM.2026.004.06",
+            "log_index": 1127
+          }
+        ]
+      }
+    ],
+    "donor_authority_declaration": {
+      "source_type": "user_supplied_donor_and_authority_fact",
+      "statement": "punk6529 directly confirms donor identity and an unrestricted gift; ordinary Museum display and care are authorized. No further donor rights information is required.",
+      "authentication": "Direct instruction in the Salgado Accession task, corroborated by the adopted exact proposal and successful donor-to-Museum delivery.",
+      "limitations": [
+        "Donor title and artist copyright are separate.",
+        "No general third-party licence is created.",
+        "The declaration does not identify unnamed photographic subjects."
+      ]
+    },
+    "donor_public_credit": "punk6529",
+    "effective_at": "2026-09-13T21:33:12.534Z",
+    "evidence_refs": [
+      {
+        "label": "Finalized custody and exact transfer receipts",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-custody/summary.json",
+        "evidence_class": "A",
+        "observed_at": "2026-09-13T21:06:04.882Z",
+        "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423"
+      },
+      {
+        "label": "Source JPEG and metadata characterization",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-sources/manifest.json",
+        "evidence_class": "C",
+        "observed_at": "2026-09-13T21:33:12.534Z",
+        "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392"
+      },
+      {
+        "label": "Mint-to-Museum indexed transfer receipt verification",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-provenance/summary.json",
+        "evidence_class": "A",
+        "observed_at": "2026-09-13T21:31:09.964Z",
+        "sha256": "sha256:42c491b6833adb8cace7acb07cab994b6e1b8f57af6441844afbdb1d9a82619d"
+      },
+      {
+        "label": "Authenticated exact proposal readback",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-wave/response.json",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T21:32:17.6672350Z",
+        "sha256": "sha256:7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13"
+      },
+      {
+        "label": "Donor declaration and Museum display determination",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T21:33:12.534Z",
+        "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
+      },
+      {
+        "label": "Two regional source-package restoration tests",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-preservation/restoration-summary.json",
+        "evidence_class": "C",
+        "observed_at": "2026-09-13T22:12:10.539Z",
+        "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23"
+      },
+      {
+        "label": "Official OFAC exact-address UI observations",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-diligence/ofac-address-screening.json",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:14:05.515Z",
+        "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      }
+    ],
+    "formal_acceptance_date": "2026-09-13T21:33:12.534Z",
+    "governing_basis": [
+      {
+        "basis_type": "wave_governance_decision",
+        "decision_id": "6529NM-WAVE-OBS-2026-09-13-003",
+        "drop_id": "4eeb759a-74e8-43b6-a155-f9b015f003df",
+        "effect_basis": "direct_wave_observation",
+        "governance_effect": "adopted",
+        "governance_effect_basis": "The Wave API records the exact proposal as WINNER.",
+        "governance_record_ref": "6529NM-WAVE-OBS-2026-09-13-003",
+        "live_api_field": "drop_type",
+        "live_api_observed_at": "2026-09-13T21:32:17.6672350Z",
+        "live_api_status": "WINNER",
+        "observed_at": "2026-09-13T21:32:17.6672350Z",
+        "observed_wave_status": "WINNER",
+        "source_uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=4eeb759a-74e8-43b6-a155-f9b015f003df",
+        "title": "Proposed gift: Sebastião Salgado, Amazônia",
+        "wave_serial": 1344468
+      }
+    ],
+    "institutional_decision_authority": {
+      "authority_basis": "user_authorized_institutional_decision",
+      "decision_status": "formally_accepted",
+      "documentation_qa_status": "pending_independent_review",
+      "effective_at": "2026-09-13T21:33:12.534Z",
+      "publication_semantics": "Authorized gift acceptance and accession processing; this constructed record does not execute the accession certificate or claim public release."
+    },
+    "non_claims": [
+      "Copyright assignment is not recorded.",
+      "No general third-party reuse licence is granted.",
+      "Independent review and accession admission have not occurred."
+    ],
+    "observed_at": "2026-09-13T22:14:05.515Z",
+    "outcome": "formally_accepted_gift_and_accession_authorization",
+    "payload_sha256": "sha256:62b571d35b41c66a3ea2c44cda54f9799b676797d69251ece47461f6d8b5b0f2",
+    "permanent_collection_intent": "The Museum accepts the exact six-work unrestricted gift for permanent Collection accession processing. The group is the gift decision unit, without a perpetual joint-display condition.",
+    "record_id": "6529NM.2026.004.GAA-01",
+    "record_status": "review_pending",
+    "record_type": "GIFT_ACCEPTANCE_AUTHORIZATION",
+    "record_version": "1.0.1",
+    "references": [
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM.2026.004.01",
+      "6529NM.2026.004.02",
+      "6529NM.2026.004.03",
+      "6529NM.2026.004.04",
+      "6529NM.2026.004.05",
+      "6529NM.2026.004.06"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0x7510665c925fc6035d6639597770cd6604376c7ab589e876ae5a40dc88d2778c",
+    "source": {
+      "source_record_ids": [
+        "6529NM-WAVE-OBS-2026-09-13-003"
+      ]
+    },
+    "subject_id": "6529NM.2026.004",
+    "visibility": "public"
+  }
+}

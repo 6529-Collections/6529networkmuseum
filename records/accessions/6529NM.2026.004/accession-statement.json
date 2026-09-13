@@ -1,0 +1,137 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "recordType": "ACCESSION_LOT",
+    "subjectId": "0xb5e974e5b02ca654891d55aafb01bdd09e5dd326f09e7b28cf855c5fc10a927d",
+    "contentHash": {
+      "algorithm": 1,
+      "digest": "0x437a865f2b3506c13c20b78c8e4feea8d452859c9b83b7099af236a13c224750",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/accession-statement.json",
+    "schemaId": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "signatureHash": {
+      "algorithm": 2,
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
+    },
+    "effectiveAt": 1789335192
+  },
+  "payload": {
+    "acceptance_date": "2026-09-13T21:33:12.534Z",
+    "accession_number": "6529NM.2026.004",
+    "accession_status": "not_complete",
+    "acquisition_method": "donation",
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "role": "constructor",
+      "observed_at": "2026-09-13T21:33:12.534Z"
+    },
+    "created_at": "2026-09-13T21:33:12.534Z",
+    "effective_at": "2026-09-13T21:33:12.534Z",
+    "evidence_grade": "A/B/C",
+    "evidence_refs": [
+      {
+        "label": "Finalized custody and exact transfer receipts",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-custody/summary.json",
+        "evidence_class": "A",
+        "observed_at": "2026-09-13T21:06:04.882Z",
+        "sha256": "sha256:8ea329d9ce50d4ac7c87ff086be6ab93ba9e61619f9f504e57e6d94846f0d423"
+      },
+      {
+        "label": "Source JPEG and metadata characterization",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-sources/manifest.json",
+        "evidence_class": "C",
+        "observed_at": "2026-09-13T21:33:12.534Z",
+        "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392"
+      },
+      {
+        "label": "Mint-to-Museum indexed transfer receipt verification",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-provenance/summary.json",
+        "evidence_class": "A",
+        "observed_at": "2026-09-13T21:31:09.964Z",
+        "sha256": "sha256:42c491b6833adb8cace7acb07cab994b6e1b8f57af6441844afbdb1d9a82619d"
+      },
+      {
+        "label": "Authenticated exact proposal readback",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-wave/response.json",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T21:32:17.6672350Z",
+        "sha256": "sha256:7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13"
+      },
+      {
+        "label": "Donor declaration and Museum display determination",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T21:33:12.534Z",
+        "sha256": "sha256:69106efb6c559e941fd79815f854fd27c540599d904c91eb2bd8e2c27b49b3b5"
+      },
+      {
+        "label": "Two regional source-package restoration tests",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-preservation/restoration-summary.json",
+        "evidence_class": "C",
+        "observed_at": "2026-09-13T22:12:10.539Z",
+        "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23"
+      },
+      {
+        "label": "Official OFAC exact-address UI observations",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/codex/salgado-accession/evidence/salgado-amazonia-diligence/ofac-address-screening.json",
+        "evidence_class": "B",
+        "observed_at": "2026-09-13T22:14:05.515Z",
+        "sha256": "sha256:febfb62df0c84c8b796ee5fd1ae8e4ee791065f3f90d65244be48962cd78df8d"
+      }
+    ],
+    "formal_acceptance_date": "2026-09-13T21:33:12.534Z",
+    "formal_acceptance_status": "formally_accepted",
+    "gift_acceptance_authorization_record": "6529NM.2026.004.GAA-01",
+    "governing_references": [
+      "6529NM.2026.004.GAA-01",
+      "6529NM-WAVE-OBS-2026-09-13-003"
+    ],
+    "intake_status": "accepted_for_accession_processing",
+    "non_claims": [
+      "Unrestricted donor gift is separate from copyright ownership.",
+      "Identifiers are allocated for processing; permanent Collection admission is not yet asserted."
+    ],
+    "object_ids": [
+      "6529NM.2026.004.01",
+      "6529NM.2026.004.02",
+      "6529NM.2026.004.03",
+      "6529NM.2026.004.04",
+      "6529NM.2026.004.05",
+      "6529NM.2026.004.06"
+    ],
+    "observed_at": "2026-09-13T22:14:05.515Z",
+    "payload_sha256": "sha256:04ca7e99e68aab0b46bb9162d2eb894e321caea9d47280682a1f84d4c19936d6",
+    "record_id": "6529NM.2026.004",
+    "record_status": "review_pending",
+    "record_type": "ACCESSION_LOT",
+    "record_version": "1.0.1",
+    "references": [
+      "6529NM.2026.004.GAA-01",
+      "6529NM-WAVE-OBS-2026-09-13-003",
+      "6529NM.2026.004.01",
+      "6529NM.2026.004.02",
+      "6529NM.2026.004.03",
+      "6529NM.2026.004.04",
+      "6529NM.2026.004.05",
+      "6529NM.2026.004.06"
+    ],
+    "remaining_gates": [
+      "independent_review",
+      "execute_accession_certificate_after_review"
+    ],
+    "review_status": "pending_independent_review",
+    "reviewer": null,
+    "schema_id": "0xefb854ed3d30d5f3c03815c8b8abc70ae24738b2712e2cfd3a228a8c811939d4",
+    "source": {
+      "source_record_ids": [
+        "6529NM.2026.004.GAA-01",
+        "6529NM-WAVE-OBS-2026-09-13-003"
+      ]
+    },
+    "subject_id": "6529NM.2026.004",
+    "visibility": "public"
+  }
+}

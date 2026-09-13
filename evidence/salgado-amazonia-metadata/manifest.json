@@ -1,0 +1,595 @@
+{
+  "status": "complete",
+  "scope": "Six fresh metadata responses. Images are separately retained proposal-source files; this manifest does not claim fresh image response retention.",
+  "completed_at": "2026-09-13T21:17:15.834921+00:00",
+  "source_code_commit": "3926d78faacf67a62b8d9b48e15d26c43b52eae9",
+  "entries": [
+    {
+      "path": "1117.metadata.json",
+      "sha256": "e7c517c2e57815f077b9fecb71a8fb21878a35af861369d79216db1fe333fbeb",
+      "size": 1103,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "2059.metadata.json",
+      "sha256": "b58d06ca924f22467eae0d5289df5751c1d42580db2d48dacc5513765d8cd648",
+      "size": 1611,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "2216.metadata.json",
+      "sha256": "2900995d9113ca9b9b08590a3e06fa4e61b637ee796433750ec1c9f1c5e1531c",
+      "size": 1633,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "226.metadata.json",
+      "sha256": "2768b4a20b80a44b17a7990183cb4030ee03065ccdd7714a8588e458bd25d621",
+      "size": 1495,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "2768.metadata.json",
+      "sha256": "46e3fe21ea0921ee1b8f6aceb840a881d6970f1f60bb07f222170e2c253b21e2",
+      "size": 1611,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "4697.metadata.json",
+      "sha256": "66ef09dfe5d8bd394e82399cdf69f1d97908c9232256d5f5feff205af26d5e7f",
+      "size": 1898,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    },
+    {
+      "path": "observation-in-progress.json",
+      "sha256": "8d8c6875023cadb57c21895a235cdc1e5729faa251258c41f17355f4a402a981",
+      "size": 21285,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "retrieval_entries": [
+    {
+      "token_id": 226,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226",
+      "path": "226.metadata.json",
+      "sha256": "2768b4a20b80a44b17a7990183cb4030ee03065ccdd7714a8588e458bd25d621",
+      "bytes": 1495,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226"
+        ],
+        "observed_at": "2026-09-13T21:17:14.198Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1495,
+        "byte_sha256": "2768b4a20b80a44b17a7990183cb4030ee03065ccdd7714a8588e458bd25d621",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.136Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/226",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1495,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.198Z"
+          }
+        ]
+      }
+    },
+    {
+      "token_id": 1117,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117",
+      "path": "1117.metadata.json",
+      "sha256": "e7c517c2e57815f077b9fecb71a8fb21878a35af861369d79216db1fe333fbeb",
+      "bytes": 1103,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117"
+        ],
+        "observed_at": "2026-09-13T21:17:14.556Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1103,
+        "byte_sha256": "e7c517c2e57815f077b9fecb71a8fb21878a35af861369d79216db1fe333fbeb",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.241Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/1117",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1103,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.556Z"
+          }
+        ]
+      }
+    },
+    {
+      "token_id": 2059,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059",
+      "path": "2059.metadata.json",
+      "sha256": "b58d06ca924f22467eae0d5289df5751c1d42580db2d48dacc5513765d8cd648",
+      "bytes": 1611,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059"
+        ],
+        "observed_at": "2026-09-13T21:17:14.876Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1611,
+        "byte_sha256": "b58d06ca924f22467eae0d5289df5751c1d42580db2d48dacc5513765d8cd648",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.597Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2059",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1611,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.876Z"
+          }
+        ]
+      }
+    },
+    {
+      "token_id": 2216,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216",
+      "path": "2216.metadata.json",
+      "sha256": "2900995d9113ca9b9b08590a3e06fa4e61b637ee796433750ec1c9f1c5e1531c",
+      "bytes": 1633,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216"
+        ],
+        "observed_at": "2026-09-13T21:17:15.202Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1633,
+        "byte_sha256": "2900995d9113ca9b9b08590a3e06fa4e61b637ee796433750ec1c9f1c5e1531c",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:14.919Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2216",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1633,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:15.202Z"
+          }
+        ]
+      }
+    },
+    {
+      "token_id": 2768,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768",
+      "path": "2768.metadata.json",
+      "sha256": "46e3fe21ea0921ee1b8f6aceb840a881d6970f1f60bb07f222170e2c253b21e2",
+      "bytes": 1611,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768"
+        ],
+        "observed_at": "2026-09-13T21:17:15.536Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1611,
+        "byte_sha256": "46e3fe21ea0921ee1b8f6aceb840a881d6970f1f60bb07f222170e2c253b21e2",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:15.249Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/2768",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1611,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:15.536Z"
+          }
+        ]
+      }
+    },
+    {
+      "token_id": 4697,
+      "role": "metadata",
+      "source_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697",
+      "path": "4697.metadata.json",
+      "sha256": "66ef09dfe5d8bd394e82399cdf69f1d97908c9232256d5f5feff205af26d5e7f",
+      "bytes": 1898,
+      "matches_proposal_source": true,
+      "transport": {
+        "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697",
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "address_set": [
+          "109.61.91.194",
+          "109.61.91.198",
+          "109.61.91.230"
+        ],
+        "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+        "selected_ip": "109.61.91.194",
+        "peer_ip": "109.61.91.194",
+        "redirect_chain": [
+          "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697",
+          "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697"
+        ],
+        "observed_at": "2026-09-13T21:17:15.832Z",
+        "status": 200,
+        "media_type": "application/json",
+        "byte_length": 1898,
+        "byte_sha256": "66ef09dfe5d8bd394e82399cdf69f1d97908c9232256d5f5feff205af26d5e7f",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ]
+        ],
+        "hops": [
+          {
+            "canonical_url": "https://gateway.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697",
+            "address_set": [
+              "109.61.91.195",
+              "109.61.91.197",
+              "109.61.91.231"
+            ],
+            "address_set_sha256": "2d7e663b956afe479d661f2d4929ff9a0418f9fc9b70e51d292eded7f035837b",
+            "selected_ip": "109.61.91.195",
+            "peer_ip": "109.61.91.195",
+            "status": 302,
+            "media_type": "text/html",
+            "byte_length": 748,
+            "response_headers": [
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "content-length",
+                "748"
+              ],
+              [
+                "location",
+                "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:15.580Z"
+          },
+          {
+            "canonical_url": "https://yeszidnlk72b4vg5jgskrzjfoqdlqspsextwwd77umd3nmov46oq.arweave.net/wSWUDatX9B5U3UmkqOUldAa4SfIl52sP_6MHtrHV550/4697",
+            "address_set": [
+              "109.61.91.194",
+              "109.61.91.198",
+              "109.61.91.230"
+            ],
+            "address_set_sha256": "e70ab0306709975ecaf62f6eb6b283c4e7e616092dab42ec1b0e83ab961fb9c8",
+            "selected_ip": "109.61.91.194",
+            "peer_ip": "109.61.91.194",
+            "status": 200,
+            "media_type": "application/json",
+            "byte_length": 1898,
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ]
+            ],
+            "observed_at": "2026-09-13T21:17:15.832Z"
+          }
+        ]
+      }
+    }
+  ]
+}

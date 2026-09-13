@@ -1728,6 +1728,19 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
             issues.append("governance evidence: PARTICIPATORY cannot be recorded as adopted")
     if record_type == "WAVE_STATUS_OBSERVATION":
         expected_observations = {
+            "6529NM-WAVE-OBS-2026-09-13-003": {
+                "proposal_id": "6529NM-PG-2026-003",
+                "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+                "drop_id": "4eeb759a-74e8-43b6-a155-f9b015f003df",
+                "serial_no": 1344468,
+                "api_reported_is_signed": True,
+                "drop_type": "WINNER",
+                "source_status": "WINNER",
+                "rating": 73600740,
+                "realtime_rating": 73600740,
+                "rater_count": 15,
+                "selection_effect": "selected_by_museum_wave_acquisition_review_in_progress",
+            },
             "6529NM-WAVE-OBS-2026-08-08-001": {
                 "proposal_id": "6529NM-PG-2026-001",
                 "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
@@ -1768,7 +1781,7 @@ def validate_semantics(record: dict[str, Any], vocabularies: dict[str, Any], ide
             issues.append("WAVE_STATUS_OBSERVATION must retain the earlier PARTICIPATORY proposal observation")
         expected_method = (
             "wave_api_status_readback"
-            if observation_id == "6529NM-WAVE-OBS-2026-08-23-002"
+            if observation_id in {"6529NM-WAVE-OBS-2026-08-23-002", "6529NM-WAVE-OBS-2026-09-13-003"}
             else "signed_drop_api_readback"
         )
         if payload.get("observation_method") != expected_method:

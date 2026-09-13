@@ -515,3 +515,20 @@ qualification. It must now receive exact-head independent review, hosted PR
 gates, and merge. A direct reviewed child B and immutable catalog activation C
 must follow before frontend PR #3695 is rebound. No catalog activation is
 inferred here.
+
+### 13 September 2026 — Salgado accession construction
+
+Branch codex/salgado-accession, current-main source
+3926d78faacf67a62b8d9b48e15d26c43b52eae9. The unrestricted six-work gift is
+accepted for accession processing; 21 typed records and the scholarly corpus
+are constructed, with independent review and formal accession admission
+pending. Exact custody and indexed provenance are verified. See
+[construction record](../notes/wip/2026-09-13-salgado-accession-construction.md)
+for the corrected token-226 reading, validation, archive approval rejection,
+artifacts and outstanding work. Public release has not occurred.
+
+
+
+### 13 September 2026 — Salgado preservation and review update
+
+Explicit user approval closed the archive-upload authorization condition. Two private regional source archives passed exact-version restoration, all 341-file fixity checks and byte-identical regeneration of eighteen display copies. The separate Ultra agent review is recorded in notes/wip/2026-09-13-salgado-independent-review.md; source-class, citation and publication-apparatus findings were corrected. Scoped registration diligence is documented. Binding review, accession-certificate execution, final-edition capture and public entity integration remain pending; no human reviewer or Collection admission is fabricated. See the Salgado construction note for exact scope and evidence.

@@ -1,5 +1,10 @@
 # Repository index
 
+Current Salgado construction: [September 13 evidence and editorial ledger](notes/wip/2026-09-13-salgado-accession-construction.md).
+The unrestricted six-work gift is in Museum custody at a verified finalized
+block; catalogue and accession construction are in progress under reserved lot
+`6529NM.2026.004`. Independent review, admission and publication are not complete.
+
 Read this file first. It indexes both authoritative records and work in progress so design reasoning survives task compaction and agent handoff.
 
 Status vocabulary:
@@ -253,3 +258,9 @@ Before ending a substantive design or research turn:
 3. update this index;
 4. never promote WIP to adopted policy without a governance record;
 5. run repository validation once the tooling exists.
+
+- Salgado gift processing: [catalogue and record guide](records/accessions/6529NM.2026.004/public/README.md), [21-record construction and evidence handoff](notes/wip/2026-09-13-salgado-accession-construction.md). Gift unrestricted; independent review, archive upload approval, certificate and public integration pending. Token 226 reflection misreading corrected before review.
+
+- [Salgado independent Ultra review](notes/wip/2026-09-13-salgado-independent-review.md): file-bound advisory review, findings and follow-up record.
+- [Salgado registration diligence](records/accessions/6529NM.2026.004/public/registration-diligence.md): title/control scope and exact-address screening.
+- [Salgado restoration evidence](evidence/salgado-amazonia-preservation/restoration-summary.json): two regional archives, all 341 internal files and eighteen rebuilt images per copy.

@@ -1,0 +1,1 @@
+{"id":"eth_call","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x18160ddd","to":"0xf1f036cebb4b64f138e4f57754edbceb64fb80fc"},{"blockHash":"0x1fdc3989d9b07cd1bd2c48811da35e3ffcd676f30d02424ea57e759c8b85eed9","requireCanonical":true}]}
