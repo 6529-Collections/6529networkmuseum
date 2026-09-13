@@ -23,6 +23,36 @@ GAA = LOT + '.GAA-01'
 WAVE = '6529NM-WAVE-OBS-2026-09-13-003'
 ACTOR = 'codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066'
 EVIDENCE = 'evidence/salgado-amazonia-admission'
+REVIEWER = 'codex-reviewer:salgado-2026-09-13-independent'
+REVIEW_ID = '6529NM.2026.004.REVIEW-AI-20260913-01'
+SOURCE_RECEIPT = 'notes/wip/2026-09-13-salgado-review-receipt.json'
+SOURCE_REVIEW = 'notes/wip/2026-09-13-salgado-independent-review.md'
+
+
+def verify_intake_approval(receipt, read_blob= None):
+    """Require the exact appointed approval and every original reviewed byte."""
+    read_blob = read_blob or old_bytes
+    expected = {'receipt_type': 'MUSEUM_INDEPENDENT_REVIEW_COMMIT_BINDING',
+                'review_id': REVIEW_ID, 'reviewer_id': REVIEWER,
+                'review_outcome': 'approved', 'reviewed_commit_sha': INTAKE}
+    if any(receipt.get(key) != value for key, value in expected.items()):
+        raise ValueError('The intake requires its exact independent approved commit-binding receipt.')
+    for key, path in [('source_receipt', SOURCE_RECEIPT), ('source_review_artifact', SOURCE_REVIEW)]:
+        reference = receipt.get(key, {})
+        if (reference.get('path') != path or reference.get('source_commit_sha') != INTAKE
+                or sha(read_blob(path)) != 'sha256:' + reference.get('raw_sha256', '')):
+            raise ValueError(f'Independent review source identity or fixity mismatch: {key}')
+    source = json.loads(read_blob(SOURCE_RECEIPT))
+    if (source.get('review_id') != REVIEW_ID or source.get('reviewer_id') != REVIEWER
+            or source.get('review_outcome') != 'approved'
+            or receipt.get('files') != source.get('files')):
+        raise ValueError('Independent review source approval or file inventory mismatch.')
+    files = source.get('files', [])
+    if len(files) != 70 or len({item['path'] for item in files}) != 70:
+        raise ValueError('Independent review requires the complete unique 70-file intake inventory.')
+    for item in files:
+        if sha(read_blob(item['path'])) != 'sha256:' + item['raw_sha256']:
+            raise ValueError(f"Independent review file fixity mismatch: {item['path']}")
 
 
 def old_bytes(path):
@@ -65,9 +95,7 @@ def main():
         raise SystemExit('Admission already constructed; preserve it and make a separate dated amendment.')
     receipt_path = 'notes/wip/2026-09-13-salgado-commit-review-receipt.json'
     receipt = json.loads((ROOT / receipt_path).read_bytes())
-    assert INTAKE in json.dumps(receipt), 'The committed intake requires the independent commit-binding receipt.'
-    for item in old('notes/wip/2026-09-13-salgado-review-receipt.json')['files']:
-        assert sha(old_bytes(item['path'])) == 'sha256:' + item['raw_sha256'], item['path']
+    verify_intake_approval(receipt)
     custody = old('evidence/salgado-amazonia-custody/summary.json')
     lot = old(BASE + '/accession-statement.json')['payload']
     accepted_at = lot['acceptance_date']

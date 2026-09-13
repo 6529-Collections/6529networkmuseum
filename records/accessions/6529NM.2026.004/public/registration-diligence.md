@@ -59,3 +59,13 @@ the scoped encumbrance assessment and exact-address screening are documented.
 The source archive has passed two regional restoration tests. The independent
 agent review is recorded separately from binding Museum review and the
 accession certificate; neither final event is supplied by this assessment.
+
+## Admission amendment — 13 September 2026
+
+The earlier completion assessment describes the construction stage. It is
+superseded on review status by the user-appointed independent Ultra review,
+which approved the exact intake at commit 4939941a. That AI review is the
+binding Museum record review for this accession. Certificate
+6529NM-ACC-2026-004 records the subsequent admission. The final admission and
+public projection undergo a separate check by the same independent reviewer;
+GitHub publication approval remains a separate control.

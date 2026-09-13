@@ -277,3 +277,17 @@ retrospective proposal-profile backfill is not invented: the current generic
 storm validator assumes a different part structure. Its original resolution,
 readback and adopted status remain directly cited for this accession.
 
+
+### Independent admission review corrections — 13 September 2026
+
+The appointed Ultra reviewer found the substantive catalogue, title/custody
+joins, historical predecessors, media fixity and graph relations sound.
+The constructor now requires the exact approved intake receipt, its source
+identities and hashes, and all 70 original reviewed files through explicit
+exceptions that remain active under Python optimization. The register schema
+rejects mixed predecessor forms. Collection/program projections carry the
+new accession sources in their source and evidence fields. Two mutation tests
+cover the corrected gates. Eight accession tests and all 49 projection tests
+pass. Static projection expectations now include 19 permanent works and 427
+generated records. Six other local test failures were Windows Git checkout
+path-length failures; rerun uses child-only core.longpaths configuration.

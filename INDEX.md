@@ -267,3 +267,5 @@ Before ending a substantive design or research turn:
 
 - [Salgado binding review receipt](notes/wip/2026-09-13-salgado-commit-review-receipt.json): exact 70-file intake approval at commit 4939941a.
 - [Salgado accession statement](records/accessions/6529NM.2026.004/public/accession.md): six-work admission, catalogue and continuing care; final admission/projection review in progress.
+
+- [Salgado admission review](notes/wip/2026-09-13-salgado-admission-independent-review.md): independent review of the certificate, register and public projection; three bounded construction corrections addressed, exact follow-up receipt pending.

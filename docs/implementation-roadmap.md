@@ -540,3 +540,5 @@ The six-work certificate, register amendment, scholarly catalogue and public
 entity/media projection are constructed. Final record review, publication
 edition archival capture and protected pull-request controls remain in progress.
 The two regional source copies and both restore tests are complete.
+
+- 2026-09-13 Salgado accession .004: certificate and 427-record public projection constructed; independent review corrections applied. Final receipt, review sealing, later edition archive and protected PR publication remain in progress in PR #71.

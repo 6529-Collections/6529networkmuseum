@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x853d57852850ba7eab86bbf94df8dbd330b083a48b8c99a7629f23a74a872dc1"
+      "digest": "0xc117c7d69a8564af0d89b1c11629aeaac04003213600a5d82eaed760d38ecb23"
     },
     "effectiveAt": 1789339283,
     "recordType": "PUBLIC_ENTITY",
@@ -59,7 +59,7 @@
     ],
     "observed_at": "2026-09-13T22:41:23.205Z",
     "page_exposure": "canonical_page",
-    "payload_sha256": "sha256:c31904707d9cbcc2efcadd598ec96fca981482ba184488e47512c27e257a4d2f",
+    "payload_sha256": "sha256:86e3ce33738bc611dbf753de6d082190af6921073ae05e37654d2cca84b8e416",
     "preferred_label": "6529 Network Museum permanent Collection",
     "profile": {
       "admitted_work_entity_ids": [
@@ -96,6 +96,13 @@
           "label": "Magnum accession certificate",
           "observed_at": "2026-08-12T22:24:36.387Z",
           "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.002/accession-certificate.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Salgado accession certificate",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/accession-certificate.json"
         }
       ],
       "institution_entity_id": "6529NM-I-0001",
@@ -113,7 +120,9 @@
       "6529NM-ACC-2026-004",
       "6529NM-I-0001",
       "6529NM.2026.001",
-      "6529NM.2026.002"
+      "6529NM.2026.002",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
     ],
     "review_status": "pending_independent_review",
     "reviewer": null,
@@ -121,9 +130,12 @@
     "source_record_ids": [
       "6529NM-ACC-2026-001",
       "6529NM-ACC-2026-002",
+      "6529NM-ACC-2026-004",
       "6529NM-I-0001",
       "6529NM.2026.001",
-      "6529NM.2026.002"
+      "6529NM.2026.002",
+      "6529NM.2026.004",
+      "6529NM.2026.004.GAA-01"
     ],
     "status_observation": {
       "evidence_refs": [

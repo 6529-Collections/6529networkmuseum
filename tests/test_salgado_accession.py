@@ -8,6 +8,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from validate import validate_state_machine
+from finalize_salgado_accession import verify_intake_approval, old_bytes, INTAKE
 
 ROOT = Path(__file__).resolve().parents[1]
 LOT = "6529NM.2026.004"
@@ -18,6 +19,51 @@ def load(path):
 
 
 class SalgadoEvidenceJoinTests(unittest.TestCase):
+    def test_intake_approval_rejects_wrong_authority_and_changed_bytes(self):
+        receipt = load('notes/wip/2026-09-13-salgado-commit-review-receipt.json')
+        cache = {}
+        def read(path):
+            if path not in cache:
+                cache[path] = old_bytes(path)
+            return cache[path]
+        verify_intake_approval(receipt, read)
+        mutations = [
+            lambda r: r.update(review_outcome='rejected'),
+            lambda r: r.update(reviewed_commit_sha='0' * 40, note=INTAKE),
+            lambda r: r.update(reviewer_id='constructor'),
+            lambda r: r['source_receipt'].update(path='unrelated.json'),
+            lambda r: r['source_receipt'].update(raw_sha256='0' * 64),
+            lambda r: r['source_review_artifact'].update(source_commit_sha='0' * 40),
+            lambda r: r['files'].pop(),
+        ]
+        for mutate in mutations:
+            bad = deepcopy(receipt)
+            mutate(bad)
+            with self.assertRaises(ValueError):
+                verify_intake_approval(bad, read)
+        first = receipt['files'][0]['path']
+        with self.assertRaises(ValueError):
+            verify_intake_approval(receipt, lambda path: read(path) + b'changed' if path == first else read(path))
+
+    def test_register_amendment_source_forms_are_exclusive(self):
+        from jsonschema import Draft202012Validator
+        schema = load('schemas/accession-register.schema.json')['properties']['amendment_history']['items']
+        validator = Draft202012Validator(schema)
+        amendment = load('records/accessions/register.json')['amendment_history'][-1]
+        self.assertEqual(list(validator.iter_errors(amendment)), [])
+        reviewed = deepcopy(amendment)
+        reviewed.pop('prior_source_commit')
+        reviewed.pop('prior_snapshot_path')
+        reviewed['prior_review_commit'] = INTAKE
+        self.assertEqual(list(validator.iter_errors(reviewed)), [])
+        for extra in [{'prior_source_commit': INTAKE}, {'prior_snapshot_path': 'evidence/snapshot.json'},
+                      {'prior_source_commit': INTAKE, 'prior_snapshot_path': 'evidence/snapshot.json'}]:
+            self.assertTrue(list(validator.iter_errors({**reviewed, **extra})))
+        for missing in ['prior_source_commit', 'prior_snapshot_path']:
+            bad = deepcopy(amendment)
+            bad.pop(missing)
+            self.assertTrue(list(validator.iter_errors(bad)))
+
     def test_exact_six_tokens_join_metadata_and_finalized_custody(self):
         custody = load("evidence/salgado-amazonia-custody/summary.json")
         sources = load("evidence/salgado-amazonia-sources/manifest.json")

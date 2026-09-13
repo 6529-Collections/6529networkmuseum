@@ -4186,3 +4186,5 @@ retrospective proposal-profile backfill is not invented: the current generic
 storm validator assumes a different part structure. Its original resolution,
 readback and adopted status remain directly cited for this accession.
 
+
+- 2026-09-13 Salgado: independent final admission review found three bounded gate/source-link corrections, now implemented with eight accession and 49 projection tests passing. PR #71 remains draft while exact corrected review and final edition retention complete. See the indexed admission review.

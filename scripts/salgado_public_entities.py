@@ -155,7 +155,9 @@ def add_records(m, records, relation_indexes, used_relation_keys, identity_inven
         payload['evidence_refs'] += [ce, {'label': 'Superseded membership projection, preserved intake commit',
             'uri': f'https://github.com/6529-Collections/6529networkmuseum/blob/4939941ae69d5edf0eec86712186add1666ab410/{path}',
             'observed_at': at, 'evidence_class': 'B'}]
-        payload['references'] = sorted(set(payload['references'] + [CERT]))
+        payload['references'] = sorted(set(payload['references'] + references))
+        payload['source_record_ids'] = sorted(set(payload['source_record_ids'] + references))
+        payload['profile']['evidence_refs'].append(ce)
         payload['reviewer'] = None
         payload['record_status'] = 'review_pending'
         payload['review_status'] = 'pending_independent_review'

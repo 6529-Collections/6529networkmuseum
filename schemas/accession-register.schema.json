@@ -38,7 +38,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "reason"],
-        "oneOf": [{"required": ["prior_review_commit"]}, {"required": ["prior_source_commit", "prior_snapshot_path"]}],
+        "oneOf": [
+          {"required": ["prior_review_commit"], "not": {"anyOf": [{"required": ["prior_source_commit"]}, {"required": ["prior_snapshot_path"]}]}},
+          {"required": ["prior_source_commit", "prior_snapshot_path"], "not": {"required": ["prior_review_commit"]}}
+        ],
         "properties": {
           "revision": {"type": "integer", "minimum": 1},
           "superseded_at": {"type": "string", "minLength": 20},

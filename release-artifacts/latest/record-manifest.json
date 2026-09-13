@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:05c882b997bf574a5611d90454d5e75a6d78cf6c03d006ce7f1608755aabdcaa",
-      "size": 57018
+      "sha256": "sha256:9ac044794b22d667d842055c8f5ce492dbc05e8c2925dc42e3ee05695d5f8ca1",
+      "size": 57265
     },
     {
       "byte_mode": "lf-normalized",
@@ -86,8 +86,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/control-plane.md",
-      "sha256": "sha256:f1520b4b2927f13140c9af707721356a038f6a3aa2eb93390c9e4f87be4a8bda",
-      "size": 15838
+      "sha256": "sha256:d6af3c223e5de8b022ba4732c738dcdfac9cf2fd2792762dca6082afe9d3cb1f",
+      "size": 15907
     },
     {
       "byte_mode": "lf-normalized",
@@ -222,8 +222,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "docs/implementation-roadmap.md",
-      "sha256": "sha256:460ef26f1af782544a00ca1c23c8d7146d4c53d1fc3f8b16c7ca5b333dfb81fd",
-      "size": 34837
+      "sha256": "sha256:aafa346160c4abf3c69d8bc694dfa7848777778dafc2755293bb60f8a606de71",
+      "size": 35085
     },
     {
       "byte_mode": "lf-normalized",
@@ -1986,8 +1986,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "records/accessions/6529NM.2026.004/public/registration-diligence.md",
-      "sha256": "sha256:9efe355c5c0cb3636ac92fc538e83b590743a8f91d66e7537e400700ea4cd4da",
-      "size": 3179
+      "sha256": "sha256:59ad2223daeb726f8d23981c05b8c402c90aaa6d6149a0bf1645bd1fffffa147",
+      "size": 3722
     },
     {
       "byte_mode": "lf-normalized",
@@ -2447,11 +2447,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xd320741e403c25b456bbb2193a90011fcc67ec9442f237ad046ecac67147652b"
+        "digest": "0x67844ac4a1ba7981c23bf015db5fc12ae68b4ed728b8fd7782d592d1b3861f34"
       },
       "path": "records/entities/6529NM-AP-ENT-0001.json",
-      "sha256": "sha256:f9f3c5d947799b07a28696e4e438d2bdb5f15b053f17484276c52c261457229f",
-      "size": 4843
+      "sha256": "sha256:78ba43d54e18c6f026fb61c829265f052a58ae17ab9db441e1ab695b336045ed",
+      "size": 5385
     },
     {
       "byte_mode": "lf-normalized",
@@ -2733,11 +2733,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0xcb045ec6312b49ec4c689ab2797ff176fa0d1b1e687a75cbe1d45e57767a30b8"
+        "digest": "0xac15e652dea7e0ea0f21b6e97fdf403c09f06b29f22c9a9e1bc1aa5e728c8a76"
       },
       "path": "records/entities/6529NM-C-0001.json",
-      "sha256": "sha256:190ffcddb9f50d4b8e3c9071d9e44cd8af3d10047379cbdccef1d6e7c3f56d49",
-      "size": 5633
+      "sha256": "sha256:a25397d521b4a9fa90268f7fd818dff689a1e9b6a2cd8017ed006f5c97cd9de0",
+      "size": 6175
     },
     {
       "byte_mode": "lf-normalized",
@@ -5138,11 +5138,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x8cf0b5125a73d7a6d5d655587bcfa8343dd27435e42f25b0c0594624b9d180b1"
+        "digest": "0x957fa03adacaa1e4668947fd7fa05d1dee409247d6e113295a20bd2cf0ac6c27"
       },
       "path": "records/publication/visitor-corpus-bundle-v1.json",
-      "sha256": "sha256:a6e8a4f83e6e111eebc9565d583bad0a0e9c14ad705ae41ce8878f96efe730c9",
-      "size": 5461083
+      "sha256": "sha256:6ad46d9f50521961f1b81aac2c01738366e72de79f3a2595695431caed866401",
+      "size": 5462804
     },
     {
       "byte_mode": "lf-normalized",
@@ -8213,11 +8213,11 @@
       "content_hash": {
         "algorithm": 1,
         "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-        "digest": "0x2a51e4649289c6b790617be5b6f09028f35d9f5552a4171c1f7a6a096499bdbd"
+        "digest": "0x28b628c5f7f4e30d157b1e454c7f221139dcb7169dbd97552a694edcb51a5b7b"
       },
       "path": "schemas/accession-register.schema.json",
-      "sha256": "sha256:cbdcb08a15f338bc5b80050fa4cf47fcd82258aba5303b2e18f9f1ce94460458",
-      "size": 5732
+      "sha256": "sha256:4766399045bfd9a646ab117ccc9d3c86b09d721f4077bf7912d84981adc03068",
+      "size": 5906
     },
     {
       "byte_mode": "lf-normalized",
@@ -8963,8 +8963,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/finalize_salgado_accession.py",
-      "sha256": "sha256:44431bdd63fe31caaf223f47fd0ef0a1da660a93dd1e27f6c7c9190236c07d11",
-      "size": 14720
+      "sha256": "sha256:49a6aa9df6fd81f4bb1b870954bed46ee5c260be4a29d18f29b3e1e477cdd113",
+      "size": 16447
     },
     {
       "byte_mode": "lf-normalized",
@@ -9101,8 +9101,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "scripts/salgado_public_entities.py",
-      "sha256": "sha256:2b83227ed1baa33be22cf73c7d75f9190696f6ef6b9161d3c4a17c7e4d08894d",
-      "size": 14982
+      "sha256": "sha256:183257e7e1aa14ba210add42bebad1abbf7ebaa0f35f57243aa76bd30c425f40",
+      "size": 15135
     },
     {
       "byte_mode": "lf-normalized",
@@ -9671,8 +9671,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_public_entity_layer.py",
-      "sha256": "sha256:8031becd3c232e72b8a4c6c4a3d229e7be806713f8f3d9b2e911653c3a6b3f77",
-      "size": 100697
+      "sha256": "sha256:90277a173174f5dfc27e976bdb2f32cea03ff3cb81dda480d8b67f2040022f05",
+      "size": 100836
     },
     {
       "byte_mode": "lf-normalized",
@@ -9707,8 +9707,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "tests/test_salgado_accession.py",
-      "sha256": "sha256:349ca06586efd3003629fcab1dc322b88355441377ebee676ea3e82ec3e5e2f3",
-      "size": 6570
+      "sha256": "sha256:2fc22f681fce8e000daeb8cb5d9c79363ec4bcae341e24297de90208bc449902",
+      "size": 9067
     },
     {
       "byte_mode": "lf-normalized",
@@ -9766,9 +9766,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x46303c5be2f5a407f645db5640839f6f5c659d7ad7e6772d620a6f2300d71ef4"
+    "digest": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff"
   },
-  "manifest_sha256": "sha256:528075802acc706714211adee741bf6611c2e2dee8f5cae0032312e02fe82b05",
+  "manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
