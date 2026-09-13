@@ -1,0 +1,668 @@
+{
+  "receipt_type": "MUSEUM_INDEPENDENT_ADMISSION_AND_PROJECTION_REVIEW",
+  "review_id": "6529NM.2026.004.REVIEW-AI-20260913-02",
+  "reviewer_id": "codex-reviewer:salgado-2026-09-13-independent",
+  "canonical_task_identity": "/root/salgado_independent_review",
+  "reviewer_kind": "independent_ai_agent",
+  "review_effort": "Ultra",
+  "review_outcome": "approved",
+  "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+  "reviewed_commit_sha": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+  "reviewed_base_commit_sha": "4939941ae69d5edf0eec86712186add1666ab410",
+  "explicit_user_appointment_basis": {
+    "appointing_user": "punk6529",
+    "source_task_id": "01a087a1-5e64-7280-b5f8-82d0df4ec066",
+    "basis": "The user explicitly approved a separate Ultra agent as the independent accession reviewer for this six-work Salgado package. This is the same appointed independent reviewer who approved the intake.",
+    "semantics": "Binding independent AI record review for this accession scope. No human identity or GitHub approval is asserted."
+  },
+  "review_scope": {
+    "accession_lot_id": "6529NM.2026.004",
+    "contract": "0xf1f036cebb4b64f138e4f57754edbceb64fb80fc",
+    "chain_id": 1,
+    "tokens": [
+      226,
+      1117,
+      2059,
+      2216,
+      2768,
+      4697
+    ],
+    "description": "Admission certificate, 20 intake-record amendments, accession register amendment and source snapshot, 17 new public entities, 40 relations, two membership revisions, 17 public manuscripts, 18 display media files, visitor projection/inventories, relevant construction/replay/validation/schema/test changes and supporting review/handoff evidence in this exact changed-file inventory.",
+    "record_review": "binding_under_explicit_user_appointment",
+    "source_changed_files_count": 140,
+    "byte_mode": "raw_git_blob_bytes_at_reviewed_commit",
+    "hash_encoding": "lowercase_sha256_hex",
+    "inventory_digest_method": "SHA-256 over UTF-8 concatenation of sorted relative POSIX path, NUL, lowercase raw SHA-256 hex, LF for each file.",
+    "inventory_raw_sha256": "e2dac8c2ce7761d2ccf9e493d12d3a19092c13ed5a42826afbd5341b26014cf1",
+    "legacy_scope_boundary": "Unchanged legacy catalogue review bindings are preserved, not reissued. The 427-record replay includes 59 new or amended Salgado projection records within this review scope. Earlier unchanged primary evidence and scholarship retain the separate 70-file intake approval.",
+    "reviewer_artifact_boundary": "The initial admission-review artifact included in this commit is reviewer-authored evidence of the first pass; its inclusion records exact source evidence and does not represent an independent review of a separate human or outside scholar."
+  },
+  "reviewed_manifest": {
+    "path": "release-artifacts/latest/record-manifest.json",
+    "source_commit_sha": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+    "raw_sha256": "b7aea816675984fd251d49cd3253239feda576f2ed6959b905b20de44be3a698",
+    "manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+    "manifest_keccak256": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+    "verification": "Reviewer independently recomputed both commitments from the exact committed manifest body using the Museum canonicalization implementation."
+  },
+  "initial_review": {
+    "commit_sha": "7c1c258696022689df36d35f232199980cf65a97",
+    "artifact_path": "notes/wip/2026-09-13-salgado-admission-independent-review.md",
+    "initial_artifact_raw_sha256": "efbd1eefddfb64c51fc59e42814b739f83ad4a1ab835e8105922548b956ba54e",
+    "outcome": "changes_requested"
+  },
+  "findings_disposition": [
+    {
+      "finding_id": "F1",
+      "severity": "P2",
+      "title": "Exact approved intake receipt and active fixity gate",
+      "disposition": "resolved",
+      "basis": "Exact receipt type, review/actor/outcome/commit, source artifact identities and raw hashes, complete identical 70-file inventory and all Git-blob hashes are required with explicit ValueError rather than assert; negative mutations pass."
+    },
+    {
+      "finding_id": "F2",
+      "severity": "P2",
+      "title": "Exclusive register predecessor forms",
+      "disposition": "resolved",
+      "basis": "Review-commit form explicitly forbids both source-form fields; source/snapshot form requires both and forbids review-commit. Both valid forms and mixed/partial rejection are covered."
+    },
+    {
+      "finding_id": "F3",
+      "severity": "P3",
+      "title": "Complete membership source anchors",
+      "disposition": "resolved",
+      "basis": "Both revised membership records now retain earlier sources and add the Salgado lot, authorization and certificate to source_record_ids/references, plus certificate evidence within their profiles."
+    }
+  ],
+  "open_material_record_findings": [],
+  "validation_evidence": {
+    "reviewer_performed": [
+      "Inspected full finalization diff and bounded correction diff.",
+      "Verified 20 predecessor raw/payload/version bindings and exact revision-5 register Git-blob snapshot; earlier register lots and history unchanged.",
+      "Verified title/instrument/event/object joins and immutable intake title references.",
+      "Verified all 18 image lengths and raw hashes against previously inspected and restored display derivatives.",
+      "Verified expected six relation joins per work and all 17 manuscript contents in the visitor bundle.",
+      "Ran all eight Salgado tests independently: passed, 4.094 seconds.",
+      "Verified corrected membership source anchors from exact committed Git blobs.",
+      "Independently recomputed committed manifest SHA-256 and Keccak-256.",
+      "Recomputed every approved file SHA-256 directly from git show REVIEWED_COMMIT:PATH."
+    ],
+    "constructor_reported": [
+      "All 49 public projection tests passed after expanded graph expectation updates.",
+      "Prior complete validator, bootstrap and deterministic 427-record replay passed; required release checks are tracked separately."
+    ],
+    "not_claimed_passed": [
+      "The entire final full-suite run: six Windows Git-clone path-length failures were undergoing rerun with child-only core.longpaths=true when this receipt was issued."
+    ]
+  },
+  "approval_semantics": "Approval binds the exact admission and public projection source scope at the stated commit and manifest. It authorizes the constructor to apply this reviewer identity and binding mechanically to the reviewed records under the existing user authorization. It does not approve semantic changes outside a review-only seal, or invent a cryptographic signature. Any later substantive record/media/scholarship change requires separate review.",
+  "remaining_actions": [
+    "Apply receipt-bound review metadata mechanically and verify the resulting review-only changes, commitments and deterministic projections.",
+    "Complete and record the remaining repository release tests, including the isolated Windows clone reruns.",
+    "Retain the final reviewed admission/publication edition and its review receipts in the approved preservation destinations, with exact fixity/readback.",
+    "Apply the separately required GitHub integration/protected-PR and any production-deployment controls."
+  ],
+  "authority_boundary": "Openly identified user-appointed independent AI record review only; no additional human accession review is imposed under this explicit appointment, and no human/GitHub approval or protected-PR override is manufactured.",
+  "files": [
+    {
+      "path": "INDEX.md",
+      "raw_sha256": "9ac044794b22d667d842055c8f5ce492dbc05e8c2925dc42e3ee05695d5f8ca1"
+    },
+    {
+      "path": "docs/control-plane.md",
+      "raw_sha256": "d6af3c223e5de8b022ba4732c738dcdfac9cf2fd2792762dca6082afe9d3cb1f"
+    },
+    {
+      "path": "docs/implementation-roadmap.md",
+      "raw_sha256": "aafa346160c4abf3c69d8bc694dfa7848777778dafc2755293bb60f8a606de71"
+    },
+    {
+      "path": "docs/stream-interoperability.md",
+      "raw_sha256": "ca506e84b528127867e91867c018cfd4b41a6ba789cff8056346da240f99fe96"
+    },
+    {
+      "path": "evidence/salgado-amazonia-admission/admission-amendment.json",
+      "raw_sha256": "d5f21d3d8b0e721293b9669a9bc643ac26c93285a6909025164427b48615cfd5"
+    },
+    {
+      "path": "evidence/salgado-amazonia-admission/manifest.json",
+      "raw_sha256": "a330eef132188e5ba238726498115b2d72bf669cda1bfa8ccad042e44c356d83"
+    },
+    {
+      "path": "evidence/salgado-amazonia-admission/register-revision-5.json",
+      "raw_sha256": "51b959b0a2ab0acbf6e40f10302b43a26fe2ca131091f5479d0a38f022e60894"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/1117-1280.webp",
+      "raw_sha256": "13b2db44ef3c098ab9a7b21e9d05675c9eb3535a1185b3c5ef60a0675342ed2d"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/1117-2400.webp",
+      "raw_sha256": "d5aaca1e12387198d9ef762becba4257e94515c395c8357397b5e67c3e75f006"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/1117-640.webp",
+      "raw_sha256": "7dee1980b0615d3bd724d04dd555cb6a1eea7e2c889cff2df861566a93c97d16"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2059-1280.webp",
+      "raw_sha256": "3e167ca316d11466266b6b8a65d12d03b9dbff9cdfbded3f5a66b5e9ae47d8fb"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2059-2400.webp",
+      "raw_sha256": "ce0f165a29162aedeaee7a9a1e0af15e9a2937964e694b6173042817ef1c414e"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2059-640.webp",
+      "raw_sha256": "21fb44afa279d2dd971bf65987b0b92b53d05122f8f842021186863e4cca303a"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2216-1280.webp",
+      "raw_sha256": "581cf037268851c2e6188a671a3819ee4903abba872e7a534d8b769356f39982"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2216-2400.webp",
+      "raw_sha256": "6963684765227af5d02185b3b4d8c3bc20c40f340e0ff739ec6fc1e8623c1cff"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2216-640.webp",
+      "raw_sha256": "33c1a995e83e2cb79f89a50e0093b0dc60a5e71980a285f903f10053be31bd56"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/226-1280.webp",
+      "raw_sha256": "be435f7a85ae533547226127d580c5f87a6db3bceef952413a317a4c1b8df721"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/226-2400.webp",
+      "raw_sha256": "29ee0015b4f10ce28679e3b16d693faed7446364791d1cc1227520debbeb20fe"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/226-640.webp",
+      "raw_sha256": "94dcea0acb0698e86a2ae0ba72e0c5fe32f088d8d01bd152bfda21450a1f5ffb"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2768-1280.webp",
+      "raw_sha256": "3f380c486db86789508d26ec3fdbac8f01d8e81814698b52b765ca1e7a6619cb"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2768-2400.webp",
+      "raw_sha256": "27cf0aa7d41355c3838a919ae8739d61cb94e1b84e034ad86af821e9e5000fd3"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/2768-640.webp",
+      "raw_sha256": "38c6011b2ec600c904443f68b44b926859355f737ac5a8a6abbcb6629144bf56"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/4697-1280.webp",
+      "raw_sha256": "53f394065270638984a9f81575e9942846b5cf20282a018bbb446845e7b72479"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/4697-2400.webp",
+      "raw_sha256": "ba8e523968a4a83d46728dd4c670ab05de850b75c9249bc233fb188a6ac16811"
+    },
+    {
+      "path": "media/accessions/6529NM.2026.004/4697-640.webp",
+      "raw_sha256": "e8fe7bdc5a509723f020c838d81e09fb6b850ea750664911226acd510a365dd7"
+    },
+    {
+      "path": "notes/wip/2026-09-13-salgado-accession-construction.md",
+      "raw_sha256": "af036213236817abae39aa7840428aef43618e666d9958d3ce2e6a2b9b783e3f"
+    },
+    {
+      "path": "notes/wip/2026-09-13-salgado-admission-independent-review.md",
+      "raw_sha256": "efbd1eefddfb64c51fc59e42814b739f83ad4a1ab835e8105922548b956ba54e"
+    },
+    {
+      "path": "notes/wip/2026-09-13-salgado-commit-review-receipt.json",
+      "raw_sha256": "217f55b0d12bbde57da5748ea940d0617664ce5796ad8c78b8489699cddab59d"
+    },
+    {
+      "path": "notes/wip/orchestration-ledger.md",
+      "raw_sha256": "fabb368200eac2e3ff823a5c4e536eb323828735c724878f63ba4cf3b62d73b7"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/accession-certificate.json",
+      "raw_sha256": "36c36cffcf405f21d88f23c96078ff96a6bda774156ef87fc4f9be6145698afb"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/accession-statement.json",
+      "raw_sha256": "f3becda03d7b7c0e0e8cf7ca99529055d5a85802d8cf26bee7510bc5af1a6650"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
+      "raw_sha256": "dc187c0c99ecf19eae1d719045fee95ff85d8efb90b797e8a1d41a3ef8336c40"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.01.json",
+      "raw_sha256": "626f9d4b413d55ae89a9076cd66ebb8caf595b017d5e44dacd1644d0001a9af7"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.02.json",
+      "raw_sha256": "c12a31a29d3fb8051420fcbf7e8d0d98b1eb8483a99a069027587d7a4fbc05d0"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.03.json",
+      "raw_sha256": "d7c8de5336ad6c101f6d82ac6b13453df1f713f943c924b9678bdb59f1ee5fbc"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.04.json",
+      "raw_sha256": "2aed2882f0f25768fcf47e44898f153c020b842628f51078bedfbc3c18eb55c5"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.05.json",
+      "raw_sha256": "71ea5d9f0196ae10f92f8a1c25e5a9aa228733b3bdb10878771ebcfbf4b17627"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.06.json",
+      "raw_sha256": "0c78e97602d8cf75ee35ba6910a8e4aa7c5820835503c192bbbc3f7f7577baa7"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.01.md",
+      "raw_sha256": "14bfab3eb7ec2e6aed1c75960f3a72f5609d1cc46ef7ab085193b60da4220089"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.02.md",
+      "raw_sha256": "22b67bbe6809fadaef99565f8187682d2e341e45db3dab1491a8e9ac5fa25c00"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.03.md",
+      "raw_sha256": "e0ad684e287e7af0258823cb178ffd15b2c8309e333b28826145e18306a52125"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.04.md",
+      "raw_sha256": "b96b9936049b481410c3ed61297a13552319180e292e3ebae92ce7dc2f9ad9a0"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.05.md",
+      "raw_sha256": "683c2ecdac148539e9641d6d2044e7f0768fb18794a92a59ca17adc1c296d7de"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md",
+      "raw_sha256": "fdf8bd6afbb84f1d46157d058ad5210f47268bead30667b2e1f28b2229b1be7c"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/README.md",
+      "raw_sha256": "9c124f1ff88cef05f10dfc875a42ac7146bbc53097d7eda9ea95c21f48657c63"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/accession.md",
+      "raw_sha256": "fc1ab796360c5de71b089662313c4f7caf186dcb189ed98cfaeb91ac529e30d9"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/acquisition-narrative.md",
+      "raw_sha256": "28491f305eebc801a1afbdd36e5e4659e99d0ff17fb84c412cd93aecec933d11"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/amazonia-project.md",
+      "raw_sha256": "fb2d78872cf992838326db299d15a7d65eca43ccebd6ac568581b320bb2de5b6"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/display-and-preservation.md",
+      "raw_sha256": "dc066cf3ea045582c56468da8e77464efa1e0f1c73b3a8e5dfa4c0e3c1c9ee92"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/forest-water-and-community.md",
+      "raw_sha256": "1120e9594ad3b82b1118d2d15bf2b9167dd7a9ecfe784a268d27619a79ccb520"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/registration-diligence.md",
+      "raw_sha256": "59ad2223daeb726f8d23981c05b8c402c90aaa6d6149a0bf1645bd1fffffa147"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/sebastiao-salgado.md",
+      "raw_sha256": "54f1bf523b708c8f977273af2f0f87fe37e245f417cd83e6b10cefe5c02bcf7e"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/source-and-chronology.md",
+      "raw_sha256": "afa97f9dbc149ca43937847b33b7c3e9e8fbcbc68e159fa005348b1020dd8543"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/technical-and-condition-review.md",
+      "raw_sha256": "db54c84c217bb893594443ba3fb00c89f1f0acad253f800b70c55ffe79dab2cf"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/public/title-rights-and-display.md",
+      "raw_sha256": "e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.01.json",
+      "raw_sha256": "4fe4641f2a8d7fbbb3cf2c5a843287c039b8a6482f086a535810232a0e6bbcd0"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.02.json",
+      "raw_sha256": "bd74e26c26ea986dbcf109c85cfc4105ca05aad44ba0716a5d1c5d7706d0a5b4"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.03.json",
+      "raw_sha256": "0a8e17ed55af24930fd82299b2cbf47ce5ca5e4edd58053003142b81b588036f"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.04.json",
+      "raw_sha256": "c04379bc77942c12b28d603c099b61f7ba84a0bbd9659b11e2b9a7024d6b5229"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.05.json",
+      "raw_sha256": "0961a3918429ebabce4dc774cbfc2a3e09e561a2d1acce8c5bdc6b820e1e8c07"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.06.json",
+      "raw_sha256": "d8866f1cb10ad2d0f5128f18f6854db059852d30ee55d507b9c62e52feab6be6"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.01.json",
+      "raw_sha256": "32fe2e23080a480a792111220909fe6507e034dae7d9090f510f035af6c3dd82"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.02.json",
+      "raw_sha256": "c5c2b4c76a78503cc7cf66b745a80f3d8a249d7da47acbf0fddc471f1c65a986"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.03.json",
+      "raw_sha256": "74b6f6535a44f373a95a19326e711ef28c9dabbb69fd9b0e9a91af764cc3d1ca"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.04.json",
+      "raw_sha256": "a1409671ed3fa1b12d449cad26d97c9d11b6f94b40dcab9c62d0d0fbc9413318"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.05.json",
+      "raw_sha256": "4142677cee1343e0be195e9ef07320b7d6622637c43cfa2f73b0640b09b6af0a"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.06.json",
+      "raw_sha256": "d595d534e02dedaae0055002d7af13588f11b97fdb56074b48665f86f4dc9555"
+    },
+    {
+      "path": "records/accessions/register.json",
+      "raw_sha256": "ba279b60c250cd293113194969b7f4d1c1191ebf801bf1efa0426b2809cbb394"
+    },
+    {
+      "path": "records/entities/6529NM-ACC-ENT-0004.json",
+      "raw_sha256": "9f5cf638a77018bbfc30b7e648dcadb5d47631fa06eb89c0be02c4ffc232898e"
+    },
+    {
+      "path": "records/entities/6529NM-AP-ENT-0001.json",
+      "raw_sha256": "78ba43d54e18c6f026fb61c829265f052a58ae17ab9db441e1ab695b336045ed"
+    },
+    {
+      "path": "records/entities/6529NM-ART-0024.json",
+      "raw_sha256": "cc875116d4f33a82bd51f18f1fb52e49419c4888d5d7c09dde3170454b096a68"
+    },
+    {
+      "path": "records/entities/6529NM-C-0001.json",
+      "raw_sha256": "a25397d521b4a9fa90268f7fd818dff689a1e9b6a2cd8017ed006f5c97cd9de0"
+    },
+    {
+      "path": "records/entities/6529NM-CA-2026-005.json",
+      "raw_sha256": "1722690d0e9668ed4cc112bebcdb51d7efc3576b8ec70c349a2b6f29c57ff62f"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0054.json",
+      "raw_sha256": "510b5c4ee30279faa82fb23e04446adba67259633cd6b5b8b0d9fcae5ef6638b"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0055.json",
+      "raw_sha256": "ca3920e4b3301052b8b80c271fcf9771e7ba9e5ade53b9fcee3f91f2963fc70f"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0056.json",
+      "raw_sha256": "a90061724738c3c736988538f65f7e8b2ff4f966cc18d7b0a1fc7f8ff84896c2"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0057.json",
+      "raw_sha256": "e0ad67c450beb61fd1fb64351a65004e04bcb0d6b84633ef34208110c5032707"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0058.json",
+      "raw_sha256": "7f53720a5ab00e1df55a2cc2d503f311c0efae63308e311241fdc83fda110b54"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0059.json",
+      "raw_sha256": "378b5460dd379330a4c43ccc62d6beed07b23c28db535c8e926f0df21d117b48"
+    },
+    {
+      "path": "records/entities/6529NM-PRJ-0008.json",
+      "raw_sha256": "23c9dc0df86f65263d7518dcb8b8b4203a3742f8ad9444cf2b6ebc6fdf2966c8"
+    },
+    {
+      "path": "records/entities/6529NM-RP-0004.json",
+      "raw_sha256": "e45770e62895d0a7184b2bab755e3287984aa644e510f457736d124685937e41"
+    },
+    {
+      "path": "records/entities/6529NM-W-0030.json",
+      "raw_sha256": "25901c8b4b601b0a15510e26138bbdf8246fff94d9062ef112b260f8b6a27828"
+    },
+    {
+      "path": "records/entities/6529NM-W-0031.json",
+      "raw_sha256": "e4c15fbcb7e4414c2f1f23a90a26a98dd41d63e61bcdebc4312fe87755af0621"
+    },
+    {
+      "path": "records/entities/6529NM-W-0032.json",
+      "raw_sha256": "77aad8a70a94d9791bf129655787f6837dc8da9a58dfe07e41645f753942db38"
+    },
+    {
+      "path": "records/entities/6529NM-W-0033.json",
+      "raw_sha256": "9602ce3c31ba2a34a026460eeaa478f3da531f9a8772b5ca9d4624de0ace5f41"
+    },
+    {
+      "path": "records/entities/6529NM-W-0034.json",
+      "raw_sha256": "4cb79268d8b54ce9ac806bda5015ef7fd10ecf03dba059cf14801025f7fc6c7b"
+    },
+    {
+      "path": "records/entities/6529NM-W-0035.json",
+      "raw_sha256": "2a73c9f092a6680b9a26d26e94258b1da99a5777a12ebac923640156c2148d89"
+    },
+    {
+      "path": "records/publication/visitor-corpus-bundle-v1.json",
+      "raw_sha256": "6ad46d9f50521961f1b81aac2c01738366e72de79f3a2595695431caed866401"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0240.json",
+      "raw_sha256": "5e810f09a9a2f2e96794eef7342d1c907be92db69b0c55857601fa6954ff2717"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0241.json",
+      "raw_sha256": "1fcd92563bee48296adf29a517b4603fe038f1b1d3feeb5275f036097c6d509d"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0242.json",
+      "raw_sha256": "564af6aa464ae2cdd1aad141bdee4330ac277eeb874a6455de1fd2f71c3520a9"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0243.json",
+      "raw_sha256": "ead083a80da8ede8b1d9dc6a06c62c45cdb0917601ff27f4cd6e431444b8cee4"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0244.json",
+      "raw_sha256": "596beadff25aeb37cff0f9a1acd44cf80665df712a8798a6efb4468c94a122ad"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0245.json",
+      "raw_sha256": "3d1cb4cac754063150eee0c1d47aeafbc6f1355ea4e3cb793e338f144b1f61a2"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0246.json",
+      "raw_sha256": "295849f82281bd7099578d69040073dfca38176a5295837db76cf7cac47c617f"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0247.json",
+      "raw_sha256": "d9431b11149a490bf8e1f50b27a230da763c2cd60f83cf09a9b516eccdacffe4"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0248.json",
+      "raw_sha256": "a23dee29d1dfc2cb666c3243c52cc0ce8d6a4802ebd4b046fbb4196a5ae8c747"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0249.json",
+      "raw_sha256": "e0585f54d21effbd813bc94c661c7bd5c28ba1b95b32efa3cd36e47f6ad846a2"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0250.json",
+      "raw_sha256": "4159758aba5a65716246e1dabe7b2a26a718a20b704d896b596ff44c1bd8e245"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0251.json",
+      "raw_sha256": "995340d6a17a4d9058e85ba5e4bd272b5a1924f49ea2f460bb7356e726e0363e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0252.json",
+      "raw_sha256": "b6ae509d0de5bd8019c53aac0b0bd48bed7cad77ae3ee26e7799ce5451672b3c"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0253.json",
+      "raw_sha256": "c112cafd26e0e89be872f1c23a2c94eabbedcdb1a7df5c08e1cd61c6d4100489"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0254.json",
+      "raw_sha256": "5f58cafc097e5a68437a89244afec5c57b9d15aa541a648fee5d2e2e11abd494"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0255.json",
+      "raw_sha256": "d57eee3f8d30b8dc7bf9605a5ac08abd37753261d28a52cb33061ee63e39dd48"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0256.json",
+      "raw_sha256": "0632c498e12f93c3239aa5706e4cbfd31448b88ce433b8b74e8aeba7c2146973"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0257.json",
+      "raw_sha256": "a2243e81654fe0c218ade8c202961ef5c6ba77067f67a42c449f575deef6dfc8"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0258.json",
+      "raw_sha256": "39a5f9f2377bf77e68621fc195673107f7041d2ce62fb8f09caa8e5bcbccbc97"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0259.json",
+      "raw_sha256": "fc5da5c6af89e061494d25bb0eb35d44c50587227b01ea96ab84abe46bad329e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0260.json",
+      "raw_sha256": "01e85f08d18cf370180eb872f7a66625b42d453aac020d1aab3280d97dade5ba"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0261.json",
+      "raw_sha256": "6ab1d4efb47646f1ca4096af123270e76af850948a294e980c0c1109f9c20cb9"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0262.json",
+      "raw_sha256": "715a8f0bebef0a0f1c7da71072030cd675fb98cbe9e1f48ca365f133b59b7284"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0263.json",
+      "raw_sha256": "4c534d6d5198d56b3d219ab96115d6590d3ad878b5e25c0f8f0760d19d7ade25"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0264.json",
+      "raw_sha256": "9ce3234d2cfaaf8d24f41a540c03a0c0a054b2816b609c59e255b032e3ab707f"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0265.json",
+      "raw_sha256": "6cf93129f141d0f115e98128127d844c90e01782df5f7598d7af9be354378fa1"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0266.json",
+      "raw_sha256": "f221ea87517554bb1eb757f56dccc745deb138e69e0f88de99ebc04acebd845b"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0267.json",
+      "raw_sha256": "5c9495f5f762d66cb34173e7bfc462c71323d6b63bff1221780aea8a74ff9c94"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0268.json",
+      "raw_sha256": "16805d48d25269a0d5686056d76a9a4f2b81f4079d8143778afc7d6cccabf2b0"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0269.json",
+      "raw_sha256": "7e6d55fdcc09af43d6e7caa1f9dd5cb9152b84d05a17e0a0f84ef928003ee8bd"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0270.json",
+      "raw_sha256": "e432ccb9a7178d0389f9e5fb9f8a5072bd17d9b8af4703f40530868837751120"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0271.json",
+      "raw_sha256": "ad1e008cc498e999202b4a65a5cbdf9d982efaec21a266515800d28f994f3d5e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0272.json",
+      "raw_sha256": "89a5008f5fd0fa48de1eb2360d1978c835549b238e4fe87bba6c5c9ee262edf4"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0273.json",
+      "raw_sha256": "81fd858932ddec7c58b4b6c9feef708c36d8bb46a04b24157f4a95ad703e2617"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0274.json",
+      "raw_sha256": "10dfb7dad4f55e5fde152a495c016c04f787dba595d9ee43c1ba586d0116517d"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0275.json",
+      "raw_sha256": "64da580f40c088e83c328376aa132ef216fe866cdd62558628ce191bd06d0f24"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0276.json",
+      "raw_sha256": "56308e2071cf91df7456d72344c9d224057853b7a5a09dbef7e5a2653de10453"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0277.json",
+      "raw_sha256": "dd6deb913f886b6441e15ac1046875431557047d9c4562b9855ae8d469981604"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0278.json",
+      "raw_sha256": "b425b3d0ea4e835e163431eb524f9592978173de946953faea5c28d1928bba73"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0279.json",
+      "raw_sha256": "49d4cd73980363695b59516e85ef75a7d2b7fe3183f252f84b006af27cc3fee7"
+    },
+    {
+      "path": "release-artifacts/latest/record-manifest.json",
+      "raw_sha256": "b7aea816675984fd251d49cd3253239feda576f2ed6959b905b20de44be3a698"
+    },
+    {
+      "path": "schemas/accession-register.schema.json",
+      "raw_sha256": "4766399045bfd9a646ab117ccc9d3c86b09d721f4077bf7912d84981adc03068"
+    },
+    {
+      "path": "schemas/public-entity-identity-inventory.json",
+      "raw_sha256": "b40dc0f72ebf71c2eafd2981a9d83f50b8787e4cc3edc9753fff40233ca68271"
+    },
+    {
+      "path": "schemas/public-publication-inventory.json",
+      "raw_sha256": "7db04805eac65b5766aad4353242e50da5d48aea6a5ceb35ce5c696fd67b0af2"
+    },
+    {
+      "path": "schemas/public-relation-identity-inventory.json",
+      "raw_sha256": "2e08a4d87cd0235dc89fd98d86eeb766e7edc9daa7726bcdc88270b8caf29e19"
+    },
+    {
+      "path": "scripts/build_salgado_accession_package.py",
+      "raw_sha256": "8abb685d88df7af9825bc6c348292f6ca19a3b64260582240cfbcaa161e7652c"
+    },
+    {
+      "path": "scripts/finalize_salgado_accession.py",
+      "raw_sha256": "49a6aa9df6fd81f4bb1b870954bed46ee5c260be4a29d18f29b3e1e477cdd113"
+    },
+    {
+      "path": "scripts/migrate_public_entities.py",
+      "raw_sha256": "ed84841aedad2096ce7096c6f97a9d8552237d654eb2e88f7977c2488038b944"
+    },
+    {
+      "path": "scripts/salgado_public_entities.py",
+      "raw_sha256": "183257e7e1aa14ba210add42bebad1abbf7ebaa0f35f57243aa76bd30c425f40"
+    },
+    {
+      "path": "scripts/validate.py",
+      "raw_sha256": "7542e16d7e86b54a75c15d3b82b265527a0c524f376cd037cc6943ee50162623"
+    },
+    {
+      "path": "tests/test_public_entity_layer.py",
+      "raw_sha256": "90277a173174f5dfc27e976bdb2f32cea03ff3cb81dda480d8b67f2040022f05"
+    },
+    {
+      "path": "tests/test_salgado_accession.py",
+      "raw_sha256": "2fc22f681fce8e000daeb8cb5d9c79363ec4bcae341e24297de90208bc449902"
+    }
+  ]
+}

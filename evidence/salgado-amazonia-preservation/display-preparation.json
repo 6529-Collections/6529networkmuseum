@@ -1,0 +1,204 @@
+{
+  "record_type": "SALGADO_DISPLAY_PREPARATION",
+  "profile": "6529NM_WEB_PRESENTATION_WEBP_V2_Q82_M6_FIXED_ICC",
+  "purpose": "Offline review copies; no production CDN release is asserted.",
+  "pillow_version": "12.3.0",
+  "webp_version": "1.6.0",
+  "constructor": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+  "review_status": "pending_independent_review",
+  "items": [
+    {
+      "object_id": "6529NM.2026.004.01",
+      "token_id": 226,
+      "source_sha256": "sha256:e0f0424be7d6c837ebf4d649f42ad0bac32c1b20f2f51376d3fb24032bd4f281",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "Slender pale trunks and drooping palm fronds overlap within dense forest vegetation, with deep dark gaps between plants.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "226-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 109112,
+          "sha256": "sha256:94dcea0acb0698e86a2ae0ba72e0c5fe32f088d8d01bd152bfda21450a1f5ffb"
+        },
+        {
+          "filename": "226-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 447100,
+          "sha256": "sha256:be435f7a85ae533547226127d580c5f87a6db3bceef952413a317a4c1b8df721"
+        },
+        {
+          "filename": "226-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 1475760,
+          "sha256": "sha256:29ee0015b4f10ce28679e3b16d693faed7446364791d1cc1227520debbeb20fe"
+        }
+      ]
+    },
+    {
+      "object_id": "6529NM.2026.004.02",
+      "token_id": 1117,
+      "source_sha256": "sha256:7b3d738ed098d1622658141782a28d1dc4e23d8e864ed74bbea50b03afdf28be",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "Overlapping dark mountain ridges and a long cliff above a hazy forest plain.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "1117-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 46104,
+          "sha256": "sha256:7dee1980b0615d3bd724d04dd555cb6a1eea7e2c889cff2df861566a93c97d16"
+        },
+        {
+          "filename": "1117-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 198972,
+          "sha256": "sha256:13b2db44ef3c098ab9a7b21e9d05675c9eb3535a1185b3c5ef60a0675342ed2d"
+        },
+        {
+          "filename": "1117-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 958170,
+          "sha256": "sha256:d5aaca1e12387198d9ef762becba4257e94515c395c8357397b5e67c3e75f006"
+        }
+      ]
+    },
+    {
+      "object_id": "6529NM.2026.004.03",
+      "token_id": 2059,
+      "source_sha256": "sha256:29ecd8ee4657f93c2978be0a3e14db813d12efecf606b00c7eda15185870e2f6",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "Bright clouds and distant rain above forest crossed by broad cloud shadows.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "2059-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 56526,
+          "sha256": "sha256:21fb44afa279d2dd971bf65987b0b92b53d05122f8f842021186863e4cca303a"
+        },
+        {
+          "filename": "2059-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 195770,
+          "sha256": "sha256:3e167ca316d11466266b6b8a65d12d03b9dbff9cdfbded3f5a66b5e9ae47d8fb"
+        },
+        {
+          "filename": "2059-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 606048,
+          "sha256": "sha256:ce0f165a29162aedeaee7a9a1e0af15e9a2937964e694b6173042817ef1c414e"
+        }
+      ]
+    },
+    {
+      "object_id": "6529NM.2026.004.04",
+      "token_id": 2216,
+      "source_sha256": "sha256:ba579adb2c267310d2e44ef7bc0c2d41bc77e9cc747f19cbcb75be2f3e642e7e",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "Portrait of an unnamed sitter with painted face and pale strands around the head, against a dark background.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "2216-640.webp",
+          "width": 640,
+          "height": 960,
+          "bytes": 80898,
+          "sha256": "sha256:33c1a995e83e2cb79f89a50e0093b0dc60a5e71980a285f903f10053be31bd56"
+        },
+        {
+          "filename": "2216-1280.webp",
+          "width": 1280,
+          "height": 1920,
+          "bytes": 349428,
+          "sha256": "sha256:581cf037268851c2e6188a671a3819ee4903abba872e7a534d8b769356f39982"
+        },
+        {
+          "filename": "2216-2400.webp",
+          "width": 2400,
+          "height": 3600,
+          "bytes": 1890058,
+          "sha256": "sha256:6963684765227af5d02185b3b4d8c3bc20c40f340e0ff739ec6fc1e8623c1cff"
+        }
+      ]
+    },
+    {
+      "object_id": "6529NM.2026.004.05",
+      "token_id": 2768,
+      "source_sha256": "sha256:8f31c3934909f5faf24f4a29c8debf9fa1be79d908fcb8182622117a5a24a7f9",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "A pale winding river making repeated bends through a continuous field of dark forest.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "2768-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 93508,
+          "sha256": "sha256:38c6011b2ec600c904443f68b44b926859355f737ac5a8a6abbcb6629144bf56"
+        },
+        {
+          "filename": "2768-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 378886,
+          "sha256": "sha256:3f380c486db86789508d26ec3fdbac8f01d8e81814698b52b765ca1e7a6619cb"
+        },
+        {
+          "filename": "2768-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 1354326,
+          "sha256": "sha256:27cf0aa7d41355c3838a919ae8739d61cb94e1b84e034ad86af821e9e5000fd3"
+        }
+      ]
+    },
+    {
+      "object_id": "6529NM.2026.004.06",
+      "token_id": 4697,
+      "source_sha256": "sha256:b351555579a65ae81aaf4cf72c15ce186d120cea5709a07e34e68ee47d2f207d",
+      "colour_profile_status": "embedded_profile_converted_to_srgb",
+      "output_icc_sha256": "sha256:4ed6f6f05df0d17516662c5fe06ac90e14e0c1936abd15a491b57998c56aef86",
+      "accessibility_text": "A foreground figure in a broad feather headdress beside an upright object, with people farther back in a forest clearing.",
+      "accessibility_status": "constructed_for_review",
+      "derivatives": [
+        {
+          "filename": "4697-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 111436,
+          "sha256": "sha256:e8fe7bdc5a509723f020c838d81e09fb6b850ea750664911226acd510a365dd7"
+        },
+        {
+          "filename": "4697-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 380382,
+          "sha256": "sha256:53f394065270638984a9f81575e9942846b5cf20282a018bbb446845e7b72479"
+        },
+        {
+          "filename": "4697-2400.webp",
+          "width": 2400,
+          "height": 1600,
+          "bytes": 1055292,
+          "sha256": "sha256:ba8e523968a4a83d46728dd4c670ab05de850b75c9249bc233fb188a6ac16811"
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-09-13T21:57:01.838Z"
+}

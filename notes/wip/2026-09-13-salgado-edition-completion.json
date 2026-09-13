@@ -1,0 +1,35 @@
+{
+  "record_type": "SALGADO_ACCESSION_EDITION_COMPLETION",
+  "observed_at": "2026-09-13T23:22:11.797Z",
+  "accession_number": "6529NM.2026.004",
+  "object_count": 6,
+  "edition_commit": "b13543128fd8551a6c82ac9a7fb952b89d02aab4",
+  "independently_reviewed_source_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+  "review_receipt": "notes/wip/2026-09-13-salgado-admission-review-receipt.json",
+  "sealing_verification_receipt": "notes/wip/2026-09-13-salgado-sealing-verification-receipt.json",
+  "supersedes": {
+    "source_commit": "b13543128fd8551a6c82ac9a7fb952b89d02aab4",
+    "record_path": "records/accessions/6529NM.2026.004/accession-statement.json",
+    "field": "ongoing_stewardship_actions[0]",
+    "scope": "Only the pending archival capture of this final reviewed edition. Original record and review bindings remain unchanged."
+  },
+  "edition_retention_status": "complete",
+  "archive_sha256": "sha256:8977005c920837ee478962e2cd76888214203d6eb8ae3e09d9c68be5b318036f",
+  "archive_bytes": 54036412,
+  "files": 632,
+  "copies": 2,
+  "restoration_summary": "evidence/salgado-amazonia-preservation/reviewed-edition-restoration.json",
+  "restoration_summary_sha256": "sha256:15f96d77dacd942d2be81e3f5e273b87f1a4d50073df774f68872bbdd5e5a787",
+  "restoration_completed_at": "2026-09-13T23:19:56.223Z",
+  "version_semantics": "The archive is exactly the b1354312 edition. This later completion observation and sealing-verification receipt were created after that commit and are not claimed inside it.",
+  "repository_integration": {
+    "pull_request": "https://github.com/6529-Collections/6529networkmuseum/pull/71",
+    "status": "awaiting_protected_pr_controls"
+  },
+  "production_deployment": "not_performed",
+  "care_continuing": [
+    "Periodic fixity and recovery checks",
+    "Dated custody and metadata-authority observations",
+    "Credited full-frame presentation and accessible image descriptions"
+  ]
+}

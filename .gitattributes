@@ -11,3 +11,6 @@ evidence/waves/museum-wave/proposals.json binary
 evidence/waves/museum-wave/source-index.md binary
 evidence/waves/museum-wave/wave-history.md binary
 evidence/waves/museum-wave/wave-snapshot.json binary
+
+# Salgado source and observation evidence has raw-byte fixity commitments.
+evidence/salgado-amazonia-*/** binary

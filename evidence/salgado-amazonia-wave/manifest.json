@@ -1,0 +1,18 @@
+{
+  "response_path": "response.json",
+  "completed_at": "2026-09-13T21:32:17.6672350Z",
+  "started_at": "2026-09-13T21:32:17.0545571Z",
+  "sha256": "sha256:7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13",
+  "method": "Authenticated punk6529bot drops get; tool JSON output serialization, not raw HTTP bytes",
+  "hash_algorithm": "sha256",
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "path": "response.json",
+      "sha256": "7fcc5c3f88609ef3d084e64e185660dbf652949df051474d67a443826a1b4e13",
+      "size": 30959,
+      "media_type": "application/json",
+      "byte_mode": "raw"
+    }
+  ]
+}

@@ -4129,3 +4129,64 @@ record occurrences. Bootstrap validation (911 JSON files), deterministic
 entity replay (370 records), publication inventory and bundle checks, Vera
 media validation, release-manifest validation, and the complete Museum/Casey
 validator all pass on the correction branch.
+
+### 13 September 2026 — Salgado accession construction
+
+Branch codex/salgado-accession, current-main source
+3926d78faacf67a62b8d9b48e15d26c43b52eae9. The unrestricted six-work gift is
+accepted for accession processing; 21 typed records and the scholarly corpus
+are constructed, with independent review and formal accession admission
+pending. Exact custody and indexed provenance are verified. See
+[construction record](../../notes/wip/2026-09-13-salgado-accession-construction.md)
+for the corrected token-226 reading, validation, archive approval rejection,
+artifacts and outstanding work. Public release has not occurred.
+
+
+
+### 13 September 2026 — Salgado preservation and review update
+
+Explicit user approval closed the archive-upload authorization condition. Two private regional source archives passed exact-version restoration, all 341-file fixity checks and byte-identical regeneration of eighteen display copies. The separate Ultra agent review is recorded in notes/wip/2026-09-13-salgado-independent-review.md; source-class, citation and publication-apparatus findings were corrected. Scoped registration diligence is documented. Binding review, accession-certificate execution, final-edition capture and public entity integration remain pending; no human reviewer or Collection admission is fabricated. See the Salgado construction note for exact scope and evidence.
+
+## 13 September 2026 — binding intake approval and admission construction
+
+The user-appointed independent Ultra AI review approved 70 exact intake files
+at 22:28:02 UTC. All 70 Git blobs were verified against that receipt in commit
+4939941ae69d5edf0eec86712186add1666ab410; the separate commit-binding receipt
+preserves the original file receipt and reviewer statement unchanged.
+This supersedes the earlier pending-binding-review status and human-only
+interpretation. The appointed AI reviewer is identified honestly; protected
+GitHub approval is separate.
+
+Accession certificate 6529NM-ACC-2026-004 and the dated admission amendment
+now bind the six exact objects to the gift, title declaration and transfers.
+Receipt, acceptance, acquisition, title passage, custody registration and
+accession are separate events. The register preserves revision five with its
+source commit and exact snapshot: its missing prior review is not invented.
+The title instrument remains bound to its immutable intake edition. The
+unrestricted gift and ordinary Museum-use determination are unchanged.
+
+The catalogue projection adds artist, project, acquisition, accession,
+research, six work and six display-media entities. Forty governed relations
+connect them. Collection and gift-program membership are amended under the
+new review scope; earlier generated records retain their own review binding.
+The eighteen reviewed WebPs are public presentation copies with EXIF/XMP
+removed. Original JPEGs and private archive access receipts remain restricted.
+
+The accession lifecycle gate now permits explicitly unspecified creative-
+derivative and AI-training rights; it still rejects missing rights statuses
+and unspecified ordinary Museum-use classes. This records the absence of
+those optional licences without fabricating a grant or blocking admission.
+Six evidence/media tests pass. The complete suite and final independent
+admission/projection review follow. The source archives are verified; later
+admission/publication edition capture remains a separate outstanding step.
+No production site deployment or Wave announcement is claimed.
+
+The historical proposal's original six-part publication is retained. A full
+retrospective proposal-profile backfill is not invented: the current generic
+storm validator assumes a different part structure. Its original resolution,
+readback and adopted status remain directly cited for this accession.
+
+
+- 2026-09-13 Salgado: independent final admission review found three bounded gate/source-link corrections, now implemented with eight accession and 49 projection tests passing. PR #71 remains draft while exact corrected review and final edition retention complete. See the indexed admission review.
+
+- 2026-09-13T23:22:11.797Z Salgado .004: independent admission approval and review sealing complete; exact b1354312 edition retained/restored in both regions, 632 files and 18 regenerated display images per copy. Later completion observation closes the earlier archive action. See 2026-09-13-salgado-accession-completion.md; protected PR #71 controls remain.

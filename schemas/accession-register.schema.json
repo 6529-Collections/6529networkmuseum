@@ -37,13 +37,19 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "prior_review_commit", "reason"],
+        "required": ["revision", "superseded_at", "supersedes", "prior_payload_sha256", "reason"],
+        "oneOf": [
+          {"required": ["prior_review_commit"], "not": {"anyOf": [{"required": ["prior_source_commit"]}, {"required": ["prior_snapshot_path"]}]}},
+          {"required": ["prior_source_commit", "prior_snapshot_path"], "not": {"required": ["prior_review_commit"]}}
+        ],
         "properties": {
           "revision": {"type": "integer", "minimum": 1},
           "superseded_at": {"type": "string", "minLength": 20},
           "supersedes": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
           "prior_payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
           "prior_review_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "prior_source_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "prior_snapshot_path": {"type": "string", "minLength": 1},
           "reason": {"type": "string", "minLength": 1}
         }
       }

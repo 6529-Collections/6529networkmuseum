@@ -79,25 +79,26 @@ that need the whole repository or need to compare values:
   declared WebP exists with the committed raw-byte hash, size, geometry, and
   sRGB profile, and that no undeclared derivative is present.
 - `scripts/migrate_public_entities.py --check --check-existing-review-state`
-  verifies the deterministic projection in the single internally consistent
-  pending or reviewed state already committed. This replay does not grant
+  verifies the deterministic projection with an internally consistent
+  review state within each recorded review scope. This replay does not grant
   approval; publication activation separately verifies the exact candidate-A
   parent, reviewer binding, and review-only A-to-B delta. The command verifies
-  the Stream-shaped public projection: 136 `PUBLIC_ENTITY` records, 233 closed
+  the Stream-shaped public projection: 153 `PUBLIC_ENTITY` records, 273 closed
   `PUBLIC_RELATION` records, and one append-only `WAVE_STATUS_OBSERVATION`
-  (370 generated records in total). Six withdrawn draft relation assertions
+  (427 generated records in total). Six withdrawn draft relation assertions
   retain append-only identity tombstones and their identifiers cannot be
   reused.
-  The graph gate covers 21 Artist entities, 2 Organization entities, 6
-  Project/Series entities, 28 acquisition-independent Work entities, two
+  The graph gate covers 24 Artist entities, 2 Organization entities, 8
+  Project/Series entities, 35 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
-  creator relations, 13 permanent Collection memberships across the completed
-  Casey and Magnum accessions, and 16 Keys and Gates selections outside the
+  creator relations, 19 permanent Collection memberships across the completed
+  Casey, Magnum, Vera Molnár and Salgado accessions, and 16 Keys and Gates selections outside the
   Collection.
 - `tests/test_public_entity_layer.py` verifies every Work/media join against its
   governed presentation state: all 7 Casey Works have an official visual still
   and sandboxed live generator, while the 16 Keys and Gates derivatives and
-  five accessioned Magnum photographs retain their distinct rights, source,
+  five accessioned Magnum photographs, Vera Molnár work and six Salgado
+  photographs retain their distinct rights, source,
   accessibility, fixity, and affordance controls. It fails
   closed on cross-work media reuse, rights/affordance expansion, generic image
   URLs, collection membership without accession, proposal-as-method,

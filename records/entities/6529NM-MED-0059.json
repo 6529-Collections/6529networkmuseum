@@ -1,0 +1,225 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x40004823dd379710bb360990f4e3421794fac01eb327411d012aafd39a80eb33"
+    },
+    "effectiveAt": 1789339283,
+    "recordType": "PUBLIC_ENTITY",
+    "schemaId": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x5957d982622119e4249d689f37e48f7f403399fa1fd5951afab5903f1d064f77",
+    "uri": "https://6529networkmuseum.org/records/entities/6529NM-MED-0059.json"
+  },
+  "payload": {
+    "canonical_route": null,
+    "constructor": {
+      "id": "codex-task:01a087a1-5e64-7280-b5f8-82d0df4ec066",
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-09-13T22:41:23.205Z",
+    "effective_at": "2026-09-13T22:41:23.205Z",
+    "entity_id": "6529NM-MED-0059",
+    "entity_status": "published",
+    "entity_type": "MEDIA_REFERENCE",
+    "evidence_refs": [
+      {
+        "evidence_class": "C",
+        "label": "Source image and metadata characterization",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+      },
+      {
+        "evidence_class": "C",
+        "label": "Two regional source-package restoration tests",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-preservation/restoration-summary.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Museum display and rights determination",
+        "observed_at": "2026-09-13T22:41:23.205Z",
+        "sha256": "sha256:e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+      }
+    ],
+    "observed_at": "2026-09-13T22:41:23.205Z",
+    "page_exposure": "relational_only",
+    "payload_sha256": "sha256:68ccff1f465abb4dea88c560d9ee71ff775f1769ed324baf0891c6612b3522b9",
+    "preferred_label": "Nova Esperança community, Rio Gregório Yawanawá Indigenous Territory, Acre — Museum display copy",
+    "profile": {
+      "media": {
+        "accessibility_evidence_refs": [
+          {
+            "evidence_class": "E",
+            "label": "Individual object entry",
+            "observed_at": "2026-09-13T22:41:23.205Z",
+            "sha256": "sha256:fdf8bd6afbb84f1d46157d058ad5210f47268bead30667b2e1f28b2229b1be7c",
+            "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/6529NM.2026.004.06.md"
+          }
+        ],
+        "accessibility_publication_entity_id": null,
+        "accessibility_status": "provided",
+        "accessibility_subject_policy": "not_applicable",
+        "accessibility_text": "A foreground figure in a broad feather headdress beside an upright object, with people farther back in a forest clearing.",
+        "allowed_ui_affordances": [
+          "view",
+          "thumbnail",
+          "hero",
+          "alt_text",
+          "copy_citation"
+        ],
+        "credit": "Gift of punk6529. Photograph © Sebastião Salgado.",
+        "derived_from_media_entity_id": null,
+        "fixity": {
+          "algorithm": "sha256",
+          "basis": "Byte-identical derivative regenerated independently from each restored regional source package.",
+          "digest": "sha256:53f394065270638984a9f81575e9942846b5cf20282a018bbb446845e7b72479",
+          "status": "verified",
+          "verified_at": "2026-09-13T22:41:23.205Z"
+        },
+        "height": 853,
+        "identity_inference_prohibition": null,
+        "media_role": "museum_generated_public_derivative",
+        "media_type": "image/webp",
+        "publication_boundary": "public_derivative",
+        "publication_context_entity_ids": [],
+        "publication_part_number": null,
+        "rights": {
+          "evidence_refs": [
+            {
+              "evidence_class": "B",
+              "label": "Museum display and rights determination",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+            }
+          ],
+          "notes": "Source rights label: Credited Museum display. Rights state is projected from the cited source and is not inferred from media availability.",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "statement_entity_id": null,
+          "status": "cleared_with_conditions"
+        },
+        "source_byte_size": 380382,
+        "source_locator": {
+          "repository_path": "media/accessions/6529NM.2026.004/4697-1280.webp",
+          "uri": null
+        },
+        "source_observation": {
+          "evidence_refs": [
+            {
+              "evidence_class": "C",
+              "label": "Source image and metadata characterization",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+            },
+            {
+              "evidence_class": "C",
+              "label": "Two regional source-package restoration tests",
+              "observed_at": "2026-09-13T22:41:23.205Z",
+              "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23",
+              "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-preservation/restoration-summary.json"
+            }
+          ],
+          "notes": "Source observation and mutable-host boundary remain separate from preservation status.",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "status": "retrieved"
+        },
+        "source_record_ids": [
+          "6529NM.2026.004.06",
+          "6529NM.2026.004.RIGHTS.06"
+        ],
+        "subject_entity_id": "6529NM-W-0035",
+        "token_source_fixity": {
+          "algorithm": "sha256",
+          "basis": "Retained source JPEG verified against the approved source snapshot; no assertion about future gateway responses.",
+          "digest": "sha256:b351555579a65ae81aaf4cf72c15ce186d120cea5709a07e34e68ee47d2f207d",
+          "status": "verified",
+          "verified_at": "2026-09-13T22:41:23.205Z"
+        },
+        "token_source_locator": {
+          "repository_path": null,
+          "uri": "https://gateway.arweave.net/-0lfP3N4qYvHKU1JGD4qxiA3Iv652is3kE2nF8zJXjc"
+        },
+        "transform_profile": "Full-frame Adobe RGB to fixed sRGB; Lanczos resize; WebP quality 82, method 6; EXIF/XMP stripped.",
+        "visual": true,
+        "wave_proposal_context": null,
+        "width": 1280
+      },
+      "profile_type": "MEDIA_REFERENCE"
+    },
+    "public_slug": null,
+    "record_id": "6529NM-MED-0059",
+    "record_status": "reviewed",
+    "record_type": "PUBLIC_ENTITY",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-ACC-2026-004",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.06",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "codex-reviewer:salgado-2026-09-13-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+      "reviewed_commit": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+      "reviewed_manifest_keccak": "0xaec772495b5c674745c7cd5cff362593adbc346b2cdfc120d7c3654246e6aeff",
+      "reviewed_manifest_sha256": "sha256:5f4cff5fde9882f0fe230e19cbb5753fddf2c1e1634bc5b9d8039e05e7409765",
+      "reviewer_ids": [
+        "codex-reviewer:salgado-2026-09-13-independent"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0xd8aef6592fe156c4c3c10e59de540f5cdf8b130eedca322e0e22b30764bee1a9",
+    "source_record_ids": [
+      "6529NM-ACC-2026-004",
+      "6529NM-W-0035",
+      "6529NM.2026.004",
+      "6529NM.2026.004.06",
+      "6529NM.2026.004.GAA-01"
+    ],
+    "status_observation": {
+      "evidence_refs": [
+        {
+          "evidence_class": "C",
+          "label": "Source image and metadata characterization",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:03ecbf9fe61a8e066ee9730d1644550f164b908b1da65a20f36756cdcc6e9392",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-sources/manifest.json"
+        },
+        {
+          "evidence_class": "C",
+          "label": "Two regional source-package restoration tests",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:2af890d73e3e2b4de6d5aaa5356b67dcdf6049c4a833becd3ccbe0018992df23",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/salgado-amazonia-preservation/restoration-summary.json"
+        },
+        {
+          "evidence_class": "B",
+          "label": "Museum display and rights determination",
+          "observed_at": "2026-09-13T22:41:23.205Z",
+          "sha256": "sha256:e7673e88c887728788b4ad259d4c7c225e6b49866b1509cdab3fd335d93ce803",
+          "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/accessions/6529NM.2026.004/public/title-rights-and-display.md"
+        }
+      ],
+      "observed_at": "2026-09-13T22:41:23.205Z",
+      "status_label": "published"
+    },
+    "subject_id": "6529NM-MED-0059",
+    "visibility": "public"
+  }
+}

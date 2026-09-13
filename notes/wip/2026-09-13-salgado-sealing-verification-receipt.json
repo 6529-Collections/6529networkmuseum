@@ -1,0 +1,416 @@
+{
+  "receipt_type": "MUSEUM_INDEPENDENT_REVIEW_SEALING_VERIFICATION",
+  "verification_id": "6529NM.2026.004.REVIEW-AI-20260913-02.SEAL-01",
+  "reviewer_id": "codex-reviewer:salgado-2026-09-13-independent",
+  "canonical_task_identity": "/root/salgado_independent_review",
+  "reviewer_kind": "independent_ai_agent",
+  "review_effort": "Ultra",
+  "verification_outcome": "passed",
+  "review_outcome": "approved",
+  "verified_at": "2026-09-13T23:19:38.669809+00:00",
+  "approved_source_commit_sha": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+  "sealed_commit_sha": "b13543128fd8551a6c82ac9a7fb952b89d02aab4",
+  "authorization_basis": "The explicitly appointed independent Ultra AI reviewer verifies the bounded mechanical application of the previously issued admission/projection approval. No new human identity, GitHub approval or broader authority is asserted.",
+  "source_approval": {
+    "review_id": "6529NM.2026.004.REVIEW-AI-20260913-02",
+    "path": "notes/wip/2026-09-13-salgado-admission-review-receipt.json",
+    "raw_sha256": "cc14cb269c9a0e13e5bc08f256f47c23faca6d088d61da5c018406608a414418",
+    "reviewed_at": "2026-09-13T23:12:43.441632+00:00",
+    "reviewed_commit_sha": "c8165b5dff7e8a3a3a15601f057215c941d971fa",
+    "preserved_at_sealed_commit": true
+  },
+  "source_review_artifact": {
+    "path": "notes/wip/2026-09-13-salgado-admission-independent-review.md",
+    "raw_sha256": "be4faf4917f9c567f63b4087c5c456aadf8c5f7223dedade58febad71bfd907d",
+    "preserved_at_sealed_commit": true
+  },
+  "scope": {
+    "accession_lot_id": "6529NM.2026.004",
+    "changed_files_count": 86,
+    "description": "Review metadata sealing, projection publication flags, dependent evidence hash refreshes, accession-register review control, visitor-bundle and release-manifest regeneration, and inclusion of the already issued review artifacts. No curatorial, source-media, title, custody, rights or accession-event amendment.",
+    "byte_mode": "raw_git_blob_bytes_at_sealed_commit",
+    "files_inventory_raw_sha256": "69a8826b9218d78622ade772f9b7bcd060ff1c9639d3ff169f169e81393d8564",
+    "inventory_digest_method": "SHA-256 over UTF-8 concatenation of sorted relative POSIX path, NUL, lowercase raw SHA-256 hex, LF for each file."
+  },
+  "verifications": {
+    "admission_records_with_exact_final_binding": 21,
+    "projection_records_with_exact_final_binding": 59,
+    "wave_records_with_exact_preserved_intake_binding": 1,
+    "wave_basis": "The Wave source is byte-identical to the approved intake before sealing. Its reviewer fields use intake commit 4939941ae69d5edf0eec86712186add1666ab410, that committed manifest and the original binding verified_at 2026-09-13T22:38:04.809635+00:00.",
+    "all_81_payload_and_envelope_commitments_independently_recomputed": true,
+    "dependent_evidence_sha_updates_verified": 101,
+    "evidence_hash_refresh_boundary": "Every changed evidence SHA resolves through its unchanged source URI to the exact changed certificate or gift-authorization Git blob, with correct before and after hashes.",
+    "register_substantive_body_unchanged": true,
+    "register_constructor_and_revision_unchanged": true,
+    "register_review_binding_and_payload_commitment_verified": true,
+    "legacy_projection_records_byte_identical": 368,
+    "public_manuscripts_byte_identical": 17,
+    "public_media_files_byte_identical": 18,
+    "visitor_bundle_path_inventory_unchanged": true,
+    "visitor_bundle_changed_entries_recomputed": 59,
+    "release_manifest_path_inventory_unchanged": true,
+    "release_manifest_changed_entries_recomputed": 83,
+    "sealing_delta_contains_no_unexpected_record_fields": true,
+    "prior_review_artifact_and_receipt_preserved": true
+  },
+  "sealed_manifest": {
+    "path": "release-artifacts/latest/record-manifest.json",
+    "raw_sha256": "969834d2a89804f73c85ed0cf96d34badd7b155306f51fe14b7a4070b5d962e5",
+    "manifest_sha256": "sha256:8202a724d506cecb2aadf06be72b1cd92ab9b3cda210bc8a5956fbeacb1f69e3",
+    "manifest_keccak256": "0xac0b99fc9507b5ffdce8c5548ee2905dcdea19b29a6bb4b7081553ed5d407b00",
+    "verification": "Both canonical-body commitments were independently recomputed from the sealed commit, and every changed entry was checked against exact committed source bytes and its JSON commitment where applicable."
+  },
+  "findings": [],
+  "approval_semantics": "The sealed commit faithfully applies the existing independent AI record approval and is confirmed for retention as the reviewed admission/publication edition. This verification does not authorize unrelated semantic changes or substitute for separate GitHub publication/deployment controls. The existing original approval assertions were not modified.",
+  "archive_boundary": "This verification was issued after creation of the sealed commit. Retain it alongside the exact sealed edition and later archive/restoration receipts; do not claim that it is already contained in the earlier commit or its captured source tree.",
+  "remaining_actions": [
+    "Capture and retain the exact sealed edition with its detached review/verification receipts, then record destination fixity and restoration observations.",
+    "Complete the separately required repository integration/protected-PR and any production deployment controls."
+  ],
+  "files": [
+    {
+      "path": "notes/wip/2026-09-13-salgado-admission-independent-review.md",
+      "raw_sha256": "be4faf4917f9c567f63b4087c5c456aadf8c5f7223dedade58febad71bfd907d"
+    },
+    {
+      "path": "notes/wip/2026-09-13-salgado-admission-review-receipt.json",
+      "raw_sha256": "cc14cb269c9a0e13e5bc08f256f47c23faca6d088d61da5c018406608a414418"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/accession-certificate.json",
+      "raw_sha256": "eb51018e3ace309a9ea2588baa87f91a053cd177569613dcc9e91f01fa289e0e"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/accession-statement.json",
+      "raw_sha256": "e2f37fe501d7d8ff8c562a4ae50134dfbab63477e59d9205b7238509ef490c26"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/gift-acceptance-authorization.json",
+      "raw_sha256": "02a7575abe0596838bed159c28a6c32da9196a2093b426c0f1a665e54b7e5e7b"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.01.json",
+      "raw_sha256": "1a0a22e47d563b7484c7e76951705d4f12f5f4f3cd947947cb17fdbcec6607dd"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.02.json",
+      "raw_sha256": "c1d0d02cd5c04afe8436d0a6f330c59289f9317865b91e091ae0e073cb69c12c"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.03.json",
+      "raw_sha256": "89c6c12beaebf9a72df476df0dad2bc68f0cdf58732684ce1bf0ced749653800"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.04.json",
+      "raw_sha256": "66a95afaad71810d97a3d8095a18ec1f1f367c8d07036d2a6c13f61aff7f7885"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.05.json",
+      "raw_sha256": "91e8d10048fb34e5fea99887be3e94d17adad3f77c983f64a5d3a21166d91cc3"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/objects/6529NM.2026.004.06.json",
+      "raw_sha256": "0fbbf6e2a0eb577f271f43f7a9d62978b60302cec6bfd1733e62ce2179c516e0"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.01.json",
+      "raw_sha256": "b9fb6b685433dea91bd3253e05985cf81b98e7c74e5dd187cb34a40031ac3eff"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.02.json",
+      "raw_sha256": "55a5b8599fd166732243fdaaa214a849ba95116fc28e6b561337ff05787d9e4a"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.03.json",
+      "raw_sha256": "d29ba11fa5bd6bbaf3962ffba607e1ae7c47435f460b9c08f83328b02fb2e90f"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.04.json",
+      "raw_sha256": "d74958f5c3fa3825ab5ecc3b5fce8c5b157be36b37efedb91aa6a634ade1bf17"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.05.json",
+      "raw_sha256": "012e0ccf9d67c6e8e08856a6907577de6863dddb993834bb2416548874d27fcd"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/rights/6529NM.2026.004.RIGHTS.06.json",
+      "raw_sha256": "12f254ecbaed86bcc18ed2e61fc63754230b5ce52018dc2504313d3658fea61c"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.01.json",
+      "raw_sha256": "ac062736cdd85a0818420f841aa7e3116ddecef69d7c3856cf448ab09c53e79a"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.02.json",
+      "raw_sha256": "edfc587c8a15a0df9bedfc951d603ec4518e123f389ebeedd185dfed2091092b"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.03.json",
+      "raw_sha256": "ee402847f8efb9b86c3afd859a898caab197a2c71d5cd0d058a86d65ee23d266"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.04.json",
+      "raw_sha256": "f511b82fad28f386095ec8caa972f84281a42e5fe556cb83f176879db8cb7019"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.05.json",
+      "raw_sha256": "ee4f2f302cf39f7f2a9484b30dd739a2dba5c27c19efa8d94ab0c69bc5e02b01"
+    },
+    {
+      "path": "records/accessions/6529NM.2026.004/technical/6529NM.2026.004.06.json",
+      "raw_sha256": "a38d1dc1cffbfcf56fe7f99535a629f8741e37f3790c9963ffad9ac15d08172b"
+    },
+    {
+      "path": "records/accessions/register.json",
+      "raw_sha256": "45fb2ac510ac4bddf922938f2fd26d4335994f8a770871e34b281140a419be2f"
+    },
+    {
+      "path": "records/entities/6529NM-ACC-ENT-0004.json",
+      "raw_sha256": "c65c20f2bb88366067d4fcc363feabc4c858421858569ad35df17c2b2c420291"
+    },
+    {
+      "path": "records/entities/6529NM-AP-ENT-0001.json",
+      "raw_sha256": "c8184b759f16246d325a94e73fb2a8ebe63b650eb71bacdc24b6df8e35e48249"
+    },
+    {
+      "path": "records/entities/6529NM-ART-0024.json",
+      "raw_sha256": "4313e8590d4e254afcbf8efe902dd431f4a38925944db0dab2e112a210ecb162"
+    },
+    {
+      "path": "records/entities/6529NM-C-0001.json",
+      "raw_sha256": "a5fecaa07947d2be7b9733e98a39b46575b32bc8f7920b7e81d02145b45f990c"
+    },
+    {
+      "path": "records/entities/6529NM-CA-2026-005.json",
+      "raw_sha256": "7a21a426bb5c9b079b48b9d58274ac595088915e98ea05ed70d61bdf6908f578"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0054.json",
+      "raw_sha256": "4c142490f962cab511e890f976b39b835ac9e5b0aa3e50b15fb0b8ee376d1f95"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0055.json",
+      "raw_sha256": "d29ba8a5c9a0c9492ef29c630aadee734add6b2af552a6ccf83f7fd6c99494b5"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0056.json",
+      "raw_sha256": "d5240a4f1cc02da5cf0ee55a8f9d6eb4e89daa2e7b8886ac66d4b9ce5b81ddf2"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0057.json",
+      "raw_sha256": "3fbe61b08ae123651cb9d0461a57ef58cdbd73d6861df5702f2e73e529e00ef2"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0058.json",
+      "raw_sha256": "2c15fe9e7bdccdbf6382ca98f6ffcbe9f435f1c9209e7967d58b662230251ab5"
+    },
+    {
+      "path": "records/entities/6529NM-MED-0059.json",
+      "raw_sha256": "a73edf58d4914a71d046880f9199a470a2f947b1c99f909771183e38716895b9"
+    },
+    {
+      "path": "records/entities/6529NM-PRJ-0008.json",
+      "raw_sha256": "5a54cf38744f8f9293f2ed8f447c9b7f6daecb1ab3144a3edb2a0083c469dbcc"
+    },
+    {
+      "path": "records/entities/6529NM-RP-0004.json",
+      "raw_sha256": "0decb70f45a147b4dedb8945869c00db40579d91142d7fa5c7b4b012474649f6"
+    },
+    {
+      "path": "records/entities/6529NM-W-0030.json",
+      "raw_sha256": "a773078387d9c907c0904f884353240e44f1d47048e2014a260d0d274507b831"
+    },
+    {
+      "path": "records/entities/6529NM-W-0031.json",
+      "raw_sha256": "ac8e1d19f5ab2cbaaecd8e171422a1dfc54e0b544c920fc9789dab8ae1302eb8"
+    },
+    {
+      "path": "records/entities/6529NM-W-0032.json",
+      "raw_sha256": "a38c39c72ad3922ddcf7be15c178fcdc68bbe4386cb3191156be8e1e787840ba"
+    },
+    {
+      "path": "records/entities/6529NM-W-0033.json",
+      "raw_sha256": "68f22eddae6ff5963fc7b290c17ef3a65703602fc25d65c3ef6fd785e3de9c47"
+    },
+    {
+      "path": "records/entities/6529NM-W-0034.json",
+      "raw_sha256": "32c0e9f8d2d196fdc6d24368f5ccfebf8663c8ebdce5949260c48a27d8d36fdb"
+    },
+    {
+      "path": "records/entities/6529NM-W-0035.json",
+      "raw_sha256": "0782ff5fac16c4c88d9927810f9dcc39cd63bae7cb99de11092ecb5485df8d9c"
+    },
+    {
+      "path": "records/proposed-gifts/6529NM-PG-2026-003/wave-status-observation.json",
+      "raw_sha256": "a9976ce9f38731aff5ff8ec4751ea984cbdfd3a03bd9439cb62b1d27064903aa"
+    },
+    {
+      "path": "records/publication/visitor-corpus-bundle-v1.json",
+      "raw_sha256": "509396f03ab54465f6249470f08f23262417da545697f93303021d179cbe73a0"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0240.json",
+      "raw_sha256": "3d9d0c084d3be562c9e82da4588871eccedeef15e1e6e7bda06546de0c4bee78"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0241.json",
+      "raw_sha256": "943d800730cdf933a381768f36aed1cb701e026f076d25671d6f765e0c13ae8e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0242.json",
+      "raw_sha256": "60d8a36abb75ac1a34d7b53c1e0051e745fbc24c48649a5505851918f10809e6"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0243.json",
+      "raw_sha256": "c3bedf5435ec5c0a56909cc835d050a48de4706101b77e902984bdce3ebf574e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0244.json",
+      "raw_sha256": "5ce81ab8fda3be1fb8bdf53ae1b9d8cb9272c8e94e7292e0bd53539a49682cb8"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0245.json",
+      "raw_sha256": "b390fdccf25feeae7f467f26c8f89c42c0b4b40a75c662615b51060075f135a9"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0246.json",
+      "raw_sha256": "264e4943dcfce204ca6d2fa7538db0553328992d9b051be83b4bb1727444c15e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0247.json",
+      "raw_sha256": "468bacdae8e41764a86a309acba6337c806bf9c7d2e8ba1d9bc5636e215e2311"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0248.json",
+      "raw_sha256": "89507ccd621979fb5efb0dda9419996a97c30391fa46b1b36ced93a4db907504"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0249.json",
+      "raw_sha256": "e2dc99695f55ca63905a3206d4f0725de7ddbedf0be26f92ccfa321e966ff012"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0250.json",
+      "raw_sha256": "55cb80ecf4bdc277130c706b2f37dfee0a8932a286a719cadbc8ed705968400f"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0251.json",
+      "raw_sha256": "74e57218e48e023b86614c59b8d167afe85e5fbdd933f35f56503a4d3978509d"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0252.json",
+      "raw_sha256": "03f0f8a16e3bf38f25bc134cd17c33772bbca34bf7ac829bcbaee25dae431f26"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0253.json",
+      "raw_sha256": "3e9591894d6bb6b71e2bb025a4ea61a2a88cb70e4b55473cc6c8a9b6617b41a3"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0254.json",
+      "raw_sha256": "325903e6779c32825bbd82e092429b5427fac5afdde670b5a939ad2a7983e285"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0255.json",
+      "raw_sha256": "2934ceff6399b19659950c0683af5ab265ba538c79f5d0971b2a47ede8e18ebd"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0256.json",
+      "raw_sha256": "b1f1ec2fc1df0e0caf5fbe328025316f1b4ba4a320e2b1892f9cdeba1b6695f5"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0257.json",
+      "raw_sha256": "cc63bc8a993c16dccbc1ed2709adb7ca392e4e9982d5328afe3452b81f860a76"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0258.json",
+      "raw_sha256": "89293297ef6a6912408381b8cfde9767231e5fed2155ca35f3bc334d800c2625"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0259.json",
+      "raw_sha256": "d04185ee29cb7b9087cc022a2f9863124bdeebe5982269b9d2b2af0fb3aa6ae8"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0260.json",
+      "raw_sha256": "7e6dfaff5f383a9d85f50916d12989e564797ec076e6319be5a773cce4fdfd62"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0261.json",
+      "raw_sha256": "20a7dcb5d1ce46b257dfa712c4b457871a5d656dd7ed1c1e5b486b8f88d082fc"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0262.json",
+      "raw_sha256": "3d3889a69169163bdef58c1395b28ad50d316a9ed9477e2f790044c2840d087e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0263.json",
+      "raw_sha256": "3d52aa2a42f3273e06dc2a649e21af7ecda5eacf1af8eab2fb9f84df1144b03c"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0264.json",
+      "raw_sha256": "32b84a002c8e9b038fb06a439201df0a4babb38bd880030c32298168ff1f167a"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0265.json",
+      "raw_sha256": "e75a38539ff8dfe7f2097f67c1e7a39ef8feb30e2dc74b3718906660559a2590"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0266.json",
+      "raw_sha256": "0398bab745db2f62967a3e4a9c1d567dbe9e8c4f8a508b4826a31106b5f2163d"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0267.json",
+      "raw_sha256": "2eb1401fa21f2f44de7898a81c501aa3389eea6d7fedf2b1eeecc9c68651dfda"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0268.json",
+      "raw_sha256": "2c28ad4bfcbb113aac0895a6b0651912c7f2142ba61d586602a2b4d52e4ed7b3"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0269.json",
+      "raw_sha256": "cf611bd202491e9e4f9992f7d7ade7dc985ad5f52567388f1abac5fa7a0855a4"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0270.json",
+      "raw_sha256": "e1a0a5747c027b478edfa767c56c034853e13587bf7ef6cdfbba9d9c287f2ee0"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0271.json",
+      "raw_sha256": "3ddf3e1f975ea17b778f4f18a683c52444dc8263536c0a1cdbf97c78ed3791f9"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0272.json",
+      "raw_sha256": "f3c5deda9b9c3c3494f870d149ec1769f16f1f26d89070652c2cb2f1b24d40d9"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0273.json",
+      "raw_sha256": "580480a00ea24a90fc3fd978cd6a3c2b9abdfc5406fa9d86b90afbde431d28b8"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0274.json",
+      "raw_sha256": "3bbfd4fed50881a7f1a36fd226d02649d5436c9368a0a35290058436dba0187b"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0275.json",
+      "raw_sha256": "38876b029f97d18cccac155eab41a30c773ea95b9964ddf27eec15d6fa9540e2"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0276.json",
+      "raw_sha256": "3ae16b50e01388d0f3d0db943da98fc8a044234ed9f0643de3de093dfdaa5f66"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0277.json",
+      "raw_sha256": "c38eff86888a4b363531b493df51548d9a5c7e2e6d33efebe128229de4af724e"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0278.json",
+      "raw_sha256": "037aca9cdb4d19e109788981b0224cfc2aa4069ee43d782531c345e858aabb28"
+    },
+    {
+      "path": "records/relations/6529NM-REL-0279.json",
+      "raw_sha256": "acca68998edc527608f1c1c900b47b9f63e1a4b3db0f7141b49c3382a8d616b1"
+    },
+    {
+      "path": "release-artifacts/latest/record-manifest.json",
+      "raw_sha256": "969834d2a89804f73c85ed0cf96d34badd7b155306f51fe14b7a4070b5d962e5"
+    }
+  ]
+}
