@@ -542,3 +542,5 @@ edition archival capture and protected pull-request controls remain in progress.
 The two regional source copies and both restore tests are complete.
 
 - 2026-09-13 Salgado accession .004: certificate and 427-record public projection constructed; independent review corrections applied. Final receipt, review sealing, later edition archive and protected PR publication remain in progress in PR #71.
+
+- 2026-09-13T23:22:11.797Z Salgado .004 accession, scholarship, independent Ultra review and final-edition preservation complete. PR #71 carries repository integration. No production deployment or Wave announcement. Completion evidence is indexed; exact storage locations remain restricted.

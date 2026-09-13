@@ -269,3 +269,5 @@ Before ending a substantive design or research turn:
 - [Salgado accession statement](records/accessions/6529NM.2026.004/public/accession.md): six-work admission, catalogue and continuing care; final admission/projection review in progress.
 
 - [Salgado admission review](notes/wip/2026-09-13-salgado-admission-independent-review.md): independent review of the certificate, register and public projection; three bounded construction corrections addressed, exact follow-up receipt pending.
+
+- 2026-09-13T23:22:11.797Z [Salgado accession completion](notes/wip/2026-09-13-salgado-accession-completion.md): binding Ultra review and sealing verified; source and reviewed edition restored in both regions. This supersedes the earlier pending-review/archive status above. Protected PR #71 integration remains separate.

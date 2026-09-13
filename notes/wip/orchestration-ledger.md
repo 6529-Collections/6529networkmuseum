@@ -4188,3 +4188,5 @@ readback and adopted status remain directly cited for this accession.
 
 
 - 2026-09-13 Salgado: independent final admission review found three bounded gate/source-link corrections, now implemented with eight accession and 49 projection tests passing. PR #71 remains draft while exact corrected review and final edition retention complete. See the indexed admission review.
+
+- 2026-09-13T23:22:11.797Z Salgado .004: independent admission approval and review sealing complete; exact b1354312 edition retained/restored in both regions, 632 files and 18 regenerated display images per copy. Later completion observation closes the earlier archive action. See 2026-09-13-salgado-accession-completion.md; protected PR #71 controls remain.
