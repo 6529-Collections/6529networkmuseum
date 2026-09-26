@@ -2,6 +2,10 @@
 
 This append-oriented log preserves work state across task compaction and agent handoff. It is operational memory, not adopted policy.
 
+## 2026-09-27 — MAX PAIN publication contribution
+
+Contributor reports Shelby's editorial approval and authorizes opening a PR. The approved scribe-pass essay and revised blurb/credits are submitted unchanged under `notes/wip/max-pain-4188-staging/`, with a source chronology and review handoff. No accession identifier or completion gate is invented. Maintainers must confirm accession placement and promote through the Museum publication pipeline; exact media and institutional review remain pending.
+
 ## 2026-08-01 — autonomous build opened
 
 ### Mandate

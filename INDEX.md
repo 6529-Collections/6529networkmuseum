@@ -246,6 +246,11 @@ Status vocabulary:
 
 ## Maintenance rule
 
+| File | Status | Contents |
+|---|---|---|
+| [`notes/wip/max-pain-4188-staging/README.md`](notes/wip/max-pain-4188-staging/README.md) | community acquisition publication submission | Shelby-approved essay and blurb, credits, exact token and transaction chronology, and accession/publication handoff |
+
+
 Before ending a substantive design or research turn:
 
 1. write new conclusions to a canonical document or dated WIP note;
