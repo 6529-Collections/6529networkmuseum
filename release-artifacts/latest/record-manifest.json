@@ -56,8 +56,8 @@
     {
       "byte_mode": "lf-normalized",
       "path": "INDEX.md",
-      "sha256": "sha256:b99d1ed4333a71e6c6e985a8ebecef81e7421ea54674b322f422a0230f313121",
-      "size": 57743
+      "sha256": "sha256:1fc8325a8670e4571c6586c1d624a4b1ed17c3ec28f0c78670910bc0c9b7826d",
+      "size": 58046
     },
     {
       "byte_mode": "lf-normalized",
@@ -8686,9 +8686,9 @@
   "manifest_commitment": {
     "algorithm": 1,
     "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-    "digest": "0x156352541ef4357733f497bb33639389d5c0cee2d6b5f8b351773010954500a7"
+    "digest": "0xd8f5364a201256c6434b5e8db8f94d0e92ca08f487cc27b8afb71aafcca73057"
   },
-  "manifest_sha256": "sha256:8e0263371a62d3c7c4aa7fa96ffee2fcf1f2278d7bfebf1a2ee44064b99fd4fc",
+  "manifest_sha256": "sha256:b6891666e8f4f567efe9798d7ad8197716fc1b7c8de06d55747cd5c04e2173b5",
   "manifest_type": "6529NM_RECORD_MANIFEST",
   "manifest_version": "1.1.0"
 }
