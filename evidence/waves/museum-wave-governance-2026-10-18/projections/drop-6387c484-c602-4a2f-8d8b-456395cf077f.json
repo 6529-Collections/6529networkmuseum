@@ -1,0 +1,49 @@
+{
+  "canonicalization": "Hash the payload object only as UTF-8 JSON with recursively lexicographically sorted object keys, source-order arrays, compact separators, preserved Unicode, and no trailing newline.",
+  "evidence_type": "WAVE_DROP_PUBLIC_SAFE_PROJECTION",
+  "exclusion_note": "Public-safe projection of a live drops-API read. The retained payload keeps only the allowlisted drop identity, Wave, status, rating, decision-time, and per-part digest and media fields. It excludes the author and rater profiles, mentioned users, reactions, boosts, viewer context, wallet addresses, and all other fields. The exact part text is retained separately under parts/. The raw response bytes are not retained; raw_response records their SHA-256 and size.",
+  "observed_at": "2026-10-18T08:28:48.748Z",
+  "package_id": "6529NM-EVIDENCE-MUSEUM-WAVE-GOVERNANCE-2026-10-18",
+  "payload": {
+    "created_at": "2026-08-08T09:43:48.737Z",
+    "created_at_api_value": 1786182228737,
+    "drop_id": "6387c484-c602-4a2f-8d8b-456395cf077f",
+    "drop_type": "WINNER",
+    "is_signed": true,
+    "parts": [
+      {
+        "attachments_count": 0,
+        "content_path": "parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt",
+        "content_sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+        "content_utf16_code_units": 16289,
+        "content_utf8_bytes": 16289,
+        "has_quoted_drop": false,
+        "media": [],
+        "part_id": 1
+      }
+    ],
+    "parts_count": 1,
+    "raters_count": 21,
+    "rating": 109017036,
+    "realtime_rating": 109017036,
+    "serial_no": 1282091,
+    "title": "Museum Gifts, Acquisition Programs, and Funding Assets Policy",
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+    "wave_name": "6529 Network Museum",
+    "winning_context": {
+      "decision_time": "2026-08-10T09:55:07.644Z",
+      "decision_time_api_value": 1786355707644,
+      "place": 1
+    }
+  },
+  "payload_sha256": "sha256:cf7fceb686128b6ec212479b67f8c1bc07c72c973b914cc099fc49a771662cd7",
+  "raw_response": {
+    "http_status": 200,
+    "media_type": "application/json",
+    "reason": "The response contains profile objects with wallet addresses.",
+    "retention": "not_retained",
+    "sha256": "sha256:dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47",
+    "size": 23298
+  },
+  "source_url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f"
+}

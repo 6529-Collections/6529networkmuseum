@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x48acfbb63a2de73411de61bedf3442168a11a14d6203a9d7da587b35dcfec05c"
+      "digest": "0x1105867b4155d1944524b166af5f47cbc94a818d3e7d3eb6397b155f6d435ed0"
     },
     "effectiveAt": 1786147200,
     "recordType": "PUBLIC_RELATION",
@@ -36,7 +36,7 @@
       }
     ],
     "observed_at": "2026-08-08T00:00:00Z",
-    "payload_sha256": "sha256:5750278c0eb1e0aadb23be9689843b8d7ada0285cffdbf5985a279e8f1587556",
+    "payload_sha256": "sha256:2ee4cfdfd05fbae54d17c674460d2b8bfa6664fd42970edbc3f2a2af31c005d9",
     "qualifier": {
       "role": "subject"
     },
@@ -53,14 +53,14 @@
     "relation_type": "PUBLICATION_INTERPRETS_ENTITY",
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
       "outcome": "approved",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
-      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
-      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
       "reviewer_ids": [
-        "codex-reviewer:museum-publication-2026-08-23-independent"
+        "claude-reviewer:museum-governance-2026-10-18-independent"
       ],
       "role": "reviewer"
     },

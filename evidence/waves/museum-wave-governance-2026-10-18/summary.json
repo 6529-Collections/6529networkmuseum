@@ -1,0 +1,280 @@
+{
+  "completed_at": "2026-10-18T08:28:49.888Z",
+  "decisions": [
+    {
+      "created_at": "2026-08-08T09:43:48.737Z",
+      "decision_time": "2026-08-10T09:55:07.644Z",
+      "drop_id": "6387c484-c602-4a2f-8d8b-456395cf077f",
+      "drop_type": "WINNER",
+      "evidence_path": "projections/drop-6387c484-c602-4a2f-8d8b-456395cf077f.json",
+      "is_signed": true,
+      "observed_at": "2026-10-18T08:28:48.748Z",
+      "part_content": {
+        "digest_input": "UTF-8 bytes of parts[0].content exactly as returned by the API; retained at path",
+        "expected_sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+        "part_id": 1,
+        "path": "parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt",
+        "sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+        "utf16_code_units": 16289,
+        "utf8_bytes": 16289
+      },
+      "parts_count": 1,
+      "raters_count": 21,
+      "rating": 109017036,
+      "raw_response": {
+        "retained": false,
+        "sha256": "sha256:dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47",
+        "size": 23298
+      },
+      "realtime_rating": 109017036,
+      "serial_no": 1282091,
+      "title": "Museum Gifts, Acquisition Programs, and Funding Assets Policy",
+      "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+    }
+  ],
+  "entries": [
+    {
+      "http_status": 200,
+      "raw_sha256": "dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47",
+      "raw_size": 23298,
+      "retained_paths": [
+        "projections/drop-6387c484-c602-4a2f-8d8b-456395cf077f.json",
+        "parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt"
+      ],
+      "retention": "public_safe_projection",
+      "source_id": "drop-6387c484-c602-4a2f-8d8b-456395cf077f",
+      "transport": {
+        "address_set": [
+          "3.224.180.178",
+          "54.91.103.119",
+          "100.63.108.192"
+        ],
+        "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+        "byte_length": 23298,
+        "byte_sha256": "dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47",
+        "canonical_url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f",
+        "hops": [
+          {
+            "address_set": [
+              "3.224.180.178",
+              "54.91.103.119",
+              "100.63.108.192"
+            ],
+            "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+            "byte_length": 23298,
+            "canonical_url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:28:48.748Z",
+            "peer_ip": "3.224.180.178",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "23298"
+              ]
+            ],
+            "selected_ip": "3.224.180.178",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:28:48.748Z",
+        "peer_ip": "3.224.180.178",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "23298"
+          ]
+        ],
+        "selected_ip": "3.224.180.178",
+        "status": 200
+      },
+      "url": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f"
+    },
+    {
+      "http_status": 404,
+      "raw_sha256": "beb66eafa9ad16a886263c6db6666659640f537b33e22b3b64327a4438f908ea",
+      "raw_size": 63,
+      "retained_paths": [
+        "raw/drop-a991d0b2-4c57-4ae1-b3b1-0680a4772998.json"
+      ],
+      "retention": "raw_response",
+      "source_id": "drop-a991d0b2-4c57-4ae1-b3b1-0680a4772998",
+      "transport": {
+        "address_set": [
+          "3.224.180.178",
+          "54.91.103.119",
+          "100.63.108.192"
+        ],
+        "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+        "byte_length": 63,
+        "byte_sha256": "beb66eafa9ad16a886263c6db6666659640f537b33e22b3b64327a4438f908ea",
+        "canonical_url": "https://api.6529.io/api/drops/a991d0b2-4c57-4ae1-b3b1-0680a4772998",
+        "hops": [
+          {
+            "address_set": [
+              "3.224.180.178",
+              "54.91.103.119",
+              "100.63.108.192"
+            ],
+            "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+            "byte_length": 63,
+            "canonical_url": "https://api.6529.io/api/drops/a991d0b2-4c57-4ae1-b3b1-0680a4772998",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:28:49.318Z",
+            "peer_ip": "3.224.180.178",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "63"
+              ]
+            ],
+            "selected_ip": "3.224.180.178",
+            "status": 404
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:28:49.318Z",
+        "peer_ip": "3.224.180.178",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/a991d0b2-4c57-4ae1-b3b1-0680a4772998"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "63"
+          ]
+        ],
+        "selected_ip": "3.224.180.178",
+        "status": 404
+      },
+      "url": "https://api.6529.io/api/drops/a991d0b2-4c57-4ae1-b3b1-0680a4772998"
+    },
+    {
+      "http_status": 404,
+      "raw_sha256": "1e266f1c09bc64b663f9e48af61d8fbecc64c6f40f0b7402bc2d2f0c178e663e",
+      "raw_size": 63,
+      "retained_paths": [
+        "raw/drop-401bdae4-1da7-41d0-aeef-73b1da78b39d.json"
+      ],
+      "retention": "raw_response",
+      "source_id": "drop-401bdae4-1da7-41d0-aeef-73b1da78b39d",
+      "transport": {
+        "address_set": [
+          "3.224.180.178",
+          "54.91.103.119",
+          "100.63.108.192"
+        ],
+        "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+        "byte_length": 63,
+        "byte_sha256": "1e266f1c09bc64b663f9e48af61d8fbecc64c6f40f0b7402bc2d2f0c178e663e",
+        "canonical_url": "https://api.6529.io/api/drops/401bdae4-1da7-41d0-aeef-73b1da78b39d",
+        "hops": [
+          {
+            "address_set": [
+              "3.224.180.178",
+              "54.91.103.119",
+              "100.63.108.192"
+            ],
+            "address_set_sha256": "582b41f0d7db0ceeadccf7c73b5adcc750763eb450fad3a482d06cd7a430432e",
+            "byte_length": 63,
+            "canonical_url": "https://api.6529.io/api/drops/401bdae4-1da7-41d0-aeef-73b1da78b39d",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:28:49.888Z",
+            "peer_ip": "3.224.180.178",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json; charset=utf-8"
+              ],
+              [
+                "content-length",
+                "63"
+              ]
+            ],
+            "selected_ip": "3.224.180.178",
+            "status": 404
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:28:49.888Z",
+        "peer_ip": "3.224.180.178",
+        "redirect_chain": [
+          "https://api.6529.io/api/drops/401bdae4-1da7-41d0-aeef-73b1da78b39d"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "63"
+          ]
+        ],
+        "selected_ip": "3.224.180.178",
+        "status": 404
+      },
+      "url": "https://api.6529.io/api/drops/401bdae4-1da7-41d0-aeef-73b1da78b39d"
+    }
+  ],
+  "limitations": [
+    "These are point-in-time API readbacks. drop_type, rating, realtime_rating, and raters_count can change after observation.",
+    "The API reports is_signed; this package does not verify the signature.",
+    "A WINNER drop_type records the Wave's selection. It does not by itself accept, acquire, transfer, or accession any work or asset.",
+    "Raw responses that contain profile objects are not retained. Their SHA-256 and length are recorded but cannot be recomputed from the repository; the projection and exact part text can."
+  ],
+  "method": "Unauthenticated HTTPS GET of the public 6529 drops API through scripts/safe_fetch.py with an HTTP/1.0 connection. Responses with profile objects are kept as public-safe projections plus exact part text and the raw response digest; other responses are kept byte-for-byte.",
+  "record_id": "6529NM-EVIDENCE-MUSEUM-WAVE-GOVERNANCE-2026-10-18",
+  "record_type": "WAVE_GOVERNANCE_API_OBSERVATION",
+  "started_at": "2026-10-18T08:28:47.770Z",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d",
+  "withdrawn_proposals": [
+    {
+      "drop_id": "a991d0b2-4c57-4ae1-b3b1-0680a4772998",
+      "drop_type": null,
+      "evidence_path": "raw/drop-a991d0b2-4c57-4ae1-b3b1-0680a4772998.json",
+      "http_status": 404,
+      "observed_at": "2026-10-18T08:28:49.318Z",
+      "present": false,
+      "response_keys": [
+        "error"
+      ]
+    },
+    {
+      "drop_id": "401bdae4-1da7-41d0-aeef-73b1da78b39d",
+      "drop_type": null,
+      "evidence_path": "raw/drop-401bdae4-1da7-41d0-aeef-73b1da78b39d.json",
+      "http_status": 404,
+      "observed_at": "2026-10-18T08:28:49.888Z",
+      "present": false,
+      "response_keys": [
+        "error"
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xd64c534f95e457d800c66d8e75cea11e450ac343464ce48cff130eb9326fada8"
+      "digest": "0xc021320e5e87309675ff3b132f3f852c3cd0633148a3d800dcfc86b24608c932"
     },
     "effectiveAt": 1786485364,
     "recordType": "PUBLIC_ENTITY",
@@ -40,7 +40,7 @@
     ],
     "observed_at": "2026-08-11T21:56:04Z",
     "page_exposure": "relational_only",
-    "payload_sha256": "sha256:0689fb843bea982f444c2e3fba0233e76af53b5fc07c9c638fad7957b891b131",
+    "payload_sha256": "sha256:5eb18ff02e7a67c06eafdc725ae26c7e4c16dac2a6d0ef7eaa0ebce326a348ce",
     "preferred_label": "Residual Barrier presentation record",
     "profile": {
       "media": {
@@ -154,14 +154,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
       "outcome": "approved",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
-      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
-      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
       "reviewer_ids": [
-        "codex-reviewer:museum-publication-2026-08-23-independent"
+        "claude-reviewer:museum-governance-2026-10-18-independent"
       ],
       "role": "reviewer"
     },

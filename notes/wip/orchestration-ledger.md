@@ -4129,3 +4129,36 @@ record occurrences. Bootstrap validation (911 JSON files), deterministic
 entity replay (370 records), publication inventory and bundle checks, Vera
 media validation, release-manifest validation, and the complete Museum/Casey
 validator all pass on the correction branch.
+
+### 2026-10-18 - Museum gifts, acquisition programs, and funding assets policy adopted
+
+A keyless public drops-API readback at `2026-10-18T08:28:48.748Z` reported
+proposal serial `1282091`, drop `6387c484-c602-4a2f-8d8b-456395cf077f`, as
+`WINNER` with `winning_context.decision_time` `2026-08-10T09:55:07.644Z`,
+`rating` `109,017,036`, and 21 raters. SHA-256 over the UTF-8 bytes of the API
+part content is
+`ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2`, the digest
+in the 8 August publication receipt. Withdrawn serials `1281404` and `1282040`
+returned HTTP 404.
+
+Branch `museum-funding-assets-policy` records the policy as `6529NM-POL-004`,
+the review-pending decision `6529NM-GOV-1282091`, the evidence package, and
+the acquisition script `scripts/acquire_wave_governance_evidence.py`. The owner
+asked for this record to land as its own pull request before the MAX PAIN
+accession. Status, checks, and release state are in
+`notes/wip/2026-10-18-museum-gifts-funding-policy-adoption.md`.
+
+### 2026-10-18 - Funding assets policy A/B/C release on branch
+
+Independent review approved candidate A
+`9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f` (manifest SHA-256
+`sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866`,
+Keccak `0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02`)
+at `2026-10-18T09:39:49Z`. Reviewed B is
+`17bb167cc948666e527feb2ffb7287de980cbb42`. Catalog C
+`7f3a0af033b9fa1f82800e44cf809c6999422523` activates
+`6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42` after
+`6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92`. Catalog check,
+transition check from `3926d78f`, and the full validation set pass. A later
+commit applies the review binding to `6529NM-GOV-1282091`. Nothing has been
+pushed or deployed.

@@ -64,3 +64,27 @@ The announcement confirming the replacement is Wave serial `1282092`, drop
 not adopted Museum policy. Only a later live API observation of `WINNER` may
 support recording the resolution as adopted. Until then, the Museum's existing
 adopted decisions remain in force.
+
+## Adoption observed on 2026-10-18
+
+This section supersedes **Status meaning** above for the current view. The
+earlier sections remain the record of the 8 August publication.
+
+An unauthenticated readback of the public drops API at
+`2026-10-18T08:28:48.748Z` returned this drop with `drop_type: WINNER`,
+`is_signed: true` as reported by the API, `rating` and `realtime_rating`
+`109,017,036`, `raters_count` `21`, and `winning_context.decision_time`
+`2026-08-10T09:55:07.644Z`. The part content still has the SHA-256 recorded
+above. The evidence package
+[`museum-wave-governance-2026-10-18`](../../evidence/waves/museum-wave-governance-2026-10-18/manifest.json)
+keeps a public-safe projection of the response, the exact part text, and the
+SHA-256 and size of the response, which contains profile objects and is not
+retained.
+
+The adopted text is recorded as
+[`6529NM-POL-004`](../../policies/museum-gifts-acquisition-programs-and-funding-assets.md)
+and the decision as
+[`6529NM-GOV-1282091`](../../records/governance/6529NM-GOV-1282091.json).
+The decision record was independently reviewed against candidate A
+`9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f`. The source file beside this
+receipt is unchanged so that its content hash still matches.

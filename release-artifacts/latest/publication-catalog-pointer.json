@@ -1,14 +1,14 @@
 {
   "$schema": "https://6529networkmuseum.org/schemas/publication-catalog-pointer-v1.json",
   "activation": {
-    "activated_at": "2026-08-23T15:12:19.650Z",
-    "actor_id": "codex-task:vera-molnar-accession-2026-08-23",
+    "activated_at": "2026-10-18T09:54:00.000Z",
+    "actor_id": "release-activator:claude-code-museum-funding-assets-policy-2026-10-18",
     "mode": "activate",
-    "prior_catalog_id": "6529NM-PUBCAT-a7f1da116cc96ff03e285736f0e0dea34a8dab6b"
+    "prior_catalog_id": "6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92"
   },
-  "catalog_envelope_content_hash": "0x7d6d1077cf865b863655038bf79c3f1416457a9fe291b862980e9828a7b24e4c",
-  "catalog_file_sha256": "sha256:283deb7a3ce4b0d01bc96cd88713c705bba2ec4b37cfe08b4a4c92a0fbd08144",
-  "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-92966f2836ebf2af06edfe0fe2cff25041307c92.json",
+  "catalog_envelope_content_hash": "0x16f7ba7483b3d75ec620b378900049303b11d4d2d6cc2e7305b9aec7359d1c31",
+  "catalog_file_sha256": "sha256:ef50f1231c0ede1400ba934e688a283327ec68953a8ee6fba34f62ca2186558e",
+  "catalog_path": "release-artifacts/catalog/6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42.json",
   "pointer_version": "1.0.0",
-  "source_commit": "92966f2836ebf2af06edfe0fe2cff25041307c92"
+  "source_commit": "17bb167cc948666e527feb2ffb7287de980cbb42"
 }

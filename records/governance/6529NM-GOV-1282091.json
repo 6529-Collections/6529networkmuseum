@@ -1,0 +1,104 @@
+{
+  "$schema": "https://6529networkmuseum.org/schemas/record-envelope-v1.json",
+  "envelope": {
+    "contentHash": {
+      "algorithm": 1,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0de35ca842870e58fb3f79ef365bd38d984902751ff4cbc50a305b9ef9ebbe91"
+    },
+    "effectiveAt": 1786355707,
+    "recordType": "GOVERNANCE_DECISION",
+    "schemaId": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206",
+    "signatureHash": {
+      "algorithm": 2,
+      "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
+      "digest": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "signatureScheme": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "subjectId": "0x3175d189228f8867d61e41fd2122c19f34d1a845796ecdc4d2d02a279fc6d8bf",
+    "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/records/governance/6529NM-GOV-1282091.json"
+  },
+  "payload": {
+    "authority_effect": "Adopts the Museum Gifts, Acquisition Programs, and Funding Assets Policy (6529NM-POL-004), effective at the Wave decision time. Every proposed gift of art or collection assets, including a gift from a preapproved collection, must clear a gift-specific TDH vote in the Museum Wave before formal acceptance; the four adopted collection preapprovals remain collection-level eligibility findings. A complete TDH-authorized acquisition program does not require a second curatorial vote, and its registrar, title, rights, technical, payment, custody, and accession checks remain mandatory. Unrestricted gifts of the assets in settlement-asset schedule 6529NM-ASA-1 (native Ether, USDC, and USDT on Ethereum mainnet) may be accepted administratively after the checks the policy lists. Restricted funding gifts require TDH approval before formal acceptance unless the restriction falls entirely within an already authorized acquisition program that expressly permits that contribution and specifies its effect. Naming the Museum wallet as a Meme Card collaborator, royalty recipient, revenue recipient, or beneficiary requires prior Museum authorization; no additional vote is required when the designation and its exact use are already part of an authorized acquisition program. Donors are to convert non-approved assets before giving them; an exception requires prior TDH approval of the exact asset or an adopted conversion program. Unsolicited transfers are not accepted gifts. The policy amends the Donation Acceptance Policy (6529NM-GOV-1052812) and related decisions only where necessary, applies prospectively, does not reopen the Casey Reas accession, and replaces withdrawn Wave proposals 1281404 and 1282040. This decision does not itself accept, acquire, or accession any work or asset.",
+    "constructor": {
+      "id": "claude-code-task:museum-funding-assets-policy-2026-10-18",
+      "observed_at": "2026-10-18T08:30:00Z",
+      "role": "constructor"
+    },
+    "created_at": "2026-10-18T08:30:00Z",
+    "decision_id": "6529NM-GOV-1282091",
+    "decision_status": "adopted",
+    "effective_at": "2026-08-10T09:55:07.644Z",
+    "evidence_refs": [
+      {
+        "evidence_class": "B",
+        "label": "Public-safe projection of the Wave API readback: WINNER",
+        "notes": "drop_type WINNER; is_signed true as reported by the API (signature not verified); rating and realtime_rating 109017036; raters_count 21; winning_context.decision_time 2026-08-10T09:55:07.644Z. The raw response (23298 bytes, sha256:dca35591285cef958570c8a3618480ec22efabf890ef80a199afd93987ce1f47) contains profile objects and is not retained.",
+        "observed_at": "2026-10-18T08:28:48.748Z",
+        "sha256": "sha256:6d3736e13659a6529075611c08051f5b1401365b93893eaba37d3522f2e48951",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18/projections/drop-6387c484-c602-4a2f-8d8b-456395cf077f.json"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Exact proposal text: parts[0].content as returned by the API",
+        "notes": "UTF-8 bytes of parts[0].content, 16289 bytes; the file digest is the proposal-content digest.",
+        "observed_at": "2026-10-18T08:28:48.748Z",
+        "sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18/parts/drop-6387c484-c602-4a2f-8d8b-456395cf077f-part-1.txt"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Publication receipt with the PARTICIPATORY readback at publication",
+        "notes": "Authenticated readback after publication: PARTICIPATORY, rating 0, raters 0, same part content SHA-256.",
+        "observed_at": "2026-08-08T09:43:57.9531010Z",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/notes/wip/2026-08-08-museum-gifts-acquisition-programs-and-funding-assets-publication.md"
+      },
+      {
+        "evidence_class": "B",
+        "label": "Readbacks of withdrawn proposals 1281404 and 1282040: HTTP 404",
+        "notes": "Drops a991d0b2-4c57-4ae1-b3b1-0680a4772998 (serial 1281404) and 401bdae4-1da7-41d0-aeef-73b1da78b39d (serial 1282040) were not found.",
+        "observed_at": "2026-10-18T08:28:49.318Z",
+        "sha256": "sha256:00a637b2a93c102cbe429e611b839362c683d883ab2b1cb2c23c052a61a81069",
+        "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/waves/museum-wave-governance-2026-10-18/summary.json"
+      }
+    ],
+    "observed_at": "2026-10-18T08:28:48.748Z",
+    "payload_sha256": "sha256:0f92251a6ad4484ad842b8f36ea1579e816752baf77c74779ec5102623cd7304",
+    "proposal_text_sha256": "sha256:ce4962072ddd0cbfacb7a071be51ae779c4cae40410851e6386e49ca405becb2",
+    "record_id": "6529NM-GOV-1282091",
+    "record_status": "reviewed",
+    "record_type": "GOVERNANCE_DECISION",
+    "record_version": "1.0.0",
+    "references": [
+      "6529NM-GOV-1052812",
+      "6529NM-GOV-1052148",
+      "6529NM-GOV-1052156",
+      "6529NM-GOV-1052401",
+      "6529NM-GOV-1052437"
+    ],
+    "review_status": "reviewed",
+    "reviewer": {
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
+      "outcome": "approved",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
+      "reviewer_ids": [
+        "claude-reviewer:museum-governance-2026-10-18-independent"
+      ],
+      "role": "reviewer"
+    },
+    "schema_id": "0x827c7884fb3f81237d80446e7185c5f4c019eb2a559e8a7727b7230e1e069206",
+    "source": {
+      "drop_id": "6387c484-c602-4a2f-8d8b-456395cf077f",
+      "status": "WINNER",
+      "status_evidence_uri": "https://api.6529.io/api/drops/6387c484-c602-4a2f-8d8b-456395cf077f",
+      "status_observed_at": "2026-10-18T08:28:48.748Z",
+      "uri": "https://6529.io/waves/5f207393-5418-4a75-8738-e40edb44a94d?drop=6387c484-c602-4a2f-8d8b-456395cf077f",
+      "wave_serial": "1282091"
+    },
+    "subject_id": "6529NM-GOV-1282091",
+    "visibility": "public"
+  }
+}

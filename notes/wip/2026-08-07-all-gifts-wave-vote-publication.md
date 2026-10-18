@@ -52,3 +52,14 @@ Policy**, Wave serial `1282040`, documented in
 The source file remains byte-for-byte identical to the text that was published.
 Its lifecycle status belongs in this receipt and the repository index; adding a
 withdrawal banner to the source would invalidate its recorded content hash.
+
+## Readback on 2026-10-18
+
+An unauthenticated readback of the public drops API at
+`2026-10-18T08:28:49.318Z` returned HTTP 404 with
+`{"error":"Drop a991d0b2-4c57-4ae1-b3b1-0680a4772998 not found"}`. The
+response is retained in
+[`museum-wave-governance-2026-10-18`](../../evidence/waves/museum-wave-governance-2026-10-18/manifest.json).
+The adopted policy that replaced this proposal is
+[`6529NM-POL-004`](../../policies/museum-gifts-acquisition-programs-and-funding-assets.md),
+Wave serial `1282091`.

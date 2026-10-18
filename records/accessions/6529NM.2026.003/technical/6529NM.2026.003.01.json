@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0x91da436235eeca2b0f6624e48a8e71412e004ba2d8cd77c5b66c74a5ee5e92ea"
+      "digest": "0xf52b18cc189abda0ba8a7e7deb9ed5f618fdab3a1a35b5345079ed7f4b583c1c"
     },
     "effectiveAt": 1787478417,
     "recordType": "CONDITION_REPORT",
@@ -70,7 +70,7 @@
     "object_id": "6529NM.2026.003.01",
     "observed_at": "2026-08-23T09:46:57.326Z",
     "outcome": "Pass with conditions: token identity, hash, finalized custody, and on-chain script match; service-layer metadata and runtime replay require dated captures.",
-    "payload_sha256": "sha256:5091d08c123b66db7ae680911171979fd4fe42c7a0239327ea6c18361af1bb51",
+    "payload_sha256": "sha256:58e54d829cba2a81bf44783f35b4e41f21a571b714fe60ceba416d278e525310",
     "protocol_state": "ERC-721 non-static generative software; live browser renderer",
     "record_id": "6529NM.2026.003.COND.01",
     "record_status": "reviewed",
@@ -82,14 +82,14 @@
     ],
     "review_status": "reviewed",
     "reviewer": {
-      "id": "codex-reviewer:museum-publication-2026-08-23-independent",
+      "id": "claude-reviewer:museum-governance-2026-10-18-independent",
       "outcome": "approved",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
-      "reviewed_manifest_keccak": "0xd3b728ca1bdbbf99602d626df93b6903bbacf624f2ef71e064412654e71cf313",
-      "reviewed_manifest_sha256": "sha256:f672c3503baa823cf4af5eac3bf0513b6b25de6e2674902273cb778f4e771080",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
+      "reviewed_manifest_keccak": "0x64a95512f8901579e36a6d443e534e6335dcf04cb75c2916115a003c7b30cc02",
+      "reviewed_manifest_sha256": "sha256:74eea95ef31da7f314f1d1d9935b2e4d0775010dde8ceab0205c27918dcdd866",
       "reviewer_ids": [
-        "codex-reviewer:museum-publication-2026-08-23-independent"
+        "claude-reviewer:museum-governance-2026-10-18-independent"
       ],
       "role": "reviewer"
     },

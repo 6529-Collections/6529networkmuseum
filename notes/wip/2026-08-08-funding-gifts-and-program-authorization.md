@@ -60,3 +60,11 @@ Programs, and Funding Assets Policy** was published as signed
 
 The replacement answers the questions above at proposal level. It has no
 adopted-policy effect unless the live Wave later reports it as `WINNER`.
+
+## Later outcome (2026-10-18)
+
+Serial `1282040` was withdrawn and replaced by serial `1282091`. A readback at
+`2026-10-18T08:28:48.748Z` reported serial `1282091` as `WINNER`, with Wave
+decision time `2026-08-10T09:55:07.644Z`. The adopted text is
+[`6529NM-POL-004`](../../policies/museum-gifts-acquisition-programs-and-funding-assets.md).
+This discussion record is unchanged above and has no policy effect of its own.

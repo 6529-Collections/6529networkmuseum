@@ -46,6 +46,7 @@
       "policies/donation-acceptance.md",
       "policies/founding-and-operating-principles.md",
       "policies/general-nft-collecting-scope.md",
+      "policies/museum-gifts-acquisition-programs-and-funding-assets.md",
       "records/accessions/6529NM.2026.001/accession-certificate.json",
       "records/accessions/6529NM.2026.001/accession-statement.json",
       "records/accessions/6529NM.2026.001/gift-acceptance-authorization.json",
@@ -654,7 +655,7 @@
   },
   "counts": {
     "approved_public_media": 63,
-    "public_assembly_control_document": 131,
+    "public_assembly_control_document": 132,
     "public_curatorial_manuscript": 134,
     "public_entity_record": 136,
     "public_media_source_manifest": 4,
@@ -1388,6 +1389,13 @@
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
       "path": "policies/general-nft-collecting-scope.md",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
+      "path": "policies/museum-gifts-acquisition-programs-and-funding-assets.md",
       "required_in_catalog": true
     },
     {
@@ -5578,8 +5586,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x076d53eba9c53fd6043e50a1db86fab69889ee8650cc34a566720c2089b619e7",
-    "body_sha256": "sha256:128d4e0795a71057c5d58a1d634fc81663dc41ccc7d8a58e8527e827fc784b5b",
+    "body_keccak256": "0x1fed379d3ee78244a57f132d9fddc9f44f2e1b42198bb9f1ba1557ba3997a90d",
+    "body_sha256": "sha256:bb62a3597fdce9fbe1e6b0fbd90647cb68aa9150d3f59e05aa424060cc666106",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",
@@ -5683,7 +5691,8 @@
       "policies/README.md",
       "policies/donation-acceptance.md",
       "policies/founding-and-operating-principles.md",
-      "policies/general-nft-collecting-scope.md"
+      "policies/general-nft-collecting-scope.md",
+      "policies/museum-gifts-acquisition-programs-and-funding-assets.md"
     ]
   },
   "scope": "visitor_publication_corpus"

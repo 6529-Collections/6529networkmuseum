@@ -9,10 +9,10 @@
       "constructed_at": "2026-08-23T10:15:00Z"
     },
     "review": {
-      "actor_id": "codex-reviewer:museum-publication-2026-08-23-independent",
+      "actor_id": "claude-reviewer:museum-governance-2026-10-18-independent",
       "role": "reviewer",
-      "reviewed_at": "2026-08-23T15:10:17.867Z",
-      "reviewed_commit": "3eab50914a90c079fe0383624e760fc0a954e709",
+      "reviewed_at": "2026-10-18T09:39:49Z",
+      "reviewed_commit": "9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f",
       "outcome": "approved",
       "payload_sha256": "sha256:eadc36341a359520b092fa318cf38167fc963fa55562d6e10e2e34639f066799"
     }

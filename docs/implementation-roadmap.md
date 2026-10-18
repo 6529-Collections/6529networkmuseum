@@ -515,3 +515,37 @@ qualification. It must now receive exact-head independent review, hosted PR
 gates, and merge. A direct reviewed child B and immutable catalog activation C
 must follow before frontend PR #3695 is rebound. No catalog activation is
 inferred here.
+
+## 2026-10-18 — Museum gifts, acquisition programs, and funding assets policy
+
+A public drops-API readback at `2026-10-18T08:28:48.748Z` reported Museum Wave
+proposal serial `1282091` as `WINNER`, with decision time
+`2026-08-10T09:55:07.644Z`. The repository had recorded it only as a
+`PARTICIPATORY` proposal from 8 August. This change adds the exact policy text
+as `policies/museum-gifts-acquisition-programs-and-funding-assets.md`
+(`6529NM-POL-004`), the review-pending decision record
+`records/governance/6529NM-GOV-1282091.json`, and the public-safe evidence
+package `evidence/waves/museum-wave-governance-2026-10-18/`. The part-content
+SHA-256 matches the publication receipt. Withdrawn proposals `1281404` and
+`1282040` returned HTTP 404.
+
+The policy now governs gifts of art, acquisition programs, funding gifts,
+non-approved assets, and unsolicited transfers. It amends the Donation
+Acceptance Policy only where necessary, applies prospectively, and does not
+reopen the Casey Reas accession. Open follow-ups: an append-only amendment to
+the approved-collections register, an update to the proposed-gift Wave
+standard, the decision record's independent review, and visitor publication
+through reviewed B and catalog C.
+The ledger is `notes/wip/2026-10-18-museum-gifts-funding-policy-adoption.md`.
+
+## 2026-10-18 — Funding assets policy release checkpoint
+
+An independent reviewer approved candidate A
+`9dd1c3e9ae7c0d8c77071b0b109a2cdc9bb7095f` at `2026-10-18T09:39:49Z`.
+Reviewed B `17bb167cc948666e527feb2ffb7287de980cbb42` and catalog C
+`7f3a0af033b9fa1f82800e44cf809c6999422523` follow it on branch
+`museum-funding-assets-policy`. C activates catalog
+`6529NM-PUBCAT-17bb167cc948666e527feb2ffb7287de980cbb42`, which includes the
+policy text. The decision record `6529NM-GOV-1282091` carries the same review
+binding. Merge, frontend binding, and deployment remain open. The other
+follow-ups listed in the previous entry are unchanged.
