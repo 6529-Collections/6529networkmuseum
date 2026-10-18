@@ -1,0 +1,1333 @@
+{
+  "accession_id": "6529NM.2026.005",
+  "acquisition_agent_address": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+  "agent_purchase": {
+    "block_hash": "0xfa30ee2596b39596477de9296407b92543b5c24eabb673ae821e16a16a82191f",
+    "block_hash_reported": "0xfa30ee2596b39596477de9296407b92543b5c24eabb673ae821e16a16a82191f",
+    "block_number": 25889852,
+    "block_time": "2026-09-02T13:17:35Z",
+    "effective_gas_price_wei": 293193883,
+    "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+    "gas_used": 131712,
+    "input_selector": "0x00000000",
+    "nonce": 0,
+    "order_fulfilled_log_index": 405,
+    "receipt_status": "0x1",
+    "semantics": "The acquisition agent bought the token through Seaport 1.6 before delivering it to the Museum Safe. This is the agent's purchase transaction, not the Museum's custody receipt.",
+    "to": "0x0000000000000068f116a894984e2db1123eb395",
+    "transaction_hash": "0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6",
+    "transfer_log": {
+      "from_role": "seller (Seaport order offerer); address retained only in the raw receipt",
+      "log_index": 407,
+      "to_role": "acquisition_agent",
+      "token_id": 171000104188
+    },
+    "value_eth": "0.4589999999",
+    "value_wei": "458999999900000000",
+    "venue": "Seaport 1.6 (OpenSea protocol)"
+  },
+  "assertions": {
+    "chain_id_is_ethereum_mainnet": true,
+    "ens_resolves_to_museum_at_same_block_hash": true,
+    "finalized_block_stable_before_and_after": true,
+    "museum_receipt_block_hash_matches_receipt": true,
+    "museum_receipt_successful_with_exactly_one_token_transfer": true,
+    "museum_receipt_transfer_log_matches_agent_museum_token_and_log_index": true,
+    "ownerOf_matches_ens_resolved_museum_safe": true,
+    "purchase_receipt_successful_with_one_transfer_to_agent": true,
+    "residual_receipt_successful_with_one_matching_safe_received_event": true,
+    "second_provider_ownerOf_matches_at_same_block_hash": true,
+    "token_level_approval_is_zero": true
+  },
+  "chain_id": 1,
+  "contract": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+  "custodian": {
+    "address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+    "address_poisoning_guard": "The Museum address is compared in all 40 hexadecimal characters with the ENS addr record read at the finalized block hash. Look-alike addresses beginning 0xbECfA674 and 0xBEcF6883, planted by spam contracts in the acquisition wallet's token history, are never accepted.",
+    "ens": "networkmuseum.6529.eth",
+    "ens_namehash": "0xf90c6c0dca064bc19c04756dc088ceb60402ce8522ab4623f016d19abbb76394",
+    "ens_registry": "0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e",
+    "resolver": "0xf29100983e058b709f3d539b0c765937b804ac15"
+  },
+  "finalized_block": {
+    "hash": "0xfaa4f2991b8c1ff2aee75bf889a15b72913e6ee98e967b5c762ed4bb4d8051c7",
+    "number": 26218064,
+    "timestamp": "2026-10-18T07:50:47Z"
+  },
+  "limitations": [
+    "This package proves the observed on-chain receipt, purchase and residual transactions and the exact-finalized-block custody state only.",
+    "It does not establish legal title, copyright, display or preservation rights, the Wave authorization, contributor arrangements or accession.",
+    "A zero token-level approval is not proof that no operator-for-all approval, private claim, legal encumbrance, key compromise or later transfer exists.",
+    "The residual ETH transfer is recorded as an observed transaction only; formal acceptance or restriction of those funds is outside this package."
+  ],
+  "museum_address": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+  "museum_checksum_address": "0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c",
+  "museum_receipt_transaction": {
+    "block_hash": "0x707d299e001384b1f0d327f56fa91a740876126bdd426ba004ebdf6c908b16c6",
+    "block_hash_reported": "0x707d299e001384b1f0d327f56fa91a740876126bdd426ba004ebdf6c908b16c6",
+    "block_number": 25889990,
+    "block_time": "2026-09-02T13:45:23Z",
+    "effective_gas_price_wei": 387405755,
+    "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+    "gas_used": 72044,
+    "input_selector": "0x42842e0e",
+    "nonce": 1,
+    "receipt_status": "0x1",
+    "to": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+    "transaction_hash": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03",
+    "transfer_log": {
+      "from_role": "acquisition_agent",
+      "log_index": 955,
+      "to_role": "museum_safe"
+    },
+    "value_eth": "0.0",
+    "value_wei": "0"
+  },
+  "network": "Ethereum mainnet",
+  "objects": [
+    {
+      "block_number": 25889990,
+      "caip19": "eip155:1/erc721:0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde/171000104188",
+      "contract": "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",
+      "log_index": 955,
+      "matching_transfer_log_count": 1,
+      "object_id": "6529NM.2026.005.01",
+      "owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "owner_matches_museum": true,
+      "receipt_status": "0x1",
+      "receipt_token_transfer_count": 1,
+      "second_provider_owner": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "token_id": 171000104188,
+      "token_level_approval_is_zero": true,
+      "token_level_approved_operator": "0x0000000000000000000000000000000000000000",
+      "transfer_block_hash": "0x707d299e001384b1f0d327f56fa91a740876126bdd426ba004ebdf6c908b16c6",
+      "transfer_block_timestamp": "2026-09-02T13:45:23Z",
+      "transfer_from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+      "transfer_to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+      "tx_hash": "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03"
+    }
+  ],
+  "observed_at": "2026-10-18T08:05:44.157Z",
+  "proposal_drop_id": "87e1fc3a-deef-4d1d-bf36-b2a44507f17b",
+  "raw_evidence": [
+    {
+      "byte_mode": "raw",
+      "category": "approval",
+      "media_type": "application/json",
+      "path": "raw/approval/sha256-cc894c2cdbca999bdb4dc9e683b926128e4b08ea5d575909c6704070a12cf511.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "get-approved",
+      "request_sha256": "sha256:703450145dc8b51464039d918e2866d6ea4d3c7e31a344c467d2be1fe443c813",
+      "request_size": 311,
+      "sha256": "sha256:cc894c2cdbca999bdb4dc9e683b926128e4b08ea5d575909c6704070a12cf511",
+      "size": 115,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 115,
+        "byte_sha256": "cc894c2cdbca999bdb4dc9e683b926128e4b08ea5d575909c6704070a12cf511",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 115,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:47.420Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:47.420Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "chain",
+      "media_type": "application/json",
+      "path": "raw/chain/sha256-c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "chain-id",
+      "request_sha256": "sha256:1a25b5b295c80a29b39e8379f9ad3250f1a30a1214b77cd7adbdc7c884ac1034",
+      "request_size": 68,
+      "sha256": "sha256:c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+      "size": 48,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 48,
+        "byte_sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 48,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:44.627Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:44.627Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "chain",
+      "media_type": "application/json",
+      "path": "raw/chain/sha256-c88a8ef81df16b91422cb831ddb874ef913186efabca4c4d24702efd8ea83357.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "second-chain-id",
+      "request_sha256": "sha256:b5016057a7873a6085914e5c0757e4bb209bb072b25a3de0a0ab6f9ff4ff6b04",
+      "request_size": 75,
+      "sha256": "sha256:c88a8ef81df16b91422cb831ddb874ef913186efabca4c4d24702efd8ea83357",
+      "size": 55,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "attempts": 1,
+        "byte_length": 55,
+        "byte_sha256": "c88a8ef81df16b91422cb831ddb874ef913186efabca4c4d24702efd8ea83357",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "endpoint": "https://eth-mainnet.public.blastapi.io",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 55,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:48.791Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ],
+              [
+                "content-length",
+                "55"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:48.791Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "content-length",
+            "55"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "ens",
+      "media_type": "application/json",
+      "path": "raw/ens/sha256-859f03f547ed056a722d43392e114140ec2ff61293d711783cea706e63a79ea7.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "ens-address",
+      "request_sha256": "sha256:a07fb2133a38989900c7bd11154208a15db14d64a458d8c6df18021e0aed8b90",
+      "request_size": 310,
+      "sha256": "sha256:859f03f547ed056a722d43392e114140ec2ff61293d711783cea706e63a79ea7",
+      "size": 114,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 114,
+        "byte_sha256": "859f03f547ed056a722d43392e114140ec2ff61293d711783cea706e63a79ea7",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 114,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:48.342Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:48.342Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "ens",
+      "media_type": "application/json",
+      "path": "raw/ens/sha256-d6e1e919eeabd5fbeab4911bba99dbc3b316eda5f8bd6ee586f606c46b0c2f9a.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "ens-resolver",
+      "request_sha256": "sha256:c8d32901edc9f373470d843261f0acb9d6ad582f2ec4210df96aa8c635786074",
+      "request_size": 311,
+      "sha256": "sha256:d6e1e919eeabd5fbeab4911bba99dbc3b316eda5f8bd6ee586f606c46b0c2f9a",
+      "size": 115,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 115,
+        "byte_sha256": "d6e1e919eeabd5fbeab4911bba99dbc3b316eda5f8bd6ee586f606c46b0c2f9a",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 115,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:47.883Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:47.883Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "finalized-block-after",
+      "media_type": "application/json",
+      "path": "raw/finalized-block-after/sha256-bafeced3613f8a7d2c05552ca067683586e2f027ee960957db9cf205c9e83ae2.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "finalized-block-after",
+      "request_sha256": "sha256:a2903bec79993100da3d302cb0d3e942bfd8b6478d57f08e47c77da253c745a2",
+      "request_size": 107,
+      "sha256": "sha256:bafeced3613f8a7d2c05552ca067683586e2f027ee960957db9cf205c9e83ae2",
+      "size": 16521,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 16521,
+        "byte_sha256": "bafeced3613f8a7d2c05552ca067683586e2f027ee960957db9cf205c9e83ae2",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 16521,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:54.041Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:54.041Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "finalized-block",
+      "media_type": "application/json",
+      "path": "raw/finalized-block/sha256-c6dd7df2e94b4d540781d947366fad4db3f26bd11dbbeb7d0ae612551cc5cc8b.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "finalized-block",
+      "request_sha256": "sha256:ed1f522d2f966b4969eb6cbacbc6e96a2a53c932961b568a03b486b49c6d578b",
+      "request_size": 101,
+      "sha256": "sha256:c6dd7df2e94b4d540781d947366fad4db3f26bd11dbbeb7d0ae612551cc5cc8b",
+      "size": 16515,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 16515,
+        "byte_sha256": "c6dd7df2e94b4d540781d947366fad4db3f26bd11dbbeb7d0ae612551cc5cc8b",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 16515,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:45.104Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:45.104Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "museum-receipt-block",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt-block/sha256-b659e7953cf90cb37ab9e07257b6b19e2537d10c62b63acb2384a502b393b0a9.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "museum-receipt-block",
+      "request_sha256": "sha256:eae052d9d7fbdcba7a6d9f71a47dfa15957e7d8e6ddf1ee09dbb5560838f71d0",
+      "request_size": 106,
+      "sha256": "sha256:b659e7953cf90cb37ab9e07257b6b19e2537d10c62b63acb2384a502b393b0a9",
+      "size": 15942,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 15942,
+        "byte_sha256": "b659e7953cf90cb37ab9e07257b6b19e2537d10c62b63acb2384a502b393b0a9",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 15942,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:46.490Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:46.490Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "museum-receipt-transaction",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt-transaction/sha256-facbd01f6ebd36f66e98262a9cfbf439ad4923b359eef8507af439b9acd51f05.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "museum-receipt-transaction",
+      "request_sha256": "sha256:aeb9aae34efd5ca966fdffb0792dadce79f3a86ca34c63a7db47cb1f2b9d1c82",
+      "request_size": 167,
+      "sha256": "sha256:facbd01f6ebd36f66e98262a9cfbf439ad4923b359eef8507af439b9acd51f05",
+      "size": 963,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 963,
+        "byte_sha256": "facbd01f6ebd36f66e98262a9cfbf439ad4923b359eef8507af439b9acd51f05",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 963,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:45.553Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:45.553Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "museum-receipt",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt/sha256-43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "museum-receipt",
+      "request_sha256": "sha256:e1fb907a94beebbdab39d0f1d4eba1618abe30ac08a72c3bb44c2d66745110a6",
+      "request_size": 156,
+      "sha256": "sha256:43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23",
+      "size": 2328,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 2328,
+        "byte_sha256": "43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 2328,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:46.028Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:46.028Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "owner",
+      "media_type": "application/json",
+      "path": "raw/owner/sha256-3b490a6cb6332ba7dd82a84c508392287ee59674945530f7f3981d0f99ef3792.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "owner-of",
+      "request_sha256": "sha256:dcb792c6adda6b9a412ed438cfe2dc210a6e89735add5de21426ee0e0a0b6209",
+      "request_size": 307,
+      "sha256": "sha256:3b490a6cb6332ba7dd82a84c508392287ee59674945530f7f3981d0f99ef3792",
+      "size": 111,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 111,
+        "byte_sha256": "3b490a6cb6332ba7dd82a84c508392287ee59674945530f7f3981d0f99ef3792",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 111,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:46.957Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:46.957Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "purchase-block",
+      "media_type": "application/json",
+      "path": "raw/purchase-block/sha256-3af25b1eeab5abdd4bb3271d70c7a1ca09fa06b981850c27b023a86185d276cf.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "purchase-block",
+      "request_sha256": "sha256:0562175c74d65b524839e1cb37b19048140b0bae6cefbb45961e21b060e8aba3",
+      "request_size": 100,
+      "sha256": "sha256:3af25b1eeab5abdd4bb3271d70c7a1ca09fa06b981850c27b023a86185d276cf",
+      "size": 23554,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 23554,
+        "byte_sha256": "3af25b1eeab5abdd4bb3271d70c7a1ca09fa06b981850c27b023a86185d276cf",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 23554,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:51.070Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:51.070Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "purchase-receipt",
+      "media_type": "application/json",
+      "path": "raw/purchase-receipt/sha256-49c7b2bdbaa7a75022e5a530af3231d05300066fecdc3b5ce20cca768df93241.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "purchase-receipt",
+      "request_sha256": "sha256:9ff5c86a27ee316d1076a1bbc3f016e592f1f33142ddeda508a388d645e2b37f",
+      "request_size": 158,
+      "sha256": "sha256:49c7b2bdbaa7a75022e5a530af3231d05300066fecdc3b5ce20cca768df93241",
+      "size": 4181,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 4181,
+        "byte_sha256": "49c7b2bdbaa7a75022e5a530af3231d05300066fecdc3b5ce20cca768df93241",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 4181,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:50.603Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:50.603Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "purchase-transaction",
+      "media_type": "application/json",
+      "path": "raw/purchase-transaction/sha256-e0f5ee37dff4cf51d58203f373b77f8969c1ee3d9f568981984411c11b6fac82.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "purchase-transaction",
+      "request_sha256": "sha256:e6c6f72d9a8b3358b118673dab67f6f4efd3f28945f698853efe78be55657581",
+      "request_size": 161,
+      "sha256": "sha256:e0f5ee37dff4cf51d58203f373b77f8969c1ee3d9f568981984411c11b6fac82",
+      "size": 2452,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 2452,
+        "byte_sha256": "e0f5ee37dff4cf51d58203f373b77f8969c1ee3d9f568981984411c11b6fac82",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 2452,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:50.134Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:50.134Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "residual-block",
+      "media_type": "application/json",
+      "path": "raw/residual-block/sha256-782b8b209e5ec6bdf3840dc4711e469337664a7baf7d985b18ff06de468dff47.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "residual-block",
+      "request_sha256": "sha256:eee02b19c9538493c8b0ded46141a0fd6aadfa5e3c1797e9edc36f314fa2cb30",
+      "request_size": 100,
+      "sha256": "sha256:782b8b209e5ec6bdf3840dc4711e469337664a7baf7d985b18ff06de468dff47",
+      "size": 21049,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 21049,
+        "byte_sha256": "782b8b209e5ec6bdf3840dc4711e469337664a7baf7d985b18ff06de468dff47",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 21049,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:53.593Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:53.593Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "residual-receipt",
+      "media_type": "application/json",
+      "path": "raw/residual-receipt/sha256-0e94f93ff39e7268cf1db872e95456ab7b189ce00e3d9b6a3838a909ea9c8222.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "residual-receipt",
+      "request_sha256": "sha256:39e2de6d7e3ce5e6e5cd6fbc44d9709564fb574bf1da5a96d61193f76484186a",
+      "request_size": 158,
+      "sha256": "sha256:0e94f93ff39e7268cf1db872e95456ab7b189ce00e3d9b6a3838a909ea9c8222",
+      "size": 1614,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 1614,
+        "byte_sha256": "0e94f93ff39e7268cf1db872e95456ab7b189ce00e3d9b6a3838a909ea9c8222",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 1614,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:53.123Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:53.123Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "residual-transaction",
+      "media_type": "application/json",
+      "path": "raw/residual-transaction/sha256-e5d5bb5a8e61fe2c54d9f4d97378d5786cf0467074927d8916802fb9c5b501b7.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "residual-transaction",
+      "request_sha256": "sha256:9fb9d930dd59a0feee458d110f246684567d7ca0f1a1ada8e9d4de2ac7a57c89",
+      "request_size": 161,
+      "sha256": "sha256:e5d5bb5a8e61fe2c54d9f4d97378d5786cf0467074927d8916802fb9c5b501b7",
+      "size": 770,
+      "transport": {
+        "address_set": [
+          "104.20.46.180",
+          "172.66.146.203"
+        ],
+        "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+        "attempts": 1,
+        "byte_length": 770,
+        "byte_sha256": "e5d5bb5a8e61fe2c54d9f4d97378d5786cf0467074927d8916802fb9c5b501b7",
+        "canonical_url": "https://eth.drpc.org/",
+        "endpoint": "https://eth.drpc.org",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.46.180",
+              "172.66.146.203"
+            ],
+            "address_set_sha256": "7083d96ee16768a9d768261d9031d2fcafc67b4e4c7e008ad52a13f43d66bffc",
+            "byte_length": 770,
+            "canonical_url": "https://eth.drpc.org/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:51.527Z",
+            "peer_ip": "104.20.46.180",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.46.180",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:51.527Z",
+        "peer_ip": "104.20.46.180",
+        "redirect_chain": [
+          "https://eth.drpc.org/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.46.180",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "second-provider-block",
+      "media_type": "application/json",
+      "path": "raw/second-provider-block/sha256-a008c1a1ed11d4467efbfc4daec843aa3413783cf80d6d38b6c8d98e999c59b7.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "second-finalized-block-by-hash",
+      "request_sha256": "sha256:15bc7db7ae3ad5e05c9a601dcfa1ba0594c9ff1bfbc483e69300a337af96e9a7",
+      "request_size": 171,
+      "sha256": "sha256:a008c1a1ed11d4467efbfc4daec843aa3413783cf80d6d38b6c8d98e999c59b7",
+      "size": 16530,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "attempts": 1,
+        "byte_length": 16530,
+        "byte_sha256": "a008c1a1ed11d4467efbfc4daec843aa3413783cf80d6d38b6c8d98e999c59b7",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "endpoint": "https://eth-mainnet.public.blastapi.io",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 16530,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:49.224Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:49.224Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200
+      }
+    },
+    {
+      "byte_mode": "raw",
+      "category": "second-provider-owner",
+      "media_type": "application/json",
+      "path": "raw/second-provider-owner/sha256-7dbe5bff60c62454f9d6059e7777bb6bb24d65373a1c8ad0f9e26d5f54550e02.json",
+      "request_canonicalization": "sorted-key compact JSON",
+      "request_id": "second-owner-of",
+      "request_sha256": "sha256:451d78b9e0bb49acae083284f1f62bcab0c9bc59e5ca6ce7895fe43ddb9a3bc5",
+      "request_size": 314,
+      "sha256": "sha256:7dbe5bff60c62454f9d6059e7777bb6bb24d65373a1c8ad0f9e26d5f54550e02",
+      "size": 118,
+      "transport": {
+        "address_set": [
+          "104.20.38.203",
+          "172.66.164.193"
+        ],
+        "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+        "attempts": 1,
+        "byte_length": 118,
+        "byte_sha256": "7dbe5bff60c62454f9d6059e7777bb6bb24d65373a1c8ad0f9e26d5f54550e02",
+        "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+        "endpoint": "https://eth-mainnet.public.blastapi.io",
+        "hops": [
+          {
+            "address_set": [
+              "104.20.38.203",
+              "172.66.164.193"
+            ],
+            "address_set_sha256": "75c6ca7815cac9885c164f75a20869bb3114519b83bee5d06843beb065869eae",
+            "byte_length": 118,
+            "canonical_url": "https://eth-mainnet.public.blastapi.io/",
+            "media_type": "application/json",
+            "observed_at": "2026-10-18T08:05:49.674Z",
+            "peer_ip": "104.20.38.203",
+            "response_headers": [
+              [
+                "content-type",
+                "application/json"
+              ]
+            ],
+            "selected_ip": "104.20.38.203",
+            "status": 200
+          }
+        ],
+        "media_type": "application/json",
+        "observed_at": "2026-10-18T08:05:49.674Z",
+        "peer_ip": "104.20.38.203",
+        "redirect_chain": [
+          "https://eth-mainnet.public.blastapi.io/"
+        ],
+        "resolver_profile": "system_getaddrinfo",
+        "resolver_revision": "python-socket.getaddrinfo-v1",
+        "response_headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "selected_ip": "104.20.38.203",
+        "status": 200
+      }
+    }
+  ],
+  "record_id": "6529NM.2026.005.CUSTODY-EVIDENCE-01",
+  "record_type": "XCOPY_MAX_PAIN_4188_CUSTODY_OBSERVATION",
+  "residual_transfer": {
+    "block_hash": "0xf373f9fc8e85e57d2aa8d1892e0eded303b70d14f04d26be0a0f2240ed3a2fef",
+    "block_hash_reported": "0xf373f9fc8e85e57d2aa8d1892e0eded303b70d14f04d26be0a0f2240ed3a2fef",
+    "block_number": 25975418,
+    "block_time": "2026-09-14T11:32:23Z",
+    "effective_gas_price_wei": 300202919,
+    "from": "0xe84576bd68882e037d8e4df484ad9a15e2b855bc",
+    "gas_used": 27329,
+    "input_selector": "0x",
+    "log_count": 1,
+    "nonce": 2,
+    "receipt_status": "0x1",
+    "safe_received_log": {
+      "emitter": "museum_safe",
+      "event": "SafeReceived(address,uint256)",
+      "log_index": 444,
+      "sender_role": "acquisition_agent",
+      "value_wei": "68496911687069084"
+    },
+    "status_boundary": "Observed ETH transfer from the acquisition agent to the Museum Safe. It is not part of the accession and is not accepted, restricted or designated by this evidence.",
+    "to": "0xbecfa2ba5a782d11e1a0e821e8f2e30b6684178c",
+    "transaction_hash": "0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef",
+    "value_eth": "0.068496911687069084",
+    "value_wei": "68496911687069084"
+  },
+  "rpc_endpoint": "https://eth.drpc.org",
+  "second_rpc_endpoint": "https://eth-mainnet.public.blastapi.io",
+  "state_selector": {
+    "blockHash": "0xfaa4f2991b8c1ff2aee75bf889a15b72913e6ee98e967b5c762ed4bb4d8051c7",
+    "requireCanonical": true
+  }
+}

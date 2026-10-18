@@ -1,0 +1,156 @@
+{
+  "byte_mode": "raw",
+  "entries": [
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/approval/sha256-cc894c2cdbca999bdb4dc9e683b926128e4b08ea5d575909c6704070a12cf511.json",
+      "sha256": "cc894c2cdbca999bdb4dc9e683b926128e4b08ea5d575909c6704070a12cf511",
+      "size": 115
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/chain/sha256-c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b.json",
+      "sha256": "c5c8bd35235e77d763d29fc5ee78916c39b0ae5c4816c075c2165b651d90651b",
+      "size": 48
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/chain/sha256-c88a8ef81df16b91422cb831ddb874ef913186efabca4c4d24702efd8ea83357.json",
+      "sha256": "c88a8ef81df16b91422cb831ddb874ef913186efabca4c4d24702efd8ea83357",
+      "size": 55
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/ens/sha256-859f03f547ed056a722d43392e114140ec2ff61293d711783cea706e63a79ea7.json",
+      "sha256": "859f03f547ed056a722d43392e114140ec2ff61293d711783cea706e63a79ea7",
+      "size": 114
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/ens/sha256-d6e1e919eeabd5fbeab4911bba99dbc3b316eda5f8bd6ee586f606c46b0c2f9a.json",
+      "sha256": "d6e1e919eeabd5fbeab4911bba99dbc3b316eda5f8bd6ee586f606c46b0c2f9a",
+      "size": 115
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/finalized-block-after/sha256-bafeced3613f8a7d2c05552ca067683586e2f027ee960957db9cf205c9e83ae2.json",
+      "sha256": "bafeced3613f8a7d2c05552ca067683586e2f027ee960957db9cf205c9e83ae2",
+      "size": 16521
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/finalized-block/sha256-c6dd7df2e94b4d540781d947366fad4db3f26bd11dbbeb7d0ae612551cc5cc8b.json",
+      "sha256": "c6dd7df2e94b4d540781d947366fad4db3f26bd11dbbeb7d0ae612551cc5cc8b",
+      "size": 16515
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt-block/sha256-b659e7953cf90cb37ab9e07257b6b19e2537d10c62b63acb2384a502b393b0a9.json",
+      "sha256": "b659e7953cf90cb37ab9e07257b6b19e2537d10c62b63acb2384a502b393b0a9",
+      "size": 15942
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt-transaction/sha256-facbd01f6ebd36f66e98262a9cfbf439ad4923b359eef8507af439b9acd51f05.json",
+      "sha256": "facbd01f6ebd36f66e98262a9cfbf439ad4923b359eef8507af439b9acd51f05",
+      "size": 963
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/museum-receipt/sha256-43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23.json",
+      "sha256": "43f255c530bc51f19deb076e16e1c635782b05e335d20c52292603f9d34dcc23",
+      "size": 2328
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/owner/sha256-3b490a6cb6332ba7dd82a84c508392287ee59674945530f7f3981d0f99ef3792.json",
+      "sha256": "3b490a6cb6332ba7dd82a84c508392287ee59674945530f7f3981d0f99ef3792",
+      "size": 111
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/purchase-block/sha256-3af25b1eeab5abdd4bb3271d70c7a1ca09fa06b981850c27b023a86185d276cf.json",
+      "sha256": "3af25b1eeab5abdd4bb3271d70c7a1ca09fa06b981850c27b023a86185d276cf",
+      "size": 23554
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/purchase-receipt/sha256-49c7b2bdbaa7a75022e5a530af3231d05300066fecdc3b5ce20cca768df93241.json",
+      "sha256": "49c7b2bdbaa7a75022e5a530af3231d05300066fecdc3b5ce20cca768df93241",
+      "size": 4181
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/purchase-transaction/sha256-e0f5ee37dff4cf51d58203f373b77f8969c1ee3d9f568981984411c11b6fac82.json",
+      "sha256": "e0f5ee37dff4cf51d58203f373b77f8969c1ee3d9f568981984411c11b6fac82",
+      "size": 2452
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/residual-block/sha256-782b8b209e5ec6bdf3840dc4711e469337664a7baf7d985b18ff06de468dff47.json",
+      "sha256": "782b8b209e5ec6bdf3840dc4711e469337664a7baf7d985b18ff06de468dff47",
+      "size": 21049
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/residual-receipt/sha256-0e94f93ff39e7268cf1db872e95456ab7b189ce00e3d9b6a3838a909ea9c8222.json",
+      "sha256": "0e94f93ff39e7268cf1db872e95456ab7b189ce00e3d9b6a3838a909ea9c8222",
+      "size": 1614
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/residual-transaction/sha256-e5d5bb5a8e61fe2c54d9f4d97378d5786cf0467074927d8916802fb9c5b501b7.json",
+      "sha256": "e5d5bb5a8e61fe2c54d9f4d97378d5786cf0467074927d8916802fb9c5b501b7",
+      "size": 770
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/second-provider-block/sha256-a008c1a1ed11d4467efbfc4daec843aa3413783cf80d6d38b6c8d98e999c59b7.json",
+      "sha256": "a008c1a1ed11d4467efbfc4daec843aa3413783cf80d6d38b6c8d98e999c59b7",
+      "size": 16530
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "raw/second-provider-owner/sha256-7dbe5bff60c62454f9d6059e7777bb6bb24d65373a1c8ad0f9e26d5f54550e02.json",
+      "sha256": "7dbe5bff60c62454f9d6059e7777bb6bb24d65373a1c8ad0f9e26d5f54550e02",
+      "size": 118
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "summary.json",
+      "sha256": "c8f5928ba50475bb1460c4ae1a8f54ba4f1f1ca9aab74c837028d7ee6a49baa3",
+      "size": 49926
+    }
+  ],
+  "finalized_block": {
+    "hash": "0xfaa4f2991b8c1ff2aee75bf889a15b72913e6ee98e967b5c762ed4bb4d8051c7",
+    "number": 26218064,
+    "timestamp": "2026-10-18T07:50:47Z"
+  },
+  "hash_algorithm": "sha256",
+  "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_CUSTODY_EVIDENCE",
+  "manifest_version": "1.0.0",
+  "observed_at": "2026-10-18T08:05:44.157Z",
+  "record_id": "6529NM.2026.005.CUSTODY-EVIDENCE-01",
+  "subject_id": "6529NM.2026.005.01"
+}
