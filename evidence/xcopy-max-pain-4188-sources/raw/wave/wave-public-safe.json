@@ -1,0 +1,64 @@
+{
+  "canonicalization": "Hash the payload object only as UTF-8 JSON with recursively lexicographically sorted object keys, source-order arrays, compact separators, preserved Unicode, and no trailing newline.",
+  "evidence_type": "WAVE_API_PUBLIC_SAFE_PROJECTION",
+  "exclusion_note": "Public-safe projection of an unauthenticated live 6529 API read. The retained record excludes author, voter, rater, reaction and profile objects, wallet addresses, handles, credentials and every field not listed in the payload; the raw response is recorded by SHA-256 and size only. WINNER and signed state record a Wave decision and publication observation only; they do not establish purchase or donor authority, the exact token, legal title, copyright, custody, acceptance, accession, Collection status, or display permission.",
+  "observed_at": "2026-10-18T08:16:08.782Z",
+  "payload": {
+    "created_at_ms": 1779906304544,
+    "decision_configuration": {
+      "decisions_strategy": null,
+      "max_votes_per_identity_to_drop": null,
+      "max_winners": null,
+      "no_of_decisions_done": 14,
+      "time_lock_ms": 86400000,
+      "total_no_of_decisions": null,
+      "type": "APPROVE",
+      "winning_threshold": 69000000,
+      "winning_threshold_min_duration_ms": 86400000
+    },
+    "name": "6529 Network Museum",
+    "participation": {
+      "group": {
+        "id": "6529-network-museum-who-can-drop-muu9ZfBAyjupKs8SHbNKRp",
+        "is_hidden": false,
+        "name": "6529 Network Museum Who can drop"
+      },
+      "period": {
+        "max": null,
+        "min": 1779906061322
+      },
+      "signature_required": true,
+      "terms": "All successful proposals are on a best efforts basis by the network.  This is a network-level museum and project and we don't know what we are capable of so we will try our best."
+    },
+    "pauses": [],
+    "serial_no": 8657,
+    "voting": {
+      "credit_category": null,
+      "credit_scope": "DROP",
+      "credit_type": "TDH",
+      "forbid_negative_votes": false,
+      "group": {
+        "id": "6529-network-museum-who-can-vote-3bd8jDbGd82Jd2Es6JCPdK",
+        "is_hidden": false,
+        "name": "6529 Network Museum Who can vote"
+      },
+      "period": {
+        "max": null,
+        "min": 1779906061322
+      },
+      "signature_required": false
+    },
+    "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+  },
+  "payload_sha256": "sha256:57a640cd74f1729807cc8ad6fce71e81a5fc871caacb6b9a99b96cdc8206ae5b",
+  "projection_id": "6529NM.2026.005.SOURCE-EVIDENCE-01.WAVE-WAVE",
+  "raw_response": {
+    "media_type": "application/json",
+    "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+    "retained": false,
+    "sha256": "sha256:d8737d2d77ad2f5c2281f120adf8010f08d816e787fe80f7195496e7111a5c73",
+    "size": 15924
+  },
+  "source_request": "Unauthenticated HTTPS GET through scripts/safe_fetch.py (HTTP/1.0 connection factory).",
+  "source_url": "https://api.6529.io/api/waves/5f207393-5418-4a75-8738-e40edb44a94d"
+}

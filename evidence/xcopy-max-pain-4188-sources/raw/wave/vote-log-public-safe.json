@@ -1,0 +1,240 @@
+{
+  "canonicalization": "Hash the payload object only as UTF-8 JSON with recursively lexicographically sorted object keys, source-order arrays, compact separators, preserved Unicode, and no trailing newline.",
+  "evidence_type": "WAVE_API_PUBLIC_SAFE_PROJECTION",
+  "exclusion_note": "Public-safe projection of an unauthenticated live 6529 API read. The retained record excludes author, voter, rater, reaction and profile objects, wallet addresses, handles, credentials and every field not listed in the payload; the raw response is recorded by SHA-256 and size only. WINNER and signed state record a Wave decision and publication observation only; they do not establish purchase or donor authority, the exact token, legal title, copyright, custody, acceptance, accession, Collection status, or display permission.",
+  "observed_at": "2026-10-18T08:16:09.230Z",
+  "payload": {
+    "cast_total_at_decision_time": 101689216,
+    "complete_within_limit": true,
+    "decision_time": "2026-08-27T18:30:18.491Z",
+    "distinct_voter_count": 25,
+    "distinct_voters_at_decision_time": 25,
+    "entries": [
+      {
+        "cast_total_after": 316961,
+        "created_at": "2026-08-24T10:51:50.000Z",
+        "created_at_ms": 1787568710000,
+        "new_vote": 316961,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 6839646,
+        "created_at": "2026-08-24T11:26:18.000Z",
+        "created_at_ms": 1787570778000,
+        "new_vote": 6522685,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 6839746,
+        "created_at": "2026-08-24T12:43:08.000Z",
+        "created_at_ms": 1787575388000,
+        "new_vote": 100,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 13368746,
+        "created_at": "2026-08-24T14:11:41.000Z",
+        "created_at_ms": 1787580701000,
+        "new_vote": 6529000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 23329948,
+        "created_at": "2026-08-24T14:40:08.000Z",
+        "created_at_ms": 1787582408000,
+        "new_vote": 9961202,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 29858948,
+        "created_at": "2026-08-24T14:48:12.000Z",
+        "created_at_ms": 1787582892000,
+        "new_vote": 6529000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 29924238,
+        "created_at": "2026-08-24T14:55:11.000Z",
+        "created_at_ms": 1787583311000,
+        "new_vote": 65290,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 30124243,
+        "created_at": "2026-08-24T14:57:19.000Z",
+        "created_at_ms": 1787583439000,
+        "new_vote": 265295,
+        "old_vote": 65290
+      },
+      {
+        "cast_total_after": 36653243,
+        "created_at": "2026-08-24T16:27:27.000Z",
+        "created_at_ms": 1787588847000,
+        "new_vote": 6529000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 36953240,
+        "created_at": "2026-08-24T18:31:36.000Z",
+        "created_at_ms": 1787596296000,
+        "new_vote": 565292,
+        "old_vote": 265295
+      },
+      {
+        "cast_total_after": 37067367,
+        "created_at": "2026-08-24T20:20:00.000Z",
+        "created_at_ms": 1787602800000,
+        "new_vote": 114127,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 37067725,
+        "created_at": "2026-08-25T08:08:37.000Z",
+        "created_at_ms": 1787645317000,
+        "new_vote": 358,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 37067367,
+        "created_at": "2026-08-25T08:12:03.000Z",
+        "created_at_ms": 1787645523000,
+        "new_vote": 0,
+        "old_vote": 358
+      },
+      {
+        "cast_total_after": 37067725,
+        "created_at": "2026-08-25T08:41:29.000Z",
+        "created_at_ms": 1787647289000,
+        "new_vote": 358,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 40619577,
+        "created_at": "2026-08-25T09:13:33.000Z",
+        "created_at_ms": 1787649213000,
+        "new_vote": 3551852,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 40859316,
+        "created_at": "2026-08-25T10:12:44.000Z",
+        "created_at_ms": 1787652764000,
+        "new_vote": 239739,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 40928358,
+        "created_at": "2026-08-25T19:18:37.000Z",
+        "created_at_ms": 1787685517000,
+        "new_vote": 69042,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 43001509,
+        "created_at": "2026-08-25T22:03:28.000Z",
+        "created_at_ms": 1787695408000,
+        "new_vote": 2073151,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 47202199,
+        "created_at": "2026-08-25T22:07:40.000Z",
+        "created_at_ms": 1787695660000,
+        "new_vote": 4200690,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 53731199,
+        "created_at": "2026-08-26T00:21:18.000Z",
+        "created_at_ms": 1787703678000,
+        "new_vote": 6529000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 60866485,
+        "created_at": "2026-08-26T04:26:53.000Z",
+        "created_at_ms": 1787718413000,
+        "new_vote": 7135286,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 60940394,
+        "created_at": "2026-08-26T07:19:52.000Z",
+        "created_at_ms": 1787728792000,
+        "new_vote": 73909,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 86981321,
+        "created_at": "2026-08-26T08:11:13.000Z",
+        "created_at_ms": 1787731873000,
+        "new_vote": 26040927,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 90052008,
+        "created_at": "2026-08-26T08:58:06.000Z",
+        "created_at_ms": 1787734686000,
+        "new_vote": 3070687,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 96581008,
+        "created_at": "2026-08-26T14:07:33.000Z",
+        "created_at_ms": 1787753253000,
+        "new_vote": 6529000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 96596314,
+        "created_at": "2026-08-26T20:19:29.000Z",
+        "created_at_ms": 1787775569000,
+        "new_vote": 15306,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 96765734,
+        "created_at": "2026-08-26T20:20:56.000Z",
+        "created_at_ms": 1787775656000,
+        "new_vote": 169420,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 96865734,
+        "created_at": "2026-08-27T12:33:45.000Z",
+        "created_at_ms": 1787834025000,
+        "new_vote": 100000,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 97562703,
+        "created_at": "2026-08-27T14:13:11.000Z",
+        "created_at_ms": 1787839991000,
+        "new_vote": 696969,
+        "old_vote": 0
+      },
+      {
+        "cast_total_after": 101689216,
+        "created_at": "2026-08-27T15:50:36.000Z",
+        "created_at_ms": 1787845836000,
+        "new_vote": 4195555,
+        "old_vote": 69042
+      }
+    ],
+    "entry_count": 30,
+    "fell_below_threshold_before_decision": false,
+    "first_threshold_crossing_at": "2026-08-26T08:11:13.000Z",
+    "winning_threshold": 69000000
+  },
+  "payload_sha256": "sha256:e3fded8c37e79ad2f526513c33822857e7890b316133da7d534a035d75549113",
+  "projection_id": "6529NM.2026.005.SOURCE-EVIDENCE-01.WAVE-VOTE-LOG",
+  "raw_response": {
+    "media_type": "application/json",
+    "reason": "The raw response embeds profile objects with handles and primary wallet addresses; only this projection is retained.",
+    "retained": false,
+    "sha256": "sha256:f3b80f553fd6dfa5adfaffbdc906e013282a13aa0f670ba368e78cd428594ae0",
+    "size": 16484
+  },
+  "source_request": "Unauthenticated HTTPS GET through scripts/safe_fetch.py (HTTP/1.0 connection factory).",
+  "source_url": "https://api.6529.io/api/v2/drops/87e1fc3a-deef-4d1d-bf36-b2a44507f17b/votes/logs?limit=100"
+}

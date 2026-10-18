@@ -1,0 +1,161 @@
+{
+  "payload": {
+    "citations": [
+      {
+        "found_verbatim": true,
+        "text": "The Nifty Gateway platform officially closed on April 23, 2026."
+      },
+      {
+        "found_verbatim": true,
+        "text": "Our plan is to preserve NFT metadata and images on Nifty Gateway's servers in perpetuity."
+      }
+    ],
+    "evidence_class": "B",
+    "page_role": "token metadata external_url, observed live",
+    "visible_text_sha256": "sha256:b1fb7e33df5294844c4bbb7a9f69abbe4f8e498e85d892ad463b551d9baaee98"
+  },
+  "raw_response": {
+    "media_type": "text/html",
+    "reason": "Raw HTML embeds executable script elements and third-party page text; only the listed facts and short citations are retained.",
+    "retained": false,
+    "sha256": "sha256:47df0b5c63ca60571047f1f67f97e75883150f055b0c06a7a331f086bed1e12f",
+    "size": 46668
+  },
+  "served_url": "https://www.niftygateway.com/",
+  "source_id": "nifty-gateway-live-collection-page",
+  "transport": {
+    "address_set": [
+      "108.138.64.7",
+      "108.138.64.29",
+      "108.138.64.59",
+      "108.138.64.69"
+    ],
+    "address_set_sha256": "902ded0f3c4d6ff3e2a1bff66fd4ec48b43d13ff68d485cb41d0055e8f670e78",
+    "attempts": 1,
+    "byte_length": 46668,
+    "byte_sha256": "47df0b5c63ca60571047f1f67f97e75883150f055b0c06a7a331f086bed1e12f",
+    "canonical_url": "https://www.niftygateway.com/",
+    "hops": [
+      {
+        "address_set": [
+          "108.138.64.7",
+          "108.138.64.29",
+          "108.138.64.59",
+          "108.138.64.69"
+        ],
+        "address_set_sha256": "902ded0f3c4d6ff3e2a1bff66fd4ec48b43d13ff68d485cb41d0055e8f670e78",
+        "byte_length": 0,
+        "canonical_url": "https://niftygateway.com/collections/xcopy-oe",
+        "media_type": null,
+        "observed_at": "2026-10-18T08:16:14.339Z",
+        "peer_ip": "108.138.64.7",
+        "response_headers": [
+          [
+            "content-length",
+            "0"
+          ],
+          [
+            "location",
+            "https://www.niftygateway.com/collections/xcopy-oe"
+          ]
+        ],
+        "selected_ip": "108.138.64.7",
+        "status": 302
+      },
+      {
+        "address_set": [
+          "108.138.64.7",
+          "108.138.64.29",
+          "108.138.64.59",
+          "108.138.64.69"
+        ],
+        "address_set_sha256": "902ded0f3c4d6ff3e2a1bff66fd4ec48b43d13ff68d485cb41d0055e8f670e78",
+        "byte_length": 22,
+        "canonical_url": "https://www.niftygateway.com/collections/xcopy-oe",
+        "media_type": null,
+        "observed_at": "2026-10-18T08:16:14.404Z",
+        "peer_ip": "108.138.64.7",
+        "response_headers": [
+          [
+            "location",
+            "/collections/xcopy-oe/"
+          ]
+        ],
+        "selected_ip": "108.138.64.7",
+        "status": 308
+      },
+      {
+        "address_set": [
+          "108.138.64.7",
+          "108.138.64.29",
+          "108.138.64.59",
+          "108.138.64.69"
+        ],
+        "address_set_sha256": "902ded0f3c4d6ff3e2a1bff66fd4ec48b43d13ff68d485cb41d0055e8f670e78",
+        "byte_length": 1,
+        "canonical_url": "https://www.niftygateway.com/collections/xcopy-oe/",
+        "media_type": null,
+        "observed_at": "2026-10-18T08:16:14.475Z",
+        "peer_ip": "108.138.64.7",
+        "response_headers": [
+          [
+            "location",
+            "/"
+          ]
+        ],
+        "selected_ip": "108.138.64.7",
+        "status": 307
+      },
+      {
+        "address_set": [
+          "108.138.64.7",
+          "108.138.64.29",
+          "108.138.64.59",
+          "108.138.64.69"
+        ],
+        "address_set_sha256": "902ded0f3c4d6ff3e2a1bff66fd4ec48b43d13ff68d485cb41d0055e8f670e78",
+        "byte_length": 46668,
+        "canonical_url": "https://www.niftygateway.com/",
+        "media_type": "text/html",
+        "observed_at": "2026-10-18T08:16:14.544Z",
+        "peer_ip": "108.138.64.7",
+        "response_headers": [
+          [
+            "content-type",
+            "text/html; charset=utf-8"
+          ],
+          [
+            "content-length",
+            "46668"
+          ]
+        ],
+        "selected_ip": "108.138.64.7",
+        "status": 200
+      }
+    ],
+    "media_type": "text/html",
+    "observed_at": "2026-10-18T08:16:14.544Z",
+    "peer_ip": "108.138.64.7",
+    "redirect_chain": [
+      "https://niftygateway.com/collections/xcopy-oe",
+      "https://www.niftygateway.com/collections/xcopy-oe",
+      "https://www.niftygateway.com/collections/xcopy-oe/",
+      "https://www.niftygateway.com/"
+    ],
+    "resolver_profile": "system_getaddrinfo",
+    "resolver_revision": "python-socket.getaddrinfo-v1",
+    "response_headers": [
+      [
+        "content-type",
+        "text/html; charset=utf-8"
+      ],
+      [
+        "content-length",
+        "46668"
+      ]
+    ],
+    "selected_ip": "108.138.64.7",
+    "status": 200
+  },
+  "url": "https://niftygateway.com/collections/xcopy-oe"
+}
