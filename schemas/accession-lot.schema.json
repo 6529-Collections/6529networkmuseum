@@ -331,6 +331,7 @@
         "formal_acceptance_status": {"type": "string", "enum": ["not_formally_accepted", "formally_accepted"]},
         "formal_acceptance_date": {"type": "string", "format": "date-time"},
         "gift_acceptance_authorization_record": {"$ref": "https://6529networkmuseum.org/schemas/common-v1.json#/$defs/id"},
+        "acquisition_authorization_record": {"type": "string", "pattern": "^6529NM\\.\\d{4}\\.\\d{3}\\.AQA-\\d{2}$"},
         "accession_status": {"type": "string", "enum": ["not_complete", "complete"]},
         "source": {"$ref": "#/$defs/sourceHeads"},
         "controlled_decision": {"$ref": "#/$defs/controlledDecision"},

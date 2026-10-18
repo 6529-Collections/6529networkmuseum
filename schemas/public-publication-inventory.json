@@ -613,6 +613,7 @@
       "schemas/accession-lot.schema.json",
       "schemas/accession-program.schema.json",
       "schemas/accession.schema.json",
+      "schemas/acquisition-authorization.schema.json",
       "schemas/approved-collection.schema.json",
       "schemas/common.schema.json",
       "schemas/condition-report.schema.json",
@@ -655,7 +656,7 @@
   },
   "counts": {
     "approved_public_media": 63,
-    "public_assembly_control_document": 132,
+    "public_assembly_control_document": 133,
     "public_curatorial_manuscript": 134,
     "public_entity_record": 136,
     "public_media_source_manifest": 4,
@@ -5371,6 +5372,13 @@
       "activation_mode": "atomic",
       "delivery_role": "assembly_document",
       "kind": "public_assembly_control_document",
+      "path": "schemas/acquisition-authorization.schema.json",
+      "required_in_catalog": true
+    },
+    {
+      "activation_mode": "atomic",
+      "delivery_role": "assembly_document",
+      "kind": "public_assembly_control_document",
       "path": "schemas/approved-collection.schema.json",
       "required_in_catalog": true
     },
@@ -5586,8 +5594,8 @@
     }
   ],
   "integrity": {
-    "body_keccak256": "0x1fed379d3ee78244a57f132d9fddc9f44f2e1b42198bb9f1ba1557ba3997a90d",
-    "body_sha256": "sha256:bb62a3597fdce9fbe1e6b0fbd90647cb68aa9150d3f59e05aa424060cc666106",
+    "body_keccak256": "0xbb1ef56d57e2e6b2aa21e89b7bb46028798e9cf78eef49db92f2e3018a0d7468",
+    "body_sha256": "sha256:59b14420dde9779d8e7da95612d04eed82c67755fd4b333c7af416380460bfb0",
     "canonicalization_id": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044"
   },
   "inventory_id": "6529NM_PUBLIC_VISITOR_CORPUS",
