@@ -4188,3 +4188,15 @@ accession: the Museum has received the funds but has not accepted them, and
 has asked the organizer how they should be held. Candidate A is the branch's
 final commit; status, open items, and the regeneration sequence are in
 `notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`.
+
+## 2026-10-18 — MAX PAIN contributor submission promoted
+
+The contributor's organizer-approved submission, staged under
+`notes/wip/max-pain-4188-staging/` by the 2026-09-27 entry above, is promoted
+into accession `6529NM.2026.005`: its essay became the signed public essay,
+revised under the coordinator's v3 text, and its blurb, credits, and
+chronology informed the object entry, the credits list, and the Sources and
+Chronology record. The staging folder is removed from the tree. Its original
+text is preserved unchanged in the contributor's commit, `777ac81c` before
+the rebase and `ea1e4b77f107131b3dfe91b6bded1d60e81c798b` on branch
+`max-pain-4188-accession`; that commit is not altered.
