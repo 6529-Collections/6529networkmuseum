@@ -19,6 +19,11 @@ from typing import Any, Iterable, Sequence
 from Crypto.Hash import keccak
 from jsonschema import Draft202012Validator, FormatChecker
 
+from accession_publication_units import (
+    REVIEW_BOUND_ACCESSION_RECORD_PATHS,
+    REVIEW_BOUND_PRESENTATION_UNITS,
+    AccessionPublicationUnit,
+)
 from canonical import canonicalize
 
 
@@ -67,18 +72,20 @@ TEXT_EXTENSIONS = {".json", ".json.snapshot", ".md", ".py", ".txt", ".yml", ".ya
 BINARY_EXTENSIONS = {".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".pdf", ".woff", ".woff2", ".ttf"}
 MEDIA_ASSET_EXTENSIONS = BINARY_EXTENSIONS | {".svg"}
 MAX_BUNDLE_BYTES = 8_000_000
-VERA_PRESENTATION_PATH = (
-    "records/accessions/6529NM.2026.003/public/presentation-manifest.json"
-)
-VERA_DIRECT_RECORD_PATHS = {
-    "records/accessions/6529NM.2026.003/accession-certificate.json",
-    "records/accessions/6529NM.2026.003/accession-statement.json",
-    "records/accessions/6529NM.2026.003/gift-acceptance-authorization.json",
-    "records/accessions/6529NM.2026.003/objects/6529NM.2026.003.01.json",
-    "records/accessions/6529NM.2026.003/rights/6529NM.2026.003.RIGHTS.01.json",
-    "records/accessions/6529NM.2026.003/technical/6529NM.2026.003.01.json",
-    "records/proposed-gifts/6529NM-PG-2026-002/wave-status-observation.json",
-}
+# Per-accession direct records and presentation promotions come from the
+# shared accession publication table, never from accession-specific constants.
+REVIEW_BOUND_ACCESSION_RECORD_PATH_SET = frozenset(REVIEW_BOUND_ACCESSION_RECORD_PATHS)
+
+
+def _review_bound_presentation_units(assembly_paths: Iterable[str]) -> list[AccessionPublicationUnit]:
+    """Return the declared review-bound presentation units present in a corpus, in table order."""
+
+    published = set(assembly_paths)
+    return [
+        unit
+        for unit in REVIEW_BOUND_PRESENTATION_UNITS
+        if unit.presentation_manifest_path in published
+    ]
 
 
 class CatalogError(ValueError):
@@ -844,7 +851,7 @@ def _is_public_graph_record_path(path: str) -> bool:
         path.startswith("records/entities/")
         or path.startswith("records/relations/")
         or path == "records/proposed-gifts/6529NM-PG-2026-001/wave-status-observation-2026-08-08.json"
-        or path in VERA_DIRECT_RECORD_PATHS
+        or path in REVIEW_BOUND_ACCESSION_RECORD_PATH_SET
     ) and path.endswith(".json")
 
 
@@ -862,16 +869,18 @@ def _presentation_without_review(value: dict[str, Any]) -> dict[str, Any]:
 
 def _validate_presentation_promotion(
     *,
+    unit: AccessionPublicationUnit,
     candidate_reader: GitTreeReader,
     reviewed_reader: GitTreeReader,
     candidate: str,
     reviewed_at: str,
     primary_reviewer_id: str,
 ) -> None:
-    a_value = strict_load(candidate_reader.read(VERA_PRESENTATION_PATH))
-    b_value = strict_load(reviewed_reader.read(VERA_PRESENTATION_PATH))
+    lot = unit.accession_lot_id
+    a_value = strict_load(candidate_reader.read(unit.presentation_manifest_path))
+    b_value = strict_load(reviewed_reader.read(unit.presentation_manifest_path))
     if not isinstance(a_value, dict) or not isinstance(b_value, dict):
-        raise CatalogError("Vera presentation manifest is not an object")
+        raise CatalogError(f"{lot} presentation manifest is not an object")
     a_control = a_value.get("record_control")
     b_control = b_value.get("record_control")
     a_delivery = a_value.get("delivery")
@@ -884,7 +893,7 @@ def _validate_presentation_promotion(
         or a_delivery.get("status")
         != "prepared_for_contextual_museum_display_pending_review"
     ):
-        raise CatalogError("candidate A Vera presentation is not review-pending")
+        raise CatalogError(f"candidate A {lot} presentation is not review-pending")
     review = b_control.get("review") if isinstance(b_control, dict) else None
     if (
         not isinstance(b_control, dict)
@@ -907,12 +916,12 @@ def _validate_presentation_promotion(
         or not isinstance(b_delivery, dict)
         or b_delivery.get("status") != "approved_for_contextual_museum_display"
     ):
-        raise CatalogError("reviewed B Vera presentation has an invalid review promotion")
+        raise CatalogError(f"reviewed B {lot} presentation has an invalid review promotion")
     material = {key: item for key, item in b_value.items() if key != "record_control"}
     if review.get("payload_sha256") != sha256_prefixed(canonicalize(material)):
-        raise CatalogError("reviewed B Vera presentation payload commitment is invalid")
+        raise CatalogError(f"reviewed B {lot} presentation payload commitment is invalid")
     if _presentation_without_review(a_value) != _presentation_without_review(b_value):
-        raise CatalogError("reviewed B changed non-review Vera presentation fields")
+        raise CatalogError(f"reviewed B changed non-review {lot} presentation fields")
 
 
 def _reviewable_record_paths(
@@ -1155,15 +1164,9 @@ def _review_binding(
         "scripts/magnum/check_media_policy.py",
         "scripts/magnum/check_public_utf8.py",
     }
-    if VERA_PRESENTATION_PATH in assembly_paths:
-        generator_paths.update(
-            {
-                "scripts/finalize_vera_accession.py",
-                "scripts/generate_vera_molnar_media.py",
-                "scripts/migrate_public_entities.py",
-                "scripts/publication_catalog.py",
-            }
-        )
+    presentation_units = _review_bound_presentation_units(assembly_paths)
+    for unit in presentation_units:
+        generator_paths.update(unit.deterministic_generator_paths)
     for generator_path in generator_paths:
         if generator_path not in candidate_manifest_entries or generator_path not in reviewed_manifest_entries:
             raise CatalogError(f"deterministic generator path is not present in both candidate A and reviewed B: {generator_path}")
@@ -1207,8 +1210,9 @@ def _review_binding(
             raise CatalogError(f"reviewed B changed non-review payload fields: {path}")
         if _envelope_without_review_hash(a_record.get("envelope", {})) != _envelope_without_review_hash(b_record.get("envelope", {})):
             raise CatalogError(f"reviewed B changed non-review envelope fields: {path}")
-    if VERA_PRESENTATION_PATH in assembly_paths:
+    for unit in presentation_units:
         _validate_presentation_promotion(
+            unit=unit,
             candidate_reader=candidate_reader,
             reviewed_reader=reviewed_reader,
             candidate=candidate,
@@ -1218,8 +1222,7 @@ def _review_binding(
     diff = subprocess.run(["git", "-C", str(root), "diff", "--name-only", candidate, commit, "--"], capture_output=True, text=True, check=True).stdout.splitlines()
     generated_paths = {PUBLICATION_INVENTORY_PATH, PUBLICATION_BUNDLE_PATH, MANIFEST_PATH}
     allowed_changed = set(reviewed_paths) | generated_paths
-    if VERA_PRESENTATION_PATH in assembly_paths:
-        allowed_changed.add(VERA_PRESENTATION_PATH)
+    allowed_changed.update(unit.presentation_manifest_path for unit in presentation_units)
     changed = set(diff)
     # Every reviewed public record must be promoted.  The inventory/bundle/
     # manifest are deterministic consequences and are allowed to remain byte

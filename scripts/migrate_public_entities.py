@@ -111,6 +111,46 @@ VERA_GENERATOR_URL = "https://generator.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a
 VERA_PREVIEW_URL = "https://media-proxy.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210.png"
 VERA_TOKEN_URI = "https://token.artblocks.io/1/0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
 VERA_CAIP19 = "eip155:1/erc721:0xe034bb2b1b9471e11cf1a0a9199a156fb227aa5d/210"
+
+# Per-accession data used by source resolution and record construction. A new
+# accession adds rows here; it never adds lot literals to the resolver code.
+#
+# Accession lots whose object, rights, and condition record IDs resolve to
+# repository paths. An unlisted lot fails closed in evidence classification.
+PUBLIC_GRAPH_ACCESSION_LOT_IDS: tuple[str, ...] = (
+    "6529NM.2026.001",
+    "6529NM.2026.002",
+    "6529NM.2026.003",
+)
+# Exact accession-level record IDs (lot statement, certificate, authorization,
+# Wave status observation, and lot-specific evidence records) -> repository path.
+ACCESSION_SOURCE_RECORD_PATHS: dict[str, str] = {
+    "6529NM.2026.001": "records/accessions/6529NM.2026.001/accession-statement.json",
+    "6529NM-ACC-2026-001": "records/accessions/6529NM.2026.001/accession-certificate.json",
+    "6529NM.2026.001.VO-01": "records/accessions/6529NM.2026.001/visual-observation-record.json",
+    "6529NM.2026.001.DILIGENCE-01": "records/accessions/6529NM.2026.001/post-accession-diligence.json",
+    MAGNUM_ACCESSION_LOT: "records/accessions/6529NM.2026.002/accession-statement.json",
+    MAGNUM_ACCESSION_CERTIFICATE_ID: MAGNUM_ACCESSION_CERTIFICATE_PATH,
+    MAGNUM_GAA_ID: "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json",
+    VERA_ACCESSION_LOT: VERA_ACCESSION_STATEMENT_PATH,
+    VERA_ACCESSION_CERTIFICATE_ID: VERA_ACCESSION_CERTIFICATE_PATH,
+    VERA_GAA_ID: VERA_GAA_PATH,
+    VERA_WAVE_OBSERVATION_ID: f"{VERA_PROPOSAL_ROOT}/wave-status-observation.json",
+}
+# Standalone GOVERNANCE_DECISION envelope records. Decisions without a row
+# resolve to the governed snapshot register records/governance/decisions.json.
+GOVERNANCE_RECORD_PATHS: dict[str, str] = {}
+# Proposal ID prefixes -> proposal source record, checked in order.
+PROPOSAL_SOURCE_PATHS: tuple[tuple[str, str], ...] = (
+    ("6529NM-PG-2026-001", "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"),
+    (VERA_PROPOSAL_ID, f"{VERA_PROPOSAL_ROOT}/proposal.json"),
+)
+# Records constructed by a later accession task keep that task's constructor
+# identity and construction time; every other generated record uses the
+# baseline graph constructor.
+ACCESSION_CONSTRUCTION_SCOPES: tuple[tuple[str, str, frozenset[str]], ...] = (
+    (VERA_CONSTRUCTOR_ID, VERA_AT, frozenset(VERA_CONSTRUCTED_RECORD_IDS)),
+)
 MAGNUM_WORK_PUBLICATION_PATHS = {
     "6529NM-PG-2026-001.OBJ-001": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/01-david-seymour-127.md",
     "6529NM-PG-2026-001.OBJ-002": f"{MAGNUM_SCHOLARSHIP_ROOT}/works/02-larry-towell-145.md",
@@ -345,40 +385,27 @@ def logical_record_uri(repository_path: str) -> str:
     return LOGICAL_RECORD_BASE + repository_path.replace("\\", "/")
 
 
+def _accession_lot_alternation() -> str:
+    """Regex alternation over the governed public-graph accession lots."""
+
+    return "|".join(re.escape(lot) for lot in PUBLIC_GRAPH_ACCESSION_LOT_IDS)
+
+
 def source_repository_path(source: str) -> str:
     if source.startswith(("records/", "evidence/", "schemas/", "docs/")):
         return source
-    if re.fullmatch(r"6529NM\.2026\.(001|002|003)\.\d{2}", source):
-        accession_year = source.split(".")[2]
-        return f"records/accessions/6529NM.2026.{accession_year}/objects/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.RIGHTS\.(\d{2})", source)
+    lots = _accession_lot_alternation()
+    match = re.fullmatch(rf"(?P<lot>{lots})\.\d{{2}}", source)
     if match:
-        return f"records/accessions/6529NM.2026.{match.group(1)}/rights/{source}.json"
-    match = re.fullmatch(r"6529NM\.2026\.(001|002|003)\.COND\.(\d{2})", source)
+        return f"records/accessions/{match.group('lot')}/objects/{source}.json"
+    match = re.fullmatch(rf"(?P<lot>{lots})\.RIGHTS\.(?P<item>\d{{2}})", source)
     if match:
-        return f"records/accessions/6529NM.2026.{match.group(1)}/technical/6529NM.2026.{match.group(1)}.{match.group(2)}.json"
-    if source == "6529NM.2026.001":
-        return "records/accessions/6529NM.2026.001/accession-statement.json"
-    if source == "6529NM-ACC-2026-001":
-        return "records/accessions/6529NM.2026.001/accession-certificate.json"
-    if source == "6529NM.2026.001.VO-01":
-        return "records/accessions/6529NM.2026.001/visual-observation-record.json"
-    if source == "6529NM.2026.001.DILIGENCE-01":
-        return "records/accessions/6529NM.2026.001/post-accession-diligence.json"
-    if source == MAGNUM_ACCESSION_LOT:
-        return "records/accessions/6529NM.2026.002/accession-statement.json"
-    if source == MAGNUM_ACCESSION_CERTIFICATE_ID:
-        return MAGNUM_ACCESSION_CERTIFICATE_PATH
-    if source == MAGNUM_GAA_ID:
-        return "records/accessions/6529NM.2026.002/gift-acceptance-authorization.json"
-    if source == VERA_ACCESSION_LOT:
-        return VERA_ACCESSION_STATEMENT_PATH
-    if source == VERA_ACCESSION_CERTIFICATE_ID:
-        return VERA_ACCESSION_CERTIFICATE_PATH
-    if source == VERA_GAA_ID:
-        return VERA_GAA_PATH
-    if source == VERA_WAVE_OBSERVATION_ID:
-        return f"{VERA_PROPOSAL_ROOT}/wave-status-observation.json"
+        return f"records/accessions/{match.group('lot')}/rights/{source}.json"
+    match = re.fullmatch(rf"(?P<lot>{lots})\.COND\.(?P<item>\d{{2}})", source)
+    if match:
+        return f"records/accessions/{match.group('lot')}/technical/{match.group('lot')}.{match.group('item')}.json"
+    if source in ACCESSION_SOURCE_RECORD_PATHS:
+        return ACCESSION_SOURCE_RECORD_PATHS[source]
     if source == WINNER_OBSERVATION_ID:
         return WINNER_SOURCE_PATH
     if source == WAVE_PUBLICATION_OBSERVATION_ID:
@@ -387,6 +414,8 @@ def source_repository_path(source: str) -> str:
         return MEDIA_DESCRIPTION_AMENDMENT_PATH
     if source == CASEY_MEDIA_AMENDMENT_ID:
         return CASEY_MEDIA_AMENDMENT_PATH
+    if source in GOVERNANCE_RECORD_PATHS:
+        return GOVERNANCE_RECORD_PATHS[source]
     if source.startswith("6529NM-GOV-"):
         return "records/governance/decisions.json"
     match = re.fullmatch(r"6529NM-AP-01-OUT-(\d{3})", source)
@@ -394,10 +423,9 @@ def source_repository_path(source: str) -> str:
         return f"records/programs/6529NM-AP-01/outcomes/OUT-{match.group(1)}.json"
     if source == "6529NM-AP-01":
         return "records/programs/6529NM-AP-01/program.json"
-    if source.startswith("6529NM-PG-2026-001"):
-        return "records/proposed-gifts/6529NM-PG-2026-001/proposal.json"
-    if source.startswith(VERA_PROPOSAL_ID):
-        return f"{VERA_PROPOSAL_ROOT}/proposal.json"
+    for proposal_prefix, proposal_path in PROPOSAL_SOURCE_PATHS:
+        if source.startswith(proposal_prefix):
+            return proposal_path
     if re.fullmatch(r"6529NM-(?:I|C|AGT|ART|ORG|W|PRJ|CA|AP-ENT|ACC-ENT|RP|MED|REL)-[A-Za-z0-9.-]+", source):
         if source.startswith("6529NM-REL-"):
             return f"records/relations/{source}.json"
@@ -438,10 +466,10 @@ def source_record_evidence_class(source: str) -> str:
     if "/technical/" in repository_path or "condition" in repository_path or "visual-observation" in repository_path or "fixity" in repository_path or "diligence" in repository_path:
         return "C"
     if (
-        repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/accessions/"))
+        repository_path.startswith(("records/governance/", "records/programs/", "records/proposed-gifts/", "records/proposed-acquisitions/", "records/accessions/"))
         or source_text.startswith("https://6529.io/")
         or re.fullmatch(r"6529NM-(?:GOV|AP|AP-01-OUT|PG|ACC|CA|WAVE|REL|MED|ORG|ART|AGT|PRJ|W)-[A-Za-z0-9.-]+", source)
-        or re.fullmatch(r"6529NM\.2026\.(?:001|002|003)(?:\.(?:RIGHTS|DILIGENCE)\.\d{2}|\.\d{2})?", source)
+        or re.fullmatch(rf"(?:{_accession_lot_alternation()})(?:\.(?:RIGHTS|DILIGENCE)\.\d{{2}}|\.\d{{2}})?", source)
     ):
         return "B"
     raise ValueError(f"unclassified evidence source family: source={source!r}")
@@ -596,10 +624,17 @@ def governed_typed_reference(
     return reference
 
 
+def construction_scope(record_id: str) -> tuple[str, str]:
+    """Return the constructor ID and construction time that own a generated record."""
+
+    for constructor_id, constructed_at, record_ids in ACCESSION_CONSTRUCTION_SCOPES:
+        if record_id in record_ids:
+            return constructor_id, constructed_at
+    return CONSTRUCTOR_ID, GENERATED_AT
+
+
 def common(record_type: str, record_id: str, effective_at: str, refs: list[str], evidence_refs: list[dict[str, Any]]) -> dict[str, Any]:
-    is_vera_record = record_id in VERA_CONSTRUCTED_RECORD_IDS
-    constructor_id = VERA_CONSTRUCTOR_ID if is_vera_record else CONSTRUCTOR_ID
-    constructed_at = VERA_AT if is_vera_record else GENERATED_AT
+    constructor_id, constructed_at = construction_scope(record_id)
     profile = {
         "record_id": record_id,
         "record_type": record_type,
