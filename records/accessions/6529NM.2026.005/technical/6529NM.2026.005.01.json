@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xbffc30e47dfeb61064547e4cabe4957d0bcd1d03cb6ff62f75c57d0f92f0fcc1"
+      "digest": "0x6660575d026cc895a52932e898e7063d0d15acefe320f7d3b1554ffef0819848"
     },
     "effectiveAt": 1792315800,
     "recordType": "CONDITION_REPORT",
@@ -59,25 +59,26 @@
             "evidence_class": "A",
             "label": "On-chain technical, supply, and provenance manifest",
             "observed_at": "2026-10-18T08:24:02.181Z",
-            "sha256": "sha256:86da1fd74420031e3d8ef39ec360af7afb7333cb337538d097d62196f9605bd2",
+            "sha256": "sha256:d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/manifest.json"
           },
           {
             "evidence_class": "C",
             "label": "Flash-analysis evidence manifest",
+            "notes": "Manifest version 1.1.0: the base flash analysis observed at 2026-10-18T07:03:26Z, kept unchanged, and addendum 01, the all-step flash analysis and close-looking census computed at 2026-10-18T11:17:40Z and 11:20:37Z in response to the independent reviews of candidate A.",
             "observed_at": "2026-10-18T07:03:26Z",
-            "sha256": "sha256:a242565af5b81b8299ee73641a0907a0620e73f1a47e450e0de66659ed7ef2d0",
+            "sha256": "sha256:a96565fd2b3180e61400f3a4c5a1b7d0003e05c9a1e5f8ae4aa0424171b2cced",
             "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-display/manifest.json"
           }
         ],
         "occurred_at": "2026-10-18T09:30:00Z"
       }
     ],
-    "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis of the decoded frames.",
+    "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis over all eight loop steps and close-looking census of the decoded frames (display evidence and its addendum 01).",
     "object_id": "6529NM.2026.005.01",
     "observed_at": "2026-10-18T09:30:00Z",
-    "outcome": "Pass with conditions: token identity, finalized custody, the IPFS-bound GIF bytes, and continuous provenance verify. The metadata image field names a mutable Nifty Gateway CDN copy, the contract owner's registry can still replace the token URI base, and the animation flashes; it is shown only under the display authority's limits until a flash review.",
-    "payload_sha256": "sha256:c85637a460e318d69906dc090d51c3a01764e7e6386607723fe4fb2456b31f0d",
+    "outcome": "Pass with conditions: token identity, finalized custody, the IPFS-bound GIF bytes, and continuous provenance verify. The metadata image field names a mutable Nifty Gateway CDN copy, the contract owner's registry can still replace the token URI base, and the animation flashes: about 5.5 percent of the image flashes more than three times a second at every size, and the largest flashing share of a 10-degree field reaches 24.9 percent at 1,024 px and 33.4 percent at 1,536 px. It is shown only under the display authority's limits: a first-frame poster, play on request after a warning, no larger than min(512px, 100%) so that 200 percent zoom stays within 1,024 px, never enlarged or full screen, and only the poster under reduced motion. The limit is subject to the accession's independent flash review.",
+    "payload_sha256": "sha256:ef8ab41b210b0ba2177d5b2bff74cf7ef48665cf35c6ecfa4b31b26a707cac6b",
     "protocol_state": "ERC-721 static-file token on a non-proxy Nifty Gateway builder contract; IPFS metadata; animated GIF image",
     "record_id": "6529NM.2026.005.COND.01",
     "record_status": "review_pending",

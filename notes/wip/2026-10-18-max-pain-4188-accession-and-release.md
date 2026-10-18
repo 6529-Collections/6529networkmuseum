@@ -57,12 +57,21 @@ Nothing here pushes, opens a pull request, uploads to the CDN, or posts.
 - Rights: CC0 1.0 from the artist's Legal & Privacy page and the 1 August 2022
   announcement; all nine grants `granted`, AI training included, each basis
   carrying the non-endorsement condition; the Museum asserts no copyright; the
-  token metadata carries no licence. `docs/rights/registry.json` is unchanged.
-- Display: poster first, no autoplay, animation on request after a warning,
-  poster only under reduced motion, animation at most 768 CSS pixels, no
-  enlarged or full-screen animation until a flash review. The flash analysis
-  is retained in `evidence/xcopy-max-pain-4188-display/` and cited by
-  `DISPLAY-01` and `COND.01`.
+  token metadata carries no license. `docs/rights/registry.json` is unchanged.
+- Display (revised after the independent reviews of the first candidate A;
+  option (a) was decided on 2026-10-18): poster first; no autoplay; play on
+  request after a warning that also says zooming in or screen magnification
+  enlarges the flashing area; a visible, keyboard-operable stop that returns
+  to the poster; only the poster, with no play control, under reduced motion;
+  only SHA-256-verified bytes (the IPFS-addressed or Museum-retained GIF,
+  never the Nifty Gateway URL); at most `min(512px, 100%)`, so that 200
+  percent zoom stays within 1,024 pixels; and never enlarged or full screen
+  (`not_permitted`). The rules are machine-readable in the presentation
+  manifest, required by schema v3, and enforced by
+  `generate_max_pain_media.py --check`, which also checks that `DISPLAY-01`
+  states the warning, the control name, and the size rule. The flash analysis
+  of all eight loop steps is addendum 01 of
+  `evidence/xcopy-max-pain-4188-display/`, cited by `DISPLAY-01` and `COND.01`.
 - State history uses source event times: offered `2026-08-24T10:51:34.091Z`,
   authorized `2026-08-27T18:30:18.491Z`, acquired `2026-09-02T13:17:35Z`,
   received on chain `2026-09-02T13:45:23Z`, accessioned T_C.
@@ -125,14 +134,20 @@ and a public-safe boundary with no contributor or payer addresses.
 |---|---|---|
 | `evidence/xcopy-max-pain-4188-custody/` | 26,218,064 | `2cdaaf516ab62a12df4d035f76a415106720b5e089fa43918dba879bcd8f6939` |
 | `evidence/xcopy-max-pain-4188-sources/` | 26,218,096 | `ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0` |
-| `evidence/xcopy-max-pain-4188-technical/` | 26,218,159 | `86da1fd74420031e3d8ef39ec360af7afb7333cb337538d097d62196f9605bd2` |
+| `evidence/xcopy-max-pain-4188-technical/` | 26,218,159 | `d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf` |
 | `evidence/xcopy-max-pain-4188-funding/` | 26,218,159 | `b60acf8412c30ade51a723187a131b6c721b2facb02799ccf72116f45e1d0767` |
-| `evidence/xcopy-max-pain-4188-display/` | not applicable | `a242565af5b81b8299ee73641a0907a0620e73f1a47e450e0de66659ed7ef2d0` |
+| `evidence/xcopy-max-pain-4188-display/` | not applicable | `a96565fd2b3180e61400f3a4c5a1b7d0003e05c9a1e5f8ae4aa0424171b2cced` |
+| `evidence/xcopy-max-pain-4188-supplement/` | 26,218,989 | `8a13dcffa87b4781b0a1e131356dd81cb97a1cbd331e4081f319444f0fcf1e5b` |
 | `evidence/waves/museum-wave-governance-2026-10-18-max-pain-4188/` | not applicable | `e47bc89ceb6838ae318d85f694b08d852188a12b7e226f47a86fac16f4db1abc` |
 
 The flash analysis was re-run from the retained GIF and masks on 2026-10-18;
 `flash-analysis.json`, the three masks, and
-`flash-windows-presentation-widths.json` reproduced byte for byte.
+`flash-windows-presentation-widths.json` reproduced byte for byte. Addendum
+01 (`flash-analysis-all-steps.json` and `close-looking-census.json`) was
+re-run from its retained method files on the retained GIF and also reproduced
+byte for byte. The technical package's manifest changed only because its
+derived burn attribution now names private burn callers by role (see "Review
+fixes" below); no reading changed.
 
 ## Commits
 
@@ -157,7 +172,12 @@ Commits after `a6bfc1c6`, in order (hashes after the rebase):
    inventories, publication unit, tests, CI, documentation, and notes.
 7. The evidence-discipline commit (funding note and Museum note; see
    "Rebase and evidence discipline" below).
-8. Candidate A, the final commit (see below).
+8. Review-fix commits after the first candidate A (see "Review fixes" below):
+   the supplementary evidence, display addendum, and technical relabel; the
+   display, schema, and catalog code; the purchase-lot validator; the
+   manuscripts and records; and the promotion of the contributor's
+   submission, which removes `notes/wip/max-pain-4188-staging/`.
+9. Candidate A, the final commit (see below).
 
 Construction commits carry hand-authored sources only. Every generated output
 (the public entity graph, the re-pended Vera records and manifest, the MAX PAIN
@@ -186,7 +206,11 @@ python scripts/generate_manifest.py
 ```
 
 B may change only the graph records, the two accessions' direct records, the
-two presentation manifests, the bundle, and the release manifest. Notes, the
+two presentation manifests, the bundle, and the release manifest. In the MAX
+PAIN presentation manifest, `--promote-reviewed` also records the flash
+review's outcome: `max_css_width_status` becomes `confirmed_by_flash_review`
+and the display `basis` takes the generator's pinned reviewed wording. The
+publication-catalog check admits exactly that change from A to B. Notes, the
 index, `6529NM-GOV-1336667`, and `6529NM-PA-2026-001` do not change in B;
 `finalize_max_pain_accession.py` re-seals the decision and proposal records
 without changing their review state.
@@ -235,9 +259,12 @@ commitments here and in the pull request.
 
 ## Open items
 
-- Contributor and organizer review of the revised essay
-  (`records/accessions/6529NM.2026.005/public/community-funded-acquisition.md`),
-  which differs from the text the organizer approved on 26 September.
+- Before publication: record the contributor's and the organizer's approval
+  of the revised essay
+  (`records/accessions/6529NM.2026.005/public/community-funded-acquisition.md`,
+  the coordinator's v3 text), and its date, in the essay's publication
+  details. The text differs from the version the organizer approved on
+  26 September.
 - The organizer's answer on the residual funds, then the owner's choice among
   the options in the residual note.
 - Owner authorization for the CDN upload of the three posters, followed by an
@@ -245,16 +272,17 @@ commitments here and in the pull request.
   `public, max-age=31536000, immutable`) recorded after C.
 - Re-read on x.com every X post the manuscripts cite (they were read through
   public mirrors): the organizer's post of 7 September 2026, XCOPY's posts of
-  1 August 2022, 15 December 2023, 11 February 2024, 21 March 2024, and
-  28 July 2024, and Nifty Gateway's post of 21 March 2022.
-- An independent flash review of the 768-pixel limit and the prohibition on
-  enlarged animation.
-- Writer notes still open: captures of the Nifty Gateway closure notice, the
-  Wave chat messages of 28 August and 14 September, and the Tumblr API
-  response; the variant-edition token counts on the ranked-auctions contract;
-  confirmation of the Sotheby's lot wording; and the curatorial standard's
-  section 13 apparatus (bibliography, revision history, immutable edition
-  link) for the long texts.
+  1 August 2022 (the *Sunshine* post, its parent, and the CC0 post),
+  15 December 2023, 11 February 2024, 21 March 2024, and 28 July 2024, and
+  Nifty Gateway's post of 21 March 2022.
+- The independent flash review of the 512-pixel limit, recorded in B as
+  `confirmed_by_flash_review`.
+- Writer notes still open: the variant-edition token counts on the
+  ranked-auctions contract; confirmation of the Sotheby's lot wording; and the
+  curatorial standard's section 13 apparatus (bibliography, revision history,
+  immutable edition link) for the long texts. The Nifty Gateway closure notice
+  (in the source package), the organizer's Wave messages, and the Tumblr
+  listing (in the supplementary package) are now retained.
 - Review of `6529NM-GOV-1336667` after C, and reconciliation with draft PR #71
   (Salgado) whichever merges second.
 
@@ -296,3 +324,69 @@ committed evidence:
   its note 16 drop the same unretained Safe-history reading.
 
 The residual note no longer calls the 0.063 ETH "three shares".
+
+## Review fixes after the first candidate A
+
+Three independent reviews of the first candidate A (`d8b86894`) returned
+changes required: registrar and technical, curatorial and editorial, and
+accessibility and media. Their required items, and the advisories the
+coordinator adopted, were applied on top of the rebased branch before
+candidate A was regenerated.
+
+- **Essay.** `community-funded-acquisition.md` is the coordinator's v3 text,
+  verbatim except that each integration placeholder now cites committed
+  evidence. Its publication-details placeholder is the first open item above,
+  not visible text.
+- **Supplementary evidence.** `scripts/acquire_max_pain_supplementary_evidence.py`
+  wrote `evidence/xcopy-max-pain-4188-supplement/` keylessly through
+  `safe_fetch` (observed `2026-10-18T11:09:35.789Z`, target block 26,218,989):
+  edition 3265's transfer to the strategy contract and its burn, with the
+  seller of edition 4188 matched by role; the 21 mint transactions; the
+  *DAMAGE CONTROL* contract's `owner()`, creation receipt (located through
+  Blockscout, class D), ENS names, `uri(1..10)`, and metadata; the variant
+  contract's `name()`; an address-free redemption table from a complete burn
+  scan, every burn transaction's calldata, and the ten burn-redeem
+  configurations (2,547 burns; 2,545 through the extension in 2,139
+  transactions; 2,283 redemptions; 1,215 distinct accounts, as a count only;
+  1,429 burns through block 19,482,931, the last block before XCOPY's post of
+  21 March 2024), with the sorted burn transaction-hash list and its SHA-256;
+  The Memes card 47 as a public-safe projection; the earliest Tumblr post; the
+  creator-profile "Warning: flashing imagery" from the same Wayback bytes as
+  the drop-page capture; and public-safe projections of the organizer's Wave
+  messages of 28 August, 2 September, and 14 September 2026, with member
+  mentions, three payment-status names, and the acquisition wallet address
+  omitted from the transcripts and the exact part text committed by SHA-256.
+  No organizer message of 9 September about the residual exists in the Wave;
+  the residual note no longer claims one, or any participant's preference.
+- **Technical package.** Derived burn attribution names the two
+  self-addressed callers (EIP-7702-delegated accounts) by role; their
+  addresses remain only in the two raw sample receipts.
+- **Display.** Addendum 01 measures all eight loop steps under the committed
+  definition and the stricter every-transition reading at 512 to 4,000 pixels
+  with landscape and portrait fields; the largest share is 15.3 percent at
+  512 pixels and 24.9 percent at 1,024 pixels (512 at 200 percent zoom). The
+  cap, reduced-motion rule, stop control, verified-bytes rule, final
+  `not_permitted` value, warning text, and "20 color changes a second (10 full
+  cycles)" wording are applied across the generator, schema v3, the
+  presentation manifest, `DISPLAY-01`, the object entry, `COND.01`, the alt
+  text, the certificate, the statement, the authorization's blocker, the
+  register, and the roadmap.
+- **Registrar.** `docs/control-plane.md` describes the GIF raw-evidence
+  profile. `validate.py` requires every purchase custody receipt to deliver to
+  the lot's Museum custody address and every purchase register lot to agree
+  with its authorization (identifiers, object count, certificate, credit,
+  consideration, receipt, and custody), with tests.
+- **Curatorial.** The object entry, artist and project essays, chronology, alt
+  text, display authority, authorization and certificate texts, Wave
+  resolution, current view, and roadmap carry the reviewers' corrections.
+  The close-looking figures cite `close-looking-census.json`.
+- **Contributor submission.** A dedicated commit promotes the contributor's
+  submission into the accession and removes `notes/wip/max-pain-4188-staging/`.
+  The submission's original text is preserved unchanged in the contributor's
+  commit, `777ac81c` before the rebase and `ea1e4b77` on this branch.
+- **Timing.** The supplementary readings, the display addendum, and the
+  technical relabel were made after T_C (`2026-10-18T09:30:00Z`), which the
+  owner fixed. The records keep T_C. The public texts cite the new files, and
+  the records bind the display and technical manifests' current bytes; the
+  display evidence reference in `COND.01` notes when the addendum was computed.
+  No record states an observation time later than T_C.

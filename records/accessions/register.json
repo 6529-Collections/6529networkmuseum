@@ -296,11 +296,11 @@
       ],
       "completion_limits": [
         "independent_review",
-        "flash_review_before_enlarged_or_full_screen_animation"
+        "flash_review_of_animation_size_limit"
       ],
       "ongoing_stewardship_actions": [
         "Retain the token image GIF, metadata, and fixity, and replicate the IPFS objects outside the Nifty Gateway CDN.",
-        "Show the animation only under the display authority's flash limits until a flash review confirms or revises them.",
+        "Show the animation only under the display authority's limits: poster first, no larger than min(512px, 100%), never enlarged or full screen, and only the poster under reduced motion.",
         "Keep the residual funds received on 2026-09-14 outside this accession until the organizer's answer and any required decision are recorded."
       ]
     }

@@ -567,18 +567,21 @@ title instrument, purchase register lots, the proposed-acquisition family
 (`6529NM-PA-<year>-<NNN>`), and a seller recorded by role, with its address
 only in the lot's provenance schedule. Media schema v3 admits an animated GIF
 source with first-frame WebP posters and a token-linked animation reference
-whose display constraints (poster first, no autoplay, play on request after a
-flashing warning, poster only under reduced motion, at most 768 CSS pixels, no
-enlarged or full-screen animation until a flash review) rest on a retained
-flash analysis. The accession publication table replaces per-accession path
-literals in the inventory and catalog.
+whose machine-readable display constraints rest on a retained flash analysis
+of all eight loop steps: poster first, no autoplay, play on request after a
+flashing warning, a visible keyboard-operable stop, only the poster (no play
+control) under reduced motion, only SHA-256-verified bytes, at most
+`min(512px, 100%)` so that 200 percent zoom stays within 1,024 pixels, and
+never enlarged or full screen. The accession publication table replaces
+per-accession path literals in the inventory and catalog.
 
 Open decisions and follow-ups: independent review of candidate A and the
 reviewed B and catalog C sequence after the governance policy PR's own B and C;
 the independent flash review; the organizer's and contributor's review of the
-revised essay; the organizer's answer on the 0.068496911687069084 ETH residual,
-which the Museum has received but not accepted
-(`notes/wip/2026-10-18-max-pain-residual-funding.md`); re-reading the cited X
-posts on x.com; owner authorization for the CDN upload of the three posters;
-and review of `6529NM-GOV-1336667` after the catalog. The ledger is
+revised essay; and the organizer's answer on the 0.068496911687069084 ETH
+residual. The Museum has received the funds but has not accepted them, and has
+asked the organizer how they should be held
+(`notes/wip/2026-10-18-max-pain-residual-funding.md`). Also open: re-reading
+the cited X posts on x.com; owner authorization for the CDN upload of the
+three posters; and review of `6529NM-GOV-1336667` after the catalog. The ledger is
 `notes/wip/2026-10-18-max-pain-4188-accession-and-release.md`.

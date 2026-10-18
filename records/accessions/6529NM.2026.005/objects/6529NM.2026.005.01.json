@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xfb587ddff1513910597d9e1a58ba278d17d29831a03c41272940ab8ceae66977"
+      "digest": "0xe048a91b04b0a0b8ad4d652016707c563246f7e62a2a4852e8b749052dd9355a"
     },
     "effectiveAt": 1792315800,
     "recordType": "WORK_DESCRIPTION",
@@ -52,7 +52,7 @@
       "dependencies": "not_applicable",
       "documentation": "amber",
       "metadata": "amber",
-      "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis of the decoded frames.",
+      "method": "Reviewed the exact token, the finalized custody observation, the retained token metadata and IPFS path, the retained GIF and its recomputed IPFS CID, the GIF block structure and frame timing, the contract's runtime state, supply, and burns, the provenance receipts from mint to the Museum Safe, and the Museum flash analysis over all eight loop steps and close-looking census of the decoded frames (display evidence and its addendum 01).",
       "narrative": "The token, its finalized custody, and the GIF bound by the on-chain IPFS hash are verified. The metadata's image URL points to a mutable CDN copy, the token URI base can still be replaced by the contract's authorized senders, and the animation flashes beyond WCAG 2.3.2 at every size and beyond 2.3.1 when shown large.",
       "observed_at": "2026-10-18T09:30:00Z",
       "protocol_state": "ERC-721 static-file token on a non-proxy Nifty Gateway builder contract; IPFS metadata; animated GIF image",
@@ -80,7 +80,7 @@
     "medium": "Animated GIF, 4,000 x 4,000 pixels, eight frames of 50 milliseconds looping without end; Ethereum ERC-721 token whose metadata names the image by IPFS hash; Nifty Gateway open edition",
     "object_id": "6529NM.2026.005.01",
     "observed_at": "2026-10-18T09:30:00Z",
-    "payload_sha256": "sha256:445f7c805aaf6af223a44d412583e013c72650ea596723ddf2dbf526bab8508e",
+    "payload_sha256": "sha256:c0ffda2b2e000bce8f479fbd824112abdd833259e010ed1b60c28a46da420ffa",
     "preservation": {
       "fixity_sha256": "sha256:ff761f2f629ea6c71a85fffc4b63e431fb03531e1f2ec7d9b10f60d0368134c0",
       "observed_at": "2026-10-18T09:30:00Z",
@@ -238,7 +238,7 @@
       "The metadata image URL is a mutable Nifty Gateway CDN location whose Last-Modified date is 14 May 2026; the IPFS image_hash binds the bytes.",
       "The contract has not finalized the MAX PAIN type, so further minting is not excluded by code.",
       "Whether the artist site's count of 4849 excludes the two 2026 burns is inferred, not stated by the site.",
-      "The animation's flash limits rest on an unreviewed Museum computation, not a certified photosensitive-epilepsy test."
+      "The animation's flash limits rest on the Museum's computation under the WCAG 2.2 definitions over all eight loop steps, which the accession's independent review covers; it is not a certified photosensitive-epilepsy test."
     ],
     "visibility": "public"
   }

@@ -6,7 +6,7 @@ The proposal authorized the purchase of one original *MAX PAIN* by XCOPY, paid f
 
 On 2 September 2026 the organizer's acquisition wallet bought the token through Seaport 1.6 for 0.4589999999 ETH, in transaction `0xdf8b07004bfed397920355ac80991a9dd592c896ca77b1fadb5655f8c85aa4d6` at block 25,889,852. Twenty-eight minutes later it transferred the token to the Museum's Safe, `networkmuseum.6529.eth`, in transaction `0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03` at block 25,889,990, log 955. The authorization records the payment as consideration and makes no valuation or tax claim. The seller, an earlier private holder, appears by address only in the accession's provenance schedule.
 
-On 18 October 2026 at 09:30 UTC, at the owner's direction, the Museum accepted the token for the permanent Collection as object `6529NM.2026.005.01` in accession `6529NM.2026.005`. Accession Certificate `6529NM-ACC-2026-005` records the title passage and accession.
+On 18 October 2026 at 09:30 UTC the Museum formally accepted the token for the permanent Collection as object `6529NM.2026.005.01` in accession `6529NM.2026.005`. Accession Certificate `6529NM-ACC-2026-005` records the title passage and accession.
 
 The authorization does not cover the 0.068496911687069084 ETH that the acquisition wallet sent to the Museum's Safe on 14 September 2026, in transaction `0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef`. The Museum has received the funds but has not accepted them, and has asked the organizer how they should be held.
 

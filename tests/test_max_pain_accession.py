@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -24,6 +25,12 @@ RECEIPT_TX = "0xe7511598bbdabd1d4ff1c5bb7e6d1f9157a413fbcf305f0392cc30c92252ea03
 RESIDUAL_TX = "0x7d7b7733c696858dda93374395a978a4f7cb0cf4b631e2a81ab595f70d5debef"
 RESIDUAL_ETH = "0.068496911687069084"
 RESIDUAL_STATUS = "The Museum has received the funds but has not accepted them, and has asked the organizer how they should be held."
+SUPPLEMENT_CONTRACTS = {
+    "0xd1169e5349d1cb9941f3dcba135c8a4b9eacfdde",  # MAX PAIN AND FRENS
+    "0x3e34ff1790bf0a13efd7d77e75870cb525687338",  # DAMAGE CONTROL
+    "0x18a62e93ff3ab180e0c7abd4812595bf2be3405f",  # variant editions
+    "0x33fd426905f149f8376e227d0c9d3340aad17af1",  # The Memes by 6529
+}
 CREDIT = (
     "XCOPY, MAX PAIN #4188/7394, 2022. Ethereum token "
     f"{CAIP19}. Acquired through a community-funded purchase organized by Shelby and authorized by the "
@@ -133,9 +140,14 @@ class MaxPainAccessionTest(unittest.TestCase):
         constraints = item["animation_reference"]["display_constraints"]
         self.assertFalse(constraints["autoplay"])
         self.assertEqual(constraints["initial_state"], "poster")
-        self.assertEqual(constraints["max_css_width_px"], 768)
-        self.assertEqual(constraints["reduced_motion"], "poster_only_when_prefers_reduced_motion")
-        self.assertEqual(constraints["fullscreen_or_enlarged_animation"], "not_permitted_pending_flash_review")
+        self.assertEqual(constraints["max_css_width_px"], 512)
+        self.assertEqual(constraints["css_size"], "min(512px, 100%)")
+        self.assertEqual(constraints["reduced_motion"], "poster_only_no_play_control_when_prefers_reduced_motion")
+        self.assertEqual(constraints["stop_control"], "visible_keyboard_operable_stop_returns_to_poster")
+        self.assertEqual(constraints["playback_source"], "sha256_verified_bytes_only")
+        self.assertEqual(constraints["fullscreen_or_enlarged_animation"], "not_permitted")
+        self.assertEqual(item["animation_reference"]["access_urls"], ["https://gateway.pinata.cloud/ipfs/QmTcTzTPgCyvF933oeFvB4GkPgaXtF6dKuQgvg32qqLYGF"])
+        self.assertNotIn("niftygateway", json.dumps(item["animation_reference"]))
         authority = (PUBLIC_ROOT / "web-presentation-authority.md").read_text(encoding="utf-8")
         self.assertTrue(authority.startswith("---\nrecord_id: 6529NM.2026.005.DISPLAY-01\nstatus: active\n"))
         self.assertIn("evidence/xcopy-max-pain-4188-display/", authority)
@@ -181,8 +193,19 @@ class MaxPainAccessionTest(unittest.TestCase):
         # Public notes cite only committed evidence: aggregate wallet balances
         # and the accession register, not unretained per-transfer counts or a
         # Safe-history reading.
-        self.assertIn("No XCOPY appears in the Museum's earlier accessions.", museum_note)
-        self.assertIn("`evidence/xcopy-max-pain-4188-funding/`", essay)
+        self.assertIn("No earlier lot in the Museum's accession register, `6529NM.2026.001` to `6529NM.2026.003`, includes a work by XCOPY.", museum_note)
+        self.assertIn("`evidence/xcopy-max-pain-4188-funding/summary.json`", essay)
+        for cited in (
+            "evidence/xcopy-max-pain-4188-display/close-looking-census.json",
+            "evidence/xcopy-max-pain-4188-supplement/derived/damage-control-redemptions.json",
+            "evidence/xcopy-max-pain-4188-supplement/wave/funding_call_2026_08_28.json",
+            "evidence/xcopy-max-pain-4188-supplement/wave/residual_transfer_2026_09_14.json",
+            "evidence/xcopy-max-pain-4188-supplement/raw/rpc/0011-edition-3265-burn-receipt-response.json",
+        ):
+            self.assertIn(cited, essay)
+            self.assertTrue((ROOT / cited).is_file(), cited)
+        self.assertNotIn("<INTEGRATION", essay)
+        self.assertNotIn("<BEFORE PUBLICATION", essay)
         chronology = (PUBLIC_ROOT / "source-and-chronology.md").read_text(encoding="utf-8")
         for text in (essay, chronology):
             self.assertNotIn("incoming transfers", text)
@@ -300,6 +323,58 @@ class MaxPainAccessionTest(unittest.TestCase):
                 if record == "accession-statement.json":
                     continue
                 self.assertNotIn(holder, text, record)
+        # Derived evidence names private accounts by role; their addresses stay
+        # in raw RPC responses only.
+        derived = sorted(
+            path
+            for path in (ROOT / "evidence/xcopy-max-pain-4188-supplement").rglob("*")
+            if path.is_file() and "raw" not in path.relative_to(ROOT / "evidence/xcopy-max-pain-4188-supplement").parts
+        )
+        self.assertTrue(derived)
+        for path in derived:
+            text = path.read_bytes().decode("utf-8").lower()
+            self.assertNotIn(AGENT, text, path.name)
+            for holder in private_holders:
+                self.assertNotIn(holder, text, path.name)
+            for address in re.findall(r"0x[0-9a-f]{40}(?![0-9a-f])", text):
+                self.assertIn(address, SUPPLEMENT_CONTRACTS, path.name)
+        observation = json.loads((ROOT / "evidence/xcopy-max-pain-4188-technical/derived/observation.json").read_text(encoding="utf-8"))
+        for row in observation["burns"]["by_transaction_target"]:
+            if row["transaction_to"] is None:
+                self.assertIn("address withheld", row["label"])
+            else:
+                self.assertNotIn("unlabelled", row["label"])
+
+    def test_supplementary_readings_support_the_public_figures(self) -> None:
+        supplement = ROOT / "evidence/xcopy-max-pain-4188-supplement"
+        redemptions = json.loads((supplement / "derived/damage-control-redemptions.json").read_text(encoding="utf-8"))
+        totals = redemptions["totals"]
+        self.assertEqual(2547, totals["burn_logs"])
+        self.assertEqual(2545, totals["burns_through_burn_redeem_extension"])
+        self.assertEqual(2139, totals["burn_redeem_transactions"])
+        self.assertEqual(2283, totals["redemptions_by_burn"])
+        self.assertEqual(1215, totals["distinct_burn_redeem_accounts"])
+        self.assertEqual(1429, totals["burns_through_2024_03_21_post_block"]["burns"])
+        self.assertEqual(21525882, totals["last_redemption_burn"]["block"])
+        hashes = (supplement / redemptions["burn_transaction_hash_list"]["path"]).read_bytes()
+        self.assertEqual(redemptions["burn_transaction_hash_list"]["sha256"], "sha256:" + hashlib.sha256(hashes).hexdigest())
+        titles = [row["title"] for row in redemptions["works"]]
+        self.assertEqual(["OBLIVION", "BANG_BANG", "SIDEWAYZ", "CHURN", "CRAWLER", "XOMBO", "SH_MASH_MA", "BOT_ROT", "REIGN", "HEAVY"], titles)
+        summary = json.loads((supplement / "summary.json").read_text(encoding="utf-8"))
+        self.assertTrue(summary["edition_3265"]["same_wallet"])
+        self.assertEqual(21, summary["mint_transactions"]["count"])
+        identity = summary["contract_identity"]["damage_control"]
+        self.assertEqual("xcopy.eth", identity["owner_ens_reverse_name"])
+        self.assertTrue(identity["owner_equals_deployer"])
+        self.assertEqual({"GIF"}, {row["image_format"] for row in identity["metadata"].values()})
+        self.assertEqual("GIF", summary["memes_card_47"]["image_format"])
+        self.assertEqual("Warning: flashing imagery", summary["nifty_gateway_creator_profile"]["text"])
+        for message in summary["wave_messages"]:
+            projection = json.loads((supplement / message["path"]).read_text(encoding="utf-8"))
+            self.assertEqual("Shelby", projection["author_handle"])
+            for part in projection["parts"]:
+                transcript = (supplement / part["transcript_path"]).read_text(encoding="utf-8")
+                self.assertNotIn("@[", transcript)
 
 
 if __name__ == "__main__":

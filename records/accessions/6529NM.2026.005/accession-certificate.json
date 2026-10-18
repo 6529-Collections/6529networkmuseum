@@ -4,7 +4,7 @@
     "contentHash": {
       "algorithm": 1,
       "canonicalizationId": "0x886c7c89c308c459ca8a626e0ef36a5ea9f4c7a7b56aaf86c71a2ddf3b4f9044",
-      "digest": "0xff29c20c7464bebd0d2ad0ef8427c1db5a3c369f2fcfedaf68aa58e84f6b6b7e"
+      "digest": "0x4d27e03e16a4644b768aa1a0ed95924cc8c984e8c29c0bd066ba8bdfe911b4d2"
     },
     "effectiveAt": 1792315800,
     "recordType": "ACCESSION",
@@ -163,7 +163,7 @@
         "evidence_class": "A",
         "label": "On-chain technical, supply, and provenance manifest",
         "observed_at": "2026-10-18T08:24:02.181Z",
-        "sha256": "sha256:86da1fd74420031e3d8ef39ec360af7afb7333cb337538d097d62196f9605bd2",
+        "sha256": "sha256:d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf",
         "uri": "https://github.com/6529-Collections/6529networkmuseum/blob/main/evidence/xcopy-max-pain-4188-technical/manifest.json"
       }
     ],
@@ -174,9 +174,9 @@
     "ongoing_stewardship_actions": [
       "retain the token image GIF, metadata, and fixity",
       "replicate the IPFS image and metadata outside the Nifty Gateway CDN",
-      "review the flash analysis before any enlarged or full-screen animation"
+      "show the animation only within the display authority's limits, never enlarged or full screen"
     ],
-    "payload_sha256": "sha256:1b795f2a78154a3625dfee281bb8370d23af5711fddf7a5db76cf362260085d4",
+    "payload_sha256": "sha256:35701521910faddf6d8f9a35110df9c228cd5a3cadb50f4db90f46bb2796e474",
     "record_id": "6529NM-ACC-2026-005",
     "record_status": "review_pending",
     "record_type": "ACCESSION",
@@ -190,7 +190,7 @@
     "review_outcomes": {
       "condition_and_technical": "pass with conditions",
       "curatorial": "approved for permanent Collection",
-      "display": "ready with conditions: still poster first; animation on request after a flashing warning, no larger than 768 CSS pixels",
+      "display": "ready with conditions: still poster first; animation on request after a flashing warning, no larger than 512 CSS pixels and never enlarged; poster only under reduced motion",
       "identity_and_custody": "pass at finalized block 26218064",
       "institutional_authority": "formally accepted under Wave decision 1336667 and the owner's institutional decision",
       "preservation": "in progress",

@@ -16,7 +16,7 @@ This note records facts and options. It does not accept, restrict, designate, re
 - From the organizer's acquisition wallet (nonce 2) to the Museum Safe, `networkmuseum.6529.eth` (`0xbECfa2bA5a782D11E1a0e821E8F2e30b6684178c`).
 - Value 68,496,911,687,069,084 wei, that is 0.068496911687069084 ETH (`eip155:1/slip44:60`). The Safe emitted one `SafeReceived` event for that value.
 - Evidence: `evidence/xcopy-max-pain-4188-custody/summary.json` (`residual_transfer`, raw receipt, transaction, and block responses) and `evidence/xcopy-max-pain-4188-funding/summary.json`.
-- The organizer's message in the Museum Wave on 14 September 2026 says the funds were sent "for any future XCOPY purchases". On 2 September the organizer had offered contributors three options for the surplus (hold it for a future XCOPY purchase, send it to XCOPY as a royalty, or another use); one participant preferred paying XCOPY and one preferred holding it, and on 9 September the organizer said the surplus would go to the Museum wallet for future XCOPY purchases. These are the organizer's class B statements, observed by the Museum in the Wave chat; no capture is retained.
+- The organizer's message in the Museum Wave on 14 September 2026 says the leftover ETH was sent to the Museum "for any future XCOPY purchases" (`evidence/xcopy-max-pain-4188-supplement/wave/residual_transfer_2026_09_14.json`). On 2 September the organizer had told contributors that 0.063 ETH would be left and offered three options: hold it for a future XCOPY purchase for the Museum, send it to XCOPY as a "Royalty Fee", or another idea (`evidence/xcopy-max-pain-4188-supplement/wave/purchase_and_leftover_options_2026_09_02.json`). Both are the organizer's statements (class B), retained as public-safe projections with member mentions and per-person payment details omitted. No organizer message of 9 September about the residual was found in the Wave, and contributors' replies are not recorded here.
 
 ## Reconciliation of the acquisition wallet
 
@@ -33,7 +33,7 @@ The funding package reads the wallet's ETH balance and nonce at each checkpoint 
 
 Total inflow 0.5276 ETH = purchase 0.4589999999 + residual 0.068496911687069084 + gas 0.000074731658504267 + remaining balance 0.000028356754426649. The identity holds exactly.
 
-The call in the Museum Wave asked each of 25 voters for 0.021 ETH, 0.525 ETH in all. Inflows exceeded that by 0.0026 ETH, and 0.063 ETH arrived after the transfer to the Museum. The residual is therefore the surplus of the shares over the purchase price and gas plus the overpayments; it is not simply "the leftover of 25 equal shares". The package records aggregates only. No contributor or payer address is requested, derived, or retained, and the Museum publishes no per-person payment mapping.
+The call in the Museum Wave (`evidence/xcopy-max-pain-4188-supplement/wave/funding_call_2026_08_28.json`) asked each of 25 voters for 0.021 ETH, 0.525 ETH in all. Inflows exceeded that by 0.0026 ETH, and 0.063 ETH arrived after the transfer to the Museum. The residual is therefore the surplus of the shares over the purchase price and gas plus the overpayments; it is not simply "the leftover of 25 equal shares". The package records aggregates only. No contributor or payer address is requested, derived, or retained, and the Museum publishes no per-person payment mapping.
 
 ## Policy analysis
 
