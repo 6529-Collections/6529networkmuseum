@@ -26,6 +26,7 @@ from validate import (  # noqa: E402
     validate_proposed_acquisition_layout,
     validate_purchase_provenance_joins,
     validate_public_payload,
+    validate_register_purchase_lots,
     validate_records,
     validator_for,
 )
@@ -222,6 +223,66 @@ class PurchaseAcquisitionTests(unittest.TestCase):
             with self.subTest(label=label):
                 found = issues(change)
                 self.assertTrue(any(expected in issue for issue in found), (label, found))
+
+    def test_custody_receipts_must_deliver_to_the_lot_custody_address(self) -> None:
+        aqa = self.aqa()
+        lot = load_fixture("accession-lot.json")["payload"]
+        self.assertEqual([], validate_purchase_provenance_joins([("aqa.json", aqa), ("lot.json", lot)]))
+        stranger = "0x" + "7" * 40
+        mutated_aqa, mutated_lot = copy.deepcopy(aqa), copy.deepcopy(lot)
+        # The schedule is changed to match, so only the custody binding can catch it.
+        mutated_aqa["custody_receipts"][0]["to"] = stranger
+        mutated_lot["provenance_schedule"]["objects"][0]["events"][1]["to"] = stranger
+        found = validate_purchase_provenance_joins([("aqa.json", mutated_aqa), ("lot.json", mutated_lot)])
+        self.assertTrue(any("must deliver to the lot's Museum custody address" in issue for issue in found), found)
+        unnamed = copy.deepcopy(lot)
+        unnamed["provenance_schedule"]["common_receipt"].pop("museum_custody_address")
+        found = validate_purchase_provenance_joins([("aqa.json", aqa), ("lot.json", unnamed)])
+        self.assertTrue(any("must name the Museum custody address" in issue for issue in found), found)
+
+    def test_register_purchase_lot_must_agree_with_its_authorization(self) -> None:
+        aqa = self.aqa()
+        lot = copy.deepcopy(load_fixture("purchase-register-lot.json"))
+        lot.update(
+            accession_lot_id=aqa["seller"]["provenance_record_id"],
+            acquisition_authorization_record=aqa["record_id"],
+            accession_certificate_record="6529NM-ACC-2026-001",
+        )
+
+        def issues(change=None) -> list[str]:
+            mutated = copy.deepcopy(lot)
+            if change is not None:
+                change(mutated)
+            return validate_register_purchase_lots([("register.json", {"lots": [mutated]})], [("aqa.json", aqa)])
+
+        self.assertEqual([], issues())
+        cases = (
+            ("unknown authorization", lambda l: l.__setitem__("acquisition_authorization_record", "6529NM.2026.001.AQA-02"), "must name an ACQUISITION_AUTHORIZATION"),
+            ("other lot", lambda l: l.__setitem__("accession_lot_id", "6529NM.2026.009"), "name different accession lots"),
+            ("object count", lambda l: l.__setitem__("object_count", 2), "object_count"),
+            ("certificate", lambda l: l.__setitem__("accession_certificate_record", "6529NM-ACC-2026-009"), "accession certificate"),
+            ("credit", lambda l: l.__setitem__("public_credit", "Acquired through a purchase, 2026"), "public_credit"),
+            ("amount", lambda l: l["consideration_summary"].__setitem__("amount_wei", "1"), "consideration_summary.amount_wei"),
+            ("payment", lambda l: l["consideration_summary"].__setitem__("payment_transaction", "0x" + "e" * 64), "payment_transaction"),
+            ("receipt transaction", lambda l: l["receipt_event"].__setitem__("transaction_hash", "0x" + "c" * 64), "exactly one"),
+            ("receipt block", lambda l: l["receipt_event"].__setitem__("block_number", 12345679), "receipt_event.block_number"),
+            ("receipt log", lambda l: l["receipt_event"].__setitem__("log_index", 9), "receipt_event.log_index"),
+            ("receipt recipient", lambda l: l["receipt_event"].__setitem__("to", "0x" + "7" * 40), "receipt_event.to"),
+            ("custody", lambda l: l["custody"].__setitem__("address", "0x" + "7" * 40), "custody address"),
+        )
+        for label, change, expected in cases:
+            with self.subTest(label=label):
+                found = issues(change)
+                self.assertTrue(any(expected in issue for issue in found), (label, found))
+        gift = {key: value for key, value in lot.items() if key != "acquisition_method"}
+        self.assertEqual([], validate_register_purchase_lots([("register.json", {"lots": [gift]})], []))
+
+    def test_repository_purchase_lot_agrees_with_its_authorization(self) -> None:
+        register = load_json(REPO_ROOT / "records/accessions/register.json")
+        aqa = load_json(REPO_ROOT / "records/accessions/6529NM.2026.005/acquisition-authorization.json")["payload"]
+        lot = load_json(REPO_ROOT / "records/accessions/6529NM.2026.005/accession-statement.json")["payload"]
+        self.assertEqual([], validate_register_purchase_lots([("register.json", register)], [("aqa.json", aqa)]))
+        self.assertEqual([], validate_purchase_provenance_joins([("aqa.json", aqa), ("lot.json", lot)]))
 
     def test_gift_authorization_records_are_outside_the_purchase_validator(self) -> None:
         for lot in ("6529NM.2026.001", "6529NM.2026.002", "6529NM.2026.003"):

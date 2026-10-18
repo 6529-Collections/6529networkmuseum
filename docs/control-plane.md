@@ -102,8 +102,8 @@ that need the whole repository or need to compare values:
   Project/Series entities, 30 acquisition-independent Work entities, two
   Acquisition Programs, exact slug/route families, typed Artist
   creator relations, 14 permanent Collection memberships across the completed
-  Casey, Magnum, Vera Molnár, and MAX PAIN accessions, and 16 Keys and Gates
-  selections outside the Collection.
+  Casey and Magnum accessions and the review-pending Vera Molnár and MAX PAIN
+  accessions, and 16 Keys and Gates selections outside the Collection.
 - `tests/test_public_entity_layer.py` verifies every Work/media join against its
   governed presentation state: all 7 Casey Works have an official visual still
   and sandboxed live generator, while the 16 Keys and Gates derivatives and
@@ -125,9 +125,18 @@ approved collections reference adopted decisions, evidence manifest paths,
 media types, sizes, and raw-byte hashes match, and every reviewed
 `record_control.payload_sha256` matches its record payload. Manifest-authorized
 raw binary evidence is checked before UTF-8 public-safety scanning and is
-limited in this profile to an explicitly declared, structurally parsed PNG
-(valid signature, IHDR/IEND, chunk bounds/CRCs, and no trailing bytes). It
-receives the same known credential-pattern gate across raw bytes, ASCII/UTF-8,
+limited in this profile to two explicitly declared, structurally parsed image
+types. A PNG must have a valid signature, IHDR/IEND, chunk bounds and CRCs,
+and no trailing bytes. A GIF (`image/gif`, GIF87a or GIF89a) must pass the
+strict walk in `scripts/gif_structure.py`: the logical screen descriptor,
+color tables, every extension and image block, and every data sub-block
+length are bounds-checked; only Graphic Control, Comment, Plain Text, and the
+admitted application extensions (`NETSCAPE2.0`, `ANIMEXTS1.0`, and
+`XMP DataXMP`) are accepted, with GIF89a extensions rejected in a GIF87a
+file, at most one Graphic Control Extension per rendering block, and frames
+inside the logical screen; and the trailer byte `0x3B` must be the final byte.
+The walk never decompresses or renders image data. Both types receive the
+same known credential-pattern gate across raw bytes, ASCII/UTF-8,
 and UTF-16LE/BE spans, including cloud-key/token, path, DSA/PGP/generic PEM,
 and private-key shapes; this detects known shapes, not arbitrary
 steganography. Every unmanifested evidence file must also use a recognized
