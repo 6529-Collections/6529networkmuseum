@@ -1,0 +1,27 @@
+{
+  "artist": "XCOPY",
+  "collection": "The Memes by 6529",
+  "contract": "0x33FD426905F149f8376e227d0C9D3340AaD17aF1",
+  "excluded_fields": "market, holder, offer and floor fields (including account addresses) are excluded",
+  "id": 47,
+  "image": "https://d3lqz0a4bldqgf.cloudfront.net/images/original/0x33FD426905F149f8376e227d0C9D3340AaD17aF1/47.GIF",
+  "metadata_image": "https://arweave.net/B_j9Z1NTIt5QUGx_TTnAh0F93BMQ1FRAnDEg-TrehaE",
+  "metadata_image_details": {
+    "bytes": 16977727,
+    "format": "GIF",
+    "height": 3000,
+    "sha256": "0d8a5c1d829c0625a0dc7885718eaabf99b792eea8ce0c1e4280b0463e873264",
+    "width": 2091
+  },
+  "mint_date": "2022-12-16T12:26:47.000Z",
+  "name": "EXIT STRATEGY",
+  "raw_response": {
+    "reason": "The response carries holder and offer account addresses.",
+    "retained": false,
+    "sha256": "sha256:a835cedcf7026ca31d18721187a688ee0530f0e3ac0373ca0171a2dc521988e1",
+    "size": 3891
+  },
+  "supply": 420,
+  "token_type": "ERC1155",
+  "uri": "https://arweave.net/F8zKA8wNE9VHS6IcoUsmrwOI-4i6QohLMuj0Y5bUj_M"
+}

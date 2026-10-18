@@ -1,0 +1,219 @@
+"""All-step flash addendum for the MAX PAIN #4188/7394 GIF.
+
+Usage: python -I flash_all_steps.py <gif> <out json>
+
+Run with flash.py and gif_structure.py beside this file.  The first
+measurement (flash.py) took the 10-degree-field window only at frame steps
+0->1 and 1->2.  This addendum measures every one of the eight loop steps, under
+two readings of the concurrent flashing area at a step:
+
+* committed: pixels with a qualifying luminance transition at that step
+  (change of at least 0.1 with the darker state below 0.8) that also flash
+  more than three times a second, the definition used by flash.py;
+* all_transitions: every pixel with a qualifying luminance transition at that
+  step, whether or not it flashes more than three times a second (the
+  conservative reading of WCAG note 2).
+
+For each display size the step mask is box-resampled from the 4,000 px source
+to the display size (to a 2,000 px grid, with the window scaled, for sizes
+above 2,048 px) and the largest share of a 10-degree field is found with a
+one-pixel stride, for a landscape window (341 x 256 px on a 1024 x 768
+reference screen) and a portrait window (256 x 341 px).
+
+Red flash: black is treated as having no chromaticity, so a change between
+black and a saturated red counts as a red transition (stricter than flash.py,
+which gave black the D65 white point).  Two red readings are reported: the
+largest share of a 10-degree field covered by pixels that red-flash more than
+three times a second, and, per step, the largest share covered by every pixel
+with a red transition at that step (red_all_transitions), an upper bound on
+the concurrent red flashing area.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+from PIL import Image
+
+Image.MAX_IMAGE_PIXELS = 100_000_000
+HERE = Path(__file__).resolve().parent
+DISPLAY_PX = (512, 640, 768, 1024, 1280, 1536, 2048, 4000)
+GRID_LIMIT_PX = 2048
+GRID_PX = 2000
+LANDSCAPE = (341, 256)
+LIMIT = 0.25
+
+
+def load(name: str):
+    spec = importlib.util.spec_from_file_location(name, HERE / f"{name}.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def window_max(mask: Image.Image, windows: list[tuple[int, int]]) -> list[float]:
+    """Largest mean of each window size over ``mask`` (one-pixel stride)."""
+
+    width, height = mask.size
+    data = mask.tobytes()
+    previous = [0] * (width + 1)
+    rows = [previous]
+    for y in range(height):
+        line = data[y * width : (y + 1) * width]
+        current = [0] * (width + 1)
+        accumulator = 0
+        for x in range(width):
+            accumulator += line[x]
+            current[x + 1] = previous[x + 1] + accumulator
+        rows.append(current)
+        previous = current
+    results = []
+    for win_w, win_h in windows:
+        ww, wh = min(win_w, width), min(win_h, height)
+        best = 0
+        for y in range(height - wh + 1):
+            top, bottom = rows[y], rows[y + wh]
+            for x in range(width - ww + 1):
+                total = bottom[x + ww] - top[x + ww] - bottom[x] + top[x]
+                if total > best:
+                    best = total
+        results.append(best / 255 / (win_w * win_h))
+    return results
+
+
+def sized(mask: Image.Image, display: int) -> tuple[Image.Image, tuple[int, int], tuple[int, int]]:
+    if display <= GRID_LIMIT_PX:
+        return mask.resize((display, display), Image.Resampling.BOX), LANDSCAPE, (LANDSCAPE[1], LANDSCAPE[0])
+    scale = GRID_PX / display
+    landscape = (round(LANDSCAPE[0] * scale), round(LANDSCAPE[1] * scale))
+    return mask.resize((GRID_PX, GRID_PX), Image.Resampling.BOX), landscape, (landscape[1], landscape[0])
+
+
+def red_rate(states: list[dict], black: set[int], sequence: list[int]) -> int:
+    transitions = 0
+    last = None
+    for index, (a, b) in enumerate(zip(states, states[1:])):
+        red_a = max(a["red_ratio_linear"], a["red_ratio_gamma"]) >= 0.8
+        red_b = max(b["red_ratio_linear"], b["red_ratio_gamma"]) >= 0.8
+        if not (red_a or red_b):
+            continue
+        if sequence[index] in black or sequence[index + 1] in black:
+            different = sequence[index] != sequence[index + 1]
+        else:
+            different = ((a["u"] - b["u"]) ** 2 + (a["v"] - b["v"]) ** 2) ** 0.5 > 0.2
+        if not different:
+            continue
+        kind = "into" if red_b and not red_a else ("out" if red_a and not red_b else "red-red")
+        if kind != last:
+            transitions += 1
+            last = kind
+    return transitions // 2
+
+
+def main() -> int:
+    gif, out = sys.argv[1], Path(sys.argv[2])
+    parser, flash = load("gif_structure"), load("flash")
+    canvases: list[bytes] = []
+    meta: dict = {}
+
+    def grab(index, canvas, width, height, gct):
+        canvases.append(bytes(canvas))
+        meta.update(width=width, height=height, gct=gct)
+
+    parser.parse(gif, True, grab)
+    width, height, gct = meta["width"], meta["height"], meta["gct"]
+    frames = len(canvases)
+    palette = {index: tuple(gct[index * 3 : index * 3 + 3]) for index in range(len(gct) // 3)}
+    facts = {index: flash.colour_facts(rgb) for index, rgb in palette.items()}
+    black = {index for index, rgb in palette.items() if rgb == (0, 0, 0)}
+    per_second = 20
+    signatures = Counter(zip(*canvases))
+    general, red = {}, {}
+    for signature in signatures:
+        best_general = best_red = 0
+        for phase in range(frames):
+            sequence = [signature[(phase + k) % frames] for k in range(per_second + 1)]
+            best_general = max(best_general, flash.count_general([facts[i]["L"] for i in sequence]))
+            best_red = max(best_red, red_rate([facts[i] for i in sequence], black, sequence))
+        general[signature] = 255 if best_general > 3 else 0
+        red[signature] = 255 if best_red > 3 else 0
+    total = width * height
+    mask_general = Image.frombytes("L", (width, height), bytes(map(general.__getitem__, zip(*canvases))))
+    mask_red = Image.frombytes("L", (width, height), bytes(map(red.__getitem__, zip(*canvases))))
+
+    def qualifying(x: int, y: int) -> int:
+        if x == y:
+            return 0
+        a, b = facts[x]["L"], facts[y]["L"]
+        return 255 if abs(a - b) >= 0.1 and min(a, b) < 0.8 else 0
+
+    def red_transition(x: int, y: int) -> int:
+        if x == y:
+            return 0
+        a, b = facts[x], facts[y]
+        red_a = max(a["red_ratio_linear"], a["red_ratio_gamma"]) >= 0.8
+        red_b = max(b["red_ratio_linear"], b["red_ratio_gamma"]) >= 0.8
+        if not (red_a or red_b):
+            return 0
+        if x in black or y in black:
+            return 255
+        return 255 if ((a["u"] - b["u"]) ** 2 + (a["v"] - b["v"]) ** 2) ** 0.5 > 0.2 else 0
+
+    readings = {"committed": {}, "all_transitions": {}, "red_all_transitions": {}}
+    image_share = {"committed": [], "all_transitions": [], "red_all_transitions": []}
+    for step in range(frames):
+        a, b = canvases[step], canvases[(step + 1) % frames]
+        table = {pair: qualifying(*pair) for pair in Counter(zip(a, b))}
+        transitions = Image.frombytes("L", (width, height), bytes(map(table.__getitem__, zip(a, b))))
+        committed = Image.composite(transitions, Image.new("L", (width, height), 0), mask_general)
+        red_table = {pair: red_transition(*pair) for pair in table}
+        red_transitions = Image.frombytes("L", (width, height), bytes(map(red_table.__getitem__, zip(a, b))))
+        for name, mask in (("committed", committed), ("all_transitions", transitions), ("red_all_transitions", red_transitions)):
+            image_share[name].append(round(mask.histogram()[255] / total, 5))
+            for display in DISPLAY_PX:
+                grid, landscape, portrait = sized(mask, display)
+                row = readings[name].setdefault(str(display), {"landscape": [], "portrait": [], "window_px": {"landscape": list(landscape), "portrait": list(portrait)}, "grid_px": grid.size[0]})
+                wide, tall = window_max(grid, [landscape, portrait])
+                row["landscape"].append(round(wide, 4))
+                row["portrait"].append(round(tall, 4))
+        print(f"step {step} done", file=sys.stderr, flush=True)
+
+    summary = {}
+    for name, sizes in readings.items():
+        for display, row in sizes.items():
+            worst = max(row["landscape"] + row["portrait"])
+            summary.setdefault(name, {})[display] = {
+                "largest_share": worst,
+                "largest_share_landscape": max(row["landscape"]),
+                "largest_share_portrait": max(row["portrait"]),
+                "worst_step": (row["landscape"] + row["portrait"]).index(worst) % frames,
+                "steps_over_25_percent": sum(1 for step in range(frames) if max(row["landscape"][step], row["portrait"][step]) > LIMIT),
+            }
+    red_windows = {}
+    for display in DISPLAY_PX:
+        grid, landscape, portrait = sized(mask_red, display)
+        red_windows[str(display)] = round(max(window_max(grid, [landscape, portrait])), 5)
+    result = {
+        "source_sha256": "sha256:" + hashlib.sha256(Path(gif).read_bytes()).hexdigest(),
+        "frames": frames,
+        "steps": [f"{step}->{(step + 1) % frames}" for step in range(frames)],
+        "display_px": list(DISPLAY_PX),
+        "pixel_share_more_than_three_general_flashes_per_second": round(mask_general.histogram()[255] / total, 5),
+        "pixel_share_more_than_three_red_flashes_per_second_black_without_chromaticity": round(mask_red.histogram()[255] / total, 5),
+        "image_share_by_step": image_share,
+        "ten_degree_field_share_by_display_px_and_step": readings,
+        "largest_ten_degree_field_share_by_display_px": summary,
+        "red_flash_ten_degree_field_upper_bound_by_display_px": red_windows,
+    }
+    out.write_text(json.dumps(result, indent=1) + "\n", encoding="utf-8", newline="\n")
+    print(json.dumps({"largest": summary, "red": red_windows}, indent=1))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

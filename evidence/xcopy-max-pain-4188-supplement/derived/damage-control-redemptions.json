@@ -1,0 +1,443 @@
+{
+  "burn_transaction_hash_list": {
+    "canonicalization": "lowercase 0x transaction hashes sorted ascending, one per line, LF-terminated",
+    "count": 2141,
+    "path": "derived/burn-transaction-hashes.txt",
+    "sha256": "sha256:ca3cf1e30e8a433d7bb6be41b7a5ba072d91ce75673559995f5a82ae17da6c2f"
+  },
+  "interpretation_boundary": "contract_redeemed_count is the burn-redeem extension's counter and includes redemptions that were not paid by burning (for example airdrops); redemptions_by_burn counts only burn-redeem calls.",
+  "method": "Complete eth_getLogs scan on https://rpc.mevblocker.io of MAX PAIN Transfer logs to the zero address, 10000-block windows from block 14451975 to 26218989; eth_getTransactionByHash for every burn transaction; burnRedeem calldata decoded per call (instance, redemption count, burn tokens) and checked against each transaction's Transfer logs; getBurnRedeem(address,uint256) read for each instance at the target block; instances matched to tokens by their Arweave location and uri(n).",
+  "privacy_boundary": "Counts only. No burner, payer or caller address is retained; scan and transaction responses are committed by SHA-256.",
+  "record_id": "6529NM.2026.005.SUPPLEMENTARY-EVIDENCE-01.DAMAGE-CONTROL-REDEMPTIONS",
+  "scan_block_range": [
+    14451975,
+    26218989
+  ],
+  "totals": {
+    "batch_call_transactions": 87,
+    "burn_logs": 2547,
+    "burn_redeem_transactions": 2139,
+    "burn_transactions": 2141,
+    "burns_in_other_transactions": 2,
+    "burns_through_2024_03_21_post_block": {
+      "boundary_block": 19482931,
+      "boundary_block_time": "2024-03-21T12:06:35Z",
+      "burns": 1429,
+      "existing_after": 5965,
+      "next_block_time": "2024-03-21T12:06:47Z",
+      "post_time": "2024-03-21T12:06:45Z"
+    },
+    "burns_through_burn_redeem_extension": 2545,
+    "distinct_burn_redeem_accounts": 1215,
+    "first_burn": {
+      "block": 18764571,
+      "time": "2023-12-11T17:52:47Z"
+    },
+    "last_redemption_burn": {
+      "block": 21525882,
+      "time": "2024-12-31T23:58:23Z"
+    },
+    "redemptions_by_burn": 2283,
+    "single_call_transactions": 2052
+  },
+  "works": [
+    {
+      "burn_redeem_instance_id": 61389040,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 500,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 1,
+      "first_burn": {
+        "block": 18764571,
+        "time": "2023-12-11T17:52:47Z"
+      },
+      "last_burn": {
+        "block": 18764712,
+        "time": "2023-12-11T18:21:23Z"
+      },
+      "max_pain_burned": 500,
+      "redemptions_by_burn": 500,
+      "title": "OBLIVION",
+      "transactions": 445,
+      "window_end": null,
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 65497328,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 250,
+      "cost_eth": "0.2",
+      "cost_wei": "200000000000000000",
+      "damage_control_token_id": 2,
+      "first_burn": {
+        "block": 18977303,
+        "time": "2024-01-10T15:00:11Z"
+      },
+      "last_burn": {
+        "block": 18977308,
+        "time": "2024-01-10T15:01:11Z"
+      },
+      "max_pain_burned": 230,
+      "redemptions_by_burn": 230,
+      "title": "BANG_BANG",
+      "transactions": 192,
+      "window_end": "2024-01-11T15:00:00Z",
+      "window_start": "2024-01-10T15:00:00Z"
+    },
+    {
+      "burn_redeem_instance_id": 35188976,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 420,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 3,
+      "first_burn": {
+        "block": 18977453,
+        "time": "2024-01-10T15:30:23Z"
+      },
+      "last_burn": {
+        "block": 18984580,
+        "time": "2024-01-11T15:29:35Z"
+      },
+      "max_pain_burned": 395,
+      "redemptions_by_burn": 395,
+      "title": "SIDEWAYZ",
+      "transactions": 366,
+      "window_end": "2024-01-11T15:30:00Z",
+      "window_start": "2024-01-10T15:30:00Z"
+    },
+    {
+      "burn_redeem_instance_id": 35539184,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        },
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 159,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 4,
+      "first_burn": {
+        "block": 19011743,
+        "time": "2024-01-15T10:39:35Z"
+      },
+      "last_burn": {
+        "block": 21524956,
+        "time": "2024-12-31T20:52:23Z"
+      },
+      "max_pain_burned": 296,
+      "redemptions_by_burn": 148,
+      "title": "CHURN",
+      "transactions": 144,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 40620272,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 312,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 5,
+      "first_burn": {
+        "block": 19201246,
+        "time": "2024-02-11T00:25:11Z"
+      },
+      "last_burn": {
+        "block": 21525880,
+        "time": "2024-12-31T23:57:59Z"
+      },
+      "max_pain_burned": 282,
+      "redemptions_by_burn": 282,
+      "title": "CRAWLER",
+      "transactions": 273,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 3814932720,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 251,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 6,
+      "first_burn": {
+        "block": 20383088,
+        "time": "2024-07-25T10:52:35Z"
+      },
+      "last_burn": {
+        "block": 21525807,
+        "time": "2024-12-31T23:43:23Z"
+      },
+      "max_pain_burned": 223,
+      "redemptions_by_burn": 223,
+      "title": "XOMBO",
+      "transactions": 219,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 3814934768,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 1,
+              "contract_role": "damage_control",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc1155"
+            }
+          ],
+          "required_count": 1
+        },
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 125,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 7,
+      "first_burn": {
+        "block": 20383154,
+        "time": "2024-07-25T11:05:47Z"
+      },
+      "last_burn": {
+        "block": 21525882,
+        "time": "2024-12-31T23:58:23Z"
+      },
+      "max_pain_burned": 112,
+      "redemptions_by_burn": 112,
+      "title": "SH_MASH_MA",
+      "transactions": 112,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 3799062768,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 1,
+              "contract_role": "damage_control",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc1155"
+            }
+          ],
+          "required_count": 1
+        },
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 126,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 8,
+      "first_burn": {
+        "block": 20727297,
+        "time": "2024-09-11T12:14:11Z"
+      },
+      "last_burn": {
+        "block": 21525855,
+        "time": "2024-12-31T23:52:59Z"
+      },
+      "max_pain_burned": 112,
+      "redemptions_by_burn": 112,
+      "title": "BOT_ROT",
+      "transactions": 111,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 3782011120,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 178,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 9,
+      "first_burn": {
+        "block": 21136370,
+        "time": "2024-11-07T14:27:59Z"
+      },
+      "last_burn": {
+        "block": 21525880,
+        "time": "2024-12-31T23:57:59Z"
+      },
+      "max_pain_burned": 167,
+      "redemptions_by_burn": 167,
+      "title": "REIGN",
+      "transactions": 165,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    },
+    {
+      "burn_redeem_instance_id": 3781179632,
+      "burn_requirement": [
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        },
+        {
+          "items": [
+            {
+              "amount": 0,
+              "contract_role": "max_pain",
+              "max_token_id": 0,
+              "min_token_id": 0,
+              "token_spec": "erc721"
+            }
+          ],
+          "required_count": 1
+        }
+      ],
+      "contract_redeemed_count": 125,
+      "cost_eth": "0.1",
+      "cost_wei": "100000000000000000",
+      "damage_control_token_id": 10,
+      "first_burn": {
+        "block": 21142632,
+        "time": "2024-11-08T11:29:47Z"
+      },
+      "last_burn": {
+        "block": 21525711,
+        "time": "2024-12-31T23:23:59Z"
+      },
+      "max_pain_burned": 228,
+      "redemptions_by_burn": 114,
+      "title": "HEAVY",
+      "transactions": 112,
+      "window_end": "2024-12-31T23:59:00Z",
+      "window_start": null
+    }
+  ]
+}

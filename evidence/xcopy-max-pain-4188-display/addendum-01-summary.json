@@ -1,0 +1,140 @@
+{
+  "accession_id": "6529NM.2026.005",
+  "addendum_to": {
+    "reason": "An independent accessibility review of candidate A found that flash-analysis.json measured the 10-degree field at frame steps 0->1 and 1->2 only, and that the other six loop steps are worse. This addendum measures all eight steps, adds the stricter all-transitions reading and a portrait window, and records the close-looking census the public texts cite.",
+    "summary": "summary.json",
+    "supersedes": [
+      "flash-analysis.json: max_10deg_field_fraction_by_display_px (two steps only)",
+      "flash-windows-presentation-widths.json (two steps only)",
+      "summary.json: results.largest_flashing_share_of_a_ten_degree_field_by_display_px, results.presentation_width_check_on_1000_px_masks, results.wcag_2_3_1, results.red_flash_largest_share_of_a_ten_degree_field_upper_bound and display_decisions_supported"
+    ],
+    "unchanged": "The earlier files are kept byte for byte; their per-pixel flash rates (5.507 percent of pixels flash more than three times a second) and red-flash pixel shares still stand."
+  },
+  "computed_at": {
+    "close-looking-census.json": "2026-10-18T11:20:37Z",
+    "flash-analysis-all-steps.json": "2026-10-18T11:17:40Z"
+  },
+  "display_decisions_supported": [
+    "Show a still poster of the first frame first; never autoplay.",
+    "Play the animation only on an explicit visitor request after a flashing warning, with a visible keyboard-operable stop that returns to the poster.",
+    "Under prefers-reduced-motion show only the poster and do not offer the animation.",
+    "Show the animation no larger than min(512px, 100%): 15.3 percent at 512 px and 24.9 percent at the 200 percent zoom equivalent of 1,024 px under the stricter reading.",
+    "Never show the animation enlarged, zoomed, or full screen.",
+    "Play only bytes whose SHA-256 matches the retained GIF."
+  ],
+  "limitations": [
+    "This is the Museum's computation under the WCAG 2.2 definitions, not a certified photosensitive-epilepsy test.",
+    "Display size is modelled on a 1024 x 768 reference screen; physical screen size, viewing distance, operating-system magnification beyond 200 percent zoom, and browser resampling are not measured.",
+    "Color names in the census are Museum interpretation of hexadecimal values."
+  ],
+  "method": {
+    "readings": {
+      "all_transitions": "every pixel with a qualifying luminance transition at the step (change of at least 0.1 with the darker state below 0.8), the conservative reading of WCAG note 2",
+      "committed": "pixels with a qualifying luminance transition at the step that also flash more than three times a second (the definition of flash.py)",
+      "red_all_transitions": "every pixel with a red transition at the step, with black treated as having no chromaticity"
+    },
+    "reproduction": "Re-running both scripts from the retained method files on the retained GIF reproduced flash-analysis-all-steps.json and close-looking-census.json byte for byte on 2026-10-18.",
+    "runtime": "Python 3.12.10 with Pillow 12.3.0",
+    "scripts": {
+      "all_steps": "method/flash_all_steps.py.txt (run as flash_all_steps.py with method/flash.py.txt as flash.py and method/gif_structure.py.txt as gif_structure.py beside it): python -I flash_all_steps.py <gif> <out json>",
+      "census": "method/close_looking_census.py.txt (run as close_looking_census.py with method/gif_structure.py.txt as gif_structure.py beside it): python -I close_looking_census.py <gif> <out json>"
+    },
+    "windows": "341 x 256 px landscape and 256 x 341 px portrait 10-degree fields on a 1024 x 768 reference screen, one-pixel stride; masks box-resampled to the display size, or to a 2,000 px grid with the window scaled for sizes above 2,048 px"
+  },
+  "object_id": "6529NM.2026.005.01",
+  "observed_at": "2026-10-18T11:20:37Z",
+  "record_id": "6529NM.2026.005.DISPLAY-EVIDENCE-01.ADDENDUM-01",
+  "record_type": "XCOPY_MAX_PAIN_4188_FLASH_ANALYSIS_ADDENDUM",
+  "results": {
+    "close_looking_census": {
+      "changed_share_by_step_range": [
+        0.17259,
+        0.17623
+      ],
+      "colors_all_on_0x33_grid": true,
+      "colors_used": 44,
+      "global_color_table_entries": 64,
+      "mean_share_over_loop_by_public_name": {
+        "black": 0.65026,
+        "dark teal": 0.02469,
+        "hot pink": 0.0562,
+        "magenta": 0.03456,
+        "navy": 0.03744,
+        "red-pink": 0.01609,
+        "rose": 0.00628,
+        "teal": 0.11098
+      },
+      "path": "close-looking-census.json",
+      "same_parity_difference_range": [
+        0.01409,
+        0.01844
+      ],
+      "same_parity_union_bounding_box_px": [
+        1046,
+        1754,
+        3562,
+        2787
+      ],
+      "unchanged_in_every_frame_share": 0.80761
+    },
+    "largest_flashing_share_of_a_ten_degree_field_all_eight_steps": {
+      "1024": {
+        "all_transitions": 0.249,
+        "committed": 0.2061,
+        "red_all_transitions": 0.0137,
+        "steps_over_25_percent_all_transitions": 0
+      },
+      "1280": {
+        "all_transitions": 0.2926,
+        "committed": 0.2185,
+        "red_all_transitions": 0.021,
+        "steps_over_25_percent_all_transitions": 7
+      },
+      "1536": {
+        "all_transitions": 0.3337,
+        "committed": 0.2649,
+        "red_all_transitions": 0.029,
+        "steps_over_25_percent_all_transitions": 8
+      },
+      "2048": {
+        "all_transitions": 0.4485,
+        "committed": 0.3613,
+        "red_all_transitions": 0.0458,
+        "steps_over_25_percent_all_transitions": 8
+      },
+      "4000": {
+        "all_transitions": 0.7751,
+        "committed": 0.6679,
+        "red_all_transitions": 0.1152,
+        "steps_over_25_percent_all_transitions": 8
+      },
+      "512": {
+        "all_transitions": 0.1532,
+        "committed": 0.1312,
+        "red_all_transitions": 0.0064,
+        "steps_over_25_percent_all_transitions": 0
+      },
+      "640": {
+        "all_transitions": 0.1865,
+        "committed": 0.1583,
+        "red_all_transitions": 0.009,
+        "steps_over_25_percent_all_transitions": 0
+      },
+      "768": {
+        "all_transitions": 0.1962,
+        "committed": 0.1645,
+        "red_all_transitions": 0.0118,
+        "steps_over_25_percent_all_transitions": 0
+      }
+    },
+    "wcag_2_3_1": "Under the stricter all-transitions reading the largest flashing share of a 10-degree field is 15.3 percent at 512 px and 24.9 percent at 1,024 px (512 px at 200 percent zoom), within the 25 percent limit; it is 29.3 percent at 1,280 px, 33.4 percent at 1,536 px and 44.9 percent at 2,048 px. Red transitions cover at most 0.6 percent at 512 px and 1.4 percent at 1,024 px.",
+    "wcag_2_3_2": "not met at any size: about 5.5 percent of the image flashes more than three times a second"
+  },
+  "source": {
+    "path": "evidence/xcopy-max-pain-4188-sources/raw/token-image.gif",
+    "sha256": "sha256:3ba2c6c6a7b7da940b5780da8fe301e61366a0b5c738be16e537ee122630be2e",
+    "size": 4541937
+  },
+  "status": "museum_technical_measurement_pending_independent_flash_review",
+  "timing_note": "Computed after the accession's construction time (2026-10-18T09:30:00Z) in response to the independent reviews of candidate A; the source GIF and the earlier analysis are unchanged."
+}

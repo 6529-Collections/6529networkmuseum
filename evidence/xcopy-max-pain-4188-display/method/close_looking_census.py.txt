@@ -1,0 +1,146 @@
+"""Close-looking census of the MAX PAIN #4188/7394 GIF.
+
+Usage: python -I close_looking_census.py <gif> <out json>
+
+Decodes the eight composited frames in palette-index space with the retained
+stdlib GIF decoder (gif_structure.py beside this file) and counts:
+
+* the share of pixels identical in every frame;
+* the share of pixels that change at each of the eight frame steps;
+* the share of pixels that differ between frames of the same parity
+  (frame t against frame t + 2, cyclically), with the bounding box of those
+  differences;
+* the colors used, whether every channel is a multiple of 0x33 (the
+  216-color web-safe grid), the global color table size, and each color's
+  share of the image in frame 0 and averaged over the eight frames.
+
+Shares are fractions of the 4,000 x 4,000 pixel image.  Names given to
+colors in the public texts are Museum interpretation; the census records only
+hexadecimal values.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+# Names the public texts give to the main colors (Museum interpretation).
+NAMES_IN_PUBLIC_TEXTS = {
+    "#000000": "black",
+    "#009999": "teal",
+    "#003366": "navy",
+    "#003333": "dark teal",
+    "#ff0099": "hot pink",
+    "#ff00ff": "magenta",
+    "#ff0033": "red-pink",
+    "#ff0066": "rose",
+}
+
+
+def load_parser():
+    spec = importlib.util.spec_from_file_location("gif_structure", HERE / "gif_structure.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def bbox(mask: bytes, width: int) -> list[int] | None:
+    first = mask.find(1)
+    if first < 0:
+        return None
+    last = mask.rfind(1)
+    top, bottom = first // width, last // width
+    left, right = width, -1
+    for row in range(top, bottom + 1):
+        line = mask[row * width : (row + 1) * width]
+        start = line.find(1)
+        if start >= 0:
+            left = min(left, start)
+            right = max(right, line.rfind(1))
+    return [left, top, right + 1, bottom + 1]
+
+
+def main() -> int:
+    gif, out = sys.argv[1], Path(sys.argv[2])
+    parser = load_parser()
+    canvases: list[bytes] = []
+    meta: dict = {}
+
+    def grab(index, canvas, width, height, gct):
+        canvases.append(bytes(canvas))
+        meta.update(width=width, height=height, gct=gct)
+
+    structure = parser.parse(gif, True, grab)
+    width, height, gct = meta["width"], meta["height"], meta["gct"]
+    total = width * height
+    frames = len(canvases)
+    palette = {index: tuple(gct[index * 3 : index * 3 + 3]) for index in range(len(gct) // 3)}
+    hexes = {index: "#%02x%02x%02x" % rgb for index, rgb in palette.items()}
+
+    unchanged = sum(1 for column in zip(*canvases) if len(set(column)) == 1)
+    steps = []
+    for step in range(frames):
+        a, b = canvases[step], canvases[(step + 1) % frames]
+        steps.append({"from": step, "to": (step + 1) % frames, "changed_share": round(sum(1 for x, y in zip(a, b) if x != y) / total, 5)})
+    parity = []
+    union = None
+    for step in range(frames):
+        a, b = canvases[step], canvases[(step + 2) % frames]
+        mask = bytes(1 if x != y else 0 for x, y in zip(a, b))
+        box = bbox(mask, width)
+        parity.append({"from": step, "to": (step + 2) % frames, "changed_share": round(sum(mask) / total, 5), "bounding_box_px": box})
+        if box:
+            union = box if union is None else [min(union[0], box[0]), min(union[1], box[1]), max(union[2], box[2]), max(union[3], box[3])]
+
+    per_frame = [Counter(canvas) for canvas in canvases]
+    used = sorted(set().union(*per_frame))
+    colors = []
+    for index in used:
+        mean = sum(counts[index] for counts in per_frame) / frames / total
+        colors.append(
+            {
+                "palette_index": index,
+                "hex": hexes[index],
+                "share_frame_0": round(per_frame[0][index] / total, 5),
+                "mean_share_over_loop": round(mean, 5),
+            }
+        )
+    colors.sort(key=lambda row: (-row["mean_share_over_loop"], row["hex"]))
+    census = {
+        "source_sha256": "sha256:" + hashlib.sha256(Path(gif).read_bytes()).hexdigest(),
+        "image_px": [width, height],
+        "frames": frames,
+        "frame_delays_cs": [frame["gce"]["delay_cs"] if frame.get("gce") else None for frame in structure["frames"]],
+        "loop_count": next((ext.get("loop_count") for ext in structure["extensions"] if "loop_count" in ext), None),
+        "global_color_table_entries": len(gct) // 3,
+        "unchanged_in_every_frame_share": round(unchanged / total, 5),
+        "changed_share_by_step": steps,
+        "same_parity_difference": {"by_pair": parity, "union_bounding_box_px": union},
+        "colors_used": len(used),
+        "colors_all_on_0x33_grid": all(channel % 0x33 == 0 for index in used for channel in palette[index]),
+        "colors": colors,
+        "names_in_public_texts": {
+            "interpretation": "Museum interpretation of the hexadecimal values; class E",
+            "names": NAMES_IN_PUBLIC_TEXTS,
+            "mean_share_over_loop": {
+                name: next(row["mean_share_over_loop"] for row in colors if row["hex"] == hexvalue)
+                for hexvalue, name in NAMES_IN_PUBLIC_TEXTS.items()
+            },
+        },
+        "method": (
+            "Exact palette indices of the composited frames from gif_structure.py; counts over all 16,000,000 pixels; "
+            "bounding boxes are [left, top, right, bottom) in source pixels."
+        ),
+    }
+    out.write_text(json.dumps(census, indent=1) + "\n", encoding="utf-8", newline="\n")
+    print(json.dumps({key: value for key, value in census.items() if key != "colors"}, indent=1))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

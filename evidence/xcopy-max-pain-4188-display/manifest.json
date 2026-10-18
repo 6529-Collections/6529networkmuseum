@@ -4,6 +4,30 @@
     {
       "byte_mode": "raw",
       "media_type": "application/json",
+      "path": "addendum-01-summary.json",
+      "sha256": "3623a90ae6db0a2591f735da82bbda182a9e4ee26e5783313b12da8d4abe60ed",
+      "size": 7265,
+      "source_id": "addendum-01-summary"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "close-looking-census.json",
+      "sha256": "eb9eec804d38e8d5aa9c69dfe5ae3356a93183f0fe29822af700cfd1451368a6",
+      "size": 7907,
+      "source_id": "close-looking-census"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
+      "path": "flash-analysis-all-steps.json",
+      "sha256": "ac28b4306d188be5e965c10e3503ed283340bda4b92e271efecc0e4af357304c",
+      "size": 15524,
+      "source_id": "flash-analysis-all-steps"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "application/json",
       "path": "flash-analysis.json",
       "sha256": "08e501309390c973a67b88426d362f951bcba14ea848a5c4f506a5c3f142e808",
       "size": 17346,
@@ -20,10 +44,26 @@
     {
       "byte_mode": "raw",
       "media_type": "text/x-python; charset=utf-8",
+      "path": "method/close_looking_census.py.txt",
+      "sha256": "ecde7f1b4e665f7ff80433b651dca19adccd3ec3e66f647807d41482e383f768",
+      "size": 5868,
+      "source_id": "close_looking_census"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
       "path": "method/flash.py.txt",
       "sha256": "db1ebaa9dfa5279e6999ec726eb8ee407276aeb45bdf38ac2c74c2cbb215eb0b",
       "size": 11303,
       "source_id": "flash"
+    },
+    {
+      "byte_mode": "raw",
+      "media_type": "text/x-python; charset=utf-8",
+      "path": "method/flash_all_steps.py.txt",
+      "sha256": "81a04151740078607ef919725ce5aea7c2ccce029f03ea013fb12f9df339b906",
+      "size": 10084,
+      "source_id": "flash_all_steps"
     },
     {
       "byte_mode": "raw",
@@ -76,7 +116,7 @@
   ],
   "hash_algorithm": "sha256",
   "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_DISPLAY_EVIDENCE",
-  "manifest_version": "1.0.0",
+  "manifest_version": "1.1.0",
   "observed_at": "2026-10-18T07:03:26Z",
   "record_id": "6529NM.2026.005.DISPLAY-EVIDENCE-01",
   "subject_id": "6529NM.2026.005.01"

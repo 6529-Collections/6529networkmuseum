@@ -1,0 +1,43 @@
+{
+  "author_handle": "Shelby",
+  "created_at": "2026-08-28T09:01:53.392Z",
+  "created_at_api_value": 1787907713392,
+  "drop_id": "f8fb553e-a31d-4378-b7fe-88814d7349d3",
+  "drop_type": "CHAT",
+  "is_signed": false,
+  "machine_bindings": {
+    "acquisition_wallet_reference": "the acquisition_agent role address of evidence/xcopy-max-pain-4188-custody (all 40 hex characters compared)",
+    "names_the_acquisition_wallet": true
+  },
+  "parts": [
+    {
+      "content_sha256": "sha256:a5172d97b69b2c6c86d030728bca368eb2813ef79807c703be8ea41ad5fd61e9",
+      "content_utf8_bytes": 513,
+      "part_id": 1,
+      "redactions": [
+        {
+          "count": 24,
+          "kind": "member_mentions",
+          "reason": "Member handles appear only in the essay's credits list."
+        },
+        {
+          "count": 1,
+          "kind": "acquisition_wallet_address",
+          "reason": "The acquisition wallet address appears only in machine records that require it."
+        }
+      ],
+      "transcript_path": "wave/funding_call_2026_08_28-part-1.txt",
+      "transcript_sha256": "sha256:00af1a5ed9e2e48b131a988b456795f0585f0da74e9c14c083bd4cacbaf05498"
+    }
+  ],
+  "purpose": "funding_call_2026_08_28",
+  "raw_response": {
+    "reason": "The response contains profile objects with wallet addresses.",
+    "retained": false,
+    "sha256": "sha256:321ed517cc0d76727590fee63f56b146549c3ebd16a280e466eff11b97384e5f",
+    "size": 20457
+  },
+  "serial_no": 1354590,
+  "source_url": "https://api.6529.io/api/drops/f8fb553e-a31d-4378-b7fe-88814d7349d3",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+}

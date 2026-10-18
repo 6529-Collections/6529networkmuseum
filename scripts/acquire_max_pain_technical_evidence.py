@@ -81,6 +81,17 @@ NONEXISTENT_REVERT = "ERC721: owner query for nonexistent token"
 BURN_REDEEM_EXTENSION = "0xfc29813beeb3c7395c7a5f8dfc3352491d5ea0e2"
 DAMAGE_CONTROL_CONTRACT = "0x3e34ff1790bf0a13efd7d77e75870cb525687338"
 MAX_PAIN_FEE_HANDLER = "0x7aca5424c570c2ad530ee3d4dbfd731a9aebacff"
+TOKENWORKS_STRATEGY = "0xdfc3af477979912ec90b138d3e5552d5304c5663"
+SELF_ADDRESSED_CALLER_LABEL = (
+    "caller's own account (the transaction is addressed to its sender, as an EIP-7702-delegated account calls itself); "
+    "address withheld from derived evidence and retained only in the raw sample receipt"
+)
+UNLABELLED_ACCOUNT_LABEL = "unlabelled account; address withheld from derived evidence"
+BURN_EVIDENCE_CLASS = (
+    "A (derived from retained commitments). The burn log and burn transaction responses are not retained because they "
+    "carry burners' wallet addresses. The sample receipts listed in sample_receipts are retained raw and carry their "
+    "callers' and burners' addresses; derived fields name those accounts by role only."
+)
 NIFTY_GATEWAY_MINTER_KEY = "0x1f670ec15f68f2011bc51f423a062565e13f5355"
 OPENSEA_FEE_RECIPIENT = "0x0000a26b00c1f0df003000390027140000faa719"
 WYVERN_EXCHANGE = "0x7f268357a8c2552623316e2562d90e642bb538e5"
@@ -107,6 +118,7 @@ CONTRACT_LABELS = {
     BURN_REDEEM_EXTENSION: "Manifold ERC1155 burn-redeem extension",
     DAMAGE_CONTROL_CONTRACT: "DAMAGE CONTROL (Manifold ERC-1155 creator contract)",
     MAX_PAIN_FEE_HANDLER: "MaxPainFeeHandler",
+    TOKENWORKS_STRATEGY: "TokenWorks strategy contract (NFTStrategy)",
 }
 PROVENANCE = (
     ("mint", MINT_TX, MINT_BLOCK),
@@ -354,6 +366,107 @@ def seaport_payment(orders: list[dict[str, Any]], seller: str, roles: Roles) -> 
             "creator_royalty_item_present": False,
         }
     return None
+
+
+def target_label(to: str, self_addressed: bool) -> str:
+    if to in CONTRACT_LABELS:
+        return CONTRACT_LABELS[to]
+    return SELF_ADDRESSED_CALLER_LABEL if self_addressed else UNLABELLED_ACCOUNT_LABEL
+
+
+def burn_target_row(to: str, selector_hex: str, burns: int, transactions: int, self_addressed: bool) -> dict[str, Any]:
+    """One burn-mechanism row; only labelled contracts keep their address."""
+
+    return {
+        "transaction_to": to if to in CONTRACT_LABELS else None,
+        "label": target_label(to, self_addressed),
+        "method_selector": selector_hex,
+        "method": METHOD_LABELS.get(selector_hex, "unlabelled selector"),
+        "burns": burns,
+        "transactions": transactions,
+    }
+
+
+def relabel_burn_accounts(observation: dict[str, Any], output: Path) -> None:
+    """Rewrite an existing package's burn attribution to the role-only form.
+
+    Earlier packages kept the destination address of every burn mechanism.
+    Destinations that are not labelled contracts are private accounts; their
+    rows are re-derived from the retained raw sample receipts (sender equals
+    destination) and their addresses removed from derived fields.
+    """
+
+    burns = observation["burns"]
+    receipts = []
+    for sample in burns["sample_receipts"]:
+        receipt = json.loads((output / sample["receipt_path"]).read_text(encoding="utf-8"))["result"]
+        receipts.append(receipt)
+        to, sender = str(receipt.get("to", "")).lower(), str(receipt.get("from", "")).lower()
+        sample["transaction_to"] = target_label(to, to == sender)
+        sample["log_emitters"] = [
+            {"address": row["address"], "label": CONTRACT_LABELS.get(row["address"], "unlabelled contract")}
+            for row in sample["log_emitters"]
+        ]
+    rows = []
+    for row in burns["by_transaction_target"]:
+        to = row.get("transaction_to")
+        if to is None:
+            rows.append(row)
+            continue
+        if to in CONTRACT_LABELS:
+            rows.append(burn_target_row(to, row["method_selector"], row["burns"], row["transactions"], False))
+            continue
+        matches = [receipt for receipt in receipts if str(receipt.get("to", "")).lower() == to]
+        if len(matches) != 1 or row["transactions"] != 1:
+            raise EvidenceError("an unlabelled burn destination has no single retained sample receipt")
+        self_addressed = str(matches[0].get("from", "")).lower() == to
+        rows.append(burn_target_row(to, row["method_selector"], row["burns"], row["transactions"], self_addressed))
+    burns["by_transaction_target"] = rows
+    burns["evidence_class"] = BURN_EVIDENCE_CLASS
+    burns["attribution_revision"] = (
+        "Revised on 2026-10-18 after the independent registrar review of candidate A: burn destinations that are "
+        "private accounts are named by role only, and the TokenWorks strategy contract is labelled. No reading changed."
+    )
+
+
+def write_package(output: Path, observation: dict[str, Any]) -> tuple[bytes, bytes, str, int]:
+    """Write derived/observation.json, manifest.json and summary.json for ``observation``."""
+
+    common.write_bytes(output / "derived/observation.json", common.pretty_json(observation))
+    entries: list[dict[str, Any]] = []
+    for path in sorted(output.rglob("*")):
+        if not path.is_file() or path.name in {"manifest.json", "summary.json"}:
+            continue
+        media_type = {".json": "application/json", ".txt": "text/plain"}.get(path.suffix.lower())
+        if media_type is None:
+            raise EvidenceError(f"technical evidence media type is not declared: {path}")
+        entries.append(common.entry_for(output, path, media_type))
+    package_content_sha256 = common.sha256(common.canonical_json(entries))
+    manifest = {
+        "schema": "6529-museum-technical-evidence-manifest-v1",
+        "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_TECHNICAL_EVIDENCE",
+        "hash_algorithm": "sha256",
+        "byte_mode": "raw",
+        "record_id": RECORD_ID,
+        "subject_id": common.OBJECT_ID,
+        "finalized_block": observation["finalized_block"],
+        "contract": CONTRACT,
+        "token_id": TOKEN_ID,
+        "package_content_sha256": f"sha256:{package_content_sha256}",
+        "entries": entries,
+    }
+    manifest_bytes = common.pretty_json(manifest)
+    common.write_bytes(output / "manifest.json", manifest_bytes)
+    summary = {
+        "record_id": RECORD_ID,
+        "manifest": "manifest.json",
+        "manifest_sha256": f"sha256:{common.sha256(manifest_bytes)}",
+        "package_content_sha256": f"sha256:{package_content_sha256}",
+        "observation": observation,
+    }
+    summary_bytes = common.pretty_json(summary)
+    common.write_bytes(output / "summary.json", summary_bytes)
+    return manifest_bytes, summary_bytes, package_content_sha256, len(entries)
 
 
 def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
@@ -623,6 +736,7 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
                 raise EvidenceError(f"burn transaction lookup failed: {tx_hash}")
             tx_facts[tx_hash] = {
                 "to": str(tx.get("to", "")).lower(),
+                "self_addressed": str(tx.get("to", "")).lower() == str(tx.get("from", "")).lower(),
                 "selector": str(tx.get("input", "0x"))[:10],
                 "time": common.iso_from_unix(common.hex_int(tx["blockTimestamp"], "blockTimestamp")) if tx.get("blockTimestamp") else None,
             }
@@ -656,7 +770,7 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
             {
                 "transaction_hash": tx_hash,
                 "receipt_path": collector.raw_entries[-1]["response_path"],
-                "transaction_to": CONTRACT_LABELS.get(tx_facts[tx_hash]["to"], "unlabelled contract"),
+                "transaction_to": target_label(tx_facts[tx_hash]["to"], tx_facts[tx_hash]["self_addressed"]),
                 "method_selector": tx_facts[tx_hash]["selector"],
                 "method": METHOD_LABELS.get(tx_facts[tx_hash]["selector"], "unlabelled selector"),
                 "log_emitters": [{"address": address, "label": CONTRACT_LABELS.get(address, "unlabelled contract")} for address in emitters],
@@ -675,14 +789,13 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
         "burn_transaction_count": len(transactions),
         "burned_token_ids_equal_ownerOf_nonexistent_ids": burned_ids == sorted(nonexistent),
         "by_transaction_target": [
-            {
-                "transaction_to": to,
-                "label": CONTRACT_LABELS.get(to, "unlabelled contract"),
-                "method_selector": selector_hex,
-                "method": METHOD_LABELS.get(selector_hex, "unlabelled selector"),
-                "burns": count,
-                "transactions": len(mechanism_txs[(to, selector_hex)]),
-            }
+            burn_target_row(
+                to,
+                selector_hex,
+                count,
+                len(mechanism_txs[(to, selector_hex)]),
+                all(tx_facts[tx]["self_addressed"] for tx in mechanism_txs[(to, selector_hex)]),
+            )
             for (to, selector_hex), count in sorted(mechanism.items(), key=lambda item: (-item[1], item[0]))
         ],
         "burns_via_manifold_burn_redeem_extension": via_extension,
@@ -691,7 +804,7 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
         "first_burn_block": min((row["block_number"] for row in burn_logs), default=None),
         "last_burn_block": max((row["block_number"] for row in burn_logs), default=None),
         "sample_receipts": sample_records,
-        "evidence_class": "A (derived from retained commitments; per-transaction raw responses are not retained because they carry burners' wallet addresses)",
+        "evidence_class": BURN_EVIDENCE_CLASS,
         "interpretation_boundary": (
             "Counts attribute burns by the transaction's destination contract and method. Which DAMAGE CONTROL redemption "
             "each burn served, and the program terms, are not decoded here and remain research findings."
@@ -786,42 +899,7 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
             "Marketplace and venue labels identify the contracts called; off-chain order books and fee agreements are not observed.",
         ],
     }
-    observation_bytes = common.pretty_json(observation)
-    common.write_bytes(output / "derived/observation.json", observation_bytes)
-
-    entries: list[dict[str, Any]] = []
-    for path in sorted(output.rglob("*")):
-        if not path.is_file() or path.name in {"manifest.json", "summary.json"}:
-            continue
-        media_type = {".json": "application/json", ".txt": "text/plain"}.get(path.suffix.lower())
-        if media_type is None:
-            raise EvidenceError(f"technical evidence media type is not declared: {path}")
-        entries.append(common.entry_for(output, path, media_type))
-    package_content_sha256 = common.sha256(common.canonical_json(entries))
-    manifest = {
-        "schema": "6529-museum-technical-evidence-manifest-v1",
-        "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_TECHNICAL_EVIDENCE",
-        "hash_algorithm": "sha256",
-        "byte_mode": "raw",
-        "record_id": RECORD_ID,
-        "subject_id": common.OBJECT_ID,
-        "finalized_block": observation["finalized_block"],
-        "contract": CONTRACT,
-        "token_id": TOKEN_ID,
-        "package_content_sha256": f"sha256:{package_content_sha256}",
-        "entries": entries,
-    }
-    manifest_bytes = common.pretty_json(manifest)
-    common.write_bytes(output / "manifest.json", manifest_bytes)
-    summary = {
-        "record_id": RECORD_ID,
-        "manifest": "manifest.json",
-        "manifest_sha256": f"sha256:{common.sha256(manifest_bytes)}",
-        "package_content_sha256": f"sha256:{package_content_sha256}",
-        "observation": observation,
-    }
-    summary_bytes = common.pretty_json(summary)
-    common.write_bytes(output / "summary.json", summary_bytes)
+    manifest_bytes, summary_bytes, package_content_sha256, entry_count = write_package(output, observation)
     return {
         "status": "complete",
         "record_id": RECORD_ID,
@@ -829,7 +907,7 @@ def acquire(output: Path, target_block: int | None) -> dict[str, Any]:
         "summary_sha256": f"sha256:{common.sha256(summary_bytes)}",
         "manifest_sha256": f"sha256:{common.sha256(manifest_bytes)}",
         "package_content_sha256": f"sha256:{package_content_sha256}",
-        "file_count": len(entries),
+        "file_count": entry_count,
         "retained_rpc_exchanges": len(collector.raw_entries),
         "committed_unretained_exchanges": sum(len(rows) for rows in collector.commitments.values()),
         "existing": len(owners),
@@ -843,7 +921,29 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--output-dir", type=Path, default=common.ROOT / "evidence" / "xcopy-max-pain-4188-technical")
     parser.add_argument("--block", type=int, help="finalized target block number; defaults to the current finalized block")
+    parser.add_argument(
+        "--relabel-burn-accounts",
+        action="store_true",
+        help="rewrite an existing package's burn attribution to the role-only form and refresh its manifest and summary (no network reads)",
+    )
     args = parser.parse_args(argv)
+    if args.relabel_burn_accounts:
+        output = args.output_dir.absolute()
+        try:
+            observation = json.loads((output / "derived/observation.json").read_text(encoding="utf-8"))
+            relabel_burn_accounts(observation, output)
+            manifest_bytes, _, package_content_sha256, entry_count = write_package(output, observation)
+        except (EvidenceError, OSError, ValueError, KeyError) as exc:
+            print(f"MAX PAIN technical evidence relabel refused: {exc}", file=sys.stderr)
+            return 1
+        result = {
+            "status": "relabelled",
+            "manifest_sha256": f"sha256:{common.sha256(manifest_bytes)}",
+            "package_content_sha256": f"sha256:{package_content_sha256}",
+            "file_count": entry_count,
+        }
+        print(json.dumps(result, indent=2))
+        return 0
     started = datetime.now(UTC)
     try:
         result = acquire(args.output_dir.absolute(), args.block)

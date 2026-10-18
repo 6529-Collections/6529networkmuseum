@@ -1,0 +1,1 @@
+{"id":"edition-3265-burn-transaction","jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x4f99a83d0001ba00013d99f5076ccae55d1cd1d1337749aaed6c7eda1a19bda9"]}

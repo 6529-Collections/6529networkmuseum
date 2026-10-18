@@ -1,0 +1,1 @@
+{"id":"variant-contract-name","jsonrpc":"2.0","method":"eth_call","params":[{"data":"0x06fdde03","to":"0x18a62e93ff3ab180e0c7abd4812595bf2be3405f"},{"blockHash":"0x967c994b8d243db2313c60f4a8d498b1ddeb9b14df68184398fc04207652b906","requireCanonical":true}]}

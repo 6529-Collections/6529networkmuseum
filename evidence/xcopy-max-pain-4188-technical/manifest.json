@@ -13,8 +13,8 @@
       "byte_mode": "raw",
       "media_type": "application/json",
       "path": "derived/observation.json",
-      "sha256": "008e81304b81a4a6d026f419a77ea78657d37a8bda9375c8cdd7f82957b87fbd",
-      "size": 261292
+      "sha256": "f1bc6c6c13a9b39a43939a6785f04bd0303523cab3a20d37779eb8bdf8da17d2",
+      "size": 262388
     },
     {
       "byte_mode": "raw",
@@ -784,7 +784,7 @@
   },
   "hash_algorithm": "sha256",
   "manifest_type": "6529NM_XCOPY_MAX_PAIN_4188_TECHNICAL_EVIDENCE",
-  "package_content_sha256": "sha256:cf01d00c9915f6774d77f18259034a5d215d362838d36a433fffeda4ad9d9944",
+  "package_content_sha256": "sha256:529cda503ee9ac58fb97e1dfa11aba19ec0f4e0d22be240f73c968bba5d3e5ad",
   "record_id": "6529NM.2026.005.TECHNICAL-EVIDENCE-01",
   "schema": "6529-museum-technical-evidence-manifest-v1",
   "subject_id": "6529NM.2026.005.01",

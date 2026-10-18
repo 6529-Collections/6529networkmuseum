@@ -1,0 +1,40 @@
+{
+  "author_handle": "Shelby",
+  "created_at": "2026-09-02T14:26:13.437Z",
+  "created_at_api_value": 1788359173437,
+  "drop_id": "241c669f-fc4d-4e9c-8ac6-547c13f61284",
+  "drop_type": "CHAT",
+  "is_signed": false,
+  "machine_bindings": {},
+  "parts": [
+    {
+      "content_sha256": "sha256:18e9c70da87534f6eade7e2c0985d5df3f7c69984b8c8190ccc562ebcc700805",
+      "content_utf8_bytes": 911,
+      "part_id": 1,
+      "redactions": [
+        {
+          "count": 27,
+          "kind": "member_mentions",
+          "reason": "Member handles appear only in the essay's credits list."
+        },
+        {
+          "count": 3,
+          "kind": "per_contributor_payment_status",
+          "reason": "Per-person payment facts are not published."
+        }
+      ],
+      "transcript_path": "wave/purchase_and_leftover_options_2026_09_02-part-1.txt",
+      "transcript_sha256": "sha256:64c55d333422c37d6136ff283d3c1d7cf316f41edc16a9a4adef927a9b84b98b"
+    }
+  ],
+  "purpose": "purchase_and_leftover_options_2026_09_02",
+  "raw_response": {
+    "reason": "The response contains profile objects with wallet addresses.",
+    "retained": false,
+    "sha256": "sha256:a8ad2c5d42d1ffd9bf369724be4d98b24b6eaa087a449eb93c1c3f0003418e02",
+    "size": 16838
+  },
+  "serial_no": 1379724,
+  "source_url": "https://api.6529.io/api/drops/241c669f-fc4d-4e9c-8ac6-547c13f61284",
+  "wave_id": "5f207393-5418-4a75-8738-e40edb44a94d"
+}

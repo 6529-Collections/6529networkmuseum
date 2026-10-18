@@ -1,6 +1,6 @@
 {
   "manifest": "manifest.json",
-  "manifest_sha256": "sha256:86da1fd74420031e3d8ef39ec360af7afb7333cb337538d097d62196f9605bd2",
+  "manifest_sha256": "sha256:d803c643defb441f274adb9d8532833493525fbad4949e54f98aeadbcb1187cf",
   "observation": {
     "accession_id": "6529NM.2026.005",
     "assertions": {
@@ -15,6 +15,7 @@
     },
     "batch_rpc_endpoint": "https://rpc.mevblocker.io",
     "burns": {
+      "attribution_revision": "Revised on 2026-10-18 after the independent registrar review of candidate A: burn destinations that are private accounts are named by role only, and the TokenWorks strategy contract is labelled. No reading changed.",
       "burn_log_count": 2547,
       "burn_transaction_count": 2141,
       "burned_token_ids_equal_ownerOf_nonexistent_ids": true,
@@ -56,22 +57,22 @@
         },
         {
           "burns": 1,
-          "label": "unlabelled contract",
+          "label": "caller's own account (the transaction is addressed to its sender, as an EIP-7702-delegated account calls itself); address withheld from derived evidence and retained only in the raw sample receipt",
           "method": "unlabelled selector",
           "method_selector": "0x0000003b",
-          "transaction_to": "0x492d255234c83f2ddc5aa904d8a9db6743e9f046",
+          "transaction_to": null,
           "transactions": 1
         },
         {
           "burns": 1,
-          "label": "unlabelled contract",
+          "label": "caller's own account (the transaction is addressed to its sender, as an EIP-7702-delegated account calls itself); address withheld from derived evidence and retained only in the raw sample receipt",
           "method": "unlabelled selector",
           "method_selector": "0x0000003b",
-          "transaction_to": "0x682ea8aa9b23250e0e240580e8ae55205f612979",
+          "transaction_to": null,
           "transactions": 1
         }
       ],
-      "evidence_class": "A (derived from retained commitments; per-transaction raw responses are not retained because they carry burners' wallet addresses)",
+      "evidence_class": "A (derived from retained commitments). The burn log and burn transaction responses are not retained because they carry burners' wallet addresses. The sample receipts listed in sample_receipts are retained raw and carry their callers' and burners' addresses; derived fields name those accounts by role only.",
       "first_burn_block": 18764571,
       "interpretation_boundary": "Counts attribute burns by the transaction's destination contract and method. Which DAMAGE CONTROL redemption each burn served, and the program terms, are not decoded here and remain research findings.",
       "last_burn_block": 25879921,
@@ -133,7 +134,7 @@
             },
             {
               "address": "0xdfc3af477979912ec90b138d3e5552d5304c5663",
-              "label": "unlabelled contract"
+              "label": "TokenWorks strategy contract (NFTStrategy)"
             }
           ],
           "max_pain_fee_handler_emitted_logs": true,
@@ -141,7 +142,7 @@
           "method_selector": "0x0000003b",
           "receipt_path": "raw/rpc/1286-burn-sample-02-receipt-response.json",
           "transaction_hash": "0x4f99a83d0001ba00013d99f5076ccae55d1cd1d1337749aaed6c7eda1a19bda9",
-          "transaction_to": "unlabelled contract"
+          "transaction_to": "caller's own account (the transaction is addressed to its sender, as an EIP-7702-delegated account calls itself); address withheld from derived evidence and retained only in the raw sample receipt"
         },
         {
           "log_emitters": [
@@ -155,7 +156,7 @@
             },
             {
               "address": "0xdfc3af477979912ec90b138d3e5552d5304c5663",
-              "label": "unlabelled contract"
+              "label": "TokenWorks strategy contract (NFTStrategy)"
             }
           ],
           "max_pain_fee_handler_emitted_logs": true,
@@ -163,7 +164,7 @@
           "method_selector": "0x0000003b",
           "receipt_path": "raw/rpc/1287-burn-sample-03-receipt-response.json",
           "transaction_hash": "0xf52061ec7f09a8f576673d0556466d23e4f7b03303d081c6bde9c02d963303ab",
-          "transaction_to": "unlabelled contract"
+          "transaction_to": "caller's own account (the transaction is addressed to its sender, as an EIP-7702-delegated account calls itself); address withheld from derived evidence and retained only in the raw sample receipt"
         }
       ],
       "scan_window_count": 1177,
@@ -8152,6 +8153,6 @@
       "status": "cited_not_retained"
     }
   },
-  "package_content_sha256": "sha256:cf01d00c9915f6774d77f18259034a5d215d362838d36a433fffeda4ad9d9944",
+  "package_content_sha256": "sha256:529cda503ee9ac58fb97e1dfa11aba19ec0f4e0d22be240f73c968bba5d3e5ad",
   "record_id": "6529NM.2026.005.TECHNICAL-EVIDENCE-01"
 }
